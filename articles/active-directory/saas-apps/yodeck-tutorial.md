@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 8fce54cba0b0b64390256bc9669821fa582c2e8a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: af0748f36e8d2299921f987c517f7a4923bd0d55
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920131"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086473"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutorial: Integración de Azure Active Directory con Yodeck
 
@@ -129,7 +129,7 @@ Para configurar el inicio de sesión único de Azure AD con Yodeck, realice los 
 
     ![Configuración de Yodeck](./media/yodeck-tutorial/configure2.png)
 
-     a. Seleccione **Importar desde URL**.
+    a. Seleccione **Importar desde URL**.
 
     b. En el cuadro de texto **URL**, pegue el valor **Dirección URL de metadatos de federación de aplicación** que ha copiado de Azure Portal y haga clic en **Importar**.
     
@@ -207,7 +207,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Yodeck, tienen que
 
     ![Agregar empleado](./media/yodeck-tutorial/user3.png)
 
-     a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, **Britta**.
+    a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, **Britta**.
 
     b. En el cuadro de texto **Apellidos**, escriba los apellidos del usuario, en este caso, **Simon**.
 
@@ -229,5 +229,5 @@ Al hacer clic en el icono de Yodeck en el panel de acceso, debería iniciar sesi
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

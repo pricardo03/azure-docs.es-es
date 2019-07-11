@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 8e85f390ee5ff74f02cb95fa4dcf1dfc1a35dad1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21c10e142802914bcf3292ef7f25066675e6cdd1
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699863"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integración de Azure Active Directory con SharePoint local
 
@@ -56,6 +56,9 @@ Para configurar la integración de SharePoint local en Azure AD, tiene que agreg
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
+
+    > [!NOTE]   
+    > Si el elemento no debe estar disponible, también se puede abrir con el vínculo fijo **Todos los servicios** ubicado en la parte superior del panel de navegación de la izquierda. En la información general siguiente, el vínculo **Azure Active Directory** está en la sección **Identidad** o se puede buscar con el cuadro de texto de filtro.
 
 2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
@@ -106,7 +109,7 @@ Para configurar el inicio de sesión único de Azure AD con SharePoint local, re
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de SharePoint local](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YourSharePointServerURL>/_trust/default.aspx`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `urn:sharepoint:federation`
 
@@ -165,7 +168,7 @@ Para configurar el inicio de sesión único de Azure AD con SharePoint local, re
 
     Luego siga estos pasos para habilitar al proveedor de identidades de confianza para la aplicación:
 
-     a. En Administración central, vaya a **Administrar aplicación web** y seleccione la aplicación web que quiere proteger con Azure AD.
+    a. En Administración central, vaya a **Administrar aplicación web** y seleccione la aplicación web que quiere proteger con Azure AD.
 
     b. En la cinta, haga clic en **Proveedores de autenticación** y elija la zona que quiere usar.
 
@@ -370,4 +373,4 @@ Al hacer clic en el icono de SharePoint local en el panel de acceso, debería in
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

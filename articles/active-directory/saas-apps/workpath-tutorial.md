@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 5524c59537f1657fddd626bd4c019f4f65b8390d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 39f62b82ed2716099a63e363c87fbac65d02ffb0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920337"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Tutorial: Integración de Azure Active Directory con Workpath
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con Workpath, siga estos
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Workpath](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://api.workpath.com/v1/saml/metadata/<instancename>`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://api.workpath.com/v1/saml/assert/<instancename>`
 
@@ -131,7 +131,7 @@ Para configurar el inicio de sesión único de Azure AD con Workpath, siga estos
     | first_name | user.givenname |
     | last_name | user.surname |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -233,5 +233,5 @@ Al hacer clic en el icono de Workpath en el panel de acceso, debería iniciar se
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

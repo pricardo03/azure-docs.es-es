@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869501"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integración de Azure Active Directory con Perception United States (no UltiPro)
 
@@ -53,7 +53,7 @@ Para configurar la integración de Perception United States (no UltiPro) en Azur
 
 **Para agregar Perception United States (no UltiPro) desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Para configurar la integración de Perception United States (no UltiPro) en Azur
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Perception United States (no UltiPro)**, seleccione **Perception United States (no UltiPro)** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Perception United States (no UltiPro)** , seleccione **Perception United States (no UltiPro)** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Perception United States (no UltiPro) en la lista de resultados](common/search-new-app.png)
 
@@ -76,12 +76,12 @@ Para que funcione el inicio de sesión único, es necesario establecer una relac
 
 Para configurar y probar el inicio de sesión único de Azure AD con Perception United States (no UltiPro), es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Perception United States (no UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Perception United States (no UltiPro)](#create-perception-united-states-non-ultipro-test-user)**: para tener un homólogo de Britta Simon en Perception United States (no UltiPro) que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Perception United States (no UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Perception United States (no UltiPro)](#create-perception-united-states-non-ultipro-test-user)** : para tener un homólogo de Britta Simon en Perception United States (no UltiPro) que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -89,7 +89,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Perception United States (no UltiPro), realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Perception United States (no UltiPro)**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Perception United States (no UltiPro)** , seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -105,11 +105,11 @@ Para configurar el inicio de sesión único de Azure AD con Perception United St
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Perception United States (no UltiPro)](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://perception.kanjoya.com/sp`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://perception.kanjoya.com/sp`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. La aplicación **Perception United States (no UltiPro)** requiere que el valor de **Identificador de Azure AD** como <entity_id>, que puede obtener de la sección **Configuración de Perception United States (Non-UltiPro)**, esté codificado en URI. Para obtener el valor codificado como URI, use el siguiente vínculo: **http://www.url-encode-decode.com/**.
+    c. La aplicación **Perception United States (no UltiPro)** requiere que el valor de **Identificador de Azure AD** como <entity_id>, que puede obtener de la sección **Configuración de Perception United States (Non-UltiPro)** , esté codificado en URI. Para obtener el valor codificado como URI, use el siguiente vínculo: **http://www.url-encode-decode.com/** .
 
     d. Después de obtener el valor codificado como URI, combínelo con la **Dirección URL de respuesta** según se indica a continuación:
 
@@ -143,7 +143,7 @@ Para configurar el inicio de sesión único de Azure AD con Perception United St
 
     ![Usuario de Perception United States (no UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
-     a. En el cuadro de texto **Company Name** (Nombre de la empresa), escriba el nombre de la **empresa**.
+    a. En el cuadro de texto **Company Name** (Nombre de la empresa), escriba el nombre de la **empresa**.
     
     b. En el cuadro de texto **Account Name** (Nombre de la cuenta), escriba el nombre de la **cuenta**.
 
@@ -155,7 +155,7 @@ Para configurar el inicio de sesión único de Azure AD con Perception United St
 
     ![Configuración de SSO de Perception United States (no UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
-     a. Seleccione **SAML NameID Type** (Tipo de identificador de nombre de SAML) como **EMAIL** (correo electrónico).
+    a. Seleccione **SAML NameID Type** (Tipo de identificador de nombre de SAML) como **EMAIL** (correo electrónico).
 
     b. En el cuadro de texto **SSO Configuration Name** (nombre de configuración de SSO), escriba el nombre de su **configuración**.
     
@@ -195,11 +195,11 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Perception United States (no UltiPro).
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y luego **Perception United States (no UltiPro)**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y luego **Perception United States (no UltiPro)** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Perception United States (no UltiPro)**.
+2. En la lista de aplicaciones, seleccione **Perception United States (no UltiPro)** .
 
     ![Vínculo a Perception United States (no UltiPro) en la lista de aplicaciones](common/all-applications.png)
 
@@ -233,5 +233,5 @@ Al hacer clic en el icono de Perception United States (no UltiPro) en el panel d
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

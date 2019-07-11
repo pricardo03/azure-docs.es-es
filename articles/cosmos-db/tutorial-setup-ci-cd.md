@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b97fb1956c75332c40e242484b9d94419a45eb92
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 19ced9767d77b0d7bfcec6f01425ab1089a55d54
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242554"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069226"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configuración de una canalización de CI/CD con la tarea de compilación del emulador de Azure Cosmos DB en Azure DevOps
 
@@ -39,7 +39,7 @@ A continuación, elija la organización en la que desea instalar la extensión.
 
 Ahora que la extensión está instalada, inicie sesión en la cuenta de Azure DevOps y busque el proyecto en el panel. Puede agregar una [canalización de compilación](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) al proyecto o modificar una existente. Si ya dispone de una canalización de compilación, puede pasar directamente al apartado de [incorporación de una tarea de compilación del emulador a una definición de compilación](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Para crear una definición de compilación, vaya a la pestaña **Compilaciones** de Azure DevOps. Seleccione **+Nuevo.**  \> **Nueva canalización de compilación**
+1. Para crear una definición de compilación, vaya a la pestaña **Compilaciones** de Azure DevOps. Seleccione **+Nuevo.** \> **Nueva canalización de compilación**
 
    ![Creación de una canalización de compilación](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
@@ -48,6 +48,9 @@ Ahora que la extensión está instalada, inicie sesión en la cuenta de Azure De
    ![Selección del proyecto de equipo, el repositorio y la rama de la canalización de compilación](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Por último, seleccione la plantilla que desee para la canalización de compilación. En este tutorial se seleccionará la plantilla **ASP.NET**. 
+
+> [!NOTE]
+> El grupo de agentes que se va a seleccionar para la CI debe tener instalado Docker para Windows, a menos que la instalación se haga manualmente en una tarea anterior como parte de la CI. Consulte el artículo sobre los [agentes hospedados de Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) para ver una selección de los grupos de agentes. Se recomienda empezar con `Hosted VS2017` o `Hosted VS2019`. 
 
 Ya hay una canalización de compilación que se puede configurar para usar la tarea de compilación del emulador de Azure Cosmos DB. 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: dda1447a049071a0871079f2cabd046ed7c479d6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62e800a5ac1e1e001e5d4ef328a80c554d007182
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65770153"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102348"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Tutorial: Integración de Azure Active Directory con FM:Systems
 
@@ -52,7 +52,7 @@ Para configurar la integración de FM:Systems en Azure AD, es preciso agregar FM
 
 **Para agregar FM:Systems desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -75,12 +75,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con FM:Systems, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en FM:Systems](#configure-fmsystems-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación del usuario de prueba en FM:Systems](#create-fmsystems-test-user)**: para tener un homólogo de Britta Simon en FM:Systems vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en FM:Systems](#configure-fmsystems-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación del usuario de prueba en FM:Systems](#create-fmsystems-test-user)** : para tener un homólogo de Britta Simon en FM:Systems vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -193,7 +193,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
    
     ![Creación de usuarios](./media/fm-systems-tutorial/ic795907.png "Creación de usuarios")
    
-     a. Escriba el valor de **UserName** (Nombre de usuario), **Password** (Contraseña), **Confirm Password** (Confirmar contraseña), **E-mail** (Correo electrónico) y **Employee ID** (Id. de empleado) de una cuenta de Azure Active Directory válida que desee aprovisionar en los cuadros de texto relacionados.
+    a. Escriba el valor de **UserName** (Nombre de usuario), **Password** (Contraseña), **Confirm Password** (Confirmar contraseña), **E-mail** (Correo electrónico) y **Employee ID** (Id. de empleado) de una cuenta de Azure Active Directory válida que desee aprovisionar en los cuadros de texto relacionados.
    
     b. Haga clic en **Next**.
 
@@ -209,5 +209,5 @@ Al hacer clic en el icono de FM:Systems en el panel de acceso, debería iniciar 
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

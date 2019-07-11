@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6112facfc0c10d7a0a0495cd778fa6c3cb6130a7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d8f8c8e98a7a99fc1b94bd5ae84062843ebabbc1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962140"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550586"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Inicie la sesión de los usuarios y llame a Microsoft Graph desde una aplicación Android
 
@@ -178,7 +178,7 @@ Puede registrar su aplicación de dos maneras distintas, como se describe en las
 
 ### <a name="add-msal-to-your-project"></a>Adición de MSAL al proyecto
 
-1. En Android Studio, seleccione **Gradle Scripts** > **build.gradle (Module: app)**.
+1. En Android Studio, seleccione **Gradle Scripts** > **build.gradle (Module: app)** .
 2. En **Dependencies** (Dependencias), pegue el código siguiente:
 
     ```gradle  
@@ -281,7 +281,7 @@ Ahora, podemos implementar la lógica de procesamiento de la interfaz de usuario
 
 MSAL expone dos métodos principales para obtener los tokens: `acquireTokenSilentAsync` y `acquireToken`.  
 
-`acquireTokenSilentAsync` inicia la sesión de un usuario y obtiene tokens sin interacción del usuario si hay una cuenta. Si se realiza correctamente, MSAL entrega los tokens a su aplicación; si se produce un error, se generará un `MsalUiRequiredException`.  Si se genera esta excepción o si desea que el usuario tenga una experiencia de inicio de sesión interactiva (credenciales, MFA u otras directivas de acceso condicional pueden requerirse o no), puede usar `acquireToken`.  
+`acquireTokenSilentAsync` inicia la sesión de un usuario y obtiene tokens sin interacción del usuario si hay una cuenta. Si se realiza correctamente, MSAL entrega los tokens a su aplicación; si se produce un error, se generará un `MsalUiRequiredException`.  Si se genera esta excepción o quiere que el usuario tenga una experiencia de inicio de sesión interactiva (pueden requerirse o no credenciales, MFA u otras directivas de acceso condicional), puede usar `acquireToken`.  
 
 `acquireToken` siempre mostrará la interfaz de usuario cuando intente iniciar sesión en el usuario y obtener tokens; sin embargo, puede usar cookies de sesión en el explorador o una cuenta en Microsoft Authenticator para brindar una experiencia interactiva de SSO. 
 
@@ -465,7 +465,7 @@ Una vez que hayamos recibido un token, podemos realizar una solicitud a Microsof
 
 | clave del encabezado    | value                 |
 | ------------- | --------------------- |
-| Autorización | Portador <token_de_acceso> |
+| Authorization | Portador \<token_de_acceso> |
 
 Para hacerlo en el código, agregue los siguientes dos métodos a su aplicación para llamar a Graph y actualizar la interfaz de usuario: 
 

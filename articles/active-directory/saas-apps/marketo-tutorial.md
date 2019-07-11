@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 810d19a697e32f2d8e389bf58d52e82529bdd66b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 28dd21bac2c1fb1602fd66ca237b230cdb12bdac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integración de Azure Active Directory con Marketo
 
@@ -52,7 +52,7 @@ Para configurar la integración de Marketo en Azure AD, deberá agregar Marketo 
 
 **Para agregar Marketo desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -75,12 +75,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Marketo, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Marketo](#configure-marketo-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Marketo](#create-marketo-test-user)**: el objetivo es tener un homólogo de Britta Simon en Marketo que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en Marketo](#configure-marketo-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en Marketo](#create-marketo-test-user)** : el objetivo es tener un homólogo de Britta Simon en Marketo que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Marketo](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://saml.marketo.com/sp`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://saml.marketo.com/sp`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
@@ -129,7 +129,7 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
 
 1. Para obtener el identificador de Munchkin de la aplicación, inicie sesión con credenciales de administrador de Marketo y realizar las siguientes acciones:
    
-     a. Inicie sesión en la aplicación Marketo con credenciales de administrador.
+    a. Inicie sesión en la aplicación Marketo con credenciales de administrador.
    
     b. Haga clic en el botón **Administrador** en el panel de navegación superior.
    
@@ -145,7 +145,7 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
 
 2. Para configurar el inicio de sesión único en la aplicación, siga estos pasos:
    
-     a. Inicie sesión en la aplicación Marketo con credenciales de administrador.
+    a. Inicie sesión en la aplicación Marketo con credenciales de administrador.
    
     b. Haga clic en el botón **Administrador** en el panel de navegación superior.
    
@@ -186,7 +186,7 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
 
 3. Para habilitar el SSO para los usuarios, complete las siguientes acciones:
    
-     a. Inicie sesión en la aplicación Marketo con credenciales de administrador.
+    a. Inicie sesión en la aplicación Marketo con credenciales de administrador.
    
     b. Haga clic en el botón **Administrador** en el panel de navegación superior.
    
@@ -271,7 +271,7 @@ En esta sección, creará un usuario llamado Britta Simon en Marketo. Siga estos
 
 5. En el asistente Invitar a un usuario nuevo, rellene la siguiente información.
    
-     a. Especifique la dirección de **Correo electrónico** del usuario en el cuadro de texto.
+    a. Especifique la dirección de **Correo electrónico** del usuario en el cuadro de texto.
    
     ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_16.png)
    
@@ -302,5 +302,5 @@ Al hacer clic en el icono de Marketo en el Panel de acceso, debería iniciar ses
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

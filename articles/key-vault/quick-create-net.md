@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 132711249ffde4a9c49bc997d8c4ebe4d9c74948
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4f9fff41e4b9043c271d656583fb8b9a11ff3a7a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872538"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052790"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de .NET
 
@@ -174,7 +174,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 Ahora, cuando ejecute la aplicación debería ver el valor del secreto recuperado. En el comando anterior, otorga a la identidad de App Service los permisos para realizar operaciones **get** y **list** en su almacén de claves.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados Cuando ya no los necesite. Para ello, seleccione el grupo de recursos de la máquina virtual y seleccione **Eliminar**.
+Elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados Cuando ya no los necesite. Para ello, seleccione el grupo de recursos del almacén de claves y seleccione **Eliminar**.
 
 Elimine el almacén de claves mediante el comando [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed7d8d1a2c2f8c515fa520f6701068e4655cad35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfafa1157619e151f97fcf9c8a410a0644354b80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871867"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097395"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integración de Azure Active Directory con Mimecast Personal Portal
 
@@ -53,7 +53,7 @@ Para configurar la integración de Mimecast Personal Portal en Azure AD, deberá
 
 **Para agregar Mimecast Personal Portal desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Mimecast Personal Portal, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Mimecast Personal Portal](#configure-mimecast-personal-portal-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Mimecast Personal Portal](#create-mimecast-personal-portal-test-user)**: para tener un homólogo de Britta Simon en Mimecast Personal Portal que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Mimecast Personal Portal](#configure-mimecast-personal-portal-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en Mimecast Personal Portal](#create-mimecast-personal-portal-test-user)** : para tener un homólogo de Britta Simon en Mimecast Personal Portal que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Mimecast Personal Po
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de Mimecast Personal Portal](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: 
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: 
 
     | Region  |  Valor | 
     | --------------- | --------------- | 
@@ -172,7 +172,7 @@ Para configurar el inicio de sesión único de Azure AD con Mimecast Personal Po
    
     ![Authentication Profile (Perfil de autenticación)](./media/mimecast-personal-portal-tutorial/ic795001.png "Authentication Profile (Perfil de autenticación)")
    
-     a. En el cuadro de texto **Description** (Descripción), escriba un nombre para la configuración.
+    a. En el cuadro de texto **Description** (Descripción), escriba un nombre para la configuración.
    
     b. Seleccione **Aplicar la autenticación SAML a Mimecast Personal Portal**.
    
@@ -184,7 +184,7 @@ Para configurar el inicio de sesión único de Azure AD con Mimecast Personal Po
    
     f. En el cuadro de texto **Logout URL** (Dirección URL de cierre de sesión), pegue el valor de **Dirección URL de cierre de sesión**, que ha copiado de Azure Portal.
 
-    g. Abra el certificado codificado en **base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de identidades (metadatos)**.
+    g. Abra el certificado codificado en **base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de identidades (metadatos)** .
 
     h. Seleccione **Permitir inicio de sesión único**.
    
@@ -267,7 +267,7 @@ Deberá registrar un dominio para poder crear los usuarios.
    
     ![Guardar](./media/mimecast-personal-portal-tutorial/ic795006.png "Guardar")
    
-     a. En el cuadro de texto **Email Address** (Dirección de correo electrónico), escriba la **dirección de correo electrónico** del usuario, en este caso **BrittaSimon\@contoso.com**.
+    a. En el cuadro de texto **Email Address** (Dirección de correo electrónico), escriba la **dirección de correo electrónico** del usuario, en este caso **BrittaSimon\@contoso.com**.
     
     b. En el cuadro de texto **Nombre global**, escriba el **nombre de usuario** como **BrittaSimon**.
 
@@ -290,5 +290,5 @@ Al hacer clic en el icono de Mimecast Personal Portal del panel de acceso, deber
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

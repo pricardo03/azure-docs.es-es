@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 46eea21e1eafce1696ed1cf77a1f334798f0bc17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a6fc9f1a5c32fc9ffa1e1e6ebe525b72030fe803
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848404"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155662"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB 
 
@@ -58,7 +58,7 @@ Cassandra API de Azure Cosmos DB admite los siguientes tipos de datos CQL:
 * smallint  
 * text  
 * time  
-*  timestamp  
+* timestamp  
 * timeuuid  
 * tinyint  
 * tuple  
@@ -74,6 +74,8 @@ Cassandra API de Azure Cosmos DB admite los siguientes tipos de datos CQL:
 Cassandra API de Azure Cosmos DB admite las siguientes funciones de CQL:
 
 * Se necesita el cifrado de tokens  
+* Funciones de agregado
+  * min, max, avg, count
 * Funciones de conversión de blobs 
   * typeAsBlob(value)  
   * blobAsType(value)
@@ -88,7 +90,8 @@ Cassandra API de Azure Cosmos DB admite las siguientes funciones de CQL:
   * toDate(timestamp)  
   * toUnixTimestamp(timestamp)  
   * toTimestamp(date)  
-  * toUnixTimestamp(date)  
+  * toUnixTimestamp(date) 
+  
 
 
 ## <a name="cassandra-query-language-limits"></a>Límites del lenguaje de consulta Cassandra
@@ -154,11 +157,11 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Asignación de coherencia 
 
-Cassandra API de Azure Cosmos DB ofrece opciones de coherencia para las operaciones de lectura. Todas las operaciones de escritura, con independencia de la coherencia de la cuenta, se escriben siempre con Acuerdos de Nivel de Servicio de rendimiento de escritura.
+Cassandra API de Azure Cosmos DB ofrece opciones de coherencia para las operaciones de lectura.  La asignación de coherencia se detalla [aquí[(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
 
 ## <a name="permission-and-role-management"></a>Administración de permisos y roles
 
-Azure Cosmos DB admite el control de acceso basado en rol (RBAC) y las claves o contraseñas de solo lectura y de lectura y escritura que pueden obtenerse en [Azure Portal](https://portal.azure.com). Azure Cosmos DB no admite aún usuarios y roles para las actividades en el plano de datos. 
+Azure Cosmos DB admite el control de acceso basado en rol (RBAC) para el aprovisionamiento, la rotación de claves, la vista de las métricas y las claves o contraseñas de lectura y escritura y de solo lectura que se pueden obtener a través de [Azure Portal](https://portal.azure.com). Azure Cosmos DB no admite aún usuarios ni roles para las actividades de CRUD. 
 
 ## <a name="planned-support"></a>Soporte planeado 
 * El nombre de la región en el comando para crear un espacio de claves se ignora de momento. La distribución de datos se implementa en la plataforma de Cosmos DB subyacente y se expone a través del portal o de PowerShell para la cuenta. 

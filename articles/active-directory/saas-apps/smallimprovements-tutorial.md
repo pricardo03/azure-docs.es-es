@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 19d9624c5bb60f47ef4bfa1b0629327780c2a9c7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d2d0bbc7a6e1c680434041d1b9d55e39a96b6f44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutorial: Integración de Azure Active Directory con Small Improvements
 
@@ -53,7 +53,7 @@ Para configurar la integración de Small Improvements en Azure AD, deberá agreg
 
 **Para agregar Small Improvements desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Small Improvements, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Small Improvements](#configure-small-improvements-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Small Improvements](#create-small-improvements-test-user)**: para tener un homólogo de Britta Simon en Small Improvements que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Small Improvements](#configure-small-improvements-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Small Improvements](#create-small-improvements-test-user)** : para tener un homólogo de Britta Simon en Small Improvements que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,9 +105,9 @@ Para configurar el inicio de sesión único de Azure AD con Small Improvements, 
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Small Improvements](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.small-improvements.com`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.small-improvements.com`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.small-improvements.com`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<subdomain>.small-improvements.com`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte al cliente de Small Improvements](mailto:support@small-improvements.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -142,7 +142,7 @@ Para configurar el inicio de sesión único de Azure AD con Small Improvements, 
 
     ![Configurar inicio de sesión único](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
-     a. En el cuadro de texto **SAML Endpoint** (Punto de conexión SAML), pegue el valor de la **Login URL** (Dirección URL de inicio de sesión) que ha copiado de Azure Portal.
+    a. En el cuadro de texto **SAML Endpoint** (Punto de conexión SAML), pegue el valor de la **Login URL** (Dirección URL de inicio de sesión) que ha copiado de Azure Portal.
 
     b. Abra el certificado descargado en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificado x509** . 
 
@@ -225,11 +225,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Small Improvements
 
     ![Creación de un usuario de prueba de Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
-     a. Escriba el **nombre** de usuario, en este caso **Britta**.
+    a. Escriba el **nombre** de usuario, en este caso **Britta**.
 
     b. Escriba los **apellidos** del usuario, en este caso **Simon**.
 
-    c. Escriba la dirección de **correo electrónico** del usuario como **brittasimon@contoso.com**.
+    c. Escriba la dirección de **correo electrónico** del usuario como **brittasimon@contoso.com** .
 
     d. También puede escribir el mensaje personal en el cuadro **Enviar correo electrónico de notificación** . Si no desea enviar la notificación, desactive esta casilla.
 
@@ -247,4 +247,4 @@ Al hacer clic en el icono de Small Improvements en el Panel de acceso, debería 
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

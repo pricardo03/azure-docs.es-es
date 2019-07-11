@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: f8dd11e7fb0b9fda0e0f1c7d3f794f6bfd766cdf
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 60463a00c6864bed7b3a18e816ef0143d3573782
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231454"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103259"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integración de Azure Active Directory con Everbridge
 
@@ -29,7 +29,7 @@ Al integrar Everbridge con Azure AD, puede hacer lo siguiente:
 
 * Controlar en Azure AD quién tiene acceso a Everbridge.
 * Permitir que los usuarios inicien sesión automáticamente en Everbridge con sus cuentas de Azure AD. Este control de acceso se llama inicio de sesión único (SSO).
-* Administre sus cuentas en una ubicación central mediante Azure Portal.
+* Administrar las cuentas en una ubicación central mediante Azure Portal.
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -108,7 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con Everbridge, realice 
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Everbridge](common/idp-intiated.png)
 
-     a. En el cuadro **Identificador**, escriba una dirección URL con el formato `https://sso.everbridge.net/<API_Name>`.
+    a. En el cuadro **Identificador**, escriba una dirección URL con el formato `https://sso.everbridge.net/<API_Name>`.
 
     b. En el cuadro **URL de respuesta**, escriba una dirección URL con el formato `https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias`.
 
@@ -121,7 +121,7 @@ Para configurar el inicio de sesión único de Azure AD con Everbridge, realice 
 
      ![Información sobre dominio y direcciones URL de inicio de sesión único de Everbridge para el modo iniciado por IDP](common/idp-intiated.png)
 
-     a. En el cuadro **Identificador**, escriba una dirección URL con el formato `https://sso.everbridge.net/<API_Name>/<Organization_ID>`.
+    a. En el cuadro **Identificador**, escriba una dirección URL con el formato `https://sso.everbridge.net/<API_Name>/<Organization_ID>`.
 
     b. En el cuadro **URL de respuesta**, escriba una dirección URL con el formato `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`.
 
@@ -129,7 +129,7 @@ Para configurar el inicio de sesión único de Azure AD con Everbridge, realice 
 
      ![Información sobre dominio y direcciones URL de inicio de sesión único de Everbridge para modo iniciado por SP](common/both-signonurl.png)
 
-      a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el formato `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`.
+     a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el formato `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`.
 
      > [!NOTE]
      > Estos valores no son reales. Actualice estos valores con los valores de identificador y de direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Everbridge](mailto:support@everbridge.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -156,7 +156,7 @@ Para configurar el inicio de sesión único en **Everbridge** como **portal admi
    
      ![Configurar inicio de sesión único](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-      a. En el cuadro **Name** (Nombre), escriba el nombre del proveedor de identificador. Un ejemplo es el nombre de su empresa.
+     a. En el cuadro **Name** (Nombre), escriba el nombre del proveedor de identificador. Un ejemplo es el nombre de su empresa.
    
      b. En el cuadro **API Name** (Nombre de la API), escriba el nombre de la API.
    
@@ -190,7 +190,7 @@ Para crear el usuario de prueba Britta Simon en Azure Portal, siga estos pasos.
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
   
     b. En el cuadro **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Un ejemplo es BrittaSimon@contoso.com.
 
@@ -238,5 +238,5 @@ Al seleccionar el icono de Everbridge en el panel de acceso, debería iniciar se
 
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

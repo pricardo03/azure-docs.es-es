@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ff939fa514e067c26daf609270ef49de8c16db2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: a55ec7afc94440ea8b6a48ed1507476d362df6c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143175"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087432"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Tutorial: Integración de Azure Active Directory con Vidyard
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con Vidyard, siga estos 
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Vidyard](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://secure.vidyard.com/sso/saml/<unique id>/metadata`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://secure.vidyard.com/sso/saml/<unique id>/metadata`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://secure.vidyard.com/sso/saml/<unique id>/consume`
 
@@ -150,7 +150,7 @@ Para configurar el inicio de sesión único de Azure AD con Vidyard, siga estos 
 
     ![Configuración de Vidyard](./media/vidyard-tutorial/configure3.png)
 
-     a. Escriba el nombre de perfil general en el cuadro de texto **Nombre de perfil**.
+    a. Escriba el nombre de perfil general en el cuadro de texto **Nombre de perfil**.
 
     b. Copie el valor de **SSO User Login Page** (Página de inicio de sesión de usuario de SSO) y péguelo en el cuadro de texto **Dirección URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal.
 
@@ -251,5 +251,5 @@ Al hacer clic en el icono de Vidyard en el panel de acceso debería iniciar sesi
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

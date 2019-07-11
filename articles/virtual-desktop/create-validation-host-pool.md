@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: c9b2a593a6943fe2e9577acc61b1d5a7bcd98607
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834118"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070657"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Creación de un grupo host para validar las actualizaciones del servicio
 
@@ -71,7 +71,7 @@ En la versión preliminar, las actualizaciones del servicio se producen con una 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha creado un grupo host de la validación, si lo desea, puede rellenar el grupo host de validación con RemoteApps. Para obtener más información sobre cómo administrar las aplicaciones de Windows Virtual Desktop, consulte el tutorial Administración de grupos de aplicaciones.
+Ahora que creó un grupo de hosts de validación, puede aprender a implementar una herramienta de administración y conectarse a ella para administrar los recursos del Escritorio virtual de Microsoft.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Administración de grupos de aplicaciones](./manage-app-groups.md)
+> [Tutorial Implementación de una herramienta de administración](./manage-resources-using-ui.md)

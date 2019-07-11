@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73f6126d6bf172a35a284e92b65b1c3ef449949e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7cf1b583189810b61ea349a29698ff6f12c39699
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900171"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integración de Azure Active Directory con Asana
 
@@ -55,7 +55,7 @@ Para configurar la integración de Asana en Azure AD, es preciso agregar Asana d
 
 **Para agregar Asana desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Asana, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Asana](#configure-asana-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Asana](#create-asana-test-user)**: para tener un homólogo de Britta Simon en Asana que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Asana](#configure-asana-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Asana](#create-asana-test-user)** : para tener un homólogo de Britta Simon en Asana que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -107,9 +107,9 @@ Para configurar el inicio de sesión único de Azure AD con Asana, realice los p
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Asana](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://app.asana.com/`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://app.asana.com/`
 
-    b. En el cuadro de texto **Identificador (Id. de entidad)**, escriba la dirección URL: `https://app.asana.com/`
+    b. En el cuadro de texto **Identificador (Id. de entidad)** , escriba la dirección URL: `https://app.asana.com/`
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -127,7 +127,7 @@ Para configurar el inicio de sesión único de Azure AD con Asana, realice los p
 
 ### <a name="configure-asana-single-sign-on"></a>Configuración del inicio de sesión único de Asana
 
-1. En una ventana de explorador diferente, inicie sesión en su aplicación de Asana como administrador. Para configurar SSO en Asana, acceda a la configuración del área de trabajo haciendo clic en el nombre del área de trabajo en la esquina superior derecha de la pantalla. Después, haga clic en la **configuración del \<nombre del área de trabajo\>**.
+1. En una ventana de explorador diferente, inicie sesión en su aplicación de Asana como administrador. Para configurar SSO en Asana, acceda a la configuración del área de trabajo haciendo clic en el nombre del área de trabajo en la esquina superior derecha de la pantalla. Después, haga clic en la **configuración del \<nombre del área de trabajo\>** .
 
     ![Configuración de SSO de Asana](./media/asana-tutorial/tutorial_asana_09.png)
 
@@ -135,7 +135,7 @@ Para configurar el inicio de sesión único de Azure AD con Asana, realice los p
 
     ![Definición de la configuración de la organización de inicio de sesión único](./media/asana-tutorial/tutorial_asana_10.png)  
 
-     a. En el cuadro de texto **Dirección URL de la página de inicio de sesión**, pegue la **Dirección URL de inicio de sesión**.
+    a. En el cuadro de texto **Dirección URL de la página de inicio de sesión**, pegue la **Dirección URL de inicio de sesión**.
 
     b. Haga clic con el botón derecho en el certificado descargado de Azure Portal y después abra el archivo de certificado con el Bloc de notas o el editor de texto que prefiera. Copie el contenido entre el título inicial y final del certificado y péguelo en el cuadro de texto **Certificado X.509**.
 
@@ -220,6 +220,6 @@ Al hacer clic en el icono de Asana en el panel de acceso y debería iniciar sesi
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configuración del aprovisionamiento de usuarios](asana-provisioning-tutorial.md)

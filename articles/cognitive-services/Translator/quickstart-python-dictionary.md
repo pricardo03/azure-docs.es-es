@@ -3,19 +3,19 @@ title: 'Inicio rápido: Búsqueda de palabras con diccionario bilingüe, Python:
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, aprenderá a buscar traducciones alternativas y ejemplos de uso para un texto específico con Python y Translator Text REST API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: ef72e7f5a4974a9da96d03dc74bc7a8b01ff4d10
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 019e1d382ca3fed4789d7b8c1498b795e1e3e92d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515097"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444935"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Inicio rápido: Búsqueda de palabras con un diccionario bilingüe mediante Python
 
@@ -36,7 +36,10 @@ Cree un proyecto de Python con su editor o IDE favoritos, o bien cree una carpet
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -74,7 +77,7 @@ El punto de conexión global de Translator Text se establece como `base_url`. `p
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/dictionary/lookup?api-version=3.0'
-params = '&from=en&to=es';
+params = '&from=en&to=es'
 constructed_url = base_url + path + params
 ```
 
@@ -91,6 +94,8 @@ headers = {
     'X-ClientTraceId': str(uuid.uuid4())
 }
 ```
+
+Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-request-to-find-alternate-translations"></a>Creación de una solicitud para buscar traducciones alternativas
 
@@ -115,7 +120,8 @@ response = request.json()
 El último paso es imprimir los resultados. Este fragmento de código adorna los resultados mediante una clasificación de las claves, el establecimiento de una sangría y la declaración de separadores de elementos y de claves.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Colocación de todo junto

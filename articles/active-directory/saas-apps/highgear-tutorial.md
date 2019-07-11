@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873bc340d738704418310e22c34b0042f71a96bd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ad7aedf90ead4b21bab661bdaf85316cd648fd75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890906"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101265"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutorial: Integración de Azure Active Directory con HighGear
 
@@ -53,7 +53,7 @@ Para configurar la integración de HighGear en Azure AD, será preciso que agreg
 
 **Para agregar HighGear desde la galería, realice los pasos siguientes:**
 
-1. En **[Azure Portal](https://portal.azure.com)**, en el panel de navegación izquierdo, haga clic en el icono de **Azure Active Directory**.
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con el sistema HighGear, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de HighGear](#configure-highgear-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación HighGear.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en HighGear](#create-highgear-test-user)**: para tener un homólogo de Britta Simon en HighGear que esté vinculado a su representación en Azure AD. 
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de HighGear](#configure-highgear-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación HighGear.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en HighGear](#create-highgear-test-user)** : para tener un homólogo de Britta Simon en HighGear que esté vinculado a su representación en Azure AD. 
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con el sistema HighGear,
 
     ![Información de dominio y direcciones URL de inicio de sesión único de HighGear](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identifier** (Identificador), pegue el valor del campo **Service Provider Entity ID** (Id. de entidad de servicio de proveedor) que se encuentra en la página de configuración del inicio de sesión único en el sistema HighGear.
+    a. En el cuadro de texto **Identifier** (Identificador), pegue el valor del campo **Service Provider Entity ID** (Id. de entidad de servicio de proveedor) que se encuentra en la página de configuración del inicio de sesión único en el sistema HighGear.
 
     ![Campo del identificador de entidad del proveedor de servicio](media/highgear-tutorial/service-provider-entity-id-field.png)
     
@@ -137,7 +137,7 @@ Para configurar el inicio de sesión único de Azure AD con el sistema HighGear,
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-     a. URL de inicio de sesión. Necesitará este valor en el paso 2 en **Configuración del inicio de sesión único de HighGear** más abajo.
+    a. URL de inicio de sesión. Necesitará este valor en el paso 2 en **Configuración del inicio de sesión único de HighGear** más abajo.
 
     b. Identificador de Azure AD. Necesitará este valor en el paso 3 en **Configuración del inicio de sesión único de HighGear** más abajo.
 
@@ -157,7 +157,7 @@ Para configurar HighGear para el inicio de sesión único, inicie sesión en el 
 
 4. En el campo **Single Logout (SLO) URL** (URL de cierre de sesión único [SLO]) de HighGear, pegue el valor del campo **Logout URL** (Dirección URL de cierre de sesión) que se encuentra en la sección **Set up HighGear** (Configuración de HighGear) en Azure.
 
-5. Utilice el Bloc de notas para abrir el certificado que ha descargado en la sección **Certificado de firma de SAML** en Azure. Ha descargado el formato **Certificado (Base64)**. Copie el contenido del certificado en el Bloc de notas y péguelo en el campo **Identity Provider Certificate** (Certificado del proveedor de identidades) en HighGear.
+5. Utilice el Bloc de notas para abrir el certificado que ha descargado en la sección **Certificado de firma de SAML** en Azure. Ha descargado el formato **Certificado (Base64)** . Copie el contenido del certificado en el Bloc de notas y péguelo en el campo **Identity Provider Certificate** (Certificado del proveedor de identidades) en HighGear.
 
 6. Envíe un correo electrónico al [equipo de soporte técnico de HighGear](mailto:support@highgear.com) para solicitar el certificado de HighGear. Siga las instrucciones que reciba de ellos para rellenar los campos **HighGear Certificate** (Certificado de HighGear) y **HighGear Certificate Password** (Contraseña del certificado de HighGear).
 
@@ -258,5 +258,5 @@ Al hacer clic en el icono de HighGear en el panel de acceso y debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

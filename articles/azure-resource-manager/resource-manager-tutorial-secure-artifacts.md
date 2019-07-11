@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fd68edcc727ab08ed9d3ba765bbe795e88de5fc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391350"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069262"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Protección de los artefactos de las implementaciones de plantillas de Azure Resource Manager
 
@@ -75,9 +75,9 @@ Descargue el [archivo BACPAC](https://armtutorials.blob.core.windows.net/sqlexte
 
     * **Suscripción**: Seleccione su suscripción a Azure.
     * **Grupos de recursos**: seleccione **Crear nuevo** y asígnele un nombre. Un grupo de recursos es un contenedor de recursos de Azure para fines de administración. En este tutorial, puede usar el mismo grupo de recursos para la cuenta de almacenamiento y la base de datos de Azure SQL. Anote el nombre de este grupo de recursos; lo necesitará al crear la base de datos de Azure SQL más adelante en los tutoriales.
-    * **Ubicación**: Seleccione una región. Por ejemplo, **Centro de EE. UU**. 
+    * **Ubicación**: Seleccione una región. Por ejemplo, **Centro de EE. UU**.
     * **Tipo de cuenta de almacenamiento**: use el valor predeterminado, que es **Standard_LRS**.
-    * **Ubicación**: use el valor predeterminado, que es **[resourceGroup () .location]**. Es decir, usará la ubicación del grupo de recursos de la cuenta de almacenamiento.
+    * **Ubicación**: use el valor predeterminado, que es **[resourceGroup () .location]** . Es decir, usará la ubicación del grupo de recursos de la cuenta de almacenamiento.
     * **Acepto los términos y condiciones indicados anteriormente**: (seleccionado)
 3. Seleccione **Comprar**.
 4. Seleccione el icono de notificación (la campana) de la esquina superior derecha del portal para ver el estado de implementación.
@@ -87,7 +87,7 @@ Descargue el [archivo BACPAC](https://armtutorials.blob.core.windows.net/sqlexte
 
 ### <a name="create-a-blob-container"></a>Creación de contenedor de blobs
 
-Se necesita un contenedor de blobs para cargar archivos. 
+Se necesita un contenedor de blobs para cargar archivos.
 
 1. Seleccione la cuenta de almacenamiento para abrirla. Verá la cuenta de almacenamiento en el grupo de recursos. El nombre de la cuenta de almacenamiento es diferente del que se muestra en la captura de pantalla siguiente.
 
@@ -99,8 +99,8 @@ Se necesita un contenedor de blobs para cargar archivos.
 3. Seleccione **+ Contenedor** en la parte superior para crear un contenedor.
 4. Escriba los siguientes valores:
 
-    * **Nombre**: escriba **sqlbacpac**. 
-    * **Nivel de acceso público**: use el valor predeterminado, **Privado (sin acceso anónimo)**.
+    * **Nombre**: escriba **sqlbacpac**.
+    * **Nivel de acceso público**: use el valor predeterminado, **Privado (sin acceso anónimo)** .
 5. Seleccione **Aceptar**.
 6. Seleccione **sqlbacpac** para abrir el contenedor recién creado.
 
@@ -237,7 +237,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha implementado una instancia de SQL Server y una instancia de SQL Database y, además, ha importado un archivo BACPAC mediante un token de SAS. Para aprender a implementar los recursos de Azure en varias regiones y a usar prácticas de implementación seguras, consulte
+En este tutorial, ha implementado una instancia de SQL Server y una instancia de SQL Database y, además, ha importado un archivo BACPAC mediante un token de SAS. Para información sobre cómo crear una canalización de Azure para desarrollar e implementar de manera continua las plantillas de Resource Manager, consulte
 
 > [!div class="nextstepaction"]
-> [Uso de Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Integración continua con Azure Pipelines](./resource-manager-tutorial-use-azure-pipelines.md)

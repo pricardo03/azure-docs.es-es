@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba63f8295fb5bebffdc8480f763c852521e331b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7f47fcbdf61caa95e49a34bcfd093d3370f769
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859214"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Tutorial: Integración de Azure Active Directory con ADP
 
@@ -53,7 +53,7 @@ Para configurar la integración de ADP en Azure AD, será preciso agregar ADP de
 
 **Para agregar ADP desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con ADP, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de ADP](#configure-adp-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de ADP](#create-adp-test-user)**: para tener un homólogo de Britta Simon en ADP que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de ADP](#configure-adp-single-sign-on)** : para configurar el inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de ADP](#create-adp-test-user)** : para tener un homólogo de Britta Simon en ADP que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -93,7 +93,7 @@ Para configurar el inicio de sesión único de Azure AD con ADP, siga estos paso
 
     ![Propiedades del inicio de sesión único](./media/adpfederatedsso-tutorial/tutorial_adp_prop.png)
 
-     a. Establezca el valor del campo **Habilitado para que los usuarios inicien sesión** en **Sí**.
+    a. Establezca el valor del campo **Habilitado para que los usuarios inicien sesión** en **Sí**.
 
     b. Copie la **dirección URL de acceso de usuario** y péguela en la **sección Configurar dirección URL de inicio de sesión** (este paso se explica más adelante en el tutorial).
 
@@ -117,7 +117,7 @@ Para configurar el inicio de sesión único de Azure AD con ADP, siga estos paso
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ADP](common/idp-identifier.png)
 
-    En el cuadro de texto **Identificador (Id. de entidad)**, escriba una dirección URL: `https://fed.adp.com`
+    En el cuadro de texto **Identificador (Id. de entidad)** , escriba una dirección URL: `https://fed.adp.com`
 
 6. La aplicación ADP espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**. El nombre de la notificación siempre será **"PersonImmutableID"** cuyo valor se ha asignado a **employeeid**. 
 
@@ -131,7 +131,7 @@ Para configurar el inicio de sesión único de Azure AD con ADP, siga estos paso
     | ---------------| --------------- |
     | PersonImmutableID  | user.employeeid |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -169,7 +169,7 @@ Para configurar el inicio de sesión único en **ADP**, debe cargar el archivo *
 > Los empleados que necesiten obtener acceso federado a los servicios de ADP deben asignarse a la aplicación de servicio de ADP y, posteriormente, deben volver a asignarse al servicio ADP específico.
 Una vez recibida la confirmación del representante de ADP, configure los servicios de ADP y asigne o administre los usuarios para controlar su acceso al servicio de ADP especificado.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -189,7 +189,7 @@ Una vez recibida la confirmación del representante de ADP, configure los servic
 
     ![Propiedades vinculadas de inicio de sesión único](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
-     a.  Establezca el valor del campo **Habilitado para que los usuarios inicien sesión** en **Sí**.
+    a.  Establezca el valor del campo **Habilitado para que los usuarios inicien sesión** en **Sí**.
 
     b.  Establezca el valor del campo **Asignación de usuarios necesaria** en **Sí**.
 
@@ -207,7 +207,7 @@ Una vez recibida la confirmación del representante de ADP, configure los servic
 
     ![Propiedades del inicio de sesión único](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
 
-     a. Pegue la **dirección URL de acceso de usuario** que copió de la **pestaña Propiedades** anterior (de la aplicación principal ADP).
+    a. Pegue la **dirección URL de acceso de usuario** que copió de la **pestaña Propiedades** anterior (de la aplicación principal ADP).
                                                              
     b. Estas son las 5 aplicaciones que admiten diferentes **direcciones URL del estado de la retransmisión**. Tiene que anexar de forma manual el valor adecuado de la **dirección URL del estado de la retransmisión** de una aplicación en particular a la **dirección URL de acceso de usuarios**.
     
@@ -235,7 +235,7 @@ Una vez recibida la confirmación del representante de ADP, configure los servic
 
 10. Tras recibir la confirmación del representante de ADP, comience la prueba con uno o dos usuarios.
 
-     a. Asigne unos cuantos usuarios a la aplicación del servicio de ADP para que prueben el acceso federado.
+    a. Asigne unos cuantos usuarios a la aplicación del servicio de ADP para que prueben el acceso federado.
 
     b. La prueba es correcta cuando los usuarios acceden a la aplicación del servicio de ADP en la galería y pueden obtener acceso a su servicio ADP.
  
@@ -308,5 +308,5 @@ Al hacer clic en el icono de ADP en el Panel de acceso, debería iniciar sesión
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

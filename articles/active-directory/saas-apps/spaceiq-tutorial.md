@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: de2b60ef280ceebdc97ea7dfc208df1cea3956c0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3358ad473ede9e8d78a835e8c68e690e5340638
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699902"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Tutorial: Integración de Azure Active Directory con SpaceIQ
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con SpaceIQ, siga estos 
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de SpaceIQ](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://api.spaceiq.com`
+    a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://api.spaceiq.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://api.spaceiq.com/saml/<instanceid>/callback`
 
@@ -142,7 +142,7 @@ Para configurar el inicio de sesión único de Azure AD con SpaceIQ, siga estos 
 
     ![Configuración de la autenticación SAML](./media/spaceiq-tutorial/setting3.png)
 
-     a. En el cuadro **SAML Issuer URL** (Dirección URL del emisor de SAML), pegue el valor del **Identificador de Azure AD**  que copió de la ventana de configuración de la aplicación Azure AD.
+    a. En el cuadro **SAML Issuer URL** (Dirección URL del emisor de SAML), pegue el valor del **Identificador de Azure AD**  que copió de la ventana de configuración de la aplicación Azure AD.
 
     b. Copie el valor de **dirección URL de punto de conexión de devolución de llamada SAML (solo lectura)** y péguelo en el cuadro **URL de respuesta** en la sección **Configuración básica de SAML** de Azure Portal.
 
@@ -219,5 +219,5 @@ Al hacer clic en el icono de SpaceIQ en el panel de acceso, debería iniciar ses
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

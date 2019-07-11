@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 352ad9473a1c1a9360ddceb720ff968f4e97e012
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 5e405dc4ea323a6869207de53b7577ee960924eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889291"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089228"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integración de Azure Active Directory con Tableau Online
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Tableau Online, siga
 
     ![Información del dominio y las direcciones URL de inicio de sesión único de Tableau Online](common/sp-identifier.png)
 
-     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`.
 
@@ -150,7 +150,7 @@ Para configurar el inicio de sesión único de Azure AD con Tableau Online, siga
 
     c. Copie el valor del espacio de nombres de estos atributos: givenname, email y surname mediante los pasos siguientes:
 
-   ![Inicio de sesión único de Azure AD ](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
+   ![Inicio de sesión único de Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
 
     d. Haga clic en el valor **user.givenname**
 
@@ -247,4 +247,4 @@ Al hacer clic en el icono de Tableau Online en el Panel de acceso, debería inic
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

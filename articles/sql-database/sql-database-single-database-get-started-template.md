@@ -11,13 +11,13 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: 8d060ce60194e47814308bfd67bd14db996650b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/28/2019
+ms.openlocfilehash: 4ef0f9ff6f8620109f2ef6f6bd5f549281b4de54
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425787"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472158"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Inicio rápido: Creación de una base de datos única en Azure SQL Database con una plantilla de Azure Resource Manager
 
@@ -29,142 +29,31 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
 
 Una base de datos única tiene un conjunto definido de recursos de proceso, memoria, E/S y almacenamiento y se usa uno de los dos [modelos de compra](sql-database-purchase-models.md). Cuando se crea una base de datos única, también se define un [servidor de SQL Database](sql-database-servers.md) para administrarla y colocarla dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) de una región determinada.
 
-El siguiente archivo JSON es la plantilla que se usa en este artículo. La plantilla se almacena en una cuenta de Azure Storage. Puede encontrar más ejemplos de plantillas de Azure SQL Database [aquí](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+El siguiente archivo JSON es la plantilla que se usa en este artículo. La plantilla se almacena en [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json). Puede encontrar más ejemplos de plantillas de la base de datos de Azure SQL en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "serverName": {
-      "type": "string",
-      "defaultValue": "[concat('server-', uniqueString(resourceGroup().id, deployment().name))]",
-      "metadata": {
-        "description": "Name for the SQL server"
-      }
-    },
-    "shouldDeployDb": {
-      "type": "string",
-      "allowedValues": [
-        "Yes",
-        "No"
-      ],
-      "defaultValue": "Yes",
-      "metadata": {
-        "description": "Whether an Azure SQL Database should be deployed under the server"
-      }
-    },
-    "databaseName": {
-      "type": "string",
-      "defaultValue": "[concat('db-', uniqueString(resourceGroup().id, deployment().name), '-1')]",
-      "metadata": {
-        "description": "Name for the SQL database under the SQL server"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for server and optional DB"
-      }
-    },
-    "emailAddresses": {
-      "type": "array",
-      "defaultValue": [
-        "user1@example.com",
-        "user2@example.com"
-      ],
-      "metadata": {
-        "description": "Email addresses for receiving alerts"
-      }
-    },
-    "adminUser": {
-      "type": "string",
-      "metadata": {
-        "description": "Username for admin"
-      }
-    },
-    "adminPassword": {
-      "type": "securestring",
-      "metadata": {
-        "description": "Password for admin"
-      }
-    }
-  },
-  "variables": {
-    "databaseServerName": "[toLower(parameters('serverName'))]",
-    "databaseName": "[parameters('databaseName')]",
-    "shouldDeployDb": "[parameters('shouldDeployDb')]",
-    "databaseServerLocation": "[parameters('location')]",
-    "databaseServerAdminLogin": "[parameters('adminUser')]",
-    "databaseServerAdminLoginPassword": "[parameters('adminPassword')]",
-    "emailAddresses": "[parameters('emailAddresses')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Sql/servers",
-      "name": "[variables('databaseServerName')]",
-      "location": "[variables('databaseServerLocation')]",
-      "apiVersion": "2015-05-01-preview",
-      "properties": {
-        "administratorLogin": "[variables('databaseServerAdminLogin')]",
-        "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-        "version": "12.0"
-      },
-      "tags": {
-        "DisplayName": "[variables('databaseServerName')]"
-      },
-      "resources": [
-        {
-          "type": "securityAlertPolicies",
-          "name": "DefaultSecurityAlert",
-          "apiVersion": "2017-03-01-preview",
-          "dependsOn": [
-            "[variables('databaseServerName')]"
-          ],
-          "properties": {
-            "state": "Enabled",
-            "emailAddresses": "[variables('emailAddresses')]",
-            "emailAccountAdmins": true
-          }
-        }
-      ]
-    },
-    {
-      "condition": "[equals(variables('shouldDeployDb'), 'Yes')]",
-      "type": "Microsoft.Sql/servers/databases",
-      "name": "[concat(string(variables('databaseServerName')), '/', string(variables('databaseName')))]",
-      "location": "[variables('databaseServerLocation')]",
-      "apiVersion": "2017-10-01-preview",
-      "dependsOn": [
-        "[concat('Microsoft.Sql/servers/', variables('databaseServerName'))]"
-      ],
-      "properties": {},
-      "tags": {
-        "DisplayName": "[variables('databaseServerName')]"
-      }
-    }
-  ]
-}
-```
+[!code-json[create-azure-sql-database-server-and-database](~/resourcemanager-templates/SQLServerAndDatabase/azuredeploy.json)]
 
-1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla.
+1. Seleccione **Pruébelo** en el bloque de código de PowerShell siguiente para abrir Azure Cloud Shell.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatesql%2Fazuredeploy.json"><img src="./media/sql-database-single-database-get-started-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+    $location = Read-Host -Prompt "Enter an Azure location (i.e. centralus)"
+    $adminUser = Read-Host -Prompt "Enter the SQL server administrator username"
+    $adminPassword = Read-Host -Prompt "Enter the SQl server administrator password" -AsSecureString
 
-2. Seleccione o escriba los siguientes valores.  
+    $resourceGroupName = "${projectName}rg"
 
-    ![Plantilla de Resource Manager: crear base de datos de Azure SQL](./media/sql-database-single-database-get-started-template/create-azure-sql-database-resource-manager-template.png)
 
-    A menos que se indique otra cosa, utilice los valores predeterminados.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" -projectName $projectName -adminUser $adminUser -adminPassword $adminPassword
 
-    * **Suscripción**: seleccione una suscripción de Azure.
-    * **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar**. 
-    * **Ubicación**: seleccione una ubicación.  Por ejemplo, **Centro de EE. UU**.
-    * **Usuario administrador**: especifique el nombre de usuario del administrador del servidor de SQL Database.
-    * **Contraseña de administrador**: especifique la contraseña del administrador. 
-    * **Acepto los términos y condiciones anteriores**: Seleccionar.
-3. Seleccione **Comprar**.
+    Read-Host -Prompt "Press [ENTER] to continue ..."
+    ```
+
+1. Seleccione **Copiar** para copiar el script de PowerShell en el Portapapeles.
+1. Haga clic con el botón derecho en el panel del shell y, a continuación, seleccione **Pegar**.
+
+    Se tardan unos minutos en crear el servidor de base de datos y la base de datos.
 
 ## <a name="query-the-database"></a>Consulta de la base de datos
 
@@ -174,17 +63,15 @@ Para consultar la base de datos, vea [Consulta de la base de datos](./sql-databa
 
 Mantenga este grupo de recursos, el servidor de bases de datos y la base de datos única si quiere ir a [Pasos siguientes](#next-steps). Los pasos siguientes muestran cómo conectarse a la base de datos y consultarla mediante distintos métodos.
 
-Para eliminar el grupo de recursos mediante Azure PowerShell o la CLI de Azure:
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName 
-```
+Para eliminar el grupo de recursos mediante Azure PowerShell:
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName 
+$projectName = Read-Host -Prompt "Enter the same project name"
+$resourceGroupName = "${projectName}rg"
+
+Remove-AzResourceGroup -Name $resourceGroupName
+
+Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

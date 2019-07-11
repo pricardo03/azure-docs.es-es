@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 7b4f3e8d0f20d2e4b78c83b935d3e3340c9dcec4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 026ad76fa82a28ca3e7f29de2e656994b9cad634
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920270"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086770"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Tutorial: Integración de Azure Active Directory con Workrite
 
@@ -198,7 +198,7 @@ El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon
    
     ![Cuadro de diálogo Crear usuario][402]
     
-     a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
+    a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
 
     b. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, Britta.
 
@@ -220,7 +220,7 @@ Al hacer clic en el icono de Workrite en el panel de acceso, debería iniciar se
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

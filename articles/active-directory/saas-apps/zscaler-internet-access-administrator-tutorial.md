@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2265c4227601c5273f093af9768864a8c7e07b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b46b8644b9ba4f0dc6b0b97215a4a96b60d69c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integración de Azure Active Directory con Zscaler Internet Access Administrator
 
@@ -53,7 +53,7 @@ Para configurar la integración de Zscaler Internet Access Administrator con Azu
 
 **Para agregar Zscaler Internet Access Administrator desde la galería, realice los siguientes pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que funcione el inicio de sesión único, es necesario establecer una relac
 
 Para configurar y probar el inicio de sesión único de Azure AD con Zscaler Internet Access Administrator, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Zscaler Internet Access Administrator](#configure-zscaler-internet-access-administrator-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Zscaler Internet Access Administrator](#create-zscaler-internet-access-administrator-test-user)**: para tener un homólogo de Britta Simon en Zscaler Internet Access Administrator que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Zscaler Internet Access Administrator](#configure-zscaler-internet-access-administrator-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Zscaler Internet Access Administrator](#create-zscaler-internet-access-administrator-test-user)** : para tener un homólogo de Britta Simon en Zscaler Internet Access Administrator que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único en Azure AD con Zscaler Internet Acc
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Zscaler Internet Access Administrator](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL según sus requisitos:
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL según sus requisitos:
 
     | |
     |--|
@@ -135,9 +135,9 @@ Para configurar el inicio de sesión único en Azure AD con Zscaler Internet Acc
 
     | NOMBRE  | Atributo de origen  |
     | ---------| ------------ |
-    | Rol     | user.assignedroles |
+    | Role     | user.assignedroles |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](./common/new-save-attribute.png)
     
@@ -174,7 +174,7 @@ Para configurar el inicio de sesión único en Azure AD con Zscaler Internet Acc
 
     ![Administración](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administración")
 
-     a. Marque **Enable SAML Authentication** (Habilitar autenticación SAML).
+    a. Marque **Enable SAML Authentication** (Habilitar autenticación SAML).
 
     b. Haga clic en **Cargar** para cargar el certificado de firma de SAML de Azure que ha descargado desde Azure Portal en el **Certificado SSL público**.
 
@@ -184,7 +184,7 @@ Para configurar el inicio de sesión único en Azure AD con Zscaler Internet Acc
 
     ![Administración](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
 
-     a. Mantenga el puntero sobre el menú **Activación** situado cerca de la parte inferior izquierda.
+    a. Mantenga el puntero sobre el menú **Activación** situado cerca de la parte inferior izquierda.
 
     b. Haga clic en **Activar**.
 
@@ -258,4 +258,4 @@ Al hacer clic en el icono de Zscaler Internet Access Administrator en el panel d
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

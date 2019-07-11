@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 177b393b475250e5e019a5829ea17279e1b0f44c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e54d0b1ef3173fd1ec709927c7c9842b428bd3a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922100"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089422"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Tutorial: Integración de Azure Active Directory con Supermood
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con Supermood, siga esto
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Supermood](common/idp-preintegrated-relay.png)
 
-     a. Seleccione **Establecer direcciones URL adicionales**.
+    a. Seleccione **Establecer direcciones URL adicionales**.
 
     b. Si quiere configurar la aplicación en modo iniciado por **IDP**, en el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL: `https://supermood.co/auth/sso/saml20`
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con Supermood, siga esto
     | firstName | user.givenname |
     | lastName | user.surname |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -166,7 +166,7 @@ Para configurar el inicio de sesión único de Azure AD con Supermood, siga esto
 
     ![SAML del certificado](./media/supermood-tutorial/tutorial_supermood_saml.png)
 
-     a. En el cuadro de texto **email domain for this Identity provider** (dominio de correo electrónico para este proveedor de identidades), escriba su dominio.
+    a. En el cuadro de texto **email domain for this Identity provider** (dominio de correo electrónico para este proveedor de identidades), escriba su dominio.
 
     b. En el cuadro de texto **Use a metadata URL** (Utilizar una dirección URL de metadatos), pegue la **dirección URL de metadatos de federación de aplicación** que ha copiado de Azure Portal.
 
@@ -238,4 +238,4 @@ Al hacer clic en el icono de Supermood en el panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

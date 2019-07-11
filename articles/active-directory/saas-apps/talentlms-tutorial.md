@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17c055b79b8b90bd56a1dcd6472cf74d2512137
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0243a3e0ed83abc1edead5ecece4fd5c6ff1cad9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901782"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089161"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: Integración de Azure Active Directory con TalentLMS
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con TalentLMS, siga est
 
     ![Información de dominio y direcciones URL de inicio de sesión único de TalentLMS](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.TalentLMSapp.com`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.TalentLMSapp.com`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `http://<tenant-name>.talentlms.com`
 
@@ -145,7 +145,7 @@ Para configurar el inicio de sesión único de Azure AD con TalentLMS, siga est
 
     ![Inicio de sesión único](./media/talentlms-tutorial/IC777297.png "Inicio de sesión único")
 
-     a. En la lista **SSO integration type** (Tipo de integración de SSO), seleccione **SAML 2.0**.
+    a. En la lista **SSO integration type** (Tipo de integración de SSO), seleccione **SAML 2.0**.
 
     b. En el cuadro de texto **Identity Provider (IDP)** (Proveedor de identidades [IDP]), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
@@ -231,7 +231,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en TalentLMS, deben 
 
     ![Agregar usuario](./media/talentlms-tutorial/IC777299.png "Agregar usuario")  
 
-     a. En el cuadro de texto **Nombre**, escriba el nombre de usuario, en este caso **Britta**.
+    a. En el cuadro de texto **Nombre**, escriba el nombre de usuario, en este caso **Britta**.
 
     b. En el cuadro de texto **Apellidos**, escriba el apellido del usuario, en este caso **Simon**.
  
@@ -254,5 +254,5 @@ Al hacer clic en el icono de TalentLMS en el panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

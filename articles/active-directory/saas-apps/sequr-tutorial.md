@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dace26f9eb4948a8cfd06be568ab9ec471765d1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2eed00aab4296cb5352e74d9e6bfc014f2340646
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922160"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091081"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Tutorial: Integración de Azure Active Directory con Sequr
 
@@ -112,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con Sequr, realice los p
 
     ![imagen](common/both-advanced-urls.png)
 
-     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://login.sequr.io`
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://login.sequr.io`
 
     b. En el cuadro de texto **Estado de la retransmisión**, obtendrá este valor, que se explica más adelante en el tutorial.
 
@@ -146,7 +146,7 @@ Para configurar el inicio de sesión único de Azure AD con Sequr, realice los p
 
     ![Configuración de Sequr](./media/sequr-tutorial/configure3.png)
 
-     a. En el cuadro de texto **Dirección URL del inicio de sesión único del proveedor de identidades**, pegue el valor de la **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    a. En el cuadro de texto **Dirección URL del inicio de sesión único del proveedor de identidades**, pegue el valor de la **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     b. Arrastre y coloque el archivo **Certificado** que ha descargado desde Azure Portal o escriba manualmente el contenido del certificado.
 
@@ -220,5 +220,5 @@ Al hacer clic en el icono de Sequr en el panel de acceso, debería iniciar sesi�
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

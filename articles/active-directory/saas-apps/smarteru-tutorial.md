@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: d1b2d80a1960abb37262ef7429ee5b99665986b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07c7a15ea713bb6f73e1174a681dcccb5e79e289
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867001"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090518"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integración de Azure Active Directory con SmarterU
 
@@ -53,7 +53,7 @@ Para configurar la integración de SmarterU en Azure AD, es preciso agregar Smar
 
 **Para agregar SmarterU desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con SmarterU, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de SmarterU](#configure-smarteru-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de SmarterU](#create-smarteru-test-user)**: para tener un homólogo de Britta Simon en SmarterU que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de SmarterU](#configure-smarteru-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de SmarterU](#create-smarteru-test-user)** : para tener un homólogo de Britta Simon en SmarterU que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -133,7 +133,7 @@ Para configurar el inicio de sesión único de Azure AD con SmarterU, siga estos
 
     ![Autorización externa](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
 
-     a. Seleccione **Habilitar autorización externa**.
+    a. Seleccione **Habilitar autorización externa**.
   
     b. En la sección **Control de inicio de sesión maestro**, seleccione la pestaña **SmarterU**.
   
@@ -212,7 +212,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en SmarterU, tienen q
 
     ![Nuevo usuario](./media/smarteru-tutorial/adduser.png)  
 
-     a. Haga clic en **+Usuario**.
+    a. Haga clic en **+Usuario**.
 
     b. Escriba los valores de atributo relacionados de la cuenta de usuario de Azure AD en los siguientes cuadros de texto: **Primary Email** (Correo electrónico principal), **Employee ID** (Id. de empleado), **Password** (Contraseña), **Verify Password** (Comprobar contraseña), **Given Name** (Nombre propio) y **Surname** (Apellidos).
 
@@ -235,4 +235,4 @@ Al hacer clic en el icono de SmarterU en el Panel de acceso, debería iniciar se
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

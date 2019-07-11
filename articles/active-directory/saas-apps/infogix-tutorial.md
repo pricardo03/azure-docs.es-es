@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f5996b41da68adc83c26e836c9fb1a175107337
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a0b8dbb3992808bdcb94291d876192431c72f6c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277808"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutorial: Integración de Azure Active Directory con Infogix Data3Sixty Govern
 
@@ -54,7 +54,7 @@ Para configurar la integración de Infogix Data3Sixty Govern en Azure AD, es pre
 
 **Para agregar Infogix Data3Sixty Govern desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Para que el inicio de sesión único funcione es necesario establecer una relaci
 
 Para configurar y probar el inicio de sesión único de Azure AD con Infogix Data3Sixty Govern, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Infogix Data3Sixty Govern](#configure-infogix-data3sixty-govern-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Infogix Data3Sixty Govern](#create-infogix-data3sixty-govern-test-user)**: para tener un homólogo de Britta Simon en Infogix Data3Sixty Govern que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Infogix Data3Sixty Govern](#configure-infogix-data3sixty-govern-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Infogix Data3Sixty Govern](#create-infogix-data3sixty-govern-test-user)** : para tener un homólogo de Britta Simon en Infogix Data3Sixty Govern que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con Infogix Data3Sixty G
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Infogix Data3Sixty Govern](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://data3sixty.com/ui`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://data3sixty.com/ui`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.data3sixty.com/sso/acs`
 
@@ -131,7 +131,7 @@ Para configurar el inicio de sesión único de Azure AD con Infogix Data3Sixty G
     | lastname   | user.surname |
     | nombre de usuario   | user.mail    |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -237,5 +237,5 @@ Al hacer clic en el icono de Infogix Data3Sixty Govern en el Panel de acceso, de
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

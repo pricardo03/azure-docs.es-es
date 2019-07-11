@@ -2,18 +2,18 @@
 title: 'Tutorial: Análisis de eventos desde la configuración de Azure Digital Twins | Microsoft Docs'
 description: Siga los pasos de este tutorial para aprender a visualizar y analizar eventos de los espacios de Azure Digital Twins con Azure Time Series Insights.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: alinast
+ms.openlocfilehash: 3f6111457d3438b80ace8cd557747ab8c799efd3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542274"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484732"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualización y análisis de eventos de los espacios de Azure Digital Twins mediante Time Series Insights
 
@@ -52,7 +52,7 @@ Puede usar el servicio [Event Hubs](../event-hubs/event-hubs-about.md) para crea
 
 1. Escriba un **nombre** para el espacio de nombres de Event Hubs. Elija **Estándar** en **Plan de tarifa**, la **suscripción**, el **grupo de recursos** que usó para la instancia de Digital Twins y la **ubicación**. Seleccione **Crear**.
 
-1. En la implementación del espacio de nombres de Event Hubs, seleccione el espacio de nombres en **RECURSO**.
+1. En la implementación del espacio de nombres de Event Hubs, seleccione el panel **Introducción** y después seleccione **Ir al recurso**.
 
     ![Espacio de nombres de Event Hubs después de la implementación](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
@@ -132,17 +132,19 @@ Puede usar el servicio [Event Hubs](../event-hubs/event-hubs-about.md) para crea
 
 1. Busque un nuevo recurso de **Time Series Insights** y selecciónelo. Seleccione **Crear**.
 
-1. Escriba el **nombre** de la instancia de Time Series Insights seleccione su **suscripción**. Seleccione el **grupo de recursos** que usó o para su instancia de Digital Twins y su **ubicación**. Seleccione **Crear**.
+1. Escriba el **nombre** de la instancia de Time Series Insights seleccione su **suscripción**. Seleccione el **grupo de recursos** que usó o para su instancia de Digital Twins y su **ubicación**. Seleccione **Siguiente: Origen del evento** o la pestaña **Origen del evento**.
 
     ![Selecciones para crear una instancia de Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)
 
-1. Después de implementar la instancia, abra el entorno de Time Series Insights y abra su panel **Event Sources** (Orígenes de eventos). Haga clic en el botón **Add** (Agregar) de la parte superior para agregar un grupo de consumidores.
-
-1. En el panel **Nuevo origen de eventos**, escriba un **nombre**y asegúrese de que los demás valores se seleccionan correctamente. Seleccione **ManageSend** en **Event hub policy name** (Nombre de directiva de centro de eventos) y, después, seleccione el grupo de consumidores que creó en la sección anterior en **Event hub consumer group** (Grupo de consumidores del centro de eventos). Seleccione **Crear**.
+1. En la pestaña **Origen del evento**, escriba un **nombre**, seleccione **Centro de eventos** como **Tipo de origen** y asegúrese de que los demás valores se seleccionan correctamente. Seleccione **ManageSend** en **Nombre de la directiva de acceso del centro de eventos** y, después, seleccione el grupo de consumidores que creó en la sección anterior en **Grupo de consumidores del Centro de eventos**. Seleccione **Revisar + crear**.
 
     ![Selecciones para la creación de un origen de evento](./media/tutorial-facilities-analyze/tsi-event-source.png)
 
-1. Abra el panel **Overview** (Información general) del entorno de Time Series Insights y haga clic en el botón **Go to Environment** (Ir al entorno) de la parte superior. Si recibe una advertencia sobre el acceso a los datos, abra el panel **Data Access Policies** (Directivas de acceso de datos) de la instancia de Time Series Insights, haga clic en **Add** (Agregar), seleccione **Contributor** (Colaborador) como rol y seleccione el usuario apropiado.
+1. En el panel **Revisar y crear**, revise la información que ha especificado y seleccione **Crear**.
+
+1. En el panel de la implementación, seleccione el recurso de Time Series Insights que acaba de crear. Se abre el panel **Introducción** para el entorno de Time Series Insights.
+
+1. Seleccione el botón **Ir al entorno**, situado en la parte superior. Si recibe una advertencia sobre el acceso a los datos, abra el panel **Data Access Policies** (Directivas de acceso de datos) de la instancia de Time Series Insights, haga clic en **Add** (Agregar), seleccione **Contributor** (Colaborador) como rol y seleccione el usuario apropiado.
 
 1. El botón **Go to Environment** (Ir al entorno) abre el [explorador de Time Series Insights](../time-series-insights/time-series-insights-explorer.md). Si no se muestra ningún evento, simule eventos del dispositivo; para ello, vaya al proyecto **device-connectivity** del ejemplo de Digital Twins y ejecute `dotnet run`.
 

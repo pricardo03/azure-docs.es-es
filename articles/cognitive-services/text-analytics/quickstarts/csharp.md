@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/28/2019
 ms.author: assafi
-ms.openlocfilehash: a8b41f6853e9c91e64de903960b880e44f22ed55
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 82297842a56930cec2b4de90998b4ffb904543bb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297812"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446963"
 ---
 # <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>Inicio rápido: Uso de .NET y C# para llamar al servicio Text Analytics
 <a name="HOLTop"></a>
@@ -30,7 +30,8 @@ Para más información técnica, consulte la [referencia de Text Analytics](http
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Cualquier edición de [Visual Studio 2017 o versiones posteriores]
-* El análisis de texto [SDK para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+* El [SDK de Text Analytics para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 También necesitará el [punto de conexión y la clave de acceso](../How-tos/text-analytics-how-to-access-key.md) que se generaron automáticamente durante el registro.
@@ -163,7 +164,7 @@ En las secciones siguientes se describe cómo llamar a cada característica de s
     }
     ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
@@ -205,7 +206,7 @@ Document ID: 4 , Sentiment Score: 1.00
     }
     ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 ===== LANGUAGE EXTRACTION ======
@@ -256,7 +257,7 @@ Document ID: 3 , Language: Chinese_Simplified
     }
     ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1
@@ -326,7 +327,7 @@ Document ID: 2
     }
     ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1

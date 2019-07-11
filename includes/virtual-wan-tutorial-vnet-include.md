@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40ae634897361219c39e60d2161d3576cc44a400
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150801"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077518"
 ---
-Para crear fácilmente una red virtual, haga clic en "Pruébelo" en este artículo para abrir una consola de PowerShell. Ajuste los valores, y luego copie y pegue los comandos en la ventana de consola. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
+Para crear fácilmente una red virtual, haga clic en "Pruébelo" en este artículo para abrir una consola de PowerShell en Azure Cloud Shell. Ajuste los valores, y luego copie y pegue los comandos en la ventana de consola. 
 
 Asegúrese de que el espacio de direcciones para la red virtual que cree no se superpone a ninguno de los intervalos de direcciones de otras redes virtuales a las que desee conectarse, o a los espacios de direcciones de red local.
 

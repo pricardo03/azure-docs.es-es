@@ -7,17 +7,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
-ms.date: 04/09/2018
+ms.date: 06/05/2019
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 80977c13aa9851ea5df9a15f5b9580dd1a931259
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 5aa2616bfbfd4b31d3e5e5aeee71da8fd511faed
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569202"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066711"
 ---
-# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Ejecución de Azure Functions desde trabajos de Azure Stream Analytics 
+# <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Ejecución de Azure Functions desde trabajos de Azure Stream Analytics 
 
 Puede ejecutar Azure Functions desde Azure Stream Analytics mediante la configuración de Functions como uno de los receptores de salida para el trabajo de Stream Analytics. Functions es una experiencia de procesos a petición orientada a eventos que permite implementar el código desencadenado por los eventos que se producen en servicios de Azure o en servicios de terceros. Esta capacidad que tiene Functions para responder a los desencadenadores hace que sea una salida natural para los trabajos de Stream Analytics.
 
@@ -26,9 +26,10 @@ Stream Analytics llama a Functions mediante desencadenadores HTTP. El adaptador 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de un trabajo de Stream Analytics
-> * Creación de una función de Azure
-> * Configuración de la función de Azure como salida del trabajo
+> * Crear y ejecutar un trabajo de Stream Analytics.
+> * Creación de una instancia de Azure Redis Cache
+> * Creación de una Función de Azure
+> * Búsqueda de resultados en Azure Redis Cache
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -38,16 +39,9 @@ En esta sección se muestra cómo configurar un trabajo de Stream Analytics para
 
 ![Diagrama que muestra las relaciones entre los servicios de Azure](./media/stream-analytics-with-azure-functions/image1.png)
 
-Para llevar a cabo esta tarea, se requieren los siguientes pasos:
-* [Creación de un trabajo de Stream Analytics con Event Hubs como entrada](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* Creación de una instancia de Azure Redis Cache  
-* Creación de una función en Azure Functions que pueda escribir datos en Azure Redis Cache    
-* [Actualización del trabajo de Stream Analytics con la función como salida](#update-the-stream-analytics-job-with-the-function-as-output)  
-* Búsqueda de resultados en Azure Redis Cache  
-
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Creación de un trabajo de Stream Analytics con Event Hubs como entrada
 
-Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md) para crear un centro de eventos, iniciar la aplicación del generador de eventos y crear un trabajo de Stream Analytics. (Omita los pasos para crear la consulta y la salida. En su lugar, consulte las secciones siguientes para configurar la salida de Functions).
+Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md) para crear un centro de eventos, iniciar la aplicación del generador de eventos y crear un trabajo de Stream Analytics. Omita los pasos para crear la consulta y la salida. En su lugar, consulte las secciones siguientes para configurar la salida de Azure Functions.
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Creación de una instancia de Azure Redis Cache
 
@@ -61,7 +55,7 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
 
 1. Consulte la sección [Creación de una aplicación de función](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) de la documentación de Functions. Esto explica cómo crear una aplicación de función y una [función desencadenada por HTTP en Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) mediante el lenguaje CSharp.  
 
-2. Vaya a la función **run.csx**. Actualícela con el código siguiente. (Asegúrese de reemplazar "\<su cadena de conexión de Azure Redis Cache va aquí\>" por la cadena de conexión principal de Azure Redis Cache que recuperó en la sección anterior).  
+2. Vaya a la función **run.csx**. Actualícela con el código siguiente. Reemplace **"\<su cadena de conexión de Azure Cache for Redis va aquí\>"** por la cadena de conexión principal de Azure Cache for Redis que recuperó en la sección anterior. 
 
     ```csharp
     using System;
@@ -112,7 +106,7 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
 
    ```
 
-   Cuando Stream Analytics recibe una excepción "La entidad de solicitud HTTP es demasiado grande" de una función, disminuye el tamaño de los lotes que envía a Azure Functions. En la función, utilice el código siguiente para comprobar que Stream Analytics no envía lotes demasiado grandes. Asegúrese de que los valores de tamaño y número máximo de lotes que se usan en la función sean coherentes con los valores que se ingresan en el portal de Stream Analytics.
+   Cuando Stream Analytics recibe una excepción "La entidad de solicitud HTTP es demasiado grande" de una función, disminuye el tamaño de los lotes que envía a Azure Functions. El código siguiente garantiza que Stream Analytics no envía lotes demasiado grandes. Asegúrese de que los valores de tamaño y número máximo de lotes que se usan en la función sean coherentes con los valores que se ingresan en el portal de Stream Analytics.
 
     ```csharp
     if (dataArray.ToString().Length > 262144)
@@ -121,7 +115,7 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
         }
    ```
 
-3. En el editor de texto de su elección, cree un archivo JSON denominado **project.json**. Utilice el código siguiente y guárdelo en el equipo local. Este archivo contiene las dependencias de paquetes NuGet requeridas por la función de C#.  
+3. En el editor de texto de su elección, cree un archivo JSON denominado **project.json**. Pegue el código siguiente y guárdelo en el equipo local. Este archivo contiene las dependencias de paquetes NuGet requeridas por la función de C#.  
    
     ```json
     {
@@ -145,8 +139,6 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
 
    ![Captura de pantalla del editor de App Service](./media/stream-analytics-with-azure-functions/image4.png)
 
- 
-
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Actualización del trabajo de Stream Analytics con la función como salida
 
 1. En Azure Portal, abra el trabajo de Stream Analytics.  
@@ -163,9 +155,9 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
    |Número máximo de lotes|Especifica el número máximo de eventos de cada lote que se envía a la función. El valor predeterminado es 100. Esta propiedad es opcional.|
    |Clave|Permite usar una función de otra suscripción. Proporcione el valor de clave para acceder a la función. Esta propiedad es opcional.|
 
-3. Proporcione un nombre para el alias de salida. En este tutorial, lo vamos a llamar **saop1** (puede utilizar el nombre que desee). Rellene otros detalles.  
+3. Proporcione un nombre para el alias de salida. En este tutorial, se denomina **saop1**, pero puede usar el nombre que prefiera. Rellene otros detalles.
 
-4. Abra el trabajo de Stream Analytics y actualice la consulta a lo siguiente. (Asegúrese de reemplazar el texto "saop1" si se ha denominado el receptor de salida de manera diferente).  
+4. Abra el trabajo de Stream Analytics y actualice la consulta a lo siguiente. Si no asignó el nombre **saop1** al receptor de salida, recuerde modificarlo en la consulta.  
 
    ```sql
     SELECT
@@ -178,9 +170,11 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Inicie la aplicación telcodatagen.exe ejecutando el comando siguiente en la línea de comandos (use el formato `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
+5. Inicie la aplicación telcodatagen.exe ejecutando el comando siguiente en la línea de comandos. El comando usa el formato `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
    
-   **telcodatagen.exe 1000 .2 2**
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
     
 6.  Inicie el trabajo de Stream Analytics.
 
@@ -188,7 +182,7 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
 
 1. Vaya a Azure Portal y encuentre su instancia de Azure Redis Cache. Seleccione **Consola**.  
 
-2. Use [ Azure Redis Cache](https://redis.io/commands) para comprobar que los datos están Azure Redis Cache. (El comando toma el formato Get {key}). Por ejemplo: 
+2. Use [ Azure Redis Cache](https://redis.io/commands) para comprobar que los datos están Azure Redis Cache. (El comando toma el formato Get {key}). Por ejemplo:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 

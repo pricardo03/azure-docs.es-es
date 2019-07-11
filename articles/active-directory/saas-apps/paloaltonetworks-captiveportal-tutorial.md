@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3651e81cd3916bccc859bc3bc010511b2a114a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integración de Azure Active Directory con Captive Portal de Palo Alto Networks
 
@@ -78,12 +78,12 @@ Configure y pruebe el inicio de sesión único de Azure AD con Captive Portal de
 
 Para configurar y probar el inicio de sesión único de Azure AD con Captive Portal, Palo Alto Networks, realice las siguientes tareas:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: permita al usuario utilizar esta característica.
-2. **[Configuración del inicio de sesión único de Captive Portal de Palo Alto Networks](#configure-palo-alto-networks-captive-portal-single-sign-on)**: configure los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: prueba el inicio de sesión único de Azure AD con el usuario *Britta Simon*.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: configure Britta Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : permita al usuario utilizar esta característica.
+2. **[Configuración del inicio de sesión único de Captive Portal de Palo Alto Networks](#configure-palo-alto-networks-captive-portal-single-sign-on)** : configure los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** : prueba el inicio de sesión único de Azure AD con el usuario *Britta Simon*.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** : configure Britta Simon para que use el inicio de sesión único de Azure AD.
 5. **Creación de un usuario de prueba en Captive Portal de Palo Alto Networks**: Cree un usuario homólogo de *Britta Simon* en Captive Portal de Palo Alto Networks que esté vinculado al usuario de Azure AD.
-6. **[Prueba de inicio de sesión único](#test-single-sign-on)**: compruebe que la configuración funciona.
+6. **[Prueba de inicio de sesión único](#test-single-sign-on)** : compruebe que la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -158,7 +158,7 @@ A continuación creará un usuario de prueba llamado *Britta Simon* en Azure Por
 
     1. En **Nombre**, escriba **BrittaSimon**.
   
-    2. En **nombre de usuario**, escriba **BrittaSimon\@\<dominio_de_su_empresa\>**. Por ejemplo, **BrittaSimon\@contoso.com**.
+    2. En **nombre de usuario**, escriba **BrittaSimon\@\<dominio_de_su_empresa\>** . Por ejemplo, **BrittaSimon\@contoso.com**.
 
     3. En **Contraseña**, escriba una contraseña. Se recomienda conservar una copia de la contraseña que se escriba. Puede seleccionar la casilla **Mostrar contraseña** para ver la contraseña.
 
@@ -207,5 +207,5 @@ Para más información, consulte estos artículos:
 
 - [Tutoriales acerca de la integración de aplicaciones SaaS en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Inicio de sesión único en aplicaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Acceso condicional en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Acceso condicional en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

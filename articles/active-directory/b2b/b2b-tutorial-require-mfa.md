@@ -12,16 +12,16 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb26a5056ba4cec14218af70f1561c17e637102c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 16a2438133f545c57d1046a0c4db94135f8a426d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813117"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113199"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Aplicación de la autenticación multifactor en usuarios invitados B2B
 
-Al colaborar con los usuarios externos invitados de B2B, es una buena idea proteger sus aplicaciones con directivas de autenticación multifactor (MFA). Después, los usuarios externos necesitarán más de un nombre de usuario y una contraseña para acceder a los recursos. En Azure Active Directory (Azure AD), puede lograr este objetivo con una directiva de acceso condicional que precisa de MFA para el acceso. Las directivas de MFA se pueden exigir en el nivel de inquilino, aplicación o usuario invitado individual, del mismo modo que pueden habilitarse para miembros de la organización.
+Al colaborar con los usuarios externos invitados de B2B, es una buena idea proteger sus aplicaciones con directivas de autenticación multifactor (MFA). Después, los usuarios externos necesitarán más de un nombre de usuario y una contraseña para acceder a los recursos. En Azure Active Directory (Azure AD), puede lograr este objetivo con una directiva de acceso condicional que precisa de MFA para el acceso. Las directivas de MFA se pueden exigir en el nivel de inquilino, aplicación o usuario invitado individual, del mismo modo que pueden habilitarse para miembros de la organización.
 
 Ejemplo:
 
@@ -47,7 +47,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar el escenario de este tutorial, necesita:
 
- - **Acceder a la edición Azure AD Premium**, que incluye funcionalidades de directiva de acceso condicional. Para exigir MFA, debe crear una directiva de acceso condicional de Azure AD. Tenga en cuenta que siempre se aplican directivas de MFA en su organización, independientemente de si el asociado tiene funcionalidades de MFA. Si configura MFA para su organización, debe asegurarse de que haya suficientes licencias de Azure AD Premium para sus usuarios invitados. 
+ - **Acceder a la edición Azure AD Premium**, que incluye funcionalidades de directiva de acceso condicional. Para exigir MFA, debe crear una directiva de acceso condicional de Azure AD. Tenga en cuenta que siempre se aplican directivas de MFA en su organización, independientemente de si el asociado tiene funcionalidades de MFA. Si configura MFA para su organización, debe asegurarse de que haya suficientes licencias de Azure AD Premium para sus usuarios invitados. 
  - **Una cuenta válida de correo electrónico externa** que puede agregar a su directorio de inquilino como un usuario invitado y usarla para iniciar sesión. Si no sabe cómo crear una cuenta de invitado, vea [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](add-users-administrator.md).
 
 ## <a name="create-a-test-guest-user-in-azure-ad"></a>Creación de un usuario invitado de prueba en Azure AD
@@ -74,11 +74,11 @@ Para completar el escenario de este tutorial, necesita:
 ## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>Creación de una directiva de acceso condicional que requiere MFA
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de seguridad o administrador de acceso condicional.
 2.  En Azure Portal, seleccione **Azure Active Directory**. 
-3.  En la página **Azure Active Directory**, en la sección **Seguridad**, seleccione **Acceso condicional**.
+3.  En la página **Azure Active Directory**, en la sección **Seguridad**, seleccione **Acceso condicional**.
 4.  En la página **Acceso condicional**, en la barra de herramientas de la parte superior, seleccione **Nueva directiva**.
 5.  En la página **Nuevo**, en el cuadro de texto **Nombre**, escriba **Requerir MFA para acceder al portal de B2B**.
 6.  En la sección **Asignaciones**, seleccione **Usuarios y grupos**.
-7.  En la página **Usuarios y grupos**, elija **Seleccionar usuarios y grupos** y luego seleccione **Todos los usuarios invitados (versión preliminar)**.
+7.  En la página **Usuarios y grupos**, elija **Seleccionar usuarios y grupos** y luego seleccione **Todos los usuarios invitados (versión preliminar)** .
 
     ![Captura de pantalla que muestra cómo se seleccionan todos los usuarios invitados](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  Seleccione **Listo**.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 3d2c046fe5250ed2df275b94792caa45aa56d672
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c36749c40f3ce2e1d5478b3d9ab5eb2637a3c63b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65895762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67085627"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zwayam"></a>Tutorial: Integración de Azure Active Directory con Zwayam
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Zwayam, realice los 
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Zwayam](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://sso.zwayam.com/zwayam-saml/zwayam-saml/saml/login?idp=<SAML Entity ID>`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://sso.zwayam.com/zwayam-saml/zwayam-saml/saml/login?idp=<SAML Entity ID>`
 
     b. En el cuadro de texto **Identificador (Id. de entidad)** , escriba una dirección URL: `https://sso.zwayam.com/zwayam-saml/saml/metadata`
 
@@ -196,5 +196,5 @@ Al hacer clic en el icono de Zwayam en el panel de acceso, debería iniciar sesi
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32aa7a531de2e236e3941bbe8afd84d845f80f99
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9a9b49f75ad377a9377a2311ed16c17ca3d749e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726032"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092573"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integración de Azure Active Directory con RStudio Connect
 
@@ -108,7 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con RStudio Connect, sig
 
     ![Información de dominio y direcciones URL de inicio de sesión único de RStudio Connect](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<example.com>/__login__/saml`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<example.com>/__login__/saml`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<example.com>/__login__/saml/acs`
 
@@ -228,5 +228,5 @@ Al hacer clic en el icono de RStudio Connect en el panel de acceso, debería ini
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

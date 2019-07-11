@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b9fdc6bf46cff1f3a38d40a4e7abad5bfe56c47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ce68547ca13d2395fcd447990c42c48c04eb5f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866380"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089381"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integración de Azure Active Directory con Symantec Web Security Service (WSS)
 
@@ -56,7 +56,7 @@ Para configurar la integración de Symantec Web Security Service (WSS) en Azure 
 
 **Para agregar Symantec Web Security Service (WSS) desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -68,7 +68,7 @@ Para configurar la integración de Symantec Web Security Service (WSS) en Azure 
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Symantec Web Security Service (WSS)**, seleccione **Symantec Web Security Service (WSS)** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Symantec Web Security Service (WSS)** , seleccione **Symantec Web Security Service (WSS)** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Symantec Web Security Service (WSS) en la lista de resultados](common/search-new-app.png)
 
@@ -79,12 +79,12 @@ Para que el inicio de sesión único funcione, es necesario establecer una relac
 
 Para configurar y probar el inicio de sesión único de Azure AD con Symantec Web Security Service (WSS), es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **Configuración del inicio de sesión único de Symantec Web Security Service (WSS)**: para configurar el inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Symantec Web Security Service (WSS)](#create-symantec-web-security-service-wss-test-user)**: para tener un homólogo de Britta Simon en Symantec Web Security Service (WSS) que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **Configuración del inicio de sesión único de Symantec Web Security Service (WSS)** : para configurar el inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Symantec Web Security Service (WSS)](#create-symantec-web-security-service-wss-test-user)** : para tener un homólogo de Britta Simon en Symantec Web Security Service (WSS) que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -92,7 +92,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Symantec Web Security Service (WSS), siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Symantec Web Security Service (WSS)**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Symantec Web Security Service (WSS)** , seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -108,7 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con Symantec Web Securit
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Symantec Web Security Service (WSS)](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL: `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
 
@@ -152,11 +152,11 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Symantec Web Security Service (WSS).
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **Symantec Web Security Service (WSS)**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **Symantec Web Security Service (WSS)** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, escriba y seleccione **Symantec Web Security Service (WSS)**.
+2. En la lista de aplicaciones, escriba y seleccione **Symantec Web Security Service (WSS)** .
 
     ![Vínculo a Symantec Web Security Service (WSS) en la lista de aplicaciones](common/all-applications.png)
 
@@ -193,5 +193,5 @@ Después de haber configurado el explorador web para canalizar el tráfico hacia
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: acee2aabe94f5d015562bd697d08f657895d3b02
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 97d0615fcc4f86c295441ec6a0eb8b86ba6b11b5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789469"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059700"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Inicio rápido: Definición y asignación de un plano técnico en Azure Portal
 
@@ -70,11 +70,11 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
    1. Cambie **Tipo** a **Integrado**. En **Búsqueda**, escriba **Etiqueta**.
 
-   1. Haga clic fuera de **Búsqueda** para que se produzca el filtrado. Seleccione **Aplicar una etiqueta y su valor predeterminado a los grupos de recursos**.
+   1. Haga clic fuera de **Búsqueda** para que se produzca el filtrado. Seleccione **Append tag and its default value to resource groups** (Anexar una etiqueta y su valor predeterminado a los grupos de recursos).
 
    1. Seleccione **Agregar** para agregar este artefacto al plano técnico.
 
-1. Seleccione la fila de la asignación de directiva **Aplicar una etiqueta y su valor predeterminado a los grupos de recursos**.
+1. Seleccione la fila de la asignación de directiva **Append tag and its default value to resource groups** (Anexar una etiqueta y su valor predeterminado a los grupos de recursos).
 
 1. La ventana para proporcionar parámetros al artefacto como parte de la definición del plano técnico se abre y permite establecer los parámetros para todas las asignaciones (parámetros estáticos) basadas en este plano técnico, en lugar de durante la asignación (parámetros dinámicos). Este ejemplo usa parámetros dinámicos durante la asignación del plano técnico, así que deje los valores predeterminados y seleccione **Cancelar**.
 

@@ -1,19 +1,19 @@
 ---
 title: 'Guía de inicio rápido: dirigir el tráfico web con Azure Application Gateway: Azure PowerShell| Microsoft Docs'
-description: Obtenga información acerca de cómo utilizar Azure PowerShell para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
+description: Obtenga información sobre cómo utilizar Azure PowerShell para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/11/2019
+ms.date: 06/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6c472c30514e6acd3b21822e31f2cefc0da5bc98
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c0e80b1354302f227cb448391c7a92100049cc3a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729654"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053341"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure PowerShell
 
@@ -36,7 +36,7 @@ Si decide instalar y usar Azure PowerShell localmente, para este tutorial se req
 
 ### <a name="resource-group"></a>Grupos de recursos
 
-En Azure, puede asignar recursos relacionados a un grupo de recursos. Puede usar un grupo de recursos existente o crear uno nuevo. En este ejemplo, crearemos un grupo de recursos mediante el cmdlet [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) como se indica a continuación: 
+En Azure, puede asignar recursos relacionados a un grupo de recursos. Puede usar un grupo de recursos existente o crear uno nuevo. En este ejemplo, creará un grupo de recursos mediante el cmdlet [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) como se indica a continuación: 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -109,7 +109,7 @@ for ($i=1; $i -le 2; $i++)
   Add-AzVMNetworkInterface `
     -VM $vm `
     -Id $nic.Id
-  Set-AzVMBootDiagnostics `
+  Set-AzVMBootDiagnostic `
     -VM $vm `
     -Disable
   New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm

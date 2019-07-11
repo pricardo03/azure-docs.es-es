@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a14b251df0bedbcd27ab4e9bf1abe9a27ad50d6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a6958e88e7e20b94a54216a92651c2f6d3fe650e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integración de Azure Active Directory con la plataforma de productividad ClickUp
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con ClickUp, realice los
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ClickUp](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://app.clickup.com/login/sso`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://app.clickup.com/login/sso`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://api.clickup.com/v1/team/<team_id>/microsoft`
 
@@ -131,7 +131,7 @@ Para configurar el inicio de sesión único de Azure AD con ClickUp, realice los
 
     ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/configure3.png)
 
-     a. Haga clic en **Copy** (Copiar) para copiar el identificador de entidad y pegarlo en el cuadro de texto **Identificador (id. de entidad)** de la sección **Configuración básica de SAML** en Azure Portal.
+    a. Haga clic en **Copy** (Copiar) para copiar el identificador de entidad y pegarlo en el cuadro de texto **Identificador (id. de entidad)** de la sección **Configuración básica de SAML** en Azure Portal.
     
     b. En el cuadro de texto **Azure Federation Metadata URL** (Dirección URL de los metadatos de federación de Azure), pegue el valor de la URL de los metadatos de federación de la aplicación que copió de Azure Portal y haga clic en **Save** (Guardar).
 
@@ -217,5 +217,5 @@ Al hacer clic en el icono de ClickUp del panel de acceso, debería iniciar sesi�
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

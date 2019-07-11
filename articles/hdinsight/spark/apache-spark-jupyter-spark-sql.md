@@ -5,17 +5,17 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 06/12/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 74c5fcfabe0f24127c4eddb3a019f8ea5debe453
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4bfa325017d485a76bfe87c0f7facde4acf8f2b4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066095"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Inicio rápido: Creación de un clúster de Apache Spark en HDInsight mediante una plantilla
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Inicio rápido: Creación de clústeres de Apache Spark en Azure HDInsight con plantillas de Resource Manager
 
 Aprenda a crear clústeres de [Apache Spark](https://spark.apache.org/) en Azure HDInsight y a ejecutar consultas SQL de Spark en tablas de [Apache Hive](https://hive.apache.org/). Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para información sobre Spark en HDInsight, consulte [Introducción a Apache Spark en Azure HDInsight](apache-spark-overview.md).
 
@@ -40,7 +40,7 @@ Cree un clúster de Spark en HDInsight mediante una plantilla de Azure Resource 
 
     | Propiedad | Valor |
     |---|---|
-    |**Suscripción**|Seleccione la suscripción de Azure que se usará para crear este clúster. La suscripción que se usa en esta guía de inicio rápido es **&lt;nombre de suscripción de Azure>**. |
+    |**Suscripción**|Seleccione la suscripción de Azure que se usará para crear este clúster. La suscripción que se usa en esta guía de inicio rápido es **&lt;nombre de suscripción de Azure>** . |
     | **Grupos de recursos**|Cree un grupo de recursos o seleccione uno existente. El grupo de recursos se usa para administrar los recursos de Azure para sus proyectos. El nuevo nombre del grupo de recursos usado para esta guía de inicio rápido es **myspark20180403rg**.|
     | **Ubicación**|Seleccione una ubicación para el grupo de recursos. La plantilla utiliza esta ubicación para crear el clúster, así como para el almacenamiento de clúster predeterminado. La ubicación usada para esta guía de inicio rápido es **Este de EE. UU. 2**.|
     | **ClusterName**|Escriba un nombre para el clúster de HDInsight que va a crear. El nombre del nuevo clúster usado para esta guía de inicio rápido es **myspark20180403**.|

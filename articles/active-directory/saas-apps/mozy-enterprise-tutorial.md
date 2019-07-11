@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 964d7af92b087bd9905113a25513e2b2f7a3df17
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 25e223fc9e8222441e70fefb3c21f951b0ba06c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integración de Azure Active Directory con Mozy Enterprise
 
@@ -52,7 +52,7 @@ Para configurar la integración de Mozy Enterprise en Azure AD, es preciso agreg
 
 **Para agregar Mozy Enterprise desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -75,12 +75,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Mozy Enterprise, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Mozy Enterprise](#configure-mozy-enterprise-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Mozy Enterprise](#create-mozy-enterprise-test-user)**: el objetivo es tener un homólogo de Britta Simon en Mozy Enterprise que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Mozy Enterprise](#configure-mozy-enterprise-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Mozy Enterprise](#create-mozy-enterprise-test-user)** : el objetivo es tener un homólogo de Britta Simon en Mozy Enterprise que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -135,7 +135,7 @@ Para configurar el inicio de sesión único de Azure AD con Mozy Enterprise, rea
    
     ![Directiva de autenticación](./media/mozy-enterprise-tutorial/ic777315.png "Directiva de autenticación")
    
-     a. Seleccione **Servicio de directorio** como **Proveedor**.
+    a. Seleccione **Servicio de directorio** como **Proveedor**.
    
     b. Seleccione **Use LDAP Push**(Usar inserción de LDAP).
    
@@ -224,7 +224,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Mozy Enterprise, d
    
     ![Agregar usuarios](./media/mozy-enterprise-tutorial/ic777318.png "Agregar usuarios")
    
-     a. En la lista **Choose a Group** (Elija un grupo), seleccione un grupo.
+    a. En la lista **Choose a Group** (Elija un grupo), seleccione un grupo.
    
     b. En la lista **Tipo de usuario** , seleccione un tipo.
    
@@ -234,7 +234,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Mozy Enterprise, d
    
     e. Seleccione **Send user instruction email**(Enviar correo electrónico al usuario con instrucciones).
    
-    f. Haga clic en **Add User(s)**(Agregar usuarios).
+    f. Haga clic en **Add User(s)** (Agregar usuarios).
 
      >[!NOTE]
      > Después de crear el usuario, se enviará un correo electrónico al usuario de Azure AD que incluye un vínculo para confirmar la cuenta antes de que se active.
@@ -251,5 +251,5 @@ Al hacer clic en el icono de Mozy Enterprise del panel de acceso, debería inici
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

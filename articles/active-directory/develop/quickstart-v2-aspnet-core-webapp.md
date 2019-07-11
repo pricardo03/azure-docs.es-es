@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 16b11636068c2b5fc8d7591fd7e10a686037d9a4
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190864"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509321"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core
 
@@ -86,6 +86,10 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
 
+> [!div renderon="portal"]
+> > [!NOTE]
+> > Este inicio rápido admite Enter_the_Supported_Account_Info_Here.
+
 > [!div renderon="docs"]
 > Donde:
 > - `Enter_the_Application_Id_here`: es el **Identificador de aplicación (cliente)** de la aplicación que ha registrado en Azure Portal. Puede encontrar el **Identificador de aplicación (cliente)** en la página **Información general** de la aplicación.
@@ -95,7 +99,7 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 >   - Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, reemplace este valor por `common`
 >
 > > [!TIP]
-> > Para buscar los valores de **Identificador de aplicación (cliente)**, **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** en Azure Portal.
+> > Para buscar los valores de **Identificador de aplicación (cliente)** , **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** en Azure Portal.
 
 ## <a name="more-information"></a>Más información
 

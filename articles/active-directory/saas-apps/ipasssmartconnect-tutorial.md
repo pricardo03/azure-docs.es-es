@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 8f8dc8219d65505952f35ad018ef19aeb68d64e9
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 9417d7b957d69dc802ecb2f9f78723eb7aba08ba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Tutorial: integración de Azure Active Directory con iPass SmartConnect
 
@@ -223,7 +223,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 **Para probar la aplicación en el flujo iniciado por SP, realice los pasos siguientes:**
 
- a. Descargue el cliente iPass SmartConnect para Windows [aquí](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
+a. Descargue el cliente iPass SmartConnect para Windows [aquí](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
 
 ![El vínculo de iPass SmartConnect en la lista de aplicaciones](./media/ipasssmartconnect-tutorial/testing3.png)
 
@@ -241,7 +241,7 @@ e. Tras la autenticación correcta, se iniciará la activación del cliente. Se 
 
 **Para probar la aplicación en el flujo iniciado por IdP, realice los pasos siguientes:**
 
- a. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com).
+a. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 b. Haga clic en la aplicación iPass SmartConnect.
 
@@ -261,4 +261,4 @@ f. Se activará el cliente.
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

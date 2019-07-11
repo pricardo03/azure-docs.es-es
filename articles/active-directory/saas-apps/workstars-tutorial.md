@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: db646c48c1332f986840d54127729c766ffb6dd7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c13c6ab180a172c034d25ac84781f5d3f83ae186
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Tutorial: Integración de Azure Active Directory con Workstars
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Workstars, realice l
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Workstars](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://workstars.com`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://workstars.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.workstars.com/saml/login_check`
 
@@ -144,7 +144,7 @@ Para configurar el inicio de sesión único de Azure AD con Workstars, realice l
     
     ![SAML de Workstars](./media/workstars-tutorial/tutorial_workstars_saml.png)
 
-     a. En el cuadro de texto **Nombre del proveedor de identidad**, escriba **Office 365**.
+    a. En el cuadro de texto **Nombre del proveedor de identidad**, escriba **Office 365**.
 
     b. En el cuadro de texto **Identity Provider Entity ID** (Id. de entidad de proveedor de identidades), pegue el valor del campo **Identificador Azure AD** que ha copiado de Azure Portal.
 
@@ -224,5 +224,5 @@ Al hacer clic en el icono de Workstars en el panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

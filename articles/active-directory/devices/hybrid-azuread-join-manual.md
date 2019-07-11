@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db7e2588b03807a42f82fd0fcd4e71855e55c1d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426329"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052134"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido
 
@@ -139,7 +139,7 @@ El cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * Usa el módulo de PowerShell de Active Directory y las herramientas de Azure Active Directory Domain Services (Azure AD DS). Estas herramientas se basan en los servicios web de Active Directory que se ejecutan en un controlador de dominio. Active Directory Web Services es compatible con los controladores de dominio en los que se ejecuta Windows Server 2008 R2, y las versiones posteriores.
 * Solo es compatible con la versión 1.1.166.0 del módulo de MSOnline PowerShell. Para descargar este módulo, use [este vínculo](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
-* Si no se instalan las herramientas de Azure AD DS, `Initialize-ADSyncDomainJoinedComputerSync` producirá un error. Las herramientas de AD DS se pueden instalar mediante el Administrador del servidor en **Características** > **Herramientas de administración de servidor remoto** > **Herramientas de administración de roles**.
+* Si no se instalan las herramientas de AD DS, `Initialize-ADSyncDomainJoinedComputerSync` producirá un error. Las herramientas de AD DS se pueden instalar mediante el Administrador del servidor en **Características** > **Herramientas de administración de servidor remoto** > **Herramientas de administración de roles**.
 
 En los casos de los controladores de dominio en los que se ejecuta Windows Server 2008, o alguna versión anterior, use el siguiente script para crear el punto de conexión de servicio. En una configuración con varios bosques, debe usar el script siguiente para crear el punto de conexión de servicio en cada bosque en el que existan equipos.
 

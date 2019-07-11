@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 31185900ede0fae74a04f98eaecee7379fb1c4fe
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3903e14e8923f6d29f2a88c61aead0cfc605b5b5
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427808"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508677"
 ---
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>Tutorial: Devolución de Azure Data Box Heavy y comprobación de la carga de datos en Azure (versión preliminar)
 
@@ -43,11 +43,11 @@ Antes de comenzar, asegúrese de que:
 ## <a name="ship-data-box-heavy-back"></a>Devolución de Data Box Heavy
 
 1. Asegúrese de que el dispositivo está apagado y de que se quitado todos los cables. Enrolle y coloque de forma segura los cuatro cables de alimentación en la bandeja a la que puede acceder desde la parte posterior del dispositivo.
-2. Si el dispositivo se envía en Estados Unidos o Europa, el transportista es FedEx.
+2. El dispositivo se envía con la tarifa LTL mediante FedEx en los Estados Unidos y DHL en Europa.
 
-    1. Llame al número local del transportista para programar la recogida.
-    2. Póngase en contacto con [Operaciones de Data Box](mailto:DataBoxOps@microsoft.com) para informar sobre la recogida y obtener la etiqueta de envío de devolución.
-    3. Asegúrese de que la etiqueta de envío se muestra en la pantalla de la parte frontal del dispositivo.
+    1. Póngase en contacto con [Operaciones de Data Box](mailto:DataBoxOps@microsoft.com) para informar sobre la recogida y obtener la etiqueta de envío de devolución.
+    2. Llame al número local del transportista para programar la recogida.
+    3. Asegúrese de que la etiqueta de envío se muestra de forma destacada en el exterior del envío.
     4. Asegúrese de que se quitan las etiquetas del envío anterior del dispositivo.
 3. Una vez que el transportista recoge y examina el dispositivo Data Box Heavy, el estado del pedido en el portal se actualiza a **Picked up** (Recogido). También se muestra un identificador de seguimiento.
 

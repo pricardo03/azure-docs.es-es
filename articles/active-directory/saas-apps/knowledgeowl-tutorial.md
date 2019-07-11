@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: b57beb18b8bf7d82694f89e131d79d15c6fcd6bc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ab80b6efef71c71feea1359112d09bae90a7ab84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728299"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098889"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: Integración de Azure Active Directory con KnowledgeOwl
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con KnowledgeOwl, siga e
 
     ![Información sobre el dominio y las direcciones URL de inicio de sesión único de KnowledgeOwl](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
 
     ||
     |-|
@@ -152,7 +152,7 @@ Para configurar el inicio de sesión único de Azure AD con KnowledgeOwl, siga e
     | ------------ | -------------------- | -----|
     | ssoid | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -196,7 +196,7 @@ Para configurar el inicio de sesión único de Azure AD con KnowledgeOwl, siga e
 
     ![Configuración de KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
 
-     a. Seleccione **Enable SAML SSO** (Habilitar SSO de SAML).
+    a. Seleccione **Enable SAML SSO** (Habilitar SSO de SAML).
 
     b. Copie el valor **SP Entity ID** (Id. de identidad de SP) en **Identificador (Id. de entidad)** en la sección **Configuración básica de SAML** de Azure Portal.
 
@@ -294,4 +294,4 @@ Al hacer clic en el icono de KnowledgeOwl en el panel de acceso, debería inicia
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

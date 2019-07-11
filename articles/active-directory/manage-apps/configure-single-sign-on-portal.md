@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa18bc637ec31a1f83b5cab090e008715c5e0c2a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f6707c780931eac58e2a870c321385e63bd948a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825011"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550460"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutorial: Configuración del inicio de sesión único basado en SAML para una aplicación con Azure Active Directory
 
@@ -64,7 +64,7 @@ Para abrir la configuración del inicio de sesión único:
 
 6. En la sección **Administrar**, seleccione **Inicio de sesión único**. 
 
-7. Seleccione **SAML** para configurar el inicio de sesión único. Se muestra la página **Configurar el inicio de sesión único con SAML (versión preliminar)**.
+7. Seleccione **SAML** para configurar el inicio de sesión único. Se muestra la página **Configurar el inicio de sesión único con SAML (versión preliminar)** .
 
 ## <a name="configure-basic-saml-options"></a>Configuración básica de SAML
 
@@ -138,7 +138,7 @@ Para asignar un usuario o grupo a la aplicación:
 
 Ya casi ha terminado.  Como paso final, deberá configurar la aplicación para que use Azure AD como proveedor de identidades SAML. 
 
-1. Desplácese hacia abajo hasta la sección **Configurar<applicationName>**. Para este tutorial, esta sección se denomina **Configurar GitHub-test**. 
+1. Desplácese hacia abajo hasta la sección **Configurar \<applicationName>** . Para este tutorial, esta sección se denomina **Configurar GitHub-test**. 
 2. Copie el valor de cada fila en esta sección. A continuación, pegue cada valor en la fila correspondiente de la sección **Configuración básica de SAML**. Por ejemplo, copie el valor **Dirección URL de inicio de sesión** de la sección **Configurar GitHub-test** y péguelo en el campo **Dirección URL de inicio de sesión** de la sección **Configuración básica de SAML** y así sucesivamente.
 3. Cuando haya pegado todos los valores en los campos correspondientes, seleccione **Guardar**.
 
@@ -147,7 +147,7 @@ Ya casi ha terminado.  Como paso final, deberá configurar la aplicación para q
 Ya está todo listo para probar la configuración.  
 
 1. Abra la configuración de inicio de sesión único para la aplicación. 
-2. Desplácese hasta la sección **Validate single sign-on with <applicationName>** (Validar el inicio de sesión único con <applicationName>). Para este tutorial, esta sección se denomina **Configurar GitHub-test**.
+2. Desplácese hasta la sección **Validate single sign-on with (Validar el inicio de sesión único con) \<applicationName>** . Para este tutorial, esta sección se denomina **Configurar GitHub-test**.
 3. Seleccione **Probar**. Aparecen las opciones de pruebas.
 4. Seleccione **Iniciar sesión en nombre del usuario actual**. Esta prueba le permite ver primero si el inicio de sesión único funciona para usted, el administrador.
 

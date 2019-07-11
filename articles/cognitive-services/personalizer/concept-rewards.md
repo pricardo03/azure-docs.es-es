@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/13/2019
+ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c64d43301fd173203bd1625b8d37120b71c22805
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244246"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077416"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Las puntuaciones de recompensa reflejan el éxito de la personalización.
 
@@ -30,6 +30,18 @@ Las recompensas se envían a Personalizer mediante [Reward API](https://docs.mic
 Las recompensas se envían después de que se haya producido el comportamiento del usuario, lo que podría ser días más tarde. El tiempo máximo que esperará Personalizer hasta que se considere que un evento no tiene ninguna recompensa o una recompensa predeterminada se configura con el [Tiempo de espera de las recompensas](#reward-wait-time) en Azure Portal.
 
 Si no se ha recibido la puntuación de recompensa de un evento en el período del **Tiempo de espera de las recompensas**, se aplicará la **Recompensa predeterminada**. Normalmente, la **[Recompensa predeterminada](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** está configurada en cero.
+
+
+## <a name="behaviors-and-data-to-consider-for-rewards"></a>Comportamientos y datos a considerar para las recompensas
+
+Tenga en cuenta estas señales y estos comportamientos para el contexto de la puntuación de recompensa:
+
+* Entradas directas del usuario para sugerencias cuando hay opciones involucradas ("¿Quiere decir X?").
+* La duración de la sesión.
+* El tiempo entre las sesiones.
+* El análisis de sentimiento de las interacciones del usuario.
+* Preguntas directas y pequeñas encuestas cuando el bot le pide al usuario sus comentarios sobre la utilidad y la precisión.
+* La respuesta a las alertas o el retraso en responder a las alertas.
 
 ## <a name="composing-reward-scores"></a>Composición de las puntuaciones de recompensa
 

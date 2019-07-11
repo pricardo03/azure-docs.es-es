@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 63de2045498b312580640859c1911046f9785d8e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 83a888a28c1d1e51a1fe59649dfb956cd0f72203
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794361"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071420"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage
 
@@ -31,7 +31,7 @@ En la segunda parte de la serie, se aprende a:
 
 Azure Blob Storage proporciona un servicio escalable para almacenar los datos. Para asegurarse de que la aplicación tenga el máximo rendimiento posible, se recomienda comprender el funcionamiento de Blob Storage. Conocer los límites de los blobs de Azure es importante. Para obtener más información acerca de estos límites, visite: [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-La [nomenclatura de las particiones](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) es otro factor importante al diseñar una aplicación de alto rendimiento con blobs. Azure Storage usa un esquema de particiones basado en intervalo para escalar y equilibrar la carga. Esta configuración significa que los archivos con prefijos o convenciones de nomenclatura similares van a la misma partición. Esta lógica incluye el nombre del contenedor donde se cargan los archivos. En este tutorial, usará archivos que tienen GUID de nombres, así como contenido generado de manera aleatoria. Estos se cargan posteriormente en cinco contenedores diferentes con nombres aleatorios.
+La [nomenclatura de las particiones](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) es otro factor posiblemente importante al diseñar una aplicación de alto rendimiento con blobs. En el caso de tamaños de bloques mayores o iguales que 4 MiB, se usan los [blobs en bloques de alto rendimiento](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) y la nomenclatura de las particiones no afectará el rendimiento. En el caso de tamaños de bloques menores de 4 MiB, Azure Storage usa un esquema de partición basado en intervalo para escalar y equilibrar la carga. Esta configuración significa que los archivos con prefijos o convenciones de nomenclatura similares van a la misma partición. Esta lógica incluye el nombre del contenedor donde se cargan los archivos. En este tutorial, usará archivos que tienen GUID de nombres, así como contenido generado de manera aleatoria. Estos se cargan posteriormente en cinco contenedores diferentes con nombres aleatorios.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

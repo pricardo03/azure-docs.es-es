@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc8431e2c45cc3bfdfa08dd0078220ab2d290309
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 883620d6aa25f71a454c7add6d60e38b4974facf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905391"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087663"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Tutorial: Integración de Azure Active Directory con Velpic SAML
 
@@ -54,7 +54,7 @@ Para configurar la integración de Velpic SAML en Azure AD, es preciso agregar V
 
 **Para agregar Velpic SAML desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Velpic SAML, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Velpic SAML](#configure-velpic-saml-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Velpic SAML](#create-velpic-saml-test-user)**: para tener un homólogo de Britta Simon en Velpic SAML que esté vinculado a su representación en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Velpic SAML](#configure-velpic-saml-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Velpic SAML](#create-velpic-saml-test-user)** : para tener un homólogo de Britta Simon en Velpic SAML que esté vinculado a su representación en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -106,9 +106,9 @@ Para configurar el inicio de sesión único de Azure AD con Velpic SAML, realice
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Velpic SAML](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub-domain>.velpicsaml.net`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub-domain>.velpicsaml.net`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://auth.velpic.com/saml/v2/<entity-id>/login`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://auth.velpic.com/saml/v2/<entity-id>/login`
 
     > [!NOTE]
     > Tenga en cuenta que la URL de inicio de sesión se la proporcionará el equipo de Velpic SAML y el valor del identificador estará disponible cuando configure el complemento de SSO en Velpic SAML. Tiene que copiar ese valor de la página de la aplicación Velpic SAML y pegarlo aquí.
@@ -151,7 +151,7 @@ Para configurar el inicio de sesión único de Azure AD con Velpic SAML, realice
 
     ![Complemento](./media/velpicsaml-tutorial/velpic_5.png)
 
-     a. En el cuadro de texto **Name** (Nombre), escriba el nombre del complemento SAML.
+    a. En el cuadro de texto **Name** (Nombre), escriba el nombre del complemento SAML.
 
     b. En el cuadro de texto **Issuer URL** (URL del emisor), pegue el **Id. de Azure AD** que copió de la ventana **Configurar inicio de sesión** de Azure Portal.
 
@@ -227,7 +227,7 @@ Inicie sesión como administrador en su sitio de la compañía de Velpic SAML y 
 
     ![user](./media/velpicsaml-tutorial/velpic_8.png)
     
-     a. En el cuadro de texto **Nombre**, escriba Britta.
+    a. En el cuadro de texto **Nombre**, escriba Britta.
 
     b. En el cuadro de texto **Apellido**, escriba el apellido Simon.
 
@@ -255,5 +255,5 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

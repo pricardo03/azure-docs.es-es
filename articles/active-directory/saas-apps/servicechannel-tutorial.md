@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce9573f78b6e8a9db65f35b7fc7711a8d3534508
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cedf625beabfb12a459a7fd7c2120250e267772c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091056"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Tutorial: Integración de Azure Active Directory con ServiceChannel
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con ServiceChannel, siga
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ServiceChannel](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba el valor como: `http://adfs.<domain>.com/adfs/service/trust`
+    a. En el cuadro de texto **Identificador**, escriba el valor como: `http://adfs.<domain>.com/adfs/service/trust`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<customer domain>.servicechannel.com/saml/acs`
 
@@ -127,9 +127,9 @@ Para configurar el inicio de sesión único de Azure AD con ServiceChannel, siga
 
     | NOMBRE   |  Atributo de origen |
     | ------ | --- |
-    | Rol   | user.assignedroles |
+    | Role   | user.assignedroles |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -232,4 +232,4 @@ Al hacer clic en el icono de ServiceChannel del panel de acceso, debería inicia
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

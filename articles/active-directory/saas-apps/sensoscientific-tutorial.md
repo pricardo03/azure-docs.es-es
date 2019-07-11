@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dc228f3473a4ddca8b5b68cdd99f1fced1a04cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ea2f5e33859852388357526052c39fa432471efb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922242"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integración de Azure Active Directory con SensoScientific Wireless Temperature Monitoring System
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con SensoScientific Wire
 
     ![Configurar inicio de sesión único](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_admin.png)
 
-     a. Seleccione **Issuer Name** (Nombre del emisor) como Azure AD.
+    a. Seleccione **Issuer Name** (Nombre del emisor) como Azure AD.
 
     b. En el cuadro de texto **URL del emisor**, pegue el **Identificador de Azure AD** que ha copiado de Azure Portal.
 
@@ -206,5 +206,5 @@ Al hacer clic en el icono de SensoScientific Wireless Temperature Monitoring Sys
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

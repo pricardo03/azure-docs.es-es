@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33c2d211fad16a81a307a5c0f2a9d048ef07bf4d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f58d6cbc6ec04e51e105662dff31c60ff502584c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904186"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093354"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integración de Azure Active Directory con Questetra BPM Suite
 
@@ -53,7 +53,7 @@ Para configurar la integración de Questetra BPM Suite en Azure AD, deberá agre
 
 **Para agregar Questetra BPM Suite desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Questetra BPM Suite, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Questetra BPM Suite](#configure-questetra-bpm-suite-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Questetra BPM Suite](#create-questetra-bpm-suite-test-user)**: para tener un homólogo de Britta Simon en Questetra BPM Suite vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Questetra BPM Suite](#configure-questetra-bpm-suite-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Questetra BPM Suite](#create-questetra-bpm-suite-test-user)** : para tener un homólogo de Britta Simon en Questetra BPM Suite vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,9 +105,9 @@ Para configurar el inicio de sesión único de Azure AD con Questetra BPM Suite,
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Questetra BPM Suite](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.questetra.net/`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<subdomain>.questetra.net/`
 
     > [!NOTE]
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Puede obtener estos valores de la sección **SP Information** (Información de soporte técnico) del sitio de **Questetra BPM Suite** de la empresa, que se explica más adelante en el tutorial, o al ponerse en contacto con el [equipo de atención al cliente de Questetra BPM Suite](https://www.questetra.com/contact/). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -132,15 +132,15 @@ Para configurar el inicio de sesión único de Azure AD con Questetra BPM Suite,
 
 2. En el menú de la parte superior, haga clic en **Configuración del sistema**. 
    
-    ![Inicio de sesión único de Azure AD ][10]
+    ![Inicio de sesión único de Azure AD][10]
 
-3. Para abrir la página **SingleSignOnSAML**, haga clic en **SSO (SAML)**. 
+3. Para abrir la página **SingleSignOnSAML**, haga clic en **SSO (SAML)** . 
    
-    ![Inicio de sesión único de Azure AD ][11]
+    ![Inicio de sesión único de Azure AD][11]
 
 4. En el sitio **Questetra BPM Suite** de la empresa, en la sección **SP información** (Información de soporte técnico), lleve a cabo los pasos siguientes:
 
-     a. Copie el valor de **ACS URL** (URL de ACS) y péguelo en el cuadro de texto **URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal.
+    a. Copie el valor de **ACS URL** (URL de ACS) y péguelo en el cuadro de texto **URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal.
     
     b. Copie el valor de **Entity Id** (Identificador de entidad) y péguelo en el cuadro de texto **Identificador** de la sección **Configuración básica de SAML** de Azure Portal.
 
@@ -148,7 +148,7 @@ Para configurar el inicio de sesión único de Azure AD con Questetra BPM Suite,
    
     ![Configurar inicio de sesión único][15]
    
-     a. Seleccione **Enable Single Sign-On**(Habilitar inicio de sesión único).
+    a. Seleccione **Enable Single Sign-On**(Habilitar inicio de sesión único).
    
     b. En el cuadro de texto **Entity Id** (Identificador de entidad), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
     
@@ -226,7 +226,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
    
     ![Creación de un usuario de prueba][300] 
    
-     a. En el cuadro de texto **Name** (Nombre), escriba el **nombre** del usuario: britta.simon@contoso.com.
+    a. En el cuadro de texto **Name** (Nombre), escriba el **nombre** del usuario: britta.simon@contoso.com.
    
     b. En el cuadro de texto **Email** (Correo electrónico), escriba el **correo electrónico** del usuario: britta.simon@contoso.com.
    
@@ -246,7 +246,7 @@ Al hacer clic en el icono de Questetra BPM Suite en el panel de acceso y deberí
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

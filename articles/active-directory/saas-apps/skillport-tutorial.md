@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 6bf79907feb4ec3b3747316f62102d2c235d407c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 09ccb9f095e58d8fa22ec3d119853c729f0c7026
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689213"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090571"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: Integración de Azure Active Directory con Skillport
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Skillport, realice l
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Skillport](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL:
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL:
 
     Centro de datos de UE: `https://adfs.skillport.eu`
 
@@ -208,5 +208,5 @@ Al hacer clic en el icono de Skillport en el panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

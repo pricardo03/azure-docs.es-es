@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e51c37f983162b82747760b05e2ec5e4e6553c0b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106938"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integración de Azure Active Directory con AnswerHub
 
@@ -105,7 +105,7 @@ En esta sección, configura el inicio de sesión único de Azure AD en Azure Por
 
     ![Sección Configuración básica de SAML](common/sp-identifier.png)
 
-     a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<company>.answerhub.com`
+    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<company>.answerhub.com`
 
     b. En el cuadro **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente formato: `https://<company>.answerhub.com`
 
@@ -146,7 +146,7 @@ En esta sección puede configurar el inicio de sesión único de AnswerHub.
 
     ![Pestaña Users & Groups (Usuarios y grupos)](./media/answerhub-tutorial/ic785172.png "SAML Setup (Configuración de SAML)")  
   
-     a. En el cuadro **IDP Login URL** (URL de inicio de sesión de IDP), pegue la **dirección URL de inicio de sesión** que copió de Azure Portal.
+    a. En el cuadro **IDP Login URL** (URL de inicio de sesión de IDP), pegue la **dirección URL de inicio de sesión** que copió de Azure Portal.
   
     b. En el cuadro **IDP Logout URL** (URL de cierre de sesión de IDP), pegue la **dirección URL de cierre de sesión** que copió de Azure Portal.
 
@@ -158,7 +158,7 @@ En esta sección puede configurar el inicio de sesión único de AnswerHub.
 
     ![Sección Claves y certificados](./media/answerhub-tutorial/ic785173.png "Claves y certificados")  
 
-     a. En el Bloc de notas, abra el certificado codificado en Base 64 que descargó de Azure Portal, copie el contenido y, a continuación, péguelo en el cuadro **IDP Public Key (x509 Format)** [Clave pública de IDP (formato x509)].
+    a. En el Bloc de notas, abra el certificado codificado en Base 64 que descargó de Azure Portal, copie el contenido y, a continuación, péguelo en el cuadro **IDP Public Key (x509 Format)** [Clave pública de IDP (formato x509)].
   
     b. Seleccione **Guardar**.
 
@@ -182,7 +182,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Por
 
     ![Propiedades de usuario](common/user-properties.png)
 
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
   
     b. En el cuadro **Nombre de usuario**, escriba **brittasimon\@<yourcompanydomain.extension>** .  
     Por ejemplo, BrittaSimon@contoso.com.
@@ -254,5 +254,5 @@ Al seleccionar el icono de AnswerHub en el panel de acceso, debería iniciar ses
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

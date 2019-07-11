@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 176e0c80b4b1c70c3f49a35ae04d6233bc080f43
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 63d7b6af8ff76c890b98c29ded0e8bdc637b45dd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Tutorial: Integración de Azure Active Directory con RFPIO
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con RFPIO, realice los p
 
     ![Información de dominio y direcciones URL de inicio de sesión único de RFPIO](common/idp-identifier.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.rfpio.com`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.rfpio.com`
 
     b. Haga clic en **Establecer direcciones URL adicionales**.
 
@@ -161,7 +161,7 @@ Para configurar el inicio de sesión único de Azure AD con RFPIO, realice los p
 
     ![Configurar inicio de sesión único](./media/rfpio-tutorial/app5.png)
     
-     a. Copie el contenido del archivo **XML de metadatos descargado** y péguelo en el campo **identity configuration** (Configuración de identidad).
+    a. Copie el contenido del archivo **XML de metadatos descargado** y péguelo en el campo **identity configuration** (Configuración de identidad).
 
     > [!NOTE]
     >Para copiar el contenido del archivo **XML de metadatos de federación** descargado, use **Notepad++** o un **Editor XML** adecuado.
@@ -246,7 +246,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Configurar inicio de sesión único](./media/rfpio-tutorial/app8.png)
 
-     a. Escriba la **dirección de correo electrónico** en el campo **Enter one email per line** (Escribir un correo electrónico por línea).
+    a. Escriba la **dirección de correo electrónico** en el campo **Enter one email per line** (Escribir un correo electrónico por línea).
 
     b. Seleccione **Role** (Role) de acuerdo con sus requisitos.
 
@@ -267,5 +267,5 @@ Al hacer clic en el icono de RFPIO en el panel de acceso, debería iniciar sesi�
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

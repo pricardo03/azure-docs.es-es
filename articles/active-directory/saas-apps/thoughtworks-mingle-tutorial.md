@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5acf02c021fdfd9f85eeb2b6b1c697ce92c48a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866081"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Integración de Azure Active Directory con Thoughtworks Mingle
 
@@ -53,7 +53,7 @@ Para configurar la integración de Thoughtworks Mingle en Azure AD, deberá agre
 
 **Para agregar Thoughtworks Mingle desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Thoughtworks Mingle, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Thoughtworks Mingle](#configure-thoughtworks-mingle-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Thoughtworks Mingle](#create-thoughtworks-mingle-test-user)**: para tener un homólogo de Britta Simon en Thoughtworks Mingle que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en Thoughtworks Mingle](#configure-thoughtworks-mingle-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Thoughtworks Mingle](#create-thoughtworks-mingle-test-user)** : para tener un homólogo de Britta Simon en Thoughtworks Mingle que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -136,7 +136,7 @@ Para configurar el inicio de sesión único de Azure AD con Thoughtworks Mingle,
    
     ![Configuración de SSO](./media/thoughtworks-mingle-tutorial/ic785158.png "Configuración de SSO")
     
-     a. Para cargar el archivo de metadatos, haga clic en **Elegir archivo**. 
+    a. Para cargar el archivo de metadatos, haga clic en **Elegir archivo**. 
 
     b. Haga clic en **Guardar cambios**.
 
@@ -214,7 +214,7 @@ Para que los usuarios de Azure AD puedan iniciar sesión, deben aprovisionarse e
    
     ![Cuadro de diálogo Nuevo usuario](./media/thoughtworks-mingle-tutorial/ic785163.png "Nuevo usuario")  
  
-     a. En los cuadros de texto **Sign-in name** (Nombre de inicio de sesión), **Display name** (Nombre para mostrar), **Choose password** (Elegir contraseña) y **Confirm password** (Confirmar contraseña), escriba la información pertinente de una cuenta de Azure AD válida que desee aprovisionar. 
+    a. En los cuadros de texto **Sign-in name** (Nombre de inicio de sesión), **Display name** (Nombre para mostrar), **Choose password** (Elegir contraseña) y **Confirm password** (Confirmar contraseña), escriba la información pertinente de una cuenta de Azure AD válida que desee aprovisionar. 
 
     b. En **User type** (Tipo de usuario), seleccione **Full user** (Usuario completo).
 
@@ -236,5 +236,5 @@ Al hacer clic en el icono de Thoughtworks Mingle en el panel de acceso, debería
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 91b61e88d876f481e74b8f2295b6fffced3f7902
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921354"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065583"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creación de su primera función durable en JavaScript
 
@@ -32,7 +32,7 @@ Para completar este tutorial:
 
 * Instale [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Asegúrese de que tiene las [herramientas de Azure Functions más recientes](../functions-develop-vs.md#check-your-tools-version).
+* Asegúrese de tener la versión más reciente de [Azure Functions Core Tools](../functions-run-local.md).
 
 * En un equipo Windows, compruebe que tiene el [Emulador de Azure Storage](../../storage/common/storage-use-emulator.md) instalado y ejecutándose. En un equipo Mac o Linux, debe usar una cuenta de Azure Storage real.
 
@@ -48,69 +48,61 @@ Para completar este tutorial:
 
 1. Instale el paquete npm `durable-functions` mediante la ejecución de `npm install durable-functions` en el directorio raíz de la aplicación de función.
 
-## <a name="create-a-starter-function"></a>Creación de una función de inicio
+## <a name="creating-your-functions"></a>Creación de las funciones
+
+Ahora crearemos las tres funciones necesarias para empezar a usar Durable Functions: un inicio de HTTP, un orquestador y una función de actividad. El inicio de HTTP iniciará toda la solución y el orquestador enviará el trabajo a varias funciones de actividad.
+
+### <a name="http-starter"></a>Inicio de HTTP
 
 En primer lugar, cree una función desencadenada por HTTP que inicie una orquestación de función durable.
 
-1. En **Azure: Functions**, elija el icono Crear función.
+1. En *Azure: Functions*, elija el icono **Crear función**.
 
     ![Creación de una función](./media/quickstart-js-vscode/create-function.png)
 
-2. Seleccione la carpeta con el proyecto de la aplicación de función y seleccione la plantilla de función del **desencadenador HTTP**.
+2. Seleccione la carpeta con el proyecto de la aplicación de funciones y seleccione la plantilla de función **Inicio de HTTP de Durable Functions**.
 
-    ![Elegir la plantilla del desencadenador HTTP](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Elección de la plantilla de inicio de HTTP](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Escriba `HttpStart` como nombre de la función y presione ENTRAR y, a continuación, seleccione la opción de autenticación **Anónimo**.
+3. Deje el nombre predeterminado como `DurableFunctionsHttpStart`, presione ****ENTRAT** y, luego, seleccione la autenticación **Anónima**.
 
     ![Elegir autenticación anónima](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
-    Se crea una función en el lenguaje elegido mediante la plantilla para una función desencadenada por HTTP.
-
-4. Reemplace index.js por el siguiente código JavaScript:
-
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
-
-5. Reemplace function.json por el siguiente código JSON:
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
-
 Ahora hemos creado un punto de entrada en nuestra función durable. Vamos a agregar un orquestador.
 
-## <a name="create-an-orchestrator-function"></a>Creación de una función de orquestador
+### <a name="orchestrator"></a>Orquestador
 
-A continuación, cree otra función para que sea el orquestador. Para mayor comodidad, usamos la plantilla de función de desencadenador HTTP. El código de la propia función se reemplaza por el código del orquestador.
+Ahora crearemos un orquestador para coordinar las funciones de actividad.
 
-1. Repita los pasos de la sección anterior para crear una segunda función mediante la plantilla de desencadenador HTTP. Esta vez, llame a la función `OrchestratorFunction`.
+1. En *Azure: Functions*, elija el icono **Crear función**.
 
-2. Abra el archivo index.js de la nueva función y reemplace el contenido por el código siguiente:
+    ![Creación de una función](./media/quickstart-js-vscode/create-function.png)
 
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+2. Seleccione la carpeta con el proyecto de la aplicación de funciones y seleccione la plantilla de función **Orquestador de Durable Functions**. Deje el nombre como el valor predeterminado "DurableFunctionsOrchestrator".
 
-3. Abra el archivo function.json y reemplácelo por el siguiente código JSON:
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
+    ![Elección de la plantilla del orquestador](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 Hemos agregado un orquestador para coordinar las funciones de actividad. Ahora agregaremos la función de actividad a la que se hace referencia.
 
-## <a name="create-an-activity-function"></a>Creación de una función de actividad
+### <a name="activity"></a>Actividad
 
-1. Repita los pasos de la sección anterior para crear una tercera función mediante la plantilla de desencadenador HTTP. Esta vez, llame a la función `E1_SayHello`.
+Ahora crearemos una función de actividad para llevar a cabo realmente el trabajo de la solución.
 
-2. Abra el archivo index.js de la nueva función y reemplace el contenido por el código siguiente:
+1. En *Azure: Functions*, elija el icono **Crear función**.
 
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+    ![Creación de una función](./media/quickstart-js-vscode/create-function.png)
 
-3. Reemplace function.json por el siguiente código JSON:
+2. Seleccione la carpeta con el proyecto de la aplicación de funciones y seleccione la plantilla de función **Actividad de Durable Functions**. Deje el nombre como el valor predeterminado "Hello".
 
-    [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
+    ![Elección de la plantilla de actividad](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 Ya hemos agregado todos los componentes necesarios para iniciar una orquestación y encadenar funciones de actividad.
 
 ## <a name="test-the-function-locally"></a>Prueba local de la función
 
-Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en el equipo de desarrollo local. Se le solicita que instale estas herramientas la primera vez que inicie una función de Visual Studio Code.  
+Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en el equipo de desarrollo local. Se le solicita que instale estas herramientas la primera vez que inicie una función de Visual Studio Code.
 
-1. En un equipo Windows, inicie el Emulador de Azure Storage y asegúrese de que la propiedad **AzureWebJobsStorage** de local.settings.json está establecida en `UseDevelopmentStorage=true`. 
+1. En un equipo Windows, inicie el Emulador de Azure Storage y asegúrese de que la propiedad **AzureWebJobsStorage** de *local.settings.json* está establecida en `UseDevelopmentStorage=true`.
 
     En el caso de Storage Emulator 5.8, asegúrese de que la propiedad **AzureWebJobsSecretStorageType** de local.settings.json está establecida en `files`. En un equipo Mac o Linux, debe establecer la propiedad **AzureWebJobsStorage** en la cadena de conexión de una cuenta de Azure Storage existente. Más adelante en este artículo creará una cuenta de almacenamiento.
 
@@ -123,9 +115,9 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
 
     ![Salida local de Azure](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. Reemplace `{functionName}` por `OrchestratorFunction`.
+4. Reemplace `{functionName}` por `DurableFunctionsOrchestrator`.
 
-5. Mediante una herramienta como [Postman](https://www.getpostman.com/) o [cURL](https://curl.haxx.se/), envíe una petición HTTP POST al punto de conexión de la dirección URL.
+5. Mediante una herramienta como [Postman](https://www.getpostman.com/) o [cURL](https://curl.haxx.se/), envíe una solicitud HTTP POST al punto de conexión de la dirección URL.
 
    La respuesta es el resultado inicial de la función HTTP que informa de que la orquestación durable se ha iniciado correctamente. No es aún el resultado final de la orquestación. La respuesta incluye algunas direcciones URL útiles. De momento, vamos a consultar el estado de la orquestación.
 

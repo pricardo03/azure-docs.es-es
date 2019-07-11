@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d4b154b8ce55c381f1398c696bc439067dccfab
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bdfd19d9a0e928e26ad6f01ba4b9c3f493aacb0c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integración de Azure Active Directory en Cloud Service (inicio de sesión único basado en roles)
 
@@ -112,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con Alibaba Cloud Servic
     >[!NOTE]
     >Obtendrá los metadatos del proveedor de servicios de esta [dirección URL](https://signin.alibabacloud.com/saml-role/sp-metadata.xml)
 
-     a. Haga clic en **Cargar el archivo de metadatos**.
+    a. Haga clic en **Cargar el archivo de metadatos**.
 
     ![imagen](common/upload-metadata.png)
 
@@ -135,13 +135,13 @@ Para configurar el inicio de sesión único de Azure AD con Alibaba Cloud Servic
 
     | NOMBRE | Espacio de nombres | Atributo de origen|
     | ---------------| ------------| --------------- |
-    | Rol | https:\//www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
+    | Role | https:\//www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
     | RoleSessionName | https:\//www.aliyun.com/SAML-Role/Attribute | user.userprincipalname |
 
     > [!NOTE]
     > Haga clic [aquí](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) para saber cómo configurar el valor **Role** en Azure AD.
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -190,7 +190,7 @@ Para configurar el inicio de sesión único de Azure AD con Alibaba Cloud Servic
 
 7. Asocie el rol de la RAM de Alibaba Cloud Service (AADrole) con el usuario de Azure AD (u2): Para asociar el rol de la RAM con el usuario de Azure AD, debe crear un rol en Azure AD mediante estos pasos:
 
-     a. Inicie sesión en el [Explorador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
+    a. Inicie sesión en el [Explorador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
 
     b. Haga clic en **Modificar permisos** para obtener los permisos necesarios para crear un rol.
 
@@ -270,7 +270,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
 
@@ -339,5 +339,5 @@ Una vez completadas las configuraciones anteriores, pruebe Alibaba Cloud Service
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

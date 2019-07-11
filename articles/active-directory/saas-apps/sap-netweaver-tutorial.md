@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 01a70bfbb169090fbdf4b5f8e00af6895f69c964
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903532"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091916"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integración de Azure Active Directory con SAP NetWeaver
 
@@ -54,7 +54,7 @@ Para configurar la integración de SAP NetWeaver en Azure AD, deberá agregar es
 
 **Para agregar SAP NetWeaver desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con SAP NetWeaver, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de SAP NetWeaver](#configure-sap-netweaver-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de SAP NetWeaver](#create-sap-netweaver-test-user)**: el objetivo es tener un homólogo de Britta Simon en SAP NetWeaver que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de SAP NetWeaver](#configure-sap-netweaver-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de SAP NetWeaver](#create-sap-netweaver-test-user)** : el objetivo es tener un homólogo de Britta Simon en SAP NetWeaver que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -96,7 +96,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP NetWeaver, reali
 
 3. Inicie sesión en el cliente empresarial del sistema de SAP (T01) donde se requiere el inicio de sesión único y active la administración de sesiones de seguridad HTTP.
 
-     a. Vaya al código de transacción **SICF_SESSIONS**. Se muestran todos los parámetros de perfil correspondientes con sus valores actuales. Se ven como se muestra a continuación:
+    a. Vaya al código de transacción **SICF_SESSIONS**. Se muestran todos los parámetros de perfil correspondientes con sus valores actuales. Se ven como se muestra a continuación:
     ```
     login/create_sso2_ticket = 2
     login/accept_sso2_ticket = 1
@@ -143,7 +143,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP NetWeaver, reali
 
     ![Vínculo de descarga del certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
 
-     a. Vaya a **la pestaña Proveedor local**.
+    a. Vaya a **la pestaña Proveedor local**.
 
     b. Haga clic en **Metadatos**.
 
@@ -163,7 +163,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP NetWeaver, reali
 
 11. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-     a. Haga clic en **Cargar archivo de metadatos** para cargar el **archivo de metadatos del proveedor de servicios** que obtuvo anteriormente.
+    a. Haga clic en **Cargar archivo de metadatos** para cargar el **archivo de metadatos del proveedor de servicios** que obtuvo anteriormente.
 
     ![Carga del archivo de metadatos](common/upload-metadata.png)
 
@@ -190,13 +190,13 @@ Para configurar el inicio de sesión único de Azure AD con SAP NetWeaver, reali
 
 13. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
 
-     a. Haga clic en el **icono Editar** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en el **icono Editar** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](./media/sapnetweaver-tutorial/nameidattribute.png)
 
     ![imagen](./media/sapnetweaver-tutorial/nameidattribute1.png)
 
-    b. En la lista **Transformación**, seleccione **ExtractMailPrefix()**.
+    b. En la lista **Transformación**, seleccione **ExtractMailPrefix()** .
 
     c. En la lista **Parámetro 1**, seleccione **user.userprinicipalname**.
 
@@ -272,7 +272,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP NetWeaver, reali
 
     #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Escenario: Usuario SAP para la asignación de usuario de Azure AD.
 
-     a. Captura de pantalla de los detalles de NameID de SAP.
+    a. Captura de pantalla de los detalles de NameID de SAP.
 
     ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/nameiddetails.png)
 
@@ -282,7 +282,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP NetWeaver, reali
 
     #### <a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Escenario: Seleccione el identificador de usuario SAP según la dirección de correo electrónico configurada en SU01. En este caso, el id. de correo electrónico debe configurarse en su01 para cada usuario que requiera del inicio de sesión único.
 
-     a.  Captura de pantalla de los detalles de NameID de SAP.
+    a.  Captura de pantalla de los detalles de NameID de SAP.
 
     ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
 
@@ -380,4 +380,4 @@ En esta sección, creará un usuario llamado Britta Simon en SAP NetWeaver. Cola
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

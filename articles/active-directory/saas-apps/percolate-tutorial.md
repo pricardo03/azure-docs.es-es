@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 83027e9fbc1826de727f123afe4507c2858c49ff
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: a6c1f893757baf1e6c85420b31997a5073cff684
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560563"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094596"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integración de Azure Active Directory con Percolate
 
@@ -118,7 +118,7 @@ Para configurar el inicio de sesión único de Azure AD con Percolate, haga lo s
 
     1. **Dirección URL de inicio de sesión**
 
-    1. **Identificador de Azure AD**
+    1. **Identificador de Azure AD**.
 
     1. **Dirección URL de cierre de sesión**
 
@@ -152,7 +152,7 @@ Para configurar el inicio de sesión único de Azure AD con Percolate, haga lo s
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Portal.
+En esta sección creará un usuario de prueba llamado Britta Simon en Azure Portal.
 
 1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**:
 
@@ -196,7 +196,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** situado en la parte inferior de la pantalla.
+6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 7. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
 
@@ -234,4 +234,4 @@ Al seleccionar el icono de Percolate en el Panel de acceso, debería iniciar ses
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

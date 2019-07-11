@@ -6,25 +6,24 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 04/19/2019
-ms.openlocfilehash: 0582fa8b26bee05e4d2948037cc39a71ed656fce
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 06/12/2019
+ms.openlocfilehash: 266d6160562d5a97bde75597216338214f3d988d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243952"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441424"
 ---
-# <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>¿Qué es Enterprise Security Package en Azure HDInsight
+# <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Qué es Enterprise Security Package en Azure HDInsight
 
 En el pasado, Azure HDInsight solo era compatible con un único usuario: el administrador local. Esto funcionaba muy bien para departamentos o equipos de aplicaciones menores. A medida que la popularidad de las cargas de trabajo basadas en Apache Hadoop aumentaba en el sector empresarial, fue creciendo la necesidad de funcionalidades de tipo empresarial, tales como la autenticación basada en Active Directory, la compatibilidad con múltiples usuarios y el control de acceso basado en rol. 
 
-Puede crear un clúster de HDInsight con Enterprise Security Package (ESP) que esté unido a un dominio de Active Directory. A continuación, puede configurar una lista de empleados de la empresa que pueden autenticarse a través de Azure Active Directory para iniciar sesión en el clúster de HDInsight. Nadie desde fuera de la empresa puede iniciar sesión o acceder al clúster de HDInsight. 
+Puede crear un clúster de HDInsight con Enterprise Security Package (ESP) que esté unido a un dominio de Active Directory. Luego puede configurar una lista de empleados de la empresa que pueden autenticarse a través de Azure Active Directory para iniciar sesión en el clúster de HDInsight. Nadie fuera de la empresa puede iniciar sesión ni acceder al clúster de HDInsight. 
 
-El administrador de la empresa puede configurar el control de acceso basado en rol (RBAC) para la seguridad de Apache Hive mediante el uso de [Apache Ranger](https://hortonworks.com/apache/ranger/). Configurar el RBAC restringe el acceso solo a los datos necesarios. Por último, el administrador puede auditar el acceso a los datos de los empleados y todos los cambios que se realizan en las directivas de control de acceso. El administrador puede lograr un alto grado de gobernanza de sus recursos corporativos.
+El administrador de la empresa puede configurar el control de acceso basado en rol (RBAC) para la seguridad de Apache Hive mediante el uso de [Apache Ranger](https://ranger.apache.org/). Configurar el RBAC restringe el acceso solo a los datos necesarios. Por último, el administrador puede auditar el acceso a los datos de los empleados y todos los cambios que se realizan en las directivas de control de acceso. El administrador puede lograr un alto grado de gobernanza de sus recursos corporativos.
 
-> [!NOTE]  
-> Apache Oozie está habilitado ahora en los clústeres ESP. Para tener acceso a la interfaz de usuario web de Oozie, los usuarios deben habilitar la [tunelización](../hdinsight-linux-ambari-ssh-tunnel.md).
+Apache Oozie está habilitado ahora en los clústeres ESP. Para tener acceso a la interfaz de usuario web de Oozie, los usuarios deben habilitar la [tunelización](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 La seguridad empresarial incluye cuatro pilares importantes: seguridad del perímetro, autenticación, autorización y cifrado.
 
@@ -38,30 +37,27 @@ Otro nivel de seguridad del perímetro se logra mediante el servicio de VPN Gate
 ## <a name="authentication"></a>Authentication
 Un administrador de empresa puede crear un clúster de HDInsight con ESP en una [red virtual](https://azure.microsoft.com/services/virtual-network/). Todos los nodos del clúster de HDInsight se unen al dominio administrado por la empresa. Esto se logra mediante el uso de [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). 
 
-Con esta configuración, empleados de la empresa pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticarse con otros puntos de conexión aprobados tales como Apache Ambari Views, ODBC, JDBC, PowerShell y las API REST para interactuar con el clúster. El administrador tiene control total sobre la limitación del número de usuarios que interactúan con el clúster mediante estos puntos de conexión.
+Con esta configuración, los empleados de la empresa pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticarse con otros puntos de conexión aprobados tales como Apache Ambari Views, ODBC, JDBC, PowerShell y las API REST para interactuar con el clúster. El administrador tiene control total sobre la limitación del número de usuarios que interactúan con el clúster mediante estos puntos de conexión.
 
-## <a name="authorization"></a>Autorización
+## <a name="authorization"></a>Authorization
 Un procedimiento recomendado que la mayoría de las empresas sigue es que no todos los empleados tengan acceso a todos los recursos de la empresa. Asimismo, el administrador puede definir directivas de control de acceso basado en rol para los recursos del clúster. 
 
-Por ejemplo, puede configurar el administrador [Apache Ranger](https://hortonworks.com/apache/ranger/) para establecer las directivas de control de acceso para Hive. Esta funcionalidad garantiza que los empleados solo pueden acceder a los datos que necesitan para realizar correctamente sus trabajos. El acceso SSH al clúster también está restringido solo al administrador.
+Por ejemplo, puede configurar el administrador [Apache Ranger](https://ranger.apache.org/) para establecer las directivas de control de acceso para Hive. Esta funcionalidad garantiza que los empleados solo pueden acceder a los datos que necesitan para realizar correctamente sus trabajos. El acceso SSH al clúster también está restringido solo al administrador.
 
 ## <a name="auditing"></a>Auditoría
 Auditar todos los acceso a los recursos de clúster, y los datos, es necesario para hacer seguimiento del acceso no autorizado o accidental de los recursos. Es tan importante como proteger los recursos de clúster de HDInsight contra usuarios no autorizados y proteger los datos. 
 
 El administrador puede ver y notificar todos los accesos a los recursos y los datos del clúster de HDInsight. El administrador también puede ver y notificar todos los cambios en las directivas de control de acceso creados en los puntos de conexión de Apache Ranger compatibles. 
 
-Un clúster de HDInsight con ESP utiliza la conocida interfaz de usuario de Apache Ranger para buscar registros de auditoría. En el back-end, Ranger usa [Apache Solr](https://hortonworks.com/apache/solr/) para almacenar y buscar en los registros.
+Un clúster de HDInsight con ESP utiliza la conocida interfaz de usuario de Apache Ranger para buscar registros de auditoría. En el back-end, Ranger usa [Apache Solr](https://lucene.apache.org/solr/) para almacenar y buscar en los registros.
 
 ## <a name="encryption"></a>Cifrado
 Proteger los datos es importante para cumplir con los requisitos de cumplimiento y de seguridad de la organización. Además de restringir el acceso de empleados no autorizados a los datos, es necesario cifrarlos. 
 
-Ambos almacenes de datos para clústeres de HDInsight (Azure Blob Storage y Azure Data Lake Storage Gen1/Gen2) admiten el [cifrado de datos](../../storage/common/storage-service-encryption.md) en reposo para el servidor transparente. Los clústeres de HDInsight seguros funcionarán perfectamente con esta funcionalidad de cifrado de los datos en reposo en el lado servidor.
+Ambos almacenes de datos para clústeres de HDInsight, Azure Blob Storage y Azure Data Lake Storage Gen1/Gen2 admiten el [cifrado de datos](../../storage/common/storage-service-encryption.md) en reposo para el servidor transparente. Los clústeres de HDInsight seguros funcionarán perfectamente con esta funcionalidad de cifrado de los datos en reposo en el lado servidor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Planeamiento de clústeres de HDInsight con Enterprise Security Package](apache-domain-joined-architecture.md)
 * [Configuración de clústeres de HDInsight con Enterprise Security Package](apache-domain-joined-configure.md)
 * [Administración de clústeres de HDInsight con Enterprise Security Package](apache-domain-joined-manage.md)
-* [Configuración de directivas de Apache Hive en clústeres de HDInsight con Enterprise Security Package](apache-domain-joined-run-hive.md)
-* [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
-

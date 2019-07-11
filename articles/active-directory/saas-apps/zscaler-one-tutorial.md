@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 94682cfae8078a38fff9ef36ccfc619baee2e612
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 79eae27becf0d2570132b3ad709414879140fd0f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694420"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Tutorial: Integración de Azure Active Directory con Zscaler One
 
@@ -122,7 +122,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler One, realic
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -171,7 +171,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler One, realic
    
     ![Administración](./media/zscaler-one-tutorial/ic800206.png "Administración")
 
-     a. En Tipo de autenticación, elija **SAML**.
+    a. En Tipo de autenticación, elija **SAML**.
 
     b. Haga clic en **Configurar SAML**.
 
@@ -179,7 +179,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler One, realic
             
     ![Administración de usuarios y autenticación](./media/zscaler-one-tutorial/ic800208.png "Administración de usuarios y autenticación")
     
-     a. En el cuadro de texto **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    a. En el cuadro de texto **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     b. En el cuadro de texto **Atributo de nombre de inicio de sesión**, escriba **NameID**.
 
@@ -199,7 +199,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler One, realic
 
     ![Administración](./media/zscaler-one-tutorial/ic800207.png)
 
-     a. Mantenga el puntero sobre el menú **Activación** situado cerca de la parte inferior izquierda.
+    a. Mantenga el puntero sobre el menú **Activación** situado cerca de la parte inferior izquierda.
 
     b. Haga clic en **Activar**.
 
@@ -222,7 +222,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler One, realic
    
     ![Servidor proxy](./media/zscaler-one-tutorial/ic769494.png "Servidor proxy")
 
-     a. Seleccione **Usar un servidor proxy para la LAN**.
+    a. Seleccione **Usar un servidor proxy para la LAN**.
 
     b. En el cuadro de texto Dirección, escriba **gateway.Zscaler One.net**.
 
@@ -309,5 +309,5 @@ Al hacer clic en el icono de Zscaler One en el Panel de acceso, debería iniciar
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

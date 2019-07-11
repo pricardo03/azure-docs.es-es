@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 02c09744130bec55eed4181b0d4ba958aec59e69
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d9745bdb1cb6de86a96946564865958433d49732
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integración de Azure Active Directory con Ziflow
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Ziflow, realice los
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Ziflow](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `urn:auth0:ziflow-production:<UniqueID>`
 
@@ -142,7 +142,7 @@ Para configurar el inicio de sesión único de Azure AD con Ziflow, realice los
 
     ![Configuración de Ziflow: inicio de sesión único](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
-     a. En **Type** (Tipo), seleccione **SAML2.0**.
+    a. En **Type** (Tipo), seleccione **SAML2.0**.
 
     b. En el cuadro de texto **Sign In URL** (Dirección URL de inicio de sesión), pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -222,7 +222,7 @@ Para aprovisionar una cuenta de usuario, realice estos pasos:
 
     ![Configuración de Ziflow: agregar usuario](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
 
-     a. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario, por ejemplo, brittasimon@contoso.com.
+    a. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario, por ejemplo, brittasimon@contoso.com.
 
     b. En el cuadro de texto **First Name** (Nombre), escriba el nombre del usuario, en este caso Britta.
 
@@ -247,5 +247,5 @@ Al hacer clic en el icono de Ziflow en el panel de acceso y debería iniciar ses
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

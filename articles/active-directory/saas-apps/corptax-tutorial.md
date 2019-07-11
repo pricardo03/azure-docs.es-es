@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con CorpTax | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y CorpTax.
+title: 'Tutorial: Integración de Azure Active Directory con Corptax | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Corptax.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,27 +8,28 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: fdad2893-41f4-4056-b6d2-ec3d050eb350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f150522c8ea4d3bcb69b7ffe274f1d40d831ab2b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7cd09a35d5796cdc4267c9d01a901b4e3b812d7c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864922"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104400"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Tutorial: Integración de Azure Active Directory con CorpTax
+# <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Tutorial: Integración de Azure Active Directory con Corptax
 
-En este tutorial, aprenderá a integrar CorpTax con Azure Active Directory (Azure AD).
-Integrar CorpTax con Azure AD le proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Corptax con Azure Active Directory (Azure AD).
+La integración de Corptax con Azure AD proporciona las siguientes ventajas:
 
-* Puede controlar en Azure AD quién tiene acceso a CorpTax.
-* Puede permitir que los usuarios inicien sesión automáticamente en CorpTax (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede controlar en Azure AD quién tiene acceso a Corptax.
+* Puede permitir que los usuarios inicien sesión automáticamente en Corptax (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,24 +37,24 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con CorpTax, necesita los siguientes elementos:
+Para configurar la integración de Azure AD con Corptax, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para el inicio de sesión único en CorpTax
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
+* Una suscripción habilitada para el inicio de sesión único en Corptax.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* CorpTax admite el inicio de sesión único iniciado por **SP**.
+* Corptax admite el inicio de sesión único iniciado por **SP**.
 
-## <a name="adding-corptax-from-the-gallery"></a>Adición de CorpTax desde la galería
+## <a name="adding-corptax-from-the-gallery"></a>Incorporación de Corptax desde la galería
 
-Para configurar la integración de CorpTax en Azure AD, deberá agregar CorpTax desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de Corptax en Azure AD, deberá agregar Corptax desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar CorpTax desde la galería, realice los pasos siguientes:**
+**Para agregar Corptax desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select_azuread.png)
 
@@ -65,31 +66,31 @@ Para configurar la integración de CorpTax en Azure AD, deberá agregar CorpTax 
 
     ![Botón Nueva aplicación](common/add_new_app.png)
 
-4. En el cuadro de búsqueda, escriba **CorpTax**, seleccione **CorpTax** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Corptax**, seleccione **Corptax** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![CorpTax en la lista de resultados](common/search_new_app.png)
+    ![Corptax en la lista de resultados](common/search_new_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con CorpTax con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de CorpTax.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Corptax con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Corptax.
 
-Para configurar y probar el inicio de sesión único de Azure AD con CorpTax, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Corptax, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de CorpTax](#configure-corptax-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de CorpTax](#create-corptax-test-user)**: para tener un homólogo de Britta Simon en CorpTax que esté vinculado a la representación del usuario en Azure AD.
-5. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Corptax](#configure-corptax-single-sign-on)** , para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Corptax](#create-corptax-test-user)** : para tener un homólogo de Britta Simon en Corptax que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con CorpTax, realice los pasos siguientes:
+Para configurar el inicio de sesión único de Azure AD con Corptax, realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **CorpTax**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Corptax**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select_sso.png)
 
@@ -103,17 +104,17 @@ Para configurar el inicio de sesión único de Azure AD con CorpTax, realice los
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de CorpTax](common/sp_intiated.png)
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de Corptax](common/sp_intiated.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://asp.corptax.com`.
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://asp.corptax.com`
 
-8. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el archivo **XML de metadatos de federación**  y guárdelo en su equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el archivo **XML de metadatos de federación**  y guárdelo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-### <a name="configure-corptax-single-sign-on"></a>Configuración del inicio de sesión único de CorpTax
+### <a name="configure-corptax-single-sign-on"></a>Configuración del inicio de sesión único de Corptax
 
-Para configurar el inicio de sesión único en **CorpTax**, debe enviar el archivo **XML de metadatos de federación** descargado al [equipo de soporte técnico de CorpTax](mailto:bgraves@corptax.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Corptax**, debe enviar el archivo **XML de metadatos de federación** descargado al [equipo de soporte técnico de Corptax](https://connect.corptax.com/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -131,9 +132,9 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user_properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
 
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba `brittasimon\@yourcompanydomain.extension`.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -142,15 +143,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a CorpTax.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Corptax.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **CorpTax**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **Corptax**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise_applications.png)
 
-2. En la lista de aplicaciones, escriba y seleccione **CorpTax**.
+2. En la lista de aplicaciones, escriba y seleccione **Corptax**.
 
-    ![Vínculo a CorpTax en la lista de aplicaciones](common/all_applications.png)
+    ![Vínculo a Corptax en la lista de aplicaciones](common/all_applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -166,18 +167,18 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-corptax-test-user"></a>Creación de un usuario de prueba de CorpTax
+### <a name="create-corptax-test-user"></a>Creación de un usuario de prueba de Corptax
 
-En esta sección, creará un usuario llamado Britta Simon en CorpTax. Trabaje con el  [equipo de soporte técnico de CorpTax](mailto:bgraves@corptax.com) para agregar los usuarios a la plataforma de CorpTax. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Corptax. Trabaje con el  [equipo de soporte técnico de Corptax](https://connect.corptax.com/) para agregar los usuarios a la plataforma de Corptax. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
-Al hacer clic en el icono de CorpTax en el Panel de acceso, se le debería redirigir a la siguiente página de CorpTax: 
+Al hacer clic en el icono de Corptax en el Panel de acceso, se le debería redirigir a la siguiente página de Corptax: 
 
 ![imagen](media/corptax-tutorial/corptaxlogin.png)
 
-En el cuadro de texto **Entorno**, escriba el entorno adecuado. Debería iniciar sesión automáticamente en la instancia de CorpTax que configuró para el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+En el cuadro de texto **Entorno**, escriba el entorno adecuado. Debería iniciar sesión automáticamente en la instancia de Corptax que configuró para el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

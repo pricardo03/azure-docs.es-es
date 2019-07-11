@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 4185e9f5e1b411f95afacb80499db048769ea27b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59499927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integración de Azure Active Directory con Evernote
 
@@ -51,9 +51,9 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Evernote en Azure AD, es preciso agregar Evernote desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Evernote desde la galería, siga estos pasos:**
+**Para agregar Evernote desde la galería, realice los pasos siguientes:**
 
-1. En **[Azure Portal](https://portal.azure.com)**, en el panel de navegación izquierdo, haga clic en el icono de **Azure Active Directory**.
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Evernote, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Evernote](#configure-evernote-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Evernote](#create-evernote-test-user)**: para tener un homólogo de Britta Simon en Evernote que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en Evernote](#configure-evernote-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en Evernote](#create-evernote-test-user)** : para tener un homólogo de Britta Simon en Evernote que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -123,7 +123,7 @@ Para configurar el inicio de sesión único de Azure AD con Evernote, siga estos
 
     ![imagen](./media/evernote-tutorial/samlassertion.png)
 
-     a. Seleccione **Firmar respuesta y aserción SAML** en **Opción de firma**.
+    a. Seleccione **Firmar respuesta y aserción SAML** en **Opción de firma**.
 
     b. Haga clic en **Guardar**
 
@@ -145,7 +145,7 @@ Para configurar el inicio de sesión único de Azure AD con Evernote, siga estos
 
     ![Admin-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-3. En la **"Consola de administración"**, vaya a **"Seguridad"** y seleccione **"Inicio de sesión único"**
+3. En la **"Consola de administración"** , vaya a **"Seguridad"** y seleccione **"Inicio de sesión único"**
 
     ![SSO-Setting](./media/evernote-tutorial/tutorial_evernote_sso.png)
 
@@ -153,7 +153,7 @@ Para configurar el inicio de sesión único de Azure AD con Evernote, siga estos
 
     ![Certificate-Setting](./media/evernote-tutorial/tutorial_evernote_certx.png)
     
-     a.  **Enable SSO** (Habilitar SSO): El SSO está habilitado de manera predeterminada (haga clic en **Disable Single Sign-on** [Deshabilitar el inicio de sesión único] para quitar el requisito de SSO).
+    a.  **Enable SSO** (Habilitar SSO): El SSO está habilitado de manera predeterminada (haga clic en **Disable Single Sign-on** [Deshabilitar el inicio de sesión único] para quitar el requisito de SSO).
 
     b. Pegue el valor del campo **Dirección URL de inicio de sesión** que copió de Azure Portal en el cuadro de texto **SAML HTTP Request URL** (Dirección URL de solicitud HTTP de SAML).
 
@@ -216,15 +216,15 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 Para permitir que los usuarios de Azure AD inicien sesión en Evernote, deben aprovisionarse en Evernote.  
 En el caso de Evernote, el aprovisionamiento es una tarea manual.
 
-**Para aprovisionar cuentas de usuario, realice los siguientes pasos:**
+**Para aprovisionar cuentas de usuario, realice estos pasos:**
 
 1. Inicie sesión en el sitio de la empresa de Evernote como administrador.
 
-2. Haga clic en la **"Consola de administración"**.
+2. Haga clic en la **"Consola de administración"** .
 
     ![Admin-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-3. En la **"Consola de administración"**, vaya a **"Agregar usuarios"**.
+3. En la **"Consola de administración"** , vaya a **"Agregar usuarios"** .
 
     ![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
 
@@ -246,5 +246,5 @@ Al hacer clic en el icono de Evernote en el Panel de acceso, debería iniciar se
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

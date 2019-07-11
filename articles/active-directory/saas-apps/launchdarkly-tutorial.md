@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4ae2802c5f833f168385ef46d10b6a508fdf45a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: de59ce587facb94728e0652f47c7cdfce0ab4388
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838670"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098428"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutorial: Integración de Azure Active Directory con LaunchDarkly
 
@@ -54,7 +54,7 @@ Para configurar la integración de LaunchDarkly en Azure AD, debe agregar Launch
 
 **Para agregar LaunchDarkly desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con [nombre de aplicación], es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de LaunchDarkly](#configure-launchdarkly-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de LaunchDarkly](#create-launchdarkly-test-user)**: para tener un homólogo de Britta Simon en LaunchDarkly que esté vinculado a su representación en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de LaunchDarkly](#configure-launchdarkly-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de LaunchDarkly](#create-launchdarkly-test-user)** : para tener un homólogo de Britta Simon en LaunchDarkly que esté vinculado a su representación en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     ![Información de dominio y direcciones URL de inicio de sesión único de LaunchDarkly](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL: `app.launchdarkly.com`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `app.launchdarkly.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://app.launchdarkly.com/trust/saml2/acs/<customers-unique-id>`
 
@@ -153,7 +153,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     ![Configuración de LaunchDarkly](./media/launchdarkly-tutorial/configure4.png)
 
-     a. Copie la **dirección URL del servicio del consumidor de SAML** de la instancia y péguela en el cuadro de texto URL de respuesta de la sección **Dominio y direcciones URL de LaunchDarkly** de Azure Portal.
+    a. Copie la **dirección URL del servicio del consumidor de SAML** de la instancia y péguela en el cuadro de texto URL de respuesta de la sección **Dominio y direcciones URL de LaunchDarkly** de Azure Portal.
 
     b. En el cuadro de texto **Dirección URL de inicio de sesión**, pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -231,4 +231,4 @@ Al hacer clic en el icono de LaunchDarkly en el panel de acceso y debería inici
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

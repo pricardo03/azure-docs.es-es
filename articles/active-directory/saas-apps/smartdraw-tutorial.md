@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d811cd69185e77f50749fc48974dee684fb7cfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bafad5d28ef25f7f7bebe3899f288d0dfa72acb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65744697"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090273"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Tutorial: Integración de Azure Active Directory con SmartDraw
 
@@ -55,7 +55,7 @@ Para configurar la integración de SmartDraw en Azure AD, es preciso agregar Sma
 
 **Para agregar SmartDraw desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con SmartDraw, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en SmartDraw](#configure-smartdraw-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de SmartDraw](#create-smartdraw-test-user)**: para tener un homólogo de Britta Simon en SmartDraw que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en SmartDraw](#configure-smartdraw-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de SmartDraw](#create-smartdraw-test-user)** : para tener un homólogo de Britta Simon en SmartDraw que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -116,7 +116,7 @@ Para configurar el inicio de sesión único de Azure AD con SmartDraw, siga esto
     > [!NOTE]
     > El valor de la dirección URL de inicio de sesión no es real. El valor de la dirección URL de inicio de sesión se actualizará con el real, lo que se explica más adelante en el tutorial. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-6. La aplicación SmartDraw espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo  **Atributos de usuario** .
+6. La aplicación SmartDraw espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
     ![imagen](common/edit-attribute.png)
 
@@ -129,7 +129,7 @@ Para configurar el inicio de sesión único de Azure AD con SmartDraw, siga esto
     | Email | user.mail |
     | Grupos | user.groups |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -173,15 +173,15 @@ Para configurar el inicio de sesión único de Azure AD con SmartDraw, siga esto
 
     ![Configuración de SmartDraw](./media/smartdraw-tutorial/configure02.png)
 
-     a. En el cuadro de texto **Su dominio (como acme.com)**, escriba el dominio.
+    a. En el cuadro de texto **Su dominio (como acme.com)** , escriba el dominio.
 
-    b. Copie el valor de **Your SP Initiated Login Url will be** (Su dirección URL de inicio de sesión iniciado por SP será) de la instancia y péguelo en el cuadro de texto Sign-on URL (Dirección URL de inicio de sesión) en  **Configuración básica de SAML** en Azure Portal.
+    b. Copie el valor de **Your SP Initiated Login Url will be** (Su dirección URL de inicio de sesión iniciado por SP será) de la instancia y péguelo en el cuadro de texto Sign-on URL (Dirección URL de inicio de sesión) en **Configuración básica de SAML** en Azure Portal.
     
     c. En el cuadro de texto **Security Groups to Allow SmartDraw Access** (Grupos de seguridad para permitir el acceso a SmartDraw), escriba **Everyone** (Todos).
 
     d. En el cuadro de texto **Your SAML Issuer URL** (Dirección URL del emisor de SAML), pegue el valor del **identificador de Azure AD** que ha copiado de Azure Portal.
 
-    e. En el Bloc de notas, abra el archivo XML de metadatos que descargó de Azure Portal, copie el contenido y luego péguelo en el cuadro  **Your SAML MetaData**  (Sus metadatos de SAML).
+    e. En el Bloc de notas, abra el archivo XML de metadatos que descargó de Azure Portal, copie el contenido y luego péguelo en el cuadro **Your SAML MetaData** (Sus metadatos de SAML).
 
     f. Haga clic en **Guardar configuración**. 
 
@@ -252,5 +252,5 @@ Al hacer clic en el icono de SmartDraw en el Panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 764ad8f1ca19238e1986d1d187d19c405963a832
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac476e2a66f7fd1d315adb37258917b3ff47373f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Tutorial: Integración de Azure Active Directory con PureCloud by Genesys
 
@@ -52,7 +52,7 @@ Para configurar la integración de PureCloud by Genesys en Azure AD, deberá agr
 
 **Para agregar PureCloud by Genesys desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -75,12 +75,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con PureCloud by Genesys, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en PureCloud by Genesys](#configure-purecloud-by-genesys-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de PureCloud by Genesys](#create-purecloud-by-genesys-test-user)**: para tener un homólogo de Britta Simon en PureCloud by Genesys que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en PureCloud by Genesys](#configure-purecloud-by-genesys-single-sign-on)** : para configurar el inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de PureCloud by Genesys](#create-purecloud-by-genesys-test-user)** : para tener un homólogo de Britta Simon en PureCloud by Genesys que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con PureCloud by Genesys
 
     ![Información de dominio y direcciones URL de inicio de sesión único de PureCloud by Genesys](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL según su región:
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL según su región:
 
     | |
     |--|
@@ -149,7 +149,7 @@ Para configurar el inicio de sesión único de Azure AD con PureCloud by Genesys
     | Email | user.userprinicipalname |
     | OrganizationName | `Your organization name` |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -193,7 +193,7 @@ Para configurar el inicio de sesión único de Azure AD con PureCloud by Genesys
 
     ![Configurar inicio de sesión único](./media/purecloud-by-genesys-tutorial/configure02.png)
 
-     a. Haga clic en **Browse** (Examinar) para cargar en **ADFS Certificate** (Certificado de ADFS) el certificado codificado en base-64 que ha descargado de Azure Portal.
+    a. Haga clic en **Browse** (Examinar) para cargar en **ADFS Certificate** (Certificado de ADFS) el certificado codificado en base-64 que ha descargado de Azure Portal.
 
     b. En el cuadro de texto **ADFS Issuer URI** (URI de emisor de ADFS), pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
 
@@ -276,7 +276,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en PureCloud by Genes
 
     ![Configurar inicio de sesión único](./media/purecloud-by-genesys-tutorial/configure05.png)
 
-     a. En el cuadro de texto **Full Name** (Nombre), escriba el nombre de usuario **Brittasimon**.
+    a. En el cuadro de texto **Full Name** (Nombre), escriba el nombre de usuario **Brittasimon**.
 
     b. En el cuadro de texto **Email** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **brittasimon\@contoso.com**.
     
@@ -294,5 +294,5 @@ Al hacer clic en el icono de PureCloud by Genesys en el Panel de acceso, deberí
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Realizar una búsqueda de noticias: SDK de Bing News Search para C#'
+title: 'Inicio rápido: Realizar una búsqueda de noticias con el SDK de Bing News Search para C#'
 titleSuffix: Azure Cognitive Services
 description: Use este inicio rápido para buscar noticias mediante el SDK de Bing News Search para C# y procesar la respuesta.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9e0a4da2662b9d4b4b775631705e7b4fcc1eecea
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 626596cc88b1b3b1067d7d6d157a548f92fb621a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798669"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206014"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Inicio rápido: Realizar una búsqueda de noticias con el SDK de Bing News Search para C#
 
@@ -24,7 +24,7 @@ Use este inicio rápido para empezar a buscar noticias con el SDK de Bing News S
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Cualquier edición de [Visual Studio 2017 o posterior](https://www.visualstudio.com/downloads/).
+* Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://www.visualstudio.com/downloads/).
 * El marco [Json.NET](https://www.newtonsoft.com/json), disponible como un paquete NuGet.
 * Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
 

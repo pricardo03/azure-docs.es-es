@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60876246"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428777"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Introducción al servicio Azure Blueprints
 
@@ -109,7 +109,7 @@ Para asignar o cancelar la asignación de un plano técnico, la cuenta necesita 
 Todos los permisos anteriores se incluyen en el rol **Propietario**. El rol **Colaborador** ha creado permisos para crear y eliminar planos técnicos, pero no tiene permisos de asignación de planos técnicos. Si estos roles integrados no satisfacen sus necesidades de seguridad, considere la posibilidad de crear un [rol personalizado](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> La entidad de servicio para Azure Blueprint requiere el rol **Propietario** en la suscripción asignada con el fin de habilitar la implementación. Si usa el portal, este rol se le concede automáticamente y se revoca para la implementación. Si usa la API REST, este rol se debe conceder manualmente, pero se sigue revocando de forma automática una vez finalizada la implementación.
+> Si usa una identidad administrada asignada por el sistema, la entidad de servicio para Azure Blueprints requiere el rol **Propietario** en la suscripción asignada con el fin de habilitar la implementación. Si usa el portal, este rol se le concede automáticamente y se revoca para la implementación. Si usa la API REST, este rol se debe conceder manualmente, pero se sigue revocando de forma automática una vez finalizada la implementación. Si usa una identidad administrada asignada por el usuario, solo el usuario que crea la asignación de plano técnico necesita permisos de **propietario**.
 
 ## <a name="video-overview"></a>Introducción en vídeo
 

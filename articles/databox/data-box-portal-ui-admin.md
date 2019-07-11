@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: c998e01cdb9031771acd3d9605da3e77d5ae3201
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953356"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147914"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Uso de Azure Portal para administrar Data Box Disk
 
@@ -129,7 +129,7 @@ Realice los siguientes pasos para editar una plantilla de notificación.
 |Received     | Se han recibido los discos en el centro de datos de Azure. La copia de datos comenzará en breve.        |
 |Data copied (Datos copiados)     |La copia de datos está en curso.<br> Espere hasta que se complete.         |
 |Completed       |El pedido se realizó correctamente.<br> Compruebe que los datos están en Azure antes de eliminarlos en el entorno local de los servidores.         |
-|Completed with errors (Completado con errores)| Se completó la copia de datos, pero se han recibido errores. <br> Revise los registros de copia con la ruta de acceso proporcionada en **Overview**  (Información general). Para más información, vaya a [Descarga de registros de diagnóstico](data-box-disk-troubleshoot.md#download-diagnostic-logs).   |
+|Completed with errors (Completado con errores)| Se completó la copia de datos, pero se han recibido errores. <br> Revise los registros de errores de carga con la ruta de acceso que se proporciona en la **información general**. Para más información, vaya a la sección sobre la [descarga de los registros de errores de carga](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Canceled            |El pedido se ha cancelado. <br> Se canceló el pedido o se produjo un error y el servicio lo canceló.     |
 
 

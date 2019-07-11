@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: c1b35e6a28948cf952c61ec700cbd2ba764674ab
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 757d0b09c652e97e9dddc924c4c700819e333409
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65895992"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086457"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Tutorial: Integración de Azure Active Directory con YardiOne
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con YardiOne, siga estos
 
     ![Información sobre el inicio de sesión único del dominio y las direcciones URL de YardiOne](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<y1-subdomain>.yardione.com`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<y1-subdomain>.yardione.com`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `http://<y1-subdomain>.yardione.com/yAuth2/trust`
 
@@ -191,5 +191,5 @@ Al hacer clic en el icono de YardiOne en el panel de acceso, debería iniciar se
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

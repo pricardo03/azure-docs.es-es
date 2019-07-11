@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 1bcb7f9fadc79db0db17336f07f6d58302433c1f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f978087a935bcf6ac78760fee5842573eb3a326e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664036"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274105"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalación y creación del clúster de Service Fabric
 
-Los clústeres de Service Fabric independientes ofrecen la opción de elegir un entorno propio y crear un clúster como parte del enfoque "Cualquier sistema operativo, cualquier nube" que toma Service Fabric. En esta serie de tutoriales se crea un clúster independiente hospedado en AWS y se instala en él una aplicación.
+Los clústeres de Service Fabric independientes ofrecen la opción de elegir un entorno propio y crear un clúster como parte del enfoque "Cualquier sistema operativo, cualquier nube" que toma Service Fabric. En esta serie de tutoriales se crea un clúster independiente hospedado en AWS o Azure y se instala en él una aplicación.
 
 Este tutorial es la segunda parte de una serie. Este tutorial le guía por los pasos para crear un clúster independiente de Service Fabric.
 
@@ -37,7 +37,7 @@ En la segunda parte de la serie, se aprende a:
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Descarga del paquete de Service Fabric para Windows Server
 
-Service Fabric proporciona un paquete de instalación para crear clústeres independientes de Service Fabric.  [Descargue el paquete de instalación](https://go.microsoft.com/fwlink/?LinkId=730690) en el equipo local.  Una vez descargado correctamente, cópielo a través de la conexión RDP en la instancia de EC2 y péguelo en el escritorio.
+Service Fabric proporciona un paquete de instalación para crear clústeres independientes de Service Fabric.  [Descargue el paquete de instalación](https://go.microsoft.com/fwlink/?LinkId=730690) en el equipo local.  Una vez descargado correctamente, cópielo a través de la conexión RDP en la máquina virtual y péguelo en el escritorio.
 
 Seleccione el archivo ZIP, abra el menú contextual y seleccione **Extract All** > **Extract** (Extraer todos > Extraer).  Al extraer los archivos se generará una carpeta en el escritorio con el mismo nombre que el del archivo ZIP.
 

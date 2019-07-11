@@ -12,12 +12,12 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80680de6602b26488a8bade8a69fdd85b7f83ed1
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 9246d7bd48579def171986606e88c09593029aa2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729938"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108151"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Administración de aplicaciones con Azure Active Directory
 
@@ -41,7 +41,7 @@ Hay cuatro tipos principales de aplicaciones que se pueden agregar a las **aplic
 -   **Aplicaciones que no son de la galería**: traiga sus propias aplicaciones. Admita el inicio de sesión único para otras aplicaciones agregándolas a Azure AD. Puede integrar cualquier vínculo web que quiera, o cualquier aplicación que represente un campo de nombre de usuario y contraseña, admita los protocolos SAML u OpenID Connect, o admita SCIM. Para más información, consulte [Configuración del inicio de sesión único para aplicaciones que no sean de la galería](configure-single-sign-on-non-gallery-applications.md).
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>Administración de riesgos con directivas de acceso condicional
-El acoplamiento del inicio de sesión único (SSO) de Azure AD con [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) ofrece niveles altos de seguridad para acceder a las aplicaciones. Las funcionalidades de seguridad incluyen la protección de identidad en la nube, el control de acceso basado en riesgos, la autenticación multifactor nativa y las directivas de acceso condicional. Estas funcionalidades admiten directivas de control detalladas basadas en aplicaciones o en grupos que necesitan niveles más altos de seguridad.
+El acoplamiento del inicio de sesión único (SSO) de Azure AD con [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) ofrece niveles altos de seguridad para acceder a las aplicaciones. Las funcionalidades de seguridad incluyen la protección de identidad en la nube, el control de acceso basado en riesgos, la autenticación multifactor nativa y las directivas de acceso condicional. Estas funcionalidades admiten directivas de control detalladas basadas en aplicaciones o en grupos que necesitan niveles más altos de seguridad.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Mejora de la seguridad con el inicio de sesión único
 Habilitar el inicio de sesión único (SSO) en las aplicaciones y Office 365 ofrece una experiencia de inicio de sesión superior para los usuarios existentes con la reducción o eliminación de mensajes de inicio de sesión. El entorno del usuario será más coherente y menos confuso sin tantos mensajes o sin la necesidad de administrar varias contraseñas. El grupo de negocios puede administrar y aprobar el acceso mediante una pertenencia dinámica y de autoservicio. Permitir que las personas correctas de la empresa administren el acceso a una aplicación mejora la seguridad del sistema de identidades.

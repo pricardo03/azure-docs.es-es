@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b060c971218561f285dbd2292529e01a0069d357
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359986"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147737"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Guía de inicio rápido: uso de SQL Server Management Studio para conectarse a una base de datos de Azure SQL Database y realizar consultas en ella
 
@@ -26,7 +26,7 @@ En este inicio rápido usará [SQL Server Management Studio][ssms-install-latest
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
 
   || Base de datos única | Instancia administrada |
   |:--- |:--- |:---|
@@ -37,7 +37,6 @@ En este inicio rápido usará [SQL Server Management Studio][ssms-install-latest
   |||[Conectividad desde el sitio](sql-database-managed-instance-configure-p2s.md)
   |Carga de datos|Adventure Works cargado por inicio rápido|[Restauración de World Wide Importers](sql-database-managed-instance-get-started-restore.md)
   |||Restauración o importación de Adventure Works a partir del archivo [BACPAC](sql-database-import.md) desde [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
 
   > [!IMPORTANT]
   > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works en una base de datos de instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
@@ -87,7 +86,7 @@ En SMSS, conéctese al servidor de Azure SQL Database.
 
 5. Para ver los objetos de la base de datos, expanda **Bases de datos** y luego expanda **mySampleDatabase**.
 
-   ![visualización de los objetos de base de datos](./media/sql-database-connect-query-ssms/connected.png)  
+   ![Objetos mySampleDatabase](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>Datos de consulta
 
@@ -106,7 +105,7 @@ Ejecute el código Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms18
 
 3. En la barra de herramienta, seleccione **Ejecutar** para recuperar los datos de las tablas `Product` y `ProductCategory`.
 
-    ![consulta para recuperar datos de dos tablas](./media/sql-database-connect-query-ssms/query2.png)
+    ![consulta para recuperar datos desde las tabla Product y ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Insertar datos
 
@@ -133,7 +132,7 @@ Ejecute el código Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms17
            ,GETDATE() );
    ```
 
-2. Seleccione **Ejecutar** para insertar una nueva fila en la tabla `Product`. El panel **Mensajes** muestra **(1 fila afectada)**.
+2. Seleccione **Ejecutar** para insertar una nueva fila en la tabla `Product`. El panel **Mensajes** muestra **(1 fila afectada)** .
 
 ## <a name="view-the-result"></a>Visualización del resultado
 
@@ -146,7 +145,7 @@ Ejecute el código Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms17
 
 2. Seleccione **Execute**(Ejecutar). Aparecen los siguientes resultados.
 
-   ![result](./media/sql-database-connect-query-ssms/result.png)
+   ![resultado de la consulta de la tabla Product](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>Actualización de datos
 
@@ -160,7 +159,7 @@ Ejecute el código Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms17
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seleccione **Ejecutar** para actualizar la fila especificada en la tabla `Product`. El panel **Mensajes** muestra **(1 fila afectada)**.
+2. Seleccione **Ejecutar** para actualizar la fila especificada en la tabla `Product`. El panel **Mensajes** muestra **(1 fila afectada)** .
 
 ## <a name="delete-data"></a>Eliminación de datos
 
@@ -173,7 +172,7 @@ Ejecute el código Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms18
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seleccione **Ejecutar** para eliminar la fila especificada en la tabla `Product`. El panel **Mensajes** muestra **(1 fila afectada)**.
+2. Seleccione **Ejecutar** para eliminar la fila especificada en la tabla `Product`. El panel **Mensajes** muestra **(1 fila afectada)** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 
