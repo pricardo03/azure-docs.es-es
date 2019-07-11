@@ -92,6 +92,10 @@
           href: event-hubs-programming-guide.md
         - name: Recepción de eventos mediante el Host de procesador de eventos
           href: event-hubs-event-processor-host.md
+    - name: Datos de proceso
+      items:
+        - name: Procesamiento de datos con Azure Stream Analytics
+          href: process-data-azure-stream-analytics.md
     - name: Uso de bibliotecas de clientes
       items:
         - name: .NET Framework
@@ -154,7 +158,7 @@
           href: event-hubs-auto-inflate.md
         - name: Bibliotecas de administración de Event Hubs
           href: event-hubs-management-libraries.md
-    - name: Protección
+    - name: Seguridad
       items:
         - name: Uso de firewalls
           href: event-hubs-ip-filtering.md

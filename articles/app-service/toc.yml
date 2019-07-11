@@ -105,6 +105,10 @@
           href: web-sites-php-configure.md
         - name: Configuración de Java
           href: configure-language-java.md
+        - name: Conexión a recursos locales
+          href: web-sites-integrate-with-vnet.md
+        - name: Configuración de Azure Storage (contenedor)
+          href: configure-connect-to-azure-storage.md
     - name: Implementar en Azure
       items:
         - name: Implementar la aplicación
@@ -205,7 +209,7 @@
           href: webjobs-sdk-how-to.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell

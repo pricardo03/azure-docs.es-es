@@ -119,6 +119,9 @@
         - name: Procesamiento de eventos de Kafka
           href: ../event-hubs/event-hubs-kafka-stream-analytics.md
           maintainContext: true
+        - name: Procesamiento de datos de Event Hubs
+          href: ../event-hubs/process-data-azure-stream-analytics.md
+          maintainContext: true
         - name: Escenarios geoespaciales
           href: geospatial-scenarios.md
     - name: Supervisión

@@ -19,7 +19,7 @@
           href: blob-event-quickstart-portal.md
     - name: Eventos personalizados
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: custom-event-quickstart.md
         - name: PowerShell
           href: custom-event-quickstart-powershell.md
@@ -51,7 +51,7 @@
       href: custom-event-to-hybrid-connection.md
 - name: Ejemplos
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: cli-samples.md
       items:
         - name: Creación de un tema personalizado
@@ -168,6 +168,8 @@
           href: event-schema-azure-maps.md
         - name: Configuración de la aplicación
           href: event-schema-app-configuration.md
+        - name: Azure SignalR
+          href: event-schema-azure-signalr.md
     - name: Recursos de plantilla
       items:
         - name: Suscripciones a eventos

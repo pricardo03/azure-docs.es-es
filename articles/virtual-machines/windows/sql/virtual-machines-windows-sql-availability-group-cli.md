@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5015f00d3c6dfe0e1e5c2466af777cc0f1bc509
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518978"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607149"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Usar la CLI de máquina virtual de Azure SQL para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure
 En este artículo se describe cómo usar la [CLI de máquina virtual de Azure SQL](/cli/azure/sql/vm?view=azure-cli-latest/) para implementar un clúster de conmutación por error de Windows (WSFC) y agregar a él máquinas virtuales de SQL Server, así como crear la instancia de Load Balancer interno y la escucha de un grupo de disponibilidad Always On.  La implementación real del grupo de disponibilidad Always On se sigue realizando manualmente a través de SQL Server Management Studio (SSMS). 
@@ -28,7 +28,7 @@ En este artículo se describe cómo usar la [CLI de máquina virtual de Azure SQ
 Para automatizar la configuración de un grupo de disponibilidad Always On mediante la CLI de máquina virtual de Azure SQL, ya debe tener los siguientes requisitos previos: 
 - Una [suscripción a Azure](https://azure.microsoft.com/free/).
 - Un grupo de recursos con un controlador de dominio. 
-- Una o varias [máquinas virtuales en Azure, unidas a un dominio, con SQL Server 2016 (o superior) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) en el *mismo conjunto o zona de disponibilidad o en otro distinto* que se haya [registrado con el proveedor de recursos de máquina virtual de SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Una o varias [máquinas virtuales en Azure, unidas a un dominio, con SQL Server 2016 (o superior) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) en el *mismo conjunto o zona de disponibilidad o en otro distinto* que se haya [registrado con el proveedor de recursos de máquina virtual de SQL](virtual-machines-windows-sql-register-with-resource-provider.md).  
 - [Azure CLI](/cli/azure/install-azure-cli). 
 - Dos direcciones IP disponibles (que no use ninguna entidad), una para la instancia de Load Balancer interno y otra para la escucha del grupo de disponibilidad, dentro de la misma subred que el grupo de disponibilidad. Si se utiliza un equilibrador de carga existente, solo será necesaria una dirección IP disponible para la escucha del grupo de disponibilidad. 
 

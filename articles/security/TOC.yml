@@ -142,6 +142,9 @@
         - name: Lista de comprobación de seguridad
           displayName: 'identity, active directory, password'
           href: azure-ad-secure-steps.md
+        - name: Seleccionar inicio de sesión sin contraseña
+          displayName: 'identity, active directory, passwordless'
+          href: azure-ad-passwordless.md
         - name: Procedimientos recomendados
           displayName: 'password, identity, active directory'
           href: azure-security-identity-management-best-practices.md
@@ -199,7 +202,7 @@
           items:
             - name: Introducción
               href: security-azure-log-integration-overview.md
-            - name: Introducción
+            - name: Primeros pasos
               href: security-azure-log-integration-get-started.md
             - name: Integración de registros de auditoría de Azure AD
               displayName: active directory
@@ -357,7 +360,7 @@
               href: azure-security-threat-modeling-tool-auditing-and-logging.md
             - name: Authentication
               href: azure-security-threat-modeling-tool-authentication.md
-            - name: Autorización
+            - name: Authorization
               href: azure-security-threat-modeling-tool-authorization.md
             - name: Seguridad en las comunicaciones
               href: azure-security-threat-modeling-tool-communication-security.md

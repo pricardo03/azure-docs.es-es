@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/21/2019
+ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 406797203a99df7e805e08ee7589148599eeffce
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237795"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670714"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Uso de su propio servidor de cuadernos para empezar a trabajar con Azure Machine Learning
 
@@ -25,7 +25,7 @@ En este inicio rápido se explica cómo puede usar el [área de trabajo de Azure
 
 Vea una versión en vídeo de este artículo de inicio rápido:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2G9N6]
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 

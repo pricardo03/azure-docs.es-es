@@ -797,6 +797,8 @@
       href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
+    - name: Ventajas de la arquitectura multimaestro
+      href: multi-master-benefits.md
     - name: Casos de uso
       items:
         - name: Casos de uso comunes

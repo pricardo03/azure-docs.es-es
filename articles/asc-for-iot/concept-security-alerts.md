@@ -2,24 +2,25 @@
 title: Guía de alertas de seguridad para Azure Security Center para IoT, versión preliminar | Microsoft Docs
 description: Obtenga información sobre las alertas de seguridad y la corrección recomendada mediante las características y el servicio de Azure Security Center para IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: db3a955cd9e572d1daca044aed75048e394e8457
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6168278a51cf5a73fec0387ab61f46e201d158f9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200755"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616942"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Alertas de seguridad de Azure Security Center para IoT
 
@@ -37,7 +38,7 @@ Para más detalles, consulte [Creación de alertas personalizadas](quickstart-cr
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Alertas integradas para dispositivos IoT
 
-| Gravedad | NOMBRE                                                   | Origen de datos | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| severity | NOMBRE                                                   | Origen de datos | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alto     | Successful local login (Inicio de sesión local correcto)                                 | Agente       | Se ha detectado un inicio de sesión correcto en el dispositivo local.                                                                                                                                                                                                                                                                                                                                                                                         |
 | Alto     | Successful brute force (Ataque por fuerza bruta correcto)                                  | Agente       | Se han detectado varios intentos de inicio de sesión incorrectos, seguidos de un inicio de sesión correcto. El dispositivo sufrió un ataque por fuerza bruta correcto.                                                                                                                                                                                                                                                                                                              |
@@ -81,7 +82,7 @@ Para más detalles, consulte [Creación de alertas personalizadas](quickstart-cr
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Alertas integradas para IoT Hub
 
-| Gravedad | NOMBRE                                                                         | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                            |
+| severity | NOMBRE                                                                         | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Mediano   | New certificate added to an IoT Hub (Nuevo certificado agregado a una instancia de IoT Hub)                                    |Se agregó un nuevo certificado a una instancia de IoT Hub. Si una entidad autorizada no realizó esta adición, puede indicar una actividad malintencionada.                                                                                                                                                                                                    |
 | Mediano   | Certificate deleted from an IoT Hub (Certificado eliminado de una instancia de IoT Hub)                                    | Se ha eliminado un certificado de una instancia de IoT Hub. Si una entidad autorizada no realizó esta acción, puede indicar una actividad malintencionada.                                                                                                                                                                                                |
