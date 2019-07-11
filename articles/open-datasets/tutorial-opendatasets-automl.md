@@ -4,18 +4,17 @@ titleSuffix: Azure Open Datasets
 description: Obtenga información sobre cómo sacar el máximo provecho de la comodidad de Azure Open Datasets (y de la eficacia de Azure Machine Learning Service) para crear un modelo de regresión que prediga las tarifas de taxi de Nueva York.
 services: open-datasets
 ms.service: open-datasets
-ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: e753793b5da59d09a21991831046a43899c62ef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a1df79c59ede8cd9ad72a2ebb2edb4bdb64b802a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027521"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588971"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Tutorial: Creación de un modelo de regresión con aprendizaje automático automatizado y Open Datasets
 
@@ -808,7 +807,7 @@ green_taxi_df.head(5)
     <tr>
       <th>608125</th>
       <td>1</td>
-      <td>2016-01-13</td>
+      <td>13-01-2016</td>
       <td>1</td>
       <td>0.50</td>
       <td>-73.942589</td>

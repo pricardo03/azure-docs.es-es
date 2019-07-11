@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bbb5cf9a043f8f4ab4202b6113d1c1b915f3b8a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: aade8552e7fd39a61334c1c6c7c9ca62085961be
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312777"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603274"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y Node.js
 
@@ -98,7 +98,7 @@ Una vez realizados los cambios, abra un símbolo del sistema y ejecute el archiv
 node facedetection.js
 ```
 
-Debería ver la información de la cara mostrada como datos JSON en la ventana de la consola. Por ejemplo: 
+Debería ver la información de la cara mostrada como datos JSON en la ventana de la consola. Por ejemplo:
 
 ```json
 [

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 69cb48df4e765250247605fb5c4e1f421554fd20
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 68567e673cf6fb53b8d9b6f7b9ef96aee691ac3a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467018"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604950"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Inicio rápido: Traducción de voz con Speech SDK para Java
 
@@ -59,7 +59,7 @@ Si ejecuta Ubuntu Linux, asegúrese de que estén instaladas estas dependencias 
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
-1. Para agregar una nueva clase vacía al proyecto de Java, seleccione **File (Archivo)**  >  **New (Nuevo)**  >  **Class (Clase)**.
+1. Para agregar una nueva clase vacía al proyecto de Java, seleccione **File (Archivo)**  >  **New (Nuevo)**  >  **Class (Clase)** .
 
 1. En la ventana **New Java Class** (Nueva clase de Java) escriba **speechsdk.quickstart** en el campo **Package** (Paquete) y **Main** en el campo **Name** (Nombre).
 
@@ -77,7 +77,7 @@ Si ejecuta Ubuntu Linux, asegúrese de que estén instaladas estas dependencias 
 
 ## <a name="build-and-run-the-app"></a>Compilación y ejecución de la aplicación
 
-Presione F11, o seleccione **Run (Ejecutar)** > **Debug (Depurar)**.
+Presione F11, o seleccione **Run (Ejecutar)**  > **Debug (Depurar)** .
 
 La entrada de voz del micrófono se transcribe en alemán y se registra en la ventana de consola. Presione "Entrar" para detener la captura de voz.
 

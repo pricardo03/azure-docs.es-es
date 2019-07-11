@@ -4,7 +4,7 @@ description: 'Ejemplo de la CLI de Azure: creación de una máquina virtual de A
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 2565433b8f42a3b81b843a972dd27850cce124b8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e5bee7a2b9d203909ccd11c4485ecc850688f4ff
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543328"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708230"
 ---
 # <a name="monitor-a-vm-with-azure-monitor-logs"></a>Supervisión de una máquina virtual con registros de Azure Monitor
 

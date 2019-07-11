@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: aljo, dekapur
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 11d913264e5920b90ea08d2a29a3651ab101ee64
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 011cac977e44f85b8b183d253e987ff1b38c9834
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663169"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621920"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutorial: Supervisión de contenedores de Windows en Service Fabric mediante los registros de Azure Monitor
 
@@ -86,7 +86,7 @@ Realice los siguientes cambios en su *template.json*:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Agregue Microsoft Monitoring Agent como una extensión de máquina virtual. Busque el recurso de conjuntos de escalado de máquinas virtuales: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. En *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*, agregue la siguiente descripción de la extensión en la extensión *ServiceFabricNode*: 
+3. Agregue Microsoft Monitoring Agent como una extensión de máquina virtual. Busque el recurso de conjuntos de escalado de máquinas virtuales: *resources* >  *"apiVersion": "[variables('vmssApiVersion')]"* . En *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*, agregue la siguiente descripción de la extensión en la extensión *ServiceFabricNode*: 
     
     ```json
     {
@@ -225,7 +225,7 @@ Este le llevará al área de trabajo de Log Analytics, donde puede ver las soluc
 * Haga clic en **Orígenes conectados** > **Servidores de Windows** para comprobar que dispone de *5 equipos con Windows conectados*.
 * Haga clic en **Datos** > **Contadores de rendimiento de Windows** para buscar y agregar nuevos contadores de rendimiento. Aquí verá una lista de recomendaciones de los registros de Azure Monitor para contadores de rendimiento que podría recopilar, así como la opción de búsqueda de otros contadores. Compruebe que se estén recopilando los contadores **Processor(_Total)\% Tiempo de procesador** y **Memoria(*)\MBytes disponibles**.
 
-**Actualice** su solución de Supervisión de contenedores en unos minutos y debería comenzar a ver cómo llegan datos de *rendimiento del equipo*. Esto le ayudará a comprender cómo se usan sus recursos. También puede usar estas métricas para tomar decisiones adecuadas sobre el escalado de su clúster, o bien para confirmar si un clúster equilibra su carga como se espera. 
+**Actualice** su solución de Supervisión de contenedores en unos minutos y debería comenzar a ver cómo llegan datos de *rendimiento del equipo*. Esto le ayudará a comprender cómo se usan sus recursos. También puede usar estas métricas para tomar decisiones adecuadas sobre el escalado de su clúster, o bien para confirmar si un clúster equilibra su carga como se espera.
 
 *Nota: Asegúrese de que sus filtros de tiempo se establecen de forma adecuada para que consuma estas métricas.*
 

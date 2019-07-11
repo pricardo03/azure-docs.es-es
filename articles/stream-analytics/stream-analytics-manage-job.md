@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493410"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612379"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizar los datos de llamadas de teléfono con Stream Analytics y visualizar los resultados en un panel de Power BI
 
@@ -56,7 +56,7 @@ Siga estos pasos para crear una instancia de Event Hub y enviar datos de la llam
    |NOMBRE     | myEventHubsNS        |  Un nombre único para identificar el espacio de nombres del centro de eventos.       |
    |Subscription     |   \<Su suscripción\>      |   Seleccione una suscripción de Azure donde quiere crear el centro de eventos.      |
    |Grupos de recursos     |   MyASADemoRG      |  Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta.       |
-   |Ubicación     |   Oeste de EE. UU. 2      |    Ubicación donde se puede implementar el espacio de nombres del centro de eventos.     |
+   |Location     |   Oeste de EE. UU. 2      |    Ubicación donde se puede implementar el espacio de nombres del centro de eventos.     |
 
 4. Use las opciones predeterminadas en el resto de la configuración y seleccione **Crear**.
 
@@ -139,7 +139,7 @@ Ahora que tiene un flujo de eventos de llamada, puede crear un trabajo de Stream
    |Nombre del trabajo     |  ASATutorial       |   Un nombre único para identificar el espacio de nombres del centro de eventos.      |
    |Subscription    |  \<Su suscripción\>   |   Seleccione una suscripción de Azure donde desea crear el trabajo.       |
    |Grupos de recursos   |   MyASADemoRG      |   Seleccione **Use existing** (Usar existente) y, después, escriba un nuevo nombre de grupo de recursos para la cuenta.      |
-   |Ubicación   |    Oeste de EE. UU. 2     |      Ubicación donde se puede implementar el trabajo. Es conveniente colocar el trabajo y el centro de eventos en la misma región para obtener el mejor rendimiento y no pagar por transferir datos de una región a otra.      |
+   |Location   |    Oeste de EE. UU. 2     |      Ubicación donde se puede implementar el trabajo. Es conveniente colocar el trabajo y el centro de eventos en la misma región para obtener el mejor rendimiento y no pagar por transferir datos de una región a otra.      |
    |Entorno de hospedaje    | Nube        |     Los trabajos de Stream Analytics se pueden implementar en la nube o en dispositivos perimetrales. Si elige la nube, podrá implementar en la nube de Azure y, si elige implementar en un dispositivo perimetral, podrá hacerlo en un dispositivo de IoT Edge.    |
    |Unidades de streaming     |    1       |      Las unidades de streaming representan los recursos informáticos que se necesitan para ejecutar un trabajo. De forma predeterminada, este valor se establece en 1. Para información sobre el escalado de unidades de streaming, consulte el artículo [Descripción y ajuste de las unidades de streaming](stream-analytics-streaming-unit-consumption.md).      |
 
@@ -191,7 +191,7 @@ El último paso consiste en definir un receptor de salida para el trabajo en el 
 
 ## <a name="define-a-query-to-analyze-input-data"></a>Definición de una consulta para analizar los datos de entrada
 
-El siguiente paso consiste en crear una transformación que analice los datos en tiempo real. Definirá la consulta de transformación mediante el [lenguaje de consulta de Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx). La consulta que se ha usado en este tutorial detecta llamadas fraudulentas en los datos del teléfono.
+El siguiente paso consiste en crear una transformación que analice los datos en tiempo real. Definirá la consulta de transformación mediante el [lenguaje de consulta de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). La consulta que se ha usado en este tutorial detecta llamadas fraudulentas en los datos del teléfono.
 
 En este ejemplo, se realizan llamadas fraudulentas desde el mismo usuario en un intervalo de cinco segundos, pero en ubicaciones separadas. Por ejemplo, el mismo usuario no puede legítimamente realizar una llamada desde Estados Unidos y Australia al mismo tiempo. Para definir la consulta de transformación del trabajo de Stream Analytics:
 
@@ -212,7 +212,7 @@ En este ejemplo, se realizan llamadas fraudulentas desde el mismo usuario en un 
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Para comprobar si hay llamadas fraudulentas, puede realizar una autocombinación de los datos de streaming según el valor de `CallRecTime`. Luego, puede buscar registros de llamada en los que el valor `CallingIMSI` (el número donde se origina) sea el mismo, pero el valor `SwitchNum` (país o región de origen) sea distinto. Cuando use una operación JOIN con datos de streaming, la combinación debe proporcionar algunos límites en la diferencia de tiempo que puede haber entre filas coincidentes. Dado que los datos de streaming no tienen final, los límites de tiempo de la relación se especifican dentro de la cláusula **ON** de la combinación mediante la función [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
+   Para comprobar si hay llamadas fraudulentas, puede realizar una autocombinación de los datos de streaming según el valor de `CallRecTime`. Luego, puede buscar registros de llamada en los que el valor `CallingIMSI` (el número donde se origina) sea el mismo, pero el valor `SwitchNum` (país o región de origen) sea distinto. Cuando use una operación JOIN con datos de streaming, la combinación debe proporcionar algunos límites en la diferencia de tiempo que puede haber entre filas coincidentes. Dado que los datos de streaming no tienen final, los límites de tiempo de la relación se especifican dentro de la cláusula **ON** de la combinación mediante la función [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
 
    Esta consulta es como una combinación SQL normal, salvo por la función **DATEDIFF**. La función **DATEDIFF** que se usa en esta consulta es específica de Stream Analytics y debe aparecer dentro de la cláusula `ON...BETWEEN`.
 

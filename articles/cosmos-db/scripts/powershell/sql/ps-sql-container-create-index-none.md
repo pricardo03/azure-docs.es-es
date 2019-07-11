@@ -1,19 +1,19 @@
 ---
-title: 'Script de Azure PowerShell: actualizar una cuenta de Azure Cosmos'
-description: 'Ejemplo de script de Azure PowerShell: actualizar una cuenta de Azure Cosmos con regiones agregadas'
+title: 'Script de Azure PowerShell: crear una indexación de contenedor desactivada en una cuenta de Azure Cosmos'
+description: 'Ejemplo de script de Azure PowerShell: crear una indexación de contenedor desactivada en una cuenta de Azure Cosmos'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8fad9b47b4f451f4b77f32038b26d6dc43809a60
+ms.openlocfilehash: 7cec954bc85873d300a4abb96396025600e17201
 ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603953"
+ms.locfileid: "67603863"
 ---
-# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Actualizar una cuenta de Azure Cosmos y agregue una región mediante PowerShell.
+# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>Crear una indexación de contenedor desactivada en una cuenta de Azure Cosmos mediante PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,7 @@ ms.locfileid: "67603953"
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-update.ps1 "Update and add regions to an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-index-none.ps1 "Create a container indexing turned off in an Azure Cosmos account")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -38,10 +38,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | Get-Help | Notas |
 |---|---|
 |**Recursos de Azure**| |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Obtiene un recurso. |
-| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Actualiza un recurso. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crea un recurso. |
 |**Grupos de recursos de Azure**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||
 

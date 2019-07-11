@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: larryfr
-ms.openlocfilehash: ceb45048d160603a3ee619e3ea0e69a0c188a9ad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ee8115a29911d0c3d1ccf87366f939b4184e1ba2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725787"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606891"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: Uso de un modelo ONNX de Custom Vision con Windows ML (versión preliminar)
 
@@ -57,7 +57,7 @@ La aplicación de ejemplo está disponible en [https://github.com/Azure-Samples/
 
 Para usar su propio modelo, siga estos pasos:
 
-1. [Cree y entrene](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) un clasificador con Custom Vision Service. Para exportar el modelo, seleccione un dominio __compacto__ como **General (compacto)**. Para exportar un clasificador existente, convierta el dominio en compacto seleccionando el icono de engranaje de la parte superior derecha. En __Configuración__, elija un modelo compacto, guárdelo y entrene el proyecto.  
+1. [Cree y entrene](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) un clasificador con Custom Vision Service. Para exportar el modelo, seleccione un dominio __compacto__ como **General (compacto)** . Para exportar un clasificador existente, convierta el dominio en compacto seleccionando el icono de engranaje de la parte superior derecha. En __Configuración__, elija un modelo compacto, guárdelo y entrene el proyecto.  
 
 1. Para [exportar el modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) vaya a la pestaña Rendimiento. Seleccione una iteración entrenada con un dominio compacto y aparecerá un botón "Exportar". Seleccione *Exportar*, *ONNX*, *ONNX1.2*y, finalmente, *Exportar*. Una vez que el archivo esté listo, seleccione el botón *Descargar*.
 
