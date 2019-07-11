@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 05/02/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37d68a4d2b7658542ebcfdb5d22a10676a8e4d52
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064114"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603305"
 ---
 # <a name="speech-services-for-telephony-data"></a>Servicios de voz para datos de telefonía
 
@@ -36,7 +36,7 @@ Revisemos algunas de las tecnologías y características relacionadas que los se
 
 Más allá del aspecto funcional de los servicios de voz, su objetivo principal (cuando se aplica al centro de llamadas) es mejorar la experiencia del cliente. A este respecto, existen tres ámbitos claros:
 
-* Análisis posterior a la llamada, es decir, procesamiento por lotes de grabaciones de llamada 
+* Análisis posterior a la llamada, es decir, procesamiento por lotes de grabaciones de llamada
 * Procesamiento de análisis en tiempo real de la señal de audio para extraer varias informaciones a medida que se realiza la llamada (siendo la opinión un caso de uso principal) y
 * Asistentes virtuales (bots), ya sea conduciendo el diálogo entre el cliente y el bot en un intento de resolver el problema del cliente sin la participación del agente, o siendo la aplicación de protocolos de inteligencia artificial para ayudar al agente.
 
@@ -44,9 +44,9 @@ Un diagrama de arquitectura típico de la implementación de un escenario por lo
 
 ## <a name="speech-analytics-technology-components"></a>Componentes de la tecnología de análisis de voz
 
-Ya sea que el dominio sea posterior a la llamada o en tiempo real, Azure ofrece un conjunto de tecnologías maduras y emergentes para mejorar la experiencia del cliente. 
+Ya sea que el dominio sea posterior a la llamada o en tiempo real, Azure ofrece un conjunto de tecnologías maduras y emergentes para mejorar la experiencia del cliente.
 
-### <a name="speech-to-text-stt"></a>Conversión de voz en texto 
+### <a name="speech-to-text-stt"></a>Conversión de voz en texto
 
 La características de conversión de [voz en texto](speech-to-text.md) es la más buscada en cualquier solución de centro de llamadas. Dado que muchos de los procesos analíticos posteriores se basan en texto transcrito, la tasa de errores por palabra (WER) es de suma importancia. Uno de los principales desafíos en la transcripción para los centros de llamadas es el ruido que prevalece en dichos centros (por ejemplo, otros agentes que hablan en segundo plano), la rica variedad de idiomas locales y dialectos, así como la baja calidad de la señal telefónica real. WER está muy correlacionado con el nivel de formación de los modelos acústicos y de lenguaje para una determinada configuración regional, por lo que es importante poder personalizar el modelo a la suya. Nuestros modelos de la versión 4.x unificada más recientes son la solución perfecta tanto para la precisión de transcripción como para la latencia. Entrenado con decenas de miles de horas de datos acústicos y miles de millones de información léxica Los modelos unificados son los más precisos del mercado para transcribir los datos del centro de llamadas.
 
@@ -60,9 +60,9 @@ No es raro que el 35 por ciento de una llamada de soporte técnico sea lo que ll
 Algunas empresas experimentan ahora con ofrecer transcripciones traducidas de llamadas de soporte técnico en idiomas extranjeros para que los administradores de entrega puedan comprender la experiencia de sus clientes de todo el mundo. Nuestras funcionalidades de [traducción](translation.md) son insuperables. Podemos traducir audio a audio o audio a texto desde un gran número de configuraciones regionales.
 
 ### <a name="text-to-speech"></a>Texto a voz
-[Texto a voz](text-to-speech.md) es otra área importante en la implementación de bots que interactúan con los clientes. La vía típica es que el cliente habla, su voz se transcribe en texto, el texto se analiza en busca de intenciones, se sintetiza una respuesta basada en la intención reconocida y, a continuación, se muestra un recurso para el cliente o se genera una respuesta de voz sintetizada. Por supuesto, todo esto tiene que ocurrir rápidamente, por lo que la latencia es un componente importante para el éxito de estos sistemas. 
+[Texto a voz](text-to-speech.md) es otra área importante en la implementación de bots que interactúan con los clientes. La vía típica es que el cliente habla, su voz se transcribe en texto, el texto se analiza en busca de intenciones, se sintetiza una respuesta basada en la intención reconocida y, a continuación, se muestra un recurso para el cliente o se genera una respuesta de voz sintetizada. Por supuesto, todo esto tiene que ocurrir rápidamente, por lo que la latencia es un componente importante para el éxito de estos sistemas.
 
-Nuestra latencia de un extremo a otro es bastante baja si se tienen en cuenta las diversas tecnologías implicadas, tales como [Conversión de voz en texto](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/) y [Texto a voz](text-to-speech.md). 
+Nuestra latencia de un extremo a otro es bastante baja si se tienen en cuenta las diversas tecnologías implicadas, tales como [Conversión de voz en texto](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/) y [Texto a voz](text-to-speech.md).
 
 Nuestras nuevas voces son también indistinguibles de las voces humanas. Puedes usar nuestras voces para darle a tu bot su personalidad única.
 

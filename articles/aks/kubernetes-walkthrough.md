@@ -2,18 +2,18 @@
 title: 'Inicio rápido: Creación de un clúster de Azure Kubernetes Service (AKS)'
 description: Aprenda a crear rápidamente un clúster de Kubernetes, implementar una aplicación y supervisar el rendimiento en Azure Kubernetes Service (AKS) mediante la CLI de Azure.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 05/20/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: a7558308d668fc153b5ac9561efbdf68777ae09f
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 2079144cf6cb36870645d3182aabdecccfcbadd0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514373"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615073"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 

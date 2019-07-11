@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: astay;cephalin;kraigb
+ms.author: cephalin
+ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 8a2eaf50a35b25463be3e323d4362b52e2339bf6
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 95a848ff7d74d35203c7e8377405c709f7fc7bd7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550292"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617390"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configuración de una aplicación de Ruby en Linux para Azure App Service
 
@@ -143,7 +144,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secret_key_base-manually"></a> Establecimiento manual de secret_key_base
 
-Para utilizar su propio valor de `secret_key_base` en lugar de dejar que App Service genere uno automáticamente, establezca la opción de configuración de la aplicación `SECRET_KEY_BASE`[](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) en el valor que desee. Por ejemplo:
+Para utilizar su propio valor de `secret_key_base` en lugar de dejar que App Service genere uno automáticamente, establezca la [opción de configuración](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) de la aplicación `SECRET_KEY_BASE` en el valor que desee. Por ejemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"

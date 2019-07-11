@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5ef72f1db329d04809a1069c1916d1ffcfffe65
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 370771d44e2fbbf0fca7af453f7425ebc1b1bdcd
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509390"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612614"
 ---
 # <a name="what-is-conditional-access"></a>¿Qué es el acceso condicional?
 
@@ -85,7 +85,7 @@ Una vez que el usuario ha iniciado sesión en el servicio de autenticación fede
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Los clientes con [licencias de Microsoft 365 Empresa](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description) también tienen acceso a características de acceso condicional. 
+Los clientes con [licencias de Microsoft 365 Empresa](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) también tienen acceso a características de acceso condicional. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

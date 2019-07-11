@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: dd0c35d23541512e1ed021a57526ac50f7a68e26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43b24bec557d1cc879be9568bea451f1a8b0b310
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100144"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>Tutorial: Integración de Azure Active Directory con Insperity ExpensAble
 
@@ -108,7 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con Insperity ExpensAble
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de Insperity ExpensAble](http://expensable.com/support/support-overview) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de Insperity ExpensAble](https://www.insperity.com/products/expense-management/support/express/) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -126,7 +126,7 @@ Para configurar el inicio de sesión único de Azure AD con Insperity ExpensAble
 
 ### <a name="configure-insperity-expensable-single-sign-on"></a>Configuración del inicio de sesión único en Insperity ExpensAble
 
-Para configurar el inicio de sesión único en **Insperity ExpensAble**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Insperity ExpensAble](http://expensable.com/support/support-overview). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Insperity ExpensAble**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Insperity ExpensAble](https://www.insperity.com/products/expense-management/support/express/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -181,7 +181,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-insperity-expensable-test-user"></a>Creación de un usuario de prueba en Insperity ExpensAble
 
-En esta sección, creará el usuario Britta Simon en Insperity ExpensAble. Trabaje con el  [equipo de soporte técnico de Insperity ExpensAble](http://expensable.com/support/support-overview) para agregar usuarios en la plataforma de Insperity ExpensAble. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará el usuario Britta Simon en Insperity ExpensAble. Trabaje con el  [equipo de soporte técnico de Insperity ExpensAble](https://www.insperity.com/products/expense-management/support/express/) para agregar usuarios en la plataforma de Insperity ExpensAble. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

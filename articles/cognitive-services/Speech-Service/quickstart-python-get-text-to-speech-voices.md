@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/22/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6e28665dfcdaec55ba4f1fa671e9439a9cf4aa7d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 46595cdf665158d019c9b6def19ff6609db803bc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67338642"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602985"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Inicio rápido: Obtención de la lista de voces de texto a voz mediante Python
 

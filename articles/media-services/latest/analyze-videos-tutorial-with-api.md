@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2c26ba24f0262f7cf43f80b4f4deae464581d08d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d31d102300cf23e068aee6bec9ea6d253e874dca
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273895"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653971"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Análisis de vídeos con Media Services v3
 
@@ -86,7 +86,7 @@ En Media Services v3, se utilizan las API de Azure Storage para cargar archivos.
 La función siguiente realiza estas acciones:
 
 * Crea un recurso. 
-* Obtiene una [dirección URL de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) que se puede escribir en el [contenedor de almacenamiento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) del recurso.
+* Obtiene una [dirección URL de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) que se puede escribir en el [contenedor de almacenamiento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) del recurso.
 * Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]

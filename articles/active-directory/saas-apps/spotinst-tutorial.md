@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b3c9a0152144ac0d705c7d3f12c18cbc38398f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 817eecce6c2c1be273b47494e8ecc14180394796
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090149"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Tutorial: integración de Azure Active Directory con Spotinst
 
@@ -114,7 +114,7 @@ Para configurar el inicio de sesión único de Azure AD con Spotinst, siga estos
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Spotinst](common/metadata-upload-additional-signon.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://console.spotinst.com`
+    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://console.spotinst.com/auth/saml`
 
     > [!NOTE]
     > El valor del estado de la retransmisión no es real. El valor se actualizará con el valor del estado de la retransmisión real, que se explica más adelante en el tutorial.

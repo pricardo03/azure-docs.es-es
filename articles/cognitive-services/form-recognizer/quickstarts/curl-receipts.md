@@ -5,16 +5,16 @@ description: En este inicio rápido, usará la API REST Form Recognizer con cURL
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: c232469886941a2db1ae57437c4b72d7565c123c
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 0178e53e6a7fde54b988e710a1cabbb7ded69b22
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503613"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592575"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Inicio rápido: Extracción de datos de recibos con API REST Form Recognizer con cURL
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 - Tener acceso a la versión preliminar de acceso limitado de Form Recognizer. Para acceder a la versión preliminar, rellene y envíe el formulario [Solicitud de acceso de Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
 - [cURL](https://curl.haxx.se/windows/) instalado.
-- Una dirección URL para la imagen de un recibo. Para este inicio rápido puede usar una [imagen de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-receipt.png?raw=true).
+- Una dirección URL para la imagen de un recibo. En este inicio rápido, puede usar una [imagen de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-receipt.png?raw=true).
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
@@ -58,7 +58,7 @@ Tras la llamada a **Analyze Receipt** API, llame a **Get Receipt Result** API pa
 1. Reemplace `<subscription key>` por la clave de suscripción.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/operations/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/operations/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Examen de la respuesta
