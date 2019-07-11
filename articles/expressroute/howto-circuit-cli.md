@@ -6,13 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: cherylmc
+ms.reviewer: anzaman
+ms.openlocfilehash: e42190814b9365c7db054eb2b5f1842581b64009
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837817"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657064"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Creación y modificación de un circuito ExpressRoute mediante la CLI
 
@@ -23,9 +24,10 @@ En este artículo se describe cómo crear un circuito Azure ExpressRoute con la 
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI de Azure](howto-circuit-cli.md)
+> * [Plantilla de Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo: Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clásico)](expressroute-howto-circuit-classic.md)
-> 
+>
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -127,8 +129,8 @@ Ahora está listo para crear un circuito ExpressRoute.
 
 > [!IMPORTANT]
 > El circuito ExpressRoute se factura a partir del momento en que se emite una clave de servicio. Haga esta operación cuando el proveedor de conectividad esté listo para aprovisionar el circuito.
-> 
-> 
+>
+>
 
 Si todavía no tiene un grupo de recursos, debe crear uno antes de crear ExpressRoute. Puede crear uno si ejecuta el comando siguiente:
 
@@ -136,7 +138,7 @@ Si todavía no tiene un grupo de recursos, debe crear uno antes de crear Express
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-En el ejemplo siguiente se muestra cómo crear un circuito ExpressRoute de 200 Mbps a través de Equinix en Silicon Valley. Si usa otro proveedor y otra configuración, sustituya esa información al realizar la solicitud. 
+En el ejemplo siguiente se muestra cómo crear un circuito ExpressRoute de 200 Mbps a través de Equinix en Silicon Valley. Si usa otro proveedor y otra configuración, sustituya esa información al realizar la solicitud.
 
 Asegúrese de que especifica el nivel y la familia correctos de SKU.
 
@@ -267,8 +269,8 @@ Consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute
 
 > [!IMPORTANT]
 > Estas instrucciones se aplican solo a los circuitos creados con proveedores de servicios que ofrecen servicios de conectividad de nivel 2. Si usa un proveedor de servicios que ofrece servicios administrados de nivel 3 (normalmente VPN IP, como MPLS), el mismo proveedor de conectividad configura y administra el enrutamiento.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vinculación de una red virtual a un circuito ExpressRoute
 
@@ -279,7 +281,7 @@ A continuación, vincule una red virtual a su circuito ExpressRoute. Use el art�
 Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar a la conectividad. Puede realizar los cambios siguientes sin tiempo de inactividad:
 
 * Puede habilitar o deshabilitar el complemento ExpressRoute Premium en su circuito ExpressRoute.
-* Puede aumentar el ancho de banda del circuito ExpressRoute, siempre que haya capacidad disponible en el puerto. Sin embargo, no se admite la degradación del ancho de banda de un circuito. 
+* Puede aumentar el ancho de banda del circuito ExpressRoute, siempre que haya capacidad disponible en el puerto. Sin embargo, no se admite la degradación del ancho de banda de un circuito.
 * Puede cambiar el plan de medición de datos limitados a datos ilimitados. Sin embargo, no se admite cambiar el plan de medición de datos ilimitados a datos limitados.
 * Puede habilitar y deshabilitar *Allow Classic Operations*(Permitir operaciones clásicas).
 
@@ -299,8 +301,8 @@ El circuito ahora tiene habilitadas las características del complemento Express
 
 > [!IMPORTANT]
 > Esta operación puede producir un error si usa recursos que son más grandes de lo que está permitido para el circuito estándar.
-> 
-> 
+>
+>
 
 Antes de deshabilitar el complemento premium de ExpressRoute, debe comprender los criterios siguientes:
 

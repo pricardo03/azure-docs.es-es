@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 835f23f98ebe56e0b19081f07dc3302ef93b27b9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a601b0c40f84832101e97a7abf7dd7418a0a5c69
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186157"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673522"
 ---
 Para crear una red virtual con el modelo de implementación de Resource Manager y Azure Portal, siga los pasos que se indican a continuación. Para más información acerca de redes virtuales, consulte [Introducción a las redes virtuales](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,7 +22,7 @@ Para crear una red virtual con el modelo de implementación de Resource Manager 
 >
 >
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com) y después seleccione **Crear un recurso**. Se abre la página **Nuevos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Crear un recurso**. Se abre la página **Nuevos**.
 
 2. En el campo **Buscar en Marketplace**, escriba *red virtual* y seleccione **Red virtual** en la lista de resultados. Se abre la página **Red virtual**.
 

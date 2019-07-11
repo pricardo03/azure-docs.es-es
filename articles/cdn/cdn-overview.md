@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6aaa98bea5e6cf1bdffc3dbe28e42e9545a626ea
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843681"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593605"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>¿Qué es una red de entrega de contenido en Azure?
 Una red de entrega de contenido (CDN) es una red distribuida de servidores que puede proporcionar contenido web a los usuarios de manera eficaz. Las redes CDN guardan contenido almacenado en caché en servidores perimetrales en ubicaciones de punto de presencia (POP) que están cerca de los usuarios finales, para minimizar la latencia. 
@@ -38,7 +38,7 @@ Para ver una lista de las ubicaciones actuales de los nodos de CDN, consulte [Ub
 ## <a name="how-it-works"></a>Cómo funciona
 ![Información general de la red CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Un usuario (Alice) solicita un archivo (también llamado un recurso) mediante una dirección URL con un nombre de dominio especial, como _&lt;nombre del punto de conexión&gt;_.azureedge.net. Este nombre puede ser un nombre de host del punto de conexión o un dominio personalizado. El sistema DNS enruta la solicitud hasta la ubicación POP con mejor rendimiento, que normalmente es el punto POP más cercano geográficamente al usuario.
+1. Un usuario (Alice) solicita un archivo (también llamado un recurso) mediante una dirección URL con un nombre de dominio especial, como _&lt;nombre del punto de conexión&gt;_ .azureedge.net. Este nombre puede ser un nombre de host del punto de conexión o un dominio personalizado. El sistema DNS enruta la solicitud hasta la ubicación POP con mejor rendimiento, que normalmente es el punto POP más cercano geográficamente al usuario.
     
 2. Si los servidores perimetrales del POP no tienen el archivo en la memoria caché, el punto POP solicita el archivo al servidor de origen. El servidor de origen puede ser una aplicación web de Azure, un servicio en la nube de Azure, una cuenta de Azure Storage o cualquier servidor web accesible públicamente.
    

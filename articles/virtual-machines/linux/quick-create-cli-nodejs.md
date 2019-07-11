@@ -4,7 +4,7 @@ description: Creación de una máquina virtual Linux en Azure mediante la CLI de
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a757e156d48eb27a9e4d9b38cb08d5417f1e35b6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473746"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671074"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Creación de una máquina virtual Linux con la CLI de Azure clásica
 
@@ -67,7 +67,7 @@ En el anterior ejemplo `quick-create` solo se llama a la marca `-M` para identif
 * Nombre de la máquina virtual
 * Ubicación (`westus` o `westeurope` son valores predeterminados adecuados).
 * Linux (para informar a Azure qué sistema operativo desea).
-* nombre de usuario
+* userName
 
 En el ejemplo siguiente se especifican todos los valores para que no sea necesaria ninguna otra solicitud. Siempre que tenga un archivo de clave pública `~/.ssh/id_rsa.pub` con formato ssh-rsa, funciona tal cual:
 

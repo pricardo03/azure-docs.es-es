@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: 31ef53abcf9b416500ee70e42cc3cbd12cb11f35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: gwallace
+ms.openlocfilehash: 9155f6fc1243f0d2e4d63f2718ccfd6846ebbc50
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159546"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671496"
 ---
 # <a name="preview-create-a-new-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Vista previa: Creación de una versión de imagen a partir de otra ya existente con Azure Image Builder
 
@@ -22,7 +22,7 @@ Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .
 
 
 ## <a name="register-the-features"></a>Registrar las características
-Para usar Azure Image Builder durante la versión preliminar, tendrá que registrar la nueva característica.
+Para usar el generador de imágenes de Azure durante la versión preliminar, tendrá que registrar la nueva característica.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview

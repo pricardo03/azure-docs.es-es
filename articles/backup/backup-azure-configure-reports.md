@@ -6,14 +6,14 @@ author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 07/09/2019
 ms.author: adigan
-ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5f656a097509e9998d6fb8f157d1910cc04b7799
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60642781"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705154"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 En este artículo se muestran los pasos a seguir para configurar informes para Azure Backup mediante un almacén de Recovery Services. También muestra cómo acceder a informes mediante Power BI. Cuando haya completado estos pasos, puede ir directamente a Power BI para ver, personalizar y crear informes.
@@ -71,7 +71,7 @@ Siga estos pasos para configurar la cuenta de almacenamiento para el almacén de
       ![Ver la configuración de diagnóstico, paso 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Después de configurar los informes al guardar la cuenta de almacenamiento, *espere 24 horas* para que finalice la inserción de datos iniciales. Importe la aplicación de Azure Backup en Power BI solo después de ese tiempo. Para más información, consulte la [sección de preguntas frecuentes](#frequently-asked-questions).
+> Después de configurar los informes al guardar la cuenta de almacenamiento, *espere 24 horas* para que finalice la inserción de datos iniciales. Importe la aplicación de Azure Backup en Power BI solo después de ese tiempo. Para más información, consulte la [sección de preguntas frecuentes](backup-azure-monitor-alert-faq.md).
 >
 >
 
@@ -112,34 +112,6 @@ Si desea personalizar y compartir el informe, cree un área de trabajo y realice
 
       ![Pestañas de informes de Azure Backup](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-
-## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>¿Cómo se comprueba si los datos de informes han empezado a fluir en una cuenta de almacenamiento?
-Puede ir a la cuenta de almacenamiento configurada y seleccione Containers. Si el contenedor tiene una entrada para insights-logs-azurebackupreport, esto indica que los datos de informes han empezado a fluir.
-
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>¿Cuál es la frecuencia de inserción de datos en la cuenta de almacenamiento y en el paquete de contenido de Azure Backup en Power BI?
-  Para los usuarios del día 0, la inserción de datos en la cuenta de almacenamiento tarda unas 24 horas aproximadamente. Cuando finalice esta inserción inicial, los datos se actualizan con la frecuencia mostrada en la ilustración siguiente.
-
-  * Los datos relacionados con **trabajos**, **alertas**, **elementos de copia de seguridad**, **almacenes**, **servidores protegidos** y **directivas** se insertan en la cuenta de almacenamiento del cliente cuando esta se registra.
-
-  * Los datos relacionados con **Storage** se insertan en la cuenta de almacenamiento del cliente cada 24 horas.
-
-       ![Frecuencia de inserción de datos de informes de Azure Backup](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
-
-  * Power BI tiene una [actualización programada una vez al día](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Puede realizar una actualización manual de los datos en Power BI para el paquete de contenido.
-
-### <a name="how-long-can-i-retain-reports"></a>¿Cuánto tiempo se pueden conservar los informes?
-Al configurar una cuenta de almacenamiento, puede seleccionar un período de retención para los datos de informe en la cuenta de almacenamiento. Siga el paso 6 de la sección [Configuración de la cuenta de almacenamiento para los informes](backup-azure-configure-reports.md#configure-storage-account-for-reports). También puede [analizar informes en Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) y guardarlos durante un período de retención más prolongado, según sus necesidades.
-
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>¿Aparecerán todos los datos en los informes después de configurar la cuenta de almacenamiento?
- Todos los datos generados después de configurar la cuenta de almacenamiento se insertarán en dicha cuenta y estarán disponibles en los informes. Los trabajos en curso no se insertan para los informes. Después de que el trabajo termina o se produce un error, se envía a los informes.
-
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Si ya se ha configurado la cuenta de almacenamiento para ver los informes, ¿se puede cambiar la configuración para usar otra cuenta de almacenamiento?
-Sí, puede cambiar la configuración para que se remita a una cuenta de Storage distinta. Use la cuenta de almacenamiento que acaba de configurar al conectarse al paquete de contenido de Azure Backup. Además, después de configurar una cuenta de Storage distinta, los nuevos datos fluyen a esta cuenta de almacenamiento. Los datos más antiguos (antes de cambiar la configuración) permanecen aún en la cuenta de almacenamiento anterior.
-
-### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>¿Se pueden ver los informes en los almacenes y las suscripciones?
-Sí, puede configurar la misma cuenta de Storage en varios almacenes para ver los informes entre ellos. Además, puede configurar la misma cuenta de Storage para almacenes a través de las suscripciones. Después, puede usar esta cuenta de almacenamiento al conectarse al paquete de contenido de Azure Backup en Power BI para ver los informes. La cuenta de almacenamiento seleccionada debe estar en la misma región que el almacén de Recovery Services.
 
 ## <a name="troubleshooting-errors"></a>Solución de errores
 | Detalles del error | Resolución |

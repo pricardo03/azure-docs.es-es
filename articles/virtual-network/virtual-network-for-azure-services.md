@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: malop;kumud
-ms.openlocfilehash: e5481b0e262021e28a398b72b5ad022673947609
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 357122abba483a96dd9f2d602a793ee06e80b245
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409506"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785547"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integración de red virtual para los servicios de Azure
 
@@ -43,7 +43,7 @@ La implementación de servicios dentro de una red virtual ofrece las siguientes 
 - Las instancias de los servicios se implementan en una subred de una red virtual. El acceso de red entrante y saliente para la subred se debe abrir a través de [grupos de seguridad de red](security-overview.md#network-security-groups), siguiendo las instrucciones proporcionadas por el servicio.
 - Ciertos servicios también imponen restricciones en la subred donde se implementan, los cuales limitan la aplicación de directivas, las rutas o la combinación de máquinas virtuales y recursos de servicio dentro de la misma subred. Compruebe las restricciones específicas de cada servicio porque podrían cambiar con el tiempo. Algunos ejemplos de estos servicios son Azure NetApp Files, Dedicated HSM, Azure Container Instances y App Service. 
 - Opcionalmente, los servicios pueden requerir una [subred delegada](virtual-network-manage-subnet.md#add-a-subnet) como un identificador explícito de que una subred puede hospedar un servicio determinado. Mediante la delegación, los servicios obtienen permisos explícitos para crear recursos específicos del servicio en la subred delegada.
-- Vea un ejemplo de una respuesta de API REST en una [red virtual con una subred delegada](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/get#get_virtual_network_with_a_delegated_subnet). Puede ver una lista completa de los servicios que usan el modelo de subred delegada a través de la API de [Available Delegations](https://docs.microsoft.com/rest/api/virtualnetwork/availabledelegations/list).
+- Vea un ejemplo de una respuesta de API REST en una [red virtual con una subred delegada](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/get#get-virtual-network-with-a-delegated-subnet). Puede ver una lista completa de los servicios que usan el modelo de subred delegada a través de la API de [Available Delegations](https://docs.microsoft.com/rest/api/virtualnetwork/availabledelegations/list).
 
 ### <a name="services-that-can-be-deployed-into-a-virtual-network"></a>Servicios que pueden implementarse en una red virtual
 

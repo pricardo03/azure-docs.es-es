@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ce3d86d37940f66065debce30b348371b7aa6af
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029766"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568243"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Excepciones y códigos de error para la referencia de módulos y algoritmos
 
@@ -251,15 +251,16 @@ Si el modelo se entrenó con cualquiera de los módulos de entrenamiento especia
 |----|----|----|
 |cualquier clasificador|[Train Model](train-model.md) (entrenar modelo) |[Score Model](score-model.md) (puntuar modelo)|
 |cualquier modelo de regresión|[Train Model](train-model.md) (entrenar modelo) |[Score Model](score-model.md) (puntuar modelo)|
-<!--| modelos de agrupación en clústeres| [Train Clustering Model](train-clustering-model.md) (entrenar un modelo de agrupación en clústeres) o [Sweep Clustering](sweep-clustering.md) (limpiar una agrupación en clústeres)| [Assign Data to Clusters](assign-data-to-clusters.md) (asignar datos a los clústeres)|
-| detección de anomalías - SVM de una clase | [Train Anomaly Detection Model](train-anomaly-detection-model.md) (entrenar un modelo de detección de anomalías) |[Score Model](score-model.md) (puntuar modelo)|
-| detección de anomalías - PCA |[Train Model](train-model.md) (entrenar modelo) |[Score Model](score-model.md) (puntuar modelo) </br> Se requieren algunos pasos adicionales para evaluar el modelo. |
-| detección de anomalías - serie temporal|  [Detección de anomalías en una series temporal](time-series-anomaly-detection.md) |El modelo se entrena a partir de los datos y genera las puntuaciones. El módulo no crear un aprendiz entrenado y no se requiere ninguna puntuación adicional. |
-| modelo de recomendación| [Train Matchbox Recommender](train-matchbox-recommender.md) (entrenar un recomendador de Matchbox) | [Score Matchbox Recommender](score-matchbox-recommender.md) (puntuar un recomendador de Matchbox) |
-| clasificación de imágenes | [Pretrained Cascade Image Classification](pretrained-cascade-image-classification.md) (clasificación de imágenes en cascada previamente entrenada) | [Score Model](score-model.md) (puntuar modelo) |
-|Modelos de VowPal Wabbit| [Train Vowpal Wabbit Version 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) (entrenar un modelo de Vowpal Wabbit versión 7-4) | [Score Vowpal Wabbit Version 7-4 Model](score-vowpal-wabbit-version-7-4-model.md) (puntuar un modelo de Vowpal Wabbit versión 7-4) |   
-|Modelos de VowPal Wabbit| [Train Vowpal Wabbit Version 7-10 Model](train-vowpal-wabbit-version-7-10-model.md) (entrenar un modelo de Vowpal Wabbit versión 7-10) | [Score Vowpal Wabbit Version 7-10 Model](score-vowpal-wabbit-version-7-10-model.md) (puntuar un modelo de Vowpal Wabbit versión 7-10) |
-|Modelos de VowPal Wabbit| [Train Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) (entrenar un modelo de Vowpal Wabbit versión 8) | [Score Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) (puntuar un modelo de Vowpal Wabbit versión 8) |-->
+
+<!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
+| anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
+| anomaly detection - PCA |[Train Model](train-model.md) |[Score Model](score-model.md) </br> Some additional steps are required to evaluate the model. |
+| anomaly detection - time series|  [Time Series Anomaly Detection](time-series-anomaly-detection.md) |Model trains from data and generates scores. The module does not create a trained learner and no additional scoring is required. |
+| recommendation model| [Train Matchbox Recommender](train-matchbox-recommender.md) | [Score Matchbox Recommender](score-matchbox-recommender.md) |
+| image classification | [Pretrained Cascade Image Classification](pretrained-cascade-image-classification.md) | [Score Model](score-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) | [Score Vowpal Wabbit Version 7-4 Model](score-vowpal-wabbit-version-7-4-model.md) |   
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-10 Model](train-vowpal-wabbit-version-7-10-model.md) | [Score Vowpal Wabbit Version 7-10 Model](score-vowpal-wabbit-version-7-10-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) | [Score Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) |-->
   
 |Mensajes de excepción|  
 |------------------------|  
@@ -1680,7 +1681,7 @@ En general, una transformación basada en recuentos solo puede aplicarse a los c
 |------------------------|  
 |El archivo de definición de módulo contiene errores.|  
 |El archivo de definición de módulo "{0}" contiene errores.|  
-|El archivo de definición de módulo "{0}" contiene errores. {1}|  
+|El archivo de definición de módulo "{0}" contiene errores. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip]({1})|  
   
 
 ## <a name="error-0114"></a>Error 0114  
@@ -2081,7 +2082,7 @@ Resolución:
 |Mensajes de excepción|  
 |------------------------|  
 |Error de acceso a GitHub.|  
-|Error de acceso a GitHub. {0}|  
+|Error de acceso a GitHub. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip]({0})|  
   
 
 ## <a name="error-0148"></a>Error 0148  

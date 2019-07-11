@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: spelluru
-ms.openlocfilehash: ad9c2d492f70a697ef0e7dc3b7ed03b9938f2468
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08fa9ada97c652ca609a499da1c8e87f7e4487db
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66162023"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786621"
 ---
 # <a name="query-event-grid-subscriptions"></a>Consulta de suscripciones de Event Grid 
 
@@ -46,7 +46,7 @@ Para obtener las suscripciones de Event Grid para una suscripción de Azure, esp
 Para la CLI de Azure, utilice:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subscriptions"
+az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subscriptions" --location global
 ```
 
 Para PowerShell, use:
@@ -60,7 +60,7 @@ Para obtener las suscripciones de Event Grid para todos los tipos de recursos de
 Para la CLI de Azure, utilice:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.ResourceGroups"
+az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.ResourceGroups" --location global
 ```
 
 Para PowerShell, use:
@@ -74,7 +74,7 @@ Para obtener las suscripciones de Event Grid para un grupo de recursos especific
 Para la CLI de Azure, utilice:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --resource-group myResourceGroup
+az eventgrid event-subscription list --resource-group myResourceGroup --location global
 ```
 
 Para PowerShell, use:

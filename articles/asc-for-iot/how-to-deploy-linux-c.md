@@ -2,24 +2,25 @@
 title: Guía para instalar e implementar el agente basado en C de Linux de Azure Security Center for IoT, versión preliminar | Microsoft Docs
 description: Aprenda a instalar el agente de Azure Security Center for IoT en máquinas Linux de 32 bits y 64 bits.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 3ccf2aec-106a-4d2c-8079-5f3e8f2afdcb
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: mlottner
-ms.openlocfilehash: 49ebb5932e1e918330625fd0df98811873dd5cd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f5b98060486e6c55bb1702386cd5438f558254b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200655"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616840"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implementar el agente de seguridad basado en C de Azure Security Center for IoT para Linux
 

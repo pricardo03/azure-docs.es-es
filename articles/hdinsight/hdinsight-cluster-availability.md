@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 195999ba685828042fc958e8aed7e67bad694657
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718898"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786556"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Supervisión de la disponibilidad del clúster con los registros de Ambari y Azure Monitor
 
@@ -123,7 +123,7 @@ Por ejemplo, ejecute la consulta de ejemplo **Índice de disponibilidad**. Para 
 > [!NOTE] 
 > El índice de disponibilidad se mide en un período de 24 horas, por lo que el clúster tendrá que ejecutarse durante al menos 24 horas antes de poder ver índice de disponibilidad precisos.
 
-Puede anclar esta tabla a un panel compartido al hacer clic en **Anclar** de la esquina superior derecha. Si no tiene ningún panel compartido en el que se puede escribir, puede ver cómo crear uno aquí: [Creación y uso compartido de paneles en Azure Portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-a-dashboard-and-manage-access-control).
+Puede anclar esta tabla a un panel compartido al hacer clic en **Anclar** de la esquina superior derecha. Si no tiene ningún panel compartido en el que se puede escribir, puede ver cómo crear uno aquí: [Creación y uso compartido de paneles en Azure Portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### <a name="azure-monitor-alerts"></a>Alertas de Azure Monitor
 

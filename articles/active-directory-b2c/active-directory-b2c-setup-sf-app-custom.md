@@ -1,5 +1,5 @@
 ---
-title: Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
+title: Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante directivas personalizadas en Azure Active Directory B2C
 description: Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e565822c006191615dbc10b980da24dcd9ed787a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7cbde2beb03c174facbd145954387a31f6158a9a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508299"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654192"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -31,11 +31,11 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
 
 ### <a name="set-up-salesforce-as-an-identity-provider"></a>Configurar Salesforce como proveedor de identidades
 
-1. [Inicie sesión en Salesforce](https://login.salesforce.com/). 
+1. [Inicie sesión en Salesforce](https://login.salesforce.com/).
 2. En el menú de la izquierda, en **Settings** (Configuración), expanda **Identity** (Identidad) y seleccione **Identity Provider** (Proveedor de identidades).
 3. Seleccione **Enable Identity Provider** (Habilitar proveedor de identidades).
-4. Bajo **Select the certificate** (Seleccionar el certificado), seleccione el certificado que quiere que Salesforce use para comunicarse con Azure AD B2C. Puede usar el certificado predeterminado. 
-5. Haga clic en **Save**(Guardar). 
+4. Bajo **Select the certificate** (Seleccionar el certificado), seleccione el certificado que quiere que Salesforce use para comunicarse con Azure AD B2C. Puede usar el certificado predeterminado.
+5. Haga clic en **Save**(Guardar).
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Crear una aplicación conectada en Salesforce
 
@@ -49,7 +49,7 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
       ```
 
 6. En el campo **ACS URL** (Dirección URL de ACS), escriba la siguiente dirección URL. Asegúrese de reemplazar el valor de `your-tenant` con el nombre del inquilino de Azure AD B2C.
-      
+
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
@@ -90,17 +90,17 @@ Debe almacenar el certificado que creó en el inquilino de Azure AD B2C.
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
+4. En la página de introducción, seleccione **Identity Experience Framework**.
 5. Seleccione **Claves de directiva** y luego **Agregar**.
 6. En **Opciones**, elija `Upload`.
 7. Escriba un **Nombre** para la directiva. Por ejemplo, SAMLSigningCert. El prefijo `B2C_1A_` se agrega automáticamente al nombre de la clave.
-8. Busque el certificado B2CSigningCert.pfx que ha creado y selecciónelo. 
+8. Busque el certificado B2CSigningCert.pfx que ha creado y selecciónelo.
 9. Escriba la **Contraseña** del certificado.
 3. Haga clic en **Create**(Crear).
 
 ## <a name="add-a-claims-provider"></a>Incorporación de un proveedor de notificaciones
 
-Si desea que los usuarios inicien sesión con una cuenta de Salesforce, deberá definir la cuenta como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado. 
+Si desea que los usuarios inicien sesión con una cuenta de Salesforce, deberá definir la cuenta como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
 
 Puede definir una cuenta de Salesforce como un proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva.
 
@@ -189,7 +189,7 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
     ```XML
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
-    
+
     Actualice el valor de **TechnicalProfileReferenceId** al elemento **Id** del perfil técnico que creó anteriormente. Por ejemplo, `LinkedIn-OAUTH`.
 
 3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.

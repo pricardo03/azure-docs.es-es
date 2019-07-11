@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 1d6fc4a54ca600bd094a68e5eaab1306e7e831ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7c3368408b06f13139b9126dfecad0a82857134
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370277"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657288"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificación de un circuito ExpressRoute mediante PowerShell (clásica)
 
@@ -21,6 +21,7 @@ ms.locfileid: "60370277"
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI de Azure](howto-circuit-cli.md)
+> * [Plantilla de Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo: Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clásico)](expressroute-howto-circuit-classic.md)
 >
@@ -125,7 +126,7 @@ Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar
 Puede hacer las siguientes tareas sin experimentar tiempo de inactividad:
 
 * Habilitar o deshabilitar el complemento ExpressRoute Premium en su circuito ExpressRoute.
-* Aumente el ancho de banda del circuito ExpressRoute, siempre que haya capacidad disponible en el puerto. No se admite la degradación del ancho de banda de un circuito. 
+* Aumente el ancho de banda del circuito ExpressRoute, siempre que haya capacidad disponible en el puerto. No se admite la degradación del ancho de banda de un circuito.
 * Cambio del plan de medición de datos limitados a datos ilimitados. No se admite cambiar el plan de medición de datos ilimitados a datos limitados.
 * Puede habilitar y deshabilitar *Allow Classic Operations*(Permitir operaciones clásicas).
 
@@ -154,8 +155,8 @@ El circuito tendrá ahora las características del complemento ExpressRoute Prem
 
 > [!IMPORTANT]
 > Esta operación puede producir un error si usa recursos que son más grandes de lo que está permitido para el circuito estándar.
-> 
-> 
+>
+>
 
 #### <a name="considerations"></a>Consideraciones
 
@@ -189,8 +190,8 @@ Consulte la página [P+F de ExpressRoute](expressroute-faqs.md) para conocer las
 > Si el puerto existente no tiene la capacidad adecuada, tendrá que volver a crear el circuito ExpressRoute. El circuito no se puede actualizar si no hay más capacidad disponible en la ubicación.
 >
 > No podrá reducir el ancho de banda de un circuito ExpressRoute sin interrupciones. Para degradar un ancho de banda, es necesario desaprovisionar el circuito ExpressRoute y luego volver a aprovisionar un nuevo circuito ExpressRoute.
-> 
-> 
+>
+>
 
 #### <a name="resize-a-circuit"></a>Cambio del tamaño de un circuito
 

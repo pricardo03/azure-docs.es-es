@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ea4134c486310592f1f0f344ae26a11276143faf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: d8e1c3f845af6edf274aa95797523ace07cf820c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193371"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594028"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Inicio rápido: Integración de una cuenta de una instancia de Azure Storage con Azure CDN
 En esta guía de inicio rápido, habilitará [Azure Content Delivery Network (CDN)](cdn-overview.md) para almacenar en caché el contenido de Azure Storage. Azure CDN ofrece a los desarrolladores una solución global para entregar contenido con alto ancho de banda. Es posible almacenar en caché blobs y contenido estático de instancias de proceso en nodos físicos en los Estados Unidos, Europa, Asia, Australia y Sudamérica.
@@ -55,7 +55,7 @@ Se pueden usar varios métodos para crear una cuenta de almacenamiento, incluido
    
     Este valor se convierte en el nombre del host dentro del URI que se ha usado para direccionar los recursos de blob, cola o tabla de la suscripción. Para direccionar un recurso de contenedor en Blob Storage, use un URI con el siguiente formato:
    
-    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
+    http:// *&lt;StorageAcountLabel&gt;* .blob.core.windows.net/ *&lt;mycontainer&gt;*
 
     donde *&lt;StorageAccountLabel&gt;* hace referencia al valor especificado en el cuadro **Nombre**.
    
@@ -98,7 +98,7 @@ Puede habilitar Azure CDN para la cuenta de almacenamiento directamente desde es
     | -------- | ----- |
     | **Perfil de CDN** | Seleccione **Crear nuevo** y escriba su nombre de perfil, por ejemplo, *my-cdn-profile-123*. Este nombre debe ser único globalmente.  |
     | **Plan de tarifa** | Seleccione **Verizon estándar** en la lista desplegable. |
-    | **Nombre del punto de conexión de CDN** | Escriba el nombre de host de su punto de conexión, por ejemplo, *my-endpoint-123*. Este nombre debe ser único globalmente. Este nombre se usa para acceder a los recursos almacenados en caché en el dominio _&lt;nombre del punto de conexión&gt;_.azureedge.net. |
+    | **Nombre del punto de conexión de CDN** | Escriba el nombre de host de su punto de conexión, por ejemplo, *my-endpoint-123*. Este nombre debe ser único globalmente. Este nombre se usa para acceder a los recursos almacenados en caché en el dominio _&lt;nombre del punto de conexión&gt;_ .azureedge.net. |
     | **Nombre de host de origen** | De forma predeterminada, un nuevo punto de conexión de CDN usa el nombre de host de la cuenta de almacenamiento como servidor de origen. |
 
 3. Seleccione **Crear**. Después de que se crea el punto de conexión, aparece en la lista de puntos de conexión.

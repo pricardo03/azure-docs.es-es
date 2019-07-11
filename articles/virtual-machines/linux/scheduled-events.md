@@ -4,7 +4,7 @@ description: Programe los eventos usando Azure Metadata Service para las máquin
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7691bcd6f9f3137f48bdd52722c887c4777a32c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507924"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706530"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Linux
 
@@ -75,7 +75,7 @@ Si la máquina virtual no se crea dentro de una red virtual (la opción predeter
 ### <a name="version-and-region-availability"></a>Disponibilidad por región y versión
 El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la actual es `2017-11-01`.
 
-| Versión | Tipo de versión | Regiones | Notas de la versión | 
+| Versión | Tipo de versión | Regions | Notas de la versión | 
 | - | - | - | - | 
 | 01-11-2017 | Disponibilidad general | Todo | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de baja prioridad EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | Todo | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ebb67ff295a934b4e125e298018c27a095adc590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 959d96a9bc1dd9f28e62d904248cd1f18d73c27d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153864"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67563926"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Conceder acceso a datos de blob y cola de Azure con RBAC en Azure Portal
 
@@ -42,6 +42,11 @@ Después de determinar el ámbito adecuado de una asignación de roles, vaya a e
 
 En las siguientes secciones se describe cada uno de estos pasos con más detalle.
 
+> [!NOTE]
+> Como propietario de la cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos. Tiene que asignarse a sí mismo de forma explícita un rol RBAC para Azure Storage. Puede asignarlo al nivel de su suscripción, grupo de recursos, cuenta de almacenamiento o un contenedor o cola.
+> 
+> No se puede asignar un rol que tenga como ámbito un contenedor o una cola si la cuenta de almacenamiento tiene habilitados los espacios de nombres jerárquicos.
+
 ### <a name="assign-a-built-in-rbac-role"></a>Asignar un rol RBAC integrado
 
 Antes de asignar un rol a una entidad de seguridad, asegúrese de haber tenido en cuenta el ámbito de los permisos que se van a conceder. Revise la sección [Determinar el ámbito de recursos](#determine-resource-scope) para decidir cuál es el ámbito adecuado.
@@ -65,11 +70,6 @@ El procedimiento mostrado aquí asigna un rol limitado a un contenedor, pero pue
     ![Captura de pantalla con una lista de los usuarios asignados a un rol](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
 Puede realizar este mismo procedimiento para asignar un rol que tenga como ámbito una cuenta de almacenamiento, un grupo de recursos o una suscripción.
-
-> [!NOTE]
-> Como propietario de la cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos. Tiene que asignarse a sí mismo de forma explícita un rol RBAC para Azure Storage. Puede asignarlo al nivel de su suscripción, grupo de recursos, cuenta de almacenamiento o un contenedor o cola.
-> 
-> No se puede asignar un rol que tenga como ámbito un contenedor o una cola si la cuenta de almacenamiento tiene habilitados los espacios de nombres jerárquicos.
 
 ### <a name="assign-the-reader-role-for-portal-access"></a>Asignar el rol Lector para acceder a Portal
 

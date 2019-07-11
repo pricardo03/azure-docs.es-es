@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8dffc5b87aefe23953d3a74f1d96b5ee03e0315d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88171487fd180931d4659390f0db3c8619fb2d62
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597392"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653454"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Cómo crear un filtro de faceta en Azure Search 
 
@@ -82,7 +82,7 @@ Los atributos de índice que controlan cómo se usa un campo se agregan a las de
 
 ## <a name="build-and-load-an-index"></a>Creación y carga de un índice
 
-Un paso intermedio (y, quizás, obvio) es que tiene que [crear y completar el índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet#3---construct-index) antes de formular una consulta. Hemos mencionado este paso aquí para mayor integridad. Una manera de determinar si el índice está disponible es comprobar la lista de índices en el [portal](https://portal.azure.com).
+Un paso intermedio (y, quizás, obvio) es que tiene que [crear y completar el índice](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) antes de formular una consulta. Hemos mencionado este paso aquí para mayor integridad. Una manera de determinar si el índice está disponible es comprobar la lista de índices en el [portal](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Agregar filtros por faceta a una consulta
 

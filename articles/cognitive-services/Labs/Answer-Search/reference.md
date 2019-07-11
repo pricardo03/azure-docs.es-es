@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rosh
+ms.openlocfilehash: 4384bf658024f89664c5202ba10d793d7ad734e0
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721018"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592914"
 ---
 # <a name="project-answer-search-v7-reference"></a>Referencia de Project Answer Search versión 7
 
@@ -83,7 +83,7 @@ A continuación se indican los encabezados que una solicitud y una respuesta pue
 La solicitud puede incluir los siguientes parámetros de consulta. Consulte la columna Obligatorio para saber cuáles son los parámetros obligatorios. Debe codificar como dirección URL los parámetros de la consulta.  
   
   
-|NOMBRE|Valor|Type|Obligatorio|  
+|NOMBRE|Valor|type|Obligatorio|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|Mercado de dónde proceden los resultados. <br /><br />Para obtener una lista de los valores de mercado posibles, consulte Códigos de mercado.<br /><br /> **NOTA:** URL Preview API solo admite actualmente el mercado estadounidense y el idioma inglés.<br /><br />|Cadena|Sí|  
 |<a name="query" />q|Dirección URL para la vista previa.|Cadena|Sí|  
@@ -96,7 +96,7 @@ La solicitud puede incluir los siguientes parámetros de consulta. Consulte la c
 El esquema de respuesta es un objeto [WebPage] o ErrorResponse, como se muestra en Web Search API. Si se produce un error en la solicitud, el objeto de nivel superior es el objeto [ErrorResponse](#errorresponse).
 
 
-|Objeto|DESCRIPCIÓN|  
+|Object|DESCRIPCIÓN|  
 |------------|-----------------|  
 |[WebPage]|Objeto JSON de nivel superior que contiene los atributos de la vista previa.|  
 |[Fact]|Objeto JSON de nivel superior que contiene los datos.| 
@@ -106,7 +106,7 @@ El esquema de respuesta es un objeto [WebPage] o ErrorResponse, como se muestra 
 ### <a name="error"></a>Error  
 Define el error que se produjo.  
   
-|Elemento|DESCRIPCIÓN|Type|  
+|Elemento|DESCRIPCIÓN|type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|Código de error que identifica la categoría de error. Para obtener una lista de los códigos posibles, consulte [Códigos de error](#error-codes).|Cadena|  
 |<a name="error-message" />message|Descripción del error.|Cadena|  
@@ -119,7 +119,7 @@ Define el error que se produjo.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objeto de nivel superior que la respuesta incluye cuando se produce un error en la solicitud.  
   
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo.|Cadena|  
 |<a name="errors" />errors|Lista de errores que describen los motivos que causaron un error en la solicitud.|[Error](#error)|  
@@ -129,7 +129,7 @@ Objeto de nivel superior que la respuesta incluye cuando se produce un error en 
 ### <a name="license"></a>Licencia  
 Define la licencia bajo la que se pueden usar el texto o la foto.  
   
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|  
 |Nombre|Nombre de la licencia.|Cadena|  
 |url|La dirección URL a un sitio web en el que el usuario puede obtener más información acerca de la licencia.<br /><br /> Utilice el nombre y la dirección URL para crear un hipervínculo.|Cadena|  
@@ -138,7 +138,7 @@ Define la licencia bajo la que se pueden usar el texto o la foto.
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Define una regla contractual para la atribución de licencia.  
   
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|  
 |_type|Una sugerencia de tipo, que se establece en LicenseAttribution.|Cadena|  
 |license|Licencia con la que puede utilizarse el contenido.|[License](#license)|  
@@ -150,7 +150,7 @@ Define una regla contractual para la atribución de licencia.
 ### <a name="link"></a>Vínculo  
 Define los componentes de un hipervínculo.  
   
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo.|Cadena|  
 |text|Texto que se muestra.|Cadena|  
@@ -160,7 +160,7 @@ Define los componentes de un hipervínculo.
 ### <a name="linkattribution"></a>LinkAttribution  
 Define una regla contractual para la atribución del vínculo.  
   
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|  
 |_type|Una sugerencia de tipo, que se establece en LinkAttribution.|Cadena|  
 |mustBeCloseToContent|Booleano que determina si el contenido de la regla debe colocarse cerca del campo al que se aplica la regla. Si el valor es **true**, los contenidos deben colocarse cerca unos de otros. Si el valor es **false**, o este campo no existe, el contenido se pueden colocar a discreción del autor de la llamada.|Boolean|  
@@ -172,7 +172,7 @@ Define una regla contractual para la atribución del vínculo.
 ### <a name="mediaattribution"></a>MediaAttribution  
 Define una regla contractual para la atribución del soporte físico.  
   
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|  
 |_type|Una sugerencia de tipo, que se establece en MediaAttribution.|Cadena|  
 |mustBeCloseToContent|Booleano que determina si el contenido de la regla debe colocarse cerca del campo al que se aplica la regla. Si el valor es **true**, los contenidos deben colocarse cerca unos de otros. Si el valor es **false**, o este campo no existe, el contenido se pueden colocar a discreción del autor de la llamada.|Boolean|  
@@ -186,7 +186,7 @@ Define un anunciante.
   
 Tenga en cuenta que un anunciante puede proporcionar su nombre, su sitio web o ambos.  
   
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|  
 |Nombre|Nombre del publicador.|Cadena|  
 |url|La dirección URL al sitio web del anunciante.<br /><br /> Tenga en cuenta que es posible que el publicador no publique un sitio web.|Cadena|  
@@ -196,7 +196,7 @@ Tenga en cuenta que un anunciante puede proporcionar su nombre, su sitio web o a
 ### <a name="webpage"></a>WebPage  
 Define la información acerca de una página web en la vista previa.  
   
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|
 |Nombre|Título de la página (no necesariamente el título HTML).|Cadena|
 |url|Dirección URL que se rastreó realmente (la solicitud puede tener redireccionamientos con seguimiento)|Cadena|  
@@ -208,7 +208,7 @@ Define la información acerca de una página web en la vista previa.
 ### <a name="querycontext"></a>QueryContext  
 Define el contexto de la consulta que Bing ha usado para la solicitud.  
   
-|Elemento|DESCRIPCIÓN|Type|  
+|Elemento|DESCRIPCIÓN|type|  
 |-------------|-----------------|----------|  
 |adultIntent|Un valor booleano que indica si la consulta especificada está prevista para adultos. El valor es **true** si la consulta está prevista para adultos; de lo contrario, es **false**.|Boolean|  
 |alterationOverrideQuery|La cadena de consulta que se usa para forzar a Bing a usar la cadena original. Por ejemplo, si la cadena de consulta es *navegar a sotavento*, la cadena de consulta de invalidación será *+ navegar a sotavento*. No olvide codificar la cadena de consulta que da lugar a *%2Bnavegar+a sotavento*.<br /><br /> Este campo solo se incluye si la cadena de consulta original contiene un error de ortografía.|Cadena|  
@@ -218,21 +218,21 @@ Define el contexto de la consulta que Bing ha usado para la solicitud.
 
 ### <a name="identifiable"></a>Identifiable
 
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |-------------|-----------------|----------|
 |id|Identificador de recursos.|Cadena|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define un grupo de resultados de la búsqueda grupo, como línea principal.
 
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |-------------|-----------------|----------|
 |items|Una lista de resultados de la búsqueda que se muestran en el grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define un elemento del resultado de la búsqueda que se muestra.
 
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |-------------|-----------------|----------|
 |resultIndex|Índice basado en cero del elemento en la respuesta que se muestra. Si el elemento no incluye este campo, muestre todos los elementos en la respuesta. Por ejemplo, muestre todos los artículos de noticias en la respuesta de News.|Entero|
 |answerType|La respuesta que contiene el elemento que se muestra. Por ejemplo, News.<br /><br />Use el tipo para encontrar la respuesta en el objeto SearchResponse. El tipo es el nombre de un campo de SearchResponse.<br /><br /> Sin embargo, ese el tipo de respuesta solo si el objeto incluye el campo de valor; de lo contario, omítalo.|Cadena|
@@ -254,7 +254,7 @@ Define el objeto de nivel superior que la respuesta incluye cuando la solicitud 
   
 Tenga en cuenta que si el servicio sospecha de un ataque de denegación de servicio, la solicitud se realizará correctamente (código de estado HTTP 200 OK); sin embargo, el cuerpo de la respuesta estará vacío.  
   
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo, que se establece en SearchResponse.|Cadena|  
 |WebPage|Un objeto JSON que define la versión preliminar|string|  
@@ -263,7 +263,7 @@ Tenga en cuenta que si el servicio sospecha de un ataque de denegación de servi
 ### <a name="textattribution"></a>TextAttribution  
 Define una regla contractual para la atribución de texto sin formato.  
   
-|NOMBRE|Valor|Type|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|  
 |_type|Una sugerencia de tipo, que se establece en TextAttribution.|Cadena|  
 |text|El texto de la atribución.<br /><br /> La atribución de texto se aplica a la entidad en conjunto y se debe mostrar inmediatamente después de la presentación de la entidad. Si hay varias reglas de atribución de texto o vínculos que no especifiquen un destino, debe concatenarlas y mostrarlas con una etiqueta "Datos de:".|Cadena| 

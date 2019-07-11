@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: afd9599dd1e396dea6975c397688e4b97371fd6d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679577"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593933"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creación de un punto de conexión de Azure CDN
 Este artículo describe toda la configuración para crear un punto de conexión de [Azure Content Delivery Network (CDN)](cdn-overview.md) en un perfil de CDN existente. Una vez haya creado un perfil y un punto de conexión, podrá iniciar la entrega de contenido a sus clientes. Para una guía de inicio rápido sobre cómo crear un perfil y un punto de conexión, consulte [Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).

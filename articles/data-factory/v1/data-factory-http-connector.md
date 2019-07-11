@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: baca05a9c007849d813b2f4de17378e6d18da4a5
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318485"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701738"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Movimiento de datos desde un origen HTTP mediante Azure Data Factory
 
@@ -39,7 +39,7 @@ Puede usar este conector HTTP para recuperar datos de *un punto de conexión HTT
 
 Al copiar datos de un punto de conexión HTTP local, debe instalar una instancia de Data Management Gateway en el entorno local o en una VM de Azure. Para conocer acerca de Data Management Gateway y obtener instrucciones paso a paso sobre cómo configurar la puerta de enlace, consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 Puede crear una canalización que tenga una actividad de copia para mover datos desde un origen HTTP mediante diferentes herramientas o API:
 

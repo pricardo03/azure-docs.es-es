@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2019
-ms.author: dadobali
+ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45252cc4d45e96c2bde4a4600630ea578a8d3009
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 547eafac8cc1acf2b60416f93804e819a1c549b0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946725"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702756"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Inicio rápido: Inicie sesión de los usuarios y llame a Microsoft Graph API desde una aplicación de Android
 
@@ -78,7 +78,7 @@ En esta guía de inicio rápido hay código de ejemplo que muestra cómo una apl
 
 #### <a name="step-2-download-the-project"></a>Paso 2: Descarga del proyecto
 
-* [Descargar el código de ejemplo](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+* [Descarga del código de ejemplo](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Paso 3: Configuración del proyecto
 
@@ -180,7 +180,7 @@ A continuación, realice la inicialización de MSAL con el siguiente código:
 
 > |Donde: ||
 > |---------|---------|
-> |`R.raw.auth_config` | Este archivo contiene las configuraciones de la aplicación, incluidos el identificador de la aplicación o de cliente, las audiencia de inicio de sesión, el URI de redirección y varias otras opciones de personalización. |
+> |`R.raw.auth_config` | Este archivo contiene las configuraciones de la aplicación incluido el identificador de la aplicación o de cliente, audiencia de inicio de sesión, URI de redirección y varias otras opciones de personalización. |
 
 ### <a name="requesting-tokens"></a>Solicitud de tokens
 

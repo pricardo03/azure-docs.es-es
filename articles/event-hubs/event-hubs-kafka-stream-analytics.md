@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c4beede2508104fc9af934d3f9a2bbcce791292
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748138"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626180"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics 
 En este artículo se muestra cómo transmitir datos a Event Hubs habilitado para Kafka y cómo procesarlos con Azure Stream Analytics. Estos pasos son los siguientes: 
@@ -163,7 +163,7 @@ La consulta en el trabajo de Stream Analytics se pasa a través de los datos sin
  
 
 ### <a name="define-a-query"></a>Definición de una consulta
-Ya tiene un trabajo de Stream Analytics configurado para leer un flujo de datos de entrada. El siguiente paso consiste en crear una transformación que analice los datos en tiempo real. Definirá la consulta de transformación mediante el [lenguaje de consulta de Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx). En este tutorial, definirá una consulta que se pasa a través de los datos sin realizar ninguna transformación.
+Ya tiene un trabajo de Stream Analytics configurado para leer un flujo de datos de entrada. El siguiente paso consiste en crear una transformación que analice los datos en tiempo real. Definirá la consulta de transformación mediante el [lenguaje de consulta de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). En este tutorial, definirá una consulta que se pasa a través de los datos sin realizar ninguna transformación.
 
 1. Seleccione **Consulta**.
 2. En la ventana de consulta, reemplace `[YourOutputAlias]` por el alias de salida que creó anteriormente.

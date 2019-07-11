@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9490772226ecdb90cdd2e0b98fe8336b91db6044
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c61544ce10c5a7d16b3ffc0009039e27f5feecb1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754507"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670800"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Incorporación de blobs a objetos en Azure Digital Twins
 
@@ -36,7 +36,7 @@ Además de **Content-Type** y **Content-Disposition**, las solicitudes de varias
 
 Los cuatro esquemas JSON principales utilizados son:
 
-[![Esquemas JSON](media/how-to-add-blobs/blob-models.PNG)](media/how-to-add-blobs/blob-models.PNG#lightbox)
+[![Esquemas JSON](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
 
 Los metadatos del blob JSON se ajustan al modelo siguiente:
 
@@ -51,7 +51,7 @@ Los metadatos del blob JSON se ajustan al modelo siguiente:
   }
 ```
 
-| Atributo | Type | DESCRIPCIÓN |
+| Atributo | type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **parentId** | Cadena | Entidad primaria con la que se asocia el blob (espacios, dispositivos o usuarios) |
 | **name** |Cadena | Nombre fácil de usar para el blob |
@@ -108,7 +108,7 @@ Los blobs devueltos individualmente cumplen con el esquema JSON siguiente:
 }
 ```
 
-| Atributo | Type | DESCRIPCIÓN |
+| Atributo | type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **id** | Cadena | Identificador único para el blob |
 | **name** |Cadena | Nombre fácil de usar para el blob |
@@ -119,7 +119,7 @@ Los blobs devueltos individualmente cumplen con el esquema JSON siguiente:
 | **subtypeId** | Entero | Id. de subtipo del blob, no se puede usar *subtype* ni *subtypeId* |
 | **sharing** | Cadena | Si el blob se puede compartir, enum [`None`, `Tree`, `Global`] |
 | **descripción** | Cadena | Descripción personalizada del blob |
-| **contentInfos** | Matriz | Especifica la información de metadatos sin estructurar, incluida la versión |
+| **contentInfos** | Array | Especifica la información de metadatos sin estructurar, incluida la versión |
 | **fullName** | Cadena | Nombre completo del blob |
 | **spacePaths** | Cadena | Ruta de acceso al espacio |
 
@@ -183,7 +183,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Por último, los usuarios de [cURL](https://curl.haxx.se/) pueden hacer solicitudes de formulario de varias partes de la misma manera:
 
-[![Blobs de dispositivo](media/how-to-add-blobs/curl.PNG)](media/how-to-add-blobs/curl.PNG#lightbox)
+[![Blobs de dispositivo](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
 curl
@@ -211,7 +211,7 @@ Las siguientes secciones describen los principales puntos de conexión de API re
 
 Puede conectar blobs a dispositivos. La siguiente imagen muestra la documentación de referencia de Swagger para las API de administración. Especifica los puntos de conexión de API relacionados con los dispositivos para el consumo de blobs y los parámetros de ruta de acceso necesarios que se pasarán a dichos puntos de conexión.
 
-[![Blobs de dispositivo](media/how-to-add-blobs/blobs-device-api.PNG)](media/how-to-add-blobs/blobs-device-api.PNG#lightbox)
+[![Blobs de dispositivo](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
 
 Por ejemplo, para actualizar o crear un blob y conectarlo a un dispositivo, realice una solicitud HTTP PATCH autenticada a:
 
@@ -229,7 +229,7 @@ Las solicitudes correctas devuelven un objeto JSON como [se ha descrito anterior
 
 También puede conectar blobs a espacios. En la imagen siguiente se enumeran todos los puntos de conexión de API de espacio responsables de controlar los blobs. También muestra los parámetros de ruta de acceso que se van a pasar a esos puntos de conexión.
 
-[![Blobs de espacio](media/how-to-add-blobs/blobs-space-api.PNG)](media/how-to-add-blobs/blobs-space-api.PNG#lightbox)
+[![Blobs de espacio](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
 
 Por ejemplo, para devolver un blob conectado a un espacio, realice una solicitud HTTP GET autenticada a:
 
@@ -249,7 +249,7 @@ Una solicitud PATCH al mismo punto de conexión actualiza las descripciones de m
 
 Puede conectar blobs a modelos de usuario (por ejemplo, para asociar una imagen de perfil). En la imagen siguiente se muestran los puntos de conexión de API de usuarios pertinentes y los parámetros de ruta de acceso necesarios, como `id`:
 
-[![Blobs de usuario](media/how-to-add-blobs/blobs-users-api.PNG)](media/how-to-add-blobs/blobs-users-api.PNG#lightbox)
+[![Blobs de usuario](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
 
 Por ejemplo, para capturar un blob conectado a un usuario, realice una solicitud HTTP GET autenticada con todos los datos de formulario necesarios a:
 

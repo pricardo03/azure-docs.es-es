@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f24ad348c681609392f83af894bf774dbee226bc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60763364"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620835"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento de Twitter en tiempo real en Azure Stream Analytics
 
@@ -232,9 +232,9 @@ Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, se puede
 
 ## <a name="specify-the-job-query"></a>Especificación de la consulta del trabajo
 
-Stream Analytics admite un modelo de consulta declarativa simple que describe las transformaciones. Para obtener más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).  Este tutorial le ayuda a crear y probar varias consultas sobre datos de Twitter.
+Stream Analytics admite un modelo de consulta declarativa simple que describe las transformaciones. Para obtener más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Este tutorial le ayuda a crear y probar varias consultas sobre datos de Twitter.
 
-Para comparar el número de menciones entre temas, se usa una [ventana de saltos de tamaño constante](https://msdn.microsoft.com/library/azure/dn835055.aspx) para obtener el recuento de menciones por tema cada cinco segundos.
+Para comparar el número de menciones entre temas, se usa una [ventana de saltos de tamaño constante](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) para obtener el recuento de menciones por tema cada cinco segundos.
 
 1. Cierre la hoja **Entradas** si no lo ha hecho ya.
 
@@ -266,7 +266,7 @@ Para comparar el número de menciones entre temas, se usa una [ventana de saltos
 
     Si no usó `TwitterStream` como alias para la entrada, sustituya su alias por `TwitterStream` en la consulta.  
 
-    Esta consulta usa la palabra clave **TIMESTAMP BY** para especificar un campo de marca de tiempo en la carga que se usará en el cálculo temporal. Si no se ha especificado este campo, la operación de ventana se realiza usando el tiempo de cada evento llegado al centro de eventos. Obtenga más información en la sección "Tiempo de llegada frente a tiempo de aplicación" de [Referencia de consulta de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+    Esta consulta usa la palabra clave **TIMESTAMP BY** para especificar un campo de marca de tiempo en la carga que se usará en el cálculo temporal. Si no se ha especificado este campo, la operación de ventana se realiza usando el tiempo de cada evento llegado al centro de eventos. Obtenga más información en la sección "Tiempo de llegada frente a tiempo de aplicación" de [Referencia de consulta de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
     Esta consulta tiene acceso a una marca de tiempo para el final de cada ventana con la propiedad **System.Timestamp**.
 
@@ -348,7 +348,7 @@ Puede usar una herramienta como [Explorador de Azure Storage](https://storageexp
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>Creación de otra consulta para identificar los temas que son tendencias
 
-Otra consulta que puede usar para entender la opinión de Twitter se basa en una [ventana deslizante](https://msdn.microsoft.com/library/azure/dn835051.aspx). Para identificar los temas que son tendencias, se buscan temas que crucen un umbral para las menciones en un período de tiempo especificado.
+Otra consulta que puede usar para entender la opinión de Twitter se basa en una [ventana deslizante](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). Para identificar los temas que son tendencias, se buscan temas que crucen un umbral para las menciones en un período de tiempo especificado.
 
 Para los fines de este tutorial, busque temas que se mencionen más de 20 veces en los últimos cinco segundos.
 
@@ -379,5 +379,5 @@ Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https:/
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

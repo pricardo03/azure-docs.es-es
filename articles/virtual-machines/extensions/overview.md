@@ -4,7 +4,7 @@ description: Obtenga información sobre las extensiones de máquina virtual de A
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: a35cba0ab7df80596ba1403765980809635c0249
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a8c571d3c6bb55fdd8b2d097b71b83afab5ca00
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618003"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705923"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Características y extensiones de las máquinas virtuales de Azure
 Las extensiones de máquina virtual (VM) de Azure son pequeñas aplicaciones que proporcionan tareas de configuración y automatización tras la implementación en máquinas virtuales de Azure. Puede usar imágenes existentes y, después, personalizarlas como parte de las implementaciones, lo que le ahorra el trabajo de compilar imágenes personalizadas.

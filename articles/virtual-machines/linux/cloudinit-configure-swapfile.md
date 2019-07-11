@@ -4,7 +4,7 @@ description: Procedimiento para usar cloud-init con el fin de configurar un arch
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adf03ea912a028c1059683c49350dea3743ee7a6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60729824"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671698"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Uso de cloud-init para configurar un archivo de intercambio en una máquina virtual Linux
 Este artículo explica cómo usar [cloud-init](https://cloudinit.readthedocs.io) para configurar el archivo de intercambio en diversas distribuciones de Linux. El archivo de intercambio tradicionalmente se configuró mediante el agente Linux (WALA) en función de qué distribuciones se necesitaban.  Este documento detalla el proceso para crear el archivo de intercambio a petición durante el tiempo de aprovisionamiento mediante cloud-init.  Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).

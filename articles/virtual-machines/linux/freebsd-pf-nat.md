@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo implementar un firewall NAT con el
 services: virtual-machines-linux
 documentationcenter: ''
 author: KylieLiang
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 8cfa1696a18925e9e9e8b96299f1255875e85aa8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 03ef1ad3f81cfe7b11f74ace9ff2992535d5aad6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542988"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667633"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Procedimiento para usar el filtro de paquetes de FreeBSD con el fin de crear un firewall seguro en Azure
 En este artículo se explica cómo implementar un firewall NAT con el filtro de paquetes de FreeBSD a través de la plantilla de Azure Resource Manager para el escenario común de servidor web.
@@ -28,7 +28,7 @@ En este artículo se explica cómo implementar un firewall NAT con el filtro de 
 ## <a name="what-is-pf"></a>¿Qué es el filtro de paquetes (PF)?
 PF es un filtro de paquetes con estado con licencia para BSD, una pieza central del software de cortafuegos. Esta herramienta se ha desarrollado rápidamente y ahora tiene varias ventajas con respecto a otros firewalls disponibles. Traducción de direcciones de red (NAT) se encuentra en PF desde el primer día. El programador de paquetes y la administración de colas activas se han integrado en PF, incorporando ALTQ, con lo que se puede configurar desde PF. Características como pfsync y CARP para conmutación por error y redundancia, authpf para la autenticación de sesiones y ftp-proxy para facilitar el uso de firewalls en el difícil protocolo FTP difícil, también se han incorporado a PF. En resumen, PF es un firewall eficaz y con numerosas características. 
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 Si le interesa configurar un firewall seguro en la nube para sus servidores web, empecemos a hacerlo. También puede aplicar los scripts usados en esta plantilla de Azure Resource Manager para configurar la topología de red.
 La plantilla de Azure Resource Manager configura una máquina virtual de FreeBSD que realiza tareas NAT y de redirección usando dos máquinas virtuales de FreeBSD y PF con el servidor web Nginx instalado y configurado. Además de llevar a cabo NAT para el tráfico de salida de los dos servidores web, la máquina virtual de redirección/NAT intercepta las solicitudes HTTP y las redirige a los servidores web con distribución "round-robin". La red virtual usa el espacio de direcciones IP no enrutables 10.0.0.2/24 y puede modificar los parámetros de la plantilla. La plantilla de Azure Resource Manager también define una tabla de rutas para la red virtual completa, que es una colección de rutas individuales que se usa para invalidar las rutas de Azure predeterminadas en función de la dirección IP de destino. 
 

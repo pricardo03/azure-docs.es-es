@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
-manager: jeconnoc
-ms.openlocfilehash: 01109aa83c12bda9b1d21ec25784d663f8abf700
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: gwallace
+ms.openlocfilehash: fec6d83870e20b7622f37c52847803d4f03cbba5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159726"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722679"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Vista previa: Creación de una máquina virtual Windows con Azure Image Builder
 
@@ -32,7 +32,7 @@ Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .
 
 ## <a name="register-the-features"></a>Registro de las características
 
-Para usar Azure Image Builder durante la versión preliminar, tendrá que registrar la nueva característica.
+Para usar el generador de imágenes de Azure durante la versión preliminar, tendrá que registrar la nueva característica.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
@@ -62,7 +62,7 @@ az provider register -n Microsoft.Storage
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Se usarán algunos fragmentos de información de forma repetida, por lo que se crearán diversas variables para almacenar esa información.
+Usaremos algunos datos de forma repetida, por lo que crearemos diversas variables para almacenar esa información.
 
 ```azurecli-interactive
 # Resource group name - we are using myImageBuilderRG in this example
@@ -77,7 +77,7 @@ runOutputName=aibWindows
 imageName=aibWinImage
 ```
 
-Cree una variable para el identificador de la suscripción. Puede obtenerlo mediante `az account show | grep id`.
+Cree una variable para el id. de suscripción. Puede obtenerlo mediante `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
@@ -99,7 +99,7 @@ az role assignment create \
 ```
 
 
-## <a name="download-the-json-example"></a>Descarga del ejemplo .json
+## <a name="download-the-json-example"></a>Descargar el ejemplo .json
 
 Descargue el archivo .json de ejemplo y configúrelo con las variables que ha creado.
 
@@ -136,7 +136,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-Espere hasta que se complete la compilación. Esta operación puede tardar unos 15 minutos.
+Espere hasta que se complete la compilación. Puede tardar unos 15 minutos.
 
 ## <a name="create-the-vm"></a>Creación de la máquina virtual
 

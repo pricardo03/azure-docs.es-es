@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: d29fa8700cb1f530cfe85f0bdf6852d75ec1613e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: gwallace
+ms.openlocfilehash: a47c7fd60ec9ddd3fd5e5accae8849bd62bf894c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508169"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671475"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Vista previa: Crear una imagen de Linux y distribuirla en una galería de imágenes compartidas 
 
@@ -28,7 +28,7 @@ Para distribuir la imagen en una galería de imágenes compartidas, en la planti
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registro de las características
-Para usar Azure Image Builder durante la versión preliminar, tendrá que registrar la nueva característica.
+Para usar el generador de imágenes de Azure durante la versión preliminar, tendrá que registrar la nueva característica.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview

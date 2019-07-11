@@ -4,7 +4,7 @@ description: En esta guía de inicio rápido, aprenderá a usar Azure PowerShell
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 46ab5cae7514adfc4ec31ad88f5445a09e3c0e6a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2bbf76e161ec4106b625d1ceb7677c728a989d66
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975303"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667059"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Inicio rápido: Creación de una máquina virtual Linux en Azure con PowerShell
 
@@ -57,7 +57,7 @@ Cree un grupo de recursos de Azure con [New-AzResourceGroup](https://docs.micros
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
-## <a name="create-virtual-network-resources"></a>Creación de recursos de virtual 
+## <a name="create-virtual-network-resources"></a>Creación de recursos de virtual
 
 Cree una red virtual, una subred, una dirección IP pública. Estos recursos se utilizan para proporcionar conectividad de red con la máquina virtual y conectarla a Internet:
 
@@ -215,7 +215,7 @@ Use un explorador web de su elección para ver la página de bienvenida predeter
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, puede usar el cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados:
+Cuando ya no se necesiten, puede usar el cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos, la VM y todos los recursos relacionados:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup"

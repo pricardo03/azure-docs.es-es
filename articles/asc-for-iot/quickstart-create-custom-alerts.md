@@ -2,24 +2,25 @@
 title: Creación de alertas personalizadas para Azure Security Center for IoT, versión preliminar | Microsoft Docs
 description: Cree y asigne alertas de dispositivos personalizadas para Azure Security Center for IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 12559af013d49e557ba0132bef24867867745c16
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786179"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618027"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Inicio rápido: Creación de alertas personalizadas
 
@@ -62,7 +63,7 @@ Use los grupos de seguridad para agrupar los dispositivos en categorías lógica
 
 En la tabla siguiente se proporciona un resumen de las alertas disponibles para la personalización.
 
-| Gravedad | NOMBRE                                                                                                    | Origen de datos | DESCRIPCIÓN                                                                                                                                     |
+| severity | NOMBRE                                                                                                    | Origen de datos | DESCRIPCIÓN                                                                                                                                     |
 |----------|---------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Bajo      | Alerta personalizada: el número de mensajes de la nube al dispositivo en el protocolo AMQP no se encuentra en el intervalo permitido          | IoT Hub     | La cantidad de mensajes de la nube al dispositivo (protocolo AMQP) en un período de tiempo no está en el intervalo permitido configurado                                  |
 | Bajo      | Alerta personalizada: el número de mensajes de la nube al dispositivo rechazados en el protocolo AMQP no se encuentra en el intervalo permitido | IoT Hub     | La cantidad de mensajes de la nube al dispositivo (protocolo AMQP) que rechazaba el dispositivo en un periodo de tiempo no se encuentra en el intervalo permitido configurado |

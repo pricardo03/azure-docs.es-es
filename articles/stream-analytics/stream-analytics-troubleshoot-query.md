@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 586ddb237144daddf0cbfd19785fcba7658469a0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60762487"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621477"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Solución de problemas en las consultas de Azure Stream Analytics
 
@@ -25,11 +25,11 @@ En este artículo se describen problemas comunes con el desarrollo de consultas 
     - En la pestaña **Consulta**, seleccione **Probar**. Use los datos de ejemplo que descargó para [probar la consulta](stream-analytics-test-query.md). Examine los errores e intente corregirlos.   
     - También puede [probar la consulta directamente con entradas en vivo](stream-analytics-live-data-local-testing.md) mediante las herramientas de Stream Analytics para Visual Studio.
 
-2.  Si usa [**Marca de tiempo por**](https://msdn.microsoft.com/library/azure/mt573293.aspx), asegúrese de que los eventos tengan marcas de tiempo mayores que la [hora de inicio del trabajo](stream-analytics-out-of-order-and-late-events.md).
+2.  Si usa [**Marca de tiempo por**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), asegúrese de que los eventos tengan marcas de tiempo mayores que la [hora de inicio del trabajo](stream-analytics-out-of-order-and-late-events.md).
 
 3.  Elimine los errores comunes, como:
-    - Una cláusula [**WHERE**](https://msdn.microsoft.com/library/azure/dn835048.aspx) en la consulta filtrada por todos los eventos, que impide que se genere alguna salida.
-    - Un error de una función [**CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics), que provoca que el trabajo no se realice. Para evitar errores de conversión de tipo, utilice [**TRY_CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics) en su lugar.
+    - Una cláusula [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) en la consulta filtrada por todos los eventos, que impide que se genere alguna salida.
+    - Un error de una función [**CAST**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics), que provoca que el trabajo no se realice. Para evitar errores de conversión de tipo, utilice [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) en su lugar.
     - Cuando use funciones de ventana, espere la duración entera de la ventana para ver una salida de la consulta.
     - La marca de tiempo de los eventos es anterior a la hora de inicio del trabajo y, por tanto, los eventos se descartan.
 
@@ -99,5 +99,5 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](ht
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce6d64f1df7a91f68e4621189553c36b36709039
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366552"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657223"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creación y modificación de un circuito ExpressRoute
 
@@ -21,6 +21,7 @@ ms.locfileid: "60366552"
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI de Azure](howto-circuit-cli.md)
+> * [Plantilla de Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo: Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clásico)](expressroute-howto-circuit-classic.md)
 >
@@ -121,7 +122,7 @@ Puede ver el estado de un circuito seleccionándolo y consultando la página Inf
 
 ## <a name="modify"></a>Modificación de un circuito ExpressRoute
 
-Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar a la conectividad. Puede modificar el ancho de banda, la SKU, el modelo de facturación y permitir operaciones clásicas en la página **Configuración**. Para obtener información sobre los límites y las limitaciones, consulte las [preguntas más frecuentes de ExpressRoute](expressroute-faqs.md). 
+Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar a la conectividad. Puede modificar el ancho de banda, la SKU, el modelo de facturación y permitir operaciones clásicas en la página **Configuración**. Para obtener información sobre los límites y las limitaciones, consulte las [preguntas más frecuentes de ExpressRoute](expressroute-faqs.md).
 
 Puede realizar las siguientes tareas sin experimentar tiempo de inactividad:
 
@@ -139,9 +140,9 @@ Puede realizar las siguientes tareas sin experimentar tiempo de inactividad:
 * Puede habilitar y deshabilitar *Allow Classic Operations*(Permitir operaciones clásicas).
   > [!IMPORTANT]
   > Si el puerto existente no tiene la capacidad adecuada, tendrá que volver a crear el circuito ExpressRoute. El circuito no se puede actualizar si no hay más capacidad disponible en la ubicación.
-  > 
+  >
   > Aunque puede actualizar el ancho de banda sin problemas, no puede reducir el ancho de banda de un circuito de ExpressRoute sin interrupciones. Para degradar un ancho de banda, es necesario desaprovisionar el circuito ExpressRoute y luego volver a aprovisionar un nuevo circuito ExpressRoute.
-  > 
+  >
   > La operación de deshabilitación del complemento premium puede producir un error si usa recursos que son más grandes de lo que está permitido para el circuito estándar.
 
 Para modificar un circuito ExpressRoute, haga clic en **Configuración**.

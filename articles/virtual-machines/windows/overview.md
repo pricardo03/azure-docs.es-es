@@ -4,7 +4,7 @@ description: Aprenda a crear y administrar máquinas virtuales Windows en Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bb87713f1f7d1f41f68f3743b2504784b37bb23
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506839"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723056"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Información general sobre las máquinas virtuales Windows en Azure
 
@@ -63,7 +63,7 @@ En esta tabla se muestran algunas de las formas en que puede obtener una lista d
 | Portal de Azure |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
 | Azure PowerShell |Use el comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
 | API DE REST |Use la operación para [mostrar la lista de ubicaciones](https://docs.microsoft.com/rest/api/resources/subscriptions). |
-| Azure CLI |Use la operación[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
+| CLI de Azure |Use la operación[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
 ### <a name="vm-size"></a>Tamaño de VM
 El [tamaño](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de la máquina virtual que use depende de la carga de trabajo que vaya a ejecutar. El tamaño que elija determina factores tales como la capacidad de almacenamiento, la memoria y la capacidad de procesamiento. Azure ofrece una amplia variedad de tamaños para admitir muchos tipos de usos.
@@ -85,7 +85,7 @@ En esta tabla se muestran algunas maneras de encontrar la información sobre una
 | Portal de Azure |Los valores se especifican automáticamente cuando se selecciona una imagen para usarla. |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | API de REST |[List image publishers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers) (Lista de publicadores de imágenes)<BR>[List image offers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers) (Lista de ofertas de imágenes)<BR>[List image skus](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) (Lista de SKU de imágenes) |
-| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *ubicación*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
+| CLI de Azure |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *ubicación*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
 
 Puede elegir [cargar y usar su propia imagen](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) y, cuando lo haga, no se usan el nombre del publicador, la oferta ni la SKU.
 
@@ -122,7 +122,7 @@ En esta tabla se proporciona información para comenzar a crear la máquina virt
 | Azure PowerShell |[Creación de una máquina virtual Windows con PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | SDK de cliente |[Implementación de recursos de Azure mediante C#](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | API de REST |[Create or update a VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) (Creación o actualización de una máquina virtual) |
-| Azure CLI |[Creación de una máquina virtual con la CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
+| CLI de Azure |[Creación de una máquina virtual con la CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
 Aunque se espera que nunca suceda, en ocasiones algo sale mal. Si se ve en esta situación, consulte la información en [Solución de problemas de implementación de Resource Manager con la creación de una máquina virtual Windows en Azure](../troubleshooting/troubleshoot-deployment-new-vm-windows.md).
 
@@ -138,7 +138,7 @@ En esta tabla se muestran algunas maneras en que puede obtener información sobr
 | Azure PowerShell |Para información sobre cómo usar PowerShell para administrar máquinas virtuales, consulte [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | API DE REST |Use la operación para [obtener información sobre la máquina virtual](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) para conseguir información acerca de una máquina virtual. |
 | SDK de cliente |Para información sobre cómo usar C# para administrar máquinas virtuales, consulte [Administración de Azure Virtual Machines con Azure Resource Manager y C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| Azure CLI |Para información acerca del uso de la CLI de Azure para administrar las máquinas virtuales, consulte la [referencia de la CLI de Azure](https://docs.microsoft.com/cli/azure/vm). |
+| CLI de Azure |Para información acerca del uso de la CLI de Azure para administrar las máquinas virtuales, consulte la [referencia de la CLI de Azure](https://docs.microsoft.com/cli/azure/vm). |
 
 ### <a name="log-on-to-the-vm"></a>Inicio de sesión en la máquina virtual
 Use el botón Conectar en Azure Portal para [iniciar una sesión de Escritorio remoto (RDP)](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). En ocasiones, algo sale mal cuando se intenta usar una conexión remota. Si se ve en esta situación, consulte la información de ayuda en [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](../troubleshooting/troubleshoot-rdp-connection.md).

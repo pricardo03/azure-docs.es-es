@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1fcac4bcfb5cd37ddf8b351514c8f4f1622367c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46b58aad8a5cb71744aca9baaa3a27d4d1efe8e2
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512573"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655256"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de Amazon mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -47,7 +47,7 @@ Debe almacenar el secreto de cliente que haya registrado previamente en el inqui
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
+4. En la página de introducción, seleccione **Identity Experience Framework**.
 5. Seleccione **Claves de directiva** y luego **Agregar**.
 6. En **Opciones**, elija `Manual`.
 7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `AmazonSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
@@ -57,14 +57,14 @@ Debe almacenar el secreto de cliente que haya registrado previamente en el inqui
 
 ## <a name="add-a-claims-provider"></a>Incorporación de un proveedor de notificaciones
 
-Si desea que los usuarios inicien sesión con una cuenta de Amazon, deberá definirla como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado. 
+Si desea que los usuarios inicien sesión con una cuenta de Amazon, deberá definirla como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
 
 Puede definir una cuenta de Amazon como proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProviders** en el archivo de extensión de la directiva.
 
 
 1. Abra el archivo *TrustFrameworkExtensions.xml*.
 2. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
-3. Agregue un nuevo elemento **ClaimsProvider** tal como se muestra a continuación:  
+3. Agregue un nuevo elemento **ClaimsProvider** tal como se muestra a continuación:
 
     ```xml
     <ClaimsProvider>
@@ -147,7 +147,7 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
     ```XML
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
-    
+
     Cambie el valor de **TechnicalProfileReferenceId** para el identificador del perfil técnico que creó anteriormente. Por ejemplo, `Amazon-OAuth`.
 
 3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.

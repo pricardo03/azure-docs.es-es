@@ -1,18 +1,19 @@
 ---
 title: Procedimiento para buscar de forma eficaz con el servicio de búsqueda de Azure Maps | Microsoft Docs
 description: Aprenda a usar los procedimientos recomendados para hacer búsquedas con el servicio de búsqueda de Azure Maps
+author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9cb0f89b4a48d7139adb35dcef48c0115b005c57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c4347eb0f89c17a285aaa4b51760300b9c89aa7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205619"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617858"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Procedimientos recomendados para utilizar el servicio de búsqueda de Azure Maps
 

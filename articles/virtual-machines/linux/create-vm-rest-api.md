@@ -4,7 +4,7 @@ description: Aprenda a crear una máquina virtual Linux e Azure que use Managed 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7f624bc85d35048a8f9afa0f527ae592a24fbf1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391368"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667941"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creación de una máquina virtual Linux que usa la autenticación de SSH con la API REST
 
@@ -63,7 +63,7 @@ Para obtener información general sobre cómo trabajar con solicitudes de la API
 
 Para crear el cuerpo de la solicitud, se usan las siguientes definiciones comunes:
 
-| NOMBRE                       | Obligatorio | Type                                                                                | DESCRIPCIÓN  |
+| NOMBRE                       | Obligatorio | type                                                                                | DESCRIPCIÓN  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | Ubicación del recurso |
 | Nombre                       |          | string                                                                              | Escriba un nombre para la máquina virtual. |
@@ -137,7 +137,7 @@ Puede usar al cliente de su preferencia para enviar esta solicitud HTTP. Tambié
 
 Hay dos respuestas correctas a la operación para crear o actualizar una máquina virtual:
 
-| NOMBRE        | Type                                                                              | DESCRIPCIÓN |
+| NOMBRE        | type                                                                              | DESCRIPCIÓN |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Creado     |

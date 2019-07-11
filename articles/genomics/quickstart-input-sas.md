@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 7c51a0934457a2fcc03f9be1535712e97ac91a1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 833067f53f53f347ce091a64702d44a78cde836f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60781211"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657100"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envío de un flujo de trabajo a Microsoft Genomics mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento 
 
@@ -58,7 +58,7 @@ La firma de acceso compartido de los archivos de entrada debe estar limitada al 
 
 ### <a name="set-up-create-a-sas-programmatically"></a>Configuración: Creación de una firma de acceso compartido mediante programación
 
-Para crear una firma de acceso compartido mediante el SDK de Azure Storage, consulte la documentación existente para varios lenguajes, entre los que se incluyen [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) y [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
+Para crear una firma de acceso compartido mediante el SDK de Azure Storage, consulte la documentación existente para varios lenguajes, entre los que se incluyen [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) y [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
 Para crear una SAS sin un SDK, la cadena de consulta de la SAS se puede construir directamente incluyendo toda la información necesaria para autenticarla. Estas [instrucciones](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) explican detalladamente los componentes de la cadena de consulta de SAS y cómo construirla. La firma SAS necesaria se crea generando un HMAC con la información de autenticación del blob o contenedor tal y como se describe en estas [instrucciones](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
 

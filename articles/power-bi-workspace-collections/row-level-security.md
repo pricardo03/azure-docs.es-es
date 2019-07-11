@@ -2,18 +2,18 @@
 title: Seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI
 description: Información sobre seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a26cc7573abb970dc58c6f7c327dfbc659cb646
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715206"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672477"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI
 

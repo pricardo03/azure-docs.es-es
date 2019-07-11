@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aed716b01fe748be40ee22e3eba5742983c2a523
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479990"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620931"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introducción a las funciones geoespaciales de Stream Analytics
 
@@ -54,7 +54,7 @@ FROM input
 
  {"type" : "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
-Para obtener más información, consulte la referencia sobre [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring).
+Para obtener más información, consulte la referencia sobre [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring).
 
 ## <a name="createpoint"></a>CreatePoint
 
@@ -81,7 +81,7 @@ FROM input
   
  {"type" : "Point", "coordinates" : [20.2321, -87.33]}  
 
-Para obtener más información, consulte la referencia sobre [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint).
+Para obtener más información, consulte la referencia sobre [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint).
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -108,7 +108,7 @@ FROM input
  
  {"type" : "Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
-Para obtener más información, consulte la referencia sobre [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon).
+Para obtener más información, consulte la referencia sobre [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon).
 
 
 ## <a name="stdistance"></a>ST_DISTANCE
@@ -122,7 +122,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-Para obtener más información, consulte la referencia sobre [ST_DISTANCE](https://msdn.microsoft.com/azure/stream-analytics/reference/st-distance).
+Para obtener más información, consulte la referencia sobre [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance).
 
 ## <a name="stoverlaps"></a>ST_OVERLAPS
 La función `ST_OVERLAPS` compara dos polígonos. Si los polígonos se superponen, la función devuelve un 1. La función devuelve 0 si los polígonos no se superponen. 
@@ -143,7 +143,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-Para obtener más información, consulte la referencia sobre [ST_OVERLAPS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-overlaps).
+Para obtener más información, consulte la referencia sobre [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps).
 
 ## <a name="stintersects"></a>ST_INTERSECTS
 La función `ST_INTERSECTS` compara dos LineString. Si las LineString forman una intersección, la función devuelve 1. La función devuelve 0 si las LineString no forman una intersección.
@@ -169,7 +169,7 @@ FROM input
   
  0  
 
-Para obtener más información, consulte la referencia sobre [ST_INTERSECTS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-intersects).
+Para obtener más información, consulte la referencia sobre [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects).
 
 ## <a name="stwithin"></a>ST_WITHIN
 La `ST_WITHIN` función determina si un punto o polígono está dentro de un polígono. Si el polígono contiene el punto o polígono, la función devuelve 1. La función devuelve 0 si el punto o polígono no se encuentra dentro del polígono declarado.
@@ -195,12 +195,12 @@ FROM input
   
  1  
 
-Para obtener más información, consulte la referencia sobre [ST_WITHIN](https://msdn.microsoft.com/azure/stream-analytics/reference/st-within).
+Para obtener más información, consulte la referencia sobre [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

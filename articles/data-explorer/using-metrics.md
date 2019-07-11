@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb59fa0fe9094943dfc942d1d6e664891996c9e3
+ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826805"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569294"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Supervisión del rendimiento, el mantenimiento y el uso de Azure Data Explorer con métricas
 
@@ -42,7 +42,7 @@ En el panel de métricas:
 
     **Métrica** | **Unidad** | **Agregación** | **Descripción de la métrica**
     |---|---|---|---|
-    | Uso de la caché | Percent | Media, máxima, mínima | Porcentaje de recursos de caché asignados actualmente en uso por el clúster. La caché hace referencia al tamaño de SSD asignado para la actividad del usuario según la directiva de caché definida. Una utilización media de la caché del 80 % o menos es un estado sostenible para un clúster. Si el porcentaje es superior, el clúster se debe [escalar verticalmente](manage-cluster-scale-up.md) hasta un plan de tarifa optimizado para almacenamiento, u [horizontalmente](manage-cluster-scale-out.md) a más instancias. Como alternativa, adapte la directiva de caché (menos días en caché). Si la utilización de la caché es superior al 100 %, el tamaño de los datos para almacenarse en caché, según la directiva de almacenamiento en caché, es superior al tamaño total de la caché del clúster. |
+    | Uso de la caché | Percent | Media, máxima, mínima | Porcentaje de recursos de caché asignados actualmente en uso por el clúster. La caché hace referencia al tamaño de SSD asignado para la actividad del usuario según la directiva de caché definida. Una utilización media de la caché del 80 % o menos es un estado sostenible para un clúster. Si el porcentaje es superior, el clúster se debe [escalar verticalmente](manage-cluster-vertical-scaling.md) hasta un plan de tarifa optimizado para almacenamiento, u [horizontalmente](manage-cluster-horizontal-scaling.md) a más instancias. Como alternativa, adapte la directiva de caché (menos días en caché). Si la utilización de la caché es superior al 100 %, el tamaño de los datos para almacenarse en caché, según la directiva de almacenamiento en caché, es superior al tamaño total de la caché del clúster. |
     | CPU | Percent | Media, máxima, mínima | Porcentaje de recursos de proceso asignados actualmente en uso por las máquinas del clúster. Una CPU media del 80 % o menos es sostenible para un clúster. El valor máximo de CPU es 100 %, lo que significa que no hay recursos de proceso adicionales para procesar los datos. Cuando un clúster funciona bien, compruebe el valor máximo de la CPU para determinar si existen CPU específicas que están bloqueadas. |
     | Eventos procesados (para Event Hubs) | Recuento | Máximo, mínimo, suma | Número total de eventos leídos de los centros de eventos y procesados por el clúster. Los eventos se dividen en eventos rechazados y aceptados por el motor del clúster. |
     | Latencia de la ingesta | Segundos | Media, máxima, mínima | La latencia de datos ingeridos desde el momento en que se recibieron los datos en el clúster hasta que está preparado para la consulta. El periodo de latencia de ingesta depende del escenario de ingesta. |

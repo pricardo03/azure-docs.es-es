@@ -8,19 +8,19 @@ writer: zchia
 manager: beatrizd
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
-ms.author: zchia
-ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeedes
+ms.openlocfilehash: d54750e731f92a574ac6571612f8dbd9054a9530
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65470370"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672977"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configuración de Comeet Recruiting Software para el aprovisionamiento automático de usuarios
 
@@ -29,7 +29,7 @@ El objetivo de este tutorial es mostrar los pasos que se deben realizar en Comee
 > [!NOTE]
 > Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
 >
-> Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características de la versión preliminar, vea [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -84,7 +84,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
 ### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Comeet Recruiting Software en Azure AD:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y, después, **Todas las aplicaciones**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y, a continuación, **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -136,7 +136,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
 15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
-    ![Guardado de la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
+    ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
 Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir vínculos al informe de la actividad de aprovisionamiento, en el que se describen todas las acciones realizadas por el servicio de aprovisionamiento de Azure AD en Comeet Recruiting Software.
 

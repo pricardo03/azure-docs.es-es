@@ -9,12 +9,12 @@ ms.service: germany
 ms.date: 08/15/2018
 ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: db26380ef50fd7546f90ceccaec854587e4690c4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 572313f65d5d97211dcb664d79122ea6be520bab
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033521"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786549"
 ---
 # <a name="migrate-storage-resources-to-global-azure"></a>Migración de recursos de almacenamiento a Azure global
 
@@ -133,12 +133,12 @@ Como ya se ha indicado, hay varias formas de crear una máquina virtual mediante
 Para obtener más información:
 
 - Aprenda a exportar a disco [a través de API](/rest/api/compute/disks/grantaccess) obteniendo un identificador URI de firma de acceso compartido. 
-- Aprenda a crear un disco administrado [a través de API](/rest/api/compute/disks/createorupdate#create_a_managed_disk_by_importing_an_unmanaged_blob_from_a_different_subscription.) a partir de un blob sin administrar.
+- Aprenda a crear un disco administrado [a través de API](/rest/api/compute/disks/createorupdate#create-a-managed-disk-by-importing-an-unmanaged-blob-from-a-different-subscription.) a partir de un blob sin administrar.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de las distintas herramientas, técnicas y recomendaciones para migrar los recursos en las siguientes categorías de servicio:
+Obtenga información sobre herramientas, técnicas y recomendaciones para migrar los recursos en las siguientes categorías de servicio:
 
 - [Proceso](./germany-migration-compute.md)
 - [Redes](./germany-migration-networking.md)

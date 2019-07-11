@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4658de97bc8b8a175934286a5be3f074968ff7bd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485376"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653522"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Ejemplos de consultas mediante la sintaxis de búsqueda "simple" en Azure Search
 
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## <a name="example-3-filter-queries"></a>Ejemplo 3: Consultas de filtro
 
-La [sintaxis de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) es una expresión de OData que se puede usar con la **búsqueda** o por sí sola. Un filtro independiente, sin parámetros de consulta, resulta útil cuando la expresión de filtro puede definir completamente los documentos de interés. Sin una cadena de consulta, no hay ningún análisis lingüístico ni léxico, ni puntuación (todas son 1), ni clasificación. Tenga en cuenta que la cadena de búsqueda está vacía.
+La [sintaxis de filtro](https://docs.microsoft.com/azure/search/search-query-odata-filter) es una expresión de OData que se puede usar con la **búsqueda** o por sí sola. Un filtro independiente, sin parámetros de consulta, resulta útil cuando la expresión de filtro puede definir completamente los documentos de interés. Sin una cadena de consulta, no hay ningún análisis lingüístico ni léxico, ni puntuación (todas son 1), ni clasificación. Tenga en cuenta que la cadena de búsqueda está vacía.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -147,7 +147,7 @@ Otra manera eficaz de combinar el filtrado y la búsqueda es mediante **`search.
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-Para más información acerca de la función, consulte [search.ismatch en los ejemplos de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+Para más información acerca de la función, consulte [search.ismatch en los ejemplos de filtro](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
 
 ## <a name="example-4-range-filters"></a>Ejemplo 4: Filtros de rango
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## <a name="example-5-geo-search"></a>Ejemplo 5: Búsqueda georreferenciada
 
-El índice de ejemplo incluye un campo geo_location con las coordenadas de latitud y longitud. En este ejemplo se usa la [función geo.distance](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples), que filtra en documentos dentro de la circunferencia de un punto de partida, hasta la distancia arbitraria (en kilómetros) que proporcione. Puede ajustar el último valor en la consulta (4) para reducir o ampliar el área expuesta de la consulta.
+El índice de ejemplo incluye un campo geo_location con las coordenadas de latitud y longitud. En este ejemplo se usa la [función geo.distance](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples), que filtra en documentos dentro de la circunferencia de un punto de partida, hasta la distancia arbitraria (en kilómetros) que proporcione. Puede ajustar el último valor en la consulta (4) para reducir o ampliar el área expuesta de la consulta.
 
 El ejemplo siguiente está en formato POST para mejorar la legibilidad:
 

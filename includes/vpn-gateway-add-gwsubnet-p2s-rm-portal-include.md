@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5642533fe1015e88c3b27e83139bfd26cb0b1a53
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b044912fd8f52f3f4fdbe1b3a74b64f9b565ddf0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186183"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673526"
 ---
-1. En el [portal](http://portal.azure.com), navegue a la red virtual de Resource Manager para la que desea crear una puerta de enlace de red virtual.
+1. En el [portal](https://portal.azure.com), navegue a la red virtual de Resource Manager para la que desea crear una puerta de enlace de red virtual.
 2. En la sección **Configuración** de la página de redes virtuales, haga clic en **Subredes** para expandir la página **Subredes**.
 3. En la página **Subredes**, haga clic en **+Subred** para abrir la página **Agregar subred**. 
 

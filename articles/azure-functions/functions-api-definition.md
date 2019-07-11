@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bc53fadfb622794703deaff560c9083ca6a1a10
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61341726"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656833"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Compatibilidad con metadatos de OpenAPI 2.0 en Azure Functions (versión preliminar)
 La compatibilidad con metadatos de OpenAPI 2.0 (anteriormente Swagger) en Azure Functions es una característica en versión preliminar que puede usar para escribir una definición de OpenAPI 2.0 dentro de una aplicación de función. A continuación, puede hospedar ese archivo mediante la aplicación de función.
@@ -75,7 +75,7 @@ En la tabla siguiente se representa la configuración de Azure Portal y los dato
    1. Establezca **Origen de la definición de API** en **Función**.
    1. Haga clic en **Generar plantilla de definición de API** y, a continuación, en **Guardar** para crear una definición de plantilla para modificar más adelante.
    1. Tome nota de la dirección URL de la definición de API y la clave.
-1. [Configurar la integración continua e implementación continua (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
+1. [Configurar la integración continua e implementación continua (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#requirements-for-continuous-deployment).
 2. Modifique swagger.json en control de código fuente en \site\wwwroot\.azurefunctions\swagger\swagger.json.
 
 Ahora, los cambios en swagger.json en el repositorio son hospedados por la aplicación de función con la dirección URL de definición de API y clave que anotó en el paso 1.c.

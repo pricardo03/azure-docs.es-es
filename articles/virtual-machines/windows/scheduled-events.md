@@ -4,7 +4,7 @@ description: Eventos programados mediante el servicio Azure Metadata para las m�
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddd34147848ecb3a964eac3d618b452f5eb43f19
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508194"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710302"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Windows
 
@@ -64,7 +64,7 @@ Si la máquina virtual no se crea dentro de una red virtual (lo habitual para se
 ### <a name="version-and-region-availability"></a>Disponibilidad por región y versión
 El servicio Eventos programados tiene versiones. Las versiones son obligatorias y la versión actual es la `2017-11-01`.
 
-| Versión | Tipo de versión | Regiones | Notas de la versión | 
+| Versión | Tipo de versión | Regions | Notas de la versión | 
 | - | - | - | - |
 | 01-11-2017 | Disponibilidad general | Todo | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de baja prioridad EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | Todo | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
