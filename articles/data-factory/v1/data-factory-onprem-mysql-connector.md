@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2468fc0cbdcee9088aa9acb387af396dd448ad0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823953"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701692"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Movimiento de datos de MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -73,8 +73,8 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Base de datos |Nombre de la base de datos MySQL. |Sí |
 | schema |Nombre del esquema de la base de datos. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la Base de datos MySQL. Los valores posibles son: `Basic`. |Sí |
-| nombre de usuario |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |Sí |
-| contraseña |Especifique la contraseña de la cuenta de usuario especificada. |Sí |
+| userName |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |Sí |
+| password |Especifique la contraseña de la cuenta de usuario especificada. |Sí |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la Base de datos MySQL local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos

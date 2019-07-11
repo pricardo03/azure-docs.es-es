@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: c5e9981c6854ff778775631f1d671189830e564b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 70afb39be696b660d3f85ae0c4b2c108bceb318c
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435768"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625681"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage para .NET
 
@@ -179,7 +179,7 @@ Use las siguientes clases de .NET para interactuar con estos recursos:
 * [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): La clase **CloudStorageAccount** representa la cuenta de almacenamiento de Azure. Utilice esta clase para autorizar el acceso a Blob Storage mediante las claves de acceso de cuenta.
 * [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): La clase **CloudBlobClient** proporciona un punto de acceso al servicio Blob en el código.
 * [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): La clase **CloudBlobContainer** representa un contenedor de blobs en el código.
-* [CloudBlockBlob](//dotnet/api/microsoft.azure.storage.blob.cloudblockblob): El objeto **CloudBlockBlob** representa un blob en bloques en el código. Los blobs en bloques se componen de bloques de datos que se pueden administrar de forma individual.
+* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): El objeto **CloudBlockBlob** representa un blob en bloques en el código. Los blobs en bloques se componen de bloques de datos que se pueden administrar de forma individual.
 
 ## <a name="code-examples"></a>Ejemplos de código
 
