@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 10/26/2018
+ms.date: 7/2/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8aae88b24cee64136fb247744325424a446a7bbf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a256a0ff5164ec9b25aea3849f20643ee3719fac
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043165"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541416"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Creación de una cuenta de Azure Cosmos DB con la API de Azure Cosmos DB para MongoDB mediante la CLI de Azure
 
@@ -22,6 +22,8 @@ Este script de ejemplo de la CLI crea una cuenta de Cosmos con la API de Azure C
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+
+[!NOTE] Para más información sobre las convenciones de nomenclatura de la base de datos y el contenedor, consulte [Trabajar con bases de datos, contenedores y los elementos de Azure Cosmos DB](../databases-containers-items.md).
 
 ## <a name="sample-script"></a>Script de ejemplo
 

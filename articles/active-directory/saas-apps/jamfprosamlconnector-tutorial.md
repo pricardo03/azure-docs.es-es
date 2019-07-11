@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 00d03df38dee74f4767e8ff3b21d9462fd59c4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58906147"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099583"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: Integración de Azure Active Directory con Jamf Pro
 
@@ -53,7 +53,7 @@ Para configurar la integración de Jamf Pro en Azure AD, deberá agregar Jamf Pr
 
 **Para agregar Jamf Pro desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Jamf Pro, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Jamf Pro](#configure-jamf-pro-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Jamf Pro](#create-jamf-pro-test-user)**: para tener un homólogo de Britta Simon en Jamf Pro que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Jamf Pro](#configure-jamf-pro-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Jamf Pro](#create-jamf-pro-test-user)** : para tener un homólogo de Britta Simon en Jamf Pro que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Jamf Pro, realice lo
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Jamf Pro](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<subdomain>.jamfcloud.com/saml/metadata`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<subdomain>.jamfcloud.com/saml/metadata`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.jamfcloud.com/saml/SSO`
 
@@ -146,7 +146,7 @@ Para configurar el inicio de sesión único de Azure AD con Jamf Pro, realice lo
 
     ![Inicio de sesión único de Jamf Pro](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
 
-     a. Seleccione **Jamf Pro Server** para habilitar el acceso mediante el inicio de sesión único.
+    a. Seleccione **Jamf Pro Server** para habilitar el acceso mediante el inicio de sesión único.
 
     b. Si selecciona **Allow bypass for all users** (Permitir omisión para todos los usuarios), no se remitirá a los usuarios a la página de inicio de sesión del proveedor de identidades para fines de autenticación, pero podrán iniciar sesión directamente en Jamf Pro. Cuando un usuario intenta tener acceso a Jamf Pro a través del proveedor de identidades, se produce la autorización y autenticación mediante SSO iniciadas por el proveedor de identidades.
 
@@ -160,13 +160,13 @@ Para configurar el inicio de sesión único de Azure AD con Jamf Pro, realice lo
 
     ![Configuración de Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-     a. Seleccione la opción **Otro** en el menú desplegable **PROVEEDOR DE IDENTIDADES**.
+    a. Seleccione la opción **Otro** en el menú desplegable **PROVEEDOR DE IDENTIDADES**.
 
     b. En el cuadro de texto **OTRO PROVEEDOR**, escriba **Azure AD**.
 
     c. Seleccione la opción **URL de metadatos** en el menú desplegable **ORIGEN DE METADATOS DEL PROVEEDOR DE IDENTIDADES** y, en el siguiente cuadro de texto, pegue el valor de **Dirección URL de metadatos de federación de aplicación** que ha copiado en Azure Portal.
 
-    d. Copie el valor del **id. de entidad** y péguelo en el cuadro de texto **Identificador (id. de entidad)**, que se encuentra en la sección **Dominio y direcciones URL de Jamf Pro** de Azure Portal.
+    d. Copie el valor del **id. de entidad** y péguelo en el cuadro de texto **Identificador (id. de entidad)** , que se encuentra en la sección **Dominio y direcciones URL de Jamf Pro** de Azure Portal.
 
     > [!NOTE]
     > Aquí el valor borroso es la parte del subdominio. Use este valor para completar las direcciones URL de inicio de sesión y respuesta en la sección **Dominio y direcciones URL de Jamf Pro** en Azure Portal.
@@ -252,7 +252,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jamf Pro, tienen q
 
     ![Agregar empleado](./media/jamfprosamlconnector-tutorial/user4.png)
 
-     a. En el cuadro de texto **NOMBRE DE USUARIO**, escriba el nombre completo de Britta Simon.
+    a. En el cuadro de texto **NOMBRE DE USUARIO**, escriba el nombre completo de Britta Simon.
 
     b. Seleccione las opciones adecuadas según su organización para **NIVEL DE ACCESO**, **CONJUNTO DE PRIVILEGIOS** y **ESTADO DE ACCESO**.
 
@@ -278,4 +278,4 @@ Al hacer clic en el icono de Jamf Pro en el panel de acceso y debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

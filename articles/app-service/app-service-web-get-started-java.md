@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jasonfreeberg
 ms.custom: mvc
-ms.openlocfilehash: c77f7afe3941395a156896135043710252637ef3
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: bd11b5334fbffc28aa6869c9f37b2b9909692d56
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393235"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154795"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service"></a>Inicio rápido: Creación de una aplicación de Java en App Service
 
@@ -66,7 +66,7 @@ Luego agregue la siguiente definición del complemento al elemento `<build>` del
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.4</version>
+        <version>1.6.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
@@ -105,9 +105,9 @@ Actualice los siguientes marcadores de posición en la configuración del comple
 | Marcador de posición | DESCRIPCIÓN |
 | ----------- | ----------- |
 | `SUBSCRIPTION_ID` | Id. único de la suscripción en la que quiere implementar la aplicación. El id. de la suscripción predeterminada se puede encontrar en Cloud Shell o en la CLI mediante el comando `az account show`. Para todas las suscripciones disponibles, use el comando `az account list`.|
-| `RESOURCEGROUP_NAME` | Nombre del nuevo grupo de recursos en el que se va a crear la aplicación. Al colocar todos los recursos de una aplicación en un grupo, puede administrarlos juntos. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos asociados con la aplicación. Actualice este valor con un nombre único de un nuevo grupo de recursos, por ejemplo, *TestResources*. Este nombre lo utilizará para limpiar todos los recursos de Azure en una sección posterior. |
-| `WEBAPP_NAME` | El nombre de aplicación formará parte del nombre de host de la aplicación si se ha implementado en Azure (WEBAPP_NAME.azurewebsites.net). Actualice este valor con un nombre único para la nueva aplicación de App Service, que hospedará la aplicación Java, por ejemplo *contoso*. |
-| `REGION` | Una región de Azure donde se hospeda la aplicación, por ejemplo, `westus2`. Puede obtener una lista de regiones en Cloud Shell o la CLI mediante el comando `az account list-locations`. |
+| `RESOURCEGROUP_NAME` | Nombre del nuevo grupo de recursos en el que se va a crear la aplicación. Al colocar todos los recursos de una aplicación en un grupo, puede administrarlos juntos. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos asociados con la aplicación. Actualice este valor con un nombre único de un nuevo grupo de recursos, por ejemplo, *myResourceGroup*. Este nombre lo utilizará para limpiar todos los recursos de Azure en una sección posterior. |
+| `WEBAPP_NAME` | El nombre de la aplicación formará parte del nombre de host de la aplicación si se ha implementado en Azure (WEBAPP_NAME.azurewebsites.net). Actualice este valor con un nombre único para la nueva aplicación de App Service, que hospedará la aplicación Java, por ejemplo *contoso*. |
+| `REGION` | Una región de Azure donde se hospeda la aplicación, por ejemplo, *westus2*. Puede obtener una lista de regiones en Cloud Shell o la CLI mediante el comando `az account list-locations`. |
 
 ## <a name="deploy-the-app"></a>Implementar la aplicación
 

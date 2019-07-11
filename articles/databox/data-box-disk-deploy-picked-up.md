@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603090"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448210"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolución de Azure Data Box Disk y comprobación de la carga de datos en Azure
 
@@ -88,7 +88,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en Europa.
 
 ### <a name="pick-up-in-asia-pacific-region"></a>Recogida en la región de Asia Pacífico
 
-Esta región incluye instrucciones para la recogida en Australia, Japón y Corea.
+Esta región incluye instrucciones para la recogida en Australia, Japón, Corea y Singapur.
 
 #### <a name="pick-up-in-australia"></a>Recogida en Australia
 
@@ -103,43 +103,64 @@ Los centros de datos de Azure en Australia tienen una notificación de seguridad
 
 #### <a name="pick-up-in-japan"></a>Recogida en Japón
 
-1. Asegúrese de incluir la nota de devolución de Japón Post Chakubarai.
-2. Escriba el nombre y la dirección de la empresa en la nota de devolución como información del remitente.
-3. Llame al número de teléfono de Japón Post para solicitudes de recogida, 0800-0800-111 (gratuito). Teclee el código postal de 7 dígitos de la dirección de recogida y, después, envíelo a la oficina de correos más cercana.
-    - Las horas en las que se atienden las solicitudes de recogida dependen de las distintas oficinas de correos.
-    - Indique que el envío es para Japón Post Chakubarai Yu-Pack.
-    - Use la nota de Chakubarai que se ha incluido.
-4. Si no se ha incluido la nota de Japón Post Chakubarai, envíe un mensaje de correo electrónico a *Quantium Solutions* a la dirección `Customerservice.JP@quantiumsolutions.com`. *Quantium Solutions* solicitará a Japón Post la recogida y les pedirá que traigan la nota en la recogida.
-    - Indique el número de referencia en la columna de comentarios de la nota de Chakubarai que llevará Japan Post.
-    - Escriba la dirección de entrega como se muestra a continuación:   
-        ```
-        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
-        Microsoft Service Center c/o Quantium Solutions Japan
-        TEL: 03-5755-0150
-        ```
+1. Escriba el nombre y la dirección de la empresa en la nota de entrega como información del remitente.
+2. Envíe un correo electrónico a Quantium Solutions mediante la plantilla de correo electrónico que tiene a continuación.
 
-Si falta la nota de Chakubarai, puede solicitar la recogida mediante correo electrónico. Utilice la siguiente plantilla de correo electrónico para solicitar la recogida.
+    - Tanto si no se incluyó la nota de entrega de Japan Post Chakubarai como si falta, especifíquelo en este correo electrónico. Quantium Solutions Japan se encargará de solicitar a Japan Post que le proporcionen una nota de entrega en la recogida.
+    - Si tiene varios pedidos, envíe un correo electrónico para comprobar cada recogida individual.
 
-```
-To: Customerservice.JP@quantiumsolutions.com
-Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-Body: 
-- Azure Data Box Disk job name：
-- Reference number:  
-- Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
-```
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+        a. 08：00-13：00 
+        b. 13：00-15：00 
+        c. 15：00-17：00 
+        d. 17：00-19：00 
+    ```
+
+3. Recibirá un correo electrónico de confirmación de Quantium Solutions tras concertar una recogida. Este correo electrónico también incluye información sobre la nota de entrega de Chakubarai.
+
+Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium Solutions (en japonés) en: 
+
+- Correo electrónico: Customerservice.JP@quantiumsolutions.com 
+- Teléfono：03-5755-0150 
 
 #### <a name="pick-up-in-korea"></a>Recogida en Corea
 
-1. Asegúrese de incluir la nota de retorno.
-2. Para solicitar la recogida:
-    1. Llame a la línea directa de *Quantium Solutions International*, 070-8231-1418, en horario de oficina (de 10 AM a 5 PM, de lunes a viernes). Indique *Microsoft pickup* y el número de nota para organizar la recogida.  
-    2. Si la línea directa está ocupada, envíe un mensaje de correo electrónico a `microsoft@rocketparcel.com` con el asunto *Microsoft Pickup* y el número de connote como referencia.
+1. Asegúrese de incluir la nota de entrega de la devolución.
+2. Para solicitar la recogida con la nota de entrega:
+    1. Llame a la línea directa de *Quantium Solutions International*, 070-8231-1418, en horario de oficina (de 10 AM a 5 PM, de lunes a viernes). Indique *Microsoft Azure pickup* y el número de solicitud de servicio para organizar la recogida.  
+    2. Si la línea directa está ocupada, envíe un mensaje de correo electrónico a `microsoft@rocketparcel.com` con el asunto *Microsoft Azure Pickup* y el número de solicitud de servicio como referencia.
     3. Si el mensajero no realiza la recogida, llame a la línea directa de *Quantium Solutions International* para buscar otra fecha. 
+    4. Recibirá una confirmación por correo electrónico para concertar la recogida.
+3. Siga este paso solo si la nota de entrega no está presente. Para solicitar la recogida:
+    1. Llame a la línea directa de *Quantium Solutions International*, 070-8231-1418, en horario de oficina (de 10 AM a 5 PM, de lunes a viernes). Indique *Microsoft Azure pickup* y el número de solicitud de servicio para organizar la recogida. Especifique que necesita una nueva nota de entrega para concertar una recogida. Proporcione la información sobre el remitente (cliente) y el receptor (centro de datos de Azure), así como el número de referencia (número de solicitud de servicio). 
+    2. Si la línea directa está ocupada, envíe un mensaje de correo electrónico a `microsoft@rocketparcel.com` con el asunto *Microsoft Azure Pickup* y el número de solicitud de servicio como referencia.
+    3. Si el mensajero no realiza la recogida, llame a la línea directa de *Quantium Solutions International* para buscar otra fecha. 
+    4. Recibirá una confirmación verbal si la solicitud se realiza por teléfono.
+
+### <a name="pick-up-in-singapore"></a>Recogida en Singapur
+
+1. Imprima la etiqueta de envío y póngala en la caja. Si la etiqueta se daña o se pierde:
+    - Vaya a **Overview > Download shipping label** (Información general > Descargar etiqueta de envío).
+
+        ![Descarga de la etiqueta de envío](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        De esta forma se descarga una etiqueta de envío de devolución como se muestra a continuación.
+
+        ![Ejemplo de etiqueta de envío](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Pegue la etiqueta en el dispositivo. Asegúrese de que la etiqueta está visible.
+
+2. Para solicitar la recogida:
+    - Llame a la línea directa de **SingPost**, en el número **6845 6485**, en horario de oficina (de 9 a 17 horas de lunes a viernes).  
+    - Indique *Microsoft Azure pickup* y el número de solicitud de servicio (número de seguimiento en la etiqueta de envío de la devolución) para concertar la recogida. 
+    - Recibirá una confirmación verbal para la organización de la recogida. 
+    - Si el mensajero no realiza la recogida, llame a **SingPost** en el **6845 6485** para concertar otra cita. 
+3. Realice la entrega al mensajero. 
+
 
 ## <a name="verify-data-upload-to-azure"></a>Comprobación de la carga de datos en Azure
 
@@ -156,6 +177,8 @@ Los datos se copian automáticamente una vez que los discos se conectan a un ser
 Una vez finalizada la copia, el estado del pedido se actualiza a **Completed** (Completado).
 
 ![Copia de datos finalizada](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
+
+Si la copia se completa con errores, vea [cómo solucionar errores de carga](data-box-disk-troubleshoot-upload.md).
 
 Compruebe que los datos estén en las cuentas de almacenamiento antes de eliminarlos del origen. Los datos pueden estar en:
 

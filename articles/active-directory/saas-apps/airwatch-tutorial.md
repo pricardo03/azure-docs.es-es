@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e20a298c34a7b2723963396f8ccaafaa9472e19a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 301d008c8ebdb66a58674876937b13dcfa15c79d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899244"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Tutorial: Integración de Azure Active Directory con AirWatch
 
@@ -53,7 +53,7 @@ Para configurar la integración de AirWatch en Azure AD, es preciso agregarlo de
 
 **Para agregar AirWatch desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con AirWatch, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de AirWatch](#configure-airwatch-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de AirWatch](#create-airwatch-test-user)**: para tener un homólogo de Britta Simon en AirWatch vinculado a la representación del usuario en Azure AD.
-5. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de AirWatch](#configure-airwatch-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Creación de un usuario de prueba de AirWatch](#create-airwatch-test-user)** : para tener un homólogo de Britta Simon en AirWatch vinculado a la representación del usuario en Azure AD.
+5. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,9 +105,9 @@ Para configurar el inicio de sesión único de Azure AD con AirWatch, realice lo
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de AirWatch](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
-    b. En el cuadro de texto **Identificador (Id. de entidad)**, escriba el valor como: `AirWatch`
+    b. En el cuadro de texto **Identificador (Id. de entidad)** , escriba el valor como: `AirWatch`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de AirWatch](https://www.air-watch.com/company/contact-us/) para obtenerlo. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -179,7 +179,7 @@ Para configurar el inicio de sesión único de Azure AD con AirWatch, realice lo
 
     ![Cargar](./media/airwatch-tutorial/ic791924.png "Cargar")   
 
-     a. En **Directory Type** (Tipo de directorio), seleccione **None** (Ninguno).
+    a. En **Directory Type** (Tipo de directorio), seleccione **None** (Ninguno).
 
     b. Seleccione **Use SAML For Authentication**(Usar SAML para autenticación).
 
@@ -189,7 +189,7 @@ Para configurar el inicio de sesión único de Azure AD con AirWatch, realice lo
 
     ![Solicitud](./media/airwatch-tutorial/ic791925.png "Solicitud")  
 
-     a. En **Request Binding Type** (Tipo de enlace de solicitud), seleccione **POST**.
+    a. En **Request Binding Type** (Tipo de enlace de solicitud), seleccione **POST**.
 
     b. En Azure Portal, en la página de diálogo **Configure single sign-on at Airwatch** (Configurar inicio de sesión único en Airwatch), copie el valor de **Dirección URL de inicio de sesión** y péguelo en el cuadro de texto **Identity Provider Single Sign On URL** (Dirección URL de inicio de sesión del proveedor de identidades).
 
@@ -205,7 +205,7 @@ Para configurar el inicio de sesión único de Azure AD con AirWatch, realice lo
 
     ![Atributo](./media/airwatch-tutorial/ic791927.png "Atributo")
 
-     a. En el cuadro de texto **Identificador de objetos**, escriba `http://schemas.microsoft.com/identity/claims/objectidentifier`.
+    a. En el cuadro de texto **Identificador de objetos**, escriba `http://schemas.microsoft.com/identity/claims/objectidentifier`.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
@@ -290,7 +290,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en AirWatch, tienen q
 
    ![Agregar usuario](./media/airwatch-tutorial/ic791931.png "Agregar usuario")
 
-    a. Especifique **Username** (Nombre de usuario), **Password** (Contraseña), **Confirm Password** (Confirmar contraseña), **First Name** (Nombre), **Last Name** (Apellido), **Email Address** (Correo electrónico) de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
+   a. Especifique **Username** (Nombre de usuario), **Password** (Contraseña), **Confirm Password** (Confirmar contraseña), **First Name** (Nombre), **Last Name** (Apellido), **Email Address** (Correo electrónico) de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
 
    b. Haga clic en **Save**(Guardar).
 
@@ -309,4 +309,4 @@ Al hacer clic en el icono de AirWatch en el panel de acceso y debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

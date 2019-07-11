@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 124f69b3fd6944d0a6e3814f1bbfa5594bcd95cb
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 21b8cb06712e370972e0b8fec518c37d078262e0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988406"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107070"
 ---
 # <a name="tutorial-integrate-alertops-with-azure-active-directory"></a>Tutorial: Integración de AlertOps con Azure Active Directory
 
@@ -31,7 +31,7 @@ En este tutorial, obtendrá información sobre cómo integrar AlertOps con Azure
 * Permitir que los usuarios puedan iniciar sesión automáticamente en AlertOps con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -119,7 +119,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Configuración de AlertOps](./media/alertops-tutorial/configure2.png)
 
-     a. Active la casilla **Utilizar Inicio de sesión único (SSO)** .
+    a. Active la casilla **Utilizar Inicio de sesión único (SSO)** .
 
     b. Seleccione **Azure Active Directory** como **proveedor de SSO** en la lista desplegable.
 
@@ -137,7 +137,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado Britta Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 1. En las propiedades del **usuario**, siga estos pasos:
    1. En el campo **Nombre**, escriba `Britta Simon`.  
@@ -179,7 +179,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Configuración de AlertOps](./media/alertops-tutorial/user3.png)
 
-     a. En el cuadro de texto **Login User Name** (Nombre de usuario de inicio de sesión), escriba el nombre completo del usuario, por ejemplo, **BrittaSimon**.
+    a. En el cuadro de texto **Login User Name** (Nombre de usuario de inicio de sesión), escriba el nombre completo del usuario, por ejemplo, **BrittaSimon**.
 
     b. En el cuadro de texto **Official Email** (Correo electrónico oficial), escriba la dirección de correo electrónico del usuario, como **Brittasimon\@contoso.com**.
 
@@ -203,4 +203,4 @@ Al seleccionar el icono de AlertOps en el panel de acceso, debería iniciar sesi
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

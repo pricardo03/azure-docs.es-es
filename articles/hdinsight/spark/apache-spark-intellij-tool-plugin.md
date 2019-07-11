@@ -1,37 +1,48 @@
 ---
-title: 'Azure Toolkit for IntelliJ: Creación de aplicaciones Spark para un clúster de HDInsight '
-description: Uso del kit de herramientas de Azure para IntelliJ con el fin de desarrollar aplicaciones Spark escritas en Scala y enviarlas a un clúster de HDInsight Spark.
+title: 'Tutorial: Azure Toolkit for IntelliJ: Creación de aplicaciones Spark para un clúster de HDInsight'
+description: 'Tutorial: Uso de Azure Toolkit for IntelliJ con el fin de desarrollar aplicaciones Spark escritas en Scala y enviarlas a un clúster de HDInsight Spark.'
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 02/15/2019
-ms.author: maxluk
-ms.openlocfilehash: 57a3ea73783af1edaee069bf2770d5c58f81772a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 06/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: 0a434246791e73e24af1ffe7abd722f5265ca5b6
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496101"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462388"
 ---
-# <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Uso de Azure Toolkit for IntelliJ con el fin de crear aplicaciones Apache Spark para un clúster de HDInsight
+# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Tutorial: Uso de Azure Toolkit for IntelliJ con el fin de crear aplicaciones Apache Spark para un clúster de HDInsight
 
-Use el complemento de Azure Toolkit for IntelliJ con el fin de desarrollar aplicaciones [Apache Spark](https://spark.apache.org/) escritas en [Scala](https://www.scala-lang.org/) y enviarlas a continuación a un clúster de HDInsight Spark directamente desde el entorno de desarrollo integrado (IDE) de IntelliJ. Puede usar el complemento de varias maneras:
+Este tutorial demuestra cómo usar el complemento de Azure Toolkit for IntelliJ con el fin de desarrollar aplicaciones Apache Spark escritas en [Scala](https://www.scala-lang.org/) y enviarlas a continuación a un clúster de HDInsight Spark directamente desde el entorno de desarrollo integrado (IDE) de IntelliJ. Puede usar el complemento de varias maneras:
 
 * Desarrollar y enviar una aplicación Spark en Scala en un clúster de Spark en HDInsight.
 * Tener acceso a los recursos del clúster de Azure HDInsight Spark.
 * Desarrollar y ejecutar localmente una aplicación Spark en Scala.
 
+En este tutorial, aprenderá a:
+> [!div class="checklist"]
+> * Usar el complemento Azure Toolkit for IntelliJ
+> * Desarrollar aplicaciones de Apache Spark
+> * Enviar una aplicación al clúster de Azure HDInsight
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
+
 * [Kit de desarrollo de Oracle Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  En este tutorial se usa la versión 8.0.202 de Java.
+
 * IntelliJ IDEA. En este artículo se usa [IntelliJ IDEA Community  2018.3.4](https://www.jetbrains.com/idea/download/).
+
 * Azure Toolkit for IntelliJ.  Consulte [Instalación de Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+
 * WINUTILS.EXE.  Consulte [Problems running Hadoop on Windows](https://wiki.apache.org/hadoop/WindowsProblems) (Problemas al ejecutar Hadoop en Windows).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Instale el complemento de Scala para IntelliJ IDEA.
+
 Para instalar el complemento Scala, siga estos pasos:
 
 1. Abra IntelliJ IDEA.
@@ -45,7 +56,6 @@ Para instalar el complemento Scala, siga estos pasos:
     ![Instalar complemento de Scala](./media/apache-spark-intellij-tool-plugin/install-scala-plugin.png)
 
 4. Después de que el complemento se instale correctamente, debe reiniciar el IDE.
-
 
 ## <a name="create-a-spark-scala-application-for-an-hdinsight-spark-cluster"></a>Creación de una aplicación Spark en Scala para un clúster de HDInsight Spark
 
@@ -133,16 +143,15 @@ El usuario puede [iniciar sesión en la suscripción a Azure](#sign-in-to-your-a
    
    ![Vínculo de Azure Explorer](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
 
-
-3. En el **inicio de sesión en Microsoft Azure** diálogo cuadro, elija **inicio de sesión de dispositivo**y, a continuación, seleccione **inicie sesión en**.
+3. En el cuadro de diálogo de **inicio de sesión en Azure**, seleccione **Inicio de sesión del dispositivo** y, a continuación, **Iniciar sesión**.
 
     ![Cuadro de diálogo de inicio de sesión en Azure](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
 
-4. En el **inicio de sesión de dispositivo Azure** cuadro de diálogo, haga clic en **copiar y abrir**.
+4. En el cuadro de diálogo **Inicio de sesión del dispositivo de Azure**, haga clic en **Copiar y abrir**.
    
    ![Cuadro de diálogo de inicio de sesión en Azure](./media/apache-spark-intellij-tool-plugin/view-explorer-5.png)
 
-5. En la interfaz del explorador, pegue el código y, a continuación, haga clic en **siguiente**.
+5. En la interfaz del explorador, pegue el código y, a continuación, haga clic en **Siguiente**.
    
    ![Cuadro de diálogo de inicio de sesión en Azure](./media/apache-spark-intellij-tool-plugin/view-explorer-6.png)
 
@@ -154,7 +163,7 @@ El usuario puede [iniciar sesión en la suscripción a Azure](#sign-in-to-your-a
 
     ![Cuadro de diálogo Seleccionar suscripciones](./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
 
-8. Desde **Azure Explorer**, expanda **HDInsight** para ver los clústeres de HDInsight Spark que se encuentran en las suscripciones.
+8. En **Azure Explorer**, expanda **HDInsight** para ver los clústeres de HDInsight Spark de sus suscripciones.
 
     ![Clústeres de HDInsight Spark en Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-3.png)
 
@@ -163,6 +172,7 @@ El usuario puede [iniciar sesión en la suscripción a Azure](#sign-in-to-your-a
     ![Nodo de nombre de clúster expandido](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
 ### <a name="link-a-cluster"></a>Vinculación de un clúster
+
 Puede vincular un clúster de HDInsight mediante el nombre de usuario administrado de Apache Ambari. De forma similar, para un clúster de HDInsight unido a un dominio, puede vincular con el dominio y el nombre de usuario, como user1@contoso.com. También puede vincular el clúster del servicio de Livy.
 
 1. En la barra de menús, vaya a **Ver** > **Ventanas de herramientas** > **Azure Explorer**.
@@ -183,7 +193,7 @@ Puede vincular un clúster de HDInsight mediante el nombre de usuario administra
         |User Name| Escriba el nombre de usuario del clúster, el valor predeterminado es admin.|
         |Contraseña| Escriba la contraseña del nombre de usuario.|
     
-        ![vincular el cuadro de diálogo de clúster de Hdinsight](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![cuadro de diálogo de vinculación de clúster de HDInsight](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy Service**  
   
@@ -197,7 +207,7 @@ Puede vincular un clúster de HDInsight mediante el nombre de usuario administra
         |User Name| Escriba el nombre de usuario del clúster, el valor predeterminado es admin.|
         |Contraseña| Escriba la contraseña del nombre de usuario.|
 
-        ![vincular el cuadro de diálogo de clúster de Livy](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
+        ![cuadro de diálogo de vinculación de clúster de Livy](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
 
 1. Puede ver su clúster vinculado en el nodo **HDInsight**.
 
@@ -208,6 +218,7 @@ Puede vincular un clúster de HDInsight mediante el nombre de usuario administra
    ![clúster no vinculado](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Ejecución de una aplicación Spark en Scala en un clúster de HDInsight Spark
+
 Después de crear una aplicación de Scala, puede enviarla al clúster.
 
 1. En Proyecto, vaya a **myApp** > **src** > **main** > **scala** > **myApp**.  Haga clic con el botón derecho en **myApp** y seleccione **Enviar aplicación Spark** (probablemente estará en la parte inferior de la lista).
@@ -225,23 +236,25 @@ Después de crear una aplicación de Scala, puede enviarla al clúster.
     |Nombre de la clase principal|El valor predeterminado es la clase principal del archivo seleccionado. Para cambiar la clase, puede seleccionar el botón de puntos suspensivos ( **...** ) y elegir otra clase.|
     |Configuraciones del trabajo|Puede cambiar las claves o valores predeterminados. Para más información, consulte [API de REST de Apache Livy](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Argumentos de la línea de comandos|Puede especificar los argumentos divididos por un espacio para la clase principal, si es necesario.|
-    |Archivos jar a los que se hace referencia y archivos a los que se hace referencia|puede especificar las rutas de acceso para los archivos jar y los archivos a los que se hace referencia, si existen. Para obtener más información: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) (Configuración de Apache Spark).  Consulte también [cómo cargar recursos en un clúster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |Archivos jar a los que se hace referencia y archivos a los que se hace referencia|puede especificar las rutas de acceso para los archivos jar y los archivos a los que se hace referencia, si existen. También puede examinar archivos en el sistema de archivos virtual de Azure, que actualmente solo admite el clúster de ADLS Gen 2. Para obtener más información: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) (Configuración de Apache Spark).  Consulte también [cómo cargar recursos en un clúster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Almacenamiento de carga del trabajo|Expanda para mostrar opciones adicionales.|
     |Tipo de almacenamiento|Seleccione la opción para **usar Azure Blob para cargar** en la lista desplegable.|
     |Cuenta de almacenamiento|Escriba su cuenta de Storage.|
     |Clave de almacenamiento|Escriba su clave de almacenamiento.|
     |Contenedor de almacenamiento|Seleccione su contenedor de almacenamiento en la lista desplegable una vez que se hayan escrito **Cuenta de Storage** y **Clave de almacenamiento**.|
 
-    ![Cuadro de diálogo de envío de Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
+    ![Cuadro de diálogo de envío de Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 
 4. Seleccione **SparkJobRun** para enviar el proyecto para el clúster seleccionado. En la pestaña **Remote Spark Job in Cluster** (Trabajo remoto de Spark en el clúster) se muestra el progreso de ejecución del trabajo en la parte inferior. Puede detener la aplicación haciendo clic en el botón rojo. Para obtener información sobre cómo tener acceso a la salida de trabajo, consulte la sección "Acceso y administración de clústeres de HDInsight Spark mediante el uso del kit de herramientas de Azure para IntelliJ" que encontrará más adelante en este artículo.  
       
     ![Ventana de envío de Spark](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
 ## <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Depuración de aplicaciones Apache Spark de forma local o remota en un clúster de HDInsight 
+
 También se recomienda otra manera de enviar la aplicación Spark al clúster. Puede hacerlo estableciendo los parámetros del IDE de **configuraciones de ejecución o depuración**. Para más información, consulte [Depuración de aplicaciones Apache Spark en un clúster de HDInsight con Azure Toolkit for IntelliJ mediante SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md).
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Acceso y administración de clústeres de HDInsight Spark mediante el uso del kit de herramientas de Azure para IntelliJ
+
 Puede realizar varias operaciones mediante el Kit de herramientas de Azure para IntelliJ.  La mayoría de las operaciones se inician desde **Azure Explorer**.  En la barra de menús, vaya a **Ver** > **Ventanas de herramientas** > **Azure Explorer**.
 
 ### <a name="access-the-job-view"></a>Acceso a la vista de trabajo
@@ -278,6 +291,7 @@ Puede realizar varias operaciones mediante el Kit de herramientas de Azure para 
 2. Cuando se le pida, escriba las credenciales de administrador para el clúster. Estas son las credenciales que especificó durante el proceso de configuración de clúster.
 
 ### <a name="manage-azure-subscriptions"></a>Administración de suscripciones de Azure
+
 De forma predeterminada, el kit de herramientas de Azure para IntelliJ enumera los clústeres de Spark de todas las suscripciones de Azure. Si es necesario, puede especificar las suscripciones a las que desea tener acceso.  
 
 1. En Azure Explorer, haga clic con el botón derecho en el nodo raíz de **Azure** y seleccione **Seleccionar suscripciones**.  
@@ -285,9 +299,11 @@ De forma predeterminada, el kit de herramientas de Azure para IntelliJ enumera l
 2. En la ventana **Seleccionar suscripciones**, desactive las casillas situadas junto a las suscripciones a las que no desea tener acceso y seleccione **Cerrar**.
 
 ## <a name="spark-console"></a>Consola de Spark
+
 Puede ejecutar Spark Local Console(Scala) o ejecutar Spark Livy Interactive Session Console(Scala).
 
 ### <a name="spark-local-consolescala"></a>Spark Local Console(Scala)
+
 Asegúrese de haber cumplido el requisito previo WINUTILS.EXE.
 
 1. En la barra de menús, vaya a **Ejecutar** > **Editar configuraciones...** .
@@ -320,8 +336,8 @@ Asegúrese de haber cumplido el requisito previo WINUTILS.EXE.
 
     ![Resultado de la consola local](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
 
-
 ### <a name="spark-livy-interactive-session-consolescala"></a>Spark Livy Interactive Session Console(Scala)
+
 Solo se admite en IntelliJ 2018.2 y 2018.3.
 
 1. En la barra de menús, vaya a **Ejecutar** > **Editar configuraciones...** .
@@ -354,59 +370,56 @@ Resulta cómodo predecir el resultado del script mediante el envío de código a
    ![Envío de la selección a la consola de Spark](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
 ## <a name="reader-only-role"></a>Rol de solo lectura
-Cuando los usuarios envían trabajos a un clúster con permiso de rol de solo lectura, se requiere credenciales de Ambari.
 
-### <a name="link-cluster-from-context-menu"></a>Clúster de vínculo desde el menú contextual
+Cuando los usuarios envían trabajos a un clúster con el permiso de rol de solo lectura, se requieren credenciales de Ambari.
 
-1. Inicie sesión con la cuenta de la función de solo lectura.
+### <a name="link-cluster-from-context-menu"></a>Vínculo de clúster desde menú contextual
+
+1. Inicie sesión con la cuenta del rol de solo lectura.
        
-2. Desde **Azure Explorer**, expanda **HDInsight** para ver los clústeres de HDInsight que se encuentran en su suscripción. Los clústeres de marcan **"Lector de rol:"** solo tiene permiso de rol de solo lectura.
+2. En **Azure Explorer**, expanda **HDInsight** para ver los clústeres de HDInsight de su suscripción. Los clústeres marcados como **"Role:Reader"** tienen únicamente permiso de solo lectura.
 
     ![Clústeres de HDInsight Spark en Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-15.png)
 
-3. Botón derecho, haga clic en el clúster con el permiso de rol de solo lectura. Seleccione **vincular este clúster** desde el menú contextual para vincular el clúster. Escriba el nombre de usuario de Ambari y la contraseña.
+3. Haga clic derecho en el clúster con el permiso de rol de solo lectura. Seleccione **Link this cluster** (Vincular este clúster) en el menú contextual para vincular el clúster. Escriba el nombre de usuario y la contraseña de Ambari.
 
   
     ![Clústeres de HDInsight Spark en Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-11.png)
 
-4. Si el clúster está vinculado correctamente, se actualizarán en HDInsight.
-   Se convierten en vinculará la fase del clúster.
+4. Si el clúster se vinculó correctamente, se actualizará HDInsight.
+   La fase del clúster quedará vinculada.
   
     ![Clústeres de HDInsight Spark en Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-8.png)
 
+### <a name="link-cluster-by-expanding-jobs-node"></a>Vínculo de clúster mediante la expansión del nodo de trabajos
 
-
-### <a name="link-cluster-by-expanding-jobs-node"></a>Clúster de vínculo expandiendo el nodo trabajos
-
-1. Haga clic en **trabajos** nodo, **acceso denegado de trabajo de clúster** ventana emergente.
+1. Haga clic en el nodo **Trabajos** y aparecerá la ventana emergente **Cluster Job Access Denied** (Se denegó el acceso al trabajo del clúster).
    
-2. Haga clic en **vincular este clúster** para vincular el clúster.
+2. Haga clic en **Link this cluster** (Vincular este clúster) para vincular el clúster.
    
     ![Clústeres de HDInsight Spark en Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-9.png)
 
-### <a name="link-cluster-from-rundebug-configurations-window"></a>Clúster de vínculo de la ventana de configuraciones de ejecución y depuración
+### <a name="link-cluster-from-rundebug-configurations-window"></a>Vínculo de clúster desde la ventana de configuraciones de ejecución o depuración
 
-1. Crear una configuración de HDInsight. A continuación, seleccione **ejecutar de forma remota en clúster**.
+1. Cree una configuración de HDInsight. Luego, seleccione **Remotely Run in Cluster** (Ejecutar de forma remota en clúster).
    
-2. Seleccione un clúster que tiene permiso de rol de solo lectura para **(solo Linux) de clústeres de Spark**. Mensaje de advertencia se muestra horizontal. Puede hacer clic en **vincular este clúster** para vincular el clúster.
+2. Seleccione un clúster, que tiene permiso de rol de solo lectura para **clústeres de Spark (solo Linux)** . Aparece un mensaje de advertencia. Puede hacer clic en **Link this cluster** (Vincular este clúster) para vincular el clúster.
    
    ![Clústeres de HDInsight Spark en Azure Explorer](./media/apache-spark-intellij-tool-plugin/create-config-1.png)
    
-### <a name="view-storage-accounts"></a>Ver cuentas de almacenamiento
+### <a name="view-storage-accounts"></a>Visualización de cuentas de almacenamiento
 
-* Para los clústeres con permiso de rol de solo lectura, haga clic en **cuentas de almacenamiento** nodo, **almacenamiento acceso denegado** ventana emergente. Puede hacer clic en **abra Explorador de Azure Storage** para abrir el Explorador de almacenamiento.
+* Para los clústeres con permiso de rol de solo lectura, haga clic en el nodo **Cuentas de almacenamiento** y aparecerá la ventana emergente **Storage Access Denied** (Se denegó el acceso al almacenamiento). Seleccione **Abrir Explorador de Azure Storage** para abrir el explorador de Storage.
      
    ![Clústeres de HDInsight Spark en Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-14.png)
 
    ![Clústeres de HDInsight Spark en Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-10.png)
 
-* Para los clústeres vinculados, haga clic en **cuentas de almacenamiento** nodo, **almacenamiento acceso denegado** ventana emergente. Puede hacer clic en **abrir Azure Storage** para abrir el Explorador de almacenamiento.
+* Para los clústeres vinculados, haga clic en el nodo **Cuentas de almacenamiento** y aparecerá la ventana emergente **Storage Access Denied** (Se denegó el acceso al almacenamiento). Puede hacer clic en **Open Azure Storage** (Abrir Azure Storage) para abrir el Explorador de Storage.
      
    ![Clústeres de HDInsight Spark en Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-13.png)
 
-
    ![Clústeres de HDInsight Spark en Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-12.png)
-  
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Conversión de las aplicaciones IntelliJ IDEA existentes para usar el kit de herramientas de Azure para IntelliJ
 
@@ -424,71 +437,25 @@ Puede convertir las aplicaciones Spark en Scala existentes creadas en IntelliJ I
 
 3. Guarde los cambios. La aplicación ahora debe ser compatible con el kit de herramientas de Azure para IntelliJ. Puede comprobarlo si hace clic con el botón derecho en el nombre de proyecto en Proyecto. El menú emergente ahora debería tener la opción **Submit Spark Application to HDInsight** (Enviar aplicación Spark a HDInsight).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
-### <a name="error-in-local-run-use-a-larger-heap-size"></a>Error en la ejecución local: *Utilice un tamaño de montón mayor*
-En Spark 1.6, si utiliza un SDK de Java de 32 bits durante la ejecución local, puede encontrar los siguientes errores:
+Si no va a seguir usando esta aplicación, elimine el clúster que creó mediante los siguientes pasos:
 
-    Exception in thread "main" java.lang.IllegalArgumentException: System memory 259522560 must be at least 4.718592E8. Please use a larger heap size.
-        at org.apache.spark.memory.UnifiedMemoryManager$.getMaxMemory(UnifiedMemoryManager.scala:193)
-        at org.apache.spark.memory.UnifiedMemoryManager$.apply(UnifiedMemoryManager.scala:175)
-        at org.apache.spark.SparkEnv$.create(SparkEnv.scala:354)
-        at org.apache.spark.SparkEnv$.createDriverEnv(SparkEnv.scala:193)
-        at org.apache.spark.SparkContext.createSparkEnv(SparkContext.scala:288)
-        at org.apache.spark.SparkContext.<init>(SparkContext.scala:457)
-        at LogQuery$.main(LogQuery.scala:53)
-        at LogQuery.main(LogQuery.scala)
-        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-        at java.lang.reflect.Method.invoke(Method.java:606)
-        at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-Estos errores se producen porque el tamaño del montón no es lo suficientemente grande como para que se ejecute Spark. Spark requiere al menos 471 MB. (para obtener más información, consulte [SPARK-12081](https://issues.apache.org/jira/browse/SPARK-12081)). Una solución sencilla es utilizar un SDK de Java de 64 bits. También puede cambiar la configuración de JVM en IntelliJ agregando las siguientes opciones:
+1. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight**.
 
-    -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea
+1. Seleccione **Clústeres de HDInsight** en **Servicios**.
 
-![Incorporación de opciones a la casilla de opciones de máquina virtual en IntelliJ](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
+1. En la lista de clústeres de HDInsight que aparece, seleccione el signo **...** situado junto al clúster que ha creado para este tutorial.
 
-## <a name="faq"></a>Preguntas más frecuentes
-Si el clúster está ocupado, puede aparecer el siguiente error.
+1. Seleccione **Eliminar**. Seleccione **Sí**.
 
-![Intellij presenta errores si el clúster está ocupado](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
+![Eliminación de un clúster de HDInsight](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
 
-![Intellij presenta errores si el clúster está ocupado](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
+## <a name="next-steps"></a>Pasos siguientes
 
-## <a name="feedback-and-known-issues"></a>Comentarios y problemas conocidos
-Actualmente, la visualización de salidas de Spark directamente no se admite.
+En este tutorial, ha aprendido a usar el complemento de Azure Toolkit for IntelliJ con el fin de desarrollar aplicaciones Apache Spark escritas en [Scala](https://www.scala-lang.org/) y enviarlas a continuación a un clúster de HDInsight Spark directamente desde el entorno de desarrollo integrado (IDE) de IntelliJ. En el siguiente artículo podrá ver cómo extraer en una herramienta de análisis de BI, como Power BI, los datos que registró en Apache Spark.
 
-Si tiene sugerencias o comentarios, o si se le presenta algún problema al usar este complemento, no dude en enviarnos un correo electrónico a la dirección hdivstool@microsoft.com.
-
-## <a name="seealso"></a>Pasos siguientes
-* [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)
-
-### <a name="demo"></a>Demostración
-* Creación de proyecto de Scala (vídeo): [Crear aplicaciones Apache Spark en Scala](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Depuración remota (vídeo): [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely on HDInsight Cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (Uso del kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Apache Spark en clústeres de HDInsight)
-
-### <a name="scenarios"></a>Escenarios
-* [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="creating-and-running-applications"></a>Creación y ejecución de aplicaciones
-* [Crear una aplicación independiente con Scala](apache-spark-create-standalone-application.md)
-* [Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Apache Livy](apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Herramientas y extensiones
-* [Uso de Azure Toolkit for IntelliJ para depurar de forma remota aplicaciones de Apache Spark mediante VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Uso de Azure Toolkit for IntelliJ para depurar de forma remota aplicaciones de Apache Spark mediante SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Uso de las herramientas de HDInsight de Azure Toolkit for Eclipse con el fin de crear aplicaciones Apache Spark](apache-spark-eclipse-tool-plugin.md)
-* [Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponible para Jupyter Notebook en clústeres Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Uso de paquetes externos con cuadernos de Jupyter Notebook](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="managing-resources"></a>Administración de recursos
-* [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](apache-spark-job-debugging.md)
+> [!div class="nextstepaction"]
+> [Análisis de datos mediante herramientas de inteligencia empresarial](apache-spark-use-bi-tools.md)

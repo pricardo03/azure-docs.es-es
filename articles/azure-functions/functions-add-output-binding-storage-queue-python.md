@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: aaeee4238110faa7a842073af8431b30b885db3c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870026"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443199"
 ---
-# <a name="add-an-azure-storage-queue-binding-to-your-function"></a>Adición de un enlace de cola de Azure Storage a una función
+# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adición de un enlace de cola de Azure Storage a la función de Python
 
 Azure Functions le permite conectar servicios de Azure y otros recursos a funciones sin tener que escribir su propio código de integración. Estos *enlaces*, que representan la entrada y la salida, se declaran dentro de la definición de función. Los datos de los enlaces se proporcionan a la función como parámetros. Un desencadenador es un tipo especial de enlace de entrada. Si bien una función tiene un único desencadenador, puede tener varios enlaces de entrada y salida. Para más información, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md).
 
@@ -32,7 +32,7 @@ Antes de empezar este artículo, realice los pasos de la [parte 1 del inicio rá
 
 ## <a name="download-the-function-app-settings"></a>Descarga de la configuración de la aplicación de función
 
-En el artículo de inicio rápido anterior, creó una aplicación de función en Azure junto con una cuenta de almacenamiento. La cadena de conexión de esta cuenta se almacena de forma segura en la configuración de la aplicación en Azure. En este artículo, escribirá mensajes en una cola de almacenamiento de la misma cuenta. Para conectarse a su cuenta de almacenamiento cuando se ejecuta la función localmente, debe descargar la configuración de la aplicación en el archivo local.settings.json. Ejecute el siguiente el comando de Azure Functions Core Tools para descargar la configuración en local.settings.json, y reemplace `<APP_NAME>` por el nombre de la aplicación de función del artículo anterior:
+En el artículo de inicio rápido anterior, creó una aplicación de funciones en Azure junto con una cuenta de Storage. La cadena de conexión de esta cuenta se almacena de forma segura en la configuración de la aplicación en Azure. En este artículo, escribirá mensajes en una cola de almacenamiento de la misma cuenta. Para conectarse a su cuenta de almacenamiento cuando se ejecuta la función localmente, debe descargar la configuración de la aplicación en el archivo local.settings.json. Ejecute el siguiente el comando de Azure Functions Core Tools para descargar la configuración en local.settings.json, y reemplace `<APP_NAME>` por el nombre de la aplicación de función del artículo anterior:
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -44,6 +44,12 @@ Puede que deba iniciar sesión en su cuenta de Azure.
 > Como contiene secretos, el archivo local.settings.json nunca se publica y debe excluirse del control de código fuente.
 
 Necesitará el valor `AzureWebJobsStorage`, que es la cadena de conexión de la cuenta de almacenamiento. Esta conexión se usa para comprobar que el enlace de salida funciona según lo previsto.
+
+## <a name="enable-extension-bundles"></a>Habilitación de conjuntos de extensiones
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+Ahora podrá agregar el enlace de salida de Storage al proyecto.
 
 ## <a name="add-an-output-binding"></a>Adición de un enlace de salida
 
@@ -117,8 +123,8 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         return func.HttpResponse(f"Hello {name}!")
     else:
         return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
+            "Please pass a name on the query string or in the request body",
+            status_code=400
         )
 ```
 
@@ -133,13 +139,13 @@ func host start
 ```
 
 > [!NOTE]  
-> Como en el artículo anterior tenía que habilitar las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de almacenamiento](functions-bindings-storage-blob.md#packages---functions-2x) se descargó e instaló automáticamente durante el inicio.
+> Como en el artículo anterior tenía que habilitar las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de almacenamiento](functions-bindings-storage-blob.md#packages---functions-2x) se descargó e instaló automáticamente durante el inicio, junto con el resto de extensiones de enlace de Microsoft.
 
 Copie la dirección URL de la función `HttpTrigger` que aparece en la salida en entorno de ejecución y péguela en la barra de direcciones del explorador. Agregue la cadena de consulta `?name=<yourname>` a esta dirección URL y ejecute la solicitud. Verá la misma respuesta en el explorador que en el artículo anterior.
 
 Esta vez, el enlace de salida también crea una cola denominada `outqueue` en la cuenta de almacenamiento y agrega un mensaje con esta misma cadena.
 
-A continuación, se usa la CLI de Azure para ver la nueva cola y comprobar que se ha agregado un mensaje. También puede ver la cola mediante el [Explorador de Microsoft Azure Storage][Azure Storage Explorer] o en [Azure Portal](https://portal.azure.com).
+A continuación, se usa la CLI de Azure para ver la nueva cola y comprobar que se ha agregado un mensaje. También puede ver la cola mediante el [Explorador de Microsoft Azure Storage][Azure Storage Explorer] o en [Azure Portal](https://portal.azure.com).
 
 ### <a name="set-the-storage-account-connection"></a>Establecimiento de la conexión de la cuenta de almacenamiento
 

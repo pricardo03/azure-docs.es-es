@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7dab6f6b9215ead8cdcf513e226fd2fb8e59d8fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988088"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098284"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: integración de Azure Active Directory con Leapsome
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Leapsome, siga estos
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Atlassian Cloud](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://www.leapsome.com`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://www.leapsome.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`
 
@@ -135,7 +135,7 @@ Para configurar el inicio de sesión único de Azure AD con Leapsome, siga estos
     > [!Note]
     > El valor del atributo picture no es real. Actualice este valor con la URL de la imagen real. Para obtener este valor, póngase en contacto con el [equipo de soporte técnico de Leapsome](mailto:support@leapsome.com).
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -179,7 +179,7 @@ Para configurar el inicio de sesión único de Azure AD con Leapsome, siga estos
 
     ![SAML de Leapsome](./media/leapsome-tutorial/tutorial_leapsome_samlsettings.png)
 
-     a. Seleccione **Enable SAML-based single sign-on** (Habilitar inicio de sesión único basado en SAML).
+    a. Seleccione **Enable SAML-based single sign-on** (Habilitar inicio de sesión único basado en SAML).
 
     b. Copie el valor **Login URL (point your users here to start login)** [URL de inicio de sesión (apuntar a los usuarios aquí para iniciar el inicio de sesión)] y péguelo en el cuadro de texto **URL de inicio de sesión** en la sección **Configuración básica de SAML** de Azure Portal.
 
@@ -258,4 +258,4 @@ Al hacer clic en el icono de Leapsome en el panel de acceso y debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

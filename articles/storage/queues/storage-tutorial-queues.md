@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 08ef140eb860637cc0c09619abe7051cc007e99f
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797536"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540291"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Uso de las colas de Azure Storage
 
@@ -227,6 +227,14 @@ Cree un nuevo método para enviar un mensaje a la cola. Agregue el método sigui
    ```
 
 2. Guarde el archivo.
+
+El mensaje debe estar en un formato que pueda incluirse en una solicitud XML con codificación UTF-8 y puede tener hasta 64 KB de tamaño. Si un mensaje contiene datos binarios, se recomienda codificarlo en Base64.
+
+De forma predeterminada, el tiempo de vida máximo de un mensaje se establece en 7 días. Puede especificar cualquier número positivo para el período de vida de un mensaje. Para agregar un mensaje que no caduque, use `Timespan.FromSeconds(-1)` en la llamada a **AddMessageAsync**.
+
+```csharp
+await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+```
 
 ## <a name="dequeue-messages"></a>Retirar mensajes de la cola
 

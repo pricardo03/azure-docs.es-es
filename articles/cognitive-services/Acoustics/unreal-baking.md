@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6b49a6b9e235414cd63eacdbad523bbda8646963
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797183"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304310"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial de simulación mediante "bake" de Project Acoustics con Unreal
 En este documento se describe el proceso de enviar una simulación acústica mediante "bake" con la extensión del editor Unreal.
@@ -208,7 +208,7 @@ Una vez finalizada la elaboración, compruebe que los vóxeles y los puntos de s
 Este complemento crea cuatro archivos de datos en varios puntos. Solo se necesita uno de ellos en tiempo de ejecución y se coloca en la carpeta Content/Acoustics del proyecto, que se agrega automáticamente a la ruta de empaquetado del proyecto. Los otros tres están dentro de la carpeta Acoustics Data y no están empaquetados.
 
 * **[Project]/Config/ProjectAcoustics.cfg**: Este archivo almacena los datos que se especifiquen en los campos de la interfaz de usuario del modo Acoustics. No se puede cambiar la ubicación y el nombre de este archivo. Otros valores almacenados en este archivo afectan a la elaboración, pero son para usuarios avanzados y no deben cambiarse.
-* **[Proyecto]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: este archivo es lo que se crea durante la simulación mediante "bake" y contiene los datos de búsqueda que usa el runtime para representar la acústica de la escena. La ubicación y el nombre de este archivo se pueden cambiar utilizando los campos de la pestaña **Probes** (Sondeos).
+* **[Proyecto]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: este archivo es lo que se crea durante la simulación mediante "bake" y contiene los datos de búsqueda que usa el runtime para representar la acústica de la escena. La ubicación y el nombre de este archivo se pueden cambiar utilizando los campos de la pestaña **Probes** (Sondeos). Si quiere cambiar el nombre de este archivo una vez creado, elimine UAsset del proyecto de Unreal, cambie el nombre del archivo fuera de Unreal en el Explorador de archivos y, luego, vuelva a importar este archivo a Unreal para generar un UAsset nuevo. Cambiar el nombre del UAsset por sí solo no funcionará.
 * **[Proyecto]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData.vox**: Este archivo almacena la geometría de acústica convertida en vóxeles y las propiedades del material. Se calcula con el botón **Calculate** (Calcular) de la pestaña **Probes** (Sondeos). La ubicación y el nombre de este archivo se pueden cambiar utilizando los campos de la pestaña **Probes** (Sondeos).
 * **[Proyecto]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData\_config.xml**: este archivo almacena los parámetros calculados mediante el botón **Calculate** (Calcular) de la pestaña **Probes** (Sondeos). La ubicación y el nombre de este archivo se pueden cambiar utilizando los campos de la pestaña **Probes** (Sondeos).
 

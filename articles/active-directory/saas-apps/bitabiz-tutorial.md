@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19e46c77d3204cc6cd037e5ef8252aa7598d624d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e52b5478bc4b483b793f155eab2f41246552d49
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880711"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Tutorial: Integración de Azure Active Directory con BitaBIZ
 
@@ -53,7 +53,7 @@ Para configurar la integración de BitaBIZ en Azure AD, deberá agregar BitaBIZ 
 
 **Para agregar BitaBIZ desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con BitaBIZ, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en BitaBIZ](#configure-bitabiz-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en BitaBIZ](#create-bitabiz-test-user)**: para tener un homólogo de Britta Simon en BitaBIZ que esté vinculado a su representación en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en BitaBIZ](#configure-bitabiz-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en BitaBIZ](#create-bitabiz-test-user)** : para tener un homólogo de Britta Simon en BitaBIZ que esté vinculado a su representación en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -146,7 +146,7 @@ Para configurar el inicio de sesión único de Azure AD con BitaBIZ, siga estos 
 
     ![Configuración de BitaBIZ](./media/bitabiz-tutorial/settings3.png)
 
-     a. Copie el valor del cuadro de texto **Entity ID (”Identifier” in Azure AD)** [Id. de entidad ("Identificador" en Azure AD)]y péguelo en el cuadro de texto **Identificador** de la sección **Configuración básica de SAML** de Azure Portal. 
+    a. Copie el valor del cuadro de texto **Entity ID (”Identifier” in Azure AD)** [Id. de entidad ("Identificador" en Azure AD)]y péguelo en el cuadro de texto **Identificador** de la sección **Configuración básica de SAML** de Azure Portal. 
 
     b. En el cuadro de texto **Azure AD Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de Azure AD), pegue el valor de **Dirección URL de inicio de sesión** que copió desde Azure Portal.
 
@@ -236,7 +236,7 @@ En el caso de BitaBIZ, el aprovisionamiento es una tarea manual.
 
     ![Agregar usuario de BitaBIZ](./media/bitabiz-tutorial/user3.png)
 
-     a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, Britta.
+    a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, Britta.
 
     b. En el cuadro de texto **Apellidos**, escriba los apellidos del usuario, en este caso, Simon.
 
@@ -263,4 +263,4 @@ Al hacer clic en el icono de BitaBIZ en el Panel de acceso, debería iniciar ses
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

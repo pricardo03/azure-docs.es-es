@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c43a38a456eb0fce3f46409bd256f0fc42e8ade
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 70f4b900a1ccc2769e397c32b452ef939da00099
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899974"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105529"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-security-fabric"></a>Tutorial: Integración de Azure Active Directory con Cloud Security Fabric
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con Cloud Security Fabri
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Cloud Security Fabric](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL:
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL:
 
     | |
     |--|
@@ -207,5 +207,5 @@ Al hacer clic en el icono de Cloud Security Fabric en el panel de acceso, deber�
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

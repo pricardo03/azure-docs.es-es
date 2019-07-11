@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 90a9fec3dc5b7252a0eb9d4120336db168148583
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 6c9235efe75c5ed16de01d950dcbec9746fbfa10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Tutorial: Integración de Azure Active Directory con Showpad
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con Showpad, siga estos 
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Showpad](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<comapany-name>.showpad.biz/login`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<comapany-name>.showpad.biz/login`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<company-name>.showpad.biz`
 
@@ -143,7 +143,7 @@ Para configurar el inicio de sesión único de Azure AD con Showpad, siga estos 
 
     ![Configuración del inicio de sesión único en la aplicación](./media/showpad-tutorial/tutorial_showpad_003.png) 
 
-     a. En el cuadro de texto **Nombre**, escriba el nombre del proveedor de identificadores (por ejemplo, el nombre de la compañía).
+    a. En el cuadro de texto **Nombre**, escriba el nombre del proveedor de identificadores (por ejemplo, el nombre de la compañía).
 
     b. Como **origen de metadatos**, seleccione **XML**.
 
@@ -220,5 +220,5 @@ Al hacer clic en el icono de Showpad en el panel de acceso, debería iniciar ses
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

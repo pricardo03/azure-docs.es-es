@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b96606b5558e0fbb81733b2f548a89bfb38d5f99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095431"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Tutorial: Integración de Azure Active Directory con OrgChart Now
 
@@ -53,7 +53,7 @@ Para configurar la integración de OrgChart Now en Azure AD, deberá agregar Org
 
 **Para agregar OrgChart Now desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con OrgChart Now, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en OrgChart Now](#configure-orgchart-now-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación del usuario de prueba en OrgChart Now](#create-orgchart-now-test-user)**: para tener un homólogo de Britta Simon en OrgChart Now vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en OrgChart Now](#configure-orgchart-now-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación del usuario de prueba en OrgChart Now](#create-orgchart-now-test-user)** : para tener un homólogo de Britta Simon en OrgChart Now vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -191,7 +191,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en OrgChart Now, debe
 
 1. OrgChart Now admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. Al intentar acceder a OrgChart Now, se crea un nuevo usuario, en caso de que no exista. La característica de aprovisionamiento de usuarios Just-in-Time solo crea un usuario de **solo lectura** cuando la solicitud de inicio de sesión único procede de un IDP reconocido y el correo electrónico de la aserción de SAML no se encuentra en la lista de usuarios. Para esta característica de aprovisionamiento automático, es necesario crear un grupo de acceso llamado **General** en OrgChart Now. Siga los pasos siguientes para crear un grupo de acceso:
 
-     a. Después de hacer clic en el **engranaje** en la esquina superior derecha de la interfaz de usuario, vaya a la opción **Manage Groups** (Administrar grupos).
+    a. Después de hacer clic en el **engranaje** en la esquina superior derecha de la interfaz de usuario, vaya a la opción **Manage Groups** (Administrar grupos).
 
     ![Grupos de OrgChart Now](./media/orgchartnow-tutorial/tutorial_orgchartnow_manage.png)    
 
@@ -209,7 +209,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en OrgChart Now, debe
 
 2. Para crear usuarios **administradores** y usuarios de **lectura/escritura**, debe crear manualmente un usuario con el fin de obtener acceso a su nivel de privilegios mediante inicio de sesión único. Para aprovisionar una cuenta de usuario, realice estos pasos:
 
-     a. Inicie sesión ahora en OrgChart Now como administrador de seguridad.
+    a. Inicie sesión ahora en OrgChart Now como administrador de seguridad.
 
     b.  Haga clic en **Settings** (Configuración) en la esquina superior derecha y, luego, vaya a **Manage Users** (Administrar usuarios).
 
@@ -237,5 +237,5 @@ Al hacer clic en el icono de OrgChart Now en el panel de acceso, debería inicia
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

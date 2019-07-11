@@ -6,21 +6,19 @@ ms.reviewer: jasonh
 keywords: apache storm casos de uso, el clúster de storm, qué es apache storm
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 05/24/2019
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 42aaa91906319133fd2864cd836447fcf3ca3a07
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 00c536120ed9507d5ecc6fe930429d12514945b3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257784"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483816"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>¿Qué es Apache Storm en Azure HDInsight?
 
 [Apache Storm](https://storm.apache.org/) es un sistema de cálculo de código abierto distribuido, con tolerancia a errores. Puede usar Storm para procesar flujos de datos en tiempo real con [Apache Hadoop](https://hadoop.apache.org/). Las soluciones de Storm pueden proporcionar también procesamiento de datos garantizado, con la posibilidad de reproducir los datos que no se han procesado correctamente la primera vez.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="why-use-apache-storm-on-hdinsight"></a>¿Por qué usar Apache Storm en HDInsight?
 
@@ -38,8 +36,7 @@ Storm en HDInsight proporciona las siguientes características:
 
 * **Escalado dinámico**: Puede agregar o quitar nodos de trabajo sin afectar a las topologías de Storm en ejecución.
 
-    > [!NOTE]  
-    > Debe desactivar y reactivar las topologías en ejecución para aprovechar las ventajas de los nuevos nodos agregados a través de operaciones de escala.
+    * Debe desactivar y reactivar las topologías en ejecución para aprovechar las ventajas de los nuevos nodos agregados a través de operaciones de escala.
 
 * **Creación de canalizaciones de streaming con varios servicios de Azure**: Storm en HDInsight se integra con otros servicios de Azure como Event Hubs, SQL Database, Azure Storage y Azure Data Lake Storage.
 
@@ -47,7 +44,7 @@ Storm en HDInsight proporciona las siguientes características:
 
 Para obtener una lista de empresas que usan Apache Storm con sus soluciones de análisis en tiempo real, consulte las [compañías que usan Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-Para comenzar a usar Storm, consulte [empezar a trabajar con Apache Storm en HDInsight](apache-storm-tutorial-get-started-linux.md).
+Para comenzar a usar Storm, consulte [Create and monitor an Apache Storm topology in Azure HDInsight](apache-storm-quickstart.md) (Creación y supervisión de una topología de Apache Storm en Azure HDInsight).
 
 ## <a name="how-does-apache-storm-work"></a>Funcionamiento de Apache Storm
 
@@ -71,7 +68,7 @@ La configuración predeterminada de los clústeres de Apache Storm es que solo t
 
 ## <a name="ease-of-creation"></a>Creación fácil
 
-Puede crear un nuevo clúster de Storm en HDInsight en minutos. Para información sobre la creación de un clúster de Storm, consulte [Introducción a Storm en HDInsight](apache-storm-tutorial-get-started-linux.md).
+Puede crear un nuevo clúster de Storm en HDInsight en minutos. Para más información sobre la creación de un clúster de Storm, consulte [Creación de clústeres de Apache Hadoop en Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="ease-of-use"></a>Facilidad de uso
 
@@ -85,7 +82,7 @@ Puede crear un nuevo clúster de Storm en HDInsight en minutos. Para informació
 
 * __Azure PowerShell y la CLI de Azure clásica__: tanto PowerShell como la CLI de Azure clásica proporcionan utilidades de línea de comandos que puede utilizar desde su sistema cliente para trabajar con HDInsight y otros servicios de Azure.
 
-* __Integración de Visual Studio__: Azure Data Lake Tools para Visual Studio incluye plantillas de proyecto para crear C# las topologías de Storm mediante el uso de la plataforma SCP.NET. Las herramientas de Data Lake también ofrecen herramientas para implementar, supervisar y administrar soluciones con Storm en HDInsight.
+* __Integración de Visual Studio__: las Herramientas de Azure Data Lake para Visual Studio incluyen plantillas de proyecto para la creación de topologías de Storm en C# mediante la plataforma SCP.Net. Las herramientas de Data Lake también ofrecen herramientas para implementar, supervisar y administrar soluciones con Storm en HDInsight.
 
   Para más información, consulte [Desarrollo de topologías de C# para Apache Storm en HDInsight con herramientas de Hadoop para Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
@@ -141,7 +138,7 @@ Para obtener más información, consulte las [Garantías en el procesamiento de 
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-El modelo de lectura de una tupla de entrada, emitir cero o más tuplas y, a continuación, confirmar la tupla de entrada inmediatamente al final del método execute es común. Storm proporciona la interfaz [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) para automatizar este patrón.
+Un patrón habitual es leer una tupla de entrada, emitir cero o más tuplas y confirmar la tupla de entrada inmediatamente al final del método de ejecución. Storm proporciona la interfaz [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) para automatizar este patrón.
 
 ### <a name="joins"></a>Combinaciones
 
@@ -149,7 +146,9 @@ El modo en que se unen las secuencias de datos varía entre aplicaciones. Por ej
 
 En el siguiente ejemplo de Java, se usa fieldsGrouping para enrutar las tuplas que se originan en los componentes "1", "2" y "3" al bolt MyJoiner:
 
-    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```java
+builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```
 
 ### <a name="batches"></a>Instancias de Batch
 
@@ -177,5 +176,5 @@ Para ver una topología de ejemplo que muestre cómo configurar el registro, con
 
 Obtenga más información sobre las soluciones de análisis en tiempo real con Apache Storm en HDInsight:
 
-* [Introducción a Apache Storm en HDInsight](apache-storm-tutorial-get-started-linux.md)
+* [Create and monitor an Apache Storm topology in Azure HDInsight](apache-storm-quickstart.md) (Creación y supervisión de una topología de Apache Storm en Azure HDInsight)
 * [Topologías de ejemplo para Apache Storm en HDInsight](apache-storm-example-topology.md)

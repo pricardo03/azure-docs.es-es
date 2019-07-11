@@ -2,18 +2,18 @@
 title: 'Tutorial: Captura de eventos de un espacio de Azure Digital Twins | Microsoft Docs'
 description: Si sigue los pasos de este tutorial, aprenderá a recibir notificaciones de los espacios de mediante la integración de Azure Digital Twins con Logic Apps.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: alinast
+ms.openlocfilehash: 2b84fa2fd8053ca4dc7ef0ad246d29b2bba3dae5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528914"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484712"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Recepción de notificaciones de los espacios de Azure Digital Twins mediante Logic Apps
 
@@ -76,16 +76,16 @@ Un [tema de Event Grid](../event-grid/concepts.md#topics) proporciona una interf
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Reemplace el marcador de posición `Primary_connection_string_for_your_Event_Grid` por el valor de **YOUR_KEY_1**.
+1. Reemplace el marcador de posición `<Primary connection string for your Event Grid>` por el valor de **YOUR_KEY_1**.
 
-1. Reemplace el marcador de posición `Secondary_connection_string_for_your_Event_Grid` por el valor de **YOUR_KEY_2**.
+1. Reemplace el marcador de posición `<Secondary connection string for your Event Grid>` por el valor de **YOUR_KEY_2**.
 
-1. Reemplace el marcador de posición `Event_Grid_Topic_Path` por la ruta de acceso del tema de Event Grid. Para obtener dicha ruta de acceso, elimine **https://** y las rutas de los recursos finales de la dirección URL del **Punto de conexión del tema**. El formato debería ser similar a este: *NombreDeSuEvent.SuUbicacion.eventgrid.azure.net*.
+1. Reemplace el marcador de posición para **path** por la ruta de acceso del tema de Event Grid. Para obtener dicha ruta de acceso, elimine **https://** y las rutas de los recursos finales de la dirección URL del **Punto de conexión del tema**. El formato debería ser similar a este: *NombreDeSuEvent.SuUbicacion.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Escriba todos los valores sin comillas. Asegúrese de que hay al menos un carácter de espacio después de los signos de dos puntos en el archivo YAML. También puede validar el contenido del archivo YAML mediante cualquier control de servidor de validación de YAML en línea, como [esta herramienta](https://onlineyamltools.com/validate-yaml).
@@ -114,11 +114,11 @@ Puede usar el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 
 1. Abra el recurso de Logic Apps cuando esté implementado y, después, abra el panel **Diseñador de aplicación lógica**. 
 
-1. Seleccione el desencadenador **Cuando se produzca un evento de Event Grid**. Inicie sesión en su inquilino con su cuenta de Azure cuando se le solicite. Seleccione **Permitir acceso** para el recurso de Event Grid cuando se le solicite. Seleccione **Continuar**.
+1. Seleccione el desencadenador **Cuando se produce un evento de recursos de Event Grid**. Inicie sesión en su inquilino con su cuenta de Azure cuando se le solicite. Seleccione **Permitir acceso** para el recurso de Event Grid si se le solicita. Seleccione **Continuar**.
 
 1. En la ventana **When a resource event occurs (Preview)** (Cuando se produzca un evento de recursos [versión preliminar]): 
    
-    a. Seleccione la **suscripción** que usó para crear el tema de Event Grid.
+   a. Seleccione la **suscripción** que usó para crear el tema de Event Grid.
 
    b. Seleccione **Microsoft.EventGrid.Topics** en **Tipo de recurso**.
 
@@ -130,11 +130,11 @@ Puede usar el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 
 1. En la ventana **Elegir una acción**:
 
-    a. Busque la frase **parse json**y seleccione la acción **Analizar JSON**.
+   a. Busque la frase **parse json**y seleccione la acción **Analizar JSON**.
 
    b. Haga clic en el campo **Contenido** y, después, seleccione **Cuerpo** en la lista **Contenido dinámico**.
 
-   c. Seleccione **Use sample to payload to generate schema** (Usar carga de ejemplo para generar el esquema). Pegue la siguiente carga de JSON y seleccione **Listo**.
+   c. Seleccione **Usar una carga de ejemplo para generar el esquema**. Pegue la siguiente carga de JSON y seleccione **Listo**.
 
     ```JSON
     {
@@ -162,7 +162,7 @@ Puede usar el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 
 1. En la ventana **Elegir una acción**:
 
-    a. Seleccione **Control > Condición** o busque **Condición** en la lista **Acciones**. 
+   a. Seleccione **Control > Condición** o busque **Condición** en la lista **Acciones**. 
 
    b. En el primer cuadro de texto **Elegir un valor**, seleccione **eventType** en la lista **Contenido dinámico** para la ventana **Análisis del archivo JSON**.
 
@@ -172,9 +172,9 @@ Puede usar el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 
 1. En la ventana **If true**:
 
-    a. Seleccione **Add an action** (Agregar una acción) y luego **Office 365 Outlook**.
+   a. Seleccione **Add an action** (Agregar una acción) y luego **Office 365 Outlook**.
 
-   b. En la lista **Acciones**, seleccione **Send an email** (Enviar un correo electrónico). Seleccione **Iniciar sesión** y use las credenciales de su cuenta de correo electrónico. Seleccione **Permitir acceso** cuando se le solicite.
+   b. En la lista **Acciones**, seleccione **Send an email** (Enviar un correo electrónico). Seleccione **Iniciar sesión** y use las credenciales de su cuenta de correo electrónico. Seleccione **Permitir acceso** si se le solicita.
 
    c. En el cuadro **Para**, escriba su identificador de correo electrónico para recibir notificaciones. En **Asunto**, escriba el texto **Notificación de Digital Twins sobre mala calidad del aire en un espacio**. A continuación, seleccione **TopologyObjectId** desde la lista **Contenido dinámico** para **Análisis del archivo JSON**.
 

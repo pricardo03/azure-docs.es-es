@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2019c61ccbffa1e68c1ef53c718d4839a604aa44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849965"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097338"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Tutorial: Integración de Azure Active Directory con Mimecast Admin Console
 
@@ -53,7 +53,7 @@ Para configurar la integración de Mimecast Admin Console en Azure AD, deberá a
 
 **Para agregar Mimecast Admin Console desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Mimecast Admin Console, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Mimecast Admin Console](#configure-mimecast-admin-console-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Mimecast Admin Console](#create-mimecast-admin-console-test-user)**: para tener un homólogo de Britta Simon en Mimecast Admin Console que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Mimecast Admin Console](#configure-mimecast-admin-console-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Mimecast Admin Console](#create-mimecast-admin-console-test-user)** : para tener un homólogo de Britta Simon en Mimecast Admin Console que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -149,7 +149,7 @@ Para configurar el inicio de sesión único de Azure AD con Mimecast Admin Cons
 
     ![Authentication Profile (Perfil de autenticación)](./media/mimecast-admin-console-tutorial/ic795015.png "Authentication Profile (Perfil de autenticación)")
     
-     a. En el cuadro de texto **Description** (Descripción), escriba un nombre para la configuración.
+    a. En el cuadro de texto **Description** (Descripción), escriba un nombre para la configuración.
     
     b. Seleccione **Enforce SAML Authentication for Mimecast Admin Console**(Aplicar la autenticación SAML a Mimecast Admin Console).
     
@@ -164,7 +164,7 @@ Para configurar el inicio de sesión único de Azure AD con Mimecast Admin Cons
     >[!NOTE]
     >El valor de Dirección URL de inicio de sesión y el valor de Dirección URL de cierre de sesión para Mimecast Admin Console son los mismos.
     
-    g. Abra el certificado en base 64 que descargó de Azure Portal en el Bloc de notas, quite la primera línea ("*--*") y la última línea ("*--*"), copie el resto del contenido en el Portapapeles y, después, péguelo en el cuadro de texto **Identity Provider Certificate (metadata)** (Certificado de proveedor de identidades [metadatos]).
+    g. Abra el certificado en base 64 que descargó de Azure Portal en el Bloc de notas, quite la primera línea (" *--* ") y la última línea (" *--* "), copie el resto del contenido en el Portapapeles y, después, péguelo en el cuadro de texto **Identity Provider Certificate (metadata)** (Certificado de proveedor de identidades [metadatos]).
     
     h. Seleccione **Permitir inicio de sesión único**.
     
@@ -247,7 +247,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Mimecast Admin Con
    
     ![Guardar](./media/mimecast-admin-console-tutorial/ic795006.png "Guardar")
    
-     a. Escriba los datos de una cuenta de Azure AD válida que desee aprovisionar en los cuadros de texto correspondientes: **Email Address** (Dirección de correo electrónico), **Global Name** (Nombre global), **Password** (Contraseña) y **Confirm Password** (Confirmar contraseña).
+    a. Escriba los datos de una cuenta de Azure AD válida que desee aprovisionar en los cuadros de texto correspondientes: **Email Address** (Dirección de correo electrónico), **Global Name** (Nombre global), **Password** (Contraseña) y **Confirm Password** (Confirmar contraseña).
 
     b. Haga clic en **Save**(Guardar).
 
@@ -266,5 +266,5 @@ Al hacer clic en el icono de Mimecast Admin Console del panel de acceso, deberí
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

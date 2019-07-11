@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 15fac61856115ef5c4746c96b36e383b9a5b7b30
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4d105fd9d0611ad56cd5ec2ecaa36bdcf9deed18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898272"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Tutorial: Integración de Azure Active Directory con Icertis Contract Management Platform
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Icertis Contract Man
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Icertis Contract Management Platform](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.icertis.com`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.icertis.com`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<company name>.icertis.com`
 
@@ -123,7 +123,7 @@ Para configurar el inicio de sesión único de Azure AD con Icertis Contract Man
 
     ![Copiar direcciones URL de configuración](media/icertisicm-tutorial/configurls.png)
 
-     a. Identificador de Azure AD
+    a. Identificador de Azure AD
 
     b. URL de cierre de sesión
 
@@ -197,4 +197,4 @@ Al hacer clic en el icono de Icertis Contract Management Platform en el panel de
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

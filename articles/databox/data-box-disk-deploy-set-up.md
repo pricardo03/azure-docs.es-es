@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/31/2018
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 688c33a098bb34a6b39937579e2e25591786c531
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939648"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147485"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Desempaquetado, conexión y desbloqueo de Azure Data Box Disk
 
@@ -123,7 +123,9 @@ Realice los pasos siguientes para conectarse a los discos y para desbloquearlos.
     ```  
 8. Una vez que el disco está desbloqueado, puede ver su contenido.    
 
-    ![Contenido de Data Box Disk](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+    ![Contenido de Data Box Disk](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+
+Si se encuentra con algún problema al desbloquear los discos, consulte cómo [solucionar los problemas de desbloqueo](data-box-disk-troubleshoot-unlock.md). 
 
 ## <a name="unlock-disks-on-linux-client"></a>Desbloqueo de discos en el cliente de Linux
 
@@ -133,7 +135,7 @@ Realice los pasos siguientes para conectarse a los discos y para desbloquearlos.
     > [!div class="nextstepaction"]
     > [Descargar conjunto de herramientas de Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux) 
 
-3. En el cliente Linux, abra un terminal. Vaya a la carpeta en la que descargó el software. Cambie los permisos de archivo para que pueda ejecutar estos archivos. Escriba el siguiente comando:  
+3. En el cliente Linux, abra un terminal. Vaya a la carpeta en la que descargó el software. Cambie los permisos de archivo para que pueda ejecutar estos archivos. Escriba el siguiente comando: 
 
     `chmod +x DataBoxDiskUnlock_x86_64` 
     
@@ -253,6 +255,9 @@ Realice los pasos siguientes para conectarse a los discos y para desbloquearlos.
 8. Una vez que el disco está desbloqueado, puede ir al punto de montaje y ver su contenido. Ahora está listo para copiar los datos en las carpetas *BlockBlob* o *PageBlob*. 
 
     ![Contenido de Data Box Disk](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+
+
+Si se encuentra con algún problema al desbloquear los discos, consulte cómo [solucionar los problemas de desbloqueo](data-box-disk-troubleshoot-unlock.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

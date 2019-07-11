@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a96364d486ed6c0db2762256798ac56afa69a78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 872a2daf30a2173c7cde93e534b8e7525c88a4d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871567"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096841"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: Integración de Azure Active Directory con moconavi
 
@@ -52,7 +52,7 @@ Para configurar la integración de moconavi en Azure AD, será preciso que agreg
 
 **Para agregar moconavi desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -75,12 +75,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con moconavi, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de moconavi](#configure-moconavi-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de moconavi](#create-moconavi-test-user)**: para tener un homólogo de Britta Simon en moconavi que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de moconavi](#configure-moconavi-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de moconavi](#create-moconavi-test-user)** : para tener un homólogo de Britta Simon en moconavi que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con moconavi, siga estos
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de moconavi](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<yourserverurl>/moconavi-saml2/saml/login`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<yourserverurl>/moconavi-saml2/saml/login`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<yourserverurl>/moconavi-saml2`
 
@@ -194,17 +194,17 @@ En esta sección creará un usuario llamado Britta Simon en moconavi. Trabaje co
 
 3. Haga clic en el botón **Connect setting** (Conectar configuración).
 
-    ![Prueba del inicio de sesión único ](./media/moconavi-tutorial/testing1.png)
+    ![Prueba del inicio de sesión único](./media/moconavi-tutorial/testing1.png)
 
 4. Escriba `https://mcs-admin.moconavi.biz/gateway` en el cuadro **Connect to URL** (URL de conexión) y haga clic en el botón **Done** (Listo).
 
-    ![Prueba del inicio de sesión único ](./media/moconavi-tutorial/testing2.png)
+    ![Prueba del inicio de sesión único](./media/moconavi-tutorial/testing2.png)
 
 5. En la siguiente captura de pantalla, siga estos pasos:
 
-    ![Prueba del inicio de sesión único ](./media/moconavi-tutorial/testing3.png)
+    ![Prueba del inicio de sesión único](./media/moconavi-tutorial/testing3.png)
 
-     a. Escriba la **clave de autenticación** `azureAD` en el cuadro de texto **Input Authentication Key** (Indique la clave de autenticación).
+    a. Escriba la **clave de autenticación** `azureAD` en el cuadro de texto **Input Authentication Key** (Indique la clave de autenticación).
 
     b. Escriba el **id. de usuario** `your ad account` en el cuadro de texto **Input User ID** (Indique el id. de usuario).
 
@@ -212,11 +212,11 @@ En esta sección creará un usuario llamado Britta Simon en moconavi. Trabaje co
 
 6. Indique su contraseña de Azure AD en el cuadro de texto **Password** (Contraseña) y haga clic en el botón **Login** (Iniciar sesión).
 
-    ![Prueba del inicio de sesión único ](./media/moconavi-tutorial/testing4.png)
+    ![Prueba del inicio de sesión único](./media/moconavi-tutorial/testing4.png)
 
 7. La autenticación de Azure AD se habrá realizado correctamente cuando se muestre el menú.
 
-    ![Prueba del inicio de sesión único ](./media/moconavi-tutorial/testing5.png)
+    ![Prueba del inicio de sesión único](./media/moconavi-tutorial/testing5.png)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -224,5 +224,5 @@ En esta sección creará un usuario llamado Britta Simon en moconavi. Trabaje co
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

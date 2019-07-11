@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8f8d110a13e768d93f0be3c4baaf5715436f2ed
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d8d2aed16b5af60c44501e6d72332783a164ff91
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502417"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478385"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Ejemplos de escenarios de usuario de Text Analytics API
 
@@ -29,7 +29,7 @@ Procese las respuestas de texto sin formato mediante el Análisis de sentimiento
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analizar las llamadas entrantes grabadas de los clientes
 
-Extraiga estadísticas de las llamadas de los servicios al cliente mediante texto a voz, Análisis de sentimiento y Extracción de frases clave. Muestre los resultados en el panel de Power BI o un portal para comprender mejor a los clientes, resalte las tendencias del servicio al cliente y aumente la involucración del cliente. Envíe solicitudes a la API en forma de lote para generar informes o en tiempo real para la intervención. 
+Extraiga estadísticas de las llamadas de los servicios al cliente mediante texto a voz, Análisis de sentimiento y Extracción de frases clave. Muestre los resultados en el panel de Power BI o un portal para comprender mejor a los clientes, resalte las tendencias del servicio al cliente y aumente la involucración del cliente. Envíe solicitudes a la API en forma de lote para generar informes o en tiempo real para la intervención. Consulte el [código de ejemplo](https://github.com/rlagh2/callcenteranalytics).
 
 ![Imagen que describe cómo automatizar la obtención de estadísticas de llamadas del servició al cliente mediante el análisis de sentimiento](media/use-cases/azure-inbound.svg)
 
@@ -48,4 +48,4 @@ Supervise los comentarios de los usuarios sobre productos en la página de Twitt
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es Text Analytics API?](overview.md)
-* [Enviar una solicitud a Text Analytics API mediante C#](quickstarts/csharp.md)
+* [Envío de una solicitud a Text Analytics API mediante C#](quickstarts/csharp.md)

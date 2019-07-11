@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 611867cf5606d5a1078706e1c0f67f673a7fa500
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: aa3548a71e403728cbec4b8df2b0dce1cf6abde7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254571"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Tutorial: Integración de Azure Active Directory con Mitel MiCloud Connect
 
@@ -210,7 +210,7 @@ Cree un usuario en su cuenta de MiCloud Connect con los detalles siguientes:
 * **Dirección de correo electrónico empresarial:** `brittasimon@<yourcompanydomain>.<extension>`   
 (Ejemplo: [brittasimon@contoso.com](mailto:brittasimon@contoso.com))
 
-* **Nombre de usuario**: `brittasimon@<yourcompanydomain>.<extension> `  
+* **Nombre de usuario**: `brittasimon@<yourcompanydomain>.<extension>`  
 (Ejemplo: [brittasimon@contoso.com](mailto:brittasimon@contoso.com); el nombre de usuario suele ser el mismo que la dirección de correo electrónico empresarial del usuario)
 
 **NOTA:** El nombre del usuario de MiCloud Connect del usuario debe ser idéntico a la dirección de correo electrónico del usuario en Azure.
@@ -227,4 +227,4 @@ Al hacer clic en el icono Mitel Connect del Panel de acceso, se le redirigirá a
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

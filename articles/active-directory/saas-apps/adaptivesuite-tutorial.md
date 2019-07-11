@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
-ms.openlocfilehash: b2c7ca8699274b96f7f382dfe1958bf5babbbe99
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c217663c5752907e0b3d6372d4522f6aba982b3d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720171"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutorial: integración de Azure Active Directory con Adaptive Insights
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con Adaptive Insights, r
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Adaptive Insights](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
@@ -141,7 +141,7 @@ Para configurar el inicio de sesión único de Azure AD con Adaptive Insights, r
 
     ![SAML SSO Settings (Configuración de SSO de) SAML](./media/adaptivesuite-tutorial/ic805646.png "SAML SSO Settings (Configuración de SSO de) SAML")
 
-     a. En el cuadro de texto **Identity provider name** (Nombre del proveedor de identidades), escriba el nombre de la configuración.
+    a. En el cuadro de texto **Identity provider name** (Nombre del proveedor de identidades), escriba el nombre de la configuración.
 
     b. Pegue el valor del **Azure Ad Identifier** (Identificador de Azure AD) que ha copiado de Azure Portal en el cuadro de texto **Identity Provider Entity ID** (Id. de entidad del proveedor de identidades).
 
@@ -235,7 +235,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Adaptive Insights,
 
    ![Enviar](./media/adaptivesuite-tutorial/IC805649.png "Enviar")
 
-    a. Escriba el **nombre**, el **inicio de sesión**, la **dirección de correo electrónico** y la **contraseña** o de un usuario válido de Azure Active Directory que quiera aprovisionar en los cuadros de texto relacionados.
+   a. Escriba el **nombre**, el **inicio de sesión**, la **dirección de correo electrónico** y la **contraseña** o de un usuario válido de Azure Active Directory que quiera aprovisionar en los cuadros de texto relacionados.
 
    b. Seleccione un **Role**(rol).
 
@@ -256,4 +256,4 @@ Al hacer clic en el icono de Adaptive Insights en el panel de acceso, debería i
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

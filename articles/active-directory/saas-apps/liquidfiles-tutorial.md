@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5352040dbbe33569dfdb4e987d8bd84435702230
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6514594d3119ebf8fab774c3e84c85e34bdfeaf4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917500"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097929"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Tutorial: Integración de Azure Active Directory con LiquidFiles
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con LiquidFiles, siga es
 
     ![Información de dominio y direcciones URL de inicio de sesión único de LiquidFiles](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR_SERVER_URL>/saml/init`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR_SERVER_URL>/saml/init`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<YOUR_SERVER_URL>`
 
@@ -143,7 +143,7 @@ Para configurar el inicio de sesión único de Azure AD con LiquidFiles, siga es
 
     ![Configurar inicio de sesión único](./media/liquidfiles-tutorial/tutorial_single_01.png)
 
-     a. Como **método de inicio de sesión único**, seleccione **SAML 2**.
+    a. Como **método de inicio de sesión único**, seleccione **SAML 2**.
 
     b. En el cuadro de texto **IdP Login URL** (URL de inicio de sesión del IdP), pegue el valor de la **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -223,5 +223,5 @@ Al hacer clic en el icono de LiquidFiles en el panel de acceso, debería iniciar
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

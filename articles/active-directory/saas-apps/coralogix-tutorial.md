@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0095a825f5582dc795f5bebdcf08be07a92946e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 721e0c40ec2e02dabee0681e01fea4182b906183
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104643"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Tutorial: Integración de Azure Active Directory con Coralogix
 
@@ -105,9 +105,9 @@ Para configurar el inicio de sesión único de Azure AD con Coralogix, siga los 
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Coralogix](common/sp-identifier.png)
 
-     a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.coralogix.com`.
+    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.coralogix.com`.
 
-    b. En el cuadro de texto **Identificador (Id. de entidad)**, escriba una dirección URL, como:
+    b. En el cuadro de texto **Identificador (Id. de entidad)** , escriba una dirección URL, como:
     
     `https://api.coralogix.com/saml/metadata.xml`
 
@@ -124,7 +124,7 @@ Para configurar el inicio de sesión único de Azure AD con Coralogix, siga los 
 
 6. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, edite las notificaciones con el icono **Editar**. Tal como se muestra en la imagen anterior, también puede agregar las notificaciones con **Agregar nueva notificación** para configurar el atributo de token SAML. A continuación, siga estos pasos:
     
-     a. Seleccione el **icono Editar** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Seleccione el **icono Editar** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](./media/coralogix-tutorial/tutorial_usermail.png) ![imagen](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
@@ -168,7 +168,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba "brittasimon@yourcompanydomain.extension". Por ejemplo, en este caso, podría escribir "brittasimon@contoso.com".
 
@@ -218,5 +218,5 @@ Al seleccionar el icono de Coralogix en el portal MyApps, debería iniciarse aut
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

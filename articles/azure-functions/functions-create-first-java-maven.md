@@ -10,18 +10,19 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.author: routlaw, glenga
+ms.author: routlaw
+ms.reviewer: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ab705b6131bd43a7ab70bab16cef81d33f07c055
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: da4de9185ba7371281c140c5f2456d85661c0af4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827403"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706436"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Creación de la primera función con Java y Maven
 
-Este artículo le guiará con el uso de la herramienta de la línea de comandos de Maven para compilar y publicar una función de Java en Azure Functions. Cuando haya terminado, el código de la función se ejecuta en el [Plan de consumo](functions-scale.md#consumption-plan) en Azure y puede activarse mediante una solicitud HTTP.
+Este artículo le guiará con el uso de la herramienta de la línea de comandos de Maven para compilar y publicar una función de Java en Azure Functions. Cuando haya terminado, el código de la función se ejecuta en el [Plan de consumo](functions-scale.md#consumption-plan) en Azure y puede activarse mediante una solicitud HTTP.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -52,7 +53,7 @@ mvn archetype:generate \
 > [!NOTE]
 > Si experimenta problemas al ejecutar el comando, eche un vistazo a qué versión de `maven-archetype-plugin` se usa. Dado que se ejecuta el comando en un directorio vacío sin ningún archivo `.pom`, podría estar intentando usar un complemento de la versión anterior de `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` si actualizó desde una versión anterior de Maven. Si es así, intente eliminar el directorio `maven-archetype-plugin` y vuelva a ejecutar el comando.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 mvn archetype:generate `
@@ -62,8 +63,8 @@ mvn archetype:generate `
 
 ```cmd
 mvn archetype:generate ^
-    -DarchetypeGroupId=com.microsoft.azure ^
-    -DarchetypeArtifactId=azure-functions-archetype
+    "-DarchetypeGroupId=com.microsoft.azure" ^
+    "-DarchetypeArtifactId=azure-functions-archetype"
 ```
 
 Maven le pedirá los valores necesarios para acabar de generar el proyecto. Para conocer los valores _groupId_, _artifactId_ y _version_, consulte la referencia sobre las [convenciones de nomenclatura de Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). El valor _appName_ debe ser único en todo Azure, por lo que Maven genera un nombre de aplicación en función del valor _artifactId_ escrito anteriormente como valor predeterminado. El valor _packageName_ determina el paquete de Java para el código de función generado.
@@ -79,7 +80,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven crea los archivos del proyecto en una carpeta nueva llamada _artifactId_, en este ejemplo `fabrikam-functions`. El código generado listo para ejecutarse del proyecto es una sencilla función [desencadenada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) que devuelve el cuerpo de la solicitud:
+Maven crea los archivos del proyecto en una carpeta nueva llamada _artifactId_, en este ejemplo `fabrikam-functions`. El código generado listo para ejecutarse del proyecto es una función [desencadenada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) que devuelve el cuerpo de la solicitud:
 
 ```java
 public class Function {
@@ -108,7 +109,7 @@ public class Function {
 
 ```
 
-## <a name="reference-bindings"></a>Enlaces de referencia
+## <a name="enable-extension-bundles"></a>Habilitación de conjuntos de extensiones
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -156,7 +157,7 @@ El proceso de implementación en Azure Functions usa las credenciales de cuenta 
 az login
 ```
 
-Implemente el código en una aplicación de función nueva `azure-functions:deploy` con el destino de Maven.
+Implemente el código en una aplicación de función nueva `azure-functions:deploy` con el destino de Maven. Esto realiza una [implementación comprimida con el modo de ejecutar desde paquete](functions-deployment-technologies.md#zip-deploy) habilitado.
 
 > [!NOTE]
 > Cuando se usa Visual Studio Code para implementar la aplicación de función, recuerde que debe elegir una suscripción de pago o se producirá un error. Puede ver la suscripción en el lado izquierdo del IDE.

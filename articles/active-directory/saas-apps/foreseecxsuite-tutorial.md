@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988024"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integración de Azure Active Directory con ForeSee CX Suite
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con ForeSee CX Suite, si
 
 4. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
 
-     a. Haga clic en **Cargar el archivo de metadatos**.
+    a. Haga clic en **Cargar el archivo de metadatos**.
 
     ![Carga del archivo de metadatos](common/upload-metadata.png)
 
@@ -117,9 +117,9 @@ Para configurar el inicio de sesión único de Azure AD con ForeSee CX Suite, si
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ForeSee CX Suite](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://cxsuite.foresee.com/`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://cxsuite.foresee.com/`
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: https:\//www.okta.com/saml2/service-provider/<UniqueID>.
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: https:\//www.okta.com/saml2/service-provider/\<UniqueID>.
 
     > [!Note]
     > Si el valor **Identificador** no se rellena automáticamente, hágalo manualmente según el patrón anterior. El valor del identificador no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de soporte técnico del cliente ForeSee CX](mailto:support@foresee.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -208,5 +208,5 @@ Al hacer clic en el icono de ForeSee CX Suite en el Panel de acceso, debería in
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

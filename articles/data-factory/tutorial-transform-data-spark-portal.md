@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: de99d1a58cac12c80748b34ef4a1b07c9fb2a78e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576861"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312583"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformación de datos en la nube mediante una actividad de Spark en Azure Data Factory
 En este tutorial, usará Azure Portal para crear una canalización de Azure Data Factory. Esta canalización permite transformar datos mediante una actividad de Spark y un servicio vinculado de Azure HDInsight a petición. 
@@ -147,7 +147,7 @@ En esta sección, deberá crear dos servicios vinculados:
    
    b. Confirme que **On-demand HDInsight** (HDInsight a petición) está seleccionado en **tipo**.
    
-   c. Seleccione **AzureStorage1** como **Servicio vinculado de Azure Storage**. Este servicio vinculado lo creó anteriormente. Si usó un nombre diferente, especifique el nombre correcto aquí. 
+   c. Seleccione **AzureBlobStorage1** como **Servicio vinculado de Azure Storage**. Este servicio vinculado lo creó anteriormente. Si usó un nombre diferente, especifique el nombre correcto aquí. 
    
    d. Seleccione **spark** como **tipo de clúster**.
    
@@ -189,7 +189,7 @@ En esta sección, deberá crear dos servicios vinculados:
    ![Especificar el servicio vinculado de HDInsight](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Cambie a la pestaña **Script/Jar** y complete los pasos siguientes: 
 
-   a. Seleccione **AzureStorage1** como **servicio vinculado de trabajo**.
+   a. Seleccione **AzureBlobStorage1** como **servicio vinculado de trabajo**.
    
    b. Seleccione **Browse Storage** (Examinar almacenamiento).
 
@@ -206,7 +206,7 @@ En esta sección, deberá crear dos servicios vinculados:
 
 
 ## <a name="trigger-a-pipeline-run"></a>Desencadenamiento de una ejecución de la canalización
-Seleccione **Trigger** (Desencadenar) en la barra de herramientas y, después, seleccione **Trigger Now** (Desencadenar ahora). 
+Seleccione **Add Trigger** (Agregar desencadenador) en la barra de herramientas y, después, seleccione **Trigger Now** (Desencadenar ahora). 
 
 ![Botones "Trigger" (Desencadenar) y "Trigger Now" (Desencadenar ahora)](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -222,7 +222,7 @@ Seleccione **Trigger** (Desencadenar) en la barra de herramientas y, después, s
 
    ![Estados de la ejecución de canalización](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   Puede volver a la vista de ejecuciones de canalización. Para ello seleccione el vínculo **Pipelines** (Canalizaciones) en la parte superior.
+   Puede volver a la vista de ejecuciones de canalización. Para ello seleccione el vínculo **All Pipeline Runs** (Todas las ejecuciones de canalizaciones) en la parte superior.
 
    ![Ver ejecuciones de actividad](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9aabdba16b334aa957e1e8109d1e16d22e01dc7
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 4de1ae135df4cd070fe9c6ee322e304caa1e17c9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987816"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101913"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>Tutorial: Integración de Freedcamp con Azure Active Directory
 
@@ -119,7 +119,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Configuración de Freedcamp](./media/freedcamp-tutorial/config02.png)
 
-     a. En el cuadro de texto **Título**, escriba el nombre.
+    a. En el cuadro de texto **Título**, escriba el nombre.
 
     b. En el cuadro de texto **Id. de entidad**, pegue el valor de **Identificador de Azure AD** que copió en Azure Portal.
 
@@ -175,7 +175,7 @@ Para permitir que los usuarios de Azure AD puedan iniciar sesión en Freedcamp,
 
     ![Configuración de Freedcamp](./media/freedcamp-tutorial/config04.png)
 
-     a. Haga clic en **Add or invite Users** (Agregar o invitar usuarios).
+    a. Haga clic en **Add or invite Users** (Agregar o invitar usuarios).
 
     b. En el cuadro de texto **Email** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, `Brittasimon@contoso.com`.
 
@@ -191,4 +191,4 @@ Al seleccionar el icono de Freedcamp del Panel de acceso, la sesión debería in
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

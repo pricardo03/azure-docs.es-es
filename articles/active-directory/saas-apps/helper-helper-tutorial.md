@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19969588001bd48bd1c998fe49061db80d94c636
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 0d70cdade93b028c90c9f62374cd6b997556dd52
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66569359"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101283"
 ---
 # <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Tutorial: Integración de Helper Helper con Azure Active Directory
 
@@ -155,4 +155,4 @@ Al seleccionar el icono de Helper Helper en el Panel de acceso, debería iniciar
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,5 +1,5 @@
 ---
-title: Bot - Node.js - v4
+title: Bot de Language Understanding Node.js v4
 titleSuffix: Azure Cognitive Services
 description: Use Node.js para crear un bot de chat que se integre con Language Understanding (LUIS). Este bot de chat utiliza la aplicación de recursos humanos para implementar con rapidez una solución de bot. El bot se compila con la versión 4 de Bot Framework y el bot de aplicación web de Azure.
 services: cognitive-services
@@ -9,26 +9,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: 54bae5548764ed1f89a2ffb7992eb222a058c706
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: a06bd5a1a061de82230e93b867ea88e333b3cc93
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403658"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442548"
 ---
-# <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutorial: Bot de LUIS en Node.js con Bot Framework 4.x y el bot de aplicación web de Azure
-Con Node.js puede crear un bot de chat que se integre con Language Understanding (LUIS). Este bot usa la aplicación HomeAutomation para implementar una solución de bot. El bot se compila con el [bot de aplicación web](https://docs.microsoft.com/azure/bot-service/) de Azure y con la [versión 4 de Bot Framework](https://github.com/Microsoft/botbuilder-js).
+# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: Uso de un bot de aplicación web habilitado con Language Understanding en Node.js 
+
+Use Node.js para crear un bot de chat que se integre con Language Understanding (LUIS). El bot se ha compilado con el recurso [bot de aplicación web](https://docs.microsoft.com/azure/bot-service/) de Azure y [Bot Framework versión](https://github.com/Microsoft/botbuilder-dotnet) V4.
 
 **En este tutorial, aprenderá a:**
 
 > [!div class="checklist"]
 > * Crear un bot de aplicación web. Este proceso crea una nueva aplicación de LUIS.
-> * Agregar un dominio creado previamente para el nuevo modelo de LUIS.
-> * Descargar el proyecto creado por el servicio de bot web.
+> * Descargar el proyecto de bot creado por el servicio de bot web
 > * Iniciar el emulador y el bot localmente en el equipo.
-> * Modificar el código del bot para nuevas intenciones de LUIS.
 > * Ver los resultados de expresiones del bot.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -37,13 +36,13 @@ Con Node.js puede crear un bot de chat que se integre con Language Understanding
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
 
-## <a name="create-web-app-bot"></a>Creación de una aplicación web
+## <a name="create-a-web-app-bot-resource"></a>Crear un nuevo recurso de bot de aplicación web
 
 1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
 
-2. En el cuadro de búsqueda, busque y seleccione **Bot de aplicación web**. Seleccione **Crear**.
+1. En el cuadro de búsqueda, busque y seleccione **Bot de aplicación web**. Seleccione **Crear**.
 
-3. En **Servicio de bots**, proporcione la información necesaria:
+1. En **Servicio de bots**, proporcione la información necesaria:
 
     |Configuración|Propósito|Configuración sugerida|
     |--|--|--|
@@ -55,309 +54,308 @@ Con Node.js puede crear un bot de chat que se integre con Language Understanding
     |Nombre de la aplicación|El nombre se usa como el subdominio cuando el bot se implementa en la nube (por ejemplo, humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, por ejemplo, `luis-nodejs-bot-johnsmith`|
     |Plantilla de bot|Configuración de Bot Framework: ver la tabla siguiente|
     |Ubicación de la aplicación de LUIS|Debe ser la misma que la región de recursos de LUIS.|`westus`|
+    |Plan de App Service/ubicación|No cambie el valor predeterminado proporcionado.|
+    |Application Insights|No cambie el valor predeterminado proporcionado.|
+    |Id. y contraseña de aplicación de Microsoft|No cambie el valor predeterminado proporcionado.|
 
-4. En la **configuración de la plantilla del bot**, seleccione lo siguiente y luego elija el botón **Seleccionar** en esta configuración:
+1. En **Bot template** (Plantilla del bot), seleccione lo siguiente y luego elija el botón **Seleccionar** en esta configuración:
 
     |Configuración|Propósito|Número de selección|
     |--|--|--|
     |Versión del SDK|Versión de Bot Framework|**SDK v4**|
     |Lenguaje de SDK|Lenguaje de programación del bot|**Node.js**|
-    |Bot básico o de eco|Tipo de bot|**Bot básico**|
+    |Bot|Tipo de bot|**Bot básico**|
     
-5. Seleccione **Crear**. Esto crea e implementa el servicio de bots en Azure. Parte de este proceso crea una aplicación de LUIS denominada `luis-nodejs-bot-XXXX`. Este nombre se basa en el nombre del bot y de la aplicación de la sección anterior.
+1. Seleccione **Crear**. Esto crea e implementa el servicio de bots en Azure. Parte de este proceso crea una aplicación de LUIS denominada `luis-nodejs-bot-XXXX`. Este nombre se basa en el nombre de la aplicación /Azure Bot Service.
 
     [![Creación de un bot de aplicación web](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
-6. Deje esta pestaña del explorador abierta. Para cualquier paso con el portal de LUIS, abra una nueva pestaña del explorador. Continúe con la sección siguiente cuando se implemente el nuevo servicio de bots.
+    Antes de continuar, espere hasta que se crea el servicio bot.
 
-## <a name="add-prebuilt-domain-to-model"></a>Incorporación de un dominio creado previamente al modelo
-Parte de la implementación del servicio de bots crea una nueva aplicación de LUIS con intenciones y expresiones de ejemplo. El bot proporciona asignación de intenciones a la nueva aplicación de LUIS para las intenciones siguientes: 
+## <a name="the-bot-has-a-language-understanding-model"></a>El bot tiene un modelo de Language Understanding.
+
+El proceso de creación del servicio de bot también crea una nueva aplicación LUIS con intenciones y expresiones de ejemplo. El bot proporciona asignación de intenciones a la nueva aplicación de LUIS para las intenciones siguientes: 
 
 |Intenciones de LUIS del bot básico|Expresión de ejemplo|
 |--|--|
-|Cancelar|`stop`|
-|Greeting|`hello`|
-|Ayuda|`help`|
+|Reservar vuelo|`Travel to Paris`|
+|Cancelar|`bye`|
 |None|Nada fuera del dominio de la aplicación.|
 
-Agregue al modelo la aplicación HomeAutomation creada previamente para controlar expresiones como: `Turn off the living room lights`
+## <a name="test-the-bot-in-web-chat"></a>Probar el bot en Chat en web
 
-1. Vaya al portal de [LUIS](https://www.luis.ai) e inicie sesión.
-2. En la página **Mis aplicaciones**, seleccione la columna **Fecha de creación** para ordenar por la fecha en la que se creó la aplicación. Azure Bot Service creó una nueva aplicación en la sección anterior. Su nombre es `luis-nodejs-bot-` + `<your-name>` + 4 caracteres aleatorios.
-3. Abra la aplicación y seleccione la sección **Compilar** en el panel de navegación superior.
-4. En el panel de navegación izquierdo, seleccione **Prebuilt Domains** (Dominios creados previamente).
-5. Seleccione el dominio **HomeAutomation** en **Agregar dominio** de su tarjeta.
-6. Seleccione **Train** (Entrenar) en el menú de la esquina superior derecha.
-7. Seleccione **Publicar** (Publicar) en el menú de la esquina superior derecha. 
+1. Mientras sigue en Azure Portal para el nuevo bot, seleccione **Test in Web Chat** (Probar en chat web). 
+1. En el cuadro de texto **Type your message** (Escriba su mensaje), escriba el texto `hello`. El bot responde con información sobre el marco del bot, así como consultas de ejemplo para el modelo LUIS específico, como la reserva de un vuelo a París. 
 
-    La aplicación creada por Azure Bot Service ahora tiene intenciones nuevas:
+    ![Captura de pantalla de Azure Portal, escribir el texto "hello".](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
 
-    |Nuevas intenciones del bot básico|Expresión de ejemplo|
-    |--|--|
-    |HomeAutomation.TurnOn|`turn the fan to high`
-    |HomeAutomation.TurnOff|`turn off ac please`|
+    Puede usar la funcionalidad de prueba para probar rápidamente su bot. Para pruebas más completas, como la depuración, descargue el código de bot y use Visual Studio. 
 
-## <a name="download-the-web-app-bot"></a>Descarga del bot de aplicación web 
+## <a name="download-the-web-app-bot-source-code"></a>Descarga del código fuente del bot de aplicación web
 Con el fin de desarrollar el código del bot de aplicación web, descargue el código y úselo en el equipo local. 
 
-1. En Azure Portal, aún en el recurso del bot de aplicación web, seleccione **Configuración de la aplicación** y copie los valores de **botFilePath** y **botFileSecret**. Deberá agregarlos a un archivo de entorno más adelante. 
+1. En Azure Portal, seleccione **Compilar** en la sección **Bot Management** (Administración del bot). 
 
-2. En Azure Portal, seleccione **Compilar** en la sección **Bot Management** (Administración del bot). 
-
-3. Seleccione **Download Bot source code** (Descargar el código fuente del bot). 
+1. Seleccione **Download Bot source code** (Descargar el código fuente del bot). 
 
     [![Descargar el código fuente del bot de aplicación web para el bot básico](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-4. Cuando el código fuente se haya comprimido, un mensaje proporcionará un vínculo para descargar el código. Seleccione el vínculo. 
+1. Cuando el cuadro de diálogo emergente le pregunte **Include app settings in the downloaded zip file?** (¿Incluir la configuración de la aplicación en el archivo zip descargado?), seleccione **Sí**.
 
-5. Guarde el archivo ZIP en el equipo local y extraiga los ficheros. Abra el proyecto. 
+1. Cuando el código fuente se haya comprimido, un mensaje proporcionará un vínculo para descargar el código. Seleccione el vínculo. 
 
-6. Abra el archivo bot.js y busque `const results = await this.luisRecognizer.recognize(context);`. Aquí es donde la expresión del usuario especificada en el bot se envía a LUIS.
+1. Guarde el archivo ZIP en el equipo local y extraiga los ficheros. Abra el proyecto con Visual Studio. 
 
-   ```javascript
-    /**
-     * Driver code that does one of the following:
-     * 1. Display a welcome card upon startup
-     * 2. Use LUIS to recognize intents
-     * 3. Start a greeting dialog
-     * 4. Optionally handle Cancel or Help interruptions
-     *
-     * @param {Context} context turn context from the adapter
-     */
-    async onTurn(context) {
-        // Create a dialog context
-        const dc = await this.dialogs.createContext(context);
+## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Revisión del código para enviar la expresión a LUIS y obtener respuesta
 
-        if(context.activity.type === ActivityTypes.Message) {
-            // Perform a call to LUIS to retrieve results for the current activity message.
-            const results = await this.luisRecognizer.recognize(context);
-            
-            const topIntent = LuisRecognizer.topIntent(results);
+1. Abra el archivo **Cuadros de diálogo -> luisHelper.js**. Aquí es donde la expresión del usuario especificada en el bot se envía a LUIS. La respuesta de LUIS se devuelve desde el método como un objeto JSON **bookDetails**. Al crear su bot propio, también debe crear su propio objeto para devolver los detalles de LUIS. 
 
-            // handle conversation interrupts first
-            const interrupted = await this.isTurnInterrupted(dc, results);
-            if(interrupted) {
-                return;
+    ```nodejs
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+    
+    const { LuisRecognizer } = require('botbuilder-ai');
+    
+    class LuisHelper {
+        /**
+         * Returns an object with preformatted LUIS results for the bot's dialogs to consume.
+         * @param {*} logger
+         * @param {TurnContext} context
+         */
+        static async executeLuisQuery(logger, context) {
+            const bookingDetails = {};
+    
+            try {
+                const recognizer = new LuisRecognizer({
+                    applicationId: process.env.LuisAppId,
+                    endpointKey: process.env.LuisAPIKey,
+                    endpoint: `https://${ process.env.LuisAPIHostName }`
+                }, {}, true);
+    
+                const recognizerResult = await recognizer.recognize(context);
+    
+                const intent = LuisRecognizer.topIntent(recognizerResult);
+    
+                bookingDetails.intent = intent;
+    
+                if (intent === 'Book_flight') {
+                    // We need to get the result from the LUIS JSON which at every level returns an array
+    
+                    bookingDetails.destination = LuisHelper.parseCompositeEntity(recognizerResult, 'To', 'Airport');
+                    bookingDetails.origin = LuisHelper.parseCompositeEntity(recognizerResult, 'From', 'Airport');
+    
+                    // This value will be a TIMEX. And we are only interested in a Date so grab the first result and drop the Time part.
+                    // TIMEX is a format that represents DateTime expressions that include some ambiguity. e.g. missing a Year.
+                    bookingDetails.travelDate = LuisHelper.parseDatetimeEntity(recognizerResult);
+                }
+            } catch (err) {
+                logger.warn(`LUIS Exception: ${ err } Check your LUIS configuration`);
             }
-
-            // Continue the current dialog
-            const dialogResult = await dc.continue();
-
-            switch(dialogResult.status) {
-                case DialogTurnStatus.empty:
-                    switch (topIntent) {
-                        case GREETING_INTENT:
-                            await dc.begin(GREETING_DIALOG);
-                            break;
-
-                        case NONE_INTENT:
-                        default:
-                            // help or no intent identified, either way, let's provide some help
-                            // to the user
-                            await dc.context.sendActivity(`I didn't understand what you just said to me. topIntent ${topIntent}`);
-                            break;
-                    }
-
-                case DialogTurnStatus.waiting:
-                    // The active dialog is waiting for a response from the user, so do nothing
-                break;
-
-                case DialogTurnStatus.complete:
-                    await dc.end();
-                    break;
-
-                default:
-                    await dc.cancelAll();
-                    break;
-
-            }
-
-        } else if (context.activity.type === 'conversationUpdate' && context.activity.membersAdded[0].name === 'Bot') {
-            // When activity type is "conversationUpdate" and the member joining the conversation is the bot
-            // we will send our Welcome Adaptive Card.  This will only be sent once, when the Bot joins conversation
-            // To learn more about Adaptive Cards, see https://aka.ms/msbot-adaptivecards for more details.
-            const welcomeCard = CardFactory.adaptiveCard(WelcomeCard);
-            await context.sendActivity({ attachments: [welcomeCard] });
+            return bookingDetails;
+        }
+    
+        static parseCompositeEntity(result, compositeName, entityName) {
+            const compositeEntity = result.entities[compositeName];
+            if (!compositeEntity || !compositeEntity[0]) return undefined;
+    
+            const entity = compositeEntity[0][entityName];
+            if (!entity || !entity[0]) return undefined;
+    
+            const entityValue = entity[0][0];
+            return entityValue;
+        }
+    
+        static parseDatetimeEntity(result) {
+            const datetimeEntity = result.entities['datetime'];
+            if (!datetimeEntity || !datetimeEntity[0]) return undefined;
+    
+            const timex = datetimeEntity[0]['timex'];
+            if (!timex || !timex[0]) return undefined;
+    
+            const datetime = timex[0].split('T')[0];
+            return datetime;
         }
     }
-    ```
-
-    El bot envía la expresión del usuario a LUIS y obtiene los resultados. La intención principal determina el flujo de conversación. 
-
-
-## <a name="start-the-bot"></a>Inicio del bot
-Antes de cambiar cualquier código o configuración, compruebe los trabajos del bot. 
-
-1. En Visual Studio Code, abra una ventana de terminal. 
-
-2. Instale las dependencias de npm para este bot. 
-
-    ```bash
-    npm install
-    ```
-3. Cree un archivo para almacenar las variables de entorno que busca el código de bot. Asigne el nombre `.env` al archivo. Agregue estas variables de entorno:
-
-    <!--there is no code language that represents an .env file correctly-->
-    ```env
-    botFilePath=
-    botFileSecret=
-    ```
-
-    Establezca los valores de las variables de entorno en los valores que copió de la configuración de la aplicación de Azure Bot Service en el paso 1 de la sección **[Descarga del bot de aplicación web](#download-the-web-app-bot)**.
-
-4. Inicie el bot en el modo de inspección. Los cambios que realice en el código después de este inicio harán que la aplicación se reinicie de manera automática.
-
-    ```bash
-    npm run watch
-    ```
-
-5. Cuando el bot se inicia, la ventana de terminal muestra el puerto local en que se ejecuta el bot:
-
-    ```console
-    > basic-bot@0.1.0 start C:\Users\pattiowens\repos\BFv4\luis-nodejs-bot-src
-    > node ./index.js NODE_ENV=development
-
-    restify listening to http://[::]:3978
     
-    Get the Emulator: https://aka.ms/botframework-emulator
+    module.exports.LuisHelper = LuisHelper;
+    ```
+
+1. Abra **Cuadros de diálogo -> bookingDialog.js** para saber cómo se usa el objeto BookingDetails para administrar el flujo de conversación. Los detalles de viaje se solicitan en pasos, luego la reserva completa se confirma y, por último, esta se repite al usuario. 
+
+    ```nodejs
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
     
-    To talk to your bot, open the luis-nodejs-bot-pattiowens.bot file in the Emulator
+    const { TimexProperty } = require('@microsoft/recognizers-text-data-types-timex-expression');
+    const { ConfirmPrompt, TextPrompt, WaterfallDialog } = require('botbuilder-dialogs');
+    const { CancelAndHelpDialog } = require('./cancelAndHelpDialog');
+    const { DateResolverDialog } = require('./dateResolverDialog');
+    
+    const CONFIRM_PROMPT = 'confirmPrompt';
+    const DATE_RESOLVER_DIALOG = 'dateResolverDialog';
+    const TEXT_PROMPT = 'textPrompt';
+    const WATERFALL_DIALOG = 'waterfallDialog';
+    
+    class BookingDialog extends CancelAndHelpDialog {
+        constructor(id) {
+            super(id || 'bookingDialog');
+    
+            this.addDialog(new TextPrompt(TEXT_PROMPT))
+                .addDialog(new ConfirmPrompt(CONFIRM_PROMPT))
+                .addDialog(new DateResolverDialog(DATE_RESOLVER_DIALOG))
+                .addDialog(new WaterfallDialog(WATERFALL_DIALOG, [
+                    this.destinationStep.bind(this),
+                    this.originStep.bind(this),
+                    this.travelDateStep.bind(this),
+                    this.confirmStep.bind(this),
+                    this.finalStep.bind(this)
+                ]));
+    
+            this.initialDialogId = WATERFALL_DIALOG;
+        }
+    
+        /**
+         * If a destination city has not been provided, prompt for one.
+         */
+        async destinationStep(stepContext) {
+            const bookingDetails = stepContext.options;
+    
+            if (!bookingDetails.destination) {
+                return await stepContext.prompt(TEXT_PROMPT, { prompt: 'To what city would you like to travel?' });
+            } else {
+                return await stepContext.next(bookingDetails.destination);
+            }
+        }
+    
+        /**
+         * If an origin city has not been provided, prompt for one.
+         */
+        async originStep(stepContext) {
+            const bookingDetails = stepContext.options;
+    
+            // Capture the response to the previous step's prompt
+            bookingDetails.destination = stepContext.result;
+            if (!bookingDetails.origin) {
+                return await stepContext.prompt(TEXT_PROMPT, { prompt: 'From what city will you be travelling?' });
+            } else {
+                return await stepContext.next(bookingDetails.origin);
+            }
+        }
+    
+        /**
+         * If a travel date has not been provided, prompt for one.
+         * This will use the DATE_RESOLVER_DIALOG.
+         */
+        async travelDateStep(stepContext) {
+            const bookingDetails = stepContext.options;
+    
+            // Capture the results of the previous step
+            bookingDetails.origin = stepContext.result;
+            if (!bookingDetails.travelDate || this.isAmbiguous(bookingDetails.travelDate)) {
+                return await stepContext.beginDialog(DATE_RESOLVER_DIALOG, { date: bookingDetails.travelDate });
+            } else {
+                return await stepContext.next(bookingDetails.travelDate);
+            }
+        }
+    
+        /**
+         * Confirm the information the user has provided.
+         */
+        async confirmStep(stepContext) {
+            const bookingDetails = stepContext.options;
+    
+            // Capture the results of the previous step
+            bookingDetails.travelDate = stepContext.result;
+            const msg = `Please confirm, I have you traveling to: ${ bookingDetails.destination } from: ${ bookingDetails.origin } on: ${ bookingDetails.travelDate }.`;
+    
+            // Offer a YES/NO prompt.
+            return await stepContext.prompt(CONFIRM_PROMPT, { prompt: msg });
+        }
+    
+        /**
+         * Complete the interaction and end the dialog.
+         */
+        async finalStep(stepContext) {
+            if (stepContext.result === true) {
+                const bookingDetails = stepContext.options;
+    
+                return await stepContext.endDialog(bookingDetails);
+            } else {
+                return await stepContext.endDialog();
+            }
+        }
+    
+        isAmbiguous(timex) {
+            const timexPropery = new TimexProperty(timex);
+            return !timexPropery.types.has('definite');
+        }
+    }
+    
+    module.exports.BookingDialog = BookingDialog;
     ```
 
-## <a name="start-the-emulator"></a>Inicio del emulador
 
-1. Inicie Bot Emulator. 
+## <a name="install-dependencies-and-start-the-bot-code-in-visual-studio"></a>Instalación de las dependencias e inicio del código del bot en Visual Studio
 
-2. En Bot Emulator, seleccione el archivo *.bot en la raíz del proyecto. Este archivo `.bot` incluye el punto de conexión de dirección URL del bot para mensajes:
-
-    [![Bot Emulator v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
-
-3. Introduzca el secreto de bot que copió de la configuración de la aplicación de Azure Bot Service en el paso 1 de la sección **[Descarga del bot de aplicación web](#download-the-web-app-bot)**. Esto permite que el emulador obtenga acceso a los campos cifrados del archivo .bot.
-
-    ![Secreto de Bot Emulator v4](../../../includes/media/cognitive-services-luis/bfv4/bot-secret.png)
+1. En VSCode, desde el terminal integrado, instale las dependencias con el comando `npm install`.
+1. También desde el terminal integrado, inicie el bot con el comando `npm start`. 
 
 
-4. En Bot Emulator, escriba `Hello` y obtendrá la respuesta apropiada para el bot básico.
+## <a name="use-the-bot-emulator-to-test-the-bot"></a>Uso del emulador de bot para probar el bot
 
-    [![Respuesta de bot básico en el emulador](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+1. Inicie el emulador de bots y seleccione **Open Bot** (Abrir bot).
+1. En el cuadro de diálogo emergente **Open a bot** (Abrir un bot), escriba la dirección URL del bot, por ejemplo, `http://localhost:3978/api/messages`. La ruta `/api/messages` es la dirección web para el bot.
+1. Escriba valores en **Microsoft App ID** (Id. de aplicación de Microsoft) y **Microsoft App password** (Contraseña de aplicación de Microsoft), que se encuentran en el archivo **.env** en la raíz del código de bot que descargó.
 
-## <a name="modify-bot-code"></a>Modificación del código del bot 
-
-En el archivo `bot.js`, agregue código para controlar las intenciones nuevas. 
-
-1. En la parte superior del archivo, busque la sección **Supported LUIS Intents** (Intenciones admitidas de LUIS) y agregue constantes para las intenciones de HomeAutomation:
-
-   ```javascript
-    // Supported LUIS Intents
-    const GREETING_INTENT = 'Greeting';
-    const CANCEL_INTENT = 'Cancel';
-    const HELP_INTENT = 'Help';
-    const NONE_INTENT = 'None';
-    const TURNON_INTENT = 'HomeAutomation_TurnOn'; // new intent
-    const TURNOFF_INTENT = 'HomeAutomation_TurnOff'; // new intent
-    ```
-
-    Tenga en cuenta que el punto, `.`, entre el dominio y la intención de la aplicación del portal de LUIS se reemplaza por un guion bajo, `_`. 
-
-2. Busque **isTurnInterrupted** que recibe la predicción de LUIS de la expresión y agregue una línea para imprimir el resultado en la consola.
-
-   ```javascript
-    /**
-     * Look at the LUIS results and determine if we need to handle
-     * an interruptions due to a Help or Cancel intent
-     *
-     * @param {DialogContext} dc - dialog context
-     * @param {LuisResults} luisResults - LUIS recognizer results
-     */
-    async isTurnInterrupted(dc, luisResults) {
-        console.log(JSON.stringify(luisResults));
-    ...
-    ```
-
-    El bot no tiene la misma respuesta exacta como una solicitud de API de REST de LUIS, por lo que es importante conocer las diferencias examinando el JSON de respuesta. Las propiedades de texto y de las intenciones son las mismas, pero se han modificado los valores de propiedad de las entidades. 
+    Si lo desea, puede crear una nueva configuración de bot y copiar los valores `MicrosoftAppId` y `MicrosoftAppPassword` desde el archivo **.env** en el proyecto de Visual Studio para el bot. El nombre del archivo de configuración de bot debe ser el mismo que el nombre del bot. 
 
     ```json
     {
-        "$instance": {
-            "HomeAutomation_Device": [
-                {
-                    "startIndex": 23,
-                    "endIndex": 29,
-                    "score": 0.9776345,
-                    "text": "lights",
-                    "type": "HomeAutomation.Device"
-                }
-            ],
-            "HomeAutomation_Room": [
-                {
-                    "startIndex": 12,
-                    "endIndex": 22,
-                    "score": 0.9079433,
-                    "text": "livingroom",
-                    "type": "HomeAutomation.Room"
-                }
-            ]
-        },
-        "HomeAutomation_Device": [
-            "lights"
+        "name": "<bot name>",
+        "description": "<bot description>",
+        "services": [
+            {
+                "type": "endpoint",
+                "appId": "<appId from .env>",
+                "appPassword": "<appPassword from .env>",
+                "endpoint": "http://localhost:3978/api/messages",
+                "id": "<don't change this value>",
+                "name": "http://localhost:3978/api/messages"
+            }
         ],
-        "HomeAutomation_Room": [
-            "livingroom"
-        ]
+        "padlock": "",
+        "version": "2.0",
+        "overrides": null,
+        "path": "<local path to .bot file>"
     }
     ```
 
-3. Agregue las intenciones a la instrucción switch del método onTurn para el caso `DialogTurnStatus.empty`:
+1. En el emulador de bot, escriba `Hello` y obtenga la misma respuesta para el bot básico que la que recibió en el **Test in Web Chat** (Probar en chat web).
 
-   ```javascript
-    switch (topIntent) {
-        case GREETING_INTENT:
-            await dc.begin(GREETING_DIALOG);
-            break;
+    [![Respuesta de bot básico en el emulador](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
-        // New HomeAutomation.TurnOn intent
-        case TURNON_INTENT: 
 
-            await dc.context.sendActivity(`TurnOn intent found, entities included: ${JSON.stringify(results.entities)}`);
-            break;
+## <a name="ask-bot-a-question-for-the-book-flight-intent"></a>Formule una pregunta al bot para la intención de reservar vuelo
 
-        // New HomeAutomation.TurnOff intent
-        case TURNOFF_INTENT: 
+1. En el emulador de bot, reserve un vuelo. Para ello, especifique la expresión siguiente: 
 
-            await dc.context.sendActivity(`TurnOff intent found, entities included: ${JSON.stringify(results.entities)}`);
-            break;
-
-        case NONE_INTENT:
-        default:
-            // help or no intent identified, either way, let's provide some help
-            // to the user
-            await dc.context.sendActivity(`I didn't understand what you just said to me. topIntent ${topIntent}`);
-            break;
-    }
+    ```bot
+    Book a flight from Paris to Berlin on March 22, 2020
     ```
 
-## <a name="view-results-in-bot"></a>Visualización de los resultados en el bot
+    El emulador de bot solicita confirmación. 
 
-1. En Bot Emulator, escriba la expresión: `Turn on the livingroom lights to 50%`
+1. Seleccione **Sí**. El bot responde con un resumen de sus acciones. 
+1. En el registro del emulador bot, seleccione la línea que incluye `Luis Trace`. Esto muestra la respuesta JSON de LUIS para la intención y las entidades de la expresión.
 
-2. El bot responde con:
+    [![Respuesta de bot básico en el emulador](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
-    ```json
-    TurnOn intent found, entities included: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
-    ```
 
-## <a name="learn-more-about-bot-framework"></a>Más información sobre Bot Framework
-Azure Bot Service usa el SDK de Bot Framework. Más información sobre el SDK y bot framework:
-
-* Documentación sobre [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
-* [Ejemplos de Bot Builder](https://github.com/Microsoft/botbuilder-samples)
-* [SDK de Bot Builder](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
-* [Herramientas de Bot Builder](https://github.com/Microsoft/botbuilder-tools):
+[!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Creó una instancia de Azure Bot Service, copió el secreto del bot y la ruta de acceso al archivo .bot y descargó el archivo ZIP del código. Agregó el dominio HomeAutomation creado previamente a la aplicación LUIS que se creó como parte de la nueva instancia de Azure Bot Service y luego entrenó y publicó nuevamente la aplicación. Extrajo el código del proyecto, creó un archivo de entorno (`.env`) y estableció el secreto del bot y la ruta de acceso al archivo .bot. En el archivo bot.js, agregó código para controlar las dos intenciones nuevas. Luego probó el bot en Bot Emulator para ver la respuesta de LUIS para una expresión de una de las intenciones nuevas. 
-
+Consulte más [ejemplos](https://github.com/microsoft/botframework-solutions) con bots de conversación. 
 
 > [!div class="nextstepaction"]
-> [Compilación de un dominio personalizado en LUIS](luis-quickstart-intents-only.md)
+> [Build a Language Understanding app with a custom subject domain](luis-quickstart-intents-only.md) (Compilación de una aplicación Language Understanding con un dominio de sujeto personalizado)

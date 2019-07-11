@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e645dd40071416a28ced475e02c47688a5759eb4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4728ad4fcd44c754a62ec19037562e63d92ec304
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304063"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656607"
 ---
 # <a name="tutorial-integrate-drift-with-azure-active-directory"></a>Tutorial: Integración de Drift con Azure Active Directory
 
@@ -88,11 +88,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     d. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://start.drift.com`
 
-6. La aplicación Drift espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
+6. La aplicación Drift espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
     ![imagen](common/edit-attribute.png)
 
-7. Además de lo anterior, la aplicación Drift espera que se usen algunos atributos más en la respuesta de SAML. En la sección Notificaciones del usuario del cuadro de diálogo Atributos de usuario, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguiente: 
+7. Además de lo anterior, la aplicación Drift espera que se usen algunos atributos más en la respuesta de SAML. En la sección Notificaciones del usuario del cuadro de diálogo Atributos de usuario, haga lo siguiente para agregar el atributo Token SAML como se muestra en la tabla siguiente: 
 
     | NOMBRE | Atributo de origen|
     | ---------------| --------------- |    
@@ -193,4 +193,4 @@ Al seleccionar el icono de Drift en el Panel de acceso, debería iniciar sesión
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

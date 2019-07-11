@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9449e196a59fa20288bca9d4401c5e56a97b86cd
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7143d0afce7a3644286703a9eba0da1ee45305f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901223"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106558"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integración de Azure Active Directory con Attendance Management Services
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con Attendance Managemen
 
     ![Información de inicio de sesión único del dominio y las direcciones URL de Attendance Management Services](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://id.obc.jp/<tenant information >/`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://id.obc.jp/<tenant information >/`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://id.obc.jp/<tenant information >/`
 
@@ -139,7 +139,7 @@ Para configurar el inicio de sesión único de Azure AD con Attendance Managemen
 
     ![Configuración de Attendance Management Services](./media/attendancemanagementservices-tutorial/user2.png)
 
-     a. Seleccione **Use SAML authentication** (Usar autenticación SAML).
+    a. Seleccione **Use SAML authentication** (Usar autenticación SAML).
 
     b. En el cuadro de texto **Identifier** (Identificador), pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
 
@@ -221,7 +221,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Attendance Managem
 
     ![Agregar empleado](./media/attendancemanagementservices-tutorial/user4.png)
 
-     a. En el cuadro de texto **OBCiD**, escriba el correo electrónico del usuario, por ejemplo, `BrittaSimon\@contoso.com`.
+    a. En el cuadro de texto **OBCiD**, escriba el correo electrónico del usuario, por ejemplo, `BrittaSimon\@contoso.com`.
 
     b. En el cuadro de texto **Contraseña**, escriba la contraseña del usuario.
 
@@ -239,4 +239,4 @@ Al hacer clic en el icono de Attendance Management Services en el panel de acces
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

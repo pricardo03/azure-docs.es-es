@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 04/01/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aae5b87e49b6d64e4c9ee854b65821d65969e66b
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803017"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536803"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Inicio rápido: Creación de un servidor: Portal
 
@@ -37,7 +37,7 @@ En este inicio rápido se describe cómo crear un recurso de servidor de Analysi
 
 2. En **Analysis Services**, rellene los campos obligatorios y, a continuación, presione **Crear**.
    
-   * **Nombre del servidor**: escriba un nombre único que se pueda utilizar para hacer referencia al servidor.
+   * **Nombre del servidor**: escriba un nombre único que se pueda utilizar para hacer referencia al servidor. El nombre del servidor debe comenzar con un carácter en minúscula y contener entre 3 y 128 caracteres en minúsculas y números. No se permiten espacios en blanco ni caracteres especiales.
    * **Suscripción**: seleccione la suscripción a la que este servidor se asociará.
    * **Grupos de recursos**: cree un nuevo grupo de recursos o, si ya tiene uno, selecciónelo. Los grupos de recursos están diseñados para ayudarlo a administrar una colección de recursos de Azure. Para más información, consulte [grupos de recursos](../azure-resource-manager/resource-group-overview.md).
    * **Ubicación**: esta ubicación del centro de datos de Azure hospeda el servidor. Elija una ubicación más cercana a su base de usuarios más grande.

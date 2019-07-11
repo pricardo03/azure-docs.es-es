@@ -5,26 +5,27 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 12b141f9aa75231adae9f64c57709f290883b420
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239682"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433939"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Clasificación de imágenes en el perímetro con Custom Vision Service
 
-Azure IoT Edge puede hacer que su solución de IoT sea más eficaz al mover cargas de trabajo de la nube al perímetro. Esta funcionalidad es adecuada en servicios que procesan una gran cantidad de datos, como los modelos de Computer Vision. [Custom Vision Service](../cognitive-services/custom-vision-service/home.md) le permite crear clasificadores de imágenes personalizados e implementarlos en dispositivos como contenedores. Juntos, estos dos servicios permiten buscar información a partir de imágenes o secuencias de vídeo sin tener que transferir todos los datos fuera del sitio en primer lugar. Custom Vision proporciona un clasificador que compara una imagen con un modelo entrenado para generar información. 
+Azure IoT Edge puede hacer que su solución de IoT sea más eficaz al mover cargas de trabajo de la nube al perímetro. Esta funcionalidad es adecuada en servicios que procesan una gran cantidad de datos, como los modelos de Computer Vision. [Custom Vision Service](../cognitive-services/custom-vision-service/home.md) le permite crear clasificadores de imágenes personalizados e implementarlos en dispositivos como contenedores. Juntos, estos dos servicios permiten buscar información a partir de imágenes o secuencias de vídeo sin tener que transferir todos los datos fuera del sitio en primer lugar. Custom Vision proporciona un clasificador que compara una imagen con un modelo entrenado para generar información.
 
-Por ejemplo, Custom Vision en un dispositivo IoT Edge podría determinar si una autopista está experimentando un tráfico mayor o menor de lo normal o si un estacionamiento tiene zonas de estacionamiento disponibles en una fila. Esta información se puede compartir con otro servicio para tomar medidas. 
+Por ejemplo, Custom Vision en un dispositivo IoT Edge podría determinar si una autopista está experimentando un tráfico mayor o menor de lo normal o si un estacionamiento tiene zonas de estacionamiento disponibles en una fila. Esta información se puede compartir con otro servicio para tomar medidas.
 
-En este tutorial, aprenderá a: 
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Crear un clasificador de imágenes con Custom Vision.
 > * Desarrollar un módulo de IoT Edge que realiza consultas al servidor web de Custom Vision en el dispositivo.
 > * Enviar los resultados del clasificador de imágenes a IoT Hub.
@@ -72,10 +73,11 @@ Una vez que se crea y se entrena el clasificador de imágenes, puede exportarlo 
    | ----- | ----- |
    | NOMBRE | Proporcione un nombre para el proyecto, como **EdgeTreeClassifier**. |
    | DESCRIPCIÓN | Descripción opcional del proyecto. |
-   | Grupo de recursos | Acepte el valor predeterminado **Limited trial** (Prueba limitada). |
+   | Grupo de recursos | Seleccione uno de sus grupos de recursos de Azure que incluye un recurso de Custom Vision Service o **cree uno nuevo** si aún no ha agregado ninguno. |
    | Tipos de proyecto | **Clasificación** |
-   | Classification Types (Tipos de clasificación) | **Multiclass (single tag per image)** (Multiclase [etiqueta única por imagen]) | 
+   | Classification Types (Tipos de clasificación) | **Multiclass (single tag per image)** (Multiclase [etiqueta única por imagen]) |
    | Dominios | **General (compact)** (General [compacto]) |
+   | Funcionalidades de exportación | **Basic platforms (Tensorflow, CoreML, ONNX, ...)** (Plataformas básicas [Tensorflow, CoreML, ONNX,...]) |
 
 5. Seleccione **Create project** (Crear proyecto).
 

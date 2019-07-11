@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 15-04-2019
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 573e06f0dd57b92f7621ecf77039159a64249f18
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0447a8dd464363ae7e076dde2520565005d7c0a5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786503"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588232"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutorial: Integración de Azure Active Directory con Sectigo Certificate Manager
 
@@ -33,7 +33,7 @@ La integración de Sectigo Certificate Manager con Azure AD proporciona las sigu
 * Los usuarios pueden iniciar sesión automáticamente en Sectigo Certificate Manager (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para más información acerca de la integración de aplicaciones SaaS (software como servicio) con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para más información acerca de la integración de aplicaciones SaaS (software como servicio) con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -81,10 +81,10 @@ Para configurar y probar el inicio de sesión único de Azure AD con Sectigo Cer
 
 | Tarea | DESCRIPCIÓN |
 | --- | --- |
-| **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** | Permite que los usuarios usen esta característica. |
+| **[Configuración del inicio de sesión único en Azure AD](#configure-azure-ad-single-sign-on)** | Permite que los usuarios usen esta característica. |
 | **[Configuración del inicio de sesión único en Sectigo Certificate Manager](#configure-sectigo-certificate-manager-single-sign-on)** | Configura los valores de inicio de sesión único en la aplicación. |
-| **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** | Prueba el inicio de sesión único de Azure AD con el usuario Britta Simon. |
-| **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** | Permite que Britta Simon use el inicio de sesión único de Azure AD. |
+| **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** | Prueba el inicio de sesión único de Azure AD con el usuario Britta Simon. |
+| **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** | Permite que Britta Simon use el inicio de sesión único de Azure AD. |
 | **[Creación de un usuario de prueba de Sectigo Certificate Manager](#create-a-sectigo-certificate-manager-test-user)** | Crea un homólogo de Britta Simon en Sectigo Certificate Manager que está vinculado a la representación del usuario en Azure AD. |
 | **[Prueba de inicio de sesión único](#test-single-sign-on)** | Comprueba que la configuración funciona. |
 
@@ -210,8 +210,8 @@ Después de configurar el inicio de sesión único, cuando se selecciona **Secti
 
 Para más información, consulte estos artículos:
 
-- [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Inicio de sesión único en aplicaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 

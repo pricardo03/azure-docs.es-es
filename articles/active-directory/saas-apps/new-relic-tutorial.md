@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d50c4366128edb5b4bc76408eb1085817af1ce3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 664824772d9c04e5d02d7a38cda58ad4ede8baaf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896736"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096267"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Tutorial: Integración de Azure Active Directory con New Relic
 
@@ -52,7 +52,7 @@ Para configurar la integración de New Relic en Azure AD, es precios agregar dic
 
 **Para agregar New Relic desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -75,12 +75,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con New Relic, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en New Relic](#configure-new-relic-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de New Relic](#create-new-relic-test-user)**: el objetivo es tener un homólogo de Britta Simon en New Relic que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en New Relic](#configure-new-relic-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de New Relic](#create-new-relic-test-user)** : el objetivo es tener un homólogo de Britta Simon en New Relic que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,9 +104,9 @@ Para configurar el inicio de sesión único de Azure AD con New Relic, realice l
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de New Relic](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL que se ajuste a este patrón: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login`. No olvide utilizar su propio identificador de cuenta de New Relic.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL que se ajuste a este patrón: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login`. No olvide utilizar su propio identificador de cuenta de New Relic.
 
-    b. En el cuadro de texto **Identificador (Id. de entidad)**, escriba una dirección URL: `rpm.newrelic.com`
+    b. En el cuadro de texto **Identificador (Id. de entidad)** , escriba una dirección URL: `rpm.newrelic.com`
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -138,7 +138,7 @@ Para configurar el inicio de sesión único de Azure AD con New Relic, realice l
    
     ![SAML](./media/new-relic-tutorial/ic797038.png "SAML")
    
-     a. Haga clic en **Elegir archivo** para cargar el certificado de Azure Active Directory descargado.
+    a. Haga clic en **Elegir archivo** para cargar el certificado de Azure Active Directory descargado.
 
     b. En el cuadro de texto **Dirección URL de inicio de sesión remoto**, pegue el valor de **dirección de inicio de sesión** que copió de Azure Portal.
    
@@ -217,7 +217,7 @@ Para permitir que los usuarios de Azure Active Directory inicien sesión en New 
    
     ![Usuarios activos](./media/new-relic-tutorial/ic797042.png "Usuarios activos")
    
-     a. En el cuadro de texto **Correo electrónico** , escriba la dirección de correo electrónico de un usuario válido de Azure Active Directory que quiera aprovisionar.
+    a. En el cuadro de texto **Correo electrónico** , escriba la dirección de correo electrónico de un usuario válido de Azure Active Directory que quiera aprovisionar.
 
     b. Como **Rol**, seleccione **Usuario**.
 
@@ -239,5 +239,5 @@ Al hacer clic en el icono de New Relic en el panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

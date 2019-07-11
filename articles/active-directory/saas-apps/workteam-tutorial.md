@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a59e7d9177834790b6df0f1c45a60849d3fdca0e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 697f5c06d2c1d6b669cfa244f0328f4fb86aeea2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086827"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: integración de Azure Active Directory con Workteam
 
@@ -141,7 +141,7 @@ Para configurar el inicio de sesión único de Azure AD con Workteam, realice lo
 
      ![Workteam saml](./media/workteam-tutorial/tutorial_workteam_saml.png)
 
-     a. En **SAML IdP** (Proveedor de identidades de SAML), seleccione **AD Azure**.
+    a. En **SAML IdP** (Proveedor de identidades de SAML), seleccione **AD Azure**.
 
     b. En el cuadro de texto **SAML Single Sign-On Service URL** (Dirección URL de inicio de sesión único de SAML), pegue el valor de la **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -218,7 +218,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Workteam, tienen q
 
     ![Nuevo usuario de Workteam](./media/workteam-tutorial/tutorial_workteam_newuser.png)
 
-     a. En el cuadro de texto **Name** (Nombre), escriba el nombre del usuario de la siguiente manera: **Brittasimon**.
+    a. En el cuadro de texto **Name** (Nombre), escriba el nombre del usuario de la siguiente manera: **Brittasimon**.
 
     b. En el cuadro de texto **Email** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **Brittasimon\@contoso.com**.
 
@@ -236,5 +236,5 @@ Al hacer clic en el icono de Workteam en el panel de acceso, debería iniciar se
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

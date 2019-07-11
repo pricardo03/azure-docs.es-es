@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c01cb1e7d937c691354270880c1e6be5cd44723
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: eb35982f8004407b51a325bb485f902f51380ba2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898029"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Tutorial: Integración de Azure Active Directory con IriusRisk
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con IriusRisk, siga esto
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de IriusRisk](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.iriusrisk.com/ui#!login`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.iriusrisk.com/ui#!login`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba el valor: `iriusrisk-sp`
 
@@ -197,4 +197,4 @@ Al hacer clic en el icono de IriusRisk en el panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

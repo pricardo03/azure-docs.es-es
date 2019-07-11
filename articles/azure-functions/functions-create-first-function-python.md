@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: ea890a49fc7b6a153ece183b153f5bc2a49760b5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5ef30fbf647492f79c64508d8306868aa1f6b278
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496564"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444576"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Creación de una función desencadenada mediante HTTP en Azure
 
@@ -32,7 +32,7 @@ Antes de empezar, debe hacer lo siguiente:
 
 + Instale [Python 3.6](https://www.python.org/downloads/).
 
-+ Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versión 2.6.666 u otra posterior.
++ Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versión 2.6.1071 u otra posterior.
 
 + Instale la versión 2.x de la [CLI de Azure](/cli/azure/install-azure-cli) u otra posterior.
 
@@ -44,18 +44,18 @@ Antes de empezar, debe hacer lo siguiente:
 
 Para desarrollar y probar las funciones de Python a nivel local, debe trabajar en un entorno de Python 3.6. Ejecute los comandos siguientes para crear y activar un entorno virtual denominado `.env`.
 
-### <a name="bash-or-a-terminal-window"></a>Bash o una ventana de terminal:
+### <a name="bash"></a>Bash:
 
 ```bash
-python3.6 -m venv .env
-source .env/bin/activate
+python3.6 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell o un símbolo del sistema de Windows:
 
 ```powershell
-py -3.6 -m venv .env
-.env\scripts\activate
+py -3.6 -m venv .venv
+.venv\scripts\activate
 ```
 
 Los comandos restantes se ejecutan dentro del entorno virtual.
@@ -66,7 +66,7 @@ Un proyecto de Functions es el equivalente a una aplicación de función en Azur
 
 En el entorno virtual, ejecute el siguiente comando y elija **python** como el rol de trabajo en tiempo de ejecución.
 
-```command
+```console
 func init MyFunctionProj
 ```
 
@@ -78,25 +78,17 @@ Se crea una carpeta denominada _MyFunctionProj_, que contiene los tres archivos 
 
 Vaya a la nueva carpeta MyFunctionProj:
 
-```command
+```console
 cd MyFunctionProj
 ```
 
 A continuación, actualice el archivo host.json para habilitar conjuntos de extensiones.  
 
-## <a name="reference-bindings"></a>Enlaces de referencia
-
-Los conjuntos de extensiones facilitan la adición de extensiones de enlace más adelante. También elimina el requisito de instalación del SDK de .NET Core 2.x. Los conjuntos de extensiones requieren la versión 2.6.1071 de Core Tools o una versión posterior. 
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
-Ahora, puede agregar una función al proyecto.
-
 ## <a name="create-a-function"></a>Creación de una función
 
 Para agregar una función a su proyecto, ejecute el siguiente comando:
 
-```command
+```console
 func new
 ```
 

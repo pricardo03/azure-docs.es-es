@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12d76c8079cf904e09a020a3eb242042ffe9e544
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 10473c820cd0dbb7c7db3f33de203ca4d636414b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245147"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096488"
 ---
 # <a name="tutorial-integrate-myvr-with-azure-active-directory"></a>Tutorial: Integración de MyVR con Azure Active Directory
 
@@ -160,4 +160,4 @@ Al seleccionar el icono de MyVR en el Panel de acceso, debería iniciar sesión 
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

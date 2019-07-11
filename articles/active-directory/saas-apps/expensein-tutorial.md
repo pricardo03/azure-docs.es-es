@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b849e63b758dca777df2be682b28bc4e10e58330
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7c09542013dff3a18965d1070216a938c26a144e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102852"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutorial: Integración de ExpenseIn con Azure Active Directory
 
@@ -57,15 +57,15 @@ Para configurar la integración de ExpenseIn en Azure AD, deberá agregar Expens
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-Configure y pruebe el inicio de sesión único de Azure AD con ExpenseIn utilizando un usuario de prueba llamado **B. Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de ExpenseIn.
+Configure y pruebe el inicio de sesión único de Azure AD con ExpenseIn utilizando un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de ExpenseIn.
 
 Para configurar y probar el inicio de sesión único de Azure AD con ExpenseIn, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
 2. **[Configuración de ExpenseIn](#configure-expensein)** , para configurar el inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B. Simon.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B. Simon para que use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en ExpenseIn](#create-expensein-test-user)** , para tener un homólogo de B. Simon en ExpenseIn que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba en ExpenseIn](#create-expensein-test-user)** , para tener un homólogo de B.Simon en ExpenseIn que esté vinculado a la representación del usuario en Azure AD.
 6. **[Comprobación del inicio de sesión único](#test-sso)** , para verificar que la configuración funciona correctamente.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -101,41 +101,51 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 ### <a name="configure-expensein"></a>Configuración de ExpenseIn
 
-1. En otra ventana del explorador web, inicie sesión en ExpenseIn como administrador.
+1. Para automatizar la configuración en ExpenseIn, debe instalar la **extensión del explorador de inicio de sesión seguro de Aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
 
-2. Haga clic en **Admin** en la parte superior de la página, a continuación, vaya a **Single Sign-On** (Inicio de sesión único) y haga clic en **Add provider** (Agregar proveedor).
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+2. Después de agregar la extensión al explorador, haga clic en **Configurar ExpenseIn** para ir a la aplicación ExpenseIn. En ella, escriba las credenciales de administrador para iniciar sesión en ExpenseIn. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 5.
+
+    ![Configuración](common/setup-sso.png)
+
+3. Si quiere configurar ExpenseIn manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de ExpenseIn como administrador y haga lo siguiente:
+
+4. Haga clic en **Admin** en la parte superior de la página, a continuación, vaya a **Single Sign-On** (Inicio de sesión único) y haga clic en **Add provider** (Agregar proveedor).
 
      ![Configuración de ExpenseIn](./media/expenseIn-tutorial/config01.png)
 
-3. En el elemento emergente **New Identity Provider** (Nuevo proveedor de identidades), realice los pasos siguientes:
+5. En el elemento emergente **New Identity Provider** (Nuevo proveedor de identidades), realice los pasos siguientes:
 
     ![Configuración de ExpenseIn](./media/expenseIn-tutorial/config02.png)
 
     a. En el cuadro de texto **Provider Name** (Nombre del proveedor), escriba el nombre (por ejemplo, Azure).
 
-    b. En el cuadro de texto **Target Url** (Dirección URL de destino), pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    b. Seleccione **Sí** en **Allow Provider Intitated Sign-On** (Permitir el inicio sesión iniciado por el proveedor).
 
-    c. En el cuadro de texto **Issuer** (Emisor), pegue el valor de **Identificador Azure AD** que ha copiado de Azure Portal.
+    c. En el cuadro de texto **Target Url** (Dirección URL de destino), pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    d. Abra el certificado (Base64) en el Bloc de notas, copie su contenido y péguelo en el cuadro de texto **Certificate** (Certificado).
+    d. En el cuadro de texto **Issuer** (Emisor), pegue el valor de **Identificador Azure AD** que ha copiado de Azure Portal.
 
-    e. Haga clic en **Create**(Crear).
+    e. Abra el certificado (Base64) en el Bloc de notas, copie su contenido y péguelo en el cuadro de texto **Certificate** (Certificado).
+
+    f. Haga clic en **Create**(Crear).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-En esta sección, va a crear un usuario de prueba llamado B. Simon en Azure Portal.
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
 1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B. Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `BrittaSimon@contoso.com`.
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Haga clic en **Create**(Crear).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, va a permitir que B. Simon acceda a ExpenseIn mediante el inicio de sesión único de Azure.
+En esta sección, va a permitir que B.Simon acceda a ExpenseIn mediante el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **ExpenseIn**.
@@ -147,7 +157,7 @@ En esta sección, va a permitir que B. Simon acceda a ExpenseIn mediante el inic
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B. Simon** en la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
@@ -171,7 +181,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en ExpenseIn, deben a
 
     b. En el cuadro de texto **Last Name** (Apellidos), escriba el nombre de usuario, en este caso **Simon**.
 
-    c. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario, por ejemplo, `B. Simon@contoso.com`.
+    c. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario, por ejemplo, `B.Simon@contoso.com`.
 
     d. Haga clic en **Create**(Crear).
 

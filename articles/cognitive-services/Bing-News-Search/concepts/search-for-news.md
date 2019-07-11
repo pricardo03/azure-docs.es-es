@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 77f8e41b2271770e49c2e5c4d1591c213eaa257d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: da1dd68b8e155e121f26f5599207691877fbf0ca
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383411"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274155"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Búsqueda de noticias con Bing News Search API
 
@@ -51,7 +51,7 @@ Para obtener noticias de un dominio específico, utilice el operador de consulta
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-A continuación se muestra la respuesta de la consulta anterior. Como parte de los [requisitos de uso y visualización](../useanddisplayrequirements.md) para las API de búsqueda de Bing, debe mostrar cada artículo de noticias en el orden indicado en la respuesta. Si el artículo tiene artículos agrupados, debe indicar que los artículos relacionados existen y mostrarlos previa solicitud.
+El ejemplo JSON siguiente muestra la respuesta a la consulta anterior. Como parte de los [requisitos de uso y visualización](../useanddisplayrequirements.md) para las API de búsqueda de Bing, debe mostrar cada artículo de noticias en el orden indicado en la respuesta. Si el artículo tiene artículos agrupados, debe indicar que los artículos relacionados existen y mostrarlos previa solicitud.
 
 ```json
 {
@@ -107,7 +107,7 @@ Si Bing puede determinar la categoría del artículo de prensa, el artículo inc
 
 ## <a name="get-todays-top-news"></a>Obtención de las noticias importantes de actualidad
 
-Para obtener los artículos de prensa destacados del día, debe realizar la misma solicitud que para obtener noticias generales, salvo que no debe establecer `q`.
+Para recibir los principales artículos de noticias de hoy, puede enviar la misma solicitud de noticias generales anterior, a la vez que deja nulo el parámetro `q`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-La respuesta para obtener noticias destacadas es prácticamente la misma que para obtener noticias generales. Sin embargo, la respuesta `news` no incluye el campo `totalEstimatedMatches` porque existe un número de resultados establecido. El número de artículos de prensa destacados puede variar según el ciclo de noticias. Asegúrese de utilizar `provider` para atribuir el artículo.
+La respuesta para obtener noticias destacadas es prácticamente la misma que para obtener noticias generales. Sin embargo, la respuesta `news` no incluye el campo `totalEstimatedMatches` porque existe un número de resultados establecido. El número de artículos de prensa destacados puede variar según el ciclo de noticias. Asegúrese de usar el campo `provider` para atribuir el artículo.
 
 ## <a name="get-news-by-category"></a>Obtención de noticias por categoría
 

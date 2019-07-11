@@ -1,22 +1,22 @@
 ---
-title: Configuración de directivas de Apache Kafka en HDInsight con Enterprise Security Package para Azure
-description: Obtenga información sobre cómo configurar directivas de Apache Ranger para Kafka en Azure HDInsight con Enterprise Security Package.
+title: 'Tutorial: Configuración de directivas de Apache Kafka en HDInsight con Enterprise Security Package: Azure'
+description: 'Tutorial: Obtenga información sobre cómo configurar directivas de Apache Ranger para Kafka en Azure HDInsight con Enterprise Security Package.'
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 01/14/2019
-ms.openlocfilehash: 6434f7cae3c3fa402efad00b2f6bfb0bc405f9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/24/2019
+ms.openlocfilehash: ba16a975aa3b1e60393006ef49a7e422c572931e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730253"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441372"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configuración de directivas de Apache Kafka en HDInsight con Enterprise Security Package (versión preliminar)
 
-Obtenga información sobre cómo configurar directivas de Apache Ranger para los clústeres de Apache Kafka de Enterprise Security Package (ESP). Los clústeres de ESP se conectan a un dominio, lo que permite a los usuarios autenticarse con credenciales de dominio. En este tutorial, creará dos directivas de Ranger para restringir el acceso a los temas `sales*` y `marketingspend`.
+Obtenga información sobre cómo configurar directivas de Apache Ranger para los clústeres de Apache Kafka de Enterprise Security Package (ESP). Los clústeres de ESP se conectan a un dominio, lo que permite a los usuarios autenticarse con credenciales de dominio. En este tutorial, creará dos directivas de Ranger para restringir el acceso a los temas `sales` y `marketingspend`.
 
 En este tutorial, aprenderá a:
 
@@ -26,20 +26,13 @@ En este tutorial, aprenderá a:
 > * Crear temas en un clúster de Kafka
 > * Probar directivas de Ranger
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisite"></a>Requisito previo
 
-* Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
-
-* Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-
-* Cree un [clúster de Kafka de HDInsight con Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
+Un [clúster de Kafka de HDInsight con Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Conexión a la interfaz de usuario administrador de Apache Ranger
 
-1. En un explorador, conéctese a la interfaz de usuario administrador de Ranger desde la dirección URL `https://<ClusterName>.azurehdinsight.net/Ranger/`. No olvide cambiar `<ClusterName>` por el nombre del clúster de Kafka.
-
-    > [!NOTE]  
-    > Las credenciales de Ranger no son las mismas que las credenciales del clúster de Hadoop. Para evitar que los exploradores usen credenciales almacenadas en caché de Hadoop, use una nueva ventana del explorador InPrivate para conectarse a la interfaz de usuario administrador de Ranger.
+1. En un explorador, conéctese a la interfaz de usuario administrador de Ranger desde la dirección URL `https://ClusterName.azurehdinsight.net/Ranger/`. No olvide cambiar `ClusterName` por el nombre del clúster de Kafka. Las credenciales de Ranger no son las mismas que las credenciales del clúster de Hadoop. Para evitar que los exploradores usen credenciales almacenadas en caché de Hadoop, use una nueva ventana del explorador InPrivate para conectarse a la interfaz de usuario administrador de Ranger.
 
 2. Inicie sesión con sus credenciales de administrador de Azure Active Directory (AD). Las credenciales de administrador de Azure AD no son las mismas que las credenciales del clúster de HDInsight ni las credenciales SSH del nodo de HDInsight Linux.
 
@@ -47,7 +40,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="create-domain-users"></a>Crear usuarios de dominio
 
-Visite [Create a HDInsight cluster with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) (Creación de un clúster de HDInsight con Enterprise Security Package) para aprender a crear los usuario del dominio **sales_user** y **marketing_user**. En un escenario de producción, los usuarios del dominio proceden de su inquilino de Active Directory.
+Visite [Create a HDInsight cluster with Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) (Creación de un clúster de HDInsight con Enterprise Security Package) para aprender a crear los usuario del dominio **sales_user** y **marketing_user**. En un escenario de producción, los usuarios del dominio proceden de su inquilino de Active Directory.
 
 ## <a name="create-ranger-policy"></a>Creación de directiva de Ranger
 
@@ -55,11 +48,11 @@ Cree una directiva de Ranger para **sales_user** y **marketing_user**.
 
 1. Abra la **Interfaz de usuario administrador de Ranger**.
 
-2. Haga clic en **\<ClusterName>_kafka** en **Kafka**. Puede aparecer una directiva configurada previamente.
+2. Seleccione **\<ClusterName>_kafka** en **Kafka**. Puede aparecer una directiva configurada previamente.
 
-3. Haga clic en **Agregar nueva directiva** y escriba los siguientes valores:
+3. Seleccione **Agregar nueva directiva** y escriba los siguientes valores:
 
-   |**Configuración**  |**Valor sugerido**  |
+   |Configuración  |Valor sugerido  |
    |---------|---------|
    |Nombre de la directiva  |  hdi sales* policy   |
    |Tema   |  sales* |
@@ -71,16 +64,15 @@ Cree una directiva de Ranger para **sales_user** y **marketing_user**.
    * ’*’ indica ninguna o más repeticiones de caracteres.
    * ’?’ indica cualquier carácter individual.
 
-   ![Directiva de creación de la interfaz de usuario administrador de Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
+   ![Directiva de creación de la interfaz de usuario administrador de Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
-   >[!NOTE]
-   >Espere unos instantes para que Ranger se sincronice con Azure AD si un usuario del dominio no se rellena automáticamente en **Seleccionar usuario**.
+   Espere unos instantes para que Ranger se sincronice con Azure AD si un usuario del dominio no se rellena automáticamente en **Seleccionar usuario**.
 
-4. Haga clic en **Agregar** para guardar la directiva.
+4. Seleccione **Agregar** para guardar la directiva.
 
-5. Haga clic en **Agregar nueva directiva** y escriba los siguientes valores:
+5. Seleccione **Agregar nueva directiva** y escriba los siguientes valores:
 
-   |**Configuración**  |**Valor sugerido**  |
+   |Configuración  |Valor sugerido  |
    |---------|---------|
    |Nombre de la directiva  |  hdi marketing policy   |
    |Tema   |  marketingspend |
@@ -89,7 +81,7 @@ Cree una directiva de Ranger para **sales_user** y **marketing_user**.
 
    ![Directiva de creación de la interfaz de usuario administrador de Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
-6. Haga clic en **Agregar** para guardar la directiva.
+6. Seleccione **Agregar** para guardar la directiva.
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>Creación de temas en un clúster de Kafka con ESP
 
@@ -97,11 +89,11 @@ Para crear dos temas `salesevents` y `marketingspend`:
 
 1. Use el siguiente comando para abrir una conexión SSH al clúster:
 
-   ```bash
+   ```cmd
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Reemplace `DOMAINADMIN` por el usuario administrador del clúster que se configuró durante la [creación del clúster](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-hdinsight-cluster-with-esp) y reemplace `CLUSTERNAME` por el nombre del clúster. Si se le solicita, escriba la contraseña de la cuenta de usuario administrador. Para obtener más información sobre cómo usar `SSH` con HDInsight, consulte [Conexión a través de SSH con HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix).
+   Reemplace `DOMAINADMIN` por el usuario administrador del clúster que se configuró durante la [creación del clúster](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp) y reemplace `CLUSTERNAME` por el nombre del clúster. Si se le solicita, escriba la contraseña de la cuenta de usuario administrador. Para obtener más información sobre cómo usar `SSH` con HDInsight, consulte [Conexión a través de SSH con HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use los siguientes comandos para guardar el nombre del clúster en una variable e instalar una utilidad de análisis de JSON `jq`. Cuando se le solicite, escriba el nombre del clúster de Kafka.
 
@@ -116,12 +108,11 @@ Para crear dos temas `salesevents` y `marketingspend`:
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
 
-   > [!Note]  
-   > Antes de continuar, es posible que tenga que configurar su entorno de desarrollo, en caso de que no lo haya hecho antes. Necesitará componentes como Java JDK, Apache Maven y un cliente SSH con scp. Para más información, consulte las [instrucciones de configuración](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
-   
+   Antes de continuar, es posible que tenga que configurar su entorno de desarrollo, en caso de que no lo haya hecho antes. Necesitará componentes como Java JDK, Apache Maven y un cliente SSH con scp. Para obtener más información, consulte las [instrucciones de configuración](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+
 1. Descargue los [ejemplos de consumidor de productor unido al dominio de Apache Kafka](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
-1. Siga los pasos 2 y 3 de **Compilación e implementación del ejemplo** en [Tutorial: Uso de Producer API y Consumer API de Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
+1. Siga los pasos 2 y 3 de **Compilación e implementación del ejemplo** en [Tutorial: Uso de Producer API y Consumer API de Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)
 
 1. Ejecute los comandos siguientes:
 
@@ -154,7 +145,7 @@ Según las directivas de Ranger configuradas, **sales_user** puede producir o co
 
    Ejemplo: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Siga el paso 3 de **Compilación e implementación del ejemplo** en [Tutorial: Uso de Producer API y Consumer API de Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example) para asegurarse de que `kafka-producer-consumer.jar` también está disponible para **sales_user**.
+4. Siga el paso 3 de **Compilación e implementación del ejemplo** en [Tutorial: Uso de Producer API y Consumer API de Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) para asegurarse de que `kafka-producer-consumer.jar` también está disponible para **sales_user**.
 
 5. Compruebe que **sales_user1** puede producir en el tema `salesevents` ejecutando el comando siguiente:
 
@@ -194,7 +185,17 @@ Según las directivas de Ranger configuradas, **sales_user** puede producir o co
 
    ![Auditoría de directivas de la interfaz de usuario de Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si no va a seguir usando esta aplicación, puede eliminar el clúster Kafka que creó mediante los siguientes pasos:
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight**.
+1. Seleccione **Clústeres de HDInsight** en **Servicios**.
+1. En la lista de clústeres de HDInsight que aparece, haga clic en el signo **...**  situado junto al clúster que ha creado para este tutorial. 
+1. Hacer clic en **Eliminar**. Haga clic en **Sí**.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aporte su propia clave para Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
-* [Introducción a la seguridad de Apache Hadoop con Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+> [!div class="nextstepaction"]
+> [Aporte su propia clave para Apache Kafka](../kafka/apache-kafka-byok.md)

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 8ab24d478efa0d0006cff618d7760d4396d0e45e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6007f88af4d1049a87851b3808c66693173a648a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859936"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069245"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: Extracción de datos de forma libre con una entidad Pattern.any
 
@@ -53,7 +53,7 @@ Las expresiones con el nombre de formato descriptivo tienen el aspecto siguiente
 |Expresión|
 |--|
 |¿Dónde está el formulario "**Request relocation from employee new to the company 2018 version 5**"?|
-|¿Quién creó el formulario **"Request relocation from employee new to the company 2018 version 5"**?|
+|¿Quién creó el formulario **"Request relocation from employee new to the company 2018 version 5"** ?|
 |¿El formulario **Request relocation from employee new to the company 2018 version 5** se publicó en francés?|
 
 La diferencia de longitud incluye palabras que pueden confundir a LUIS con respecto a dónde finaliza la entidad. Si usa una entidad Pattern.any en un patrón, puede especificar el principio y el final del nombre del formulario para que LUIS extraiga correctamente el nombre del formulario.
@@ -65,24 +65,20 @@ La diferencia de longitud incluye palabras que pueden confundir a LUIS con respe
 |¿{NombreDelFormulario} se ha publicado en francés[?]|
 
 ## <a name="import-example-app"></a>Importar la aplicación de ejemplo
-Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
 
-Para ello, siga los pasos que se describen a continuación:
+1. Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
-1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
+1. En el [portal de LUIS](https://www.luis.ai), en la página **Mis aplicaciones**, importe el archivo JSON a una nueva aplicación.
 
-2. Importe el archivo JSON en una aplicación nueva.
-
-3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `patt-any`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
+1. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `patt-any`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
 
 ## <a name="add-example-utterances"></a>Incorporación de expresiones de ejemplo 
-Quite la entidad keyPhrase precompilada si resulta difícil compilar y etiquetar la entidad FormName. 
 
 1. Seleccione **Build** (Compilación) en el menú de navegación superior y seleccione **Intents** (Intenciones) en el menú de navegación de la izquierda.
 
-2. Seleccione **FindForm** en la lista de las intenciones.
+1. Seleccione **FindForm** en la lista de las intenciones.
 
-3. Agregue algunas expresiones de ejemplo:
+1. Agregue algunas expresiones de ejemplo:
 
     |Expresión de ejemplo|
     |--|
@@ -94,13 +90,13 @@ Quite la entidad keyPhrase precompilada si resulta difícil compilar y etiquetar
     Sin una entidad Pattern.any, sería difícil que LUIS entendiera dónde finaliza el título del formulario debido a las muchas variaciones de nombres de formulario.
 
 ## <a name="create-a-patternany-entity"></a>Creación de una entidad Pattern.any
-La entidad Pattern.any extrae entidades de diferente longitud. Solo funciona en un patrón porque este marca el principio y el final de la entidad. Si descubre que el patrón, cuando incluye una entidad Pattern.any, extrae entidades de forma incorrecta, use una [lista explícita](luis-concept-patterns.md#explicit-lists) para corregir este problema. 
+La entidad Pattern.any extrae entidades de diferente longitud. Solo funciona en un patrón porque este marca el principio y el final de la entidad.  
 
 1. Haga clic en **Entidades** en el panel de navegación izquierdo.
 
-2. Seleccione **Create new entity** (Crear nueva entidad), escriba el nombre `FormName` y seleccione **Pattern.any** como el tipo. Seleccione **Listo**. 
+1. Seleccione **Create new entity** (Crear nueva entidad), escriba el nombre `FormName` y seleccione **Pattern.any** como el tipo. Seleccione **Listo**. 
 
-    No se puede etiquetar la entidad en la intención porque una entidad Pattern.any solo es válida en un patrón. 
+    No puede etiquetar la entidad en las experiencias de ejemplo de una intención, porque Pattern.any solo es válido en un patrón. 
 
     Si desea que los datos extraídos incluyan otras entidades, como number o datetimeV2, deberá crear una entidad compuesta que incluya la entidad Pattern.any, así como también number y datetimeV2.
 
@@ -108,9 +104,9 @@ La entidad Pattern.any extrae entidades de diferente longitud. Solo funciona en 
 
 1. Haga clic en **Patrones** en el panel de navegación izquierdo.
 
-2. Haga clic en la intención **FindForm**.
+1. Haga clic en la intención **FindForm**.
 
-3. Escriba las expresiones de plantilla siguientes que usan la entidad nueva:
+1. Escriba las expresiones de plantilla siguientes que usan la entidad nueva:
 
     |Expresiones de plantilla|
     |--|
@@ -121,8 +117,6 @@ La entidad Pattern.any extrae entidades de diferente longitud. Solo funciona en 
 
     Si desea tener en cuenta las variaciones del formulario, como las comillas simples en lugar de comillas dobles o un punto en lugar de un signo de interrogación, cree un patrón nuevo para cada variación.
 
-4. Si quitó la entidad keyPhrase, vuelva a agregarla a la aplicación. 
-
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
@@ -130,15 +124,20 @@ La entidad Pattern.any extrae entidades de diferente longitud. Solo funciona en 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Probar el nuevo patrón para extraer datos de forma libre
 1. Haga clic en **Probar** en la barra superior para abrir el panel de pruebas. 
 
-2. Escriba la expresión siguiente: 
+1. Escriba la expresión siguiente: 
 
     `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
-3. Haga clic en **Inspeccionar** debajo del resultado para ver los resultados de la prueba de la entidad y la intención.
+1. Haga clic en **Inspeccionar** debajo del resultado para ver los resultados de la prueba de la entidad y la intención.
 
     Primero se encuentra la entidad `FormName` y luego se encuentra el patrón, que determina la intención. Si tiene un resultado de la prueba en el que no se detectan las entidades y, por tanto, no se encuentra el patrón, debe agregar más expresiones de ejemplo en la intención (no en el patrón).
 
-4. Cierre el panel de pruebas; para ello, haga clic en el botón **Probar** situado en el panel de navegación superior.
+1. Cierre el panel de pruebas; para ello, haga clic en el botón **Probar** situado en el panel de navegación superior.
+
+## <a name="using-an-explicit-list"></a>Uso de una lista explícita
+
+Si descubre que el patrón, cuando incluye una entidad Pattern.any, extrae entidades de forma incorrecta, use una [lista explícita](luis-concept-patterns.md#explicit-lists) para corregir este problema.
+
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00e838dd3df417bd0b26167d5f316225520e7263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7be7d8b9fc9aa8b6c9c1d888744c25d710ca79a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859018"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106505"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Tutorial: Integración de Azure Active Directory con Autotask Workplace
 
@@ -57,7 +57,7 @@ Para configurar la integración de Autotask Workplace en Azure AD, deberá agreg
 
 **Para agregar Autotask Workplace desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -80,12 +80,12 @@ Para que funcione el inicio de sesión único, es necesario establecer una relac
 
 Para configurar y probar el inicio de sesión único de Azure AD con Autotask Workplace, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Autotask Workplace](#configure-autotask-workplace-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Autotask Workplace](#create-autotask-workplace-test-user)**: para tener un homólogo de Britta Simon en Autotask Workplace que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Autotask Workplace](#configure-autotask-workplace-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Autotask Workplace](#create-autotask-workplace-test-user)** : para tener un homólogo de Britta Simon en Autotask Workplace que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -109,7 +109,7 @@ Para configurar el inicio de sesión único de Azure AD con Autotask Workplace, 
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Autotask Workplace](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
 
@@ -147,7 +147,7 @@ Para configurar el inicio de sesión único de Azure AD con Autotask Workplace, 
 
     ![Configuración de inicio de sesión único de Autotask](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
 
-     a. Seleccione la opción **XML Metadata File** (Archivo de metadatos XML) y, a continuación, cargue el **XML de metadatos de federación** descargado de Azure Portal.
+    a. Seleccione la opción **XML Metadata File** (Archivo de metadatos XML) y, a continuación, cargue el **XML de metadatos de federación** descargado de Azure Portal.
 
     b. Haga clic en **ENABLE SSO** (HABILITAR SSO).
 
@@ -227,4 +227,4 @@ Al hacer clic en el icono de Autotask Workplace en el panel de acceso, debería 
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

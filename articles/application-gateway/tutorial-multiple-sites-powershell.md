@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9309778ad173e0c2588fa8814b16c7026e9ae7ba
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5c9d02cf1bfb9b8226328d1923859dd97ba2b79d
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729558"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502052"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Crear una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure PowerShell
 
@@ -284,7 +284,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, http://www.contoso.com.
+Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, http:\//www.contoso.com.
 
 ![Prueba del sitio de contoso en la puerta de enlace de aplicaciones](./media/tutorial-multiple-sites-powershell/application-gateway-iistest.png)
 

@@ -2,22 +2,22 @@
 title: 'Tutorial: Supervisión de un espacio con Azure Digital Twins | Microsoft Docs'
 description: Use los pasos de este tutorial para aprender a aprovisionar los recursos espaciales y a supervisar las condiciones de trabajo con Azure Digital Twins.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/27/2018
-ms.author: dkshir
-ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 06/26/2019
+ms.author: alinast
+ms.openlocfilehash: 3ebfa9b54007d0b409780e6a549bdd2411b94810
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535389"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484667"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Aprovisionamiento del edificio y supervisión de las condiciones de trabajo con Azure Digital Twins
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: Aprovisionamiento del edificio y supervisión de las condiciones de trabajo con la versión preliminar de Azure Digital Twins
 
-En este tutorial se muestra cómo usar Azure Digital Twins para supervisar las condiciones de temperatura y el nivel de comodidad deseados en los distintos espacios. Una vez que haya [configurado el edificio de ejemplo](tutorial-facilities-setup.md), use los pasos de este tutorial para aprovisionarlo y ejecutar funciones personalizadas en los datos de los sensores.
+En este tutorial se muestra cómo usar la versión preliminar de Azure Digital Twins para supervisar las condiciones de temperatura y el nivel de comodidad deseados en los distintos espacios. Una vez que haya [configurado el edificio de ejemplo](tutorial-facilities-setup.md), use los pasos de este tutorial para aprovisionarlo y ejecutar funciones personalizadas en los datos de los sensores.
 
 En este tutorial, aprenderá a:
 
@@ -43,14 +43,14 @@ Puede definir un conjunto de condiciones específicas para supervisar en los dat
 
 En el proyecto de ejemplo **occupancy-quickstart**, abra el archivo **src\actions\provisionSample.yaml** en Visual Studio Code. Observe la sección que comienza con el tipo **matchers**. Cada entrada con este tipo crea un buscador de coincidencias con el **nombre** especificado. El buscador de coincidencias supervisará un sensor de tipo **dataTypeValue**. Observe cómo se relaciona con el espacio denominado *Focus Room A1*, que tiene un nodo **devices**, que contiene algunos sensores. Para aprovisionar un buscador de coincidencias que realice el seguimiento de uno de estos sensores, asegúrese de que su valor de **dataTypeValue** coincida con el valor de **dataType** del sensor. 
 
-Agregue el siguiente buscador de coincidencias debajo de los buscadores de coincidencias existentes. Asegúrese de que las claves estén alineadas y que los espacios no se reemplacen por pestañas.
+Agregue el siguiente buscador de coincidencias debajo de los buscadores de coincidencias existentes. Asegúrese de que las claves estén alineadas y que los espacios no se reemplacen por pestañas. Estas líneas también están presentes en el archivo *provisionSample.yaml* como líneas con comentarios. Para quitarles la marca de comentario, elimine el carácter `#` delante de cada línea.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-Este buscador de coincidencias realizará el seguimiento del sensor SAMPLE_SENSOR_TEMPERATURE que agregó en el [primer tutorial](tutorial-facilities-setup.md). Estas líneas también están presentes en el archivo *provisionSample.yaml* como líneas con comentarios. Para quitarles la marca de comentario, elimine el carácter `#` delante de cada línea.
+Este buscador de coincidencias realizará el seguimiento del sensor SAMPLE_SENSOR_TEMPERATURE que agregó en el [primer tutorial](tutorial-facilities-setup.md). 
 
 <a id="udf"></a>
 
@@ -75,7 +75,7 @@ Fíjese también en la sección denominada **roleassignments**. Esta sección as
    > [!NOTE]
    > En esta sección se modifica el archivo *src\actions\userDefinedFunctions\availability.js* para explicar detalladamente una manera de escribir una función definida por el usuario. Sin embargo, puede elegir usar directamente el archivo [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) en su configuración. Dicho archivo contiene todos los cambios necesarios para este tutorial. Si lo usa, asegúrese de utilizar el nombre de archivo correcto para la clave del **script** en [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
-     a. Al principio del archivo, agregue las siguientes líneas para la temperatura debajo del comentario `// Add your sensor type here`:
+    a. Al principio del archivo, agregue las siguientes líneas para la temperatura debajo del comentario `// Add your sensor type here`:
 
     ```JavaScript
         var temperatureType = "Temperature";
@@ -207,7 +207,7 @@ En esta sección, usará el proyecto denominado *device-connectivity* en el ejem
 
 1. Abra el archivo [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) en el editor y edite los valores siguientes:
 
-    a. **DeviceConnectionString**: asigne el valor de `ConnectionString` en la ventana de salida de la sección anterior. Copie esta cadena completamente, entre comillas, para que el simulador se conecte correctamente con la instancia de IoT Hub.
+   a. **DeviceConnectionString**: asigne el valor de `ConnectionString` en la ventana de salida de la sección anterior. Copie esta cadena completamente, entre comillas, para que el simulador se conecte correctamente con la instancia de IoT Hub.
 
    b. **HardwareId** en la matriz **Sensors**: dado que va a simular eventos procedentes de sensores aprovisionados en una instancia de Azure Digital Twins, tanto el identificador de hardware como los nombres de los sensores de este archivo deben coincidir con el nodo `sensors` del archivo provisionSample.yaml.
 

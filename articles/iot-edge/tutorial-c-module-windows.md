@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 49f853341edab7c7dc92f72472b81f7fb22c0ad8
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 3573e136c1a830cd75aba0725b4bf087bcd63869
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808759"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485958"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desarrollo de un módulo de IoT Edge en C para dispositivos Windows
 
@@ -51,10 +51,18 @@ Antes de comenzar este tutorial, debe haber realizado el anterior para configura
 * Un registro de contenedor, como [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configurado con la extensión [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 * [Docker CE](https://docs.docker.com/install/) configurado para ejecutar contenedores de Windows.
-* El SDK de Azure IoT para C. 
+* Instale el SDK de C para Azure IoT para Windows x64 a mediante vcpkg:
 
+   ```powershell
+   git clone https://github.com/Microsoft/vcpkg
+   cd vcpkg
+   .\bootstrap-vcpkg.bat
+   .\vcpkg install azure-iot-sdk-c:x64-windows
+   .\vcpkg --triplet x64-windows integrate install
+   ```
+   
 > [!TIP]
-> Si usa Visual Studio 2017 (versión 15.7 o superior), descargue e instale [Azure IoT Edge Tools (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 desde Visual Studio Marketplace.
+> Si usa Visual Studio 2017 (versión 15.7 o superior), descargue e instale [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 desde Visual Studio Marketplace.
 
 ## <a name="create-a-module-project"></a>Creación de un proyecto de módulo
 

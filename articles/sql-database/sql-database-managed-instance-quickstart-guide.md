@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec0007e2d53a3fd3cae158375b696379d923b4b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360168"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447767"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introducción a Instancia administrada de Azure SQL Database
 
@@ -79,3 +79,4 @@ Estos artículos de inicio rápido le permiten configurar una instancia administ
 - Encuentre una [lista detallada de las características compatibles en Instancia administrada aquí](sql-database-features.md), y [detalles y problemas conocidos aquí](sql-database-managed-instance-transact-sql-information.md).
 - Información acerca de las [características técnicas de Instancia administrada](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 - Para conocer procedimientos más avanzados, consulte [Cómo usar una instancia administrada en Azure SQL Database](sql-database-howto-managed-instance.md).
+- [Identificación de la SKU de instancia administrada o SQL Database de Azure adecuada para la base de datos local](/sql/dma/dma-sku-recommend-sql-db/).

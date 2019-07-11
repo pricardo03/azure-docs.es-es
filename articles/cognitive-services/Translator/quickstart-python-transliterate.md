@@ -3,19 +3,19 @@ title: 'Inicio rápido: Transliteración de texto con Python: Translator Text AP
 titleSuffix: Azure Cognitive Services
 description: En este tutorial aprenderá a transcribir (convertir) de texto de un script a otro mediante Python y Translator Text REST API. En este ejemplo, se transcribe el japonés para que use el alfabeto latino.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: ac91212ecc43e5aa03ecdd4857b1431ccf82b1c3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 033bb19bfd003f889735f73a18a0eef1a20b8354
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515047"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447886"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Inicio rápido: Uso de Translator Text API para transliterar texto mediante Python
 
@@ -36,7 +36,10 @@ Cree un proyecto con su editor o IDE favoritos, o bien una carpeta con un archiv
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -92,6 +95,8 @@ headers = {
 }
 ```
 
+Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## <a name="create-a-request-to-transliterate-text"></a>Creación de una solicitud para transcribir texto
 
 Defina la cadena (o cadenas) que desea transcribir:
@@ -116,7 +121,8 @@ response = request.json()
 El último paso es imprimir los resultados. Este fragmento de código adorna los resultados mediante una clasificación de las claves, el establecimiento de una sangría y la declaración de separadores de elementos y de claves.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Colocación de todo junto

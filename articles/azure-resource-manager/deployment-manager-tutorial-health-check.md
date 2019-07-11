@@ -4,21 +4,16 @@ description: Use plantillas de Resource Manager con Azure Deployment Manager par
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 0e8a9fefdf92f568001cc3352fe83a85157acf9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479183"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442584"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Uso de la comprobación de estado en Azure Deployment Manager (versión preliminar pública)
 
@@ -41,7 +36,10 @@ En este tutorial se describen las tareas siguientes:
 > * Comprobar la implementación del lanzamiento
 > * Limpieza de recursos
 
-Puede encontrar la referencia de la API REST de Azure Deployment Manager [aquí](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Recursos adicionales:
+
+- La [referencia de API REST de Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Un ejemplo de Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -59,7 +57,7 @@ En producción, se suele utilizar uno o varios proveedores de supervisión. Para
 Los dos archivos siguientes se usan para implementar la función de Azure. Para completar el tutorial no es preciso descargarlos.
 
 * Una plantilla de Resource Manager se encuentra en [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Implemente esta plantilla para crear una función de Azure.
-* Un archivo zip del código fuente de la función de Azure, [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). La plantilla de Resource Manager llama a este archivo zip.
+* Un archivo zip del código fuente de la función de Azure, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). La plantilla de Resource Manager llama a este archivo zip.
 
 Para implementar la función de Azure, seleccione **Pruébelo** para abrir Azure Cloud Shell y pegue el siguiente script en la ventana del shell.  Para pegar el código, haga clic con el botón derecho en la ventana del shell y seleccione **Pegar**.
 

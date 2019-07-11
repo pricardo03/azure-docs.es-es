@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 570f789d0f399c5ffa7535101136ab65ba58ccd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 864a9243a9f737506fd4d8cbc3940d7a86711f20
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867766"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: Integración de Azure Active Directory con ScreenSteps
 
@@ -53,7 +53,7 @@ Para configurar la integración de ScreenSteps en Azure AD, deberá agregarlo de
 
 **Para agregar ScreenSteps desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con ScreenSteps, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en ScreenSteps](#configure-screensteps-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en ScreenSteps](#create-screensteps-test-user)**: para tener un homólogo de Britta Simon en ScreenSteps vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en ScreenSteps](#configure-screensteps-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en ScreenSteps](#create-screensteps-test-user)** : para tener un homólogo de Britta Simon en ScreenSteps vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -144,7 +144,7 @@ Para configurar el inicio de sesión único de Azure AD con ScreenSteps, siga es
 
     ![Creación de un punto de conexión de autenticación](./media/screensteps-tutorial/ic778526.png "Creación de un punto de conexión de autenticación")
 
-     a. En el cuadro de texto **Título** , escriba un título.
+    a. En el cuadro de texto **Título** , escriba un título.
 
     b. En la lista **Modo**, seleccione **SAML**.
 
@@ -158,7 +158,7 @@ Para configurar el inicio de sesión único de Azure AD con ScreenSteps, siga es
 
     ![Punto de conexión de autenticación remota](./media/screensteps-tutorial/ic778527.png "Punto de conexión de autenticación remota")
 
-     a. Haga clic en **Cargar nuevo archivo de certificado SAML** y cargue el certificado que descargó de Azure Portal.
+    a. Haga clic en **Cargar nuevo archivo de certificado SAML** y cargue el certificado que descargó de Azure Portal.
 
     b. Pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal en el cuadro de texto **Dirección URL de inicio de sesión remoto**.
 
@@ -241,4 +241,4 @@ Al hacer clic en el icono de ScreenSteps en el panel de acceso, debería iniciar
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

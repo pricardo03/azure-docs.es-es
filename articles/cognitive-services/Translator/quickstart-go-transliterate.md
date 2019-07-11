@@ -3,19 +3,19 @@ title: 'Inicio rápido: Conversión de script de texto con Go: Translator Text A
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se convierte texto en un idioma de un script en otro mediante Translator Text API con Go.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 748754bdeec34d864efd05297664b935a06f1a06
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 65a873744a55539be220560d8d8d062a4d5adaa7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515210"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445177"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>Inicio rápido: Uso de Translator Text API para transliterar texto mediante Go
 
@@ -139,6 +139,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="handle-and-print-the-response"></a>Control e impresión de la respuesta
 

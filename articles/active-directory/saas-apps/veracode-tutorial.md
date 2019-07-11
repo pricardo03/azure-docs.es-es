@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 11f75f53adc9e8ce1dbf78ef7a7d58742b6bc839
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1024f0c09d6ab67b412a8f65d8964f3ac9d43254
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813409"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087780"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Tutorial: Integración de Azure Active Directory con Veracode
 
@@ -119,7 +119,7 @@ Para configurar el inicio de sesión único de Azure AD con Veracode, realice l
     | lastname |User.surname |
     | email |User.mail |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -165,7 +165,7 @@ Para configurar el inicio de sesión único de Azure AD con Veracode, realice l
    
     ![Administración](./media/veracode-tutorial/ic802912.png "Administración")
    
-     a.  En el cuadro de texto **Issuer** (Emisor), pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
+    a.  En el cuadro de texto **Issuer** (Emisor), pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
     
     b. Para cargar el certificado descargado de Azure Portal, haga clic en **Choose file** (Elegir archivo).
    
@@ -175,7 +175,7 @@ Para configurar el inicio de sesión único de Azure AD con Veracode, realice l
    
     ![Administración](./media/veracode-tutorial/ic802913.png "Administración")
    
-     a. Como **Activación de nuevo usuario**, seleccione **No se requiere ninguna activación**.
+    a. Como **Activación de nuevo usuario**, seleccione **No se requiere ninguna activación**.
    
     b. Como **Actualizaciones de datos de usuario**, seleccione **Datos de usuario de Veracode de preferencia**.
    
@@ -260,5 +260,5 @@ Al hacer clic en el icono de Veracode en el panel de acceso, debería iniciar se
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

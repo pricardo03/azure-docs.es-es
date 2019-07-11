@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fe436632eee12157dde2b082a5c77e67e7977cc
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 114d29d11e51209d5ac788ae25413b5b989b84f4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957165"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Tutorial: Integración de Azure Active Directory con Boomi
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Boomi, siga estos pa
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Boomi](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://platform.boomi.com/`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://platform.boomi.com/`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
 
@@ -122,7 +122,7 @@ Para configurar el inicio de sesión único de Azure AD con Boomi, siga estos pa
     | ---------------|  --------- |
     | FEDERATION_ID | user.mail |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -164,7 +164,7 @@ Para configurar el inicio de sesión único de Azure AD con Boomi, siga estos pa
 
     ![Configuración del inicio de sesión único en la aplicación](./media/boomi-tutorial/tutorial_boomi_11.png)
 
-     a. Marque la casilla **Enable SAML Single Sign-On** (Habilitar el inicio de sesión único de SAML).
+    a. Marque la casilla **Enable SAML Single Sign-On** (Habilitar el inicio de sesión único de SAML).
 
     b. Haga clic en **Import** (Importar) para cargar el certificado descargado de Azure AD en **Identity Provider Certificate** (Certificado del proveedor de identidades).
 
@@ -243,7 +243,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Boomi, tienen que 
 
     ![Usuarios](./media/boomi-tutorial/tutorial_boomi_003.png "Usuarios")
 
-     a. En el cuadro de texto **Dirección de correo electrónico del usuario**, escriba la dirección de correo electrónico de un usuario, por ejemplo, BrittaSimon@contoso.com.
+    a. En el cuadro de texto **Dirección de correo electrónico del usuario**, escriba la dirección de correo electrónico de un usuario, por ejemplo, BrittaSimon@contoso.com.
 
     b. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, Britta.
 
@@ -270,5 +270,5 @@ Al hacer clic en el icono de Boomi en el Panel de acceso, debería iniciar sesi�
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

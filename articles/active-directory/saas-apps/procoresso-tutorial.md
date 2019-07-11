@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4be92cae0042da7341b716a6c3c497b6248eed6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca6863a6b02e867afd732ce1662136051b8afec8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65744993"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093658"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integración de Azure Active Directory con Procore SSO
 
@@ -54,7 +54,7 @@ Para configurar la integración de Procore SSO en Azure AD, tiene que agregar Pr
 
 **Para agregar Procore SSO desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Procore SSO, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Procore SSO](#configure-procore-sso-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Procore SSO](#create-procore-sso-test-user)**: para tener un homólogo de Britta Simon en Procore SSO que esté vinculado a la representación de usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Procore SSO](#configure-procore-sso-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Procore SSO](#create-procore-sso-test-user)** : para tener un homólogo de Britta Simon en Procore SSO que esté vinculado a la representación de usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -132,7 +132,7 @@ Para configurar el inicio de sesión único de Azure AD con Procore SSO, siga lo
 
     ![Configurar inicio de sesión único](./media/procoresso-tutorial/procore_setting_admin.png)  
 
-     a. En el cuadro de texto **Dirección URL del emisor de inicio de sesión único**, pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
+    a. En el cuadro de texto **Dirección URL del emisor de inicio de sesión único**, pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
 
     b. En el cuadro de texto **Dirección URL de destino de inicio de sesión único de SAML**, pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -206,7 +206,7 @@ Siga estos pasos para crear un usuario de prueba en Procore del lado de Procore 
 
     ![Configurar inicio de sesión único](./media/procoresso-tutorial/Procore_user_add.png)
 
-     a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, por ejemplo, **Britta**.
+    a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, por ejemplo, **Britta**.
 
     b. En el cuadro de texto **Apellido**, escriba el apellido del usuario, por ejemplo, **Simon**.
 
@@ -236,5 +236,5 @@ Al hacer clic en el icono de Procore SSO en el Panel de acceso, debería iniciar
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

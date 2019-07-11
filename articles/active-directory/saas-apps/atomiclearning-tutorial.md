@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a94b346848b81c8b30bf99169356bd3fd08b488
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78f5c701a009f8510c62f6cfa736d20205e383a9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726346"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106600"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Tutorial: Integración de Azure Active Directory con Atomic Learning
 
@@ -196,4 +196,4 @@ Al hacer clic en el icono de Atomic Learning en el panel de acceso, debería ini
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -4,42 +4,36 @@ description: archivo de inclusión
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: ec0425ff2188ecf1816d5f5841394c8e32f301d2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3cfa36331f8f4ad45f3bf8ff32eee7d89c7d8852
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132220"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608366"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar el proyecto en Azure
 
 Visual Studio Code le permite publicar el proyecto de Functions directamente en Azure. En el proceso, puede crear una aplicación de función y los recursos relacionados en su suscripción de Azure. La aplicación de función proporciona un contexto de ejecución para sus funciones. El proyecto se empaqueta e implementa en la nueva aplicación de función en su suscripción de Azure.
 
-En este artículo se da por supuesto que va a crear una nueva aplicación de función. 
+De forma predeterminada, Visual Studio crea todos los recursos de Azure necesarios para crear la aplicación de funciones. Los nombres de estos recursos se basan en el nombre de la aplicación de funciones que elija. Si necesita tener control total sobre los recursos creados, en su lugar puede [publicar con las opciones avanzadas](../articles/azure-functions/functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options).
+
+En esta sección se da por supuesto que va a crear una nueva aplicación de funciones en Azure.
 
 > [!IMPORTANT]
 > La publicación en una aplicación de función existente sobrescribe el contenido de esa aplicación en Azure.
 
-1. En el área **Azure: Functions**, seleccione el icono de implementación en Function App.
-
-    ![Configuración de Function App](./media/functions-publish-project-vscode/function-app-publish-project.png)
+1. En Visual Studio Code, presione F1 para abrir la paleta de comandos. En la paleta de comandos, busque y seleccione `Azure Functions: Deploy to function app...`.
 
 1. Se le pedirá que **inicie sesión en Azure** si todavía no lo ha hecho. También puede **crear una cuenta de Azure gratis**. Una vez que inicie sesión correctamente en el explorador, vuelva a Visual Studio Code. 
 
 1. Si tiene varias suscripciones, **seleccione una suscripción** para la aplicación de función y, luego, elija **+ Create New Function App in Azure** (+ Crear nueva aplicación de función en Azure).
 
 1. Escriba un nombre único global que identifique la aplicación de función y presione ENTRAR. Los siguientes son caracteres válidos para un nombre de aplicación de función: `a-z`, `0-9` y `-`.
-
-1. Elija **+ Crear un nuevo grupo de recursos**, escriba un nombre para el grupo de recursos, como `myResourceGroup` y presione ENTRAR. También puede usar un grupo de recursos existente.
-
-1. Elija **+ Crear nueva cuenta de almacenamiento**, escriba un nombre único global para la nueva cuenta de almacenamiento que va a usar la aplicación de función y presione ENTRAR. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente.
-
-1. Elija una ubicación en una [región](https://azure.microsoft.com/regions/) cercana a usted o a otros servicios a los que accedan las funciones.
 
     Cuando presione ENTRAR, se crearán los siguientes recursos de Azure en la suscripción:
 

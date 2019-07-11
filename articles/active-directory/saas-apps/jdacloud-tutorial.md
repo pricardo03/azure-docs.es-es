@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 36ac284bdf14272e7dbfd16c303d5357f216ecba
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e7a6aa3cd023533dc1197e1addf3c9be76a9c1db
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917541"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutorial: integración de Azure Active Directory con JDA Cloud
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con JDA Cloud, realice e
 
     ![Información de dominio y direcciones URL de inicio de sesión único de JDA Cloud](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.jdadelivers.com`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.jdadelivers.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.jdadelivers.com/sp/ACS.saml2`
 
@@ -203,4 +203,4 @@ Al hacer clic en el icono de JDA Cloud en el panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

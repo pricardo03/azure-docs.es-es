@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b1789f0f6441da8a38440fc606a5748d48930a1a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c480babcb88528ef59cc9f1a9a0478e35a7b3fba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897923"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098711"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Tutorial: Integración de Azure Active Directory con Kiteworks
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con Kiteworks, realice 
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Kiteworks](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.kiteworks.com`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.kiteworks.com`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<subdomain>.kiteworks.com/sp/module.php/saml/sp/saml2-acs.php/sp-sso`
 
@@ -143,7 +143,7 @@ Para configurar el inicio de sesión único de Azure AD con Kiteworks, realice 
 
     ![Configurar inicio de sesión único](./media/kiteworks-tutorial/tutorial_kiteworks_09.png)
 
-     a. Seleccione **Autenticar mediante SSO**.
+    a. Seleccione **Autenticar mediante SSO**.
 
     b. Seleccione **Iniciar AuthnRequest**.
 
@@ -229,4 +229,4 @@ Al hacer clic en el icono de Kiteworks en el panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

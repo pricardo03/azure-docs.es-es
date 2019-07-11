@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 68f24d4d019af873a0ca45792a3cbcc3dd3c3c3f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015278"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476036"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Uso de un servidor de cuadernos basado en la nube para empezar a trabajar con Azure Machine Learning
 
@@ -74,15 +74,20 @@ Una vez que la máquina virtual se esté ejecutando, use la sección **Máquinas
 
 1. En la página web de Jupyter Notebook, el nombre de la carpeta principal es su nombre de usuario.  Seleccione esta carpeta.
 
+    > [!TIP]
+    > Esta carpeta se encuentra en el [contenedor de almacenamiento](concept-workspace.md#resources) del área de trabajo en lugar de en la propia máquina virtual del cuaderno.  Puede eliminar la máquina virtual del cuaderno y conservar todo el trabajo.  Cuando cree una máquina virtual del cuaderno más adelante, se cargará esta misma carpeta.
+
 1. El nombre de la carpeta de ejemplos incluye un número de versión, por ejemplo, **samples-1.0.33.1**.  Seleccione la carpeta de ejemplos.
 
-1. Seleccione el cuaderno **quickstart**.
+1. Seleccione la carpeta **quickstart**.
 
 ## <a name="run-the-notebook"></a>Ejecución del cuaderno
 
 Ejecute un cuaderno que calcule Pi y que registre el error en el área de trabajo.
 
 1. Seleccione **01.run-experiment.ipynb** para abrir el cuaderno.
+
+1. Si ve una alerta relativa a que no se encuentra el kernel, seleccione el kernel **Python 3.6 - AzureML** (aproximadamente a mitad de la lista) y establezca el kernel.
 
 1. Haga clic en la primera celda de código y seleccione **Ejecutar**.
 
@@ -113,11 +118,11 @@ Ejecute un cuaderno que calcule Pi y que registre el error en el área de trabaj
 
 1. Haga clic en el **vínculo a Azure Portal** para ver información sobre la ejecución en el área de trabajo.  Este vínculo abre el área de trabajo en Azure Portal.
 
-1. Los trazados de los valores registrados que ve se crearon automáticamente en el área de trabajo. Cada vez que registre varios valores con el mismo parámetro de nombre, se genera automáticamente un trazado.
+1. Los trazados de los valores registrados que ve se crearon automáticamente en el área de trabajo. Cada vez que registre varios valores con el mismo parámetro de nombre, se genera automáticamente un trazado. Este es un ejemplo:
 
    ![Visualización del historial](./media/quickstart-run-cloud-notebook/web-results.png)
 
-Dado que el código para la aproximación de pi usa valores aleatorios, los trazados mostrarán otros valores.  
+Dado que el código para la aproximación de pi usa valores aleatorios, los trazados pueden parecer diferentes.  
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -152,7 +157,9 @@ En este inicio rápido, ha completado estas tareas:
 * Ejecute el cuaderno.
 * Ver los valores de los errores registrados en el área de trabajo.  En este ejemplo se muestra cómo el área de trabajo puede ayudarle a realizar un seguimiento de la información generada en un script. 
 
-En la página web de Jupyter Notebook, examine los demás cuadernos de la carpeta de ejemplos para obtener más información sobre el servicio Azure Machine Learning.
+En la página web de Jupyter Notebook, en la carpeta **quickstart**, abra y ejecute el cuaderno **02.deploy-web-service.ipynb** para aprender a implementar un servicio web.
+
+Además, en la página web de Jupyter Notebook, examine los demás cuadernos de la carpeta de ejemplos para obtener más información sobre Azure Machine Learning Service.
 
 Para ver de forma detallada la experiencia de flujo de trabajo, siga los tutoriales de Machine Learning para entrenar e implementar un modelo:  
 

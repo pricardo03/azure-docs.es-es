@@ -1,30 +1,29 @@
 ---
 title: 'Tutorial: Uso de Streams API de Apache Kafka: Azure HDInsight '
-description: Aprenda a usar Streams API de Apache Kafka con Kafka en HDInsight. Esta API permite realizar el procesamiento de flujos entre temas de Kafka.
+description: 'Tutorial: Aprenda a usar Streams API de Apache Kafka con Kafka en HDInsight. Esta API permite realizar el procesamiento de flujos entre temas de Kafka.'
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.openlocfilehash: 9425af0f39d14287b49fe06a81172281feb24e83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/25/2019
+ms.openlocfilehash: 0639ecaa0e4ae0581a6c88e1ea9a47de870a8355
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715962"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446392"
 ---
-# <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: Streams API de Apache Kafka
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutorial: Uso de Streams API de Apache Kafka en Azure HDInsight
 
-Aprenda a crear una aplicación que use Apache Kafka Streams API y ejecútela con Kafka en HDInsight. 
+Aprenda a crear una aplicación que use Apache Kafka Streams API y ejecútela con Kafka en HDInsight.
 
 La aplicación que se usa en este tutorial es un recuento de palabras de streaming. Lee datos de texto de un tema de Kafka, extrae las palabras individuales y, a continuación, almacena el recuento de palabras en otro tema de Kafka.
 
-> [!NOTE]  
-> El procesamiento de flujos de Kafka a menudo se realiza con Apache Spark o Apache Storm. Kafka Streams API se incluyó por primera vez en la versión 1.1.0 de Kafka (en HDInsight 3.5 y 3.6). Esta API le permite transformar flujos de datos entre los temas de entrada y de salida. En algunos casos, esta puede ser una alternativa a la creación de una solución de streaming de Spark o Storm. 
->
-> Para más información sobre Kafka Streams, consulte la documentación de [introducción a Kafka Streams](https://kafka.apache.org/10/documentation/streams/) en Apache.org.
+El procesamiento de flujos de Kafka a menudo se realiza con Apache Spark o Apache Storm. Kafka Streams API se incluyó por primera vez en la versión 1.1.0 de Kafka (en HDInsight 3.5 y 3.6). Esta API le permite transformar flujos de datos entre los temas de entrada y de salida. En algunos casos, esta puede ser una alternativa a la creación de una solución de streaming de Spark o Storm.
+
+Para más información sobre Kafka Streams, consulte la documentación de [introducción a Kafka Streams](https://kafka.apache.org/10/documentation/streams/) en Apache.org.
 
 En este tutorial, aprenderá a:
 
@@ -68,8 +67,7 @@ Esto es lo más importante que hay que saber del archivo `pom.xml`:
     </dependency>
     ```
 
-    > [!NOTE]  
-    > La entrada `${kafka.version}` se declara en la sección `<properties>..</properties>` de `pom.xml` y está configurada para la versión Kafka del clúster de HDInsight.
+    La entrada `${kafka.version}` se declara en la sección `<properties>..</properties>` de `pom.xml` y está configurada para la versión Kafka del clúster de HDInsight.
 
 * Complementos: los complementos de Maven proporcionan varias funcionalidades. En este proyecto, se utilizan los siguientes complementos:
 
@@ -206,8 +204,7 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
    * `RekeyedIntermediateTopic`: este tema se usa para volver a particionar los datos a medida que el operador `countByKey` actualiza el recuento.
    * `wordcount-example-Counts-changelog`: este tema es un almacén de estados que la operación `countByKey` usa.
 
-     > [!IMPORTANT]  
-     > Kafka en HDInsight se puede también configurar para que cree temas automáticamente. Para más información, consulte el documento [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Configuración de la creación automática de temas).
+    Kafka en HDInsight se puede también configurar para que cree temas automáticamente. Para más información, consulte el documento [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Configuración de la creación automática de temas).
 
 ## <a name="run-the-code"></a>Ejecución del código
 
@@ -217,8 +214,7 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]  
-    > Puede recibir una advertencia sobre log4j de Apache. Puede pasarla por alto.
+    Puede recibir una advertencia sobre log4j de Apache. Puede pasarla por alto.
 
 2. Para enviar registros al tema `test`, use el comando siguiente para iniciar la aplicación de producción:
 
@@ -232,8 +228,7 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]  
-    > Los parámetros `--property` indican al consumidor de consola que imprima la clave (palabra) junto con el número (valor). Este parámetro también configura el deserializador que se utilizará al leer estos valores de Kafka.
+    Los parámetros `--property` indican al consumidor de consola que imprima la clave (palabra) junto con el número (valor). Este parámetro también configura el deserializador que se utilizará al leer estos valores de Kafka.
 
     La salida será similar al siguiente texto:
    
@@ -250,8 +245,7 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
         jumped  13640
         jumped  13641
    
-    > [!NOTE]  
-    > El parámetro `--from-beginning` configura el consumidor para que empiece por el primero de los registros almacenados en el tema. El recuento se incrementa cada vez que se encuentra una palabra, por lo que el tema contiene varias entradas para cada palabra, con un recuento creciente.
+    El parámetro `--from-beginning` configura el consumidor para que empiece por el primero de los registros almacenados en el tema. El recuento se incrementa cada vez que se encuentra una palabra, por lo que el tema contiene varias entradas para cada palabra, con un recuento creciente.
 
 4. Use __Ctrl + C__ para salir del productor. Siga usando __Ctrl + C__ para salir de la aplicación y del consumidor.
 
@@ -264,9 +258,19 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Para limpiar los recursos creados por este tutorial puede eliminar el grupo de recursos. Al eliminar el grupo de recursos, también se elimina el clúster de HDInsight asociado y otros recursos asociados al grupo.
+
+Para quitar el grupo de recursos mediante Azure Portal:
+
+1. En Azure Portal, expanda el menú en el lado izquierdo para abrir el menú de servicios y elija __Grupos de recursos__ para mostrar la lista de sus grupos de recursos.
+2. Busque el grupo de recursos que desea eliminar y haga clic con el botón derecho en __Más__ (...) en el lado derecho de la lista.
+3. Seleccione __Eliminar grupo de recursos__ y confirme la elección.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido a usar Streams API de Apache Kafka con Kafka en HDInsight. Para más información sobre cómo trabajar con Kafka:
+En este documento, ha aprendido a usar Streams API de Apache Kafka con Kafka en HDInsight. Use los recursos siguientes para obtener más información sobre cómo trabajar con Kafka.
 
-* [Análisis de registros de Apache Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Réplica de datos entre clústeres de Apache Kafka](apache-kafka-mirroring.md)
+> [!div class="nextstepaction"]
+> [Análisis de registros de Apache Kafka](apache-kafka-log-analytics-operations-management.md)

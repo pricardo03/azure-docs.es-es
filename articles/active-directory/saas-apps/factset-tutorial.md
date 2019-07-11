@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fa951e50a38b8bc63cc4e26ef54c013531bd7d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 27b154c5374fb16388e0ae72243fb7b32a400d96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898883"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102753"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>Tutorial: Integración de Azure Active Directory con FactSet
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con FactSet, realice los
 
     ![Información de dominio y direcciones URL de inicio de sesión único de FactSet](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<intendedDestinationURL>.factset.com?idpid=<GUID>`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<intendedDestinationURL>.factset.com?idpid=<GUID>`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://login.factset.com`
 
@@ -197,5 +197,5 @@ Al hacer clic en el icono de FactSet en el Panel de acceso, debería iniciar ses
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

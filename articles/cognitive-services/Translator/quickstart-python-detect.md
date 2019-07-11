@@ -3,19 +3,19 @@ title: 'Inicio rápido: Detección del idioma del texto con Python: Translator T
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, obtendrá información sobre cómo identificar el idioma del texto proporcionado con Python y Translator Text REST API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 7ca4d4afe2120df4e8c2516276216deca2b22316
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 4bf24582bed7d80616d040f807c603567476f33c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514757"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444956"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Inicio rápido: Uso de Translator Text API para detectar el idioma del texto con Python
 
@@ -36,7 +36,10 @@ Cree un nuevo proyecto de Python con su IDE o editor favorito. A continuación, 
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -89,6 +92,8 @@ headers = {
 }
 ```
 
+Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## <a name="create-a-request-to-detect-text-language"></a>Creación de una solicitud para detectar el idioma del texto
 
 Defina la cadena (o cadenas) para las que desea detectar el idioma:
@@ -112,7 +117,8 @@ response = request.json()
 El último paso es imprimir los resultados. Este fragmento de código adorna los resultados mediante una clasificación de las claves, el establecimiento de una sangría y la declaración de separadores de elementos y de claves.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Colocación de todo junto

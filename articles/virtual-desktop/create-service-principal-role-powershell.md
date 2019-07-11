@@ -7,26 +7,26 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523312"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206658"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell
 
-Las entidades de servicio son identidades que puede crear en Azure Active Directory para asignar roles y permisos para un propósito específico. En la versión preliminar de Windows Virtual Desktop, puede crear una entidad de servicio para:
+Las entidades de servicio son identidades que puede crear en Azure Active Directory para asignar roles y permisos para un propósito específico. En la versión preliminar de Windows Virtual Desktop, puede crear una entidad de servicio para:
 
-- Automatizar tareas de administración específicas de Windows Virtual Desktop
-- Usarla como credenciales en lugar de los usuarios necesarios para la autenticación multifactor al ejecutar cualquier plantilla de Azure Resource Manager en Windows Virtual Desktop
+- Automatizar tareas de administración específicas de Windows Virtual Desktop.
+- Usarla como credenciales en lugar de los usuarios necesarios para la autenticación multifactor al ejecutar cualquier plantilla de Azure Resource Manager para Windows Virtual Desktop.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de una entidad de servicio en Azure Active Directory
-> * Creación de una asignación de roles en Windows Virtual Desktop
-> * Inicio de sesión en Windows Virtual Desktop con la entidad de servicio
+> * Cree una entidad de servicio en Azure Active Directory.
+> * Crear una asignación de roles en Windows Virtual Desktop.
+> * Iniciar sesión en Windows Virtual Desktop con la entidad de servicio.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -72,18 +72,18 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincip
 
 ## <a name="sign-in-with-the-service-principal"></a>Inicio de sesión con la entidad de servicio
 
-Después de crear una asignación de roles para la entidad de servicio debe asegurarse de que esta puede iniciar sesión en Windows Virtual Desktop mediante la ejecución del siguiente cmdlet:
+Después de crear una asignación de roles para la entidad de servicio, asegúrese de que esta puede iniciar sesión en Windows Virtual Desktop mediante la ejecución del siguiente cmdlet:
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
 ```
 
-Una vez iniciada la sesión, compruebe algunos cmdlets de PowerShell en Windows Virtual Desktop con la entidad de servicio para asegurarse de que todo funciona.
+Una vez iniciada la sesión, pruebe algunos cmdlets de PowerShell en Windows Virtual Desktop con la entidad de servicio para asegurarse de que todo funciona.
 
 ## <a name="view-your-credentials-in-powershell"></a>Visualización de las credenciales en PowerShell
 
-Antes de finalizar la sesión de PowerShell, debe visualizar las credenciales y anotarlas para futura referencia. La contraseña es especialmente importante, porque no podrá recuperarla una vez que cierre esta sesión de PowerShell.
+Antes de finalizar la sesión de PowerShell, vea las credenciales y anótelas para futura referencia. La contraseña es especialmente importante, porque no podrá recuperarla una vez que cierre esta sesión de PowerShell.
 
 Estas son las tres credenciales que debe anotar y los cmdlets que necesita para ejecutar para obtenerlas:
 

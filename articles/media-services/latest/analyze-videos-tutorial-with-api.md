@@ -1,5 +1,5 @@
 ---
-title: Análisis de vídeos con Media Services mediante .NET (Azure) | Microsoft Docs
+title: Análisis de vídeos con Azure Media Services | Microsoft Docs
 description: Siga los pasos de este tutorial para analizar los vídeos con Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 04/21/2019
+ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2c26ba24f0262f7cf43f80b4f4deae464581d08d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415642"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273895"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Tutorial: Análisis de vídeos con Media Services v3 mediante .NET
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Análisis de vídeos con Media Services v3
+
+> [!NOTE]
+> Aunque en este tutorial se usan los ejemplos de [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), los pasos generales son los mismos para la [API REST](https://docs.microsoft.com/rest/api/media/liveevents), la [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) u otros [SDK](media-services-apis-overview.md#sdks) admitidos.
 
 En este tutorial se muestra cómo analizar vídeos con Azure Media Services. Hay muchos escenarios en los que puede desear obtener información detallada sobre los vídeos grabados o el contenido de audio. Por ejemplo, para lograr una mayor satisfacción del cliente, las organizaciones pueden ejecutar el procesamiento de voz a texto para convertir las grabaciones de soporte técnico al cliente en un catálogo que permite búsquedas, con índices y paneles. A continuación, los clientes pueden obtener información detallada sobre sus empresas, como una lista de las quejas más habituales, orígenes de dichas quejas, y más información útil.
 
 En este tutorial se muestra cómo realizar las siguientes acciones:    
-
+ 
 > [!div class="checklist"]
 > * Descarga de la aplicación de ejemplo que se describe en el tema
 > * Examen del código que analiza el vídeo especificado

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7925e6fe66579c8bf702acbe165c50d2aed536e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a8e1f4f0f2bd3521a312523fa9e36dcf14492862
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898358"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101392"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Tutorial: Integración de Azure Active Directory con Halogen Software
 
@@ -53,7 +53,7 @@ Para configurar la integración de Halogen Software en Azure AD, deberá agregar
 
 **Para agregar Halogen Software desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Halogen Software, debe completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Halogen Software](#configure-halogen-software-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Halogen Software](#create-halogen-software-test-user)**: para tener un homólogo de Britta Simon en Halogen Software que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Halogen Software](#configure-halogen-software-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Halogen Software](#create-halogen-software-test-user)** : para tener un homólogo de Britta Simon en Halogen Software que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,9 +105,9 @@ Para configurar el inicio de sesión único de Azure AD con Halogen Software, re
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Halogen Software](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://global.hgncloud.com/<companyname>`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://global.hgncloud.com/<companyname>`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón:
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón:
 
     | |
     |--|
@@ -148,7 +148,7 @@ Para configurar el inicio de sesión único de Azure AD con Halogen Software, re
 
     ![Qué es Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_14.png)
 
-     a. En **Identificador único**, seleccione **NameID**.
+    a. En **Identificador único**, seleccione **NameID**.
 
     b. En **El identificador único se asigna a**, seleccione **Nombre de usuario**.
   
@@ -230,7 +230,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
     ![Qué es Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_301.png)
 
-     a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso **Britta**.
+    a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso **Britta**.
 
     b. En el cuadro de texto **Apellidos**, escriba el apellido del usuario, en este caso **Simon**.
 
@@ -252,4 +252,4 @@ Al hacer clic en el icono de Halogen Software en el panel de acceso, debería in
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c3743c62dcbdccc2a119cfec570df96c622390c7
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159813"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540330"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Inicio rápido: Uso de .NET para crear una cola de Azure Storage
 
@@ -26,7 +26,7 @@ En este inicio rápido, obtendrá información sobre cómo usar la biblioteca cl
 
 A continuación, descargue e instale .NET Core 2.0 para su sistema operativo. Si usa Windows, puede instalar Visual Studio y utilizar .NET Framework si lo prefiere. También puede elegir instalar un editor y usarlo con el sistema operativo.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 - Instale [.NET Core para Windows](https://www.microsoft.com/net/download/windows) o [.NET Framework](https://www.microsoft.com/net/download/windows) (se incluye con Visual Studio para Windows).
 - Instale [Visual Studio para Windows](https://www.visualstudio.com/). Si usa .NET Core, la instalación de Visual Studio es opcional.  
@@ -63,7 +63,7 @@ Para ejecutar la aplicación, debe proporcionar la cadena de conexión de la cue
 
 Una vez que haya copiado la cadena de conexión, escríbala en una variable de entorno nueva en la máquina local que ejecuta la aplicación. Para establecer la variable de entorno, abra una ventana de consola y siga las instrucciones de su sistema operativo. Reemplace `<yourconnectionstring>` por la cadena de conexión real:
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
@@ -93,7 +93,7 @@ Después de agregar la variable de entorno, ejecute `source .bash_profile` desde
 
 La aplicación de ejemplo crea una cola y le agrega un mensaje. En primer lugar, la aplicación inspecciona el mensaje sin eliminarlo de la cola y, a continuación, lo recupera y lo elimina de la cola.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Si utiliza Visual Studio como editor, puede presionar **F5** para ejecutarlo. 
 
@@ -187,9 +187,9 @@ Console.WriteLine();
 
 A continuación, en el ejemplo se agrega un mensaje al final de la cola. 
 
-El mensaje debe estar en un formato que pueda incluirse en una solicitud XML con codificación UTF-8 y puede tener hasta 64 KB de tamaño. Si un mensaje contiene datos binarios, Microsoft recomienda codificarlo en Base64.
+El mensaje debe estar en un formato que pueda incluirse en una solicitud XML con codificación UTF-8 y puede tener hasta 64 KB de tamaño. Si un mensaje contiene datos binarios, se recomienda codificarlo en Base64.
 
-De forma predeterminada, el tiempo de vida máximo de un mensaje se establece en 7 días. Puede especificar cualquier número positivo para el tiempo de vida del mensaje y -1 para indicar que no caduca.
+De forma predeterminada, el tiempo de vida máximo de un mensaje se establece en 7 días. Puede especificar cualquier número positivo para el período de vida de un mensaje.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -199,6 +199,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+Para agregar un mensaje que no caduque, use `Timespan.FromSeconds(-1)` en la llamada a [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### <a name="peek-a-message-from-the-queue"></a>Inspección de un mensaje de la cola

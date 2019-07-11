@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c4eab02ed0c7c09fe9b5893bbaaf7cbe1c8028f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867340"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: integración de Azure Active Directory con Silverback
 
@@ -53,7 +53,7 @@ Para configurar la integración de Silverback en Azure AD, será preciso que agr
 
 **Para agregar Silverback desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Silverback, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Silverback](#configure-silverback-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Silverback](#create-silverback-test-user)**: para tener un homólogo de Britta Simon en Silverback que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Silverback](#configure-silverback-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Silverback](#create-silverback-test-user)** : para tener un homólogo de Britta Simon en Silverback que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Silverback, siga est
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Silverback](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOURSILVERBACKURL>.com/ssp`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOURSILVERBACKURL>.com/ssp`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `<YOURSILVERBACKURL>.com`
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con Silverback, siga est
 
     ![El administrador](./media/silverback-tutorial/tutorial_silverback_admin.png)
 
-     a.  Haga clic en **Import from URL** (Importar desde URL).
+    a.  Haga clic en **Import from URL** (Importar desde URL).
 
     b.  Pegue la dirección URL de metadatos copiados y haga clic en **OK** (Aceptar).
 
@@ -211,13 +211,13 @@ Para permitir que los usuarios de Azure AD inicien sesión en Silverback, tienen
 
     ![Usuario](./media/silverback-tutorial/tutorial_silverback_user.png)
 
-     a. En el cuadro de texto **Username** (Nombre de usuario), escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
+    a. En el cuadro de texto **Username** (Nombre de usuario), escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
 
     b. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso **Britta**.
 
     c. En el cuadro de texto **Last Name** (Apellidos), escriba el nombre de usuario, en este caso **Simon**.
 
-    d. En el cuadro de texto **E-mail Address** (Dirección de correo electrónico), escriba el correo electrónico del usuario, en este caso, **Brittasimon@contoso.com**.
+    d. En el cuadro de texto **E-mail Address** (Dirección de correo electrónico), escriba el correo electrónico del usuario, en este caso, **Brittasimon@contoso.com** .
 
     e. En el cuadro de texto **Password** (Contraseña), escriba su contraseña.
 
@@ -240,5 +240,5 @@ Al hacer clic en el icono de Silverback en el panel de acceso y debería iniciar
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b21c4727e7679c25dc2574a6506f8d3932aec2
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d12991813f68a42f9846c1c9c9c31c01d371d1d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434796"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107634"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory
 
@@ -37,13 +37,13 @@ Para completar este inicio rápido necesita instalar:
 
 * Un inquilino de Azure AD. Regístrese para una [evaluación gratuita](https://azure.microsoft.com/trial/get-started-active-directory/). 
 * Un usuario, que es un administrador global del inquilino.
-* Un intervalo IP que esté establecido y sea confiable en su organización. El intervalo IP debe estar en el formato **Enrutamiento de interdominios sin clases (CIDR)**.
+* Un intervalo IP que esté establecido y sea confiable en su organización. El intervalo IP debe estar en el formato **Enrutamiento de interdominios sin clases (CIDR)** .
 
 ## <a name="configure-named-locations"></a>Configuración de ubicaciones con nombre
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. En el panel de la izquierda, seleccione **Azure Active Directory** y luego seleccione **Acceso condicional** en la sección **Seguridad**.
+2. En el panel de la izquierda, seleccione **Azure Active Directory** y luego seleccione **Acceso condicional** en la sección **Seguridad**.
 
     ![Pestaña Acceso condicional](./media/quickstart-configure-named-locations/entrypoint.png)
 
@@ -63,6 +63,6 @@ Para completar este inicio rápido necesita instalar:
 
 Para más información, consulte:
 
-- [Acceso condicional de Azure AD](../active-directory-conditional-access-azure-portal.md)
-- [Condiciones de ubicación del acceso condicional de Azure AD](../conditional-access/location-condition.md)
+- [Acceso condicional de Azure AD](../active-directory-conditional-access-azure-portal.md).
+- [Condiciones de ubicación del acceso condicional de Azure AD](../conditional-access/location-condition.md).
 - [Informe de inicios de sesión de riesgo](concept-risky-sign-ins.md)  

@@ -1,21 +1,24 @@
 ---
 title: Configuración de la arquitectura multimaestro en Azure Cosmos DB
 description: Aprenda a configurar la arquitectura multimaestro en las aplicaciones de Azure Cosmos DB.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 1d9fa7380f62165d360888fd8cb03919f1736297
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 07/02/2019
+ms.author: mjbrown
+ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244756"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538092"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configuración de la arquitectura multimaestro en las aplicaciones que usan Azure Cosmos DB
 
-Para usar la característica de la arquitectura multimaestro en la aplicación, deberá habilitar la escritura en varias regiones y configurar la funcionalidad de hospedaje múltiple en Azure Cosmos DB. Para configurar el hospedaje múltiple, establezca la región donde se implementa la aplicación.
+Una vez creada una cuenta con varias regiones de escritura habilitadas, debe realizar dos cambios en la aplicación en ConnectionPolicy para DocumentClient para habilitar las funcionalidades de hospedaje múltiple y arquitectura multimaestro en Azure Cosmos DB. En ConnectionPolicy, establezca UseMultipleWriteLocations en true y pase el nombre de la región donde se implementa la aplicación a SetCurrentLocation. Se rellena la propiedad PreferredLocations según la proximidad geográfica de la ubicación pasada. Si más adelante se agrega una nueva región a la cuenta, la aplicación no tiene que actualizarse ni volver a implementarse; se detecta automáticamente la región más cercana y se hospeda por sí sola en ella si se produce un evento regional.
+
+> [!TIP]
+> Las cuentas de Cosmos creadas no configuradas inicialmente para arquitectura multimaestro se pueden migrar con cero tiempo de inactividad. Para más información, consulte, [Configuración de varias regiones de escritura](how-to-manage-database-account.md#configure-multiple-write-regions).
 
 ## <a id="netv2"></a>.NET SDK v2
 

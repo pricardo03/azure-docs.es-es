@@ -4,25 +4,22 @@ description: Use plantillas de Resource Manager con Azure Deployment Manager par
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238847"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205713"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager (versión preliminar pública)
 
-Aprenda a usar [Azure Deployment Manager](./deployment-manager-overview.md) para implementar sus aplicaciones en varias regiones. Para usar Deployment Manager, deberá crear dos plantillas:
+Aprenda a usar [Azure Deployment Manager](./deployment-manager-overview.md) para implementar sus aplicaciones en varias regiones. Si prefiere un enfoque más rápido, el [inicio rápido de Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart) crea las configuraciones necesarias en su suscripción y personaliza los artefactos para implementar una aplicación en varias regiones. El inicio rápido realiza las mismas tareas que en este tutorial.
+
+Para usar Deployment Manager, deberá crear dos plantillas:
 
 * **Una plantilla de topología**: describe los recursos de Azure que constituyen las aplicaciones y dónde implementarlos.
 * **Una plantilla de lanzamiento**: describe los pasos que se deben seguir al implementar las aplicaciones.
@@ -44,7 +41,10 @@ En este tutorial se describen las tareas siguientes:
 > * Implementación de la versión más reciente
 > * Limpieza de recursos
 
-Puede encontrar la referencia de la API REST de Azure Deployment Manager [aquí](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Recursos adicionales:
+
+* La [referencia de API REST de Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

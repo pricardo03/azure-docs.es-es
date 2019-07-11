@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e4f45deb8c63640a328e38cebc2ecbe67233c3b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c374c9e8fd91d50b7e6589f22f9bed09fbe0de39
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143136"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092871"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Tutorial: Integración de RingCentral con Azure Active Directory
 
@@ -88,7 +88,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Si no tiene el **archivo de metadatos del proveedor de servicios**, escriba los valores para los campos siguientes:
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL:
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL:
 
     | |
     |--|
@@ -126,7 +126,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![imagen](./media/ringcentral-tutorial/ringcentral4.png)
 
-     a. Haga clic en **Examinar** para cargar el archivo de metadatos que descargó de Azure Portal.
+    a. Haga clic en **Examinar** para cargar el archivo de metadatos que descargó de Azure Portal.
 
     b. Después de cargar los metadatos los valores se rellenan automáticamente en la sección **Información general de inicio de sesión único**.
 
@@ -192,4 +192,4 @@ Al seleccionar el icono de RingCentral en el Panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

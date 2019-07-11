@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 8944e4533448f5787f5c85c12e4ab2747eb96e4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ae074e8732898524d917f2537023c4b506cff80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65872265"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097468"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Tutorial: Integración de Azure Active Directory con Mercer BenefitsCentral (MBC)
 
@@ -52,7 +52,7 @@ Para configurar la integración de Mercer BenefitsCentral (MBC) en Azure AD, ser
 
 **Para agregar Mercer BenefitsCentral (MBC) desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -64,7 +64,7 @@ Para configurar la integración de Mercer BenefitsCentral (MBC) en Azure AD, ser
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Mercer BenefitsCentral (MBC)**, seleccione **Mercer BenefitsCentral (MBC)** del panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Mercer BenefitsCentral (MBC)** , seleccione **Mercer BenefitsCentral (MBC)** del panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Mercer BenefitsCentral (MBC) en la lista de resultados](common/search-new-app.png)
 
@@ -75,12 +75,12 @@ Para que el inicio de sesión único funcione, necesario establecer una relació
 
 Para configurar y probar el inicio de sesión único de Azure AD con Mercer BenefitsCentral (MBC), es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Mercer BenefitsCentral (MBC)](#configure-mercer-benefitscentral-mbc-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Mercer BenefitsCentral (MBC)](#create-mercer-benefitscentral-mbc-test-user)**: para tener un homólogo de Britta Simon en Mercer BenefitsCentral (MBC) que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en Mercer BenefitsCentral (MBC)](#configure-mercer-benefitscentral-mbc-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en Mercer BenefitsCentral (MBC)](#create-mercer-benefitscentral-mbc-test-user)** : para tener un homólogo de Britta Simon en Mercer BenefitsCentral (MBC) que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con Mercer BenefitsCentr
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Mercer BenefitsCentral (MBC)](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL: `stg.mercerhrs.com/saml2.0`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `stg.mercerhrs.com/saml2.0`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
@@ -127,7 +127,7 @@ Para configurar el inicio de sesión único de Azure AD con Mercer BenefitsCentr
 
 ### <a name="configure-mercer-benefitscentral-mbc-single-sign-on"></a>Configuración del inicio de sesión único en Mercer BenefitsCentral (MBC)
 
-Para configurar el inicio de sesión único en **Mercer BenefitsCentral (MBC)**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Mercer BenefitsCentral (MBC)](https://www.mercer.com/contact-us.html). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Mercer BenefitsCentral (MBC)** , es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Mercer BenefitsCentral (MBC)](https://www.mercer.com/contact-us.html). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -158,11 +158,11 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, concederá acceso a Britta Simon a Mercer BenefitsCentral (MBC) para que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Mercer BenefitsCentral (MBC)**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Mercer BenefitsCentral (MBC)** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Mercer BenefitsCentral (MBC)**.
+2. En la lista de aplicaciones, seleccione **Mercer BenefitsCentral (MBC)** .
 
     ![Vínculo de Mercer BenefitsCentral (MBC) en la lista de aplicaciones](common/all-applications.png)
 
@@ -196,5 +196,5 @@ Al hacer clic en el icono de Mercer BenefitsCentral (MBC) que se encuentra en el
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

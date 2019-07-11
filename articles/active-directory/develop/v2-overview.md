@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 058e5962bdf01d02abff8629df42c550fe669852
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110797"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Introducción a la Plataforma de identidad de Microsoft (versión 2.0)
 
@@ -37,7 +37,7 @@ Plataforma de identidad de Microsoft es una evolución de la plataforma para des
 - **PowerShell y API de configuración de aplicaciones**: permite la configuración mediante programación de las aplicaciones a través de la API de REST (Microsoft Graph y Azure Active Directory Graph 1.6) y PowerShell, para que pueda automatizar las tareas de DevOps.
 - **Contenido para desarrolladores**: documentación conceptual y de referencia, ejemplos de inicio rápido, ejemplos de código, tutoriales y guías paso a paso.
 
-La Plataforma de identidad de Microsoft ofrece a los desarrolladores una perfecta integración con las innovaciones en el espacio de identidad y seguridad, como autenticación sin contraseña, autenticación de nivel superior y acceso condicional.  No es necesario que implemente esta funcionalidad manualmente: las aplicaciones integradas de manera nativa con la Plataforma de identidad de Microsoft aprovechan estas innovaciones.
+La Plataforma de identidad de Microsoft ofrece a los desarrolladores una perfecta integración con las innovaciones en el espacio de identidad y seguridad, como la autenticación sin contraseña, la autenticación de nivel superior y el acceso condicional.  No es necesario que implemente esta funcionalidad manualmente: las aplicaciones integradas de manera nativa con la Plataforma de identidad de Microsoft aprovechan estas innovaciones.
 
 Con la Plataforma de identidad de Microsoft, puede escribir código una vez y llegar a cualquier usuario. Puede compilar una aplicación una sola vez y conseguir que funcione en muchas plataformas, o bien compilar una aplicación que funcione como un cliente, así como una aplicación de recursos (API).
 

@@ -12,12 +12,12 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 53e10636535c553ac5fa17b5f4aac1000cd138bc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666800"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445386"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Creación de un agente de trabajos elásticos mediante PowerShell
 
@@ -71,7 +71,7 @@ Get-Module Az.Sql
 
 La creación de un agente de trabajos elásticos requiere una base de datos (S0 o superior) para usarla como [base de datos de trabajos](sql-database-job-automation-overview.md#job-database). 
 
-*El script siguiente crea un nuevo grupo de recursos, servidor y base de datos para usarla como la base de datos de trabajos. El siguiente script también crea un segundo servidor con 2 bases de datos en blanco para ejecutar trabajos.*
+*El script siguiente crea un nuevo grupo de recursos, servidor y base de datos para usarla como la base de datos de trabajos. El siguiente script también crea un segundo servidor con dos bases de datos en blanco para ejecutar trabajos.*
 
 Los trabajos elásticos no tienen ningún requisito de nomenclatura específico, por lo que puede usar las convenciones de nomenclatura que desee, siempre y cuando cumplan con los [requisitos de Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -285,6 +285,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### <a name="job-execution-states"></a>Estados de ejecución de los trabajos
+
+En la tabla siguiente se muestran los posibles estados de ejecución de los trabajos:
+
+|Estado|DESCRIPCIÓN|
+|:---|:---|
+|**Created** | La ejecución del trabajo se acaba de crear y aún no está en curso.|
+|**InProgress** | La ejecución del trabajo está en curso.|
+|**WaitingForRetry** | La ejecución del trabajo no pudo completar la acción y está esperando para intentarlo de nuevo.|
+|**Correcto** | La ejecución del trabajo se ha completado correctamente.|
+|**SucceededWithSkipped** | La ejecución del trabajo se ha completado correctamente, pero se omitieron algunos de sus elementos secundarios.|
+|**Erróneo** | La ejecución del trabajo ha dado error y ha agotado sus reintentos.|
+|**TimedOut** | Se agotó el tiempo de espera para la ejecución del trabajo.|
+|**Canceled** | Se canceló la ejecución del trabajo.|
+|**Omitido** | Se omitió la ejecución del trabajo porque otra ejecución del mismo paso de trabajo ya se estaba ejecutando en el mismo destino.|
+|**WaitingForChildJobExecutions** | La ejecución del trabajo está esperando a que se completen sus ejecuciones secundarias.|
 
 ## <a name="schedule-the-job-to-run-later"></a>Programación de un trabajo para que se ejecute más tarde
 

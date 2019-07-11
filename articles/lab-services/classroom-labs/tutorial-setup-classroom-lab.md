@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: bdcc4349f84a35b312ecb3ad6205273b62c2e989
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 803fe6eff8804dbd407642386865fe975c8db524
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722717"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123267"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -48,7 +48,7 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
 
         ![Creación de un laboratorio educativo](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. En la página **Seleccionar especificaciones de máquina virtual**, realice los pasos siguientes:
-    1. Seleccione un **tamaño** para las máquinas virtuales (VM) creadas en el laboratorio. Actualmente, los tamaños permitidos son **pequeña**, **mediana**, **grande** y **GPU**.
+    1. Seleccione un **tamaño** para las máquinas virtuales (VM) creadas en el laboratorio. Actualmente, se permiten los tamaños **pequeño**, **medio**, **medio (virtualización)** , **grande** y **GPU**.
     3. Seleccione la **imagen de máquina virtual** que se usará para crear máquinas virtuales en el laboratorio. Si selecciona una imagen de Linux, verá una opción para habilitar la conexión a Escritorio remoto para ella. Para más información, consulte [Habilitar conexión de escritorio remoto para Linux](how-to-enable-remote-desktop-linux.md).
     4. Seleccione **Next** (Siguiente).
 
@@ -69,9 +69,11 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
 
     ![Página Configurar plantilla una vez terminada](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. En la página **Configurar plantilla**, siga estos pasos: Estos pasos son **opcionales** para el tutorial.
-    1. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. Si es una plantilla de máquina virtual Linux, decida si desea conectarse mediante SSH o RDP (si RDP está habilitado).
-    2. Instale y configure el software en la plantilla de máquina virtual.     
-    3. Escriba una **descripción** para la plantilla.
+    2. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. Si es una plantilla de máquina virtual Linux, decida si desea conectarse mediante SSH o RDP (si RDP está habilitado).
+    1. Seleccione **Restablecer contraseña** para restablecer la contraseña de la máquina virtual. 
+    1. Instale y configure el software en la plantilla de máquina virtual. 
+    1. **Pare** la máquina virtual.  
+    1. Escriba una **descripción** para la plantilla.
 9. Seleccione **Siguiente** en la página de plantilla. 
 10. En la página **Publicar la plantilla**, realice las acciones siguientes. 
     1. Para publicar inmediatamente la plantilla, seleccione **Publicar**.  
@@ -107,6 +109,40 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
 
     ![Lista de usuarios](../media/how-to-configure-student-usage/users-list-new.png)
 
+## <a name="set-quotas-for-users"></a>Establecimiento de cuotas para los usuarios
+Puede establecer cuotas por usuario mediante los pasos siguientes: 
+
+1. Seleccione **Usuarios** en el menú de la izquierda si la página todavía no está activa. 
+2. Seleccione **Cuota por usuario:** en la barra de herramientas. 
+3. En la página **Cuota por usuario**, especifique el número de horas que quiere dar a cada usuario (alumno): 
+    1. **0 horas (solo programación)** . Los usuarios pueden usar sus máquinas virtuales durante el tiempo programado o cuando usted, como el propietario del laboratorio, les enciende las máquinas virtuales.
+
+        ![Cero horas: solo el tiempo programado](../media/how-to-configure-student-usage/zero-hours.png)
+    1. **Número total de horas de laboratorio por usuario**. Los usuarios pueden usar sus máquinas virtuales para el número establecido de horas (que se especifica para este campo) **además del tiempo programado**. Si selecciona esta opción, escriba el **número de horas** en el cuadro de texto. 
+
+        ![Número de horas por usuario](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. Seleccione **Guardar**. 
+5. Consulte los valores modificados en la barra de herramientas: **Cuota por usuario: &lt;número de horas&gt;** . 
+
+    ![Quota per user (Cuota por usuario)](../media/how-to-configure-student-usage/quota-per-user.png)
+
+## <a name="set-a-schedule-for-the-lab"></a>Configuración de una programación para el laboratorio
+Si configuró la cuota en **0 horas (solo programación)** , debe establecer una programación para el laboratorio. En este tutorial, establece la programación como una programación semanal recurrente.
+
+1. Cambie a la página **Schedules** (Programaciones) y seleccione **Add schedule** (Agregar programación) en la barra de herramientas. 
+
+    ![Botón Add schedule (Agregar programación) en la página Schedules (Programaciones)](../media/how-to-create-schedules/add-schedule-button.png)
+2. En la página **Add schedule** (Agregar programación), cambie a **Weekly** (Semanal) en la parte superior. 
+3. En **Schedule days (required)** (Días de programación [obligatorio]), seleccione los días en los que quiere que se aplique la programación. En el ejemplo siguiente, está seleccionado Monday-Friday (Lunes a viernes). 
+4. En el campo **From** (De), escriba la **fecha de inicio de la programación** o use el botón de **calendario** para seleccionar una fecha. Este campo es obligatorio. 
+5. En **Schedule end date** (Fecha de finalización de programación), escriba o seleccione una fecha de finalización en la que se apagarán las máquinas virtuales. 
+6. En **Start time** (Hora de inicio), seleccione la hora a la que se iniciarán las máquinas virtuales. La hora de inicio es obligatoria si no se establece la hora de finalización. Seleccione **Remove start event** (Quitar evento de inicio) si solo quiere especificar la hora de finalización. Si **Start time** (Hora de inicio) está deshabilitada, seleccione **Add start event** (Agregar evento de inicio) junto a la lista desplegable para habilitarla. 
+7. En **Stop time** (Hora de finalización), seleccione la hora a la que se apagarán las máquinas virtuales. La hora de finalización es obligatoria si no se establece la hora de inicio. Seleccione **Remove stop event** (Quitar evento de finalización) si solo quiere especificar la hora de inicio. Si **Stop time** (Hora de finalización) está deshabilitada, seleccione **Add stop event** (Agregar evento de finalización) junto a la lista desplegable para habilitarla.
+8. En **Time zone (required)** (Zona horaria [obligatorio]), seleccione la zona horaria de las horas de inicio y finalización que ha especificado.  
+9. En **Notes** (Notas), escriba alguna descripción o nota para la programación. 
+10. Seleccione **Guardar**. 
+
+    ![Programación semanal](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## <a name="send-an-email-with-the-registration-link"></a>Envío de un correo electrónico con el vínculo de registro
 

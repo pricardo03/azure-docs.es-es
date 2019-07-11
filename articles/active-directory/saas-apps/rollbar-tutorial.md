@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c3546dbadf64786b398610c19ee7f8e9e740d51
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: d76f4e9d61d8fd210fe9332084f9f44d19e54eed
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Tutorial: Integración de Azure Active Directory con Rollbar
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Rollbar, realice lo
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Rollbar](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://saml.rollbar.com`
+    a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://saml.rollbar.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
@@ -148,7 +148,7 @@ Para configurar el inicio de sesión único de Azure AD con Rollbar, realice lo
 
     ![Configuración](./media/rollbar-tutorial/configure2.png)
 
-     a. Seleccione **AZURE** en el menú desplegable **Proveedor de identidades de SAML**.
+    a. Seleccione **AZURE** en el menú desplegable **Proveedor de identidades de SAML**.
 
     b. Abra el archivo de metadatos en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, luego, péguelo en el cuadro de texto **Metadatos de SAML**.
 
@@ -162,7 +162,7 @@ Para configurar el inicio de sesión único de Azure AD con Rollbar, realice lo
     > Para completar el paso siguiente, primero debe haberse agregado como usuario de la aplicación Rollbar en Azure.
     >
 
-     a. Si necesita que los usuarios se autentiquen a través de Azure, haga clic en **Log in via your identity provider** (Iniciar sesión a través del proveedor de identidades propio) para volver a autenticar a través de Azure.  
+    a. Si necesita que los usuarios se autentiquen a través de Azure, haga clic en **Log in via your identity provider** (Iniciar sesión a través del proveedor de identidades propio) para volver a autenticar a través de Azure.  
 
     b.  Cuando se le haya redirigido a la pantalla, seleccione la casilla **Require login via SAML Identity Provider** (Requerir inicio de sesión a través del proveedor de identidades SAML).
 
@@ -257,5 +257,5 @@ Al hacer clic en el icono de Rollbar en el panel de acceso, debería iniciar ses
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ffc2e8c186ce485f7df19b3f797aaa8982735f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864177"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integración de Azure Active Directory con Bonusly
 
@@ -54,7 +54,7 @@ Para configurar la integración de Bonusly en Azure AD, debe agregar Bonusly des
 
 **Para agregar Bonusly desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Bonusly, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Bonusly](#configure-bonusly-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Bonusly](#create-bonusly-test-user)**: para tener un homólogo de Britta Simon en Bonusly que esté vinculado a su representación en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Bonusly](#configure-bonusly-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Bonusly](#create-bonusly-test-user)** : para tener un homólogo de Britta Simon en Bonusly que esté vinculado a su representación en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -142,13 +142,13 @@ Para configurar el inicio de sesión único de Azure AD con Bonusly, realice lo
 
     ![Página de diálogo Saml Bonusly](./media/bonus-tutorial/ic773687.png "Bonusly")
 
-     a. En el cuadro de texto **IdP SSO Target URL** (Dirección URL de destino de SSO de IdP), pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    a. En el cuadro de texto **IdP SSO Target URL** (Dirección URL de destino de SSO de IdP), pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     b. En el cuadro de texto **IdP Login URL** (URL de inicio de sesión del IdP), pegue el valor de la **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     c. En el cuadro de texto **Idp Issuer** (Emisor de IdP), pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
     
-    d. Pegue el valor de **Huella digital** copiado de Azure Portal en el cuadro de texto **Cert Fingerprint** (Huella digital de certificado).
+    d. Pegue el valor de **Huella digital** de Azure Portal en el cuadro de texto **Cert Fingerprint** (Huella digital de certificado).
     
     e. Haga clic en **Save**(Guardar).
 
@@ -233,7 +233,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Bonusly, tienen q
 
     ![Agregar usuario](./media/bonus-tutorial/ic781045.png "Agregar usuario")  
 
-     a. En el cuadro de texto **Nombre**, escriba el nombre de usuario, en este caso **Britta**.
+    a. En el cuadro de texto **Nombre**, escriba el nombre de usuario, en este caso **Britta**.
 
     b. En el cuadro de texto **Apellidos**, escriba el apellido del usuario, en este caso **Simon**.
 

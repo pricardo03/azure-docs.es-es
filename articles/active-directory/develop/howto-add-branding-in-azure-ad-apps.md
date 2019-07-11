@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac14572210b80ac1415d129c5810f0e5443012c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92770acb19bf95d6a19507184bd8bea10806d5b7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540107"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483025"
 ---
 # <a name="branding-guidelines-for-applications"></a>Directrices de personalización de marca para aplicaciones
 
@@ -70,7 +70,7 @@ El vínculo "Obtener la aplicación" debe redirigir al usuario a la página de c
 
 Después de que los administradores den su consentimiento a la aplicación, pueden optar por agregarla a la experiencia del iniciador de aplicaciones de Office 365 de los usuarios (accesible desde el botón tipo "gofre" y desde [https://portal.office.com/myapps](https://portal.office.com/myapps)). Si quiere anunciar esta capacidad, puede usar términos como "Agregue esta aplicación a su organización" y mostrar un botón como el del ejemplo siguiente:
 
-![Tipos de aplicaciones y escenarios](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![Botón que muestra el logotipo de Microsoft y el texto "Agregar a mi organización"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 Sin embargo, se recomienda que escriba un texto explicativo en lugar de confiar en los botones. Por ejemplo:
 
@@ -80,7 +80,7 @@ Para descargar el logotipo oficial de Microsoft para su uso en la aplicación, h
 
 | Recurso                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Logotipo de Microsoft  | ![Logotipo de Microsoft en formato PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logotipo de Microsoft en formato SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
+| Logotipo de Microsoft  | ![Logotipo de Microsoft que se puede descargar en formato PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logotipo de Microsoft que se puede descargar en formato SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>Guía visual para el inicio de sesión
 
@@ -92,16 +92,16 @@ Se trata de la asociación del logotipo de Microsoft y el término "Iniciar sesi
 
 En el diagrama siguiente se muestran las líneas rojas recomendadas por Microsoft al usar los recursos con la aplicación. Las líneas rojas se aplican a "Inicio de sesión en Microsoft" o a la versión más corta "Inicio de sesión".
 
-![Inicio de sesión con líneas rojas de Microsoft](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
+![Muestra los comentarios de "Iniciar sesión con Microsoft".](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 Para descargar las imágenes oficiales para su uso en la aplicación, haga clic con el botón derecho en la que quiera usar y guárdela en su equipo.
 
 | Recurso                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Inicio de sesión en Microsoft (tema oscuro)  | ![PNG del tema oscuro del botón de inicio de sesión](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![SVG del tema oscuro del botón de inicio de sesión en Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
-| Inicio de sesión en Microsoft (tema claro) | ![PNG del tema claro del botón de inicio de sesión](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![SVG del tema claro del botón de inicio de sesión en Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
-| Inicio de sesión (tema oscuro)                 | ![PNG del tema oscuro del botón corto de inicio de sesión](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![SVG del tema oscuro del botón corto de inicio de sesión](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
-| Inicio de sesión (tema claro)                | ![PNG del tema claro del botón corto de inicio de sesión](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![SVG del tema claro del botón corto de inicio de sesión](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
+| Inicio de sesión en Microsoft (tema oscuro)  | ![PNG del tema oscuro del botón "Iniciar sesión con Microsoft" que se puede descargar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![SVG del tema oscuro del botón "Iniciar sesión con Microsoft" que se puede descargar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Inicio de sesión en Microsoft (tema claro) | ![PNG del tema claro del botón "Iniciar sesión con Microsoft" que se puede descargar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![SVG del tema claro del botón "Iniciar sesión con Microsoft" que se puede descargar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Inicio de sesión (tema oscuro)                 | ![PNG del tema oscuro del botón corto "Iniciar sesión" que se puede descargar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![SVG del tema oscuro del botón corto "Iniciar sesión" que se puede descargar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Inicio de sesión (tema claro)                | ![PNG del tema claro del botón corto "Iniciar sesión" que se puede descargar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![SVG del tema claro del botón corto "Iniciar sesión" que se puede descargar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 ## <a name="branding-dos-and-donts"></a>Personalización de marca: qué se debe hacer y qué no
 

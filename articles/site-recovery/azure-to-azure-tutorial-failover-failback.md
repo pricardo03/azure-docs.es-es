@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 07/01/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: be9edd0497cca894e4daa87f97b037065379127f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 836b6bb76ff608fed0f34e40fe450d593fec540a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398291"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514160"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Conmutación por error y reprotección de máquinas virtuales de Azure entre regiones
 
@@ -46,7 +46,7 @@ En este tutorial se describe cómo conmutar por error una máquina virtual (VM) 
    * **Procesado más recientemente**: revierte la máquina virtual al punto de recuperación más reciente que el servicio Site Recovery haya procesado.
    * **Personalizado**: conmuta por error a un punto de recuperación concreto. Esta opción es útil para realizar una conmutación por error de prueba.
 
-3. Seleccione **Apague la máquina antes de comenzar con la conmutación por error** si desea que Site Recovery intente apagar las máquinas virtuales de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Site Recovery no es un origen limpio después de la conmutación por error.
+3. Seleccione **Apague la máquina antes de comenzar con la conmutación por error** si desea que Site Recovery intente apagar las máquinas virtuales de origen antes de desencadenar la conmutación por error. La operación de apagado ayuda a garantizar que no se pierden datos. La conmutación por error continúa aunque se produzca un error de cierre. Site Recovery no es un origen limpio después de la conmutación por error.
 
 4. Siga el progreso de la conmutación por error en la página **Trabajos**.
 

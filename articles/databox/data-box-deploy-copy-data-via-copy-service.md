@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925317"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206060"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Uso del servicio de copia de datos para copiar datos en Azure Data Box (versión preliminar)
 
@@ -59,7 +59,7 @@ Para copiar datos utilizando el servicio de copia de datos, tendrá que crear un
     |-------------------------------|---------|
     |**Nombre del trabajo**                       |Un nombre exclusivo de menos de 230 caracteres para el trabajo. En el nombre del trabajo no se permiten los siguientes caracteres: \<, \>, \|, \?, \*, \\, \:, \/ y \\\.         |
     |**Ubicación de origen**                |Proporcione la ruta de acceso SMB para el origen de datos en el formato: `\\<ServerIPAddress>\<ShareName>` o `\\<ServerName>\<ShareName>`.        |
-    |**Nombre de usuario**                       |Nombre de usuario en formato `\\<DomainName><UserName>` para acceder al origen de datos.        |
+    |**Nombre de usuario**                       |Nombre de usuario en formato `\\<DomainName><UserName>` para acceder al origen de datos. Si hay un administrador local conectándose, necesitará permisos de seguridad explícitos. Haga clic con el botón derecho en la carpeta, seleccione **Propiedades** y, luego, **Seguridad**. Esto debería agregar al administrador en la pestaña **Seguridad**.       |
     |**Contraseña**                       |Contraseña para acceder al origen de datos.           |
     |**Cuenta de almacenamiento de destino**    |Seleccione la cuenta de almacenamiento de destino para cargar datos desde la lista.         |
     |**Tipo de destino**       |Seleccione el tipo de almacenamiento de destino de la lista: **Blob en bloques**, **Blob en páginas** o **Azure Files**.        |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 851b28d10bdf0b2df67e1c0782a683e790b711bc
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 29addcd62afd193af83196b2d942e9778ff3f031
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898009"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutorial: Integración de Azure Active Directory con Jitbit Helpdesk
 
@@ -53,7 +53,7 @@ Para configurar la integración de Jitbit Helpdesk en Azure AD, será preciso qu
 
 **Para agregar Jitbit Helpdesk desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Jitbit Helpdesk, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Jitbit Helpdesk](#configure-jitbit-helpdesk-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Jitbit Helpdesk](#create-jitbit-helpdesk-test-user)**: el objetivo es tener un homólogo de Britta Simon en Jitbit Helpdesk que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Jitbit Helpdesk](#configure-jitbit-helpdesk-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Jitbit Helpdesk](#create-jitbit-helpdesk-test-user)** : el objetivo es tener un homólogo de Britta Simon en Jitbit Helpdesk que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Jitbit Helpdesk, rea
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de Jitbit Helpdesk](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
     | |
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -115,7 +115,7 @@ Para configurar el inicio de sesión único de Azure AD con Jitbit Helpdesk, rea
     > [!NOTE] 
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Jitbit Helpdesk](https://www.jitbit.com/support/) para obtener este valor.
 
-    b. En el cuadro de texto **Identificador (Id. de entidad)**, escriba una dirección URL como sigue: `https://www.jitbit.com/web-helpdesk/`
+    b. En el cuadro de texto **Identificador (Id. de entidad)** , escriba una dirección URL como sigue: `https://www.jitbit.com/web-helpdesk/`
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -147,7 +147,7 @@ Para configurar el inicio de sesión único de Azure AD con Jitbit Helpdesk, rea
 
     ![Configuración de la autenticación](./media/jitbit-helpdesk-tutorial/ic777683.png "Configuración de la autenticación")
 
-     a. Seleccione **Enable SAML 2.0 single sign on** (Habilitar inicio de sesión único de SAML 2.0) para iniciar sesión mediante inicio de sesión único (SSO) con **OneLogin**.
+    a. Seleccione **Enable SAML 2.0 single sign on** (Habilitar inicio de sesión único de SAML 2.0) para iniciar sesión mediante inicio de sesión único (SSO) con **OneLogin**.
 
     b. En el cuadro de texto **EndPoint URL** (Dirección URL de punto de conexión), pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -230,9 +230,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jitbit Helpdesk, d
 
     ![Crear](./media/jitbit-helpdesk-tutorial/ic777686.png "Crear")
 
-    a. En el cuadro de texto **Nombre de usuario**, escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
+   a. En el cuadro de texto **Nombre de usuario**, escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
 
-   b. En el cuadro de texto **Correo electrónico**, escriba el correo electrónico del usuario, en el ejemplo **BrittaSimon@contoso.com**.
+   b. En el cuadro de texto **Correo electrónico**, escriba el correo electrónico del usuario, en el ejemplo **BrittaSimon@contoso.com** .
 
    c. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso **Britta**.
 
@@ -255,4 +255,4 @@ Al hacer clic en el icono de Jitbit Helpdesk en el panel de acceso, debería ini
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

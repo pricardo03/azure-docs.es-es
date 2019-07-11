@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f2f6b544b56977b3f1bfb6a4fb46a9f1e3bcc294
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427945"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271710"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>Tutorial: Cableado y conexión de un dispositivo Azure Data Box Heavy (versión preliminar)
 
@@ -79,7 +79,7 @@ Siga estos pasos para cablear el dispositivo.
 En uno de los nodos del dispositivo, realice los pasos siguientes para realizar la conexión por cable a la red.
 
 1. Utilice un cable de red RJ-45 CAT 6 (cable azul en la imagen) para conectar el equipo host al puerto de administración de 1 Gbps.
-2. Use un cable de cobre Twinax QSFP+ (cables negros en la imagen) para conectar al menos una interfaz de red de 40 Gbps (se prefiere a la de 1 Gbps) para los datos. Si usa un conmutador de 10 Gbps, utilice un cable de cobre Twinax SFP+ con un adaptador de QSFP+ a SFP+ (el adaptador QSA) para conectar la interfaz de red de 40 Gbps para los datos.
+2. Use un cable QSFP+ (de fibra o cobre) para conectar al menos una interfaz de red de 40 Gbps (de preferencia, más de 1 Gbps) para los datos. Si usa un conmutador de 10 Gbps, use un cable SFP+ con un adaptador de QSFP+ a SFP+ (el adaptador QSA) para conectar la interfaz de red de 40 Gbps para los datos.
 
     ![Puertos de Data Box Heavy cableados](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04838c1dbc9a524d04998f4d6c851037e43c9d90
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f770539e2f60a960a52a877dd4eaa79c60a1af4a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545774"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482670"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Inicio rápido: Configuración de una aplicación para exponer las API web
 
@@ -52,7 +52,7 @@ Antes de configurar la aplicación, siga estos pasos:
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Exposición de un ámbito nuevo mediante la interfaz de usuario
 
-[![Exposición de una API mediante la interfaz de usuario](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Muestra cómo exponer una API mediante la interfaz de usuario](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox).
 
 Para exponer un ámbito nuevo mediante la interfaz de usuario:
 

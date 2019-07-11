@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7d52585b51af09c430130141c3680b5630f7b95e
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a4f1f75c85c99610ee75eb9fda51114b52bbfac3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417277"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304018"
 ---
 # <a name="what-is-text-analytics-api"></a>¿Qué es Text Analytics API?
 
@@ -89,7 +89,18 @@ Todos los puntos de conexión de Text Analytics API aceptan datos de texto sin f
 | Tamaño máximo de la solicitud completa | 1 MB |
 | Número máximo de documentos de una solicitud | 1000 documentos |
 
-El límite de velocidad es 100 solicitudes por segunda y 1000 solicitudes por minuto. Puede enviar una gran cantidad de documentos en una sola llamada (hasta 1000).
+El límite de velocidad variará en función del plan de tarifa.
+
+| Nivel          | Solicitudes por segundo | Solicitudes por minuto |
+|---------------|---------------------|---------------------|
+| Varios servicios | 1000                | 1000                |
+| S0/F0         | 100                 | 300                 |
+| S1            | 200                 | 300                 |
+| S2            | 300                 | 300                 |
+| S3            | 500                 | 500                 |
+| S4            | 1000                | 1000                |
+
+Las solicitudes se miden por separado para cada característica de Text Analytics. Por ejemplo, puede enviar el número máximo de solicitudes correspondiente al plan de tarifa a cada característica, al mismo tiempo.      
 
 ## <a name="unicode-encoding"></a>Codificación Unicode
 

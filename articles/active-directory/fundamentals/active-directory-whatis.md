@@ -2,20 +2,20 @@
 title: ¿Qué es Azure Active Directory? Azure Active Directory | Microsoft Docs
 description: Información general y conceptual acerca de Azure Active Directory, lo que incluye la terminología, qué licencias están disponibles y una lista de las características asociadas con vínculos para obtener más información.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.date: 05/08/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8fad7f0dc76aad306e0f2a8e26692ec997952c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 8fafa7bd95801be46025727b2261fc95bc539988
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470355"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440546"
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 
@@ -48,7 +48,7 @@ Para mejorar la implementación de Azure AD, también puede agregar funcionalida
 >
 >Azure Active Directory Premium P1, Premium P2 y Azure Active Directory Basic no se admiten actualmente en China. Para más información acerca de los precios de Azure AD, póngase en contacto con el [foro de Azure Active Directory](https://azure.microsoft.com/support/community/?product=active-directory).
 
-- **Azure Active Directory Free.** Proporciona administración de grupos y usuarios, sincronización de directorios locales, informes básicos e inicio de sesión único en Azure, Office 365 y muchas aplicaciones SaaS populares.
+- **Azure Active Directory Free.** Proporciona administración de grupos y usuarios, sincronización de directorios locales, informes básicos, cambio de contraseñas de autoservicio para usuarios en la nube e inicio de sesión único en Azure, Office 365 y muchas aplicaciones SaaS populares.
 
 - **Azure Active Directory Basic.** Además de las características de la licencia Free, Basic proporciona acceso a aplicaciones centrado en la nube, administración de acceso basado en grupos, restablecimiento de contraseña de autoservicio para aplicaciones en la nube y Azure AD Application Proxy, que permite publicar aplicaciones locales mediante Azure AD.
 
@@ -66,12 +66,14 @@ Para conocer mejor Azure AD y su documentación, es aconsejable revisar los tér
 
 |Término o concepto|DESCRIPCIÓN|
 |---------------|-----------|
+|Identidad| Algo que se puede autenticar. Una identidad puede ser un usuario con un nombre de usuario y una contraseña. Entre las identidades también se incluyen aplicaciones u otros servidores que podrían requerir autenticación a través de claves secretas o certificados.|
+|Cuenta| Una identidad que tiene datos asociados a ella. No puede tener una cuenta sin una identidad.|
+|Cuenta de Azure AD| Una identidad que se crean mediante Azure AD u otro servicio en la nube de Microsoft, como Office 365. Las identidades se almacenan en Azure AD y pueden acceder a ellas las suscripciones de servicio en la nube de su organización. Esta cuenta se denomina a veces también cuenta profesional o educativa.|
 |Suscripción de Azure| Se usa para pagar los servicio en la nube de Azure. Puede tener muchas suscripciones y están vinculadas a una tarjeta de crédito.|
 |Inquilino de Azure| Es una instancia dedicada y de confianza de Azure AD que se crea automáticamente cuando una organización se suscribe a un servicio en la nube de Microsoft, como Microsoft Azure, Microsoft Intune u Office 365. Un inquilino de Azure representa una organización individual.|
 |Un solo inquilino| Los inquilinos de Azure que acceden a otros servicios en un entorno dedicado se consideran inquilino individuales.|
 |Multiinquilino| Los inquilinos de Azure que tienen acceso a otros servicios en un entorno compartido, en varias organizaciones, se consideran varios inquilinos.|
 |Directorio de Azure AD|Todos los inquilinos de Azure tienen un directorio de Azure AD dedicado y de confianza. El directorio de Azure AD incluye los usuarios, grupos y aplicaciones del inquilino y se usa para realizar funciones de administración de acceso y de identidad en los recursos del inquilino.|
-|Cuenta de Azure AD | Una identidad que se crean mediante Azure AD u otro servicio en la nube de Microsoft, como Office 365. Las identidades se almacenan en Azure AD y pueden acceder a ellas las suscripciones de servicio en la nube de su organización. Esta cuenta se denomina a veces también cuenta profesional o educativa.|
 |Dominio personalizado|Cada directorio nuevo de Azure AD incluye un nombre de dominio inicial, nombre_de_dominio.onmicrosoft.com. Además de dicho nombre inicial, también puede agregar nombres de dominio de la organización, que incluyen los nombres que utiliza para hacer negocios y los que utilizan los usuarios para acceder a los recursos de su organización, a la lista. La adición de nombres de dominio personalizados le ayuda a crear nombres de usuario que resultan familiares a los usuarios, como alain@contoso.com.|
 |Administrador de cuenta|Este rol de administrador de suscripción clásica conceptualmente es el propietario de facturación de una suscripción. Este rol tiene acceso al [centro de cuentas de Azure](https://account.azure.com/Subscriptions) y permite administrar todas las suscripciones de una cuenta. Para más información, consulte [Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador de servicios|Este rol de administrador de suscripciones clásico permite administrar todos los recursos de Azure, incluido el acceso. Tiene el acceso equivalente a un usuario al que se le ha asignado la función de propietario en el ámbito de la suscripción. Para más información, consulte [Roles de administrador de suscripciones clásico, de RBAC de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|

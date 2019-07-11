@@ -1,23 +1,23 @@
 ---
 title: 'Tutorial: Creación de clústeres de Apache Hadoop a petición en Azure HDInsight mediante Data Factory '
-description: Aprenda a crear clústeres de Apache Hadoop en HDInsight mediante Azure Data Factory.
+description: 'Tutorial: Aprenda a crear clústeres de Apache Hadoop a petición en HDInsight mediante Azure Data Factory.'
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: 37c9a11b806ff49fce27120d03f67182037dc693
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: e9773c2e8f6f8de3a44e45989aa577a5d8c2dcee
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726873"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433841"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Creación de clústeres de Apache Hadoop a petición en HDInsight mediante Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-En este artículo, aprenderá a crear un clúster de [Apache Hadoop](https://hadoop.apache.org/), a petición, en Azure HDInsight mediante Azure Data Factory. A continuación, puede usar canalizaciones en Azure Data Factory para ejecutar trabajos de Hive y eliminar el clúster. Al final de este tutorial, aprenderá a poner en marcha una ejecución de trabajo de Big Data donde la creación del clúster, la ejecución de trabajo y la eliminación del clúster tienen lugar a tiempo.
+En este tutorial, aprenderá a crear un clúster de [Apache Hadoop](https://hadoop.apache.org/), a petición, en Azure HDInsight mediante Azure Data Factory. A continuación, puede usar canalizaciones en Azure Data Factory para ejecutar trabajos de Hive y eliminar el clúster. Al final de este tutorial, aprenderá a poner en marcha una ejecución de trabajo de Big Data donde la creación del clúster, la ejecución de trabajo y la eliminación del clúster tienen lugar a tiempo.
 
 En este tutorial se describen las tareas siguientes: 
 
@@ -35,24 +35,24 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* PowerShell [módulo Az](https://docs.microsoft.com/powershell/azure/overview) instalado.
+* Instalación del [módulo Az](https://docs.microsoft.com/powershell/azure/overview) de PowerShell.
 
 * Una entidad de servicio de Azure Active Directory. Una vez que haya creado la entidad de servicio, asegúrese de recuperar el **identificador de la aplicación** y la **clave de autenticación** mediante las instrucciones en el artículo vinculado. Necesitará estos valores más adelante en el tutorial. Asimismo, asegúrese de que la entidad de servicio es miembro del rol de *colaborador* de la suscripción o del grupo de recursos en el que se crea el clúster. A fin de obtener instrucciones sobre cómo recuperar los valores necesarios y asignar los roles adecuados, consulte [Creación de una entidad de servicio de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
 
-## <a name="create-preliminary-azure-objects"></a>Crear objetos preliminares de Azure
+## <a name="create-preliminary-azure-objects"></a>Creación de objetos de Azure previos
 
-En esta sección, creará varios objetos que se usará para el clúster de HDInsight que se crea a petición. La cuenta de almacenamiento creada contendrá el ejemplo [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (`hivescript.hql`) que usa para simular un ejemplo [Apache Hive](https://hive.apache.org/) trabajo que se ejecuta en el clúster.
+En esta sección, puede crear diversos objetos que se usarán para el clúster de HDInsight que cree a petición. La cuenta de almacenamiento creada contendrá el ejemplo de script de [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) (`partitionweblogs.hql`) que usa para simular un ejemplo de trabajo de [Apache Hive](https://hive.apache.org/) que se ejecuta en el clúster.
 
 En esta sección se usa un script de Azure PowerShell para crear la cuenta de almacenamiento y copiar los archivos necesarios en ella. El script de ejemplo de Azure PowerShell de esta sección realiza las siguientes tareas:
 
-1. Inicie sesión en Azure.
+1. Inicia sesión en Azure.
 2. Crea un grupo de recursos de Azure.
 3. Crea una cuenta de Azure Storage.
 4. Crea un contenedor de blobs en la cuenta de almacenamiento.
-5. Copia el ejemplo de script de HiveQL (**hivescript.hql**) en el contenedor de blobs. El script está disponible en [https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). El ejemplo de script ya está disponible en otro contenedor de blobs público. El script de PowerShell siguiente realiza una copia de estos archivos en la cuenta de Azure Storage que crea.
+5. Copia el ejemplo de script de HiveQL (**partitionweblogs.hql**) en el contenedor de blobs. El script está disponible en [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). El ejemplo de script ya está disponible en otro contenedor de blobs público. El script de PowerShell siguiente realiza una copia de estos archivos en la cuenta de Azure Storage que crea.
 
 > [!WARNING]  
-> Tipo de cuenta de almacenamiento `BlobStorage` no se puede usar para los clústeres de HDInsight.
+> El tipo de cuenta de almacenamiento `BlobStorage` no se puede usar para los clústeres de HDInsight.
 
 **Para crear una cuenta de almacenamiento y copiar los archivos mediante Azure PowerShell:**
 
@@ -155,7 +155,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 4. En el icono **Recursos**, podrá ver un recurso a menos que comparta el grupo de recursos con otros proyectos. Ese recurso es la cuenta de almacenamiento con el nombre que especificó anteriormente. Escriba el nombre de la cuenta de almacenamiento.
 5. Seleccione los iconos **Blobs**.
 6. Seleccione el contenedor **adfgetstarted**. Puede ver una carpeta llamada **hivescripts**.
-7. Abra la carpeta y asegúrese de que contiene el ejemplo de archivo de script, **hivescript.hql**.
+7. Abra la carpeta y asegúrese de que contiene el ejemplo de archivo de script, **partitionweblogs.hql**.
 
 ## <a name="understand-the-azure-data-factory-activity"></a>Conocer la actividad de Azure Data Factory
 
@@ -181,25 +181,25 @@ En este artículo, se configura la actividad de Hive para crear un clúster Hado
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-2. En el menú izquierdo, vaya a **+ crear un recurso** > **Analytics** > **Data Factory**.
+2. En el menú de la izquierda, vaya a la opción **+ Crear un recurso** > **Analytics** > **Data Factory**.
 
     ![Azure Data Factory en el portal](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "Azure Data Factory en el portal")
 
-3. Escriba o seleccione los siguientes valores para el **nueva factoría de datos** icono:
+3. Escriba o seleccione los siguientes valores del icono **Nueva factoría de datos**:
 
     |Propiedad  |Valor  |
     |---------|---------|
-    |Name | Escriba un nombre para la factoría de datos. Este nombre debe ser único globalmente.|
+    |NOMBRE | Escriba un nombre para la factoría de datos. Este nombre debe ser único globalmente.|
     |Subscription | Seleccione su suscripción a Azure. |
-    |Resource group | Seleccione **Usar existente** y, a continuación, seleccione el grupo de recursos que ha creado mediante el script de PowerShell. |
-    |`Version` | Deje en **V2**. |
+    |Grupos de recursos | Seleccione **Usar existente** y, a continuación, seleccione el grupo de recursos que ha creado mediante el script de PowerShell. |
+    |Versión | Déjela en **V2**. |
     |Location | La ubicación se establece automáticamente en la ubicación que ha especificado anteriormente durante la creación del grupo de recursos. En este tutorial, la ubicación se establece en **Este de EE. UU.** |
 
     ![Creación de Azure Data Factory mediante Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "Creación de Azure Data Factory mediante Azure Portal")
 
 4. Seleccione **Crear**. La creación de una factoría de datos podría tardar entre dos y cuatro minutos.
 
-5. Una vez creada la factoría de datos, recibirá un **implementación correcta** notificación con un **ir al recurso** botón.  Seleccione **Ir al recurso** para abrir la vista predeterminada de Data Factory.
+5. Una vez que se cree la factoría de datos, recibirá una notificación de **implementación correcta** con el botón **Ir al recurso**.  Seleccione **Ir al recurso** para abrir la vista predeterminada de Data Factory.
 
 6. Seleccione **Crear y supervisar** para iniciar el portal de creación y supervisión de Azure Data Factory.
 
@@ -214,7 +214,7 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
 ### <a name="create-an-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
 
-1. En el panel izquierdo de la **Comencemos** página, seleccione el **autor** icono.
+1. En el panel izquierdo de la página de **introducción**, seleccione el icono **Autor**.
 
     ![Creación de un servicio vinculado de Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-edit-tab.png "Creación de un servicio vinculado de Azure Data Factory")
 
@@ -226,13 +226,13 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
     ![Creación de un servicio vinculado de Azure Storage para Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service.png "Creación de un servicio vinculado de Azure Storage para Data Factory")
 
-4. Proporcione los siguientes valores para el servicio vinculado de storage:
+4. Proporcione los siguientes valores del servicio vinculado de almacenamiento:
 
     |Propiedad |Valor |
     |---|---|
     |NOMBRE |Escriba `HDIStorageLinkedService`.|
     |Suscripción de Azure |Seleccione la suscripción en la lista desplegable.|
-    |Nombre de la cuenta de almacenamiento |Seleccione la cuenta de Azure Storage que creó como parte de la secuencia de comandos de PowerShell.|
+    |Nombre de la cuenta de almacenamiento |Seleccione la cuenta de Azure Storage que creó como parte del script de PowerShell.|
 
     A continuación, seleccione **Finish** (Finalizar).
 
@@ -242,31 +242,31 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
 1. Seleccione el botón **+ New** (+ Nuevo) una vez más para crear otro servicio vinculado.
 
-2. En el **nuevo servicio vinculado** ventana, seleccione el **proceso** ficha.
+2. En la ventana **Nuevo servicio vinculado**, seleccione la pestaña **Proceso**.
 
-3. Seleccione **Azure HDInsight**y, a continuación, seleccione **continuar**.
+3. Seleccione **Azure HDInsight** y, a continuación, **Continuar**.
 
     ![Creación de un servicio vinculado de HDInsight para Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service.png "Creación de un servicio vinculado de HDInsight para Azure Data Factory")
 
-4. En el **nuevo servicio vinculado** ventana, escriba los siguientes valores y dejar el resto como predeterminado:
+4. En la ventana **Nuevo servicio vinculado**, escriba los siguientes valores y deje el resto como valor predeterminado:
 
     | Propiedad | Valor |
     | --- | --- |
-    | NOMBRE | Escriba `HDinisghtLinkedService`.|
-    | Type | Seleccione **On-demand HDInsight**. |
+    | NOMBRE | Escriba `HDInsightLinkedService`.|
+    | type | Seleccione **HDInsight a petición**. |
     | Servicio vinculado de Azure Storage | Seleccione `HDIStorageLinkedService`. |
     | Tipo de clúster | Seleccione **hadoop** |
     | Período de vida | Proporcione la duración que desea que tenga la disponibilidad del clúster de HDInsight antes de eliminarse automáticamente|
-    | Id. de entidad del servicio | Proporcione el identificador de aplicación de la entidad de servicio de Azure Active Directory que creó como parte de los requisitos previos. |
+    | Id. de entidad del servicio | Proporcione el identificador de aplicación de la entidad de servicio de Azure Active Directory que ha creado como parte de los requisitos previos. |
     | Clave de entidad de servicio | Proporcione la clave de autenticación para la entidad de servicio de Azure Active Directory. |
-    | Prefijo del nombre del clúster | Proporcione un valor que se anexará a todos los tipos de clúster creados por la factoría de datos. |
+    | Prefijo del nombre del clúster | Proporcione un valor que se agregará como prefijo a todos los tipos de clúster creados por la factoría de datos. |
     |Subscription |Seleccione la suscripción en la lista desplegable.|
-    | Selección de un grupo de recursos | Seleccione el grupo de recursos que creó como parte de la secuencia de comandos de PowerShell que usó anteriormente.|
-    |Seleccione una región | Seleccione una región en la lista desplegable.|
-    | Nombre de usuario SSH de clúster o el tipo de SO | Escriba un nombre de usuario SSH, normalmente `sshuser`. |
-    | Contraseña de SSH del clúster o el tipo del sistema operativo | Proporcione una contraseña para el usuario de SSH |
-    | Nombre de usuario de clúster o el tipo de sistema operativo | Escriba un nombre de usuario de clúster, normalmente `admin`. |
-    | Contraseña de usuario de clúster o el tipo de SO | Proporcione una contraseña para el usuario del clúster. |
+    | Selección de un grupo de recursos | Seleccione el grupo de recursos que ha creado como parte del script de PowerShell que ha usado anteriormente.|
+    |Selección de una región | Seleccione una región en la lista desplegable.|
+    | Nombre de usuario de SSH del clúster o tipo de SO | Especifique un nombre de usuario de SSH, habitualmente `sshuser`. |
+    | Contraseña de SSH del clúster o tipo de SO | Proporcione una contraseña para el usuario de SSH |
+    | Nombre de usuario de clúster o tipo de SO | Escriba un nombre de usuario de clúster, habitualmente `admin`. |
+    | Contraseña de usuario del clúster o tipo de SO | Proporcione una contraseña para el usuario del clúster. |
 
     A continuación, seleccione **Finish** (Finalizar).
 
@@ -282,19 +282,19 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
     ![Adición de actividades a la canalización de Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "Adición de actividades a la canalización de Data Factory")
 
-3. Asegúrese de que tiene la actividad de Hive seleccionada, seleccione el **clúster HDI** ficha y desde el **servicio vinculado de HDInsight** la lista desplegable, seleccione la que está vinculada del servicio que creó anteriormente,  **HDinightLinkedService**, para HDInsight.
+3. Asegúrese de que tiene seleccionada la actividad de Hive, seleccione la pestaña **Clúster de HDI** y, en la lista desplegable **Servicio vinculado de HDInsight**, seleccione el servicio vinculado que ha creado anteriormente, **HDinightLinkedService**, para HDInsight.
 
     ![Facilitación de detalles del clúster de HDInsight para la canalización](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "Facilitación de detalles del clúster de HDInsight para la canalización")
 
 4. Seleccione la pestaña **Script** y complete los siguientes pasos:
 
-    1. Para **servicio vinculado de Script**, seleccione **HDIStorageLinkedService** en la lista desplegable. Este valor es el servicio vinculado de almacenamiento que ha creado anteriormente.
+    1. En **Servicio vinculado de script**, seleccione **HDIStorageLinkedService** en la lista desplegable. Este valor es el servicio vinculado de almacenamiento que ha creado anteriormente.
 
-    1. En **Ruta de acceso del archivo**, seleccione **Examinar almacenamiento** y vaya a la ubicación donde el ejemplo de script de Hive se encuentra disponible. Si ha ejecutado el script de PowerShell anteriormente, esta ubicación debe ser `adfgetstarted/hivescripts/hivescript.hql`.
+    1. En **Ruta de acceso del archivo**, seleccione **Examinar almacenamiento** y vaya a la ubicación donde el ejemplo de script de Hive se encuentra disponible. Si ha ejecutado el script de PowerShell anteriormente, esta ubicación debe ser `adfgetstarted/hivescripts/partitionweblogs.hql`.
 
         ![Facilitación de detalles del script de Hive para la canalización](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Facilitación de detalles del script de Hive para la canalización")
 
-    1. En **Avanzado** > **Parámetros**, seleccione **Rellenado automático a partir de script**. Esta opción busca cualquier parámetro en el script de Hive que necesite valores en tiempo de ejecución. El script que usa (**hivescript.hql**) tiene un parámetro **Output**. Proporcione el **valor** con el formato `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` para que apunte a una carpeta existente en el almacenamiento de Azure. La ruta de acceso distingue mayúsculas de minúsculas. Esta es la ruta de acceso donde se almacenará la salida del script.
+    1. En **Avanzado** > **Parámetros**, seleccione **Rellenado automático a partir de script**. Esta opción busca cualquier parámetro en el script de Hive que necesite valores en tiempo de ejecución. El script que usa (**partitionweblogs.hql**) tiene un parámetro **Output**. Proporcione el **valor** en el formato `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` para que apunte a una carpeta existente de su instancia de Azure Storage. La ruta de acceso distingue mayúsculas de minúsculas. Esta es la ruta de acceso donde se almacenará la salida del script.
     
         ![Facilitación de parámetros para el script de Hive](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Facilitación de parámetros para el script de Hive")
 
@@ -308,7 +308,7 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
 ## <a name="trigger-a-pipeline"></a>Desencadenar una canalización
 
-1. En la barra de herramientas en la superficie del diseñador, seleccione **Agregar desencadenador** > **desencadenar ahora**.
+1. En la barra de herramientas de la superficie del diseñador, seleccione **Agregar desencadenador** > **Desencadenar ahora**.
 
     ![Desencadenamiento de la canalización de Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-trigger-pipeline.png "Desencadenamiento de la canalización de Azure Data Factory")
 
@@ -332,15 +332,15 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
     - Verá un **adfgerstarted/outputfolder** que contiene el resultado del script de Hive que se ha ejecutado como parte de la canalización.
 
-    - Verá un contenedor **adfhdidatafactory-\<linked-service-name>-\<timestamp>**. Este contenedor es la ubicación de almacenamiento predeterminada del clúster de HDInsight que se ha creado como parte de la ejecución de la canalización.
+    - Verá un contenedor **adfhdidatafactory-\<linked-service-name>-\<timestamp>** . Este contenedor es la ubicación de almacenamiento predeterminada del clúster de HDInsight que se ha creado como parte de la ejecución de la canalización.
 
     - Verá un contenedor **adfjobs** que tiene los registros de trabajo de Azure Data Factory.  
 
         ![Comprobación de la salida de la canalización de Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-verify-output.png "Comprobación de la salida de la canalización de Azure Data Factory")
 
-## <a name="clean-up-the-tutorial"></a>Limpieza del tutorial
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Con la creación de clústeres de HDInsight y a petición, no es necesario eliminar el clúster de HDInsight de manera explícita. El clúster se elimina en función de la configuración que ha proporcionado durante la creación de la canalización. Sin embargo, incluso tras la eliminación del clúster, las cuentas de almacenamiento asociadas al clúster continúan existiendo. Este comportamiento es por diseño para que pueda mantener intactos sus datos. Sin embargo, si no desea persistir los datos, puede eliminar la cuenta de almacenamiento que ha creado.
+Con la creación del clúster de HDInsight a petición, no es necesario que elimine de forma explícita el clúster de HDInsight. El clúster se elimina en función de la configuración que ha proporcionado durante la creación de la canalización. Sin embargo, incluso tras la eliminación del clúster, las cuentas de almacenamiento asociadas al clúster continúan existiendo. Este comportamiento es por diseño para que pueda mantener intactos sus datos. Sin embargo, si no desea persistir los datos, puede eliminar la cuenta de almacenamiento que ha creado.
 
 De forma alternativa, puede eliminar todo el grupo de recursos que ha creado para este tutorial. Esto elimina la cuenta de almacenamiento y la instancia de Azure Data Factory que ha creado.
 
@@ -356,11 +356,8 @@ De forma alternativa, puede eliminar todo el grupo de recursos que ha creado par
 
 1. Escriba el nombre del grupo de recursos para confirmar la eliminación y, después, seleccione **Eliminar**.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, ha aprendido cómo utilizar Azure Data Factory para crear el clúster de HDInsight a petición y ejecutar los trabajos de [Apache Hive](https://hive.apache.org/). Avance al siguiente artículo para obtener información sobre cómo crear clústeres de HDInsight con la configuración personalizada.
+En este artículo, ha aprendido cómo utilizar Azure Data Factory para crear el clúster de HDInsight a petición y ejecutar los trabajos de [Apache Hive](https://hive.apache.org/). Adelántese al siguiente artículo para aprender a crear clústeres de HDInsight con una configuración personalizada.
 
 > [!div class="nextstepaction"]
 >[Creación de clústeres de HDInsight de Azure con una configuración personalizada](hdinsight-hadoop-provision-linux-clusters.md)
-
-

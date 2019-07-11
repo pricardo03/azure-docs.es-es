@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9275129c4339a6eae7ea8a44b22cbc78303cbf01
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9642dc67a3707862009efa59d99f0cef54b9b878
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889546"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106686"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integración de Azure Active Directory con ArcGIS Enterprise
 
@@ -57,7 +57,7 @@ Para configurar la integración de ArcGIS Enterprise en Azure AD, es preciso agr
 
 **Para agregar ArcGIS Enterprise desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -80,12 +80,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con [nombre de aplicación], es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de ArcGIS Enterprise](#configure-arcgis-enterprise-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en ArcGIS Enterprise](#create-arcgis-enterprise-test-user)**: el objetivo es tener un homólogo de Britta Simon en ArcGIS Enterprise que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de ArcGIS Enterprise](#configure-arcgis-enterprise-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en ArcGIS Enterprise](#create-arcgis-enterprise-test-user)** : el objetivo es tener un homólogo de Britta Simon en ArcGIS Enterprise que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -109,7 +109,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ArcGIS Enterprise](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `<EXTERNAL_DNS_NAME>.portal`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `<EXTERNAL_DNS_NAME>.portal`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
 
@@ -146,7 +146,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     ![Configuración de ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
 
-     a. Proporcione un nombre como **Azure Active Directory Test** (Prueba de Azure Active Directory) en el cuadro de texto **Name** (Nombre).
+    a. Proporcione un nombre como **Azure Active Directory Test** (Prueba de Azure Active Directory) en el cuadro de texto **Name** (Nombre).
 
     b. En el cuadro de texto **URL**, pegue el valor de **Dirección URL de metadatos de federación de aplicación** que copió de Azure Portal.
 
@@ -226,5 +226,5 @@ Al hacer clic en el icono de ArcGIS Enterprise del panel de acceso, debería ini
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

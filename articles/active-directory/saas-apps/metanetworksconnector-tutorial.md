@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ae0b8bb6dec4b129a4965426789819e119a25c53
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 82097b075ab86c4de5ab45e3110c9bc192ac7edb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991506"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097348"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: integración de Azure Active Directory con Meta Networks Connector
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Meta Networks Connector](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
 
@@ -114,7 +114,7 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Meta Networks Connector](common/both-advanced-urls.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
     b. En el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL que siga este patrón: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
 
@@ -135,7 +135,7 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
     | Nombre | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | phone | user.telephonenumber | |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -190,7 +190,7 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
     
     ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure2.png)
     
-     a. Copie el valor de **Dirección URL de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión** en la sección **Dominio y direcciones URL de Meta Networks Connector**.
+    a. Copie el valor de **Dirección URL de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión** en la sección **Dominio y direcciones URL de Meta Networks Connector**.
     
     b. Copie el valor de **Dirección URL del destinatario** y péguelo en el cuadro de texto **Dirección URL de respuesta** en la sección **Dominio y direcciones URL de Meta Networks Connector**.
     
@@ -202,7 +202,7 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
 
     ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure5.png)
 
-     a. En **Dirección URL del inicio de sesión único del proveedor de identidades**, pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    a. En **Dirección URL del inicio de sesión único del proveedor de identidades**, pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     b. En **Emisor de proveedor de identidades**, pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
 
@@ -226,7 +226,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -280,5 +280,5 @@ Al hacer clic en el icono de Meta Networks Connector en el Panel de acceso, debe
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1692032b093cd6189cac3ea3f63c563d9accd8ed
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784683"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477832"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutorial de diseño de Project Acoustics en Unreal y Wwise
 En este tutorial se describe la configuración de diseño y el flujo de trabajo de Project Acoustics en Unreal y Wwise.
@@ -122,6 +122,11 @@ Para administrar el streaming de datos acústicos por su cuenta en lugar de real
 Antes de llamar a la función para forzar el icono de carga, se debe establecer el tamaño del icono. Por ejemplo, podría hacer algo parecido para cargar un archivo ACE, establecer su tamaño de icono y transmitirlo en una región:
 
 ![Captura de pantalla de las opciones de streaming de configuración de Unreal](media/streaming-setup.png)
+
+La función del proyecto de carga de datos acústicos utilizado en este ejemplo tiene los siguientes parámetros:
+
+* **Target** (Destino): El actor AcousticsSpace.
+* **Nueva simulación acústica mediante "bake":** El recurso de datos acústicos que se va a cargar. Si se deja este valor en blanco o se establece en un valor null, se descargará la simulación acústica mediante "bake" actual sin tener que cargar una nueva.
 
 ### <a name="optionally-query-for-surface-proximity"></a>Consultar opcionalmente la proximidad de superficie
 Si quiere ver cómo de cerca están las superficies en una dirección determinada en torno al oyente, puede usar la función de distancia de consulta. Esta función puede ser útil para controlar reflexiones retardadas direccionales o para otra lógica de juego basada en la proximidad de superficies. La consulta es menos costosa que una emisión de rayos porque los resultados se extraen de la tabla de búsqueda acústica.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdb01802ec5b20ce57955a4e74e9de8108f4d96d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171849"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077011"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure
 
@@ -54,7 +54,7 @@ Se especifica el grupo de recursos al crear o modificar una máquina virtual, co
 
 Cree la máquina virtual con el comando [az vm create](https://docs.microsoft.com/cli/azure/vm). 
 
-Al crear una máquina virtual, hay varias opciones disponibles, como la imagen del sistema operativo, el tamaño del disco y las credenciales administrativas. En el ejemplo siguiente se crea una máquina virtual denominada *myVM* en la que se ejecuta Ubuntu Server. Se crea una cuenta de usuario denominada *azureuser* en la máquina virtual, y se generan claves SSH, si no existen en la ubicación de la clave predeterminada (*~/.ssh*):
+Al crear una máquina virtual, hay varias opciones disponibles, como la imagen del sistema operativo, el tamaño del disco y las credenciales administrativas. En el ejemplo siguiente se crea una máquina virtual denominada *myVM* en la que se ejecuta Ubuntu Server. Se crea una cuenta de usuario denominada *azureuser* en la máquina virtual, y se generan claves SSH, si no existen en la ubicación de la clave predeterminada ( *~/.ssh*):
 
 ```azurecli-interactive
 az vm create \
@@ -155,14 +155,14 @@ El tamaño de la máquina virtual determina la cantidad de recursos de proceso, 
 
 En la tabla siguiente se clasifican los tamaños en casos de uso.  
 
-| Type                     | Tamaños           |    DESCRIPCIÓN       |
+| type                     | Tamaños comunes           |    DESCRIPCIÓN       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Uso general](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
-| [Proceso optimizado](sizes-compute.md)   | Fs, F             | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
-| [Memoria optimizada](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Uso elevado de memoria respecto al núcleo. Excelente para bases de datos relacionales, memorias caché de capacidad de mediana a grande y análisis en memoria.                 |
-| [Almacenamiento optimizado](../virtual-machines-windows-sizes-storage.md)      | LS                | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NC            | Máquinas virtuales especializadas específicas para actividades intensas de representación de gráficos y edición de vídeo.       |
-| [Alto rendimiento](sizes-hpc.md) | H, A8-11          | Nuestras máquinas virtuales con CPU más eficaces e interfaces de red de alto rendimiento (RDMA) opcionales. 
+| [Uso general](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
+| [Proceso optimizado](sizes-compute.md)   | Fsv2          | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
+| [Memoria optimizada](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Uso elevado de memoria respecto al núcleo. Excelente para bases de datos relacionales, memorias caché de capacidad de mediana a grande y análisis en memoria.                 |
+| [Almacenamiento optimizado](sizes-storage.md)      | Lsv2, Ls              | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Máquinas virtuales especializadas específicas para actividades intensas de representación de gráficos y edición de vídeo.       |
+| [Alto rendimiento](sizes-hpc.md) | H        | Nuestras máquinas virtuales con CPU más eficaces e interfaces de red de alto rendimiento (RDMA) opcionales. |
 
 
 ### <a name="find-available-vm-sizes"></a>Búsqueda de los tamaños de máquina virtual disponibles

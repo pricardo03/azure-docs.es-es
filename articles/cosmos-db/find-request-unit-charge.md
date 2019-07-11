@@ -4,14 +4,14 @@ description: Sepa cómo encontrar el cargo de unidad de solicitud (RU) de cualqu
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 0671556a1ad049782090ffede509072adbac4c6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 07ca6278da6dd1f50f017f389c2c1389a42196f4
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416040"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163834"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Búsqueda del cargo de unidad de solicitud en Azure Cosmos DB
 
@@ -302,3 +302,4 @@ Para obtener información sobre cómo optimizar el consumo de RU, vea estos art�
 * [Escalado global del rendimiento aprovisionado](scaling-throughput.md)
 * [Aprovisionamiento del rendimiento en contenedores y bases de datos](set-throughput.md)
 * [Aprovisionamiento del rendimiento en un contenedor de Azure Cosmos](how-to-provision-container-throughput.md)
+* [Supervisión y depuración con métricas de Azure Cosmos DB](use-metrics.md)

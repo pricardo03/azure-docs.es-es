@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 00492ba379a4b4d8ae7437d18f9b2880dae03e44
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 50f6762c8046850da1e4541f2ccb7688542f7d54
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917453"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098472"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Tutorial: Integración de Azure Active Directory con Kudos
 
@@ -136,7 +136,7 @@ Para configurar el inicio de sesión único de Azure AD con Kudos, realice los p
 
     ![SSO](./media/kudos-tutorial/ic787807.png "SSO")
 
-     a. En el cuadro de texto **Sign-on URL** (Dirección URL de inicio de sesión), pegue el valor de la **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    a. En el cuadro de texto **Sign-on URL** (Dirección URL de inicio de sesión), pegue el valor de la **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     b. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509** .
 
@@ -219,7 +219,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Kudos, deben aprov
 
     ![Agregar un usuario](./media/kudos-tutorial/ic787810.png "Agregar un usuario")
 
-     a. Escriba en los cuadros de texto correspondientes el **nombre**, los **apellidos**, el **correo electrónico** y otros detalles de la cuenta de Azure Active Directory válida que desee aprovisionar.
+    a. Escriba en los cuadros de texto correspondientes el **nombre**, los **apellidos**, el **correo electrónico** y otros detalles de la cuenta de Azure Active Directory válida que desee aprovisionar.
 
     b. Haga clic en **Create User**(Crear usuario).
 
@@ -238,4 +238,4 @@ Al hacer clic en el icono de Kudos del panel de acceso, debería iniciar sesión
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

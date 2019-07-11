@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ff026743ccda0a47ce176db51dbc7913376f46
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8bc292be68879a608df6662418bb9f59c758f660
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987992"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106315"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Tutorial: Integración de Azure Active Directory con Bersin
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con Bersin, siga estos p
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Bersin](common/idp-identifier-relay.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.bersin.com/shibboleth`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.bersin.com/shibboleth`
 
     b. Haga clic en **Establecer direcciones URL adicionales**.
 
@@ -150,7 +150,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -201,4 +201,4 @@ Al hacer clic en el icono de Bersin del Panel de acceso, debería iniciar sesió
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

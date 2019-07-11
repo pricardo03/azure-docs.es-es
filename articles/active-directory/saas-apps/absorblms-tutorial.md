@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b46135366c76abf8da5387ff0698b4dc7634d79c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 936de76d1117c56f5a9dec48b51f33b9afa15351
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698549"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integración de Azure Active Directory con Absorb LMS
 
@@ -54,7 +54,7 @@ Para configurar la integración de Absorb LMS en Azure AD, será preciso que agr
 
 **Para agregar Absorb LMS desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Absorb LMS, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Absorb LMS](#configure-absorb-lms-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Absorb LMS](#create-absorb-lms-test-user)**: para tener un homólogo de Britta Simon en Absorb LMS que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Absorb LMS](#configure-absorb-lms-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Absorb LMS](#create-absorb-lms-test-user)** : para tener un homólogo de Britta Simon en Absorb LMS que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -108,13 +108,13 @@ Para configurar el inicio de sesión único de Azure AD con Absorb LMS, siga est
 
     Si usa **Absorb 5 - UI** (Absorb 5 - IU), utilice la siguiente configuración:
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://company.myabsorb.com/account/saml`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://company.myabsorb.com/account/saml`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://company.myabsorb.com/account/saml`
 
     Si usa **Absorb 5 - New Learner Experience** (Absorb 5 - Nueva experiencia de aprendiz), utilice la siguiente configuración:
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
@@ -159,15 +159,15 @@ Para configurar el inicio de sesión único de Azure AD con Absorb LMS, siga est
 
     ![Página de configuración de inicio de sesión único](./media/absorblms-tutorial/settings.png)
 
-     a. En el cuadro de texto **Nombre**, escriba el nombre como inicio de sesión único de Azure AD Marketplace.
+    a. En el cuadro de texto **Nombre**, escriba el nombre como inicio de sesión único de Azure AD Marketplace.
 
     b. Seleccione **SAML** como **Método**.
 
-    c. En el Bloc de notas, abra el certificado que descargó desde Azure Portal. Quite las etiquetas **---BEGIN CERTIFICATE---** y **---END CERTIFICATE---**. A continuación, pegue el resto del contenido en el cuadro de texto **Clave**.
+    c. En el Bloc de notas, abra el certificado que descargó desde Azure Portal. Quite las etiquetas **---BEGIN CERTIFICATE---** y **---END CERTIFICATE---** . A continuación, pegue el resto del contenido en el cuadro de texto **Clave**.
 
-    d. En el cuadro **Modo**, seleccione **Identity Provider Initiated (Iniciado por el proveedor de identidades)**.
+    d. En el cuadro **Modo**, seleccione **Identity Provider Initiated (Iniciado por el proveedor de identidades)** .
 
-    e. En el cuadro de texto **Propiedad de id.**, seleccione el atributo adecuado que ha configurado como identificador de usuario en Azure AD. Por ejemplo, si se selecciona *nameidentifier* en Azure AD, deberá seleccionar **Nombre de usuario**.
+    e. En el cuadro de texto **Propiedad de id.** , seleccione el atributo adecuado que ha configurado como identificador de usuario en Azure AD. Por ejemplo, si se selecciona *nameidentifier* en Azure AD, deberá seleccionar **Nombre de usuario**.
 
     f. Seleccione **Sha256** como **Tipo de firma**.
 
@@ -252,7 +252,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Absorb LMS, tienen
 
     ![página Agregar usuario](./media/absorblms-tutorial/user.png)
 
-     a. En el cuadro de texto **Nombre**, escriba el nombre **Britta**.
+    a. En el cuadro de texto **Nombre**, escriba el nombre **Britta**.
 
     b. En el cuadro de texto **Apellido**, escriba el apellido **Simon**.
 
@@ -283,4 +283,4 @@ Al hacer clic en el icono de Absorb LMS en el panel de acceso, debería iniciar 
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

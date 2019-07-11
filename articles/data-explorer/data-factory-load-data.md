@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2142fbf03daa6667b20db43f9212a2b5e6d7dd44
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447975"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657532"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copia de datos a Azure Data Explorer mediante Azure Data Factory 
 
@@ -141,7 +141,7 @@ Se ha creado el nuevo servicio vinculado de Azure Data Explorer para copiar los 
     * Seleccione **Finalizar** para completar la creación del servicio vinculado.
 
     > [!NOTE]
-    > Azure Data Factory usa la entidad de servicio para acceder al servicio de Azure Data Explorer. Para la entidad de servicio, [cree una entidad de servicio de Azure Active Directory (Azure AD)](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). No utilice el método de **Azure Key Vault**.
+    > Azure Data Factory usa la entidad de servicio para acceder al servicio de Azure Data Explorer. Para la entidad de servicio, [cree una entidad de servicio de Azure Active Directory (Azure AD)](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). No utilice el método de **Azure Key Vault**.
 
 1. Se abrirá el **almacén de datos de destino**. La conexión de datos de Azure Data Explorer que creó está disponible para su uso. Seleccione **Siguiente** para configurar la conexión.
 

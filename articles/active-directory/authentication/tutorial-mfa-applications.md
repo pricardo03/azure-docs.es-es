@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fdf88ed6cedaa38676a56536ff1eda7ee6bca66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a229eef3d49964e71becf066d67f60b18da6fc18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204804"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113237"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Habilitación de un entorno piloto de Azure Multi-Factor Authentication
 
-En este tutorial, realizará los pasos para configurar una directiva de acceso condicional que habilite Azure Multi-factor Authentication (Azure MFA) al iniciar sesión en Azure Portal. La directiva se implementa y se prueba en un grupo específico de usuarios piloto. La implementación de Azure MFA con acceso condicional proporciona una flexibilidad significativa para las organizaciones y los administradores en comparación con el método tradicional aplicado.
+En este tutorial, realizará los pasos para configurar una directiva de acceso condicional que habilite Azure Multi-Factor Authentication (Azure MFA) al iniciar sesión en Azure Portal. La directiva se implementa y se prueba en un grupo específico de usuarios piloto. La implementación de Azure MFA con acceso condicional proporciona una flexibilidad significativa para las organizaciones y los administradores en comparación con el método tradicional aplicado.
 
 > [!div class="checklist"]
 > * Habilitación de Azure Multi-Factor Authentication
@@ -36,7 +36,7 @@ En este tutorial, realizará los pasos para configurar una directiva de acceso c
 ## <a name="enable-azure-multi-factor-authentication"></a>Habilitación de Azure Multi-Factor Authentication
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global.
-1. Vaya a **Azure Active Directory** , **Acceso condicional**
+1. Vaya a **Azure Active Directory** , **Acceso condicional**.
 1. Seleccione **Nueva directiva**
 1. Denomine a la directiva **Piloto de MFA**
 1. En **Usuarios y grupos**, seleccione el botón de opción **Seleccionar usuarios y grupos**

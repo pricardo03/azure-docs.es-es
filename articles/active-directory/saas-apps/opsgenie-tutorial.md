@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 98e4d1870c57c9718e2d4293157b21ead8ea44e1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 446ac54d84f7b2b3bf3aaf6eaf5536f0dfb804fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987489"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integración de Azure Active Directory con OpsGenie
 
@@ -141,7 +141,7 @@ Para configurar el inicio de sesión único de Azure AD con OpsGenie, realice lo
    
     ![Configuración de OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-     a. En el cuadro de texto **SAML 2.0 Endpoint** (Punto de conexión SAML 2.0), pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    a. En el cuadro de texto **SAML 2.0 Endpoint** (Punto de conexión SAML 2.0), pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
     
     b. En el cuadro de texto **URL de metadatos**, pegue el valor de **Dirección URL de metadatos de federación de la aplicación** que copió en Azure Portal.
     
@@ -163,7 +163,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado "B. Simon" en
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **B. Simon**.
+    a. En el campo **Nombre**, escriba **B. Simon**.
   
     b. En el campo **Nombre de usuario**, escriba **bsimon@yourcompanydomain.extension**  
     Por ejemplo: BSimon@contoso.com
@@ -214,7 +214,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado B. Simon en O
    
     ![Configuración de OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-     a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de B. Simon en Azure Active Directory.
+    a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de B. Simon en Azure Active Directory.
    
     b. En el cuadro de texto **Nombre completo**, escriba **B. Simon**.
    
@@ -235,5 +235,5 @@ Al hacer clic en el icono de OpsGenie en el panel de acceso y debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 78d259c0354a1519fa57633a68a1dcfa5a183890
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407018"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integración de Azure Active Directory con el software Cezanne HR
 
@@ -53,7 +53,7 @@ Para configurar la integración del software Cezanne HR en Azure AD, deberá agr
 
 **Para agregar el software Cezanne HR desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con el software Cezanne HR, debe completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Cezanne HR Software](#configure-cezanne-hr-software-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Cezanne HR Software](#create-cezanne-hr-software-test-user)**: para tener en Cezanne HR Software un homólogo de Britta Simon que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Cezanne HR Software](#configure-cezanne-hr-software-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Cezanne HR Software](#create-cezanne-hr-software-test-user)** : para tener en Cezanne HR Software un homólogo de Britta Simon que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,9 +105,9 @@ Para configurar el inicio de sesión único de Azure AD con Cezanne HR Software,
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Cezanne HR Software](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba la dirección URL: `https://w3.cezanneondemand.com/CezanneOnDemand/`.
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `https://w3.cezanneondemand.com/CezanneOnDemand/`.
 
     c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`.
     
@@ -148,7 +148,7 @@ Para configurar el inicio de sesión único de Azure AD con Cezanne HR Software,
 
     ![Configuración del inicio de sesión único en la aplicación](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 
-     a. Escriba el nombre de su proveedor de identidades como **nombre para mostrar**.
+    a. Escriba el nombre de su proveedor de identidades como **nombre para mostrar**.
 
     b. En el cuadro de texto **Identificador de entidad**, pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
@@ -156,7 +156,7 @@ Para configurar el inicio de sesión único de Azure AD con Cezanne HR Software,
 
     d. En el cuadro de texto **Security Token Service Endpoint** (Punto de conexión del servicio de token de seguridad), pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    e. En el cuadro de texto User ID Attribute Name (Nombre de atributo de Id. de usuario), escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    e. En el cuadro de texto User ID Attribute Name (Nombre de atributo de Id. de usuario), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     f. Para cargar el certificado descargado de Azure Portal, haga clic en **Upload** (Cargar).
 
@@ -233,7 +233,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en el software Cezann
 
     ![Nuevo usuario](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "nuevo usuario")
 
-     a. En **Internal User** (Usuario interno), seleccione OFF (Desactivado).
+    a. En **Internal User** (Usuario interno), seleccione OFF (Desactivado).
 
     b. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, **Britta**.  
 
@@ -245,7 +245,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en el software Cezann
 
     ![Nuevo usuario](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "nuevo usuario")
 
-     a. En el cuadro de texto **Nombre de usuario**, escriba el correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
+    a. En el cuadro de texto **Nombre de usuario**, escriba el correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
 
     b. En el cuadro de texto **Contraseña**, escriba la contraseña del usuario.
 
@@ -277,4 +277,4 @@ Al hacer clic en el icono de Cezanne HR Software en el panel de acceso, debería
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

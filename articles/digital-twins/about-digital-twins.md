@@ -3,38 +3,37 @@ title: Introducción a Azure Digital Twins | Microsoft Docs
 description: Conozca Azure Digital Twins, una solución de Azure IoT de inteligencia espacial.
 author: julieseto
 ms.author: jseto
-ms.date: 12/14/2018
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0bbbb924cace93e44af84fd96926a2d7153dd5f8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437119"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459016"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Introducción a Azure Digital Twins
 
-Azure Digital Twins es un servicio de Azure IoT que crea modelos completos del entorno físico. Puede crear grafos de inteligencia espacial para modelar las relaciones y las interacciones entre personas, espacios y dispositivos.
+La versión preliminar de Azure Digital Twins es un servicio de Azure IoT que crea modelos completos del entorno físico. Puede crear grafos de inteligencia espacial para modelar las relaciones y las interacciones entre personas, espacios y dispositivos.
 
-Con Azure Digital Twins puede consultar datos de un espacio físico en lugar de hacerlo de muchos sensores dispares. Este servicio le ayuda a crear experiencias reutilizables, muy escalables y conscientes del espacio que vinculan la transmisión de los datos entre el mundo físico y el digital. Las aplicaciones están mejoradas con estas características contextuales apropiadas de forma exclusiva. Azure Digital Twins se puede usar en las siguientes tareas de ejemplo para:
+Con Azure Digital Twins puede consultar datos de un espacio físico en lugar de hacerlo de muchos sensores dispares. Este servicio le ayuda a crear experiencias reutilizables, muy escalables y conscientes del espacio que vinculan la transmisión de los datos entre el mundo físico y el digital. Las aplicaciones están mejoradas con estas características contextuales apropiadas de forma exclusiva. 
+
+Azure Digital Twins se aplica a todo tipo de entornos, como almacenes, oficinas, colegios, hospitales y bancos. Incluso se puede utilizar para estadios, fábricas, estacionamientos, parques, cuadrículas inteligentes y ciudades. Estos son algunos escenarios donde Azure Digital Twins puede resultar útil:
 
 - Predecir las necesidades de mantenimiento de una fábrica.
 - Analizar los requisitos de energía en tiempo real para una red eléctrica.
 - Optimizar el uso del espacio disponible en una oficina.
-
-Azure Digital Twins es aplicable a todo tipo de entornos. Algunos ejemplos son almacenes, oficinas, escuelas, hospitales y bancos. Incluso se puede utilizar para estadios, fábricas, estacionamientos, parques, cuadrículas inteligentes y ciudades. Azure Digital Twins se puede usar en los siguientes escenarios de ejemplo para:
-
 - Realizar un seguimiento de la temperatura diaria en varios Estados.
 - Supervisar rutas de drones en uso.
 - Identificar vehículos autónomos.
 - Analizar los niveles de ocupación de un edificio.
 - Encontrar la máquina registradora más ocupada del almacén.
 
-Sea cual sea su escenario empresarial real, se puede aprovisionar un caso digital correspondiente mediante Azure Digital Twins.
+Sea cual sea su escenario empresarial real, es muy probable que se pueda aprovisionar un caso digital correspondiente mediante Azure Digital Twins.
 
 El siguiente vídeo echa un vistazo más de cerca a Azure Digital Twins.
 
@@ -46,13 +45,13 @@ Azure Digital Twins tiene las siguientes funcionalidades principales.
 
 ### <a name="spatial-intelligence-graph"></a>Grafo de inteligencia espacial
 
-El [*grafo de inteligencia espacial*](./concepts-objectmodel-spatialgraph.md) o *grafo espacial* es una representación virtual del entorno físico. Lo puede utilizar para modelar las relaciones entre personas, lugares y dispositivos.
+El [*grafo de inteligencia espacial*](./concepts-objectmodel-spatialgraph.md#graph) o *grafo espacial* es una representación virtual del entorno físico. Lo puede utilizar para modelar las relaciones entre personas, lugares y dispositivos.
 
 Piense en una aplicación de servicios públicos inteligentes que utiliza varios medidores del uso de la electricidad en un barrio. La empresa de servicios públicos inteligentes debe supervisar y predecir con precisión el uso y la facturación de la electricidad. Cada dispositivo y cada sensor se deben modelar con contexto sobre la ubicación y el cliente al que se va a facturar. Puede usar el grafo de inteligencia espacial para modelar estos tipos de relaciones complejas.
 
 ### <a name="digital-twin-object-models"></a>Modelos de objetos gemelos digitales
 
-Los [modelos de objetos de Digital Twins](./concepts-objectmodel-spatialgraph.md) son protocolos de dispositivo y esquemas de datos predefinidos. Alinean las necesidades específicas del dominio de la solución para acelerar y simplificar el desarrollo.
+Los [modelos de objetos de Digital Twins](./concepts-objectmodel-spatialgraph.md#model) son protocolos de dispositivo y esquemas de datos predefinidos. Alinean las necesidades específicas del dominio de la solución para acelerar y simplificar el desarrollo.
 
 Un ejemplo sería una aplicación de ocupación de habitaciones que podría usar tipos de espacios predefinidos, como campus, edificio, piso y habitación.
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a05d8b9182451fc52dd1860dac1dcce57ba2c55
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 6023e4bd4028cf1679051b6665297afd00b1eba7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121990"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482650"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guía de inicio rápido: Inicie sesión de los usuarios y llame a Microsoft Graph API desde una aplicación de Android
 
@@ -45,7 +45,7 @@ Para comenzar, necesitará a un inquilino de Azure AD en el que pueda crear usua
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Escenario: Realice el inicio de sesión de usuarios y llame a Microsoft Graph
 
-![Topología](./media/quickstart-v1-android/active-directory-android-topology.png)
+![Se muestra la topología de Azure AD y de Android.](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 Puede usar esta aplicación para todas las cuentas de Azure AD. Es compatible con escenarios únicos y multiinquilino (que se describen en pasos). Muestra cómo puede compilar aplicaciones para conectarse con usuarios empresariales y acceder a sus datos de Azure + O365 a través de Microsoft Graph. Durante el flujo de autenticación, los usuarios finales deberán iniciar sesión y aceptar los permisos de la aplicación y, en algunos casos, es posible que un administrador tenga que dar su consentimiento a la aplicación. La mayoría de la lógica de este ejemplo muestra cómo autenticar un usuario final y realizar una llamada básica a Microsoft Graph.
 

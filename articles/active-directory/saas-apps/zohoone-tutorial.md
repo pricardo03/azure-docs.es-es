@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: c731919baf3acc8cedfb31c088f9a0a12791251c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0a37789e7c7efeb71770ff0e8061d57e6603b6c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086244"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Tutorial: Integración de Azure Active Directory con Zoho One
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Zoho One, haga lo si
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de Zoho One](common/idp-relay.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL: `one.zoho.com`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `one.zoho.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
@@ -152,7 +152,7 @@ Para configurar el inicio de sesión único de Azure AD con Zoho One, haga lo si
 
     ![Ini. Zoho One](./media/zohoone-tutorial/tutorial_zohoone_save.png)
 
-     a. En el cuadro de texto **Sign-in URL** (Dirección URL de inicio de sesión), pegue el valor de **Dirección URL de inicio de sesión** que copió de Azure Portal.
+    a. En el cuadro de texto **Sign-in URL** (Dirección URL de inicio de sesión), pegue el valor de **Dirección URL de inicio de sesión** que copió de Azure Portal.
 
     b. En el cuadro de texto **Sign-out URL** (URL de cierre de sesión), pegue el valor de **Logout Out URL** (URL de cierre de sesión) que copió de Azure Portal.
 
@@ -172,7 +172,7 @@ Para configurar el inicio de sesión único de Azure AD con Zoho One, haga lo si
 
     ![Agregar dominio de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adddomain.png)
 
-     a. En el cuadro de texto **Domain Name** (Nombre de dominio), escriba el dominio, por ejemplo, contoso.com.
+    a. En el cuadro de texto **Domain Name** (Nombre de dominio), escriba el dominio, por ejemplo, contoso.com.
 
     b. Haga clic en **Agregar**.
 
@@ -245,7 +245,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Zoho One, deben ap
 
     ![Agregar usuario de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adduser.png)
     
-     a. En el cuadro de texto **Nombre**, escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
+    a. En el cuadro de texto **Nombre**, escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
     
     b. En el cuadro de texto **Dirección de correo electrónico**, escriba el correo electrónico del usuario; por ejemplo, brittasimon@contoso.com.
 
@@ -266,5 +266,5 @@ Al hacer clic en el icono de Zoho One en el Panel de acceso, debería iniciar se
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

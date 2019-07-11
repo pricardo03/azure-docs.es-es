@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f31361dc3d7e24092677f1a78b2c405ae84578ed
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 07341c1ad30f1242bdff430826fdc82c45e09dac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230061"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integración de Azure Active Directory con Zscaler Beta
 
@@ -122,7 +122,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Beta, reali
     | ---------------| --------------- |
     | memberOf  | user.assignedroles |
 
-     a. Seleccione **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Seleccione **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![Cuadro de diálogo Notificaciones del usuario](common/new-save-attribute.png)
 
@@ -143,7 +143,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Beta, reali
     > [!NOTE]
     > Para obtener información sobre cómo configurar roles en Azure AD, consulte [Configuración de la notificación de rol](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
 
-7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** para descargar el **Certificado (base 64)**. Guárdelo en el equipo.
+7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** para descargar el **Certificado (base 64)** . Guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -171,7 +171,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Beta, reali
    
     ![Administración](./media/zscaler-beta-tutorial/ic800206.png "Administración")
 
-     a. En **Tipo de autenticación**, seleccione **SAML**.
+    a. En **Tipo de autenticación**, seleccione **SAML**.
 
     b. Seleccione **Configurar SAML**.
 
@@ -179,7 +179,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Beta, reali
             
     ![Administración de usuarios y autenticación](./media/zscaler-beta-tutorial/ic800208.png "Administración de usuarios y autenticación")
     
-     a. En el cuadro **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que copió de Azure Portal.
+    a. En el cuadro **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que copió de Azure Portal.
 
     b. En el cuadro de texto **Atributo de nombre de inicio de sesión**, escriba **NameID**.
 
@@ -199,7 +199,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Beta, reali
 
     ![Menú de activación y botón Activar](./media/zscaler-beta-tutorial/ic800207.png)
 
-     a. Mantenga el puntero sobre el menú **Activación** situado en la parte inferior izquierda.
+    a. Mantenga el puntero sobre el menú **Activación** situado en la parte inferior izquierda.
 
     b. Seleccione **Activar**.
 
@@ -216,13 +216,13 @@ Para definir la configuración de proxy en Internet Explorer, siga estos pasos.
   
      ![Pestaña conexiones](./media/zscaler-beta-tutorial/ic769493.png "Conexiones")
 
-4. Seleccione **Configuración de LAN** para abrir el cuadro de diálogo **Configuración de red de área local (LAN)**.
+4. Seleccione **Configuración de LAN** para abrir el cuadro de diálogo **Configuración de red de área local (LAN)** .
 
 5. En la sección **Servidor proxy**, siga estos pasos: 
    
     ![Sección Servidor proxy](./media/zscaler-beta-tutorial/ic769494.png "Servidor proxy")
 
-     a. Seleccione la casilla de verificación **Usar un servidor proxy para la LAN**.
+    a. Seleccione la casilla de verificación **Usar un servidor proxy para la LAN**.
 
     b. En el cuadro de texto **Dirección**, escriba **gateway.Zscaler Beta.net**.
 
@@ -230,7 +230,7 @@ Para definir la configuración de proxy en Internet Explorer, siga estos pasos.
 
     d. Seleccione la casilla de verificación **No usar servidor proxy para direcciones locales**.
 
-    e. Seleccione **Aceptar** para cerrar el cuadro de diálogo **Configuración de red de área local (LAN)**.
+    e. Seleccione **Aceptar** para cerrar el cuadro de diálogo **Configuración de red de área local (LAN)** .
 
 6. Seleccione **Aceptar** para cerrar el cuadro de diálogo **Opciones de Internet**.
 
@@ -250,7 +250,7 @@ En Azure Portal, cree un usuario de prueba llamado Britta Simon.
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
   
     b. En el cuadro **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Un ejemplo es BrittaSimon@contoso.com.
 
@@ -307,5 +307,5 @@ Al seleccionar el icono de Zscaler Beta en el Panel de acceso, debería iniciar 
 
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

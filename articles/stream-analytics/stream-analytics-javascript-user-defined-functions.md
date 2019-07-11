@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192282"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329379"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: Funciones definidas por el usuario en JavaScript para Azure Stream Analytics
  
@@ -100,11 +100,11 @@ Hay diferencias entre los tipos admitidos en el lenguaje de consultas de Stream 
 Stream Analytics | JavaScript
 --- | ---
 bigint | Number (JavaScript solamente puede representar enteros hasta 2^53 con precisión)
-DateTime | Date (JavaScript solo admite milisegundos)
+Datetime | Date (JavaScript solo admite milisegundos)
 double | Number
-nvarchar(MAX) | string
-Registro | Objeto
-Matriz | Matriz
+nvarchar(MAX) | Cadena
+Registro | Object
+Array | Array
 NULL | Null
 
 
@@ -114,12 +114,14 @@ Estas son las conversiones de JavaScript a Stream Analytics:
 JavaScript | Stream Analytics
 --- | ---
 Number | Bigint (si el número es round y entre long.MinValue y long.MaxValue, double en caso contrario)
-Date | DateTime
-string | nvarchar(MAX)
-Objeto | Registro
-Matriz | Matriz
+Date | Datetime
+Cadena | nvarchar(MAX)
+Object | Registro
+Array | Array
 Null, sin definir | NULL
 Cualquier otro tipo (por ejemplo, una función o un error) | No admitido (da lugar a un error en tiempo de ejecución)
+
+El lenguaje JavaScript distingue mayúsculas de minúsculas y las mayúsculas y minúsculas de los campos de objetos del código JavaScript deben coincidir con las mayúsculas y minúsculas de los campos de los datos de entrada. Tenga en cuenta que los trabajos con un nivel de compatibilidad de 1.0 convertirán los campos de la instrucción SELECT de SQL en minúsculas. En el nivel de compatibilidad 1.1 y superior, los campos de la instrucción SELECT tendrán la misma convención de mayúsculas y minúsculas que la especificada en la consulta SQL.
 
 ## <a name="troubleshooting"></a>solución de problemas
 Los errores en tiempo de ejecución de JavaScript se consideran graves y se presentan en el registro de actividad. Para recuperar el registro, en Azure Portal, vaya al trabajo y seleccione **Registro de actividad**.

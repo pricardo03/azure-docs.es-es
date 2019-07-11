@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a03bb2626525bf022b109105a7c6bc0dee23aea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 148c2c46a911088d01ab83fe2d16e8ca81d272ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Tutorial: Integración de Azure Active Directory con LockPath Keylight
 
@@ -55,7 +55,7 @@ Para configurar la integración de LockPath Keylight en Azure AD, es preciso agr
 
 **Para agregar LockPath Keylight desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con LockPath Keylight, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de LockPath Keylight](#configure-lockpath-keylight-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de LockPath Keylight](#create-lockpath-keylight-test-user)**: para tener un homólogo de Britta Simon en LockPath Keylight que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de LockPath Keylight](#configure-lockpath-keylight-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de LockPath Keylight](#create-lockpath-keylight-test-user)** : para tener un homólogo de Britta Simon en LockPath Keylight que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -107,9 +107,9 @@ Para configurar el inicio de sesión único de Azure AD con LockPath Keylight, r
 
     ![Información de dominio y direcciones URL de inicio de sesión único de LockPath Keylight](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.keylightgrc.com/`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.keylightgrc.com/`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<company name>.keylightgrc.com`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<company name>.keylightgrc.com`
 
     c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.keylightgrc.com/Login.aspx`.
 
@@ -134,7 +134,7 @@ Para configurar el inicio de sesión único de Azure AD con LockPath Keylight, r
 
 1. Realice los pasos siguientes para habilitar el inicio de sesión único en LockPath Keylight:
 
-     a. Inicie sesión en su cuenta de LockPath Keylight como administrador.
+    a. Inicie sesión en su cuenta de LockPath Keylight como administrador.
 
     b. En el menú de la parte superior, haga clic en el icono de la **persona** y seleccione **Keylight Setup** (Configuración de Keylight).
 
@@ -152,7 +152,7 @@ Para configurar el inicio de sesión único de Azure AD con LockPath Keylight, r
 
     ![Configurar inicio de sesión único](./media/keylight-tutorial/405.png)
 
-     a. Establezca **SAML authentication** (Autenticación SAML) como **Active** (Activada).
+    a. Establezca **SAML authentication** (Autenticación SAML) como **Active** (Activada).
 
     b. En el cuadro de texto **Identity Provider Login URL** (Dirección URL de inicio de sesión único del proveedor de identidades), pegue el valor de **Dirección URL de inicio de sesión**  que ha copiado de Azure Portal.
 
@@ -172,11 +172,11 @@ Para configurar el inicio de sesión único de Azure AD con LockPath Keylight, r
 
     j. Establezca **Auto-provision security config** (Configuración de seguridad de aprovisionamiento automático) y seleccione **Standard User Configuration** (Configuración de usuario estándar).
 
-    k. En el cuadro **Atributo de correo electrónico**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    k. En el cuadro **Atributo de correo electrónico**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    l. En el cuadro de texto **Atributo de nombre**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    l. En el cuadro de texto **Atributo de nombre**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    m. En el cuadro de texto **Atributo de apellido**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    m. En el cuadro de texto **Atributo de apellido**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
     n. Haga clic en **Save**(Guardar).
 
@@ -246,4 +246,4 @@ Al hacer clic en el icono de LockPath Keylight en el panel de acceso, debería i
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

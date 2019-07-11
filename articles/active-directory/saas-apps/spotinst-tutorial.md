@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f0d42562b1c927fe0f87ddc87b5e097022d2be2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5b3c9a0152144ac0d705c7d3f12c18cbc38398f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922077"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090149"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Tutorial: integración de Azure Active Directory con Spotinst
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con Spotinst, siga estos
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Spotinst](common/idp-preintegrated-relay.png)
 
-     a. Seleccione **Establecer direcciones URL adicionales**.
+    a. Seleccione **Establecer direcciones URL adicionales**.
 
     b. En el cuadro de texto **Estado de la retransmisión**, escriba un valor: `<ID>`
 
@@ -131,7 +131,7 @@ Para configurar el inicio de sesión único de Azure AD con Spotinst, siga estos
     | Nombre | user.givenname |
     | Apellidos | user.surname |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -175,7 +175,7 @@ Para configurar el inicio de sesión único de Azure AD con Spotinst, siga estos
 
     ![Seguridad de Spotinst](./media/spotinst-tutorial/tutorial_spotinst_security.png)
 
-     a. Copie el valor de **Estado de la retransmisión** de su instancia y péguelo en el cuadro de texto **Estado de la retransmisión** de la sección **Configuración básica de SAML** de Azure Portal.
+    a. Copie el valor de **Estado de la retransmisión** de su instancia y péguelo en el cuadro de texto **Estado de la retransmisión** de la sección **Configuración básica de SAML** de Azure Portal.
 
     b. Haga clic en **EXAMINAR** para cargar el archivo XML de metadatos que descargó de Azure Portal.
 
@@ -237,7 +237,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 1. Si ha configurado la aplicación en modo iniciado por **SP**, realice los siguientes pasos:
 
-    a. En otra ventana del explorador web, inicie sesión en Spotinst como administrador de seguridad.
+   a. En otra ventana del explorador web, inicie sesión en Spotinst como administrador de seguridad.
 
    b. Haga clic en el **icono de usuario** en la parte superior derecha de la pantalla y haga clic en **Configuración**.
 
@@ -271,5 +271,5 @@ Al hacer clic en el icono de Spotinst en el panel de acceso, debería iniciar se
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

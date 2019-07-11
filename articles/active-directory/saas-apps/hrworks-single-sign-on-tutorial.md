@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c0c326525f5a551ddb00a709ed0a36a68a1343db
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 790df60f973e6f86bd4424173909159fdd81ee0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66356477"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100850"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Tutorial: Integración de Azure Active Directory con HRworks Single Sign-On
 
@@ -132,7 +132,7 @@ Para configurar el inicio de sesión único de Azure AD con HRworks Single Sign-
 
     ![Configurar inicio de sesión único](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
-     a. Seleccione la casilla **Utilizar inicio de sesión único (SSO)** .
+    a. Seleccione la casilla **Utilizar inicio de sesión único (SSO)** .
 
     b. Seleccione **Metadatos XML** como **método de entrada de metadatos**.
 
@@ -158,7 +158,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba un nombre de usuario como BrittaSimon@contoso.com.
 
@@ -224,5 +224,5 @@ Al hacer clic en el icono de HRworks Single Sign-On en el panel de acceso, deber
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

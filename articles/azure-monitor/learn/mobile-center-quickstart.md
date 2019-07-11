@@ -5,18 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/22/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 67ddedbaca88d46e706c9a143100b215a0d16a90
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b8ce08c662e1615b62160e0c681a2fe8dbcb2be1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683425"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447044"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Comience a analizar la aplicación móvil con App Center y Application Insights.
 
@@ -68,17 +68,17 @@ Para asegurarse de que se reciben los eventos personalizados, vaya a la pestaña
 Cuando la aplicación envía eventos personalizados y App Center los recibe, tiene que crear un recurso de Application Insights para App Center en Azure Portal:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Crear un recurso** > **Herramientas de administración** > **Application Insights**.
+2. Seleccione **Crear un recurso** > **Herramientas de desarrollo** > **Application Insights**.
 
-    ![Incorporación del recurso Application Insights](./media/mobile-center-quickstart/add-b.png)
+    > [!NOTE]
+    > Si esta es la primera vez que crea un recurso de Application Insights, puede obtener más información visitando la documentación [Creación de recursos en Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
     Aparecerá un cuadro de configuración. Use la tabla siguiente para rellenar los campos de entrada.
 
     | Configuración        |  Valor           | DESCRIPCIÓN  |
    | ------------- |:-------------|:-----|
    | **Nombre**      | Algún valor único global, como "myApp-iOS" | Nombre que identifica la aplicación que se está supervisando |
-   | **Tipo de aplicación** | Aplicación de App Center | Tipo de aplicación que se está supervisando |
-   | **Grupo de recursos**     | Un grupo de recursos nuevo o uno existente desde el menú | El grupo de recursos en que se va a crear el recurso de Application Insights |
+     | **Grupo de recursos**     | Un grupo de recursos nuevo o uno existente desde el menú | El grupo de recursos en que se va a crear el recurso de Application Insights |
    | **Ubicación** | Una ubicación en el menú | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
 3. Haga clic en **Create**(Crear).
@@ -89,9 +89,7 @@ Si la aplicación admite varias plataformas (iOS, Android, etc.), es mejor crear
 
 En el nuevo recurso de Application Insights, en la página **Introducción**. Copie la clave de instrumentación del recurso.
 
-   ![Botón Analytics en Application Insights](./media/mobile-center-quickstart/overview-01.png)
-
-En la instancia de App Center de la aplicación:
+En la instancia de [App Center](https://appcenter.ms/) de la aplicación:
 
 1. En la página **Configuración**, haga clic en **Exportar**.
 2. Elija **Nueva exportación**, seleccione **Application Insights** y después haga clic en **Personalizar**.
@@ -108,13 +106,11 @@ Para proporcionarle más datos cuando se conecte por primera vez, las 48 horas m
 
 Application Insights puede consultar, segmentar, filtrar y analizar la telemetría de eventos personalizada desde las aplicaciones, de forma más exhaustiva que las herramientas de análisis que App Center ofrece.
 
-1. **Consulte la telemetría de eventos personalizados.** En la página de **información general** de Application Insights, seleccione **Analytics**. 
+1. **Consulte la telemetría de eventos personalizados.** En la página de **información general** de Application Insights, seleccione **Logs (Analytics)** .
 
-   ![Botón Analytics en Application Insights](./media/mobile-center-quickstart/analytics-001.png)
-
-   Se abre el portal de Analytics de Application Insights asociado con el recurso de Application Insights. El portal de Analytics permite consultar directamente los datos mediante el lenguaje de consulta de Log Analytics, por lo que puede hacer preguntas arbitrariamente complejas sobre la aplicación y sus usuarios.
+   Se abre el portal Logs (Analytics) de Application Insights asociado con el recurso de Application Insights. El portal de Logs (Analytics) permite consultar directamente los datos mediante el lenguaje de consulta de Log Analytics, por lo que puede hacer preguntas arbitrariamente complejas sobre la aplicación y sus usuarios.
    
-   Abra una pestaña nueva en el portal de Analytics y después pegue la siguiente consulta. Devuelve un recuento de cuántos usuarios distintos han enviado cada evento personalizado desde la aplicación en las últimas 24 horas, ordenados por estos recuentos distintivos.
+   Abra una pestaña nueva en el portal de Logs (Analytics) y después pegue la siguiente consulta. Devuelve un recuento de cuántos usuarios distintos han enviado cada evento personalizado desde la aplicación en las últimas 24 horas, ordenados por estos recuentos distintivos.
 
    ```AIQL
    customEvents
@@ -123,7 +119,7 @@ Application Insights puede consultar, segmentar, filtrar y analizar la telemetr�
    | order by dcount_user_Id desc 
    ```
 
-   ![Portal de Analytics](./media/mobile-center-quickstart/analytics-portal-001.png)
+   ![Portal de Logs (Analytics)](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Seleccione la consulta haciendo clic en cualquier parte de la consulta en el editor de texto.
    2. Después haga clic en **Ir** para ejecutar la consulta. 

@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 6e0175173f17ae0958522517360b94ee80f3b2f9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66148986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133562"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -27,9 +27,12 @@ Para desencadenar una tarea en una confirmación en un repositorio Git, ACR Task
 
 1. Vaya a la página de creación del token de acceso personal en GitHub en https://github.com/settings/tokens/new
 1. Escriba una breve **descripción** para el token, por ejemplo, "ACR Tasks Demo"
-1. En **repo**, active **repo:status** y **public_repo**
+1. Seleccione los ámbitos de ACR para acceder al repositorio. Para acceder a un repositorio público como en este tutorial, en **repo**, habilite **repo:status** y **public_repo**
 
    ![Captura de pantalla de la página de generación de un token de acceso personal en GitHub][build-task-01-new-token]
+
+   > [!NOTE]
+   > Para generar un PAT y acceder a un repositorio *privado*, seleccione el ámbito para el control total del **repositorio**.
 
 1. Seleccione el botón **Generar token** (puede que se le pida que confirme la contraseña)
 1. Copie y guarde el token generado en una **ubicación segura** (usará este token cuando defina una tarea en la siguiente sección)

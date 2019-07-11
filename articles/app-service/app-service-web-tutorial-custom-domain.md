@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: a3677e45738c368d8438872da740a362a8048a63
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742819"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155533"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -68,7 +68,7 @@ En el menú izquierdo, seleccione **App Services** y, después, el nombre de la 
 
 Consulte la página de administración de la aplicación de App Service.  
 
-<a name="checkpricing"></a>
+<a name="checkpricing" aria-hidden="true"></a>
 
 ### <a name="check-the-pricing-tier"></a>Comprobar el plan de tarifa
 
@@ -82,7 +82,7 @@ El nivel actual de la aplicación aparece resaltado con un cuadro azul. Asegúre
 
 Si el plan de App Service no es **F1**, cierre la página **Escalar verticalmente** y vaya directamente a [Asignar un registro CNAME](#cname).
 
-<a name="scaleup"></a>
+<a name="scaleup" aria-hidden="true"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Escalado verticalmente del plan de App Service
 
@@ -96,7 +96,7 @@ Cuando vea la siguiente notificación, significará que la operación de escalad
 
 ![Confirmación de la operación de escalado](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="cname"></a>
+<a name="cname" aria-hidden="true"></a>
 
 ## <a name="map-your-domain"></a>Asignación del dominio
 
@@ -156,13 +156,13 @@ El nuevo dominio personalizado puede tardar algo en reflejarse en la página **D
 ![Registro CNAME agregado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Si un dominio personalizado contiene la etiqueta **Nota Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Si un dominio personalizado contiene la etiqueta **Not Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteriormente, verá un error de comprobación en la parte inferior de la página.
 
 ![Error de comprobación](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-<a name="a"></a>
+<a name="a" aria-hidden="true"></a>
 
 ### <a name="map-an-a-record"></a>Asignar un registro A
 
@@ -213,7 +213,7 @@ Cuando se agregan los registros, la página de registros DNS es como la del ejem
 
 ![Página de registros DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-<a name="enable-a"></a>
+<a name="enable-a" aria-hidden="true"></a>
 
 #### <a name="enable-the-a-record-mapping-in-the-app"></a>Habilitar la asignación de registros A en la aplicación
 
@@ -240,13 +240,13 @@ El nuevo dominio personalizado puede tardar algo en reflejarse en la página **D
 ![Registro D agregado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Si un dominio personalizado contiene la etiqueta **Nota Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Si un dominio personalizado contiene la etiqueta **Not Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteriormente, verá un error de comprobación en la parte inferior de la página.
 
 ![Error de comprobación](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-<a name="wildcard"></a>
+<a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>Asignar un dominio con caracteres comodín
 
@@ -310,7 +310,7 @@ Si recibe un error HTTP 404 (No se encuentra) al ir a la dirección URL de su do
 - En el dominio personalizado configurado falta un registro A o un registro CNAME.
 - El cliente del explorador ha almacenado en caché la dirección IP antigua del dominio. Borre la caché y pruebe la resolución DNS de nuevo. En un equipo Windows, borre la memoria caché con `ipconfig /flushdns`.
 
-<a name="virtualdir"></a>
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="migrate-an-active-domain"></a>Migración de un dominio activo
 
@@ -332,7 +332,7 @@ Una vez completada la operación, la aplicación debe devolver la página correc
 
 Puede automatizar la administración de dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
 
-### <a name="azure-cli"></a>Azure CLI 
+### <a name="azure-cli"></a>CLI de Azure 
 
 El comando siguiente agrega un nombre DNS personalizado configurado a una aplicación de App Service. 
 

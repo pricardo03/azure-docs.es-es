@@ -1,6 +1,6 @@
 ---
-title: Ejemplo de PowerShell de grupo de conmutación por error de replicación geográfica para una instancia única de Azure SQL Database | Microsoft Docs
-description: Script de ejemplo de Azure PowerShell para configurar el grupo de conmutación por error de replicación geográfica activa para una base de datos única de Azure SQL Database.
+title: Ejemplo de PowerShell de replicación geográfica activa para una base de datos única de Azure SQL Database | Microsoft Docs
+description: Script de ejemplo de Azure PowerShell para configurar la replicación geográfica activa para una base de datos única en Azure SQL Database y conmutarla por error.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,14 +12,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a90753d075f7f4db9dbae95fde979d471db3247c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1733e117c2a5b0d58e37c3f5af451f949bd253f9
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729192"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561485"
 ---
-# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>Uso de PowerShell para configurar un grupo de conmutación por error de replicación geográfica activa para una base de datos única en Azure SQL Database
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Use PowerShell para configurar la replicación geográfica activa para una base de datos única en Azure SQL Database
 
 En este ejemplo de script de PowerShell se configura un grupo de conmutación por error de replicación geográfica activa para una base de datos única y se conmuta por error a una réplica secundaria de la base de datos.
 

@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313624"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502957"
 ---
 # <a name="what-is-project-acoustics"></a>¿Qué son los elementos acústicos de un proyecto?
 Project Acoustics es un motor de acústica de ondas para experiencias interactivas en 3D. Modela los efectos de onda como los de difracción, portaling y reverberación en escenas complejas sin necesidad de marcado manual de la zona. También incluye la integración de middleware de audio y motor de juego. La idea detrás de Project Acoustics es similar a la iluminación estática: simular mediante "bake" y sin conexión, características físicas en detalle para proporcionar una base de referencia física y usar un tiempo de ejecución ligero con controles de diseño expresivo para lograr objetivos artísticos.
@@ -41,7 +41,7 @@ La innovación clave de Project Acoustics es que une la simulación acústica co
 
 ## <a name="platforms"></a>Plataformas
 Los complementos de tiempo de ejecución de Project Acoustics se pueden implementar actualmente en las siguientes plataformas:
-*  Windows
+* Windows
 * Android
 * Xbox One
 
@@ -51,7 +51,7 @@ Los complementos de tiempo de ejecución de Project Acoustics se pueden implemen
   * Para los archivos binarios de Xbox y soporte técnico, póngase en contacto con nosotros mediante el formulario de registro a continuación
 
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros
-* [Foros de Project Acoustics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Debate sobre Project Acoustics e informes de problemas](https://github.com/microsoft/ProjectAcoustics/issues)
 * [Regístrese para recibir las actualizaciones sobre Project Acoustics](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Pasos siguientes

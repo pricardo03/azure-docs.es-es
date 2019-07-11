@@ -2,22 +2,22 @@
 title: 'Tutorial: Implementación de Azure Digital Twins | Microsoft Docs'
 description: Aprenda a implementar su instancia de Azure Digital Twins y a configurar los recursos espaciales mediante los pasos de este tutorial.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/17/2018
-ms.author: dkshir
-ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 06/26/2019
+ms.author: alinast
+ms.openlocfilehash: 15a152d6941a8c77cae2ef7771be93db4ddceae4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537469"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484687"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implementación de Azure Digital Twins y configuración de un grafo espacial
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implementación de la versión preliminar de Azure Digital Twins y configuración de un grafo espacial
 
-Puede usar el servicio Azure Digital Twins para reunir personas, lugares y dispositivos en un sistema espacial coherente. En esta serie de tutoriales se muestra cómo usar Azure Digital Twins para detectar la ocupación de salas con condiciones óptimas de temperatura y calidad del aire. 
+Puede usar el servicio en versión preliminar de Azure Digital Twins para reunir personas, lugares y dispositivos en un sistema espacial coherente. En esta serie de tutoriales se muestra cómo usar Azure Digital Twins para detectar la ocupación de salas con condiciones óptimas de temperatura y calidad del aire. 
 
 Estos tutoriales le guían a través de una aplicación de consola .NET para crear un escenario de un edificio de oficinas. El edificio tiene varias plantas y salas dentro de cada planta. Las salas contienen dispositivos, con sensores conectados, que detectan movimiento, la temperatura ambiente y la calidad del aire. 
 
@@ -103,7 +103,7 @@ En la carpeta de ejemplo extraída, abra el archivo **digital-twins-samples-csha
 1. En Visual Studio Code, abra el archivo [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) en el proyecto **occupancy-quickstart**. Actualice los valores siguientes:
    * **ClientId**: Escriba el identificador de aplicación de su registro de aplicaciones de Azure AD. Este identificador lo anotó en la sección donde se [establecen los permisos de aplicación](#permissions).
    * **Tenant**: Escriba el identificador de directorio de su [inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). También anotó este identificador en la sección donde se [establecen los permisos de aplicación](#permissions).
-   * **BaseUrl**: Escriba la dirección URL de la instancia de Digital Twins. Para obtener esta dirección URL, sustituya los marcadores de posición de esta por los valores de su instancia: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Para obtener esta dirección URL, también puede modificar la dirección URL de Management API en la [sección de implementación](#deploy). Reemplace **swagger/** por **api/v1.0/**.
+   * **BaseUrl**: Escriba la dirección URL de la instancia de Digital Twins. Para obtener esta dirección URL, sustituya los marcadores de posición de esta por los valores de su instancia: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Para obtener esta dirección URL, también puede modificar la dirección URL de Management API en la [sección de implementación](#deploy). Reemplace **swagger/** por **api/v1.0/** .
 
 1. Consulte una lista de características de Digital Twins que puede explorar mediante el ejemplo. Ejecute el siguiente comando:
 

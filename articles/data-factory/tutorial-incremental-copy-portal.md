@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6a9d6ec651cd365995ce63a8dff6d60c8b23dec1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447235"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312641"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos incremental de una base de datos de Azure SQL en Azure Blob Storage
 En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos de Azure SQL en Azure Blob Storage. 
@@ -63,7 +63,7 @@ Estos son los pasos importantes para crear esta solución:
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
+* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
 * **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Creación de una tabla de origen de datos en la base de datos SQL
@@ -238,7 +238,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 
         ![Segunda actividad de búsqueda: nuevo conjunto de datos](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. Cambie al editor de canalización; para ello, haga clic en la pestaña de la canalización de la parte superior o en el nombre de esta de la vista de árbol de la izquierda. En la ventana de propiedades de la actividad de **búsqueda**, confirme que **SourceDataset** está seleccionado en el campo **Source Dataset** (Conjunto de datos de origen). 
-18. Seleccione **Query** (Consulta) en el campo **Use Query** (Usar consulta) y escriba la siguiente consulta: solo se selecciona el valor máximo de **LastModifytime** de **data_source_table**. Si no tiene esta consulta, el conjunto de datos obtiene todas las filas de la tabla, ya que especificó el nombre de tabla (data_source_table) en la definición del conjunto de datos.
+18. Seleccione **Query** (Consulta) en el campo **Use Query** (Usar consulta) y escriba la siguiente consulta: solo se selecciona el valor máximo de **LastModifytime** de **data_source_table**. Asegúrese de haber activado también **First row only** (Solo la primera fila).
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
@@ -248,7 +248,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 19. En el cuadro de herramientas **Activities** (Actividades), expanda **DataFlow** (Flujo de datos), y arrastre la actividad **Copy** (Copiar) y colóquela en el cuadro de herramientas Activities (Actividades); después, establezca el nombre en  **IncrementalCopyActivity**. 
 
     ![Actividad de copia: nombre](./media/tutorial-incremental-copy-portal/copy-activity-name.png)
-20. **Conecte las dos actividades Lookup (Búsqueda) a la actividad Copy (Copiar)**; para ello, arrastre el **botón verde** de las actividades de búsqueda a la actividad de copia. Suelte el botón del mouse cuando vea el color del borde de la actividad de copia cambiar a azul. 
+20. **Conecte las dos actividades Lookup (Búsqueda) a la actividad Copy (Copiar)** ; para ello, arrastre el **botón verde** de las actividades de búsqueda a la actividad de copia. Suelte el botón del mouse cuando vea el color del borde de la actividad de copia cambiar a azul. 
 
     ![Conexión de las actividades de búsqueda a la actividad de copia](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
 21. Seleccione la **actividad de copia** y confirme que ve sus propiedades en la ventana **Properties** (Propiedades). 
@@ -308,8 +308,8 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 
         | NOMBRE | type | Valor | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | string | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | TableName | Cadena | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Actividad de procedimiento almacenado: configuración del procedimiento almacenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Para comprobar la configuración de canalización, haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar la ventana **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en >>.   

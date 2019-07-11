@@ -1,6 +1,6 @@
 ---
-title: Carga, codificación y transmisión en secuencias con Azure Media Services v3 mediante .NET | Microsoft Docs
-description: Siga los pasos de este tutorial para cargar un archivo, codificar el vídeo y transmitir en secuencias su contenido con Media Services v3 mediante .NET.
+title: Carga, codificación y transmisión en secuencias con Azure Media Services v3 | Microsoft Docs
+description: Siga los pasos de este tutorial para cargar un archivo, codificar el vídeo y transmitir en secuencias su contenido con Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,14 +12,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46a1add812d5721e36d8af030195c42542dc360c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149145"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273243"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Tutorial: Carga, codificación y transmisión en secuencias de videos mediante .NET
+# <a name="tutorial-upload-encode-and-stream-videos"></a>Tutorial: Carga, codificación y streaming de vídeos
+
+> [!NOTE]
+> Aunque en este tutorial se usan los ejemplos de [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), los pasos generales son los mismos para la [API REST](https://docs.microsoft.com/rest/api/media/liveevents), la [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) u otros [SDK](media-services-apis-overview.md#sdks) admitidos.
 
 Azure Media Services permite codificar los archivos multimedia en formatos que se pueden reproducir en una gran variedad de exploradores y dispositivos. Por ejemplo, puede que quiera transmitir su contenido en los formatos HLS o MPEG DASH de Apple. Antes de la transmisión, primero debe codificar su archivo de medios digitales de alta calidad. Para obtener instrucciones acerca de la codificación, consulte [El concepto de codificación](encoding-concept.md). Este tutorial carga un archivo de vídeo local y codifica el archivo cargado. También puede codificar contenido que se hace accesible a través de una dirección URL HTTPS. Para más información, consulte [Creación de una entrada de un trabajo desde una dirección URL HTTP(s)](job-input-from-http-how-to.md).
 
@@ -169,7 +172,7 @@ Por lo general, debe limpiar todo excepto los objetos que piensa reutilizar (tí
 
 En este ejemplo se muestran las direcciones URL que pueden usarse para reproducir el vídeo con diferentes protocolos:
 
-![Salida](./media/stream-files-tutorial-with-api/output.png)
+![Output](./media/stream-files-tutorial-with-api/output.png)
 
 ## <a name="test-the-streaming-url"></a>Prueba de la URL de streaming
 
@@ -179,7 +182,7 @@ Para probar la transmisión, este artículo usa Azure Media Player.
 > Si el reproductor está hospedado en un sitio https, asegúrese de actualizar la dirección URL a "https".
 
 1. Abra un explorador web y vaya a [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. En el cuadro **Dirección URL:**, pegue uno de los valores de la dirección URL de streaming que se obtuvo al ejecutar la aplicación. 
+2. En el cuadro **Dirección URL:** , pegue uno de los valores de la dirección URL de streaming que se obtuvo al ejecutar la aplicación. 
 3. Presione **Actualizar Player**.
 
 Azure Media Player puede usarse para realizar pruebas, pero no debe usarse en un entorno de producción. 

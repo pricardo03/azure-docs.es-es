@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: b48ec72a1f0a4178dad66ed31c544399e90c5293
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545609"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484496"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Compilación de una imagen personalizada para ejecutarla en App Service a partir de un registro privado
 
-[App Service](app-service-linux-intro.md) proporciona imágenes integradas de Docker en Linux con compatibilidad para versiones específicas, como PHP 7.0 y Node.js 4.5. App Service usa la tecnología de contenedores de Docker para hospedar imágenes integradas e imágenes personalizadas como plataforma como servicio. En este tutorial aprenderá a compilar una imagen personalizada y a ejecutarla en App Service. Este patrón es útil cuando las imágenes integradas no incluyen el lenguaje elegido o cuando la aplicación requiere una configuración específica que no se proporciona en las imágenes integradas.
+[App Service](app-service-linux-intro.md) proporciona imágenes integradas de Docker en Linux con compatibilidad para versiones específicas, como PHP 7.3 y Node.js 10.14. App Service usa la tecnología de contenedores de Docker para hospedar imágenes integradas e imágenes personalizadas como plataforma como servicio. En este tutorial aprenderá a compilar una imagen personalizada y a ejecutarla en App Service. Este patrón es útil cuando las imágenes integradas no incluyen el lenguaje elegido o cuando la aplicación requiere una configuración específica que no se proporciona en las imágenes integradas.
 
 En este tutorial, aprenderá a:
 
@@ -155,7 +155,7 @@ Confirme que el inicio de sesión se realiza correctamente.
 
 ### <a name="push-image-to-azure-container-registry"></a>Inserción de imágenes en Azure Container Registry
 
-Etiquete la imagen local en Azure Container Registry. Por ejemplo: 
+Etiquete la imagen local en Azure Container Registry. Por ejemplo:
 ```bash
 docker tag mydockerimage <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
@@ -186,7 +186,7 @@ Debería obtener la siguiente salida.
 
 ### <a name="create-web-app"></a>Crear una aplicación web
 
-En Cloud Shell, cree una [aplicación web](app-service-linux-intro.md) en el plan de App Service `myAppServicePlan` con el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Reemplace _\<app-name>_ por un nombre de aplicación único y _\<azure-container-registry-name>_, por el nombre de su registro.
+En Cloud Shell, cree una [aplicación web](app-service-linux-intro.md) en el plan de App Service `myAppServicePlan` con el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Reemplace _\<app-name>_ por un nombre de aplicación único y _\<azure-container-registry-name>_ , por el nombre de su registro.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
@@ -211,7 +211,7 @@ Cuando se haya creado la aplicación web, la CLI de Azure mostrará información
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Configuración de las credenciales del registro en la aplicación web
 
-Para que App Service extraiga la imagen privada, necesita información sobre el registro y la imagen. En Cloud Shell, esta se proporciona con el comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Reemplace *\<app-name>*, *\<azure-container-registry-name>*, _\<registry-username>_ y _\<password>_.
+Para que App Service extraiga la imagen privada, necesita información sobre el registro y la imagen. En Cloud Shell, esta se proporciona con el comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Reemplace *\<app-name>* , *\<azure-container-registry-name>* , _\<registry-username>_ y _\<password>_ .
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -278,7 +278,7 @@ SSH habilita la comunicación segura entre un contenedor y un cliente. Para habi
     > [!NOTE]
     > Esta configuración no permite realizar conexiones externas al contenedor. SSH solo está disponible en el sitio de Kudu/SCM. El sitio de Kudu/SCM se autentica con la cuenta de Azure.
 
-* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) copia [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config file in the repository) en el directorio */etcetera/ssh/*.
+* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) copia el archivo [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) del repositorio al directorio */etc/ssh/* .
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/

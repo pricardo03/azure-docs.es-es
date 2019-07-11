@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de una canalización de CI/CD para .NET con Azure DevOps Projects'
+title: 'Inicio rápido: Creación de una canalización de CI/CD para .NET con Azure DevOps Projects'
 description: Con Azure DevOps Projects es fácil empezar a usar Azure. Le ayuda a iniciar rápidamente una aplicación .NET en el servicio de Azure de su elección.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 5fabe9ba03c9516f5df41645fc6ab1b7a0cb2050
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 387801f2ecb2f5fa1639005726218efb54d75dc8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262183"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331420"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Creación de una canalización de CI/CD para .NET con Azure DevOps Projects
 
@@ -44,51 +44,45 @@ DevOps Projects crea una canalización de CI/CD en Azure DevOps. Puede crear una
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Seleccione una aplicación de ejemplo y el servicio de Azure
 
-1. Seleccione la aplicación de ejemplo .NET. Los ejemplos de.NET incluyen la opción de elegir entre el marco ASP.NET de código abierto o el marco .NET Core multiplataforma.
+1. Seleccione la aplicación de ejemplo de **.NET**. Los ejemplos de.NET incluyen la opción de elegir entre el marco ASP.NET de código abierto o el marco .NET Core multiplataforma.
 
-    ![Marco .NET](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
+   ![Marco .NET](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-1. Seleccione el marco de trabajo de la aplicación .NET Core.  
-    Este ejemplo es una aplicación de MVC de ASP.NET Core.
+2. Este ejemplo es una aplicación de MVC de ASP.NET Core. Seleccione el marco de trabajo de la aplicación **.NET Core** y, a continuación, seleccione **Siguiente**.    
     
-2. Seleccione **Next** (Siguiente).  
-    Web App on Windows es el destino de implementación predeterminado.  Si lo desea, puede elegir entre Web App on Linux o Web App for Containers.  El marco de trabajo de la aplicación que ha elegido antes determina el tipo de destino de implementación del servicio de Azure disponible aquí.  
-    
-3. Deje el servicio predeterminado y seleccione **Siguiente**.
+3. Seleccione **Aplicación web de Windows** como destino de implementación y, a continuación, seleccione **Siguiente**. De forma opcional, puede elegir otros servicios de Azure para su implementación. El marco de trabajo de la aplicación que ha elegido antes determina el tipo de destino de implementación del servicio de Azure disponible aquí.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configuración de Azure DevOps y una suscripción de Azure 
 
-1. Cree una organización de Azure DevOps gratuita o elija una existente.
+1. Escriba un **nombre de proyecto**.
 
-     a. Elija un nombre para el proyecto. 
+2. Cree una **organización de Azure DevOps** gratuita o elija una existente en la lista desplegable.
 
-    b. Seleccione la suscripción de Azure y la ubicación, elija el nombre de la aplicación y seleccione **Listo**.  
-    En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en Azure. Este panel proporciona visibilidad sobre el repositorio de código, la canalización de CI/CD y la aplicación de Azure.
-    
+3. Seleccione la **suscripción de Azure**, escriba el nombre de la **aplicación web** o use el predeterminado y, a continuación, seleccione **Listo**. En unos minutos, la descripción general de la implementación de DevOps Projects se muestra en Azure Portal. 
 
-2. En el lado derecho del panel, seleccione **Examinar** para ver la aplicación en ejecución.
+4. Seleccione **Ir al recurso** para ver el panel de DevOps Projects. En la esquina superior derecha, ancle el **proyecto** a su panel para un acceso rápido. Una aplicación de ejemplo se configura en un repositorio de su **organización de Azure DevOps**. Una compilación se ejecuta y su aplicación se implementa en Azure.
 
-    ![Vista de panel](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
+5. El panel proporciona visibilidad del repositorio de código, la canalización de CI/CD y la aplicación de Azure. A la derecha, en Recursos de Azure, seleccione **Examinar** para ver su aplicación en ejecución.
+
+   ![Vista de panel](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmación de los cambios de código y ejecución de CI/CD
 
- DevOps Projects ha creado un repositorio Git en Azure Repos o GitHub. Para ver el repositorio y realizar cambios en el código de la aplicación, siga estos pasos:
+DevOps Projects ha creado un repositorio Git en Azure Repos o GitHub. Para ver el repositorio y realizar cambios en el código de la aplicación, siga estos pasos:
 
-1. En el lado izquierdo del panel de DevOps Projects, seleccione el vínculo de la rama **maestra**.  
-Este vínculo abre una vista al repositorio de Git recién creado.
+1. En el lado izquierdo del panel de DevOps Projects, seleccione el vínculo de la rama **maestra**. Este vínculo abre una vista al repositorio de Git recién creado.
 
-1. Para ver la dirección URL de clonación del repositorio, seleccione **Clonar** en la parte superior derecha del explorador.  
-Puede clonar el repositorio de Git en su IDE favorito.  En los pasos siguientes, puede usar el explorador web para realizar los cambios en el código y confirmarlos directamente en la rama maestra.
+2. En los pasos siguientes, puede usar el explorador web para realizar los cambios en el código y confirmarlos directamente en la rama **maestra**. También puede clonar su repositorio de Git de su IDE favorito seleccionando **Clonar** en la esquina superior derecha de la página del repositorio. 
 
-1. A la izquierda del explorador, vaya al archivo **Views/Home/index.cshtml**.
+3. A la izquierda, vaya a la estructura de archivos de aplicación en **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
-1. Seleccione **Editar** y, a continuación, realice un cambio en el encabezado h2. Por ejemplo, escriba **Empezar a trabajar de inmediato con Azure DevOps Projects** o haga cualquier otro cambio.
+4. Seleccione **Editar** y, a continuación, realice un cambio en el encabezado h2. Por ejemplo, escriba **Empezar a trabajar de inmediato con Azure DevOps Projects** o haga cualquier otro cambio.
 
-    ![Ediciones de código](_img/azure-devops-project-aspnet-core/codechange.png)
+      ![Ediciones de código](_img/azure-devops-project-aspnet-core/codechange.png)
 
-1. Seleccione **Confirmar** y guarde los cambios.
+5. Seleccione **Confirmar**, deje un comentario y seleccione **Confirmar** de nuevo.
 
-1. En el explorador, vaya al panel de proyectos de Azure DevOps.  Debería ver que hay una compilación en curso. Los cambios que ha realizado se compilan e implementan automáticamente a través de una canalización de CI/CD.
+6. En el explorador, vaya al panel de proyectos de Azure DevOps.  Debería ver que hay una compilación en curso. Los cambios que ha realizado se compilan e implementan automáticamente a través de una canalización de CI/CD.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examen de la canalización de CI/CD
 
@@ -114,7 +108,7 @@ Este vínculo abre una pestaña del explorador y la canalización de compilació
 En el panel **Historial** verá un registro de auditoría de los cambios recientes en la compilación.  Azure Pipelines realiza un seguimiento de los cambios que se realizan en la canalización de compilación y permite comparar versiones.
 
 1. Seleccione **Desencadenadores**.  
-DevOps Projects creó automáticamente un desencadenador de integración continua y cada confirmación en el repositorio inicia una nueva compilación.  Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
+DevOps Projects creó automáticamente un desencadenador de integración continua y cada confirmación en el repositorio inicia una compilación.  Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
 
 1. Seleccione **Retención**.  
 En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
@@ -136,7 +130,7 @@ Las tareas son las actividades que ejecuta el proceso de implementación. En est
 1. A la derecha, seleccione **Ver versiones**. Esta vista muestra un historial de versiones.
 
 1. Seleccione los puntos suspensivos (...) junto a una de las versiones y, luego, seleccione **Abrir**.  
-Hay varios menús para explorar, como un resumen de versiones, elementos de trabajo asociados y pruebas.
+Hay varios menús para explorar, como un resumen de las versiones, elementos de trabajo asociados y las pruebas.
 
 
 1. Seleccione **Confirmaciones**.   

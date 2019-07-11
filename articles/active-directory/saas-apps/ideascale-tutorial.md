@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88d181c2e761679d7f52208b2086404411bc2012
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a312e0ca70ef3a37b43f1ffb68a974a8aedaf982
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: Integración de Azure Active Directory con IdeaScale
 
@@ -53,7 +53,7 @@ Para configurar la integración de IdeaScale en Azure AD, deberá agregar IdeaSc
 
 **Para agregar IdeaScale desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con IdeaScale, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de IdeaScale](#configure-ideascale-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de IdeaScale](#create-ideascale-test-user)**: para tener un homólogo de Britta Simon en IdeaScale vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de IdeaScale](#configure-ideascale-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de IdeaScale](#create-ideascale-test-user)** : para tener un homólogo de Britta Simon en IdeaScale vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,9 +105,9 @@ Para configurar el inicio de sesión único de Azure AD con IdeaScale, realice l
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de IdeaScale](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.ideascale.com`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.ideascale.com`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón:
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón:
     
     | |
     |--|
@@ -151,7 +151,7 @@ Para configurar el inicio de sesión único de Azure AD con IdeaScale, realice l
 
     ![Configuración de inicio de sesión único](./media/ideascale-tutorial/ic790850.png "Configuración de inicio de sesión único")
 
-     a. En el cuadro de texto **SAML IdP Entity ID** (Identificador de la entidad de IdP de SAML), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
+    a. En el cuadro de texto **SAML IdP Entity ID** (Identificador de la entidad de IdP de SAML), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
     b. Abra el archivo de metadatos descargado de Azure Portal en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto **IdP Metadata** (Metadatos del IdP de SAML).
 
@@ -232,7 +232,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en IdeaScale, deben a
 
     ![Agregar nuevo miembro](./media/ideascale-tutorial/ic790853.png "Agregar nuevo miembro")
 
-     a. En el cuadro de texto **Direcciones de correo electrónico**, escriba la dirección de correo electrónico de la cuenta de Azure AD válida que quiera aprovisionar.
+    a. En el cuadro de texto **Direcciones de correo electrónico**, escriba la dirección de correo electrónico de la cuenta de Azure AD válida que quiera aprovisionar.
 
     b. Haga clic en **Guardar cambios**.
 
@@ -254,5 +254,5 @@ Al hacer clic en el icono de IdeaScale en el panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 15b7c052d0e4d51cb033607c156a55c581f722b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893969"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147278"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configuración del agente de Log Analytics para los equipos Linux en un entorno híbrido
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) puede recopilar datos directamente de los equipos Linux físicos o virtuales en un centro de datos o en otro entorno en la nube dentro de un único repositorio para llevar a cabo una correlación y un análisis detallados. En esta guía de inicio rápido se muestra cómo configurar y recopilar datos de equipos Linux con unos pasos sencillos.  Para máquinas virtuales Linux de Azure, vea el tema [Recopilación de datos acerca de máquinas virtuales de Azure](quick-collect-azurevm.md).  
+[Azure Log Analytics](../platform/agent-windows.md) puede recopilar datos directamente de los equipos Linux físicos o virtuales en un centro de datos o en otro entorno en la nube dentro de un único repositorio para llevar a cabo una correlación y un análisis detallados. En esta guía de inicio rápido se muestra cómo configurar y recopilar datos de equipos Linux con unos pasos sencillos.  Para máquinas virtuales Linux de Azure, vea el tema [Recopilación de datos acerca de máquinas virtuales de Azure](quick-collect-azurevm.md).  
 
-Para comprender la configuración compatible, revise los [sistemas operativos Linux admitidos](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) y la [configuración del firewall de red](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+Antes de continuar, debería revisar el artículo de [información general](../platform/log-analytics-agent.md) sobre el agente de Log Analytics para saber cuáles son las configuraciones admitidas, los [sistemas operativos Linux compatibles](../platform/log-analytics-agent.md#supported-linux-operating-systems) y la [configuración del firewall de red](../platform/log-analytics-agent.md#network-firewall-requirements). 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -34,7 +34,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 
-    ![Azure Portal](media/quick-collect-linux-computer/azure-portal-01.png) 
+    ![Portal de Azure](media/quick-collect-linux-computer/azure-portal-01.png) 
 
 2. Haga clic en **Crear** y, a continuación, seleccione opciones para los elementos siguientes:
 
@@ -107,7 +107,7 @@ Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 Log Analytics puede recopilar eventos de Syslog de Linux, así como de los contadores de rendimiento que especifique para los informes y análisis a largo plazo, y actuar cuando se detecte una condición determinada.  Siga estos pasos para configurar la recopilación de eventos desde Syslog de Linux, así como desde varios contadores de rendimiento comunes, para empezar.  
 
 1. Seleccione **Syslog**.  
-2. Para agregar un registro de eventos, escriba el nombre del registro. Escriba **Syslog** y, a continuación, haga clic en el signo más **+**.  
+2. Para agregar un registro de eventos, escriba el nombre del registro. Escriba **Syslog** y, a continuación, haga clic en el signo más **+** .  
 3. En la tabla, desactive los niveles de gravedad **Información**, **Aviso** y **Depurar**. 
 4. Haga clic en **Guardar** en la parte superior de la página para guardar la configuración.
 5. Seleccione **Linux Performance Data** (Datos de rendimiento de Linux) para habilitar la recopilación de contadores de rendimiento en un equipo Linux. 

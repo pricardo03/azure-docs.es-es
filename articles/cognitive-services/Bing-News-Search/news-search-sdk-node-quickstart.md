@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Realizar una búsqueda de noticias: SDK de Bing News Search para Node.js'
+title: 'Inicio rápido: Realizar una búsqueda de noticias con el SDK de Bing News Search para Node.js'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía de inicio rápido para buscar noticias mediante el SDK de Bing News Search para Node.js y procesar la respuesta.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: cf13fe5279be9606197abda624c33dbc4f233b34
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c71d76e93eb1a121163d40fe61dcd5a8546d63f8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798805"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203358"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Guía de inicio rápido: Realizar una búsqueda de noticias con el SDK de Bing News Search para Node.js
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 3f53cd80fcd17241dcecb07f631277abe795946d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 9a4a95452c11993f57674bcbd16cf3ed5ea828e4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099551"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Tutorial: Integración de Azure Active Directory con itslearning
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con itslearning, siga e
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de itslearning](common/sp-identifier.png)
 
-     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL:
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL:
     
     | |
     |--|
@@ -199,4 +199,4 @@ Al hacer clic en el icono de itslearning en el panel de acceso, debería iniciar
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

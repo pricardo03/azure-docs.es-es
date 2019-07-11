@@ -10,12 +10,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 4287efedfc35da762825c5562cf88e64987192f1
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414561"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312658"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Gestión automática de correos electrónicos y datos adjuntos con Azure Logic Apps
 
@@ -145,7 +145,7 @@ Ahora, use el fragmento de código proporcionado en estos pasos para crear una f
 
    | Configuración | Valor | DESCRIPCIÓN |
    | ------- | ----- | ----------- |
-   | **Nombre de la aplicación** | CleanTextFunctionApp | Un nombre descriptivo y globalmente único para la aplicación de función. |
+   | **Nombre de la aplicación** | <*function-app-name*> | El nombre globalmente único y descriptivo de la aplicación de funciones, que en este ejemplo es "CleanTextFunctionApp", por lo que debe especificar un nombre distinto, como "MyCleanTextFunctionApp". |
    | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | La misma suscripción de Azure que usó anteriormente. | 
    | **Grupo de recursos** | LA-Tutorial-RG | El mismo grupo de recursos de Azure que usó anteriormente. |
    | **Plan de hospedaje** | Plan de consumo | Esta configuración determina cómo asignar y escalar los recursos, como la potencia de computación, para ejecutar la aplicación de función. Consulte [Comparación de planes de hospedaje](../azure-functions/functions-scale.md). | 
@@ -168,7 +168,7 @@ Ahora, use el fragmento de código proporcionado en estos pasos para crear una f
 
    Para crear una aplicación de función, también puede usar la [CLI de Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) o [PowerShell y plantillas de Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
-2. En **Instancias de Function App**, expanda **CleanTextFunctionApp** y seleccione **Functions**. En la barra de herramientas de funciones, elija  **New function** (Nueva función).
+2. En **Function Apps**, expanda la aplicación de funciones, que en este ejemplo es  "CleanTextFunctionApp", y seleccione **Functions**. En la barra de herramientas de funciones, elija  **New function** (Nueva función).
 
    ![Crear una nueva función](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
@@ -210,7 +210,7 @@ Ahora, use el fragmento de código proporcionado en estos pasos para crear una f
    }
    ```
 
-6. Cuando termine, seleccione **Guardar**. Para probar la función, en el borde derecho del editor, debajo del icono de la flecha (**<**), elija **Test** (Probar).
+6. Cuando termine, seleccione **Guardar**. Para probar la función, en el borde derecho del editor, debajo del icono de la flecha ( **<** ), elija **Test** (Probar).
 
    ![Abrir el panel "Probar"](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
@@ -260,7 +260,7 @@ A continuación, agregue un [desencadenador](../logic-apps/logic-apps-overview.m
 
 1. En el diseñador, en el cuadro de búsqueda, escriba "when new email arrives" (cuando llegue correo electrónico nuevo) como filtro. Seleccione este desencadenador para su proveedor de correo electrónico: **Cuando llega un nuevo correo electrónico - <*su proveedor de correo electrónico*>**
 
-   Por ejemplo: 
+   Por ejemplo:
 
    ![Seleccione este desencadenador para el proveedor de correo electrónico: "Cuando llega un nuevo correo electrónico"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -316,7 +316,7 @@ Ahora, agregue una condición que seleccione solo los correos electrónicos que 
    ![Seleccione "Condición"](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
    1. Cambie el nombre de la condición por una descripción mejor. 
-   En la barra de título de la condición, elija el botón de los **puntos suspensivos** (**...** ) > **Rename** (Cambiar nombre).
+   En la barra de título de la condición, elija el botón de los **puntos suspensivos** ( **...** ) > **Rename** (Cambiar nombre).
 
       ![Cambiar nombre de condición](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
@@ -399,7 +399,7 @@ Este paso agrega la función de Azure que creó anteriormente a su aplicación l
 
    ![Seleccionar una acción para "Choose an Azure function" (Elegir una función de Azure)](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Seleccione la aplicación de función que creó anteriormente: **CleanTextFunctionApp**
+3. Seleccione la aplicación de funciones creada anteriormente, que en este ejemplo es "CleanTextFunctionApp":
 
    ![Seleccionar la aplicación de función de Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
@@ -626,7 +626,7 @@ A continuación, agregue una acción para que la aplicación lógica envíe un c
    ||||
 
    > [!NOTE]
-   > Si selecciona un campo que contiene una matriz, como el campo **Content** (Contenido), el diseñador agrega automáticamente un bucle "For each" (Para cada uno) en la acción que haga referencia a ese campo. De este modo, la aplicación lógica realiza la acción en todos los elementos de la matriz. Para quitar el bucle, quite el campo de la matriz, mueva la acción de referencia fuera del bucle, elija el botón de puntos suspensivos (**...** ) en la barra de título del bucle y elija **Delete** (Eliminar).
+   > Si selecciona un campo que contiene una matriz, como el campo **Content** (Contenido), el diseñador agrega automáticamente un bucle "For each" (Para cada uno) en la acción que haga referencia a ese campo. De este modo, la aplicación lógica realiza la acción en todos los elementos de la matriz. Para quitar el bucle, quite el campo de la matriz, mueva la acción de referencia fuera del bucle, elija el botón de puntos suspensivos ( **...** ) en la barra de título del bucle y elija **Delete** (Eliminar).
 
 6. Guarde la aplicación lógica.
 

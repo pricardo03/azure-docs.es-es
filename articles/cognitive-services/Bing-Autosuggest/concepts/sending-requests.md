@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: abcce52e126e01d25434a90260a220c9aa337f5b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: fe35901f7d084fd96cb4c164e957391bfe2346a9
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382707"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542625"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Envío de solicitudes a Bing Autosuggest API
 
-Si una aplicación envía consultas a cualquier Bing Search API, puede usar Bing Autosuggest API para mejorar su experiencia de búsqueda. Bing Autosuggest API devuelve una lista de consultas sugeridas según la cadena de consulta parcial del cuadro de búsqueda. A medida que se escriben caracteres en el cuadro de búsqueda, puede mostrar sugerencias en una lista desplegable. Use este artículo para aprender sobre el envío de solicitudes a esta API.
+Si una aplicación envía consultas a cualquier Bing Search API, puede usar Bing Autosuggest API para mejorar su experiencia de búsqueda. Bing Autosuggest API devuelve una lista de consultas sugeridas según la cadena de consulta parcial del cuadro de búsqueda. A medida que se escriben caracteres en el cuadro de búsqueda, puede mostrar sugerencias en una lista desplegable. Use este artículo para aprender sobre el envío de solicitudes a esta API. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Punto de conexión de Bing Autosuggest API
 
@@ -44,7 +44,7 @@ Para obtener ejemplos de solicitudes básicas mediante Autosuggest API, consulte
 ## <a name="bing-autosuggest-api-requests"></a>Bing Autosuggest API, Ruby
 
 > [!NOTE]
-> Las solicitudes a Bing Autosuggest API deben usar el protocolo HTTPS.
+> * Las solicitudes a Bing Autosuggest API deben usar el protocolo HTTPS.
 
 Se recomienda que todas las solicitudes procedan de un servidor. Al distribuir la clave como parte de una aplicación cliente, existe una mayor probabilidad de que un tercero malintencionado acceda a ella. Además, cuando se realizan llamadas desde un servidor se proporciona un único punto de actualización para futuras versiones.
 
@@ -95,11 +95,13 @@ En el ejemplo siguiente se muestra una solicitud que devuelve las cadenas de con
 
 Si es la primera vez que llama a cualquiera de las API de Bing, no incluya el encabezado de identificador de cliente. Solo debe incluir el encabezado del identificador de cliente si se ha llamado previamente a una API de Bing y Bing ha devuelto un identificador de cliente para esa combinación de usuario y dispositivo.
 
-A continuación se muestra la respuesta a la solicitud anterior. La respuesta incluye un grupo de sugerencias web que contiene una lista de sugerencias de las consultas de búsqueda. Cada sugerencia incluye un campo `displayText`, `query` y `url`.
+El siguiente grupo de sugerencias web es una respuesta a la solicitud anterior. El grupo contiene una lista de sugerencias de consulta de búsqueda, y cada sugerencia incluye un campo `displayText`, `query` y `url`.
 
 El campo `displayText` contiene la consulta sugerida que usaría para rellenar la lista desplegable del cuadro de búsqueda. Debe mostrar todas las sugerencias que incluye la respuesta, y en el orden especificado.  
 
-Si el usuario selecciona una consulta de la lista desplegable, puede usarla para llamar a una de las [API de Bing Search](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) y mostrar los resultados por su cuenta, o bien enviar al usuario a la página de resultados de Bing mediante el campo `url` devuelto. En el ejemplo siguiente se usa la API Bing Web Search.
+Si el usuario selecciona una consulta de la lista desplegable, puede usarla para llamar a una de las [API de Bing Search](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) y mostrar los resultados por su cuenta, o bien enviar al usuario a la página de resultados de Bing mediante el campo `url` devuelto.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

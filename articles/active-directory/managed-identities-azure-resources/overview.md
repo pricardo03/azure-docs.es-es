@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/23/2018
+ms.date: 06/19/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8c4f670f3bb14610e7f29a9201b357e73dacf09b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60290771"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293219"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>¿Qué es Managed Identities for Azure Resources?
 
@@ -129,6 +129,7 @@ Aprenda a usar una identidad administrada con una máquina virtual Linux:
 * [Acceso a Azure Storage mediante una clave de acceso](tutorial-linux-vm-access-storage.md)
 * [Acceso a Azure Storage mediante firmas de acceso compartido](tutorial-linux-vm-access-storage-sas.md)
 * [Acceso a un recurso que no es de Azure AD con Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
+* [Acceso a Azure Container Registry](../../container-registry/container-registry-authentication-managed-identity.md)
 
 Aprenda a usar una identidad administrada con otros servicios de Azure:
 
@@ -139,6 +140,7 @@ Aprenda a usar una identidad administrada con otros servicios de Azure:
 * [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
+* [Azure Container Registry Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
 
 ## ¿Qué servicios de Azure admiten la característica?<a name="which-azure-services-support-managed-identity"></a>
 

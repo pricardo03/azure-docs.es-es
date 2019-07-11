@@ -7,16 +7,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: cda1eddc5fa40e97038274cf9b4c3c2cb9552871
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2020ee02d236ca13431adb736d9f48171d33b4f3
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154494"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147413"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Inicio rápido: Creación de un salón de chat con ASP.NET y SignalR Service
 
-Azure SignalR Service se basa en [SignalR para ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), que **no** es totalmente compatible con ASP.NET SignalR. Azure SignalR Service ha reimplementado el protocolo de datos de ASP.NET SignalR según las últimas tecnologías de ASP.NET Core. Al usar Azure SignalR Service para ASP.NET SignalR, ya no se admiten algunas características de ASP.NET SignalR, por ejemplo, Azure SignalR no reproduce los mensajes cuando el cliente se vuelve a conectar. Además, el transporte Forever Frame y JSONP no son compatibles. Se necesitan algunos cambios de código y la versión apropiada de las bibliotecas dependientes para que al aplicación de ASP.NET SignalR funcione con SignalR Service. 
+Azure SignalR Service se basa en [SignalR para ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), que **no** es totalmente compatible con ASP.NET SignalR. Azure SignalR Service reimplementó el protocolo de datos de ASP.NET SignalR según las últimas tecnologías de ASP.NET Core. Al usar Azure SignalR Service para ASP.NET SignalR, ya no se admiten algunas características de ASP.NET SignalR, por ejemplo, Azure SignalR no reproduce los mensajes cuando el cliente se vuelve a conectar. Además, el transporte Forever Frame y JSONP no son compatibles. Se necesitan algunos cambios de código y la versión apropiada de las bibliotecas dependientes para que al aplicación de ASP.NET SignalR funcione con SignalR Service. 
 
 Consulte el [documento con las diferencias entre versiones](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) para ver una lista de la comparación de características entre ASP.NET SignalR y ASP.NET Core SignalR.
 
@@ -107,7 +107,7 @@ Mientras se implementa el servicio, pasaremos a trabajar con el código. Clone l
 
 Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 
-Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...**. Las instrucciones de esta guía de inicio rápido usan un grupo de recursos llamado *SignalRTestResources*. En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
+Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...** . Las instrucciones de esta guía de inicio rápido usan un grupo de recursos llamado *SignalRTestResources*. En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
 
    
 ![Eliminar](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)

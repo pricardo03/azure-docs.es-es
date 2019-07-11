@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925166"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147530"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copia de datos a Azure Data Box Disk y comprobación de los mismos
 
@@ -223,7 +223,7 @@ Este procedimiento opcional se puede usar cuando se utilizan varios discos y se 
  
 7. Abra una ventana de símbolo del sistema. 
 
-8. Ejecute `DataBoxDiskSplitCopy.exe`. Type
+8. Ejecute `DataBoxDiskSplitCopy.exe`. type
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -250,6 +250,8 @@ Este procedimiento opcional se puede usar cuando se utilizan varios discos y se 
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Si ve errores al usar la herramienta de copia y división, consulte cómo [solucionar los errores de la herramienta de copia y división](data-box-disk-troubleshoot-data-copy.md).
+
 Una vez completada la copia de datos, puede continuar para validar los datos. Si ha usado la herramienta de copia y división, omita la validación (esta herramienta también valida) y vaya al siguiente tutorial.
 
 
@@ -270,6 +272,8 @@ Si no usó la herramienta de copia y división para copiar los datos, tendrá qu
     > - Utilice la opción 1 si trata con conjuntos de datos grandes que contienen archivos pequeños (~ KB). Esta opción solo valida los archivos, la generación de la suma de comprobación puede llevar mucho tiempo y el rendimiento puede ser muy lento.
 
 3. Si usa varios discos, ejecute el comando para cada disco.
+
+Si ve errores durante la validación, consulte la [resolución de los errores de validación](data-box-disk-troubleshoot.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

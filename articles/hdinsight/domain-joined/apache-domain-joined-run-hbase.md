@@ -1,17 +1,18 @@
 ---
-title: Configuración de directivas de Apache HBase en HDInsight con Enterprise Security Package para Azure
-description: Aprenda cómo se configura las directivas de Apache Ranger para HBase en Azure HDInsight con Enterprise Security Package.
+title: 'Tutorial: Configuración de directivas de Apache HBase en HDInsight con Enterprise Security Package para Azure'
+description: 'Tutorial: Aprenda cómo se configura las directivas de Apache Ranger para HBase en Azure HDInsight con Enterprise Security Package.'
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 02/01/2019
-ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/18/2019
+ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926095"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274404"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configuración de directivas de Apache HBase en HDInsight con Enterprise Security Package
 
@@ -159,7 +160,7 @@ Según las directivas de Ranger configuradas, **sales_user1** puede ver todos lo
    kinit sales_user1
    ```
 
-2. Abra el shell de hbase y examine la tabla `Customers`.
+2. Abra el shell de HBase y examine la tabla `Customers`.
 
    ```hbaseshell
    hbase shell
@@ -201,7 +202,7 @@ Según las directivas de Ranger configuradas, **sales_user1** puede ver todos lo
    kinit marketing_user1
    ```
 
-2. Abra el shell de hbase y examine la tabla `Customers`:
+2. Abra el shell de HBase y examine la tabla `Customers`:
 
     ```hbaseshell
     hbase shell

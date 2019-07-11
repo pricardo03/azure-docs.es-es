@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fccffef1af896f28eed8f7684a629aa41fbae522
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0087288bed06a09b3a78b190f3d60e8985d7ad29
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897785"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097763"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Tutorial: Integración de Azure Active Directory con LoginRadius
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con LoginRadius, realice
 
     ![Información de dominio y direcciones URL de inicio de sesión único de LoginRadius](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://secure.loginradius.com/login`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://secure.loginradius.com/login`
 
     b. En el cuadro de texto **Identificador (Id. de entidad)** , escriba una dirección URL: `https://LoginRadius.hub.loginradius.com/`
 
@@ -197,5 +197,5 @@ Al hacer clic en el icono de LoginRadius del panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -14,49 +14,49 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: a00bc7a05af9e329494a11f9bee444827cbebf38
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5ce0f18c1ec7a0fcb6465ab20e774976552687f1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121749"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133411"
 ---
-## <a name="setting-up-your-web-server-or-project"></a>Configuración del servidor web o proyecto
+## <a name="set-up-your-web-server-or-project"></a>Configuración de un proyecto o servidor web
 
-> ¿Prefiere descargar este proyecto de ejemplo en su lugar?
-> - [Descargue los archivos del proyecto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) para ejecutarlos con un servidor web local (como Node)
+> ¿Prefiere descargar este proyecto de ejemplo en su lugar? Realice cualquiera de las siguientes acciones:
+> 
+> - Para ejecutar el proyecto con un servidor web local, como Node.js, [descargue los archivos del proyecto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
-> o
-> - (Opcional) [Descargue el proyecto de Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip) para ejecutarlo con un servidor IIS.
+> - (Opcional) Parar ejecutar el proyecto con el servidor IIS [descargue el proyecto de Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
 >
-> A continuación, vaya al [paso de configuración](#register-your-application) para configurar el código de ejemplo antes de ejecutarlo.
+> Luego, para configurar el ejemplo de código antes de ejecutarlo, vaya al [paso de configuración](#register-your-application).
 
 ## <a name="prerequisites"></a>Requisitos previos
-Se necesita un servidor web local como [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) o la integración de IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/) para ejecutar este tutorial.
 
-Si usa Node.js para ejecutar el proyecto, instale un IDE como [Visual Studio Code](https://code.visualstudio.com/download) para editar los archivos de proyecto.
+* Para ejecutar este tutorial, necesita un servidor web local, como [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) o la integración de IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
-Las instrucciones de esta guía están basadas tanto en Node.js como en Visual Studio 2017, pero puede usar cualquier otro entorno de desarrollo o servidor web.
+* Si usa Node.js para ejecutar el proyecto, instale un entorno de desarrollo integrado (IDE), como [Visual Studio Code](https://code.visualstudio.com/download), para editar los archivos del proyecto.
+
+* Las instrucciones de esta guía se basan tanto en Node.js como en Visual Studio 2017, pero puede usar cualquier otro entorno de desarrollo o servidor web.
 
 ## <a name="create-your-project"></a>Creación del proyecto
 
-> ### <a name="option-1-node-other-web-servers"></a>Opción 1: Nodo u otros servidores web
-> Asegúrese de que ha instalado [Node.js](https://nodejs.org/en/download/) y, a continuación, siga el paso mostrado a continuación:
+> ### <a name="option-1-nodejs-or-other-web-servers"></a>Opción 1: Node.js u otros servidores web
+> Asegúrese de haber instalado [Node.js](https://nodejs.org/en/download/) y haga lo siguiente:
 > - Cree una carpeta para hospedar la aplicación.
-
-<p><!-- -->
-
+>
 > ### <a name="option-2-visual-studio"></a>Opción 2: Visual Studio
-> Si usa Visual Studio y crea un nuevo proyecto, siga estos pasos para crear una nueva solución de Visual Studio:
-> 1.    En Visual Studio:  **Archivo > Nuevo > Proyecto**
-> 2.    En **Visual C#\Web**, seleccione **Aplicación web ASP.NET (.NET Framework)**.
-> 3.    Escriba el nombre de la aplicación y seleccione **Aceptar**.
-> 4.    En **Nueva aplicación web ASP.NET**, seleccione **Vacía**.
+> Si usa Visual Studio y crea un proyecto, haga lo siguiente:
+> 1. Abra Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**.
+> 1. En **Visual C#\Web**, seleccione **Aplicación web ASP.NET (.NET Framework)** .
+> 1. Escriba un nombre para la aplicación y seleccione **Aceptar**.
+> 1. En **Nueva aplicación web ASP.NET**, seleccione **Vacía**.
 
-## <a name="create-your-single-page-applications-ui"></a>Cree la interfaz de usuario de la aplicación de una sola página
-1. Cree un archivo `index.html` para JavaScript SPA. Si usa Visual Studio, seleccione el proyecto (carpeta raíz del proyecto), haga clic con el botón derecho y seleccione: **Agregar > Nuevo elemento > Página HTML** y asígnele el nombre index.html.
+## <a name="create-the-spa-ui"></a>Creación de la interfaz de usuario de SPA
+1. Cree un archivo *index.html* para JavaScript SPA. Si usa Visual Studio, seleccione el proyecto (la carpeta raíz del proyecto), haga clic con el botón derecho y seleccione **Agregar** > **Nuevo elemento** > **Página HTML** y asígnele el nombre *index.html*.
 
-2. Agregue el siguiente código a su página:
+1. En el archivo *index.html*, agregue el código siguiente:
+
    ```html
    <!DOCTYPE html>
    <html>

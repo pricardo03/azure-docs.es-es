@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 08db463c92e4ee34819f446c3827ed8dfddc02d7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b2bfbed33433521fd086d474ea4b754f5435f5e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903937"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integración de Azure Active Directory con Riskware
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Riskware, siga esto
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Riskware](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
     
     | Entorno| Patrón de dirección URL|
     |--|--|
@@ -156,7 +156,7 @@ Para configurar el inicio de sesión único de Azure AD con Riskware, siga esto
 
     ![Autenticar la configuración de Riskware](./media/riskware-tutorial/tutorial_riskware_config.png)
 
-     a. En **Type** (Tipo), seleccione **SAML** para la autenticación.
+    a. En **Type** (Tipo), seleccione **SAML** para la autenticación.
 
     b. En el cuadro de texto **Code** (Código), escriba el código, por ejemplo, AZURE_UAT.
 
@@ -256,7 +256,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Riskware, deben ap
 
     ![Detalles de configuración de Riskware](./media/riskware-tutorial/tutorial_riskware_details.png)
 
-     a. Seleccione **Person Type** (Tipo de usuario), por ejemplo, Employee (Empleado).
+    a. Seleccione **Person Type** (Tipo de usuario), por ejemplo, Employee (Empleado).
 
     b. En el cuadro de texto **First Name** (Nombre), escriba el nombre del usuario, en este caso **Britta**.
 
@@ -266,7 +266,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Riskware, deben ap
 
     ![Configuración de la seguridad en Riskware](./media/riskware-tutorial/tutorial_riskware_security.png)
 
-     a. En la sección **Authentication** (Autenticación), seleccione el modo **Authentication** (Autenticación), que ha configurado como Configuración de AZURE para inicio de sesión único.
+    a. En la sección **Authentication** (Autenticación), seleccione el modo **Authentication** (Autenticación), que ha configurado como Configuración de AZURE para inicio de sesión único.
 
     b. En la sección **Logon Details** (Detalles de inicio de sesión), en el cuadro de texto **User ID** (Identificador del usuario), escriba la dirección de correo del usuario, por ejemplo, `brittasimon@contoso.com`.
 
@@ -276,7 +276,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Riskware, deben ap
 
     ![Configuración de la organización en Riskware](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-     a. Seleccione la opción como organización **Level1**.
+    a. Seleccione la opción como organización **Level1**.
 
     b. En la sección **Person's Primary Workplace** (Área de trabajo principal del usuario), en el cuadro de texto **Location** (Ubicación), escriba la ubicación.
 
@@ -296,4 +296,4 @@ Al hacer clic en el icono de Riskware en el panel de acceso, debería iniciar se
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

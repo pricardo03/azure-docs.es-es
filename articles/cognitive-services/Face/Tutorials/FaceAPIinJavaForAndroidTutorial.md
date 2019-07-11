@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c7f2e86d6fe63d309c74d7304f1c19a714b6471
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 366c0c50cee521c5e70496403fd77211a875065f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312545"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606759"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Creación de una aplicación Android para detectar y enmarcar caras en una imagen
 
@@ -78,7 +78,7 @@ Marque como comentario la llamada a **detectAndFrame** en el método **onActivit
 
 ### <a name="add-the-gradle-dependency"></a>Incorporación de la dependencia de Gradle
 
-En el panel **Project** (Proyecto), utilice el selector de lista desplegable para seleccionar **Android**. Expanda **Gradle Scripts** (Scripts de Gradle) y abra *build.gradle (Module: app)*. Agregue una dependencia para la biblioteca cliente de Face, `com.microsoft.projectoxford:face:1.4.3`, tal como se muestra en la siguiente captura de pantalla y, después, haga clic en **Sync Now** (Sincronizar ahora).
+En el panel **Project** (Proyecto), utilice el selector de lista desplegable para seleccionar **Android**. Expanda **Gradle Scripts** (Scripts de Gradle) y abra *build.gradle (Module: app)* . Agregue una dependencia para la biblioteca cliente de Face, `com.microsoft.projectoxford:face:1.4.3`, tal como se muestra en la siguiente captura de pantalla y, después, haga clic en **Sync Now** (Sincronizar ahora).
 
 ![Captura de pantalla de Android Studio del archivo build.gradle de aplicación](../Images/face-tut-java-gradle.png)
 
@@ -100,7 +100,7 @@ En el panel **Project** (Proyecto), expanda **app**, a continuación, **manifest
 
 ## <a name="upload-image-and-detect-faces"></a>Carga de imagen y detección de caras
 
-La aplicación detectará las caras mediante una llamada al método **FaceServiceClient.detect**, que incluye la API REST de [detección](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) y devuelve una lista de instancias de **Face**.
+La aplicación detectará las caras mediante una llamada al método **faceClient.Face.DetectWithStreamAsync**, que incluye la API de REST de [detección](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) y devuelve una lista de instancias de **Face**.
 
 Cada instancia de **Face** devuelta contiene un rectángulo para indicar su ubicación, junto con una serie de atributos de cara opcionales. En este ejemplo, solo se solicitan los rectángulos de las caras.
 

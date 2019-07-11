@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 537916ef14a7cd2748ad453e2d0d91e3b5c936b1
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cccd5ddc2f268eda48bd9803596a1db1c5ee9395
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826045"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481174"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Visualización de las aplicaciones del inquilino de Azure Active Directory
 
@@ -39,7 +39,7 @@ Las aplicaciones del inquilino de Azure AD están visibles en la sección **Apli
 
 Para buscar las aplicaciones del inquilino:
 
-1. En **[Azure Portal](https://portal.azure.com)**, en el panel de navegación izquierdo, seleccione **Azure Active Directory**. 
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**. 
 
 1. En el panel **Azure Active Directory**, seleccione **Aplicaciones empresariales**. 
 
@@ -64,7 +64,6 @@ Seleccione las opciones en función de lo que busque.
 1. En **Visibilidad de la aplicación**, elija **Cualquiera** u **Oculta**. La opción **Ocultas** muestra las aplicaciones que están en el inquilino, pero que los usuarios no pueden ver.
 
 1. Después de elegir las opciones que desee, seleccione **Aplicar**.
- 
 
 ## <a name="search-for-a-tenant-application"></a>Búsqueda de una aplicación del inquilino
 
@@ -74,19 +73,17 @@ Para buscar una aplicación concreta:
 
 1. Escriba el nombre de la aplicación que desea buscar. Si la aplicación se ha agregado al inquilino de Azure AD, aparece en los resultados de la búsqueda. En este ejemplo, se muestra que GitHub no se ha agregado a las aplicaciones del inquilino.
 
-    ![Búsqueda de una aplicación](media/view-applications-portal/search-for-tenant-application.png)
+    ![En el ejemplo se muestra que una aplicación no se ha agregado al inquilino.](media/view-applications-portal/search-for-tenant-application.png)
 
 1. Pruebe a escribir las primeras letras del nombre de una aplicación. En este ejemplo se muestran todas las aplicaciones que empiezan por **Sales**.
 
-    ![Búsqueda con un prefijo](media/view-applications-portal/search-by-prefix.png)
+    ![En el ejemplo se muestran todas las aplicaciones que empiezan por Sales.](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha aprendido a ver las aplicaciones de su inquilino de Azure AD. Ha aprendido a filtrar la lista de aplicaciones por tipo, estado y visibilidad de la aplicación. También ha aprendido cómo buscar una aplicación determinada.
 
-Ahora que ha encontrado la aplicación que buscaba, puede continuar con [Incorporación de más aplicaciones a un inquilino](add-application-portal.md). O bien, puede seleccionar la aplicación para ver o editar las propiedades y las opciones de configuración. Por ejemplo, podría configurar el inicio de sesión único. 
+Ahora que ha encontrado la aplicación que buscaba, puede continuar con [Incorporación de más aplicaciones a un inquilino](add-application-portal.md). O bien, puede seleccionar la aplicación para ver o editar las propiedades y las opciones de configuración. Por ejemplo, podría configurar el inicio de sesión único.
 
 > [!div class="nextstepaction"]
 > [Configuración del inicio de sesión único](configure-single-sign-on-portal.md)
-
-

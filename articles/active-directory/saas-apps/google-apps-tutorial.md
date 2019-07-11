@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7462536443b2be23eef0f8b4c6f6b6412fb7032
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8196576c4b419fdfc8f7e3adf5c474ef128ebbf6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898751"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integración de Azure Active Directory con G Suite
 
@@ -147,7 +147,7 @@ Para configurar el inicio de sesión único de Azure AD con G Suite, realice lo
 
     ![Información de dominio y direcciones URL de inicio de sesión único de G Suite](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
 
@@ -165,7 +165,7 @@ Para configurar el inicio de sesión único de Azure AD con G Suite, realice lo
 
     ![Información de dominio y direcciones URL de inicio de sesión único de G Suite](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
     
@@ -189,7 +189,7 @@ Para configurar el inicio de sesión único de Azure AD con G Suite, realice lo
     | ---------------| --------------- |
     | Identificador de usuario único | User.mail |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -237,7 +237,7 @@ Para configurar el inicio de sesión único de Azure AD con G Suite, realice lo
 
     ![Configuración de SSO][12]
 
-     a. Seleccione **Configurar SSO con un proveedor de identidades de terceros**.
+    a. Seleccione **Configurar SSO con un proveedor de identidades de terceros**.
 
     b. En el campo **Dirección URL de la página de inicio de sesión** de G Suite, pegue el valor de la **URL de inicio de sesión** que copió de Azure Portal.
 
@@ -324,7 +324,7 @@ Al hacer clic en el icono de G Suite en el panel de acceso y debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Configuración del aprovisionamiento de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
 
 <!--Image references-->

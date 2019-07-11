@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: dfe4f226302b6bb6a010d9d4348fde05b2d31193
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 76771a7dfcc323cca6ea52366195c895ee510701
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66356955"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165590"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Inicio rápido: Ejecutar la primera consulta de Resource Graph con Azure PowerShell
 
@@ -91,8 +91,7 @@ Una vez agregado el módulo de Azure PowerShell al entorno de su elección, es e
 Cuando la consulta final se ejecuta varias veces, suponiendo que nada en su entorno esté cambiando, los resultados devueltos serán coherentes y como se esperaban, ordenados por la propiedad **Nombre**, pero todavía limitados a los cinco primeros resultados.
 
 > [!NOTE]
-> Si la consulta no devuelve los resultados de una suscripción a la que ya tiene acceso, tenga en cuenta que `Search-AzGraph` cmdlet utiliza de forma predeterminada las suscripciones en el contexto predeterminado. Para ver la lista de identificadores de suscripción que forman parte del contexto predeterminado, ejecute este comando `(Get-AzContext).Account.ExtendedProperties.Subscriptions`. Si desea buscar en todas las suscripciones a las que tiene acceso, puede configurar PSDefaultParameterValues para `Search-AzGraph' cmdlet by running 
-> `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID }`
+> Si la consulta no devuelve los resultados de una suscripción a la que ya tiene acceso, tenga en cuenta que `Search-AzGraph` cmdlet utiliza de forma predeterminada las suscripciones en el contexto predeterminado. Para ver la lista de identificadores de suscripción que forman parte del contexto predeterminado, ejecute este comando `(Get-AzContext).Account.ExtendedProperties.Subscriptions`. Si quiere buscar en todas las suscripciones a las que tiene acceso, puede configurar PSDefaultParameterValues para el cmdlet `Search-AzGraph` mediante la ejecución de `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID }`
    
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

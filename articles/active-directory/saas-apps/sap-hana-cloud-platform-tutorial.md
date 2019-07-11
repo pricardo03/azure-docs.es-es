@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b345656b30a9bb182c097a4c9e18d71a293bf420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13ab9752391519f38e843b9d625164e655348d28
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868078"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091796"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integración de Azure Active Directory con SAP Cloud Platform
 
@@ -59,7 +59,7 @@ Para configurar la integración de SAP Cloud Platform en Azure AD, deberá agreg
 
 **Para agregar SAP Cloud Platform desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -82,12 +82,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con SAP Cloud Platform, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de SAP Cloud Platform](#configure-sap-cloud-platform-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de SAP Cloud Platform](#create-sap-cloud-platform-test-user)**: para tener un homólogo de Britta Simon en SAP Cloud Platform vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de SAP Cloud Platform](#configure-sap-cloud-platform-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de SAP Cloud Platform](#create-sap-cloud-platform-test-user)** : para tener un homólogo de Britta Simon en SAP Cloud Platform vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -111,7 +111,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP Cloud Platform, 
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SAP Cloud Platform](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación **SAP Cloud Platform**. Se trata de la URL específica de la cuenta de un recurso protegido en su aplicación SAP Cloud Platform. La dirección URL se parece al siguiente patrón: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación **SAP Cloud Platform**. Se trata de la URL específica de la cuenta de un recurso protegido en su aplicación SAP Cloud Platform. La dirección URL se parece al siguiente patrón: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
      >[!NOTE]
      >Se trata de la URL de la aplicación SAP Cloud Platform que requiere la autenticación del usuario.
@@ -152,7 +152,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP Cloud Platform, 
 
 ### <a name="configure-sap-cloud-platform-single-sign-on"></a>Configuración del inicio de sesión único de SAP Cloud Platform
 
-1. En otra ventana del explorador web, inicie sesión en SAP Cloud Platform Cockpit en `https://account.<landscape host>.ondemand.com/cockpit` (por ejemplo: https://account.hanatrial.ondemand.com/cockpit)).
+1. En otra ventana del explorador web, inicie sesión en SAP Cloud Platform Cockpit en `https://account.<landscape host>.ondemand.com/cockpit` (por ejemplo: https://account.hanatrial.ondemand.com/cockpit) ).
 
 2. Haga clic en la pestaña **Trust** (Confianza).
    
@@ -162,7 +162,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP Cloud Platform, 
 
     ![Administración de confianza](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Administración de confianza")
    
-     a. Haga clic en **Editar**.
+    a. Haga clic en **Editar**.
 
     b. En **Configuration Type** (Tipo de configuración), seleccione **Custom** (Personalizado).
 
@@ -180,7 +180,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP Cloud Platform, 
    
     ![Obtención de metadatos](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Obtención de metadatos")
 
-     a. Para descargar el archivo de metadatos de SAP Cloud Platform, haga clic en **Get Metadata** (Obtener metadatos).
+    a. Para descargar el archivo de metadatos de SAP Cloud Platform, haga clic en **Get Metadata** (Obtener metadatos).
 
     b. Abra el archivo de metadatos de SAP Cloud Platform descargado y busque la etiqueta **ns3:AssertionConsumerService**.
  
@@ -209,7 +209,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP Cloud Platform, 
     
     ![Atributos](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Atributos") 
 
-     a. Haga clic en **Add Assertion-Based Attribute**(Agregar atributo basado en la aserción) y agregue los siguientes atributos basados en aserción:
+    a. Haga clic en **Add Assertion-Based Attribute**(Agregar atributo basado en la aserción) y agregue los siguientes atributos basados en aserción:
        
     | Atributo de aserción | Atributo de entidad de seguridad |
     | --- | --- |
@@ -298,7 +298,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en SAP Cloud Platform
    
     ![Autorizaciones](./media/sap-hana-cloud-platform-tutorial/ic790805.png "Autorizaciones")
    
-     a. Haga clic en **Authorization**(Autorización).
+    a. Haga clic en **Authorization**(Autorización).
 
     b. Haga clic en la pestaña **Usuarios**.
 
@@ -320,5 +320,5 @@ Al hacer clic en el icono de SAP Cloud Platform del panel de acceso, debería in
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

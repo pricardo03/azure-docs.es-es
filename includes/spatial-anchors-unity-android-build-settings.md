@@ -4,16 +4,16 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: 228f445dda2724985154723a292adb8215a5ad68
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 9798e5f76881be38fb27e1f428565caba6e50bf2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012129"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135077"
 ---
 Seleccione **File** > **Build Settings** (Archivo > Configuración de compilación) para abrir **Build Settings** (Configuración de compilación).
 
-En la sección **Platform** (Plataforma), seleccione **Android**. Cambie **Build System** (Sistema de compilación) a **Gradle** y seleccione **Export Project** (Exportar proyecto).
+En la sección **Platform** (Plataforma), seleccione **Android**. Cambie el **Sistema de compilación** a **Gradle** y asegúrese de que la casilla **Exportar proyecto** no tenga ninguna marca de verificación.
 
 Seleccione **Switch Platform** (Cambiar plataforma) para cambiar la plataforma a **Android**. Unity puede solicitarle que instale los componentes de compatibilidad con Android si no están presentes.
 

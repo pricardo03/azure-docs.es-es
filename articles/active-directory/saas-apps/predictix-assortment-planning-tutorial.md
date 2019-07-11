@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c14362a220cc60b0b8956ca41950faecd0563b3e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bc3ea2f6fddc233a69d96c0c885ab310ed1e77c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890630"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutorial: Integración de Azure Active Directory con Predictix Assortment Planning
 
@@ -33,7 +33,7 @@ Esta integración ofrece estas ventajas:
 
 Para más información acerca de la integración de aplicaciones SaaS con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -92,9 +92,9 @@ Para configurar el inicio de sesión único de Azure AD con Predictix Assortmen
 
     ![Seleccionar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único:
+2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-    ![Seleccione un método de inicio de sesión único](common/select-saml-option.png)
+    ![Selección de un método de inicio de sesión único](common/select-saml-option.png)
 
 3. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**:
 
@@ -131,7 +131,7 @@ Para configurar el inicio de sesión único de Azure AD con Predictix Assortmen
 
     ![Copia de las direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    1. **Dirección URL de inicio de sesión**.
+    1. **Dirección URL de inicio de sesión**
 
     1. **Identificador de Azure AD**.
 
@@ -145,11 +145,11 @@ Para configurar el inicio de sesión único en Predictix Assortment Planning, es
 
 En esta sección creará un usuario de prueba llamado Britta Simon en Azure Portal.
 
-1. En Azure Portal, seleccione **Azure Active Directory** en el panel izquierdo, **Usuarios** y **Todos los usuarios**:
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**:
 
     ![Selección de Todos los usuarios](common/users.png)
 
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla:
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
     ![Selección de Nuevo usuario](common/new-user.png)
 
@@ -187,7 +187,7 @@ En esta sección permitirá que Britta Simon use el inicio de sesión único de 
 
 5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Si espera un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario de la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 7. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
 
@@ -210,4 +210,4 @@ Al seleccionar el icono de Predictix Assortment Planning en el panel de acceso, 
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

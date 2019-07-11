@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c8bdfb7c9ae921eda2828af2c20136feaa9de6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: fd301abc9beea05df998a7e0e62ed7479c972135
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100416"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Tutorial: integración de Azure Active Directory con Imagineer WebVision
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con Imagineer WebVision,
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Imagineer WebVision](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
@@ -187,5 +187,5 @@ Al hacer clic en el icono de Imagineer WebVision en el panel de acceso, debería
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

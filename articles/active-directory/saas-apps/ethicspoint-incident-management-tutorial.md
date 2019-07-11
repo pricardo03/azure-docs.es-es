@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e50cdd19510f0bf160c075c763e645120622674
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 76a43acb1cf0c514111e89f1a3f4408f4c51e091
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835703"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutorial: Integración de Azure Active Directory con EthicsPoint Incident Management (EPIM)
 
@@ -53,7 +53,7 @@ Para configurar la integración de EthicsPoint Incident Management (EPIM) en Azu
 
 **Para agregar EthicsPoint Incident Management (EPIM) desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Para configurar la integración de EthicsPoint Incident Management (EPIM) en Azu
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **EthicsPoint Incident Management (EPIM)**, seleccione **EthicsPoint Incident Management (EPIM)** en el panel de resultados y, luego, haga clic en **Agregar** para agregar el aplicación.
+4. En el cuadro de búsqueda, escriba **EthicsPoint Incident Management (EPIM)** , seleccione **EthicsPoint Incident Management (EPIM)** en el panel de resultados y, luego, haga clic en **Agregar** para agregar el aplicación.
 
      ![EthicsPoint Incident Management (EPIM) en la lista de resultados](common/search-new-app.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es necesario establecer una relac
 
 Para configurar y probar el inicio de sesión único de Azure AD con EthicsPoint Incident Management (EPIM), es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de EthicsPoint Incident Management (EPIM)](#configure-ethicspoint-incident-management-epim-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de EthicsPoint Incident Management (EPIM)](#create-ethicspoint-incident-management-epim-test-user)**: para tener un homólogo de Britta Simon en EthicsPoint Incident Management (EPIM) que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de EthicsPoint Incident Management (EPIM)](#configure-ethicspoint-incident-management-epim-single-sign-on)** : para configurar el inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de EthicsPoint Incident Management (EPIM)](#create-ethicspoint-incident-management-epim-test-user)** : para tener un homólogo de Britta Simon en EthicsPoint Incident Management (EPIM) que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -89,7 +89,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con EthicsPoint Incident Management (EPIM), realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **EthicsPoint Incident Management (EPIM)**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **EthicsPoint Incident Management (EPIM)** , haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con EthicsPoint Incident
 
     ![Información de dominio y direcciones URL de inicio de sesión único de EthicsPoint Incident Management (EPIM)](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
     
     | |
     |--|
@@ -135,7 +135,7 @@ Para configurar el inicio de sesión único de Azure AD con EthicsPoint Incident
 
 ### <a name="configure-ethicspoint-incident-management-epim-single-sign-on"></a>Configuración del inicio de sesión único de EthicsPoint Incident Management (EPIM)
 
-Para configurar el inicio de sesión único en **EthicsPoint Incident Management (EPIM)**, debe enviar el archivo **XML de metadatos de federación** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **EthicsPoint Incident Management (EPIM)** , debe enviar el archivo **XML de metadatos de federación** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -166,11 +166,11 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a EthicsPoint Incident Management (EPIM).
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **EthicsPoint Incident Management (EPIM)**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **EthicsPoint Incident Management (EPIM)** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **EthicsPoint Incident Management (EPIM)**.
+2. En la lista de aplicaciones, seleccione **EthicsPoint Incident Management (EPIM)** .
 
     ![En la lista de aplicaciones, seleccione EthicsPoint Incident Management (EPIM).](common/all-applications.png)
 
@@ -204,5 +204,5 @@ Al hacer clic en el icono de EthicsPoint Incident Management (EPIM) en el Panel 
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

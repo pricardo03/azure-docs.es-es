@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 8340c409e6aa5b2bc98a5ac418b14908c21bd7a7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2ffc9f105f4e2429ac8add679511e9aec5875e0a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086213"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Tutorial: integración de Azure Active Directory con ZephyrSSO
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con ZephyrSSO, siga esto
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ZephyrSSO](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.yourzephyr.com/Zephyrsso`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.yourzephyr.com/Zephyrsso`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.yourzephyr.com/flex/saml/sso`
 
@@ -196,5 +196,5 @@ Al hacer clic en el icono de ZephyrSSO en el panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
