@@ -189,9 +189,9 @@ En este artículo, se configura la actividad de Hive para crear un clúster Hado
 
     |Propiedad  |Valor  |
     |---------|---------|
-    |NOMBRE | Escriba un nombre para la factoría de datos. Este nombre debe ser único globalmente.|
+    |Name | Escriba un nombre para la factoría de datos. Este nombre debe ser único globalmente.|
     |Subscription | Seleccione su suscripción a Azure. |
-    |Grupos de recursos | Seleccione **Usar existente** y, a continuación, seleccione el grupo de recursos que ha creado mediante el script de PowerShell. |
+    |Resource group | Seleccione **Usar existente** y, a continuación, seleccione el grupo de recursos que ha creado mediante el script de PowerShell. |
     |Versión | Déjela en **V2**. |
     |Location | La ubicación se establece automáticamente en la ubicación que ha especificado anteriormente durante la creación del grupo de recursos. En este tutorial, la ubicación se establece en **Este de EE. UU.** |
 
@@ -230,7 +230,7 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
     |Propiedad |Valor |
     |---|---|
-    |NOMBRE |Escriba `HDIStorageLinkedService`.|
+    |Name |Escriba `HDIStorageLinkedService`.|
     |Suscripción de Azure |Seleccione la suscripción en la lista desplegable.|
     |Nombre de la cuenta de almacenamiento |Seleccione la cuenta de Azure Storage que creó como parte del script de PowerShell.|
 
@@ -252,7 +252,7 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
     | Propiedad | Valor |
     | --- | --- |
-    | NOMBRE | Escriba `HDInsightLinkedService`.|
+    | Name | Escriba `HDInsightLinkedService`.|
     | type | Seleccione **HDInsight a petición**. |
     | Servicio vinculado de Azure Storage | Seleccione `HDIStorageLinkedService`. |
     | Tipo de clúster | Seleccione **hadoop** |
