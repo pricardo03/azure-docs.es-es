@@ -137,6 +137,8 @@
           href: infrastructure-example.md
         - name: Cuotas de vCPU
           href: quotas.md
+    - name: Atributos de seguridad
+      href: virtual-machines-linux-security-attributes.md
 - name: Guías de procedimientos
   items:
     - name: Creación de máquinas virtuales
