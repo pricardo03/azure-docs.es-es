@@ -212,8 +212,8 @@ Cualquier propiedad que la aplicación necesite definir debe asignarse al valor 
 
 | Nombre del campo | Uso | Nombre de la API |
 | --- | --- | --- |
-| duradero |- |- |
-| prioridad |- |- |
+| durable |- |- |
+| priority |- |- |
 | ttl |Período de vida para este mensaje |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -361,9 +361,9 @@ El mensaje de solicitud tiene las siguientes propiedades de la aplicación:
 
 | Clave | Opcional | Tipo de valor | Contenido del valor |
 | --- | --- | --- | --- |
-| operación |Sin |string |**put-token** |
-| Tipo |Sin |string |Tipo del token que se coloca. |
-| Nombre |Sin |string |El "público" al que se aplica el token. |
+| operation |Sin |string |**put-token** |
+| type |Sin |string |Tipo del token que se coloca. |
+| name |Sin |string |El "público" al que se aplica el token. |
 | expiration |Sí |timestamp |La hora de expiración del token. |
 
 La propiedad *name* identifica la entidad a la que se va a asociar el token. En Service Bus es la ruta de acceso a la cola, el tema o la suscripción. La propiedad *type* identifica el tipo de token:
