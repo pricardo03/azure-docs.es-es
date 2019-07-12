@@ -30,6 +30,8 @@
       items:
         - name: Reglas de firewall de IP en el nivel de servidor
           href: sql-database-server-level-firewall-rule.md
+        - name: Configuración de un punto de conexión público en una instancia administrada
+          href: sql-database-managed-instance-public-endpoint-configure.md
         - name: Conexión de máquina virtual de cliente a una instancia administrada
           href: sql-database-managed-instance-configure-vm.md
         - name: Conexión de punto a sitio a una instancia administrada
@@ -512,8 +514,6 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Conexión de aplicaciones
           href: sql-database-managed-instance-connect-app.md
-        - name: Configuración de un punto de conexión público
-          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Carga y movimiento de datos
       items:
         - name: Copia de una base de datos en Azure

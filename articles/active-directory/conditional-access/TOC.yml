@@ -52,22 +52,22 @@
           href: howto-baseline-protect-azure.md
     - name: Bloquear la autenticación heredada
       href: block-legacy-authentication.md
-    - name: Migración de directivas clásicas
-      href: policy-migration.md
-    - name: Controles de frecuencia de inicio de sesión y de persistencia del explorador
-      href: howto-conditional-access-session-lifetime.md
+    - name: Acceso condicional para el registro de MFA
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Requerir aplicaciones cliente aprobadas
       href: app-based-conditional-access.md
     - name: Requerir la directiva de protección de aplicaciones
       href: app-protection-based-conditional-access.md
     - name: Requerir dispositivos administrados
       href: require-managed-devices.md
-    - name: Requerir redes de confianza para el registro de autenticación multifactor
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Requerir MFA para los intentos de acceso de redes que no son de confianza
       href: untrusted-networks.md
     - name: Requerir condiciones de uso
       href: terms-of-use.md
+    - name: Controles de frecuencia de inicio de sesión y de persistencia del explorador
+      href: howto-conditional-access-session-lifetime.md
+    - name: Migración de directivas clásicas
+      href: policy-migration.md
 - name: Referencia
   items:
     - name: Referencia técnica

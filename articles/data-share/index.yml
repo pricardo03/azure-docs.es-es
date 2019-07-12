@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/10/2019
 abstract:
-  description: '<p>La versión preliminar de Azure Data Share es un servicio seguro y protegido para compartir datos con organizaciones de terceros. Seleccione los conjuntos de datos que desea compartir, agregue destinatarios y empiece a compartir datos con la posibilidad de gobernar, supervisar y controlar las relaciones del uso de datos compartido. </p><p>Aprenda a usar Azure Data Share mediante nuestros tutoriales.</p>'
+  description: '<p>La versión preliminar de Azure Data Share es un servicio seguro y protegido para compartir datos con organizaciones de terceros. Seleccione los conjuntos de datos que desea compartir, agregue destinatarios y empiece a compartir datos con la posibilidad de gobernar, supervisar y controlar las relaciones del uso de datos compartido. </p><p>Aprenda a usar Azure Data Share mediante nuestros tutoriales y guías paso a paso.</p>'
   aside:
     image:
       alt: null

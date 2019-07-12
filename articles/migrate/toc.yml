@@ -3,45 +3,97 @@
 - name: Información general
   items:
     - name: Acerca de Azure Migrate
-      href: migrate-overview.md
+      href: migrate-services-overview.md
+    - name: Novedades
+      href: whats-new.md
 - name: Tutoriales
   items:
-    - name: Detección y evaluación de máquinas virtuales de VMware
-      href: tutorial-assessment-vmware.md
+    - name: Migración y evaluación de máquinas virtuales de VMware
+      items:
+        - name: Preparación de VMware para la migración y evaluación
+          href: tutorial-prepare-vmware.md
+        - name: Evaluación de las máquinas virtuales de VMware para la migración
+          href: tutorial-assess-vmware.md
+        - name: Migración de máquinas virtuales VMware
+          items:
+            - name: Acerca de las opciones de migración de máquinas virtuales de VMware
+              href: server-migrate-overview.md
+            - name: Migración de máquinas virtuales de VMware con migración sin agentes
+              href: tutorial-migrate-vmware.md
+            - name: Migración de máquinas virtuales de VMware con migración basada en agentes
+              href: tutorial-migrate-vmware-agent.md
+    - name: Evaluación y migración de Hyper-V
+      items:
+        - name: Preparación de Hyper-V para la evaluación y migración
+          href: tutorial-prepare-hyper-v.md
+        - name: Evaluación de máquinas virtuales de Hyper-V para la migración
+          href: tutorial-assess-hyper-v.md
+        - name: Migración de máquinas virtuales de Hyper-V
+          href: tutorial-migrate-hyper-v.md
+    - name: Migración de servidores físicos y máquinas virtuales
+      href: tutorial-migrate-physical-virtual-machines.md
 - name: Conceptos
   items:
-    - name: Sobre el recopilador
-      href: concepts-collector.md
-    - name: Recopilador de actualizaciones de la versión
-      href: concepts-collector-upgrade.md
+    - name: Preguntas frecuentes
+      href: resources-faq.md
+    - name: Matrices de compatibilidad
+      items:
+        - name: Matriz de compatibilidad para Azure Migrate
+          href: migrate-support-matrix.md
+        - name: Matriz de compatibilidad para la evaluación y migración de VMware
+          href: migrate-support-matrix-vmware.md
+        - name: Matriz de compatibilidad para la evaluación y migración de Hyper-V
+          href: migrate-support-matrix-hyper-v.md
+    - name: Arquitectura de migración de Hyper-V
+      href: hyper-v-migration-architecture.md
+    - name: Arquitectura de migración basada en agente
+      href: agent-based-migration-architecture.md
+    - name: Dispositivo con Azure Migrate
+      href: migrate-appliance.md
+    - name: Dispositivo de replicación con Azure Migrate
+      href: migrate-replication-appliance.md
+    - name: Procedimientos recomendados de evaluación
+      href: best-practices-assessment.md
     - name: Cálculos de evaluación
       href: concepts-assessment-calculation.md
-    - name: Acerca de la visualización de dependencia
+    - name: Visualización de dependencia
       href: concepts-dependency-visualization.md
 - name: Guías de procedimientos
   items:
     - name: Ejemplos de migración de la serie Contoso
       href: contoso-migration-overview.md
-    - name: Detección y evaluación de un entorno grande
-      href: how-to-scale-assessment.md
-    - name: Agrupación de máquinas
-      href: how-to-create-a-group.md
-    - name: Agrupación de máquinas con dependencias de máquina
-      href: how-to-create-group-machine-dependencies.md
-    - name: Refinar un grupo mediante dependencias de grupo
-      href: how-to-create-group-dependencies.md
+    - name: Implementación de un dispositivo para la evaluación y migración de VMware (sin agente)
+      href: how-to-set-up-appliance-vmware.md
+    - name: Implementación de un dispositivo para la evaluación y migración de Hyper-V
+      href: how-to-set-up-appliance-hyper-v.md
+    - name: Incorporación de una herramienta de evaluación y migración por primera vez
+      href: how-to-add-tool-first-time.md
+    - name: Incorporación de herramientas de evaluación
+      href: how-to-assess.md
+    - name: Incorporación de herramientas de migración
+      href: how-to-migrate.md
+    - name: Agrupación de máquinas para su evaluación
+      items:
+        - name: Creación de un grupo
+          href: how-to-create-a-group.md
+        - name: Agrupación de máquinas con dependencias de máquina
+          href: how-to-create-group-machine-dependencies.md
+        - name: Refinar un grupo mediante dependencias de grupo
+          href: how-to-create-group-dependencies.md
     - name: Personalización de una evaluación
       href: how-to-modify-assessment.md
-    - name: Migración de máquinas después de una evaluación
-      href: how-to-get-migration-tool.md
-    - name: Automatización de la migración de un gran número de máquinas virtuales
-      href: how-to-migrate-at-scale.md
+    - name: Escalado de evaluación y migración
+      items:
+        - name: Evaluación de un número elevado de máquinas virtuales de VMware
+          href: scale-vmware-assessment.md
+        - name: Evaluación de un número elevado de máquinas virtuales de Hyper-V
+          href: scale-hyper-v-assessment.md
+        - name: Automatización de la migración de un gran número de máquinas virtuales
+          href: how-to-migrate-at-scale.md
     - name: Solución de problemas de Azure Migrate
       href: troubleshooting-general.md
 - name: Recursos
   items:
-    - name: Preguntas más frecuentes
-      href: resources-faq.md
     - name: Migración en Cloud Adoption Framework
       href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
     - name: API DE REST
