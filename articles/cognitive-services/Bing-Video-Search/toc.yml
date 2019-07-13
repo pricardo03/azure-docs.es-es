@@ -52,7 +52,8 @@
     - name: Vídeos de página
       href: paging-videos.md
     - name: Cambio de tamaño y recorte de miniaturas
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Actualizar de v5 a v7
       href: bing-video-upgrade-guide-v5-to-v7.md
 - name: Conceptos

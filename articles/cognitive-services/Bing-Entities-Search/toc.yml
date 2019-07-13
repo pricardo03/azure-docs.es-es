@@ -45,7 +45,8 @@
 - name: Guías de procedimientos
   items:
     - name: Cambio de tamaño y recorte de miniaturas
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
 - name: Conceptos
   items:
     - name: Búsqueda de entidades

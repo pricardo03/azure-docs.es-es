@@ -55,7 +55,8 @@
     - name: Paginar por las imágenes
       href: paging-images.md
     - name: Cambio de tamaño y recorte de miniaturas
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Actualizar de v5 a v7
       href: bing-image-upgrade-guide-v5-to-v7.md
 - name: Conceptos

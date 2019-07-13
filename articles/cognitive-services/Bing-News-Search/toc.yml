@@ -51,7 +51,8 @@
     - name: Noticias de página
       href: paging-news.md
     - name: Cambio de tamaño y recorte de miniaturas
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Actualización de la versión v5 a la v7 de la API
       href: bing-news-upgrade-guide-v5-to-v7.md
     - name: Trabajo con Visual Studio
