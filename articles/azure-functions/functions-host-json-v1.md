@@ -165,7 +165,7 @@ Configuración del [monitor de estado de host](https://github.com/Azure/azure-we
 
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
-|Enabled|true|Especifica si está habilitada la característica. | 
+|enabled|true|Especifica si está habilitada la característica. | 
 |healthCheckInterval|10 segundos|El intervalo de tiempo entre las comprobaciones periódicas de mantenimiento en segundo plano. | 
 |healthCheckWindow|2 minutes|Una ventana de tiempo deslizante usada en combinación con el valor `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de veces que puede producirse un error en la comprobación de mantenimiento antes de que se inicie un reciclaje del host.| 
@@ -213,7 +213,7 @@ Controla el filtrado de los registros escritos por un [objeto ILogger](functions
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
 |categoryFilter|N/D|Especifica el filtrado por categoría| 
-|defaultLevel|Información|Para las categorías no especificadas en la matriz `categoryLevels`, envía registros en este nivel y superiores a Application Insights.| 
+|defaultLevel|Information|Para las categorías no especificadas en la matriz `categoryLevels`, envía registros en este nivel y superiores a Application Insights.| 
 |categoryLevels|N/D|Matriz de categorías que especifica el nivel de registro mínimo para enviar a Application Insights para cada categoría. La categoría especificada aquí controla todas las categorías que comienzan por el mismo valor, y los valores más largos tienen prioridad. En el archivo *host.json* del ejemplo anterior, todas las categorías que comienzan por "Host.Aggregator" se registran en el nivel `Information`. Todas las demás categorías que comienzan por "Host", como "Host.Executor", se registran en el nivel `Error`.| 
 
 ## <a name="queues"></a>queues
