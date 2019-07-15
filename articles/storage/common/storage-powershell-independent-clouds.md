@@ -98,7 +98,7 @@ Los resultados son similares al siguiente:
 
 |Nombre de propiedad|Valor|
 |----|----|
-| NOMBRE | AzureGermanCloud |
+| Name | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |
