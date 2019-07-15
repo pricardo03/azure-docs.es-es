@@ -22,6 +22,8 @@
       href: apache-spark-load-data-run-query.md
     - name: Uso de IntelliJ para ejecutar consultas de Apache Spark
       href: apache-spark-intellij-tool-plugin.md
+    - name: Error durante depuración de trabajos de Spark en IntelliJ (versión preliminar)
+      href: apache-spark-intellij-tool-failure-debug.md
     - name: Análisis de datos mediante herramientas de inteligencia empresarial
       href: apache-spark-use-bi-tools.md
     - name: Ejecución de un trabajo de streaming
@@ -170,7 +172,7 @@
                   href: 'https://msdn.microsoft.com/library/mt706515.aspx'
                 - name: Publicar aplicaciones de HDInsight en Azure Marketplace
                   href: ../hdinsight-apps-publish-applications.md
-        - name: Protección
+        - name: Seguridad
           items:
             - name: Uso de SSH con HDInsight
               href: ../hdinsight-hadoop-linux-use-ssh-unix.md

@@ -29,6 +29,8 @@
   items:
     - name: Habilitar la configuración dinámica en ASP.NET Core
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: Habilitar la configuración dinámica en una aplicación de .NET Core
+      href: enable-dynamic-configuration-dotnet-core.md
     - name: Uso de marcas de características en una aplicación de .NET Core
       href: use-feature-flags-dotnet-core.md
     - name: Administración de marcas de características

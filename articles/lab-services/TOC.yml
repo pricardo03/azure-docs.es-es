@@ -56,6 +56,8 @@
           href: best-practices-distributive-collaborative-development-environment.md
         - name: Integración con Azure DevOps
           href: devtest-lab-dev-ops.md
+        - name: Uso de funcionalidades de notificación
+          href: devtest-lab-use-claim-capabilities.md
         - name: Escenarios
           items:
             - name: Escenarios conocidos de uso de DevTest Labs

@@ -16,8 +16,6 @@
       href: tutorial-sspr-pilot.md
     - name: Habilitar integración local de SSPR
       href: tutorial-enable-writeback.md
-    - name: Habilitar el restablecimiento de contraseña de Windows 10
-      href: tutorial-sspr-windows.md
     - name: Integración de Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Conceptos
@@ -73,8 +71,8 @@
           href: howto-sspr-authenticationdata.md
         - name: Habilitar escritura diferida de contraseñas
           href: howto-sspr-writeback.md
-        - name: 'SSPR para Windows 7, 8 y 8.1'
-          href: howto-sspr-windows-7-8.md
+        - name: SSPR para clientes Windows
+          href: howto-sspr-windows.md
     - name: Multi-Factor Authentication basado en la nube
       items:
         - name: Implementación de Multi-Factor Authentication basado en la nube

@@ -58,7 +58,7 @@
           href: howto-power-bi-content-pack.md
         - name: Configuración de requisitos previos para la API de informes
           href: howto-configure-prerequisites-for-reporting-api.md
-        - name: Uso de libros de Azure Monitor
+        - name: "Uso de libros de Azure\_AD"
           href: howto-use-azure-monitor-workbooks.md
     - name: Supervisión
       items:
@@ -87,6 +87,8 @@
 - name: Referencia
   expanded: true
   items:
+    - name: Cmdlets de Azure AD PowerShell para informes
+      href: reference-powershell-reporting.md
     - name: Referencia de la API de registros de auditoría
       href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
     - name: Referencia de la API de registros de inicio sesión

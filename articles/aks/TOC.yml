@@ -126,6 +126,8 @@
           href: virtual-kubelet.md
         - name: Uso de escalador automático de clúster (versión preliminar)
           href: cluster-autoscaler.md
+        - name: Uso de Availability Zones (versión preliminar)
+          href: availability-zones.md
         - name: Uso de varios grupos de nodos (versión preliminar)
           href: use-multiple-node-pools.md
         - name: Implementación de AKS con Terraform
@@ -315,6 +317,8 @@
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
+        - name: Iniciador del centro de implementación
+          href: deployment-center-launcher.md
     - name: Solución de problemas
       items:
         - name: Problemas comunes
