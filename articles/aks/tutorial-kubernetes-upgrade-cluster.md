@@ -2,18 +2,18 @@
 title: 'Tutorial de Kubernetes en Azure: Actualización de un clúster'
 description: En este tutorial de Azure Kubernetes Service (AKS) aprenderá a actualizar un clúster de AKS existente a la versión de Kubernetes más reciente disponible.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 09e3fab67486b4677c5848d81fb39a68e511b6ac
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 90c5a4e18f72d9a8b048ef0f40a5c0b405a584f2
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305205"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614159"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ En este tutorial, la séptima parte de siete, se actualiza un clúster de Kubern
 
 En los tutoriales anteriores se empaquetó una aplicación en una imagen de contenedor. Esta imagen se cargó en Azure Container Registry y el usuario creó un clúster de AKS. Luego la aplicación se implementó en el clúster de AKS. Si no ha realizado estos pasos, pero desea continuar, comience con el [Tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
-Para realizar este tutorial es necesario disponer de la versión 2.0.53, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
+Para realizar este tutorial es necesario disponer de la versión 2.0.53, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="get-available-cluster-versions"></a>Obtención de las versiones disponibles del clúster
 
@@ -128,7 +128,7 @@ En este tutorial, actualizó Kubernetes en un clúster de AKS. Ha aprendido a:
 > * Actualización de los nodos de Kubernetes
 > * Validación de una actualización correcta
 
-Siga este vínculo para conocer más acerca de AKS.
+Siga este vínculo para obtener más información acerca de AKS.
 
 > [!div class="nextstepaction"]
 > [Introducción a AKS][aks-intro]

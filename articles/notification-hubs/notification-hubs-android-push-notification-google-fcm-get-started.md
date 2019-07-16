@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: c21b1e38077575fc49221150a61693a23aa408a3
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: f2efa9b7e1e534f93e4ea01ba52740c8c5ac7b02
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509121"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653889"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Google Firebase Cloud Messaging
 
@@ -88,7 +88,26 @@ El centro está ahora configurado para trabajar con Firebase Cloud Messaging. Ta
 
 ### <a name="add-google-play-services-to-the-project"></a>Incorporación de los servicios de Google Play al proyecto
 
-[!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
+1. En Android Studio, seleccione **Tools** (Herramientas) en el menú y, luego, seleccione **SDK Manager**. 
+2. Busque la versión de destino de Android SDK se usa en el proyecto. Luego, seleccione **Show Package Details** (Mostrar detalles del paquete). 
+
+    ![Android SDK Manager: selección de la versión de destino](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. Seleccione **Google APIs** (API de Google), si aún no está instalado este componente.
+
+    ![Android SDK Manager: Google APIs seleccionado](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. Cambie a la pestaña **SDK Tools**. Si no ha instalado todavía Google Play Services, seleccione **Google Play Services**, tal como se muestra en la imagen siguiente. A continuación, seleccione **Apply** (Aplicar) para realizar la instalación. Tome nota de la ruta de acceso del SDK para usarla en el paso siguiente.
+
+    ![Android SDK Manager: Google Play Services seleccionado](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. Si ve el cuadro de diálogo **Confirm Change** (Confirmar cambio), seleccione **OK** (Aceptar). El instalador de componentes se instala los componentes solicitados. Seleccione **Finish** (Finalizar) una vez instalados los componentes.
+4. Seleccione **OK** (Aceptar) para cerrar el cuadro de diálogo **Settings for New Projects** (Configuración para nuevos proyectos).  
+5. Seleccione el icono **Sync Now** (Sincronizar ahora) en la barra de herramientas.
+1. Abra el archivo AndroidManifest.xml y, luego, agregue la siguiente etiqueta a la etiqueta *application*.
+
+    ```xml
+    <meta-data android:name="com.google.android.gms.version"
+         android:value="@integer/google_play_services_version" />
+    ```
+
 
 ### <a name="add-azure-notification-hubs-libraries"></a>Incorporación de las bibliotecas de Azure Notification Hubs
 
@@ -354,7 +373,6 @@ El centro está ahora configurado para trabajar con Firebase Cloud Messaging. Ta
 
         mainActivity = this;
         registerWithNotificationHubs();
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
     }
     ```
 
@@ -526,7 +544,7 @@ Además, asegúrese de haber agregado su cuenta de Google al emulador en ejecuci
 En este tutorial, se usa Firebase Cloud Messaging para enviar notificaciones de difusión a todos los dispositivos Android registrados en el servicio. Para aprender a enviar notificaciones push a dispositivos específicos, pase al siguiente tutorial:
 
 > [!div class="nextstepaction"]
->[Tutorial: Envío de notificaciones push a dispositivos Android específicos](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[Tutorial: Envío de notificaciones push a dispositivos Android específicos](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 

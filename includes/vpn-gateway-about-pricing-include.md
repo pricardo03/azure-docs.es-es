@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 07/08/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ae36adc78d8c87d85c64fd61cb3a50dfcae60b85
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8f8d366961049deb3eda193718ccb553aac930e3
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186194"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666374"
 ---
-Se paga por dos cosas: los costos de proceso por horas de la puerta de enlace de red virtual y la transferencia de datos de salida de esta. Puede encontrar más información sobre los precios en la página de [precios](https://azure.microsoft.com/pricing/details/vpn-gateway) .
+Se paga por dos cosas: los costos de proceso por horas de la puerta de enlace de red virtual y la transferencia de datos de salida de esta. Puede encontrar más información sobre los precios en la página de [precios](https://azure.microsoft.com/pricing/details/vpn-gateway). Para los precios de SKU de puerta de enlace heredada, consulte la [página de precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) y vaya a la sección **Puertas de enlace de red virtual**.
 
 **Costos del proceso de puerta de enlace de red virtual**<br>Cada puerta de enlace de red virtual tiene un costo de proceso por horas. El precio se basa en la SKU de la puerta de enlace que especifique al crear una puerta de enlace de red virtual. El costo es para la puerta de enlace en sí y se agrega a la transferencia de datos que pasa a través de la puerta de enlace. El costo de una configuración activa-activa es igual que el de activa-pasiva.
 

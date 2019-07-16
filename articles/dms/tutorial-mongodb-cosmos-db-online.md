@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
-ms.openlocfilehash: 0bd271dbf173885cbd5f7835c5dc6b672a3e6035
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 07/04/2019
+ms.openlocfilehash: 17f1b36ba5d5b699cce621db3917ef92654047ff
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298964"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565576"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: Migración de MongoDB a la API de Azure Cosmos DB para MongoDB en línea mediante DMS
 
@@ -113,7 +113,7 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
 1. En Azure Portal, seleccione **Todos los servicios**, busque Azure Database Migration Service y, luego, elija **Azure Database Migration Services**.
 
-    ![Búsqueda de todas las instancias de Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb-online/dms-search.png)
+    ![Búsqueda de todas las instancias de Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb-online/dms-search.png)
 
 2. En la pantalla **Azure Database Migration Services**, busque el nombre de la instancia de Azure Database Migration Service que creó y, después, seleccione la instancia.
 
@@ -150,7 +150,14 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
      * En el caso de los volcados de JSON, los archivos del contenedor de blobs deben colocarse en carpetas que se llamen igual que las bases de datos que contienen. Dentro de cada una de estas carpetas, los archivos de datos se deben colocar en una subcarpeta denominada "data" y se le debe asignar el nombre con el formato *colección*.json. Los archivos de metadatos (si hubiera) se deben colocar en una subcarpeta denominada "metadata" y se le debe asignar el nombre con el mismo formato, *colección*.json. Los archivos de metadatos deben estar en el mismo formato que los que genera la herramienta bsondump de MongoDB.
 
-   La dirección IP se puede usar en situaciones en las que no es posible la resolución de nombres de DNS.
+    > [!IMPORTANT]
+    > No se recomienda usar un certificado autofirmado en el servidor de Mongo. Sin embargo, si lo usa, conecte con el servidor con el **modo de cadena de conexión** y asegúrese de que la cadena de conexión es "".
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
+
+    La dirección IP se puede usar en situaciones en las que no es posible la resolución de nombres de DNS.
 
    ![Especificación de los detalles de origen](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 

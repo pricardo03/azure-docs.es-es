@@ -1,24 +1,24 @@
 ---
 title: Registro de instancias de contenedor con registros de Azure Monitor
-description: Aprenda a enviar la salida de un contenedor (STDOUT y STDERR) a los registros de Azure Monitor.
+description: Aprenda a enviar registros desde instancias de contenedores de Azure a registros de Azure Monitor.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/17/2018
+ms.date: 07/09/2019
 ms.author: danlep
-ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cab0bc4d2d0491c70a1d2f11f3a5d5d831ade6cf
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879720"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722648"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>Registro de instancias de contenedor con registros de Azure Monitor
 
 Las áreas de trabajo de Log Analytics proporcionan una ubicación centralizada para almacenar y consultar datos de registro no solo de los recursos de Azure, sino también de los recursos locales y de los recursos de otras nubes. Azure Container Instances incluye compatibilidad integrada para el envío de datos a los registros de Azure Monitor.
 
-Para enviar datos de instancias de contenedores a registros de Azure Monitor debe crear un grupo de contenedores mediante la CLI de Azure (o Cloud Shell) y un archivo YAML. En las secciones siguientes se describe tanto la creación de un grupo de contenedores con el registro habilitado como la consulta de registros.
+Para enviar datos de instancias de contenedores a los registros de Azure Monitor, debe especificar una clave y un identificador de área de trabajo de Log Analytics al crear un grupo de contenedores. En las secciones siguientes se describe tanto la creación de un grupo de contenedores con el registro habilitado como la consulta de registros.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,7 +36,7 @@ Azure Container Instances necesita permiso para enviar datos a su área de traba
 Para obtener el identificador y la clave principal del área de trabajo de Log Analytics:
 
 1. Vaya al área de trabajo de Log Analytics en Azure Portal
-1. En **CONFIGURACIÓN**, seleccione **Configuración avanzada**
+1. En **Configuración**, seleccione **Configuración avanzada**.
 1. Seleccione **Orígenes conectados** > **Servidores de Windows** (o **Servidores de Linux**, ya que tanto el identificador como las claves son las mismas para ambos)
 1. Anote el valor de:
    * **ID. DEL ÁREA DE TRABAJO**
@@ -66,7 +66,7 @@ az container create \
 Utilice este método si prefiere implementar grupos de contenedores con YAML. El siguiente fragmento de código YAML define un grupo de contenedores con un solo contenedor. Copie el código YAML en un nuevo archivo y sustituya `LOG_ANALYTICS_WORKSPACE_ID` y `LOG_ANALYTICS_WORKSPACE_KEY` por los valores que obtuvo en el paso anterior. Guarde el archivo con el nombre **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -90,7 +90,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-A continuación, ejecute el siguiente comando para implementar el grupo de contenedores; reemplace `myResourceGroup` por un grupo de recursos de su suscripción (o bien cree antes un grupo de recursos denominado "myResourceGroup"):
+A continuación, ejecute el siguiente comando para implementar el grupo de contenedores. Reemplace `myResourceGroup` por un grupo de recursos de su suscripción (o bien cree antes un grupo de recursos denominado "myResourceGroup"):
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
@@ -100,12 +100,14 @@ Debería recibir una respuesta de Azure con detalles de implementación poco des
 
 ## <a name="view-logs-in-azure-monitor-logs"></a>Visualización de registros de Azure Monitor
 
-Una vez que haya implementado el grupo de contenedores, las primeras entradas de registro pueden tardar varios minutos (hasta 10) en aparecer en Azure Portal. Para ver los registros del grupo de contenedores, abra el área de trabajo de Log Analytics y:
+Una vez que haya implementado el grupo de contenedores, las primeras entradas de registro pueden tardar varios minutos (hasta 10) en aparecer en Azure Portal. Para ver los registros del grupo de contenedores:
 
-1. En la información general de **Área de trabajo de OMS**, seleccione **Búsqueda de registros**. Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.  
-1. En **A few more queries to try** (Intentar algunas consultas más), seleccione el vínculo **All collected data** (Todos los datos recopilados)
+1. Vaya al área de trabajo de Log Analytics en Azure Portal
+1. En **General**, seleccione **Registros**.  
+1. Escriba la consulta siguiente: `search *`
+1. Seleccione **Ejecutar**.
 
-Debería ver que la consulta `search *` muestra varios resultados. Si no ve ninguno, espere unos minutos y seleccione el botón **EJECUTAR** para volver a ejecutar la consulta. De forma predeterminada, las entradas del registro se muestran en la vista de "Lista" (seleccione **Tabla** para ver las entradas del registro en un formato más condensado). Luego puede expandir una fila para ver el contenido de una entrada de registro individual.
+Debería ver que la consulta `search *` muestra varios resultados. Si no ve ninguno, espere unos minutos y seleccione el botón **Ejecutar** para volver a ejecutar la consulta. De forma predeterminada, las entradas del registro aparecen en formato de **tabla**. Luego puede expandir una fila para ver el contenido de una entrada de registro individual.
 
 ![Resultados de Búsqueda de registros en Azure Portal][log-search-01]
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 275fec5fb696a7e1352bbddccd288863e984b796
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 9579db9836ef41706f2c6be09570fa7c1459e14f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304543"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620452"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implementación de una herramienta de administración
 
@@ -57,8 +57,8 @@ Siga las instrucciones para implementar la plantilla de Azure Resource Manager:
 ### <a name="guidance-for-template-parameters"></a>Guía sobre los parámetros de la plantilla
 Aquí le mostramos cómo especificar parámetros de configuración para la herramienta:
 
-- La dirección URL de agente de Escritorio remoto:  <https://rdbroker.wvd.microsoft.com/>
-- La dirección URL de recursos:  <https://mrs-prod.ame.gbl/mrs-RDInfra-prod>
+- Esta es la dirección URL del Agente de Escritorio remoto: https:\//rdbroker.wvd.microsoft.com/
+- Esta es la dirección URL de los recursos: https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
 - Use sus credenciales de AAD con la opción de MFA deshabilitada para iniciar sesión en Azure. Consulte [Qué se necesita para ejecutar la plantilla de Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
 - Use un nombre único para la aplicación que se registrará en Azure Active Directory para la herramienta de administración. Por ejemplo, Apr3UX.
 

@@ -2,18 +2,18 @@
 title: 'Tutorial de Kubernetes en Azure: Preparación de una aplicación'
 description: En este tutorial de Azure Kubernetes Service (AKS) aprenderá a preparar y compilar una aplicación con varios contenedor con Docker Compose que se puede implementar en AKS.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8fdc36215841348cf62cd61245950be6573a1938
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b4ba646a037b2f5561dabf97dee14454c07c573
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304452"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614222"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparación de una aplicación para Azure Kubernetes Service (AKS)
 
@@ -32,9 +32,9 @@ En tutoriales adicionales, la imagen de contenedor se carga en una instancia de 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este tutorial se asume que el usuario tiene un conocimiento básico de los principales conceptos de Docker, como los contenedores, las imágenes de contenedor y los comandos de `docker`. Para encontrar datos básicos acerca de los contenedores, consulte la [introducción a Docker][docker-get-started].
+En este tutorial se asume que el usuario tiene un conocimiento básico de los principales conceptos de Docker, como los contenedores, las imágenes de contenedor y los comandos de `docker`. Si es necesario, consulte la [introducción a Docker][docker-get-started], donde encontrará datos básicos acerca de los contenedores.
 
-Para completar este tutorial, se necesita un entorno de desarrollo de Docker local en el que se ejecuten contenedores Linux. Docker proporciona paquetes que configuran Docker en cualquier sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
+Para completar este tutorial, se necesita un entorno de desarrollo de Docker local en el que se ejecuten contenedores Linux. Docker proporciona paquetes que configuran Docker en un sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
 
 Azure Cloud Shell no incluye los componentes de Docker necesarios para completar todos los pasos de este tutorial. Por lo tanto, se recomienda usar un entorno completo de desarrollo de Docker.
 
@@ -97,7 +97,7 @@ Para ver la aplicación en ejecución, escriba `http://localhost:8080` en un exp
 
 Ahora que la funcionalidad de la aplicación se ha validado, los contenedores en ejecución se pueden detener y eliminar. No elimine las imágenes de contenedor (en el siguiente tutorial, la imagen *azure-vote-front* se carga en una instancia de Azure Container Registry).
 
-Detenga y quite las instancias de contenedor y los recursos con el comando [docker-compose abajo][docker-compose-down]:
+Detenga y quite las instancias de contenedor y los recursos con el comando [docker-compose down][docker-compose-down]:
 
 ```console
 docker-compose down

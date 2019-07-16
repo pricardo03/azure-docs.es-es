@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 51b2cd42fabe6406f88388e99459a6f3dd3e69f5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b4b10591069b71a4e70769f5bdcd6149768c5007
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827648"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604019"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconocimiento de logotipos de servicios de Azure imágenes de cámara
 
-En este tutorial, examinará una aplicación de muestra que usa Azure Custom Vision como parte de un escenario mayor. La aplicación AI Visual Provision es una aplicación de Xamarin.Forms para plataformas móviles que analiza imágenes de cámara de logotipos de servicios de Azure y, después, implementa dichos servicios en la cuenta de Azure del usuario. Aquí obtendrá información acerca de cómo usar Custom Vision en coordinación con otros componentes para proporcionar una útil aplicación de un extremo a otro. Ejecute usted mismo toda la aplicación o bien complete solamente la parte de Custom Vision de la instalación y explore la forma en que la aplicación lo usa.
+En este tutorial, examinará una aplicación de muestra que usa Azure Custom Vision como parte de un escenario mayor. La aplicación AI Visual Provision es una aplicación de Xamarin.Forms para plataformas móviles que analiza imágenes de cámara de logotipos de servicios de Azure y, después, implementa dichos servicios en la cuenta de Azure del usuario. Aquí obtendrá información acerca de cómo usar Custom Vision en coordinación con otros componentes para proporcionar una útil aplicación de un extremo a otro. Puede ejecutar usted mismo toda la aplicación o bien completar solamente la parte de Custom Vision de la instalación y explorar la forma en que la aplicación lo usa.
 
 Este tutorial le mostrará cómo:
 
@@ -51,7 +51,7 @@ Inicie sesión en el [sitio web de Custom Vision](https://customvision.ai/) y cr
 
 A continuación, entrene el algoritmo de detección de logotipos, para lo que debe cargar imágenes de logotipos de servicios de Azure y etiquetarlas manualmente. El repositorio AIVisualProvision incluye un conjunto de imágenes de entrenamiento que puede usar. En el sitio web, seleccione el botón **Agregar imágenes** situado en la pestaña **Training Images** (Imágenes para entrenamiento). A continuación, vaya a la carpeta **Documentos/Imágenes/Training_DataSet** del repositorio. Tendrá que etiquetar manualmente los logotipos en cada imagen, por lo que, si solo va a probar este proyecto, es posible que desee cargar solo un subconjunto de las imágenes. Cargue al menos 15 instancias de cada etiqueta que vaya a usar.
 
-Una vez que haya cargado las imágenes de entrenamiento, seleccione la primera en la pantalla. Se abrirá la ventana de etiquetado. Dibuje cuadros y asigne al logotipo de cada imagen. 
+Una vez que haya cargado las imágenes de entrenamiento, seleccione la primera en la pantalla. Aparece una ventana de etiquetado. Dibuje cuadros y asigne al logotipo de cada imagen. 
 
 ![Logotipo de etiquetado en el sitio Web de Custom Vision](media/azure-logo-tutorial/tag-logos.png)
 
@@ -63,13 +63,13 @@ Después de etiquetar una imagen, vaya a la derecha para etiquetar siguiente. Ci
 
 ## <a name="train-the-object-detector"></a>Entrenamiento del detector de objetos
 
-En el panel izquierdo, en el parámetro **Tags** (Etiquetas), seleccione **Tagged** (Con etiqueta) para mostrar las imágenes. Luego, seleccione el botón verde de la parte superior de la página para entrenar el modelo. De esta forma se enseña al algoritmo a reconocer las mismas etiquetas en las imágenes nuevas. También probará el modelo en algunas de las imágenes existentes para generar puntuaciones de precisión.
+En el panel izquierdo, en el parámetro **Tags** (Etiquetas), seleccione **Tagged** (Con etiqueta) para mostrar las imágenes. Luego, seleccione el botón verde de la parte superior de la página para entrenar el modelo. De esta forma se enseña al algoritmo a reconocer las mismas en las imágenes nuevas. También probará el modelo en algunas de las imágenes existentes para generar puntuaciones de precisión.
 
 ![El sitio Web de Custom Vision, en la pestaña Training Images (Imágenes para entrenamiento). En esta captura de pantalla, se describe el botón Train (Entrenar)](media/azure-logo-tutorial/train-model.png)
 
 ## <a name="get-the-prediction-url"></a>Obtención de la dirección URL de predicción
 
-Una vez que el modelo esté entrenado, estará preparado para integrarlo en la aplicación. Para ello, deberá obtener la dirección URL del punto de conexión (la dirección del modelo que la aplicación consultará) y la clave de predicción (para conceder a la aplicación acceso a las solicitudes de predicción). En la pestaña **Performance** (Rendimiento), seleccione el botón **Prediction URL** (Dirección URL de predicción) de la parte superior de la página.
+Una vez que el modelo esté entrenado, estará preparado para integrarlo en la aplicación. Deberá obtener la dirección URL del punto de conexión (la dirección del modelo que la aplicación consultará) y la clave de predicción (para conceder a la aplicación acceso a las solicitudes de predicción). En la pestaña **Performance** (Rendimiento), seleccione el botón **Prediction URL** (Dirección URL de predicción) de la parte superior de la página.
 
 ![El sitio Web de Custom Vision con una ventana de Prediction API, que muestra una dirección URL y la clave de API](media/azure-logo-tutorial/cusvis-endpoint.png)
 

@@ -1681,7 +1681,7 @@ En general, una transformación basada en recuentos solo puede aplicarse a los c
 |------------------------|  
 |El archivo de definición de módulo contiene errores.|  
 |El archivo de definición de módulo "{0}" contiene errores.|  
-|El archivo de definición de módulo "{0}" contiene errores. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip]({1})|  
+|El archivo de definición de módulo "{0}" contiene errores. {1}|  
   
 
 ## <a name="error-0114"></a>Error 0114  
@@ -2082,7 +2082,7 @@ Resolución:
 |Mensajes de excepción|  
 |------------------------|  
 |Error de acceso a GitHub.|  
-|Error de acceso a GitHub. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip]({0})|  
+|Error de acceso a GitHub. {0}|  
   
 
 ## <a name="error-0148"></a>Error 0148  

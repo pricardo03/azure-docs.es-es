@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756529"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604058"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Guía de inicio rápido: Análisis de contenido de textos para detectar material inapropiado en C#
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Inicio rápido: Análisis de contenido de textos para detectar material inapropiado en C#
 
 En este artículo se proporciona información y ejemplos de código que le ayudarán a empezar a usar el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Obtendrá información sobre cómo ejecutar el filtrado y la clasificación basada en términos del contenido de texto con el fin de moderar el material potencialmente ofensivo.
 
@@ -57,11 +57,11 @@ Agregue el código siguiente al archivo *Program.cs* para crear un cliente de Co
 
 ### <a name="set-up-input-and-output-targets"></a>Configuración de los destinos de entrada y salida
 
-Agregue los siguientes campos estáticos a la clase **Program** en _Program.cs_. Especifican los archivos para el contenido de texto de entrada y el contenido JSON de salida.
+Agregue los siguientes campos estáticos a la clase **Program** en _Program.cs_. Estos campos especifican los archivos para el contenido de texto de entrada y el contenido JSON de salida.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-Tendrá que crear el archivo *TextFile.txt* de entrada y actualizar su ruta de acceso según corresponda (las rutas de acceso relativas se refieren al directorio de ejecución). Abra _TextFile.txt_ y agregue el texto que se va a moderar. En esta guía de inicio rápido se usa el siguiente texto de ejemplo:
+Tendrá que crear el archivo *TextFile.txt* de entrada y actualizar su ruta de acceso (las rutas de acceso relativas se refieren al directorio de ejecución). Abra _TextFile.txt_ y agregue el texto que se va a moderar. En esta guía de inicio rápido se usa el siguiente texto de ejemplo:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

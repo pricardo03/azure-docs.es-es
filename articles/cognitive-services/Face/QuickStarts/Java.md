@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c0c1b9c1e9afc84e9702f6c1897d372a017be868
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: d014785a0e866301e228458fe3742b899bd1f192
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629887"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606969"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y Java
 
@@ -159,7 +159,7 @@ Agregue el siguiente bloque directamente debajo del código anterior, que convie
 
 ## <a name="run-the-app"></a>Ejecución de la aplicación
 
-Compile el código y ejecútelo. Una respuesta correcta mostrará datos de las caras en formato JSON fácilmente legible en la ventana de consola. Por ejemplo: 
+Compile el código y ejecútelo. Una respuesta correcta mostrará datos de las caras en formato JSON fácilmente legible en la ventana de consola. Por ejemplo:
 
 ```json
 [{

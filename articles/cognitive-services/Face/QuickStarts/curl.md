@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 212b935e8986731940effe79ec80f52c0d7b64c4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 68cdd147977294954051735d70307305aa5dc0cb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308935"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603328"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y cURL
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="write-the-command"></a>Escritura del comando
  
-Utilizará un comando como el siguiente para llamar a Face API y obtener los datos de los atributos de las caras de una imagen. En primer lugar, copie el código en un editor de texto; deberá realizar cambios en ciertas partes del comando antes de su ejecución.
+Utilizará un comando como el siguiente para llamar a la API Face y obtener los datos de los atributos de las caras de una imagen. En primer lugar, copie el código en un editor de texto; deberá realizar cambios en ciertas partes del comando antes de su ejecución.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
@@ -40,7 +40,7 @@ Reemplace `<Subscription Key>` por una clave de suscripción de Face API válida
 
 ### <a name="face-endpoint-url"></a>Dirección URL del punto de conexión de Face
 
-La dirección URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica el punto de conexión de Azure Face para las consultas. Deberá cambiar la primera parte de esta dirección URL para que coincida con la región que corresponde a la clave de suscripción (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones).
+La dirección URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica el punto de conexión de Azure Face para las consultas. Deberá cambiar la primera parte de esta dirección URL para que coincida con la región que corresponde a la clave de suscripción. Consulte la documentación sobre la [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de todos los puntos de conexión de la región.
 
 ### <a name="url-query-string"></a>Cadena de consulta de URL
 
@@ -51,7 +51,7 @@ La cadena de consulta de la dirección URL del punto de conexión de Face especi
 ```
 
 ### <a name="image-source-url"></a>Dirección URL del origen de la imagen
-La dirección URL del origen indica la imagen que se usará como entrada. Puede cambiarlo para apuntar a cualquier imagen que desee analizar.
+La dirección URL del origen indica la imagen que se usará como entrada. Puede cambiarla para que apunte a cualquier imagen que desee analizar.
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
@@ -59,7 +59,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 
 ## <a name="run-the-command"></a>Ejecute el comando
 
-Una vez realizados los cambios, abra un símbolo del sistema y escriba el nuevo comando. Debería ver la información de la cara mostrada como datos JSON en la ventana de la consola. Por ejemplo: 
+Una vez realizados los cambios, abra un símbolo del sistema y escriba el nuevo comando. Debería ver la información de la cara mostrada como datos JSON en la ventana de la consola. Por ejemplo:
 
 ```json
 [

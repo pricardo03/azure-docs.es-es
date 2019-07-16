@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312402"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603356"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y Ruby
 
@@ -28,7 +28,7 @@ En este inicio rápido, usará la API REST Azure Face con Ruby para detectar car
 
 ## <a name="write-the-script"></a>Escritura del script
 
-Cree un archivo, _faceDetection.rb_ y agregue el código siguiente. De este modo, se llama a Face API para una dirección URL de imagen determinada.
+Cree un archivo, _faceDetection.rb_ y agregue el código siguiente. Este código llama a la API Face para una dirección URL de imagen determinada.
 
 ```ruby
 require 'net/http'
@@ -74,7 +74,7 @@ Ejecute el script de Ruby con el siguiente comando:
 ruby faceDetection.rb
 ```
 
-Debería ver una cadena JSON de los datos de la cara detectada impresos en la consola. El siguiente es un ejemplo de una respuesta JSON correcta.
+Debería ver una cadena JSON de los datos de la cara detectada impresos en la consola. El siguiente texto es un ejemplo de una respuesta JSON correcta.
 
 ```json
 [

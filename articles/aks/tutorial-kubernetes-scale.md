@@ -2,18 +2,18 @@
 title: 'Tutorial de Kubernetes en Azure: escalado de una aplicación'
 description: En este tutorial de Azure Kubernetes Service (AKS), obtendrá información sobre cómo escalar los nodos y los pods de Kubernetes e implementar el escalado horizontal automático de pods.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 062e16c0d196cf91d6e0adde46ed973f1c0d1191
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 5a942aa10f36df55ac232defa610102700e3995b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304437"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614192"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ En otros tutoriales, la aplicación Azure Vote se actualiza a una nueva versión
 
 En los tutoriales anteriores se empaquetó una aplicación en una imagen de contenedor. Esta imagen se cargó en Azure Container Registry y el usuario creó un clúster de AKS. Luego la aplicación se implementó en el clúster de AKS. Si no ha realizado estos pasos, pero quiere continuar, comience con el [Tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
-Para realizar este tutorial es necesario ejecutar la versión 2.0.53, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
+Para realizar este tutorial es necesario ejecutar la versión 2.0.53, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="manually-scale-pods"></a>Escalado manual de pods
 
@@ -70,7 +70,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Escalado automático de pods
 
-Kubernetes admite el [escalado automático horizontal de pods][kubernetes-hpa] para ajustar el número de pods en una implementación en función del uso de la CPU o de otras métricas de selección. El [servidor de medición][metrics-server] se usa para proporcionar utilización de recursos a Kubernetes y se implementa automáticamente en clústeres de AKS de la versión 1.10 o posteriores. Para ver la versión del clúster de AKS, use el comando [az aks show][az-aks-show], tal como se muestra en el ejemplo siguiente:
+Kubernetes admite el [escalado automático horizontal de pods][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] para proporcionar utilización de recursos a Kubernetes y se implementa automáticamente en clústeres de AKS de la versión 1.10 o posteriores. Para ver la versión del clúster de AKS, use el comando [az aks show][az-aks-show], tal y como se muestra en el ejemplo siguiente:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
@@ -93,7 +93,7 @@ resources:
      cpu: 500m
 ```
 
-En el ejemplo siguiente se usa el comando [kubectl autoscale][kubectl-autoscale] para escalar automáticamente el número de pods en la implementación *azure-vote-front*. Si el uso de la CPU supera el 50 %, el escalador automático aumenta el número de pods hasta un máximo de *10* instancias. Luego se define un mínimo de *3* instancias para la implementación:
+En el ejemplo siguiente se usa el comando [kubectl autoscale][kubectl-autoscale] para escalar automáticamente el número de pods en la implementación*azure-vote-front*. Si el uso de la CPU supera el 50 %, el escalador automático aumenta el número de pods hasta un máximo de *10* instancias. Luego se define un mínimo de *3* instancias para la implementación:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

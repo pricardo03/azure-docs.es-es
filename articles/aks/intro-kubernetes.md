@@ -2,18 +2,18 @@
 title: Introducción a Azure Kubernetes Service
 description: Aprenda las características y ventajas de Azure Kubernetes Service para implementar y administrar aplicaciones basadas en contenedor en Azure.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073812"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615157"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Puede crear un clúster de AKS en Azure Portal con la CLI de Azure, o bien opcio
 
 Para más información sobre los conceptos básicos de Kubernetes, consulte [Conceptos básicos de Kubernetes para AKS][concepts-clusters-workloads].
 
-Para empezar, complete el inicio rápido de AKS [en Azure Portal][aks-portal] o [con la CLI de Azure][aks-cli].
+Para empezar, complete el inicio rápido de AKS [en Azure Portal][aks-portal] or [with the Azure CLI][aks-cli].
 
 ## <a name="access-security-and-monitoring"></a>Acceso, seguridad y supervisión
 
@@ -57,7 +57,7 @@ Para más información, consulte [Escalado de un clúster de Azure Kubernetes Se
 
 Azure Kubernetes Service ofrece varias versiones de Kubernetes. A medida que hay nuevas versiones disponibles en AKS, el clúster se puede actualizar mediante Azure Portal o la CLI de Azure. Durante el proceso de actualización, los nodos se acordonan y vacían minuciosamente para minimizar las interrupciones en las aplicaciones en ejecución.
 
-Para obtener más información sobre las versiones del ciclo de vida, consulte [Supported Kubernetes versions in AKS][aks-supported versions] (Versiones de Kubernetes compatibles en AKS). Para más información sobre cómo actualizar, consulte [Actualización de un clúster de Azure Kubernetes Service (AKS)][aks-upgrade].
+Para obtener más información sobre las versiones del ciclo de vida, consulte [Supported Kubernetes versions in AKS][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade] (Versiones de Kubernetes compatibles en AKS).
 
 ### <a name="gpu-enabled-nodes"></a>Nodos habilitados para GPU
 
@@ -71,7 +71,7 @@ Para admitir las cargas de trabajo de la aplicación, puede montar volúmenes de
 
 Para más información, consulte [Opciones de almacenamiento para aplicaciones en AKS][concepts-storage].
 
-Empiece con volúmenes persistentes dinámicos con [Azure Disks][azure-disk] o [Azure Files][azure-files].
+Empiece con volúmenes persistentes dinámicos con [Azure Disks][azure-disk] or [Azure Files][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Redes virtuales y entrada
 
@@ -109,7 +109,7 @@ Azure Kubernetes Service (AKS) tiene el certificado CNCF de cumplimiento con Kub
 
 ## <a name="regulatory-compliance"></a>Cumplimiento de normativas
 
-Azure Kubernetes Service (AKS) cumple con SOC, ISO, PCI DSS y HIPAA. Para más información, consulte [Overview of Microsoft Azure compliance][compliance-doc] (Introducción al cumplimiento de Microsoft Azure).
+Azure Kubernetes Service (AKS) cumple con SOC, ISO, PCI DSS y HIPAA. Para más información, consulte [Introducción al cumplimiento de Microsoft Azure][compliance-doc].
 
 ## <a name="next-steps"></a>Pasos siguientes
 

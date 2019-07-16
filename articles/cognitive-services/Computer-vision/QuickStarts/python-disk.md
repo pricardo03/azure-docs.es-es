@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: feba14f3557ac5d09c0455b02a9df64872f632c1
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 01d9ebeb10a9bd2105d9db64cb25cc0c45a08fe9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342075"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603574"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Inicio rápido: Análisis de una imagen local mediante la API REST y Python en Computer Vision
+# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-python"></a>Inicio rápido: Análisis de una imagen local mediante la API REST Computer Vision y Python
 
 En esta guía de inicio rápido, analizará una imagen almacenada localmente para extraer características visuales con la API de REST Computer Vision. Con el [método de análisis de imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen.
 
@@ -66,7 +66,7 @@ assert subscription_key
 # subscription keys. For example, if you got your subscription keys from
 # westus, replace "westcentralus" in the URI below with "westus".
 #
-# Free trial subscription keys are generated in the "westus" region.
+# Free trial subscription keys are generated in the "westcentralus" region.
 # If you use a free trial subscription key, you shouldn't need to change
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
@@ -173,10 +173,6 @@ Se devuelve una respuesta correcta en JSON. La página web de ejemplo analiza y 
   }
 }
 ```
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Cuando ya no necesite el archivo, elimínelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

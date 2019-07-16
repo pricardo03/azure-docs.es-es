@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/20/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d9a28dcd4af68cf9c00eb3d338c4bd83c8d89ecc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757232"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604114"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Inicio rápido: Análisis de imágenes en busca de contenido inapropiado en C#
 
@@ -60,7 +60,7 @@ Agregue el código siguiente al archivo *Program.cs* para crear un cliente de Co
 
 ### <a name="set-up-input-and-output-targets"></a>Configuración de los destinos de entrada y salida
 
-Agregue los siguientes campos estáticos a la clase **Program** en _Program.cs_. Especifican los archivos para el contenido de imagen de entrada y el contenido JSON de salida.
+Agregue los siguientes campos estáticos a la clase **Program** en _Program.cs_. Estos campos especifican los archivos para el contenido de imagen de entrada y el contenido JSON de salida.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=49-53)]
 
@@ -86,13 +86,13 @@ Agregue el método siguiente a la clase **Program**. Este método evalúa una so
 
 ### <a name="load-the-input-images"></a>Carga de las imágenes de entrada
 
-Agregue el siguiente código al método **Main** de la clase **App**. De este modo, se configura el programa para recuperar los datos de evaluación de cada dirección URL de imagen del archivo de entrada. A continuación, escribe estos datos en un único archivo de salida.
+Agregue el siguiente código al método **Main** de la clase **App**. Este código configura el programa para recuperar los datos de evaluación de cada dirección URL de imagen del archivo de entrada. A continuación, escribe estos datos en un único archivo de salida.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
 
 ## <a name="run-the-program"></a>Ejecución del programa
 
-El programa escribirá los datos de cadena de JSON en el archivo _ModerationOutput.json_. Las imágenes de ejemplo utilizadas en esta guía de inicio rápido provocan la siguiente salida. Tenga en cuenta que cada imagen tiene secciones diferentes para `ImageModeration`, `FaceDetection`, y `TextDetection`, que corresponden a las tres llamadas de API del método **EvaluateImage**.
+El programa escribirá los datos de cadena de JSON en el archivo _ModerationOutput.json_. Las imágenes de ejemplo utilizadas en esta guía de inicio rápido provocan la siguiente salida. Cada imagen tiene secciones diferentes para `ImageModeration`, `FaceDetection`, y `TextDetection`, que corresponden a las tres llamadas de API del método **EvaluateImage**.
 
 ```json
 [{

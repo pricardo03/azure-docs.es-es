@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: dd06330e82850cc44bc0f4d36ba7caf596ace939
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233807"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603512"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderación de comandos y publicaciones de Facebook con Azure Content Moderator
 
@@ -48,11 +48,11 @@ Consulte la guía de inicio rápido [Cómo familiarizarse con Content Moderator]
 
 ## <a name="configure-image-moderation-workflow"></a>Configuración del flujo de trabajo de moderación de imágenes
 
-Consulte la guía [Definición, prueba y uso de flujos de trabajo](review-tool-user-guide/workflows.md) para crear un flujo de trabajo de imágenes personalizadas. Esto permitirá a Content Moderator comprobar de forma automática imágenes de Facebook y enviar algunas a la herramienta de revisión. Tome nota del **nombre** del flujo de trabajo.
+Consulte la guía [Definición, prueba y uso de flujos de trabajo](review-tool-user-guide/workflows.md) para crear un flujo de trabajo de imágenes personalizadas. Content Moderator usará este flujo de trabajo para comprobar automáticamente las imágenes en Facebook y enviar algunas a la herramienta de revisión. Tome nota del **nombre** del flujo de trabajo.
 
 ## <a name="configure-text-moderation-workflow"></a>Configuración del flujo de trabajo de moderación de texto
 
-Una vez más, consulte la guía [Definición, prueba y uso de flujos de trabajo](review-tool-user-guide/workflows.md); esta vez, cree un flujo de trabajo de texto personalizado. Esto permitirá a Content Moderator comprobar automáticamente el contenido de texto. Tome nota del **nombre** del flujo de trabajo.
+Una vez más, consulte la guía [Definición, prueba y uso de flujos de trabajo](review-tool-user-guide/workflows.md); esta vez, cree un flujo de trabajo de texto personalizado. Content Moderator usará este flujo de trabajo para comprobar automáticamente el contenido de texto. Tome nota del **nombre** del flujo de trabajo.
 
 ![Configuración del flujo de trabajo de texto](images/text-workflow-configure.PNG)
 
@@ -77,7 +77,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) y siga estos pasos:
     | cm:TextWorkflow | Nombre del flujo de trabajo para ejecutar en texto. |
     | cm:CallbackEndpoint | Dirección URL de la aplicación de función CMListener que creará más adelante en esta guía. |
     | fb:VerificationToken | Token de secreto que cree, que se usa para suscribirse a los efectos de fuente de Facebook. |
-    | fb:PageAccessToken | El token de acceso de la API gráfica de Facebook no expira y permite a la función ocultar o eliminar publicaciones en su nombre. Esto se producirá en un paso posterior. |
+    | fb:PageAccessToken | El token de acceso de la API gráfica de Facebook no expira y permite a la función ocultar o eliminar publicaciones en su nombre. Este token se obtendrá en un paso posterior. |
 
     Haga clic en el botón **Guardar** de la parte superior de la página.
 

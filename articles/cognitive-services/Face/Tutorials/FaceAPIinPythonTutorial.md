@@ -1,25 +1,25 @@
 ---
 title: 'Inicio rápido: Detección y enmarcado de las caras de una imagen con el SDK de Python'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido, va a crear un sencillo script de Python que usa Face API para detectar y enmarcar caras en una imagen remota.
+description: En esta guía de inicio rápido, va a crear un script de Python que usa la API Face para detectar caras en una imagen remota y enmarcarlas.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 07/03/2018
 ms.author: sbowles
-ms.openlocfilehash: b816f4b78921c4bace1d15dd408b3fd701a3d6c5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 741dd18a3b8da5e44d77c24d46adb8d550322281
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339373"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603295"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Inicio rápido: Creación de un script de Python para detectar y enmarcar caras en una imagen
 
-En esta guía de inicio rápido, va a crear un sencillo script de Python que usa Azure Face API, mediante el SDK de Python, para detectar caras humanas en una imagen remota. La aplicación muestra una imagen seleccionada y dibuja un marco alrededor de cada cara detectada.
+En esta guía de inicio rápido, va a crear un script de Python que usa la API Face de Azure, mediante el SDK de Python, para detectar caras humanas en una imagen remota. La aplicación muestra una imagen seleccionada y dibuja un marco alrededor de cada cara detectada.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
@@ -39,7 +39,7 @@ pip install cognitive_face
 
 ## <a name="detect-faces-in-an-image"></a>Detección de caras en una imagen
 
-Cree un nuevo script de Python denominado _FaceQuickstart.py_ y agregue el código siguiente. Esta es la funcionalidad básica de detección de caras. Tendrá que reemplazar `<Subscription Key>` por el valor de la clave. Puede que también necesite cambiar el valor de `BASE_URL` para usar el identificador de región correcto para la clave (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). Las claves de suscripción de la evaluación gratuita se generan en la región **westus**. Opcionalmente, puede establecer `img_url` en la dirección URL de cualquier imagen que desee usar.
+Cree un nuevo script de Python denominado _FaceQuickstart.py_ y agregue el código siguiente. Este código administra la funcionalidad básica de detección de caras. Tendrá que reemplazar `<Subscription Key>` por el valor de la clave. Puede que también necesite cambiar el valor de `BASE_URL` para usar el identificador de región correcto para la clave (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). Las claves de suscripción de la evaluación gratuita se generan en la región **westus**. Opcionalmente, puede establecer `img_url` en la dirección URL de cualquier imagen que desee usar.
 
 El script detectará las caras mediante una llamada al método **cognitive_face.face.detect**, que incluye la API REST de [detección](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) y devuelve una lista de caras.
 
@@ -64,11 +64,11 @@ print(faces)
 
 Ejecute la aplicación con el comando `python FaceQuickstart.py`. Debería obtener una respuesta de texto en la ventana de la consola, parecida a la siguiente:
 
-```shell
+```console
 [{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-Esta es una lista de caras detectadas. Cada elemento de la lista es una instancia de **dict**, donde `faceId` es un identificador único de la cara detectada y `faceRectangle` describe la posición de la cara detectada. 
+El resultado representa una lista de caras detectadas. Cada elemento de la lista es una instancia de **dict**, donde `faceId` es un identificador único de la cara detectada y `faceRectangle` describe la posición de la cara detectada. 
 
 > [!NOTE]
 > Los identificadores de caras expiran después de 24 horas. Tendrá que almacenar los datos de la cara si desea conservarla a largo plazo.
@@ -83,7 +83,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-A continuación, en la parte inferior del script, agregue el código siguiente. Esto permite crear una función sencilla para analizar las coordenadas del rectángulo y usa Pillow para dibujar rectángulos en la imagen original. Después, muestra la imagen en el visor de imágenes predeterminado.
+A continuación, en la parte inferior del script, agregue el código siguiente. Este código permite crear una función sencilla para analizar las coordenadas del rectángulo y usa Pillow para dibujar rectángulos en la imagen original. Después, muestra la imagen en el visor de imágenes predeterminado.
 
 ```python
 # Convert width height to a point in a rectangle

@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f76b61d3cc39f8ae35e1bf03316e7618b7136380
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 80d3478a684ef2fa686ac33b8492ec91be11ac6f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003792"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605976"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Inicio rápido: Análisis de imágenes locales mediante la API REST y cURL en Computer Vision
+# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-curl"></a>Inicio rápido: Análisis de una imagen local mediante la API REST Computer Vision y cURL
 
 En esta guía de inicio rápido, analizará una imagen almacenada localmente para extraer características visuales con la API de REST Computer Vision. Con el [método de análisis de imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen.
 
@@ -42,7 +42,7 @@ Para crear y ejecutar el ejemplo, siga estos pasos:
 1. Abra una ventana de símbolo del sistema.
 1. Pegue el comando del editor de texto en la ventana del símbolo del sistema y después ejecute el comando.
 
-```console
+```bash
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary "<localImage>"
 ```
 
@@ -105,10 +105,6 @@ Se devuelve una respuesta correcta en JSON. La aplicación de ejemplo analiza y 
   }
 }
 ```
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Cuando ya no sean necesarios, cierre la ventana del símbolo del sistema y el editor de texto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

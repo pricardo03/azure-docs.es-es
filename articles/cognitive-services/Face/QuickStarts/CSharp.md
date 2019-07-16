@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 40c9fac27f45699d4c56e57480dcfde1b0ffb64d
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 349ae3450b5817b5cfe9c95c41d159e3daca7a39
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629917"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603388"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y C#
 
@@ -77,7 +77,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>Recepción de entradas de imagen
 
-Agregue el siguiente código al método **Main** de la clase **Program**. Este escribe un mensaje en la consola que pide al usuario que escriba una dirección URL de imagen. Después, llama a otro método, **MakeAnalysisRequest**, para procesar la imagen en esa ubicación.
+Agregue el siguiente código al método **Main** de la clase **Program**. Este código escribe un mensaje en la consola que pide al usuario que escriba una dirección URL de imagen. Después, llama a otro método, **MakeAnalysisRequest**, para procesar la imagen en esa ubicación.
 
 ```csharp
         static void Main(string[] args)
@@ -162,7 +162,7 @@ Los métodos auxiliares se definirán en los pasos siguientes.
 
 ### <a name="process-the-input-image-data"></a>Procesamiento de los datos de la imagen de entrada
 
-Agregue el método siguiente a la clase **Program**. Esto convierte la imagen de la dirección URL especificada en una matriz de bytes.
+Agregue el método siguiente a la clase **Program**. Este método convierte la imagen de la dirección URL especificada en una matriz de bytes.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -179,7 +179,7 @@ Agregue el método siguiente a la clase **Program**. Esto convierte la imagen de
 
 ### <a name="parse-the-json-response"></a>Procese la respuesta JSON.
 
-Agregue el método siguiente a la clase **Program**. Esto da formato a la entrada JSON para que sea más fácil de leer. La aplicación escribirá estos datos de cadena en la consola. A continuación, puede cerrar la clase y el espacio de nombres.
+Agregue el método siguiente a la clase **Program**. Este método da formato a la entrada JSON para que sea más fácil de leer. La aplicación escribirá estos datos de cadena en la consola. A continuación, puede cerrar la clase y el espacio de nombres.
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.
@@ -250,7 +250,7 @@ Agregue el método siguiente a la clase **Program**. Esto da formato a la entrad
 
 ## <a name="run-the-app"></a>Ejecución de la aplicación
 
-Una respuesta correcta mostrará datos de las caras en formato JSON fácilmente legible. Por ejemplo: 
+Una respuesta correcta mostrará datos de las caras en formato JSON fácilmente legible. Por ejemplo:
 
 ```json
 [

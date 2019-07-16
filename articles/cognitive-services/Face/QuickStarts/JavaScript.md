@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: d1aa3e3a23acf82af8435cbb075fac38353500e5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 70c496aef0ff2f34c917fd594767d464cab3e625
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538738"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603423"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y JavaScript
 
@@ -41,7 +41,7 @@ Cree un nuevo archivo HTML, *detectFaces.html*, y agregue el código siguiente.
 </html>
 ```
 
-Luego agregue el siguiente código dentro del elemento `body` del documento. De este modo, se configura una interfaz de usuario básica con un campo de dirección URL, un botón **Analizar cara**, un panel de respuesta y un panel de información de la imagen.
+Luego agregue el siguiente código dentro del elemento `body` del documento. Este código configura una interfaz de usuario básica con un campo de dirección URL, un botón **Analizar cara**, un panel de respuesta y un panel de información de la imagen.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -65,7 +65,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>Escritura del script de JavaScript
 
-Agregue el código siguiente justo encima del elemento `h1` en el documento. De este modo, se configura el código JavaScript que llama a Face API.
+Agregue el código siguiente justo encima del elemento `h1` en el documento. Este código configura el código JavaScript que llama a Face API.
 
 ```html
 <script type="text/javascript">
@@ -140,7 +140,7 @@ Abra *detectFaces.html* en el explorador. Al hacer clic en el botón **Analizar 
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-El siguiente es un ejemplo de una respuesta JSON correcta.
+El siguiente texto es un ejemplo de una respuesta JSON correcta.
 
 ```json
 [

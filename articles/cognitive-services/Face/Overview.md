@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c45fd508c14c368c6c9057b9fdeea8df9d8a52c3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4be33f781dec93fd9fe1b1846322672266cd7350
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905692"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606906"
 ---
 # <a name="what-is-the-azure-face-api"></a>¿Qué es Azure Face API?
 
@@ -59,7 +59,7 @@ Group API divide un conjunto de caras desconocidas en varios grupos en función 
 
 Identify API se usa para identificar una cara detectada en una base de datos de personas. Esta característica puede resultar útil para el etiquetado automático de imágenes en software de administración de fotografías. Cree la base de datos con antelación y puede modificarla con el tiempo.
 
-La siguiente imagen muestra un ejemplo de una base de datos denominada "myfriends". Cada grupo puede contener hasta un millón de objetos de persona diferentes. Cada objeto de persona puede tener hasta 248 caras registradas.
+La siguiente imagen muestra un ejemplo de una base de datos llamada `"myfriends"`. Cada grupo puede contener hasta un millón de objetos de persona diferentes. Cada objeto de persona puede tener hasta 248 caras registradas.
 
 ![Una cuadrícula con tres columnas para diferentes personas, cada una con tres filas de imágenes de caras.](./Images/person.group.clare.jpg)
 
