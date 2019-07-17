@@ -219,7 +219,7 @@
           href: sql-data-warehouse-overview-integrate.md
 - name: Guías de procedimientos
   items:
-    - name: Protección
+    - name: Seguridad
       items:
         - name: Configuración de la autenticación de Azure AD
           href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
@@ -303,6 +303,8 @@
           href: sql-data-warehouse-troubleshoot-connectivity.md
 - name: Referencia
   items:
+    - name: Tipos de intercalación de base de datos
+      href: sql-data-warehouse-reference-collation-types.md
     - name: T-SQL
       items:
         - name: Referencia completa

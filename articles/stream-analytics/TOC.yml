@@ -94,10 +94,12 @@
           href: stream-analytics-clean-up-your-job.md
         - name: Emparejamiento de trabajos por motivos de confiabilidad
           href: stream-analytics-job-reliability.md
-        - name: Autenticación con una identidad administrada
+        - name: 'Autenticación con identidad administrada: Salida de Azure Data Lake Storage Gen1'
           href: stream-analytics-managed-identities-adls.md
         - name: Uso de datos de referencia de SQL
           href: sql-reference-data.md
+        - name: 'Autenticación con identidad administrada: Salida de blob'
+          href: blob-output-managed-identity.md
     - name: Crear soluciones
       items:
         - name: Análisis de opinión de Twitter

@@ -17,6 +17,8 @@
       href: notifications.md
     - name: ¿Cuál es su experiencia de inicio de sesión?
       href: flows.md
+    - name: Protección de identidades y usuarios de Colaboración B2B
+      href: concept-identity-protection-b2b.md
 - name: Guías de procedimientos
   expanded: true
   items:
