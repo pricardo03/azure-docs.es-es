@@ -59,6 +59,8 @@
   items:
     - name: Terminología de Event Hubs
       href: event-hubs-features.md
+    - name: Host del procesador de eventos
+      href: event-hubs-event-processor-host.md
     - name: Disponibilidad y coherencia
       href: event-hubs-availability-and-consistency.md
     - name: Escalabilidad
@@ -90,8 +92,6 @@
           href: event-hubs-exchange-events-different-protocols.md
         - name: Guía de programación
           href: event-hubs-programming-guide.md
-        - name: Recepción de eventos mediante el Host de procesador de eventos
-          href: event-hubs-event-processor-host.md
     - name: Datos de proceso
       items:
         - name: Procesamiento de datos con Azure Stream Analytics
