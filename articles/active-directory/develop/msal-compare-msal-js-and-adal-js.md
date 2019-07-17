@@ -59,7 +59,7 @@ En la versión 2.0, si se usa la autoridad `https://login.microsoftonline.com/co
 
     El protocolo de la versión v2.0 usa ámbitos en lugar de recursos en las solicitudes. Es decir, cuando la aplicación tenga que solicitar tokens con permisos para un recurso como MS Graph, la diferencia en los valores pasados a los métodos de biblioteca son los siguientes:
 
-    v1.0: recurso = https://graph.microsoft.com
+    v1.0: recurso =https://graph.microsoft.com
 
     v2.0: ámbito = https://graph.microsoft.com/User.Read
 
@@ -77,7 +77,7 @@ En la versión 2.0, si se usa la autoridad `https://login.microsoftonline.com/co
 
 * Ámbitos dinámicos para consentimiento incremental.
 
-    Cuando compilaba aplicaciones con la versión 1.0, era necesario registrar el conjunto completo de permisos (ámbitos estáticos) que requería la aplicación para que el usuario diera su consentimiento en el momento del inicio de sesión. En la versión 2.0, puede usar el parámetro de ámbito para solicitar los permisos en el momento en que lo desee. Se denominan "ámbitos dinámicos". Esto permite que el usuario dé su consentimiento incremental a los ámbitos. Por lo tanto, si al inicio solo quería que el usuario iniciara sesión en la aplicación y no necesita ningún tipo de acceso, puede hacerlo. Si posteriormente necesita poder leer el calendario del usuario, podrá solicitar el ámbito de calendario en los métodos acquireToken y obtener el consentimiento del usuario. Por ejemplo: 
+    Cuando compilaba aplicaciones con la versión 1.0, era necesario registrar el conjunto completo de permisos (ámbitos estáticos) que requería la aplicación para que el usuario diera su consentimiento en el momento del inicio de sesión. En la versión 2.0, puede usar el parámetro de ámbito para solicitar los permisos en el momento en que lo desee. Se denominan "ámbitos dinámicos". Esto permite que el usuario dé su consentimiento incremental a los ámbitos. Por lo tanto, si al inicio solo quería que el usuario iniciara sesión en la aplicación y no necesita ningún tipo de acceso, puede hacerlo. Si posteriormente necesita poder leer el calendario del usuario, podrá solicitar el ámbito de calendario en los métodos acquireToken y obtener el consentimiento del usuario. Por ejemplo:
 
     ```javascript
     var request = {
@@ -89,7 +89,7 @@ En la versión 2.0, si se usa la autoridad `https://login.microsoftonline.com/co
 
 * Ámbitos para las API de la versión 1.0
 
-    Al obtener tokens para las API de la versión 1.0 con MSAL.js, puede solicitar todos los ámbitos estáticos registrados en la API si anexa `.default` al URI del identificador de la aplicación de la API como ámbito. Por ejemplo: 
+    Al obtener tokens para las API de la versión 1.0 con MSAL.js, puede solicitar todos los ámbitos estáticos registrados en la API si anexa `.default` al URI del identificador de la aplicación de la API como ámbito. Por ejemplo:
 
     ```javascript
     var request = {
