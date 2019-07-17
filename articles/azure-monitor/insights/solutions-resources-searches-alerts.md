@@ -187,8 +187,8 @@ Esta sección es obligatoria. Define las propiedades para el umbral de alerta.
 
 | Nombre del elemento | Obligatorio | description |
 |:--|:--|:--|
-| Operador | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
-| Valor | Sí | Valor para comparar los resultados. |
+| Operator | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
+| Value | Sí | Valor para comparar los resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta sección es opcional. Inclúyala para una alerta de unidades métricas.
