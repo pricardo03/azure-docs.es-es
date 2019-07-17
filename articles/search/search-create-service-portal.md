@@ -6,19 +6,19 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fd81115f4e811366b6b115d1c73a9be7ca26698b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d0d1dbb81f00f500f3eb95c605ed0c15c634f624
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485617"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706817"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creación de un servicio Azure Search en el portal
 
-Azure Search es un recurso independiente que se usa para agregar una experiencia de búsqueda a las aplicaciones personalizadas. Aunque Azure Search se integra fácilmente con otros servicios de Azure, también puede usarlo solo, con aplicaciones de servidores de red o con software que se ejecuta en otras plataformas de nube.
+Azure Search es un recurso independiente que se usa para agregar una experiencia de búsqueda a las aplicaciones personalizadas. Aunque Azure Search se integra fácilmente con otros servicios de Azure, también puede usarlo como un componente independiente o integrarlo con aplicaciones de servidores de red o con software que se ejecuta en otras plataformas en la nube.
 
 En este artículo, aprenderá a crear un recurso de Azure Search en [Azure Portal](https://portal.azure.com/).
 
@@ -73,10 +73,10 @@ En cuanto servicio de Azure, Azure Search se puede hospedar en centros de datos 
 
 Si va a indexar los datos proporcionados por otro servicio de Azure (Azure Storage, Azure Cosmos DB, Azure SQL Database), se recomienda crear un servicio Azure Search en la misma región para evitar cargos de ancho de banda. No hay ningún cargo por datos salientes si los servicios están en la misma región.
 
-Si usa los enriquecimientos de la inteligencia artificial de búsqueda cognitiva, cree su servicio en la misma región que el recurso de Cognitive Services. La coubicación de servicios es un requisito para el enriquecimiento de la inteligencia artificial.
+Si usa los enriquecimientos de la inteligencia artificial de búsqueda cognitiva, cree su servicio en la misma región que el recurso de Cognitive Services. *La coubicación de Azure Search y Cognitive Services en la misma región es un requisito para el enriquecimiento de la inteligencia artificial*.
 
 > [!Note]
-> Los nuevos servicios no están disponibles actualmente en India central. En el caso de los servicios que ya están en India central, puede escalar verticalmente sin restricciones, y el servicio se admite completamente en dicha región. La restricción en esta región es temporal y se quitará esta nota cuando deje de aplicarse.
+> Los nuevos servicios no están disponibles actualmente en India central. En el caso de los servicios que ya están en India central, puede escalar verticalmente sin restricciones, y el servicio se admite completamente en dicha región. La restricción en esta región es temporal y se limita solo a los nuevos servicios. Se eliminará esta nota cuando ya no se aplique la restricción.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selección de un plan de tarifa (SKU)
 
@@ -88,27 +88,29 @@ Un plan de tarifa no se puede cambiar una vez creado el servicio. Si necesita un
 
 ## <a name="create-your-service"></a>Creación del servicio
 
-No olvide anclar su servicio en el panel para facilitar el acceso siempre que inicie sesión.
+Escriba las entradas necesarias para crear el servicio. 
 
-![Anclar al panel](./media/search-create-service-portal/new-service3.png "Anclar el recurso al panel para facilitar el acceso")
+![Revisión y creación del servicio](./media/search-create-service-portal/new-service3.png "Review and create the service")
+
+El servicio se implementa en cuestión de minutos, lo cual puede supervisar mediante las notificaciones de Azure. Considere la posibilidad de anclar el servicio al panel para facilitar el acceso en el futuro.
+
+![Supervisión y anclaje del servicio](./media/search-create-service-portal/monitor-notifications.png "Monitor and pin the service")
 
 ## <a name="get-a-key-and-url-endpoint"></a>Obtención de una clave y un punto de conexión de dirección URL
 
-Con algunas excepciones, para usar el nuevo servicio hace falta proporcionar el punto de conexión de dirección URL y una clave de API de autorización. Los inicios rápidos, los tutoriales, como [Exploración de las API REST de Azure Search (Postman)](search-get-started-postman.md) y [Cómo usar Azure Search desde .NET](search-howto-dotnet-sdk.md), los ejemplos y el código personalizado necesitan todos ellos un punto de conexión y una clave para ejecutarse en su recurso en particular.
+A menos que use el portal, para acceder al nuevo servicio hace falta proporcionar el punto de conexión de la dirección URL y una clave de API de autenticación.
 
 1. En la página de información general del servicio, busque y copie el punto de conexión de dirección URL en el lado derecho de la página.
 
-   ![Página de información general del servicio con el punto de conexión de dirección URL](./media/search-create-service-portal/url-endpoint.png "Punto de conexión de dirección URL y otros detalles del servicio")
-
 2. En el panel de navegación izquierdo, seleccione **Claves** y, luego, copie una de las claves de administrador (son equivalentes). Las claves de API de administrador son necesarias para crear, actualizar y eliminar objetos en el servicio.
 
-   ![Página de claves que muestra las claves principal y secundaria](./media/search-create-service-portal/admin-api-keys.png "Claves de API de administrador para autorización")
+   ![Página de información general del servicio con el punto de conexión de dirección URL](./media/search-create-service-portal/get-url-key.png "Punto de conexión de dirección URL y otros detalles del servicio")
 
-Para las tareas basadas en el portal, no se necesita un punto de conexión y una clave. El portal ya está vinculado a un recurso de Azure Search con derechos de administrador. Para ver un tutorial del portal, comience con [Tutorial: Importación, indexación y consulta en Azure Search](search-get-started-portal.md).
+Para las tareas basadas en el portal, no se necesita un punto de conexión y una clave. El portal ya está vinculado a un recurso de Azure Search con derechos de administrador. Para un tutorial del portal, empiece por [Inicio rápido: Creación de un índice de Azure Search en el portal](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Escalar el servicio
 
-La creación de un servicio puede llevarle unos minutos (15 o más, en función del nivel). Después de aprovisionado el servicio, se puede escalar para satisfacer sus necesidades. Dado que ha elegido el nivel Estándar para el servicio Azure Search, puede escalar el servicio en dos dimensiones: réplicas y particiones. Si ha elegido el nivel Básico, solo puede agregar réplicas. Si ha aprovisionado el servicio gratuito, el escalado no está disponible.
+Después de aprovisionado el servicio, se puede escalar para satisfacer sus necesidades. Si ha elegido el nivel Estándar para el servicio Azure Search, puede escalar el servicio en dos dimensiones: réplicas y particiones. Si ha elegido el nivel Básico, solo puede agregar réplicas. Si ha aprovisionado el servicio gratuito, el escalado no está disponible.
 
 Las ***particiones*** permiten que el servicio almacene y busque en más documentos.
 
@@ -126,7 +128,7 @@ La incorporación de recursos aumenta la factura mensual. La [calculadora de pre
 ![Agregar capacidad](./media/search-create-service-portal/settings-scale.png "Agregar capacidad mediante réplicas y particiones")
 
 > [!Note]
-> Cada nivel tiene distintos [límites](search-limits-quotas-capacity.md) en el número total de unidades de búsqueda que se permiten en un único servicio (réplicas * particiones = total de unidades de búsqueda).
+> El almacenamiento y velocidad por partición aumenta en los niveles más altos. Para más información, consulte [capacidad y límites](search-limits-quotas-capacity.md).
 
 ## <a name="when-to-add-a-second-service"></a>Cuándo se debe agregar un segundo servicio
 
@@ -148,4 +150,4 @@ No se requiere un segundo servicio para lograr alta disponibilidad. La alta disp
 Después de aprovisionar un servicio de Azure Search, puede continuar en el portal para crear el primer índice.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Importación de datos, indexado y ejecución de consultas en el portal](search-get-started-portal.md)
+> [Inicio rápido: Creación de un índice de Azure Search en el portal](search-get-started-portal.md)

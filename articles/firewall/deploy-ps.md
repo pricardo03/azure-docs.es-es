@@ -39,7 +39,7 @@ En este artículo, aprenderá a:
 > * Configurar un entorno de red de prueba
 > * Implementar un firewall
 > * Crear una ruta predeterminada
-> * Configurar una regla de aplicación que permita acceder a msn.com
+> * Configurar una regla de aplicación para permitir el acceso a [www.google.com]\(www.google.com)
 > * Configuración de una regla de red para permitir el acceso a los servidores DNS externos
 > * Probar el firewall
 

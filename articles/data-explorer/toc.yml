@@ -102,6 +102,8 @@
           href: manage-database-permissions.md
         - name: Comprobación del estado del clúster
           href: check-cluster-health.md
+        - name: Selección de SKU de máquina virtual de clúster
+          href: manage-cluster-choose-sku.md
         - name: Administración del escalado horizontal de clústeres
           href: manage-cluster-horizontal-scaling.md
         - name: Administración del escalado vertical de clústeres

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e29a9265e010c3f442b742faf62b16dae02739fa
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 29ab9b3c33aae6005510c34b207c7f87714149e5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191144"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608356"
 ---
 ### <a name="preview"></a>¿Cómo se participa en la versión preliminar pública?
 
@@ -56,3 +56,7 @@ Para crear una conexión, se requieren los siguientes roles:
 ### <a name="previewbill"></a>Precios: ¿se me cobrará por participar en la versión preliminar?
 
 Durante la versión preliminar pública solo se le cobrará parcialmente. Sin embargo, no hay ningún SLA asociado con su implementación. Consulte la [página de precios](https://aka.ms/BastionHostPricing)para obtener más información.
+
+### <a name="previewbill"></a>¿Por qué obtengo el error "Su sesión ha expirado" antes de iniciar la sesión de Bastion?
+
+Las sesiones deben iniciarse solo en Azure Portal. Inicie sesión en Azure Portal y vuelva a iniciar una sesión. Si va a la dirección URL directamente desde otra sesión del explorador o pestaña, este error es previsible. Ayuda a garantizar que la sesión sea más segura y que se solo se pueda acceder a la sesión desde Azure Portal.

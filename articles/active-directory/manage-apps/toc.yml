@@ -59,9 +59,9 @@
           href: isv-create-sso-documentation.md
         - name: Plan de implementación del inicio de sesión único
           href: plan-sso-deployment.md
-    - name: Inicio de sesión único de One Click
+    - name: Inicio de sesión único con un solo clic
       items:
-        - name: ¿Qué es el inicio de sesión único de One Click?
+        - name: Configuración del inicio de sesión único con un solo clic
           href: one-click-sso-tutorial.md
     - name: Aprovisionamiento de usuarios y grupos
       items:

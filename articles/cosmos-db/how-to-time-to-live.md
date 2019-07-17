@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: b5eb57562dac498c0e5bf2960007f52ad1117ac2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 618e7e19b20f361aa0a8c668e9621a29db43772d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244767"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797748"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configuración del período de vida en Azure Cosmos DB
 
@@ -35,6 +35,11 @@ Siga estos pasos para habilitar el período de vida de un contenedor para que no
    * Haga clic en **Guardar** para guardar los cambios.
 
    ![Configuración del período de vida en Azure Portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+
+
+- Si el valor de DefaultTimeToLive es null, el de Período de vida será Desactivado
+- Si el valor de DefaultTimeToLive es -1, el de Período de vida será Activado (valor no predeterminado)
+- Si DefaultTimeToLive tiene cualquier otro valor Int (excepto el 0) el de Período de vida será Activado
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Habilitar el período de vida en un contenedor mediante SDK
 

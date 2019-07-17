@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Face API, C#'
 titleSuffix: Azure Cognitive Services
-description: Cree una aplicación de Windows simple que use Face API de Cognitive Services para detectar características de caras en una imagen.
+description: Cree una aplicación de Windows que use la API Face de Cognitive Services para detectar características de caras en una imagen.
 services: cognitive-services
 author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 07/03/2019
 ms.author: ghogen
-ms.openlocfilehash: 492161a9a47627db8a06686daf953e99ca652e02
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 7907a79289149d9e165dd6df0c09bee596e624e2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827661"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606813"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Conexión a Face API de Cognitive Services mediante Servicios conectados en Visual Studio
 
@@ -147,7 +147,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles sobr
             });
         }
    ```
-    El código de este paso construye una solicitud HTTP con una llamada a la Face API de REST, con el uso de la clave establecida cuando agregó el servicio conectado.
+    El código de este paso construye una solicitud HTTP con una llamada a la API REST Face, usando la clave establecida cuando agregó el servicio conectado.
 
 1. Agregue las aplicaciones auxiliares GetImageAsByteArray y JsonPrettyPrint.
 

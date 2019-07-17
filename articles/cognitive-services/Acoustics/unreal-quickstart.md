@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a78df2d4d84487399da10ca722550639a92e71bf
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492420"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798136"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Inicio rápido de Project Acoustics en Unreal o Wwise
 En este inicio rápido, experimentará con los controles de diseño de Project Acoustics con el contenido de ejemplo proporcionado para Unreal Engine y Wwise.
@@ -50,14 +50,16 @@ El complemento Unreal de Project Acoustics requiere la exposición de comportami
 
     ![Captura de pantalla de una ventana del Explorador de Windows que muestra el proyecto de revisión del script de Wwise](media/patch-wwise-script.png)
 
-* Si no tiene instalado el SDK de DirectX, deberá convertir en comentario la línea que contiene DXSDK_DIR en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`.
+* Si no tiene instalado el SDK de DirectX, dependiendo de la versión de Wwise que utilice, es posible que tenga que convertir en comentario la línea que contiene `DXSDK_DIR` en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
 
     ![Captura de pantalla del editor de código que muestra DXSDK convertido en comentario](media/directx-sdk-comment.png)
 
 ### <a name="open-the-unreal-project"></a>Abra el proyecto de Unreal. 
 Le pide que vuelva a generar los módulos; diga que sí.
 
-Si no se puede abrir el proyecto por errores de compilación, compruebe que ha instalado el complemento Wwise de Project Acoustics en la misma versión de Wwise usada en el proyecto de ejemplo de Project Acoustics.
+>Si no se puede abrir el proyecto por errores de compilación, compruebe que ha instalado el complemento Wwise de Project Acoustics en la misma versión de Wwise usada en el proyecto de ejemplo de Project Acoustics.
+
+>Si no utiliza [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6, necesitará regenerar los bancos de sonido antes de que el audio se reproduzca en el proyecto de ejemplo.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Experimentación con los controles de diseño de Project Acoustics
 Para escuchar cómo suena la escena, haga clic en el botón de reproducción en el editor de Unreal. En el escritorio, use W, A, S, D y el mouse para desplazarse. Para ver los métodos abreviados de teclado de otros controles, presione **F1**. Estas son algunas actividades de diseño que puede probar:
@@ -72,7 +74,7 @@ Si el multiplicador de **oclusión** es mayor que 1 (el valor predeterminado es 
 Para permitir la transmisión a través de la pared, mueva el control deslizante de **transmisión (dB)** a la posición de desactivación, su nivel más bajo. 
 
 ### <a name="modify-wetness-for-a-source"></a>Modificación del sonido con efectos de una fuente
-Para cambiar cómo el sonido con efectos varía ligeramente con la distancia, use **Perceptual Distance Warp** (Ajuste del salto perceptual). Project Acoustics calcula los niveles de efecto a lo largo del espacio de simulación, que varía ligeramente con la distancia y proporciona indicios de la distancia perceptual. Al aumentar el salto de distancia se exagera este efecto ya que aumentan los niveles de efectos relacionados con la distancia. Los valores de distorsión inferiores a 1 hacen que el cambio en la reverberación basada en la distancia sea más sutil. Este efecto también se puede ajustar de forma más precisa mediante el ajuste del **sonido con efectos (dB)**.
+Para cambiar cómo el sonido con efectos varía ligeramente con la distancia, use **Perceptual Distance Warp** (Ajuste del salto perceptual). Project Acoustics calcula los niveles de efecto a lo largo del espacio de simulación, que varía ligeramente con la distancia y proporciona indicios de la distancia perceptual. Al aumentar el salto de distancia se exagera este efecto ya que aumentan los niveles de efectos relacionados con la distancia. Los valores de distorsión inferiores a 1 hacen que el cambio en la reverberación basada en la distancia sea más sutil. Este efecto también se puede ajustar de forma más precisa mediante el ajuste del **sonido con efectos (dB)** .
 
 Aumente el tiempo de decadencia a lo largo del espacio mediante el ajuste del valor **Decay Time Scale** (Escala de tiempo de decadencia). Considere el caso donde el resultado de la simulación es un tiempo de decadencia de 1,5 s. Al establecer **Decay Time Scale** (Escala de tiempo de decadencia) en 2, el resultado será un tiempo de decadencia aplicado a la fuente de 3 s.
 

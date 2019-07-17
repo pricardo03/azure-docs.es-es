@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: bf4d11a18932d20e7dcc7580ebe5aa4e060c5a88
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630701"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606775"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Inicio rápido: Detección de caras en una imagen con el SDK de Face para .NET
 
@@ -66,7 +66,7 @@ Además, en el método **Main**, agregue el código siguiente para usar el clien
 
 ### <a name="detect-faces"></a>Detección de caras
 
-Agregue el método siguiente a la clase **Program**. Usa el cliente del servicio Face para detectar caras en una imagen remota, a las que se hace referencia mediante una dirección URL. Observe que usa el campo `faceAttributes`; los objetos **DetectedFace** agregados a `faceList` tendrán los atributos especificados (en este caso, edad y sexo).
+Agregue el método siguiente a la clase **Program**. Usa el cliente del servicio Face para detectar caras en una imagen remota, a las que se hace referencia mediante una dirección URL. Usa el campo `faceAttributes`; los objetos **DetectedFace** agregados a `faceList` tendrán los atributos especificados (en este caso, edad y sexo).
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 
@@ -86,7 +86,7 @@ Por último, defina el método **DisplayAttributes** para escribir los datos de 
 
 ## <a name="run-the-app"></a>Ejecución de la aplicación
 
-Una respuesta correcta muestra el sexo y la edad de cada cara de la imagen. Por ejemplo: 
+Una respuesta correcta muestra el sexo y la edad de cada cara de la imagen. Por ejemplo:
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg

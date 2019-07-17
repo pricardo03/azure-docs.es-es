@@ -195,6 +195,8 @@
           href: search-howto-schedule-indexers.md
         - name: Asignación de campos
           href: search-indexer-field-mappings.md
+        - name: Conexión a instancia administrada de SQL
+          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Conexión con las máquinas virtuales de SQL Server
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Indexadores de supervisión

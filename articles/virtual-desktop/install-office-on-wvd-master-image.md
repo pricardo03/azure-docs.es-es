@@ -130,7 +130,7 @@ OneDrive se instala normalmente en modo por usuario. En este entorno, se debe in
 
 Aquí se indica cómo instalar OneDrive en modo por máquina:
 
-1. En primer lugar, cree una ubicación para almacenar provisionalmente el instalador de OneDrive. Una carpeta del disco local o ubicación [\\\\unc] (file://unc) es adecuada.
+1. En primer lugar, cree una ubicación para almacenar provisionalmente el instalador de OneDrive. Una carpeta del disco local o ubicación [\\\\unc](file://unc) es adecuada.
 
 2. Descargue el archivo OneDriveSetup.exe en la ubicación de almacenamiento provisional con este vínculo: <https://aka.ms/OneDriveWVD-Installer>
 

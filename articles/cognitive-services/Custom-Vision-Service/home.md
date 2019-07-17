@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8a5dd16948724e3a79863450212702aa8aeb2347
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350477"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605137"
 ---
 # <a name="what-is-azure-custom-vision"></a>¿Qué es Azure Custom Vision?
 
@@ -31,9 +31,9 @@ La funcionalidad de Custom Vision puede dividirse en dos características. La **
 
 ### <a name="optimization"></a>Optimización
 
-El servicio Custom Vision está optimizado para reconocer rápidamente las principales diferencias entre imágenes. Esto permite iniciar la creación de prototipos de un modelo con una pequeña cantidad de datos. Cincuenta imágenes por etiqueta suele ser un buen comienzo. Esto significa, sin embargo, que el servicio no es óptimo para detectar diferencias sutiles en las imágenes (por ejemplo, detectar grietas menores o abolladuras en escenarios de control de calidad).
+El servicio Custom Vision está optimizado para reconocer rápidamente las diferencias principales entre las imágenes, para que pueda empezar a crear el prototipo de su modelo con una pequeña cantidad de datos. Cincuenta imágenes por etiqueta suele ser un buen comienzo. Sin embargo, el servicio no es óptimo para detectar diferencias sutiles en las imágenes (por ejemplo, detectar grietas menores o abolladuras en escenarios de control de calidad).
 
-Además, puede elegir entre distintas variedades del algoritmo de Custom Vision que están optimizadas para imágenes con cierto material temático&mdash;, por ejemplo, puntos de referencia o artículos en venta. Para más información, consulte la guía [Compilación de un clasificador](getting-started-build-a-classifier.md).
+Además, puede elegir entre distintas variedades del algoritmo de Custom Vision que están optimizadas para imágenes con cierto material temático&mdash;, por ejemplo, puntos de referencia o artículos en venta. Para más información, consulte la guía [Cómo crear un clasificador](getting-started-build-a-classifier.md).
 
 ## <a name="what-it-includes"></a>Qué incluye
 

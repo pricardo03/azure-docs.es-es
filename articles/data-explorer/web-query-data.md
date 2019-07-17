@@ -1,20 +1,20 @@
 ---
-title: 'Guía de inicio rápido: Consulta de datos en Azure Data Explorer'
-description: Con esta guía de inicio rápido, aprenderá a consultar y compartir datos en el Explorador de datos de Azure.
+title: 'Inicio rápido: Consulta de datos en la interfaz de usuario web de Azure Data Explorer'
+description: En este inicio rápido aprenderá a consultar y compartir datos en el la interfaz de usuario web de Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/04/2019
+ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050567"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797187"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Guía de inicio rápido: Consulta de datos en Azure Data Explorer
+# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Inicio rápido: Consulta de datos en la interfaz de usuario web de Azure Data Explorer
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. El Explorador de datos de Azure proporciona una aplicación web que le permite ejecutar y compartir consultas. La aplicación está disponible en Azure Portal como aplicación web independiente. En este artículo, trabaja en la versión independiente, que le permite conectarse a varios clústeres y compartir vínculos profundos a sus consultas.
 
@@ -191,5 +191,4 @@ No creó ningún recurso en esta guía de inicio rápido, pero si desea quitar u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Write queries for Azure Data Explorer](write-queries.md) (Escritura de consultas del Explorador de datos de Azure)
+[Write queries for Azure Data Explorer](write-queries.md) (Escritura de consultas del Explorador de datos de Azure)
