@@ -10,16 +10,19 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cb01269d21d3b036dfff84faef1903dc082dc6f1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e31f30373349d4048f9021ab8eee7f39dcf5cd57
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445037"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705503"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Inicio rápido: Uso de Translator Text API para obtener una lista de los idiomas compatibles con Node.js
 
 En esta guía de inicio rápido, aprenderá a realizar una solicitud GET que devuelve una lista de idiomas compatibles mediante Node.js y Translator Text REST API.
+
+>[!TIP]
+> Si quiere ver todo el código a la vez, el código fuente de este ejemplo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -64,7 +67,7 @@ let options = {
 };
 ```
 
-Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="make-the-request-and-print-the-response"></a>Realización de solicitud e impresión de la respuesta
 
@@ -185,8 +188,10 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Translator Text API.
+
 > [!div class="nextstepaction"]
-> [Explorar ejemplos de Node.js en GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+> [Referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Otras referencias
 

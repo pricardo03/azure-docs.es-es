@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c3be09c998399cdca886f207bf5fc621bf51d8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099601"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656693"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integración de Azure Active Directory con ITRP
 
@@ -153,9 +153,9 @@ Para configurar el inicio de sesión único de Azure AD con ITRP, haga lo sigui
 
     1. Seleccione **Habilitado**.
 
-    1. En el cuadro  **Remote Logout URL** (URL de cierre de sesión remota), pegue la **dirección URL de cierre de sesión** que copió de Azure Portal.
+    1. En el cuadro **Remote Logout URL** (URL de cierre de sesión remota), pegue el valor de la **dirección URL de cierre de sesión** que copió de Azure Portal.
 
-    1. En el cuadro  **SAML SSO URL** (URL de inicio de sesión único de SAML), pegue el valor de la **dirección URL de inicio de sesión** que copió de Azure Portal.
+    1. En el cuadro **SAML SSO URL** (URL de inicio de sesión único de SAML), pegue el valor de la **dirección URL de inicio de sesión** que copió de Azure Portal.
 
     1. En el cuadro de texto **Certificate Fingerprint** (Huella digital de certificado), pegue el valor de **huella digital** del certificado que copió de Azure Portal.
 

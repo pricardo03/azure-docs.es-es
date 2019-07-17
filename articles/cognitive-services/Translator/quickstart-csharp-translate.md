@@ -10,18 +10,21 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
 ms.author: swmachan
-ms.openlocfilehash: 242c16fd0ec1d32c889d511aee78924a296e191d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5b5451fc1c4b8127c4e2a561e25fe3eb730354a8
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449440"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705642"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Inicio rápido: Uso de Translator Text API para traducir una cadena mediante C#
 
 En este inicio rápido, aprenderá a traducir una cadena de texto de inglés a alemán, italiano, japonés y tailandés mediante .NET Core, C# 7.1 o posterior y Translator Text REST API.
 
 En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Translator Text. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/) para obtener una clave de suscripción.
+
+>[!TIP]
+> Si quiere ver todo el código a la vez, el código fuente de este ejemplo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -199,7 +202,7 @@ foreach (TranslationResult o in deserializedOutput)
 }
 ```
 
-Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="put-it-all-together"></a>Colocación de todo junto
 
@@ -284,10 +287,10 @@ Asegúrese de quitar cualquier información confidencial del código fuente de l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore el código de ejemplo de esta guía de inicio rápido y otros, incluida la transliteración y la identificación del idioma, así como otros proyectos de Translator Text de ejemplo de GitHub.
+Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Translator Text API.
 
 > [!div class="nextstepaction"]
-> [Explorar ejemplos de C# en GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+> [Referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Otras referencias
 

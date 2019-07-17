@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 99559c0c77c3e4b29badec1c0be2d741df1f0621
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274146"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798373"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Uso de marcas de características en una aplicación de ASP.NET Core
 
@@ -86,30 +86,42 @@ public class Startup
 
 Es recomendable que mantenga las marcas de características fuera de la aplicación y las administre por separado. De este modo, podrá modificar los estados de las marcas en cualquier momento y hacer que estos cambios surtan efecto en la aplicación de inmediato. App Configuration proporciona un lugar centralizado para organizar y controlar todas las marcas de características mediante la interfaz de usuario de un portal dedicado. App Configuration proporciona también las marcas a la aplicación directamente a través de sus bibliotecas cliente de .NET Core.
 
-La manera más fácil de conectar la aplicación de ASP.NET Core con App Configuration es a través del proveedor de configuración `Microsoft.Extensions.Configuration.AzureAppConfiguration`. Para usar este paquete NuGet, agregue el código siguiente al archivo *Program.cs*:
+La manera más fácil de conectar la aplicación de ASP.NET Core con App Configuration es a través del proveedor de configuración `Microsoft.Azure.AppConfiguration.AspNetCore`. Siga estos pasos para usar este paquete NuGet.
 
-```csharp
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+1. Abra el archivo *Program.cs* y agregue el código siguiente.
 
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-           .ConfigureAppConfiguration((hostingContext, config) => {
-               var settings = config.Build();
-               config.AddAzureAppConfiguration(options => {
-                   options.Connect(settings["ConnectionStrings:AppConfig"])
-                          .UseFeatureFlags();
-                });
-           })
-           .UseStartup<Startup>();
-```
+   ```csharp
+   using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-Los valores de las marcas de características se esperan que cambien con el tiempo. De forma predeterminada, el administrador de características actualizará los valores de las marcas de características cada 30 segundos. El código siguiente muestra cómo cambiar el intervalo de sondeo a 5 segundos en la llamada a `options.UseFeatureFlags()`:
+   public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+       WebHost.CreateDefaultBuilder(args)
+              .ConfigureAppConfiguration((hostingContext, config) => {
+                  var settings = config.Build();
+                  config.AddAzureAppConfiguration(options => {
+                      options.Connect(settings["ConnectionStrings:AppConfig"])
+                             .UseFeatureFlags();
+                   });
+              })
+              .UseStartup<Startup>();
+   ```
+
+2. Abra *Startup.cs* y actualice el método `Configure` para agregar un middleware que permita actualizar los valores de marca de la característica en un intervalo periódico mientras la aplicación web de ASP.NET Core sigue recibiendo solicitudes.
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   {
+       app.UseAzureAppConfiguration();
+       app.UseMvc();
+   }
+   ```
+
+Los valores de las marcas de características se esperan que cambien con el tiempo. De forma predeterminada, los valores de la marca de característica se almacenan en caché durante un período de 30 segundos, por lo que una operación de actualización desencadenada cuando el middleware recibe una solicitud no actualizará el valor hasta que expire el valor almacenado en caché. El código siguiente muestra cómo cambiar la hora de expiración de caché o el intervalo de sondeo a 5 minutos en la llamada `options.UseFeatureFlags()`.
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
+                featureFlagOptions.CacheExpirationTime = TimeSpan.FromMinutes(5);
            });
 });
 ```

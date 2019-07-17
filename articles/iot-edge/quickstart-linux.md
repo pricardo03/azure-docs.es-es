@@ -4,17 +4,17 @@ description: En esta guía de inicio rápido, obtenga información sobre cómo c
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 58dc2f5d8862c0b51b36e028d52275b2c8e732be
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: e4b2f9eaa243c0cbef66f88544be769481dd6722
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537551"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798653"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Linux
 
@@ -55,11 +55,11 @@ Recursos en la nube:
 
 Dispositivo de IoT Edge:
 
-* Una máquina virtual o dispositivo de Linux que actúa como dispositivo de IoT Edge. Debe utilizar la instancia que proporciona Microsoft de [Azure IoT Edge en la máquina virtual Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu), que preinstala todo lo necesario para ejecutar IoT Edge en un dispositivo. Cree esta máquina virtual con los comandos siguientes:
+* Una máquina virtual o dispositivo de Linux que actúa como dispositivo de IoT Edge. Debe utilizar la instancia que proporciona Microsoft de [Azure IoT Edge en la máquina virtual Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu), que preinstala todo lo necesario para ejecutar IoT Edge en un dispositivo. Acepte los términos de uso y cree esta máquina virtual con los comandos siguientes:
 
    ```azurecli-interactive
    az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
    La nueva máquina virtual puede tardar unos minutos en crearse e iniciarse.

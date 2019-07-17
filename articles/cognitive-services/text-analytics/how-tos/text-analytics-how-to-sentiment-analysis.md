@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: d4269a99a8e535692e4897630a7edd9b27347d41
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e17b68dfd63952d0c8c81415b090b047c5808e2e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304033"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797802"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Ejemplo: Detección de opiniones con Text Analytics
 
@@ -90,7 +90,7 @@ Se pueden encontrar detalles sobre la definición de la solicitud en [How to cal
 
 ## <a name="step-2-post-the-request"></a>Paso 2: Publicar la solicitud
 
-El análisis se realiza tras la recepción de la solicitud. Consulte la sección de [límites datos](../overview.md#data-limits) de la introducción para obtener información sobre el tamaño y el número de solicitudes que puede enviar por minuto y segundo.
+El análisis se realiza tras la recepción de la solicitud. Consulte la sección de [límites de datos](../overview.md#data-limits) de la introducción para obtener información sobre el tamaño y el número de solicitudes que puede enviar por minuto y segundo.
 
 Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuenta. Los resultados se devuelven inmediatamente en la respuesta.
 
@@ -103,7 +103,7 @@ La salida se devuelve inmediatamente. Puede transmitir los resultados a una apli
 
 En el ejemplo siguiente se muestra la respuesta para la colección de documentos de este artículo.
 
-```
+```json
 {
     "documents": [
         {
@@ -130,6 +130,133 @@ En el ejemplo siguiente se muestra la respuesta para la colección de documentos
     "errors": []
 }
 ```
+
+## <a name="sentiment-analysis-v3-public-preview"></a>Versión preliminar pública de Análisis de sentimiento V3
+
+La [próxima versión de Análisis de sentimiento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) ya está disponible para la versión preliminar pública, que proporciona mejoras significativas en la precisión y el detalle de la categorización y puntuación del texto de la API. 
+
+> [!NOTE]
+> * El formato de la solicitud del Análisis de sentimiento v3 y los [límites de datos](../overview.md#data-limits) son los mismos que en la versión anterior.
+> * En este momento, Análisis de sentimiento V3: 
+>    * Actualmente solo admite el idioma inglés.  
+>    * Está disponible en las siguientes regiones: `Central US`, `Central Canada`, `East Asia`. 
+
+|Característica |DESCRIPCIÓN  |
+|---------|---------|
+|Precisión mejorada     | Mejora significativa en la detección de opiniones positivas, neutras, negativas y mixtas en documentos de texto en comparación con versiones anteriores.           |
+|Puntuación de opiniones a nivel de frases y de documentos     | Detecte la opinión de un documento y sus frases individuales. Si el documento incluye varias frases, a cada frase también se le asigna una puntuación de opiniones.         |
+|Categoría y puntuación de opiniones     | La API ahora devuelve categorías de opiniones (`positive`, `negative`, `neutral` y `mixed`) para texto, además de una puntuación de opiniones.        |
+| Salida mejorada | El Análisis de sentimiento ahora devuelve información tanto para un documento de texto completo como para sus frases individuales. |
+
+### <a name="sentiment-labeling"></a>Etiquetado de opiniones
+
+Análisis de sentimiento V3 puede devolver las puntuaciones y etiquetas (`positive`, `negative` y `neutral`) en un nivel de documento y de frases. En el nivel de documento, la etiqueta de opinión `mixed` (no de puntuación) también se puede devolver. La opinión del documento se determina sumando las puntuaciones de sus frases.
+
+| Opiniones de frases                                                        | Etiqueta de documento devuelta |
+|---------------------------------------------------------------------------|----------------|
+| Al menos una frase positiva y el resto de las frases son neutrales. | `positive`     |
+| Al menos una frase negativa y el resto de las frases son neutrales.  | `negative`     |
+| Al menos una frase negativa y al menos una frase positiva.         | `mixed`        |
+| Todas las frases son neutrales.                                                 | `neutral`      |
+
+### <a name="sentiment-analysis-v3-example-request"></a>Solicitud de ejemplo de Análisis de sentimiento V3
+
+El siguiente JSON es un ejemplo de una solicitud realizada a la nueva versión del Análisis de sentimiento. Tenga en cuenta que el formato de la solicitud es la misma que la versión anterior:
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Hello world. This is some input text that I love."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    }
+  ]
+}
+```
+
+### <a name="sentiment-analysis-v3-example-response"></a>Respuesta de ejemplo de Análisis de sentimiento V3
+
+Aunque el formato de la solicitud es el mismo que el de la versión anterior, el formato de respuesta ha cambiado. El siguiente JSON es un ejemplo de la respuesta de la nueva versión de la API:
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.98570585250854492,
+                "neutral": 0.0001625834556762,
+                "negative": 0.0141316400840878
+            },
+            "sentences": [
+                {
+                    "sentiment": "neutral",
+                    "sentenceScores": {
+                        "positive": 0.0785155147314072,
+                        "neutral": 0.89702343940734863,
+                        "negative": 0.0244610067456961
+                    },
+                    "offset": 0,
+                    "length": 12
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.98570585250854492,
+                        "neutral": 0.0001625834556762,
+                        "negative": 0.0141316400840878
+                    },
+                    "offset": 13,
+                    "length": 36
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.89198976755142212,
+                "neutral": 0.103382371366024,
+                "negative": 0.0046278294175863
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.78401315212249756,
+                        "neutral": 0.2067587077617645,
+                        "negative": 0.0092281140387058
+                    },
+                    "offset": 0,
+                    "length": 30
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.99996638298034668,
+                        "neutral": 0.0000060341349126,
+                        "negative": 0.0000275444017461
+                    },
+                    "offset": 31,
+                    "length": 13
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
+```
+
+### <a name="example-c-code"></a>Ejemplo de código C#
+
+Puede encontrar un ejemplo de aplicación C# que llama a esta versión del Análisis de sentimiento en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
 ## <a name="summary"></a>Resumen
 

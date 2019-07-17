@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 794a99481d9394229e77168e75c48f4110735578
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357551"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536929"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -175,6 +175,7 @@ En la lista siguiente se explica en detalle esta actividad:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Uso de SSPR y MFA, y creación de informes de información](howto-authentication-methods-usage-insights.md)
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](howto-sspr-deployment.md)
 * [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md).

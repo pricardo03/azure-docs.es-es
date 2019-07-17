@@ -5,7 +5,7 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: barbkess
+ms.reviewer: celested
 ms.assetid: 9e8ad807-0664-4e31-91de-731097c768e2
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,227 +13,192 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc142bf02a44ea85861f4cc648fd7ee8602c7520
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 93c5e473c62dc6b38f0b2c2906560d6099842d49
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896884"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718502"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mondaycom"></a>Tutorial: Integración de Azure Active Directory con monday.com
+# <a name="tutorial-integrate-mondaycom-with-azure-active-directory"></a>Tutorial: Integración de monday.com con Azure Active Directory
 
-En este tutorial, aprenderá a integrar monday.com con Azure Active Directory (Azure AD).
+En este tutorial, aprenderá a integrar monday.com con Azure Active Directory (Azure AD). Al integrar monday.com con Azure AD, puede hacer lo siguiente:
 
-La integración de monday.com con Azure AD le proporciona las siguientes ventajas:
+* Controlar en Azure AD quién tiene acceso a monday.com.
+* Permitir que los usuarios puedan iniciar sesión automáticamente en monday.com con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-* Puede usar Azure AD para controlar quién tiene acceso a monday.com.
-* Puede permitir que los usuarios inicien sesión automáticamente en monday.com (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
-
-Para más información acerca de la integración de aplicaciones SaaS (software como servicio) con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con monday.com, necesita los siguientes elementos:
+Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no tiene una suscripción de Azure AD, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* Una suscripción de monday.com con el inicio de sesión único habilitado.
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único (SSO) en monday.com.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba e integrar monday.com con Azure AD.
+En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. monday.com admite el inicio de sesión único iniciado por **SP e IDP**, así como el aprovisionamiento de usuarios **Just In Time**.
 
-monday.com admite las siguientes características:
+## <a name="adding-mondaycom-from-the-gallery"></a>Agregar monday.com desde la galería
 
-* **Inicio de sesión único iniciado por SP**
-* **Inicio de sesión único iniciado por IDP**
-* **Aprovisionamiento de usuarios Just-In-Time**
+Para configurar la integración de monday.com en Azure AD, será preciso que agregue monday.com desde la galería a la lista de aplicaciones SaaS administradas.
 
-## <a name="add-mondaycom-in-the-azure-portal"></a>Agregar monday.com en Azure Portal
-
-Para integrar monday.com con Azure AD, tiene que agregar monday.com a la lista de aplicaciones SaaS administradas.
-
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-
-1. Seleccione **Azure Active Directory** en el menú izquierdo.
-
-    ![Opción de Azure Active Directory](common/select-azuread.png)
-
-1. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
-
-    ![Panel Aplicaciones empresariales](common/enterprise-applications.png)
-
-1. Para agregar una aplicación, seleccione **Nueva aplicación**.
-
-    ![Opción Nueva aplicación](common/add-new-app.png)
-
-1. En el cuadro de búsqueda, escriba **monday.com**. En los resultados de la búsqueda, seleccione **monday.com** y, luego, **Agregar**.
-
-    ![monday.com en la lista de resultados](common/search-new-app.png)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **monday.com** en el cuadro de búsqueda.
+1. Seleccione **monday.com** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con monday.com con un usuario de prueba llamado **Britta Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de monday.com.
+Configure y pruebe el inicio de sesión único de Azure AD con monday.com utilizando un usuario de prueba llamado **B.Simon**. Para que el SSO funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de monday.com.
 
-Para configurar y probar el inicio de sesión único de Azure AD con monday.com, debe completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con monday.com, es preciso completar los siguientes bloques de creación:
 
-| Tarea | DESCRIPCIÓN |
-| --- | --- |
-| **[Configuración del inicio de sesión único en Azure AD](#configure-azure-ad-single-sign-on)** | Permite que los usuarios usen esta característica. |
-| **[Configuración del inicio de sesión único de monday.com](#configure-mondaycom-single-sign-on)** | Configura los valores de inicio de sesión único en la aplicación. |
-| **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** | Prueba el inicio de sesión único de Azure AD con el usuario Britta Simon. |
-| **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** | Permite que Britta Simon use el inicio de sesión único de Azure AD. |
-| **[Creación de un usuario de prueba de monday.com](#create-a-mondaycom-test-user)** | Crea un homólogo de Britta Simon en monday.com que está vinculado a la representación del usuario en Azure AD. |
-| **[Prueba de inicio de sesión único](#test-single-sign-on)** | Comprueba que la configuración funciona. |
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+2. **[Configuración de monday.com](#configure-mondaycom)** , para configurar el inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de monday.com](#create-mondaycom-test-user)** , para tener un homólogo de B.Simon en monday.com que esté vinculado a su representación en Azure AD.
+6. **[Comprobación del inicio de sesión único](#test-sso)** , para verificar que la configuración funciona correctamente.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, configurará el inicio de sesión único de Azure AD con monday.com en Azure Portal.
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en el panel de integración de la aplicación **monday.com**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **monday.com**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
-    ![Configuración de la opción de inicio de sesión único](common/select-sso.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En el panel **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** o **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-1. En el panel **Configurar el inicio de sesión único con SAML**, seleccione **Editar** (icono de lápiz) para abrir el panel **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
-
-1. En el panel **Configuración básica de SAML**, si tiene el archivo de metadatos del proveedor de servicios y desea configurar el *modo iniciado por IDP*, realice los pasos siguientes:
+1. En el panel **Configuración básica de SAML**, si tiene el archivo de metadatos del proveedor de servicios y desea configurar el modo **iniciado por IDP**, realice estos pasos:
 
     1. Seleccione **Cargar el archivo de metadatos**.
 
-       ![La opción Cargar el archivo de metadatos](common/upload-metadata.png)
-
     1. Para seleccionar el archivo de metadatos, seleccione el icono de carpeta y, a continuación, seleccione **Cargar**.
-
-       ![Selección del archivo de metadatos y después del botón Cargar](common/browse-upload-metadata.png)
 
     1. Una vez que se haya cargado correctamente el archivo de metadatos, los valores de **Identificador** y **URL de respuesta** se rellenan automáticamente en el panel **Configuración básica de SAML**:
 
-       ![Valores de IDP en el panel Configuración básica de SAML](common/idp-intiated.png)
-
        > [!Note]
-       > Si los valores **Identificador** y **Dirección URL de respuesta** no se rellenan automáticamente, escríbalos manualmente.
+       > Si los valores **Identificador** y **Dirección URL de respuesta** no se rellenan automáticamente, hágalo de manera manual. El **identificador** y la **dirección URL de repuesta** son iguales y el valor tiene el patrón siguiente: `https://<your-domain>.monday.com/saml/saml_callback`
 
-1. Para configurar la aplicación en modo *iniciado por SP*:
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    1. Seleccione **Establecer direcciones URL adicionales**.
-    
-    1. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: https:\//\<su-dominio>.monday.com. Póngase en contacto con el [equipo de soporte al cliente de monday.com](mailto:support@monday.com) para obtener la dirección URL de inicio de sesión.
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<your-domain>.monday.com`
 
-        ![Opción Establecer direcciones URL adicionales](common/metadata-upload-additional-signon.png)
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte al cliente de monday.com](mailto:dev@food.ee) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. La aplicación monday.com espera que las aserciones de SAML tengan un formato específico. Configure las siguientes notificaciones para esta aplicación. Para administrar estos valores de atributo, en el panel **Configurar el inicio de sesión único con SAML**, seleccione **Editar** para abrir el panel **Atributos de usuario**.
+1. La aplicación monday.com espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
 
     ![El panel Atributos de usuario](common/edit-attribute.png)
 
-1. En **Notificaciones del usuario**, seleccione **Editar** para editar las notificaciones. Para agregar una notificación, seleccione **Agregar nueva notificación** y, a continuación, configure el atributo del token SAML, tal como se muestra en la imagen anterior. Después, complete los siguientes pasos: 
+1. Además de lo anterior, la aplicación monday.com espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
-    1. Seleccione **Agregar nueva notificación**.
+    | NOMBRE | Atributo de origen|
+    | ---------------| --------------- |
+    | Email | user.mail |
+    | Nombre | user.givenname |
+    | Apellidos | user.surname |
 
-        ![La opción Agregar nueva notificación e el panel Notificaciones del usuario](common/new-save-attribute.png)
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    1. En el panel **Administrar las notificaciones del usuario**, defina los siguientes valores:
-        
-       1. En el cuadro **Nombre**, escriba el nombre de atributo que se muestra para la fila de la notificación del usuario.
+    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
-       1. Deje **Espacio de nombres** en blanco.
+    c. Quite el **espacio de nombres**.
 
-       1. En **Origen**, seleccione **Atributo**.
+    d. Seleccione **Atributo** como origen.
 
-       1. En la lista **Atributo de origen**, seleccione el valor del atributo que se muestra para la fila de la notificación del usuario.
+    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
-       1. Seleccione **Aceptar** y después **Guardar**.
+    f. Haga clic en **Aceptar**.
 
-       ![Administrar las notificaciones del usuario](common/new-attribute-details.png)
+    g. Haga clic en **Save**(Guardar).
 
-1. En el panel **Configurar el inicio de sesión único con SAML**, en **Certificado de firma de SAML**, seleccione **Descargar** junto a **Certificado (base 64)** . Seleccione una opción de descarga según sus requisitos. Guarde el certificado en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
-    ![Opción de descarga del certificado (Base64)](common/certificatebase64.png)
+   ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Configurar monday.com**, copie las direcciones URL siguientes según sus necesidades:
+1. En la sección **Set up monday.com** (Configurar monday.com), copie las direcciones URL adecuadas según sus necesidades.
 
-    * URL de inicio de sesión
-    * Identificador de Azure AD
-    * URL de cierre de sesión
+   ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+### <a name="configure-mondaycom"></a>Configuración de monday.com
 
-### <a name="configure-mondaycom-single-sign-on"></a>Configuración del inicio de sesión único de monday.com
+1. Para automatizar la configuración en monday.com, debe instalar la **extensión del explorador de inicio de sesión seguro de Aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
 
-Para configurar el inicio de sesión único en monday.com, envíe el archivo del certificado (Base64) descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de monday.com](mailto:support@monday.com). El equipo de soporte técnico de monday.com usa la información que les envíe para asegurarse de que la conexión de inicio de sesión único de SAML está configurada correctamente en ambos lados.
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Configurar monday.com**, que le dirigirá a la aplicación monday.com. En ella, escriba las credenciales de administrador para iniciar sesión en monday.com. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 6.
+
+    ![Configuración](common/setup-sso.png)
+
+1. Si quiere configurar monday.com manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de monday.com como administrador y haga lo siguiente:
+
+1. Vaya a **Perfil** que está en la esquina superior derecha de la página y haga clic en **Admininistrador**.
+
+    ![Configuración de monday.com](./media/mondaycom-tutorial/configuration01.png)
+
+1. Seleccione **Seguridad** y asegúrese de hacer clic en **Abrir** junto a SAML.
+
+    ![Configuración de monday.com](./media/mondaycom-tutorial/configuration02.png)
+
+1. Rellene los detalles siguientes para el IDP.
+
+    ![Configuración de monday.com](./media/mondaycom-tutorial/configuration03.png)
+
+    >[!NOTE]
+    >Consulte [este](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) artículo para más detalles.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Portal.
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En Azure Portal, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
-
-    ![Opciones Usuarios y Todos los usuarios](common/users.png)
-
-1. Seleccione **Nuevo usuario**.
-
-    ![Opción Nuevo usuario](common/new-user.png)
-
-1. En el panel **Usuario**, siga estos pasos:
-
-    1. En el cuadro **Nombre**, escriba **BrittaSimon**.
-  
-    1. En el cuadro de texto **Nombre de usuario**, escriba **brittasimon\@\<dominiodeempresa>.\<extensión>** . Por ejemplo, **brittasimon\@contoso.com**.
-
-    1. Active la casilla de verificación **Mostrar contraseña**. Anote el valor que se muestra en el cuadro **Contraseña**.
-
-    1. Seleccione **Crear**.
-
-    ![Panel Usuario](common/user-properties.png)
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Create**(Crear).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá a Britta Simon acceso a monday.com para que use el inicio de sesión único de Azure.
+En esta sección, va a permitir que B.Simon acceda a monday.com utilizando el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **monday.com**.
-
-    ![Panel Aplicaciones empresariales](common/enterprise-applications.png)
-
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **monday.com**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
-    ![monday.com en la lista de aplicaciones](common/all-applications.png)
+   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. En el menú, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
-    ![Opción Usuarios y grupos](common/users-groups-blade.png)
+    ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. Seleccione **Agregar usuario**. Después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-    ![El panel Agregar asignación](common/add-assign-user.png)
+### <a name="create-mondaycom-test-user"></a>Crear usuario de prueba de monday.com
 
-1. En el panel **Usuarios y grupos**, en la lista de usuarios, seleccione **Britta Simon**. Elija **Seleccionar**.
+En esta sección se crea un usuario llamado B.Simon en monday.com. monday.com admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe en monday.com, se crea uno nuevo cuando se intenta acceder a monday.com.
 
-1. Si espera algún valor de rol en la aserción de SAML, en el panel **Seleccionar rol**, seleccione el rol adecuado para el usuario de la lista. Elija **Seleccionar**.
+### <a name="test-sso"></a>Prueba de SSO
 
-1. En el panel **Agregar asignación**, seleccione **Asignar**.
+Al seleccionar el icono de monday.com en el panel de acceso, debería iniciar sesión automáticamente en la versión de monday.com para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-### <a name="create-a-mondaycom-test-user"></a>Creación de un usuario de prueba de monday.com
+## <a name="additional-resources"></a>Recursos adicionales
 
-En esta sección, se crea un usuario llamado Britta Simon en la aplicación monday.com. monday.com admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en monday.com, se crea otro después de la autenticación.
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el portal Aplicaciones.
-
-Después de configurar el inicio de sesión único, cuando se selecciona **monday.com** en el portal Aplicaciones, se inicia sesión automáticamente en monday.com. Para más información acerca del portal Aplicaciones, consulte [Acceso y uso de aplicaciones en el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
-## <a name="next-steps"></a>Pasos siguientes
-
-Para más información, consulte estos artículos:
-
-- [Lista de tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Inicio de sesión único en aplicaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

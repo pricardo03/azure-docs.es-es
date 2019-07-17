@@ -10,16 +10,19 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 5b5bf33c70b9f8827f1f55378e9caf4d1c858bed
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4a1be3cd71a32210db8b3d5ef835af7b2d50667f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449422"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705662"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Inicio rápido: Uso de Translator Text API para obtener una lista de los idiomas compatibles mediante C#
 
 En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración y la búsqueda en el diccionario mediante Translator Text API.
+
+>[!TIP]
+> Si quiere ver todo el código a la vez, el código fuente de este ejemplo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -115,7 +118,7 @@ Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
 
-Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 Para imprimir la respuesta con "Impresión con sangría" (formato de la respuesta), agregue esta función a la clase Program:
 ```
@@ -236,10 +239,10 @@ Asegúrese de quitar cualquier información confidencial del código fuente de l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore el código de ejemplo de esta guía de inicio rápido y otros, incluida la transliteración y la identificación del idioma, así como otros proyectos de Translator Text de ejemplo de GitHub.
+Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Translator Text API.
 
 > [!div class="nextstepaction"]
-> [Explorar ejemplos de C# en GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+> [Referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Otras referencias
 

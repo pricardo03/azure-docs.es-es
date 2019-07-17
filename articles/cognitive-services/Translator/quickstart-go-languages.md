@@ -10,16 +10,19 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f2de205b6237d3af434700c47056ce52b89a53b4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b6c932d6c6f3f8ce5d75f87ab86ae6bf38b0b03a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447308"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705618"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Inicio rápido: Uso de Translator Text API para obtener una lista de los idiomas compatibles mediante Go
 
 En este inicio rápido, aprenderá a realizar una solicitud GET que devuelve una lista de idiomas compatibles mediante Go y Translator Text REST API.
+
+>[!TIP]
+> Si quiere ver todo el código a la vez, el código fuente de este ejemplo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -108,7 +111,7 @@ if err != nil {
 }
 ```
 
-Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="handle-and-print-the-response"></a>Control e impresión de la respuesta
 
@@ -227,10 +230,10 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explorar los paquetes de Go para Cognitive Services APIs desde el [Azure SDK para Go](https://github.com/Azure/azure-sdk-for-go) en GitHub.
+Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Translator Text API.
 
 > [!div class="nextstepaction"]
-> [Explore los paquetes de Go en GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [Referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Otras referencias
 

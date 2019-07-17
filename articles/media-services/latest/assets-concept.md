@@ -1,5 +1,5 @@
 ---
-title: Recursos en Azure Media Services | Microsoft Docs
+title: Recursos de Azure Media Services | Microsoft Docs
 description: En este artículo se explica qué son los artículos y cómo los usa Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e88863fbbc29287baaf1c3c98dbdae04539e08e5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551771"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542593"
 ---
 # <a name="assets"></a>Recursos
 
@@ -87,9 +87,22 @@ curl -X PUT \
 
 Para obtener un ejemplo completo, consulte [Creación de una entrada de trabajo a partir de un archivo local](job-input-from-local-file-how-to.md). En Media Services v3, también se puede crear una entrada de trabajo a partir de las direcciones URL de HTTPS (consulte [Creación de una entrada de trabajo a partir de un una dirección URL de HTTPS](job-input-from-http-how-to.md)).
 
-## <a name="filtering-ordering-paging"></a>Filtrado, ordenación, paginación
+## <a name="map-v3-asset-properties-to-v2"></a>Asignación de las propiedades de los recursos de v3 a v2
 
-Consulte [Filtrado, ordenación y paginación de entidades de Media Services](entities-overview.md).
+En la tabla siguiente se muestra cómo las propiedades de los [recursos](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset) de v3 se asignan a las propiedades de los recursos de v2.
+
+|Propiedades de v3|Propiedades de v2|
+|---|---|
+|id: (único) la ruta de acceso completa de Azure Resource Manager<br/>`"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan"`||
+|name: (único) consulte [Convenciones de nomenclatura](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|Id: (único) valor que empieza por el prefijo `nb:cid:UUID:`.|
+|created|Creado|
+|description|NOMBRE|
+|lastModified|LastModified|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| Options - opciones de creación|
+|Tipo||
 
 ## <a name="storage-side-encryption"></a>Cifrado del lado de almacenamiento
 
@@ -104,6 +117,10 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 <sup>1</sup> Aunque Media Services admite el control del contenido de una forma clara o sin ninguna forma de cifrado, hacerlo así no es recomendable.
 
 <sup>2</sup> En Media Services v3, el cifrado de almacenamiento (cifrado con AES-256) solo es compatible con versiones anteriores si los recursos se crearon con Media Services v2. Esto significa que la versión v3 funciona con los recursos cifrados de almacenamiento ya existentes pero no permitirá la creación de otros nuevos.
+
+## <a name="filtering-ordering-paging"></a>Filtrado, ordenación, paginación
+
+Consulte [Filtrado, ordenación y paginación de entidades de Media Services](entities-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

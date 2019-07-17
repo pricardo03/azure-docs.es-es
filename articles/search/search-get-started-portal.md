@@ -1,29 +1,29 @@
 ---
 title: 'Inicio rápido: Creación, carga y consulta de un índice con Azure Portal: Azure Search'
 description: Utilice el Asistente para importar datos en Azure Portal para crear, cargar y consultar el primer índice de Azure Search.
-author: HeidiSteen
+author: lobrien
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 05/02/2019
-ms.author: heidist
+ms.date: 07/01/2019
+ms.author: laobri
 ms.custom: seodec2018
-ms.openlocfilehash: 4a1944c5c5f169274cf45bd3ebfb6df47942dd5a
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 2a4d7435383f740dc386a740062e66cd2d3585b0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485648"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798846"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Search en Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
->*
+> * [Python](search-get-started-python.md)
+> * [C#](search-get-started-dotnet.md)
 
 Para un rápido avance en los conceptos de Azure Search, prueba las herramientas integradas en Azure Portal. Los asistentes y editores no ofrecen una paridad completa con las API REST y .NET, pero puede empezar a trabajar rápidamente con una introducción sin código, que permite escribir consultas interesantes en datos de ejemplo en cuestión de minutos.
 
@@ -34,9 +34,9 @@ Para un rápido avance en los conceptos de Azure Search, prueba las herramientas
 > * Vea un índice existente y las opciones para modificarlo.
 > * Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada y la búsqueda geográfica con el **Explorador de búsqueda**.
 
-Si las herramientas son demasiado restrictivas, puede plantearse utilizar una [introducción basada en código a la programación de Azure Search en .NET](search-howto-dotnet-sdk.md) o utilice [Postman o Fiddler para realizar llamadas API REST](search-get-started-postman.md).
+Si las herramientas son demasiado restrictivas, puede plantearse utilizar una [introducción basada en código a la programación de Azure Search en .NET](search-howto-dotnet-sdk.md) o utilice [Postman para realizar llamadas a la API REST](search-get-started-postman.md). También puede ver una demostración de seis minutos de los pasos de este tutorial, comenzando por este [vídeo de introducción a Azure Search](https://channel9.msdn.com/Events/Connect/2016/138) de aproximadamente tres minutos.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. También puede ver una demostración de seis minutos de los pasos de este tutorial, comenzando por este [vídeo de introducción a Azure Search](https://channel9.msdn.com/Events/Connect/2016/138) de aproximadamente tres minutos.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,7 +48,7 @@ Muchos clientes comienzan con el servicio gratis. Esta versión está limitada a
 
 Los iconos del panel de servicio muestran el número de índices, indexadores y orígenes de datos que ya tiene. 
 
-![Listas de índices, indexadores y orígenes de datos](media/search-get-started-portal/tiles-indexers-datasources2.png)
+![Listas de índices, indexadores y orígenes de datos](media/search-get-started-portal/tiles-indexers-datasources.png)
 
 ## <a name="create-index"></a> Creación de un índice y carga de datos
 
@@ -60,11 +60,11 @@ En este tutorial, usamos un conjunto de datos de ejemplo integrado que se puede 
 
 1. En el panel del servicio Azure Search, haga clic en **Importar datos** en la barra de comandos para crear y rellenar un índice de búsqueda.
 
-   ![Comando de importación de datos](media/search-get-started-portal/import-data-cmd2.png)
+   ![Comando de importación de datos](media/search-get-started-portal/import-data-cmd.png)
 
-2. En el asistente, haga clic en **Conectar a los datos** > **Ejemplos** > **realestate-us-sample**. Este origen de datos está integrado. Si creó su propio origen de datos, deberá especificar un nombre, el tipo y la información de conexión. Una vez creado, se convierte en un "origen de datos existente" que se puede reutilizar en otras operaciones de importación.
+2. En el asistente, haga clic en **Conectar a los datos** > **Ejemplos** > **hotels-sample**. Este origen de datos está integrado. Si creó su propio origen de datos, deberá especificar un nombre, el tipo y la información de conexión. Una vez creado, se convierte en un "origen de datos existente" que se puede reutilizar en otras operaciones de importación.
 
-   ![Selección del conjunto de datos de ejemplo](media/search-get-started-portal/import-datasource-sample2.png)
+   ![Selección del conjunto de datos de ejemplo](media/search-get-started-portal/import-datasource-sample.png)
 
 3. Continúe en la siguiente página.
 
@@ -87,7 +87,7 @@ Normalmente, creación de índices es un ejercicio basado en código, que se com
 
 Los campos tienen tipos de datos y atributos. Las casillas de la parte superior son *atributos de índice* que controlan cómo se usa el campo.
 
-* **Retrievable** significa que se muestra en la lista de resultados de búsqueda. Puede desactivar esta casilla para marcar los campos individuales como fuera de los resultados de búsqueda, por ejemplo, cuando los campos se usan solo en expresiones de filtro.
+* **Retrievable** significa que se muestra en la lista de resultados de búsqueda. Puede desactivar esta casilla para marcar los campos individuales como fuera de los resultados de búsqueda, por ejemplo, para los campos que se usan solo en expresiones de filtro.
 * **Key** es el identificador único del documento. Siempre es una cadena, y es necesario.
 * **Filterable**, **Sortable** y **Facetable** determinan si se usan campos en un filtro, una ordenación o una estructura de navegación de facetas.
 * **Searchable** significa que se incluye un campo en la búsqueda de texto completo. Las cadenas permiten realizar búsquedas. Los campos numéricos y los booleanos a menudo se marcan como no utilizables en búsquedas.
@@ -98,9 +98,9 @@ De forma predeterminada, el asistente busca en el origen de datos identificadore
 
 1. Acepte los valores predeterminados. 
 
-   Si vuelve a ejecutar el asistente con un origen de datos de realestate existente, el índice no se configurará con los atributos predeterminados. En las siguientes importaciones tendrá que seleccionar los atributos manualmente.
+   Si vuelve a ejecutar el asistente con un origen de datos de hotels existente, el índice no se configurará con los atributos predeterminados. En las siguientes importaciones tendrá que seleccionar los atributos manualmente. 
 
-   ![Índice realestate generado](media/search-get-started-portal/realestateindex2.png)
+   ![Índice de hoteles generado](media/search-get-started-portal/hotelsindex.png)
 
 2. Continúe en la siguiente página.
 
@@ -114,7 +114,7 @@ Este objeto define un proceso ejecutable. Podría colocarlo en una programación
 
 Haga clic en **Enviar** para crear y ejecutar simultáneamente el indexador.
 
-  ![indexador realestate](media/search-get-started-portal/realestate-indexer2.png)
+  ![indexador de hoteles](media/search-get-started-portal/hotels-indexer.png)
 
 ## <a name="monitor-progress"></a>Supervisión de progreso
 
@@ -122,7 +122,7 @@ El asistente debe llevarle a la lista de indexadores, donde puede supervisar el 
 
 El portal puede tardar unos minutos en actualizar la página, pero debería ver el indexador recién creado en la lista, con el estado "en curso" o correcto, junto con el número de documentos indexados.
 
-   ![Mensaje de progreso del indexador](media/search-get-started-portal/indexers-inprogress2.png)
+   ![Mensaje de progreso del indexador](media/search-get-started-portal/indexers-inprogress.png)
 
 ## <a name="view-the-index"></a>Ver el índice
 
@@ -130,7 +130,7 @@ La página principal del servicio proporciona vínculos a los recursos creados e
 
    ![Lista de índices en el panel del servicio](media/search-get-started-portal/indexes-list.png)
 
-En esta lista, puede hacer clic en el índice *realestate-us-sample* que acaba de crear, ver el esquema de índice y, opcionalmente, agregar nuevos campos. 
+En esta lista, puede hacer clic en el índice de *hotels-sample* que acaba de crear y ver el esquema de índice y, opcionalmente, agregar nuevos campos. 
 
 La pestaña **Campos** muestra el esquema de índice. Desplácese hasta la parte inferior de la lista para especificar un nuevo campo. En la mayoría de los casos, no se pueden cambiar los campos existentes. Los campos existentes tienen una representación física en Azure Search y, por tanto, no son modificables, ni siquiera en el código. Para cambiar radicalmente un campo, cree otro índice y elimine el original.
 
@@ -152,11 +152,11 @@ El **explorador de Search** está equipado solo para administrar [solicitudes de
 
 1. Haga clic en **Explorador de búsqueda** en la barra de comandos.
 
-   ![Comando del explorador de búsqueda](media/search-get-started-portal/search-explorer-cmd2.png)
+   ![Comando del explorador de búsqueda](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. Haga clic en **Change index** (Cambiar índice) en la barra de comandos para cambiar a *realestate-us-sample*. Haga clic en **Definir versión de API** en la barra de comandos para ver cuáles son las API de REST que están disponibles. Con las siguientes consultas, use la versión disponible con carácter general (2019-05-06).
+2. En la lista desplegable **Índice**, elija *hotels-sample*. Haga clic en la lista desplegable **Versión de API** para ver las API REST que están disponibles. Con las siguientes consultas, use la versión disponible con carácter general (2019-05-06).
 
-   ![Comandos de índice y API](media/search-get-started-portal/search-explorer-changeindex-se2.png)
+   ![Comandos de índice y API](media/search-get-started-portal/search-explorer-changeindex.png)
 
 3. En la barra de búsqueda, pegue las cadenas de consulta siguientes y haga clic en **Buscar**.
 
@@ -168,29 +168,29 @@ Puede escribir términos y frases, de forma similar a lo que podría hacer en un
 
 ### <a name="simple-query-with-top-n-results"></a>Consulta simple con los N resultados superiores
 
-#### <a name="example-string-query-searchseattle"></a>Ejemplo (cadena de consulta): `search=seattle`
+#### <a name="example-string-query-searchspa"></a>Ejemplo (cadena de consulta): `search=spa`
 
-* El parámetro **search** se usa para la entrada de la búsqueda con una palabra clave en la búsqueda de texto completo; en este caso, se devuelven listados de King County, en el estado de Washington, que contiene *Seattle* en los campos del documento que permiten la búsqueda.
+* El parámetro **search** se usa para la entrada de la búsqueda con una palabra clave en la búsqueda de texto completo; en este caso, se devuelven los datos de los hoteles que contienen *spa* en cualquier documento de búsqueda en el documento.
 
 * El **Explorador de búsqueda** devuelve resultados en JSON, que es detallado y difícil de leer si los documentos tienen una estructura densa. Este comportamiento es deliberado; la visibilidad de todo el documento es importante a efectos de desarrollo, especialmente durante las pruebas. Para una mejor experiencia de usuario, deberá escribir código que [trate los resultados de la búsqueda](search-pagination-page-layout.md) para hacer destacar los elementos importantes.
 
-* Los documentos se componen de todos los campos marcados como recuperables en el índice. Para ver los atributos del índice en el portal, haga clic en *realestate-us-sample* en la lista **Índices**.
+* Los documentos se componen de todos los campos marcados como recuperables en el índice. Para ver los atributos del índice en el portal, haga clic en *hotels-sample* en la lista **Índices**.
 
-#### <a name="example-parameterized-query-searchseattlecounttruetop100"></a>Ejemplo (consulta con parámetros): `search=seattle&$count=true&$top=100`
+#### <a name="example-parameterized-query-searchspacounttruetop10"></a>Ejemplo (consulta con parámetros): `search=spa&$count=true&$top=10`
 
 * El símbolo **&** se usa para anexar parámetros de búsqueda, que pueden especificarse en cualquier orden.
 
 * El parámetro **$count=true** devuelve el recuento total de todos los documentos devueltos. Este valor aparece en la parte superior de los resultados de búsqueda. Puede comprobar las consultas de filtro mediante la supervisión de los cambios notificados por **$count=true**. Los recuentos más pequeños indican que su filtro está funcionando.
 
-* El parámetro **$top=100** devuelve los 100 documentos mejor clasificados del total. De forma predeterminada, Azure Search devuelve las primeras 50 mejores coincidencias. Puede aumentar o disminuir la cantidad mediante **$top**.
+* El parámetro **$top=10** devuelve los 10 documentos mejor clasificados del total. De forma predeterminada, Azure Search devuelve las primeras 50 mejores coincidencias. Puede aumentar o disminuir la cantidad mediante **$top**.
 
 ### <a name="filter-query"></a> Filtro de la consulta
 
 Los filtros se incluyen en las solicitudes de búsqueda al anexar el parámetro **$filter**. 
 
-#### <a name="example-filtered-searchseattlefilterbeds-gt-3"></a>Ejemplo (filtrado): `search=seattle&$filter=beds gt 3`
+#### <a name="example-filtered-searchbeachfilterrating-gt-4"></a>Ejemplo (filtrado): `search=beach&$filter=Rating gt 4`
 
-* El parámetro **$filter** devuelve resultados que coinciden con los criterios que proporcionó. En este caso, más de 3 dormitorios.
+* El parámetro **$filter** devuelve resultados que coinciden con los criterios que proporcionó. En este caso, las clasificaciones mayores de 4.
 
 * La sintaxis de filtro es una construcción de OData. Para más información, consulte la [sintaxis de filtro de OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -198,45 +198,47 @@ Los filtros se incluyen en las solicitudes de búsqueda al anexar el parámetro 
 
 Los filtros de faceta se incluyen en las solicitudes de búsqueda. Puede usar el parámetro de faceta para devolver un recuento agregado de los documentos que coincidan con el valor de faceta que proporcione.
 
-#### <a name="example-faceted-with-scope-reduction-searchfacetcitytop2"></a>Ejemplo (con faceta con reducción del ámbito): `search=*&facet=city&$top=2`
+#### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Ejemplo (con faceta con reducción del ámbito): `search=*&facet=Category&$top=2`
 
-* **search=** * es una búsqueda vacía. Las búsquedas vacías buscan en todo. Una de las razones para enviar una búsqueda vacía es filtrar o clasificar el conjunto completo de documentos. Por ejemplo, quiere una estructura de navegación en facetas que conste de todas las ciudades del índice.
-
-* **facet** devuelve una estructura de navegación que puede pasar a un control de interfaz de usuario. Devuelve categorías y un recuento. En este caso, las categorías se basan en el número de ciudades. No hay ninguna agregación en Azure Search, pero puede aproximarla mediante `facet`, que proporciona un recuento de documentos de cada categoría.
+* **search=** * es una búsqueda vacía. Las búsquedas vacías buscan en todo. Una de las razones para enviar una búsqueda vacía es filtrar o clasificar el conjunto completo de documentos. Por ejemplo, quiere una estructura de navegación en facetas que conste de todos los hoteles del índice.
+* **facet** devuelve una estructura de navegación que puede pasar a un control de interfaz de usuario. Devuelve categorías y un recuento. En este caso, las categorías se basan en un campo denominado convenientemente *Category*. No hay ninguna agregación en Azure Search, pero puede aproximarla mediante `facet`, que proporciona un recuento de documentos de cada categoría.
 
 * **$top=2** devuelve dos documentos, lo cual muestra que puede usar `top` para reducir o aumentar los resultados.
 
-#### <a name="example-facet-on-numeric-values-searchseattlefacetbeds"></a>Ejemplo (faceta en valores numéricos): `search=seattle&facet=beds`**
+#### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Ejemplo (faceta en valores numéricos): `search=spa&facet=Rating`
 
-* Esta consulta es una faceta de "beds", en una búsqueda de texto de *Seattle*. El término *beds* se puede especificar como faceta, porque el campo está marcado como que se puede recuperar, filtrar y clasificar en el índice, y los valores que contiene (numéricos del 1 al 5), son adecuados para clasificar los listados en grupos (listados con 3 dormitorios, 4 dormitorios).
+* Esta consulta es una faceta para la clasificación, en una búsqueda de texto de *spa*. El término *Rating* se puede especificar como una faceta porque el campo está marcado como que se puede recuperar, filtrar y establecer en facetas en el índice, y los valores que contiene (numéricos del 1 al 5) son adecuados para clasificar los listados en grupos.
 
 * Solo los campos que se pueden filtrar se pueden clasificar. Solo se pueden devolver en los resultados campos recuperables.
+
+* El campo *Rating* es un número de punto flotante de doble precisión y la agrupación será por valor preciso. Para más información sobre la agrupación por intervalo (por ejemplo, "clasificaciones de 3 estrellas", "clasificaciones de 4 estrellas", etc.), consulte [Procedimiento para implementar la navegación por facetas en Azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+
 
 ### <a name="highlight-query"></a> Resaltado de los resultados de la búsqueda
 
 El proceso de resaltado de referencias se refiere al formato en el texto que coincide con la palabra clave, dadas las coincidencias encontradas en un campo determinado. Si el término de búsqueda está profundamente enterrado en una descripción, puede agregar resaltado de referencias para que sea más fácil detectarlo.
 
-#### <a name="example-highlighter-searchgranite-countertopshighlightdescription"></a>Ejemplo (con resaltado): `search=granite countertops&highlight=description`
+#### <a name="example-highlighter-searchbeachhighlightdescription"></a>Ejemplo (con resaltado): `search=beach&highlight=Description`
 
-* En este ejemplo, la frase con formato *granite countertops* es más fácil de detectar en el campo de descripción.
+* En este ejemplo, la palabra con formato *beach* es más fácil de detectar en el campo de descripción.
 
-#### <a name="example-linguistic-analysis-searchmicehighlightdescription"></a>Ejemplo (Análisis lingüístico): `search=mice&highlight=description`
+#### <a name="example-linguistic-analysis-searchbeacheshighlightdescription"></a>Ejemplo (Análisis lingüístico): `search=beaches&highlight=Description`
 
-* La búsqueda de texto completo busca formas de palabras con una semántica parecida. En este caso, los resultados de búsqueda contienen texto resaltado para "mouse", para hogares que tienen infestación de ratones, en respuesta a una búsqueda por palabra clave de "mice". Diferentes formas de la misma palabra pueden aparecer en los resultados debido al análisis lingüístico.
+* La búsqueda de texto completo reconoce variaciones básicas en los formularios de palabras. En este caso, los resultados de búsqueda contienen el texto resaltado para "beach", para aquellos hoteles que tengan esa palabra en sus campos de búsqueda, en respuesta a una búsqueda por palabra clave en "beaches". Diferentes formas de la misma palabra pueden aparecer en los resultados debido al análisis lingüístico. 
 
 * Azure Search admite 56 analizadores de Lucene y Microsoft. El valor predeterminado usado por Azure Search es el analizador de Lucene estándar.
 
 ### <a name="fuzzy-search"></a> Probar la búsqueda aproximada
 
-De forma predeterminada, los términos de consulta mal escritos, como *samamish* en referencia a la meseta de Sammamish de la zona de Seattle, no devuelven coincidencias en una búsqueda normal. El siguiente ejemplo no devuelve resultados.
+De forma predeterminada, los términos de consulta mal escritos, como *seatle* para "Seattle", no devuelven coincidencias en una búsqueda normal. El siguiente ejemplo no devuelve resultados.
 
-#### <a name="example-misspelled-term-unhandled-searchsamamish"></a>Ejemplo (término mal escrito, no controlado): `search=samamish`
+#### <a name="example-misspelled-term-unhandled-searchseatle"></a>Ejemplo (término mal escrito, no controlado): `search=seatle`
 
 Para controlar los errores de ortografía, puede usar la búsqueda aproximada. La búsqueda aproximada se habilita cuando se usa la sintaxis de consulta de Lucene completa, que se produce al hacer dos cosas: establecer **queryType=full** en la consulta y anexar **~** a la cadena de búsqueda.
 
-#### <a name="example-misspelled-term-handled-searchsamamishquerytypefull"></a>Ejemplo (término mal escrito, controlado): `search=samamish~&queryType=full`
+#### <a name="example-misspelled-term-handled-searchseatlequerytypefull"></a>Ejemplo (término mal escrito, controlado): `search=seatle~&queryType=full`
 
-Ahora, este ejemplo devuelve documentos que contengan coincidencias con "Sammamish".
+Este ejemplo devuelve documentos que contengan coincidencias con "Seattle".
 
 Cuando **queryType** no se especifica, se usa el analizador de consultas sencillo de manera predeterminada. El analizador de consultas sencillo es más rápido, pero si necesita búsqueda aproximada, expresiones regulares, búsqueda de proximidad u otros tipos de consultas avanzadas, necesitará la sintaxis completa.
 
@@ -248,7 +250,7 @@ Para más información sobre los escenarios de consulta habilitados por el anali
 
 Se admite la búsqueda geoespacial mediante el [tipo de dato edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en un campo que contenga coordenadas. La búsqueda geográfica es un tipo de filtro, que se especifica en la [sintaxis de filtro de OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
-#### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-122121513-47673988-le-5"></a>Ejemplo (filtros de coordenadas geográficas): `search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`
+#### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-12212-4767-le-5"></a>Ejemplo (filtros de coordenadas geográficas): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
 La consulta de ejemplo filtra todos los resultados por datos de posición, donde los resultados sean inferiores a 5 kilómetros desde un punto dado (especificado como coordenadas de latitud y longitud). Al agregar **$count**, verá cuántos resultados se devuelven al cambiar la distancia o las coordenadas.
 
@@ -266,7 +268,11 @@ También ha aprendido a encontrar índices, indexadores y orígenes de datos en 
 
 ## <a name="clean-up"></a>Limpieza
 
-Si este tutorial fue el primer uso que hizo del servicio Azure Search, elimine el grupo de recursos que contiene el servicio Azure Search. Si no es así, busque el nombre del grupo de recursos correcto en la lista de servicios y elimine el adecuado.
+Cuando trabaje con su propia suscripción, es una buena idea al final de un proyecto identificar si todavía se necesitan los recursos que ha creado. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
+
+Puede encontrar y administrar recursos en el portal, mediante el vínculo **Todos los recursos** o **Grupos de recursos** en el panel de navegación izquierdo.
+
+Si está usando un servicio gratuito, recuerde que está limitado a tres índices, indexadores y orígenes de datos. Puede eliminar elementos individuales en el portal para mantenerse por debajo del límite. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

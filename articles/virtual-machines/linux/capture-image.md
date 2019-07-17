@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 461df93400380ac74fa87eebc81fa06f77d7bf76
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542881"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551650"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen de una máquina virtual o un disco duro virtual
 
@@ -29,6 +29,8 @@ ms.locfileid: "60542881"
 Para crear varias copias de una máquina virtual para usarla en Azure, capture una imagen de la máquina virtual o el disco duro virtual del sistema operativo. Para crear una imagen para la implementación, deberá quitar la información de la cuenta personal. En los pasos siguientes, se desaprovisiona una máquina virtual existente, se desasigna y se crea una imagen. Puede usar esta imagen para crear VM en cualquier grupo de recursos dentro de su suscripción.
 
 Para crear una copia de la máquina virtual Linux existente para la realización de una copia de seguridad o para su depuración o para cargar un disco duro virtual Linux especializado desde una máquina virtual local, consulte [Carga y creación de una máquina virtual Linux desde una imagen de disco personalizada](upload-vhd.md).  
+
+Puede utilizar el servicio **Azure VM Image Builder (versión preliminar pública)** para crear la imagen personalizada, sin necesidad de aprender las herramientas o configurar las canalizaciones de compilación, simplemente proporcionando una configuración de imagen e Image Builder creará la imagen. Para más información, consulte [Introducción a Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
 
 También puede usar **Packer** para crear la configuración personalizada. Para más información, consulte [Uso de Packer para crear imágenes de máquinas virtuales Linux en Azure](build-image-with-packer.md).
 

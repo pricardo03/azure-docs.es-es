@@ -1,20 +1,21 @@
 ---
-title: Acerca del Lector inmersivo
-titlesuffix: Azure Cognitive Services
-description: Información sobre el Lector inmersivo
+title: ¿Qué es la API de Lector inmersivo?
+titleSuffix: Azure Cognitive Services
+description: Información sobre la API de Lector inmersivo
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 38056f701b76f3fc2cf1f617a6977321445f78ff
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 4500b6213c549ab9977fe8f2d849ffa8089d04b9
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296910"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718437"
 ---
 # <a name="what-is-immersive-reader"></a>¿Qué es Lector inmersivo?
 

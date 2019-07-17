@@ -10,18 +10,21 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: c4baf5fc72986f73bf9081a351a9baec1b4ea277
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 59a779fe27dd9f83e50df34e5d2febd46011d4aa
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445062"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705528"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Inicio rápido: Uso de Translator Text API para detectar el idioma del texto con Node.js
 
 En esta guía de inicio rápido, aprenderá a detectar el lenguaje del texto proporcionado mediante Node.js y Translator Text REST API.
 
 En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Translator Text. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/) para obtener una clave de suscripción.
+
+>[!TIP]
+> Si quiere ver todo el código a la vez, el código fuente de este ejemplo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -89,9 +92,9 @@ let options = {
     json: true,
 };
 ```
-La manera más fácil de autenticar una solicitud es pasar la clave de suscripción como un encabezado `Ocp-Apim-Subscription-Key`, que es el que se usa en este ejemplo. O bien, puede intercambiar la clave de suscripción para un token de acceso y pasar este token como un encabezado `Authorization` para validar la solicitud. 
+La manera más fácil de autenticar una solicitud es pasar la clave de suscripción como un encabezado `Ocp-Apim-Subscription-Key`, que es el que se usa en este ejemplo. O bien, puede intercambiar la clave de suscripción para un token de acceso y pasar este token como un encabezado `Authorization` para validar la solicitud.
 
-Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los encabezados de la solicitud. 
+Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los encabezados de la solicitud.
 
 Para más información, consulte [Autenticación](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
@@ -153,8 +156,10 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Translator Text API.
+
 > [!div class="nextstepaction"]
-> [Explorar ejemplos de Node.js en GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+> [Referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Otras referencias
 

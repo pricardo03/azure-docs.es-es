@@ -2,20 +2,20 @@
 title: Supervisión de puntos de conexión de Azure Traffic Manager y conmutación por error | Microsoft Docs
 description: Este artículo le puede ayudar a comprender la forma en que el Administrador de tráfico utiliza la supervisión de puntos de conexión y la conmutación por error automática de los puntos de conexión para permitir que los clientes de Azure implementen aplicaciones de alta disponibilidad
 services: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: kumud
-ms.openlocfilehash: 083bdf9c5aec640fbbd7757b307ac47178e0b14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 8df1c29bc5230e925d05be9fd356de050a9b0f06
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329928"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550373"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 
@@ -28,7 +28,7 @@ Para configurar la supervisión de los puntos de conexión, debe especificar la 
 * **Protocolo**. Elija HTTP, HTTPS o TCP como el protocolo que utilizará Traffic Manager al sondear su punto de conexión para comprobar su estado. La supervisión HTTPS no comprueba si el certificado SSL es válido, solo comprueba que está presente.
 * **Port**. Elija el puerto que se usará para la solicitud.
 * **Ruta de acceso**. Esta opción de configuración solo es válida para los protocolos HTTP y HTTPS, para los que la configuración de la ruta de acceso especifica es necesaria. Si utiliza esta configuración para el protocolo de supervisión TCP se producirá un error. Para el protocolo HTTP y HTTPS, proporcione la ruta de acceso relativa y el nombre de la página web o el archivo a los que accederá la supervisión. Una barra diagonal (/) es una entrada válida para la ruta de acceso relativa. Este valor implica que el archivo se encuentra en el directorio raíz (valor predeterminado).
-* **Configuración de encabezado personalizado**. Esta opción le ayuda a agregar encabezados HTTP específicos para las comprobaciones de estado que Traffic Manager envía a los puntos de conexión de un perfil. Los encabezados personalizados se pueden especificar a nivel de perfil para que se apliquen en todos los puntos de conexión del perfil o a nivel de punto de conexión para que solo se apliquen a este último. Puede usar los encabezados personalizados para que las comprobaciones de estado que se realicen en puntos de conexión de un entorno multiinquilino se enruten correctamente a su destino mediante la especificación de un encabezado de host. Para usar esta configuración, también puede agregar encabezados únicos que se usarán para identificar las solicitudes HTTPS originadas por Traffic Manager y procesarlas de manera distinta. Puede especificar hasta ocho seprated de pares de valor de encabezado: por una coma. Por ejemplo, "header1:value1, header2:value2". 
+* **Configuración de encabezado personalizado**. Esta opción le ayuda a agregar encabezados HTTP específicos para las comprobaciones de estado que Traffic Manager envía a los puntos de conexión de un perfil. Los encabezados personalizados se pueden especificar a nivel de perfil para que se apliquen en todos los puntos de conexión del perfil o a nivel de punto de conexión para que solo se apliquen a este último. Puede usar los encabezados personalizados para que las comprobaciones de estado que se realicen en puntos de conexión de un entorno multiinquilino se enruten correctamente a su destino mediante la especificación de un encabezado de host. Para usar esta configuración, también puede agregar encabezados únicos que se usarán para identificar las solicitudes HTTPS originadas por Traffic Manager y procesarlas de manera distinta. Puede especificar hasta ocho pares de valores de encabezado:valor separados por una coma. Por ejemplo, "encabezado1:valor1, encabezado2:valor2". 
 * **Intervalos de código de estado esperados**. Esta configuración permite especificar varios intervalos de código correctos en formato 200-299, 301-301. Si estos códigos de estado se reciben como respuesta desde un punto de conexión al iniciarse una comprobación de estado, Traffic Manager marca el punto de conexión como correcto. Se puede especificar un máximo de 8 intervalos de código de estado. Esta configuración es aplicable únicamente a los protocolos HTTP y HTTPS y a todos los puntos de conexión. Esta configuración se encuentra a nivel de perfil de Traffic Manager y, de forma predeterminada,se define el valor 200 como código de estado correcto.
 * **Intervalo de sondeo**. Este valor especifica la frecuencia con la que el agente de sondeo de Traffic Manager comprueba el estado de un punto de conexión. Puede especificar dos valores aquí: 30 segundos (sondeo normal) y 10 segundos (sondeo rápido). Si no se proporciona ningún valor, el perfil se establece en un valor predeterminado de 30 segundos. Visite la página [Precios de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) para más información sobre precios del sondeo rápido.
 * **Número tolerado de errores**. Este valor especifica cuántos errores tolera un agente de sondeo de Traffic Manager antes de marcar un punto de conexión como en mal estado. Su valor puede oscilar entre 0 y 9. Un valor de 0 significa que un único error de supervisión puede dar lugar a que ese punto de conexión se marque como en mal estado. Si no se especifica ningún valor, el valor predeterminado será 3.
@@ -40,7 +40,7 @@ Para configurar la supervisión de los puntos de conexión, debe especificar la 
 
 ## <a name="how-endpoint-monitoring-works"></a>Funcionamiento de la supervisión de puntos de conexión
 
-Si el protocolo de supervisión se establece en HTTP o HTTPS, el agente de sondeo de Traffic Manager envía una solicitud GET al punto de conexión utilizando el protocolo, puerto y ruta de acceso relativa indicados. Si recibe una respuesta 200 OK, o cualquiera de las respuestas configurado en el **esperaba código de estado \*intervalos**, entonces ese punto de conexión se considera correcta. Si la respuesta es un valor diferente o si no se recibe ninguna respuesta dentro del período de tiempo de espera especificado, el agente de sondeo de Traffic Manager vuelve a intentarlo en función de la configuración del número tolerado de errores (no lo vuelve a intentar si este valor es 0). Si el número de errores consecutivos es mayor que la configuración del número tolerado de errores, ese punto de conexión queda marcado como incorrecto. 
+Si el protocolo de supervisión se establece en HTTP o HTTPS, el agente de sondeo de Traffic Manager envía una solicitud GET al punto de conexión utilizando el protocolo, puerto y ruta de acceso relativa indicados. Si recibe una respuesta correcta (200) o cualquiera de las respuestas configuradas en **Intervalos de código de estado \*esperados**, ese punto de conexión se considera correcto. Si la respuesta es un valor diferente o si no se recibe ninguna respuesta dentro del período de tiempo de espera especificado, el agente de sondeo de Traffic Manager vuelve a intentarlo en función de la configuración del número tolerado de errores (no lo vuelve a intentar si este valor es 0). Si el número de errores consecutivos es mayor que la configuración del número tolerado de errores, ese punto de conexión queda marcado como incorrecto. 
 
 Si el protocolo de supervisión es TCP, el agente de sondeo de Traffic Manager inicia una solicitud de conexión TCP utilizando el puerto especificado. Si el punto de conexión responde a la solicitud con una respuesta para establecer la conexión, dicha comprobación de estado se marca como correcta y el agente de sondeo de Traffic Manager restablece la conexión TCP. Si la respuesta es un valor diferente, o si no se recibe ninguna respuesta dentro del período de tiempo de espera especificado, el agente de sondeo de Traffic Manager vuelve a intentarlo en función de la configuración del número tolerado de errores (no lo vuelve a intentar si este valor es 0). Si el número de errores consecutivos es mayor que la configuración del número tolerado de errores, ese punto de conexión queda marcado como incorrecto.
 
@@ -69,12 +69,12 @@ El estado de supervisión de un punto de conexión es un valor generado por Traf
 
 | Estado del perfil | Estado del extremo | Estado de supervisión de punto de conexión | Notas |
 | --- | --- | --- | --- |
-| Disabled |Enabled |Inactivo |El perfil se ha deshabilitado. Aunque el estado del punto de conexión es Habilitado, el estado del perfil (Deshabilitado) tiene preferencia. Los puntos de conexión en los perfiles Disabled no se supervisan. Se devuelve un código de respuesta NXDOMAIN para la consulta de DNS. |
+| Disabled |habilitado |Inactivo |El perfil se ha deshabilitado. Aunque el estado del punto de conexión es Habilitado, el estado del perfil (Deshabilitado) tiene preferencia. Los puntos de conexión en los perfiles Disabled no se supervisan. Se devuelve un código de respuesta NXDOMAIN para la consulta de DNS. |
 | &lt;cualquiera&gt; |Disabled |Disabled |Se ha deshabilitado el punto de conexión. Los puntos de conexión dehabilitados no se supervisan. El punto de conexión no se incluye en las respuestas DNS y, por tanto, no recibe tráfico. |
-| Enabled |Enabled |En línea |El punto de conexión se supervisa y su estado es correcto. Se incluye en las respuestas DNS y, por tanto, puede recibir tráfico. |
-| Enabled |Enabled |Degradado |Error en las comprobaciones de estado de supervisión de punto de conexión. El punto de conexión no se incluye en las respuestas DNS y no recibe tráfico. <br>Una excepción a esto se produce cuando se degradan todos los puntos de conexión, en cuyo caso todos ellos se consideran devueltos en la respuesta de la consulta).</br>|
-| Enabled |Enabled |CheckingEndpoint |El punto de conexión se supervisa, pero los resultados del primer sondeo no se han recibido todavía. CheckingEndpoint es un estado temporal que por lo general se produce inmediatamente después de agregar o habilitar un punto de conexión en el perfil. Un punto de conexión en este estado se incluye en las respuestas DNS y puede recibir tráfico. |
-| Enabled |Enabled |Stopped |El servicio en la nube o la aplicación web a los que apunta el punto de conexión no se están ejecutando. Compruebe la configuración de la aplicación web o del servicio en la nube. Esto también puede ocurrir si el punto de conexión es de tipo anidado y el perfil del secundario está deshabilitado o inactivo. <br>Un punto de conexión en estado Detenido no se supervisa. No se incluye en las respuestas DNS y, por tanto, no recibe tráfico. Una excepción a esto se produce cuando se degradan todos los puntos de conexión, en cuyo caso todos ellos se consideran devueltos en la respuesta de la consulta.</br>|
+| habilitado |habilitado |En línea |El punto de conexión se supervisa y su estado es correcto. Se incluye en las respuestas DNS y, por tanto, puede recibir tráfico. |
+| habilitado |habilitado |Degradado |Error en las comprobaciones de estado de supervisión de punto de conexión. El punto de conexión no se incluye en las respuestas DNS y no recibe tráfico. <br>Una excepción a esto se produce cuando se degradan todos los puntos de conexión, en cuyo caso todos ellos se consideran devueltos en la respuesta de la consulta).</br>|
+| habilitado |habilitado |CheckingEndpoint |El punto de conexión se supervisa, pero los resultados del primer sondeo no se han recibido todavía. CheckingEndpoint es un estado temporal que por lo general se produce inmediatamente después de agregar o habilitar un punto de conexión en el perfil. Un punto de conexión en este estado se incluye en las respuestas DNS y puede recibir tráfico. |
+| habilitado |habilitado |Stopped |La aplicación web a la que apunta el punto de conexión no se está ejecutando. Compruebe la configuración de la aplicación web. Esto también puede ocurrir si el punto de conexión es de tipo anidado y el perfil del secundario está deshabilitado o inactivo. <br>Un punto de conexión en estado Detenido no se supervisa. No se incluye en las respuestas DNS y, por tanto, no recibe tráfico. Una excepción a esto se produce cuando se degradan todos los puntos de conexión, en cuyo caso todos ellos se consideran devueltos en la respuesta de la consulta.</br>|
 
 Para obtener más información sobre cómo se calcula el valor de estado de supervisión del punto de conexión en el caso de puntos de conexión anidados, consulte [Perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md).
 
@@ -88,20 +88,21 @@ El estado de supervisión de perfiles es una combinación del estado del perfil 
 | Estado del perfil (según la configuración) | Estado de supervisión de punto de conexión | Estado de supervisión de perfiles | Notas |
 | --- | --- | --- | --- |
 | Disabled |&lt;cualquiera&gt; o un perfil sin puntos de conexión definidos. |Disabled |El perfil se ha deshabilitado. |
-| Enabled |El estado de al menos un punto de conexión es Degradado. |Degradado |Revise los valores del estado de los puntos de conexión individuales para determinar cuáles de ellos requieren mayor atención. |
-| Enabled |El estado de al menos un punto de conexión es En línea. Ningún punto de conexión tiene un estado Degradado. |En línea |El servicio acepta el tráfico. No se requiere ninguna acción adicional. |
-| Enabled |El estado de al menos un punto de conexión es CheckingEndpoint. Ningún punto de conexión está en estado En línea o Degradado. |CheckingEndpoints |Este estado de transición se produce cuando se crea o habilita un perfil. El estado del punto de conexión se comprueba por primera vez. |
-| Enabled |El estado de todos los puntos de conexión definidos en el perfil es Deshabilitado o Detenido, o el perfil no tiene ningún punto de conexión definido. |Inactivo |No hay puntos de conexión activos, pero el perfil está todavía habilitado. |
+| habilitado |El estado de al menos un punto de conexión es Degradado. |Degradado |Revise los valores del estado de los puntos de conexión individuales para determinar cuáles de ellos requieren mayor atención. |
+| habilitado |El estado de al menos un punto de conexión es En línea. Ningún punto de conexión tiene un estado Degradado. |En línea |El servicio acepta el tráfico. No se requiere ninguna acción adicional. |
+| habilitado |El estado de al menos un punto de conexión es CheckingEndpoint. Ningún punto de conexión está en estado En línea o Degradado. |CheckingEndpoints |Este estado de transición se produce cuando se crea o habilita un perfil. El estado del punto de conexión se comprueba por primera vez. |
+| habilitado |El estado de todos los puntos de conexión definidos en el perfil es Deshabilitado o Detenido, o el perfil no tiene ningún punto de conexión definido. |Inactivo |No hay puntos de conexión activos, pero el perfil está todavía habilitado. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Conmutación por error y recuperación de un punto de conexión
 
 Traffic Manager comprueba periódicamente el estado de cada punto de conexión, incluidos aquellos incorrectos. Traffic Manager detecta cuándo es correcto un punto de conexión y lo pone de nuevo en rotación.
 
 Un punto de conexión es incorrecto cuando tienen lugar alguna de estas condiciones:
+
 - Si el protocolo de supervisión es HTTP o HTTPS:
     - Se recibe una respuesta distinta de 200 o una que no incluya el intervalo de estado especificado en la opción de configuración **Intervalos de código de estado esperados** (códigos 2xx distintos o redireccionamientos 301/302 incluidos).
 - Si el protocolo de supervisión es TCP: 
-    - Se recibe una respuesta que no sea ACK o SYN ACK en respuesta a la solicitud SYNC enviada por Traffic Manager para intentar establecer una conexión.
+    - Se recibe una respuesta que no sea ACK o SYN ACK en respuesta a la solicitud SYN enviada por Traffic Manager para intentar establecer una conexión.
 - Tiempo de espera. 
 - Cualquier otro problema de conexión que provoque que el punto de conexión no sea accesible.
 
@@ -151,8 +152,6 @@ Para más información, consulte [Métodos de enrutamiento del Administrador de 
 > La consecuencia de este comportamiento es que si las comprobaciones de estado de Traffic Manager no están configuradas correctamente, podría parecer por el enrutamiento del tráfico que Traffic Manager *funciona* correctamente. En cambio, en este caso, la conmutación por error del punto de conexión no se puede producir, lo que afecta a la disponibilidad general de la aplicación. Es importante comprobar que el perfil muestra un estado En línea y no un estado Degradado. Un estado En línea indica que las comprobaciones de estado de Traffic Manager funcionan según lo esperado.
 
 Para obtener más información sobre la solución de problemas de comprobaciones se estado erróneas, consulte [Solución de problemas de estado degradado en Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

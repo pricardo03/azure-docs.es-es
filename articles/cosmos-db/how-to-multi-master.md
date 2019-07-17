@@ -4,21 +4,21 @@ description: Aprenda a configurar la arquitectura multimaestro en las aplicacion
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/02/2019
+ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 646706eabf1b3a33c3143410f0e922a03e6a8ad6
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538092"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565900"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configuración de la arquitectura multimaestro en las aplicaciones que usan Azure Cosmos DB
 
 Una vez creada una cuenta con varias regiones de escritura habilitadas, debe realizar dos cambios en la aplicación en ConnectionPolicy para DocumentClient para habilitar las funcionalidades de hospedaje múltiple y arquitectura multimaestro en Azure Cosmos DB. En ConnectionPolicy, establezca UseMultipleWriteLocations en true y pase el nombre de la región donde se implementa la aplicación a SetCurrentLocation. Se rellena la propiedad PreferredLocations según la proximidad geográfica de la ubicación pasada. Si más adelante se agrega una nueva región a la cuenta, la aplicación no tiene que actualizarse ni volver a implementarse; se detecta automáticamente la región más cercana y se hospeda por sí sola en ella si se produce un evento regional.
 
-> [!TIP]
-> Las cuentas de Cosmos creadas no configuradas inicialmente para arquitectura multimaestro se pueden migrar con cero tiempo de inactividad. Para más información, consulte, [Configuración de varias regiones de escritura](how-to-manage-database-account.md#configure-multiple-write-regions).
+> [!Note]
+> Las cuentas de Cosmos configuradas inicialmente con una sola región de escritura pueden configurarse para varias regiones de escritura (es decir, arquitectura multimaestro) con cero tiempo de inactividad. Para más información, consulte, [Configuración de varias regiones de escritura](how-to-manage-database-account.md#configure-multiple-write-regions).
 
 ## <a id="netv2"></a>.NET SDK v2
 

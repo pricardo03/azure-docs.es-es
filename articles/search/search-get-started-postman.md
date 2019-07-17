@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/16/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b3c5c08e9862d59481573b501045466d6d691a77
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: ee3c4da96629910801413cbbad69963defb87dfe
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485575"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798796"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Search en Postman con las API REST
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ En este inicio rápido se usan los siguientes servicios y herramientas.
 
 + [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
-+ [Aplicación de escritorio Postman](https://www.getpostman.com/) o [Telerik Fiddler](https://www.telerik.com/fiddler): se usa para enviar solicitudes a Azure Search.
++ La [aplicación de escritorio Postman](https://www.getpostman.com/) se usa para enviar solicitudes a Azure Search.
 
 ## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
@@ -240,7 +240,11 @@ Para más información acerca de esta API, consulte la [API REST Get Index Stati
 
 ## <a name="clean-up"></a>Limpieza
 
-Si ya no necesita el servicio de búsqueda, la manera más rápida de liberar los servicios es eliminar el grupo de recursos que contiene el servicio Azure Search. Al eliminar el grupo de recursos, se elimina permanentemente todo lo que contiene, incluidos los servicios y cualquier contenido almacenado. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio.
+Cuando trabaje con su propia suscripción, es una buena idea al final de un proyecto identificar si todavía se necesitan los recursos que ha creado. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
+
+Puede encontrar y administrar recursos en el portal, mediante el vínculo **Todos los recursos** o **Grupos de recursos** en el panel de navegación izquierdo.
+
+Si está usando un servicio gratuito, recuerde que está limitado a tres índices, indexadores y orígenes de datos. Puede eliminar elementos individuales en el portal para mantenerse por debajo del límite. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

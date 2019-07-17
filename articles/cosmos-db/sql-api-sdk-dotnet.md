@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f502984a09f81b5aaf0568c84b75832f8164151
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510719"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541046"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de Azure Cosmos DB para .NET para SQL API: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -48,9 +48,18 @@ ms.locfileid: "65510719"
 * Compatibilidad con secuencias. 
 * Actualización de CosmosResponseMessage desde el servidor para devolver el código de estado y solo iniciar la excepción cuando no se devuelve ninguna respuesta. 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* La versión de System.Net.Http del SDK coincide con lo definido en el paquete NuGet.
+* Permite que las solicitudes de escritura se devuelvan a una región diferente si la original produce un error.
+* Agrega una directiva de reintentos de sesión para la solicitud de escritura.
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+
+* Se corrige la condición de carrera de seguimiento para las consultas que causaron páginas vacías.
+
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* La versión de System.Net.Http del SDK coincide con lo definido en el paquete NuGet
 * Mayor tamaño de precisión decimal para consultas de LINQ.
 * Incorporación de nuevas clases CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType y PartitionKeyDefinitionVersion
 * Incorporación de TimeToLivePropertyPath a DocumentCollection
@@ -222,7 +231,7 @@ ms.locfileid: "65510719"
 * Se corrigió un problema por el que la continuación de la consulta order-by en la partición cruzada no funcionaba cuando se ordenaba por un campo de cadena.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG). Consulte [Compatibilidad con agregación](how-to-sql-query.md#Aggregates).
+* Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG). Consulte [Compatibilidad con agregación](sql-query-aggregates.md).
 * Reducción del procesamiento mínimo en las colecciones particionadas de 10 100 RU/s a 2500 RU/s.
 
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4
@@ -375,6 +384,8 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |02 de julio de 2019 |--- |
+| [2.4.1](#2.4.1) |20 de junio de 2019 |--- |
 | [2.4.0](#2.4.0) |5 de mayo de 2019 |--- |
 | [2.3.0](#2.3.0) |4 de abril de 2019 |--- |
 | [2.2.3](#2.2.3) |11 de febrero de 2019 |--- |

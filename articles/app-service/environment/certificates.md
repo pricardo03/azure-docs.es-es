@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba34638bbdb838adc6f1e61b1f8b07a6915815c0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60766274"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540777"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados y App Service aislado 
 
@@ -55,7 +55,7 @@ Si quiere crear un certificado autofirmado rápidamente para realizar pruebas, p
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-
+Al crear un certificado autofirmado, deberá asegurar que el nombre del sujeto tiene el formato de CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
 
 ## <a name="application-certificates"></a>Certificados de aplicación 
 
@@ -85,7 +85,9 @@ Para cargar el certificado en la aplicación de App Service aislado:
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-El certificado estará disponible para todas las aplicaciones del mismo plan de App Service que la aplicación que configuró dicho valor. Si necesita que esté disponible para las aplicaciones en otro plan de App Service, deberá repetir la operación Configuración de la aplicación en una aplicación en dicho plan de App Service. Para comprobar si el certificado está establecido, vaya a la consola de Kudu y emita este comando dir cert:\localmachine\root en la consola de depuración de PowerShell. 
+El certificado estará disponible para todas las aplicaciones del mismo plan de App Service que la aplicación que configuró dicho valor. Si necesita que esté disponible para las aplicaciones en otro plan de App Service, deberá repetir la operación Configuración de la aplicación en una aplicación en dicho plan de App Service. Para comprobar si el certificado está establecido, vaya a la consola de Kudu y emita este comando en la consola de depuración de PowerShell.
+
+    dir cert:\localmachine\root
 
 Para realizar pruebas, puede crear un certificado autofirmado y generar un archivo *.cer* con el siguiente comando de PowerShell: 
 

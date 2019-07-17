@@ -1,26 +1,27 @@
 ---
-title: 'Inicio rápido: Creación de una aplicación web que inicia el Lector inmersivo (C#)'
+title: 'Inicio rápido: Creación de una aplicación web que inicia el Lector inmersivo con C#'
 titlesuffix: Azure Cognitive Services
-description: En este inicio rápido, creará una aplicación web desde cero y agregará la funcionalidad de Lector inmersivo.
+description: En este inicio rápido, va a crear una aplicación web desde cero y a agregar la funcionalidad de la API de Lector inmersivo.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 77d95383c801038c256ccb2bf386ddf06048cf78
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 3b408de6b60e7e7704ee228b52c399e5b80e3a9e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311803"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718419"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Inicio rápido: Creación de una aplicación web que inicia el Lector inmersivo (C#)
 
 El [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de forma inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora.
 
-En este inicio rápido, creará una aplicación web desde cero e integrará el Lector inmersivo mediante su SDK. Se puede encontrar un completo ejemplo funcional [aquí](https://github.com/Microsoft/immersive-reader-sdk/samples/quickstart-csharp).
+En este inicio rápido, creará una aplicación web desde cero e integrará el Lector inmersivo mediante su SDK. Se puede encontrar un completo ejemplo funcional [aquí](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

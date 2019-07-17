@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.openlocfilehash: 02a8b825a513c75ef7c037348ccaecdf5026ded2
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926274"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560476"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -31,8 +31,8 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 | Windows 8.1            | SMB 3.0     | Sí                   | Sí                  |
 | Windows Server 2012 R2 | SMB 3.0     | Sí                   | Sí                  |
 | Windows Server 2012    | SMB 3.0     | Sí                   | Sí                  |
-| Windows 7              | SMB 2.1     | Sí                   | Sin                    |
-| Windows Server 2008 R2 | SMB 2.1     | Sí                   | Sin                    |
+| Windows 7              | SMB 2.1     | Sí                   | Sin                   |
+| Windows Server 2008 R2 | SMB 2.1     | Sí                   | Sin                   |
 
 <sup>1</sup>Windows 10, versiones 1507, 1607, 1703, 1709, 1803 y 1809.  
 <sup>2</sup>Windows Server, versión 1709 y 1803.
@@ -48,9 +48,9 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 
 * **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria). Actualmente no se admiten claves SAS para el montaje.
 
-* **Asegúrese de que el puerto 445 está abierto**: el protocolo SMB requiere que esté abierto el puerto TCP 445; las conexiones producirán errores si el puerto 445 está bloqueado. Otra forma de comprobar si el firewall está bloqueando el puerto 445 es usar el cmdlet `Test-NetConnection`. Puede obtener información acerca de [diversos métodos para solucionar bloqueados el puerto 445 aquí](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+* **Asegúrese de que el puerto 445 está abierto**: el protocolo SMB requiere que esté abierto el puerto TCP 445; las conexiones producirán errores si el puerto 445 está bloqueado. Otra forma de comprobar si el firewall está bloqueando el puerto 445 es usar el cmdlet `Test-NetConnection`. Puede obtener información sobre [diversos métodos para solucionar el bloqueo del puerto 445 aquí](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    Vea el siguiente código se supone que tiene instalado, el módulo PowerShell de Azure de PowerShell [instalar Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) para obtener más información. No olvide reemplazar `<your-storage-account-name>` y `<your-resource-group-name>` por los nombres correspondientes de su cuenta de almacenamiento.
+    En el siguiente código de PowerShell se da por hecho que tiene instalado el módulo Azure PowerShell. Para más información, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). No olvide reemplazar `<your-storage-account-name>` y `<your-resource-group-name>` por los nombres correspondientes de su cuenta de almacenamiento.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
@@ -234,19 +234,19 @@ En la tabla siguiente se proporciona información detallada sobre el estado de S
 
 | Versión de Windows                           | Estado predeterminado de SMB 1 | Método "deshabilitar o quitar"       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019 (versión preliminar)             | Disabled             | Quitar con la característica de Windows |
+| Windows Server 2019                       | Disabled             | Quitar con la característica de Windows |
 | Windows Server, versiones 1709 +            | Disabled             | Quitar con la característica de Windows |
 | Windows 10, versiones 1709 +                | Disabled             | Quitar con la característica de Windows |
-| Windows Server 2016                       | Enabled              | Quitar con la característica de Windows |
-| Windows 10, versiones 1507, 1607 y 1703 | Enabled              | Quitar con la característica de Windows |
-| Windows Server 2012 R2                    | Enabled              | Quitar con la característica de Windows | 
-| Windows 8.1                               | Enabled              | Quitar con la característica de Windows | 
-| Windows Server 2012                       | Enabled              | Deshabilitar con el Registro       | 
-| Windows Server 2008 R2                    | Enabled              | Deshabilitar con el Registro       |
-| Windows 7                                 | Enabled              | Deshabilitar con el Registro       | 
+| Windows Server 2016                       | habilitado              | Quitar con la característica de Windows |
+| Windows 10, versiones 1507, 1607 y 1703 | habilitado              | Quitar con la característica de Windows |
+| Windows Server 2012 R2                    | habilitado              | Quitar con la característica de Windows | 
+| Windows 8.1                               | habilitado              | Quitar con la característica de Windows | 
+| Windows Server 2012                       | habilitado              | Deshabilitar con el Registro       | 
+| Windows Server 2008 R2                    | habilitado              | Deshabilitar con el Registro       |
+| Windows 7                                 | habilitado              | Deshabilitar con el Registro       | 
 
 ### <a name="auditing-smb-1-usage"></a>Auditoría del uso de SMB 1
-> Se aplica a Windows Server 2019 (versión preliminar), el canal semestral de Windows Server (versiones 1709 y 1803), Windows Server 2016, Windows 10 (versiones 1507, 1607, 1703, 1709 y 1803), Windows Server 2012 R2 y Windows 8.1.
+> Se aplica a Windows Server 2019, el canal semestral de Windows Server (versiones 1709 y 1803), Windows Server 2016, Windows 10 (versiones 1507, 1607, 1703, 1709 y 1803), Windows Server 2012 R2 y Windows 8.1.
 
 Antes de quitar SMB 1 de su entorno, quizás quiera auditar su uso para ver si el cambio interrumpirá a los clientes. Si las solicitudes se realizan con respecto a recursos compartidos de SMB con SMB 1, se registrará un evento de auditoría en el registro de eventos en `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
 
@@ -260,7 +260,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>Eliminación de SMB 1 de Windows Server
-> Se aplica a Windows Server 2019 (versión preliminar), el canal semestral de Windows Server (versiones 1709 y 1803), Windows Server 2016 y Windows Server 2012 R2.
+> Se aplica a Windows Server 2019, el canal semestral de Windows Server (versiones 1709 y 1803), Windows Server 2016 y Windows Server 2012 R2.
 
 Para quitar SMB 1 de una instancia de Windows Server, ejecute el siguiente cmdlet desde una sesión de PowerShell con privilegios elevados:
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 07/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bc6b9662a5d67f6ed315c33444bcb061115fe6d4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484755"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701472"
 ---
 # <a name="what-is-azure-data-box-edge"></a>¿Qué es Azure Data Box Edge? 
 
@@ -88,16 +88,9 @@ La solución Data Box Edge consta de un recurso Data Box Edge, un dispositivo f�
 
 El dispositivo físico Data Box Edge, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
 
-- **Disponibilidad del recurso**: para esta versión, el recurso Data Box Edge está disponible en las siguientes regiones:
-    - **Estados Unidos**: Este de EE. UU.
-    - **Unión Europea**: Europa Occidental
-    - **Asia Pacífico**: Sudeste de Asia
+- **Disponibilidad de recursos**: para obtener una lista de todas las regiones en donde está disponible el recurso de Data Box Edge, vaya a [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Edge también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
-    Data Box Edge también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
-    
-- **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. 
-
-    Las regiones en las que las cuentas de almacenamiento almacenan los datos de Data Box deben estar ubicadas cerca de la ubicación del dispositivo para un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento. 
+- **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Data Box Edge deben estar ubicadas cerca de la ubicación del dispositivo para un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

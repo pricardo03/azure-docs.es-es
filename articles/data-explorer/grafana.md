@@ -1,22 +1,28 @@
 ---
-title: Visualizar datos desde el Explorador de datos de Azure con Grafana
+title: Visualización de datos desde Azure Data Explorer mediante Grafana
 description: En este procedimiento, aprenderá a configurar Azure Data Explorer como origen de datos de Grafana y a visualizarlos después desde un clúster de ejemplo.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.date: 6/30/2019
+ms.openlocfilehash: 0f148a97b25afb9135223ff92afb898d4734c586
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399925"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537797"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualización de datos desde Azure Data Explorer en Grafana
 
 Grafana es una plataforma de análisis que permite consultar y visualizar datos y crear y compartir paneles basados en las visualizaciones. Grafana proporciona un *complemento* para Azure Data Explorer, que permite conectarse a datos desde Azure Data Explorer y visualizarlos. En este artículo, aprenderá a configurar Azure Data Explorer como origen de datos de Grafana y a visualizarlos después desde un clúster de ejemplo.
+
+Con el siguiente video, puede aprender a usar el complemento Azure Data Explorer de Grafana, configurar Azure Data Explorer como origen de datos para Grafana y, después, visualizar los datos. 
+
+> [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
+
+Además, puede [configurar el origen de datos](#configure-the-data-source) y [visualizar los datos](#visualize-data), tal como se detalla en el artículo siguiente.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,7 +50,7 @@ Realice los pasos siguientes para configurar Azure Data Explorer como origen de 
 
 Puede crear la entidad de servicio en [Azure Portal](#azure-portal) o mediante la experiencia de línea de comandos de la [CLI de Azure](#azure-cli). Independientemente del método que utilice, después de crear la entidad, obtendrá los valores de cuatro propiedades de conexión que usará en pasos posteriores.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 1. Para crear la entidad de servicio, siga las instrucciones de la [documentación de Azure Portal](/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -56,7 +62,7 @@ Puede crear la entidad de servicio en [Azure Portal](#azure-portal) o mediante l
 
     ![Id. de suscripción (Azure Portal)](media/grafana/subscription-id-portal.png)
 
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>CLI de Azure
 
 1. Crear una entidad de servicio. Establezca un ámbito adecuado y un tipo de rol de `reader`.
 
@@ -151,12 +157,12 @@ Con la entidad de servicio asignada al rol *visores*, ahora puede especificar pr
 
     ![Propiedades de la conexión](media/grafana/connection-properties.png)
 
-    | UI de Grafana | Azure Portal | Azure CLI |
+    | UI de Grafana | Portal de Azure | CLI de Azure |
     | --- | --- | --- |
     | Id. de suscripción | ID. DE SUSCRIPCIÓN | SubscriptionId |
     | Identificador de inquilino | Identificador de directorio | tenant |
     | Id. de cliente | Identificador de aplicación | appId |
-    | Secreto del cliente | Contraseña | password |
+    | Secreto del cliente | Contraseña | contraseña |
     | | | |
 
 1. Seleccione **Guardar y probar**.

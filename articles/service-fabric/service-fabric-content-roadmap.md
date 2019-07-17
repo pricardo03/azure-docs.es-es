@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1227871f2003ded7b9cb92eaf32bd9a984958f9f
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540715"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537807"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Sin embargo, Service Fabric tiene un área expuesta de gran tamaño, y hay mucho por aprender.  En este artículo se proporciona una sinopsis de Service Fabric y se describen los conceptos principales, los modelos de programación, el ciclo de vida de la aplicación, las pruebas, los clústeres y la supervisión del estado. Lea [Información general](service-fabric-overview.md) y [¿Qué son los microservicios?](service-fabric-overview-microservices.md) para obtener una introducción y conocer cómo se puede utilizar Service Fabric para crear microservicios. Este artículo no contiene una lista completa de contenido, pero incluye vínculos a información general y artículos de introducción de cada área de Service Fabric. 
@@ -27,16 +27,18 @@ Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el 
 ## <a name="core-concepts"></a>Conceptos principales
 [Terminología de Service Fabric](service-fabric-technical-overview.md), [Modelo de aplicación](service-fabric-application-model.md) y [Modelos de programación admitidos](service-fabric-choose-framework.md) ofrecen varios conceptos y descripciones, pero estos son los conceptos básicos.
 
-### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Tiempo de diseño: tipo de aplicación, tipo de servicio, paquete de aplicación y manifiesto de aplicación, paquete y manifiesto de servicio
-Un tipo de aplicación es el nombre o versión asignados a una colección de tipos de servicios. Esto se define en un archivo *ApplicationManifest.xml*, que se inserta en un directorio del paquete de aplicación. El paquete de aplicación se copia después en el almacén de imágenes del clúster de Service Fabric. Después, puede crear una aplicación con nombre a partir de este tipo de aplicación y ejecutarla después en el clúster. 
+### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>Tiempo de diseño: tipo de servicio, paquete y manifiesto de servicio, tipo de aplicación, paquete y manifiesto de aplicación
+Un tipo de servicio es el nombre o versión asignados a los paquetes de código, paquetes de datos y paquetes de configuración de un servicio. Esto se define en un archivo ServiceManifest.xml. Además, se compone de las opciones de configuración del servicio y el código ejecutable que se cargan en tiempo de ejecución, y los datos estáticos que el servicio consume.
 
-Un tipo de servicio es el nombre o versión asignados a los paquetes de código, paquetes de datos y paquetes de configuración de un servicio. Esto se define en un archivo ServiceManifest.xml, que se inserta en un directorio del paquete de servicio. El archivo *ApplicationManifest.xml* de un paquete de aplicación hace referencia al directorio del paquete de servicio. En el clúster, después de crear una aplicación con nombre se pude crear un servicio con nombre desde uno de los tipos de servicio del tipo de aplicación. Un tipo de servicio se describe en su archivo *ServiceManifest.xml*. Además, se compone de las opciones de configuración del servicio y el código ejecutable que se cargan en tiempo de ejecución, y los datos estáticos que el servicio consume.
+Un paquete de servicio es un directorio de disco que contiene el archivo ServiceManifest.xml del tipo de servicio, que hace referencia al código, los datos estáticos y los paquetes de configuración del tipo de servicio. Por ejemplo, un paquete de servicio puede hacer referencia al código, a los datos estáticos y a los paquetes de configuración que conforman un servicio de base de datos.
+
+Un tipo de aplicación es el nombre o versión asignados a una colección de tipos de servicios. Esto se define en un archivo ApplicationManifest.xml.
 
 ![Tipos de aplicaciones de Service Fabric y tipos de servicio][cluster-imagestore-apptypes]
 
-El paquete de aplicación es un directorio de disco que contiene el archivo *ApplicationManifest.xml* del tipo de aplicación, que hace referencia a los paquetes de servicio para cada tipo de servicio que compone el tipo de aplicación. Por ejemplo, un paquete de aplicación de un tipo de aplicación de correo electrónico puede contener referencias a un paquete de servicios de cola, un paquete de servicios de front-end y un paquete de servicios de base de datos. Los archivos en el directorio del paquete de aplicación se copian en el almacén de imágenes del clúster de Service Fabric. 
+El paquete de aplicación es un directorio de disco que contiene el archivo ApplicationManifest.xml del tipo de aplicación, que hace referencia a los paquetes de servicio para cada tipo de servicio que compone el tipo de aplicación. Por ejemplo, un paquete de aplicación de un tipo de aplicación de correo electrónico puede contener referencias a un paquete de servicios de cola, un paquete de servicios de front-end y un paquete de servicios de base de datos.  
 
-Un paquete de servicio es un directorio de disco que contiene el archivo *ServiceManifest.xml* del tipo de servicio, que hace referencia al código, los datos estáticos y los paquetes de configuración del tipo de servicio. El archivo *ApplicationManifest.xml* del tipo de aplicación hace referencia al directorio del paquete de servicio. Por ejemplo, un paquete de servicio puede hacer referencia al código, a los datos estáticos y a los paquetes de configuración que conforman un servicio de base de datos.
+Los archivos en el directorio del paquete de aplicación se copian en el almacén de imágenes del clúster de Service Fabric. Después, puede crear una aplicación con nombre a partir de este tipo de aplicación y ejecutarla después en el clúster. Después de crear una aplicación con nombre, se pude crear un servicio con nombre desde uno de los tipos de servicio del tipo de aplicación. 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>Tiempo de ejecución: clústeres y nodos, aplicaciones con nombre, servicios con nombre, particiones y réplicas
 Un [clúster de Service Fabric](service-fabric-deploy-anywhere.md) es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Los clústeres pueden escalar a miles de equipos.

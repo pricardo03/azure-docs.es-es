@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck;amverma
-ms.openlocfilehash: ad490084b34a8bf6e89c7feb14d5cd2e70a8138f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1eeabf66411117d700a558a2938fb8c1df0080b
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755323"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538052"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamaños de máquina virtual de informática de alto rendimiento
 
@@ -53,7 +53,16 @@ En algunas implementaciones de las instancias A8 y A9, la extensión HpcVmDriver
   "typeHandlerVersion": "1.0",
   } 
   ```
-  
+
+  El comando siguiente instala la versión más reciente de la extensión InfiniBandDriverWindows, la versión 1.0, en todas las máquinas virtuales compatibles con RDMA en un conjunto de escalado de máquina virtual denominado *myVMSS* implementado en el grupo de recursos denominado *myResourceGroup*:
+
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+
   Para obtener más información, consulte el artículo de [características y extensiones de las máquinas virtuales](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). También puede trabajar con las extensiones para las máquinas virtuales implementadas en el [modelo de implementación clásica](classic/manage-extensions.md).
 
 * **Espacio de direcciones de red RDMA** : la red RDMA en Azure reserva el espacio de direcciones 172.16.0.0/16. Para ejecutar aplicaciones MPI en instancias implementadas en una red virtual Azure, asegúrese de que el espacio de direcciones de la red virtual no se superpone a la red RDMA.
@@ -66,6 +75,8 @@ Azure ofrece varias opciones para crear clústeres de máquinas virtuales de HPC
 * **Máquinas virtuales**: implemente las máquinas virtuales de HPC compatibles con RDMA en el mismo conjunto de disponibilidad (cuando use el modelo de implementación de Azure Resource Manager). Si usa el modelo de implementación clásica, implemente las máquinas virtuales en el mismo servicio en la nube. 
 
 * **Conjuntos de escalado de máquinas virtuales**: en un conjunto de escalado de máquinas virtuales, asegúrese de limitar la implementación a un único grupo de selección de ubicación. Por ejemplo, en una plantilla de Resource Manager, establezca la propiedad `singlePlacementGroup` en `true`. 
+
+* **MPI entre las máquinas virtuales**: si es necesaria la comunicación de MPI entre las máquinas virtuales, asegúrese de que las máquinas virtuales estén en el mismo conjunto de disponibilidad o en el mismo conjunto de escalado de la máquina virtual.
 
 * **Azure CycleCloud**: cree un clúster de HPC en [Azure CycleCloud](/azure/cyclecloud/) para ejecutar trabajos MPI en nodos de Windows.
 
