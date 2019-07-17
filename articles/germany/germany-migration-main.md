@@ -85,7 +85,7 @@ Estos términos se utilizan en los artículos sobre la migración de Azure Alema
 - **Identificador de suscripción de origen**: el identificador de la suscripción de recursos en Azure Alemania. Puede tener más de una suscripción en el mismo inquilino. Asegúrese siempre de que está usando la suscripción correcta.
 - **Región de origen**: cualquier región de Centro de Alemania (**germanycentral**) o Nordeste de Alemania (**germanynortheast**), en función de donde se encuentre el recurso que desea migrar.
 
-**Destino**describe hacia dónde está migrando los recursos: ****
+**Destino**describe hacia dónde está migrando los recursos **:**
 
 - **Nombre del inquilino de destino**: el nombre del inquilino en Azure global.
 - **Identificador de inquilino de destino**: el identificador del inquilino en Azure global.

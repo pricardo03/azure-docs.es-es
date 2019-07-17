@@ -284,7 +284,7 @@ Si establece el valor inicial de la variable, este debe configurarse con el tipo
 | string   | Incluya el valor entre comillas dobles.  | "\"Hello world\"" | "Hello world" |
 | numeric  | Valor numérico con comillas simples.| "64" | 64 |
 | boolean  | **true** o **false** entre comillas.  Tenga en cuenta que este valor debe ir en minúsculas. | "true" | true |
-| datetime | Valor de fecha serializado.<br>Puede usar el cmdlet ConvertTo-Json de PowerShell para generar este valor para una fecha determinada.<br>Ejemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| Datetime | Valor de fecha serializado.<br>Puede usar el cmdlet ConvertTo-Json de PowerShell para generar este valor para una fecha determinada.<br>Ejemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
 La solución de administración no necesita definir los [módulos globales](../../automation/automation-integration-modules.md) que usan los runbooks porque siempre estarán disponibles en la cuenta de Automation.  Debe incluir un recurso para cualquier otro módulo usado por los runbooks.
