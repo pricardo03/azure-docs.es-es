@@ -95,13 +95,13 @@ Para ilustrar este esquema, se utiliza la siguiente configuración de escalado a
 | Configuración | name | Nombre de la configuración de escalado automático. |
 | Configuración | location | Ubicación de la configuración de escalado automático. Esta ubicación puede ser diferente de la ubicación de los recursos que se van a escalar. |
 | properties | targetResourceUri | Identificador de recurso del recurso que se va a escalar. Solo puede tener una configuración de escalado automático por recurso. |
-| properties | perfiles | Una configuración de escalado automático se compone de uno o varios perfiles. Cada vez que se ejecuta el motor de escalado automático, ejecuta un perfil. |
-| perfile | name | Nombre del perfil. Puede elegir cualquier nombre que le ayude a identificar el perfil. |
-| perfile | capacity.maximum | La capacidad máxima permitida. Garantiza que, al ejecutar este perfil, el escalado automático no escalará el recurso por encima de este número. |
-| perfile | Capacity.minimum | La capacidad mínima permitida. Garantiza que, al ejecutar este perfil, el escalado automático no escalará el recurso por debajo de este número. |
-| perfile | Capacity.default | Si hay algún problema al leer la métrica del recurso (en este caso, la CPU de "vmss1") y la capacidad actual es inferior a la predeterminada, el escalado automático escalará horizontalmente al valor predeterminado. De esta forma, se garantiza la disponibilidad del recurso. Si la capacidad actual ya es mayor que la predeterminada, el escalado automático no reduce horizontalmente. |
-| perfile | reglas | El escalado automático permite escalar automáticamente entre las capacidades máxima y mínima mediante las reglas del perfil. Puede tener varias reglas en un perfil. Normalmente hay dos reglas: una para determinar cuándo escalar horizontalmente y la otra para determinar cuándo reducir horizontalmente. |
-| rule | metricTrigger | Define la condición de métrica de la regla. |
+| properties | profiles | Una configuración de escalado automático se compone de uno o varios perfiles. Cada vez que se ejecuta el motor de escalado automático, ejecuta un perfil. |
+| profiles | name | Nombre del perfil. Puede elegir cualquier nombre que le ayude a identificar el perfil. |
+| profiles | capacity.maximum | La capacidad máxima permitida. Garantiza que, al ejecutar este perfil, el escalado automático no escalará el recurso por encima de este número. |
+| profiles | capacity.minimum | La capacidad mínima permitida. Garantiza que, al ejecutar este perfil, el escalado automático no escalará el recurso por debajo de este número. |
+| profiles | capacity.default | Si hay algún problema al leer la métrica del recurso (en este caso, la CPU de "vmss1") y la capacidad actual es inferior a la predeterminada, el escalado automático escalará horizontalmente al valor predeterminado. De esta forma, se garantiza la disponibilidad del recurso. Si la capacidad actual ya es mayor que la predeterminada, el escalado automático no reduce horizontalmente. |
+| profiles | rules | El escalado automático permite escalar automáticamente entre las capacidades máxima y mínima mediante las reglas del perfil. Puede tener varias reglas en un perfil. Normalmente hay dos reglas: una para determinar cuándo escalar horizontalmente y la otra para determinar cuándo reducir horizontalmente. |
+| rules | metricTrigger | Define la condición de métrica de la regla. |
 | metricTrigger | metricName | El nombre de la métrica. |
 | metricTrigger |  metricResourceUri | El identificador de recurso del recurso que emite esta métrica. En la mayoría de los casos, es el mismo que el recurso que se va a escalar. En algunos casos, puede ser diferente. Por ejemplo, puede escalar un conjunto de escalado de máquinas virtuales en función del número de mensajes en una cola de almacenamiento. |
 | metricTrigger | timeGrain | La duración del muestreo de métricas. Por ejemplo, **TimeGrain = "PT1M"** significa que las métricas se deberían agregar cada minuto mediante el método de agregación especificado en "statistic". |
