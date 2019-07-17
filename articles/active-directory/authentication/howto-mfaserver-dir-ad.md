@@ -1,5 +1,5 @@
 ---
-title: 'Integración del servidor Azure MFA y Active Directory: Azure Active Directory'
+title: Integración del Servidor Azure MFA y Active Directory con Azure Active Directory
 description: Cómo integrar Servidor Azure Multi-Factor Authentication con Active Directory para poder sincronizar los directorios.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,22 +12,28 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f97b4ee364ecadde7738b8fe077f21d5732365f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: eac6cff0f0f12daaf772549f547aafd670600d61
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358470"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536984"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integración de directorios entre Servidor Azure MFA y Active Directory
 
 Utilice la sección Integración de directorios del Servidor Azure MFA para integrarlo con Active Directory u otro directorio LDAP. Puede configurar los atributos para que coincidan con el esquema de directorios, así como la sincronización automática de los usuarios.
 
+> [!IMPORTANT]
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deben usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación, como de costumbre.
+
 ## <a name="settings"></a>Configuración
 
 De forma predeterminada, el Servidor Azure Multi-Factor Authentication (MFA) está configurado para importar o sincronizar usuarios desde Active Directory.  La pestaña Integración de directorios permite invalidar el comportamiento predeterminado y enlazar a otro directorio LDAP, a un directorio ADAM o a un controlador de dominio específico de Active Directory.  También sirve para el uso de autenticación LDAP en el proxy LDAP o para el enlace LDAP como destino RADIUS, autenticación previa para autenticación de IIS o autenticación principal para el Portal de usuarios.  En la tabla siguiente se describen las configuraciones individuales.
 
-![Editar configuración de LDAP en el servidor MFA](./media/howto-mfaserver-dir-ad/dirint.png)
+![Adición de la configuración de LDAP en el Servidor MFA](./media/howto-mfaserver-dir-ad/dirint.png)
+
+> [!NOTE]
+> No se garantiza que la integración de directorios funcione con directorios que no sean Active Directory Domain Services.
 
 | Característica | DESCRIPCIÓN |
 | --- | --- |
@@ -54,7 +60,7 @@ En la tabla siguiente se describen las opciones de configuración LDAP.
 
 Los filtros permiten establecer criterios para calificar los registros al realizar una búsqueda de directorio.  Al establecer el filtro, puede restringir el ámbito de los objetos que desea sincronizar.  
 
-![Configurar el filtrado de directorio en el servidor MFA](./media/howto-mfaserver-dir-ad/dirint2.png)
+![Configuración del filtrado de directorio en el Servidor MFA](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication incluye las tres opciones siguientes:
 
@@ -64,17 +70,17 @@ Azure Multi-Factor Authentication incluye las tres opciones siguientes:
 
 ## <a name="attributes"></a>Atributos
 
-Puede personalizar los atributos según sea necesario para un determinado directorio.  Esto permite agregar atributos personalizados y ajustar la sincronización solo para los atributos que necesite. Use el nombre del atributo tal como se define en el esquema de directorio para el valor de cada campo de atributo. En la tabla siguiente se proporciona información adicional acerca de cada característica.
+Puede personalizar los atributos según sea necesario para un determinado directorio.  Esto permite agregar atributos personalizados y ajustar la sincronización solo para los atributos que necesite. Utilice el nombre del atributo tal como se define en el esquema de directorios para el valor de cada campo de atributo. En la tabla siguiente se proporciona información adicional acerca de cada característica.
 
 Nota: Los atributos pueden especificarse manualmente y no tienen que coincidir con un atributo de la lista de atributos.
 
-![Personalizar atributos de integración de directorio en el servidor MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
+![Personalización de los atributos de integración de directorio en el Servidor MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | Característica | DESCRIPCIÓN |
 | --- | --- |
 | Identificador único |Escriba el nombre del atributo que actúa como identificador único de los registros de contenedor, de grupo de seguridad y de usuario.  En Active Directory, suele ser objectGUID. Otras implementaciones LDAP pueden usar entryUUID o similar.  El valor predeterminado es objectGUID. |
 | Tipo de identificador único |Seleccione el tipo de atributo de identificador único.  En Active Directory, el atributo objectGUID es de tipo GUID. Otras implementaciones LDAP pueden usar el tipo Matriz de bytes ASCII o Cadena.  El valor predeterminado es GUID. <br><br>Es importante establecer este tipo correctamente, ya que se hace referencia a Elementos de sincronización mediante su Identificador único. El tipo de identificador único se usa para buscar directamente el objeto en el directorio.  Si se establece este tipo en Cadena cuando el directorio almacena realmente el valor como matriz de bytes de caracteres ASCII, la sincronización no funcionará correctamente. |
-| Nombre distintivo |Escriba el nombre del atributo que contiene el nombre distintivo para cada registro.  En Active Directory, suele ser distinguishedName. Otras implementaciones LDAP pueden usar entryDN o similar.  El valor predeterminado es distinguishedName. <br><br>Si no existe un atributo que contiene únicamente el nombre distintivo, se puede usar el atributo de ruta de acceso ads.  La parte "LDAP://\<servidor\>/" de la ruta de acceso se quita automáticamente y solo queda el nombre distintivo del objeto. |
+| Nombre distintivo |Escriba el nombre del atributo que contiene el nombre distintivo para cada registro.  En Active Directory, suele ser distinguishedName. Otras implementaciones LDAP pueden usar entryDN o similar.  El valor predeterminado es distinguishedName. <br><br>Si no existe ningún atributo que contenga solo el nombre distintivo, se puede utilizar el atributo adspath.  La parte "LDAP://\<servidor\>/" de la ruta de acceso se quita automáticamente y solo queda el nombre distintivo del objeto. |
 | Nombre del contenedor |Escriba el nombre del atributo que contiene el nombre en un registro de contenedor.  El valor de este atributo se muestra en la Jerarquía de contenedores al importar desde Active Directory o agregar elementos de sincronización.  El valor predeterminado es name. <br><br>Si distintos contenedores usan atributos diferentes para sus nombres, utilice punto y coma para separar varios atributos de nombres de contenedor.  Se utiliza el primer atributo de nombre de contenedor que se encuentra en un objeto de contenedor para mostrar su nombre. |
 | Nombre de grupo de seguridad |Escriba el nombre del atributo que contiene el nombre en un registro de grupo de seguridad.  El valor de este atributo se muestra en la lista de grupos de seguridad al importar desde Active Directory o agregar elementos de sincronización.  El valor predeterminado es name. |
 | Nombre de usuario |Escriba el nombre del atributo que contiene el nombre de usuario en un registro de usuario.  El valor de este atributo se usa como nombre de usuario del Servidor Multi-Factor Authentication.  Puede especificar un segundo atributo como copia de seguridad del primero.  El segundo atributo solo se usa si el primer atributo no contiene ningún valor para el usuario.  Los valores predeterminados son userPrincipalName y sAMAccountName. |
@@ -97,9 +103,9 @@ Nota: Los atributos pueden especificarse manualmente y no tienen que coincidir c
 | Extensión |Escriba el nombre del atributo que contiene la extensión del número de teléfono en un registro de usuario.  El valor del campo de extensión solo se usa como extensión para el número de teléfono principal.  El valor predeterminado es en blanco. <br><br>Si no se especifica el atributo de extensión, las extensiones se pueden incluir como parte del atributo del teléfono. En este caso, anteponga a la extensión una 'x' para que se analice correctamente.  Por ejemplo, 555-123-4567 x890 sería el número de teléfono 555-123-4567 y la extensión 890. |
 | Botón Restaurar valores predeterminados |Haga clic en **Restaurar valores predeterminados** para que todos los atributos recuperen sus valores predeterminados.  Los valores predeterminados deben funcionar correctamente con el esquema normal de Active Directory o de ADAM. |
 
-Para modificar los atributos, haga clic en **Editar** en la pestaña Atributos.  Se abre una ventana en la que puede modificar los atributos. Seleccione los puntos suspensivos (**...**) que aparecen al lado de cualquier atributo para abrir una ventana, donde puede elegir qué atributos se mostrarán.
+Para modificar los atributos, haga clic en **Editar** en la pestaña Atributos.  Se abre una ventana en la que puede modificar los atributos. Seleccione los puntos suspensivos ( **...** ) que aparecen al lado de cualquier atributo para abrir una ventana, donde puede elegir qué atributos se mostrarán.
 
-![Editar asignación de atributos de directorio en el servidor MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
+![Edición de asignación de atributos de directorio en el Servidor MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>Sincronización
 
@@ -111,7 +117,7 @@ El servicio AdSync de Multi-Factor Authentication usa la extensión de servidor 
 
 Si se admite LDAP y se ha configurado para DirSync, la realización de un sondeo para cambios de usuarios y de grupos de seguridad funcionará igual que lo hace con Active Directory.  Si el directorio LDAP no admite el control DirSync, se realizará una sincronización completa durante cada ciclo.
 
-![Sincronización de objetos de directorio al servidor de MFA](./media/howto-mfaserver-dir-ad/dirint5.png)
+![Sincronización de objetos de directorio al Servidor MFA](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 La tabla siguiente contiene información adicional sobre las opciones de la pestaña Sincronización.
 
@@ -119,9 +125,9 @@ La tabla siguiente contiene información adicional sobre las opciones de la pest
 | --- | --- |
 | Habilitar sincronización con Active Directory |Cuando está activada, el servicio Servidor Multi-Factor Authentication sondea periódicamente los cambios en Active Directory. <br><br>Nota: Se debe agregar al menos un elemento de sincronización y ejecutar Sincronizar ahora antes de que el servicio Servidor Multi-Factor Authentication empiece a procesar los cambios. |
 | Sincronizar cada |Especifique el intervalo de tiempo que el servicio Servidor Multi-Factor Authentication esperará entre el sondeo y el procesamiento de los cambios. <br><br> Nota: El intervalo especificado es el tiempo entre el inicio de cada ciclo.  Si los cambios en el tiempo de procesamiento superan el intervalo, el servicio volverá a realizar un sondeo de inmediato. |
-| Quitar usuarios que ya no estén en Active Directory  |Cuando está activado, el servicio Servidor Multi-Factor Authentication procesará los marcadores de exclusión de usuarios eliminados de Active Directory y quitará el usuario relacionado de Servidor Multi-Factor Authentication. |
+| Quitar usuarios que ya no estén en Active Directory |Cuando está activado, el servicio Servidor Multi-Factor Authentication procesará los marcadores de exclusión de usuarios eliminados de Active Directory y quitará el usuario relacionado de Servidor Multi-Factor Authentication. |
 | Realizar siempre una sincronización completa |Cuando está activado, el servicio Servidor Multi-Factor Authentication realizará siempre una sincronización completa.  Si está desactivado, el servicio Servidor Multi-Factor Authentication realizará una sincronización incremental consultando solo los usuarios que han cambiado.  El valor predeterminado es desactivado. <br><br>Si está desactivado, Azure MFA Server solo realiza una sincronización incremental cuando el directorio admite el control de DirSync y la cuenta que enlaza al directorio tiene los permisos adecuados para realizar consultas incrementales de DirSync.  Si la cuenta no tiene los permisos adecuados o hay varios dominios implicados en la sincronización, Azure MFA Server realiza una sincronización completa. |
-| Requerir autorización del administrador cuando se quiten o deshabiliten más de X usuarios |Los elementos de sincronización se pueden configurar para deshabilitar o quitar los usuarios que ya no son miembros de un contenedor o de un grupo de seguridad del elemento.  Como medida de seguridad, puede ser necesaria la autorización del administrador cuando el número de usuarios que se van a deshabilitar o quitar supera un umbral.  Cuando está activado, se requiere autorización para el umbral especificado.  El valor predeterminado es 5 y el intervalo es de 1 a 999. <br><br>  La autorización se facilita enviando primero una notificación por correo electrónico a los administradores. La notificación por correo electrónico proporciona instrucciones para revisar y autorizar la deshabilitación y eliminación de usuarios.  Cuando se inicia la interfaz de usuario de Servidor Multi-Factor Authentication, solicitará la autorización. |
+| Requerir autorización del administrador cuando se quiten o deshabiliten más de X usuarios |Los elementos de sincronización se pueden configurar para deshabilitar o quitar los usuarios que ya no son miembros de un contenedor o de un grupo de seguridad del elemento.  Como medida de seguridad, puede ser necesaria la autorización del administrador cuando el número de usuarios que se van a deshabilitar o quitar supera un umbral.  Cuando está activado, se requiere autorización para el umbral especificado.  El valor predeterminado es 5 y el intervalo es de 1 a 999. <br><br> La autorización se facilita enviando primero una notificación por correo electrónico a los administradores. La notificación por correo electrónico proporciona instrucciones para revisar y autorizar la deshabilitación y eliminación de usuarios.  Cuando se inicia la interfaz de usuario de Servidor Multi-Factor Authentication, solicitará la autorización. |
 
 El botón **Sincronizar ahora** permite ejecutar una sincronización completa de los elementos de sincronización especificados.  Es necesaria una sincronización completa cuando se agregan, modifican, quitan o reordenan elementos de sincronización.  También es necesaria antes de que el servicio AdSync de Multi-Factor Authentication esté operativo, ya que establece el punto de partida desde el cual el servicio realizará sondeos de los cambios incrementales.  Si se han realizado cambios en los elementos de sincronización, pero no se ha realizado una sincronización completa, se le pedirá que lo haga ahora.
 
@@ -137,8 +143,8 @@ Los botones Subir y Bajar permiten al administrador cambiar el orden de los elem
 > [!TIP]
 > Se debe realizar una sincronización completa después de quitar elementos de sincronización.  Es necesario realizar una sincronización completa después de ordenar elementos de sincronización.  Haga clic en el botón **Sincronizar ahora** para realizar una sincronización completa.
 
-## <a name="multi-factor-authentication-servers"></a>Servidores multi-factor Authentication
+## <a name="multi-factor-authentication-servers"></a>Instancias de Servidor Multi-Factor Authentication
 
-Los servidores adicionales de Multi-factor Authentication pueden configurarse para que actúe como un proxy RADIUS de copia de seguridad, proxy LDAP o autenticación de IIS. La configuración de la sincronización se compartirá entre todos los agentes. Sin embargo, sólo uno de estos agentes puede tener la ejecución de servicio del servidor Multi-factor Authentication. Esta ficha permite seleccionar el servidor Multi-factor Authentication que debe habilitarse para la sincronización.
+Se pueden configurar instancias de Servidor Multi-Factor Authentication adicionales para que actúen como proxy RADIUS de copia de seguridad, proxy LDAP o para autenticación de IIS. La configuración de la sincronización se compartirá entre todos los agentes. Sin embargo, solo uno de estos agentes puede tener el servicio del Servidor Multi-Factor Authentication en ejecución. Esta pestaña permite seleccionar el servidor Multi-Factor Authentication que debe habilitarse para la sincronización.
 
-![Relacionados con los servidores multi-factor Authentication](./media/howto-mfaserver-dir-ad/dirint6.png)
+![Instancias del Servidor Multi-Factor Authentication relacionadas](./media/howto-mfaserver-dir-ad/dirint6.png)
