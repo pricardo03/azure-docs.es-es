@@ -1,129 +1,171 @@
 ---
-title: Llamada a puntos de conexión REST de Azure Logic Apps | Microsoft Docs
-description: Automatización de tareas y flujos de trabajo que se comunican con puntos de conexión REST a través del conector HTTP + Swagger en Azure Logic Apps
+title: Conexión con puntos de conexión REST desde Azure Logic Apps
+description: Supervisión de los puntos de conexión REST en tareas, procesos y flujos de trabajo automatizados mediante Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 07/05/2019
 tags: connectors
-ms.topic: article
-ms.date: 07/18/2016
-ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0410ed7a98e4838e41407868cf26b5254811ae3
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60448655"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541704"
 ---
-# <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Llamada a puntos de conexión REST con el conector HTTP + Swagger para Azure Logic Apps
+# <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Llamada a puntos de conexión REST mediante Azure Logic Apps
 
-Puede crear un conector de primera categoría para cualquier punto de conexión REST a través de un [documento Swagger](https://swagger.io) al usar la acción HTTP + Swagger en el flujo de trabajo de la aplicación lógica. También puede ampliar las aplicaciones lógicas para llamar a cualquier punto de conexión REST con una experiencia de Diseñador de aplicación lógica de primer nivel.
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector integrado de HTTP + Swagger, puede automatizar los flujos de trabajo que llaman periódicamente a cualquier punto de conexión REST a través de un [archivo Swagger](https://swagger.io) al compilar aplicaciones lógicas. El desencadenador y la acción HTTP + Swagger funcionan del mismo modo que el [desencadenador y la acción HTTP](connectors-native-http.md), pero ofrecen una mejor experiencia en el Diseñador de aplicación lógica al exponer la estructura de la API y los resultados que se describen en el archivo de Swagger. Para implementar un desencadenador de sondeo, siga el modelo de sondeo que se describe en [Creación de API personalizadas para llamar a otras API, servicios y sistemas desde aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-Para aprender a crear aplicaciones lógicas con conectores, consulte [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Uso de HTTP + Swagger como desencadenador o acción
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-El desencadenador y la acción HTTP + Swagger funcionan igual que la [acción HTTP](connectors-native-http.md), pero ofrecen una experiencia en el Diseñador de aplicación lógica mejor al exponer la estructura de la API y los resultados desde los [metadatos de Swagger](https://swagger.io). También puede usar el conector HTTP + Swagger como desencadenador. Si desea implementar un desencadenador de sondeo, siga el modelo de sondeo que se describe en [Creación de API personalizadas para llamar a otras API, servicio y sistemas de aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
+* URL del archivo de Swagger que describe el punto de conexión REST de destino.
 
-Más información sobre [las acciones y los desencadenadores de aplicaciones lógicas](../connectors/apis-list.md).
+  Normalmente, el punto de conexión REST debe cumplir estos criterios para que el conector funcione:
 
-A continuación se muestra un ejemplo de cómo utilizar la operación HTTP + Swagger como una acción en un flujo de trabajo de una aplicación lógica.
+  * El archivo de Swagger debe hospedarse en una URL HTTPS a la que se pueda acceder públicamente.
 
-1. Seleccione el botón **Nuevo paso** .
-2. Seleccione **Add an action**(Agregar una acción).
-3. En el cuadro de búsqueda de acciones, escriba **swagger** para mostrar la acción HTTP + Swagger.
-   
-    ![Acción de selección de HTTP + Swagger](./media/connectors-native-http-swagger/using-action-1.png)
-4. Escriba la dirección URL de un documento Swagger:
-   
-   * Para poder utilizarse en el diseñador de aplicaciones lógicas, la dirección URL debe ser un punto de conexión HTTPS y debe tener habilitado CORS.
-   * Si el documento Swagger no cumple este requisito, puede usar Azure Storage con CORS habilitado para almacenar el documento.
-5. Haga clic en **Siguiente** para realizar operaciones de lectura y procesamiento en el documento Swagger.
-6. Agregue cualquier parámetro necesario para la llamada HTTP.
-   
-    ![Completar acción HTTP](./media/connectors-native-http-swagger/using-action-2.png)
-7. Para guardar y publicar la aplicación lógica, haga clic en **Guardar** en la barra de herramientas del diseñador.
+  * El archivo de Swagger debe tener la opción [Uso compartido de recursos entre orígenes (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) habilitada.
 
-### <a name="host-swagger-from-azure-storage"></a>Hospedar Swagger desde Azure Storage
-Puede hacer referencia a un documento de Swagger que no está hospedado, o que no cumple los requisitos de seguridad y de origen cruzado para el diseñador. Para resolver este problema, puede almacenar el documento Swagger en Azure Storage y habilitar CORS para hacer referencia al documento.  
+  Para hacer referencia a un archivo de Swagger que no está hospedado o que no cumple los requisitos de seguridad y entre orígenes, puede [cargar el archivo de Swagger en un contenedor de blobs de una cuenta de almacenamiento de Azure](#host-swagger) y habilitar CORS en esa cuenta de almacenamiento para poder hacer referencia al archivo.
 
-Estos son los pasos necesarios para crear, configurar y almacenar documentos Swagger en Azure Storage:
+  En los ejemplos de este tema se usa [Cognitive Services Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview), que requiere una [clave de acceso y cuenta de Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md).
 
-1. [Crear una cuenta de Azure Storage con Azure Blob Storage](../storage/common/storage-create-storage-account.md). Para este paso, establezca los permisos en **Acceso público**.
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-2. Habilite CORS en el blob. 
+* La aplicación lógica desde la que quiere llamar al punto de conexión de destino. Para comenzar con el desencadenador HTTP + Swagger, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar la acción de HTTP + Swagger, inicie la aplicación lógica con el desencadenador que quiera. En este ejemplo se usa el desencadenador HTTP + Swagger como primer paso.
 
-   Puede usar [este script de PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1) para configurar automáticamente esta opción.
+## <a name="add-an-http--swagger-trigger"></a>Agregar un desencadenador HTTP + Swagger
 
-3. Cargue el archivo de Swagger en el blob. 
+Este desencadenador integrado envía una solicitud HTTP a una URL de un archivo de Swagger que describe una API REST y devuelve una respuesta que incluye el contenido de ese archivo.
 
-   Puede realizar este paso desde [Azure Portal](https://portal.azure.com) o con una herramienta como el [Explorador de Azure Storage](https://storageexplorer.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en blanco en el Diseñador de aplicación lógica.
 
-4. Haga referencia a un vínculo HTTPS en el documento de Azure Blob Storage. 
+1. En el diseñador, escriba "swagger" como filtro en el cuadro de búsqueda. En la lista **Desencadenadores**, seleccione el desencadenador **HTTP + Swagger**.
 
-   El vínculo utiliza este formato:
+   ![Seleccionar el desencadenador HTTP + Swagger](./media/connectors-native-http-swagger/select-http-swagger-trigger.png)
 
-   `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
+1. En el cuadro **DIRECCIÓN URL DEL PUNTO DE CONEXIÓN DE SWAGGER**, escriba la URL del archivo de Swagger y seleccione **Siguiente**.
 
-## <a name="technical-details"></a>Detalles técnicos
-A continuación se muestran los detalles de los desencadenadores y las acciones que admite el conector HTTP + Swagger.
+   En este ejemplo se usa la URL de Swagger que se encuentra en la región Oeste de EE. UU. de [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
 
-## <a name="http--swagger-triggers"></a>Desencadenadores HTTP + Swagger
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. El conector HTTP + Swagger tiene un desencadenador. [Más información sobre los desencadenadores](../connectors/apis-list.md).
+   `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-| Desencadenador | DESCRIPCIÓN |
-| --- | --- |
-| HTTP + Swagger |Realizar una llamada HTTP y devolver el contenido de la respuesta. |
+   ![Escribir la URL del punto de conexión de Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
-## <a name="http--swagger-actions"></a>Acciones HTTP + Swagger
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. El conector HTTP + Swagger tiene una acción posible. [Más información acerca de las acciones](../connectors/apis-list.md).
+1. Cuando el diseñador muestra las operaciones que describe el archivo de Swagger, seleccione la operación que quiera usar.
 
-| . | DESCRIPCIÓN |
-| --- | --- |
-| HTTP + Swagger |Realizar una llamada HTTP y devolver el contenido de la respuesta. |
+   ![Operaciones en el archivo de Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
-### <a name="action-details"></a>Detalles de la acción
-El conector HTTP + Swagger incluye una acción posible. A continuación, se incluye información acerca de cada una de las acciones, los campos de entrada obligatorios y opcionales, y los detalles de salida correspondientes asociados a su uso.
+1. Proporcione los valores de los parámetros de desencadenador, que varían en función de la operación que haya seleccionado, que quiere incluir en la llamada de punto de conexión. Configure la periodicidad con la que quiere que el desencadenador llame al punto de conexión.
 
-#### <a name="http--swagger"></a>HTTP + Swagger
-Realice una solicitud HTTP saliente con ayuda de los metadatos de Swagger.
-Un asterisco (*) significa un campo obligatorio.
+   En este ejemplo se cambia el nombre del desencadenador por "HTTP + Swagger trigger: Face - Detect" (Desencadenador HTTP + Swagger: detección de cara) para que el paso tenga un nombre más descriptivo.
 
-| Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
-| --- | --- | --- |
-| Método* |method |Verbo HTTP que se va a usar |
-| URI* |uri |Identificador URI de la solicitud HTTP |
-| encabezados |encabezados |Objeto JSON de los encabezados HTTP que se va a incluir |
-| Cuerpo |Cuerpo |Cuerpo de la solicitud HTTP |
-| Authentication |Autenticación |Autenticación que se utiliza para la solicitud. Para más información, consulte el artículo [Conector HTTP](connectors-native-http.md#authentication). |
+   ![Detalles de la operación](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
-**Detalles de salida**
+1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
 
-Respuesta HTTP
+   Para obtener más información sobre los tipos de autenticación disponibles para HTTP + Swagger, consulte [Autenticación de acciones y desencadenadores HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-| Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
-| --- | --- | --- |
-| encabezados |objeto |Encabezados de respuesta |
-| Cuerpo |objeto |Objeto de respuesta |
-| Código de estado |int |Código de estado HTTP |
+1. Continúe creando el flujo de trabajo de la aplicación lógica con acciones que se ejecuten cuando se activa el desencadenador.
 
-### <a name="http-responses"></a>Respuestas HTTP
-Al realizar llamadas a diversas acciones, es posible que obtenga determinadas respuestas. A continuación se incluye una tabla que describe las respuestas y descripciones correspondientes.
+1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Guardar**.
 
-| NOMBRE | DESCRIPCIÓN |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Solicitud incorrecta |
-| 401 |No autorizado |
-| 403 |Prohibido |
-| 404 |No encontrado |
-| 500 |Error interno del servidor Error desconocido. |
+## <a name="add-an-http--swagger-action"></a>Agregar una acción HTTP + Swagger
+
+Esta acción integrada crea una solicitud HTTP a la URL del archivo de Swagger que describe una API REST y devuelve una respuesta que incluye el contenido de ese archivo.
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+
+1. En el paso en el que quiera agregar la acción HTTP + Swagger, seleccione **Nuevo paso**.
+
+   Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
+
+1. En el diseñador, escriba "swagger" como filtro en el cuadro de búsqueda. En la lista **Acciones**, seleccione la acción **HTTP + Swagger**.
+
+    ![Acción de selección de HTTP + Swagger](./media/connectors-native-http-swagger/select-http-swagger-action.png)
+
+1. En el cuadro **DIRECCIÓN URL DEL PUNTO DE CONEXIÓN DE SWAGGER**, escriba la URL del archivo de Swagger y seleccione **Siguiente**.
+
+   En este ejemplo se usa la URL de Swagger que se encuentra en la región Oeste de EE. UU. de [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
+
+   `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
+
+   ![Escribir la URL del punto de conexión de Swagger](./media/connectors-native-http-swagger/http-swagger-action-parameters.png)
+
+1. Cuando el diseñador muestra las operaciones que describe el archivo de Swagger, seleccione la operación que quiera usar.
+
+   ![Operaciones en el archivo de Swagger](./media/connectors-native-http-swagger/http-swagger-action-operations.png)
+
+1. Proporcione los valores de los parámetros de acción, que varían en función de la operación que haya seleccionado, que quiere incluir en la llamada de punto de conexión.
+
+   En este ejemplo no hay parámetros, pero se cambia el nombre de la acción por "HTTP + Swagger action: Face - Identify" (Acción HTTP + Swagger: identificación de cara) para que el paso tenga un nombre más descriptivo.
+
+   ![Detalles de la operación](./media/connectors-native-http-swagger/http-swagger-action-operation-details.png)
+
+1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
+
+   Para obtener más información sobre los tipos de autenticación disponibles para HTTP + Swagger, consulte [Autenticación de acciones y desencadenadores HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+
+1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Guardar**.
+
+<a name="host-swagger"></a>
+
+## <a name="host-swagger-in-azure-storage"></a>Hospedar Swagger en Azure Storage
+
+Puede hacer referencia a un archivo de Swagger que no está hospedado o que no cumple los requisitos de seguridad y entre orígenes; para ello, cargue el archivo en un contenedor de blobs de una cuenta de almacenamiento de Azure y habilite CORS en esa cuenta de almacenamiento. Para crear, configurar y almacenar archivos de Swagger en Azure Storage, siga estos pasos:
+
+1. [Creación de una cuenta de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
+
+1. Habilite CORS para el blob. En el menú de la cuenta de almacenamiento, seleccione **CORS**. En la pestaña **Blob service**, especifique estos valores y después seleccione **Guardar**.
+
+   | Propiedad | Valor |
+   |----------|-------|
+   | **Orígenes permitidos** | `*` |
+   | **Métodos permitidos** | `GET`, `HEAD`, `PUT` |
+   | **Encabezados permitidos** | `*` |
+   | **Encabezados expuestos** | `*` |
+   | **Antigüedad máxima** (en segundos) | `200` |
+   |||
+
+   Aunque en este ejemplo se usa [Azure Portal](https://portal.azure.com), puede usar una herramienta como [Explorador de Azure Storage](https://storageexplorer.com/), o bien configurar automáticamente este valor mediante este [script de PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1) de ejemplo.
+
+1. [Cree un contenedor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md). En el panel **Introducción** del contenedor, seleccione **Cambiar nivel de acceso**. En la lista **Nivel de acceso público**, seleccione **Blob (acceso de lectura anónimo solo para blobs)** y seleccione **Aceptar**.
+
+1. [Cargue el archivo de Swagger en el contenedor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), ya sea mediante [Azure Portal](https://portal.azure.com) o el [Explorador de Azure Storage](https://storageexplorer.com/).
+
+1. Para hacer referencia al archivo en el contenedor de blobs, use un vínculo HTTPS que siga este formato, que distingue mayúsculas de minúsculas:
+
+   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<swagger-file-name>`
+
+## <a name="connector-reference"></a>Referencia de conectores
+
+Aquí tiene más información sobre los resultados de una acción o un desencadenador HTTP + Swagger. La llamada de HTTP + Swagger devuelve esta información:
+
+| Nombre de propiedad | type | DESCRIPCIÓN |
+|---------------|------|-------------|
+| headers | objeto | Encabezados de la solicitud |
+| body | objeto | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
+| status code | int | Código de estado de la solicitud |
+|||
+
+| status code | DESCRIPCIÓN |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Accepted |
+| 400 | Solicitud incorrecta |
+| 401 | No autorizado |
+| 403 | Prohibido |
+| 404 | No encontrado |
+| 500 | Error interno del servidor Error desconocido. |
+|||
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Buscar otros conectores](apis-list.md)
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

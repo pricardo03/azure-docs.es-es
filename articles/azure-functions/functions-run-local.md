@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: dd6259173792585a83effd42c75ff9a7a7d572e4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241173"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448377"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -25,16 +25,16 @@ Azure Functions Core Tools le permite desarrollar y probar funciones en el equip
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-Desarrollo de funciones en el equipo local y publicarlas en Azure mediante herramientas principales sigue estos pasos básicos:
+Para desarrollar funciones en el equipo local y publicarlas en Azure utilizando Core Tools siga estos pasos básicos:
 
 > [!div class="checklist"]
-> * [Instale las herramientas de Core y las dependencias.](#v2)
-> * [Crear un proyecto de aplicación de función desde una plantilla específica del lenguaje.](#create-a-local-functions-project)
-> * [Registrar extensiones de enlace y desencadenador.](#register-extensions)
-> * [Definir el almacenamiento y otras conexiones.](#local-settings-file)
-> * [Cree una función de un desencadenador y una plantilla específica del lenguaje.](#create-func)
-> * [Ejecute la función localmente](#start)
-> * [Publicar el proyecto en Azure](#publish)
+> * [Instale Core Tools y sus dependencias.](#v2)
+> * [Cree un proyecto de aplicación de funciones a partir de una plantilla específica del idioma.](#create-a-local-functions-project)
+> * [Registre extensiones de desencadenadores y enlace.](#register-extensions)
+> * [Defina el almacenamiento y otras conexiones.](#local-settings-file)
+> * [Cree una función desde un desencadenador y una plantilla específica del idioma.](#create-func)
+> * [Ejecute la función de forma local.](#start)
+> * [Publique el proyecto en Azure.](#publish)
 
 ## <a name="core-tools-versions"></a>Versiones de Core Tools
 
@@ -55,7 +55,7 @@ A menos que se indique lo contrario, los ejemplos de este artículo son para la 
 La versión 2.x de las herramientas usa el entorno en tiempo de ejecución 2.x de Azure Functions, que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core 2.x, incluidas [Windows](#windows-npm), [macOS](#brew) y [Linux](#linux). 
 
 > [!IMPORTANT]
-> Puede omitir el requisito de instalar .NET Core SDK 2.x utilizando [agrupaciones de extensión].
+> Puede omitir el requisito de instalar el SDK de .NET Core 2.x con los [conjuntos de extensión].
 
 #### <a name="windows-npm"></a>Windows
 
@@ -68,7 +68,10 @@ Los pasos siguientes utilizan npm para instalar Core Tools en Windows. También 
     ```bash
     npm install -g azure-functions-core-tools
     ```
-1. Si no planea usar [agrupaciones de extensión], instale el [SDK de .NET Core 2.x para Windows](https://www.microsoft.com/net/download/windows).
+
+   NPM puede tardar unos minutos en descargar e instalar el paquete de Core Tools.
+
+1. Si no planea usar los [conjuntos de extensión], instale el [SDK de .NET Core 2.x para Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS con Homebrew
 
@@ -82,7 +85,8 @@ Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
-1. Si no planea usar [agrupaciones de extensión], instalar [.NET Core SDK 2.x para macOS](https://www.microsoft.com/net/download/macos).
+
+1. Si no planea usar los [conjuntos de extensión], instale el [SDK de .NET Core 2.x para macOS](https://www.microsoft.com/net/download/macos).
 
 
 #### <a name="linux"></a> Linux (Ubuntu/Debian) con APT
@@ -103,7 +107,7 @@ Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core 
     sudo apt-get update
     ```
 
-    | Distribución de Linux | Version |
+    | Distribución de Linux | Versión |
     | --------------- | ----------- |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
@@ -115,7 +119,8 @@ Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core 
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
-1. Si no planea usar [agrupaciones de extensión], instalar [.NET Core 2.x SDK para Linux](https://www.microsoft.com/net/download/linux).
+
+1. Si no planea usar los [conjuntos de extensión], instale el [SDK de .NET Core 2.x para Linux](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Creación de un proyecto local de Functions
 
@@ -163,57 +168,20 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > De manera predeterminada, la versión 2.x de Core Tools crea proyectos de aplicación de función para el runtime de .NET como [proyectos de clase de C#](functions-dotnet-class-library.md) (.csproj). Estos proyectos de C#, que se pueden usar con Visual Studio o con Visual Studio Code, se compilan durante las pruebas y al publicar en Azure. Si en su lugar desea crear y trabajar con los mismos archivos de script de C# (.csx) creados en la versión 1.x y en el portal, debe incluir el parámetro `--csx` cuando cree e implemente las funciones.
 
-## <a name="register-extensions"></a>Registro de las extensiones
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
-En la versión 2.x del entorno de ejecución de Azure Functions, debe registrar explícitamente las extensiones de enlace (tipos de enlace) que utilice en la aplicación de función.
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
-
-Para más información, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](./functions-bindings-expressions-patterns.md).
-
-## <a name="local-settings-file"></a>Archivo de configuración local
-
-El archivo local.settings.json almacena la configuración de la aplicación, las cadenas de conexión y la configuración de Azure Functions Core Tools. Las herramientas de Functions solo usan las opciones de configuración de dicho archivo cuando las herramientas se ejecutan localmente. De manera predeterminada, estas opciones de configuración no se migran automáticamente cuando el proyecto se publica en Azure. Use el conmutador `--publish-local-settings` [al publicarlo](#publish) para asegurarse de que la configuración se agregue a la aplicación de función en Azure. Tenga en cuenta que los valores de **ConnectionStrings** nunca se publican. El archivo tiene la siguiente estructura:
-
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "<language worker>",
-    "AzureWebJobsStorage": "<connection-string>",
-    "AzureWebJobsDashboard": "<connection-string>",
-    "MyBindingConnection": "<binding-connection-string>"
-  },
-  "Host": {
-    "LocalHttpPort": 7071,
-    "CORS": "*",
-    "CORSCredentials": false
-  },
-  "ConnectionStrings": {
-    "SQLConnectionString": "<sqlclient-connection-string>"
-  }
-}
-```
-
-| Configuración      | DESCRIPCIÓN                            |
-| ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Cuando se establece en `true`, todos los valores se cifran mediante una clave del equipo local. Se usa con los comandos `func settings`. El valor predeterminado es `false`. |
-| **`Values`** | Colección de opciones de configuración de la aplicación y las cadenas de conexión que se usan en la ejecución local. Estos valores se corresponden con la configuración de la aplicación en la aplicación de función en Azure, como [ `AzureWebJobsStorage` ]. Muchos desencadenadores y enlaces tienen una propiedad que hace referencia a una configuración de la aplicación de cadena de conexión, como `Connection` para el [desencadenador de Blob storage](functions-bindings-storage-blob.md#trigger---configuration). Para estas propiedades, se necesita una configuración de aplicación definido en el `Values` matriz. <br/>[`AzureWebJobsStorage`] es una aplicación requiere la configuración para los desencadenadores que no sean HTTP. <br/>Versión 2.x de Functions runtime requiere la [ `FUNCTIONS_WORKER_RUNTIME` ] configuración, que se genera para el proyecto de Core Tools. <br/> Cuando tenga el [emulador de Azure storage](../storage/common/storage-use-emulator.md) instalado localmente, puede establecer [ `AzureWebJobsStorage` ] a `UseDevelopmentStorage=true` y Core Tools usa el emulador. Esto es útil durante el desarrollo, pero debe probar con una conexión de almacenamiento real antes de la implementación. |
-| **`Host`** | La configuración que se muestra esta sección permite personalizar el proceso de host de Functions cuando se ejecuta localmente. |
-| **`LocalHttpPort`** | Establece el puerto predeterminado que se usa cuando al ejecutar el host de Functions local (`func host start` y `func run`). La opción de línea de comandos `--port` tiene prioridad sobre este valor. |
-| **`CORS`** | Define los orígenes permitidos para el [uso compartido de recursos entre orígenes (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Los orígenes se proporcionan en una lista de valores separados por comas y sin espacios. Se admite el valor comodín (\*), lo que permite realizar solicitudes desde cualquier origen. |
-| **`CORSCredentials`** |  Establézcalo en true para permitir `withCredentials` solicitudes |
-| **`ConnectionStrings`** | No utilice esta colección para las cadenas de conexión que utilizan los enlaces de función. Esta colección solo se usa por marcos de trabajo que normalmente se obtienen las cadenas de conexión desde el `ConnectionStrings` sección de configuración de una archivo, como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Las cadenas de conexión de este objeto se agregan al entorno con el tipo de proveedor de [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Los elementos de esta colección no se publican en Azure con otra configuración de aplicación. Debe agregar explícitamente estos valores para el `Connection strings` colección de la configuración de function app. Si está creando un [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) en el código de función, debe almacenar el valor de cadena de conexión **configuración de la aplicación** en el portal con las otras conexiones. |
+De manera predeterminada, estas opciones de configuración no se migran automáticamente cuando el proyecto se publica en Azure. Use el conmutador `--publish-local-settings` [al publicarlo](#publish) para asegurarse de que la configuración se agregue a la aplicación de función en Azure. Tenga en cuenta que los valores de **ConnectionStrings** nunca se publican.
 
 Esta configuración de la aplicación de función también se puede leer en el código como variables de entorno. Para más información, consulte la sección Variables de entorno de estos temas de referencia específicos del lenguaje:
 
 * [C# precompilado](functions-dotnet-class-library.md#environment-variables)
 * [Script de C# (.csx)](functions-reference-csharp.md#environment-variables)
-* [Script de F# (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
-Cuando no se establece ninguna cadena de conexión de almacenamiento válida para [ `AzureWebJobsStorage` ] y no se usa el emulador, se muestra el mensaje de error siguiente:
+Cuando no se establece ninguna cadena de conexión de almacenamiento válida para [`AzureWebJobsStorage`] y no se usa el emulador, se muestra el siguiente mensaje de error:
 
 > Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings \<functionAppName\>' or specify a connection string in local.settings.json (Puede ejecutar "func azure functionapp fetch-app-settings <functionAppName>" o especificar una cadena de conexión en local.settings.json).
 
@@ -419,43 +387,37 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publicación en Azure
 
-Core Tools admite dos tipos de implementación: implementar los archivos del proyecto de función directamente en la aplicación de función e implementar un contenedor Linux personalizado, lo que se admite únicamente en la versión 2.x. Previamente, debe haber [creado una aplicación de función en la suscripción de Azure](functions-cli-samples.md#create).
+Azure Functions Core Tools admite dos tipos de implementación: la opción de implementar archivos del proyecto de funciones directamente en su aplicación de funciones a través de la [implementación de archivos zip](functions-deployment-technologies.md#zip-deploy) y la [implementación de un contenedor de Docker personalizado](functions-deployment-technologies.md#docker-container). Tiene que tener [creada una aplicación de funciones en su suscripción de Azure](functions-cli-samples.md#create) para implementar su código. Se deben compilar los proyectos que lo requieran para poder implementar los archivos binarios.
 
-En la versión 2.x, debe haber [registrado las extensiones](#register-extensions) en el proyecto antes de la publicación. Se deben compilar los proyectos que lo requieran para poder implementar los archivos binarios.
+### <a name="project-file-deployment"></a>Implementación (archivos del proyecto)
 
-### <a name="project-file-deployment"></a>Implementación del archivo de proyecto
-
-El método de implementación más común implica el uso de Core Tools para empaquetar el proyecto de aplicación de función, archivos binarios y dependencias e implementar el paquete en la aplicación de función. También puede [ejecutar las funciones directamente desde el paquete de implementación](run-functions-from-deployment-package.md).
-
-Para publicar un proyecto de Functions en una aplicación de función en Azure, use el comando `publish`:
+Para publicar su código local en una aplicación de funciones en Azure, use el comando `publish`:
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-Este comando se publica en una aplicación de función existente en Azure. Se produce un error cuando `<FunctionAppName>` no existe en la suscripción. Para obtener información sobre cómo crear una aplicación de función desde el símbolo del sistema o la ventana de Terminal mediante la CLI de Azure, consulte [Creación de una instancia de Function App para la ejecución sin servidor](./scripts/functions-cli-create-serverless.md).
-
-El comando `publish` carga el contenido del directorio del proyecto de Functions. Si elimina archivos localmente, el comando `publish` no los eliminará de Azure. Puede eliminar archivos de Azure con la [herramienta Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) de [Azure Portal].
+Este comando se publica en una aplicación de función existente en Azure. Obtendrá un error si intenta publicarla en un `<FunctionAppName>` que no exista en su suscripción. Para obtener información sobre cómo crear una aplicación de función desde el símbolo del sistema o la ventana de Terminal mediante la CLI de Azure, consulte [Creación de una instancia de Function App para la ejecución sin servidor](./scripts/functions-cli-create-serverless.md). De manera predeterminada, este comando permitirá que su aplicación se ejecute en el modo [Ejecutar desde el paquete](run-functions-from-deployment-package.md).
 
 >[!IMPORTANT]
 > Cuando se crea una aplicación de función en Azure Portal, se usa la versión 2.x del entorno de ejecución de Functions de forma predeterminada. Para hacer que la aplicación de función utilice la versión 1.x del entorno de ejecución, siga las instrucciones de [Ejecución en la versión 1.x](functions-versions.md#creating-1x-apps).
 > No se puede cambiar la versión del entorno de ejecución de una aplicación de función que tiene funciones existentes.
 
-Las siguientes opciones de publicación del proyecto se aplican a ambas versiones, 1.x y 2.x:
+Las siguientes opciones de publicación se aplican a ambas versiones, 1.x y 2.x:
 
 | Opción     | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Se publica la configuración de local.settings.json en Azure, se pide que se sobrescriba si la configuración ya existe. Si usa el Emulador de Storage, cambie la configuración de la aplicación a una [conexión de almacenamiento real](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Se publica la configuración de local.settings.json en Azure, se pide que se sobrescriba si la configuración ya existe. Si usa el emulador de Storage, cambie la configuración de la aplicación a una [conexión de almacenamiento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suprime el mensaje de sobrescritura de la configuración de la aplicación cuando se utiliza `--publish-local-settings -i`.|
 
-Las siguientes opciones de publicación del proyecto solo se admiten en la versión 2.x:
+Las siguientes opciones de publicación solo se admiten en la versión 2.x:
 
 | Opción     | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Solo se publica la configuración y se omite el contenido. El valor predeterminado es Preguntar. |
 |**`--list-ignored-files`** | Muestra una lista de archivos que se omiten durante la publicación, según el archivo .funcignore. |
 | **`--list-included-files`** | Muestra una lista de archivos que se publican, según el archivo .funcignore. |
-| **`--nozip`** | Desactiva el modo `Run-From-Zip` predeterminado. |
+| **`--nozip`** | Desactiva el modo `Run-From-Package` predeterminado. |
 | **`--build-native-deps`** | Omite la generación de la carpeta .wheels al publicar aplicaciones de función de Python. |
 | **`--additional-packages`** | Lista de paquetes para instalar al crear dependencias nativas. Por ejemplo: `python3-dev libevent-dev`. |
 | **`--force`** | Omite la comprobación previa a la publicación en determinados escenarios. |
@@ -463,9 +425,9 @@ Las siguientes opciones de publicación del proyecto solo se admiten en la versi
 | **`--no-build`** | Omite la compilación de funciones de dotnet. |
 | **`--dotnet-cli-params`** | Al publicar funciones de C# compiladas (.csproj), Core Tools llama a "dotnet build --output bin/publish". Todos los parámetros pasados se anexarán a la línea de comandos. |
 
-### <a name="custom-container-deployment"></a>Implementación en un contenedor personalizado
+### <a name="deployment-custom-container"></a>Implementación (contenedor personalizado)
 
-Functions permite implementar el proyecto de función en un contenedor Linux personalizado. Para más información, consulte [Creación de una función en Linux con una imagen personalizada](functions-create-function-linux-custom-image.md). La versión 2.x de Core Tools admite la implementación de un contenedor personalizado. Los contenedores personalizados deben tener un archivo Dockerfile. Utilice la opción --dockerfile en `func init`.
+Azure Functions le permite implementar el proyecto de funciones en un [contenedor de Docker personalizado](functions-deployment-technologies.md#docker-container). Para más información, consulte [Creación de una función en Linux con una imagen personalizada](functions-create-function-linux-custom-image.md). Los contenedores personalizados deben tener un archivo Dockerfile. Para crear una aplicación con un archivo Dockerfile, use la opción--dockerfile en `func init`.
 
 ```bash
 func deploy
@@ -484,7 +446,7 @@ Están disponibles las siguientes opciones de implementación de contenedor pers
 
 ## <a name="monitoring-functions"></a>Supervisión de funciones
 
-Es la manera recomendada para supervisar la ejecución de las funciones mediante la integración con Azure Application Insights. De forma predeterminada, cuando crea una aplicación de función en Azure Portal, esta integración se realiza automáticamente. Sin embargo, al crear la aplicación de función mediante la CLI de Azure, no se lleva a cabo su integración en Azure.
+La forma recomendada de supervisar la ejecución de sus funciones, es usar la integración con Azure Application Insights. De forma predeterminada, cuando crea una aplicación de función en Azure Portal, esta integración se realiza automáticamente. Sin embargo, al crear la aplicación de función mediante la CLI de Azure, no se lleva a cabo su integración en Azure.
 
 Para habilitar Application Insights para la aplicación de función:
 
@@ -503,4 +465,4 @@ Para notificar un error o realizar una solicitud de característica, [abra un pr
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
-[agrupaciones de extensión]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles
+[conjuntos de extensión]: functions-bindings-register.md#extension-bundles

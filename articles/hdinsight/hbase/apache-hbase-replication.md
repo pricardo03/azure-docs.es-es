@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707977"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433716"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clústeres de Apache HBase en redes virtuales de Azure
 
@@ -21,7 +21,7 @@ Aprenda a configurar la replicación de [Apache HBase](https://hbase.apache.org/
 
 La replicación de clúster usa una metodología de inserción de origen. Un clúster de HBase puede ser un origen, un destino o cumplir ambos roles a la vez. La replicación es asincrónica. El objetivo de la replicación es la coherencia final. Cuando el origen recibe una modificación en una familia de columnas cuando la replicación está habilitada, la modificación se propaga a todos los clústeres de destino. Cuando se replican datos de un clúster a otro, se realiza un seguimiento del clúster de origen y de todos los clústeres que ya han consumido los datos para evitar bucles de replicación.
 
-En este tutorial, va a configurar una replicación de origen y destino. Para otras topologías de clúster, consulte la [Guía de referencia de HBase Apache](https://hbase.apache.org/book.html#_cluster_replication).
+En este artículo, va a configurar una replicación de origen y destino. Para otras topologías de clúster, consulte la [Guía de referencia de HBase Apache](https://hbase.apache.org/book.html#_cluster_replication).
 
 Los siguientes son casos de uso de replicación de HBase para una única red virtual:
 
@@ -39,7 +39,7 @@ Los siguientes son casos de uso de replicación de HBase para dos redes virtuale
 Puede replicar clústeres mediante scripts de [acción de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles en [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de comenzar este tutorial, debe tener una suscripción a Azure. Consulte cómo [obtener una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Para comenzar este artículo, es preciso tener una suscripción a Azure. Consulte cómo [obtener una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configuración de los entornos
 
@@ -105,7 +105,7 @@ En la última sección, la plantilla crea una máquina virtual de Ubuntu en cada
 Para instalar Bind, debe encontrar la dirección IP pública de las dos máquinas virtuales del DNS.
 
 1. Abra [Azure Portal](https://portal.azure.com).
-2. Abra la máquina virtual del DNS seleccionando **Grupos de recursos > [nombre del grupo de recursos] > [vnet1DNS]**.  El nombre del grupo de recursos es el que creó en el último procedimiento. Los nombres predeterminados de las máquinas virtuales del DNS son *vnet1DNS* y *vnet2NDS*.
+2. Abra la máquina virtual del DNS seleccionando **Grupos de recursos > [nombre del grupo de recursos] > [vnet1DNS]** .  El nombre del grupo de recursos es el que creó en el último procedimiento. Los nombres predeterminados de las máquinas virtuales del DNS son *vnet1DNS* y *vnet2NDS*.
 3. Seleccione **Propiedades** para abrir la página de propiedades de la red virtual.
 4. Anote la **dirección IP pública** y compruebe también la **dirección IP privada**.  La dirección IP privada debe ser **10.1.0.4** para vnet1DNS y **10.2.0.4** para vnet2DNS.  
 5. Cambie los servidores DNS de ambas redes virtuales para usar servidores DNS predeterminados (proporcionados por Azure) para permitir el acceso de entrada y de salida para descargar los paquetes para instalar Bind en los pasos siguientes.
@@ -135,7 +135,7 @@ Para instalar Bind, use el procedimiento siguiente:
     sudo apt-get install bind9 -y
     ```
 
-3. Configurar Bind a fin de reenviar las solicitudes de resolución de nombre a los servidores DNS locales. Para ello, use el texto siguiente como contenido del archivo `/etc/bind/named.conf.options`:
+3. Configure Bind para reenviar las solicitudes de resolución de nombre al servidor DNS local. Para ello, use el texto siguiente como contenido del archivo `/etc/bind/named.conf.options`:
 
     ```
     acl goodclients {
@@ -288,7 +288,7 @@ En los pasos siguientes se describe cómo llamar al script de acción de script 
 5. Seleccione o escriba la siguiente información:
 
    1. **Name** (Nombre): especifique **Enable replication** (Habilitar replicación).
-   2. **Bash Script URL** (Dirección URL de script de Bash): Escriba **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   2. **Bash Script URL** (Dirección URL de script de Bash): Escriba **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
    3. **Head** (Encabezado): asegúrese de que esta opción está seleccionada. Borre los demás tipos de nodo.
    4. **Parameters** (Parámetros): los siguientes parámetros de ejemplo permiten la replicación en todas las tablas existentes y copian todos los datos del clúster de origen al clúster de destino:
 
@@ -360,7 +360,7 @@ La sección `print_usage()` del [script](https://github.com/Azure/hbase-utils/bl
 
 ### <a name="scenarios"></a>Escenarios
 
-- **Copiar tablas específicas (test1, test2 y test3) con todas las filas editadas hasta ahora (marca de tiempo actual)**:
+- **Copiar tablas específicas (test1, test2 y test3) con todas las filas editadas hasta ahora (marca de tiempo actual)** :
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   O:
@@ -390,13 +390,13 @@ La sección `print_usage()` del [script](https://raw.githubusercontent.com/Azure
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
-- **Deshabilitar la replicación en las tablas especificadas (table1, table2 y table3)**:
+- **Deshabilitar la replicación en las tablas especificadas (table1, table2 y table3)** :
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, aprendió a configurar la replicación de Apache HBase en una red virtual, o entre dos redes virtuales. Para más información sobre HDInsight y Apache HBase, consulte estos artículos:
+En este artículo, ha aprendido a configurar la replicación de Apache HBase en una red virtual, o entre dos redes virtuales. Para más información sobre HDInsight y Apache HBase, consulte estos artículos:
 
 * [Introducción a HBase Apache en HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Introducción a Apache HBase de HDInsight](./apache-hbase-overview.md)

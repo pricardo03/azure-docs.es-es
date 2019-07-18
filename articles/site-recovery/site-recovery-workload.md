@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417836"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491744"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
 
@@ -35,7 +35,7 @@ Site Recovery contribuye a la recuperación y protección de nivel de aplicació
 * Independiente de las aplicaciones; proporciona replicación para las cargas de trabajo que se ejecutan en un equipo compatible.
 * Replicación casi sincrónica con los RPO en solo 30 segundos, con el fin de cubrir las necesidades de las aplicaciones empresariales más críticas.
 * Instantáneas coherentes con las aplicaciones para aplicaciones de uno o varios niveles.
-* Integración con SQL Server AlwaysOn y asociación con otras tecnologías de replicación de nivel de aplicación, incluida la replicación de AD, SQL AlwaysOn, Grupos de disponibilidad de base de datos (DAG) de Exchange y Oracle Data Guard.
+* Integración con SQL Server Always On y asociación con otras tecnologías de replicación de nivel de aplicación, incluida la replicación de AD, SQL Always On y Grupos de disponibilidad de base de datos (DAG) de Exchange.
 * Planes de recuperación flexibles que permiten recuperar toda una pila de aplicaciones con un solo clic e incluyen scripts externos y acciones manuales en el plan.
 * Administración de red avanzada en Site Recovery y Azure para simplificar los requisitos de red de las aplicaciones, incluidas la reserva de direcciones IP, la configuración del equilibrio de carga y la integración con Azure Traffic Manager, lo que reduce los cambios de red de RTO.
 * Una biblioteca de automatización enriquecida que proporciona scripts específicos de la aplicación y preparados para la producción que pueden descargarse e integrarse con los planes de recuperación.

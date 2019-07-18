@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: c7f4b6d8aa614a460772fb7af11f9b83dc3fc979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 4a3ab9094080ab257a885bb7a745fc83948327c2
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800811"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331678"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 
@@ -26,6 +26,14 @@ En este artículo aprenderá a entrenar un modelo de regresión de previsión de
 * Ejecutar predicciones con los datos de serie temporal
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
+
+Puede usar aprendizaje automático automatizado para combinar las técnicas y enfoques y obtener una previsión recomendada y de alta calidad de series temporales. Un experimento automatizado de serie temporal se trata como un problema de regresión multivariante. Los valores de series temporales anteriores se "dinamizan" para convertirse en dimensiones adicionales para el regresor junto con otros indicadores. 
+
+Este enfoque, a diferencia de los métodos clásicos de series temporales, tiene una ventaja de incorporar de forma natural varias variables contextuales y su relación entre sí durante el entrenamiento. En aplicaciones de previsión del mundo real, varios factores pueden influir en un pronóstico. Por ejemplo, al prever ventas, las interacciones de las tendencias históricas, la tasa de cambio y el precio son motores conjuntos del resultado de ventas. Una ventaja adicional es que todas las innovaciones recientes hechas en los modelos de regresión se aplican inmediatamente a la previsión.
+
+También puede [configurar](#config) hasta qué punto en el futuro debe extenderse la previsión (el horizonte de previsión), así como los retrasos y mucho más. El aprendizaje automático automatizado aprende un modelo único, pero a menudo internamente bifurcado para todos los elementos en el conjunto de datos y horizontes de predicción. Por tanto, hay más datos disponibles para calcular los parámetros del modelo, y se hace posible la generalización hasta series no antes vistas. 
+
+Las características que se extraen de los datos de entrenamiento desempeñan un papel fundamental. Y el aprendizaje automático automatizada lleva a cabo los pasos previos al procesamiento estándares y genera características adicionales de series temporales para capturar los efectos de temporada y maximizar la precisión de predicción. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -69,6 +77,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > Al entrenar un modelo para la previsión de valores futuros, asegúrese de que todas las características del entrenamiento se pueden usar al ejecutar predicciones para su horizonte previsto. Por ejemplo, al crear una previsión de demanda, incluir una característica para el precio de cotización actual podría aumentar la precisión del entrenamiento de manera exponencial. Sin embargo, si quiere una previsión con un horizonte lejano, no es posible predecir con precisión valores de cotización futuros correspondientes a momentos futuros en la serie temporal y la precisión del modelo podría verse afectada.
 
+<a name="config"></a>
 ## <a name="configure-and-run-experiment"></a>Configuración y ejecución del experimento
 
 Para las tareas de previsión, el aprendizaje automático automatizado sigue unos pasos de cálculo y procesamiento previo específicos de los datos de la serie temporal. Se ejecutarán los siguientes pasos de procesamiento previos:
@@ -85,7 +94,7 @@ El objeto `AutoMLConfig` define la configuración y los datos necesarios para un
 |-------|-------|-------|
 |`time_column_name`|Se utiliza para especificar la columna de fecha y hora en los datos de entrada utilizada que se usa para compilar la serie temporal y se deduce su frecuencia.|✓|
 |`grain_column_names`|Nombres que definen los grupos de series individuales en los datos de entrada. Si no se define el nivel de detalle, el conjunto de datos se presupone una serie temporal.||
-|`max_horizon`|Horizonte de previsión máximo deseado en unidades de frecuencia de la serie temporal.|✓|
+|`max_horizon`|Define el horizonte de previsión máximo deseado en unidades de frecuencia de la serie temporal. Las unidades se basan en el intervalo de tiempo de los datos de entrenamiento, p. ej., semanales, mensuales, que debe predecir el pronosticador.|✓|
 |`target_lags`|*n* períodos para diferir los valores de destino antes del entrenamiento del modelo.||
 |`target_rolling_window_size`|*n* períodos históricos que se utilizarán para generar valores previstos, < = tamaño del conjunto de entrenamiento. Si se omite, *n* es el tamaño total del conjunto de entrenamiento.||
 

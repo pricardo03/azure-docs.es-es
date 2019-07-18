@@ -3,7 +3,7 @@ title: Incorporación de autenticación en iOS con Azure Mobile Apps
 description: Obtenga información acerca de cómo usar las Azure Mobile Apps para autenticar a los usuarios de su aplicación iOS en una variedad de proveedores de identidades, incluidos AAD, Google, Facebook, Twitter y Microsoft.
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: crdun
-ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 88e278ced5cbddb132cdc2f760864df119762088
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128156"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449134"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Incorporación de la autenticación a la aplicación iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center está invirtiendo en servicios nuevos e integrados fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios mediante el servicio de **inserción**. Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube. Consulte [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-users) hoy mismo.
+>
 
 En este tutorial podrá agregar la autenticación al proyecto de [inicio rápido de iOS] mediante un proveedor de identidades compatible. Este tutorial está basado en el tutorial de [inicio rápido de iOS] , que debe completar primero.
 
@@ -77,7 +81,7 @@ En Xcode, presione **Ejecutar** para iniciar la aplicación. Se genera una excep
     }
     ```
 
-    Cambie *google* a *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* si no usa Google como su proveedor de identidades. Si utiliza Facebook, debe [incluir los dominios de Facebook en la lista blanca][1] en su aplicación.
+    Cambie *google* a *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* si no usa Google como su proveedor de identidades. Si usa Facebook, debe [incluir los dominios de Facebook en la lista de permitidos][1] en su aplicación.
 
     Reemplace **urlScheme** por un nombre único para la aplicación.  El valor de urlScheme debe ser el mismo que el protocolo de esquema de dirección URL que especificó en el campo **URL de redirección externas permitidas** de Azure Portal. urlScheme se utiliza en la devolución de llamada de autenticación para volver a la aplicación una vez completada la solicitud de autenticación.
 
@@ -110,7 +114,7 @@ En Xcode, presione **Ejecutar** para iniciar la aplicación. Se genera una excep
     }
     ```
 
-   Agregue este código directamente antes de la línea `#pragma mark - Core Data stack`.  Reemplace el _appname_ con el valor de urlScheme que utilizó en el paso 1.
+   Agregue este código directamente antes de la línea `#pragma mark - Core Data stack`.  Reemplace el valor de _appname_ por el valor de urlScheme que ha usado en el paso 1.
 
 5. Abra el archivo `AppName-Info.plist` (reemplazando AppName por el nombre de la aplicación) y agregue el código siguiente:
 
@@ -163,7 +167,7 @@ En Xcode, presione **Ejecutar** para iniciar la aplicación. Se genera una excep
     }
     ```
 
-    Cambie *google* a *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* si no usa Google como su proveedor de identidades. Si utiliza Facebook, debe [incluir los dominios de Facebook en la lista blanca][1] en su aplicación.
+    Cambie *google* a *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* si no usa Google como su proveedor de identidades. Si usa Facebook, debe [incluir los dominios de Facebook en la lista de permitidos][1] en su aplicación.
 
     Reemplace **urlScheme** por un nombre único para la aplicación.  El valor de urlScheme debe ser el mismo que el protocolo de esquema de dirección URL que especificó en el campo **URL de redirección externas permitidas** de Azure Portal. urlScheme se utiliza en la devolución de llamada de autenticación para volver a la aplicación una vez completada la solicitud de autenticación.
 
@@ -188,7 +192,7 @@ En Xcode, presione **Ejecutar** para iniciar la aplicación. Se genera una excep
     }
     ```
 
-    Reemplace el _appname_ con el valor de urlScheme que utilizó en el paso 1.
+    Reemplace el valor de _appname_ por el valor de urlScheme que ha usado en el paso 1.
 
 4. Abra el archivo `AppName-Info.plist` (reemplazando AppName por el nombre de la aplicación) y agregue el código siguiente:
 
@@ -212,7 +216,7 @@ En Xcode, presione **Ejecutar** para iniciar la aplicación. Se genera una excep
 
 5. Presione *Ejecutar* para iniciar la aplicación y, después, inicie sesión. Una vez que haya iniciado sesión, debería poder ver la lista de tareas pendientes y realizar actualizaciones en ella.
 
-La autenticación de App Service utiliza Apple Inter-App Communication.  Para más detalles sobre este tema, consulte la [documentación de Apple][2].
+La autenticación de App Service utiliza Apple Inter-App Communication.  Para obtener más detalles sobre este tema, consulte la [documentación de Apple][2].
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist

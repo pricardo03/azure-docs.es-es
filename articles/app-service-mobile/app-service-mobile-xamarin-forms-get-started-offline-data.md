@@ -2,7 +2,7 @@
 title: Habilitación de la sincronización sin conexión para una aplicación móvil de Azure (Xamarin.Forms) | Microsoft Docs
 description: Obtenga información acerca de cómo usar la aplicación móvil de App Service para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin.Forms.
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: yochayk
 editor: ''
 services: app-service\mobile
@@ -12,24 +12,28 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/04/2016
-ms.author: crdun
-ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 53f339d5450965c992f6528ff294e0d37ec2f7f6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127886"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446294"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Habilitación de la sincronización sin conexión para la aplicación móvil Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
+> [!NOTE]
+> Visual Studio App Center está invirtiendo en servicios nuevos e integrados que son fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de entrega e integración continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios mediante el servicio de **inserción**. Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube. Consulte [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-offline-data) hoy mismo.
+>
+
 ## <a name="overview"></a>Información general
 Este tutorial presenta la característica de sincronización sin conexión de Azure Mobile Apps para Xamarin.Forms. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red. Los cambios se almacenan en una base de datos local. Una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el servicio remoto.
 
-Este tutorial se basa en la solución de inicio rápido de Xamarin.Forms para Mobile Apps que crea al completar el tutorial [Crear una aplicación Xamarin.iOS]. La solución de inicio rápido para Xamarin.Forms contiene el código para admitir la sincronización sin conexión, que solo debe habilitarse. En este tutorial, actualizará la solución de inicio rápido para activar las características sin conexión de Azure Mobile Apps. También nos centraremos en el código sin conexión específico de la aplicación. Si no usa la solución de inicio rápido descargada, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte el artículo sobre cómo [trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps][1].
+Este tutorial se basa en la solución de inicio rápido de Xamarin.Forms para Mobile Apps que crea al completar el tutorial [Crear una aplicación Xamarin.iOS]. La solución de inicio rápido para Xamarin.Forms contiene el código para admitir la sincronización sin conexión, que solo debe habilitarse. En este tutorial, actualizará la solución de inicio rápido para activar las características sin conexión de Azure Mobile Apps. También nos centraremos en el código sin conexión específico de la aplicación. Si no usa la solución de inicio rápido descargada, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure][1].
 
-Para más información sobre la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Azure Mobile Apps][2].
+Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure][2].
 
 ## <a name="enable-offline-sync-functionality-in-the-quickstart-solution"></a>Habilitación de la funcionalidad de sincronización sin conexión en la solución de inicio rápido
 Se incluye el código de sincronización sin conexión en el proyecto mediante el uso de directivas de preprocesador de C#. Cuando se define el símbolo **OFFLINE\_SYNC\_ENABLED**, se incluyen en la compilación estas rutas de acceso del código. Para las aplicaciones de Windows, también debe instalar la plataforma de SQLite.
@@ -42,7 +46,7 @@ Se incluye el código de sincronización sin conexión en el proyecto mediante e
 
    * **Tiempo de ejecución de Windows 8.1:** Instale [SQLite for Windows 8.1][3].
    * **Windows Phone 8.1:** Instale [SQLite for Windows Phone 8.1][4].
-   * **Plataforma universal de Windows**: instale [SQLite para la plataforma universal de Windows][5].
+   * **Plataforma universal de Windows** Instale [SQLite para la plataforma universal de Windows][5].
 
      Aunque el tutorial rápido no contiene un proyecto de Windows universal, la plataforma de Windows universal es compatible con Xamarin Forms.
 4. (Opcional) En cada proyecto de aplicación de Windows, haga clic con el botón derecho en **Referencias** > **Agregar referencia...** , amplíe la carpeta **Windows** > **Extensiones**.
@@ -50,7 +54,7 @@ Se incluye el código de sincronización sin conexión en el proyecto mediante e
     Los nombres de SDK de SQLite varían ligeramente con cada plataforma de Windows.
 
 ## <a name="review-the-client-sync-code"></a>Revisión del código de sincronización de cliente
-Esta es una breve descripción de lo que ya está incluido en el código del tutorial dentro de las directivas `#if OFFLINE_SYNC_ENABLED` . La funcionalidad de sincronización sin conexión está en el archivo de proyecto TodoItemManager.cs en el proyecto de biblioteca de clases portable. Para obtener información general conceptual de la característica, consulte [Sincronización de datos sin conexión en Azure Mobile Apps][2].
+Esta es una breve descripción de lo que ya está incluido en el código del tutorial dentro de las directivas `#if OFFLINE_SYNC_ENABLED` . La funcionalidad de sincronización sin conexión está en el archivo de proyecto TodoItemManager.cs en el proyecto de biblioteca de clases portable. Para obtener información general conceptual de la característica, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure][2].
 
 * Antes de poder realizar cualquier operación de tabla, se debe inicializar el almacén local. La base de datos del almacén local se inicializa en el constructor de clase **TodoItemManager** con el código siguiente:
 
@@ -118,7 +122,7 @@ En el ejemplo, solo se llama al método **SyncAsync** al inicio y cuando se soli
 
 Si se ejecuta una extracción en una tabla que tiene actualizaciones locales pendientes seguidas por el contexto, la operación de extracción desencadenará de forma automática una inserción de contexto anterior. Al actualizar, agregar y completar elementos en este ejemplo, se puede omitir la llamada explícita a **PushAsync**.
 
-En el ejemplo proporcionado, se consultan todos los registros de la tabla TodoItem remota, pero también es posible filtrar registros pasando un identificador de consulta y una consulta a **PushAsync**. Para más información, consulte la sección *Sincronización incremental* en [Sincronización de datos sin conexión en Azure Mobile Apps][2].
+En el ejemplo proporcionado, se consultan todos los registros de la tabla TodoItem remota, pero también es posible filtrar registros pasando un identificador de consulta y una consulta a **PushAsync**. Para más información, consulte la sección *Sincronización incremental* en [Sincronización de datos sin conexión en Aplicaciones móviles de Azure][2].
 
 ## <a name="run-the-client-app"></a>Ejecución de la aplicación cliente
 Con la sincronización sin conexión habilitada, ejecute la aplicación cliente al menos una vez en cada plataforma para rellenar la base de datos del almacén local. Después, simulará un escenario sin conexión y modificará los datos del almacén local mientras la aplicación está sin conexión.
@@ -146,12 +150,12 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 1. Vuelva a abrir Constants.cs. Corrija `applicationURL` para que apunte a la dirección URL correcta.
 2. Vuelva a compilar la aplicación cliente y ejecútela. La aplicación intenta sincronizarse con el back-end de aplicación móvil después de iniciarse. Compruebe que no hay excepciones registradas en la consola de depuración.
-3. (Opcional) Vea los datos actualizados mediante el Explorador de objetos de SQL Server o una herramienta REST como Fiddler o [Postman][6]. Observe que los datos se han sincronizado entre la base de datos back-end y el almacén local.
+3. (Opcional) Consulte los datos actualizados mediante el Explorador de objetos de SQL Server o una herramienta REST como Fiddler o [Postman][6]. Observe que los datos se han sincronizado entre la base de datos back-end y el almacén local.
 
     Observe que los datos se han sincronizado entre la base de datos y el almacén local, y contienen los elementos que agregó mientras la aplicación estaba desconectada.
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Sincronización de datos sin conexión en Azure Mobile Apps][2]
+* [Sincronización de datos sin conexión en Aplicaciones móviles de Azure][2]
 * [Procedimiento del SDK de .NET de Azure Mobile Apps][8]
 
 <!-- URLs. -->

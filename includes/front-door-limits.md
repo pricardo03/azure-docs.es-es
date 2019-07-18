@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: e1f5a1c8229544d97d9ff64748390f0d5237ab97
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186688"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333392"
 ---
 | Recurso | Límite predeterminado/máximo |
 | --- | --- |
@@ -25,6 +25,15 @@ ms.locfileid: "67186688"
 | Patrones de ruta de acceso para coincidir con una regla de enrutamiento | 25 |
 | Reglas de firewall de aplicación web personalizadas por directiva | 10 |
 | Directiva del firewall de aplicaciones web por recurso | 100 |
+| Condiciones de coincidencia del firewall de aplicaciones web por regla personalizada | 10 |
+| Intervalos de direcciones IP del firewall de aplicaciones web por condición de coincidencia | 600 |
+| Valores de coincidencia de la cadena del firewall de aplicaciones web por condición de coincidencia | 10 |
+| Longitud del valor de coincidencia de la cadena del firewall de aplicaciones web | 256 |
+| Longitud del nombre del parámetro del cuerpo POST del firewall de aplicaciones web | 256 |
+| Longitud del nombre del encabezado HTTP del firewall de aplicaciones web | 256 |
+| Longitud del nombre de la cookie del firewall de aplicaciones web | 256 |
+| Tamaño del cuerpo de la solicitud HTTP del firewall de aplicaciones web inspeccionado | 128 KB |
+| Longitud del cuerpo de respuesta personalizada del firewall de aplicaciones web | 2 KB |
 
 ### <a name="timeout-values"></a>Valores de tiempo de expiración
 #### <a name="client-to-front-door"></a>Cliente para Front Door
@@ -42,3 +51,6 @@ ms.locfileid: "67186688"
 | ---- | ------- | ------- |
 | **Descargar** | No hay ningún límite para el tamaño de descarga. | No hay ningún límite para el tamaño de descarga. |
 | **Cargar** |  No hay ningún límite siempre y cuando cada carga de CTE sea inferior a 2 GB. | El tamaño no puede ser superior a 2 GB. |
+
+### <a name="other-limits"></a>Otros límites
+- Tamaño máximo de la dirección URL - 8192 bytes - Especifica la longitud máxima de la dirección URL sin procesar (esquema + nombre de host + puerto + ruta de acceso + cadena de consulta de la dirección URL) - Tamaño máximo de la cadena de consulta - 4096 bytes - Especifica la longitud máxima de la cadena de consulta, en bytes.

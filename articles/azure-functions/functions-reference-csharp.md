@@ -11,18 +11,18 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 44a9368f82e95641d3df893ba0958c6bf8cf696f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 4de308f57d59720610eb9ee30ab67b569a5656d5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724961"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442241"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referencia para desarrolladores de scripts de C# de Azure Functions (.csx)
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Este artículo es una introducción al desarrollo de Azure Functions mediante el uso de scripts de C# (*.csx*).
+Este artículo es una introducción al desarrollo de Azure Functions mediante el uso de scripts de C# ( *.csx*).
 
 Azure Functions es compatible con C# y con los lenguajes de programación de scripts de C#. Si busca orientación sobre cómo [usar C# en un proyecto de biblioteca de clases de Visual Studio](functions-develop-vs.md), consulte la [referencia para desarrolladores de C#](functions-dotnet-class-library.md).
 
@@ -57,7 +57,7 @@ FunctionsProject
 
 Hay un archivo [host.json](functions-host-json.md) compartido que se puede usar para configurar la aplicación de función. Cada función tiene su propio archivo de código (.csx) y archivo de configuración de enlace (function.json).
 
-Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del tiempo de ejecución de Functions se definen en el archivo `extensions.csproj`, con los archivos de biblioteca de la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
+Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del tiempo de ejecución de Functions se definen en el archivo `extensions.csproj`, con los archivos de biblioteca de la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](./functions-bindings-register.md#extension-bundles). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
 
 ## <a name="binding-to-arguments"></a>Enlace a argumentos
 
@@ -376,7 +376,7 @@ Para más información sobre cómo cargar archivos en su carpeta de función, co
 El directorio que contiene el archivo de script de función se inspecciona automáticamente para buscar cambios en los ensamblados. Para inspeccionar los cambios de los ensamblado en otros directorios, agréguelos a la lista `watchDirectories` en [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Uso de paquetes NuGet
-Para usar paquetes de NuGet en un 2.x C# funcione, cargue un *function.proj* archivo a carpeta de la función de sistema de archivos de la aplicación de función. Este es un ejemplo del archivo *function.proj* en el que se agrega una referencia a la versión *1.1.0* de *Microsoft.ProjectOxford.Face*:
+Para usar paquetes NuGet en una función de C# de la versión 2.x, cargue un archivo *function.proj* en la carpeta de la función del sistema de archivos de la aplicación de funciones. Este es un ejemplo del archivo *function.proj* en el que se agrega una referencia a la versión *1.1.0* de *Microsoft.ProjectOxford.Face*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -393,9 +393,9 @@ Para usar paquetes de NuGet en un 2.x C# funcione, cargue un *function.proj* arc
 Para usar una fuente NuGet personalizada, especifique la fuente en un archivo *Nuget.Config* en la raíz de la aplicación la función. Para más información, vea [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior) (Configuración del comportamiento de NuGet). 
 
 > [!NOTE]
-> En la versión 1.x C# funciones, los paquetes de NuGet se hace referencia con un *project.json* de archivos en lugar de un *function.proj* archivo.
+> En las funciones de C# de la versión 1.x, se hace referencia a los paquetes NuGet con un archivo *project.json* en lugar de un archivo *function.proj*.
 
-Para las funciones de 1.x, use un *project.json* de archivos en su lugar. Este es un ejemplo *project.json* archivo: 
+Para las funciones de la versión 1.x, use un archivo *project.json* en su lugar. Aquí tiene un ejemplo de un archivo *project.json*: 
 
 ```json
 {
@@ -412,8 +412,8 @@ Para las funciones de 1.x, use un *project.json* de archivos en su lugar. Este e
 ### <a name="using-a-functionproj-file"></a>Uso de un archivo function.proj
 
 1. Abra la función en Azure Portal. La pestaña de registros muestra el resultado de la instalación del paquete.
-2. Para cargar un *function.proj* de archivos, utilice uno de los métodos descritos en el [cómo actualizar los archivos de aplicación de función](functions-reference.md#fileupdate) en el tema de referencia para desarrolladores de Azure Functions.
-3. Después de la *function.proj* se carga el archivo, consulte el registro de streaming de salida similar al ejemplo siguiente en la función:
+2. Para cargar un archivo *function.proj*, use uno de los métodos descritos en [Actualización de los archivos de aplicación de funciones](functions-reference.md#fileupdate) en el tema de referencia para desarrolladores de Azure Functions.
+3. Una vez que haya cargado el archivo *function.proj*, verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -488,7 +488,7 @@ public static async Task Run(string input, Binder binder)
 
 ### <a name="multiple-attribute-example"></a>Ejemplo de varios atributos
 
-En el ejemplo anterior se obtiene el valor de la aplicación para la cadena de conexión en la cuenta de almacenamiento principal de la aplicación de función (que es `AzureWebJobsStorage`). Se puede especificar una configuración personalizada de la aplicación para utilizarla para la cuenta de almacenamiento agregando el atributo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) y pasando la matriz de atributos a `BindAsync<T>()`. Use un parámetro `Binder`, no `IBinder`.  Por ejemplo: 
+En el ejemplo anterior se obtiene el valor de la aplicación para la cadena de conexión en la cuenta de almacenamiento principal de la aplicación de función (que es `AzureWebJobsStorage`). Se puede especificar una configuración personalizada de la aplicación para utilizarla para la cuenta de almacenamiento agregando el atributo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) y pasando la matriz de atributos a `BindAsync<T>()`. Use un parámetro `Binder`, no `IBinder`.  Por ejemplo:
 
 ```cs
 using Microsoft.Azure.WebJobs;

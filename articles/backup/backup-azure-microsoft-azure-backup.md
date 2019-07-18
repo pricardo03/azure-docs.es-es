@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43793f1cc105bda7a50371f8fffd4ff787f6e300
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098869"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204435"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 > [!div class="op_single_selector"]
@@ -42,19 +42,18 @@ Azure Backup Server hereda gran parte de la funcionalidad de copia de seguridad 
 El primer paso para que funcione Azure Backup Server es configurar un equipo con Windows Server. El servidor puede estar en Azure o en el entorno local.
 
 ### <a name="using-a-server-in-azure"></a>Uso de un servidor en Azure
-Al elegir un servidor para ejecutar Azure Backup Server, se recomienda comenzar con una imagen de la galería de Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter o Windows Server 2019 Datacenter. En el artículo [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se proporciona un tutorial de introducción a la máquina virtual recomendada en Azure, incluso si nunca ha usado Azure antes. Los requisitos mínimos recomendados para la máquina virtual servidor deben ser: A2 estándar con 2 núcleos y 3,5 GB de RAM.
+Al elegir un servidor para ejecutar Azure Backup Server, se recomienda comenzar con una imagen de la galería de Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter o Windows Server 2019 Datacenter. En el artículo [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se proporciona un tutorial de introducción a la máquina virtual recomendada en Azure, incluso si nunca ha usado Azure antes. Los requisitos mínimos recomendados para la máquina virtual servidor deben ser: Standard_A4_v2 con cuatro núcleos y 8 GB de RAM.
 
 La protección de cargas de trabajo con Azure Backup Server tiene muchos matices. El artículo [Instalación de DPM como una máquina virtual de Azure](https://technet.microsoft.com/library/jj852163.aspx)le ayudará a comprender estos matices. Lea este artículo completamente antes de implementar la máquina.
 
 ### <a name="using-an-on-premises-server"></a>Uso de un servidor local
-Si no desea ejecutar el servidor de base de Azure, puede ejecutar el servidor en una máquina virtual de Hyper-V, una máquina virtual de VMware o un host físico. Los requisitos mínimos recomendados para el hardware de servidor son dos núcleos y 4 GB de RAM. En la tabla siguiente se muestran los sistemas operativos compatibles:
+Si no desea ejecutar el servidor de base de Azure, puede ejecutar el servidor en una máquina virtual de Hyper-V, una máquina virtual de VMware o un host físico. Los requisitos mínimos recomendados para el hardware de servidor son dos núcleos y 8 GB de RAM. En la tabla siguiente se muestran los sistemas operativos compatibles:
 
 | Sistema operativo | Plataforma | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials (MABS V3 y versiones posteriores) |
 | Windows Server 2016 y SP más recientes |64 bits |Standard, Datacenter, Essentials (MABS V2 y versiones posteriores) |
 | Windows Server 2012 R2 y SP más recientes |64 bits |Standard, Datacenter, Foundation |
-| Windows Server 2012 y SP más recientes |64 bits |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 y SP más recientes |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 y SP más recientes |64 bits |Standard, Workgroup |
 
@@ -262,7 +261,7 @@ Estos son los pasos en caso de que necesite migrar MABS a un nuevo servidor sin 
 9. Desde SQL, restaure la base de datos DPM
 10. Desde la línea de comandos de administrador en el nuevo servidor, cambie al directorio de la ubicación de instalación de Microsoft Azure Backup y a la carpeta bin
 
-    Ejemplo de ruta de acceso: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
+    Ejemplo de ruta de acceso: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
 11. A copia de seguridad de Azure. Ejecute DPMSYNC -SYNC
 
@@ -285,7 +284,7 @@ Una vez que conozca el estado de la conectividad y suscripción de Azure, puede 
 | Pérdida de conectividad > 15 días |Desaprovisionada |Stopped |Stopped |Detenida y puntos de recuperación de Azure eliminados |Stopped |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperación de una pérdida de conectividad
-Si tiene un firewall o un proxy que impide el acceso a Azure, deberá permitir primero las siguientes direcciones de dominio en el perfil del firewall/proxy:
+Si tiene un firewall o un proxy que impiden el acceso a Azure, deberá permitir primero las siguientes direcciones de dominio en el perfil del firewall/proxy:
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
@@ -307,7 +306,7 @@ Use los procedimientos siguientes para actualizar MABS.
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>Actualización de MABS V2 a V3
 
 > [!NOTE]
-> 
+>
 > MABS V2 no es un requisito previo para la instalación de MABS V3. Sin embargo, puede solo puede actualizar a MABS V3 desde MABS V2.
 
 Para actualizar MABS, realice los siguientes pasos:
@@ -317,15 +316,15 @@ Para actualizar MABS, realice los siguientes pasos:
 2. Actualice su servidor. Los pasos son similares a los de la [instalación](#install-and-upgrade-azure-backup-server). Sin embargo, para la configuración de SQL, obtendrá una opción para actualizar la instancia de SQL a SQL 2017, o para usar su propia instancia de SQL Server 2017.
 
    > [!NOTE]
-   > 
+   >
    > No salga mientras se está actualizando la instancia de SQL; si lo hace, la instancia de informes de SQL se desinstalará y, por tanto, se producirá un error cuando intente volver a actualizar MABS.
 
    Aspectos importantes que se deben tener en cuenta:
 
    > [!IMPORTANT]
-   > 
+   >
    >  Como parte de la actualización a SQL 2017, se realiza una copia de seguridad de las claves de cifrado de SQL y se desinstalan los servicios de informes. Después de la actualización de SQL Server, se instala el servicio de informes (14.0.6827.4788) y se restauran las claves de cifrado.
-   > 
+   >
    > Si configura manualmente SQL 2017, consulte la sección *Configuración de SSRS con SQL 2017* de las Instrucciones de instalación.
 
 3. Actualice los agentes de protección de los servidores protegidos.
@@ -333,7 +332,7 @@ Para actualizar MABS, realice los siguientes pasos:
 5. Puede comenzar a proteger sus datos ahora mismo. Si va a actualizar a Modern Backup Storage, al tiempo que protege, también puede elegir en qué volúmenes quiere almacenar las copias de seguridad y comprobar la existencia de espacio insuficiente. [Más información](backup-mabs-add-storage.md).
 
 > [!NOTE]
-> 
+>
 > Si va a actualizar MABS V1 a V2, asegúrese de que su sistema operativo es Windows Server 2016 o Windows Server 2012 R2. Para aprovechar características nuevas como Modern Backup Storage de System Center 2016 Data Protection Manager, debe instalar Backup Server V2 en Windows Server 2016. Antes de instalar Backup Server V2 o actualizar a esta versión, lea este artículo sobre los [requisitos previos de instalación](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) para MABS.
 
 ## <a name="troubleshooting"></a>solución de problemas

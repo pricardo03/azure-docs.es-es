@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
-ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bde341063fb6742bbe2a92592981d4a2a437d214
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540925"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203436"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Actualizaciones del servicio Azure Site Recovery
 Las organizaciones tienen que saber cómo mantener los datos seguros y las aplicaciones y cargas de trabajo en funcionamiento cuando se producen interrupciones tanto planeadas como no planeadas. Azure Site Recovery ayuda a garantizar la continuidad empresarial y la recuperación ante desastrse, ya que mantiene las aplicaciones en funcionamiento tanto en las máquinas virtuales como en los servidores físicos disponibles si un sitio deja de funcionar. Site Recovery replica las cargas de trabajo que se ejecutan en máquinas virtuales y servidores físicos para que estén disponibles en una ubicación secundaria si el sitio principal no está disponible. Recupera las cargas de trabajo en el sitio principal cuando vuelva a estar en funcionamiento.
@@ -33,6 +33,17 @@ Azure Site Recovery publica actualizaciones del servicio de forma periódica, qu
 
 > [!IMPORTANT]
 > Se da soporte técnico oficial para las actualizaciones de las versiones >N-4 a N (siendo N la versión más reciente). Si tiene la versión N-6, deberá actualizar primero a N-4 y, después, a N.
+
+## <a name="expiry-of-components"></a>Expiración de componentes
+Site Recovery indica a los clientes qué componentes están a punto de expirar o que ya han expirado a través de notificaciones por correo electrónico (si se han suscrito) o en el panel del almacén del portal. A partir de ahora, las notificaciones del panel del almacén no están disponibles si está protegiendo una VM de hYpe-rV. Además, si navega a la vista de infraestructura correspondiente de su escenario, verá un botón "actualización disponible" junto al componente, que le redirigirá a los vínculos para descargar las versiones más recientes.
+
+A continuación se encuentra la frecuencia de las notificaciones por correo electrónico cuando los componentes están a punto de expirar.
+- 60 días antes de que el componente esté a punto de expirar: quincenalmente
+- Siguientes 53 días: semanalmente
+- Últimos 7 días: diaria
+- Una vez expirado: quincenalmente
+
+
 
 ### <a name="upgrading-when-the-difference-between-current-version-and-latest-released-version-is-greater-than-4"></a>Actualización cuando la diferencia entre la versión actual y la versión más reciente es mayor que 4
 
@@ -118,15 +129,16 @@ Se recomienda reiniciar después de cada actualización del agente de Mobility S
 
 |Paquete acumulativo de actualizaciones  |Proveedor  |Instalación unificada| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[Paquete acumulativo de actualizaciones 37](https://support.microsoft.com/help/4508614/update-rollup-37-for-azure-site-recovery)     |   5.1.4300.0  |  9.25.5241.1   |  5.1.4300.0  | 2.0.9163.0
 |[Paquete acumulativo de actualizaciones 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[Paquete acumulativo de actualizaciones 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Paquete acumulativo de actualizaciones 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery): revisión     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Paquete acumulativo de actualizaciones 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Paquete acumulativo de actualizaciones 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
-|[Paquete acumulativo de actualizaciones 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 
 ## <a name="previous-update-rollups"></a>Paquetes acumulativos de actualizaciones anteriores
 
+- [Paquete acumulativo de actualizaciones 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)
 - [Paquete acumulativo de actualizaciones 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [Paquete acumulativo de actualizaciones 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
 - [Paquete acumulativo de actualizaciones 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)

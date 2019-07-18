@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7157682d7952529f9dfa98e8bc8707df9cfe944f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: b3e94bfdb513016015320dfcdf7db30981466303
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509243"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272066"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Flujo de código de autorización de OAuth 2.0 en Azure Active Directory B2C
 
@@ -116,7 +117,9 @@ error=access_denied
 | state |Vea la descripción completa en la tabla anterior. Si un parámetro `state` está incluido en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debe comprobar que los valores `state` de la solicitud y de la respuesta sean idénticos. |
 
 ## <a name="2-get-a-token"></a>2. Obtención de un token
-Ahora que ha adquirido un código de autorización, puede canjear el elemento `code` por un token al recurso deseado mediante el envío de una solicitud POST al punto de conexión `/token`. En Azure AD B2C, el único recurso para el que puede solicitar un token es la API web de back-end de la aplicación. La convención usada para solicitar un token para sí mismo consiste en usar el identificador de cliente de la aplicación como ámbito:
+Ahora que ha adquirido un código de autorización, puede canjear el elemento `code` por un token al recurso deseado mediante el envío de una solicitud POST al punto de conexión `/token`. En Azure AD B2C, puede [solicitar tokens de acceso para otras API](active-directory-b2c-access-tokens.md#request-a-token) como de costumbre especificando sus ámbitos en la solicitud.
+
+También puede solicitar un token de acceso para su propia API web de back-end de la aplicación mediante la convención del uso del identificador del cliente de la aplicación como el ámbito solicitado (lo que resultará en un token de acceso con ese identificador de cliente como el "público"):
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

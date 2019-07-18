@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e8519bf436e1af19a22a840f48bf1bfccdae99b2
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60657855"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341269"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Plantillas de API en Azure API Management
 
@@ -44,7 +44,7 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="APIList"></a> API list  
+## <a name="APIList"></a> API list  
  La plantilla **API list** le permite personalizar el cuerpo de la página de lista de API en el portal para desarrolladores.  
   
  ![Lista de API del portal para desarrolladores](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Plantillas de lista de API del portal para desarrolladores")  
@@ -112,7 +112,7 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
 }  
 ```  
   
-##  <a name="Product"></a> Operation  
+## <a name="Product"></a> Operation  
  La plantilla **Operation** le permite personalizar el cuerpo de la página de operación en el portal para desarrolladores.  
   
  ![Página de operación del portal para desarrolladores](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operación de las plantillas del portal para desarrolladores")  
@@ -642,7 +642,7 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
 }  
 ```  
   
-##  <a name="CodeSamples"></a> Ejemplos de código  
+## <a name="CodeSamples"></a> Ejemplos de código  
  Las siguientes plantillas le permiten personalizar el cuerpo de los ejemplos de código individuales en la página de operación.  
   
  ![Ejemplos de código de plantillas del portal para desarrolladores](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Ejemplos de código de las plantillas del portal para desarrolladores de APIM")  
@@ -663,7 +663,7 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
   
 -   [Ruby](#Ruby)  
   
-###  <a name="Curl"></a> Curl  
+### <a name="Curl"></a> Curl  
  La plantilla **DocumentationSamplesCurl** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
@@ -716,12 +716,12 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="CSharp"></a> C#  
+### <a name="CSharp"></a> C#  
  La plantilla **DocumentationSamplesCsharp** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
   
-```xml  
+```csharp  
 using System;  
 using System.Net.Http.Headers;  
 using System.Text;  
@@ -895,12 +895,12 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <a name="Stub"></a> Java  
+### <a name="Stub"></a> Java  
  La plantilla **DocumentationSamplesJava** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
   
-```xml  
+```java  
 // // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
@@ -991,12 +991,12 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="JavaScript"></a> JavaScript  
+### <a name="JavaScript"></a> JavaScript  
  La plantilla **DocumentationSamplesJs** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
   
-```xml  
+```html  
 <!DOCTYPE html>  
 <html>  
 <head>  
@@ -1080,12 +1080,12 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="ObjectiveC"></a> Objective C  
+### <a name="ObjectiveC"></a> Objective C  
  La plantilla **DocumentationSamplesObjc** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
   
-```xml  
+```objective-c  
 #import <Foundation/Foundation.h>  
   
 int main(int argc, const char * argv[])  
@@ -1192,12 +1192,12 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <a name="PHP"></a> PHP  
+### <a name="PHP"></a> PHP  
  La plantilla **DocumentationSamplesPhp** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
   
-```xml  
+```php  
 <?php  
 // This sample uses the HTTP_Request2 PHP library (https://github.com/pear/HTTP_Request2)  
 require_once 'HTTP/Request2.php';  
@@ -1282,12 +1282,12 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <a name="Python"></a> Python  
+### <a name="Python"></a> Python  
  La plantilla **DocumentationSamplesPython** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
   
-```xml  
+```python  
 ########### Python 2.7 #############  
 import httplib, urllib, base64  
   
@@ -1363,7 +1363,7 @@ except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))  
   
 ####################################  
-```  
+```
   
 #### <a name="controls"></a>Controles  
  Las plantillas de ejemplo de código no permiten el uso de ningún [control de página](api-management-page-controls.md).  
@@ -1400,12 +1400,12 @@ except Exception as e:
 }  
 ```  
   
-###  <a name="Ruby"></a> Ruby  
+### <a name="Ruby"></a> Ruby  
  La plantilla **DocumentationSamplesRuby** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
   
-```xml  
+```ruby  
 require 'net/http'  
   
 uri = URI('{{scheme}}://{{host}}{{path}}')  

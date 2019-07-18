@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: 412ce3c5245f3f22bfb03740a0451670dc6a90a7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410268"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448106"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: un solo servidor
 PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones permiten agrupar varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones pueden funcionar de la misma forma que las características integradas. Para obtener más información sobre las extensiones de PostgreSQL, vea  [Empaquetar objetos relacionados en una extensión](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -48,7 +48,7 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Administra las tablas con particiones por hora o identificador. |
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Proporciona funciones y operadores para determinar la similitud del texto alfanumérico basado en la coincidencia de trigrama. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Proporciona funciones que manipulan la totalidad del contenido de las tablas, incluidas tablas de referencias cruzadas. |
-> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genera identificadores únicos universales (UUID). |
+> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genera identificadores únicos universales (UUID). (Vea a continuación una nota sobre esta extensión). |
 > | [orafce](https://github.com/orafce/orafce) | Proporciona un subconjunto de funciones y paquetes emulados de bases de datos comerciales. |
 
 ### <a name="full-text-search-extensions"></a>Extensiones de búsqueda de texto completo
@@ -73,6 +73,7 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | **Extensión** | **Descripción** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | Lenguaje de procedimientos que puede cargar PL/pgSQL. |
+> | [plv8](https://plv8.github.io/) | Una extensión del lenguaje JavaScript para PostgreSQL que puede usarse para almacenar procedimientos, desencadenadores, etc. |
 
 ### <a name="miscellaneous-extensions"></a>Extensiones variadas
 
@@ -118,13 +119,17 @@ dblink y postgres_fdw le permiten conectarse de un servidor PostgreSQL a otro, o
 
 En la actualidad, no se admiten las conexiones salientes desde Azure Database for PostgreSQL, excepto para las conexiones a otros servidores de Azure Database for PostgreSQL.
 
+## <a name="uuid"></a>uuid
+Si planea usar `uuid_generate_v4()` desde la extensión uuid-ossp, puede comparar con `gen_random_uuid()` de la extensión pgcrypto para obtener beneficios de rendimiento.
+
+
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB es una base de datos de serie temporal que se empaqueta como una extensión para PostgreSQL. TimescaleDB proporciona funciones analíticas orientadas al tiempo, optimizaciones y escala Postgres para las cargas de trabajo de serie temporal.
 
 [Más información sobre TimescaleDB](https://docs.timescale.com/latest), una marca registrada de [Timescale, Inc.](https://www.timescale.com/)
 
 ### <a name="installing-timescaledb"></a>Instalación de TimescaleDB
-Para instalar TimescaleDB, tendrá que incluirlo en las bibliotecas de carga previa compartidas del servidor. Para que un cambio en las bibliotecas de carga previa compartidas de Postgres surta efecto, es necesario un **reinicio del servidor**.
+Para instalar TimescaleDB, tendrá que incluirlo en las bibliotecas de carga previa compartidas del servidor. Si cambia el parámetro `shared_preload_libraries` de Postgres deberá **reiniciar el servidor** para que tenga efecto. Puede cambiar los parámetros mediante [Azure Portal](howto-configure-server-parameters-using-portal.md) o la [CLI de Azure](howto-configure-server-parameters-using-cli.md).
 
 > [!NOTE]
 > TimescaleDB se puede habilitar en las versiones 9.6 y 10 de Azure Database for PostgreSQL.
@@ -137,10 +142,7 @@ Mediante [Azure Portal](https://portal.azure.com/):
 
 3. Busque el parámetro `shared_preload_libraries`.
 
-4. Copie y pegue lo siguiente como valor para `shared_preload_libraries`.
-   ```
-   timescaledb
-   ```
+4. Seleccione **TimescaleDB**.
 
 5. Seleccione **Guardar** para conservar los cambios. Recibirá una notificación una vez que se haya guardado el cambio. 
 
@@ -158,4 +160,4 @@ Ahora puede crear una hipertabla de TimescaleDB [desde cero](https://docs.timesc
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si no ve una extensión que le gustaría utilizar, háganoslo saber. Vote por las solicitudes existentes o cree nuevos comentarios y solicitudes en nuestro [foro de comentarios de clientes](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+Si no ve una extensión que le gustaría utilizar, háganoslo saber. Vote por las solicitudes existentes o cree nuevos comentarios y solicitudes en nuestro [foro de comentarios](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

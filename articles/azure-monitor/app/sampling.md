@@ -13,47 +13,47 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: 4da91150999864c64ead28b74242e85d23a51ead
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388386"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310447"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
 El muestreo es una característica de [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Se trata de la manera recomendada de reducir el almacenamiento y el tráfico de telemetría conservando, al mismo tiempo, un análisis estadísticamente correcto de datos de las aplicaciones. El filtro selecciona los elementos relacionado para que pueda desplazarse entre los elementos de diagnóstico cuando esté realizando investigaciones de diagnóstico.
-Cuando los recuentos de métrica se presentan en el portal, se renormalizan para tener en cuenta el muestreo. Si lo hace, minimiza ningún efecto en las estadísticas.
+Cuando los recuentos de métrica se presentan en el portal, se vuelven a normalizar para tener en cuenta el muestreo. De este modo, se minimizan los efectos en las estadísticas.
 
 El muestreo reduce los costos de tráfico y datos y le ayuda a evitar la limitación.
 
 ## <a name="in-brief"></a>En resumen:
 
-* El muestreo conserva 1 en *n* registros y descarta el resto. Por ejemplo, podría retener uno de los cinco eventos, una velocidad de muestreo del 20%. 
-* Muestreo adaptable está habilitado de forma predeterminada en todos los de la versión más reciente de ASP.NET y Kits de desarrollo de Software (SDK) de ASP.NET Core.
-* También puede establecer el muestreo manualmente. Esto se puede configurar en el portal en el *uso y costos estimados*, en el SDK de ASP.NET en el archivo ApplicationInsights.config, en el SDK de ASP.NET Core a través del código o en el SDK de Java en ApplicationInsights.xml archivo.
-* Si registra eventos personalizados y necesita asegurarse de que un conjunto de eventos se conservan o descartan juntos, los eventos deben tener el mismo valor de Id. de operación.
-* El divisor de muestreo *n* se notifica en cada registro de la propiedad `itemCount`, que en la búsqueda aparece bajo el nombre descriptivo "recuento de solicitudes" o "recuento de eventos". `itemCount==1`Cuando el muestreo no está en funcionamiento.
+* El muestreo conserva 1 en *n* registros y descarta el resto. Por ejemplo, podría retener uno de cinco eventos, una frecuencia de muestreo del 20 %. 
+* El muestreo adaptable está habilitado de manera predeterminada en todas las versiones más recientes de ASP.NET y los Kits de desarrollo de software (SDK) de ASP.NET Core.
+* También puede establecer el muestreo manualmente. Esto se puede configurar en el portal en la página *Uso y costos estimados*, en el SDK de ASP.NET, en el archivo ApplicationInsights.config, en el SDK de ASP.NET Core a través del código o en el SDK de Java en el archivo ApplicationInsights.xml.
+* Si registra eventos personalizados y necesita asegurarse de que un conjunto de eventos se conserve descarte juntos, los eventos deben tener el mismo valor de OperationId.
+* El divisor de muestreo *n* se notifica en cada registro de la propiedad `itemCount`, que en la búsqueda aparece bajo el nombre descriptivo "recuento de solicitudes" o "recuento de eventos". `itemCount==1` cuando el muestreo no está en funcionamiento.
 * Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](../../azure-monitor/log-query/aggregations.md). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipos de muestreo
 
 Existen tres métodos de muestreo alternativos:
 
-* **El muestreo adaptable** ajusta automáticamente el volumen de datos de telemetría enviados desde el SDK en su aplicación ASP.NET/ASP.NET Core. Se trata el muestreo predeterminado de ASP.NET Web SDK v 2.0.0-beta3 y versiones posteriores y 2.2.0-beta1 de v Microsoft.ApplicationInsights.AspNetCore SDK y versiones posteriores.  Actualmente, el muestreo solo está disponible para la telemetría del lado servidor de ASP.NET.
+* El **muestreo adaptable** ajusta automáticamente el volumen de telemetría que se envía desde el SDK en la aplicación de ASP.NET/ASP.NET Core. Se trata del muestreo predeterminado de del SDK de ASP.NET Web v2.0.0-beta3 y versiones posteriores y el SDK de Microsoft.ApplicationInsights.AspNetCore v2.2.0-beta1 y versiones posteriores.  Actualmente, el muestreo solo está disponible para la telemetría del lado servidor de ASP.NET.
 
-* **Muestreo de frecuencia fija** reduce el volumen de telemetría enviado desde su servidor ASP.NET o ASP.NET Core o Java y desde los exploradores de los usuarios. El usuario establece la frecuencia. El cliente y el servidor sincronizarán su muestreo por lo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
+* El **muestreo de frecuencia fija** reduce el volumen de telemetría que se envía desde el servidor ASP.NET, ASP.NET Core o Java y desde los exploradores de los usuarios. El usuario establece la frecuencia. El cliente y el servidor sincronizarán su muestreo por lo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
 
-* **Muestreo de ingesta** funciona en el portal de Azure. Lo que hace es descartar algunos de los datos de telemetría que llegan desde su aplicación según la frecuencia de muestreo establecida. Aunque no reduce el tráfico de telemetría enviado desde su aplicación, le ayuda a mantenerse dentro de su cuota mensual. La principal ventaja del muestreo de ingesta es que puede establecer la frecuencia de muestreo sin volver a implementar la aplicación. Muestreo de ingesta funciona de manera uniforme en todos los clientes y servidores.
+* El **muestreo de ingesta** funciona en Azure Portal. Lo que hace es descartar algunos de los datos de telemetría que llegan desde su aplicación según la frecuencia de muestreo establecida. Aunque no reduce el tráfico de telemetría enviado desde su aplicación, le ayuda a mantenerse dentro de su cuota mensual. La principal ventaja del muestreo de ingesta es que puede establecer la frecuencia de muestreo sin volver a implementar la aplicación. El muestreo de ingesta funciona de manera uniforme para todos los servidores y clientes.
 
 Si el muestreo de velocidad adaptable o fija está funcionando, el muestreo de ingesta se deshabilita.
 
 
-## <a name="adaptive-sampling-in-your-aspnetaspnet-core-web-applications"></a>Muestreo adaptable en sus aplicaciones de Web ASP.NET/ASP.NET Core
+## <a name="adaptive-sampling-in-your-aspnetaspnet-core-web-applications"></a>Muestreo adaptable en las aplicaciones Web de ASP.NET/ASP.NET Core
 
-El muestreo adaptable está disponible para el SDK de Application Insights para ASP.NET v 2.0.0-beta3 y versiones posteriores, Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 y versiones posteriores y está habilitado de forma predeterminada.
+El muestreo adaptable está disponible para el SDK de Application Insights para ASP.NET v2.0.0-beta3 y versiones posteriores, y el SDK de Microsoft.ApplicationInsights.AspNetCore v2.2.0-beta1 y versiones posteriores, y está habilitado de manera predeterminada.
 
-Influye en el volumen de telemetría enviado desde su aplicación de servidor web hasta el punto de conexión del servicio de Application Insights. El volumen se ajusta automáticamente para mantenerlo dentro de un tipo de tráfico máximo especificado y se controla mediante la configuración `MaxTelemetryItemsPerSecond`. Si la aplicación genera una cantidad baja de telemetría, como cuando se depura o debido a un uso bajo, no se muestree elementos como volumen está por debajo de `MaxTelemetryItemsPerSecond`. Como el volumen de telemetría aumenta, se ajusta la frecuencia de muestreo con el fin de lograr el volumen de destino.
+Influye en el volumen de telemetría enviado desde su aplicación de servidor web hasta el punto de conexión del servicio de Application Insights. El volumen se ajusta automáticamente para mantenerse dentro de una frecuencia máxima especificada de tráfico y se controla mediante el valor `MaxTelemetryItemsPerSecond`. Si la aplicación genera una cantidad baja de telemetría, como al depurar o debido a un uso bajo, el procesador de muestreo no podrá descargar los elementos mientras el volumen se encuentre por debajo de `MaxTelemetryItemsPerSecond`. A medida que aumente el volumen de telemetría, la frecuencia de muestreo se ajusta con el fin de lograr el volumen objetivo.
 
 Para lograr el volumen objetivo, se descartan algunos de los datos de telemetría generados. Pero, al igual que otros tipos de muestreo, el algoritmo conserva los elementos de telemetría relacionados. Por ejemplo, cuando se inspeccione la telemetría en Búsqueda, podrá buscar la solicitud relacionada con una excepción determinada.
 
@@ -61,7 +61,7 @@ Los recuentos de métrica, como la tasa de solicitudes y la tasa de excepciones,
 
 ## <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>Configuración del muestreo adaptable para las aplicaciones ASP.NET
 
-[Obtenga información sobre](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) acerca de cómo configurar el muestreo adaptable para aplicaciones ASP.NET Core. 
+[Obtenga información](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) sobre cómo configurar el muestreo adaptable para aplicaciones ASP.NET Core. 
 
 En [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), puede ajustar varios parámetros en el nodo `AdaptiveSamplingTelemetryProcessor`. Las cifras que se muestran son los valores predeterminados:
 
@@ -70,7 +70,7 @@ En [ApplicationInsights.config](../../azure-monitor/app/configuration-with-appli
     Velocidad objetivo que el algoritmo de adaptación intenta lograr **en cada host de servidor**. Si la aplicación web se ejecuta en varios hosts, reduzca este valor para que se mantenga dentro de la velocidad objetivo de tráfico en el portal de Application Insights.
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
   
-    El intervalo en el que se vuelve a evaluar la frecuencia actual de telemetría. La evaluación se realiza como una media móvil. Se recomienda acortar este intervalo si la telemetría experimenta ráfagas repentinas.
+    Intervalo en el que se vuelve a evaluar la velocidad actual de telemetría. La evaluación se realiza como una media móvil. Se recomienda acortar este intervalo si la telemetría experimenta ráfagas repentinas.
 * `<SamplingPercentageDecreaseTimeout>00:02:00</SamplingPercentageDecreaseTimeout>`
   
     Cuando se cambia el valor de porcentaje de muestreo, tiempo mínimo que se tarda en permitir de nuevo que se reduzca el porcentaje de muestreo para capturar menos datos.
@@ -88,7 +88,7 @@ En [ApplicationInsights.config](../../azure-monitor/app/configuration-with-appli
     En el cálculo de la media móvil, peso asignado al valor más reciente. Use un valor igual o menor que 1. Los valores menores hacen que el algoritmo reaccione con menor agilidad a los cambios repentinos.
 * `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
   
-    Valor asignado cuando se acaba de iniciar la aplicación. No reduzca el valor durante la depuración.
+    Valor asignado cuando se acaba de iniciar la aplicación. No lo reduzca durante la depuración.
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
@@ -99,13 +99,13 @@ En [ApplicationInsights.config](../../azure-monitor/app/configuration-with-appli
     Una lista delimitada por puntos y coma de tipos que desea que se muestreen. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Los tipos especificados se muestrean, todas las instancias del resto de tipos siempre se transmitirán.
 
 
-**Para desactivar** adaptable de muestreo, quite el nodo AdaptiveSamplingTelemetryProcessor de applicationinsights-config.
+**Para desactivar** el muestreo adaptable, quite los nodos AdaptiveSamplingTelemetryProcessor de applicationinsights-config.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>Alternativa: configure el muestreo adaptivo en el código
 
 En lugar de establecer el parámetro de muestreo en el archivo .config, puede establecer estos valores mediante programación.
 
-1. Quite todo el `AdaptiveSamplingTelemetryProcessor` nodos desde el archivo .config.
+1. Quite todos los nodos `AdaptiveSamplingTelemetryProcessor` del archivo .config.
 2. Use el siguiente fragmento de código para configurar el muestreo adaptable.
 
 *C#*
@@ -134,7 +134,7 @@ En lugar de establecer el parámetro de muestreo en el archivo .config, puede es
 
 ([Más información sobre los procesadores de telemetría](../../azure-monitor/app/api-filtering-sampling.md#filtering)).
 
-También puede ajustar la frecuencia de muestreo para cada tipo de datos de telemetría individualmente, o incluso se puede excluir determinados tipos de muestreo en absoluto. 
+También puede ajustar la frecuencia de muestreo para cada tipo de telemetría individualmente o incluso puede excluir determinados tipos completos del muestreo. 
 
 *C#*
 
@@ -143,14 +143,14 @@ También puede ajustar la frecuencia de muestreo para cada tipo de datos de tele
     builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
 ```
 
-## <a name="configuring-adaptive-sampling-for-aspnet-core-applications"></a>Configuración del muestreo adaptable para aplicaciones ASP.NET Core.
+## <a name="configuring-adaptive-sampling-for-aspnet-core-applications"></a>Configuración del muestreo adaptable para las aplicaciones ASP.NET Core.
 
-No hay ningún `ApplicationInsights.Config` para aplicaciones de ASP.NET Core, por lo que todas las configuraciones se realiza a través de código.
+No hay ningún objeto `ApplicationInsights.Config` para las aplicaciones ASP.NET Core, por lo que todas las configuraciones se realizan a través de código.
 El muestreo adaptable está habilitado de forma predeterminada para todas las aplicaciones de ASP.NET Core. Puede deshabilitar o personalizar el comportamiento de muestreo.
 
 ### <a name="turning-off-adaptive-sampling"></a>Desactivación del muestreo adaptable
 
-Se puede deshabilitar la característica de muestreo predeterminado al agregar el servicio de Application Insights, en el método ```ConfigureServices```con ```ApplicationInsightsServiceOptions``` dentro de la `Startup.cs` archivo:
+La característica de muestreo predeterminada se puede deshabilitar al agregar el servicio de Application Insights, en el método ```ConfigureServices```, con ```ApplicationInsightsServiceOptions``` dentro del archivo `Startup.cs`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -195,9 +195,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ```
 
-**Si utiliza el método anterior para configurar el muestreo, asegúrese de que usar ```aiOptions.EnableAdaptiveSampling = false;``` configuración con AddApplicationInsightsTelemetry().**
+**Si usa el método anterior para configurar el muestreo, asegúrese de usar la configuración de ```aiOptions.EnableAdaptiveSampling = false;``` con AddApplicationInsightsTelemetry().**
 
-## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites"></a>Muestreo de frecuencia fija para sitios Web ASP.NET, ASP.NET Core y Java
+## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites"></a>Muestreo de frecuencia fija para sitios web ASP.NET, ASP.NET Core y Java
 
 El muestreo de frecuencia fija reduce el tráfico enviado desde el servidor web y los exploradores web. A diferencia del muestreo adaptable, reduce la telemetría a una tasa fija que usted decide. También sincroniza el muestreo del cliente y del servidor para que los elementos relacionados se conserven; por ejemplo, cuando mira una vista de página en Búsqueda, puede encontrar su solicitud relacionada.
 
@@ -262,7 +262,7 @@ En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de
 
 ### <a name="configuring-fixed-rate-sampling-in-aspnet-core"></a>Configuración del muestreo de frecuencia fija en ASP.NET Core
 
-1. **Deshabilite el muestreo adaptable**:  Se pueden realizar cambios en el método ```ConfigureServices```, usando ```ApplicationInsightsServiceOptions```:
+1. **Deshabilite el muestreo adaptable**:  Se pueden realizar cambios en el método ```ConfigureServices``` mediante ```ApplicationInsightsServiceOptions```:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -313,7 +313,7 @@ En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de
                     <Add name = "SamplingPercentage" value = "50" />
                 </Processor>
             </BuiltInProcessors>
-        <TelemetryProcessors/>
+        </TelemetryProcessors>
     ```
 
 3. Puede incluir o excluir determinados tipos de telemetría de muestreo con las siguientes etiquetas dentro de la etiqueta de procesador "FixedRateSamplingTelemetryProcessor".
@@ -327,7 +327,7 @@ En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de
         </IncludedTypes>
     ```
 
-Los tipos de datos de telemetría que pueden incluirse o excluirse del muestreo son: Evento, dependencia, excepción, vistas de página, solicitud y seguimiento.
+Los tipos de telemetría que se pueden incluir o excluir del muestreo son los siguientes: Dependency, Event, Exception, PageView, Request y Trace.
 
 > [!NOTE]
 > Para el porcentaje de muestreo, elija un porcentaje que esté cerca de 100/N, donde N es un número entero.  Actualmente el muestreo no es compatible con otros valores.
@@ -352,7 +352,7 @@ Al igual que otros tipos de muestreo, el algoritmo conserva elementos de telemet
 
 Los puntos de datos que se descartan por muestreo no están disponibles en ninguna característica de Application Insights como [exportación continua](../../azure-monitor/app/export-telemetry.md).
 
-El muestreo de ingesta no funciona mientras el muestreo adaptativo o de frecuencia fija basado en el SDK está en funcionamiento. Muestreo adaptable está habilitado de forma predeterminada cuando está habilitado en Visual Studio o habilitado en las extensiones de aplicación Web de Azure o mediante el Monitor de estado ASP.NET/ASP.NET Core SDK y muestreo de ingesta está deshabilitado. Si la velocidad de muestreo en el SDK es inferior al 100% (como) los elementos que se muestree), a continuación, se omite la frecuencia de muestreo de ingesta que establezca.
+El muestreo de ingesta no funciona mientras el muestreo adaptativo o de frecuencia fija basado en el SDK está en funcionamiento. El muestreo adaptable está habilitado de manera predeterminada cuando el SDK de ASP.NET o ASP.NET Core está habilitado en Visual Studio o habilitado en las extensiones de aplicación web de Azure, o mediante el Monitor de estado con el muestreo de ingesta deshabilitado. Si la frecuencia de muestreo en el SDK es inferior al 100 % (por ejemplo, se está realizando el muestro de elementos), se omite la frecuencia de muestreo de ingesta que establezca.
 
 > [!WARNING]
 > El valor que se muestra en el icono indica el valor que ha establecido para el muestreo de ingesta. Si el muestreo del SDK está en funcionamiento, no representa la frecuencia real de muestreo.
@@ -385,7 +385,7 @@ Si también habilita el muestreo de frecuencia fija en el servidor, los clientes
 
 ## <a name="when-to-use-sampling"></a>¿Cuándo usar un muestreo?
 
-Muestreo adaptable está habilitado automáticamente en el SDK de .NET Core y .NET más recientes. Independientemente de la versión del SDK que use, puede habilitar el muestreo de ingesta para permitir que Application Insights tome muestras de los datos recopilados.
+El muestreo adaptable está habilitado automáticamente en los SDK de .NET y .NET Core más recientes. Independientemente de la versión del SDK que use, puede habilitar el muestreo de ingesta para permitir que Application Insights tome muestras de los datos recopilados.
 
 De manera predeterminada, no hay ningún muestreo habilitado en el SDK de Java. Actualmente, solo admite el muestreo de frecuencia fija. No se admite el muestreo adaptable en el SDK de Java.
 
@@ -403,7 +403,7 @@ Las principales ventajas del muestreo son:
 
 * Con frecuencia sobrepasa su cuota mensual de telemetría.
 * Usa una versión del SDK que no admite el muestreo; por ejemplo, las versiones de ASP.NET anteriores a la 2.
-* Le esté sacando demasiados datos de telemetría desde los exploradores web de los usuarios.
+* Recibe muchos datos de telemetría de los exploradores web de los usuarios.
 
 **Use el muestreo de frecuencia fija si:**
 
@@ -413,7 +413,7 @@ Las principales ventajas del muestreo son:
 
 **Use el muestreo adaptable si:**
 
-Si no se cumplen las condiciones para usar las otras formas de muestreo, le recomendamos el muestreo adaptable. Esta opción está habilitada de forma predeterminada en el servidor ASP.NET/ASP.NET Core SDK. No reducirá el tráfico hasta que se alcance un determinado índice mínimo. Por lo tanto, los sitios con poco uso no se verán afectados.
+Si no se cumplen las condiciones para usar las otras formas de muestreo, le recomendamos el muestreo adaptable. Esta opción está habilitada de manera predeterminada en el SDK del servidor ASP.NET o ASP.NET Core. No reducirá el tráfico hasta que se alcance un determinado índice mínimo. Por lo tanto, los sitios con poco uso no se verán afectados.
 
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>¿Cómo se puede saber si el muestreo está en funcionamiento?
 
@@ -425,9 +425,9 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 | summarize RetainedPercentage = 100/avg(itemCount) by bin(timestamp, 1h), itemType
 ```
 
-Si RetainedPercentage para cualquier tipo es menor que 100, a continuación, se muestrean ese elemento.
+Si RetainedPercentage para cualquier tipo es menor que 100,se está realizando el muestreo de ese elemento.
 
-**Application Insights no muestrea sesión, las métricas y contadores de rendimiento de los tipos de telemetría en las técnicas de muestreo que se ha descrito anteriormente. Estos tipos se excluirán siempre del muestreo como reducción en la precisión puede ser altamente indeseable para estos tipos de datos de telemetría**
+**Application Insights no realiza el muestreo de los contadores de sesión, métricas ni rendimiento de los tipos de telemetría en ninguna de las técnicas de muestreo descritas anteriormente. Estos tipos siempre se excluyen del muestreo, ya que la reducción en la precisión puede ser altamente indeseable para estos tipos de telemetría**.
 
 ## <a name="how-does-sampling-work"></a>¿Cómo funciona el muestreo?
 
@@ -435,7 +435,7 @@ El muestreo de frecuencia fija es una característica del SDK de ASP.NET de la v
 
 El algoritmo de muestreo decide qué elementos de telemetría quitar y cuáles conservar (ya sea en el SDK o en el servicio de Application Insights). La decisión del muestreo se basa en varias reglas que tienen como objetivo conservar intactos todos los puntos de datos interrelacionados, manteniendo una experiencia de diagnóstico en Application Insights que sea práctica y confiable, incluso con un conjunto reducido de datos. Por ejemplo, si para una solicitud errónea su aplicación envía elementos de telemetría adicionales (como la excepción y los seguimientos registrados para dicha solicitud), el muestreo no dividirá esta solicitud y otra telemetría. Escogerá mantenerlos o descartarlos todos juntos Como resultado, al examinar los detalles de solicitud en Application Insights, siempre puede ver la solicitud junto con sus elementos de telemetría asociados. 
 
-La decisión de muestreo se basa en el identificador de operación de la solicitud, lo que significa que todos los elementos de telemetría que pertenecen a una operación determinada se conservan o se quita. Para los elementos de telemetría que no tienen la operación ID conjunto (por ejemplo los elementos de telemetría notificados desde subprocesos asincrónicos sin contexto de http) muestreo simplemente captura un porcentaje de elementos de telemetría de cada tipo. Antes de 2.5.0-beta2 del SDK de .NET y 2.2.0-beta3 del SDK de ASP.NET Core, la decisión de muestreo se basa en el hash del identificador de usuario para las aplicaciones que definen "usuario" (es decir, las aplicaciones web más típicas). Para los tipos de aplicaciones que no definen los usuarios (por ejemplo, servicios web), la decisión de muestreo se basaba en el identificador de operación de la solicitud.
+La decisión de muestreo se basa en el identificador de operación de la solicitud, lo que significa que todos los elementos de telemetría que pertenecen a una operación determinada se conservan o se descartan. Para los elementos de telemetría que no tienen establecido un identificador de operación (por ejemplo, los elementos de telemetría notificados desde subprocesos asincrónicos sin contexto http), el muestreo simplemente captura un porcentaje de elementos de telemetría de cada tipo. Antes de la versión 2.5.0-beta2 del SDK de .NET y de la versión 2.2.0-beta3 del SDK de ASP.NET Core, la decisión de muestreo se basaba en el hash del identificador de usuario de las aplicaciones que definen al "usuario" (es decir, la mayoría de las aplicaciones web más habituales). Para los tipos de aplicaciones que no definen a los usuarios (como los servicios web), la decisión de muestreo se basaba en el identificador de operación de la solicitud.
 
 Al presentarle la telemetría, el servicio de Application Insights ajusta las métricas con el mismo porcentaje de muestreo que se usó en el momento de la recopilación, para compensar por los puntos de datos que faltan. Por lo tanto, al examinar la telemetría en Application Insights, los usuarios ven aproximaciones estadísticamente correctas que están muy próximas a los números reales.
 
@@ -461,12 +461,12 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 ## <a name="frequently-asked-questions"></a>Preguntas frecuentes
 
-*¿Qué es el comportamiento de muestreo predeterminado en ASP.NET y ASP.NET Core SDK?*
+*¿Cuál es el comportamiento de muestreo predeterminado en el SDK de ASP.NET y ASP.NET Core?*
 
-* Si usa una de las versiones más recientes del SDK anterior, el muestreo adaptable está habilitado de forma predeterminada con cinco elementos de telemetría por segundo.
-  Hay 2 AdaptiveSamplingTelemetryProcessors agregados de forma predeterminada y uno incluye el tipo de evento de muestreo y el otro excluye el tipo de evento de muestreo. Esta configuración significa que el SDK intentará limitar los elementos de telemetría a cinco elementos de telemetría de tipos de eventos y cinco elementos de telemetría de todos los demás tipos combinados, lo que garantiza que los eventos muestreados por separado de otros tipos de telemetría. Los eventos se suelen usar para la telemetría de negocio y más probable es que no deberían verse afectados por los volúmenes de telemetría de diagnóstico.
+* Si usa una de las versiones más recientes del SDK anterior, el muestreo adaptable está habilitado de manera predeterminada con cinco elementos de telemetría por segundo.
+  Hay dos elementos AdaptiveSamplingTelemetryProcessors agregados de manera predeterminada; uno incluye el tipo de evento en el muestreo y el otro excluye el tipo de evento del muestreo. Esta configuración significa que el SDK intentará limitar los elementos de telemetría a cinco elementos de telemetría de tipos de eventos y cinco elementos de telemetría de todos los demás tipos combinados, lo que garantiza que el muestreo de los eventos se realiza por separado de otros tipos de telemetría. Los eventos se suelen usar para la telemetría empresarial y es más probable que no deban verse afectados por los volúmenes de telemetría de diagnóstico.
   
-  A continuación muestra el archivo ApplicationInsights.Config de predeterminado generado. Como se describió, hay dos nodos independientes de AdaptiveSamplingTelemetryProcessor agregado, uno sin incluir los tipos de eventos y otro incluirlo. En ASP.NET Core, el mismo comportamiento predeterminado está habilitado en código. Utilice los ejemplos en la sección anterior del documento para cambiar este comportamiento predeterminado.
+  A continuación se muestra el archivo ApplicationInsights.Config predeterminado que se genera. Tal como se describió, hay dos nodos AdaptiveSamplingTelemetryProcessor independientes agregados, uno que excluye los tipos de eventos y otro que los incluye. En ASP.NET Core, el mismo comportamiento predeterminado está habilitado en el código. Use los ejemplos de la sección anterior del documento para cambiar este comportamiento predeterminado.
 
     ```xml
     <TelemetryProcessors>
@@ -481,13 +481,13 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
     </TelemetryProcessors>
     ```
 
-*¿Pueden ser muestreadas más de una vez los datos de telemetría?*
+*¿La telemetría se puede muestrear más de una vez?*
 
-*  No. SamplingTelemetryProcessors omitir elementos de muestreo consideraciones si el elemento ya se ha muestreado. Lo mismo puede decirse de muestreo de ingesta como también, que no aplicarán muestreo a los elementos muestreados ya en el propio SDK. "
+* No. Los elementos SamplingTelemetryProcessors omiten elementos de las consideraciones de muestreo si el elemento ya se ha muestreado. Lo mismo sucede para el muestreo de ingesta, que no aplicará el muestreo a los elementos ya muestreados en el SDK en sí.
 
 *¿Por qué realizar un muestreo no consiste simplemente en "recopilar X por ciento de cada tipo de telemetría"?*
 
-* Aunque este método de muestreo proporcionaría un alto nivel de precisión en las aproximaciones métricas, destruiría la capacidad para correlacionar datos de diagnóstico por usuario, la sesión y la solicitud, que es crítico para el diagnóstico. Por lo tanto, el muestreo funciona mejor con una lógica "recopilar todos los elementos de telemetría para X por ciento de los usuarios de la aplicación", o "recopilar toda la telemetría para X por ciento de las solicitudes de aplicación". Para los elementos de telemetría no asociados con las solicitudes (por ejemplo, el procesamiento asincrónico en segundo plano), la reserva es "recopilar X por ciento de todos los elementos para cada tipo de datos de telemetría". 
+* Aunque este método de muestreo proporcionaría un nivel de precisión alto en las aproximaciones métricas, destruiría la capacidad para poner en correlación datos de diagnóstico por usuario, sesión y solicitud, lo cual es crítico para el diagnóstico. Por lo tanto, el muestreo funciona mejor con una lógica "recopilar todos los elementos de telemetría para X por ciento de los usuarios de la aplicación", o "recopilar toda la telemetría para X por ciento de las solicitudes de aplicación". Para los elementos de telemetría no asociados con las solicitudes (por ejemplo, el procesamiento asincrónico en segundo plano), la acción de reserva es "recopilar X por ciento de todos los elementos para cada tipo de telemetría". 
 
 *¿Se puede cambiar el porcentaje de muestreo con el tiempo?*
 
@@ -509,13 +509,13 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 *¿En qué plataformas puedo usar muestreo?*
 
-* El muestreo de ingesta puede producirse automáticamente cuando cualquier dato de telemetría se sitúa por encima de un determinado volumen, si el SDK no realiza muestreo. Esta configuración funcionaría, por ejemplo, si está utilizando una versión anterior del SDK de ASP.NET o una versión anterior de Java SDK(1.0.10 or before).
-* Si usa versiones de SDK de ASP.NET 2.0.0 y versiones posteriores o versión 2.2.0 del SDK de ASP.NET CORE y versiones posteriores (hospedado en Azure o en su propio servidor), obtendrá de forma predeterminada muestreo adaptable, pero puede cambiar de frecuencia fija como se describió anteriormente. Con el muestreo de frecuencia fija, el SDK del explorador se sincroniza automáticamente con los eventos relacionados con el muestreo. 
-* Si usa el SDK de Java versión 2.0.1 o posterior, puede configurar ApplicationInsights.xml para activar el muestreo de frecuencia fija. De manera predeterminada, el muestreo está desactivado. Con el muestreo de frecuencia fija, el SDK del explorador se sincroniza automáticamente con los eventos relacionados con el muestreo.
+* El muestreo de ingesta puede producirse automáticamente cuando cualquier dato de telemetría se sitúa por encima de un determinado volumen, si el SDK no realiza muestreo. Esta configuración funcionaría, por ejemplo, si usara una versión antigua del SDK de ASP.NET o una versión anterior del SDK de Java (1.0.10 o anterior).
+* Si usa el SDK de ASP.NET 2.0.0 y versiones posteriores o el SDK de ASP.NET CORE 2.2.0 y versiones posteriores (hospedado en Azure o en su propio servidor), obtendrá el muestreo adaptable de manera predeterminada, pero puede cambiar al de frecuencia fija como se describió anteriormente. Con el muestreo de frecuencia fija, el SDK del explorador se sincroniza automáticamente con los eventos relacionados con el muestreo. 
+* Si usa el SDK de Java 2.0.1 o una versión posterior, puede configurar ApplicationInsights.xml para activar el muestreo de frecuencia fija. De manera predeterminada, el muestreo está desactivado. Con el muestreo de frecuencia fija, el SDK del explorador se sincroniza automáticamente con los eventos relacionados con el muestreo.
 
 *Hay ciertos eventos excepcionales que siempre quiero ver. ¿Cómo se consigue que el módulo de muestreo los reconozca?*
 
-* La mejor forma de lograrlo es escribir un personalizado [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), que establece el `SamplingPercentage` a 100 en el elemento de telemetría que desee retenido, como se muestra a continuación. Esto garantiza que todas las técnicas de muestreo pasará por alto este elemento de las consideraciones sobre el muestreo.
+* La mejor forma de lograrlo es escribir un objeto [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering) personalizado, que establece el objeto `SamplingPercentage` en 100 en el elemento de telemetría que desee retener, tal como se muestra a continuación. Esto garantiza que todas las técnicas de muestreo pasarán por alto este elemento de todas las consideraciones sobre el muestreo.
 
 ```csharp
     if(somecondition)
@@ -527,4 +527,4 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [filtro](../../azure-monitor/app/api-filtering-sampling.md) puede proporcionar un control más estricto de los SDK que envía.
-* Lea el artículo Developer Network [optimizar la telemetría con Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx).
+* Lea el artículo de Developer Network [Optimize Telemetry with Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx) (Optimización de la telemetría con Application Insights).

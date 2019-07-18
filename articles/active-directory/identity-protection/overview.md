@@ -17,18 +17,18 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 660793cdba61b5438283ea54a9f7349bdfbc98e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67204514"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440508"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>¿Qué es Azure Active Directory Identity Protection?
 
-Azure Active Directory Identity Protection permite a las organizaciones configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios.
+Azure Active Directory [Identity](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection permite a las organizaciones configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 Microsoft lleva más de una década con identidades basadas en la nube protegidas. Con Azure Active Directory Identity Protection en su entorno, puede usar los mismos sistemas de protección que Microsoft utiliza para proteger las identidades.
 
@@ -69,7 +69,7 @@ Azure Active Directory Identity Protection es más que una herramienta de superv
 
 Para equilibrar la carga de las actividades de administración en torno a su implementación de Identity Protection, puede asignar varios roles. Azure AD Identity Protection admite tres roles de directorio:
 
-| Rol | Puede hacer | No puede hacer |
+| Role | Puede hacer | No puede hacer |
 | :-- | --- | --- |
 | Administrador global | Acceso completo a Identity Protection, incorporar Identity Protection| |
 | Administrador de seguridad | Acceso completo a Identity Protection | Incorporar Identity Protection, restablecer contraseñas para un usuario |

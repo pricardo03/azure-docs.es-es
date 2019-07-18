@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff4f9af82024e9d39ad89a39bcb2fe4130de9101
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65231428"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304194"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -31,7 +31,7 @@ La vinculación de entidad es la capacidad de identificar y desambiguar la ident
 ### <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
 El reconocimiento de entidades con nombre (NER) es la capacidad de identificar diferentes entidades en el texto y clasificarlas en clases predefinidas. Las clases de entidades admitidas se enumeran a continuación.
 
-En Text Analytics [versión 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), están disponibles la vinculación de entidades y el reconocimiento de entidades con nombre (NER).
+En Text Analytics [versión 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), están disponibles la vinculación de entidades y el reconocimiento de entidades con nombre (NER) para varios idiomas. Consulte el artículo sobre la [compatibilidad con idiomas](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para más información. 
 
 ### <a name="language-support"></a>Compatibilidad con idiomas
 
@@ -39,10 +39,10 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Tipos admitidos para el reconocimiento de entidades con nombre
 
-| Type  | SubType | Ejemplo |
+| type  | SubType | Ejemplo |
 |:-----------   |:------------- |:---------|
 | Persona        | N/D\*         | "Jeff", "Bill Gates"     |
-| Ubicación      | N/D\*         | "Redmond, Washington", "París"  |
+| Location      | N/D\*         | "Redmond, Washington", "París"  |
 | Organización  | N/D\*         | "Microsoft"   |
 | Cantidad      | Number        | "6", "seis"     | 
 | Cantidad      | Porcentaje    | "50 %", "cincuenta por ciento"| 
@@ -105,7 +105,7 @@ Se pueden encontrar detalles sobre la definición de la solicitud en [How to cal
 
 ## <a name="step-2-post-the-request"></a>Paso 2: Publicar la solicitud
 
-El análisis se realiza tras la recepción de la solicitud. El servicio acepta hasta 100 solicitudes por segundo y 1000 solicitudes por minuto. Cada solicitud puede tener un máximo de 1 MB.
+El análisis se realiza tras la recepción de la solicitud. Consulte la sección de [límites datos](../overview.md#data-limits) de la introducción para obtener información sobre el tamaño y el número de solicitudes que puede enviar por minuto y segundo.
 
 Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuenta. Los resultados se devuelven inmediatamente en la respuesta.
 

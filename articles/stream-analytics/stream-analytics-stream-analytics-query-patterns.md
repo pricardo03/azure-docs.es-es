@@ -8,34 +8,34 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 88df7ae0d4e6054d82302ad5f0adabcf656cb0f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761971"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620816"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
 
 Las consultas de Azure Stream Analytics se expresan en un lenguaje de consulta similar a SQL. Estas construcciones de lenguaje se documentan en la guía [Referencia de lenguaje de consulta de Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference). 
 
-El diseño de consulta puede expresar una lógica sencilla de paso a través para mover datos de evento desde un flujo de entrada a un almacén de datos de salida o hacer análisis temporal y coincidencia de patrón enriquecido para calcular agregados durante varias ventanas de tiempo como en el [compilar IoT solución mediante el uso de Stream Analytics](stream-analytics-build-an-iot-solution-using-stream-analytics.md) guía. Puede combinar datos de varias entradas para combinar eventos de streaming y se pueden realizar búsquedas en datos de referencia estáticos para enriquecer los valores del evento. También puede escribir datos en varias salidas.
+El diseño de consultas puede expresar una lógica sencilla de paso a través para mover datos de evento desde un flujo de entrada a un almacén de datos de salida, o puede hacer la coincidencia de patrones enriquecidos y análisis temporal para calcular los agregados durante distintas ventanas de horarios como en la guía [Compilación de una solución de IoT con Stream Analytics](stream-analytics-build-an-iot-solution-using-stream-analytics.md). Puede combinar datos de varias entradas para combinar eventos de streaming y realizar búsquedas en datos de referencia estáticos que enriquecerán los valores de evento. También puede escribir datos en varias salidas.
 
-En este artículo se describe las soluciones para varios patrones comunes de consultas basadas en escenarios del mundo real.
+En este artículo se describen las soluciones para varios patrones de consulta comunes basados en situaciones del mundo real.
 
 ## <a name="work-with-complex-data-types-in-json-and-avro"></a>Trabajo con tipos de datos complejos en JSON y AVRO
 
 Azure Stream Analytics admite eventos de procesamiento en formatos de datos CSV, JSON y Avro.
 
-Tanto JSON como Avro pueden contener tipos complejos como objetos anidados (registros) o matrices. Para obtener más información sobre cómo trabajar con estos tipos de datos complejos, consulte el [datos de análisis de JSON y AVRO](stream-analytics-parsing-json.md) artículo.
+Tanto JSON como Avro pueden contener tipos complejos como objetos anidados (registros) o matrices. Para obtener más información sobre cómo trabajar con estos tipos de datos complejos, consulte el artículo [Análisis de datos JSON y AVRO](stream-analytics-parsing-json.md).
 
 ## <a name="query-example-convert-data-types"></a>Ejemplo de consulta: Convertir tipos de datos
 
-**Descripción**: Defina los tipos de propiedades en el flujo de entrada. Por ejemplo, el peso del vehículo se incorpora a la secuencia de entrada como cadenas y debe convertirse a **INT** realizar **suma**.
+**Descripción**: Defina los tipos de propiedades en el flujo de entrada. Por ejemplo, el peso del vehículo se incorpora al flujo de entrada como cadena y se debe convertir en **INT** para realizar la operación **SUM**.
 
 **Entrada**:
 
-| Asegúrese | Time | Peso |
+| Asegúrese | Hora | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -61,14 +61,14 @@ Tanto JSON como Avro pueden contener tipos complejos como objetos anidados (regi
 
 **Explicación**: Use una instrucción **CAST** en el campo **Peso** para especificar su tipo de datos. Vea la lista de tipos de datos admitidos en [Data types (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics) [Tipos de datos (Azure Stream Analytics)].
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Ejemplo de consulta: Utilizar LIKE/NOT LIKE para realizar la coincidencia de patrones
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Ejemplo de consulta: Uso de SIMILAR/NO SIMILAR para realizar la coincidencia de patrones
 
 **Descripción**: Compruebe que el valor de un campo del evento coincide con un patrón determinado.
 Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan por A y terminan en nueve.
 
 **Entrada**:
 
-| Asegúrese | LicensePlate | Time |
+| Asegúrese | LicensePlate | Hora |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -76,7 +76,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Salida**:
 
-| Asegúrese | LicensePlate | Time |
+| Asegúrese | LicensePlate | Hora |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -92,7 +92,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
         LicensePlate LIKE 'A%9'
 ```
 
-**Explicación**: Use la instrucción **LIKE** para comprobar el valor del campo **LicensePlate**. Debe empezar por la letra A, a continuación, seguida de cualquier cadena de cero o más caracteres y, a continuación, terminar con el número 9. 
+**Explicación**: Use la instrucción **LIKE** para comprobar el valor del campo **LicensePlate**. Debe comenzar con la letra A, seguida de cualquier cadena de ceros o más caracteres y terminar con el número 9. 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Ejemplo de consulta: Especificación de la lógica para los distintos casos/valores (instrucciones CASE)
 
@@ -100,7 +100,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Entrada**:
 
-| Asegúrese | Time |
+| Asegúrese | Hora |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -108,7 +108,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Salida**:
 
-| CarsPassed | Time |
+| CarsPassed | Hora |
 | --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
@@ -137,7 +137,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Entrada**:
 
-| Asegúrese | Time |
+| Asegúrese | Hora |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -147,7 +147,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Salida1**:
 
-| Asegúrese | Time |
+| Asegúrese | Hora |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -157,7 +157,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Salida2**:
 
-| Asegúrese | Time | Count |
+| Asegúrese | Hora | Recuento |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -186,7 +186,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
         [Count] >= 3
 ```
 
-**Explicación**: La cláusula **INTO** indica a Stream Analytics en cuál de las salidas se escribirán los datos de esta instrucción. La primera consulta es un paso a través de los datos recibidos a una salida llamada **ArchiveOutput**. La segunda consulta hace simple agregación y filtrado y envía los resultados a un sistema de alertas descendente, **AlertOutput**.
+**Explicación**: La cláusula **INTO** indica a Stream Analytics en cuál de las salidas se escribirán los datos de esta instrucción. La primera consulta es una transferencia de los datos recibidos en una salida denominada **ArchiveOutput**. La segunda consulta hace una agregación y un filtrado simples, y envía los resultados a un sistema de alertas descendente, **AlertOutput**.
 
 Tenga en cuenta que también puede reutilizar los resultados de las expresiones de tabla comunes (CTE), como las instrucciones **WITH**, en varias instrucciones de salida. Esta opción ofrece el beneficio adicional de la apertura de algunos lectores para el origen de entrada.
 
@@ -211,7 +211,7 @@ Por ejemplo:
 
 **Entrada**:
 
-| Asegúrese | Time |
+| Asegúrese | Hora |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -221,7 +221,7 @@ Por ejemplo:
 
 **Salida:**
 
-| CountMake | Time |
+| CountMake | Hora |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -238,7 +238,7 @@ GROUP BY
 ```
 
 
-**Explicación:**
+**Explicación:** 
 **COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Ejemplo de consulta: Determinar si un valor ha cambiado
@@ -247,14 +247,14 @@ GROUP BY
 
 **Entrada**:
 
-| Asegúrese | Time |
+| Asegúrese | Hora |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Salida**:
 
-| Asegúrese | Time |
+| Asegúrese | Hora |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -278,7 +278,7 @@ GROUP BY
 
 **Entrada**:
 
-| LicensePlate | Asegúrese | Time |
+| LicensePlate | Asegúrese | Hora |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -290,7 +290,7 @@ GROUP BY
 
 **Salida**:
 
-| LicensePlate | Asegúrese | Time |
+| LicensePlate | Asegúrese | Hora |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -308,9 +308,9 @@ GROUP BY
         IsFirst(minute, 10) = 1
 ```
 
-Ahora vamos a cambiar el problema y buscar el primer vehículo de una marca concreta en cada intervalo de 10 minutos.
+Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una marca concreta en un intervalo de cada diez minutos.
 
-| LicensePlate | Asegúrese | Time |
+| LicensePlate | Asegúrese | Hora |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -337,7 +337,7 @@ Ahora vamos a cambiar el problema y buscar el primer vehículo de una marca conc
 
 **Entrada**:
 
-| LicensePlate | Asegúrese | Time |
+| LicensePlate | Asegúrese | Hora |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -349,7 +349,7 @@ Ahora vamos a cambiar el problema y buscar el primer vehículo de una marca conc
 
 **Salida**:
 
-| LicensePlate | Asegúrese | Time |
+| LicensePlate | Asegúrese | Hora |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
@@ -386,7 +386,7 @@ Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la a
 
 **Entrada**:
 
-| Asegúrese | LicensePlate | Time |
+| Asegúrese | LicensePlate | Hora |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -395,7 +395,7 @@ Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la a
 
 **Salida**:
 
-| Asegúrese | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Asegúrese | Hora | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -422,10 +422,10 @@ Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la a
 
 **Entrada**:  
 
-| Usuario | Característica | Evento | Time |
+| Usuario | Característica | Evento | Hora |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Inicio |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |Finalizar |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
 **Salida**:  
 
@@ -437,13 +437,18 @@ Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la a
 
 ```SQL
     SELECT
-        [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+        [user],
+    feature,
+    DATEDIFF(
+        second,
+        LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'),
+        Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
         Event = 'end'
 ```
 
-**Explicación**: Use la función **LAST** para recuperar el último valor **TIME** en el que el tipo de evento era **Start**. La función **LAST** usa **PARTITION BY [user]** para indicar que el resultado se calcula por usuario único. La consulta tiene un umbral máximo de una hora para el intervalo de tiempo entre eventos **Start** y **Stop**, pero se puede configurar según sea necesario **(LIMIT DURATION(hour, 1)**.
+**Explicación**: Use la función **LAST** para recuperar el último valor **TIME** en el que el tipo de evento era **Start**. La función **LAST** usa **PARTITION BY [user]** para indicar que el resultado se calcula por usuario único. La consulta tiene un umbral máximo de una hora para el intervalo de tiempo entre eventos **Start** y **Stop**, pero se puede configurar según sea necesario **(LIMIT DURATION(hour, 1)** .
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Ejemplo de consulta: Detección de la duración de una condición
 **Descripción**: Averigüe la duración de una condición.
@@ -451,7 +456,7 @@ Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorr
 
 **Entrada**:
 
-| Asegúrese | Time | Peso |
+| Asegúrese | Hora | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -506,7 +511,7 @@ Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorr
 | "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
 
-**Salida (10 primeras filas)**:
+**Salida (10 primeras filas)** :
 
 | windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
@@ -532,7 +537,7 @@ Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorr
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 ```
 
-**Explicación**: Esta consulta genera eventos cada cinco segundos y genera como resultado el último evento que se recibió anteriormente. El [ventana de salto](/stream-analytics-query/hopping-window-azure-stream-analytics) duración determina cuánto tiempo que remontará la consulta para encontrar el evento más reciente (300 segundos en este ejemplo).
+**Explicación**: Esta consulta genera eventos cada cinco segundos y genera como resultado el último evento que se recibió anteriormente. La duración de [Ventana de salto](/stream-analytics-query/hopping-window-azure-stream-analytics) determina cuánto tiempo atrás buscará la consulta para encontrar el evento más reciente (en este ejemplo, 300 segundos).
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Ejemplo de consulta: Correlacionar dos tipos de evento dentro del mismo flujo
@@ -610,11 +615,11 @@ WHERE
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Ejemplo de consulta: Procesar los eventos de manera independiente del sesgo de reloj del dispositivo (subflujos)
 
-**Descripción**: Los eventos pueden llegar tarde o desordenados debido a sesgos de reloj entre los productores de eventos, a sesgos de reloj entre particiones o a la latencia de red. En el ejemplo siguiente, el reloj del dispositivo para TollID 2 es de cinco segundos detrás TollID 1 y el reloj del dispositivo para TollID 3 es de diez segundos detrás de 1 TollID. 
+**Descripción**: Los eventos pueden llegar tarde o desordenados debido a sesgos de reloj entre los productores de eventos, a sesgos de reloj entre particiones o a la latencia de red. En el ejemplo siguiente, el reloj del dispositivo para TollID 2 va cinco segundos atrasado respecto a TollID 1 y el reloj del dispositivo para TollID 3 va diez segundos atrasado respecto a TollID 1. 
 
 **Entrada**:
 
-| LicensePlate | Asegúrese | Time | TollId |
+| LicensePlate | Asegúrese | Hora | TollId |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
@@ -627,7 +632,7 @@ WHERE
 
 **Salida**:
 
-| TollId | Count |
+| TollId | Recuento |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |
@@ -651,11 +656,11 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 ## <a name="query-example-remove-duplicate-events-in-a-window"></a>Ejemplo de consulta: Quitar eventos duplicados de una ventana
 
-**Descripción**: Al realizar una operación, como calcular promedios de eventos en un período de tiempo determinado, se deben filtrar los eventos duplicados. En el ejemplo siguiente, el segundo evento es un duplicado de la primera.
+**Descripción**: Al realizar una operación, como calcular promedios de eventos en un período de tiempo determinado, se deben filtrar los eventos duplicados. En el ejemplo siguiente, el segundo evento es un duplicado del primero.
 
 **Entrada**:  
 
-| DeviceId | Time | Atributo | Valor |
+| deviceId | Hora | Atributo | Valor |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
@@ -666,7 +671,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Salida**:  
 
-| AverageValue | DeviceId |
+| AverageValue | deviceId |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
@@ -696,7 +701,16 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 
 **Explicación**: [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) devuelve el número de valores distintos de la columna Time dentro de una ventana de tiempo. A continuación, puede usar la salida de este paso para calcular el promedio por dispositivo descartando los duplicados.
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="geofencing-and-geospatial-queries"></a>Consultas de geovalla y geoespaciales
+Azure Stream Analytics proporciona funciones geoespaciales integradas que se pueden usar para implementar escenarios como, por ejemplo, la administración de flotas, transporte compartido, automóviles conectados y seguimiento de recursos. Los datos geoespaciales se pueden ingerir en formato GeoJSON o WKT como parte del flujo de eventos o datos de referencia. Para más información, consulte el artículo [Escenarios de agregación geoespacial y de geovalla con Azure Stream Analytics](geospatial-scenarios.md).
+
+## <a name="language-extensibility-through-javascript-and-c"></a>Extensibilidad de lenguaje a través de JavaScript y C#
+El lenguaje de consultas de Azure Stream Analytics se puede ampliar con funciones personalizadas escritas en JavaScript o C#. Para más información, consulte los siguientes artículos:
+* [Funciones definidas por el usuario en JavaScript para Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
+* [Agregados definidos por el usuario en JavaScript para Azure Stream Analytics](stream-analytics-javascript-user-defined-aggregates.md)
+* [Desarrollar funciones definidas por el usuario de .NET Standard para trabajos perimetrales de Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)
+
+## <a name="get-help"></a>Obtención de ayuda
 
 Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
@@ -704,6 +718,6 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](ht
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

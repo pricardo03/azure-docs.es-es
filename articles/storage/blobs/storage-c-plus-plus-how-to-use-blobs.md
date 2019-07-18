@@ -9,12 +9,12 @@ ms.date: 03/21/2018
 ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 519190b6aeb313f25eddd717bce1a72148c8c518
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32601fc15e6b6a25a1005b6d95499d4aae4fb0d2
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148449"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461178"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Uso de Blob Storage en C++
 
@@ -68,7 +68,7 @@ Para iniciar Azure Storage Emulator, seleccione el botón **Inicio** o pulse la 
 
 En los ejemplos siguientes se supone que usó uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.  
 
-## <a name="retrieve-your-connection-string"></a>Recuperación de la cadena de conexión
+## <a name="retrieve-your-storage-account"></a>Recuperación de la cuenta de almacenamiento
 Puede usar la clase **cloud_storage_account** para representar la información de la cuenta de almacenamiento. Para recuperar la información de la cuenta de almacenamiento a partir de la cadena de conexión de almacenamiento, puede usar el método **parse** .  
 
 ```cpp

@@ -1,0 +1,64 @@
+---
+title: Escalabilidad - Azure Event Hubs | Microsoft Docs
+description: Se proporciona información sobre cómo escalar Azure Event Hubs.
+services: event-hubs
+documentationcenter: na
+author: ShubhaVijayasarathy
+manager: timlt
+editor: ''
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.custom: seodec18
+ms.date: 06/18/2019
+ms.author: shvija
+ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827665"
+---
+# <a name="scaling-with-event-hubs"></a>Escalado con Event Hubs
+
+Hay dos factores que influyen en el escalado con Event Hubs.
+*   Unidades de procesamiento
+*   Particiones
+
+## <a name="throughput-units"></a>Unidades de procesamiento
+
+La capacidad de rendimiento de Event Hubs se controla mediante *unidades de rendimiento*. Las unidades de procesamiento son unidades de capacidad adquiridas previamente. Un único procesamiento le permite:
+
+* Entrada: hasta 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero.
+* Salida: hasta 2 MB por segundo o 4096 eventos por segundo.
+
+Si supera la capacidad de las unidades de rendimiento adquiridas, la entrada se limitará y se devolverá una excepción [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). La salida no produce excepciones de limitación, pero sigue estando limitada a la capacidad de las unidades de rendimiento adquiridas. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de rendimiento adquirió para el espacio de nombres. Puede administrar las unidades de procesamiento en la hoja **Escala** de los espacios de nombres en [Azure Portal](https://portal.azure.com). También puede administrar unidades de procesamiento mediante programación con las [API de Event Hubs](event-hubs-api-overview.md).
+
+Las unidades de procesamiento se adquieren previamente y se facturan por hora. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres de Event Hubs y compartir entre todos los centros de eventos del espacio de nombres.
+
+La característica de **inflado automático** de Event Hubs escala verticalmente y de forma automática mediante el aumento del número de unidades de procesamiento para responder a las necesidades de utilización. Al aumentar las unidades de rendimiento, se evitan escenarios de limitación en los que nos encontramos con:
+
+- Velocidades de entrada de datos que superan las unidades de rendimiento establecidas.
+- Velocidades de solicitud de salida de datos que superan las unidades de rendimiento establecidas.
+
+El servicio Event Hubs aumenta el rendimiento cuando la carga aumenta más allá del umbral mínimo, sin que se produzca ningún problema de las solicitudes con errores de ServerBusy. 
+
+Para más información sobre la característica de inflado automático, consulte [Escalado automático de las unidades de rendimiento](event-hubs-auto-inflate.md).
+
+## <a name="partitions"></a>Particiones
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
+
+### <a name="partition-key"></a>Clave de partición
+
+Puede usar una [clave de partición](event-hubs-programming-guide.md#partition-key) para asignar datos de eventos entrantes a particiones concretas con fines de organización de los datos. La clave de partición es un valor proporcionado por el remitente que se pasa a un centro de eventos. Se procesa a través de una función hash estática que crea la asignación de la partición. Si no especifica una clave de partición cuando se publica un evento, se usa una asignación de tipo round robin.
+
+El publicador de eventos solo conoce su clave de partición, no la partición en la que se publican los eventos. Este desacoplamiento de la clave y la partición evita al remitente la necesidad de conocer demasiado sobre el procesamiento de bajada. Una identidad única por cada dispositivo o usuario es una buena clave de partición, pero otros atributos como la geografía también pueden usarse para agrupar eventos relacionados en una única partición.
+
+
+## <a name="next-steps"></a>Pasos siguientes
+Para más información acerca de Event Hubs, visite los vínculos siguientes:
+
+- [Escalado automático de las unidades de rendimiento](event-hubs-auto-inflate.md)
+- [Información general sobre el servicio Event Hubs](event-hubs-what-is-event-hubs.md)

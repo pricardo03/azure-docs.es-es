@@ -1,6 +1,6 @@
 ---
-title: API de web - configuración de aplicación de código protegida | Azure
-description: Obtenga información sobre cómo compilar una API Web protegida y configurar el código de la aplicación.
+title: 'API web protegida: configuración del código de la aplicación | Azure'
+description: Obtenga información sobre cómo compilar una API web protegida y configurar el código de la aplicación.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,31 +16,31 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e206cb29338445e30a7462bcbaf0079236e75510
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: fa262c1c6a091575a70c5670b1c7a7c96e8e2128
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074971"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536886"
 ---
-# <a name="protected-web-api---code-configuration"></a>API - configuración de código web protegida
+# <a name="protected-web-api-code-configuration"></a>API web protegida: Configuración del código
 
-Para configurar correctamente el código de la API web protegida, deberá comprender lo que hace que las API protegidas, lo que necesita configurar el token de portador y cómo validar el token.
+Para configurar el código de la API web protegida, deberá entender lo que define que las API sean protegidas, cómo configurar un token de portador y cómo validar el token.
 
-## <a name="what-makes-aspnetaspnet-core-apis-protected"></a>¿Cuáles son las API de Core ASP.NET/ASP.NET protegidas?
+## <a name="what-defines-aspnetaspnet-core-apis-as-protected"></a>¿Qué define que las API de ASP.NET o ASP.NET Core sean protegidas?
 
-Al igual que en las aplicaciones web, el ASP.NET/ASP.NET core web API están "protegidas" porque tienen el prefijo sus acciones de controlador la `[Authorize]` atributo. Por lo tanto, solo se pueden llamar las acciones del controlador si se llama a la API con una identidad que está autorizada.
+Al igual que las aplicaciones web, las API web de ASP.NET o ASP.NET Core están "protegidas" porque las acciones del controlador tienen como prefijo el atributo `[Authorize]`. Por lo tanto, las acciones del controlador se pueden llamar solo si se llama a la API con una identidad que está autorizada.
 
-Tenga en cuenta las siguientes preguntas:
+Tenga en cuenta las preguntas siguientes:
 
-- ¿Cómo sabe la API web de la identidad de la aplicación que lo llama (solo una aplicación puede llamar a una API web)?
-- Si la aplicación llama a la API web en nombre de un usuario, ¿qué es la identidad del usuario?
+- ¿Cómo conoce la API web la identidad de la aplicación que le llama? (Solo una aplicación puede llamar a una API web).
+- Si la aplicación ha llamado a la API web en nombre de un usuario, ¿cuál es la identidad del usuario?
 
 ## <a name="bearer-token"></a>Token de portador
 
-La información sobre la identidad de la aplicación y el usuario (a menos que la aplicación web acepta llamadas de servicio a servicio desde una aplicación de demonio), se mantiene en el token de portador que se establece en el encabezado al llamar a la aplicación.
+La información sobre la identidad de la aplicación y el usuario (a menos que la aplicación web acepte llamadas de servicio a servicio desde una aplicación demonio), se mantiene en el token de portador que se ha establecido en el encabezado cuando se llama a la aplicación.
 
-Este es un C# ejemplo de código que se muestra un cliente llama a la API después de adquirir un token con MSAL.NET.
+Este es un ejemplo de código de C# que muestra a un cliente que llama a la API después de adquirir un token con la biblioteca de autenticación de Microsoft para .NET (MSAL.NET):
 
 ```CSharp
 var scopes = new[] {$"api://.../access_as_user}";
@@ -55,11 +55,11 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> Se solicitó el token de portador por una aplicación cliente para el punto de conexión de plataforma de identidad de Microsoft **para la API web**. La API web es la única aplicación que debe comprobar el token y examine las notificaciones que contiene. Las aplicaciones cliente nunca deben mirar las notificaciones en los tokens (la API web podría decidir, en el futuro, que exige que el token se cifren y esto interrumpirá la aplicación cliente que puede descifrar abrir los tokens de acceso).
+> Una aplicación cliente ha solicitado el token de portador para el punto de conexión de la plataforma de identidad de Microsoft *para la API web*. La API web es la única aplicación que debe comprobar el token y ver las notificaciones que contiene. Las aplicaciones cliente nunca deben intentar inspeccionar las notificaciones de los tokens. (La API web puede necesitar, en el futuro, que se cifre el token. Este requisito podría impedir el acceso para las aplicaciones cliente que pueden ver los tokens de acceso).
 
 ## <a name="jwtbearer-configuration"></a>Configuración de JwtBearer
 
-En esta sección cubre lo que necesita configurar el token de portador.
+En esta sección se describe cómo configurar un token de portador.
 
 ### <a name="config-file"></a>Archivo config
 
@@ -70,11 +70,11 @@ En esta sección cubre lo que necesita configurar el token de portador.
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
     /*
       You need specify the TenantId only if you want to accept access tokens from a single tenant
-     (line of business app)
-      Otherwise you can leave them set to common
+     (line-of-business app).
+      Otherwise, you can leave them set to common.
       This can be:
-      - A guid (Tenant ID = Directory ID)
-      - 'common' (Any organization and personal accounts)
+      - A GUID (Tenant ID = Directory ID)
+      - 'common' (any organization and personal accounts)
       - 'organizations' (any organization)
       - 'consumers' (Microsoft personal accounts)
     */
@@ -91,29 +91,29 @@ En esta sección cubre lo que necesita configurar el token de portador.
 
 ### <a name="code-initialization"></a>Inicialización del código
 
-Cuando se llama a la aplicación en la explotación de acción de controlador un `[Authorize]` atributo, core ASP.NET/ASP.NET examina el token de portador en el encabezado de autorización de la solicitud que realiza la llamada y extrae el token de acceso que se reenvía posteriormente a la JwtBearer middleware, que llama a las extensiones del modelo de identidad de Microsoft para. NET.
+Cuando se llama a una aplicación en una acción de controlador que contiene un atributo `[Authorize]`, ASP.NET o ASP.NET Core examinan el token de portador en el encabezado de autorización de la solicitud que realiza la llamada y extrae el token de acceso. Después, el token se reenvía al middleware JwtBearer, que llama a las extensiones de Microsoft IdentityModel para .NET.
 
-En ASP.NET Core, este software intermedio se inicializa en el `Startup.cs` archivo.
+En ASP.NET Core, este middleware se inicializa en el archivo Startup.cs:
 
 ```CSharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 ```
 
-El software intermedio se agrega a la API web mediante la siguiente instrucción:
+El middleware se agrega a la API web mediante esta instrucción:
 
 ```CSharp
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
- Actualmente, las plantillas de ASP.NET Core crean las API de web de Azure AD v1.0. Sin embargo, puede cambiar fácilmente para que usen el punto de conexión de plataforma de identidad de Microsoft, agregue el código siguiente en el `Startup.cs` archivo.
+ Actualmente, las plantillas de ASP.NET Core crean API web de Azure Active Directory (Azure AD) a las que se conectan usuarios dentro de su organización o de cualquier organización, no con cuentas personales. Pero puede cambiarlas fácilmente para que usen el punto de conexión de la plataforma de identidad de Microsoft mediante la adición de este código al archivo Startup.cs:
 
 ```CSharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
 {
-    // This is a Microsoft identity platform v2.0 web API
+    // This is a Microsoft identity platform v2.0 web API.
     options.Authority += "/v2.0";
 
-    // The web API accepts as audiences are both the Client ID (options.Audience) and api://{ClientID}
+    // The web API accepts as audiences both the Client ID (options.Audience) and api://{ClientID}.
     options.TokenValidationParameters.ValidAudiences = new []
     {
      options.Audience,
@@ -121,42 +121,42 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
     };
 
     // Instead of using the default validation (validating against a single tenant,
-    // as we do in line of business apps),
-    // we inject our own multi-tenant validation logic (which even accepts both V1 and V2 tokens)
+    // as we do in line-of-business apps),
+    // we inject our own multitenant validation logic (which even accepts both v1 and v2 tokens).
     options.TokenValidationParameters.IssuerValidator = AadIssuerValidator.ValidateAadIssuer;
 });
 ```
 
 ## <a name="token-validation"></a>Validación de tokens
 
-El software intermedio JwtBearer, al igual que el middleware OpenID Connect en aplicaciones web, se dirige por el `TokenValidationParameters` para validar el token. El token se descifra (si es necesario), las notificaciones se extraen y se comprueba la firma. A continuación, el token se valida mediante la comprobación de los datos siguientes:
+El middleware JwtBearer, al igual que el middleware OpenID Connect de las aplicaciones web, lo dirige `TokenValidationParameters` con el fin de validar el token. El token se descifra (según sea necesario), se extraen las notificaciones y se comprueba la firma. Después, el middleware valida el token mediante la comprobación de estos datos:
 
-- Está destinada a la web API (público)
-- Se ha emitido para una aplicación que se puede llamar a la web API (sub)
-- Se ha emitido por un control Token de seguridad servidor (STS) (emisor)
-- Duración del token está en el intervalo (expiración)
-- No se ha manipulado de (firma)
+- Está destinada a la API web (público).
+- Se ha emitido para una aplicación que puede llamar a la API web (sub).
+- Lo ha emitido un servicio de token de seguridad (STS) de confianza (emisor).
+- Su duración está dentro del rango (expiración).
+- No se ha alterado con (firma).
 
-También puede haber validaciones especiales. Por ejemplo, es posible validar que las claves de firma (cuando se insertan en un token) son de confianza y que no se está reproduciendo el token. Por último, algunos protocolos requieren validaciones específicas.
+También puede haber validaciones especiales. Por ejemplo, es posible validar que las claves de firma (cuando se insertan en un token) sean de confianza y que el token no se esté reproduciendo. Por último, algunos protocolos requieren validaciones específicas.
 
 ### <a name="validators"></a>Validadores
 
-Los pasos de validación se capturan en los validadores, que están en el [extensión de modelo de identidad de Microsoft para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) biblioteca de código abierto, en un archivo de origen: [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs)
+Los pasos de validación se capturan en los validadores, que están en la biblioteca de código abierto [extensiones de Microsoft IdentityModel para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet), en un archivo de origen: [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
 
-En la tabla siguiente se describen los validadores:
+En esta tabla se describen los validadores:
 
-| Control de validación | DESCRIPCIÓN |
+| Validador | DESCRIPCIÓN |
 |---------|---------|
-| `ValidateAudience` | Garantiza que el token para la aplicación que valida el token (para mí). |
-| `ValidateIssuer` | Garantiza que el token fue emitido por un STS de confianza (de alguien que confía). |
-| `ValidateIssuerSigningKey` | Garantiza que la aplicación valida el token confianzas la clave que se usó para firmar el token (caso especial que la clave se incrusta en el token, normalmente no es necesario). |
-| `ValidateLifetime` | Garantiza que el token es válido aún (o ya). Realiza comprobando que la duración del token (`notbefore`, `expires` notificaciones) está en el intervalo. |
-| `ValidateSignature` | Garantiza que el token no ha sido alterado. |
-| `ValidateTokenReplay` | Garantiza que el token no se reproduce (caso especial para algunos protocolos de uso onetime). |
+| `ValidateAudience` | Garantiza que el token es para la aplicación que valida el token (para mí). |
+| `ValidateIssuer` | Garantiza que el token lo ha emitido un STS de confianza (de alguien en quien confío). |
+| `ValidateIssuerSigningKey` | Garantiza que la aplicación que valida el token confía en la clave que se ha usado para firmar el token. (Caso especial en el que la clave se inserta en el token. Normalmente no es necesario). |
+| `ValidateLifetime` | Garantiza que el token todavía es válido (o que ya lo es). El validador comprueba si la duración del token (notificaciones `notbefore` y `expires`) está dentro del rango. |
+| `ValidateSignature` | Garantiza que el token no se ha alterado. |
+| `ValidateTokenReplay` | Garantiza que el token no se ha reproducido. (Caso especial para algunos protocolos de un solo uso). |
 
-Los validadores están asociados con las propiedades de la `TokenValidationParameters` clase propios inicializado a partir de la configuración de Core ASP.NET/ASP.NET. En la mayoría de los casos, no tendrá que cambiar los parámetros. Hay una excepción para aplicaciones que no usan inquilinos únicos (es decir, las aplicaciones web que acepten los usuarios de cualquier organización o cuentas personales de Microsoft), en este caso, se debe validar el emisor.
+Los validadores están asociados con las propiedades de la clase `TokenValidationParameters`, y se inicializan a partir de la configuración ASP.NET o ASP.NET Core. En la mayoría de los casos, no se tendrán que cambiar los parámetros. Hay una excepción para las aplicaciones que no son inquilinos únicos. (Es decir, aplicaciones web que aceptan usuarios de cualquier organización o de cuentas personales de Microsoft). En este caso, el emisor debe validarse.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Pasar a producción](scenario-protected-web-api-production.md)
+> [Comprobación de los ámbitos y roles de aplicación en el código](scenario-protected-web-api-verification-scope-app-roles.md)

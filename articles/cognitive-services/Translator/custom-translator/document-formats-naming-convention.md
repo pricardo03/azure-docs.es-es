@@ -2,19 +2,19 @@
 title: 'Formatos y convenciones de nomenclatura para documentos: Custom Translator'
 titleSuffix: Azure Cognitive Services
 description: A continuación se presenta una guía sobre los formatos y convenciones de nomenclatura de documentos en Custom Translator. Este concepto ayuda a administrar mejor los nombres de los documentos y a evitar los conflictos relacionados con nombres.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 29b74aeaaae0bcfd5f6ae4a3c38cc00176292899
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: 2f7a83be510e608bb3f630a2fb1860502d8e4475
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386914"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443419"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guía sobre formatos y convenciones de nomenclatura para documentos
 
@@ -31,13 +31,13 @@ Esta tabla incluye todos los formatos de archivo compatibles que puede usar para
 | Microsoft Word    | .DOCX        | Documento de Microsoft Word                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | .PDF         | Documento portátil de Adobe Acrobat                                                                                                                                                                                                                                                |
 | HTML              | .HTML, .HTM  | Documento HTML                                                                                                                                                                                                                                                                  |
-| Archivo de texto         | .TXT         | UTF-16 o UTF-8 con la codificación de archivos de texto. El nombre de archivo no debe contener los caracteres japoneses.                                                                                                                                                                                        |
+| Archivo de texto         | .TXT         | Archivos de texto codificados en UTF-16 o UTF-8. El nombre de archivo no debe contener caracteres japoneses.                                                                                                                                                                                        |
 | Archivo de texto alineado | .ALIGN       | La extensión `.ALIGN` es una extensión especial que puede usar si sabe que las oraciones del par de documentos están perfectamente alineadas. Si proporciona un archivo `.ALIGN`, Custom Translator no alineará las oraciones por usted. |
 | Archivo de Excel        | .XLSX        | Archivo de Excel (2013 o posterior). La primera línea o fila de la hoja de cálculo debe ser el código de idioma.                                                                                                                                                                                                                                                      |
 
 ## <a name="dictionary-formats"></a>Formatos de diccionario
 
-Para los diccionarios, Custom Translator es compatible con todos los formatos de archivo, incluidos los que se admiten para el conjunto de aprendizaje. Si está utilizando un diccionario de Excel, asegúrese de que la primera línea o fila de la hoja de cálculo contiene los códigos de idioma.
+Para los diccionarios, Traductor personalizado es compatible con todos los formatos de archivo que se admiten para los conjuntos de entrenamiento. Si está utilizando un diccionario de Excel, la primera línea o fila de la hoja de cálculo debe contener códigos de idioma.
 
 ## <a name="zip-file-formats"></a>Formatos de archivo ZIP
 

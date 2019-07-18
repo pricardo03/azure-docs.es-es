@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 6bba176a27cc70321915654e3e2e62320f22c16c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475221"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310142"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar un nombre de dominio personalizado para Azure App Service
 
-Dominios de App Service son dominios de nivel superior que se administran directamente en Azure. Facilitan la administración de dominios personalizados para [Azure App Service](overview.md). En este tutorial se muestra cómo comprar un dominio de App Service y asignar nombres DNS a Azure App Service.
+Los dominios de App Service son dominios de nivel superior que se administran directamente en Azure. Facilitan la administración de dominios personalizados para [Azure App Service](overview.md). En este tutorial se muestra cómo comprar un dominio de App Service y asignar nombres DNS a Azure App Service.
 
 Para Azure Virtual Machines o Azure Storage, vea [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Asignación del dominio de App Service a Azure Virtual Machines o Azure Storage). Para Cloud Services, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
@@ -80,7 +80,7 @@ Cuando vea la siguiente notificación, significará que la operación de escalad
 ## <a name="buy-the-domain"></a>Comprar el dominio
 
 ### <a name="pricing-information"></a>Información de precios
-Para más información sobre dominios de Azure App Service, visite la [página precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) y desplácese hasta el dominio de App Service.
+Para obtener información sobre precios de los dominios de Azure App Service, visite la [página de precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) y desplácese hasta el dominio de App Service.
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Abra [Azure Portal](https://portal.azure.com/) e inicie sesión con su cuenta de Azure.
@@ -126,7 +126,7 @@ A continuación, seleccione las opciones que quiera para el dominio. Para obtene
 Haga clic en **Condiciones legales** para consultar las condiciones y los gastos y, después, haga clic en **Comprar**.
 
 > [!NOTE]
-> Dominios de App Service use GoDaddy para el registro de dominio y DNS de Azure para hospedar los dominios. Además de la tarifa de registro del dominio, se aplican cargos de uso de DNS de Azure. Para obtener más información, vea [DNS de Azure Precios](https://azure.microsoft.com/pricing/details/dns/).
+> Los dominios de App Service usan GoDaddy para el registro de dominio y Azure DNS para hospedar los dominios. Además de la tarifa de registro del dominio, se aplican cargos de uso de DNS de Azure. Para obtener más información, vea [DNS de Azure Precios](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -147,14 +147,14 @@ También verá los nombres de host seleccionados en la página **Dominios person
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> Un **Nota Secure** etiqueta para su dominio personalizado significa que aún no está enlazado a un certificado SSL y recibirá cualquier solicitud HTTPS desde un explorador a su dominio personalizado y error o advertencia, dependiendo del explorador. Para configurar el enlace SSL, consulte [comprar y configurar un certificado SSL para Azure App Service](web-sites-purchase-ssl-web-site.md).
+> Si un dominio personalizado contiene la etiqueta **Not Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para configurar el enlace SSL, consulte [Compra y configuración de un certificado SSL para Azure App Service](web-sites-purchase-ssl-web-site.md).
 >
 
 Para probar los nombres de host, vaya a los nombres de host enumerados en el explorador. En el ejemplo de la captura de pantalla anterior, intente navegar a _kontoso.net_ y _www\.kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Asignar nombres de host a la aplicación
 
-Si decide no asignar uno o varios nombres de host predeterminados a la aplicación durante el proceso de compra, o si tiene que asignar un nombre de host no aparece, puede asignar un nombre de host en cualquier momento.
+Si decide no asignar uno o varios nombres de host predeterminados a la aplicación durante el proceso de compra, o si tiene que asignar un nombre de host que no aparece, puede asignar un nombre de host en cualquier momento.
 
 También puede asignar nombres de host en el dominio de App Service a cualquier otra aplicación. Los pasos dependen de si el dominio de App Service y la aplicación pertenecen a la misma suscripción.
 
@@ -205,7 +205,7 @@ Vaya a los nombres de host enumerados en el explorador. En el ejemplo de la capt
 
 ## <a name="renew-the-domain"></a>Renovación del dominio
 
-El dominio de App Service que compró es válido durante un año a partir del momento de la compra. De forma predeterminada, el dominio está configurado para renovarse automáticamente, y el cargo se realizará el próximo año según el método de pago especificado. Puede renovar manualmente el nombre de dominio.
+El dominio de App Service que compró es válido durante un año a partir del momento de la compra. De forma predeterminada, el dominio está configurado para renovarse automáticamente, y el cargo se realizará el próximo año según el método de pago especificado. También puede renovar manualmente el nombre de dominio.
 
 Si desea desactivar la renovación automática, o si desea renovar manualmente su dominio, siga estos pasos.
 
@@ -221,21 +221,21 @@ En el panel de navegación izquierdo del dominio, seleccione **Renovación de do
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Para renovar el dominio manualmente, seleccione **Renovar dominio**. Sin embargo, este botón no está activo hasta que [90 días antes de la expiración del dominio](#when-domain-expires).
+Para renovar el dominio manualmente, seleccione **Renovar dominio**. Sin embargo, este botón no está activo hasta [noventa días antes de la expiración del dominio](#when-domain-expires).
 
-Si la renovación del dominio se realiza correctamente, recibirá una notificación por correo electrónico en 24 horas.
+Si la renovación del dominio se realiza correctamente, recibirá una notificación por correo electrónico dentro de un plazo de 24 horas.
 
 ## <a name="when-domain-expires"></a>Cuando expira el dominio
 
-Azure se ocupa de que expire o caducado dominios de App Service como sigue:
+Azure procesa los dominios de App Service expirados o que están por expirar del modo siguiente:
 
-* Si se deshabilita la renovación automática: 90 días antes de la expiración del dominio, se envía un correo electrónico de notificación de renovación para usted y el **renovar dominio** botón está activado en el portal.
-* Si se habilita la renovación automática: El día después de la fecha de expiración del dominio, Azure intenta cobrarle por la renovación de nombre de dominio.
-* Si se produce un error durante la renovación automática (por ejemplo, ha caducado la tarjeta en el archivo), o si la renovación automática está deshabilitada y permitir el dominio expire, Azure le avisa de la expiración del dominio y parques su nombre de dominio. También puede [renovar manualmente](#renew-the-domain) su dominio.
-* El día 4 y 12 días tras la expiración, Azure envía correos electrónicos de notificación adicional. También puede [renovar manualmente](#renew-the-domain) su dominio.
-* El 19 de día tras la expiración, el dominio permanece en espera pero quede sujeta a un precio de canje. Puede llamar a soporte al cliente para renovar su nombre de dominio, sujetos a cuotas de canje y cualquier renovación aplicable.
-* El día 25 tras la expiración, Azure pone a su dominio en subasta con un servicio de subasta del sector de nombres de dominio. Puede llamar a soporte al cliente para renovar su nombre de dominio, sujetos a cuotas de canje y cualquier renovación aplicable.
-* En el día 30 tras la expiración, ya no pueden canjear su dominio.
+* Si la renovación automática está deshabilitada: 90 días antes de la expiración del dominio, se le envía un correo electrónico de notificación de renovación y el botón **Renovar dominio** se activa en el portal.
+* Si la renovación automática está habilitada: el día después de la fecha de expiración del dominio, Azure intenta cobrarle por la renovación del nombre de dominio.
+* Si se produce un error durante la renovación automática (por ejemplo, expiró la tarjeta en el archivo) o si la renovación automática está deshabilitada y permite que el dominio expire, Azure le avisa de la expiración del dominio y aparca el nombre de dominio. También puede [renovar manualmente](#renew-the-domain) su dominio.
+* 4 y 12 días después de la expiración, Azure envía correos electrónicos de notificación adicionales. También puede [renovar manualmente](#renew-the-domain) su dominio.
+* 19 días después de la expiración, el dominio permanece en espera, pero queda sujeta a un precio de canje. Puede llamar al soporte al cliente para renovar su nombre de dominio, sujeto a cuotas de canje y renovación aplicables.
+* 25 días después de la expiración, Azure pone al dominio en subasta con un servicio de subasta de nombres de dominio del sector. Puede llamar al soporte al cliente para renovar su nombre de dominio, sujeto a cuotas de canje y renovación aplicables.
+* 30 días después de la expiración, ya no podrá canjear su dominio.
 
 <a name="custom"></a>
 

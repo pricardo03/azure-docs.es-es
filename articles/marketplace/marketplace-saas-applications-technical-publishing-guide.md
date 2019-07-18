@@ -6,13 +6,13 @@ author: keithcharlie
 ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: keithcharlie
-ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kevidal
+ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752727"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876532"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guía de publicación de ofertas de aplicaciones de SaaS
 
@@ -104,7 +104,7 @@ El uso de Azure AD para habilitar la autenticación con un solo clic en su aplic
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certificación de la integración de Azure AD para Marketplace  
 
-Puede certificar la integración de Azure AD de varias maneras, en función de si la aplicación es de un inquilino único o si es multiinquilino, y de si no está familiarizado con el inicio de sesión único (SSO) federado de Azure AD o si ya lo admite.  
+Certifique la integración de Azure AD de varias maneras, en función de si la aplicación es de un inquilino único o si es multiinquilino, y de si está o no familiarizado con el inicio de sesión único (SSO) federado de Azure AD o si ya lo admite.  
 
 **Para aplicaciones multiinquilino:**  
 

@@ -14,22 +14,22 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 5c6ad222110081cd8f8838208da407e0e1d50f75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8be34a85cb1a1863ee8a78c7b97af66627612fea
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "54851273"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444742"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla mediante una plantilla de Azure Resource Manager
 
 En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Service Bus con un tema, una suscripción y una regla (filtro). En el artículo se explica cómo especificar los recursos que se implementan y cómo definir los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager).
+Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Para más información sobre prácticas y patrones de convenciones de nomenclatura de recursos de Azure, consulte [Recommended naming conventions for Azure resources][Recommended naming conventions for Azure resources](Convenciones de nomenclatura recomendadas para los recursos de Azure).
+Para más información sobre procedimientos y patrones de convenciones de nomenclatura de recursos de Azure, vea [Convenciones de nomenclatura recomendadas para recursos de Azure][Recommended naming conventions for Azure resources].
 
-Para verla completa, consulte la plantilla de [espacio de nombres de Service Bus con tema, suscripción y regla][Service Bus namespace with topic, subscription, and rule].
+Para ver la plantilla completa, consulte el artículo sobre el [espacio de nombres de Service Bus con un tema, suscripción y una regla][Service Bus namespace with topic, subscription, and rule].
 
 > [!NOTE]
 > Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación.
@@ -39,7 +39,7 @@ Para verla completa, consulte la plantilla de [espacio de nombres de Service Bus
 > * [Creación de un espacio de nombres de Service Bus](service-bus-resource-manager-namespace.md)
 > * [Creación de un espacio de nombres de Service Bus con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 > 
-> Para buscar las últimas plantillas, visite la galería [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque "Service Bus".
+> Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque Service Bus.
 > 
 > 
 
@@ -171,7 +171,7 @@ Para conocer la sintaxis y las propiedades JSON, consulte [espacios de nombres](
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 ```azurecli
 azure config mode arm
 
@@ -179,7 +179,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha creado e implementado recursos con Azure Resource Manager, estos artículos le enseñarán como administrarlos:
+Vea el siguiente tema, donde se explica cómo crear un filtro de suscripción: [Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla mediante una plantilla de Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
+
+Vea los siguientes artículos para aprender a administrar estos recursos:
 
 * [Administración de Azure Service Bus](service-bus-management-libraries.md)
 * [Administración de Service Bus con PowerShell](service-bus-manage-with-ps.md)

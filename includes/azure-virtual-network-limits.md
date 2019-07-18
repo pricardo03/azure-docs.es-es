@@ -5,37 +5,17 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 813c8e92907a60046c2e53f97d4dd05125076241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e66bf61caf786473d89eab9a6567bb05aff0d19
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133196"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457536"
 ---
-<a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación **clásico** por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
-
-| Recurso | Límite predeterminado | Límite máximo |
-| --- | --- | --- |
-| Redes virtuales |50 |100 |
-| Sitios de red local |20 |Póngase en contacto con el servicio de soporte técnico. |
-| Servidores DNS por red virtual |20 |20 |
-| Direcciones IP privadas por red virtual |4 096 |4 096 |
-| Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500 000, hasta 1 000 000 de dos o varias NIC. |500 000, hasta 1 000 000 de dos o varias NIC. |
-| Grupos de seguridad de red (NSG) |200 |200 |
-| Reglas de NSG por NSG |1000 |1000 |
-| Tablas de rutas definidas por el usuario |200 |200 |
-| Rutas definidas por el usuario por tabla de ruta |400 |400 |
-| Direcciones IP públicas (dinámicas) |5 |Ponerse en contacto con soporte técnico |
-| Direcciones IP públicas reservadas |20 |Ponerse en contacto con soporte técnico |
-| VIP pública por implementación |5 |Ponerse en contacto con soporte técnico |
-| VIP privada (equilibrio de carga interno) por implementación |1 |1 |
-| Listas de control de acceso (ACL) de punto de conexión |50 |50 |
-
-#### <a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
-Los límites siguientes solo se aplican a los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
+<a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes: Azure Resource Manager Los siguientes límites solo son válidos en los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
 > Recientemente hemos aumentado todos los límites predeterminados a sus límites máximos. Si no hay ninguna columna de límite máximo, el recurso no tiene límites ajustables. Si el soporte técnico ha aumentado estos límites en el pasado y no ve los límites actualizados en las tablas siguientes, [abra una solicitud de soporte técnico al cliente en línea sin cargo](../articles/azure-resource-manager/resource-manager-quota-errors.md)
@@ -70,7 +50,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados me
 | Direcciones IP públicas - dinámicas | 1000 para Basic. |Póngase en contacto con el servicio de soporte técnico. |
 | Direcciones IP públicas - estáticas | 1000 para Basic. |Póngase en contacto con el servicio de soporte técnico. |
 | Direcciones IP públicas - estáticas | 200 para Estándar.|Póngase en contacto con el servicio de soporte técnico. |
-| Tamaño del prefijo de IP pública | /28 | Póngase en contacto con el servicio de soporte técnico. |
+| Longitud del prefijo de IP pública | /28 | Póngase en contacto con el servicio de soporte técnico. |
 
 #### <a name="load-balancer"></a>Límites del equilibrador de carga
 Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
@@ -91,3 +71,21 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 
 <sup>1</sup>El límite es de hasta 150 recursos, en cualquier combinación de recursos de máquinas virtuales independientes, recursos de conjuntos de disponibilidad y recursos de conjuntos de escalado de máquinas virtuales.
 
+#### <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación **clásico** por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
+
+| Recurso | Límite predeterminado | Límite máximo |
+| --- | --- | --- |
+| Redes virtuales |100 |100 |
+| Sitios de red local |20 |Póngase en contacto con el servicio de soporte técnico. |
+| Servidores DNS por red virtual |20 |20 |
+| Direcciones IP privadas por red virtual |4 096 |4 096 |
+| Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500 000, hasta 1 000 000 de dos o varias NIC. |500 000, hasta 1 000 000 de dos o varias NIC. |
+| Grupos de seguridad de red (NSG) |200 |200 |
+| Reglas de NSG por NSG |1000 |1000 |
+| Tablas de rutas definidas por el usuario |200 |200 |
+| Rutas definidas por el usuario por tabla de ruta |400 |400 |
+| Direcciones IP públicas (dinámicas) |500 |500 |
+| Direcciones IP públicas reservadas |500 |500 |
+| VIP pública por implementación |5 |Ponerse en contacto con soporte técnico |
+| VIP privada (equilibrio de carga interno) por implementación |1 |1 |
+| Listas de control de acceso (ACL) de punto de conexión |50 |50 |

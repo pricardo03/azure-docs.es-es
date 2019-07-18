@@ -4,14 +4,14 @@ description: Cómo conectarse al clúster de vFXT y al panel de control basado e
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 06/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 830be92d37f304598cca05c3ac80973158c38a59
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794305"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439985"
 ---
 # <a name="access-the-vfxt-cluster"></a>Acceso al clúster de vFXT
 
@@ -27,9 +27,11 @@ Dado que el clúster de vFXT se encuentra dentro de una red virtual privada, deb
 
 Antes de conectarse, asegúrese de que el par de claves pública y privada SSH que usó al crear el controlador del clúster está instalado en el equipo local. Lea la documentación de las claves SSH para [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) o para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) si necesita ayuda. (Si utilizó una contraseña en lugar de una clave pública, se le pedirá que la escriba cuando se conecte). 
 
-## <a name="ssh-tunnel-with-a-linux-host"></a>Túnel SSH con un host Linux
+## <a name="create-an-ssh-tunnel"></a>Creación de un túnel SSH 
 
-Si utiliza un cliente basado en Linux, use un comando de tunelización de SSH con el siguiente formato: 
+Puede crear un túnel SSH desde la línea de comandos de un sistema de cliente basado en Linux o Windows 10. 
+
+Use un comando de tunelización SSH con este formato: 
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
@@ -40,28 +42,6 @@ Ejemplo:
 ```sh
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
-
-La autenticación es automática si usa la clave pública SSH para crear el clúster y la clave correspondiente está instalada en el sistema cliente. Si usó una contraseña, el sistema le pedirá que la escriba.
-
-## <a name="ssh-tunnel-with-a-windows-host"></a>Túnel SSH con un host Windows
-
-En este ejemplo se usa la utilidad común de terminal basada en Windows: PuTTY.
-
-Rellene el campo **nombre de usuario** de PuTTY con el nombre de usuario del controlador del clúster y su dirección IP: *su_nombre_de_usuario*\@*IP_pública_del_controlador*.
-
-Ejemplo: ``azureuser@203.0.113.51``
-
-En el panel **Configuración**:
-
-1. Expanda **Conexión** > **SSH** a la izquierda. 
-1. Haga clic en **Túneles**. 
-1. Escriba un puerto de origen, como 8443. 
-1. Para el destino, escriba la dirección IP del clúster de vFXT y el puerto 443. 
-   Ejemplo: ``203.0.113.51:443``
-1. Haga clic en **Agregar**.
-1. Haga clic en **Abrir**.
-
-![Captura de pantalla de la aplicación Putty que muestra dónde hacer clic para agregar un túnel](media/avere-vfxt-ptty-numbered.png)
 
 La autenticación es automática si usa la clave pública SSH para crear el clúster y la clave correspondiente está instalada en el sistema cliente. Si usó una contraseña, el sistema le pedirá que la escriba.
 

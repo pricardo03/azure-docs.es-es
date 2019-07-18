@@ -1,26 +1,25 @@
 ---
-title: Referencia de API texto a voz (REST) - servicios de voz
+title: 'Referencia de la API Text-to-Speech (REST): Servicios de voz'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo usar la API de REST de texto a voz. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
+description: Aprenda a usar la API de REST Text-to-Speech. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237103"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604884"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
-Los servicios de voz permiten [convertir texto en voz sintetizada](#convert-text-to-speech) y [obtener una lista de admitidos voces](#get-a-list-of-voices) para una región con un conjunto de API de REST. Cada punto de conexión disponible se asocia con una región. Se requiere una clave de suscripción para el punto de conexión o región que se va a usar.
+Los Servicios de voz le permiten [convertir texto en voz sintetizada](#convert-text-to-speech) y [obtener una lista de voces admitidas](#get-a-list-of-voices) para una región con un conjunto de API de REST. Cada punto de conexión disponible se asocia con una región. Se requiere una clave de suscripción para el punto de conexión o región que se va a usar.
 
 Text to Speech REST API admite voces neuronales y de texto a voz estándar, y cada una de ellas admite un idioma y un dialecto específicos, que se identifican mediante la configuración regional.
 
@@ -30,33 +29,33 @@ Text to Speech REST API admite voces neuronales y de texto a voz estándar, y ca
 > [!IMPORTANT]
 > Los costes varían para voces estándar, personalizadas y neuronales. Para obtener más información, consulte el apartado [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Antes de utilizar esta API, entender:
+Antes de utilizar esta API, comprenda:
 
 * La API REST de texto a voz requiere un encabezado de autorización. Esto significa que tiene que completar un intercambio de tokens para acceder al servicio. Para más información, consulte [Autenticación](#authentication).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="get-a-list-of-voices"></a>Obtener una lista de las voces
+## <a name="get-a-list-of-voices"></a>Obtener una lista de voces
 
-El `voices/list` punto de conexión le permite obtener una lista completa de las voces de una región o punto de conexión concreto.
+El punto de conexión `voices/list` le permite obtener una lista completa de las voces de una región o punto de conexión en concreto.
 
 ### <a name="regions-and-endpoints"></a>Regiones y puntos de conexión
 
-| Área | Punto de conexión |
+| Region | Punto de conexión |
 |--------|----------|
 | Este de Australia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sur de Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro de Canadá | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro de EE. UU. | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Este de Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Este de EE. UU. | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Asia oriental | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Este de EE. UU | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Este de EE. UU. 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro de Francia | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | India central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Este de Japón | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Corea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Norte de EE. UU | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Norte de Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europa del Norte | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Sur de EE. UU | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sur del Reino Unido 2 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -66,7 +65,7 @@ El `voices/list` punto de conexión le permite obtener una lista completa de las
 
 ### <a name="request-headers"></a>Encabezados de solicitud
 
-Esta tabla enumeran los encabezados necesarios y opcionales para las solicitudes de texto a voz.
+En esta tabla se enumeran los encabezados obligatorios y opcionales para las solicitudes de texto a voz.
 
 | Encabezado | DESCRIPCIÓN | Obligatorio u opcional |
 |--------|-------------|---------------------|
@@ -74,7 +73,7 @@ Esta tabla enumeran los encabezados necesarios y opcionales para las solicitudes
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
-No es necesario para un cuerpo `GET` las solicitudes a este punto de conexión.
+No es necesario un cuerpo para las solicitudes `GET` a este punto de conexión.
 
 ### <a name="sample-request"></a>Solicitud de ejemplo
 
@@ -92,7 +91,7 @@ Authorization: Bearer [Base64 access_token]
 Esta respuesta se ha truncado para ilustrar la estructura de una respuesta.
 
 > [!NOTE]
-> Disponibilidad de voz varía según la región/punto de conexión.
+> La disponibilidad de voces varía según la región o el punto de conexión.
 
 ```json
 [
@@ -138,16 +137,16 @@ El estado HTTP de cada respuesta indica estados de corrección o error comunes.
 
 | Código de estado HTTP | DESCRIPCIÓN | Posible motivo |
 |------------------|-------------|-----------------|
-| 200 | OK | La solicitud es correcta. |
-| 400 | Solicitud incorrecta | Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo. |
-| 401 | Sin autorización | La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta. |
+| 200 | OK | La solicitud fue correcta. |
+| 400 | Bad Request | Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo. |
+| 401 | No autorizado | La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta. |
 | 429 | Demasiadas solicitudes | Ha superado la cuota o la tasa de solicitudes permitidas para su suscripción. |
-| 502 | Puerta de enlace no válida | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
+| 502 | Puerta de enlace incorrecta | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
 
 
 ## <a name="convert-text-to-speech"></a>Conversión de texto a voz
 
-El `v1` punto de conexión le permite convertir texto a voz usando [lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md).
+El punto de conexión `v1` le permite convertir texto a voz usando [lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md).
 
 ### <a name="regions-and-endpoints"></a>Regiones y puntos de conexión
 
@@ -157,7 +156,7 @@ Estas regiones son compatibles con la conversión de texto a voz mediante la API
 
 ### <a name="request-headers"></a>Encabezados de solicitud
 
-Esta tabla enumeran los encabezados necesarios y opcionales para las solicitudes de texto a voz.
+En esta tabla se enumeran los encabezados obligatorios y opcionales para las solicitudes de texto a voz.
 
 | Encabezado | DESCRIPCIÓN | Obligatorio u opcional |
 |--------|-------------|---------------------|
@@ -168,7 +167,7 @@ Esta tabla enumeran los encabezados necesarios y opcionales para las solicitudes
 
 ### <a name="audio-outputs"></a>Salidas de audio
 
-Esta es una lista de formatos de audio admitidos que se envían en cada solicitud como encabezado `X-Microsoft-OutputFormat`. Cada uno de ellos incorpora una velocidad de bits y el tipo de codificación. Los servicios de voz admite KHz 16, 24 KHz y salidas de audio 8 KHz.
+Esta es una lista de formatos de audio admitidos que se envían en cada solicitud como encabezado `X-Microsoft-OutputFormat`. Cada uno de ellos incorpora una velocidad de bits y el tipo de codificación. Los Servicio de voz admiten salidas de audio de 24 kHz, 16 kHz y 8 kHz.
 
 |||
 |-|-|
@@ -181,7 +180,7 @@ Esta es una lista de formatos de audio admitidos que se envían en cada solicitu
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Si la voz y el formato de salida seleccionados tienen velocidades de bits diferentes, se vuelve a muestrear el audio según sea necesario. Pero las voces de 24 kHz no admiten los formatos de salida `audio-16khz-16kbps-mono-siren` y `riff-16khz-16kbps-mono-siren`.
+> Si la voz y el formato de salida seleccionados tienen velocidades de bits diferentes, se vuelve a muestrear el audio según sea necesario. Sin embargo, las voces de 24 kHz n admiten los formatos de salida `audio-16khz-16kbps-mono-siren` y `riff-16khz-16kbps-mono-siren`.
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -222,11 +221,12 @@ El estado HTTP de cada respuesta indica estados de corrección o error comunes.
 | Código de estado HTTP | DESCRIPCIÓN | Posible motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La solicitud es correcta; el cuerpo de la respuesta es un archivo de audio. |
-| 400 | Solicitud incorrecta | Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo. |
-| 401 | Sin autorización | La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta. |
+| 400 | Bad Request | Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo. |
+| 401 | No autorizado | La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta. |
 | 413 | Entidad de solicitud demasiado larga | La entrada de SSML tiene más de 1024 caracteres. |
+| 415 | Tipo de medio no compatible | Es posible que se haya proporcionado el `Content-Type` incorrecto. `Content-Type` se debe establecer en `application/ssml+xml`. |
 | 429 | Demasiadas solicitudes | Ha superado la cuota o la tasa de solicitudes permitidas para su suscripción. |
-| 502 | Puerta de enlace no válida | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
+| 502 | Puerta de enlace incorrecta | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
 
 Si el estado HTTP es `200 OK`, el cuerpo de la respuesta contiene un archivo de audio en el formato solicitado. Este archivo se puede reproducir mientras se transfiere o guardarse en un búfer o en un archivo.
 

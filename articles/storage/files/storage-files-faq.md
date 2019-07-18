@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190065"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540353"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -73,10 +73,10 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="tier-options"></a>
    **¿Qué capas de almacenamiento son compatibles con Azure Files?**  
-    Actualmente, Azure Files solo admite la capa de almacenamiento estándar. En este momento, aún no sabemos cuándo serán compatibles el almacenamiento premium y el almacenamiento de acceso esporádico. 
+    Azure Files admite dos niveles de almacenamiento: Premium y estándar. Los recursos compartidos de archivos estándar se crean en cuentas de almacenamiento de uso general (GPv1 o de GPv2) y los recursos compartidos de archivos Premium se crean en cuentas de almacenamiento FileStorage. Obtenga más información sobre cómo crear [recursos compartidos de archivos estándar](storage-how-to-create-file-share.md) y [recursos compartidos de archivos Premium](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > No se pueden crear recursos compartidos de archivos de Azure desde cuentas de almacenamiento que sean solo para blobs o desde cuentas de almacenamiento premium.
+    > No se pueden crear recursos compartidos de archivos de Azure desde cuentas de almacenamiento de blobs ni desde cuentas de almacenamiento *Premium* de uso general (GPv1 o GPv2). Los recursos compartidos de archivos de Azure estándar deben crearse solo en cuentas de uso general *estándar* y los recursos compartido de archivos de Azure Premium solo deben crearse en cuentas de almacenamiento FileStorage. Las cuentas de almacenamiento *Premium* de uso general (GPv1 y GPv2) son para blobs en páginas Premium solamente. 
 
 * <a id="give-us-feedback"></a>
   **Me gustaría que se agregara una característica específica a Azure Files. ¿Pueden agregarla?**  
@@ -356,8 +356,8 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     Para obtener información sobre los objetivos de escalabilidad y rendimiento de Azure Files, vea [Objetivos de escalabilidad y rendimiento de Azure Files](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
-**Necesito un recurso compartido de archivos mayor que las opciones que ofrece Azure Files. ¿Puedo aumentar el tamaño del recurso compartido de archivos de Azure?**  
-    No. El tamaño máximo de un recurso compartido de archivos de Azure es de 5 TB. Actualmente, este es un límite estricto que no se puede ajustar. Estamos trabajando en una solución que le permitirá aumentar el tamaño del recurso compartido a 100 TB, pero aún no sabemos cuándo estará preparada.
+ **¿Qué tamaños están disponibles para los recursos compartidos de archivos de Azure?**  
+    Los tamaños de recursos compartidos de archivos de Azure (Premium y estándar) pueden escalar hasta 100 TiB. Existen tamaños de recursos compartidos de archivos Premium de hasta 100 TiB disponibles como oferta de GA. Los tamaños de recursos compartidos de archivos estándar de hasta 5 TiB están disponibles como un oferta de GA, aunque los tamaños de hasta 100 TiB están en versión preliminar. Consulte la sección [Incorporación de recursos compartidos de archivos de mayor tamaño (nivel estándar)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) de la Guía de planeación para obtener instrucciones de incorporación para la versión preliminar de recursos compartidos de archivos más grandes para el nivel estándar.
 
 * <a id="open-handles-quota"></a>
  **¿Cuántos clientes pueden obtener acceso al mismo archivo simultáneamente?**    

@@ -1,5 +1,5 @@
 ---
-title: Usar DRM dinámica cifrado y la licencia de servicio de entrega con Azure Media Services | Microsoft Docs
+title: Uso del servicio de entrega de licencias y cifrado dinámico de DRM con Azure Media Services | Microsoft Docs
 description: Puede usar Azure Media Services para entregar sus transmisiones cifradas con licencias de Microsoft PlayReady, Google Widevine o Apple FairPlay.
 services: media-services
 documentationcenter: ''
@@ -14,16 +14,19 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ce3b7a29f6f57b2bc309c719dbbab6c4574f0a46
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: 4f1618260f6bfa0491e919e8aab1841e61603e5b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306488"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273257"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Uso del cifrado dinámico de DRM y el servicio de entrega de licencias
 
-Puede usar Azure Media Services para entregar sus transmisiones cifradas con licencias de Microsoft PlayReady, Google Widevine o Apple FairPlay. Para obtener una explicación detallada, consulte [protección con el cifrado dinámico de contenido](content-protection-overview.md).
+> [!NOTE]
+> Aunque en este tutorial se usan los ejemplos de [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), los pasos generales son los mismos para la [API de REST](https://docs.microsoft.com/rest/api/media/liveevents), la [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) u otros [SDK](media-services-apis-overview.md#sdks) admitidos.
+
+Puede usar Azure Media Services para entregar sus transmisiones cifradas con licencias de Microsoft PlayReady, Google Widevine o Apple FairPlay. Para obtener una explicación detallada, consulte [Protección de contenido con cifrado dinámico](content-protection-overview.md).
 
 Además, Media Services proporciona un servicio para entregar licencias DRM de PlayReady, Widevine y FairPlay. Cuando un usuario solicita contenido protegido con DRM, la aplicación del reproductor solicita una licencia del servicio de licencias de Media Services. Si la aplicación del reproductor está autorizada, el servicio de licencias de Media Services otorga una licencia al reproductor. Una licencia contiene la clave de descifrado que puede usar el reproductor cliente para descifrar y hacer streaming del contenido.
 
@@ -36,10 +39,10 @@ El ejemplo descrito en este artículo genera el siguiente resultado:
 En este tutorial se muestra cómo realizar las siguientes acciones:    
 
 > [!div class="checklist"]
-> * Crear una transformación de codificación
-> * Establezca la clave de firma utilizada para la comprobación de su token
-> * Establecer requisitos en la directiva de clave de contenido
-> * Crear un objeto StreamingLocator con la directiva especificada de transmisión por secuencias
+> * Creación de una transformación de codificación
+> * Establecer la clave de firma que se usa para la comprobación del token
+> * Establecer los requisitos en la directiva de clave de contenido
+> * Crear un objeto StreamingLocator con la directiva de streaming especificada
 > * Crear una dirección URL que usa para la reproducción del archivo
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -47,7 +50,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 Los siguientes requisitos son necesarios para completar el tutorial.
 
 * Revise el artículo [Content protection overview](content-protection-overview.md) (Información general de la protección de contenido).
-* Revise el [diseñar el sistema de protección de contenido con DRM múltiple con control de acceso](design-multi-drm-system-with-access-control.md)
+* Consulte [Diseño del sistema de protección de contenidos con DRM múltiple con control de acceso](design-multi-drm-system-with-access-control.md)
 * Instalación de Visual Studio Code o Visual Studio
 * Cree una cuenta de Azure Media Services tal como se describe en [este inicio rápido](create-account-cli-quickstart.md).
 * Obtener las credenciales necesarias para usar las instancias de Media Services API siguiendo las instrucciones de [Acceso a API](access-api-cli-how-to.md).
@@ -80,7 +83,7 @@ El [recurso](assets-concept.md) de salida almacena el resultado del trabajo de c
  
 ## <a name="get-or-create-an-encoding-transform"></a>Obtención o creación de una transformación de codificación
 
-Al crear una nueva instancia de la [transformación](transforms-jobs-concept.md), debe especificar qué desea originar como salida. El parámetro requerido es un `transformOutput` de objeto, como se muestra en el código siguiente. Cada TransformOutput contiene un **preestablecido**. Valor preestablecido describe las instrucciones paso a paso de las operaciones de procesamiento de vídeo o audio que se usará para generar el TransformOutput deseado. El ejemplo descrito en este artículo utiliza un valor preestablecido integrado denominado **AdaptiveStreaming**. El valor preestablecido codifica el vídeo de entrada en una escala de velocidad de bits generada automáticamente (pares resolución-velocidad de bits) basada en la resolución y la velocidad de bits, y produce archivos ISO MP4 con vídeo H.264 y audio AAC correspondiente a cada par resolución-velocidad de bits. 
+Al crear una nueva instancia de la [transformación](transforms-jobs-concept.md), debe especificar qué desea originar como salida. El parámetro requerido es un objeto `transformOutput`, como se muestra en el código siguiente. Cada objeto TransformOutput contiene un **valor preestablecido**. El valor preestablecido describe las instrucciones paso a paso de las operaciones de procesamiento de vídeo o audio que se usarán para generar el objeto TransformOutput deseado. El ejemplo descrito en este artículo utiliza un valor preestablecido integrado denominado **AdaptiveStreaming**. El valor preestablecido codifica el vídeo de entrada en una escala de velocidad de bits generada automáticamente (pares resolución-velocidad de bits) basada en la resolución y la velocidad de bits, y produce archivos ISO MP4 con vídeo H.264 y audio AAC correspondiente a cada par resolución-velocidad de bits. 
 
 Antes de crear una nueva **transformación**, debe comprobar primero si ya existe una con el método **Get**, tal como se muestra en el código siguiente.  En Media Services v3, los métodos **Get** en las entidades devuelven **null** si la entidad no existe (una comprobación sin distinción entre mayúsculas y minúsculas en el nombre).
 
@@ -104,9 +107,9 @@ El **trabajo** pasa normalmente por los siguientes estados: **Programado**, **En
 
 ## <a name="create-a-content-key-policy"></a>Crear una directiva de clave de contenido
 
-Una clave de contenido proporciona acceso seguro a los recursos. Deberá crear un [directiva de clave de contenido](content-key-policy-concept.md) al cifrar el contenido con DRM de un. La directiva configura cómo se entrega la clave de contenido para los clientes finales. La clave de contenido está asociada con un localizador de Streaming. Media Services también proporciona el servicio de entrega de claves que distribuye claves de cifrado y licencias a los usuarios autorizados. 
+Una clave de contenido proporciona acceso seguro a los recursos. Deberá crear una [directiva de clave de contenido](content-key-policy-concept.md) al cifrar el contenido con DRM. La directiva configura cómo se entrega la clave de contenido a los clientes finales. La clave de contenido está asociada con un localizador de streaming. Media Services también proporciona el servicio de entrega de claves que distribuye claves de cifrado y licencias a los usuarios autorizados. 
 
-Deberá establecer los requisitos (restricciones) en el **directiva de clave de contenido** que deben cumplirse para entregar claves con la configuración especificada. En este ejemplo, establecemos los siguientes requisitos y configuraciones:
+Debe establecer los requisitos (restricciones) en la **directiva de la clave de contenido** que se deben cumplir para entregar las claves con la configuración especificada. En este ejemplo, establecemos los siguientes requisitos y configuraciones:
 
 * Configuración 
 
@@ -127,9 +130,9 @@ Una vez finalizada la codificación y establecida la directiva de clave de conte
 1. Creación de un objeto [StreamingLocator](streaming-locators-concept.md)
 2. Compile direcciones URL de streaming que los clientes puedan usar. 
 
-El proceso de creación de la **localizador de Streaming** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, salvo que configure las horas de inicio y de finalización opcionales. 
+El proceso de creación de un objeto **Localizador de streaming** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, salvo que configure las horas de inicio y de finalización opcionales. 
 
-Al crear un **localizador de Streaming**, deberá especificar deseado `StreamingPolicyName`. En este tutorial, estamos usando una de las directivas predefinidas de transmisión por secuencias, que indica cómo publicar el contenido de streaming de Azure Media Services. En este ejemplo, establecemos StreamingLocator.StreamingPolicyName en la directiva "Predefined_MultiDrmCencStreaming". Se aplican los cifrados de PlayReady y Widevine, se entrega la clave para el cliente de reproducción en función de las licencias DRM configuradas. Si también quiere cifrar su transmisión con CBCS (FairPlay), utilice "Predefined_MultiDrmStreaming". 
+Al crear un **localizador de streaming**, deberá especificar el objeto `StreamingPolicyName` deseado. En este tutorial, se usa una de las directivas de streaming predefinidas, que indica a Azure Media Services cómo publicar el contenido para streaming. En este ejemplo, establecemos StreamingLocator.StreamingPolicyName en la directiva "Predefined_MultiDrmCencStreaming". Se aplican los cifrados PlayReady y Widevine, y la clave se entrega al cliente de reproducción en función de las licencias DRM configuradas. Si también quiere cifrar su transmisión con CBCS (FairPlay), utilice "Predefined_MultiDrmStreaming". 
 
 > [!IMPORTANT]
 > Al utilizar un objeto [StreamingPolicy](streaming-policy-concept.md) personalizado, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus localizadores de streaming siempre que se necesiten las mismas opciones y protocolos de cifrado. La cuenta de Media Service tiene una cuota para el número de entradas de StreamingPolicy. No debe crear un nuevo objeto StreamingPolicy para cada objeto StreamingLocator.
@@ -140,13 +143,13 @@ Al crear un **localizador de Streaming**, deberá especificar deseado `Streaming
         
 En este tutorial, se especifica que la directiva de clave de contenido tiene una restricción de token. La directiva con restricción de token debe ir acompañada de un token emitido por un servicio de token de seguridad (STS). Media Services admite tokens en los formatos [Token web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) y es lo que se configura en este ejemplo.
 
-El objeto ContentKeyIdentifierClaim se usa en la directiva ContentKeyPolicy, lo que significa que el token que se presenta al servicio de entrega de claves debe contener el identificador de ContentKey. En el ejemplo, al crear el localizador de Streaming no especificamos una clave de contenido, el sistema crea uno aleatorio para nosotros. Con el fin de generar la prueba de token, se debe obtener el elemento ContentKeyId para colocarlo en la notificación ContentKeyIdentifierClaim.
+El objeto ContentKeyIdentifierClaim se usa en la directiva ContentKeyPolicy, lo que significa que el token que se presenta al servicio de entrega de claves debe contener el identificador de ContentKey. En el ejemplo, no se especifica una clave de contenido al crear el localizador de streaming, el sistema crea una aleatoria automáticamente. Con el fin de generar la prueba de token, se debe obtener el elemento ContentKeyId para colocarlo en la notificación ContentKeyIdentifierClaim.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetToken)]
 
-## <a name="build-a-streaming-url"></a>Crear una dirección URL de streaming
+## <a name="build-a-streaming-url"></a>Creación de una dirección URL de streaming
 
-Ahora que se ha creado el elemento [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming. Para crear una dirección URL, debe concatenar el [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) nombre de host y el **localizador de Streaming** ruta de acceso. En este ejemplo, se utiliza el **punto de conexión de streaming** *predeterminado*. Cuando cree su primera cuenta de Media Services, el **punto de conexión de streaming** *predeterminado* estará en estado detenido, por lo que deberá llamar a **Start**.
+Ahora que se ha creado el elemento [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming. Para crear una dirección URL, debe concatenar el nombre de host de [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) y la ruta de acceso del **Localizador de streaming**. En este ejemplo, se utiliza el **punto de conexión de streaming** *predeterminado*. Cuando cree su primera cuenta de Media Services, el **punto de conexión de streaming** *predeterminado* estará en estado detenido, por lo que deberá llamar a **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -178,7 +181,7 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Conozca
+Consulte
 
 > [!div class="nextstepaction"]
 > [Protección con AES-128](protect-with-aes128.md)

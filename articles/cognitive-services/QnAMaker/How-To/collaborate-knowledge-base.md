@@ -3,19 +3,19 @@ title: 'Colaboración en la base de conocimiento: QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: QnA Maker permite que varias personas colaboren en una base de conocimiento. Esta característica se proporciona con el Control de acceso basado en rol de Azure.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
-ms.author: tulasim
-ms.openlocfilehash: ca754f197a46fc41b6f1b432611a2177ec0afafa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: diberry
+ms.openlocfilehash: 757b791f632e6d7ecb15a0a40384061f0658a6ff
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61374859"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447511"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Colaboración en su base de conocimiento
 

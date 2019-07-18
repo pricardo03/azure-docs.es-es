@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2019
+ms.date: 07/03/2019
 ms.author: Kumud
-ms.openlocfilehash: ec68038a5b0fe7edca095e0d9b190d5da09c8e82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08670c8aa6d5c9830ab84bc848bac38063bd41c0
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754714"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550924"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Métricas y diagnóstico de mantenimiento de Load Balancer Estándar
 
@@ -85,7 +85,7 @@ Para obtener la disponibilidad de la ruta de acceso de los datos de los recursos
 La métrica se genera mediante una medición activa en la banda. Un servicio de sondeo dentro de la región origina el tráfico para la medida. El servicio se activa tan pronto como cree una implementación con un front-end público, y continúa hasta que quite el front-end. 
 
 >[!NOTE]
->No se admiten front-end internos en este momento. 
+>La disponibilidad de la ruta de acceso de datos (disponibilidad VIP) no está disponible en front-end internos de Load Balancer. 
 
 Se genera periódicamente un paquete que coincide con el front-end y la regla de la implementación. Recorre la región desde el origen hasta el host, donde se encuentra una máquina virtual en el grupo back-end. La infraestructura del equilibrador de carga llevará a cabo las mismas operaciones de traducción y equilibrio de carga que con el tráfico restante. Este sondeo está en la banda en el punto de conexión de la carga equilibrada. Una vez que el sondeo llega al host Compute donde se encuentra una máquina virtual correcta en el grupo de servidores back-end, el host Compute genera una respuesta al servicio de sondeo. La máquina virtual no ve este tráfico.
 
@@ -208,6 +208,10 @@ En la tabla siguiente se enumeran los estados de mantenimiento de varios recurso
 | Disponible | El recurso de Load Balancer Estándar público está listo y disponible. |
 | No disponible | El recurso de Load Balancer Estándar público no es correcto. Diagnostique el estado seleccionando **Azure Monitor** > **Métricas**.<br>(El estado *No disponible* también puede significar que el recurso no está conectado al Load Balancer Estándar público). |
 | Desconocido | El estado mantenimiento del recurso para Load Balancer Estándar público aún no se ha actualizado.<br>(El estado *Desconocido* también puede significar que el recurso no está conectado al Load Balancer Estándar público).  |
+
+## <a name="limitations"></a>Limitaciones 
+
+- La disponibilidad de la ruta de acceso de datos (disponibilidad VIP) no está disponible en front-end internos de Load Balancer.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

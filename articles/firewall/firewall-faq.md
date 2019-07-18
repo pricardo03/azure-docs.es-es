@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 6/21/2019
 ms.author: victorh
-ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: 933b4167f25db5a01cf1160f5e781a1fe31afc6b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384666"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304593"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -34,7 +34,7 @@ Azure Firewall es un servicio de seguridad de red administrado y basado en la nu
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>¿Cuál es el modelo de implementación típico para Azure Firewall?
 
-Puede implementar Azure Firewall en cualquier red virtual, pero los clientes habitualmente lo implementan en una red virtual central y lo emparejan con otras redes virtuales en un modelo de concentrador y radio. A continuación, puede establecer la ruta predeterminada desde las redes virtuales emparejadas para que apunte a esta red virtual de firewall central. Emparejamiento de VNet global se admite, pero no se recomienda debido a posibles problemas de rendimiento y latencia entre regiones. Para obtener el mejor rendimiento, implementar un firewall por región.
+Puede implementar Azure Firewall en cualquier red virtual, pero los clientes habitualmente lo implementan en una red virtual central y lo emparejan con otras redes virtuales en un modelo de concentrador y radio. A continuación, puede establecer la ruta predeterminada desde las redes virtuales emparejadas para que apunte a esta red virtual de firewall central. Se admite el emparejamiento de VNet global, pero no se recomienda debido a posibles problemas de rendimiento y latencia entre regiones. Para obtener el mejor rendimiento, implemente un firewall por región.
 
 La ventaja de este modelo es la posibilidad de ejercer control centralizado sobre varias redes virtuales de radio en distintas suscripciones. También hay un ahorro en los costos, ya que no es necesario implementar un firewall en cada red virtual por separado. Este ahorro se debe medir frente al costo de emparejamiento asociado basado en los patrones de tráfico del cliente.
 
@@ -48,9 +48,9 @@ Azure Firewall es compatible con las reglas y las colecciones de reglas. Una col
 
 Hay tres tipos de colecciones de reglas:
 
-* *Reglas de aplicación*: Configurar nombres de dominio completo (FQDN) que se pueden acceder desde una subred.
-* *Reglas de red*: Configurar las reglas que contienen direcciones de origen, protocolos, puertos de destino y las direcciones de destino.
-* *Las reglas NAT*: Configurar reglas DNAT para permitir las conexiones entrantes.
+* *Reglas de aplicación*: configurar los nombres de dominio completo (FQDN) a los que se puede acceder desde una subred.
+* *Reglas de red*: configurar reglas que contienen direcciones de origen, protocolos, puertos de destino y direcciones de destino.
+* *Reglas NAT*: configurar reglas DNAT para permitir conexiones entrantes.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>¿Admite Azure Firewall el filtrado del tráfico de entrada?
 
@@ -62,7 +62,7 @@ Azure Firewall se integra con Azure Monitor para ver y analizar los registros de
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>¿Cómo Azure Firewall funciona distinto de servicios existentes como NVA que ya están en el mercado?
 
-Azure Firewall es un servicio de firewall básica que puede abordar determinados escenarios de cliente. Se espera que tendrá una combinación de aplicaciones virtuales de red y Firewall de Azure de terceros. Trabajar mejor juntos es una prioridad fundamental.
+Azure Firewall es un servicio de firewall básica que puede abordar determinados escenarios de cliente. Se espera que tenga una combinación de NVA de terceros y Azure Firewall. Trabajar mejor juntos es una prioridad fundamental.
 
 ## <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>¿Cuál es la diferencia entre WAF de Application Gateway y Azure Firewall?
 
@@ -72,10 +72,9 @@ Firewall de aplicaciones web (WAF) es una característica de Application Gateway
 
 El servicio Azure Firewall complementa la funcionalidad de grupo de seguridad de red. Juntos proporcionan una mejor seguridad de red de "defensa en profundidad". Los grupos de seguridad de red proporcionan filtrado del trafico de capas de red distribuida para limitar el tráfico a los recursos dentro de las redes virtuales en cada suscripción. Azure Firewall es un firewall de red centralizada como servicio con estado completo que proporciona protección a nivel de red y de aplicación en todas las distintas suscripciones y redes virtuales.
 
-## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>¿Se admiten grupos de seguridad de red (NSG) en la subred de Firewall de Azure?
+## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>¿Se admiten grupos de seguridad de red (NSG) en la subred de Azure Firewall?
 
-Firewall de Azure es un servicio administrado con varias capas de protección, incluida la protección de la plataforma con NSG de nivel de NIC (no visibles).  Nivel de subred NSG no es necesario en la subred de Firewall de Azure y están deshabilitadas para no garantizar ninguna interrupción del servicio.
-
+Azure Firewall es un servicio administrado con varias capas de protección, como la protección de la plataforma con NSG de nivel de NIC (no visible).  Los NSG no son obligatorios en la subred de Azure Firewall y están deshabilitados para garantizar que no se produzcan interrupciones en el servicio.
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>¿Cómo puedo configurar Azure Firewall con mis puntos de conexión de servicio?
 
@@ -83,7 +82,7 @@ Para un acceso seguro a los servicios de PaaS, se recomiendan los puntos de cone
 
 ## <a name="what-is-the-pricing-for-azure-firewall"></a>¿Cuál es el precio de Azure Firewall?
 
-Consulte [Firewall de Azure precios](https://azure.microsoft.com/pricing/details/azure-firewall/).
+Consulte [Precios de Azure Firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ## <a name="how-can-i-stop-and-start-azure-firewall"></a>¿Cómo puedo detener e iniciar Azure Firewall?
 
@@ -114,7 +113,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## <a name="what-are-the-known-service-limits"></a>¿Cuáles son los límites conocidos del servicio?
 
-Para los límites del servicio de Firewall de Azure, consulte [suscripción de Azure y límites de servicio, cuotas y restricciones](../azure-subscription-service-limits.md#azure-firewall-limits).
+Para ver los límites del servicio Azure Firewall, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>¿Azure Firewall en la red virtual de un concentrador puede reenviar y filtrar el tráfico de red entre dos redes virtuales de radio?
 
@@ -122,15 +121,19 @@ Sí, puede usar Azure Firewall en la red virtual de un concentrador para enrutar
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>¿Azure Firewall puede reenviar y filtrar el tráfico de red entre subredes de la misma red virtual o redes virtuales emparejadas?
 
-Sí. Sin embargo, al configurar el Udr para redirigir el tráfico entre subredes en la misma red virtual, debe prestar especial atención. Aunque basta con usar el intervalo de direcciones de red virtual como prefijo de destino para la UDR, también se enruta todo el tráfico de una máquina a otra de la misma subred mediante la instancia de Azure Firewall. Para evitar este problema, incluya una ruta para la subred en la UDR con un tipo de próximo salto **VNET**. La administración de estas rutas podría ser problemática y estar sujeta a errores. El método recomendado para la segmentación de redes internas es usar grupos de seguridad de red, que no necesitan UDR.
+Sí. Sin embargo, es necesario prestar una atención especial al configurar las UDR para redirigir el tráfico entre subredes de la misma red virtual. Aunque basta con usar el intervalo de direcciones de red virtual como prefijo de destino para la UDR, también se enruta todo el tráfico de una máquina a otra de la misma subred mediante la instancia de Azure Firewall. Para evitar este problema, incluya una ruta para la subred en la UDR con un tipo de próximo salto **VNET**. La administración de estas rutas podría ser problemática y estar sujeta a errores. El método recomendado para la segmentación de redes internas es usar grupos de seguridad de red, que no necesitan UDR.
 
-## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>¿Se fuerza la tunelización de encadenamiento a un dispositivo Virtual de red admite?
+## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>¿Azure Firewall aplica SNAT de salida entre redes privadas?
 
-La tunelización forzada no se admite de forma predeterminada, pero se puede habilitar con la Ayuda de soporte técnico.
+Azure Firewall no aplica SNAT cuando la dirección IP de destino es un intervalo de direcciones IP privadas por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Si su organización usa un intervalo de direcciones IP públicas para las redes privadas, Azure Firewall aplicará SNAT al tráfico para una de las direcciones IP privadas de firewall en AzureFirewallSubnet.
+
+## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>¿Se admite la tunelización o encadenamiento forzados a una aplicación virtual de red?
+
+La tunelización forzada no se admite de forma predeterminada, pero se puede habilitar con la ayuda del soporte técnico.
 
 Azure Firewall debe tener conectividad directa a Internet. Si AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe reemplazarla por una UDR 0.0.0.0/0 con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet. De forma predeterminada, Azure Firewall no admite la tunelización forzada a una red local.
 
-Sin embargo, si la configuración requiere la tunelización forzada a una red local, Microsoft proporcionará soporte según el caso. Póngase en contacto con soporte técnico para que podamos revisar su caso. Si acepta, se permite la suscripción y asegúrese de que se mantiene la conectividad de Internet de firewall necesarias.
+Sin embargo, si la configuración requiere la tunelización forzada a una red local, Microsoft proporcionará soporte según el caso. Póngase en contacto con soporte técnico para que podamos revisar su caso. Si acepta, permitiremos su suscripción y nos aseguraremos de que se mantenga la conectividad del firewall a Internet requerida.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>¿Existe alguna restricción de grupo de recursos de firewall?
 
@@ -138,12 +141,12 @@ Sí. El firewall, la subred, la red virtual y la dirección IP pública deben es
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Al configurar DNAT para el tráfico de red entrante, ¿es necesario que también configure una regla de red correspondiente para permitir ese tráfico?
 
- No. Las reglas NAT agregan de forma implícita una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](rule-processing.md).
+No. Las reglas NAT agregan de forma implícita una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](rule-processing.md).
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>¿Cómo funcionan los caracteres comodín en un FQDN de destino de la regla de aplicación?
 
-Si configura * **. contoso.com**, permite *anyvalue*. contoso.com, pero no contoso.com (el vértice de dominio). Si desea permitir que el vértice de dominio, debe configurar explícitamente como un FQDN de destino.
+Si configura * **.contoso.com**, permite *cualquiervalor*.contoso.com, pero no contoso.com (el vértice de dominio). Si desea permitir el vértice de dominio, debe configurarlo explícitamente como un FQDN de destino.
 
-## <a name="what-does-provisioning-state-failed-mean"></a>¿Qué *el estado de aprovisionamiento: ¿No se pudo* significa?
+## <a name="what-does-provisioning-state-failed-mean"></a>¿Qué significa *Estado de aprovisionamiento: error*?
 
-Cada vez que se aplica un cambio de configuración, Firewall de Azure intenta actualizar todas sus instancias de back-end subyacente. En raras ocasiones, una de estas instancias de back-end puede producir un error al actualizar con la nueva configuración y se detiene el proceso de actualización con un estado de aprovisionamiento con errores. El Firewall de Azure todavía está operativo, pero puede ser la configuración aplicada en un estado incoherente, donde algunas instancias tienen la configuración anterior donde otros usuarios que la regla actualizada establecido. Si esto sucede, intente actualizar la configuración de una vez más, hasta que la operación se realiza correctamente y el Firewall está en un *Succeeded* el estado de aprovisionamiento.
+Cada vez que se aplique un cambio de configuración, Azure Firewall intenta actualizar todas sus instancias de back-end subyacentes. En raras ocasiones, una de estas instancias de back-end puede producir un error al actualizar con la nueva configuración y el proceso de actualización se detiene con un estado de aprovisionamiento con error. Azure Firewall todavía está operativo, pero es posible que la configuración aplicada se encuentre en un estado incoherente, donde algunas instancias tienen la configuración anterior y otras tienen el conjunto de reglas actualizado. Si esto sucede, intente actualizar la configuración una vez más, hasta que la operación se realice correctamente y el firewall se encuentre en un estado de aprovisionamiento *Correcto*.

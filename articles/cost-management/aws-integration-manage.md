@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57e66d449b194662bfc03f7e130cf49c02a15793
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64870318"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275713"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Administración de los costos y el uso de AWS en Azure
 
@@ -78,7 +78,7 @@ En la siguiente tabla se describen las dimensiones disponibles de agrupamiento y
 | Dimension Data | Encabezado de archivo CUR de Amazon | Ámbitos | Comentarios |
 | --- | --- | --- | --- |
 | Zona de disponibilidad | LineItem/AvailabilityZone | Todo |   |
-| Ubicación | product/Region | Todo |   |
+| Location | product/Region | Todo |   |
 | Medidor |   | Todo |   |
 | Categoría de medición | lineItem/ProductCode | Todo |   |
 | Subcategoría de medición | lineitem/UsageType | Todo |   |
@@ -129,6 +129,8 @@ Use la siguiente información de solución de problemas para resolver los comune
 
 ### <a name="no-permission-to-aws-linked-accounts"></a>Falta de permiso a las cuentas vinculadas de AWS
 
+**Código de error:** _Unauthorized_
+
 Hay dos maneras de obtener permisos para acceder a los costos de las cuentas vinculadas de AWS:
 
 - Obtener acceso al grupo de administración que tenga las cuentas vinculadas de AWS.
@@ -136,7 +138,11 @@ Hay dos maneras de obtener permisos para acceder a los costos de las cuentas vin
 
 De forma predeterminada, el creador del conector de AWS es el propietario de todos los objetos creados por el conector, incluidas la cuenta consolidada de AWS y la cuenta vinculada de AWS.
 
+Para poder comprobar la configuración del conector, necesita al menos un rol de colaborador; un lector no puede comprobar la configuración del conector
+
 ### <a name="collection-failed-with-assumerole"></a>Error de recopilación con AssumeRole
+
+**Código de error:** _FailedToAssumeRole_
 
 Este error significa que Cost Management no puede llamar a la API de AWS AssumeRole. Esto puede ocurrir debido a un problema con la definición de roles. Compruebe que se cumplan las condiciones siguientes:
 
@@ -147,11 +153,23 @@ Este error significa que Cost Management no puede llamar a la API de AWS AssumeR
 
 ### <a name="collection-failed-with-access-denied"></a>Error de recopilación con acceso denegado
 
-Este mensaje de error significa que Cost Management no puede acceder a los archivos CUR almacenados en el cubo S3 de Amazon. Asegúrese de que la directiva JSON de AWS asociada al rol sea similar al ejemplo que se muestra en la parte inferior de la sección [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) (Creación de un rol y de una directiva en AWS).
+- **Código de error:** _AccessDeniedReportDefinitions_ 
+- **Código de error:** _AccessDeniedListReports_ 
+- **Código de error:** _AccessDeniedDownloadReport_ 
 
-### <a name="connector-error-with-failedtofindreport"></a>Error del conector con FailedToFindReport
+Estos mensajes de error significan que Cost Management no puede acceder a los archivos CUR almacenados en el cubo S3 de Amazon. Asegúrese de que la directiva JSON de AWS asociada al rol sea similar al ejemplo que se muestra en la parte inferior de la sección [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) (Creación de un rol y de una directiva en AWS).
+
+### <a name="collection-failed-since-we-did-not-find-the-cost-and-usage-report"></a>Error en la colección porque no encontramos el informe sobre uso y costes
+
+**Código de error:** _FailedToFindReport_
 
 Este error significa que Cost Management no puede encontrar el informe de uso y costos que se definió en el conector. Asegúrese de que no se haya eliminado y de que la directiva JSON de AWS asociada al rol sea similar al ejemplo que se muestra en la parte inferior de la sección [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) (Creación de un rol y de una directiva en AWS).
+
+### <a name="unable-to-create-or-verify-connector-due-to-cost-and-usage-report-definitions-mismatch"></a>No se puede crear ni comprobar el conector debido a la falta de coincidencia de definiciones del informe sobre uso y costes
+
+**Código de error:** _ReportIsNotValid_
+
+Este error está relacionado con la definición del informe sobre uso y costes de AWS y necesitamos una configuración específica para él. Consulte los requisitos en [Crear un informe de uso y costo en AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,19 +3,19 @@ title: Método de idiomas de Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Use el método de idiomas de Translator Text API.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: 415093610bfbc314e569eeeb658508bdfb021d9c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 7bac97b7edbfa0f7a03a65e462106b33160c6d1a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389729"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435076"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
 
@@ -263,7 +263,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
   <tr>
     <td>429</td>
-    <td>El servidor rechazó la solicitud porque el cliente ha superado los límites de solicitudes.</td>
+    <td>El servidor rechazó la solicitud porque el cliente superó los límites de solicitudes.</td>
   </tr>
   <tr>
     <td>500</td>

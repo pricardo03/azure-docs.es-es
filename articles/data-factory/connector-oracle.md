@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 06/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04f623a889a87c325b1f53e3b39656ca4b703961
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60405943"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509235"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -30,13 +30,16 @@ En este artículo se resume el uso de la actividad de copia de Azure Data Factor
 
 Puede copiar datos desde una base de datos de Oracle en cualquier almacén de datos receptor compatible. También puede copiar datos desde cualquier almacén de datos de origen compatible a una base de datos de Oracle. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-En concreto, este conector Oracle admite las versiones siguientes de base de datos Oracle. También admite la autenticación básica o mediante OID:
+En concreto, este conector de Oracle admite lo siguiente:
 
-- Oracle 12c R1 (12.1)
-- Oracle 11g R1, R2 (11.1, 11.2)
-- Oracle 10g R1, R2 (10.1, 10.2)
-- Oracle 9i R1, R2 (9.0.1, 9.2)
-- Oracle 8i R3 (8.1.7)
+- Las siguientes versiones de una base de datos de Oracle:
+  - Oracle 12c R1 (12.1)
+  - Oracle 11g R1, R2 (11.1, 11.2)
+  - Oracle 10g R1, R2 (10.1, 10.2)
+  - Oracle 9i R1, R2 (9.0.1, 9.2)
+  - Oracle 8i R3 (8.1.7)
+- La copia de datos con las autenticaciones **básica** o de **OID**.
+- Copia en paralelo desde un origen de Oracle. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para obtener más detalles.
 
 > [!Note]
 > El servidor proxy de Oracle no se admite.
@@ -45,7 +48,7 @@ En concreto, este conector Oracle admite las versiones siguientes de base de dat
 
 Para copiar datos con una base de datos Oracle como origen o destino que no es accesible públicamente, debe configurar un entorno de ejecución de integración autohospedado. Para más información acerca de un entorno de ejecución de integración, consulte el artículo sobre [Entorno de ejecución de integración autohospedado](create-self-hosted-integration-runtime.md). El entorno de ejecución de integración proporciona un controlador de Oracle integrado. Por tanto, no es necesario instalar manualmente un controlador para copiar datos con Oracle como origen y destino.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -190,16 +193,24 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="oracle-as-a-source-type"></a>Oracle como tipo de origen
 
+> [!TIP]
+>
+> Obtenga más información en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) sobre cómo cargar datos desde Oracle de forma eficaz con la creación de particiones de datos.
+
 Para copiar datos desde Oracle, establezca el tipo de origen de la actividad de copia en **OracleSource**. En la sección **source** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **OracleSource**. | Sí |
-| oracleReaderQuery | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`. | Sin |
+| oracleReaderQuery | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`.<br>Si habilita la carga con particiones, deberá enlazar los parámetros de partición integrados correspondientes en la consulta. Vea ejemplos en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle). | Sin |
+| partitionOptions | Especifica los opciones de creación de particiones de datos que se usan para cargar datos desde Oracle. <br>Los valores que se permiten son: **None** (valor predeterminado), **PhysicalPartitionsOfTable** y **DynamicRange**.<br>Si la opción de partición está habilitada (no es “None”), configure también el valor **[`parallelCopies`](copy-activity-performance.md#parallel-copy)** en la actividad de copia (por ejemplo, como 4), que determina el grado en paralelo para cargar los datos simultáneamente desde la base de datos de Oracle. | Sin |
+| partitionSettings | Especifique el grupo de configuración para la creación de particiones de datos. <br>Se aplica cuando la opción de partición no es `None`. | Sin |
+| partitionNames | Lista de particiones físicas que deben copiarse. <br>Se aplica cuando la opción de partición es `PhysicalPartitionsOfTable`. Si usa la consulta para recuperar datos de origen, enlace `?AdfTabularPartitionName` en la cláusula WHERE. Vea un ejemplo en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle). | Sin |
+| partitionColumnName | Especifique el nombre de la columna de origen **in integer type** que usará la creación de particiones por rangos para la copia en paralelo. Si no se especifica, se detectará automáticamente la clave principal de la tabla y se usará como columna de partición. <br>Se aplica cuando la opción de partición es `DynamicRange`. Si usa la consulta para recuperar datos de origen, enlace `?AdfRangePartitionColumnName` en la cláusula WHERE. Vea un ejemplo en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle). | Sin |
+| partitionUpperBound | Valor máximo de la columna de partición para copiar datos. <br>Se aplica cuando la opción de partición es `DynamicRange`. Si usa la consulta para recuperar datos de origen, enlace `?AdfRangePartitionUpbound` en la cláusula WHERE. Vea un ejemplo en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle). | Sin |
+| PartitionLowerBound | Valor mínimo de la columna de partición para copiar datos. <br>Se aplica cuando la opción de partición es `DynamicRange`. Si usa la consulta para recuperar datos de origen, enlace `?AdfRangePartitionLowbound` en la cláusula WHERE. Vea un ejemplo en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle). | Sin |
 
-Si no se especifica "oracleReaderQuery", las columnas que se definen en la sección "structure" del conjunto de datos se usan para construir una consulta (`select column1, column2 from mytable`) para ejecutarla en la base de datos Oracle. Si la definición del conjunto de datos no tiene la sección "structure", se seleccionan todas las columnas de la tabla.
-
-**Ejemplo:**
+**Ejemplo: copiar datos mediante una consulta básica sin partición**
 
 ```json
 "activities":[
@@ -230,6 +241,8 @@ Si no se especifica "oracleReaderQuery", las columnas que se definen en la secci
     }
 ]
 ```
+
+Vea más ejemplos en la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle).
 
 ### <a name="oracle-as-a-sink-type"></a>Oracle como tipo de receptor
 
@@ -271,6 +284,54 @@ Si va a copiar datos en Oracle, establezca el tipo de receptor de la actividad d
         }
     }
 ]
+```
+
+## <a name="parallel-copy-from-oracle"></a>Copia en paralelo desde Oracle
+
+El conector de Oracle de Data Factory proporciona la creación de particiones de datos integrados para copiar datos de Oracle en paralelo con un gran rendimiento. Puede encontrar las opciones de creación de particiones de datos en la actividad de copia -> Origen de Oracle:
+
+![Opciones de partición](./media/connector-oracle/connector-oracle-partition-options.png)
+
+Al habilitar la copia con particiones, Data Factory ejecuta consultas en paralelo en el origen de Oracle para cargar los datos mediante particiones. El grado en paralelo se configura y se controla mediante la configuración **[`parallelCopies`](copy-activity-performance.md#parallel-copy)** de la actividad de copia. Por ejemplo, si establece `parallelCopies` como cuatro, Data Factory genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada una recupera una porción de datos de la base de datos de Oracle.
+
+Se le sugiere que habilite la copia en paralelo con la creación de particiones de datos, especialmente si carga grandes cantidades de datos de la base de datos de Oracle. Estas son algunas configuraciones sugeridas para diferentes escenarios:
+
+| Escenario                                                     | Configuraciones sugeridas                                           |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Carga completa de una tabla grande con particiones físicas          | **Opción de partición**: particiones físicas de la tabla. <br><br/>Durante la ejecución, Data Factory detecta automáticamente las particiones físicas y copia los datos mediante particiones. |
+| Carga completa de una tabla grande sin particiones físicas, aunque con una columna de enteros para la creación de particiones de datos | **Opciones de partición**: partición por rangos dinámica.<br>**Columna de partición**: especifique la columna usada para crear la partición de datos. Si no se especifica, se usa la columna de clave principal. |
+| Carga de grandes cantidades de datos mediante una consulta personalizada, que cuenta con particiones físicas | **Opción de partición**: particiones físicas de la tabla.<br>**Consulta**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**Nombre de la partición**: especifique los nombres de las particiones desde las que se copiarán los datos. Si no se especifica, ADF detectará automáticamente las particiones físicas en la tabla que ha especificado en el conjunto de datos de Oracle.<br><br>Durante la ejecución, Data Factory reemplaza `?AdfTabularPartitionName` por el nombre real de la partición y se lo envía a Oracle. |
+| Carga de grandes cantidades de datos mediante una consulta personalizada, que no incluye ninguna partición física, aunque cuenta con una columna de enteros para la creación de particiones de datos | **Opciones de partición**: partición por rangos dinámica.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Columna de partición**: especifique la columna usada para crear la partición de datos. Puede crear particiones en columnas con un tipo de datos entero.<br>**Límite de partición superior** y **límite de partición inferior**: especifique si quiere filtrar en la columna de partición para recuperar solo los datos entre el intervalo inferior y el superior.<br><br>Durante la ejecución, Data Factory reemplaza `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound` y `?AdfRangePartitionLowbound` por el nombre real de la columna y los intervalos de valor de cada partición y se los envía a Oracle. <br>Por ejemplo, si establece la columna de partición "ID" con un límite inferior de 1 y un límite superior de 80, con la copia en paralelo establecida en 4, ADF recupera los datos mediante 4 particiones con ID entre [1, 20], [21, 40], [41, 60] y [61, 80]. |
+
+**Ejemplo: consulta con partición física**
+
+```json
+"source": {
+    "type": "OracleSource",
+    "query": "SELECT * FROM <TABLENAME> PARTITION(\"?AdfTabularPartitionName\") WHERE <your_additional_where_clause>",
+    "partitionOption": "PhysicalPartitionsOfTable",
+    "partitionSettings": {
+        "partitionNames": [
+            "<partitionA_name>",
+            "<partitionB_name>"
+        ]
+    }
+}
+```
+
+**Ejemplo: consulta con partición por rangos dinámica**
+
+```json
+"source": {
+    "type": "OracleSource",
+    "query": "SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>",
+    "partitionOption": "DynamicRange",
+    "partitionSettings": {
+        "partitionColumnName": "<partition_column_name>",
+        "partitionUpperBound": "<upper_value_of_partition_column>",
+        "partitionLowerBound": "<lower_value_of_partition_column>"
+    }
+}
 ```
 
 ## <a name="data-type-mapping-for-oracle"></a>Asignación de tipos de datos para Oracle

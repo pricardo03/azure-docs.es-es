@@ -3,26 +3,26 @@ title: Configuración de alertas de supervisión en Azure Stream Analytics
 description: En este artículo se describe cómo usar Azure Portal para configurar la supervisión y las alertas para los trabajos de Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-ms.author: jeanb
+ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
-ms.custom: seodec18
-ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/21/2019
+ms.openlocfilehash: 0fd489d856a16953a5a450a347c9737fe440ad28
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771980"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621772"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuración de alertas en Azure Stream Analytics
 
 Es importante supervisar el trabajo de Azure Stream Analytics para asegurarse de que se está ejecutando continuamente sin problemas. En este artículo se describe cómo configurar alertas para escenarios comunes que se deben supervisar. 
 
-Las reglas se pueden configurar en las métricas en el portal y también [mediante programación](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sobre datos de registros de operaciones.
+Puede definir reglas en las métricas desde los datos de los registros de operaciones hasta el portal, así como [mediante programación](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Configuración de alertas en Azure Portal
+### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Obtención de una alerta cuando un trabajo se detiene de manera inesperada
 
 El ejemplo siguiente muestra cómo configurar alertas para cuando el trabajo entra en un estado de error. Esta alerta se recomienda para todos los trabajos.
 
@@ -30,7 +30,7 @@ El ejemplo siguiente muestra cómo configurar alertas para cuando el trabajo ent
 
 2. En la página **Trabajo**, vaya a la sección **Supervisión**.  
 
-3. Seleccione **Métricas** y, a continuación, haga clic en **Nueva regla de alertas**.
+3. Seleccione **Métricas** y luego **Nueva regla de alertas**.
 
    ![Configuración de alertas de Stream Analytics en Azure Portal](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
@@ -38,7 +38,7 @@ El ejemplo siguiente muestra cómo configurar alertas para cuando el trabajo ent
 
    ![Selección del nombre de la señal para la alerta de Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. En **Configurar lógica de señal**, cambie **Nivel de evento** a **Todo** y cambie **Estado** a **Con error**. Deje **Evento iniciado por** en blanco y haga clic en **Listo**.
+5. En **Configurar lógica de señal**, cambie **Nivel de evento** a **Todo** y cambie **Estado** a **Con error**. Deje la opción **Evento iniciado por** en blanco y seleccione **Listo**.
 
    ![Configuración de señal lógica para alerta de Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -75,6 +75,6 @@ Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https:/
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-get-started.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

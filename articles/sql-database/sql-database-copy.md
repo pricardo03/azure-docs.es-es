@@ -12,20 +12,20 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.openlocfilehash: 6a4d3fd0f7b670bbb0b01385252b405829a91baa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688073"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442309"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creación de una copia transaccionalmente coherente de una base de datos de Azure SQL
 
-Azure SQL Database proporciona varios métodos para crear una copia transaccionalmente coherente de una base de datos de Azure SQL existente en el mismo servidor o en un servidor diferente. Puede copiar una instancia de SQL Database mediante Azure Portal, PowerShell o T-SQL. 
+Azure SQL Database proporciona varios métodos para crear una copia transaccionalmente coherente de una base de datos de Azure SQL existente ([base de datos única](sql-database-single-database.md)) en el mismo servidor o en un servidor diferente. Puede copiar una instancia de SQL Database mediante Azure Portal, PowerShell o T-SQL. 
 
 ## <a name="overview"></a>Información general
 
-Una copia de la base de datos es una instantánea de la base de datos de origen en el momento de la solicitud de copia. Puede seleccionar el mismo servidor o un servidor diferente. También puede mantener su nivel de servicio y tamaño de proceso o usar un tamaño de proceso diferentes dentro del mismo nivel de servicio (edición). Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Llegado a este punto, puede actualizar a cualquier edición o cambiar a una edición anterior. Los inicios de sesión, usuarios y permisos pueden administrarse de forma independiente.  
+Una copia de la base de datos es una instantánea de la base de datos de origen en el momento de la solicitud de copia. Puede seleccionar el mismo servidor u otro distinto, así como optar por conservar su nivel de servicio y tamaño de proceso, o un tamaño de proceso diferente dentro del mismo nivel de servicio (edición). Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Llegado a este punto, puede actualizar a cualquier edición o cambiar a una edición anterior. Los inicios de sesión, usuarios y permisos pueden administrarse de forma independiente.  
 
 > [!NOTE]
 > Las [copias de seguridad de base de datos automatizadas](sql-database-automated-backups.md) se usan cuando se crea una copia de la base de datos.
@@ -50,7 +50,7 @@ Para copiar una base de datos mediante Azure Portal, abra la página de la base 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para copiar una base de datos mediante el uso de PowerShell, use el [New AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet. 
+Para copiar una base de datos con PowerShell, use el cmdlet [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy). 
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
@@ -90,14 +90,14 @@ Este comando copia Base de datos1 del servidor1 en una nueva base de datos denom
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
     
 > [!IMPORTANT]
-> Los firewalls de ambos servidores deben configurarse para permitir la conexión de entrada desde la dirección IP del cliente emitiendo el comando de copia de T-SQL.
+> Los firewalls de ambos servidores deben estar configurados para permitir la conexión de entrada desde la dirección IP del cliente que emite el comando T-SQL COPY.
 
-### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiar una base de datos SQL a otra suscripción
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiar una base de datos SQL en una suscripción diferente
 
-Puede usar el descrbed pasos en la sección anterior para copiar la base de datos en un servidor de base de datos SQL en una suscripción diferente. Asegúrese de que use un inicio de sesión que tiene el mismo nombre y contraseña como propietario de la base de datos de la base de datos de origen y es un miembro del rol dbmanager o el inicio de sesión de entidad de seguridad de nivel de servidor. 
+Puede usar los pasos descritos en la sección anterior para copiar la base de datos en un servidor de base de datos SQL en una suscripción diferente. Asegúrese de que usa un inicio de sesión que tenga el mismo nombre y la misma contraseña que el propietario de la base de datos de origen y que, asimismo, es miembro del rol dbmanager o es el inicio de sesión de la entidad de seguridad en el nivel de servidor. 
 
 > [!NOTE]
-> El [portal Azure](https://portal.azure.com) no admite los copia a otra suscripción, dado que el Portal llama a la API de ARM y usa los certificados de suscripción para tener acceso a ambos servidores involucrados en la replicación geográfica.  
+> [Azure Portal](https://portal.azure.com) no permite copiar en otra suscripción, ya que Portal llama a la API de ARM y usa los certificados de suscripción para acceder a los dos servidores que intervienen en la replicación geográfica.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Supervisión del progreso de la operación de copia
 

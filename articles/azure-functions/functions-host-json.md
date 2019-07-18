@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521390"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310482"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referencia de host.json para Azure Functions 2.x  
 
@@ -147,7 +147,7 @@ Lista de las funciones que el host de trabajo ejecuta. Una matriz vacía signifi
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica la duración del tiempo de espera para todas las funciones. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos. En un plan de App Service, no hay límite total y el valor predeterminado depende de la versión del entorno de ejecución. En la versión 2.x, el valor predeterminado en un plan de App Service es 30 minutos. En la versión 1.x, es *null*, lo que indica que no hay tiempo de espera.
+Indica la duración del tiempo de espera para todas las funciones. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos. En un plan de App Service dedicado, no hay ningún límite general y el valor predeterminado es 30 minutos. Un valor de `-1` indica una ejecución sin enlazar.
 
 ```json
 {
@@ -173,7 +173,7 @@ Configuración del [monitor de estado de host](https://github.com/Azure/azure-we
 
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
-|enabled|true|Especifica si está habilitada la característica. | 
+|Enabled|true|Especifica si está habilitada la característica. | 
 |healthCheckInterval|10 segundos|El intervalo de tiempo entre las comprobaciones periódicas de mantenimiento en segundo plano. | 
 |healthCheckWindow|2 minutes|Una ventana de tiempo deslizante usada en combinación con el valor `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de veces que puede producirse un error en la comprobación de mantenimiento antes de que se inicie un reciclaje del host.| 

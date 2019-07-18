@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6251df2317ceff9dded92f2d829bfab0503fdf1b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: f626ce2e009a18afcb4d04b7caa6850ea58c7483
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237603"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446825"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Aprovisionamiento y administración de la versión preliminar de Azure Time Series Insights
 
@@ -33,7 +33,7 @@ Al aprovisionar un entorno de versión preliminar de Azure Time Series Insights,
 Aprenda [a planificar su entorno ](./time-series-insights-update-plan.md).
 
 >[!IMPORTANT]
-> Para la versión preliminar, asegúrese de que está usando un almacenamiento de Azure de uso general v1 (GPv1) cuenta.
+> Para la versión preliminar, asegúrese de que se usa una cuenta de uso general v1 (GPv1) de Azure Storage.
 
 Opcionalmente, puede asociar cada entorno de la versión preliminar de Azure Time Series Insights con un origen de evento. Para más información, consulte [Agregar un origen de centro de eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md) y [Agregar un origen de centro de IoT](./time-series-insights-how-to-add-an-event-source-iothub.md). Deberá proporcionar una propiedad de id. de marca de tiempo y un grupo de consumidores único durante este paso. Al hacerlo, garantiza que el entorno obtenga acceso a los eventos apropiados.
 
@@ -45,7 +45,7 @@ Los siguientes pasos describen cómo crear un entorno de la versión preliminar 
 
 1. Seleccione el botón **PAYG** en el menú **SKU**. Proporcione un nombre de entorno y elija el grupo de suscripción y el grupo de recursos que va a usar. A continuación, seleccione una ubicación admitida para el entorno en el que se hospedará.
 
-   [![Cree una instancia de Azure Time Series Insights.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+   [![Cree una instancia de Azure Time Series Insights.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. Introduzca un id. de serie temporal.
 
@@ -56,7 +56,7 @@ Los siguientes pasos describen cómo crear un entorno de la versión preliminar 
 
 1. Cree una cuenta de Azure Storage seleccionando un nombre de cuenta de almacenamiento y designando una opción de replicación. Al hacerlo, se crea automáticamente una cuenta de uso general v1 de Azure Storage. Se creará en la misma región que el entorno de versión preliminar de Azure Time Series Insights que seleccionó anteriormente.
 
-    [![Crear una cuenta de almacenamiento de Azure para la instancia](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
+    [![Creación de una cuenta de Azure Storage para la instancia](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. Opcionalmente, puede agregar un origen del evento.
 
@@ -67,11 +67,11 @@ Los siguientes pasos describen cómo crear un entorno de la versión preliminar 
      > [!TIP]
      > Es posible que el tiempo de puesta en cola del mensaje no sea la mejor opción de configuración para usar en escenarios de carga de datos históricos o eventos por lotes. Asegúrese de comprobar correctamente la decisión de usar o no usar una propiedad Timestamp en tales casos.
 
-     [![Pestaña de origen de eventos](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
+     [![Pestaña Origen del evento](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. Confirme que el entorno se ha aprovisionado con las opciones que quiere.
 
-    [![Revisar y crear la pestaña](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+    [![Pestaña Revisar y crear](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## <a name="manage-the-environment"></a>Administrar el entorno
 
@@ -88,12 +88,12 @@ Puede administrar su entorno de versión preliminar de Azure Time Series Insight
 
 * La hoja de datos **Referencia** de Azure Portal se ha eliminado de la versión preliminar de Azure Time Series Insights, porque los datos de referencia no son un componente de los entornos PAYG.
 
-[![Entorno en tiempo de vista previa de Series Insights en Azure portal](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
+[![Entorno de la versión preliminar de Time Series Insights en Azure Portal](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [Planeamiento del entorno](./time-series-insights-update-plan.md).
 
-- Obtenga información sobre cómo [agregar un origen de centro de eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+- Obtenga información sobre cómo [agregar un origen de Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-- Configurar [un origen de IoT hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+- Configure [un origen de centro de IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).

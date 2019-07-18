@@ -1,27 +1,27 @@
 ---
-title: Conectarse al servidor MQ - Azure Logic Apps | Microsoft Docs
-description: Enviar y recuperar mensajes con un servidor de Azure o de MQ local y Azure Logic Apps
+title: 'Conectarse al servidor IBM MQ: Azure Logic Apps'
+description: Envío y recuperación de mensajes con un servidor de Azure o servidor IBM MQ local y Azure Logic Apps
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: valrobb
 ms.author: valthom
-ms.date: 06/01/2017
+ms.reviewer: chrishou, LADocs
 ms.topic: article
-ms.service: logic-apps
-services: logic-apps
-ms.reviewer: klam, LADocs
-ms.suite: integration
+ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: 9e6ae5cb0afd75a1e87fe4d4d0cf307abab5a02a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a2894799946d069916b27a4f5bcc7bd3244705b2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60688868"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273125"
 ---
-# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Conexión a un servidor IBM MQ desde las aplicaciones lógicas mediante el conector de MQ
+# <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Conectarse a un servidor IBM MQ desde Azure Logic Apps
 
-Microsoft Connector for MQ envía y recupera mensajes almacenados en un servidor MQ local o en Azure. Este conector incluye un cliente de Microsoft MQ que se comunica con un servidor IBM MQ remoto a través de una red TCP/IP. Este documento es una guía de inicio para usar el conector de MQ. Se recomienda empezar por explorar un mensaje de una cola y, después, intentar las demás acciones.
+El conector IBM MQ envía y recupera mensajes almacenados en un servidor IBM MQ local o en Azure. Este conector incluye un cliente de Microsoft MQ que se comunica con un servidor IBM MQ remoto a través de una red TCP/IP. En este artículo se proporciona una guía de inicio para usar el conector MQ. Puede empezar por examinar un único mensaje en una cola y luego intentar otras acciones.
 
-El conector de MQ incluye las siguientes acciones. No hay desencadenadores.
+El conector IBM MQ incluye estas acciones, pero no proporciona ningún desencadenador:
 
 - Examinar un único mensaje sin eliminarlo del servidor IBM MQ
 - Examinar un lote de mensajes sin eliminarlos del servidor IBM MQ
@@ -31,92 +31,112 @@ El conector de MQ incluye las siguientes acciones. No hay desencadenadores.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Si usa un servidor local de MQ, [instale la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) en un servidor de la red. Si el servidor MQ está públicamente disponible o disponible en Azure, no se necesita ni se usa la puerta de enlace de datos.
+* Si usa un servidor MQ local, [instale la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) en un servidor de la red. El servidor donde está instalada la puerta de enlace de datos local también debe tener .NET Framework 4.6 instalado para que el conector de MQ funcione. También debe crear un recurso de Azure para la puerta de enlace de datos local. Para más información, consulte [Configuración de una conexión de puerta de enlace de datos](../logic-apps/logic-apps-gateway-connection.md).
 
-    > [!NOTE]
-    > El servidor donde está instalada la puerta de enlace de datos local también debe tener .NET Framework 4.6 instalado para que el conector de MQ funcione.
-
-* Cree el recurso de Azure para la puerta de enlace de datos local: [Configuración de la conexión de la puerta de enlace de datos](../logic-apps/logic-apps-gateway-connection.md).
+  Sin embargo, si el servidor MQ está públicamente disponible o disponible en Azure, no debe usar la puerta de enlace de datos.
 
 * Versiones oficialmente compatibles con IBM WebSphere MQ:
-    * MQ 7.5
-    * MQ 8.0
 
-## <a name="create-a-logic-app"></a>Creación de una aplicación lógica
+  * MQ 7.5
+  * MQ 8.0
+  * MQ 9.0
 
-1. En el **Panel de inicio de Azure**, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
-2. Rellene los campos **Nombre**, como MQTestApp, **Suscripción**, **Grupo de recursos** y **Ubicación** (use la ubicación donde esté configurada la conexión de la puerta de enlace de datos local). Seleccione **Anclar al panel** y **Crear**.  
-![Creación de la aplicación lógica](media/connectors-create-api-mq/Create_Logic_App.png)
+* La aplicación lógica en la que desea agregar la acción de MQ. Esta aplicación lógica debe usar la misma ubicación que la conexión de puerta de enlace de datos local y debe tener un desencadenador que inicia el flujo de trabajo. 
 
-## <a name="add-a-trigger"></a>Incorporación de un desencadenador
-
-> [!NOTE]
-> El conector de MQ no tiene ningún desencadenador. Debe usar otro desencadenador para iniciar la aplicación lógica, como **Periodicidad**.
-
-1. Cuando se abra el **Diseñador de aplicaciones de la lógicas**, seleccione **Periodicidad** de la lista de desencadenadores comunes.
-2. En el desencadenador Periodicidad, seleccione **Editar**.
-3. Establezca la **Frecuencia** en **Día**, con un **intervalo** de **7**.
+  El conector de MQ no tiene ningún desencadenador, por lo que debe agregar primero un desencadenador a la aplicación lógica. Por ejemplo, puede usar el desencadenador de periodicidad. Si no está familiarizado con el uso de aplicaciones lógicas, pruebe este [inicio rápido para crear su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ## <a name="browse-a-single-message"></a>Examen de un único mensaje
-1. Seleccione **+ Nuevo paso** y **Agregar una acción**.
-2. En el cuadro de búsqueda, escriba `mq` y seleccione **MQ - Browse message** (MQ: examinar mensaje).  
-![Examen de un mensaje](media/connectors-create-api-mq/Browse_message.png)
 
-3. Si no hay conexión de MQ existente, créela:  
+1. En la aplicación lógica, en el desencadenador u otra acción, elija **Nuevo paso**. 
 
-    1. Seleccione **Conectarse mediante puerta de enlace de datos local** y especifique las propiedades del servidor MQ.  
-    Para **Servidor**, especifique el nombre del servidor MQ, o escriba la dirección IP seguida de dos puntos y el número del puerto.
-    2. La lista desplegable de **puertas de enlace** muestra las conexiones de puerta de enlace existentes configuradas. Seleccione la puerta de enlace.
-    3. Cuando haya terminado, seleccione **Crear**. La conexión se parecerá a la siguiente:  
-    ![Propiedades de la conexión](media/connectors-create-api-mq/Connection_Properties.png)
+1. En el cuadro de búsqueda, escriba "mq" y seleccione esta acción: **Examen de un mensaje**
 
-4. En las propiedades de acción, puede:  
+   ![Buscar mensaje](media/connectors-create-api-mq/Browse_message.png)
 
-    * Use la propiedad **Queue** para acceder a un nombre de cola distinto al que se define en la conexión
-    * Usar las propiedades **MessageId**, **CorrelationId**, **GroupId** y otras para buscar un mensaje en función de las distintas propiedades de los mensajes de MQ
-    * Establecer **IncludeInfo** en **True** para incluir información adicional al mensaje de salida. O establecerlo en **False** para no incluir información adicional al mensaje de salida.
-    * Escribir un valor para **Timeout** para determinar cuánto tiempo esperar a que llegue un mensaje a una cola vacía. Si no se especifica nada, se recupera el primer mensaje de la cola y no hay tiempo de espera para que aparezca un mensaje.  
-    ![Propiedades de Browse message](media/connectors-create-api-mq/Browse_message_Props.png)
+1. Si no tiene una conexión de MQ existente, cree la conexión:  
 
-5. Haga clic en **Guardar** para guardar los cambios y en **Ejecutar** para ejecutar la aplicación lógica:  
-![Guardar y ejecutar](media/connectors-create-api-mq/Save_Run.png)
+   1. En la acción, seleccione **Conectarse mediante una puerta de enlace de datos local**.
+   
+   1. Especifique las propiedades del servidor MQ.  
 
-6. Después de unos segundos, los pasos de la ejecución aparecerán y podrá observar la salida. Seleccione la marca de verificación verde para ver los detalles de cada paso. Seleccione **Mostrar salidas sin procesar** para ver más detalles de los datos de salida.  
-![Salida de Browse message](media/connectors-create-api-mq/Browse_message_output.png)  
+      Para **Servidor**, especifique el nombre del servidor MQ, o escriba la dirección IP seguida de dos puntos y el número del puerto.
+    
+   1. Abra la lista de **puertas de enlace**, en la que se muestran las conexiones de puerta de enlace configuradas anteriormente. Seleccione la puerta de enlace.
+    
+   1. Cuando termine, seleccione **Crear**. 
+   
+      La conexión es similar a este ejemplo:
 
-    Salida sin procesar:  
-    ![Salida sin procesar de Browse message](media/connectors-create-api-mq/Browse_message_raw_output.png)
+      ![Propiedades de conexión](media/connectors-create-api-mq/Connection_Properties.png)
 
-7. Cuando la opción **IncludeInfo** se establece en true, aparece el resultado siguiente:  
-![IncludeInfo de Browse message](media/connectors-create-api-mq/Browse_message_Include_Info.png)
+1. Configure las propiedades de la acción:
+
+   * **Queue**: especifique una cola que sea diferente de la conexión.
+
+   * **MessageId**, **CorrelationId**, **GroupId** y otras propiedades: busque un mensaje basado en las distintas propiedades de mensaje de MQ
+
+   * **IncludeInfo**: especifique **True** para incluir información adicional al mensaje en la salida. O bien, especifique **False** para no incluir información adicional al mensaje en la salida.
+
+   * **Timeout**: especifique un valor para determinar cuánto tiempo esperar a que llegue un mensaje a una cola vacía. Si no se especifica nada, se recupera el primer mensaje de la cola y no hay tiempo de espera para que aparezca un mensaje.
+
+     ![Propiedades de Browse message](media/connectors-create-api-mq/Browse_message_Props.png)
+
+1. Haga clic en **Guardar** para guardar los cambios y en **Ejecutar** para ejecutar la aplicación lógica.
+
+   ![Guardar y ejecutar](media/connectors-create-api-mq/Save_Run.png)
+
+   Una vez finalizada la ejecución, se muestran los pasos de la ejecución y puede revisar la salida.
+
+1. Para revisar los detalles de cada paso, elija la marca de verificación verde. Para revisar más información sobre los datos de salida, elija **Mostrar salidas sin procesar**.
+
+   ![Salida de Buscar mensaje](media/connectors-create-api-mq/Browse_message_output.png)  
+
+   Presentamos algunas salidas sin procesar de ejemplo:
+
+   ![Salida sin procesar de Browse message](media/connectors-create-api-mq/Browse_message_raw_output.png)
+
+1. Si establece **IncludeInfo** en true, se muestra la salida siguiente:
+
+   ![IncludeInfo de Buscar mensaje](media/connectors-create-api-mq/Browse_message_Include_Info.png)
 
 ## <a name="browse-multiple-messages"></a>Examen de varios mensajes
+
 La acción **Browse messages** incluye la opción **BatchSize** para indicar cuántos mensajes se deben devolver de la cola.  Si **BatchSize** se deja en blanco, se devuelven todos los mensajes. El resultado devuelto es una matriz de mensajes.
 
-1. Al agregar la acción **Browse messages**, la primera conexión configurada se selecciona de manera predeterminada. Seleccione **Cambiar conexión** para crear una conexión nueva o seleccione una diferente.
+1. Al agregar la acción **Examinar mensajes**, de manera predeterminada se selecciona la primera conexión configurada anteriormente. Para crear una nueva conexión, elija **Cambiar conexión**. O bien, seleccione una conexión diferente.
 
-2. La salida de Browse messages muestra:  
-![Salida de Browse message](media/connectors-create-api-mq/Browse_messages_output.png)
+1. Una vez que termina la ejecución de la aplicación lógica, presentamos algunos resultados de ejemplo de la acción **Examinar mensajes**:
 
-## <a name="receive-a-single-message"></a>Recepción de un único mensaje
+   ![Salida de Browse message](media/connectors-create-api-mq/Browse_messages_output.png)
+
+## <a name="receive-single-message"></a>Recibir un mensaje único
+
 La acción **Receive message** tiene las mismas entradas y salidas que la acción **Browse message**. Cuando se usa **Receive message**, el mensaje se elimina de la cola.
 
 ## <a name="receive-multiple-messages"></a>Recepción de varios mensajes
+
 La acción **Receive messages** tiene las mismas entradas y salidas que la acción **Browse messages**. Cuando se usa **Receive messages**, los mensajes se eliminan de la cola.
 
 Si no hay mensajes en la cola al realizar la acción browse o receive, el paso produce un error con la siguiente salida:  
+
 ![Error de ausencia de mensajes en MQ](media/connectors-create-api-mq/MQ_No_Msg_Error.png)
 
-## <a name="send-a-message"></a>Envío de un mensaje
-1. Al agregar la acción **Send message**, la primera conexión configurada se selecciona de manera predeterminada. Seleccione **Cambiar conexión** para crear una conexión nueva o seleccione una diferente. Los valores válidos para **Message Types** son **Datagram**, **Reply** o **Request**.  
-![Propiedades de Send message](media/connectors-create-api-mq/Send_Msg_Props.png)
+## <a name="send-message"></a>Enviar mensaje
 
-2. La salida de Send message tendrá un aspecto similar al siguiente:  
-![Salida de Send message](media/connectors-create-api-mq/Send_Msg_Output.png)
+Al agregar la acción **Enviar mensajes**, de manera predeterminada se selecciona la primera conexión configurada anteriormente. Para crear una nueva conexión, elija **Cambiar conexión**. O bien, seleccione una conexión diferente.
 
-## <a name="connector-specific-details"></a>Detalles específicos del conector
+1. Seleccione un tipo de mensaje válido: **Datagrama**, **Responder** o **Solicitud**  
 
-Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/mq/).
+   ![Propiedades de Enviar mensaje](media/connectors-create-api-mq/Send_Msg_Props.png)
+
+1. Cuando finalice la aplicación lógica, presentamos algunos resultados de ejemplo de la acción **Enviar mensaje**:
+
+   ![Salida de Send message](media/connectors-create-api-mq/Send_Msg_Output.png)
+
+## <a name="connector-reference"></a>Referencia de conectores
+
+Para obtener información técnica sobre las acciones y los límites, que se describen en la descripción de OpenAPI (anteriormente conocido como Swagger) del conector, consulte la [página de referencia del conector](/connectors/mq/).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
+
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/16/2019
 ms.author: juliako
-ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0abc3eec380cccae2672d0e9aa4a3a4c7199362f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556224"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295659"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -31,7 +31,7 @@ Azure Media Services permite entregar eventos en directo a sus clientes en la nu
 - Componentes de Media Services, que permiten ingerir, previsualizar, empaquetar, registrar, cifrar y difundir el evento en directo a los clientes o a una red CDN para una futura distribución.
 
 En este artículo se proporciona información general y una guía del streaming en vivo con Media Services y vínculos a otros artículos pertinentes.
-
+ 
 > [!NOTE]
 > Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](media-services-apis-overview.md#sdks) admitidos.
 
@@ -49,27 +49,27 @@ El filtro dinámico se usa para controlar el número de pistas, formatos, veloci
 
 ## <a name="live-event-types"></a>Tipos de objetos LiveEvent
 
-Un objeto LiveEvent puede ser de uno de estos dos tipos: paso a través y codificación en directo. Para obtener más información sobre el streaming en vivo en Media Services v3, vea [Eventos en directo y salidas en vivo](live-events-outputs-concept.md).
+Los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Un objeto LiveEvent puede ser de uno de estos dos tipos: paso a través y codificación en directo. Para obtener más información sobre el streaming en vivo en Media Services v3, vea [Eventos en directo y salidas en vivo](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Paso a través
 
 ![paso a través](./media/live-streaming/pass-through.svg)
 
-Cuando se utiliza el **objeto LiveEvent** de paso a través, se confía en el codificador en directo local para generar una secuencia de vídeo con múltiples velocidades de bits y enviarla como fuente de contribución al objeto LiveEvent (mediante el protocolo RTMP o MP4 fragmentado). El objeto LiveEvent lleva a cabo las secuencias de vídeo entrantes sin ningún otro procesamiento. Este tipo de objeto LiveEvent de paso a través está optimizado para eventos en directo de larga duración o para el streaming en vivo ininterrumpidamente. 
+Cuando se utiliza el **objeto LiveEvent** de paso a través, se confía en el codificador en directo local para generar una secuencia de vídeo con múltiples velocidades de bits y enviarla como fuente de contribución al objeto LiveEvent (mediante el protocolo de entrada RTMP o MP4 fragmentado). Tras ello, el objeto LiveEvent realiza la secuencia de vídeo entrante al empaquetador dinámico (punto de conexión de streaming) sin necesidad de transcodificar nada más. Este tipo de objeto LiveEvent de paso a través está optimizado para eventos en directo de larga duración o para el streaming en vivo ininterrumpidamente. 
 
 ### <a name="live-encoding"></a>Live Encoding  
 
 ![codificación en directo](./media/live-streaming/live-encoding.svg)
 
-Si utiliza la codificación en directo con Media Services, deberá configurar el codificador en directo local para que envíe un vídeo con una única velocidad de bits como fuente de contribución al objeto LiveEvent (mediante el protocolo RTMP o Mp4 fragmentado). El objeto LiveEvent codifica ese flujo entrante de una velocidad de bits única en un [flujo de vídeo con varias velocidades de bits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) y hace que esté disponible para que pueda reproducirse en dispositivos mediante protocolos como MPEG-DASH, HLS y Smooth Streaming. 
+Si utiliza la codificación en la nube con Media Services, deberá configurar el codificador en directo local para que envíe un vídeo con una única velocidad de bits como fuente de contribución (agregado de 32 Mbps como máximo) al objeto LiveEvent (mediante el protocolo de entrada RTMP o MP4 fragmentado). El objeto LiveEvent transcodifica la secuencia de velocidad de bits única entrante en [varias secuencias de vídeo de velocidad de bits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) a resoluciones diferentes para mejorar la entrega, y las pone a disposición para su entrega a dispositivos de reproducción a través de protocolos estándar del sector como MPEG-DASH, Apple HTTP Live Streaming (HLS) y Microsoft Smooth Streaming. 
 
 ## <a name="live-streaming-workflow"></a>Flujo de trabajo de streaming en vivo
 
 Para conocer el flujo de trabajo de streaming en vivo de Media Services v3, primero tendrá que examinar y conocer los conceptos siguientes: 
 
-- [API de puntos de conexión de streaming](streaming-endpoint-concept.md)
-- [API de objetos LiveEvent y LiveOutput](live-events-outputs-concept.md)
-- [API de localizadores de streaming](streaming-locators-concept.md)
+- [Puntos de conexión de streaming](streaming-endpoint-concept.md)
+- [Objetos LiveEvent y LiveOutput](live-events-outputs-concept.md)
+- [Localizadores de streaming](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Pasos generales
 
@@ -79,7 +79,7 @@ Para conocer el flujo de trabajo de streaming en vivo de Media Services v3, pri
 4. Obtenga la dirección URL de versión preliminar y úsela para verificar que la entrada del codificador se está recibiendo realmente.
 5. Cree un nuevo objeto de **recurso**.
 6. Cree un objeto de **salida en directo** y use el nombre del recurso que ha creado.<br/>El objeto **LiveOutput** archivará la secuencia en el objeto **Asset**.
-7. Cree un objeto **Streaming Locator** con los tipos del objeto **Streaming Policy** integrados.<br/>Si va a cifrar el contenido, consulte [Introducción a la protección de contenido](content-protection-overview.md).
+7. Cree un objeto **Streaming Locator** con los [tipos del objeto Streaming Policy integrados](streaming-policy-concept.md).
 8. Enumere las rutas de acceso en el **localizador de streaming** para recuperar las direcciones URL que se van a usar (estas son deterministas).
 9. Obtenga el nombre de host para el **Punto de conexión de streaming** desde el que quiere hacer el streaming.
 10. Combine la dirección URL del paso 8 con el nombre de host del paso 9 para obtener la dirección URL completa.

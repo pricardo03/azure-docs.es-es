@@ -1,19 +1,19 @@
 ---
 title: 'Planes de tarifa de Azure Database for PostgreSQL: servidor único'
-description: 'Este artículo describe los planes de tarifa para Azure Database for PostgreSQL: servidor único.'
+description: 'En este artículo, se describen los planes de tarifa de Azure Database for PostgreSQL: servidor único.'
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: ed534f910fa1e44d3d53ab61ee86378eba788036
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 5f60a2786a87f4bd9be1f4a9e2a7a222e097b2e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240384"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448072"
 ---
-# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Planes de tarifa de Azure Database for PostgreSQL: servidor único
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Limitaciones de Azure Database for PostgreSQL: servidor único
 
 Puede crear un servidor de Azure Database for PostgreSQL en tres planes de tarifa diferentes: Básico, De uso general y Optimizado para memoria. Los planes de tarifa se diferencian por la cantidad de proceso en núcleos virtuales que se puede aprovisionar, la cantidad de memoria por núcleo virtual y la tecnología de almacenamiento usada para almacenar los datos. Todos los recursos se aprovisionan en el nivel de servidor PostgreSQL. Un servidor puede tener una o varias bases de datos.
 
@@ -38,9 +38,9 @@ Después de crear un servidor, el número de núcleos virtuales, la generación 
 
 ## <a name="compute-generations-and-vcores"></a>Procesar generaciones y núcleos virtuales
 
-Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. China oriental 1, 1 de centro y Norte de China, US DoD Central y US DoD este usan las CPU lógicas Gen 4 que se basan en Intel E5-2673 v3 (Haswell) procesadores a 2,4 GHz. Todas las demás regiones usan las CPU lógicas Gen 5 basados en Intel E5-2673 v4 (Broadwell) procesadores de 2,3 GHz.
+Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. Este de China 1, Norte de China 1, US DoD (centro) y US DoD (este) usan CPU lógicas Gen 4 que se basan en los procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz. Todas las demás regiones utilizan CPU lógicas Gen 5 que se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz.
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 
 El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamiento disponible para el servidor de Azure Database for PostgreSQL. El almacenamiento se usa para los archivos de base de datos, los archivos temporales, los registros de transacciones y los registros del servidor PostgreSQL. La cantidad total de almacenamiento que se aprovisiona también define la capacidad de E/S disponible para su servidor.
 
@@ -51,27 +51,47 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 | Tamaño de incremento de almacenamiento | 1 GB | 1 GB | 1 GB |
 | E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. |
 
-Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor y permitir que el sistema crecer automáticamente según el consumo de almacenamiento de la carga de trabajo de almacenamiento. El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
+Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor, y permitir que el sistema aumente el almacenamiento automáticamente en función del consumo de almacenamiento de su carga de trabajo. El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
 
 Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la CLI de Azure. Las métricas pertinentes que se deben supervisar son el [límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S](concepts-monitoring.md).
 
+### <a name="large-storage-preview"></a>Almacenamiento de gran tamaño (versión preliminar)
+
+Estamos aumentando los límites de almacenamiento en nuestros niveles de Uso general y Optimizados para memoria. Los servidores recién creados que participen en la versión preliminar pueden aprovisionar hasta 16 TB de almacenamiento. La escala IOPS en una proporción de 3:1 es de hasta 20.000 IOPS. Con el almacenamiento disponible actualmente, puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor, y permitir que el sistema aumente el almacenamiento automáticamente en función del consumo de almacenamiento de su carga de trabajo.
+
+|              | **Uso general** | **Memoria optimizada** |
+|:-------------|:--------------------|:---------------------|
+| Tipo de almacenamiento | Azure Premium Storage | Azure Premium Storage |
+| Tamaño de almacenamiento | De 32 GB a 16 TB| De 32 a 16 TB |
+| Tamaño de incremento de almacenamiento | 1 GB | 1 GB |
+| E/S | 3 IOPS/GB<br/>100 IOPS mín.<br/>20.000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>20.000 IOPS máx. |
+
+> [!IMPORTANT]
+> El almacenamiento de gran tamaño actualmente se encuentra disponible en versión preliminar pública en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de EE. UU., Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Sudeste Asiático, Asia Oriental, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Sudeste de Australia.
+>
+> La versión preliminar de almacenamiento de gran tamaño actualmente no admite:
+>
+> * Conexiones entrantes a través de puntos de conexión de servicio de red virtual.
+> * Copias de seguridad geográficamente redundantes
+> * Réplicas de lectura
+
 ### <a name="reaching-the-storage-limit"></a>Alcance del límite de almacenamiento
 
-Servidores con menos de 100 GB aprovisionar almacenamiento son de sólo lectura si el almacenamiento disponible es inferior a 512MB o el 5% del tamaño de almacenamiento aprovisionado. Servidores con más de 100 GB aprovisionar almacenamiento están marcados como lectura sólo cuando el almacenamiento disponible es inferior a 5 GB.
+Los servidores con menos de 100 GB de almacenamiento aprovisionado se marcan como de solo lectura si el almacenamiento disponible es inferior a 512 MB o el 5 % del tamaño del almacenamiento aprovisionado. Los servidores con más de 100 GB de almacenamiento aprovisionado se marcan como solo de lectura cuando el almacenamiento libre es inferior a 5 GB.
 
-Por ejemplo, si ha aprovisionado 110 GB de almacenamiento y la utilización real se realiza a través tanto 105 GB, el servidor está marcado como de solo lectura. Como alternativa, si ha aprovisionado 5 GB de almacenamiento, el servidor está marcado como de solo lectura cuando llega el almacenamiento disponible a menos de 512 MB.
+Por ejemplo, si ha aprovisionado 110 GB de almacenamiento, y el uso real supera los 105 GB, el servidor se marca como de solo lectura. O bien, si ha aprovisionado 5 GB de almacenamiento, el servidor se marca como de solo lectura cuando el almacenamiento disponible se vuelva inferior a 512 MB.
 
 Si el servidor se establece en solo lectura, todas las sesiones existentes se desconectan, y las transacciones no confirmadas se revierten. Las operaciones de escritura y las confirmaciones de transacción posteriores producirán errores. Todas las consultas de lectura subsiguientes seguirán funcionando sin interrupciones.  
 
 Puede aumentar la cantidad de almacenamiento aprovisionado en el servidor, o iniciar una sesión nueva en modo de lectura-escritura y quitar datos para recuperar almacenamiento disponible. Al ejecutar `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;`, la sesión actual se establece en modo de lectura-escritura. Para evitar daños en los datos, no realice operaciones de escritura cuando el servidor aún esté en estado de solo lectura.
 
-Se recomienda activar almacenamiento crecimiento automático o para configurar una alerta para notificarle cuando el almacenamiento de servidor se está agotando el umbral por lo que puede evitar entrar en el estado de solo lectura. Para obtener más información, consulte la documentación sobre [cómo configurar una alerta](howto-alert-on-metric.md).
+Le recomendamos que active el almacenamiento automático o que configure una alerta que le envíe una notificación cada vez que su almacenamiento en servidor esté cerca del umbral para que pueda evitar entrar en el estado de solo lectura. Para obtener más información, consulte la documentación sobre [cómo configurar una alerta](howto-alert-on-metric.md).
 
-### <a name="storage-auto-grow"></a>Crecimiento automático de almacenamiento
+### <a name="storage-auto-grow"></a>Crecimiento automático del almacenamiento
 
-Si el crecimiento automático de almacenamiento está habilitado, el almacenamiento crece automáticamente sin que afecte a la carga de trabajo. Para los servidores con menos de 100 GB aprovisionar almacenamiento, 5 GB aumenta el tamaño de almacenamiento aprovisionado tan pronto como el almacenamiento disponible está por debajo de la mayor de 1 GB o 10% del almacenamiento aprovisionado. Para los servidores con más de 100 GB de almacenamiento aprovisionado, 5% aumenta el tamaño de almacenamiento aprovisionado cuando el espacio de almacenamiento libre está por debajo del 5% del tamaño de almacenamiento aprovisionado. Se aplican los límites de almacenamiento máximo según lo especificado anteriormente.
+Si el crecimiento automático del almacenamiento está habilitado, el almacenamiento crece automáticamente sin afectar a la carga de trabajo. Para servidores con menos de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en 5 GB tan pronto como el almacenamiento disponible se encuentre por debajo de 1 GB o el 10 % del almacenamiento aprovisionado. En cuanto a servidores con más de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en un 5 % cuando el espacio de almacenamiento disponible es inferior al 5 % del tamaño de almacenamiento aprovisionado. Se aplican los límites máximos de almacenamiento según lo especificado anteriormente.
 
-Por ejemplo, si ha aprovisionado 1000 GB de almacenamiento y la utilización real se realiza a través 950 GB, el tamaño de almacenamiento del servidor se ha aumentado hasta 1050 GB. Como alternativa, si ha aprovisionado 10 GB de almacenamiento, el tamaño de almacenamiento es aumentan hasta 15 GB cuando menos de 1 GB de almacenamiento es gratuito.
+Por ejemplo, si ha aprovisionado 1000 GB de almacenamiento y el uso real supera los 950 GB, el tamaño de almacenamiento del servidor se incrementa a 1050 GB. Como alternativa, si ha aprovisionado 10 GB de almacenamiento, el tamaño del almacenamiento aumenta a 15 GB cuando queda menos de 1 GB de almacenamiento.
 
 ## <a name="backup"></a>Copia de seguridad
 

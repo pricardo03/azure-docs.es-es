@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468307"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332053"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -94,9 +94,9 @@ Puede que tenga grupos de recursos o suscripciones para los que no desee recibir
 
 Este procedimiento configura la regla de uso promedio de CPU para las recomendaciones sobre una máquina virtual con poco uso.
 
-Advisor supervisa la utilización de las máquinas virtuales durante 14 días e identifica aquellas con una utilización escasa. Se considera que una máquina virtual tiene una utilización escasa si su uso promedio de CPU es del 5 % o menos y el de la red es de 7 MB o menos durante cuatro o más días.
+Advisor supervisa el uso de las máquinas virtuales durante 7 días e identifica aquellas con un uso escaso. Se considera que las máquinas virtuales tienen un uso escaso si su uso de CPU es del 5 % o menos y su uso de red es menor que el 2 %, o si la carga de trabajo actual se puede incluir en un tamaño de máquina virtual más pequeño.
 
-Si le gustaría que fuera más exigente en la identificación de las máquinas virtuales con poco uso, puede ajustar la regla de uso promedio de la CPU según la suscripción.  La regla de uso promedio de CPU puede establecerse en 5 %, 10 %, 15 % o 20 %.
+Si le gustaría que fuera más exigente en la identificación de las máquinas virtuales con poco uso, puede ajustar la regla de uso promedio de la CPU según la suscripción.  La regla de uso de CPU puede establecerse en 5 %, 10 %, 15 % o 20 %.
 
 > [!NOTE]
 > Para ajustar la regla de uso promedio de CPU para identificar las máquinas virtuales de poco uso, debe ser *Propietario* de una suscripción.  Si no tiene los permisos necesarios para una suscripción o grupo de recursos, la opción de incluir o incluir estará deshabilitada en la interfaz de usuario. 

@@ -16,12 +16,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d16efbd8ea2fa37ac9572e9dc1ba3ef67deaeaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10dfcf337dc75a202e781e931f38783291a72fe7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784395"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272752"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Una aplicación asignada no aparece en el panel de acceso
 
@@ -399,7 +399,7 @@ Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
 Tras un breve período, podrá ver el panel de configuración de la aplicación.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>Configuración de la aplicación para el inicio de sesión único con contraseña
+#### <a name="configure-the-application-for-password-single-sign-on-1"></a> Configuración de la aplicación para el inicio de sesión único con contraseña
 
 Para configurar el inicio de sesión único para una aplicación, siga los pasos siguientes:
 

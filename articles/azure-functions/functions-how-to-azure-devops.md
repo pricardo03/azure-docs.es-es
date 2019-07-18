@@ -1,6 +1,6 @@
 ---
-title: Entregar continuamente actualizaciones de código de función mediante Azure DevOps
-description: Obtenga información sobre cómo configurar una canalización de DevOps de Azure como destino Azure Functions.
+title: Entrega continua de actualizaciones de código de función mediante Azure DevOps
+description: Obtenga información sobre cómo configurar una canalización de Azure DevOps con Azure Functions como destino.
 author: ahmedelnably
 manager: jeconnoc
 ms.service: azure-functions
@@ -8,37 +8,35 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: 27b5dc9ccee8647d4fbb617063865df18b80bc5d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: 9806a982982971b1b3ac9c28454e17813b2ad2a5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990278"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479880"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>Entrega continua con Azure DevOps
 
-Puede implementar automáticamente su función en una aplicación de función de Azure con [canalizaciones de Azure](/azure/devops/pipelines/).
-Para definir la canalización, puede usar:
+Puede implementar automáticamente su función en una aplicación de función de Azure con [Azure Pipelines](/azure/devops/pipelines/).
+Para definir la canalización, puede usar lo siguiente:
 
-- Archivo YAML: Este archivo describe la canalización, puede tener una sección de pasos de compilación y una sección de versión. El archivo YAML debe estar en el mismo repositorio que la aplicación.
+- Archivo YAML: este archivo describe la canalización, puede tener una sección de pasos de compilación y una sección de versión. El archivo YAML debe estar en el mismo repositorio que la aplicación.
 
-- Plantillas: Las plantillas son listas realizan tareas que compilación o implementación la aplicación.
+- Plantillas: las plantillas son tareas preparadas que compilan o implementan la aplicación.
 
-## <a name="yaml-based-pipeline"></a>Canalización de YAML
+## <a name="yaml-based-pipeline"></a>Canalización basada en YAML
 
 ### <a name="build-your-app"></a>Compilación de la aplicación
 
-Compilar la aplicación en las canalizaciones de Azure depende del lenguaje de programación de la aplicación.
-Cada lenguaje tiene pasos de compilación concreta para crear un artefacto de implementación, que se puede usar para implementar la aplicación de función en Azure.
+La compilación de la aplicación en Azure Pipelines depende del lenguaje de programación de la aplicación.
+Cada lenguaje tiene pasos de compilación determinados para crear un artefacto de implementación, que se puede usar para implementar la aplicación de funciones en Azure.
 
 #### <a name="net"></a>.NET
 
-Puede utilizar el ejemplo siguiente para crear el archivo YAML para compilar la aplicación. NET.
+Puede utilizar el ejemplo siguiente con el fin de crear el archivo YAML para compilar la aplicación de .NET.
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: 'VS2017-Win2016'
 steps:
 - script: |
@@ -66,12 +64,10 @@ steps:
 
 #### <a name="javascript"></a>JavaScript
 
-Puede usar el ejemplo siguiente para crear el archivo YAML para compilar la aplicación JavaScript:
+Puede utilizar el ejemplo siguiente con el fin de crear el archivo YAML para compilar la aplicación de JavaScript:
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' if you have Windows native +Node modules
 steps:
 - bash: |
@@ -96,12 +92,10 @@ steps:
 
 #### <a name="python"></a>Python
 
-Puede utilizar el ejemplo siguiente para crear el archivo YAML para compilar la aplicación de Python, Python solo se admite para las funciones de Azure de Linux:
+Puede utilizar el ejemplo siguiente con el fin de crear el archivo YAML para compilar la aplicación de Python, la cual solo se admite para Azure Functions de Linux:
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04
 steps:
 - task: UsePythonVersion@0
@@ -129,14 +123,33 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
+#### <a name="powershell"></a>PowerShell
 
-### <a name="deploy-your-app"></a>Implementar la aplicación
+Puede utilizar el ejemplo siguiente con el fin de crear el archivo YAML para empaquetar la aplicación de PowerShell, la cual solo se admite para Azure Functions de Windows:
 
-Según el sistema operativo host, deberá incluir el siguiente ejemplo YAML en el archivo YAML.
+```yaml
+pool:
+      vmImage: 'VS2017-Win2016'
+steps:
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+    name: 'drop'
+```
 
-#### <a name="windows-function-app"></a>Aplicación de función de Windows
+### <a name="deploy-your-app"></a>Implementación de la aplicación
 
-El siguiente fragmento de código se puede usar para implementar en una aplicación de función de Windows
+En función del sistema operativo de hospedaje, deberá incluir el siguiente ejemplo YAML en el archivo YAML.
+
+#### <a name="windows-function-app"></a>Aplicación de funciones de Windows
+
+El siguiente fragmento de código se puede usar para implementar en una aplicación de funciones de Windows.
 
 ```yaml
 steps:
@@ -145,11 +158,15 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionApp
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
-#### <a name="linux-function-app"></a>Aplicación de función de Linux
+#### <a name="linux-function-app"></a>Aplicación de funciones de Linux
 
-El siguiente fragmento de código se puede usar para implementar en una aplicación de función Linux
+El siguiente fragmento de código se puede usar para implementar en una aplicación de funciones de Linux.
 
 ```yaml
 steps:
@@ -158,63 +175,70 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionAppLinux
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 ## <a name="template-based-pipeline"></a>Canalización basada en plantilla
 
-Las plantillas en Azure, DevOps, son un grupo predefinido de tareas que compilar o implementar una aplicación.
+Las plantillas de Azure DevOps son un grupo predefinido de tareas que compilan o implementan una aplicación.
 
 ### <a name="build-your-app"></a>Compilación de la aplicación
 
-Compilar la aplicación en las canalizaciones de Azure depende del lenguaje de programación de la aplicación. Cada lenguaje tiene pasos de compilación concreta para crear un artefacto de implementación, que puede usarse para actualizar la aplicación de función en Azure.
-Para usar las plantillas de compilación integradas al crear una nueva canalización de compilación, elija **usar el editor clásico** para crear una canalización mediante las plantillas de diseñador
+La compilación de la aplicación en Azure Pipelines depende del lenguaje de programación de la aplicación. Cada lenguaje tiene pasos de compilación determinados para crear un artefacto de implementación, que se puede usar para actualizar la aplicación de funciones en Azure.
+Con el fin de usar las plantillas de compilación integradas, al crear una nueva canalización de compilación, elija **usar el editor clásico** para crear una canalización mediante las plantillas de diseñador.
 
-![Editor clásico de canalizaciones de Azure](media/functions-how-to-azure-devops/classic-editor.png)
+![Editor clásico de Azure Pipelines](media/functions-how-to-azure-devops/classic-editor.png)
 
-Después de configurar el origen del código, busque Azure Functions las plantillas de compilación y elija la plantilla que coincida con el idioma de la aplicación.
+Después de configurar el origen del código, busque las plantillas de compilación de Azure Functions y elija la plantilla que coincida con el lenguaje de la aplicación.
 
-![Las plantillas de compilación de las funciones de Azure](media/functions-how-to-azure-devops/build-templates.png)
+![Plantillas de compilación de Azure Functions](media/functions-how-to-azure-devops/build-templates.png)
+
+En algunos casos, los artefactos de compilación tienen una estructura de carpetas particulares y es posible que tenga que comprobar la opción **Anteponer el nombre de la carpeta raíz a las rutas de acceso del archivo**.
+
+![Anteposición de la carpeta raíz](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
 #### <a name="javascript-apps"></a>Aplicaciones de JavaScript
 
-Si su aplicación de JavaScript tiene una dependencia en los módulos nativos de Windows, necesita actualizar:
+Si la aplicación de JavaScript tiene una dependencia en los módulos nativos de Windows, necesitará actualizar lo siguiente:
 
-- La versión del grupo de agentes para **Hosted VS2017**
+- La versión del Grupo de agentes a la **Hospedado VS2017**
 
-  ![Cambiar el agente de compilación del sistema operativo](media/functions-how-to-azure-devops/change-agent.png)
+  ![Cambio del sistema operativo del agente de compilación](media/functions-how-to-azure-devops/change-agent.png)
 
-- La secuencia de comandos en el **crear extensiones** paso en la plantilla `IF EXIST *.csproj dotnet build extensions.csproj --output ./bin`
+### <a name="deploy-your-app"></a>Implementación de la aplicación
 
-  ![Script de cambio](media/functions-how-to-azure-devops/change-script.png)
-
-### <a name="deploy-your-app"></a>Implementar la aplicación
-
-Al crear una nueva canalización de versiones, busque la plantilla de versión de Azure Functions.
+Cuando cree una nueva canalización de versión, busque la plantilla de versión de Azure Functions.
 
 ![](media/functions-how-to-azure-devops/release-template.png)
 
+En la plantilla de versión no se admite la implementación en una ranura de implementación.
+
 ## <a name="creating-an-azure-pipeline-using-the-azure-cli"></a>Creación de una canalización de Azure mediante la CLI de Azure
 
-Mediante el `az functionapp devops-pipeline create` [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), se creará una canalización de Azure para compilación y versión de cambios de código en el repositorio. El comando generará un nuevo archivo YAML que define la canalización de compilación y lanzamiento y confirma en el repositorio.
+Mediante el [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create) `az functionapp devops-pipeline create`, se creará una canalización de Azure para compilar y liberar los cambios de código en el repositorio. El comando generará un nuevo archivo YAML que define la canalización de versión y compilación y lo confirma en el repositorio. El comando de la CLI de Azure no admite la implementación en una ranura de implementación.
 Los requisitos previos para este comando dependen de la ubicación del código:
 
-- Si es el código en GitHub:
+- Si el código está en GitHub:
 
-    - Debe tener **escribir** permiso a su suscripción.
+    - Debe contar con permiso de **escritura** en su suscripción.
 
-    - Es el Administrador de proyecto de DevOps de Azure.
+    - Es el administrador del proyecto en Azure DevOps.
 
-    - Tiene permiso para crear un GitHub Token de acceso Personal con permisos suficientes. [Requisitos de permisos de PAT de GitHub.](https://aka.ms/azure-devops-source-repos)
+    - Tiene permiso para crear un token de acceso personal en GitHub con permisos suficientes. [Requisitos de permiso de token de acceso personal en GitHub](https://aka.ms/azure-devops-source-repos).
 
-    - Tiene permiso para confirmar en la rama principal en el repositorio de GitHub para confirmar el archivo YAML generado automáticamente.
+    - Tiene permiso para confirmar a la rama maestra en el repositorio de GitHub con el fin de confirmar el archivo YAML generado automáticamente.
 
-- Si el código está en repositorios de Azure:
+- Si el código está en Azure Repos:
 
-    - Debe tener **escribir** permiso a su suscripción.
+    - Debe contar con permiso de **escritura** en su suscripción.
 
-    - Es el Administrador de proyecto de DevOps de Azure.
+    - Es el administrador del proyecto en Azure DevOps.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 + [Información general sobre Azure Functions](functions-overview.md)
-+ [Información general de Azure DevOps](/azure/devops/pipelines/)
++ [Introducción a Azure DevOps](/azure/devops/pipelines/)

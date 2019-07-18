@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 05/29/2019
 ms.author: dalek
-ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.openlocfilehash: 188911fa3fb872c8db1612406bf3d4e9b36d837b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357279"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303842"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -30,19 +30,20 @@ Si tiene preguntas sobre cómo funcionan los precios para Application Insights, 
 
 ## <a name="pricing-model"></a>Modelo de precios
 
-Los precios para [Azure Application Insights][start] se basan en el volumen de datos ingeridos. Cada recurso de Application Insights se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure.
+Los precios de [Azure Application Insights][start] se basan en el volumen de datos ingeridos. Cada recurso de Application Insights se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure.
 
 ### <a name="data-volume-details"></a>Detalles de volumen de datos
 
 * El volumen de datos es el número de bytes de telemetría que recibe Application Insights. El volumen de datos se mide como el tamaño del paquete de datos JSON sin comprimir que recibe Application Insights de su aplicación. Para [los datos tabulares importados en Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), el volumen de datos se mide como el tamaño descomprimido de los archivos enviados a Application Insights.
-* Los cargos por volumen de datos de la aplicación se notifican a partir de abril de 2018 en un nuevo medidor de facturación denominado **Ingesta de datos**. Este nuevo medidor se comparte entre supervisión tecnologías como Application Insights y Log Analytics y está actualmente bajo el nombre del servicio **Log Analytics**. 
+* Los cargos por volumen de datos de la aplicación se notifican a partir de abril de 2018 en un nuevo medidor de facturación denominado **Ingesta de datos**. Este nuevo medidor se comparte a través de tecnologías de supervisión, como Application Insights y Log Analytics, y su actual nombre de servicio es **Log Analytics**. 
 * Los datos de la [secuencia de métricas en directo](../../azure-monitor/app/live-stream.md) no cuentan para calcular los precios.
 
-Para ver los precios vigentes actualmente en su moneda y región, consulte [Precios de Application Insights][pricing].
+> [!NOTE]
+> Todos los precios que se muestran en las capturas de pantalla de este artículo son solo para fines de ejemplo. Para ver los precios vigentes actualmente en su moneda y región, consulte [Precios de Application Insights][pricing].
 
 ### <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 
-Las [pruebas web de varios pasos](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) conllevan un cargo adicional. Las pruebas web de varios pasos son pruebas web que realizan una secuencia de acciones.
+Las [pruebas web de varios pasos](../../azure-monitor/app/availability-multistep.md) conllevan un cargo adicional. Las pruebas web de varios pasos son pruebas web que realizan una secuencia de acciones.
 
 No hay ningún cargo aparte para las *pruebas de ping* de una sola página. La telemetría de las pruebas de ping y de las de varios pasos se carga igual que el resto de la telemetría de su aplicación.
 
@@ -53,7 +54,7 @@ Application Insights permite entender fácilmente cuáles serán los costos en f
 ![Elija el precio](./media/pricing/pricing-001.png)
 
 A. Revise el volumen de datos para el mes. Esto incluye todos los datos recibidos y retenidos (después de cualquier [muestreo](../../azure-monitor/app/sampling.md)) de las aplicaciones de servidor y cliente, y de las pruebas de disponibilidad.  
-B. Se realiza un cargo adicional para las [pruebas web de varios pasos](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (Esto no incluye pruebas de disponibilidad simples, que se incluyen en la carga de volumen de datos).  
+B. Se realiza un cargo adicional para las [pruebas web de varios pasos](../../azure-monitor/app/availability-multistep.md). (Esto no incluye pruebas de disponibilidad simples, que se incluyen en la carga de volumen de datos).  
 C. Vea las tendencias de volumen de datos durante el mes anterior.  
 D. Habilite el [muestreo](../../azure-monitor/app/sampling.md) de ingesta de datos.   
 E. Establezca el límite de volumen de datos diario.  
@@ -138,50 +139,50 @@ En cada registro retenido, `itemCount` indica el número de registros originales
 
 ## <a name="disable-daily-cap-e-mails"></a>Deshabilitación de los correos electrónicos de límite diario
 
-Para deshabilitar los correos electrónicos de límite de volumen diario, en la sección de **Configuración** del recurso de Application Insights, en el panel **Uso y costos estimados**, seleccione **Límite diario**. Hay opciones para enviar correos electrónicos cuando se alcanza el límite, así como cuando se ha alcanzado un nivel de advertencia ajustable. Si desea deshabilitar todos los diario cap relacionados con el volumen de correos electrónicos desactive ambos cuadros.
+Para deshabilitar los correos electrónicos de límite de volumen diario, en la sección de **Configuración** del recurso de Application Insights, en el panel **Uso y costos estimados**, seleccione **Límite diario**. Hay opciones para enviar correos electrónicos cuando se alcanza el límite, así como cuando se ha alcanzado un nivel de advertencia ajustable. Si quiere deshabilitar todos los correos electrónicos relacionados con el límite de volumen diario, desactive ambas casillas.
 
-## <a name="legacy-enterprise-per-node-pricing-tier"></a>Enterprise heredado (por nodo) al plan de tarifa
+## <a name="legacy-enterprise-per-node-pricing-tier"></a>Plan de tarifa de Enterprise heredado (por nodo)
 
-Para los usuarios pioneros de Azure Application Insights, todavía hay dos posibles niveles de precios: Básico y Enterprise. El plan de tarifa básico es el mismo que se ha descrito anteriormente y es el nivel predeterminado. Incluye todas las características de nivel de empresa, sin costo adicional. Los efectos de nivel básico, principalmente en el volumen de datos que se ingieren. 
+Para los usuarios pioneros de Azure Application Insights, todavía hay dos planes de tarifa posibles: Básico y Enterprise. El plan de tarifa Básico es el mismo que se describió anteriormente y es el predeterminado. Incluye todas las características del plan Enterprise sin ningún coste adicional. En el nivel Básico, la facturación se realiza principalmente en función del volumen de datos ingerido. 
 
 > [!NOTE]
-> Estos niveles de precios heredados han cambiado de nombre. Ahora se llama a la empresa tarifa **por nodo** y el plan de tarifa básico ahora se denomina **por GB**. Estos nuevos nombres se utilizan a continuación y en el portal de Azure.  
+> Estos planes de tarifa heredados han cambiado de nombre. El plan de tarifa Enterprise ahora se llama **Por nodo** y el plan de tarifa Básico ahora se llama **Por GB**. Estos nuevos nombres se usan a continuación y en Azure Portal.  
 
-El nivel por nodo (anteriormente Enterprise) tiene un cargo por nodo y cada nodo recibe una asignación de datos diaria. En el plan de tarifa por nodo, se le cobrará datos ingeridos por encima de la concesión incluida. Si usa Operations Management Suite, debe elegir el nivel por nodo. 
+El nivel Por nodo (anteriormente Enterprise) tiene un cargo por nodo y cada nodo recibe una concesión de datos diaria. En el plan de tarifa Por nodo, se le cobrará por los datos ingeridos por encima de la concesión incluida. Si usa Operations Management Suite, debería elegir el nivel Por nodo. 
 
 Para ver los precios vigentes actualmente en su moneda y región, consulte [Precios de Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
 > [!NOTE]
 > En abril de 2018, [introdujimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuevo modelo de precios para la supervisión de Azure. Este modelo adopta un modelo de "pago por uso" sencillo en toda la cartera de servicios de supervisión. Más información sobre el [nuevo modelo de precios](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), cómo [evaluar el impacto de pasar a este modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) en función de los patrones de uso y [cómo participar en el nuevo modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model).
 
-### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Por nivel de nodo y los derechos de suscripción de Operations Management Suite
+### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Derechos del nivel Por nodo y la suscripción a Operations Management Suite
 
-Los clientes que compran Operations Management Suite E1 y E2 pueden obtener Application Insights por nodo como componente adicional sin costo adicional como [anunciaron](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/). En concreto, cada unidad de Operations Management Suite E1 y E2 incluye el derecho a usar un nodo de la capa de aplicación Insights por nodo. Cada nodo de Application Insights incluye hasta 200 MB de datos ingeridos por día (independientes de la ingesta de datos de Log Analytics), con la retención de datos de 90 días sin costo adicional alguno. El plan se describe con más detalle más adelante en el artículo. 
+Como se [anunció anteriormente](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), los clientes que compran Operations Management Suite E1 y E2 pueden obtener Application Insights Por nodo como componente adicional sin coste alguno. Específicamente, cada unidad de Operations Management Suite E1 y E2 incluye el derecho de usar un nodo del nivel Application Insights Por nodo. Cada nodo de Application Insights incluye hasta 200 MB de datos ingeridos por día (independientes de la ingesta de datos de Log Analytics), con la retención de datos de 90 días sin costo adicional alguno. El nivel se describe con más detalle más adelante en el artículo. 
 
-Dado que este nivel solo es aplicable a los clientes con una suscripción a Operations Management Suite, los clientes que no tienen una suscripción de Operations Management Suite no ven una opción para seleccionar este nivel.
+Dado que este nivel solo se aplica a clientes con una suscripción a Operations Management Suite, los clientes sin una suscripción no verán una opción para seleccionar este nivel.
 
 > [!NOTE]
-> Para garantizar que tiene este derecho, los recursos de Application Insights deben estar en el plan de tarifa por nodo. Este derecho se aplica solo como nodos. Recursos de Application Insights en el nivel por GB no consiguen ningún beneficio. Este derecho no es visible en los costos estimados que se muestran en el panel **Uso y costos estimados**. Además, si mueve una suscripción al nuevo modelo de precios de supervisión en abril de 2018 de Azure, el nivel por GB es el único nivel disponible. El traslado de una suscripción al nuevo modelo de precios de supervisión de Azure no es aconsejable si tiene una suscripción a Operations Management Suite.
+> Para garantizar que tiene este derecho, sus recursos de Application Insights deben estar en el plan de tarifa Por nodo. Este derecho se aplica solo como nodos. Los recursos de Application Insights del nivel Por GB no consiguen ningún beneficio. Este derecho no es visible en los costos estimados que se muestran en el panel **Uso y costos estimados**. Además, si traslada una suscripción al nuevo modelo de precios de supervisión de Azure en abril de 2018, el nivel Por GB será el único nivel disponible. El traslado de una suscripción al nuevo modelo de precios de supervisión de Azure no es aconsejable si tiene una suscripción a Operations Management Suite.
 
-### <a name="how-the-per-node-tier-works"></a>Cómo funciona el nivel por nodo
+### <a name="how-the-per-node-tier-works"></a>Funcionamiento del nivel Por nodo
 
-* Se paga por cada nodo que envíe telemetría desde cualquier aplicación en el nivel por nodo.
+* En el nivel Por nodo, se paga por cada nodo que envíe datos de telemetría desde cualquier aplicación.
   * Un *nodo* es un servidor físico o virtual o una instancia del rol de plataforma como servicio que hospeda la aplicación.
   * Los equipos de desarrollo, los exploradores cliente y los dispositivos móviles no se cuentan como nodos.
   * Si la aplicación contiene varios componentes que envían datos telemetría, como un servicio web y un trabajo de back-end, estos componentes se cuentan por separado.
   * Los datos de la [secuencia de métricas en directo](../../azure-monitor/app/live-stream.md) no cuentan para calcular los precios. En una suscripción, se cobra por nodo, no por aplicación. Si tiene cinco nodos que envían telemetría desde 12 aplicaciones, se le cobrarán 5 nodos.
 * Aunque los cargos se presupuestan mensualmente, solo se le cobrarán las horas en las que un nodo envíe telemetría de una aplicación. El cargo por hora es el cargo mensual presupuestado dividido entre 744 (el número de horas que tiene un mes de 31 días).
 * Cada día, se asigna un volumen de datos de 200 MB por cada nodo detectado (con una granularidad por hora). Las asignaciones de datos que no se utilizan no se guardan de un día para otro.
-  * Si elige el plan de tarifa por nodo, cada suscripción Obtiene una asignación diaria de datos en función del número de nodos que envían telemetría a los recursos de Application Insights de esa suscripción. Por tanto, si tiene cinco nodos que envían datos todo el día, tendrá una asignación global de 1 GB para todos los recursos de Application Insights de esa suscripción. No importa si algunos nodos envían más datos que otros, ya que los datos incluidos se comparten entre todos los nodos. Si en un día determinado, los recursos de Application Insights reciben más datos que se incluye en la asignación de datos diaria para esta suscripción, se aplican los cargos de datos por encima del límite por GB. 
+  * Si elige el plan de tarifa Por nodo, cada suscripción recibirá una concesión de datos diaria en función del número de nodos que envíen datos de telemetría a los recursos de Application Insights de esa suscripción. Por tanto, si tiene cinco nodos que envían datos todo el día, tendrá una asignación global de 1 GB para todos los recursos de Application Insights de esa suscripción. No importa si algunos nodos envían más datos que otros, ya que los datos incluidos se comparten entre todos los nodos. Si, un día determinado, los recursos de Application Insights reciben más datos de los que se incluyen en la concesión de datos diaria para esta suscripción, se aplicarán los cargos de datos por encima del límite por cada GB. 
   * La asignación de datos diaria se calcula como el número de horas del día (de acuerdo con UTC) que cada nodo envía datos de telemetría dividido entre 24 y multiplicado por 200 MB. Es decir, si tiene cuatro nodos que envían datos de telemetría durante 15 de las 24 horas del día, los datos incluidos para ese día serán ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. A un precio de 2,30 USD por GB en el caso de uso por encima del límite de datos, el cargo sería de 1,15 USB si los nodos envían 1 GB de datos ese día.
-  * La asignación diaria del nivel por nodo no se comparte con las aplicaciones para la que haya elegido el nivel por GB. La asignación que no se ha utilizado no se guarda de un día para otro. 
+  * La concesión diaria del nivel Por nodo no se comparte con las aplicaciones para las que haya elegido el nivel Por GB. La asignación que no se ha utilizado no se guarda de un día para otro. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Ejemplos acerca de cómo determinar el número de nodos
 
 | Escenario                               | Número de nodos total diario |
 |:---------------------------------------|:----------------:|
 | 1 aplicación utiliza 3 instancias de Azure App Service y 1 servidor virtual | 4 |
-| 3 aplicaciones que se ejecutan en 2 máquinas virtuales; los recursos de Application Insights para estas aplicaciones están en la misma suscripción y en el nivel por nodo | 2 | 
+| 3 aplicaciones se ejecutan en 2 VM; los recursos de Application Insights de estas aplicaciones están en la misma suscripción y en el nivel Por nodo | 2 | 
 | 4 aplicaciones cuyos recursos de Applications Insights están en la misma suscripción; cada aplicación ejecuta 2 instancias durante 16 horas de poca actividad y 4 instancias durante 8 horas punta | 13,33 | 
 | Servicios en la nube con 1 rol de trabajo y 1 rol web; cada uno ejecuta 2 instancias. | 4 | 
 | Un clúster de Azure Service Fabric con 5 nodos ejecuta 50 microservicios; cada microservicio ejecuta 3 instancias | 5|
@@ -194,7 +195,7 @@ Dado que este nivel solo es aplicable a los clientes con una suscripción a Oper
 
 ## <a name="automation"></a>Automation
 
-Puede escribir un script para establecer el plan de tarifa mediante el uso de Azure Resource Manager. [Más información](powershell.md#price).
+Puede escribir un script para establecer el plan de tarifa mediante Azure Resource Management. [Más información](powershell.md#price).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,23 +1,23 @@
 ---
-title: Compatibilidad de localización en Azure Maps | Microsoft Docs
+title: Soporte de localización en Azure Maps | Microsoft Docs
 description: Conozca los idiomas admitidos en los servicios de Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/25/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
-ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+manager: philmea
+ms.openlocfilehash: a9446301cc4bb46c989223ad020c7a8e8b353ad3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686781"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446181"
 ---
-# <a name="localization-support-in-azure-maps"></a>Compatibilidad de localización en Azure Maps
+# <a name="localization-support-in-azure-maps"></a>Soporte de localización en Azure Maps
 
-Azure Maps es compatible con diversos lenguajes y las vistas basadas en el país o región. Este artículo proporciona los idiomas admitidos y las vistas para ayudarle a dirigir su implementación de Azure Maps.
+Azure Maps admite varios idiomas y vistas según el país o región. En este artículo se proporcionan los idiomas y las vistas compatibles para que pueda realizar su implementación de Azure Maps.
 
 
 ## <a name="azure-maps-supported-languages"></a>Idiomas admitidos en Azure Maps
@@ -25,7 +25,7 @@ Azure Maps es compatible con diversos lenguajes y las vistas basadas en el país
 Los servicios de Azure Maps se han localizado en diversos idiomas. En la tabla siguiente se proporcionan los códigos de idioma admitidos para cada servicio.  
   
 
-| ID         | NOMBRE                   |  Mapas | Search | Enrutamiento | Incidentes de tráfico | Control de mapa JS | Zona horaria |
+| id         | NOMBRE                   |  Mapas | Search | Enrutamiento | Incidentes de tráfico | Control de mapa JS | Zona horaria |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | Afrikáans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -42,7 +42,7 @@ Los servicios de Azure Maps se han localizado en diversos idiomas. En la tabla s
 | en-AU      | Inglés (Australia)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | en-NZ      | Inglés (Nueva Zelanda)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | en-GB      | Inglés (Gran Bretaña) |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| en-US      | Inglés (Estados Unidos)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-US      | Inglés (EE. UU.)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estonio               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finés                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | Francés                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -83,28 +83,73 @@ Los servicios de Azure Maps se han localizado en diversos idiomas. En la tabla s
 | vi-VN      | Vietnamita             |       |    ✓   |         |                   |                |     ✓     |
 
 
-## <a name="azure-maps-supported-views"></a>Vistas admitidos en Azure Maps
+## <a name="azure-maps-supported-views"></a>Vistas admitidas en Azure Maps
 
-Azure asigna la vista parámetro (también denominado "parámetro de región del usuario") es un código de país de 2 letras ISO 3166 que se muestran las asignaciones correctas para ese país o región especifica qué conjunto de caso conflictivas bordes y las etiquetas se muestran en el mapa.  De forma predeterminada el parámetro View se establece en **"Unified"**.  Países o regiones que no están en la lista de vista predeterminado será la vista "Unified". Es su responsabilidad para determinar la ubicación de los usuarios y, a continuación, establezca el parámetro View correctamente para esa ubicación. Se debe usar el parámetro View en Azure Maps conforme a las leyes aplicables, incluidas aquellas está disponible en cuanto a asignación del país donde mapas, imágenes y otro contenido de datos y de terceros que está autorización para tener acceso a través de Azure Maps.
+> [!Note]
+> El 1 de agosto de 2019 lanzaremos Azure Maps en los países o regiones siguientes:
+>  * Argentina
+>  * India
+>  * Marruecos
+>  * Pakistán
+>
+> Después del 1 de agosto de 2019, la configuración del parámetro **Vista** definirá el contenido del mapa devuelto para las nuevas regiones o países enumerados anteriormente. Le recomendamos que se asegure de configurar el parámetro Vista para las API de REST y los SDK que usan sus servicios.
+>  
+>
+>  **API de REST:**
+>  
+>  Asegúrese de haber configurado el parámetro Vista tal como se ha especificado. El parámetro Vista especifica qué conjunto de contenido con conflictos geopolíticos se devuelve a través de los servicios de Azure Maps. 
+>
+>  Servicios REST de Azure Maps afectados:
+>    
+>    * Obtener icono del mapa
+>    * Obtener imagen de mapa 
+>    * Obtener búsqueda aproximada
+>    * Obtener búsqueda de POI
+>    * Obtener búsqueda de POI por categoría
+>    * Obtener búsqueda cercana
+>    * Obtener dirección de búsqueda
+>    * Obtener la dirección de búsqueda estructurada
+>    * Obtener la dirección de búsqueda inversa
+>    * Obtener la dirección de búsqueda inversa entre calles
+>    * Búsqueda de POST dentro de geometría
+>    * Búsqueda de POST de la vista previa del lote de direcciones
+>    * Búsqueda de POST de la vista previa del lote de direcciones inversas
+>    * Búsqueda de POST a lo largo de la ruta
+>    * Búsqueda de POST aproximada de la vista previa del lote
+>
+>    
+>  **SDK**:
+>
+>  Asegúrese de haber configurado el parámetro Vista según sea necesario y de tener la última versión de los SDK de Web y Android. SDK afectados:
+>
+>    * SDK web de Azure Maps
+>    * Android SDK para Azure Maps
 
-En la tabla siguiente proporciona vistas admitidas.
+
+El parámetro **Vista** de Azure Maps (también denominado "parámetro de región de usuario") es un código de país ISO-3166 de dos letras que mostrará los mapas correctos para ese país o región, especificando qué conjunto de contenido disputado geopolíticamente se devuelve a través de los servicios de Azure Maps, incluidas las fronteras y las etiquetas que se muestran en el mapa. 
+
+De forma predeterminada, el parámetro Vista está establecido en **Unificado**, incluso si no lo ha definido en la solicitud. Es su responsabilidad determinar la ubicación de sus usuarios y luego establecer el parámetro Vista correctamente para esa ubicación. Como alternativa, tiene la opción de establecer "View=Auto", que devolverá los datos del mapa según la dirección IP de la solicitud.  El parámetro Vista en Azure Maps se debe usar de conformidad con las leyes aplicables, incluidas aquellas relacionadas con la asignación del país donde están disponibles los mapas, imágenes y otros datos y contenido de terceros a los que está autorizado a acceder a través de Azure Maps.
+
+
+La siguiente tabla proporciona vistas compatibles.
 
 | Ver         | DESCRIPCIÓN                            |  Mapas | Search | Control de mapa JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emiratos Árabes Unidos (vista árabe)    |   ✓   |        |     ✓          |
-| AR           | Argentina (vista de Argentina)           |   ✓   |    ✓   |     ✓          |
+| AR           | Argentina (vista argentina)           |   ✓   |    ✓   |     ✓          |
 | BH           | Baréin (vista árabe)                 |   ✓   |        |     ✓          |
-| IN           | India (vista de la India)                    |   ✓   |   ✓     |     ✓          |
+| IN           | India (vista india)                    |   ✓   |   ✓     |     ✓          |
 | IQ           | Irak (vista árabe)                    |   ✓   |        |     ✓          |
 | JO           | Jordania (vista árabe)                  |   ✓   |        |     ✓          |
 | KW           | Kuwait (vista árabe)                  |   ✓   |        |     ✓          |
 | LB           | Líbano (vista árabe)                 |   ✓   |        |     ✓          |
-| MA           | Marruecos (vista Maroko)                |   ✓   |   ✓     |     ✓          |
+| MA           | Marruecos (vista marroquí)                |   ✓   |   ✓     |     ✓          |
 | OM           | Omán (vista árabe)                    |   ✓   |        |     ✓          |
-| PK           | Pakistán (pakistaní vista)              |   ✓   |    ✓    |     ✓          |
-| PS           | Autoridad Palestina (vista árabe)    |   ✓   |        |     ✓          |
-| QA           | Qatar (vista árabe)                   |   ✓   |        |     ✓          |
+| PK           | Pakistán (vista pakistaní)              |   ✓   |    ✓    |     ✓          |
+| PS           | Autoridad Nacional Palestina (vista árabe)    |   ✓   |        |     ✓          |
+| QA           | Catar (vista árabe)                   |   ✓   |        |     ✓          |
 | SA           | Arabia Saudí (vista árabe)            |   ✓   |        |     ✓          |
 | SY           | Siria (vista árabe)                   |   ✓   |        |     ✓          |
 | YE           | Yemen (vista árabe)                   |   ✓   |        |     ✓          |
-| Unificada      | Vista unificada (otros)                  |   ✓   |   ✓     |     ✓          |
+| Automático         | Devuelva los datos del mapa según la dirección IP de la solicitud.|   ✓   |    ✓   |     ✓          |
+| Unificado      | Vista unificada (otros)                  |   ✓   |   ✓     |     ✓          |

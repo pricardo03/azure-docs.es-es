@@ -5,17 +5,17 @@ keywords: automatización de rbac, control de acceso basado en roles, rbac de az
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738841"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477731"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
 
@@ -232,6 +232,7 @@ Las siguientes tablas muestran los permisos mínimos necesarios para incorporar 
 |Comprobación de estado de incorporación: leer máquina virtual      | Microsoft.Compute/virtualMachines/read         | Máquina virtual         |
 |Comprobación de estado de incorporación: leer cuenta      | Microsoft.Automation/automationAccounts/read  |  Cuenta de Automation   |
 | Incorporación de comprobación de área de trabajo para VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+| Registro del proveedor de Log Analytics |Microsoft.Insights/register/action | Subscription|
 
 <sup>1</sup> Este permiso es necesario para incorporar a través de la experiencia del portal de la máquina virtual.
 
@@ -251,6 +252,7 @@ Las siguientes tablas muestran los permisos mínimos necesarios para incorporar 
 |Crear o editar búsqueda guardada     | Microsoft.OperationalInsights/workspaces/write        | Área de trabajo        |
 |Crear o editar la configuración de ámbito     | Microsoft.OperationalInsights/workspaces/write        | Área de trabajo        |
 |Vincular solución a la configuración de ámbito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solución         |
+| Registro del proveedor de Log Analytics |Microsoft.Insights/register/action | Subscription|
 |**Paso 2: Incorporación de varias máquinas virtuales**     |         |         |
 |Hoja VMOnboarding: crear extensión MMA     | Microsoft.Compute/virtualMachines/write           | Máquina virtual        |
 |Crear o editar búsqueda guardada     | Microsoft.OperationalInsights/workspaces/write           | Área de trabajo        |

@@ -4,18 +4,18 @@ description: Referencia de enlaces de SendGrid de Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b7666b043379f3ff143e2a5eaae6b40ea80ab90
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437962"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480250"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces de SendGrid de Azure Functions
 
@@ -164,7 +164,7 @@ public class Message
 
 ### <a name="java-example"></a>Ejemplo de Java
 
-En el ejemplo siguiente se usa el `@SendGridOutput` anotación desde el [Java funciones de biblioteca en tiempo de ejecución](/java/api/overview/azure/functions/runtime) enlace de salida enviar un correo electrónico mediante SendGrid.
+En el ejemplo siguiente se usa la anotación `@SendGridOutput` de la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime) para enviar un correo electrónico mediante el enlace de salida de SendGrid.
 
 ```java
 @FunctionName("SendEmail")
@@ -256,13 +256,13 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type**|| Requerida: se debe establecer en `sendGrid`.|
-|**direction**|| Requerida: se debe establecer en `out`.|
+|**dirección**|| Requerida: se debe establecer en `out`.|
 |**name**|| Requerida: nombre de variable que se usa en el código de la función para la solicitud o el cuerpo de la solicitud. Este valor es ```$return``` cuando hay solo un valor de devuelto. |
 |**apiKey**|**ApiKey**| El nombre de una configuración de aplicación que contiene la clave de API. Si no está establecido, el nombre predeterminado de la configuración de aplicación es "AzureWebJobsSendGridApiKey".|
 |**to**|**To**| Dirección de correo electrónico del destinatario. |
 |**from**|**From**| Dirección de correo electrónico del remitente. |
-|**subject**|**Subject**| Asunto del correo electrónico. |
-|**text**|**Text**| Contenido del correo electrónico. |
+|**subject**|**Asunto**| Asunto del correo electrónico. |
+|**text**|**Texto**| Contenido del correo electrónico. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -288,7 +288,7 @@ En esta sección se describen las opciones de configuración globales disponible
 
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
-|from|N/D|Dirección de correo electrónico del remitente en todas las funciones.| 
+|De|N/D|Dirección de correo electrónico del remitente en todas las funciones.| 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

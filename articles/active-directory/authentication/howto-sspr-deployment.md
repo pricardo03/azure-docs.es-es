@@ -1,99 +1,249 @@
 ---
-title: 'Guía de implementación de restablecimiento de contraseña de autoservicio: Azure Active Directory'
-description: Sugerencia para el lanzamiento del autoservicio de restablecimiento de contraseña de Azure AD
+title: 'Plan de implementación de autoservicio de restablecimiento de contraseña: Azure Active Directory'
+description: Estrategia para la implementación correcta del autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 06/24/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b566bfc3f6c49f6cb9fe31f166356f6ae351e38
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190361"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440937"
 ---
-# <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Cómo implementar correctamente el lanzamiento del restablecimiento de contraseña de autoservicio
+# <a name="deploy-azure-ad-self-service-password-reset"></a>Implementar el autoservicio de restablecimiento de contraseña de Azure AD
 
-Para garantizar un lanzamiento fluido de la funcionalidad del restablecimiento de contraseña de autoservicio (SSPR) de Azure Active Directory (Azure AD), la mayoría de los clientes completan los pasos siguientes:
+El autoservicio de restablecimiento de contraseña (SSPR) es una característica de Azure Active Directory que permite a los empleados restablecer sus contraseñas sin necesidad de ponerse en contacto con el personal de TI. Los empleados deben registrarse o ser registrados en el autoservicio de restablecimiento de contraseña antes de usar el servicio. Durante el registro, el empleado elige uno o varios métodos de autenticación habilitados por su organización.
 
-> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+SSPR permite el desbloqueo rápido de los empleados para que continúen trabajando con independencia de dónde se encuentren o la hora del día. Al permitir que los usuarios se desbloqueen a sí mismos, su organización puede reducir el tiempo no productivo y los altos costos de soporte técnico para los problemas más comunes relacionados con las contraseñas.
 
-1. Realización de una implementación piloto con un pequeño subconjunto de su organización.
-   * Se puede encontrar más información sobre el procedimiento en el [Tutorial: Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD](tutorial-sspr-pilot.md).
-1. Ofrezca cursos a su departamento de soporte técnico.
-   * ¿Cómo ayudarán a los usuarios?
-   * ¿Va a exigir que los usuarios usen SSPR y no permitirá que el departamento de soporte técnico les ayude?
-   * ¿Les ha proporcionado direcciones URL con fines de registro y restablecimiento?
-      * Registro: https://aka.ms/ssprsetup
-      * Restablecimiento: https://aka.ms/sspr
+Ayude a los usuarios a registrarse rápidamente mediante la implementación de SSPR junto con otra aplicación o servicio en su organización. Esta acción generará un gran número de inicios de sesión e impulsará el registro.
 
-   > [!WARNING]
-   > No se admite el uso de la casilla "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en herramientas administrativas de Active Directory local como Usuarios y equipos de Active Directory o el Centro de administración de Active Directory. Al cambiar una contraseña en local no active esta opción. 
+Antes de implementar SSPR, las organizaciones pueden querer determinar cuántas llamadas al departamento de soporte técnico relacionadas con restablecimientos de contraseñas se hacen durante un período, así como el costo promedio de cada llamada. Pueden usar estos datos después de la implementación para mostrar el valor que SSPR aporta a su organización.  
 
-1. Ofrezca cursos a sus usuarios.
-   * En las siguientes secciones de este documento se repasan ejemplos de comunicación, portales de contraseñas, aplicación del registro y relleno de los datos de autenticación.
-   * El grupo de producto de Azure Active Directory ha creado un [plan de implementación paso a paso](https://aka.ms/SSPRDeploymentPlan) que las organizaciones pueden usar en paralelo con la documentación que se encuentra en este sitio para crear un caso empresarial y un plan de implementación de restablecimiento de contraseña de autoservicio.
-1. Habilite el autoservicio de restablecimiento de contraseña para toda la organización.
-   * Cuando esté listo, habilite el restablecimiento de contraseña para todos los usuarios al establecer **Se habilitó el restablecimiento de contraseña del autoservicio** en **Todos**.
+## <a name="how-sspr-works"></a>Cómo funciona SSPR
 
-## <a name="sample-communication"></a>Ejemplo de comunicación
+1. Cuando un usuario intenta restablecer una contraseña, debe verificar su o sus métodos de autenticación registrados anteriormente para demostrar su identidad.
+1. A continuación, el usuario escribe una nueva contraseña.
+   1. Para los usuarios solo en la nube, la nueva contraseña se almacena en Azure Active Directory. Para más información, consulte el artículo [Cómo funciona SSPR](concept-sspr-howitworks.md#how-does-the-password-reset-portal-work).
+   1. Para los usuarios híbridos, la contraseña se escribe en diferido en la instancia local de Active Directory a través del servicio de Azure AD Connect. Para más información, consulte el artículo [Qué es la escritura diferida de contraseñas](concept-sspr-writeback.md#how-password-writeback-works).
 
-Muchos clientes opinan que una campaña de correo electrónico, con instrucciones sencillas, es la manera más fácil de hacer que los usuarios utilicen SSPR. [Hemos creado varios correos electrónicos sencillos y otra documentación y material adjunto que se pueden utilizar como plantillas para facilitar el lanzamiento](https://www.microsoft.com/download/details.aspx?id=56768):
+## <a name="licensing-considerations"></a>Consideraciones acerca de las licencias
 
-* **Próximamente**: una plantilla de correo electrónico para usar las semanas o los días previos al lanzamiento con el fin de informar a los usuarios de que deben hacer algo.
-* **Ya disponible**: una plantilla de correo electrónico para que use el día del lanzamiento del programa con el fin de dirigir a los usuarios al registro y a confirmar los datos de autenticación. Si los usuarios se registran ahora, tendrán SSPR disponible para cuando lo necesiten.
-* **Recordatorio de registro**: una plantilla de correo electrónico para los días o semanas previos a la implementación para recordar a los usuarios que se registren y confirmen los datos de autenticación.
-* **Pósteres de SSPR**: pósteres que puede personalizar y mostrar en los días y semanas anteriores y posteriores a la implementación.
-* **Tiendas de mesa de SSPR**: tarjetas de mesa que se pueden colocar en el comedor, en salas de conferencias o en mesas para animar a los usuarios a completar el registro.
-* **Adhesivos de SSPR**: plantillas de adhesivo que puede personalizar e imprimir para colocar en equipos portátiles, monitores, teclados o teléfonos móviles para recordar cómo se obtiene acceso a SSPR.
+Las licencias de Azure Active Directory se otorgan por usuario, es decir, cada usuario tiene que tener una licencia adecuada para las características que usa.
 
-![Ejemplos de correo electrónico SSPR para implementación en usuarios][Email]
+- El autoservicio de restablecimiento de contraseña para los usuarios solo en la nube está disponible con Azure AD Basic o superior.
+- El autoservicio de restablecimiento de contraseña con escritura diferida local para entornos híbridos requiere Azure AD Premium P1 o superior.
 
-## <a name="create-your-own-password-portal"></a>Creación de su propio portal de contraseñas
+Para más información sobre las licencias, consulte la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Muchos clientes eligen hospedar una página web y crear una entrada DNS raíz, como https://passwords.contoso.com. Rellenan esta página con vínculos a la información siguiente:
+## <a name="enable-combined-registration-for-sspr-and-mfa"></a>Habilitar el registro combinado en SSPR y MFA
 
-* [Portal de restablecimiento de contraseña de Azure AD: https://aka.ms/sspr](https://aka.ms/sspr)
-* [Portal de registro de restablecimiento de contraseña de Azure AD: https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
-* [Portal de cambio de contraseñas de Azure AD: https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
-* Otra información específica de la organización
+Microsoft recomienda que las organizaciones habiliten la experiencia de registro combinado para SSPR y autenticación multifactor. Al habilitar esta experiencia de registro combinado, los usuarios solo tienen que seleccionar su información de registro una vez para habilitar ambas características.
 
-En las comunicaciones por correo electrónico o los folletos que envíe, puede incluir una dirección URL de la marca fácil de recordar que los usuarios puedan visitar cuando necesiten usar los servicios. Para ayudarle, hemos creado una [página de ejemplo de restablecimiento de contraseña](https://github.com/ajamess/password-reset-page) que puede usar y personalizar para las necesidades de su organización.
+![Registro de información de seguridad combinado](./media/howto-sspr-deployment/combined-security-info.png)
 
-## <a name="use-enforced-registration"></a>Uso del registro forzado
+La experiencia de registro combinado no requiere que las organizaciones habiliten tanto SSPR como Azure Multi-factor Authentication para usarlos. La experiencia de registro combinado proporciona a las organizaciones una mejor experiencia de usuario en comparación con los componentes individuales tradicionales. Para más información sobre el registro combinado y cómo se habilita, consulte el artículo [Información del registro de seguridad combinado (versión preliminar)](concept-registration-mfa-sspr-combined.md).
 
-Si desea que los usuarios se registren para el restablecimiento de la contraseña, puede solicitar que se registren cuando inician sesión con Azure AD. Puede habilitar esta opción desde el panel **Restablecimiento de contraseña** del directorio; para ello, habilite la opción **Exigir a los usuarios que se registren al iniciar sesión** de la pestaña **Registro**.
+## <a name="plan-the-configuration"></a>Planear la configuración
 
-Los administradores pueden solicitar a los usuarios que se vuelvan a registrar después de un período de tiempo específico. Pueden establecer la opción **Número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación** de 0 a 730 días.
+La siguiente configuración es necesaria para habilitar SSPR junto con los valores recomendados.
 
-Después de habilitar esta opción, cuando los usuarios inicien sesión verán un mensaje que les informará de que el administrador les solicita que comprueben la información de autenticación.
+| Ámbito | Configuración | Valor |
+| --- | --- | --- |
+| **Propiedades de SSPR** | Se habilitó el restablecimiento de contraseña del autoservicio | Grupo **Seleccionado** para piloto/**Todos** para producción |
+| **Métodos de autenticación** | Authentication methods required to register (Métodos de autenticación requeridos para registrarse) | Siempre 1 más de los necesarios para el restablecimiento |
+|   | Authentication methods required to reset (Métodos de autenticación requeridos para restablecer) | Uno o dos |
+| **Registro** | Exigir a los usuarios que se registren al iniciar sesión | Sí |
+|   | Número de días antes de que se solicite a los usuarios que vuelvan a confirmar su información de autenticación | De 90 a 180 días |
+| **Notifications** | ¿Quiere notificar a los usuarios los restablecimientos de contraseña? | Sí |
+|   | ¿Quiere notificar a todos los administradores cuando otros administradores restablezcan su contraseña? | Sí |
+| **Personalización** | Personalizar el vínculo del departamento de soporte técnico | Sí |
+|   | Dirección URL o correo electrónico del departamento de soporte técnico personalizados | Dirección de correo electrónico o sitio de soporte técnico |
+| **Integración local** | Escritura diferida de contraseñas al Active Directory local | Sí |
+|   | Allow users to unlock account without resetting password (Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña) | Sí |
 
-## <a name="populate-authentication-data"></a>Rellenado de los datos de autenticación
+### <a name="sspr-properties-recommendations"></a>Recomendaciones para las propiedades de SSPR
 
-Debe plantearse [rellenar previamente algunos datos de autenticación para los usuarios](howto-sspr-authenticationdata.md). De este modo los usuarios no necesitan registrarse para restablecer la contraseña antes de poder usar SSPR. Siempre que los datos de autenticación proporcionados por los usuarios se correspondan con la directiva de restablecimiento de contraseña definida, se podrán restablecer las contraseñas.
+Al habilitar el autoservicio de restablecimiento de contraseña, elija un grupo de seguridad que se usará durante la prueba piloto.
 
-## <a name="disable-self-service-password-reset"></a>Deshabilitación del autoservicio de restablecimiento de contraseña
+Cuando planee iniciar el servicio de manera más amplia, se recomienda usar la opción Todos para aplicar SSPR para todos los usuarios de la organización. Si no se establece en Todos, seleccione el grupo de seguridad de Azure AD adecuado o el grupo de AD sincronizado con Azure AD.
 
-Si su organización decide deshabilitar el autoservicio de restablecimiento de contraseña, se trata de un proceso sencillo. Abra el inquilino de Azure AD y vaya a **Restablecimiento de contraseña** > **Propiedades** y seleccione **Ninguno** en **Se habilitó el restablecimiento de contraseña del autoservicio**. Los usuarios seguirán manteniendo sus métodos de autenticación registrados para su uso futuro.
+### <a name="authentication-methods"></a>Métodos de autenticación
+
+Establezca Set Authentication methods required to register en al menos uno más que el número necesario para el restablecimiento. Permitir varios ofrece a los usuarios flexibilidad cuando necesiten restablecer.
+
+Establezca **Número de métodos requeridos para el restablecimiento** en un nivel apropiado para su organización. Uno requiere la menor fricción, mientras que Dos puede aumentar la posición de seguridad.
+
+Consulte [Qué son los métodos de autenticación](concept-authentication-methods.md) para información detallada sobre qué método de autenticación están disponibles para SSPR, preguntas de seguridad predefinidas y cómo crear preguntas de seguridad personalizadas.
+
+### <a name="registration-settings"></a>Configuración de registro
+
+Establezca **Exigir a los usuarios que se registren al iniciar sesión** en **Sí**. Esta configuración significa que los usuarios se ven obligados a registrarse cuando inician sesión, lo que garantiza que todos los usuarios estén protegidos.
+
+Establezca **Número de días antes de que se solicite a los usuarios que vuelvan a confirmar su información de autenticación** entre **90** y **180** días, a menos que su organización tenga una necesidad de negocio para un plazo de tiempo más corto.
+
+### <a name="notifications-settings"></a>Configuración de notificaciones
+
+Configurar tanto **¿Quiere notificar a los usuarios los restablecimientos de contraseña?** como **¿Quiere notificar a todos los administradores cuando otros administradores restablezcan su contraseña?** en **Sí**. Seleccionar **Sí** en ambos aumenta la seguridad al garantizar que el usuario esté al tanto de que se ha restablecido su contraseña, y que todos los administradores sepan cuando un administrador ha cambiado una contraseña. Si los usuarios o administradores reciben dicha notificación y no han comenzado el cambio, pueden denunciar de inmediato una infracción de seguridad potencial.
+
+### <a name="customization"></a>Personalización
+
+Es fundamental personalizar el **correo electrónico o dirección URL del departamento de soporte técnico** para asegurarse de que los usuarios que tengan problemas puedan obtener ayuda rápidamente. Establezca esta opción en una dirección de correo electrónico o página web de soporte técnico comunes con los que los usuarios estén familiarizados.
+
+### <a name="on-premises-integration"></a>Integración local
+
+Si tiene un entorno híbrido, asegúrese de que **Escritura diferida de contraseñas al Active Directory local** esté establecido en **Sí**. Además, establezca Allow users to unlock account without resetting password en Sí, ya que proporciona más flexibilidad.
+
+### <a name="changingresetting-passwords-of-administrators"></a>Cambiar o restablecer contraseñas de administradores
+
+Las cuentas de administrador son cuentas especiales con permisos elevados. Para protegerlas, rigen las restricciones siguientes al cambiar las contraseñas de los administradores:
+
+- Los administradores empresariales locales o los administradores de dominios no pueden restablecer su contraseña mediante SSPR. Solo pueden cambiar su contraseña en su entorno local. Por lo tanto, se recomiendan no sincronizar las cuentas de administrador de AD local con Azure AD.
+- Un administrador no puede usar preguntas y respuestas secretas como método para restablecer la contraseña.
+
+### <a name="environments-with-multiple-identity-management-systems"></a>Entornos con varios sistemas de administración de identidades
+
+Si hay varios sistemas de administración de identidades dentro de un entorno, por ejemplo, administradores de identidad local, como Oracle AM, SiteMinder u otros sistemas, las contraseñas escritas en Active Directory deben sincronizarse con los otros sistemas con una herramienta como el servicio de notificación de cambio de contraseña (PCNS) con Microsoft Identity Manager (MIM). Para información sobre el escenario más complejo, consulte el artículo [Implementación del servicio de notificación de cambio de contraseña de MIM en un controlador de dominio](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
+
+## <a name="plan-deployment-and-support-for-sspr"></a>Planeación de la implementación y el soporte técnico para SSPR
+
+### <a name="engage-the-right-stakeholders"></a>Interactuar con las partes interesadas adecuadas
+
+Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, asegúrese de involucrar a las partes interesadas correctas y que los roles de las partes interesadas en el proyecto se entiendan bien; para ello, documente las partes interesadas y sus aportes y responsabilidades en el proyecto.
+
+### <a name="communications-plan"></a>Plan de comunicaciones
+
+La comunicación es fundamental para el éxito de cualquier servicio nuevo. Comunique de manera proactiva a los usuarios de qué manera usar el servicio y qué pueden hacer para obtener ayuda si algo no funciona según lo previsto. Revise los [materiales de lanzamiento del autoservicio de restablecimiento de contraseña en el Centro de descargas de Microsoft](https://www.microsoft.com/download/details.aspx?id=56768) para obtener ideas sobre cómo planear su estrategia de comunicación con los usuarios finales.
+
+### <a name="testing-plan"></a>Plan de prueba
+
+Para asegurarse de que la implementación funcione según lo previsto, debe planear un conjunto de casos de prueba que usará para validar la implementación. En la tabla siguiente se incluyen algunos escenarios de prueba útiles que puede usar para documentar los resultados esperados por la organización según las directivas.
+
+| Oportunidad de negocio | Resultado esperado |
+| --- | --- |
+| Se puede acceder al portal de SSPR desde la red corporativa | Determinado por la organización |
+| Se puede acceder al portal de SSPR desde fuera de la red corporativa | Determinado por la organización |
+| Restablecer la contraseña del usuario desde el explorador cuando el usuario no está habilitado para el restablecimiento de contraseña | El usuario no puede acceder al flujo de restablecimiento de contraseña |
+| Restablecer la contraseña del usuario desde el explorador cuando el usuario no se ha registrado para el restablecimiento de contraseña | El usuario no puede acceder al flujo de restablecimiento de contraseña |
+| El usuario inicia sesión cuando se impone el registro de restablecimiento de contraseña | Se solicita al usuario que registre información de seguridad |
+| El usuario inicia sesión cuando se ha completado el registro de restablecimiento de contraseña | No se solicita al usuario que registre información de seguridad |
+| Se puede acceder al portal de SSPR cuando el usuario no tiene una licencia | Es accesible |
+| Restablecer la contraseña de usuario desde la pantalla de bloqueo de un dispositivo Windows 10 AADJ o H+AADJ después de que el usuario se ha registrado | El usuario puede restablecer la contraseña |
+| Los datos de uso y de registro de SSPR están disponibles para los administradores casi en tiempo real | Están disponibles a través de los registros de auditoría |
+
+### <a name="support-plan"></a>Plan de soporte técnico
+
+Aunque SSPR no suele crear problemas de usuario, es importante contar con personal de soporte técnico preparado para afrontar los problemas que puedan surgir.
+
+Si bien un administrador puede cambiar o restablecer la contraseña para los usuarios finales a través del portal de Azure AD, es mejor ayudar a resolver el problema a través de un proceso de soporte de autoservicio.
+
+En la sección de la guía operativa de este documento, cree una lista de casos de soporte técnico y sus causas probables, y crear a una guía para su resolución.
+
+### <a name="auditing-and-reporting"></a>Informes y auditoría
+
+Tras la implementación, muchas organizaciones quieren saber cómo se usa (y si se usa) realmente el autoservicio de restablecimiento de contraseña (SSPR). La característica de informes que proporciona Azure Active Directory (Azure AD) le ayuda a responder preguntas mediante informes creados previamente.
+
+Los registros de auditoría para el registro y el restablecimiento de contraseña están disponibles durante 30 días. Por lo tanto, si la auditoría de seguridad dentro de una empresa requiere una retención más prolongada, los registros deben exportarse y consumirse en una herramienta SIEM, como [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk o ArcSight.
+
+En una tabla, como la siguiente, documente el cronograma de copias de seguridad, el sistema y las partes responsables. Puede que no necesite separar las copias de seguridad para auditoría e informes, pero debe tener una copia de seguridad independiente desde la cual pueda recuperarse de un problema.
+
+|   | Frecuencia de descarga | Sistema de destino | Parte responsable |
+| --- | --- | --- | --- |
+| Copia de seguridad de auditoría |   |   |   |
+| Copia de seguridad de informes |   |   |   |
+| Copia de seguridad de recuperación ante desastres |   |   |   |
+
+## <a name="implementation"></a>Implementación
+
+La implementación se produce en tres fases:
+
+- Configuración de usuarios y licencias
+- Configuración de SSPR de Azure AD para el registro y autoservicio
+- Configuración de Azure AD Connect para escritura diferida de contraseñas
+
+### <a name="communicate-the-change"></a>Comunicar el cambio
+
+Comience la implementación del plan de comunicaciones que ha desarrollado en la fase de planeación.
+
+### <a name="ensure-groups-are-created-and-populated"></a>Asegurarse de que los grupos se creen y rellenen
+
+Consulte la sección de planeación de métodos de autenticación de contraseña y asegúrese de que los grupos para la implementación piloto o de producción están disponibles y de que se hayan agregado a los grupos todos los usuarios adecuados.
+
+### <a name="apply-licenses"></a>Aplicar las licencias
+
+Los grupos que va a implementar deben tener asignadas licencias de Azure AD Premium. Puede asignar licencias directamente al grupo, o puede usar directivas de licencia existentes, por ejemplo, a través de PowerShell o licencias basadas en grupos.
+
+Puede encontrar información acerca de cómo asignar licencias a grupos de usuarios en el artículo, [Asignación de licencias a usuarios según su pertenencia a un grupo en Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
+
+### <a name="configure-sspr"></a>Configurar SSPR
+
+#### <a name="enable-groups-for-sspr"></a>Habilitar los grupos para SSPR
+
+1. Acceda a Azure Portal con una cuenta de administrador.
+1. Seleccione Todos los servicios y, en el cuadro Filtro, escriba Azure Active Directory y, luego, seleccione Azure Active Directory.
+1. En la hoja Active Directory, seleccione Restablecimiento de contraseña.
+1. En el panel Propiedades, seleccione Seleccionado. Si quiere habilitar a todos los usuarios, seleccione Todos.
+1. En la hoja Directiva de restablecimiento de contraseña predeterminada, escriba el nombre del primer grupo, selecciónelo y, luego, haga clic en Seleccionar en la parte inferior de la pantalla y, luego, seleccione Guardar en la parte superior de la pantalla.
+1. Repita este proceso para cada grupo.
+
+#### <a name="configure-the-authentication-methods"></a>Configurar los métodos de autenticación
+
+Para la planeación, consulte la sección de planeación de métodos de autenticación de contraseña de este documento.
+
+1. Seleccione Registro, en Exigir a los usuarios que se registren al iniciar sesión, seleccione Sí, luego, establezca el número de días antes de la expiración y, luego, seleccione Guardar.
+1. Seleccione Notificación, configure el valor según su plan y, luego, seleccione Guardar.
+1. Seleccione Personalización, configure el valor según su plan y, luego, seleccione Guardar.
+1. Seleccione Integración local, configure el valor según su plan y, luego, seleccione Guardar.
+
+### <a name="enable-sspr-in-windows"></a>Habilitar SSPR en Windows
+
+Los dispositivos Windows 10 que ejecutan la versión 1803 o posterior y que están unidos a Azure AD o unidos a Azure AD híbrido pueden restablecer sus contraseñas en la pantalla de inicio de sesión de Windows. Puede encontrar información y pasos para configurar esta funcionalidad en el artículo [Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión](tutorial-sspr-windows.md).
+
+### <a name="configure-password-writeback"></a>Configurar la escritura diferida de contraseñas
+
+Los pasos para configurar la escritura diferida de contraseñas para su organización se encuentran en el artículo [Procedimiento: Configurar la escritura diferida de contraseñas](howto-sspr-writeback.md).
+
+## <a name="manage-sspr"></a>Administrar SSPR
+
+Roles necesarios para administrar las características asociadas con el autoservicio de restablecimiento de contraseña.
+
+| Rol de negocio | Rol de Azure AD (si es necesario) |
+| :---: | :---: |
+| Departamento de soporte técnico de nivel 1 | Administrador de contraseñas |
+| Departamento de soporte técnico de nivel 2 | Administrador de usuarios |
+| Administrador de SSPR | Administrador global |
+
+### <a name="support-scenarios"></a>Escenarios de soporte técnico
+
+Para allanar el camino del equipo de soporte técnico, puede crear una página de P+F en función de las preguntas que reciba de los usuarios. En la tabla siguiente encontrará escenarios comunes de soporte técnico.
+
+| Escenarios | DESCRIPCIÓN |
+| --- | --- |
+| El usuario no tiene disponible ningún método de autenticación registrado. | Un usuario intenta restablecer la contraseña, pero no tiene disponible ninguno de los métodos de autenticación que ha registrado (ejemplo: ha dejado el teléfono móvil en casa y no puede acceder al correo electrónico). |
+| El usuario no recibe mensajes de texto ni llamadas en su teléfono móvil o laboral. | Un usuario intenta verificar su identidad mediante mensaje de texto o llamada, pero no recibe un mensaje de texto ni llamada. |
+| El usuario no puede acceder al portal de restablecimiento de contraseñas. | Un usuario quiere restablecer su contraseña, pero no está habilitado para restablecer la contraseña y, por tanto, no puede acceder a la página para actualizar las contraseñas. |
+| El usuario no puede establecer una contraseña nueva. | Un usuario finaliza la verificación durante el flujo de restablecimiento de contraseña, pero no puede establecer una contraseña nueva. |
+| El usuario no ve un vínculo de restablecimiento de contraseña en un dispositivo Windows 10. | Un usuario intenta restablecer la contraseña desde la pantalla de bloqueo de Windows 10, pero el dispositivo no está unido a Azure AD o no está habilitada la directiva de dispositivos de Intune. |
+
+También puede querer incluir información como la siguiente para solucionar otros problemas.
+
+- Qué grupos están habilitados para SSPR.
+- Qué métodos de autenticación se han configurado.
+- Las directivas de acceso de la red corporativa o relacionadas con esta.
+- Pasos para la solución de problemas en escenarios comunes.
+
+También puede consultar la documentación en línea sobre cómo solucionar problemas del autoservicio de restablecimiento de contraseña para conocer los pasos generales de solución de problemas para los escenarios más comunes de SSPR.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md)
-* [Habilitación del registro convergente para el restablecimiento de contraseña de autoservicio de Azure Multi-Factor Authentication y Azure AD](concept-registration-mfa-sspr-converged.md)
-* [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
-* [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
-* [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)
-* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
-* [¿Cómo se informa sobre la actividad de SSPR?](howto-sspr-reporting.md)
-* [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
-* [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
+- [Implementar la protección de contraseña de Azure AD](concept-password-ban-bad.md)
 
-[Email]: ./media/howto-sspr-deployment/sspr-emailtemplates.png "Personalice estas plantillas de correo electrónico para ajustarlas a sus necesidades organizativas"
+- [Implementar el bloqueo inteligente de Azure AD](howto-password-smart-lockout.md)

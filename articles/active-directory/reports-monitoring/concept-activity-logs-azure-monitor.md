@@ -1,6 +1,6 @@
 ---
-title: Los registros de actividad de Azure Active Directory en Azure Monitor | Microsoft Docs
-description: Introducción a la actividad de Azure Active Directory registra en Azure Monitor
+title: Registros de actividad de Azure Active Directory en Azure Monitor | Microsoft Docs
+description: Introducción a los registros de actividad de Azure Active Directory en Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,16 +17,16 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cffef4028a684e27c0941c234df551d844f13420
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.openlocfilehash: d38035031c32c512a55293ba125fdcc4535b9833
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896869"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204379"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registra actividades de Azure AD en Azure Monitor
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registros de actividad de Azure AD en Azure Monitor
 
-Puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a varios puntos de conexión para largo plazo retención y datos insights. Esta característica le permite:
+Puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a varios puntos de conexión para conseguir conclusiones de datos y una retención a largo plazo. Esta característica le permite:
 
 * Archivar los registros de actividad de Azure AD en una cuenta de almacenamiento de Azure para conservar los datos durante mucho tiempo.
 * Hacer streaming de los registros de actividad de Azure AD a un centro de eventos de Azure para analizarlos con herramientas conocidas de Administración de eventos e información de seguridad (SIEM), como Splunk y QRadar.
@@ -110,11 +110,11 @@ La siguiente tabla contiene los costos aproximados al mes para un centro de even
 
 
 
-| Categoría del registro       | Número de usuarios | Eventos por día | Eventos por mes (30 días) | Costo por mes en dólares estadounidenses (est). |
+| Categoría del registro       | Número de usuarios | Eventos por día | Eventos al mes (30 días) | Costo por mes en USD (est.) |
 | :--                | ---             | ---            | ---                        | --:                          |
-| Auditoría e inicios de sesión | 100 000         | 16,500,000     | 495,000,000                |  $1093.00                       |
-| Auditoría              | 100 000         | 1,500,000      | 45 000 000                 |  $246.66                     |
-| Inicios de sesión           | 100 000         | 15 000 000     | 450,000,000                |  $847.28                     |
+| Auditoría e inicios de sesión | 100 000         | 16 500 000     | 495 000 000                |  1093,00 USD                       |
+| Auditoría              | 100 000         | 1 500 000      | 45 000 000                 |  246,66 USD                     |
+| Inicios de sesión           | 100 000         | 15 000 000     | 450 000 000                |  847,28 USD                     |
 
 
 
@@ -135,37 +135,37 @@ En esta sección se responden las preguntas más frecuentes y se abordan los pro
 
 **R**: Los registros de actividad de inicio de sesión y los registros de auditoría se pueden enrutar mediante esta característica, aunque actualmente no se incluyen los eventos de auditoría relacionados con B2C. Para averiguar qué tipos de registros y qué registros basados en características se admiten en la actualidad, consulte el [esquema de registro de auditoría](reference-azure-monitor-audit-log-schema.md) y el [esquema de registro de inicio de sesión](reference-azure-monitor-sign-ins-log-schema.md). 
 
------
+---
 
 **P: Después de realizar una acción, ¿cuánto tiempo pasará antes de que se muestren los registros correspondientes en el centro de eventos?**
 
 **R**: Los registros deben aparecer en el centro de eventos de dos a cinco minutos después de realizada la acción. Para más información sobre Event Hubs, consulte [¿Qué es Azure Event Hubs?](../../event-hubs/event-hubs-about.md)
 
------
+---
 
 **P: Después de realizar una acción, ¿cuánto tiempo pasará antes de que se muestren los registros correspondientes en las cuentas de almacenamiento?**
 
 **R**: Para las cuentas de almacenamiento de Azure, la latencia está entre 5 y 15 minutos tras realizar la acción.
 
------
+---
 
 **P: ¿Qué ocurre si un administrador cambia el período de retención de una configuración de diagnóstico?**
 
-**R.**: La nueva directiva de retención se aplicará a los registros recopilados después del cambio. Los registros que se hayan recopilado antes del cambio de directiva no se verán afectados.
+**R.** : La nueva directiva de retención se aplicará a los registros recopilados después del cambio. Los registros que se hayan recopilado antes del cambio de directiva no se verán afectados.
 
------
+---
 
 **P: ¿Cuánto costará almacenar mis datos?**
 
 **R**: El costo de almacenamiento depende tanto del tamaño de sus registros como del período de retención que elija. Para ver una lista de los costos estimados para los inquilinos, que dependen del volumen de registros generados, consulte la sección [Tamaño de almacenamiento de los registros de actividad](#storage-size-for-activity-logs).
 
------
+---
 
 **P: ¿Cuánto costará hacer streaming de mis datos a un centro de eventos?**
 
 **R**: El costo del streaming depende del número de mensajes que reciba por minuto. En este artículo se describe cómo se calculan los costos y se enumeran las estimaciones de costos, que se basan en el número de mensajes. 
 
------
+---
 
 **P: ¿Cómo integro los registros de actividad de Azure AD con mi sistema SIEM?**
 
@@ -175,31 +175,31 @@ En esta sección se responden las preguntas más frecuentes y se abordan los pro
 
 - Use [Reporting Graph API](concept-reporting-api.md) para acceder a los datos e insertarlos en el sistema SIEM mediante sus propios scripts.
 
------
+---
 
 **P: ¿Qué herramientas SIEM se admiten actualmente?** 
 
 **R**: Actualmente, [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar y [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) admiten Azure Monitor. Para más información sobre cómo funcionan los conectores, consulte [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
------
+---
 
 **P: ¿Cómo se integran los registros de actividad de Azure AD con mi instancia de Splunk?**
 
 **R**: En primer lugar, [enrute los registros de actividad de Azure AD a un centro de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md) y, después, siga los pasos necesarios para [integrar los registros de actividad con Splunk](tutorial-integrate-activity-logs-with-splunk.md).
 
------
+---
 
 **P: ¿Cómo se integran los registros de actividad de Azure AD con Sumo Logic?** 
 
 **R**: En primer lugar, [enrute los registros de actividad de Azure AD a un centro de eventos](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory) y, después, siga los pasos necesarios para [instalar la aplicación de Azure AD y ver los paneles en SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
 
------
+---
 
 **P: ¿Puedo acceder a los datos desde un centro de eventos sin utilizar una herramienta SIEM externa?** 
 
 **R**: Sí. Para acceder a los registros desde la aplicación personalizada, puede usar la [API de Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
 
------
+---
 
 
 ## <a name="next-steps"></a>Pasos siguientes

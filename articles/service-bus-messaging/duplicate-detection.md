@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 286c5850400242224e710a7883d3d3dc175cef12
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413659"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273205"
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
 
@@ -37,7 +37,7 @@ En el caso de un proceso empresarial en el que se envían varios mensajes en el 
 El valor *MessageId* siempre puede ser algún GUID, pero el anclaje del identificador al proceso empresarial produce una capacidad de repetición predecible, lo que resulta conveniente para aprovechar con efectividad la característica de detección de duplicados.
 
 > [!NOTE]
-> Si está habilitada la detección de duplicados y no se establece la clave de partición o el identificador de sesión, se usará el identificador de mensaje como clave de partición. Si tampoco se ha definido el identificador de mensaje, las bibliotecas de .NET y AMQP generarán automáticamente un identificador para el mensaje. Para más información, vea [Uso de claves de partición](service-bus-partitioning.md#use-of-partition-keys).
+> Si está habilitada la detección de duplicados y no se establece la clave de partición o el identificador de sesión, se usará el identificador de mensaje como clave de partición. Si tampoco se ha definido el identificador de mensaje, las bibliotecas de .NET y AMQP generarán automáticamente un identificador para el mensaje. Para más información, consulte [Uso de claves de partición](service-bus-partitioning.md#use-of-partition-keys).
 
 ## <a name="enable-duplicate-detection"></a>Habilitación de la detección de duplicados
 

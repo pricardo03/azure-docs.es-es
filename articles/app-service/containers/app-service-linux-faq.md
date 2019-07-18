@@ -4,7 +4,7 @@ description: Peguntas más frecuentes sobre Azure App Service en Linux.
 keywords: servicio de aplicación de azure, aplicación web, preguntas más frecuentes, linux, oss, aplicaciones web para contenedores, varios contenedores, multicontenedor
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec571555415a912a31b094722bd47f67210a0372
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594278"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617352"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -119,10 +119,7 @@ Sí, durante una implementación de Git, Kudu debe detectar que va a implementar
 
 **Utilizo mi propio contenedor personalizado. Deseo que la plataforma monte un recurso compartido de SMB en el directorio `/home/`.**
 
-Puede hacerlo estableciendo la opción `WEBSITES_ENABLE_APP_SERVICE_STORAGE` de la aplicación en *true*. Tenga en cuenta que de este modo se evitará que el contenedor se reinicie cuando el almacenamiento de la plataforma cambie.
-
->[!NOTE]
->Si el valor de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` no se ha especificado o es *false*, el directorio `/home/` no se compartirá entre instancias de escala y los archivos que se escriben no se conservarán al reiniciar.
+Si el valor de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` no se ha **especificado** o es *true*, el directorio `/home/` **se compartirá** entre instancias de escala y los archivos que se escriben **se conservarán** al reiniciar. Establecer de forma explícita `WEBSITES_ENABLE_APP_SERVICE_STORAGE` en *false* deshabilitará el montaje.
 
 **Mi contenedor personalizado tarda mucho tiempo en iniciarse y la plataforma reinicia el contenedor antes de que finalice el inicio.**
 

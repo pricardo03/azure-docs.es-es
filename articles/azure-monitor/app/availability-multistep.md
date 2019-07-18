@@ -1,0 +1,167 @@
+---
+title: Supervisión de la aplicación web con pruebas web de varios pasos y Azure Application Insights | Microsoft Docs
+description: Configuración de pruebas web de varios pasos para supervisar las aplicaciones web con Azure Application Insights
+services: application-insights
+author: mrbullwinkle
+manager: carmonm
+ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: d8bfe92af4e8afc4edae76efb2e1cb7b287c7aa9
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304828"
+---
+# <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
+
+Puede supervisar una secuencia registrada de direcciones URL e interacciones con un sitio web a través de pruebas web de varios pasos. En este artículo se proporciona una guía paso a paso del proceso de creación de una prueba web de varios pasos con Visual Studio Enterprise.
+
+> [!NOTE]
+> Las pruebas web de varios pasos tienen costes adicionales asociados. Para más información, consulte la [guía oficial de precios](https://azure.microsoft.com/pricing/details/application-insights/).
+
+## <a name="pre-requisites"></a>Requisitos previos
+
+* Visual Studio 2017 Enterprise posterior.
+* Herramientas de rendimiento web y pruebas de carga de Visual Studio.
+
+Para encontrar el requisito de las herramientas de prueba. Inicie el **Instalador de Visual Studio** > **Componentes individuales** > **Depuración y pruebas**  >  **Herramientas de rendimiento web y pruebas de carga**.
+
+![Captura de pantalla de la interfaz de usuario del instalador de Visual Studio con los componentes individuales seleccionados con una casilla situada junto al elemento de las herramientas de rendimiento Web y pruebas de carga](./media/availability-multistep/web-performance-load-testing.png)
+
+## <a name="record-a-multi-step-web-test"></a>Registro de una prueba web de varios pasos
+
+Para crear una prueba de varios pasos, grabe el escenario con Visual Studio Enterprise y, a continuación, cargue la grabación en Application Insights. Application Insights reproduce el escenario a intervalos establecidos y comprueba la respuesta.
+
+> [!IMPORTANT]
+> * No puede usar funciones codificadas ni bucles en las pruebas. La prueba debe estar contenida completamente en el script .webtest. Sin embargo, puede usar complementos estándar.
+> * En las pruebas web de varios pasos solo se admiten caracteres latinos. Si utiliza Visual Studio en otros idiomas, actualice el archivo de definición de la prueba web para convertir o excluir los caracteres no latinos.
+
+Utilice Visual Studio Enterprise para grabar una sesión web.
+
+1. Cree un proyecto de rendimiento web y prueba de carga. **Archivo** > **Nuevo** > **Proyecto** > **Visual C#**   >  **Prueba**
+
+    ![Interfaz de nuevo proyecto de Visual Studio](./media/availability-multistep/vs-web-performance-and-load-test.png)
+
+2. Abra el archivo `.webtest` y empiece a grabar.
+
+    ![Interfaz de usuario de grabación de prueba de Visual Studio](./media/availability-multistep/open-web-test.png)
+
+3. Haga clic por los pasos que desee probar para simular como parte de la grabación.
+
+    ![Interfaz de usuario de grabación de explorador](./media/availability-multistep/record.png)
+
+4. Edite la prueba para:
+
+    * Agregar validaciones que comprueben el texto recibido y los códigos de respuesta.
+    * Quite las interacciones innecesarias. También puede quitar las solicitudes dependientes de imágenes o agregar sitios de seguimiento que no sean relevantes para considerar la prueba como éxito.
+    
+    Tenga en cuenta que solo se puede editar el script de prueba: no se puede agregar código personalizado ni llamar a otras pruebas web. No inserte bucles en la prueba. Puede utilizar complementos de prueba web estándar.
+
+5. Ejecute la prueba en Visual Studio para validar y asegurarse de que funciona.
+
+    El ejecutor de pruebas web abre un explorador web y repite las acciones grabadas. Asegúrese de que todo se comporta del modo esperado.
+
+## <a name="upload-the-web-test"></a>Carga de la prueba web
+
+1. En el portal de Application Insights, en el panel Disponibilidad, seleccione **Crear prueba** > **Tipo de prueba** > **Prueba web de varios pasos**.
+
+2. Establezca las ubicaciones de prueba, la frecuencia y los parámetros de alerta.
+
+### <a name="frequency--location"></a>Frecuencia y ubicación
+
+|Configuración| Explicación
+|----|----|----|
+|**Frecuencia de prueba**| establece la frecuencia con que se ejecuta la prueba desde cada ubicación de prueba. Con una frecuencia predeterminada de cinco minutos y cinco ubicaciones de prueba, el sitio se prueba, de media, cada minuto.|
+|**Ubicaciones de prueba**| Son los lugares desde donde nuestros servidores envían solicitudes web a la dirección URL. **El número mínimo de ubicaciones de prueba recomendadas es cinco** con el fin de asegurarse de que puede distinguir los problemas del sitio web de los problemas de la red. Puede seleccionar hasta 16 ubicaciones.
+
+### <a name="success-criteria"></a>Criterios de éxito
+
+|Configuración| Explicación
+|----|----|----|
+| **Tiempo de espera de prueba** |reduzca este valor para recibir una alerta sobre las respuestas lentas. La prueba se considera un error si no se han recibido respuestas de su sitio dentro de este período. Si seleccionó **Analizar solicitudes dependientes**, todas las imágenes, archivos de estilo, scripts y otros recursos dependientes se deben haber recibido durante este período.|
+| **Respuesta HTTP** | el código de estado devuelto que se considera correcto. 200 es el código que indica que se ha devuelto una página web normal.|
+| **Coincidencia de contenido** | Una cadena, como "Bienvenido". Probamos que se produce una coincidencia exacta entre mayúsculas y minúsculas en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla. **En la coincidencia de contenido solo se admiten caracteres en inglés** |
+
+### <a name="alerts"></a>Alertas
+
+|Configuración| Explicación
+|----|----|----|
+|**Casi en tiempo real (versión preliminar)** | Se recomienda usar alertas casi en tiempo real. La configuración de este tipo de alertas se realiza después de crear la prueba de disponibilidad.  |
+|**Clásico** | Ya no se recomienda usar alertas clásicas para nuevas pruebas de disponibilidad.|
+|**Umbral de la ubicación de la alerta**|se recomienda un mínimo de 3/5 ubicaciones. La relación óptima entre el umbral de ubicación de la alerta y el número de ubicaciones de prueba es **umbral de ubicación de la alerta** = **número de ubicaciones de prueba - 2, con un mínimo de cinco ubicaciones de prueba.**|
+
+## <a name="advanced-configuration"></a>Configuración avanzada
+
+### <a name="plugging-time-and-random-numbers-into-your-test"></a>Inserción de números de tiempo y aleatorios en la prueba
+
+Suponga que está probando una herramienta que obtiene datos que dependen del tiempo, como acciones de una fuente externa. Cuando se graba la prueba web, debe utilizar horas específicas, pero las establece como parámetros de la prueba, StartTime y EndTime.
+
+![Captura de pantalla de mi fantástica aplicación de cotizaciones](./media/availability-multistep/app-insights-72webtest-parameters.png)
+
+Al ejecutar la prueba, le gustaría que EndTime fuera siempre la hora actual y que StartTime fuera 15 minutos menos.
+
+El complemento de hora y fecha de prueba web proporciona la manera de controlar los tiempos de parametrización.
+
+1. Agregue un complemento de prueba de web a cada valor variable que desee. En la barra de herramientas de pruebas web, elija **Agregar complemento de prueba web**.
+    
+    ![Adición del complemento de prueba web](./media/availability-multistep/app-insights-72webtest-plugin-name.png)
+    
+    En este ejemplo, usamos dos instancias del complemento Date Time Plug-in. Una instancia es para "hace 15 minutos" y otra para "ahora".
+
+2. Abra las propiedades de cada complemento. Asígnele un nombre y configúrelo para utilizar la hora actual. En cada uno de ellos, establezca Añadir minutos = -15.
+
+    ![Parámetros de contexto](./media/availability-multistep/app-insights-72webtest-plugin-parameters.png)
+
+3. En los parámetros de prueba en la web, utilice {{plug-in name}} para hacer referencia al nombre de un complemento.
+
+    ![StartTime](./media/availability-multistep/app-insights-72webtest-plugins.png)
+
+Ahora puede cargar la prueba en el portal. Utilizará los valores dinámicos en cada ejecución de la prueba.
+
+### <a name="dealing-with-sign-in"></a>Tratamiento del inicio de sesión
+
+Si los usuarios inician sesión en la aplicación, tiene varias opciones para simular el inicio de sesión a fin de poder probar páginas detrás del inicio de sesión. El enfoque que utilice dependerá del tipo de seguridad proporcionada por la aplicación.
+
+En todos los casos, debe crear una cuenta en su aplicación para realizar pruebas. Si es posible, restrinja los permisos de esta cuenta de prueba para que sea totalmente imposible que las pruebas web afecten a usuarios reales.
+
+**Nombre de usuario y la contraseña simples**: grabar una prueba web de la manera habitual. Elimine las cookies en primer lugar.
+
+**Autenticación SAML**: usar el complemento SAML que está disponible para las pruebas web. Para acceder al complemento...
+
+**Secreto del cliente**: si la aplicación tiene una ruta de inicio de sesión que implica un secreto de cliente, úsela. Azure Active Directory (AAD) es un ejemplo de un servicio que proporciona inicio de sesión del secreto de cliente. En AAD, el secreto de cliente es la clave de la aplicación.
+
+Esta es una prueba web de ejemplo de una aplicación web de Azure que usa una clave de aplicación:
+
+![Captura de pantalla de ejemplo](./media/availability-multistep/client-secret.png)
+
+Obtener el token de AAD mediante el secreto de cliente (AppKey).
+Extraer el token de portador de la respuesta.
+Llamar a la API mediante el token de portador del encabezado de la autorización.
+Asegúrese de que la prueba web sea un cliente real (es decir, tiene su propia aplicación en AAD) y use su clientId + appkey. El servicio que se prueba también tiene su propia aplicación en AAD: el identificador URI de esta aplicación, appID, se refleja en la prueba web en el campo "resource".
+
+### <a name="open-authentication"></a>Autenticación abierta
+Un ejemplo de autenticación abierta es el iniciar sesión con una cuenta de Microsoft o Google. Muchas aplicaciones que utilizan OAuth proporcionan la alternativa del secreto de cliente, por lo que la primera táctica sería investigar dicha posibilidad.
+
+Si la prueba debe iniciar sesión con OAuth, el enfoque general es el siguiente:
+
+Utilice una herramienta como Fiddler para examinar el tráfico entre el explorador web, el sitio de autenticación y la aplicación.
+Realice dos o más inicios de sesión mediante distintas máquinas o exploradores o en intervalos largos de tiempo (para permitir que los tokens expiren).
+Mediante la comparación de diferentes sesiones, identifique el token pasado desde el sitio de autenticación que, a continuación, se pasa al servidor de aplicaciones después de iniciar sesión.
+Grabe una prueba web con Visual Studio.
+Parametrice los tokens, estableciendo el parámetro cuando se devuelve el token desde el autenticador y utilizándolo en la consulta al sitio. (Visual Studio intenta parametrizar la prueba pero no parametriza correctamente los tokens).
+
+## <a name="troubleshooting"></a>solución de problemas
+
+[Artículo de solución de problemas](troubleshoot-availability.md) dedicado.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Alertas de disponibilidad](availability-alerts.md)
+* [Pruebas web de ping de URL](monitor-web-app-availability.md)

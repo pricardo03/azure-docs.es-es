@@ -11,19 +11,19 @@ ms.author: marthalc
 author: marthalc
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: df2f0731aff6c90ef83b26041a9d383ce14974c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f596fb3a066017f0236de5b79586891dd21efb11
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024247"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443974"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recopilar datos de modelos en producción
 
 En este artículo, aprenderá cómo recopilar datos de modelo de entrada de las instancias de Azure Machine Learning Services que ha implementado en el clúster de Azure Kubernetes (AKS) en Azure Blob Storage. 
 
 Una vez habilitado, estos datos que recopile le ayudarán a:
-* Supervisar datos flotantes a medida que los datos de producción entran en el modelo
+* [Supervisar datos flotantes](how-to-monitor-data-drift.md) a medida que los datos de producción entran en el modelo
 
 * Tomar mejores decisiones sobre cuándo volver a entrenar u optimizar el modelo
 

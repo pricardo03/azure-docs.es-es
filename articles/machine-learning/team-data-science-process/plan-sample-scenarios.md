@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 130ab6ee8e59b157d1fbdd8769f14814445dea18
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61429782"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202755"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Escenarios para análisis avanzado en Azure Machine Learning
 En este artículo se describen los distintos escenarios de origen y destino de datos de ejemplo que se pueden administrar con el [proceso de ciencia de datos en equipos (TDSP)](overview.md). El TDSP proporciona un enfoque sistemático a los equipos que colaboran en la compilación de aplicaciones inteligentes. Los escenarios que se exponen aquí muestran las opciones disponibles en el flujo de trabajo de procesamiento de datos en función de las características de datos, las ubicaciones de origen y los repositorios de destino de Azure.
@@ -113,7 +113,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 1. Cargue datos en un contenedor de almacenamiento de Azure.
 1. (Opcional) Preprocese y limpie los datos.
    
-    a.  Preprocese y limpie datos en IPython Notebook obteniendo acceso desde Azure
+   a.  Preprocese y limpie datos en IPython Notebook obteniendo acceso desde Azure
    
        blobs.
    
@@ -122,7 +122,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
    c.  Guarde datos en archivos locales de máquina virtual (IPython Notebook se ejecuta en una máquina virtual; las unidades locales hacen referencia a unidades de máquina virtual).
 1. Cargue datos en la base de datos de SQL Server que se ejecuta en una máquina virtual de Azure.
    
-    a.  Inicie sesión en la máquina virtual de SQL Server.
+   a.  Inicie sesión en la máquina virtual de SQL Server.
    
    b.  Si los datos todavía no están guardados, descargue los archivos de datos desde Azure
    
@@ -146,7 +146,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 1. Lea los datos directamente desde SQL Server mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 1. Flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados
 
-## <a name="largedbtodb"></a>Escenario \#6: Conjunto de datos grande en una base de datos de SQL Server local, como el destino de SQL Server en una máquina Virtual de Azure
+## <a name="largedbtodb"></a>Escenario \#6: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino
 ![Base de datos SQL local a Base be datos SQL de Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor ISQL Server/IPython Notebook)
@@ -160,7 +160,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 1. Cargue archivos de volcado de memoria en el contenedor de almacenamiento de Azure.
 1. Cargue los datos en una base de datos de SQL Server que se ejecute en una máquina virtual de Azure.
    
-    a.  Inicie sesión en la máquina virtual de SQL Server.
+   a.  Inicie sesión en la máquina virtual de SQL Server.
    
    b.  Descargue los archivos de datos desde un contenedor de almacenamiento de Azure a la carpeta de la máquina virtual local.
    
@@ -202,7 +202,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 1. Cree un clúster de Hadoop de HDInsight de Azure.
 1. (Opcional) Preprocese y limpie los datos.
    
-    a.  Preprocese y limpie datos en IPython Notebook obteniendo acceso desde Azure
+   a.  Preprocese y limpie datos en IPython Notebook obteniendo acceso desde Azure
    
        blobs.
    
@@ -212,7 +212,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 1. Cargue datos en el contenedor predeterminado del clúster de Hadoop que seleccionó en el paso 2.
 1. Cargue datos en la base de datos de Hive en el clúster de Hadoop de HDInsight de Azure.
    
-    a.  Inicie sesión en el nodo principal del clúster de Hadoop.
+   a.  Inicie sesión en el nodo principal del clúster de Hadoop.
    
    b.  Abra la línea de comandos de Hadoop.
    
@@ -226,7 +226,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
    > 
 1. Explore datos y cree características según sea necesario en la línea de comandos de Hadoop. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
    
-    a.  Inicie sesión en el nodo principal del clúster de Hadoop.
+   a.  Inicie sesión en el nodo principal del clúster de Hadoop.
    
    b.  Abra la línea de comandos de Hadoop.
    
@@ -239,7 +239,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 1. Flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados.
 
 ## <a name="decisiontree"></a>Árbol de decisión de selección de escenario
-- - -
+---
 El diagrama siguiente resume los escenarios descritos anteriormente y las opciones de la Tecnología y procesos de análisis avanzado elegidas que le guiarán a través de los escenarios detallados. Tenga en cuenta que el procesamiento de datos, la exploración, la ingeniería de características y el muestreo pueden tener lugar en uno o varios métodos o entornos (en los entornos de origen, intermedio o de destino) y pueden continuar de forma iterativa según sea necesario. El diagrama solo sirve para ilustrar algunos de los flujos de posibles y no proporciona una enumeración exhaustiva.
 
 ![Escenarios de tutoriales de proceso de ciencia de datos de ejemplo][8]

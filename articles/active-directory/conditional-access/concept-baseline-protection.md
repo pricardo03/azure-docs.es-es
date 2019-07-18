@@ -1,6 +1,6 @@
 ---
-title: Directivas de protección de acceso condicional previsto - Azure Active Directory
-description: Directivas de acceso condicional de línea base para las organizaciones de proteger frente a ataques comunes
+title: 'Directivas de la protección de base de referencia de acceso condicional: Azure Active Directory'
+description: Directivas de acceso condicional de base de referencia para proteger las organizaciones frente a ataques comunes
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,83 +11,83 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca062f4024bb5b0946812e00c8ccc1254b56d333
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.openlocfilehash: 970fdaba1870097e253b51c70e523e399bc88dfc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003302"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440799"
 ---
-# <a name="what-are-baseline-policies"></a>¿Cuáles son las directivas de línea de base?
+# <a name="what-are-baseline-policies"></a>¿Qué son las directivas de base de referencia?
 
-Las directivas de línea de base son un conjunto de directivas predefinidas que ayudan a proteger frente a ataques comunes muchas de las organizaciones. Estos ataques comunes pueden incluir "phishing", reproducción y protector de contraseña. Las directivas de línea de base están disponibles en todas las ediciones de Azure AD. Microsoft ha realizado estas directivas de protección de la línea base disponible para todos los usuarios porque los ataques basados en la identidad han ido en aumento durante los últimos años. El objetivo de estas cuatro directivas consiste en asegurarse de que todas las organizaciones tienen un nivel básico de seguridad habilitada sin ningún costo adicional.  
+Las directivas de base de referencia son un conjunto de directivas predefinidas que ayudan a proteger a las organizaciones frente a muchos ataques comunes. Estos ataques comunes pueden incluir difusión de contraseñas, reproducción y suplantación de identidad (phishing). Las directivas de base de referencia están disponibles en todas las ediciones de Azure AD. Microsoft pone estas directivas de protección de base de referencia a disposición de todos los usuarios porque los ataques basados en la identidad han ido en aumento en los últimos años. El objetivo de estas cuatro directivas consiste en asegurarse de que todas las organizaciones gocen de un nivel básico de seguridad sin ningún costo adicional.  
 
-Administración de directivas de acceso condicional personalizadas requiere una licencia de Azure AD Premium.
+Para administrar las directivas personalizadas de acceso condicional, se necesita una licencia de Azure AD Premium.
 
 ## <a name="baseline-policies"></a>Directivas de base de referencia
 
-![Directivas de línea de base de acceso condicional en Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
+![Directivas de base de referencia de acceso condicional en Azure Portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
-Hay cuatro directivas de línea de base que las organizaciones pueden habilitar:
+Hay cuatro directivas de base de referencia que las organizaciones pueden habilitar:
 
-* [Requerir MFA para que los administradores](howto-baseline-protect-administrators.md)
+* [Requerir MFA para administradores (versión preliminar)](howto-baseline-protect-administrators.md)
 * [Protección del usuario final (versión preliminar)](howto-baseline-protect-end-users.md)
-* [Autenticación heredados de bloque (versión preliminar)](howto-baseline-protect-legacy-auth.md)
-* [Requerir MFA para la administración de servicio (versión preliminar)](howto-baseline-protect-azure.md)
+* [Bloquear la autenticación heredada (versión preliminar)](howto-baseline-protect-legacy-auth.md)
+* [Requerir MFA para la administración de servicios (versión preliminar)](howto-baseline-protect-azure.md)
 
-Cuatro de estas directivas afectará a los flujos de autenticación heredados, como POP, IMAP y clientes de escritorio de Office anteriores.
+Estas cuatro directivas de base de referencia afectarán a los flujos de autenticación heredados, como POP, IMAP y clientes de escritorio de Office anteriores.
 
-### <a name="require-mfa-for-admins"></a>Requerir MFA para administradores
+### <a name="require-mfa-for-admins-preview"></a>Requerir MFA para administradores (versión preliminar)
 
-Debido a la potencia y el acceso que tienen cuentas de administrador, debe tratar con cuidado especial. Es un método común para mejorar la protección de cuentas con privilegios requerir una forma más estricta de comprobación de la cuenta cuando se usan para iniciar sesión. En Azure Active Directory, puede obtener una comprobación de la cuenta más segura al requerir que los administradores registren y utilicen la autenticación multifactor de Azure.
+Dadas las facultades y el acceso de las cuentas de administrador, debe tratarlas con un cuidado especial. Un método común para mejorar la protección de las cuentas con privilegios es exigir una forma de verificación de la cuenta más estricta cuando se emplean para iniciar sesión. En Azure Active Directory, puede exigir a los administradores que se registren y usen Azure Multi-Factor Authentication para conseguir una verificación de cuentas más estricta.
 
-[Requerir MFA para que los administradores](howto-baseline-protect-administrators.md) es una directiva de línea de base que requiere autenticación multifactor (MFA) para los siguientes roles de directorio, considera que los roles de Azure AD con más privilegios:
+[Requerir MFA para los administradores (versión preliminar)](howto-baseline-protect-administrators.md) es una directiva de base de referencia que requiere autenticación multifactor (MFA) para los siguientes roles de directorio, considerados los roles de Azure AD con más privilegios:
 
 * Administrador global
 * Administrador de SharePoint
 * Administrador de Exchange
 * Administrador de acceso condicional
 * Administrador de seguridad
-* Administrador de soporte técnico o administrador de contraseñas
+* Administrador del departamento de soporte técnico/administrador de contraseñas
 * Administrador de facturación
 * Administrador de usuarios
 
-Si su organización tiene estas cuentas en uso en scripts o código, considere la posibilidad de reemplazarlos con [administra identidades](../managed-identities-azure-resources/overview.md). Como solución temporal, puede excluir determinadas cuentas de usuario de la directiva de base de referencia.
+Si su organización usa estas cuentas en scripts o código, piense en la posibilidad de reemplazarlas por [identidades administradas](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Protección del usuario final (versión preliminar)
 
-Administradores con privilegios altos no son los únicos en los ataques de destino. Los actores no válidos tienden a dirigirse a usuarios normales. Después de obtener acceso, estos actores no válidos puede solicitar acceso a información privilegiada en nombre del titular de la cuenta original o descargar todo el directorio y realizar un ataque de suplantación de identidad en toda la organización. Es un método común para mejorar la protección para todos los usuarios necesitan una forma más estricta de comprobación de la cuenta cuando se detecta un inicio de sesión peligroso.
+Los administradores con privilegios elevados no son los únicos blancos de los ataques. Los delincuentes tienden a dirigirse a usuarios normales. Después de obtener acceso, estos delincuentes pueden solicitar acceso a información privilegiada en nombre del titular original de la cuenta o descargar todo el directorio y realizar un ataque de suplantación de identidad en toda la organización. Un método común para mejorar la protección de todos los usuarios es exigir una forma más estricta de verificación de cuentas cuando se detecta un inicio de sesión de riesgo.
 
-**Protección del usuario final (versión preliminar)** es una directiva de línea de base que protege todos los usuarios en un directorio. Si habilita esta directiva requiere que todos los usuarios se registren para Azure Multi-factor Authentication en 14 días. Una vez registrado, se pedirá a los usuarios para MFA solo durante los intentos de inicio de sesión de riesgo. Las cuentas de usuario en peligro se bloquean hasta que el restablecimiento de contraseña y el riesgo de despido.
+**Protección del usuario final (versión preliminar)** es una directiva de base de referencia que protege a todos los usuarios en un directorio. Habilitar esta directiva requiere que todos los usuarios se registren en Azure Multi-factor Authentication en el plazo de 14 días. Una vez registrados, se empleará MFA con los usuarios solo durante los intentos de inicio de sesión de riesgo. Las cuentas de usuario en peligro se bloquean hasta que se restablece la contraseña y se descarta el riesgo.
 
-### <a name="block-legacy-authentication-preview"></a>Autenticación heredados de bloque (versión preliminar)
+### <a name="block-legacy-authentication-preview"></a>Bloquear la autenticación heredada (versión preliminar)
 
-Protocolos de autenticación heredados (p. ej.: IMAP, SMTP, POP3) son protocolos usados normalmente por los clientes de correo electrónico más antiguos para autenticarse. Protocolos heredados no admiten la autenticación multifactor. Incluso si tiene una directiva que requiera autenticación multifactor para su directorio, un actor perjudicial puede autenticarse con uno de estos protocolos heredados y omitir la autenticación multifactor.
+Los protocolos de autenticación heredados (p. ej.: IMAP, SMTP, POP3) son protocolos usados normalmente por los clientes de correo electrónico más antiguos para autenticarse. Los protocolos heredados no admiten la autenticación multifactor. Incluso si tiene una directiva que exige la autenticación multifactor para su directorio, un delincuente puede autenticarse con uno de estos protocolos heredados y omitir la autenticación multifactor.
 
-Es la mejor manera de proteger la cuenta de las solicitudes de autenticación malintencionado realizadas por los protocolos heredados bloquearlas.
+La mejor manera de proteger la cuenta frente a solicitudes de autenticación malintencionadas hechas por los protocolos heredados es bloquearlas.
 
-El **autenticación heredados de bloque (versión preliminar)** directiva de línea base bloquea las solicitudes de autenticación que se realizan mediante protocolos heredados. Autenticación moderna debe usarse para iniciar sesión correctamente para todos los usuarios. Se usa junto con las otras directivas de línea de base, se bloquearán las solicitudes procedentes de protocolos heredados. Además, todos los usuarios deberán MFA siempre que sea necesario. Esta directiva no bloquea a Exchange ActiveSync.
+La directiva de base de referencia **Bloquear la autenticación heredada (versión preliminar)** bloquea las solicitudes de autenticación que se hacen mediante protocolos heredados. Todos los usuarios deben usar una autenticación moderna para iniciar sesión correctamente. Usadas junto con las otras directivas de base de referencia, las solicitudes procedentes de protocolos heredados se bloquearán. Además, todos los usuarios deberán aplicar MFA cuando se les exija. Esta directiva no bloquea a Exchange ActiveSync.
 
-### <a name="require-mfa-for-service-management-preview"></a>Requerir MFA para la administración de servicio (versión preliminar)
+### <a name="require-mfa-for-service-management-preview"></a>Requerir MFA para la administración de servicios (versión preliminar)
 
-Las organizaciones usar una variedad de servicios de Azure y administran desde herramientas basadas en Azure Resource Manager, como:
+Las organizaciones usan una variedad de servicios de Azure y los administran desde herramientas basadas en Azure Resource Manager, como:
 
-* Azure Portal
+* Portal de Azure
 * Azure PowerShell
-* Azure CLI
+* CLI de Azure
 
-Uso de cualquiera de estas herramientas para realizar la administración de recursos es una acción con privilegios elevados. Estas herramientas pueden modificar las configuraciones de toda la suscripción, como la configuración de servicio y facturación de suscripción.
+Usar cualquiera de estas herramientas para la administración de recursos es una acción con privilegios elevados. Estas herramientas pueden modificar las configuraciones de toda la suscripción, como la configuración del servicio y la facturación de la suscripción.
 
-Para proteger las acciones con privilegios, esto **exigencia de MFA para la administración de servicio (versión preliminar)** directiva requerirá la autenticación multifactor para cualquier usuario tenga acceso a Azure portal, Azure PowerShell o CLI de Azure.
+Para proteger las acciones con privilegios, esta directiva **Requerir MFA para la administración de servicios (versión preliminar)** exigirá la autenticación multifactor para cualquier usuario que acceda a Azure Portal, Azure PowerShell o la CLI de Azure.
 
 ## <a name="enable-a-baseline-policy"></a>Habilitar una directiva de base de referencia
 
-Para habilitar una directiva de línea de base:
+Para habilitar una directiva de base de referencia:
 
-1. Inicie sesión en el **portal Azure** como administrador global, Administrador de seguridad o administrador de acceso condicional.
-1. Vaya a **Azure Active Directory** > **acceso condicional**.
-1. En la lista de directivas, seleccione una directiva de línea de base que le gustaría habilitar.
-1. Establecer **Habilitar directiva** a **en**.
+1. Inicie sesión en  **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Vaya a **Azure Active Directory** > **Acceso condicional**.
+1. En la lista de directivas, seleccione una directiva de base de referencia que te gustaría habilitar.
+1. Establezca **Habilitar directiva** en **Activado**.
 1. Haga clic en Guardar.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -96,7 +96,7 @@ Para más información, consulte:
 
 * [Cinco pasos para asegurar su infraestructura de identidad](../../security/azure-ad-secure-steps.md)
 * [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)
-* [Requerir MFA para que los administradores](howto-baseline-protect-administrators.md)
+* [Requerir MFA para administradores (versión preliminar)](howto-baseline-protect-administrators.md)
 * [Protección del usuario final (versión preliminar)](howto-baseline-protect-end-users.md)
-* [Autenticación heredados de bloque (versión preliminar)](howto-baseline-protect-legacy-auth.md)
-* [Requerir MFA para la administración de servicio (versión preliminar)](howto-baseline-protect-azure.md)
+* [Bloquear la autenticación heredada (versión preliminar)](howto-baseline-protect-legacy-auth.md)
+* [Requerir MFA para la administración de servicios (versión preliminar)](howto-baseline-protect-azure.md)

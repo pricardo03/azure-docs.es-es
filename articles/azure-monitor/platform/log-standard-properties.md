@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: bwren
-ms.openlocfilehash: c01cdb967fd7f9516b4403aa4f0c76f2577d5050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 50804e1f6ab4f352239d3f405e5b41e4e0c58d14
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394530"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67292822"
 ---
-# <a name="standard-properties-in-azure-monitor-log-records"></a>Propiedades estándar de los registros de Azure Monitor
-Los datos de los registros de Azure Monitor [se almacenan como un conjunto de registros](../log-query/log-query-overview.md), cada uno con un tipo de datos determinado que tiene un único conjunto de propiedades. Muchos tipos de datos tendrán propiedades estándar que son comunes en varios tipos. En este artículo se describen estas propiedades y se proporcionan ejemplos de cómo puede usarlas en las consultas.
+# <a name="standard-properties-in-azure-monitor-logs"></a>Propiedades estándar de los registros de Azure Monitor
+Los datos de los registros de Azure Monitor se [almacenan como un conjunto de registros en un área de trabajo de Log Analytics o una aplicación de Application Insights](../log-query/logs-structure.md), cada uno con un tipo de datos determinado que tiene un conjunto singular de propiedades. Muchos tipos de datos tendrán propiedades estándar que son comunes en varios tipos. En este artículo se describen estas propiedades y se proporcionan ejemplos de cómo puede usarlas en las consultas.
 
 Algunas de estas propiedades aún se encuentran en proceso de implementación, por lo que puede que las vea en algunos tipos de datos, pero aún no en otros.
 
-## <a name="timegenerated"></a>TimeGenerated
-La propiedad **TimeGenerated** contiene la fecha y hora en la que se creó el registro. Proporciona una propiedad común que se utiliza para filtrar o resumir por hora. Cuando se selecciona un intervalo de tiempo para una vista o panel en Azure Portal, se utiliza TimeGenerated para filtrar los resultados.
+## <a name="timegenerated-and-timestamp"></a>TimeGenerated y timestamp
+La propiedades **TimeGenerated** (área de trabajo de Log Analytics) y **timestamp** (aplicación de Application Insights) contienen la fecha y hora en que se creó el registro. Proporciona una propiedad común que se utiliza para filtrar o resumir por hora. Cuando se selecciona un intervalo de tiempo para una vista o panel en Azure Portal, se usa TimeGenerated o timestamp para filtrar los resultados.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -39,16 +39,25 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## <a name="type"></a>Type
-La propiedad **Type** contiene el nombre de la tabla de la que se recuperó el registro, de la que también se puede pensar que es el tipo de registro. Esta propiedad es útil en las consultas que combinan registros de varias tablas, como las que utilizan el operador `search`, para distinguir entre registros de diferentes tipos. **$table** puede utilizarse en lugar de **Type** en algunos lugares.
+La consulta siguiente devuelve el número de excepciones creados para cada día de la semana anterior.
+
+```Kusto
+exceptions
+| where timestamp between(startofweek(ago(7days))..endofweek(ago(7days))) 
+| summarize count() by bin(TimeGenerated, 1day) 
+| sort by timestamp asc 
+```
+
+## <a name="type-and-itemtype"></a>Type e itemType
+Las propiedades **Type** (área de trabajo de Log Analytics) e **itemType** (aplicación de Application Insights) contienen el nombre de la tabla desde la que se recuperó el registro, que también se puede considerar como el tipo de registro. Esta propiedad es útil en las consultas que combinan registros de varias tablas, como las que utilizan el operador `search`, para distinguir entre registros de diferentes tipos. **$table** puede utilizarse en lugar de **Type** en algunos lugares.
 
 ### <a name="examples"></a>Ejemplos
 La siguiente consulta devuelve el número de registros por tipo recopilados durante la última hora.
 
 ```Kusto
 search * 
-| where TimeGenerated > ago(1h) 
-| summarize count() by Type 
+| where TimeGenerated > ago(1h)
+| summarize count() by Type
 ```
 
 ## <a name="resourceid"></a>\_ResourceId
@@ -85,7 +94,7 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-La siguiente consulta se analiza **_ResourceId** y agregados facturan los volúmenes de datos por suscripción de Azure.
+La siguiente consulta analiza **_ResourceId** y agrega volúmenes de datos facturados por suscripción de Azure.
 
 ```Kusto
 union withsource = tt * 
@@ -136,6 +145,26 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
 ```
 
+Para ver el tamaño de los eventos facturables ingeridos por suscripción, use la siguiente consulta:
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+```
+
+Para ver el tamaño de los eventos facturables ingeridos por grupo de recursos, use la siguiente consulta:
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+
+```
+
+
 Para ver el recuento de eventos ingeridos por equipo, use la consulta siguiente:
 
 ```Kusto
@@ -151,7 +180,7 @@ union withsource = tt *
 | summarize count() by Computer  | sort by count_ nulls last
 ```
 
-Si quiere ver recuentos de tipos de datos facturables que envían datos a un equipo específico, use la consulta siguiente:
+Para ver el recuento de tipos de datos facturables desde un equipo específico, use la siguiente consulta:
 
 ```Kusto
 union withsource = tt *
@@ -159,7 +188,6 @@ union withsource = tt *
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last 
 ```
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

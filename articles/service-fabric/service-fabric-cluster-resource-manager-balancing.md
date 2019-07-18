@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ea95405f68938906ba010836753cd74ab0f775e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809359"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446750"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrio del clúster de Service Fabric
 Cluster Resource Manager de Service Fabric admite cambios dinámicos de carga, en respuesta a las incorporaciones y las eliminaciones de nodos o servicios. También corrige automáticamente las infracciones de restricciones y reequilibra el clúster de manera proactiva. ¿Pero con qué frecuencia se realizan estas acciones y qué las activa?
@@ -36,9 +36,9 @@ El primer conjunto de controles en torno al equilibrio es un conjunto de tempori
 Cada uno de estos tipos diferentes de correcciones que Cluster Resource Manager puede realizar se controla mediante un temporizador diferente que determina su frecuencia. Cuando se desencadena cada temporizador, se programa la tarea. De forma predeterminada, Resource Manager:
 
 * Examina su estado y aplica las actualizaciones (por ejemplo, la grabación de que un nodo está inactivo) cada 1/10 de segundo.
-* establece la marca de comprobación de selección de ubicación. 
+* establece la marca de comprobación de ubicación cada segundo.
 * establece la marca de comprobación de restricción cada segundo.
-* Establece el indicador de equilibrio cada cinco segundos.
+* establece la marca de equilibrio cada cinco segundos.
 
 Seguidamente se ofrecen ejemplos de la configuración que regulan estos temporizadores:
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 675ce2de91dd4e53f4945ceef3b174c33be001f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2872d106eea56a37c362195e7a3250058336768b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118513"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295052"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apéndice de Azure Disk Encryption 
 
@@ -133,15 +133,15 @@ En la siguiente tabla se muestran los parámetros que se pueden usar en el scrip
   - [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - La deshabilitación del cifrado solo se permite en volúmenes de datos de máquinas virtuales Linux.  
 
-### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Cifrado o descifrado de VM Scale Sets
+### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>Cifrado o descifrado de conjuntos de escalado de máquinas virtuales
 
 - [Habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
 - [Habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
-  - [Implementar un conjunto de escalado de máquinas virtuales Linux con JumpBox y habilitar su cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Implementar un conjunto de escalado de máquinas virtuales Linux con JumpBox y habilitar el cifrado en VMSS Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
-  - [Implementar un conjunto de escalado de máquinas virtuales Windows con JumpBox y habilitar su cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Implementar un conjunto de escalado de máquinas virtuales Windows con JumpBox y habilitar el cifrado en VMSS Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
 - [Deshabilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
@@ -206,7 +206,7 @@ Use el comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.asp
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Requisitos previos para el cifrado de disco del sistema operativo
 
-* La máquina virtual debe usar una distribución compatible con el cifrado de disco de SO como se muestra en el artículo de [preguntas más frecuentes sobre Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). 
+* La VM debe usar una distribución compatible con el cifrado de disco de SO, tal como se muestra en el artículo [Sistemas operativos compatibles con Azure Disk Encryption: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * La máquina virtual debe crearse a partir de la imagen de Marketplace en Azure Resource Manager.
 * La máquina virtual de Azure con al menos 4 GB de RAM (el tamaño recomendado es 7 GB).
 * (Para RHEL y CentOS) Deshabilite SELinux. Para deshabilitar SELinux, consulte "4.4.2. Disabling SELinux" (Deshabilitar SELinux) en el documento [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) (Guía del administrador y del usuario de SELinux) en la máquina virtual.

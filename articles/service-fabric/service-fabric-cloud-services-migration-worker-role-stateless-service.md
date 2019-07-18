@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110019"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550383"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guía de conversión de roles web y de trabajo a servicios sin estado de Service Fabric
 Este artículo describe cómo migrar los roles web y de trabajo de Cloud Services a los servicios sin estado de Service Fabric. Se trata de la ruta de migración más sencilla desde Cloud Services a Service Fabric para aquellas aplicaciones cuya arquitectura global va a permanecer más o menos igual.
@@ -32,7 +32,7 @@ La diferencia es que el proyecto de Servicio en la nube une la implementación d
 ![Comparación de proyectos de Service Fabric y de Cloud Services][3]
 
 ## <a name="worker-role-to-stateless-service"></a>Rol de trabajo a servicio sin estado
-Conceptualmente, un rol de trabajo representa una carga de trabajo sin estado, lo que significa que cada instancia de la carga de trabajo es idéntica y las solicitudes se pueden enrutar a cualquier instancia en cualquier momento. No se espera que cada instancia recuerde la solicitud anterior. El estado en el que opera la carga de trabajo es administrado por un almacén de estado externo, como Azure Table Storage o Azure DocumentDB. En Service Fabric, este tipo de carga de trabajo se representa mediante un servicio sin estado. La manera más sencilla de migrar un rol de trabajo a Service Fabric se puede realizar mediante la conversión de un código de rol de trabajo a un servicio sin estado.
+Conceptualmente, un rol de trabajo representa una carga de trabajo sin estado, lo que significa que cada instancia de la carga de trabajo es idéntica y las solicitudes se pueden enrutar a cualquier instancia en cualquier momento. No se espera que cada instancia recuerde la solicitud anterior. El estado en el que opera la carga de trabajo es administrado por un almacén de estado externo, como Azure Table Storage o Azure Cosmos DB. En Service Fabric, este tipo de carga de trabajo se representa mediante un servicio sin estado. La manera más sencilla de migrar un rol de trabajo a Service Fabric se puede realizar mediante la conversión de un código de rol de trabajo a un servicio sin estado.
 
 ![Rol de trabajo a servicio sin estado][4]
 
@@ -41,7 +41,7 @@ Igual que el rol de trabajo, un rol web también representa una carga de trabajo
 
 | **Aplicación** | **Compatible** | **Ruta de migración** |
 | --- | --- | --- |
-| Formularios Web Forms ASP.NET |Sin  |Conversión a ASP.NET Core 1 MVC |
+| Formularios Web Forms ASP.NET |Sin |Conversión a ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migración |Actualización a ASP.NET Core 1 MVC |
 | ASP.NET Web API |Con migración |Uso de servidor autohospedado o ASP.NET Core 1 |
 | ASP.NET Core 1 |Sí |N/D |
@@ -110,8 +110,8 @@ Ambos tienen un reemplazo principal "Run" en el que se va a iniciar el procesami
 
 Hay varias diferencias claves entre el ciclo de vida y la duración de los servicios de roles de trabajo y los de Service Fabric:
 
-* **Ciclo de vida:** La principal diferencia es que un rol de trabajo es una máquina virtual y por lo que su ciclo de vida está asociado a la máquina virtual, que incluye eventos para cuando se inicia y detiene la máquina virtual. Un servicio de Service Fabric tiene un ciclo de vida que es independiente del ciclo de vida de la máquina virtual, por lo que no incluye eventos para cuando el equipo o máquina virtual host se inicia y se detiene, ya que no están relacionados.
-* **Duración:** Una instancia de rol de trabajo se reciclará si el `Run` sale del método. No obstante, el método `RunAsync` en un servicio de Service Fabric se puede ejecutar hasta su finalización y la instancia de servicio permanecerá disponible. 
+* **Ciclo de vida:** la principal diferencia es que un rol de trabajo es una máquina virtual y, por tanto, su ciclo de vida está asociado al de la máquina virtual e incluye eventos para cuando se inicia y detiene dicha máquina virtual. Un servicio de Service Fabric tiene un ciclo de vida que es independiente del ciclo de vida de la máquina virtual, por lo que no incluye eventos para cuando el equipo o máquina virtual host se inicia y se detiene, ya que no están relacionados.
+* **Duración:** una instancia de rol de trabajo se reciclará si se sale del método `Run`. No obstante, el método `RunAsync` en un servicio de Service Fabric se puede ejecutar hasta su finalización y la instancia de servicio permanecerá disponible. 
 
 Service Fabric ofrece un punto de entrada de configuración de comunicación opcional para servicios que atienden las solicitudes de cliente. Tanto RunAsync como el punto de entrada de comunicación son reemplazos opcionales en los servicios de Service Fabric. El servicio puede elegir entre solo atender a las solicitudes de cliente o solo ejecutar un bucle de procesamiento o ambas cosas, razón por la cual se permite al método RunAsync salir sin necesidad de reiniciar la instancia de servicio, ya que puede continuar atendiendo a las solicitudes de cliente.
 

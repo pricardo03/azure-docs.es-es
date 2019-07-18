@@ -11,128 +11,108 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: ef431754db222554c6543e12e4cb6cf0431f7b51
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.date: 06/26/2019
+ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755047"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447798"
 ---
-# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a Azure SQL Database administra los límites de recursos de instancia
+# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de instancia administrada de Azure SQL Database
 
-Este artículo proporciona información general sobre los límites de recursos para la instancia administrada de Azure SQL Database y proporciona información sobre cómo solicitar un aumento de estos límites.
+En este artículo se proporciona una introducción a los límites de recursos de instancia administrada de Azure SQL Database e información sobre cómo solicitar aumentar estos límites.
 
 > [!NOTE]
 > Para conocer las diferencias en las características e instrucciones T-SQL admitidas, consulte las instrucciones [Diferencias entre las características](sql-database-features.md) y [Compatibilidad con instrucciones T-SQL](sql-database-managed-instance-transact-sql-information.md).
 
 ## <a name="instance-level-resource-limits"></a>Límites de recursos a nivel de instancia
 
-Instancia administrada tiene las características y los límites de recursos que dependen de la infraestructura y la arquitectura subyacente. Los límites dependen de la generación de hardware y del nivel de servicio.
+Instancia administrada tiene características y límites de recursos que dependen de la infraestructura y la arquitectura subyacentes. Los límites dependen de la generación de hardware y del nivel de servicio.
 
 ### <a name="hardware-generation-characteristics"></a>Características de la generación de hardware
 
-Instancia administrada de Azure SQL Database se puede implementar en dos generaciones de hardware: Gen4 y Gen5. Las generaciones de hardware tienen diferentes características que se describen en la tabla siguiente:
+Instancia administrada de Azure SQL Database puede implementarse en dos generaciones de hardware: Gen4 y Gen5. Las generaciones de hardware tienen diferentes características, que se describen en la tabla siguiente:
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Hardware | Procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz; núcleo virtual SSD conectado equivalente a 1 PP (núcleo físico) | Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz; SSD NVMe rápido, núcleo virtual equivalente a 1 LP (Hyper-Threading) |
-| Núcleos virtuales | 8, 16, 24 núcleos virtuales | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales |
-| Memoria (memoria/núcleo) | 7 GB por núcleo virtual | 5,1 GB por núcleo virtual |
-| Memoria de máximo de OLTP en memoria | Límite de instancia: 3 GB por núcleo virtual<br/>Límites de la base de datos:<br/> -8 núcleos: 8GB por base de datos<br/> -16 núcleos: 20GB por base de datos<br/> -24-core: 36GB por base de datos | Límite de instancia: 2,5 GB por núcleo virtual<br/>Límites de la base de datos:<br/> -8 núcleos: 13GB por base de datos<br/> -16 núcleos: 32GB por base de datos |
-| Almacenamiento de instancia máximo (uso General) |  8 TB | 8 TB |
+| Núcleos virtuales | 8, 16, 24 núcleos virtuales | 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales |
+| Memoria (relación memoria/núcleo) | 7 GB por núcleo virtual | 5,1 GB por núcleo virtual |
+| Memoria máxima de OLTP en memoria | Límite de instancia: 3 GB por núcleo virtual<br/>Límites de la base de datos:<br/> - 8 núcleos: 8 GB por base de datos<br/> - 16 núcleos: 20 GB por base de datos<br/> - 24 núcleos: 36 GB por base de datos | Límite de instancia: 2,5 GB por núcleo virtual<br/>Límites de la base de datos:<br/> - 8 núcleos: 13 GB por base de datos<br/> - 16 núcleos: 32 GB por base de datos |
+| Almacenamiento de instancia máximo (de uso general) |  8 TB | 8 TB |
 | Almacenamiento de instancia máximo (crítico para la empresa) | 1 TB | 1 TB, 2 TB o 4 TB, en función del número de núcleos |
+
+> [!IMPORTANT]
+> Las nuevas bases de datos de Gen4 ya no se admiten en la región Este de Australia.
 
 ### <a name="service-tier-characteristics"></a>Características del nivel de servicios
 
-Instancia administrada tiene dos niveles de servicio - uso General y crítico para la empresa. Estos niveles proporcionan funcionalidades diferentes, como se describe en la tabla siguiente:
+Instancia administrada tiene dos niveles de servicio: De uso general y Crítico para la empresa. Estos niveles proporcionan funcionalidades diferentes, como se describe en la tabla siguiente:
 
 | **Característica** | **Uso general** | **Crítico para la empresa** |
 | --- | --- | --- |
-| Número de núcleos virtuales\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Memoria (memoria/núcleo) | Gen4: 56 GB - 168 GB (7GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5.1 GB/núcleo virtual) | Gen4: 56 GB - 168 GB (7GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5.1 GB/núcleo virtual) |
-| Tamaño máximo de almacenamiento de instancia | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB para 8 y 16 núcleos virtuales<br/>- 2 TB para 24 núcleos virtuales<br/>- 4 TB para 32, 40, 64 y 80 núcleos virtuales |
+| Número de núcleos virtuales\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64 y 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64 y 80 |
+| Memoria | Gen4: 56 GB - 168 GB (7 GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5,1GB/núcleo virtual) | Gen4: 56 GB - 168 GB (7 GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5,1GB/núcleo virtual) |
+| Tamaño máximo de almacenamiento de instancia | - 2 TB para 4 núcleos virtuales (solo para Gen5)<br/>- 8 TB para otros tamaños | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB para 4, 8 y 16 núcleos virtuales<br/>- 2 TB para 24 núcleos virtuales<br/>- 4 TB para 32, 40, 64 y 80 núcleos virtuales |
 | Almacenamiento máximo por base de datos | Determinado por el tamaño de almacenamiento máximo por instancia | Determinado por el tamaño de almacenamiento máximo por instancia |
 | Número máximo de bases de datos por instancia | 100 | 100 |
 | Número máximo de archivos de base de datos por instancia | Hasta 280 | Hasta 32 767 archivos por base de datos |
-| Datos/IOPS de registro (aproximado) | 500 - 7500 por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
-| Rendimiento de registro | 3 MB/s por núcleo virtual<br/>Max 22 MB/s por instancia | 4 MB/s por núcleo virtual<br/>Max 48 MB/s por instancia|
+| Datos/IOPS de registro (aproximado) | 500 - 7500 por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/núcleo virtual) |
+| Rendimiento de registro | 3 MB/s por núcleo virtual<br/>22 MB/s por instancia como máximo | 4 MB/s por núcleo virtual<br/>48 MB/s por instancia como máximo|
 | Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/D |
 | Latencia de E/S (aproximada) | 5-10 ms | 1-2 ms |
 | Tamaño máximo de tempDB | 192 GB - 1920 GB (24 GB por núcleo virtual) | No hay restricciones: limitadas por el tamaño máximo de almacenamiento de la instancia |
-| Sesiones máximas | 30000 | 30000 |
+| Número máximo de sesiones | 30000 | 30000 |
 
-**Notas**:
-
-- Tanto los datos como el tamaño de archivo de registro en las bases de datos del usuario y las del sistema se incluyen en el tamaño de almacenamiento de la instancia que se compara con el límite de tamaño de almacenamiento máximo. Utilice la vista del sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> para determinar el espacio total utilizado por las bases de datos. Los registros de errores no se mantienen y no se incluyen en el tamaño. Las copias de seguridad no se incluyen en el tamaño del almacenamiento.
-- Rendimiento e IOPS también dependen del tamaño de página que no está limitado explícitamente por instancia administrada.
+> [!NOTE]
+> - Tanto los datos como el tamaño de archivo de registro en las bases de datos del usuario y las del sistema se incluyen en el tamaño de almacenamiento de la instancia que se compara con el límite de tamaño de almacenamiento máximo. Utilice la vista del sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> para determinar el espacio total utilizado por las bases de datos. Los registros de errores no se mantienen y no se incluyen en el tamaño. Las copias de seguridad no se incluyen en el tamaño del almacenamiento.
+> - El rendimiento e IOPS también dependen del tamaño de página que no está limitado explícitamente por instancia administrada.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Las instancias administradas pueden crearse solo en [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para crear una instancia administrada en una región que no se admite actualmente, puede [enviar una solicitud de soporte técnico a través del portal de Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
+Las instancias administradas solo se pueden crear en las [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para crear una instancia administrada en una región que no se admita actualmente, puede [enviar una solicitud de soporte técnico a través de Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance).
 
 ## <a name="supported-subscription-types"></a>Tipos de suscripciones admitidos
 
-Instancia administrada admite actualmente la implementación solo en los siguientes tipos de suscripciones:
+Actualmente, instancia administrada admite la implementación solo en los siguientes tipos de suscripciones:
 
 - [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Proveedor de nube (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Desarrollo/pruebas - Pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)
-
-> [!NOTE]
-> Esta limitación es temporal. En el futuro se habilitarán nuevos tipos de suscripción.
+- [Suscripciones con crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
 
 ## <a name="regional-resource-limitations"></a>Limitaciones de recursos regionales
 
-Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. Instancia administrada tiene dos límites predeterminados por región de Azure según un tipo del tipo de suscripción:
+Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. Instancia administrada tiene dos límites predeterminados por región de Azure en función del tipo de suscripción:
 
 - **Límite de subred**: el número máximo de subredes en que se implementan instancias administradas en una sola región.
-- **Límite del número de instancias**: el número máximo de instancias que se pueden implementar en una sola región.
+- **Límite de núcleos virtuales**: el número máximo de núcleos virtuales que se pueden implementar en todas las instancias en una sola región.
 
 > [!Note]
-> Estos límites son la configuración predeterminada y las limitaciones técnicas no. Los límites pueden ser mayor y a petición mediante la creación de un especial [solicitud de soporte técnico en Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) si necesita más instancias administradas en la región actual. Como alternativa, puede crear nuevas instancias administradas en otra región de Azure sin necesidad de enviar solicitudes de soporte técnico.
+> Estos límites son opciones de configuración predeterminadas y no limitaciones técnicas. Los límites se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance) si necesita más instancias administradas en la región actual. Como alternativa, puede crear nuevas instancias administradas en otra región de Azure sin necesidad de enviar solicitudes de soporte técnico.
 
-La siguiente tabla muestra los límites regionales predeterminada para las suscripciones admitidos:
+En la tabla siguiente se muestran los límites regionales predeterminados para las suscripciones admitidas:
 
-|Tipo de suscripción| Número máximo de subredes de la instancia administrada | Número máximo de instancias |Número máximo de subredes de instancia administradas de GP*|Número máximo de subredes de instancia administradas de BC*|
-| :---| :--- | :--- |:--- |:--- |
-|Pago por uso|1*|4*|4*|1*|
-|CSP |1*|4*|4*|1*|
-|Desarrollo/pruebas - Pago por uso|1*|4*|4*|1*|
-|Desarrollo/pruebas - Enterprise|1*|4*|4*|1*|
-|EA|3**|12**|12**|3**|
+|Tipo de suscripción| Número máximo de subredes de instancia administrada | Número máximo de unidades de núcleo virtual* |
+| :---| :--- | :--- |
+|Pago por uso|3|320|
+|CSP |8 (15 en algunas regiones**)|960 (1440 en algunas regiones**)|
+|Desarrollo/pruebas - Pago por uso|3|320|
+|Desarrollo/pruebas - Enterprise|3|320|
+|EA|8 (15 en algunas regiones**)|960 (1440 en algunas regiones**)|
+|Visual Studio Enterprise|2 |64|
+|Visual Studio Professional y plataformas de MSDN|2|32|
 
-\* Puede implementar 1 BC o 4 instancias de la directiva de grupo en una subred, por lo que nunca supere el número total de "unidades de instancia" en la subred 4.
+\* Al planear las implementaciones, tenga en cuenta que un núcleo virtual Crítico para la empresa (BC) (debido a la redundancia agregada) consume 4 veces más capacidad que un núcleo virtual De uso general (GP). Por tanto, para los cálculos, 1 núcleo virtual GP = 1 unidad de núcleo virtual y 1 núcleo virtual BC = 4 unidades de núcleo virtual. Para simplificar el análisis de consumo frente a los límites predeterminados, resuma las unidades de núcleo virtual de todas las subredes de la región en la que se implementan instancias administradas y compare los resultados con los límites de la unidad de instancia del tipo de suscripción. El límite **Número máximo de unidades de núcleo virtual** se aplica a cada suscripción en una región. No hay ningún límite por subredes individuales, salvo que la suma de todos los núcleos virtuales implementados en varias subredes debe ser inferior o igual al **número máximo de unidades de núcleo virtual**.
 
-** Se aplica el número máximo de instancias en un nivel de servicio si no hay instancias en otro nivel de servicio. Si va a combinar instancias GP y continuidad del negocio en la misma subred, use la siguiente sección como referencia para las combinaciones permitidas. Como regla sencilla, el número total de subredes no puede superar as 3 y el número total de unidades de instancia no puede superar las 12.
+\*\* En las regiones siguientes hay más límites de subred y núcleo virtual: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU. 2.
 
+## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtención de una cuota mayor para instancia administrada de SQL
 
-> [!IMPORTANT]
-> Al planear las implementaciones, considere la posibilidad de que una instancia de Crítico para la empresa (BC) (debido a la redundancia agregada) por lo general consume 4 veces más capacidad que una instancia De uso general (GP). Por tanto, para los cálculos, 1 instancia de GP = 1 unidad de instancia y 1 instancia de BC = 4 unidades de instancia. Para simplificar el análisis de consumo frente a los límites predeterminados, se resumen las unidades de instancia a través de todas las subredes de la región donde las instancias administradas se implementan y comparan los resultados con los límites de la unidad de instancia para el tipo de suscripción.
-
-## <a name="strategies-for-deploying-mixed-general-purpose-and-business-critical-instances"></a>Estrategias para implementar instancias De uso general y de Crítico para la empresa mixtas
-
-Las suscripciones [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) pueden tener combinaciones de las instancias de GP y BC. Sin embargo, existen algunas limitaciones con respecto a la colocación de las instancias en las subredes.
-
-> [!Note]
-> Los tipos de suscripción [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) y [Proveedor de nube (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) pueden tener una instancia de Crítico para la empresa o hasta 4 De uso general.
-
-Los siguientes ejemplos cubren los casos de implementación con subredes no vacías y niveles de servicio GP y BC mixtos.
-
-|Cantidad de subredes|Subred 1|Subred 2|Subred 3|
-|:---|:---|:---|:---|
-|1|1 BC y un máximo de 8 GP<br>2 BC y un máximo de 4 GP|N/D| N/D|
-|2|0 BC, un máximo de 4 GP|1 BC, un máximo de 4 GP<br>2 BC, 0 GP|N/D|
-|2|1 BC, 0 GP|0 BC, un máximo de 8 GP<br>1 BC, un máximo de 4 GP|N/D|
-|2|2 BC, 0 GP|0 BC, un máximo de 4 GP|N/D|
-|3|1 BC, 0 GP|1 BC, 0 GP|0 BC, un máximo de 4 GP|
-|3|1 BC, 0 GP|0 BC, un máximo de 4 GP|0 BC, un máximo de 4 GP|
-
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Instancia administrada de obtención de una cuota mayor para SQL
-
-Si necesita más instancias administradas en sus regiones actuales, envíe una solicitud de soporte técnico para ampliar la cuota mediante el portal de Azure.
+Si necesita más instancias administradas en sus regiones actuales, puede enviar una solicitud de soporte técnico para ampliar la cuota a través de Azure Portal.
 Para iniciar el proceso de obtención de una cuota mayor:
 
 1. Abra **Ayuda y soporte técnico** y haga clic en **Nueva solicitud de soporte técnico**.
@@ -147,7 +127,7 @@ Para iniciar el proceso de obtención de una cuota mayor:
      ![Cuota de tipo de problema](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
 3. Haga clic en **Next**.
-4. En la pestaña Problema de la nueva solicitud de soporte técnico:
+4. En la **pestaña Problema** de la nueva solicitud de soporte técnico:
    - En **Gravedad**, seleccione el nivel de gravedad del problema.
    - En **Detalles**, especifique información adicional acerca del problema, lo que incluye los mensajes de error.
    - En **Carga de archivos**, adjunte un archivo con más información (hasta 4 MB).
@@ -156,9 +136,9 @@ Para iniciar el proceso de obtención de una cuota mayor:
 
      > [!IMPORTANT]
      > Una solicitud válida debe incluir:
-     > - Región en la que hay que aumentar el límite de la suscripción
-     > - Número requerido de instancias, por nivel de servicio en las subredes existentes después del aumento de la cuota (si cualquiera de las subredes existentes debe expandirse)
-     > - Número requerido de nuevas subredes y número total de instancias por nivel de servicio dentro de las nuevas subredes (si tiene que implementar instancias administradas en nuevas subredes).
+     > - Región en la que hay que aumentar el límite de la suscripción.
+     > - Número requerido de núcleos virtuales, por nivel de servicio en las subredes existentes después del aumento de la cuota (si cualquiera de las subredes existentes debe expandirse).
+     > - Número requerido de nuevas subredes y número total de núcleos virtuales por nivel de servicio dentro de las nuevas subredes (si tiene que implementar instancias administradas en nuevas subredes).
 
 5. Haga clic en **Next**.
 6. En la pestaña Información de contacto de la nueva solicitud de soporte técnico, especifique el método de contacto preferido (teléfono o correo electrónico) y los detalles de contacto.
@@ -166,6 +146,6 @@ Para iniciar el proceso de obtención de una cuota mayor:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información acerca de la instancia administrada, consulte [¿qué es una instancia administrada?](sql-database-managed-instance.md).
+- Para obtener más información sobre instancia administrada, consulte [¿Qué es una instancia administrada?](sql-database-managed-instance.md)
 - Para obtener información de precios, vea [Precios de Instancia administrada de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-- Para obtener información sobre cómo crear su primera instancia administrada, consulte [la Guía de inicio rápido](sql-database-managed-instance-get-started.md).
+- Para obtener información sobre cómo crear su primera instancia administrada, consulte la [Guía de inicio rápido](sql-database-managed-instance-get-started.md).

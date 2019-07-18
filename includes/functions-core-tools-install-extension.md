@@ -2,48 +2,42 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: functions
-author: craigshoemaker
-ms.service: functions
+author: ggailey777
+ms.service: azure-functions
 ms.topic: include
-ms.date: 09/25/2018
-ms.author: cshoe
+ms.date: 05/25/2019
+ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: ffd9e54c0f39b4256dbc83a336328797a8b53c45
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131446"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608360"
 ---
-Paquetes de extensión realizar todos los enlaces publicados por el equipo de Azure Functions disponible a través de una configuración en el *host.json* archivo. Para el desarrollo local, asegúrese de que tiene la versión más reciente de [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
+## <a name="register-extensions"></a>Registro de las extensiones
 
-Para usar paquetes de extensión, actualice el *host.json* archivo para incluir la siguiente entrada para `extensionBundle`:
+A excepción de los desencadenadores de HTTP y del temporizador, los enlaces de funciones en la versión 2.x de runtime se implementan como paquetes de extensión. En la versión 2.x del runtime de Azure Functions, debe registrar explícitamente las extensiones de los tipos de enlace que use en sus funciones. Las excepciones son los enlaces de HTTP y los desencadenadores de temporizador, que no requieren extensiones.
 
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
-    }
-}
+Puede instalar las extensiones de enlace individualmente o puede agregar una referencia de un conjunto de extensiones al archivo del proyecto host.json. Los conjuntos de extensiones eliminan la posibilidad de tener problemas de compatibilidad con los paquetes cuando se usan varios tipos de enlace. Este el enfoque recomendado para registrar extensiones de enlace. Los conjuntos de extensiones también eliminan el requisito de instalar el SDK de .NET Core 2.x. 
+
+### <a name="extension-bundles"></a>Conjuntos de extensiones
+
+[!INCLUDE [Register extensions](functions-extension-bundles.md)]
+
+Para obtener más información, consulte [Register Azure Functions binding extensions](../articles/azure-functions/functions-bindings-register.md#extension-bundles) (Registrar las extensiones de enlace de Azure Functions). Debe agregar los conjuntos de extensiones a host.json antes de agregar enlaces al archivo functions.json.
+
+### <a name="register-individual-extensions"></a>Registrar extensiones individuales
+
+Si necesita instalar extensiones que no están en un conjunto, puede registrar manualmente paquetes de extensiones individuales para enlaces específicos. 
+
+> [!NOTE]
+> Para registrar manualmente las extensiones utilizando `func extensions install`, debe tener instalado el SDK de .NET Core 2.x.
+
+Después de haber actualizado el archivo *function.json* para que incluya todos los enlaces que necesita la función, ejecute el siguiente comando en la carpeta del proyecto.
+
+```bash
+func extensions install
 ```
 
-- El `id` propiedad hace referencia el espacio de nombres de los paquetes de extensión de Microsoft Azure Functions.
-- El `version` hace referencia a la versión de la agrupación.
-
-Incremento de las versiones de agrupación como paquetes en los cambios del lote. Cambios de versión principal realizan solo cuando mueve los paquetes en el paquete de una versión principal. El `version` propiedad usa el [notación de intervalo para especificar intervalos de versiones](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). El tiempo de ejecución de Functions siempre elige la versión permitida máxima definida por el intervalo de versiones o el intervalo.
-
-Una vez que se hace referencia a los paquetes de extensión en el proyecto, a continuación, todos los enlaces predeterminados están disponibles para las funciones. Los enlaces disponibles en el [conjunto de extensiones](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) son:
-
-|Paquete  |Version  |
-|---------|---------|
-|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
-|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
-|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
-|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
-|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
-|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|
+El comando lee el archivo *function.json* para ver qué paquetes necesita, los instala y, luego, recompila el proyecto de extensiones. Agrega los nuevos enlaces en la versión actual, pero no actualiza los enlaces existentes. Use la opción `--force` para actualizar los enlaces existentes a la versión más reciente cuando instale otros nuevos.

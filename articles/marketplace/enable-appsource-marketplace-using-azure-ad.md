@@ -7,13 +7,13 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: qianw211
-ms.openlocfilehash: 981d9427dc8407c7300f01c941e39ba9723d53a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: 0b68687a2bbaa817f2776757ccab9571638c0fd5
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938083"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876001"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Habilitar una descripción de AppSource y Marketplace mediante Azure Active Directory
 
@@ -89,4 +89,4 @@ Use Azure AD para admitir alguna de las acciones siguientes:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Asegúrese de haberse [registrado en Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/) para crear o completar su oferta.
+- Consulte [Creación de una cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obtener más información sobre cómo crear o completar su oferta.

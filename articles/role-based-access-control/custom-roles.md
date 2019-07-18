@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/13/2019
+ms.date: 06/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25f0258b9e6b11e505bd48222dfbca176f963a5e
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
-ms.translationtype: MT
+ms.openlocfilehash: 8b628086a67f1d76357fda4f753350b6411b8f15
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921049"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273719"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Roles personalizados en los recursos de Azure
 
 Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. Igual que los roles integrados, puede asignar roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos de suscripción, grupo de recursos y recurso.
 
-Los roles personalizados se almacenan en un directorio de Azure Active Directory (Azure AD) y se pueden compartir entre suscripciones. Cada directorio puede tener hasta **5000** roles personalizados. (Para nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, el límite es 2000 de roles personalizados). Se pueden crear roles personalizados con Azure PowerShell, la CLI de Azure o la API REST.
+Los roles personalizados se almacenan en un directorio de Azure Active Directory (Azure AD) y se pueden compartir entre suscripciones. Cada directorio puede tener hasta **5000** roles personalizados. (Para nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, el límite es de 2000 roles personalizados). Se pueden crear roles personalizados con Azure PowerShell, la CLI de Azure o la API REST.
 
 ## <a name="custom-role-example"></a>Ejemplo de rol personalizado
 
@@ -68,13 +68,13 @@ Después de crear un rol personalizado, aparece en Azure Portal con un icono de 
 
 ## <a name="steps-to-create-a-custom-role"></a>Pasos para crear un rol personalizado
 
-1. Decida cómo desea crear el rol personalizado
+1. Decidir cómo se quiere crear el rol personalizado
 
-    Puede crear roles personalizados con [Azure PowerShell](custom-roles-powershell.md), [CLI de Azure](custom-roles-cli.md), o el [API de REST](custom-roles-rest.md).
+    Puede crear roles personalizados con [Azure PowerShell](custom-roles-powershell.md), la [CLI de Azure](custom-roles-cli.md) o la [API de REST](custom-roles-rest.md).
 
 1. Determinar los permisos que necesita
 
-    Cuando crea un rol personalizado, debe conocer las operaciones del proveedor de recursos que están disponibles para definir los permisos. Para ver la lista de operaciones, consulte el [operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md). Va a agregar las operaciones a la `Actions` o `NotActions` propiedades de la [definición de función](role-definitions.md). Si dispone de las operaciones de datos, agregará los de la `DataActions` o `NotDataActions` propiedades.
+    Cuando crea un rol personalizado, debe conocer las operaciones del proveedor de recursos que están disponibles para definir los permisos. Para ver la lista de operaciones, vea [Operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md). Agregará las operaciones a las propiedades `Actions` o `NotActions` de la [definición de roles](role-definitions.md). Si tiene operaciones de datos, las agregará a las propiedades `DataActions` o `NotDataActions`.
 
 1. Creación del rol personalizado
 
@@ -90,17 +90,17 @@ Para ver un tutorial paso a paso sobre cómo crear un rol personalizado, consult
 
 Un rol personalizado tiene las siguientes propiedades.
 
-| Propiedad | Obligatorio | Type | DESCRIPCIÓN |
+| Propiedad | Obligatorio | type | DESCRIPCIÓN |
 | --- | --- | --- | --- |
-| `Name` | Sí | String | Nombre para mostrar del rol personalizado. Aunque una definición de roles es un recurso de nivel de suscripción, una definición de roles se puede usar en varias suscripciones que compartan el mismo directorio de Azure AD. Este nombre para mostrar debe ser único en el ámbito del directorio de Azure AD. Puede incluir letras, números, espacios y caracteres especiales. El número máximo de caracteres es 128. |
-| `Id` | Sí | String | El identificador exclusivo del rol personalizado. Para Azure PowerShell y la CLI de Azure, este identificador se genera automáticamente cuando se crea un rol. |
-| `IsCustom` | Sí | String | Indica si es un rol personalizado. Establecido en `true` para los roles personalizados. |
-| `Description` | Sí | String | Descripción del rol personalizado. Puede incluir letras, números, espacios y caracteres especiales. El número máximo de caracteres es 1024. |
+| `Name` | Sí | Cadena | Nombre para mostrar del rol personalizado. Aunque una definición de roles es un recurso de nivel de suscripción, una definición de roles se puede usar en varias suscripciones que compartan el mismo directorio de Azure AD. Este nombre para mostrar debe ser único en el ámbito del directorio de Azure AD. Puede incluir letras, números, espacios y caracteres especiales. El número máximo de caracteres es 128. |
+| `Id` | Sí | Cadena | El identificador exclusivo del rol personalizado. Para Azure PowerShell y la CLI de Azure, este identificador se genera automáticamente cuando se crea un rol. |
+| `IsCustom` | Sí | Cadena | Indica si es un rol personalizado. Establecido en `true` para los roles personalizados. |
+| `Description` | Sí | Cadena | Descripción del rol personalizado. Puede incluir letras, números, espacios y caracteres especiales. El número máximo de caracteres es 1024. |
 | `Actions` | Sí | String[] | Matriz de cadenas que especifica las operaciones de administración que el rol permite realizar. Para obtener más información, consulte [Actions](role-definitions.md#actions). |
-| `NotActions` | No | String[] | Matriz de cadenas que especifica las operaciones de administración que se excluyen de las `Actions` permitidas. Para obtener más información, consulte [notActions](role-definitions.md#notactions). |
-| `DataActions` | No | String[] | Matriz de cadenas que especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. Para obtener más información, consulte [dataActions (versión preliminar)](role-definitions.md#dataactions-preview). |
-| `NotDataActions` | No | String[] | Matriz de cadenas que especifica las operaciones de datos que se excluyen de las `DataActions` permitidas. Para obtener más información, consulte [notDataActions (versión preliminar)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Sí | String[] | Matriz de cadenas que especifica los ámbitos en los que el rol personalizado está disponible para la asignación. Actualmente, no puede establecerse en el ámbito raíz (`"/"`) o un ámbito de grupo de administración. Para más información, consulte [AssignableScopes](role-definitions.md#assignablescopes) y [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
+| `NotActions` | Sin | String[] | Matriz de cadenas que especifica las operaciones de administración que se excluyen de las `Actions` permitidas. Para obtener más información, consulte [notActions](role-definitions.md#notactions). |
+| `DataActions` | Sin | String[] | Matriz de cadenas que especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. Para más información, vea [DataActions](role-definitions.md#dataactions). |
+| `NotDataActions` | Sin | String[] | Matriz de cadenas que especifica las operaciones de datos que se excluyen de las `DataActions` permitidas. Para más información, vea [NotDataActions](role-definitions.md#notdataactions). |
+| `AssignableScopes` | Sí | String[] | Matriz de cadenas que especifica los ámbitos en los que el rol personalizado está disponible para la asignación. En los roles personalizados, `AssignableScopes` no se puede establecer actualmente en el ámbito raíz (`"/"`) o en un ámbito de grupo de administración. Para más información, consulte [AssignableScopes](role-definitions.md#assignablescopes) y [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quién puede crear, eliminar, actualizar o ver un rol personalizado
 

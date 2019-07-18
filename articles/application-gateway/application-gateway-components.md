@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49b6b49d908a7426e7cfd1bae5260ff399d9953b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831847"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273221"
 ---
 # <a name="application-gateway-components"></a>Componentes de Application Gateway
 
@@ -26,7 +26,9 @@ Una dirección IP de front-end es la dirección IP asociada con una puerta de en
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>Dirección IP pública estática frente a dinámica
 
-La SKU de Azure App Gateway v2 admite tanto direcciones IP públicas estáticas como internas estáticas, si bien la SKU v1 admite solo las segundas. La dirección IP virtual (VIP) puede cambiar si una puerta de enlace de aplicaciones se detiene y se inicia.
+La SKU de Azure Application Gateway V2 se puede configurar para admitir tanto una dirección IP interna estática como una dirección IP pública estática, o solo una dirección IP pública estática. No se puede configurar para admitir solo una dirección IP estática interna.
+
+La SKU V1 se puede configurar para admitir una dirección IP interna estática y una dirección IP pública dinámica, solo una dirección IP interna estática o solo una dirección IP pública dinámica. La dirección IP dinámica de Application Gateway no cambia en una puerta de enlace en ejecución. Puede cambiar solo cuando se detiene o inicia Gateway. No cambia cuando se producen errores del sistema, actualizaciones, actualizaciones del host de Azure, etc. 
 
 El nombre DNS asociado a una puerta de enlace de aplicaciones no cambia durante el ciclo de vida de la puerta de enlace. Como resultado, debe usar un alias CNAME y hacer que apunte a la dirección DNS de la puerta de enlace de aplicaciones.
 

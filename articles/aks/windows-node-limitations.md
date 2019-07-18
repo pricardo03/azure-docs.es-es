@@ -1,80 +1,79 @@
 ---
 title: Limitaciones de los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
-description: Obtenga información sobre las limitaciones conocidas al ejecutar cargas de trabajo de aplicación y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
+description: Obtenga información sobre las limitaciones conocidas al ejecutar cargas de trabajo de aplicaciones y grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 457a908a70fccd9f4209121d9b99e5e53905500b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475403"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444099"
 ---
-# <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para grupos de nodos de Windows Server y las cargas de trabajo de aplicación en Azure Kubernetes Service (AKS)
+# <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 
-En Azure Kubernetes Service (AKS), puede crear un grupo de nodos que ejecuta Windows Server como el sistema operativo invitado en los nodos. Estos nodos pueden ejecutar aplicaciones nativas de contenedor de Windows, como las basadas en .NET Framework. Como existen diferencias importantes en cómo el sistema operativo Windows y Linux proporciona compatibilidad con contenedores, algunas Kubernetes comunes y las características relacionadas con el pod no son actualmente disponibles para grupos de nodos de Windows.
+En Azure Kubernetes Service (AKS) puede crear un grupo de nodos que ejecuta Windows Server como sistema operativo invitado en los nodos. Estos nodos pueden ejecutar aplicaciones de contenedor nativas de Windows, como las integradas en .NET Framework. Como existen diferencias importantes en la forma en que los sistemas operativos Windows y Linux proporcionan compatibilidad con contenedores, algunas características de Kubernetes comunes y relacionadas con el pod no están actualmente disponibles para grupos de nodos de Windows.
 
-En este artículo se describe algunas de las limitaciones y los conceptos del sistema operativo para los nodos de Windows Server en AKS. Grupos de nodos para Windows Server están actualmente en versión preliminar.
+En este artículo se describen algunas de las limitaciones y los conceptos de sistema operativo para los nodos de Windows Server en AKS. Los grupos de nodos para Windows Server actualmente están en versión preliminar.
 
 > [!IMPORTANT]
-> Características de versión preliminar AKS son autoservicio, participación. Se proporcionan para recopilar comentarios y los errores de nuestra comunidad. En la vista previa, estas características no están diseñadas para su uso en producción. Características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Asistencia de los equipos de soporte técnico de AKS está disponible durante el horario comercial del Pacífico (PST) solo timezone. Para obtener más información, consulte los siguientes artículos de soporte técnico:
+> Las características en versión preliminar de AKS son de autoservicio y se tienen que habilitar. Se proporcionan para recopilar comentarios y errores de nuestra comunidad. En la versión preliminar, estas características no están diseñadas para su uso en producción. Las características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Los equipos de soporte técnico de AKS ofrecen asistencia solo durante el horario laboral en la zona horaria del Pacífico (PST). Para más información, consulte los siguientes artículos de soporte:
 >
-> * [Directivas de soporte técnico AKS][aks-support-policies]
+> * [Directivas de soporte técnico para AKS][aks-support-policies]
 > * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitaciones de Windows Server en Kubernetes
 
-Contenedores de Windows Server deben ejecutarse en un host de contenedor basadas en Windows. Para ejecutar contenedores de Windows Server en AKS, puede [crear un grupo de nodos que ejecuta Windows Server] [ windows-node-cli] como el sistema operativo invitado. Soporte de grupo de nodos de servidor de ventana incluye algunas limitaciones que forman parte de Windows Server nivel superior en el proyecto de Kubernetes. Estas limitaciones no son específicas de AKS. Para obtener más información sobre esta compatibilidad ascendente con Windows Server en Kubernetes, consulte [contenedores de Windows Server en las limitaciones de Kubernetes][upstream-limitations].
+Los contenedores de Windows Server deben ejecutarse en un host de contenedor basado en Windows. Para ejecutar los contenedores de Windows Server en AKS puede [crear un grupo de nodos que ejecute Windows Server][windows-node-cli] como sistema operativo invitado. La compatibilidad del grupo de nodos de Windows Server incluye algunas limitaciones que forman parte de Windows Server ascendente en el proyecto de Kubernetes. Estas limitaciones no son específicas de AKS. Para obtener más información sobre esta compatibilidad ascendente con Windows Server en Kubernetes, consulte [Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/windows-node-limitations).
 
-Las siguientes limitaciones de nivel superior para contenedores de Windows Server en Kubernetes son relevantes para AKS:
+Las siguientes limitaciones ascendentes para contenedores de Windows Server en Kubernetes son pertinentes para AKS:
 
-- Contenedores de Windows Server solo pueden usar Windows Server 2019, que coincide con el nodo de Windows Server subyacente del sistema operativo.
-    - Imágenes de contenedor creadas con Windows Server 2016 ya no es compatibles con el sistema operativo base.
-- No se puede usar contenedores con privilegios.
-- Características específicas de Linux como capacidades RunAsUser, SELinux, AppArmor o POSIX no están disponibles en los contenedores de Windows Server.
-    - Limitaciones del sistema de archivos que son específicas de Linux como UUI/GUID, por los permisos de usuario no están también disponibles en contenedores de Windows Server.
-- Discos de Azure y Azure Files son los tipos de volúmenes admitidos, puede tener accesibles como volúmenes NTFS en el contenedor de Windows Server.
-    - Almacenamiento basado en NFS / no se admiten volúmenes.
+- Los contenedores de Windows Server solo pueden usar Windows Server 2019, que coincide con el sistema operativo del nodo de Windows Server subyacente.
+    - No se admiten las imágenes de contenedor creadas con Windows Server 2016 como sistema operativo base.
+- No se pueden utilizar los contenedores con privilegios.
+- Las características específicas de Linux, como las funcionalidades RunAsUser, SELinux, AppArmor o POSIX, no están disponibles en los contenedores de Windows Server.
+    - Las limitaciones del sistema de archivos que son específicas de Linux, como UUI/GUID, por los permisos de usuario tampoco están disponibles en los contenedores de Windows Server.
+- Azure Disk y Azure Files son los tipos de volúmenes admitidos, a los que se accede como volúmenes NTFS en el contenedor de Windows Server.
+    - No se admiten volúmenes ni almacenamiento basados en NFS.
 
-## <a name="aks-limitations-for-windows-server-node-pools"></a>Limitaciones de AKS para grupos de nodos de Windows Server
+## <a name="aks-limitations-for-windows-server-node-pools"></a>Limitaciones de AKS para los grupos de nodos de Windows Server
 
-Se aplican las siguientes limitaciones adicionales a soporte de grupo de nodos de Windows Server en AKS:
+Se aplican las siguientes limitaciones adicionales a la compatibilidad de los grupos de nodos de Windows Server en AKS:
 
-- Un clúster de AKS siempre contiene un grupo de nodos de Linux como el primer grupo de nodos. No se puede eliminar este grupo de nodos basado en Linux primero, a menos que se elimina el propio clúster AKS.
-- Actualmente, AKS solo es compatible con el equilibrador de carga básico, que sólo se permite para un back-end grupo, el grupo de nodos de Linux de forma predeterminada. Como resultado, el tráfico saliente desde los pods de Windows siempre será [traduce a una dirección IP pública administrados por Azure][azure-outbound-traffic]. Puesto que esta dirección IP no es configurable, no es actualmente posible lista de permitidos el tráfico procedente de pods de Windows. 
-- Clústeres AKS deben utilizar el modelo de red de Azure CNI (avanzado).
-    - No se admiten redes Kubenet (basic). No se puede crear un clúster AKS que usa kubenet. Para obtener más información sobre las diferencias en los modelos de red, consulte [red conceptos relacionados con aplicaciones en AKS][azure-network-models].
-    - El modelo de red de Azure CNI requiere una planeación adicional y consideraciones para la administración de direcciones IP. Para obtener más información sobre cómo planear e implementar Azure CNI, consulte [redes configurar Azure CNI en AKS][configure-azure-cni].
-- Deben ser nodos de Windows Server en AKS *actualizado* a una versión más reciente de Windows Server 2019 para mantener la revisión más reciente correcciones y actualizaciones. Las actualizaciones de Windows no están habilitadas en la imagen base del nodo de AKS. Según una programación regular en torno a su propio proceso de validación y el ciclo de lanzamiento de Windows Update, debe realizar una actualización en los grupos de nodos de Windows Server en el clúster de AKS. Para obtener más información sobre cómo actualizar un grupo de nodos de Windows Server, vea [actualizar un grupo de nodos de AKS][nodepool-upgrade].
-    - Estas actualizaciones del nodo de Windows Server consumen temporalmente las direcciones IP adicionales en la subred de red virtual se implementa un nuevo nodo, antes de quita el nodo antiguo.
-    - las cuotas de vCPU se consumen también temporalmente en la suscripción como se implementa un nuevo nodo, a continuación, quite el nodo antiguo.
-    - No se puede actualizar automáticamente y administrar los reinicios mediante `kured` igual que con los nodos de Linux en AKS.
+- Un clúster de AKS siempre contiene un grupo de nodos de Linux como el primer grupo de nodos. No se puede eliminar este primer grupo de nodos basado en Linux, a menos que se elimine el propio clúster de AKS.
+- Los clústeres de AKS deben utilizar el modelo de redes (avanzadas) de Azure CNI.
+    - No se admiten las redes Kubenet (básico). No se puede crear un clúster de AKS que use kubenet. Para obtener más información sobre las diferencias en los modelos de redes, consulte [Conceptos de redes para las aplicaciones en AKS][azure-network-models].
+    - El modelo de redes de Azure CNI requiere una planeación y consideraciones adicionales para la administración de direcciones IP. Para obtener más información sobre cómo planear e implementar Azure CNI, consulte [Configuración de redes de Azure CNI en AKS][configure-azure-cni].
+- Los nodos de Windows Server en AKS deben estar *actualizados* a una versión más reciente de Windows Server 2019 para mantener las correcciones y actualizaciones más recientes. Las actualizaciones de Windows no están habilitadas en la imagen de nodo base de AKS. Según la programación normal en el ciclo de versiones de Windows Update y su proceso de validación propio, debe realizar una actualización de los grupos de nodos de Windows Server en el clúster de AKS. Para más información sobre cómo actualizar un grupo de nodos de Windows Server, consulte el artículo de [actualización de un grupo de nodos en AKS][nodepool-upgrade].
+    - Estas actualizaciones del nodo de Windows Server consumen temporalmente las direcciones IP adicionales en la subred de la red virtual mientras se implementa un nuevo nodo, antes de quitar el nodo antiguo.
+    - Las cuotas de vCPU también se consumen temporalmente en la suscripción al implementar un nuevo nodo; después se quita el nodo antiguo.
+    - No se puede actualizar y administrar automáticamente los reinicios mediante `kured` igual que con los nodos de Linux en AKS.
 - El clúster de AKS puede tener un máximo de ocho grupos de nodos.
-    - Puede tener un máximo de 400 nodos entre esos grupos de ocho nodos.
+    - Puede tener un máximo de 400 nodos distribuidos entre esos ocho grupos de nodos.
 - El nombre del grupo de nodos de Windows Server tiene un límite de 6 caracteres.
-- Vista previa de las características de AKS, como el Escalador automático del clúster y directivas de redes no están aprobadas para los nodos de Windows Server.
-- Solo se deben programar los controladores de entrada en nodos de Linux mediante un NodeSelector.
-- Espacios de desarrollo de Azure actualmente solo está disponible para grupos de nodos basado en Linux.
-- Grupo cuentas de servicio administradas (gMSA) de soporte técnico cuando los nodos de Windows Server no estén unidos a un dominio de Active Directory no está disponible actualmente en AKS.
-    - El código abierto, upstream [aks motor] [ aks-engine] proyecto actualmente proporciona soporte técnico de gMSA si necesita usar esta característica.
+- Las característica en vista previa (GB) de AKS, como el escalador automático de clúster y las directivas de red, no están aprobadas para los nodos de Windows Server.
+- Solo se deben programar los controladores de entrada en nodos de Linux con un valor NodeSelector.
+- Azure Dev Spaces actualmente solo está disponible para grupos de nodos basados en Linux.
+- Cuando los nodos de Windows Server no están unidos a un dominio de Active Directory, AKS no ofrece actualmente compatibilidad con las cuentas de servicio administradas de grupo (gMSA).
+    - El proyecto ascendente de código abierto, [aks-engine][aks-engine] actualmente proporciona compatibilidad con gMSA si necesita usar esta característica.
 
-## <a name="os-concepts-that-are-different"></a>Conceptos del sistema operativo que son diferentes
+## <a name="os-concepts-that-are-different"></a>Diferencias en los conceptos del sistema operativo
 
-Kubernetes es históricamente centrado en Linux. Muchos ejemplos usados en el canal de subida [Kubernetes.io] [ kubernetes] sitio Web están diseñados para su uso en los nodos de Linux. Al crear implementaciones que usan contenedores de Windows Server, las consideraciones siguientes en las condiciones de nivel de sistema operativo:
+Kubernetes se ha centrado siempre en Linux. Muchos ejemplos usados en el sitio web [Kubernetes.io][kubernetes] ascendente están diseñados para su uso en nodos de Linux. Al crear implementaciones que usan contenedores de Windows Server, se aplican las consideraciones siguientes en el nivel de sistema operativo:
 
-- **Identidad** -Linux utiliza el identificador de usuario (UID) y groupID (GID), representados como tipos de entero. Los nombres de usuario y grupo no son canónicos: son simplemente un alias en */etcetera/grupos* o */etcetera/passwd* al UID + GID.
-    - Windows Server usa un identificador de seguridad binario de mayor tamaño (SID) que se almacena en la base de datos de administrador de acceso de seguridad (SAM) de Windows. Esta base de datos no se comparte entre el host y los contenedores, o entre contenedores.
-- **Permisos de archivos** -Windows Server utiliza una lista de control de acceso basada en SID, en lugar de una máscara de bits de permisos y UID + GID
-- **Rutas de archivo** -convención en Windows Server consiste en usar \ en lugar de /.
-    - En las especificaciones de pod que montan los volúmenes, especifique la ruta correctamente para los contenedores de Windows Server. Por ejemplo, en lugar de un montaje de punto de */mnt/volumen* en un contenedor de Linux, especifique una letra de unidad y la ubicación como */K/volumen* montar como el *K:* unidad.
+- **Identidad**: Linux utiliza los valores userID (UID) y groupID (GID), representados como tipos de enteros. Los nombres de usuario y de grupo no son canónicos: son simplemente un alias en */etc/groups* o */etc/passwd* en UID+GID.
+    - Windows Server usa un identificador de seguridad binario de mayor tamaño (SID) que se almacena en la base de datos de Windows Security Access Manager (SAM). Esta base de datos no se comparte entre el host y los contenedores ni entre contenedores.
+- **Permisos de archivos**: Windows Server utiliza una lista de control de acceso basada en SID, en lugar de una máscara de bits de permisos y UID+GID.
+- **Rutas de archivo**: la convención en Windows Server consiste en usar \ en lugar de /.
+    - En las especificaciones de pod que montan los volúmenes, especifique la ruta correctamente para los contenedores de Windows Server. Por ejemplo, en lugar de un punto de montaje de */mnt/volume* en un contenedor de Linux, especifique la letra de unidad y la ubicación como */K/Volume* para montarlo como la unidad *K:* .
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar a trabajar con contenedores de Windows Server en AKS, [crear un grupo de nodos que ejecuta Windows Server en AKS][windows-node-cli].
+Para comenzar con los contenedores de Windows Server en AKS, [cree un grupo de nodos que ejecute Windows Server en AKS][windows-node-cli].
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations

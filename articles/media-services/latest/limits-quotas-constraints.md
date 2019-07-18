@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 709ed293dbb0550dc1bb43bf1e1e1cc50906cc31
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824451"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293444"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Cuotas y limitaciones en Azure Media Services v3
 
@@ -36,20 +36,21 @@ En este artículo se describen las cuotas y limitaciones de Azure Media Services
 | Listado de trabajos|Pagine la respuesta, con 500 trabajos por página|
 | Eventos en directo por cuenta de Media Services |5|
 | Cuentas de Media Services en una suscripción única | 25 (fijo) |
-| Live salidas por evento en directo |3 <sup>(3)</sup> |
-| Duración de la salida de Live Max | 25 horas |
+| Salidas en directo por evento en directo |3 <sup>(3)</sup> |
+| Duración máxima de la salida en directo | 25 horas |
 | Cuentas de almacenamiento | 100<sup>(4)</sup> (cantidad fija) |
 | Puntos de conexión de streaming (detenidos o en ejecución) por cuenta de Media Services|2 (fijo)|
 | Directivas de streaming | 100 <sup>(5)</sup> |
 | Transformaciones por cuenta de Media Services | 100 (cantidad fija)|
 | Localizadores de streaming únicos asociados con un recurso al mismo tiempo | 100<sup>(6)</sup> (fijo) |
-| Opciones de directiva de clave de contenido |30 | 
+| Opciones por directiva de clave de contenido |30 | 
+| Licencias por mes para cada uno de los tipos DRM en el servicio de entrega de claves de Media Services por cuenta|1 000 000|
 
-<sup>1</sup> El tamaño máximo admitido para un único blob es actualmente de 5 TB en Azure Blob Storage. Se aplican límites adicionales en Media Services en función de los tamaños de máquina virtual que se usan por el servicio. El límite de tamaño se aplica a los archivos que se cargan y también los archivos que se generan como resultado de procesar (codificar o analizar) de Media Services. Si el archivo de origen es mayor de 260 GB, es muy probable que el trabajo presente un error. 
+<sup>1</sup> El tamaño máximo admitido para un único blob es actualmente de 5 TB en Azure Blob Storage. En Media Services, se aplican límites adicionales en función de los tamaños de VM utilizados por el servicio. El límite de tamaño se aplica a los archivos que se cargan y también a los archivos que se generan como resultado del procesamiento (codificación o análisis) de Media Services. Si el archivo de origen es mayor de 260 GB, es muy probable que el trabajo presente un error. 
 
-En la tabla siguiente se muestra los límites en el medio reservado unidades de S1, S2 y S3. Si el archivo de origen es mayor que los límites definidos en la tabla, se produce un error en el trabajo de codificación. Si utiliza la codificación orígenes de resolución de 4K de larga duración, es necesario utilizar unidades reservada de multimedia S3 para lograr el rendimiento necesario. Si tiene contenido de 4K mayor que el límite de 260 GB en las unidades reservadas de multimedia S3, póngase en contacto con nosotros en amshelp@microsoft.com para posibles mitigaciones admitir su escenario.
+En la tabla siguiente se muestran los límites en cada una de las unidades reservadas de multimedia (S1, S2 y S3). Si el archivo de origen es mayor que los límites definidos en la tabla, se producirá un error en el trabajo de codificación. Si codifica orígenes de resolución en 4K de larga duración, debe usar unidades reservadas de multimedia S3 para lograr el rendimiento necesario. Si tiene contenido en formato 4K mayor que el límite de 260 GB en las unidades reservadas de multimedia S3, póngase en contacto con nosotros en amshelp@microsoft.com para conocer las posibles mitigaciones que permitan admitir su escenario.
 
-|Tipo de unidad reservada de medios   |Tamaño máximo de entrada (GB)|
+|Tipo de unidad reservada de multimedia   |Tamaño máximo de entrada (GB)|
 |---|---|
 |S1 |   26|
 |S2 | 60|
@@ -59,13 +60,13 @@ En la tabla siguiente se muestra los límites en el medio reservado unidades de 
 
 Se eliminarán automáticamente los registros de trabajo de más de 90 días de su cuenta, aunque el número total de registros no llegue a la cuota máxima. 
 
-<sup>3</sup> live salidas iniciar durante la creación y detener cuando se elimina.
+<sup>3</sup> Los objetos LiveOutput comienzan cuando se crean y se detienen cuando se eliminan.
 
 <sup>4</sup> Las cuentas de almacenamiento deben proceder de la misma suscripción de Azure.
 
-<sup>5</sup> al utilizar una personalizada [directiva Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies), debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Services y volver a usarlos para sus objetos Streaminglocator siempre que sea el mismo cifrado opciones y protocolos se necesitan. No debe crear una nueva directiva de streaming para cada localizador de streaming.
+<sup>5</sup> Al usar una [directiva de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus localizadores de streaming siempre que se necesiten las mismas opciones y protocolos de cifrado. No debe crear una nueva directiva de streaming para cada localizador de streaming.
 
-<sup>6</sup> localizadores de streaming no están diseñados para administrar el control de acceso por usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de administración de derechos digitales (DRM).
+<sup>6</sup> Los localizadores de streaming no están diseñados para administrar el control de acceso por usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de administración de derechos digitales (DRM).
 
 ## <a name="support-ticket"></a>Incidencia de soporte técnico
 

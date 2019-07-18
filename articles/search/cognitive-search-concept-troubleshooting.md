@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c0de4d2b9ad0d009b9cd363d19a2de3f29d810d4
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334886"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303452"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Recomendaciones para solucionar problemas con Cognitive Search
 
@@ -84,7 +84,7 @@ Agregue un campo ```enriched``` como parte de la definición del índice para fi
 
 Si falta contenido, esto puede deberse a que se descartaron documentos durante la indexación. Los niveles Gratuito y Básico tienen límites bajos en lo que respecta al tamaño de los documentos. Cualquier archivo que exceda el límite se descarta durante la indexación. Puede comprobar si hay documentos descartados en Azure Portal. En el panel del servicio de búsqueda, haga doble clic en el icono Indexadores. Revise la proporción de documentos que se indexaron con éxito. Si no es del 100 %, puede hacer clic en la proporción para obtener más detalles. 
 
-Si el problema está relacionado con el tamaño del archivo, es posible que vea un error como este: "El blob <file-name> tiene un tamaño de <file-size> bytes, lo cual excede el tamaño máximo para la extracción de documentos de su nivel de servicio actual". Para obtener más información, consulte los [límites del servicio](search-limits-quotas-capacity.md).
+Si el problema está relacionado con el tamaño del archivo, es posible que vea un error como este: "El blob \<file-name> tiene un tamaño de \<file-size> bytes, lo cual excede el tamaño máximo para la extracción de documentos de su nivel de servicio actual". Para obtener más información, consulte los [límites del servicio](search-limits-quotas-capacity.md).
 
 Una segunda razón por la que el contenido no aparece, puede deberse errores de asignación de entradas y salidas relacionadas. Por ejemplo, el nombre de destino de salida es "Personas", pero el nombre del campo de índice es "personas" en minúsculas. El sistema puede devolver 201 mensajes de éxito de toda la canalización y hacerle creer que la indexación tuvo éxito, cuando en realidad uno de los campos está vacío. 
 
@@ -94,7 +94,10 @@ El análisis de imágenes es un proceso intensivo a nivel computacional, incluso
 
 El tiempo máximo de ejecución varía según el nivel: varios minutos en el nivel gratuito, y una indexación de 24 horas en niveles de pago. Si el procesamiento no se completa dentro de un período de 24 horas según el procesamiento bajo demanda, use una programación en la que el indexador pueda retomar el procesamiento desde donde lo dejó. 
 
-En cuanto a los indexadores programados, la indexación se reanuda según la programación del último documento válido conocido. Al usar una programación recurrente, el indexador puede abrirse camino a través de las imágenes pendientes durante una serie de horas o días, hasta que se procesen todas aquellas imágenes que no estén procesadas. Para más información acerca de la sintaxis de programación, consulte [Paso 3: Creación de un indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+En cuanto a los indexadores programados, la indexación se reanuda según la programación del último documento válido conocido. Al usar una programación recurrente, el indexador puede abrirse camino a través de las imágenes pendientes durante una serie de horas o días, hasta que se procesen todas aquellas imágenes que no estén procesadas. Para más información acerca de la sintaxis de programación, consulte [Paso 3: Cree un indizador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) o consulte [Programación de indexadores para Azure Search](search-howto-schedule-indexers.md).
+
+> [!NOTE]
+> Si un indizador se establece en una programación determinada pero se produce repetidamente un error en el mismo documento una y otra vez cada vez se ejecuta, el indizador comenzará a ejecutarse en un intervalo menos frecuente (hasta un máximo de al menos una vez cada 24 horas) hasta que vuelva a avanzar correctamente.  Si cree que solucionó el problema que hacía que el indizador que se bloqueara en un punto determinado, puede realizar una ejecución a petición del indizador y, si avanza correctamente, el indizador volverá a su intervalo de programación establecido.
 
 Si realiza una indexación basada en el portal (tal como se describe en la guía de inicio rápido), la elección de la opción del indexador "ejecutar una vez" limita el procesamiento a 1 hora (`"maxRunTime": "PT1H"`). Es posible que quiera extender el período de procesamiento para que sea algo más largo.
 
@@ -103,7 +106,7 @@ Si realiza una indexación basada en el portal (tal como se describe en la guía
 Para realizar una [indexación paralela](search-howto-large-index.md), coloque los datos en varios contenedores o carpetas virtuales múltiples dentro del mismo contenedor. A continuación, cree varios pares de orígenes de datos e indexadores. Todos los indexadores pueden usar el mismo conjunto de aptitudes y escribir en el mismo índice de búsqueda de destino, por lo que la aplicación de búsqueda no necesita conocer esta partición.
 Para obtener más información, consulte [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets) (Indexar grandes conjuntos de datos).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 + [Inicio rápido: Creación de una canalización de Cognitive Search en el portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Obtención de información sobre las API REST de Cognitive Search](cognitive-search-tutorial-blob.md)
 + [Especificar las credenciales de origen de datos.](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)

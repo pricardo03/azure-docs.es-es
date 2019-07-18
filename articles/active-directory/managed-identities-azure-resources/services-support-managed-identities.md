@@ -3,19 +3,19 @@ title: Servicios de Azure que admiten identidades administradas para recursos de
 description: Lista de servicios que admiten identidades administradas para recursos de Azure y autenticación de Azure AD
 services: active-directory
 author: MarkusVi
-ms.author: priyamo
-ms.date: 05/09/2019
+ms.author: markvi
+ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0809423472bde0240145d43f4c28d9594b517928
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6869602b7d4aff6d779d189f0b6444dde2055d4
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518682"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261901"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -148,6 +148,17 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 - [Plantilla de Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
+### <a name="azure-container-registry-tasks"></a>Tareas de Azure Container Registry
+
+Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| Asignado por el sistema | Disponible | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
+
+Consulte la lista siguiente para configurar la identidad administrada para Azure Container Registry Tasks (en las regiones donde esté disponible):
+
+- [CLI de Azure](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
+
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Servicios de Azure que admiten la autenticación de Azure AD
 
 Los siguientes servicios admiten la autenticación de Azure AD y se han probado con los servicios de cliente que usan identidades administradas para recursos de Azure.
@@ -217,10 +228,10 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 
 | Nube | Id. de recurso | Status |
 |--------|------------|--------|
-| Azure Global | `https://storage.azure.com/` | Disponible |
-| Azure Government | `https://storage.azure.com/` | Disponible |
-| Azure Alemania | `https://storage.azure.com/` | Disponible |
-| Azure China 21Vianet | `https://storage.azure.com/` | Disponible |
+| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponible |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponible |
+| Azure Alemania | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponible |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponible |
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b15ae30151b22509a78b9a39d258991363a05e5b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749621"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295420"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>Implementación del análisis del tráfico de búsqueda en Azure Search
 Análisis de tráfico de búsqueda es un modelo de implementación de un bucle de comentarios para el servicio de búsqueda. Este modelo describe los datos necesarios y cómo recopilarlos con Application Insights, el líder en el sector para la supervisión de servicios en varias plataformas.
@@ -79,7 +79,7 @@ Para otros lenguajes y plataformas, vea la [lista](https://docs.microsoft.com/az
 
     // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-    var client = new SearchIndexClient(<ServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+    var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
     var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
     var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
     IEnumerable<string> headerValues;
@@ -98,7 +98,7 @@ Para otros lenguajes y plataformas, vea la [lista](https://docs.microsoft.com/az
 
 Cada vez que un usuario emite una solicitud de búsqueda, debe registrarla como un evento de búsqueda con el esquema siguiente en un evento personalizado de Application Insights:
 
-**ServiceName**: (cadena) nombre de servicio de búsqueda **SearchId**: (guid) identificador único de una consulta de búsqueda (viene con la respuesta de búsqueda) **IndexName**: (cadena) índice de servicio que se va a consultar **QueryTerms**: (cadena) términos de búsqueda especificados por el usuario **ResultCount**: (int) número de documentos devueltos (viene en la respuesta de búsqueda) **ScoringProfile**: (cadena) nombre del perfil de puntuación usado, si lo hubiera
+**SearchServiceName**: (cadena) nombre de servicio de búsqueda **SearchId**: (guid) identificador único de una consulta de búsqueda (viene con la respuesta de búsqueda) **IndexName**: (cadena) índice de servicio que se va a consultar **QueryTerms**: (cadena) términos de búsqueda especificados por el usuario **ResultCount**: (int) número de documentos devueltos (viene en la respuesta de búsqueda) **ScoringProfile**: (cadena) nombre del perfil de puntuación usado, si lo hubiera
 
 > [!NOTE]
 > Solicite el recuento de consultas generadas por el usuario agregando $count=true a la consulta de búsqueda. Puede obtener más información [aquí](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)

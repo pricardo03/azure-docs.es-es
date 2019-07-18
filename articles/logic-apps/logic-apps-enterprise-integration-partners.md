@@ -1,6 +1,6 @@
 ---
-title: 'Incorporación de socios comerciales para integraciones de B2B: Azure Logic Apps | Microsoft Docs'
-description: Crear socios comerciales para la cuenta de integración en Azure Logic Apps con Enterprise Integration Pack
+title: 'Incorporación de entidades para integraciones de B2B: Azure Logic Apps'
+description: Crear entidades en la cuenta de integración para usar con Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,88 +8,105 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
-ms.date: 07/08/2016
-ms.openlocfilehash: 137ed89c276338b534cad8fdf81ec31b5e5610b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/22/2019
+ms.openlocfilehash: 681f16132c1de2ec5f3b27f80633d32879b0746c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60846078"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330236"
 ---
-# <a name="add-trading-partners-for-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Incorporación de socios comerciales para cuentas de integración en Azure Logic Apps con Enterprise Integration Pack
+# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Agregar entidades a la cuenta de integración para Azure Logic Apps
 
-Los asociados son entidades que participan en transacciones de negocio a negocio (B2B) e intercambian mensajes entre ellos. Antes de poder crear asociados que le representen a usted y a otra organización en estas transacciones, debe compartir la información que identifica y valida los mensajes enviados por cada uno. Después de analizar estos detalles y prepararse para comenzar la relación de negocios, podrá crear asociados en la cuenta de integración para que los represente a ambos.
+En [Azure Logic Apps](../logic-apps/logic-apps-overview.md), puede crear flujos de trabajo de integración automatizados de negocio a negocio (B2B) mediante un [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) con sus aplicaciones lógicas. Para representar a su organización y a otros usuarios, cree entidades como artefactos y agréguelos a la cuenta de integración. Los asociados son entidades que participan en transacciones B2B e intercambian mensajes entre sí.
 
-## <a name="what-roles-do-partners-play-in-your-integration-account"></a>¿Qué roles desempeñan los asociados en la cuenta de integración?
+Antes de crear a estos asociados, asegúrese de conversar y compartir información con sus asociados acerca de cómo identificar y validar los mensajes que el otro envía. Después de acordar estos detalles, estará listo para crear asociados en la cuenta de integración.
 
-Para definir los detalles acerca de los mensajes intercambiados entre los asociados, debe crear contratos entre ellos. No obstante, antes de crear uno, hay que agregar, como mínimo, dos asociados a la cuenta de integración. La organización debe formar parte del contrato como **asociado del host**. El otro asociado, o **asociado invitado**, representa la organización que intercambia mensajes con su organización. El asociado invitado puede ser otra compañía o incluso un departamento de su organización.
+## <a name="partner-roles-in-integration-accounts"></a>Roles de asociado en la cuenta de integración
 
-Después de agregar a estos asociados, puede crear un contrato.
+Para definir los detalles acerca de los mensajes intercambiados con los asociados, cree [acuerdos](../logic-apps/logic-apps-enterprise-integration-agreements.md) como artefactos y agréguelos a la cuenta de integración. Los acuerdos requieren al menos dos asociados en la cuenta de integración Su organización es siempre el *asociado host* en el acuerdo. La organización que intercambia mensajes con su organización es el *asociado invitado*. El asociado invitado puede ser otra compañía o incluso un departamento de su organización. Después de agregar a estos asociados, puede crear un contrato.
 
-La configuración de recepción y de envío afecta exclusivamente al partner anfitrión. Por ejemplo, la configuración de recepción de un contrato determina cómo el asociado anfitrión recibe los mensajes enviados de un asociado invitado. Del mismo modo, la configuración de envío del contrato indica cómo el asociado anfitrión envía mensajes al asociado invitado.
+En un acuerdo, especifica los detalles para el tratamiento de mensajes entrantes y salientes desde la perspectiva del asociado host. Para los mensajes entrantes, la **Configuración de recepción** especifica de qué manera el asociado host recibe los mensajes del asociado invitado en el acuerdo. Para los mensajes salientes, la **Configuración de envío** especifica de qué manera el asociado host envía los mensajes al asociado invitado.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una suscripción de Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+
+* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) para almacenar los asociados, el acuerdo y otros artefactos B2B. Esta cuenta de integración debe estar asociada con una suscripción a Azure.
 
 ## <a name="create-partner"></a>Creación de un asociado
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y, después, seleccione **Cuentas de integración**.
+1. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y seleccione **Cuentas de integración**.
 
-   ![Búsqueda de la cuenta de integración](./media/logic-apps-enterprise-integration-partners/account-1.png)
+   ![Seleccione "Cuentas de integración".](./media/logic-apps-enterprise-integration-partners/find-integration-accounts.png)
 
-3. En **Cuentas de integración**, seleccione la cuenta de integración en la que va a agregar los asociados.
+1. En **Cuentas de integración**, seleccione la cuenta de integración en la que va a agregar los asociados.
 
-   ![Seleccionar cuenta de integración](./media/logic-apps-enterprise-integration-partners/account-2.png)
+   ![Seleccionar cuenta de integración](./media/logic-apps-enterprise-integration-partners/select-integration-account.png)
 
-4. Elija el icono de **Asociados**.
+1. Elija el icono de **Asociados**.
 
-   ![Elección de "Asociados"](./media/logic-apps-enterprise-integration-partners/partner-1.png)
+   ![Elección del icono "Asociados"](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
-5. En **Asociados**, elija **Agregar**.
+1. En **Asociados**, elija **Agregar**. En **Agregar asociado**, proporcione los detalles del asociado como se describe en la tabla siguiente.
 
-   ![Elección de "Agregar"](./media/logic-apps-enterprise-integration-partners/partner-2.png)
+   ![Elija "Agregar" y proporcione los detalles del asociado](./media/logic-apps-enterprise-integration-partners/add-partners.png)
 
-6. Escriba un nombre para el asociado y, a continuación, seleccione un **Calificador**. Escriba un **valor** para identificar los documentos que las aplicaciones reciben. Cuando termine, elija **Aceptar**.
+   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   |----------|----------|-------------|
+   | **Nombre** | Sí | El nombre del asociado |
+   | **Calificador** | Sí | El cuerpo de autenticación que proporciona identidades de negocio únicas a las organizaciones, por ejemplo, **D-U-N-S (Dun & Bradstreet)** . <p>Los asociados pueden optar por una identidad de negocio definida mutuamente. Para estos escenarios, seleccione **Definidos mutuamente** para EDIFACT o **Definidos mutuamente (X12)** para X12. <p>Para RosettaNet, seleccione solo **DUNS**, que es el estándar. |
+   | **Valor** | Sí | Un valor que identifica los documentos que reciben sus aplicaciones lógicas. <p>Para RosettaNet, este valor debe ser un número de nueve dígitos que se corresponde con el número DUNS. |
+   ||||
 
-   ![Incorporación de los detalles del asociado](./media/logic-apps-enterprise-integration-partners/partner-3.png)
+   > [!NOTE]
+   > Para los asociados que usan RosettaNet, puede especificar información adicional creando primero estos asociados y [editándolos más adelante](#edit-partner).
 
-7. Elija de nuevo el icono de **Asociados**.
+1. Cuando termine, elija **Aceptar**.
 
-   ![Elección del icono "Asociados"](./media/logic-apps-enterprise-integration-partners/partner-5.png)
+   El nuevo asociado ahora aparece en la lista **Asociados**. Además, el icono **Asociados** actualiza el número actual de asociados.
 
-   Ahora aparece el nuevo asociado. 
+   ![Nuevo asociado](./media/logic-apps-enterprise-integration-partners/new-partner.png)
 
-   ![Visualización del nuevo asociado](./media/logic-apps-enterprise-integration-partners/partner-6.png)
+<a name="edit-partner"></a>
 
 ## <a name="edit-partner"></a>Edición del asociado
 
-1. En [Azure Portal](https://portal.azure.com), busque y seleccione la cuenta de integración. Elija el icono de **Asociados**.
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione la cuenta de integración.
+Elija el icono de **Asociados**.
 
    ![Elección del icono "Asociados"](./media/logic-apps-enterprise-integration-partners/edit.png)
 
-2. En **Asociados**, seleccione el asociado que quiera editar.
+1. En **Asociados**, seleccione el asociado que quiera editar y, luego elija **Editar**. En **Editar**, haga los cambios.
 
-   ![Selección del asociado para eliminar](./media/logic-apps-enterprise-integration-partners/edit-1.png)
+   ![Haga los cambios y guárdelos](./media/logic-apps-enterprise-integration-partners/edit-partner.png)
 
-3. En **Actualizar asociado**, realice los cambios.
-Cuando termine, seleccione **Guardar**. 
+   Para RosettaNet, bajo **Propiedades de asociado de RosettaNet**, puede especificar esta información adicional:
 
-   ![Haga los cambios y guárdelos](./media/logic-apps-enterprise-integration-partners/edit-2.png)
+   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   |----------|----------|-------------|
+   | **Clasificación de asociados** | Sin | Tipo de organización del asociado |
+   | **Código de la cadena de suministro** | Sin | Código de cadena de suministro del asociado, por ejemplo, "Tecnologías de la información" o "Componentes electrónicos" |
+   | **Nombre de contacto** | Sin | Nombre de contacto del asociado |
+   | **Correo electrónico** | Sin | Dirección de correo electrónico del asociado |
+   | **Fax** | Sin | Número de fax del asociado |
+   | **Teléfono** | Sin | Número de teléfono del asociado |
+   ||||
 
-   Para cancelar los cambios, seleccione **Descartar**.
+1. Cuando haya terminado, elija **Aceptar** para guardar los cambios.
 
 ## <a name="delete-partner"></a>Eliminación del asociado
 
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione la cuenta de integración. Elija el icono de **Asociados**.
 
-   ![Elección del icono "Asociados"](./media/logic-apps-enterprise-integration-partners/delete.png)
+   ![Elección del icono "Asociados"](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
-2. En **Asociados**, seleccione el asociado que desee eliminar.
-Elija **Eliminar**.
+1. En **Asociados**, seleccione el asociado que desee eliminar. Elija **Eliminar**.
 
-   ![Eliminación del asociado](./media/logic-apps-enterprise-integration-partners/delete-1.png)
+   ![Eliminación del asociado](./media/logic-apps-enterprise-integration-partners/delete-partner.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre los contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")  
-
+* Más información sobre [acuerdos](../logic-apps/logic-apps-enterprise-integration-agreements.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 667ee6a49238c1ecaabec631cb72804b0c4b2323
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545068"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304253"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opciones de soporte técnico de Azure Service Fabric
 
@@ -43,7 +43,7 @@ Más información sobre:
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Notifique problemas en el entorno de producción o bien solicite soporte técnico de pago para clústeres independientes de Service Fabric
 
-Si desea informar sobre problemas en el clúster de Service Fabric que implementó de forma local o en otras nubes, abra una incidencia de soporte técnico profesional en el [Portal de soporte técnico de Microsoft](https://support.microsoft.com/oas/default.aspx?prid=16146).
+Si desea informar sobre problemas en el clúster de Service Fabric que implementó de forma local o en otras nubes, abra una incidencia de soporte técnico profesional en el [Portal de soporte técnico de Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Más información sobre:
 
@@ -60,7 +60,7 @@ Informe problemas con Azure Service Fabric en el [repositorio de Git Service-Fab
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow y foros de MSDN
 
-La [etiqueta Service Fabric en StackOverflow][stackoverflow] y el [foro de Service Fabric en MSDN][msdn-forum] son ideales para hacer preguntas sobre cómo funciona la plataforma y cómo podría realizar ciertas tareas con ella.
+La [etiqueta Service Fabric en StackOverflow][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] es ideal para hacer preguntas sobre cómo funciona la plataforma y cómo podría realizar ciertas tareas con ella.
 
 ### <a name="azure-feedback-forum"></a>Foro de comentarios de Azure
 

@@ -3,19 +3,19 @@ title: Método de transliteración de Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Use el método de transliteración de Translator Text API.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: 138a04cca1bbbaf7b59f628f491a5f13d73fb6f7
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: ddf4ca1939e09f5f63999657e7a751c9e53693e2
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387393"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357660"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterar
 
@@ -147,7 +147,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
   <tr>
     <td>429</td>
-    <td>El servidor rechazó la solicitud porque el cliente ha superado los límites de solicitudes.</td>
+    <td>El servidor rechazó la solicitud porque el cliente superó los límites de solicitudes.</td>
   </tr>
   <tr>
     <td>500</td>

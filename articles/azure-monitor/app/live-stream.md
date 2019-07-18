@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721093"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303808"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
-Sondee la maquinaria que mantiene operativa la aplicación web, ya activa y en producción, con Live Metrics Stream de [Application Insights](../../azure-monitor/app/app-insights-overview.md). Seleccione métricas y contadores de rendimiento y fíltrelos para inspeccionarlos en tiempo real sin que el servicio se vea afectado. Inspeccione seguimientos de la pila procedentes de ejemplos de errores de solicitudes y excepciones. Junto con [Profiler](../../azure-monitor/app/profiler.md), el [depurador de instantáneas](../../azure-monitor/app/snapshot-debugger.md) y la [prueba de rendimiento](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Live Metrics Stream proporciona una herramienta de diagnóstico eficaz y no invasiva para sitios web activos.
+Sondee la maquinaria que mantiene operativa la aplicación web, ya activa y en producción, con Live Metrics Stream de [Application Insights](../../azure-monitor/app/app-insights-overview.md). Seleccione métricas y contadores de rendimiento y fíltrelos para inspeccionarlos en tiempo real sin que el servicio se vea afectado. Inspeccione seguimientos de la pila procedentes de ejemplos de errores de solicitudes y excepciones. Junto con [Profiler](../../azure-monitor/app/profiler.md), [Snapshot Debugger](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream proporciona una herramienta de diagnóstico eficaz y no invasiva para sitios web activos.
 
 Con Live Metrics Stream, puede:
 
@@ -36,9 +36,9 @@ Con Live Metrics Stream, puede:
 
 [![Vídeo de Live Metrics Stream](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Las métricas activas actualmente se admiten para las aplicaciones ASP.NET, ASP.NET Core, las funciones de Azure, Java y Node.js.
+Actualmente, Live Metrics se admite en aplicaciones de ASP.NET, ASP.NET Core, Azure Functions, Java y Node.js.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 1. Si aún no ha [instalado Application Insights](../../azure-monitor/azure-monitor-app-hub.md) en su aplicación web, hágalo ahora.
 2. Además de los paquetes de Application Insights estándar, se requiere [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) para habilitar Live Metrics Stream.
@@ -52,7 +52,7 @@ Las métricas activas actualmente se admiten para las aplicaciones ASP.NET, ASP.
 
 ### <a name="nodejs"></a>Node.js
 
-Para utilizar Live Metrics con Node.js, debe actualizar a la versión 1,30 o mayor del SDK. De forma predeterminada, Live Metrics está deshabilitada en el SDK de Node.js. Para habilitar Live Metrics agregar `setSendLiveMetrics(true)` a su [métodos de configuración](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) como inicializar el SDK.
+Para usar Live Metrics con Node.js, debe actualizar a la versión 1.30 o superior del SDK. De manera predeterminada, Live Metrics está deshabilitado en el SDK de Node.js. Para habilitar Live Metrics, agregue `setSendLiveMetrics(true)` a los [métodos de configuración](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) al inicializar el SDK.
 
 ### <a name="no-data-check-your-server-firewall"></a>¿No hay datos? Comprobación del firewall del servidor
 
@@ -192,15 +192,6 @@ Sin embargo, si reconoce y confía en todos los servidores conectados, puede pro
 >[!NOTE]
 >Se recomienda que configure el canal autenticado antes de escribir información potencialmente confidencial, como identificadores de clientes en los criterios de filtro.
 >
-
-## <a name="generating-a-performance-test-load"></a>Generación de una carga de prueba de rendimiento
-
-Si quiere ver el efecto que tendría un aumento de carga, use la hoja Prueba de rendimiento. Simula solicitudes de varios usuarios simultáneos. Puede ejecutar "pruebas manuales" (pruebas de ping) de una única URL, o bien ejecutar una [prueba de rendimiento web de varios pasos](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) que cargue (de la misma forma que una prueba de disponibilidad).
-
-> [!TIP]
-> Después de crear la prueba de rendimiento, abra la prueba y la hoja de Live Stream en ventanas diferentes. Puede ver el momento en el que comienza la prueba de rendimiento en cola e inspeccionar Live Stream al mismo tiempo.
->
-
 
 ## <a name="troubleshooting"></a>solución de problemas
 

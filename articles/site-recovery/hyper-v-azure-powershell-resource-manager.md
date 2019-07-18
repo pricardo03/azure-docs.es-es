@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: bc1d52a1062d1848daaaeef7977f96cd270567c8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690566"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203468"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager
 
@@ -38,7 +38,7 @@ No es necesario ser un experto en PowerShell para leer este artículo, pero sí 
 Asegúrese de que tiene preparados estos requisitos previos:
 
 * Una cuenta de [Microsoft Azure](https://azure.microsoft.com/) . Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/). También puede leer sobre los precios de [Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
-* Azure PowerShell. Para obtener información acerca de esta versión y cómo instalarlo, consulte [instalar Azure PowerShell](/powershell/azure/install-az-ps).
+* Azure PowerShell. Para obtener información acerca de esta versión y cómo instalarla, consulte [Instalar Azure PowerShell](/powershell/azure/install-az-ps).
 
 Además, en el ejemplo específico que se describe en este artículo verá que necesita cumplir los siguientes requisitos previos:
 
@@ -72,12 +72,12 @@ Además, en el ejemplo específico que se describe en este artículo verá que n
 
     `New-AzResourceGroup -Name $ResourceGroupName -Location $Geo`
 
-2. Para obtener una lista de grupos de recursos en su suscripción, ejecute el **Get AzResourceGroup** cmdlet.
+2. Para obtener una lista de los grupos de recursos de la suscripción, use el cmdlet **Get-AzResourceGroup**.
 2. Cree un nuevo almacén de Azure Recovery Services como sigue:
 
         $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
-    Puede recuperar una lista de los almacenes existentes con el **Get AzRecoveryServicesVault** cmdlet.
+    Puede recuperar una lista de los almacenes existentes mediante el cmdlet **Get-AzRecoveryServicesVault**.
 
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>Paso 3: configuración del contexto de almacén de Recovery Services
@@ -107,12 +107,21 @@ Establezca el contexto de almacén de la manera siguiente:
 ## <a name="step-5-install-the-provider-and-agent"></a>Paso 5: Instalación del proveedor y el agente
 
 1. Descargue el instalador de la última versión del proveedor de [Microsoft](https://aka.ms/downloaddra).
-2. En el host de Hyper-V, ejecute al instalador.
+2. Ejecute el instalador en el host de Hyper-V.
 3. Al final de la instalación, vaya al paso que describe el registro.
 4. Cuando se le solicite, proporcione la clave descargada y complete el registro del host de Hyper-V.
 5. Compruebe que el host de Hyper-V se registró en el sitio tal como se indica a continuación:
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
+
+Si ejecuta un servidor central de Hyper-V, descargue el archivo de instalación y haga lo siguiente:
+1. Extraiga los archivos de AzureSiteRecoveryProvider.exe a un directorio local mediante este comando: ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. Ejecute ```.\setupdr.exe /i```. Los resultados se registran en %Programdata%\ASRLogs\DRASetupWizard.log.
+
+3. Registre el servidor mediante este comando:
+
+    ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
+
 
 ## <a name="step-6-create-a-replication-policy"></a>Paso 6: Creación de una directiva de replicación
 

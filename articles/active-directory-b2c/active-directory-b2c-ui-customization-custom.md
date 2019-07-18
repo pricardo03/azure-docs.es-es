@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a051b0e853b60dfc1f5b6c3453d9ed8361f1748
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507671"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438818"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 
@@ -79,18 +79,19 @@ Para hospedar este contenido HTML en Blob Storage, haga lo siguiente:
 
 Para crear un contenedor público en Blob Storage, haga lo siguiente:
 
-1. Haga clic en la pestaña **Introducción**.
-2. Haga clic en **Contenedor**.
-3. En **Nombre**, escriba **$root**.
-4. Establezca **Tipo de acceso** en **Blob**.
-5. Haga clic en **$root** para abrir el contenedor nuevo.
+1. En **Blob service** en el menú izquierdo, seleccione **Blobs**.
+2. Haga clic en **+Contenedor**.
+3. En **Nombre**, escriba *root*. Este puede ser un nombre de su elección, por ejemplo *wingtiptoys*, sin embargo, usamos *root* en este ejemplo por motivos de simplicidad.
+4. Para **Nivel de acceso público**, seleccione **Blob** y, luego, **Aceptar**.
+5. Haga clic en **root** para abrir el contenedor nuevo.
 6. Haga clic en **Cargar**.
 7. Haga clic en el icono de carpeta junto a **Seleccione un archivo**.
-8. Vaya al blob **customize-ui.html** que creó en la sección Personalización de la interfaz de usuario de la página.
-9. Haga clic en **Cargar**.
-10. Seleccione el blob customize-ui.html que cargara.
-11. Junto a **URL**, haga clic en **Copiar**.
-12. En un explorador, pegue la dirección URL copiada y vaya al sitio. Si no puede acceder, asegúrese de que el tipo de acceso de contenedor está establecido en **blob**.
+8. Vaya a **customize-ui.html**, que creó anteriormente en la sección Personalización de la interfaz de usuario de la página, y selecciónelo.
+9. Si quiere cargar en una subcarpeta, expanda **Avanzadas** y escriba un nombre de la carpeta en **Cargar en carpeta**.
+10. Seleccione **Cargar**.
+11. Seleccione el blob **customize-ui.html** que cargó.
+12. A la derecha del cuadro de texto **URL**, seleccione el icono **Copiar al Portapapeles** para copiar la dirección URL en el Portapapeles.
+13. En el explorador web, vaya a la dirección URL que copió para verificar que puede acceder al blob que cargó. Si no puede acceder, por ejemplo, si hay un error `ResourceNotFound`, asegúrese de que el tipo de acceso del contenedor esté establecido en **blob**.
 
 ## <a name="configure-cors"></a>Configuración de CORS
 
@@ -159,6 +160,7 @@ Para configurar la personalización de la interfaz de usuario, se copia **Conten
 
 ## <a name="reference"></a>Referencia
 
+### <a name="sample-templates"></a>Plantillas de ejemplo
 Aquí encontrará plantillas de ejemplo de personalización de interfaz de usuario:
 
 ```
@@ -174,6 +176,16 @@ La carpeta sample_templates/wingtip contiene los siguientes archivos HTML:
 | *selfasserted.html* | Use este archivo como plantilla para una página de registro en una cuenta social, una página de registro en una cuenta local o una página de inicio de sesión en una cuenta local. |
 | *unified.html* | Use este archivo como plantilla para una página de inicio de sesión o registro unificada. |
 | *updateprofile.html* | Use este archivo como plantilla para una página de actualización de perfil. |
+
+Estos son los pasos sobre cómo usar el ejemplo. 
+1. Clone el repositorio en la máquina local. Elija una carpeta de plantilla en sample_templates. Puede usar `wingtip` o `contoso`.
+2. Cargue todos los archivos en las carpetas `css`, `fonts` y `images` en Blob Storage, como se describe en las secciones anteriores. 
+3. A continuación, abra cada archivo \*.html en la raíz de `wingtip` o `contoso` (el que haya seleccionado en el primer paso) y reemplace todas las instancias de "http://localhost" con las direcciones URL de los archivos css, de imágenes y de fuentes que cargó en el paso 2.
+4. Guardar los archivos \*.html y cárguelos en Blob Storage.
+5. Ahora, modifique el archivo de extensiones como se mencionó anteriormente en [Modificación del archivo de extensiones](#modify-the-extensions-file).
+6. Si ve que faltan las fuentes, imágenes o css, compruebe las referencias en la directiva de extensiones y los archivos \*.html.
+
+### <a name="content-defintion-ids"></a>Id. de definición de contenido
 
 En la sección Modificación de la directiva de inicio de sesión o de registro configuró la definición del contenido de `api.idpselections`. Todos los identificadores de definición de contenido que se reconocen en el marco de la experiencia de identidad de Azure AD B2C y sus descripciones aparecen en la tabla siguiente:
 

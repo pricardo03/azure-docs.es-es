@@ -8,42 +8,42 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 47d519523c7ffd1c0b6329d6b4eb12b052466b35
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953857"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657373"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelado de datos en Azure Cosmos DB
 
-Mientras esquemas bases de datos, como Azure Cosmos DB, facilitan notablemente almacenar y consultar datos no estructurados y semiestructurados, debe dedicar algún tiempo a pensar sobre el modelo de datos para sacar el máximo de más bajo y el servicio en cuanto a rendimiento y escalabilidad costo.
+Mientras que las bases de datos sin esquemas, como Azure Cosmos DB, facilitan notablemente almacenar y consultar datos no estructurados y semiestructurados, debe dedicar algún tiempo a reflexionar sobre qué modelos de datos usar para sacar el máximo partido al servicio en cuanto a rendimiento, escalabilidad y menor costo.
 
-¿Cómo se van a almacenar los datos? ¿Cómo la aplicación va a recuperar y consultar los datos? ¿La aplicación es con mucha actividad de lectura o escritura intensiva?
+¿Cómo se van a almacenar los datos? ¿Cómo la aplicación va a recuperar y consultar los datos? ¿La aplicación realiza muchas operaciones de lectura o escritura?
 
 Después de leer este artículo, podrá responder a las siguientes preguntas:
 
 * ¿Qué es el modelado de datos y por qué tendría que importarme?
-* ¿Cómo es diferente a una base de datos relacional modelado de datos en Azure Cosmos DB?
+* ¿Por qué es el modelado de datos en Azure Cosmos DB distinto a en una base de datos relacional?
 * ¿Cómo expreso relaciones de datos en una base de datos no relacional?
 * ¿Cuándo se incrustan datos y cuándo realizo vinculaciones a los datos?
 
 ## <a name="embedding-data"></a>Incrustación de datos
 
-Al comenzar a modelar datos en Azure Cosmos DB, intente tratar las entidades como **elementos independientes** representan como documentos JSON.
+Al comenzar a modelar datos en Azure Cosmos DB, intente tratar las entidades como **elementos independientes** representados como documentos JSON.
 
 Para la comparación, veamos primero cómo podríamos modelar datos en una base de datos relacional. En el ejemplo siguiente se muestra puede almacenarse una persona en una base de datos relacional.
 
 ![Modelo de base de datos relacional](./media/sql-api-modeling-data/relational-data-model.png)
 
-Cuando se trabaja con bases de datos relacionales, la estrategia es normalizar todos los datos. Normalización de los datos implica normalmente tomar una entidad, como una persona y dividirla en componentes discretos. En el ejemplo anterior, una persona puede tener varios registros de información de contacto, así como varios registros de dirección. Detalles de contacto pueden se subdividen extrayendo aún más comunes campos como un tipo. Lo mismo se aplica a la dirección, cada registro puede ser de tipo *inicio* o *Business*.
+Cuando se trabaja con bases de datos relacionales, la estrategia es normalizar todos los datos. La normalización de los datos implica normalmente tomar una entidad, como una persona, y dividirla en componentes discretos. En el ejemplo anterior, una persona puede tener varios registros de información de contacto, así como varios registros de dirección. Los detalles de contacto pueden desglosarse más si se extraen todavía más campos comunes, como un tipo. Lo mismo se aplica a la dirección, cada registro puede ser de tipo *Home* o *Business*.
 
-La premisa principal cuando se normalizan datos es la de **evitar el almacenamiento de datos redundantes** en cada registro y, en su lugar, hacer referencia a los datos. En este ejemplo, para leer a una persona, con todos sus detalles de contacto y direcciones, deberá usar combinaciones eficazmente crear nuevo (o desnormalizar) los datos en tiempo de ejecución.
+La premisa principal cuando se normalizan datos es la de **evitar el almacenamiento de datos redundantes** en cada registro y, en su lugar, hacer referencia a los datos. En este ejemplo, para leer a una persona, con toda su información de contacto y direcciones, tendrá que usar CONEXIONES para volver a componer (o desnormalizar) de forma eficaz los datos en tiempo de ejecución.
 
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
     JOIN ContactDetail cd ON cd.PersonId = p.Id
-    JOIN ContactDetailType on cdt ON cdt.Id = cd.TypeId
+    JOIN ContactDetailType cdt ON cdt.Id = cd.TypeId
     JOIN Address a ON a.PersonId = p.Id
 
 La actualización de una única persona con su información de contacto y direcciones requiere operaciones de escritura en muchas tablas individuales.
@@ -69,10 +69,10 @@ Ahora veamos cómo modelamos los mismos datos como una entidad independiente en 
         ]
     }
 
-Mediante el enfoque anterior se tienen **desnormalizado** por la persona que registre **incrustación** toda la información relacionada con esta persona, como su información de contacto y direcciones, en un *único JSON* documento.
+Mediante el enfoque anterior, hemos **desnormalizado** el registro de la persona **insertando** toda la información relacionada con ella, como su información de contacto y direcciones, en un *único documento JSON*.
 Además, puesto que no estamos limitados a un esquema fijo, contamos con la flexibilidad para hacer cosas como tener información de contacto de formas diferentes por completo.
 
-Recuperar un registro de persona completa de la base de datos es ahora un **única operación de lectura** frente a un solo contenedor y de un solo elemento. Actualizar el registro de una persona con su información de contacto y direcciones, también es un **único de la operación de escritura** frente a un único elemento.
+Recuperar un registro de persona completa de la base de datos es ahora una **única operación de lectura** frente a un contenedor único y para un elemento único. La actualización de un registro de una persona, con su información de contacto y direcciones, es también una **operación de escritura única** frente a un elemento único.
 
 Mediante la desnormalización de datos, es posible que la aplicación tenga que emitir menos consultas y actualizaciones para completar operaciones frecuentes.
 
@@ -80,18 +80,18 @@ Mediante la desnormalización de datos, es posible que la aplicación tenga que 
 
 Por lo general, use los modelos de datos de incrustación cuando:
 
-* Hay **contenidos** relaciones entre entidades.
+* Existen relaciones **contenidas** entre entidades.
 * Existen relaciones de **uno a algunos** entre entidades.
 * Existen datos incrustados que **cambian con poca frecuencia**.
-* No hay datos incrustados que no puede crecer **sin límite**.
-* No hay datos incrustados que se **consultan con frecuencia juntos**.
+* Existen datos incrustados que no crecerán **sin límites**.
+* Hay datos incrustados que se **consultan con frecuencia juntos**.
 
 > [!NOTE]
 > Los modelos de datos desnormalizados normalmente proporcionan un mejor rendimiento de **lectura** .
 
 ### <a name="when-not-to-embed"></a>Cuándo no se debe incrustar
 
-Durante la regla general en Azure Cosmos DB es desnormalizar todo e incrustar todos los datos en un solo elemento, esto puede provocar que algunas situaciones que se deben evitar.
+Puesto que la regla general en Azure Cosmos DB es desnormalizarlo todo e incrustar todos los datos en un único elemento, es posible que se produzcan situaciones que se deben evitar.
 
 Seleccione este fragmento JSON.
 
@@ -111,11 +111,11 @@ Seleccione este fragmento JSON.
         ]
     }
 
-Este podría el aspecto de una entidad de publicación con comentarios incrustados si se ha modelado un sistema, CMS o blog normales. El problema con este ejemplo es que la matriz de comentarios **no está limitada**, lo que significa que no hay ningún límite (práctico) para el número de comentarios que puede tener cualquier publicación única. Esto puede constituir un problema según el tamaño del elemento podría crecer hasta el infinito.
+Este podría el aspecto de una entidad de publicación con comentarios incrustados si se ha modelado un sistema, CMS o blog normales. El problema con este ejemplo es que la matriz de comentarios **no está limitada**, lo que significa que no hay ningún límite (práctico) para el número de comentarios que puede tener cualquier publicación única. Esto puede constituir un problema, ya que el tamaño del elemento podría crecer hasta el infinito.
 
-Como el tamaño del elemento que aumenta la capacidad de transmitir los datos a través de la conexión, así como leer y actualizar el elemento a escala, se verá afectado.
+Puesto que el tamaño del elemento aumenta la capacidad de transmisión de los datos a través de la conexión, así como la lectura y actualización del elemento, a escala, se producirá un impacto en ellos.
 
-En este caso, sería mejor tener en cuenta el siguiente modelo de datos.
+En este caso sería mejor tener en cuenta el siguiente modelo de datos.
 
     Post item:
     {
@@ -148,9 +148,9 @@ En este caso, sería mejor tener en cuenta el siguiente modelo de datos.
         ]
     }
 
-Este modelo tiene los comentarios más recientes tres insertados en el contenedor de post, que es una matriz con un conjunto fijo de atributos. Los demás comentarios se agrupan en lotes de 100 comentarios y se almacenan como elementos independientes. El tamaño del lote se ha seleccionado como 100, puesto que nuestra aplicación ficticia permite al usuario cargar 100 comentarios a la vez.  
+Este modelo tiene los tres últimos comentarios insertados en el contenedor posts, que es una matriz con un conjunto de atributos fijo. Los demás comentarios se agrupan en lotes de 100 comentarios y se almacenan como elementos independientes. El tamaño del lote se ha seleccionado como 100, puesto que nuestra aplicación ficticia permite al usuario cargar 100 comentarios a la vez.  
 
-Otro caso donde la incrustación de datos no es una buena idea es cuando los datos incrustados se utilizan a menudo en los elementos y cambian con frecuencia.
+Otro caso en el que la incrustación de datos no es una buena opción es cuando los datos incrustados se utilizan a menudo en elementos y cambian con frecuencia.
 
 Seleccione este fragmento JSON.
 
@@ -174,11 +174,11 @@ Esto podría representar la cartera de acciones de una persona. Hemos elegido in
 
 Es posible negociar con la acción *zaza* cientos de veces en un solo día y miles de usuarios pueden tener *zaza* en su cartera. Con un modelo de datos como el anterior, tendríamos que actualizar miles de documentos de cartera varias veces al día, por lo que daría lugar a un escalado del sistema nada bueno.
 
-## <a name="referencing-data"></a>Hacer referencia a datos
+## <a name="referencing-data"></a>Datos de referencia
 
-Por lo tanto, la incrustación de datos funciona bien en muchos casos, pero está claro que hay escenarios en los que la desnormalización de los datos provocará más problemas que ventajas. ¿Qué hacemos ahora?
+La incrustación de datos funciona bien en muchos casos, pero hay escenarios en los que la desnormalización de los datos provocará más problemas que ventajas. ¿Qué hacemos ahora?
 
-Las bases de datos relacionales no son el único lugar donde puede crear relaciones entre entidades. En una base de datos de documentos, puede tener información en un documento que realmente se relacione con los datos en otros documentos. No soy partidario ahora de dedicar ni un solo minuto a crear sistemas que podrían ser más adecuados para una base de datos relacional en Azure Cosmos DB o cualquier otra base de datos de documentos, ya que las relaciones simples son correctas y pueden ser útiles.
+Las bases de datos relacionales no son el único lugar donde puede crear relaciones entre entidades. En una base de datos de documentos, puede tener información en un documento que se relacione con los datos en otros documentos. No se recomienda crear sistemas que podrían ser más adecuados para una base de datos relacional en Azure Cosmos DB o cualquier otra base de datos de documentos, ya que las relaciones simples son correctas y pueden ser útiles.
 
 En el siguiente JSON hemos optado por utilizar el ejemplo de una cartera de acciones anteriores, pero esta vez hacemos referencia al artículo comercial en la cartera en lugar de incrustarlo. De esa forma, cuando el artículo comercial cambia frecuentemente a lo largo del día, el único documento que tiene que actualizarse es el documento de acciones único.
 
@@ -319,7 +319,7 @@ Tenga en cuenta lo siguiente.
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
     {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
-Ahora, si tuviera un autor, sabría de inmediato qué libros ha escrito y, a la inversa si tuviera un documento del libro cargado sabría los identificadores de los autores. Esto ahorra la consulta intermedia de la tabla de unión, por lo que se reduce el número de viajes de ida y vuelta al servidor que tiene que realizar la aplicación.
+Ahora, si tuviera un autor, sabría de inmediato qué libros ha escrito y, a la inversa, si tuviera un documento del libro cargado sabría los identificadores de los autores. Esto ahorra la consulta intermedia de la tabla de unión, por lo que se reduce el número de viajes de ida y vuelta al servidor que tiene que realizar la aplicación.
 
 ## <a name="hybrid-data-models"></a>Modelos de datos híbridos
 
@@ -374,17 +374,17 @@ Considere el siguiente JSON.
 
 Aquí hemos seguido principalmente el modelo de incrustación, donde los datos de otras entidades se incrustan en el documento de nivel superior, pero se establece la referencia en otros datos.
 
-Si observa el documento del libro, podemos ver algunos campos interesantes cuando nos centramos en la matriz de autores. Hay un `id` campo, es decir, el campo que se utiliza para hacer referencia a un documento de autor, una práctica estándar en un modelo normalizado, pero, a continuación, también tenemos `name` y `thumbnailUrl`. Nos podríamos haber quedaba `id` y dejar la aplicación para obtener información adicional sea necesario del documento de autor correspondiente mediante el "vínculo", pero dado que nuestra aplicación muestra el nombre del autor y una imagen en miniatura con cada libro mostrado, podemos guardar ida y vuelta al servidor por libro en una lista mediante la desnormalización **algunos** datos del autor.
+Si observa el documento del libro, podemos ver algunos campos interesantes cuando nos centramos en la matriz de autores. Hay un campo `id` que es el campo que se usa para volver a hacer referencia a un documento de autor, una práctica estándar en un modelo normalizado, pero también tenemos `name` y `thumbnailUrl`. Podríamos habernos parado en `id` y dejar la aplicación para obtener información adicional que necesita a partir del documento de autor correspondiente mediante el "vínculo", pero como nuestra aplicación muestra el nombre del autor y una imagen en miniatura con cada libro mostrado, podemos ahorrar un viaje de ida y vuelta al servidor por libro en una lista mediante la desnormalización de **algunos** datos del autor.
 
-Es cierto, si cambia el nombre del autor o desean actualizar sus fotos, tendríamos que ir y actualizar cada libro que alguna vez publican, pero para nuestra aplicación, según la suposición de que los autores no cambian con frecuencia sus nombres, se trata de una decisión de diseño aceptable.  
+Por supuesto, si cambia el nombre del autor o se desea actualizar la foto, tendríamos que realizar una actualización de cada libro publicado, pero para nuestra aplicación, que se basa en la suposición de que los autores no cambian sus nombres a menudo, se trata de una decisión de diseño aceptable.  
 
 En el ejemplo hay valores de **agregados calculados previamente** para ahorrar un procesamiento costoso en una operación de lectura. En el ejemplo, algunos de los datos incrustados en el documento del autor son datos que se calculan en tiempo de ejecución. Cada vez que se publica un nuevo libro, se crea un documento de libro **y** el campo countOfBooks se establece en un valor calculado en función del número de documentos de libro que existen para un autor concreto. Esta optimización sería adecuada en sistemas en los que se realizan muchas operaciones de lectura, donde podemos permitirnos hacer cálculos en las escrituras para optimizarlas.
 
 La capacidad de tener un modelo con campos calculados previamente es posible porque Azure Cosmos DB admite **transacciones de varios documentos**. Muchos almacenes NoSQL no pueden realizar transacciones en documentos y, por lo tanto, recomiendan las decisiones de diseño, por ejemplo, "siempre incrustar todo", debido a esa limitación. Con Azure Cosmos DB, puede utilizar los desencadenadores del servidor o los procedimientos almacenados que insertan los libros y actualizan los autores dentro de una transacción ACID. Ahora no **tiene** que insertar todo en un documento para asegurarse de que los datos sigan siendo coherentes.
 
-## <a name="distinguishing-between-different-document-types"></a>Distinguir entre diferentes tipos de documento
+## <a name="distinguishing-between-different-document-types"></a>Diferenciación entre diferentes tipos de documento
 
-En algunos escenarios, es posible que desee mezclar distintos tipos de documentos en la misma colección; Esto suele suceder cuando desee varios relacionados con los documentos se colocan en la misma [partición](partitioning-overview.md). Por ejemplo, podría colocar ambos libros y reseñas en la misma colección de libros y dividirlo por `bookId`. En esta situación, normalmente desea agregar a los documentos con un campo que identifica su tipo para diferenciar entre ellos.
+En algunos escenarios, es posible que quiera mezclar distintos tipos de documentos en la misma colección; esto suele suceder cuando quiere que varios documentos relacionados se encuentren en la misma [partición](partitioning-overview.md). Por ejemplo, podría colocar los libros y las reseñas en la misma colección de libros y dividirla por `bookId`. En este caso, es probable que quiera agregar a los documentos un campo que los identifique y le ayude a diferenciarlos.
 
     Book documents:
     {
