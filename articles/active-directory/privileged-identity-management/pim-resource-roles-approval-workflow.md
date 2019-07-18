@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9d2e8b4ae1a01cd299d910c4e88655885c7d00dc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288474"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476379"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Aprobación o rechazo de solicitudes de roles de recursos de Azure en PIM
 
@@ -38,15 +38,15 @@ Como aprobador delegado, recibirá una notificación por correo electrónico cua
 
 1. Haga clic en **Aprobar solicitudes**.
 
-    ![Recursos de Azure: Aprobar solicitudes](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Aprobar solicitudes: página de recursos de Azure que muestra la solicitud de revisión](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     En la sección **Solicitudes de activación de roles**, verá una lista de solicitudes pendientes de su aprobación.
 
 ## <a name="approve-requests"></a>Aprobar solicitudes
 
-1. Busque la solicitud que desea aprobar y haga clic en ella. Aparece un panel de aprobación.
+1. Busque la solicitud que desea aprobar y haga clic en ella. Aparece un panel de aprobación o denegación.
 
-    ![Panel Aprobar solicitudes](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Aprobar solicitudes: panel de aprobación o denegación con detalles y cuadro Justificación](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. En el cuadro **Justificación**, escriba un motivo.
 
@@ -54,13 +54,13 @@ Como aprobador delegado, recibirá una notificación por correo electrónico cua
 
     Aparecerá una notificación con su aprobación.
 
-    ![Aprobar la notificación](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Notificación de aprobación que muestra que se ha aprobado la solicitud](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
 ## <a name="deny-requests"></a>Denegar solicitudes
 
-1. Busque la solicitud que desea denegar y haga clic en ella. Aparece un panel de aprobación.
+1. Busque la solicitud que desea denegar y haga clic en ella. Aparece un panel de aprobación o denegación.
 
-    ![Panel Aprobar solicitudes](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Aprobar solicitudes: panel de aprobación o denegación con detalles y cuadro Justificación](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. En el cuadro **Justificación**, escriba un motivo.
 

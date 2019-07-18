@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25c50d400a68cdbfb9110a9e8e9d66477ad4710a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133749"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513367"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante la CLI de Azure
 
@@ -213,11 +213,11 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, http://www.contoso.com.
+Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, http:\//www.contoso.com.
 
 ![Prueba del sitio de contoso en la puerta de enlace de aplicaciones](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Cambie la dirección al otro dominio, por ejemplo http://www.contoso.org , para ver que el tráfico se ha redirigido de nuevo al cliente de escucha de www\. contoso.com.
+Cambie la dirección para su otro dominio, por ejemplo http:\//www.contoso.org, y verá que se ha redirigido el tráfico hacia el agente de escucha para www\.contoso.com.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

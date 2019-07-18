@@ -1,0 +1,254 @@
+---
+title: Cómo implementar un modelo con una imagen personalizada de Docker
+titleSuffix: Azure Machine Learning service
+description: Aprenda a usar una imagen de Docker al implementar los modelos de Azure Machine Learning Service. Al implementar un modelo entrenado, se crea una imagen de Docker para hospedar la imagen, el servidor web y otros componentes necesarios para ejecutar el servicio. Aunque Azure Machine Learning Service proporciona una imagen predeterminada, también puede usar una propia.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: conceptual
+ms.author: jordane
+author: jpe316
+ms.reviewer: larryfr
+ms.date: 06/05/2019
+ms.openlocfilehash: 29fdb200075a5b5843944a7a890cc2f8ad61f1ee
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543852"
+---
+# <a name="deploy-a-model-using-a-custom-docker-image"></a>Implementar un modelo con una imagen personalizada de Docker
+
+Aprenda a usar una imagen de Docker al implementar modelos entrenados con Azure Machine Learning Service.
+
+Al implementar un modelo entrenado en un servicio web o dispositivo IoT Edge, se crea una imagen de Docker. Esta imagen contiene el modelo, el entorno de Conda y los recursos necesarios para usar el modelo. También contiene un servidor web para controlar las solicitudes entrantes cuando se implementa como servicio web y los componentes necesarios para trabajar con Azure IoT Hub.
+
+Azure Machine Learning Service proporciona una imagen de Docker predeterminada para que no tenga que preocuparse de crear una. También puede usar una imagen personalizada que se crea como _imagen base_. Una imagen base se usa como punto de partida cuando se crea una imagen para una implementación. Proporciona el sistema operativo y los componentes subyacentes. A continuación, el proceso de implementación agrega componentes adicionales, como el modelo, el entorno de Conda y otros recursos, a la imagen antes de implementarla.
+
+Normalmente, se crea una imagen personalizada para controlar las versiones del componente o ahorrar tiempo durante la implementación. Por ejemplo, es posible que quiera estandarizar a partir de una versión específica de Python, Conda u otro componente. También puede querer instalar el software necesario para el modelo, caso en que el proceso de instalación lleva mucho tiempo. Instalar el software al crear la imagen base significa que no tendrá que instalarlo para cada implementación.
+
+> [!IMPORTANT]
+> Al implementar un modelo, no se pueden invalidar los componentes principales, como el servidor web o los componentes de IoT Edge. Estos componentes proporcionan un entorno conocido de trabajo que Microsoft ha probado y admite.
+
+> [!WARNING]
+> Es posible que Microsoft no pueda ayudar a solucionar los problemas derivados de una imagen personalizada. Si tiene problemas, se le pedirá que use la imagen predeterminada o una de las imágenes que proporciona Microsoft para ver si el problema es específico de la imagen.
+
+Este documento se divide en dos secciones:
+
+* Crear una imagen personalizada: proporciona información para administradores y DevOps para crear una imagen personalizada y configurar la autenticación en Azure Container Registry mediante la CLI de Azure y la CLI de Machine Learning.
+* Usar una imagen personalizada: proporciona información a los científicos de datos y DevOps/MLOps sobre el uso de imágenes personalizadas al implementar un modelo entrenado desde el SDK de Python o la CLI de ML.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Un grupo de trabajo de Azure Machine Learning Service. Para más información, consulte el artículo [Crear un área de trabajo](setup-create-workspace.md).
+* El SDK de Azure Machine Learning. Para obtener más información, consulte la sección del SDK de Python en [Crear un área de trabajo](setup-create-workspace.md#sdk).
+* La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* Una instancia de [Azure Container Registry](/azure/container-registry) u otro registro de Docker accesible en Internet.
+* En este documento, se da por hecho que está familiarizado con la creación y el uso de un objeto de __configuración de inferencia__ como parte de la implementación de modelos. Para obtener más información, consulte la sección sobre la preparación de la implementación de [Dónde implementar y cómo](how-to-deploy-and-where.md#prepare-to-deploy).
+
+## <a name="create-a-custom-image"></a>Crear una imagen personalizada
+
+Para la información de esta sección, se da por supuesto que usa Azure Container Registry para almacenar imágenes de Docker. Use la lista de comprobación siguiente a la hora de planear la creación de imágenes personalizadas para Azure Machine Learning Service:
+
+* ¿Usará la instancia de Azure Container Registry creada para el área de trabajo de Azure Machine Learning Service, o una instancia independiente?
+
+    Al usar imágenes almacenadas en el __registro de contenedor para el área de trabajo__, no es necesario autenticarse en el registro. El área de trabajo controla la autenticación.
+
+    > [!WARNING]
+    > La instancia de Azure Continer Registry para el área de trabajo __se crea la primera vez que entrena o implementa un modelo__ con el área de trabajo. Si ha creado una nueva área de trabajo, pero no ha entrenado ni ha creado ningún modelo, no existirá ninguna instancia de Azure Container Registry para el área de trabajo.
+
+    Para obtener información sobre cómo recuperar el nombre de la instancia de Azure Container Registry para el área de trabajo, vea la sección [Obtener el nombre del registro de contenedor](#getname) de este artículo.
+
+    Al usar imágenes almacenadas en un __registro de contenedor independiente__, deberá configurar una entidad de servicio que tenga, al menos, acceso de lectura. A continuación, proporcione el id. de la entidad de servicio (nombre de usuario) y la contraseña a cualquier persona que use imágenes del registro. La excepción es si hace el registro de contenedor accesible públicamente.
+
+    Para obtener información sobre cómo crear una instancia de Azure Container Registry, consulte [Crear un registro de contenedor privado](/azure/container-registry/container-registry-get-started-azure-cli).
+
+    Para obtener más información sobre cómo usar entidades de servicio con Azure Container Registry, consulte [Autenticación de Azure Container Registry con entidades de servicio](/azure/container-registry/container-registry-auth-service-principal).
+
+* Información de la imagen y Azure Container Registry: Proporcione el nombre de imagen a cualquier persona que necesite usarlo. Por ejemplo, para hacer referencia a una imagen denominada `myimage` almacenada en un registro denominado `myregistry`, se usa `myregistry.azurecr.io/myimage` si la imagen se utiliza para la implementación de modelos.
+
+* Requisitos de imagen: Azure Machine Learning Service solo admite imágenes de Docker que proporcionan el software siguiente:
+
+    * Ubuntu 16.04 o posterior.
+    * Conda 4.5.# o posterior.
+    * Python 3.5.# o 3.6.#.
+
+<a id="getname"></a>
+
+### <a name="get-container-registry-information"></a>Obtener información sobre el registro de contenedor
+
+En esta sección, aprenderá a obtener el nombre de la instancia de Azure Container Registry para el área de trabajo de Azure Machine Learning Service.
+
+> [!WARNING]
+> La instancia de Azure Container Registry para el área de trabajo __se crea la primera vez que entrena o implementa un modelo__ con el área de trabajo. Si ha creado una nueva área de trabajo, pero no ha entrenado ni ha creado ningún modelo, no existirá ninguna instancia de Azure Container Registry para el área de trabajo.
+
+Si ya ha entrenado o implementado modelos mediante Azure Machine Learning Service, se creó un registro de contenedor para el área de trabajo. Para buscar el nombre de este registro de contenedor, siga estos pasos:
+
+1. Abra un shell o símbolo del sistema nuevo y use el comando siguiente para autenticarse en su suscripción de Azure:
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    Siga las indicaciones para autenticarse en la suscripción.
+
+2. Use el siguiente comando para mostrar el registro de contenedor para el área de trabajo. Reemplace `<myworkspace>` por el nombre del área de trabajo de Azure Machine Learning Service. Reemplace `<resourcegroup>` por el grupo de recursos de Azure que contiene el área de trabajo:
+
+    ```azurecli-interactive
+    az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
+    ```
+
+    La información devuelta es similar al texto siguiente:
+
+    ```text
+    /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ContainerRegistry/registries/<registry_name>
+    ```
+
+    El valor `<registry_name>` es el nombre de Azure Container Registry para el área de trabajo.
+
+### <a name="build-a-custom-image"></a>Crear una imagen personalizada
+
+Los pasos de esta sección le orientan a lo largo de la creación de una imagen de Docker personalizada en Azure Container Registry.
+
+1. Cree un nuevo archivo de texto denominado `Dockerfile` y use el texto siguiente como contenido:
+
+    ```text
+    FROM ubuntu:16.04
+
+    ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+    ENV PATH /opt/miniconda/bin:$PATH
+
+    RUN apt-get update --fix-missing && \
+        apt-get install -y wget bzip2 && \
+        apt-get clean && \
+        rm -rf /var/lib/apt/lists/*
+
+    RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O ~/miniconda.sh && \
+        /bin/bash ~/miniconda.sh -b -p /opt/miniconda && \
+        rm ~/miniconda.sh && \
+        /opt/miniconda/bin/conda clean -tipsy
+
+    RUN conda install -y python=3.6 && \
+        conda clean -aqy && \
+        rm -rf /opt/miniconda/pkgs && \
+        find / -type d -name __pycache__ -prune -exec rm -rf {} \;
+    ```
+
+2. Desde un shell o una línea de comandos, use lo siguiente para autenticarse en Azure Container Registry. Reemplace `<registry_name>` con el nombre del registro de contenedor en que quiera almacenar la imagen:
+
+    ```azurecli-interactive
+    az acr login --name <registry_name>
+    ```
+
+3. Para cargar el archivo Dockerfile y compilarlo, use el siguiente comando. Reemplace `<registry_name>` con el nombre del registro de contenedor en que quiera almacenar la imagen:
+
+    ```azurecli-interactive
+    az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
+    ```
+
+    Durante el proceso de compilación, se transmite en secuencias información para respaldar la línea de comandos. Si la compilación se completa correctamente, recibirá un mensaje similar al texto siguiente:
+
+    ```text
+    Run ID: cda was successful after 2m56s
+    ```
+
+Para obtener más información sobre la creación de imágenes con Azure Container Registry, consulte [Inicio rápido: Compilación y ejecución de una imagen de contenedor en Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
+
+Para más información acerca de cómo cargar imágenes existentes en una instancia de Azure Container Registry, consulte [Inserción de la primera imagen en un registro de contenedor privado de Docker](/azure/container-registry/container-registry-get-started-docker-cli).
+
+## <a name="use-a-custom-image"></a>Uso de una imagen personalizada
+
+Para usar una imagen personalizada, necesitará la siguiente información:
+
+* El __nombre de la imagen__. Por ejemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` es la ruta de acceso a una imagen de Docker básica que proporciona Microsoft.
+* Si la imagen está en un __repositorio privado__, necesita la siguiente información:
+
+    * La __dirección__ del registro. Por ejemplo, `myregistry.azureecr.io`.
+    * Un __nombre de usuario__ y una __contraseña__ de entidad de servicio con acceso de lectura al registro.
+
+    Si no tiene esta información, hable con el administrador de la instancia de Azure Container Registry que contiene la imagen.
+
+### <a name="publicly-available-images"></a>Imágenes disponibles públicamente
+
+Microsoft proporciona varias imágenes de Docker en un repositorio accesible públicamente que se pueden usar mediante los pasos descritos en esta sección:
+
+| Imagen | DESCRIPCIÓN |
+| ----- | ----- |
+| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Imagen básica para Azure Machine Learning Service |
+| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | Contiene el entorno en tiempo de ejecución ONNX. |
+| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7` | Contiene el entorno en tiempo de ejecución ONNX y los componentes de CUDA. |
+| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03` | Contiene el entorno en tiempo de ejecución ONNX y TensorRT. |
+
+> [!TIP]
+> Puesto que estas imágenes están disponibles públicamente, no es necesario proporcionar ninguna dirección, nombre de usuario ni contraseña para usarlas.
+
+> [!IMPORTANT]
+> Las imágenes de Microsoft que utilizan CUDA o TensorRT solo se deben usar con servicios de Microsoft Azure.
+
+> [!TIP]
+>__Si el modelo se entrena en el Proceso de Azure Machine Learning__, con la __versión 1.0.22 o posterior__ del SDK de Azure Machine Learning, se crea una imagen durante el entrenamiento. Para conocer el nombre de esta imagen, use `run.properties["AzureML.DerivedImageName"]`. En el siguiente ejemplo se muestra cómo usar esta imagen:
+>
+> ```python
+> # Use an image built during training with SDK 1.0.22 or greater
+> image_config.base_image = run.properties["AzureML.DerivedImageName"]
+> ```
+
+### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Usar una imagen con el SDK de Azure Machine Learning
+
+Para usar una imagen personalizada, establezca la propiedad `base_image` del [objeto de configuración de inferencia](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) en la dirección de la imagen:
+
+```python
+# use an image from a registry named 'myregistry'
+inference_config.base_image = "myregistry.azurecr.io/myimage:v1"
+```
+
+Este formato funciona en ambas imágenes almacenadas en Azure Container Registry para los registros del área de trabajo y el contenedor accesibles públicamente. Por ejemplo, el código siguiente usa una imagen predeterminada que proporciona Microsoft:
+
+```python
+# use an image available in public Container Registry without authentication
+inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+```
+
+Para usar una imagen desde un __registro de contenedor privado__ que no esté en el área de trabajo, debe especificar la dirección del repositorio y un nombre de usuario y contraseña:
+
+```python
+# Use an image available in a private Container Registry
+inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
+inference_config.base_image_registry.address = "myregistry.azurecr.io"
+inference_config.base_image_registry.username = "username"
+inference_config.base_image_registry.password = "password"
+```
+
+### <a name="use-an-image-with-the-machine-learning-cli"></a>Usar una imagen con la CLI de Machine Learning
+
+> [!IMPORTANT]
+> Actualmente, la CLI de Machine Learning puede usar imágenes de Azure Container Registry para su área de trabajo o los repositorios accesibles públicamente. No puede usar las imágenes de registros privados independientes.
+
+Al implementar un modelo mediante la CLI de Machine Learning, proporciona un archivo de configuración de inferencia que hace referencia a la imagen personalizada. El siguiente documento JSON muestra cómo hacer referencia a una imagen en un registro de contenedor público:
+
+```json
+{
+   "entryScript": "score.py",
+   "runtime": "python",
+   "condaFile": "infenv.yml",
+   "extraDockerfileSteps": null,
+   "sourceDirectory": null,
+   "enableGpu": false,
+   "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
+   "baseImageRegistry": "mcr.microsoft.com"
+}
+```
+
+Este archivo se usa con el comando `az ml model deploy`. El parámetro `--ic` se usa para especificar el archivo de configuración de la inferencia.
+
+```azurecli
+az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
+```
+
+Para obtener más información sobre la implementación de un modelo mediante la CLI de ML, consulte la sección sobre el registro, la creación de perfiles y la implementación del modelo del artículo [Extensión de la CLI para Azure Machine Learning Service](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Más información sobre [Cómo y dónde implementar un modelo](how-to-deploy-and-where.md).
+* Información sobre cómo [Entrenar e implementar modelos de Machine Learning mediante Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).

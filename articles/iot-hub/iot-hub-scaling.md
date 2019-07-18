@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 49e0db690818e67f96f5bcefa4f581b1db6da451
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: ea7b38f509fcdaa4e41ce17db3beca44b05a59b2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697326"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514483"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
@@ -35,7 +35,7 @@ El nivel estándar de IoT Hub permite todas las características y es necesario 
 
 Solo se puede elegir un tipo de [edición](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de un nivel por cada instancia de IoT Hub. Por ejemplo, puede crear una instancia de IoT Hub con varias unidades de S1, pero no con una combinación de unidades de versiones distintas como, por ejemplo, S1 y B3, o S1 y S2.
 
-| Capacidad | Nivel Basic | Nivel gratis o estándar |
+| Capacidad | Nivel Basic | Nivel Estándar o Gratis |
 | ---------- | ---------- | ------------- |
 | [Telemetría del dispositivo a la nube](iot-hub-devguide-messaging.md) | Sí | Sí |
 | [Identidad por dispositivo](iot-hub-devguide-identity-registry.md) | Sí | Sí |
@@ -54,7 +54,7 @@ IoT Hub también ofrece un nivel gratis que está diseñado para pruebas y evalu
 
 Azure IoT Hub contiene muchos componentes principales de [Azure Event Hubs](../event-hubs/event-hubs-features.md), incluidas las [particiones](../event-hubs/event-hubs-features.md#partitions). Los flujos de eventos de IoT Hub generalmente se rellenan con datos de telemetría entrantes que se notifican mediante varios dispositivos de IoT. La creación de particiones del flujo de eventos se usa para reducir las contenciones que se producen al leer y escribir simultáneamente en flujos de eventos.
 
-El límite de particiones se elige cuando se crea la instancia de IoT Hub y no se puede cambiar. El límite máximo de particiones de nivel básico de IOT y IoT Hub de nivel estándar es 32. La mayoría de instancias de IoT Hub solo necesitan 4 particiones. Para más información para determinar el número de particiones, consulte esta pregunta frecuente sobre Event Hubs [¿Cuántas particiones necesito?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+El límite de particiones se elige cuando se crea la instancia de IoT Hub y no se puede cambiar. El límite máximo de particiones para los niveles básico y estándar de IoT Hub es 32. La mayoría de instancias de IoT Hub solo necesitan 4 particiones. Para más información para determinar el número de particiones, consulte esta pregunta frecuente sobre Event Hubs [¿Cuántas particiones necesito?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 ## <a name="tier-upgrade"></a>Actualización del plan
 
@@ -62,34 +62,36 @@ Una vez creado el centro de IoT, puede actualizarlo desde el nivel Basic al nive
 
 La configuración de la partición permanecerá invariable cuando migre de un nivel básico a un nivel estándar.
 
+> [!NOTE]
+> El nivel Gratis no admite la actualización al nivel Básico o Estándar.
+
 ## <a name="iot-hub-rest-apis"></a>API REST de IoT Hub
 
 La diferencia de funcionalidades admitidas entre los niveles Basic y Estándar de IoT Hub significa que algunas llamadas a la API no funcionan con centros de nivel Basic. En la tabla siguiente se muestran las API que están disponibles:
 
-| API | Nivel Basic | Nivel gratis o estándar |
+| API | Nivel Basic | Nivel Estándar o Gratis |
 | --- | ---------- | ------------- |
 | [Eliminar un dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Sí | Sí |
 | [Obtener dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Sí | Sí |
-| Eliminar módulo | Sí | Sí |
-| Obtener módulo | Sí | Sí |
+| [Eliminar módulo](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | Sí | Sí |
+| [Obtener módulo](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | Sí | Sí |
 | [Obtener estadísticas del registro](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Sí | Sí |
 | [Obtener estadísticas de servicios](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Sí | Sí |
 | [Crear o actualizar el dispositivo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Sí | Sí |
-| Colocar módulo | Sí | Sí |
+| [Crear o actualizar el módulo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | Sí | Sí |
 | [Consultar IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Sí | Sí |
-| Consultar módulos | Sí | Sí |
 | [Crear el URI de SAS de carga de archivos](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Sí | Sí |
 | [Recibir notificación de dispositivo enlazado](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Sí | Sí |
 | [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Sí | Sí |
-| Enviar eventos de módulo | Sí | Sí |
+| Enviar eventos de módulo | Solo AMQP y MQTT | Solo AMQP y MQTT |
 | [Actualizar estado de la carga de archivo](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sí | Sí |
-| [Operación de dispositivos en bloque](/rest/api/iot-dps/runbulkenrollmentgroupoperation/runbulkenrollmentgroupoperation) | Sí, excepto las funcionalidades de IoT Edge | Sí | 
+| [Operación de dispositivos en bloque](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Sí, excepto las funcionalidades de IoT Edge | Sí |
 | [Purgar cola de comandos](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Sí |
 | [Obtener dispositivo gemelo](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Sí |
-| Obtener módulo gemelo |   | Sí |
+| [Obtener módulo gemelo](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Sí |
 | [Invocar método de dispositivo](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Sí |
-| [Actualizar dispositivo gemelo](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Sí | 
-| Actualizar módulo gemelo |   | Sí | 
+| [Actualizar dispositivo gemelo](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Sí |
+| [Actualizar módulo gemelo](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | Sí |
 | [Abandonar notificación de dispositivo enlazado](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Sí |
 | [Completar notificación de dispositivo enlazado](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Sí |
 | [Cancelar trabajo](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Sí |
@@ -133,6 +135,6 @@ Aunque un único Centro de IoT puede escalarse a millones de dispositivos, a vec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información acerca de las capacidades de IoT Hub y detalles de rendimiento, consulte [precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) o [cuotas y limitaciones IoT Hub](iot-hub-devguide-quotas-throttling.md).
+* Para más información sobre las funcionalidades de IoT Hub y detalles de rendimiento, consulte [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) o [Cuotas y limitación de IoT Hub](iot-hub-devguide-quotas-throttling.md).
 
 * Para cambiar el nivel de IoT Hub, siga los pasos descritos en el artículo sobre cómo [actualizar IoT Hub](iot-hub-upgrade.md).

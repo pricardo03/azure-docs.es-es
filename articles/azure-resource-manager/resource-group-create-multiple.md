@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807371"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508178"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propiedad o iteración de variables en las plantillas de Azure Resource Manager
 
@@ -50,6 +50,8 @@ Si tiene que especificar si un recurso se implementa, consulte [Elemento conditi
 Para especificar el número de iteraciones, proporcione un valor para la propiedad count. El valor de count no puede superar 800.
 
 El valor de count no puede ser un número negativo. Si implementa una plantilla con la versión de API REST **2019-05-10**, o cualquier versión posteriores, puede establecer recuento a cero. Las versiones anteriores a la API REST no admiten cero en count. Actualmente, PowerShell o la CLI de Azure no admiten el valor cero en count, pero que se agregará compatibilidad en una versión futura.
+
+Tenga cuidado al usar la [implementación de modo completo](deployment-modes.md) con copia. Si vuelve a implementar con el modo completo en un grupo de recursos, se eliminan todos los recursos que no se especifican en la plantilla después de resolver el bucle de copia.
 
 Los límites del valor de count son los mismos si se usa con un recurso, variable o propiedad.
 

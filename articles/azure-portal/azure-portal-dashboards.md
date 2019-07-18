@@ -1,10 +1,10 @@
 ---
 title: Creación y uso compartido de paneles en Azure Portal | Microsoft Docs
-description: En este artículo se explica cómo crear y editar paneles en el Portal de Azure.
+description: En este artículo se describe cómo crear, personalizar, publicar y compartir paneles en Azure Portal.
 services: azure-portal
 documentationcenter: ''
 author: sewatson
-manager: doubeby
+manager: mtillman
 editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
@@ -12,87 +12,165 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/06/2016
+ms.date: 07/01/2019
 ms.author: kfollis
-ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8dd1349ca9ab62484eb6693291e3b869ff079dc1
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552708"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537216"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creación y uso compartido de paneles en Azure Portal
-Puede crear varios paneles y compartirlos con otras personas que tengan acceso a sus suscripciones de Azure.  En este artículo se explican los aspectos básicos de la administración del acceso a los paneles, así como de su creación, edición y publicación.
 
-## <a name="create-a-dashboard"></a>Creación de un panel
-Para crear un panel, haga clic en el botón **Panel nuevo** situado junto al nombre del panel actual.  
+Los paneles proporcionan una manera de crear una vista organizada y centrada en Azure Portal de los recursos en la nube. Use los paneles como un área de trabajo donde puede iniciar tareas para las operaciones diarias y supervisar los recursos rápidamente.  Por ejemplo, puede crear paneles personalizados basados en proyectos, tareas o roles de usuario.  Azure Portal proporciona un panel predeterminado como punto de partida. Puede editar el panel predeterminado, crear y personalizar paneles adicionales, y publicar y compartir paneles para que estén disponibles para otros usuarios. En este artículo se describe cómo crear un nuevo panel, personalizar la interfaz, y publicar y compartir paneles.
 
-![crear panel](./media/azure-portal-dashboards/new-dashboard.png)
+## <a name="create-a-new-dashboard"></a>Creación de un nuevo panel
 
-Esta acción crea un panel nuevo, vacío y privado, y activa el modo de personalización, donde puede asignar un nombre al panel y agregar o reorganizar los iconos.  En este modo, la galería de iconos contraíbles se encuentra encima del menú de navegación izquierdo.  La galería de iconos permite buscar iconos para los recursos de Azure de varias maneras: se puede explorar por [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups), por tipo de recurso, por [etiqueta](../azure-resource-manager/resource-group-using-tags.md) o se puede buscar el recurso por su nombre.  
+En este ejemplo, se crea un nuevo panel privado y se le asigna un nombre. Para comenzar, siga estos pasos:
 
-![personalizar panel](./media/azure-portal-dashboards/customize-dashboard.png)
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Seleccione **Panel** en la parte superior de la barra lateral izquierda. Es posible que la vista predeterminada ya esté definida en el panel.
+1. Seleccione **+ Nuevo panel**.
 
-Agregue iconos arrastrándolos y colocándolos en la parte que quiera de la superficie del panel.
+    ![Captura de pantalla del panel predeterminado](./media/azure-portal-dashboards/dashboard-new.png)
 
-Hay una nueva categoría denominada **General** para los iconos que no están asociados a ningún recurso concreto.  En este ejemplo, anclamos el icono de Markdown.  Este icono se utiliza para agregar contenido personalizado al panel.  Además, admite texto sin formato, [sintaxis de Markdown](https://daringfireball.net/projects/markdown/syntax) y un conjunto limitado de HTML.  (por motivos de seguridad, no se pueden realizar tareas como insertar etiquetas `<script>` o utilizar determinados elementos de estilo de CSS que podrían interferir en el portal). 
+4. Esta acción abre la **Galería de iconos**, desde la que podrá seleccionar los iconos, y una cuadrícula vacía, desde donde podrá organizarlos.
 
-![agregar Markdown](./media/azure-portal-dashboards/add-markdown.png)
+    ![Captura de pantalla de la galería de iconos y la cuadrícula vacía](./media/azure-portal-dashboards/dashboard-name.png)
+
+5. Seleccione el texto **Mi panel** en la etiqueta del panel y escriba un nombre que le ayude a identificar fácilmente el panel personalizado.
+1. Seleccione **Personalización finalizada** en el encabezado de página para salir del modo de edición.
+
+Ahora, la vista de panel muestra el panel vacío. Seleccione la lista desplegable situada junto al nombre del panel para ver los paneles a su disposición: la lista puede incluir los paneles que otros usuarios hayan creado y compartido.
 
 ## <a name="edit-a-dashboard"></a>Edición de paneles
-Después de crear el panel, puede anclar iconos desde la galería de iconos o la representación de icono de las hojas. Vamos a anclar la representación de nuestro grupo de recursos. Puede hacerlo buscando el elemento o desde la hoja del grupo de recursos. Con los dos métodos se ancla la representación de icono del grupo de recursos.
 
-![Anclar al panel](./media/azure-portal-dashboards/pin-to-dashboard.png)
+Ahora vamos a editar el panel para agregar y organizar los iconos que representan los recursos de Azure y cambiar su tamaño.
 
-Después de anclar el elemento, se muestra el panel.
+### <a name="add-tiles"></a>Agregar iconos
 
-![ver panel](./media/azure-portal-dashboards/view-dashboard.png)
+Para agregar iconos a un panel, siga estos pasos:
+1. Seleccione ![icono de edición](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** en el encabezado de la página.
 
-Ahora que tenemos un icono de Markdown y un grupo de recursos anclado al panel, podemos cambiar el tamaño de los iconos y reorganizarlos en un diseño más adecuado.
+    ![Captura de pantalla con el icono de edición resaltado](./media/azure-portal-dashboards/dashboard-edit.png)
 
-Al pasar el mouse sobre los puntos suspensivos y seleccionarlos, o bien al hacer clic con el botón derecho en un icono, se podrán ver todos los comandos contextuales de dicho icono. De forma predeterminada, hay dos elementos:
+2. Examine la **Galería de iconos** o use el campo de búsqueda para buscar el icono que quiera.
+1. Seleccione **Agregar** para agregar automáticamente el icono al panel con una ubicación y tamaño predeterminados. O bien, arrastre el icono a la cuadrícula y colóquelo donde quiera.
 
-1. **Desanclar del panel** : quita el icono de panel.
-2. **Personalizar** : se activa el modo de personalización.
+Muchas páginas de recursos (también conocidas como "hojas") incluyen un icono marcador en la barra de comandos. Si selecciona el icono, se ancla un icono que representa la página de origen al panel activo. Este método es una forma alternativa de agregar iconos al panel.
 
-![personalizar icono](./media/azure-portal-dashboards/customize-tile.png)
+![Captura de pantalla de la barra de comandos de la página con el icono de anclaje](./media/azure-portal-dashboards/dashboard-pin-blade.png)
 
-Al seleccionar Personalizar, puede cambiar el tamaño de los iconos y reordenarlos. Para cambiar el tamaño de un icono, seleccione el nuevo tamaño en el menú contextual, tal y como se muestra en la siguiente imagen.
+> [!TIP]
+> Si trabaja con más de una organización, agregue el icono **Identidad de la organización** al panel para mostrar con claridad a qué organización pertenecen los recursos.
+>
+>
+### <a name="resize-or-rearrange-tiles"></a>Reorganizar los iconos o cambiar su tamaño
+Para cambiar el tamaño de un icono o para reorganizar los iconos de un panel, siga estos pasos:
 
-![cambiar tamaño del icono](./media/azure-portal-dashboards/resize-tile.png)
+1. Seleccione ![icono de edición](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** en el encabezado de la página.
+1. Seleccione el menú contextual en la esquina superior derecha de un icono. A continuación, elija un tamaño de icono. Los iconos que admiten cualquier tamaño también incluyen un "identificador" en la esquina inferior derecha que le permite arrastrar el icono al tamaño que quiera.
 
-También, si el icono admite cualquier tamaño, puede arrastrar la esquina inferior derecha hasta que tenga el tamaño que quiera.
+   ![Captura de pantalla del panel con el menú de tamaño de icono abierto](./media/azure-portal-dashboards/dashboard-tile-resize.png)
 
-![cambiar tamaño del icono](./media/azure-portal-dashboards/resize-corner.png)
+3. Seleccione un icono y arrástrelo a una nueva ubicación en la cuadrícula para organizar el panel.
 
-Después de cambiar el tamaño de los iconos, visualice el panel.
+### <a name="additional-tile-configuration"></a>Configuración de iconos adicional
 
-![ver icono](./media/azure-portal-dashboards/view-tile.png)
+Algunos iconos necesitan más configuración para mostrar la información que quiere. Por ejemplo, el icono **Gráfico de métricas** debe configurarse para mostrar una métrica de **Azure Monitor**. También puede personalizar los datos del icono para invalidar la configuración de tiempo predeterminada del panel.
 
-Cuando haya terminado de personalizar un panel, basta con seleccionar **Personalización finalizada** para salir del modo de personalización o hacer clic con el botón derecho y seleccionar **Personalización finalizada** en el menú contextual.
+Cualquier icono que necesite configuración muestra el banner **Configurar icono** hasta que se personaliza. Seleccione ese banner y, a continuación, realice la configuración necesaria.
 
-## <a name="publish-a-dashboard-and-manage-access-control"></a>Publicación de un panel y administración del control de acceso
-Al crear un panel, será privado de forma predeterminada, lo que significa que usted será la única persona que puede verlo.  Para que puedan verlo otros usuarios, utilice el botón **Compartir** que aparece junto al resto de los comandos del panel.
+![Captura de pantalla del icono que requiere configuración](./media/azure-portal-dashboards/dashboard-configure-tile.png)
 
-![compartir panel](./media/azure-portal-dashboards/share-dashboard.png)
+> [!NOTE]
+> Un icono de Markdown le permite mostrar contenido estático personalizado en el panel. Podrían ser instrucciones básicas, una imagen, un conjunto de hipervínculos o incluso la información de contacto. Para obtener más información sobre el uso de un icono de Markdown, consulte [Usar un icono personalizado de Markdown](azure-portal-markdown-tile.md).
+>
+>
+### <a name="customize-tile-data"></a>Personalizar los datos del icono
 
-Se le pedirá que elija una suscripción y un grupo de recursos en el que se vaya a publicar el panel. Para integrar sin problemas paneles en el ecosistema, hemos implementado los paneles compartidos como recursos de Azure (por lo que no se pueden compartir escribiendo una dirección de correo electrónico).  El acceso a la información que muestra la mayoría de los iconos del portal lo rige el [control de acceso basado en rol de Azure](../role-based-access-control/role-assignments-portal.md). Desde una perspectiva de control de acceso, los paneles compartidos no son distintos de una máquina virtual o de una cuenta de almacenamiento.  
+Los datos del panel muestran automáticamente la actividad de las últimas 24 horas. Para mostrar un intervalo de tiempo diferente solo para este icono, siga estos pasos:
 
-Supongamos que tiene una suscripción de Azure y que a los miembros del equipo se les han asignado los roles de **propietario**, **colaborador** o **lector** de la suscripción.  Los usuarios que son propietarios o colaboradores pueden enumerar, ver, crear, modificar o eliminar paneles dentro de la suscripción.  Los usuarios que sean lectores pueden enumerar y ver los paneles, pero no pueden modificarlos ni eliminarlos.  Los usuarios con acceso de lectura pueden realizar modificaciones locales en un panel compartido, pero no tienen la opción de volver a publicar esos cambios en el servidor.  Sin embargo, pueden realizar una copia privada del panel para utilizarlo con fines privados.  Como siempre, los iconos individuales del panel tendrán sus propias reglas de control de acceso en función de los recursos a los que correspondan.  
+1. Seleccione el icono de filtro ![icono de filtro](./media/azure-portal-dashboards/dashboard-filter.png) de la esquina superior izquierda del icono o elija **Personalizar los datos del icono** en el menú contextual.
 
-Para mayor comodidad, la experiencia de publicación del portal lo guiará por un patrón donde colocará paneles en un grupo de recursos denominado " **paneles**".  
+   ![Captura de pantalla del menú contextual del icono](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
-![publicar panel](./media/azure-portal-dashboards/publish-dashboard.png)
+2. Active la casilla para **Anular la configuración de tiempo del panel en el nivel de icono**.
 
-También puede decidir publicar un panel en un grupo de recursos concreto.  El control de acceso de ese panel coincide con el del grupo de recursos.  Los usuarios que pueden administrar los recursos de ese grupo de recursos también tienen acceso a los paneles.
+   ![Captura de pantalla del cuadro de diálogo para configurar las opciones de tiempo del icono](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
 
-![publicar panel en grupo de recursos](./media/azure-portal-dashboards/publish-to-resource-group.png)
+3. Elija el intervalo de tiempo que se mostrará para este icono. Puede elegir entre los últimos 30 minutos y los últimos 30 días o definir un intervalo personalizado.
+1. Elija la granularidad de tiempo que se mostrará. Puede mostrar incrementos de entre un minuto y un mes.
+1. Seleccione **Aplicar**.
 
-Cuando se publique el panel, **Uso compartido y control de acceso** se actualice y muestra la información sobre el panel publicado, incluido un vínculo para administrar el acceso de los usuarios al panel.  Este vínculo abre la hoja estándar de control de acceso basado en roles que se utiliza para administrar el acceso a cualquier recurso de Azure.  En cualquier momento se puede volver a esta vista haciendo clic en **Compartir**.
+## <a name="delete-a-tile"></a>Eliminar un icono
 
-![administrar control de acceso](./media/azure-portal-dashboards/manage-access.png)
+Para quitar un icono de un panel, siga estos pasos:
+
+* Seleccione el menú contextual en la esquina superior derecha del icono y, a continuación, seleccione **Quitar del panel**. O bien,
+* Seleccione ![icono de edición](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** para acceder al modo de personalización. Mantenga el puntero en la esquina superior derecha del icono y, a continuación, seleccione el icono de eliminación ![icono de eliminación](./media/azure-portal-dashboards/dashboard-delete-icon.png) para quitar el icono del panel.
+
+   ![Captura de pantalla que muestra cómo quitar el icono del panel](./media/azure-portal-dashboards/dashboard-delete-tile.png)
+
+## <a name="clone-a-dashboard"></a>Clonar un panel
+
+Para usar un panel existente como plantilla para uno nuevo, siga estos pasos:
+
+1. Asegúrese de que la vista de panel muestra el panel que quiere copiar.
+1. En el encabezado de página, seleccione ![icono para clonar](./media/azure-portal-dashboards/dashboard-clone.png) **Clonar**.
+1. Se abrirá una copia del panel denominada "Clon de *nombre del panel*" en el modo de edición. Utilice los pasos anteriores de este artículo para cambiar el nombre del panel y personalizarlo.
+
+## <a name="publish-and-share-a-dashboard"></a>Publicar y compartir un panel
+
+Al crear un panel, será privado de forma predeterminada, lo que significa que será la única persona que puede verlo. Para poner paneles a disposición de otros usuarios, puede compartirlos con otros usuarios. En primer lugar, debe publicar el panel como recurso de Azure. Para publicar y compartir un panel personalizado, siga estos pasos:
+
+1. Seleccione ![icono para compartir](./media/azure-portal-dashboards/dashboard-share-icon.png) **Compartir** en el encabezado de página. Se abrirá el formulario **Uso compartido y control de acceso**.
+1. Compruebe que se muestra el nombre del panel correcto.
+1. Seleccione un **Nombre de suscripción**. Los usuarios con acceso a la suscripción pueden usar el panel compartido. El control de acceso basado en rol de Azure determina el acceso a los recursos que representan los iconos individuales.
+1. Active la casilla para publicar este panel en el grupo de recursos "paneles" para la suscripción seleccionada. O bien desactive la casilla y elija Publicar en un grupo de recursos existente.
+1. Elija una ubicación para el recurso del panel. Es recomendable buscar el panel con otros recursos. Nota: Si elige entre grupos de recursos existentes, el panel se ubica automáticamente con el grupo de recursos.
+1. Seleccione **Publicar**.
+
+   ![Captura de pantalla del cuadro de diálogo de publicación del panel](./media/azure-portal-dashboards/dashboard-publish.png)
+
+### <a name="set-access-control-on-a-shared-dashboard"></a>Definir el control de acceso en un panel compartido
+
+Una vez publicado el panel, puede seguir estos pasos para administrar quién tiene acceso al panel:
+
+1. En el panel **Uso compartido y control de acceso**, seleccione **Administrar usuarios**.
+
+   ![Captura de pantalla del cuadro de diálogo Uso compartido y control de acceso del panel](./media/azure-portal-dashboards/dashboard-share-access-control.png)
+
+2. Se abrirá la página **Control de acceso**. En esta página, puede revisar el nivel de acceso para un usuario o agregar una nueva asignación de rol. Al agregar una asignación de roles aquí, otorga permisos para el panel.
+
+> [!NOTE]
+> Los iconos son vistas representativas de los recursos de la organización. El acceso a los recursos se administra mediante la asignación del control de acceso basado en rol y los permisos se heredan de la suscripción hasta el recurso. Asignar acceso a un panel no asigna permisos automáticamente para los recursos que se muestran en el panel. Para obtener más información sobre los permisos para los paneles compartidos y el control de acceso basado en rol para los recursos, consulte [Compartir paneles con el control de acceso basado en rol](azure-portal-dashboard-share-access.md).
+
+### <a name="open-a-shared-dashboard"></a>Abrir un panel compartido
+
+Para buscar y abrir un panel compartido, siga estos pasos:
+
+1. Seleccione la lista desplegable situada junto al nombre del panel.
+1. Seleccione una opción de la lista de paneles que se muestra o elija **Examinar todos los paneles** si no aparece el panel que quiere abrir.
+
+   ![Captura de pantalla del menú de selección del panel](./media/azure-portal-dashboards/dashboard-browse.png)
+
+3. En el campo **Tipo**, seleccione **Paneles compartidos**.
+1. Seleccione una o varias suscripciones. También puede escribir texto para filtrar los paneles por nombre.
+1. Seleccione un panel en la lista de paneles compartidos.
+
+## <a name="delete-a-dashboard"></a>Eliminar un panel
+
+Para eliminar permanentemente un panel privado o compartido, siga estos pasos:
+
+1. Seleccione el panel que quiera eliminar en la lista desplegable situada junto al nombre del panel.
+1. Seleccione ![icono de eliminación](./media/azure-portal-dashboards/dashboard-delete-icon.png) **Eliminar** en el encabezado de página.
+1. Para un panel privado, seleccione **Aceptar** en el cuadro de diálogo de confirmación para quitar el panel. Para un panel compartido, en el cuadro de diálogo de confirmación, active la casilla para confirmar que otros usuarios ya no podrán ver el panel publicado. Después, seleccione **Aceptar**.
+
+   ![Captura de pantalla de confirmación de eliminación](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para administrar recursos, vea [Administración de recursos de Azure mediante Azure Portal](../azure-resource-manager/manage-resources-portal.md).
-* Para implementar recursos, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
+* [Uso compartido de paneles de Azure mediante el control de acceso basado en rol](azure-portal-dashboard-share-access.md)
+* [Creación mediante programación de paneles de Azure](azure-portal-dashboards-create-programmatically.md)

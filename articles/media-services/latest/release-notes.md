@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.openlocfilehash: b3e772ebb05f79abb70e58e63a93c3336a413e38
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688647"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542546"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -34,50 +34,63 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 
 Para más información, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="june-2019"></a>Junio de 2019
+
+### <a name="video-subclipping"></a>Creación de subclips de vídeo
+
+Ahora puede recortar un vídeo, o crear un subclip de vídeo al codificarlo mediante la opción [Trabajo](https://docs.microsoft.com/rest/api/media/jobs). 
+
+Esta funcionalidad se puede usar con cualquier elemento [Transformación](https://docs.microsoft.com/rest/api/media/transforms) compilado mediante los valores preestablecidos [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). 
+
+Ver ejemplos:
+
+* [Creación de un subclip de vídeo con .NET](subclip-video-dotnet-howto.md)
+* [Creación de un subclip de vídeo con REST](subclip-video-rest-howto.md)
+
 ## <a name="may-2019"></a>Mayo de 2019
 
-### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Soporte técnico de Azure Monitor para las métricas y registros de diagnóstico de Media Services
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Soporte técnico de Azure Monitor para las métricas y los registros de diagnóstico de Media Services
 
-Ahora puede usar a Azure Monitor para ver emmited de datos de telemetría por Media Services.
+Ahora puede usar a Azure Monitor para ver los datos de telemetría por emitidos por Media Services.
 
 * Use los registros de diagnóstico de Azure Monitor para supervisar las solicitudes enviadas por el punto de conexión de la entrega de claves de Media Services. 
-* Supervisar las métricas de Media Services emitidas [extremos de Streaming](streaming-endpoint-concept.md).   
+* Supervise las métricas emitidas por los [punto de conexión de streaming](streaming-endpoint-concept.md) de Media Services.   
 
-Para obtener más información, consulte [registros de diagnóstico y métricas de supervisión de Media Services](media-services-metrics-diagnostic-logs.md).
+Para obtener más información, consulte [Supervisión de los registros de diagnóstico y las métricas de Media Services](media-services-metrics-diagnostic-logs.md).
 
-### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Compatibilidad con varias pistas de audio en empaquetado dinámico 
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Compatibilidad con varias pistas de audio en el empaquetado dinámico 
 
-La transmisión por secuencias los activos que tienen varias pistas de audio con varios códecs y lenguajes, [empaquetado dinámico](dynamic-packaging-overview.md) ahora es compatible con varias pistas de audio para la salida HLS (versión 4 o posterior).
+Al realizar el streaming de recursos que tienen varias pistas de audio con varios códecs y lenguajes, el [empaquetado dinámico](dynamic-packaging-overview.md) ahora admite varias pistas de audio para la salida HLS (versión 4 o superior).
 
-### <a name="korea-regional-pair-is-open-for-media-services"></a>Par regional Corea está abierto para Media Services 
+### <a name="korea-regional-pair-is-open-for-media-services"></a>El par regional de Corea está abierto para Media Services 
 
-Media Services ahora está disponible en las regiones de Corea Central y Corea del sur. 
+Media Services ya está disponible en las regiones Centro de Corea del Sur y Sur de Corea del Sur. 
 
-Para obtener más información, consulte [nubes y regiones en los Media Services v3 existe](azure-clouds-regions.md).
+Si desea obtener más información, vea [Nubes y regiones donde existe Azure Media Services v3](azure-clouds-regions.md).
 
 ### <a name="performance-improvements"></a>Mejoras en el rendimiento
 
-Se ha agregado las actualizaciones incluyen mejoras de rendimiento de Media Services.
+Se han agregado actualizaciones que incluyen mejoras de rendimiento de Media Services.
 
-* Se actualizó el tamaño de archivo máximo admitido para el procesamiento. Ver, [cuotas y limitaciones](limits-quotas-constraints.md).
+* Se actualizó el tamaño de archivo máximo admitido para el procesamiento. Consulte [Cuotas y limitaciones](limits-quotas-constraints.md).
 * [Mejoras de velocidades de codificación](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## <a name="april-2019"></a>Abril de 2019
 
 ### <a name="new-presets"></a>Nuevos valores preestablecidos
 
-* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) se ha agregado a los valores preestablecidos de analizador integrados.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) se ha agregado a los valores preestablecidos de codificador integrado. Para obtener más información, consulte [codificación compatible con contenido](cae-experimental.md). 
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) se agregó a los valores preestablecidos del analizador integrado.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) se agregó a los valores preestablecidos del codificador integrado. Para más información, consulte [Codificación que tiene en cuenta el contenido](cae-experimental.md). 
 
 ## <a name="march-2019"></a>Marzo de 2019
 
-Ahora el empaquetado dinámico admite Atmos de Dolby. Para obtener más información, consulte [códecs de Audio compatibles con el empaquetado dinámico](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+Ahora el empaquetado dinámico admite Dolby Atmos. Para más información, consulte [Códecs de audio compatibles con el empaquetado dinámico](dynamic-packaging-overview.md#audio-codecs).
 
-Ahora puede especificar una lista de filtros de activo o una cuenta que se aplicaría a su localizador de Streaming. Para obtener más información, consulte [asociar filtros de localizador de Streaming](filters-concept.md#associating-filters-with-streaming-locator).
+Ahora puede especificar una lista de filtros de recursos o cuentas, que se aplicarían a su localizador de streaming. Para más información, consulte el tema sobre la [asociación de filtros al localizador de streaming](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Febrero de 2019
 
-Media Services v3 ahora se admite en las nubes nacionales de Azure. Aún no todas las características están disponibles en todas las nubes. Para obtener más detalles, consulte [Nubes y regiones donde existe Azure Media Services v3](azure-clouds-regions.md).
+Media Services v3 ya se admite en las nubes nacionales de Azure. Aún no todas las características están disponibles en todas las nubes. Para obtener más detalles, consulte [Nubes y regiones donde existe Azure Media Services v3](azure-clouds-regions.md).
 
 El evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) se ha agregado a los esquemas de Azure Event Grid para Media Services.
 
@@ -223,7 +236,7 @@ Si creó filtros de cuenta o recurso entre el 28/09 y el 12/10 con las API o la 
 
 ### <a name="net-sdk"></a>.NET SDK
 
-Las siguientes características están presentes en el SDK. NET:
+Las características siguientes están disponibles en el SDK de .NET:
 
 * **Transformaciones** y **trabajos** para codificar o analizar el contenido multimedia. Para ver ejemplos, consulte los artículos sobre [streaming de archivos](stream-files-tutorial-with-api.md) y [análisis](analyze-videos-tutorial-with-api.md).
 * **Localizadores de streaming** para publicar y transmitir contenido a los dispositivos de usuarios finales.

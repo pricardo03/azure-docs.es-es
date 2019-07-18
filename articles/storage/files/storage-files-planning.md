@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: d720f60bff1aa4510ac26ac092c42eb98871c851
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237670"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540333"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -59,8 +59,8 @@ En la tabla siguiente se muestra cómo pueden acceder los usuarios y las aplicac
 Azure Files tiene varias opciones integradas para garantizar la seguridad de los datos:
 
 * Admite el cifrado en ambos protocolos inalámbricos: cifrado SMB 3.0 y REST de archivo a través de HTTPS. De forma predeterminada: 
-    * Los clientes que admiten el cifrado SMB 3.0 enviar y reciben datos a través de un canal cifrado.
-    * Los clientes que no admiten SMB 3.0 con cifrado pueden comunicarse entre centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado. No se permite a los clientes SMB comunicarse entre centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado.
+    * Los clientes que admiten el cifrado SMB 3.0 envían y reciben datos a través de un canal cifrado.
+    * Los clientes que no admiten SMB 3.0 con cifrado pueden comunicarse dentro de centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado. No se permite a los clientes SMB comunicarse entre centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado.
     * Los clientes pueden comunicarse a través de REST de archivo con HTTP o HTTPS.
 * Cifrado en reposo ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): La característica Storage Service Encryption está habilitada para todas las cuentas de almacenamiento. Los datos en reposo se cifran con claves completamente administradas. En el cifrado en reposo no se aumentan los costos de almacenamiento ni se reduce el rendimiento. 
 * Requisito opcional de datos cifrados en tránsito: cuando está seleccionado, Azure Files rechaza el acceso a los datos a través de canales sin cifrar. En concreto, solo se permiten HTTPS y SMB 3.0 con conexiones de cifrado.
@@ -74,78 +74,91 @@ Si usa Azure File Sync para acceder al recurso compartido de archivos de Azure, 
 
 ## <a name="file-share-performance-tiers"></a>Niveles de rendimiento de un recurso compartido de archivos
 
-Azure Files ofrece dos niveles de rendimiento: estándar y premium.
+Azure Files ofrece dos niveles de rendimiento: Estándar y Prémium.
 
-* Los **recursos compartidos de archivos estándar** tienen el respaldo de discos duros (HDD) que giran y ofrecen un rendimiento confiable para cargas de trabajo de E/S que no dan tanta importancia a la variabilidad del rendimiento, como recursos compartidos de archivos de uso general y entornos de desarrollo y pruebas. Los recursos compartidos de archivos estándar solo están disponibles en un modelo de facturación de pago por uso.
-* Los **recursos compartidos de archivos Premium (versión preliminar)** están respaldados por discos en estado sólido (SSD) que proporcionan alto rendimiento y baja latencia de forma consistente en menos de 10 milisegundos en la mayoría de las operaciones de E/S para las cargas de trabajo intensivas con mayor uso de E/S, lo que hace que sean adecuados para una amplia variedad de cargas de trabajo como bases de datos, hospedaje de sitios web, entornos de desarrollo, etc. Los recursos compartidos de archivos Premium solo están disponibles en un modelo de facturación aprovisionada. Recursos compartidos de archivos Premium usan un modelo de implementación independiente de los recursos compartidos de archivos estándar.
+### <a name="standard-file-shares"></a>Recursos compartidos de archivos estándar
 
-Azure Backup está disponible para recursos compartidos de archivos de premium y Azure Kubernetes Service es compatible con premium recursos compartidos de archivos en la versión 1.13 y versiones posteriores.
+Los recursos compartidos de archivos estándar están respaldados por unidades de disco duro (HDD). Los recursos compartidos de archivos estándar ofrecen un rendimiento confiable para cargas de trabajo de E/S menos sensibles a la variabilidad del rendimiento, como recursos compartidos de archivos de uso general y entornos de desarrollo y pruebas. Los recursos compartidos de archivos estándar solo están disponibles en un modelo de facturación de pago por uso.
 
-Si desea obtener información sobre cómo crear un recurso compartido de archivos de premium, consulte nuestro artículo sobre el tema: [Cómo crear una cuenta de premium de Azure file storage](storage-how-to-create-premium-fileshare.md).
-
-Actualmente, no se puede convertir directamente entre un recurso compartido de archivos estándar y un recurso compartido de archivos de premium. Si desea cambiar a cualquier nivel, debe crear un nuevo recurso compartido de archivos en ese nivel y copiar manualmente los datos desde el recurso compartido original en el nuevo recurso compartido que creó. Puede hacerlo mediante cualquiera de las herramientas de copia de archivos de Azure compatibles, como AzCopy.
+Existen recursos compartidos de archivos estándar de hasta 5 TiB de tamaño disponibles como oferta de GA. Los recursos compartidos de archivos más grandes, con un tamaño superior a los 5 TiB, hasta 100 TiB, están disponibles actualmente como oferta de versión preliminar.
 
 > [!IMPORTANT]
-> Recursos compartidos de archivos Premium están aún en versión preliminar, solo están disponibles con LRS y están disponibles en la mayoría de las regiones que ofrecen las cuentas de almacenamiento. Para averiguar si los recursos compartidos de archivos premium están disponibles actualmente en su región, consulte el [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) página de Azure.
+> Consulte la sección [Incorporación a recursos compartidos de archivos de mayor tamaño (nivel estándar)](#onboard-to-larger-file-shares-standard-tier) para conocer los pasos de la incorporación, así como el ámbito y las restricciones de la versión preliminar.
+
+### <a name="premium-file-shares"></a>Recursos compartidos de archivos Prémium
+
+Los recursos compartidos de archivos Prémium cuentan con el respaldo de unidades de estado sólido (SSD). Los recursos compartidos de archivos Prémium proporcionan un alto rendimiento y una baja latencia de forma coherente en menos de 10 milisegundos en la mayoría de las operaciones de E/S para las cargas de trabajo con un uso intensivo de E/S, lo que hace que sean adecuados para una amplia variedad de cargas de trabajo, como bases de datos, hospedaje de sitios web, y entornos de desarrollo. Los recursos compartidos de archivos Premium solo están disponibles en un modelo de facturación aprovisionada. Los recursos compartidos de archivos prémium usan un modelo de implementación independiente de los recursos compartidos de archivos estándar.
+
+Azure Backup está disponible para recursos compartidos de archivos prémium y Azure Kubernetes Service es compatible con recursos compartidos de archivos prémium en la versión 1.13 y posteriores.
+
+Para obtener información sobre cómo crear un recurso compartido de archivos prémium, consulte nuestro artículo sobre el tema: [Procedimientos para crea un recurso compartido de archivos de Azure premium](storage-how-to-create-premium-fileshare.md).
+
+Actualmente, no se puede convertir directamente entre un recurso compartido de archivos estándar y un recurso compartido de archivos prémium. Para cambiar a cualquier nivel, debe crear un nuevo recurso compartido de archivos en ese nivel y copiar manualmente los datos del recurso compartido original en el nuevo recurso compartido que creó. Para hacerlo, puede usar cualquiera de las herramientas de copia de Azure Files compatibles, como Robocopy o AzCopy.
+
+> [!IMPORTANT]
+> Los recursos compartidos de archivos prémium solo están disponibles con LRS y están disponibles en la mayoría de regiones que ofrecen cuentas de almacenamiento. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure.
 
 ### <a name="provisioned-shares"></a>Recursos compartidos aprovisionados
 
-Recursos compartidos de archivos de Premium (versión preliminar) se aprovisionan en función de una relación fija de GiB/IOPS/rendimiento. Por cada GiB aprovisionado, se generará un IOPS y un rendimiento de 0,1 MiB por segundo en el recurso compartido hasta los límites máximos por recurso compartido. El aprovisionamiento mínimo que se permite es 100 GiB con un IOPS/rendimiento mínimos.
+Los recursos compartidos de archivos Premium se aprovisionan en función de una relación fija de GiB/IOPS/rendimiento. Por cada GiB aprovisionado, se generará un IOPS y un rendimiento de 0,1 MiB por segundo en el recurso compartido hasta los límites máximos por recurso compartido. El aprovisionamiento mínimo que se permite es 100 GiB con un IOPS/rendimiento mínimos.
 
 En su máximo esfuerzo, todos los recursos compartidos pueden aumentar hasta tres IOPS por GiB de almacenamiento aprovisionado durante 60 minutos, o más, según el tamaño del recurso compartido. Los nuevos recursos compartidos comienzan con todos los créditos de aumento según la capacidad aprovisionada.
 
-Los recursos compartidos deben aprovisionarse en incrementos de 1 GB. Tamaño mínimo es 100 GB, siguiente tamaño es GiB 101 y así sucesivamente.
+Los recursos compartidos se deben aprovisionar en incrementos de 1 GiB. El tamaño mínimo es de 100 GB; el siguiente, de 101 GiB y así sucesivamente.
 
 > [!TIP]
-> Línea de base de e/s por segundo = 1 * aprovisionado GiB. (Hasta un máximo de 100 000 e/s por segundo).
+> IOPS de línea de base = 1 * GiB aprovisionados. (Hasta un máximo de 100 000 IOPS).
 >
-> Límite de ráfaga = 3 * la línea de base de e/s por segundo. (Hasta un máximo de 100 000 e/s por segundo).
+> Límite de ráfaga = 3 * IOPS de línea de base. (Hasta un máximo de 100 000 IOPS).
 >
-> Velocidad de salida = 60 MiB/s + 0,06 * GiB aprovisionado
+> Velocidad de salida = 60 MiB/s + 0,06 * GiB aprovisionados
 >
-> Velocidad de entrada = 40 MiB/s + 0,04 * GiB aprovisionado
+> Velocidad de entrada = 40 MiB/s + 0,04 * GiB aprovisionados
 
-Tamaño del recurso compartido se puede aumentar en cualquier momento, pero se puede reducir únicamente después de 24 horas desde el último incremento. Después de esperar 24 horas sin un aumento de tamaño, puede reducir el tamaño del recurso compartido tantas veces como sea necesario, hasta que aumente de nuevo. Los cambios de escala IOPS/rendimiento será efectivos en cuestión de minutos después del cambio de tamaño.
+El tamaño del recurso compartido puede aumentar en cualquier momento, pero solo se puede reducir una vez transcurridas 24 horas desde el último aumento. Después de esperar 24 horas sin un aumento de tamaño, puede reducir el tamaño del recurso compartido tantas veces como quiera hasta que lo vuelva a aumentar. Los cambios de escala de IOPS/rendimiento se aplicarán minutos después del cambio de tamaño.
 
-Es posible reducir el tamaño de los recursos compartidos aprovisionados por debajo de su GiB usado. Si lo hace, no se pierden los datos, pero, aún se facturará por el tamaño usado y el rendimiento (e/s por segundo de la línea de base, el rendimiento y e/s por segundo de ráfaga) del recurso compartido aprovisionado, no el tamaño usado de recepción.
+Es posible reducir el tamaño del recurso compartido aprovisionados por debajo de sus GiB usados. Si lo hace, no se perderán datos, pero se le seguirá facturando el tamaño usado y seguirá recibiendo el rendimiento (IOPS de línea de base, rendimiento e IOPS de ráfaga) del recurso compartido aprovisionado, no del tamaño utilizado.
 
-En la tabla siguiente se muestra algunos ejemplos de estas fórmulas para los tamaños de recurso compartido aprovisionado:
+En la tabla siguiente se ilustran algunos ejemplos de estas fórmulas para los tamaños de recursos compartidos aprovisionados:
 
-|Capacidad (GiB) | IOPS base | Ráfaga de e/s por segundo | Salida (MiB/s) | Entrada (MiB/s) |
+|Capacidad (GiB) | IOPS base | IOPS de ráfaga | Salida (MiB/s) | Entrada (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Hasta 300     | 66   | 44   |
-|500         | 500     | 1.500   | 90   | 60   |
-|1024       | 1024   | Hasta 3.072   | 122   | 81   |
-|5120       | 5120   | Hasta 15.360  | 368   | 245   |
-|10,240      | 10,240  | Hasta 30.720  | 675 | 450   |
-|33,792      | 33,792  | Hasta 100.000 | 2,088 | 1,392   |
-|51,200      | 51,200  | Hasta 100.000 | 3132 | 2,088   |
-|102,400     | 100 000 | Hasta 100.000 | 6,204 | 4,136   |
+|500         | 500     | Hasta 1500   | 90   | 60   |
+|1024       | 1024   | Hasta 3072   | 122   | 81   |
+|5120       | 5120   | Hasta 15 360  | 368   | 245   |
+|10 240      | 10 240  | Hasta 30 720  | 675 | 450   |
+|33 792      | 33 792  | Hasta 100 000 | 2088 | 1392   |
+|51 200      | 51 200  | Hasta 100 000 | 3132 | 2088   |
+|102 400     | 100 000 | Hasta 100 000 | 6204 | 4136   |
+
+> [!NOTE]
+> El rendimiento de los recursos compartidos de archivos está sujeto a los límites de red de la máquina, el ancho de banda de red disponible, los tamaños de E/S y el paralelismo, entre muchos otros factores. Para lograr una escala de rendimiento máxima, distribuya la carga entre varias VM. Consulte en la [guía de solución de problemas](storage-troubleshooting-files-performance.md) algunos problemas de rendimiento comunes y soluciones alternativas.
 
 ### <a name="bursting"></a>Creación de ráfagas
 
-Recursos compartidos de archivos Premium pueden ampliar sus IOPS hasta un factor de tres. Ampliación es automatizada y opera basándose en un sistema de crédito. Ampliación funciona en base al mejor esfuerzo y el límite de ráfaga no es una garantía, pueden aumentar los recursos compartidos de archivos *hasta* el límite.
+Los recursos compartidos de archivos prémium pueden crear ráfagas de su IOPS hasta un factor de tres. La creación de ráfagas está automatizada y funciona de acuerdo con un sistema de crédito. La creación de ráfagas funciona en la medida de lo posible y el límite de ráfaga no es una garantía: los recursos compartidos de archivos pueden crear ráfagas *hasta* el límite.
 
-Créditos se acumulan en un depósito de ráfaga, siempre que el tráfico para el recurso compartido de archivos está por debajo de la línea de base de e/s por segundo. Por ejemplo, un recurso compartido de GiB 100 tiene previsto 100 IOPS. Si tráfico real en el recurso compartido estaba 40 IOPS para un intervalo específico de 1 segundo, el número de 60 IOPS sin usar se abona a un depósito de ráfaga. Estos créditos, a continuación, se usará más adelante cuando las operaciones, se superará la línea de base de e/s por segundo.
+Cada vez que el tráfico para el recurso compartido de archivos se encuentra por debajo del valor de IOPS de la línea de base, se acumulan créditos en un cubo de ráfagas. Por ejemplo, un recurso compartido de 100 GiB tiene un valor de IOPS de línea de base de 100. Si el tráfico real del recurso compartido era de 40 IOPS para un intervalo específico de 1 segundo, el valor de 60 IOPS sin usar se agrega a un cubo de ráfagas. A continuación, estos créditos se usan más tarde si las operaciones superan el valor de IOPS de línea de base.
 
 > [!TIP]
-> Tamaño del depósito ráfaga = línea de base de e/s por segundo * 3600 * 2.
+> Tamaño del cubo de ráfagas = IOPS de línea de base * 2 * 3600.
 
-Cada vez que un recurso compartido supera la línea de base de e/s por segundo y tiene créditos en un depósito de ráfaga, emite ráfagas. Pueden seguir los recursos compartidos de ráfaga siempre quedan créditos, aunque los recursos compartidos de menores que 50 TiB sólo permanecerán en el límite de ráfagas de hasta una hora. Recursos compartidos de mayores que 50 TiB técnicamente puede superar este límite de una hora, de dos horas, pero esto se basa en el número de créditos de ráfaga acumulados. Cada E/S más allá de la línea de base de e/s por segundo consume un crédito y una vez que se consumen todos los créditos devolvería el recurso compartido a la línea de base de e/s por segundo.
+Cada vez que un recurso compartido supera el valor de IOPS de línea de base y tiene créditos en un cubo de ráfaga, crea ráfagas. Los recursos compartidos pueden seguir creando ráfagas mientras queden créditos, aunque los recursos compartidos de menos de 50 TiB solo permanecerán en el límite de ráfagas un máximo de una hora. Técnicamente, los recursos compartidos de más de 50 TiB pueden superar el límite de una hora, hasta dos horas, pero esto depende de la cantidad de créditos de ráfaga acumulados. Cada E/S más allá del valor de IOPS de línea de base consume un crédito y, una vez que se consumen todos los créditos, el recurso compartido volvería al valor de IOPS de la línea base.
 
-Los créditos de recurso compartido tienen tres estados:
+Los créditos de recursos compartidos tienen tres estados:
 
-- Acumulado, cuando el recurso compartido de archivos usa menos de la línea de base de e/s por segundo.
-- Disminuye cuando el recurso compartido de archivos es ampliación.
-- Restante constante, cuando hay ninguna créditos o la línea de base de e/s por segundo están en uso.
+- Acumulado: cuando el recurso compartido de archivos usa un valor inferior al de IOPS de línea de base.
+- Declive: cuando se están creado ráfagas del recurso compartido de archivos.
+- Remaining constant (Restante constante): cuando no hay créditos ni IOPS de línea de base en uso.
 
-Inicio de los recursos compartidos de archivo nuevo con el número total de créditos en el depósito de ráfaga. Si el recurso compartido de IOPS cae por debajo de la línea de base de e/s por segundo debido a la limitación por el servidor, no se acumularán créditos de ráfaga.
+Los nuevos recursos compartidos de archivo empiezan con la cantidad total de créditos del cubo de ráfagas. Los créditos de ráfaga no se acumularán si el valor de IOPS del recurso compartido cae por debajo del valor de IOPS de la línea de base debido a una limitación del servidor.
 
 ## <a name="file-share-redundancy"></a>Redundancia del recurso compartido de archivos
 
-Recursos compartidos estándares de Azure Files admite tres opciones de redundancia de datos: almacenamiento con redundancia local (LRS), almacenamiento con redundancia de zona (ZRS) y almacenamiento con redundancia geográfica (GRS).
+Los recursos compartidos estándar de Azure Files admiten tres opciones de redundancia de datos: almacenamiento con redundancia local (LRS), almacenamiento con redundancia de zona y almacenamiento con redundancia geográfica (GRS).
 
-Azure premium de archivos, recursos compartidos solo admite almacenamiento con redundancia (LRS).
+Los recursos compartidos prémium de Azure Files solo admiten el almacenamiento con redundancia local (LRS).
 
 En las siguientes secciones se describen las diferencias entre las diferentes opciones de redundancia:
 
@@ -164,23 +177,65 @@ En las siguientes secciones se describen las diferencias entre las diferentes op
 
 El almacenamiento con redundancia geográfica(GRS) está diseñado para proporcionar al menos el 99.99999999999999 % (dieciséis nueves) de durabilidad de objetos a lo largo de un año. Para ello, replica los datos a una región secundaria que se encuentra a cientos de kilómetros de la región primaria. Si la cuenta de almacenamiento tiene habilitado GRS, sus datos se mantienen incluso ante un apagón regional completo o un desastre del cual la región principal no se puede recuperar.
 
-Si opta por el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS), se debe saber que Azure Files no admite almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS) en cualquier región en este momento. Recursos compartidos de archivos en la cuenta de almacenamiento de RA-GRS funcionan como lo harían en las cuentas GRS y son los precios GRS cargados.
+Si opta por el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS), debe saber que Azure Files no admite el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS) en ninguna región en este momento. Los recursos compartidos de archivos de la cuenta de almacenamiento de RA-GRS funcionan como lo harían en las cuentas de GRS y se cobran de acuerdo con los precios de GRS.
 
 GRS replica los datos en otro centro de datos en una región secundaria, pero esos datos están disponibles para ser de solo lectura si Microsoft inicia una conmutación por error desde la región primaria a la región secundaria.
 
-Para una cuenta de almacenamiento con GRS habilitado, todos los datos se replican primero con almacenamiento con redundancia local (LRS). Una actualización se confirma primero en la ubicación principal y se replican mediante LRS. La actualización luego se replica de manera asincrónica en la región secundaria con GRS. Cuando los datos se escriben en la ubicación secundaria, también se replican dentro de esa ubicación con LRS.
+Para una cuenta de almacenamiento con el GRS habilitado, todos los datos se replican primero con el almacenamiento con redundancia local (LRS). Una actualización se confirma primero en la ubicación principal y se replican mediante LRS. La actualización luego se replica de manera asincrónica en la región secundaria con GRS. Cuando los datos se escriben en la ubicación secundaria, también se replican dentro de esa ubicación con LRS.
 
-Las regiones primarias y secundarias administran las réplicas entre dominios de error y de actualización diferentes dentro de una unidad de escalado de almacenamiento. La unidad de escalado de almacenamiento es la unidad de replicación básica dentro del centro de datos. La replicación en este nivel se realiza por LRS; Para obtener más información, consulte [almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](../common/storage-redundancy-lrs.md).
+Las regiones primarias y secundarias administran las réplicas entre dominios de error y de actualización diferentes dentro de una unidad de escalado de almacenamiento. La unidad de escalado de almacenamiento es la unidad de replicación básica dentro del centro de datos. LRS proporciona la replicación en este nivel. Para más información, consulte [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](../common/storage-redundancy-lrs.md).
 
 Tenga en cuenta estos puntos cuando decida qué opción de replicación usar:
 
-* Almacenamiento con redundancia de zona (ZRS) ofrece alta disponibilidad con replicación sincrónica y puede ser una opción mejor para algunos escenarios que GRS. Para más información sobre ZRS, consulte [ZRS](../common/storage-redundancy-zrs.md).
+* El almacenamiento con redundancia de zona (ZRS) ofrece alta disponibilidad con replicación sincrónica y puede ser una mejor opción para algunos escenarios que GRS. Para más información sobre ZRS, consulte [ZRS](../common/storage-redundancy-zrs.md).
 * La replicación asincrónica implica un retraso desde el momento en que se escriben los datos en la región principal hasta que se replican en la región secundaria. En el caso de un desastre regional, los cambios que no se hayan replicado en la región secundaria pueden perderse si dichos datos no se pueden recuperar desde la región principal.
 * Con GRS, la réplica no está disponible para acceso de lectura o escritura a menos que Microsoft inicie la conmutación por error en la región secundaria. En el caso de una conmutación por error, tendrá acceso de lectura y escritura a dichos datos después de que se haya completado la conmutación por error. Para más información, consulte la [guía de recuperación ante desastres](../common/storage-disaster-recovery-guidance.md).
 
+## <a name="onboard-to-larger-file-shares-standard-tier"></a>Incorporación a recursos compartidos de archivos de mayor tamaño (nivel estándar)
+
+Esta sección solo se aplica a los recursos compartidos de archivos estándar. Todos los recursos compartidos de archivos prémium están disponibles con 100 TiB como oferta de GA.
+
+### <a name="restrictions"></a>Restricciones
+
+- Requiere que cree una nueva cuenta de almacenamiento de uso general (las cuentas de almacenamiento existentes no se pueden ampliar).
+- La conversión de cuentas de LRS a GRS no será posible en ninguna nueva cuenta de almacenamiento nueva creada después de que la suscripción se aceptara en la versión preliminar de los recursos compartidos de archivos de mayor tamaño.
+
+### <a name="regional-availability"></a>Disponibilidad regional
+
+Los recursos compartidos de archivos estándar están disponibles en todas las regiones hasta 5 TiB. En determinadas regiones, está disponible con un límite de 100 TiB. Estas regiones se muestran en la tabla siguiente:
+
+|Region  |Redundancia admitida  |Admite cuentas de almacenamiento existentes  |
+|---------|---------|---------|
+|Sudeste Asiático     |LRS|Sin         |
+|Europa occidental     |LRS|Sin         |
+|Oeste de EE. UU. 2     |LRS, ZRS|Sin         |
+
+
+### <a name="steps-to-onboard"></a>Pasos para la incorporación
+
+Para inscribir su suscripción en la versión preliminar para recursos compartidos de archivos de mayor tamaño, utilice los siguientes comandos de PowerShell:
+
+```powershell
+Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+La suscripción se aprueba automáticamente una vez que se ejecutan ambos comandos.
+
+Para comprobar el estado de registro, ejecute el comando siguiente:
+
+```powershell
+Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+```
+
+Su estado puede tardar hasta 15 minutos en actualizarse a "registrado". Sin embargo, a pesar de ello, podrá usar la característica.
+
+### <a name="use-larger-file-shares"></a>Usar recursos compartidos de archivos de mayor tamaño
+
+Para empezar a usar recursos compartidos de archivos de mayor tamaño, cree una nueva cuenta de almacenamiento de uso general v2 y un nuevo recurso compartido de archivos.
+
 ## <a name="data-growth-pattern"></a>Patrón de crecimiento de datos
 
-En la actualidad, el tamaño máximo de un recurso compartido de archivos de Azure es de 5 TB (100 TB para los recursos compartidos de archivos de premium, que se encuentran en versión preliminar pública). Debido a esta limitación actual, debe tener en cuenta el crecimiento esperado de los datos al implementar un recurso compartido de archivos de Azure.
+Actualmente, el tamaño máximo de un recurso compartido de archivos de Azure es de 5 TiB (100 TiB en la versión preliminar). Debido a esta limitación actual, debe tener en cuenta el crecimiento esperado de los datos al implementar un recurso compartido de archivos de Azure.
 
 Es posible sincronizar varios recursos compartidos de archivos de Azure en un único servidor de archivos de Windows con Azure File Sync. Esto permite garantizar que los recursos compartidos de archivos anteriores de gran tamaño que pueda tener en un entorno local se incluyen en Azure File Sync. Para más información, consulte [Planeamiento de una implementación de Azure File Sync](storage-files-planning.md).
 

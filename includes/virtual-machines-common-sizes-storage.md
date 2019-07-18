@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b98aebfd7bef3edff8e046d7ef1c388ea57afa04
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755570"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67501274"
 ---
 Los tamaños de VM optimizadas para almacenamiento proporcionan un alto rendimiento de disco y de E/S y son ideales para macrodatos, bases de datos SQL y NoSQL, almacenamiento de datos y bases de datos transaccionales grandes.  Por ejemplo, Cassandra, MongoDB, Cloudera y Redis. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento local y del ancho de banda de red para cada tamaño optimizado.
 
@@ -35,11 +35,12 @@ Premium Storage: Compatible
 
 Almacenamiento en caché de Premium Storage: No compatible
 
-| Tamaño          | vCPU | Memoria (GiB) | Disco temporal <sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Rendimiento de disco NVMe<sup>3</sup> (IOPS de lectura/MBps) | Rendimiento máx. de disco de datos no en caché (E/S por segundo/MBps)<sup>4</sup> | Nº máx. de discos de datos | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
+| Size          | vCPU | Memoria (GiB) | Disco temporal <sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Rendimiento de disco NVMe<sup>3</sup> (IOPS de lectura/MBps) | Rendimiento máx. de disco de datos no en caché (E/S por segundo/MBps)<sup>4</sup> | Nº máx. de discos de datos | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1 de 1,92 TB  | 400 000/2000 | 8000/160 | 16 | 2/3200  |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2 de 1,92 TB  | 800 000/4000 | 16 000/320 | 32 | 4/6400  |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4 de 1,92 TB  | 1,5 mill./8000    | 32 000/640 | 32 | 8/12 800 |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1 de 1,92 TB  | 400 000/2000  | 8000/160   | 16 | 2/3200  |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2 de 1,92 TB  | 800 000/4000  | 16 000/320  | 32 | 4/6400  |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4 de 1,92 TB  | 1,5 mill./8000    | 32 000/640  | 32 | 8/12 800 |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2.2M / 14000   | 48000/960  | 32 | 8/más de 16 000 |
 | Standard_L64s_v2  | 64 | 512 | 640 |  8 de 1,92 TB  | 2,9 mill./16000   | 64 000/1280 | 32 | 8/más de 16 000 |
 | Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10 de 1,92 TB   | 3,8 mill./20 000   | 80 000/1400 | 32 | 8/más de 16 000 |
 

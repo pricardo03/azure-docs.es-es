@@ -1,8 +1,6 @@
 ---
-title: 'Finalización de tareas del Contrato Enterprise en el contrato de cliente de Microsoft: Azure | Microsoft Docs'
+title: 'Finalización de tareas del Contrato Enterprise en el contrato de cliente de Microsoft: Azure'
 description: Obtenga información sobre cómo completar tareas del Contrato Enterprise en la nueva cuenta de facturación.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,20 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2018
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9b76fa935263904957c87cd062c84d0607771369
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9404908b7c486801480474c5a2c9ff7688e1de48
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371348"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490711"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Finalización de tareas del Contrato Enterprise en la cuenta de facturación para un contrato de cliente de Microsoft
 
 Si la organización ha firmado un contrato de cliente de Microsoft para renovar su inscripción al Contrato Enterprise, se crea una nueva cuenta de facturación para el contrato. La facturación de la nueva cuenta se organiza de forma diferente al Contrato Enterprise. En este artículo se describe cómo puede usar la nueva cuenta de facturación para realizar las tareas realizadas en el Contrato Enterprise.
 
-## <a name="how-billing-is-organized-in-the-new-account"></a>Organización de la facturación en la nueva cuenta
+## <a name="billing-organization-in-the-new-account"></a>Organización de facturación en la cuenta nueva
 
 En el diagrama siguiente se describe cómo se organiza la facturación en la nueva cuenta de facturación.
 
@@ -33,16 +31,16 @@ En el diagrama siguiente se describe cómo se organiza la facturación en la nue
 
 | Contrato Enterprise   | Contrato de cliente de Microsoft    |
 |------------------------|--------------------------------------------------------|
-| Inscripción            | Utilice un perfil de facturación para administrar la facturación de la organización, de forma similar a la inscripción al Contrato Enterprise. Los administradores de Enterprise se convierten en los propietarios del perfil de facturación. Para más información sobre los perfiles de facturación, consulte [Descripción de los perfiles de facturación](billing-mca-overview.md#understand-billing-profiles).
-| department            | Puede usar una sección de la factura para organizar los costos, de manera similar a los departamentos en la inscripción al contrato Enterprise. El departamento se convierte en las secciones de la factura y los administradores de departamento se convierten en los propietarios de las secciones de la factura respectivas. Para más información sobre las secciones de la factura, consulte [Descripción de las secciones de factura](billing-mca-overview.md#understand-invoice-sections). |
-| Cuenta               | No se admiten las cuentas que se crearon en el Contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la sección de facturas correspondiente al departamento. Los propietarios de la cuenta pueden crear y administrar suscripciones para sus secciones de factura. |
+| Inscripción            | Utilice un perfil de facturación para administrar la facturación de la organización, de forma similar a la inscripción al Contrato Enterprise. Los administradores de Enterprise se convierten en los propietarios del perfil de facturación. Para más información sobre los perfiles de facturación, consulte [Descripción de los perfiles de facturación](billing-mca-overview.md#billing-profiles).
+| department            | Puede usar una sección de la factura para organizar los costos, de manera similar a los departamentos en la inscripción al contrato Enterprise. El departamento se convierte en las secciones de la factura y los administradores de departamento se convierten en los propietarios de las secciones de la factura respectivas. Para más información sobre las secciones de la factura, consulte [Descripción de las secciones de factura](billing-mca-overview.md#invoice-sections). |
+| Cuenta               | No se admiten las cuentas que se crearon en el Contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la respectiva sección de facturas correspondiente al departamento. Los propietarios de la cuenta pueden crear y administrar suscripciones para sus secciones de factura. |
 
-## <a name="changes-for-enterprise-administrators-in-the-new-billing-account"></a>Cambios para los administradores de empresa en la nueva cuenta de facturación
+## <a name="changes-for-enterprise-administrators"></a>Cambios en los administradores de empresa
 
 Los siguientes cambios se aplican a los administradores de empresa en un Contrato Enterprise que se renovó a un contrato de cliente de Microsoft.
 
-- Se crea un perfil de facturación para la inscripción. Va a utilizar un perfil de facturación para administrar la facturación de la organización, como la inscripción al Contrato Enterprise. Para más información, [comprenda los perfiles de facturación](billing-mca-overview.md#understand-billing-profiles).
-- Se crea una sección de factura para cada departamento en la inscripción al Contrato Enterprise. Usará las secciones de factura para administrar los departamentos. Puede crear nuevas secciones de factura para configurar otros departamentos. Para más información sobre las secciones de la factura, consulte [Descripción de las secciones de factura](billing-mca-overview.md#understand-invoice-sections).
+- Se crea un perfil de facturación para la inscripción. Va a utilizar un perfil de facturación para administrar la facturación de la organización, como la inscripción al Contrato Enterprise. Para más información, [comprenda los perfiles de facturación](billing-mca-overview.md#billing-profiles).
+- Se crea una sección de factura para cada departamento en la inscripción al Contrato Enterprise. Usará las secciones de factura para administrar los departamentos. Puede crear nuevas secciones de factura para configurar otros departamentos. Para más información sobre las secciones de la factura, consulte [Descripción de las secciones de factura](billing-mca-overview.md#invoice-sections).
 - Usará el rol de creador de suscripciones a Azure en las secciones de factura para dar permiso a otros para crear suscripciones a Azure, como las cuentas que se crearon en la inscripción del Contrato Enterprise.
 - Deberá usar [Azure Portal](https://portal.azure.com) para administrar la facturación de la organización, en lugar del portal de Azure para Contrato Enterprise.
 
@@ -76,7 +74,7 @@ Se genera una factura mensual por cada perfil de facturación de la cuenta de fa
 
 Para obtener información sobre cómo descargar archivos de csv de cargos y de uso de Azure, consulte [Descarga de uso para el contrato de cliente de Microsoft](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement).
 
-Para saber cómo descargar la hoja de precios, consulte [Descarga de precios para el contrato de cliente de Microsoft](billing-ea-pricing.md#view-and-download-pricing-for-your-microsoft-customer-agreement).
+Para saber cómo descargar la hoja de precios, consulte [Descarga de precios para el contrato de cliente de Microsoft](billing-ea-pricing.md#microsoft-customer-agreement-pricing).
 
 Para saber cómo descargar los documentos fiscales, consulte [Visualización de los documentos fiscales para el contrato de cliente de Microsoft](billing-mca-download-tax-document.md#view-and-download-tax-documents).
 
@@ -92,13 +90,13 @@ Cree una sección de factura para organizar los costos según sus necesidades, a
 
 ### <a name="create-a-new-account"></a>Creación de una nueva cuenta
 
-Asigne a los usuarios el rol de creador de suscripciones a Azure en las secciones de factura para darles permiso para crear suscripciones a Azure, como las cuentas que se crearon en la inscripción del Contrato Enterprise. Para más información, consulte [Asignación de permisos a otros usuarios para crear suscripciones a Azure](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
+Asigne a los usuarios el rol de creador de suscripciones a Azure en las secciones de factura para darles permiso para crear suscripciones a Azure, como las cuentas que se crearon en la inscripción del Contrato Enterprise. Para más información, consulte [Asignación de permisos a otros usuarios para crear suscripciones a Azure](billing-mca-create-subscription.md#give-others-permission).
 
-## <a name="changes-for-department-administrators-in-the-new-billing-account"></a>Cambios para los administradores de departamento en la nueva cuenta de facturación
+## <a name="changes-for-department-administrators"></a>Cambios en los administradores de departamento
 
 Los siguientes cambios se aplican a los administradores de departamento en un Contrato Enterprise que se renovó a un contrato de cliente de Microsoft.
 
-- Se crea una sección de factura para cada departamento en la inscripción al Contrato Enterprise. Va a usar las secciones de factura para administrar los departamentos. Para más información sobre las secciones de la factura, consulte [Descripción de las secciones de factura](billing-mca-overview.md#understand-invoice-sections).
+- Se crea una sección de factura para cada departamento en la inscripción al Contrato Enterprise. Va a usar las secciones de factura para administrar los departamentos. Para más información sobre las secciones de la factura, consulte [Descripción de las secciones de factura](billing-mca-overview.md#invoice-sections).
 - Usará el rol de creador de suscripciones a Azure en las secciones de factura para dar permiso a otros para crear suscripciones a Azure, como las cuentas que se crearon en la inscripción del Contrato Enterprise.
 - Deberá usar Azure Portal para administrar la facturación de la organización, en lugar del portal de Azure para Contrato Enterprise.
 
@@ -118,7 +116,7 @@ Para más información sobre cómo proporcionar el acceso a la sección de factu
 
 ### <a name="create-a-new-account-in-your-department"></a>Creación de una nueva cuenta del departamento
 
-Asigne a los usuarios el rol de creador de la suscripción a Azure en la sección de facturas que se ha creado para el departamento. Para más información, consulte [Asignación de permisos a otros usuarios para crear suscripciones a Azure](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
+Asigne a los usuarios el rol de creador de la suscripción a Azure en la sección de facturas que se ha creado para el departamento. Para más información, consulte [Asignación de permisos a otros usuarios para crear suscripciones a Azure](billing-mca-create-subscription.md#give-others-permission).
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>Visualización de los cargos para las cuentas de los departamentos
 
@@ -126,7 +124,7 @@ No se admiten las cuentas que se crearon en la inscripción al Contrato Enterpri
 
 Para ver el costo total de las suscripciones que pertenecían a una cuenta del departamento, debe establecer un centro de coste para cada suscripción. Después, puede usar el archivo csv de cargos y de uso de Azure para filtrar las suscripciones por centro de coste.
 
-## <a name="changes-for-account-owners-in-the-new-billing-account"></a>Cambios para los propietarios de la cuenta en la nueva cuenta de facturación
+## <a name="changes-for-account-owners"></a>Cambios en los propietarios de cuentas
 
 Los propietarios de cuentas en el Contrato Enterprise obtienen permiso para crear suscripciones a Azure en la nueva cuenta de facturación. Las suscripciones existentes a Azure pertenecen a la sección de factura que se creó para el departamento. Si la cuenta no pertenece a un departamento, las suscripciones pertenecen a una sección de factura que se conoce como sección de factura predeterminada.
 

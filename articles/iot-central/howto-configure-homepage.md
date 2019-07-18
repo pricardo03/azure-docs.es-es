@@ -3,17 +3,17 @@ title: Configuración del panel de la aplicación de Azure IoT Central | Microso
 description: Aprenda como generador a configurar el panel de la aplicación predeterminado de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/13/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b1edd4777839c947cf8f60bb6857f939553e2603
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94ad51ac11687dfe060176132e2030d61b8d4ffc
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467608"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850214"
 ---
 # <a name="configure-the-application-dashboard"></a>Configuración del panel de la aplicación
 
@@ -41,6 +41,8 @@ Ahora, cuando un operador visualice el panel de la aplicación predeterminado, v
 ![Pestaña "Dashboard" (Panel) en la que se muestran la configuración y las propiedades del icono](media/howto-configure-homepage/image4a.png)
 
 Puede explorar otros tipos de iconos en la biblioteca para descubrir hasta qué punto es posible personalizar el panel de la aplicación predeterminado.
+
+Para más información sobre cómo usar los iconos en Azure IoT Central, consulte [Uso de iconos de panel](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

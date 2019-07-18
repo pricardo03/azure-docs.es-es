@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7413fcf7992195753cba86a50b7d53a144b36023
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60440652"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476437"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementación de Azure AD Privileged Identity Management (PIM)
 
@@ -99,7 +99,7 @@ La siguiente sección le ayuda a identificar a todas las partes interesadas que 
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>Partes interesadas: PIM para roles de Azure AD
 
-| NOMBRE | Rol | . |
+| NOMBRE | Role | . |
 | --- | --- | --- |
 | Nombre y correo electrónico | **Arquitecto de identidades o administrador global de Azure**<br/>Un representante del equipo de administración de identidades responsable de definir cómo este cambio se alinea con la infraestructura de administración de identidades principal de su organización. | SO/R/I |
 | Nombre y correo electrónico | **Propietario del servicio/Administrador de línea**<br/>Un representante de los propietarios de TI de un servicio o un grupo de servicios. Son fundamentales para tomar decisiones y ayudar a implementar PIM para su equipo. | SO/R/I |
@@ -109,7 +109,7 @@ La siguiente sección le ayuda a identificar a todas las partes interesadas que 
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>Partes interesadas: PIM para roles de recursos de Azure
 
-| NOMBRE | Rol | . |
+| NOMBRE | Role | . |
 | --- | --- | --- |
 | Nombre y correo electrónico | **Propietario de recurso/suscripción**<br/>Un representante de los propietarios de TI de cada suscripción o recurso para los que desea implementar PIM. | SO/R/I |
 | Nombre y correo electrónico | **Propietario de seguridad**<br/>Un representante del equipo de seguridad que puede aprobar que el plan cumple los requisitos de seguridad de la organización. | SO/R |
@@ -143,7 +143,7 @@ Siga estos pasos para aplicar el principio de privilegio mínimo para los roles 
 
 1. Especifique quién tiene roles con privilegios en su organización. Puede usar el [asistente de PIM](pim-security-wizard.md#run-the-wizard) para acceder a una página similar a la siguiente.
 
-    ![Detección de roles con privilegios](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Panel Detectar roles con privilegios que muestra quién tiene roles con privilegios](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. Analice por qué todos los administradores globales de la organización necesitan el rol. Según la documentación leída anteriormente, si el trabajo de la persona de que se trata pueden realizarlo uno o varios roles de administrador granulares, debe quitarles el rol de administrador global y realizar las asignaciones correspondientes dentro de Azure Active Directory (como referencia: actualmente, Microsoft tiene solo unos diez administradores con el rol de administrador global. Obtenga más información en el artículo sobre [cómo Microsoft usa PIM](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 
@@ -151,7 +151,7 @@ Siga estos pasos para aplicar el principio de privilegio mínimo para los roles 
 
 Para automatizar los pasos 3 y 4, puede utilizar la función de revisión de acceso dentro de PIM. Con los pasos descritos en [Inicio de una revisión de acceso para los roles de directorio de Azure AD en PIM](pim-how-to-start-security-review.md), puede configurar una revisión de acceso de cada rol de Azure AD que tenga uno o varios miembros.
 
-![Creación de una revisión de acceso](./media/pim-deployment-plan/create-access-review.png)
+![Panel Crear una revisión de acceso de roles de Azure AD](./media/pim-deployment-plan/create-access-review.png)
 
 Debe establecer los revisores como **Miembros (autoasignado)** . De esta forma, se enviará un correo electrónico a todos los miembros del rol para que confirmen si necesitan acceso. También debe activar **Requerir motivo de la aprobación** en la configuración avanzada para que los usuarios puedan indicar por qué necesitan el rol. Según esta información, podrá eliminar a los usuarios de los roles innecesarios y delegar más roles de administrador granulares en el caso de los administradores globales.
 
@@ -240,7 +240,7 @@ Antes de implementar la solución PIM, es aconsejable realizar un borrador de la
 
 #### <a name="pim-settings-for-azure-ad-roles"></a>Configuración de PIM para roles de Azure AD
 
-| Rol | Requerir MFA | Notificación | Vale de incidente | Requerir aprobación | Aprobador | Duración de la activación | Administrador permanente |
+| Role | Requerir MFA | Notificación | Vale de incidente | Requerir aprobación | Aprobador | Duración de la activación | Administrador permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Administrador global | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Otros administradores globales | 1 hora | Cuentas de acceso de emergencia |
 | Administrador de Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | None | 2 horas | None |
@@ -248,7 +248,7 @@ Antes de implementar la solución PIM, es aconsejable realizar un borrador de la
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>Configuración de PIM para roles de recursos de Azure
 
-| Rol | Requerir MFA | Notificación | Requerir aprobación | Aprobador | Duración de la activación | Administrador activo | Expiración de rol activo | Expiración de rol válido |
+| Role | Requerir MFA | Notificación | Requerir aprobación | Aprobador | Duración de la activación | Administrador activo | Expiración de rol activo | Expiración de rol válido |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Propietario de las suscripciones críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Otros propietarios de la suscripción | 1 hora | None | N/D | 3 meses |
 | Administrador de acceso de usuario de suscripciones menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | None | 1 hora | None | N/D | 3 meses |
@@ -258,7 +258,7 @@ En la tabla siguiente se describe cada configuración.
 
 | Configuración | DESCRIPCIÓN |
 | --- | --- |
-| Rol | Nombre del rol para el que se define la configuración. |
+| Role | Nombre del rol para el que se define la configuración. |
 | Requerir MFA | Si el usuario apto necesita realizar MFA antes de activar el rol.<br/><br/> :heavy_check_mark: **Microsoft recomienda** aplicar MFA para todos los roles de administrador, especialmente si los roles tienen usuarios invitados. |
 | Notificación | Si se establece en true, el administrador global, el administrador de roles con privilegios y el administrador de seguridad de la organización recibirán una notificación por correo electrónico cuando un usuario apto activa el rol.<br/><br/>**Nota:** Algunas organizaciones no tienen una dirección de correo electrónico asociada a sus cuentas de administrador para obtener estas notificaciones por correo electrónico; para obtenerlas, debe establecer una dirección de correo electrónico alternativa para que los administradores reciban estos correos. |
 | Vale de incidente | Si el usuario apto necesita registrar un número de vale de incidente al activar el rol. Esta configuración ayuda a una organización a identificar cada activación con un número de incidente interno para mitigar las activaciones no deseadas.<br/><br/> :heavy_check_mark: **Microsoft recomienda** sacar provecho de los números de vales de incidentes para vincular PIM con el sistema interno. Esto es especialmente útil para los aprobadores que necesitan contexto para la activación. |
@@ -318,7 +318,7 @@ Ahora que ha identificado a los usuarios de prueba, use este paso para configura
 
 Esta fase debe usarse para verificar si toda la configuración establecida para los roles funciona correctamente. Utilice la siguiente tabla para documentar las pruebas. También debe usar esta fase para optimizar la comunicación con los usuarios afectados.
 
-| Rol | Comportamiento esperado durante la activación | Resultados reales |
+| Role | Comportamiento esperado durante la activación | Resultados reales |
 | --- | --- | --- |
 | Administrador global | (1) Requerir MFA<br/>(2) Requerir aprobación<br/>(3) El aprobador recibe la notificación y puede aprobar<br/>(4) El rol expira después del tiempo preestablecido |  |
 | Propietario de la suscripción *X* | (1) Requerir MFA<br/>(2) La asignación válida expira después del período de tiempo configurado |  |

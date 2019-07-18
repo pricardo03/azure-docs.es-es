@@ -5,27 +5,25 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f93d9eaefe18dd012a639cd26636b56b9eb09249
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39edbc77215d3a4f6477beae3be9d7d47cbba4f0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595167"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540915"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar y supervisar módulos de IoT Edge a escala, mediante la CLI de Azure
 
-[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
+Cree una **implementación automática de IoT Edge** mediante la interfaz de la línea de comandos de Azure para administrar las implementaciones en curso de muchos dispositivos a la vez. Las implementaciones automáticas de IoT Edge forman parte de la característica de [Administración de dispositivos automática](/azure/iot-hub/iot-hub-automatic-device-management) de IoT Hub. Las implementaciones son procesos dinámicos que permiten implementar varios módulos en múltiples dispositivos, realizar un seguimiento del estado y del mantenimiento de los módulos, y realizar cambios cuando sea necesario. 
 
-Azure IoT Edge permite mover los análisis al perímetro y proporciona una interfaz en la nube para que pueda administrar y supervisar los dispositivos IoT Edge de forma remota. La capacidad de administrar dispositivos de forma remota es cada vez más importante, ya que las soluciones de Internet de las cosas son cada vez más grandes y complejas. Azure IoT Edge está pensado para apoyar sus objetivos empresariales, sin importar cuántos dispositivos agregue.
+Para más información, consulte el artículo [Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md).
 
-Puede administrar dispositivos individuales e implementarles módulos de uno en uno. Sin embargo, si desea realizar cambios en los dispositivos en a gran escala, puede crear una **implementación automática de IoT Edge**, que forma parte de la administración automática de dispositivos de IoT Hub. Las implementaciones son procesos dinámicos que permiten poner en marcha varios módulos en múltiples dispositivos a la vez, realizar un seguimiento del estado y del mantenimiento de los módulos y realizar cambios cuando sea necesario. 
-
-En este artículo, configuró la CLI de Azure y la extensión de IoT. A continuación, aprenderá a implementar módulos en un dispositivo IoT Edge y a supervisar el progreso mediante los comandos de la CLI disponibles.
+En este artículo, configuró la CLI de Azure y la extensión de IoT. A continuación, aprenderá a implementar módulos en un conjunto de dispositivos IoT Edge y a supervisar el progreso mediante los comandos de la CLI disponibles.
 
 ## <a name="cli-prerequisites"></a>Requisitos previos de CLI
 
@@ -36,95 +34,96 @@ En este artículo, configuró la CLI de Azure y la extensión de IoT. A continua
 
 ## <a name="configure-a-deployment-manifest"></a>Configuración de un manifiesto de implementación
 
-Un manifiesto de implementación es un documento JSON que describe qué módulos se van a implementar, cómo fluyen los datos entre los módulos y las propiedades deseadas de los módulos gemelos. Para más información sobre los manifiestos de implementación y cómo crearlos, consulte [Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).
+Un manifiesto de implementación es un documento JSON que describe qué módulos se van a implementar, cómo fluyen los datos entre los módulos y las propiedades deseadas de los módulos gemelos. Para más información, consulte [Aprenda a implementar módulos y establecer rutas en IoT Edge](module-composition.md).
 
-Para implementar módulos mediante la CLI de Azure, guarde localmente el manifiesto de implementación como un archivo .txt. Usará la ruta de acceso al archivo en la sección siguiente, al ejecutar el comando para aplicar la configuración al dispositivo. 
+Para implementar módulos mediante la CLI de Azure, guarde localmente el manifiesto de implementación como un archivo .txt. Use la ruta de acceso al archivo de la siguiente sección cuando ejecute el comando para aplicar la configuración al dispositivo. 
 
 Este es un manifiesto de implementación básico con un módulo como ejemplo:
 
-   ```json
-   {
-        "content": {
-         "modulesContent": {
-           "$edgeAgent": {
-             "properties.desired": {
-               "schemaVersion": "1.0",
-               "runtime": {
-                 "type": "docker",
-                 "settings": {
-                   "minDockerVersion": "v1.25",
-                   "loggingOptions": "",
-                   "registryCredentials": {
-                     "registryName": {
-                       "username": "",
-                       "password": "",
-                       "address": ""
-                     }
-                   }
-               },
-               "systemModules": {
-                 "edgeAgent": {
-                   "type": "docker",
-                   "settings": {
-                     "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-                     "createOptions": "{}"
-                   }
-                 },
-                 "edgeHub": {
-                   "type": "docker",
-                   "status": "running",
-                   "restartPolicy": "always",
-                   "settings": {
-                     "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-                     "createOptions": "{}"
-                   }
-                 }
-               },
-               "modules": {
-                 "tempSensor": {
-                   "version": "1.0",
-                   "type": "docker",
-                   "status": "running",
-                   "restartPolicy": "always",
-                   "settings": {
-                     "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-                     "createOptions": "{}"
-                   }
-                 }
-               }
-             }
-           },
-           "$edgeHub": {
-             "properties.desired": {
-               "schemaVersion": "1.0",
-               "routes": {
-                   "route": "FROM /* INTO $upstream"
-               },
-               "storeAndForwardConfiguration": {
-                 "timeToLiveSecs": 7200
-               }
-             }
-           },
-           "tempSensor": {
-             "properties.desired": {}
-           }
-         }
-       }
-   }
-   ```
+```json
+{
+  "content": {
+    "modulesContent": {
+      "$edgeAgent": {
+        "properties.desired": {
+          "schemaVersion": "1.0",
+          "runtime": {
+            "type": "docker",
+            "settings": {
+              "minDockerVersion": "v1.25",
+              "loggingOptions": "",
+              "registryCredentials": {
+                "registryName": {
+                  "username": "",
+                  "password": "",
+                  "address": ""
+                }
+              }
+            }
+          },
+          "systemModules": {
+            "edgeAgent": {
+              "type": "docker",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "createOptions": "{}"
+              }
+            },
+            "edgeHub": {
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "createOptions": "{}"
+              }
+            }
+          },
+          "modules": {
+            "tempSensor": {
+              "version": "1.0",
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+                "createOptions": "{}"
+              }
+            }
+          }
+        }
+      },
+      "$edgeHub": {
+        "properties.desired": {
+          "schemaVersion": "1.0",
+          "routes": {
+            "route": "FROM /* INTO $upstream"
+          },
+          "storeAndForwardConfiguration": {
+            "timeToLiveSecs": 7200
+          }
+        }
+      },
+      "tempSensor": {
+        "properties.desired": {}
+      }
+    }
+  }
+}
+```
 
 ## <a name="identify-devices-using-tags"></a>Identificación de dispositivos mediante etiquetas
 
-Antes de crear una implementación, tendrá que especificar los dispositivos que desea afectar. Azure IoT Edge identifica los dispositivos mediante **etiquetas** en el dispositivo gemelo. Cada dispositivo puede tener varias etiquetas y puede definirlas de cualquier manera que tenga sentido para su solución. Por ejemplo, si administra un campus de edificios inteligentes, puede agregar las siguientes etiquetas a un dispositivo:
+Antes de crear una implementación, tendrá que especificar los dispositivos que desea afectar. Azure IoT Edge identifica los dispositivos mediante **etiquetas** en el dispositivo gemelo. Cada dispositivo puede tener varias etiquetas que puede definir de cualquier manera que tenga sentido para su solución. Por ejemplo, si administra un campus de edificios inteligentes, puede agregar las siguientes etiquetas a un dispositivo:
 
 ```json
 "tags":{
-    "location":{
-        "building": "20",
-        "floor": "2"
-    },
-    "roomtype": "conference",
-    "environment": "prod"
+  "location":{
+    "building": "20",
+    "floor": "2"
+  },
+  "roomtype": "conference",
+  "environment": "prod"
 }
 ```
 
@@ -134,14 +133,16 @@ Para más información sobre dispositivos gemelos y etiquetas, consulte [Informa
 
 Implemente módulos en los dispositivos de destino; para ello, cree una implementación que consista en el manifiesto de implementación y otros parámetros. 
 
-Use los comandos siguientes para crear una implementación:
+Utilice el comando [az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create) para crear una implementación:
 
-   ```cli
-   az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
-   ```
+```cli
+az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
+```
+
+El comando deployment create toma los parámetros siguientes: 
 
 * **--deployment-id**: el nombre de la implementación que se creará en IoT Hub. Asigne a su implementación un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`.
-* **--hub-name**: nombre de la instancia de IoT Hub en la que se creará la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
+* **--hub-name**: nombre de la instancia de IoT Hub en la que se creará la implementación. El centro debe estar en la suscripción actual. Cambie la suscripción actual con el comando `az account set -s [subscription name]`.
 * **--content** -ruta del archivo del manifiesto de implementación JSON. 
 * **--labels**: agregue etiquetas para realizar un seguimiento de las implementaciones. Las etiquetas son pares de Nombre y Valor que describen la implementación. Las etiquetas adoptan el formato JSON en los nombres y valores. Por ejemplo: `{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--target-condition**: escriba una condición de destino para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
@@ -149,12 +150,13 @@ Use los comandos siguientes para crear una implementación:
 
 ## <a name="monitor-a-deployment"></a>Supervisión de una implementación
 
-Use los comandos siguientes para ver el contenido de una implementación:
+Use el comando [az iot edge deployment show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show) para mostrar los detalles de una sola implementación:
 
-   ```cli
+```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
-   ```
+```
 
+El comando deployment show toma los parámetros siguientes:
 * **--deployment-id**: el nombre de la implementación que está en IoT Hub.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
@@ -162,15 +164,16 @@ Inspeccione la implementación en la ventana de comandos. La propiedad **metric
 
 * **targetedCount**: es una métrica del sistema que especifica la cantidad de dispositivos gemelos que hay en IoT Hub que coinciden con las condiciones del destino.
 * **appliedCount**: es una métrica del sistema que especifica la cantidad de dispositivos cuyo contenido de implementación se ha aplicado a sus módulos gemelos en IoT Hub.
-* **reportedSuccessfulCount**: es una métrica de dispositivo que especifica la cantidad de dispositivos de Edge en el informe de implementación correcto, a partir del tiempo de ejecución del cliente de IoT Edge.
-* **reportedFailedCount**: es una métrica de dispositivo que especifica la cantidad de dispositivos de Edge en el informe de implementación con errores, a partir del tiempo de ejecución del cliente de IoT Edge.
+* **reportedSuccessfulCount**: es una métrica de dispositivo que especifica la cantidad de dispositivos IoT Edge en el informe de implementación correcto, a partir del tiempo de ejecución del cliente de IoT Edge.
+* **reportedFailedCount**: es una métrica de dispositivo que especifica la cantidad de dispositivos IoT Edge en el informe de implementación con errores, a partir del tiempo de ejecución del cliente de IoT Edge.
 
-Puede mostrar una lista de identificadores u objetos de dispositivos para cada una de las métricas mediante el siguiente comando:
+Puede mostrar una lista de identificadores u objetos de dispositivos para cada una de las métricas mediante el comando [az iot edge deployment show-metric](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric):
 
-   ```cli
+```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name] 
-   ```
+```
 
+El comando deployment show-metric toma los parámetros siguientes: 
 * **--deployment-id**: el nombre de la implementación que está en IoT Hub.
 * **--metric-id**: el nombre de la métrica de la cual quiere ver la lista de identificadores de dispositivos como, por ejemplo, `reportedFailedCount`.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
@@ -185,12 +188,13 @@ Si actualiza la condición de destino, se producen las siguientes actualizacione
 * Si un dispositivo que actualmente ejecuta esta implementación ya no cumple la condición de destino, desinstala esta implementación y asume la siguiente implementación de mayor prioridad. 
 * Si un dispositivo que actualmente ejecuta esta implementación ya no cumple la condición de destino y no cumple la condición de destino de cualquier otra implementación, no se produce ningún cambio en el dispositivo. El dispositivo sigue ejecutando los módulos actuales en su estado actual, pero ya no se administra como parte de esta implementación. Cuando se cumple la condición de destino de cualquier otra implementación, desinstala esta implementación y adopta una nueva. 
 
-Use los comandos siguientes para actualizar una implementación:
+Utilice el comando [az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) para actualizar una implementación:
 
-   ```cli
+```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
-   ```
+```
 
+El comando deployment update toma los parámetros siguientes:
 * **--deployment-id**: el nombre de la implementación que está en IoT Hub.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 * **--set**: actualizar una propiedad de la implementación. Puede actualizar las propiedades siguientes:
@@ -203,15 +207,16 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 
 Cuando se elimina una implementación, los dispositivos adoptan la siguiente implementación de prioridad más alta. Si los dispositivos no cumplen la condición de destino de alguna implementación, los módulos no se quitan cuando se elimina la implementación. 
 
-Use los comandos siguientes para eliminar una implementación:
+Utilice el comando [az iot edge deployment delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete) para eliminar una implementación:
 
-   ```cli
+```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name] 
-   ```
+```
 
+El comando deployment delete toma los parámetros siguientes: 
 * **--deployment-id**: el nombre de la implementación que está en IoT Hub.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre cómo [implementar módulos en dispositivos Edge](module-deployment-monitoring.md).
+Obtenga más información sobre la [implementación de módulos en dispositivos IoT Edge](module-deployment-monitoring.md).

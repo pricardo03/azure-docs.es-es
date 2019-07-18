@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 06e3178e344ee46f67cfd8a6feaf08d56d3c86e7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724132"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508107"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Administración de clústeres de Apache Hadoop en HDInsight con el SDK de .NET
 
@@ -229,7 +229,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > [!NOTE]  
 > Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del clúster.
 
-Esto también se puede hacer a través del Portal. Consulte [administrar Apache Hadoop clústeres en HDInsight mediante Azure portal](hdinsight-administer-use-portal-linux.md).
+Esto también se puede hacer a través del Portal. Consulte [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Actualización de las credenciales de usuario HTTP
 
@@ -257,10 +257,6 @@ Consulte [Ejecución de ejemplos de MapReduce en HDInsight](hadoop/apache-hadoop
 
 Consulte [Ejecución de consultas de Apache Hive mediante el SDK de .NET para HDInsight](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Para enviar trabajos de Apache Pig**
-
-Consulte [Ejecución de consultas de Apache Pig con el SDK de .NET para Apache Hadoop en HDInsight](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
-
 **Para enviar trabajos de Apache Sqoop**
 
 Consulte [Uso de Apache Sqoop con HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
@@ -273,7 +269,7 @@ Consulte [Uso de Apache Oozie con Hadoop para definir y ejecutar un flujo de tra
 
 Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [Documentación de referencia del SDK de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md)

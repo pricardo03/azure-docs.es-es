@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edbf5548f5e230986f0a1786d67fb4580e574e2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 7b9d272c8a01eeed58278a6e7f0cec147b01a10e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235429"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482933"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Marco de consentimiento de Azure Active Directory
 
@@ -50,7 +50,7 @@ Los siguientes pasos muestran cómo funciona la experiencia de consentimiento pa
 
 1. Cuando el usuario inicie sesión, Azure AD determinará si se debe mostrar una página de consentimiento al usuario. Esta determinación se basa en que el usuario (o el administrador de la organización) ya concediese el consentimiento de la aplicación. Si todavía no se concedió el consentimiento, Azure AD se lo pide al usuario y muestra los permisos necesarios para que funcione. El conjunto de permisos que aparecen en el cuadro de diálogo de consentimiento coinciden con los que se seleccionaron en **Permisos delegados** en Azure Portal.
 
-    ![Experiencia de consentimiento de usuario](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Se muestra un ejemplo de los permisos que aparecen en el cuadro de diálogo de consentimiento](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. Después de que el usuario concede el consentimiento, se devuelve un código de autorización a la aplicación, que se canjea para adquirir un token de acceso y un token de actualización. Para obtener más información acerca de este flujo, consulte [Tipo de aplicaciones de API web](web-api.md).
 
@@ -58,8 +58,8 @@ Los siguientes pasos muestran cómo funciona la experiencia de consentimiento pa
 
     **Para consentir los permisos delegados de una aplicación**
 
-   1. Vaya a la **permisos de API** página de la aplicación
-   1. Haga clic en el **conceder consentimiento del administrador** botón.
+   1. Vaya a la página **Permisos de API** de la aplicación.
+   1. Haga clic en el botón **Conceder consentimiento de administrador**.
 
       ![Concesión de permisos para el consentimiento explícito del administrador](./media/consent-framework/grant-consent.png)
 

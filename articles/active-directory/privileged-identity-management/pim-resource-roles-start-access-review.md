@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e4de5bbc56f95c0e903b1dac4e8481373716f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0067bd6dc2f47c5460220295d486910d9195782d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143500"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476272"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>Creación de una revisión de acceso de los roles de recursos de Azure en PIM
 
@@ -32,7 +32,7 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 - [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-## <a name="open-access-reviews"></a>Abrir revisiones de acceso
+## <a name="open-access-reviews"></a>Abrir las revisiones de acceso
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que sea miembro del rol Administrador de roles con privilegios.
 
@@ -44,7 +44,7 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 1. En Administrar, haga clic en **Revisiones de acceso**.
 
-    ![Recursos de Azure: Revisiones de acceso](./media/pim-resource-roles-start-access-review/access-reviews.png)
+    ![Recursos de Azure: lista de revisiones de acceso que muestra el estado de todas las revisiones](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
@@ -54,7 +54,7 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 Una vez que haya especificado la configuración para una revisión de acceso, haga clic en **Iniciar**. La revisión de acceso aparecerá en la lista con un indicador de su estado.
 
-![Lista de revisiones de acceso](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
+![Lista de revisiones de acceso que muestra el estado de la revisión iniciada](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
 
 De forma predeterminada, Azure AD envía un correo electrónico a los revisores poco después de iniciar la revisión. Si decide no hacer que Azure AD envíe el correo electrónico, asegúrese de informar a los revisores de que hay una revisión de acceso esperando para que la lleven a cabo. Puede mostrarles las instrucciones sobre cómo [revisar el acceso a los roles de recursos de Azure](pim-resource-roles-perform-access-review.md).
 
@@ -62,13 +62,13 @@ De forma predeterminada, Azure AD envía un correo electrónico a los revisores 
 
 En la página **Información general** de la revisión de acceso, puede seguir el progreso de los revisores a medida que completan las revisiones. Los derechos de acceso no se cambian en el directorio hasta que [la revisión finaliza](pim-resource-roles-complete-access-review.md).
 
-![Progreso de las revisiones de acceso](./media/pim-resource-roles-start-access-review/access-review-overview.png)
+![Página de información general de revisiones de acceso que muestra los detalles de la revisión](./media/pim-resource-roles-start-access-review/access-review-overview.png)
 
 Si se trata de una revisión puntual, una vez finalizado el período de revisión de acceso o cuando el administrador detenga la revisión de acceso, siga los pasos sobre [cómo realizar una revisión de acceso de los roles de recursos de Azure](pim-resource-roles-complete-access-review.md) para ver los resultados y aplicarlos.  
 
 Para administrar una serie de revisiones de acceso, vaya a la revisión de acceso y verá los próximos eventos en Revisiones programadas; ahí podrá editar la fecha de finalización o agregar o quitar revisores según corresponda.
 
-Según las selecciones de la **Configuración de finalización**, la aplicación automática se ejecutará después de la fecha de finalización de la revisión o cuando se detenga manualmente la revisión. El estado de la revisión cambiará de **Completado** a estados intermedios como **Aplicando** y, por último, a **Aplicado**. Debería esperar ver que los usuarios denegados, si es que los hay, se eliminan de los roles en unos minutos.
+Según las selecciones de la **Configuración de finalización**, la aplicación automática se ejecutará después de la fecha de finalización de la revisión o cuando se detenga manualmente la revisión. El estado de la revisión cambiará de **Completado** a estados intermedios como **Aplicando** y, por último, a **Aplicado**. Debería ver que los usuarios denegados, si es que los hay, se eliminan de los roles en unos minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

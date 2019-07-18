@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 5b74524a05317cf22160561a4a001e88f9215953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8799fcb06235474bb33cdaf0406300065208024
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61440086"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543818"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Uso de Azure IoT Tools para Visual Studio Code a fin de enviar y recibir mensajes entre el dispositivo e IoT Hub
 
@@ -62,11 +62,11 @@ Aprenderá a usar Azure IoT Tools para Visual Studio Code a fin de supervisar lo
 
 Para supervisar los mensajes que se envían desde el dispositivo al IoT Hub, siga estos pasos:
 
-1. Haga clic con el botón derecho en el dispositivo y seleccione **Start Monitoring D2C Message** (Iniciar la supervisión del mensaje de D2C).
+1. Haga clic con el botón derecho en el dispositivo y seleccione **Start Monitoring Built-in Event Endpoint** (Iniciar supervisión del punto de conexión del evento integrado).
 
 2. Se mostrarán los mensajes controlados en la vista **SALIDA** > **Azure IoT Hub Toolkit**.
 
-3. Para detener la supervisión, haga clic con el botón derecho en la vista **SALIDA** y seleccione **Stop Monitoring D2C Message** (Detener la supervisión de mensaje de D2C).
+3. Para detener la supervisión, haga clic con el botón derecho en la vista **SALIDA** y seleccione **Stop Monitoring Built-in Event Endpoint** (Detener supervisión del punto de conexión del evento integrado).
 
 ## <a name="send-cloud-to-device-messages"></a>Envío de mensajes de nube a dispositivo
 

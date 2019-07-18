@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: 7ff05421222ff0f4312d703366cfd443eee06450
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967865"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551723"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -32,7 +32,7 @@ Para obtener instrucciones sobre cómo establecer directivas con PowerShell, con
 > Security Center inició su integración con Azure Policy. Los clientes existentes se migrarán automáticamente a la nueva iniciativa integrada en Azure Policy, en lugar de las directivas de seguridad anteriores de Security Center. Este cambio no afectará a los recursos ni al entorno, excepto la presencia de la nueva iniciativa en Azure Policy.
 
 ## <a name="what-are-security-policies"></a>¿Qué son las directivas de seguridad?
-Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Azure Policy, puede definir directivas para las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o a la confidencialidad de los datos. Por ejemplo, es posible que las aplicaciones que usan datos regulados, como la información de identificación personal, requieran un mayor nivel de seguridad que otras cargas de trabajo. Para establecer una directiva en varias suscripciones o grupos de administración, debe configurarla en [Azure Policy](../governance/policy/overview.md).
+Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Azure Policy, puede definir directivas para las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o a la confidencialidad de los datos. Por ejemplo, es posible que las aplicaciones que usan datos regulados, como datos personales o de clientes, requieran un mayor nivel de seguridad que otras cargas de trabajo. Para establecer una directiva en varias suscripciones o grupos de administración, debe configurarla en [Azure Policy](../governance/policy/overview.md).
 
 Las directivas de seguridad generan las recomendaciones de seguridad que se muestran en Azure Security Center. Puede supervisar si se cumplen para identificar posibles puntos vulnerables y mitigar amenazas. Consulte la lista de [directivas de seguridad integradas](security-center-policy-definitions.md) para más información sobre cómo determinar la opción más adecuada en su caso.
 
@@ -74,13 +74,6 @@ Para ver las directivas de seguridad de Security Center:
    > - El panel de Security Center podría mostrar un número de suscripciones en **Cobertura de la suscripción** superior al que se muestra en **Administración de directivas**. En la cobertura de suscripción se muestra el número de suscripciones Estándar, Gratis y "no cubiertas". Las suscripciones "no cubiertas" no tienen habilitado Security Center y no se muestran en **Administración de directivas**.
    >
 
-   En las columnas de la tabla se muestra:
-
-   - **Policy initiative assignment** (Asignación de iniciativa de directiva): iniciativas y [directivas integradas](security-center-policy-definitions.md) de Security Center que se asignan a una suscripción o un grupo de administración.
-   - **Coverage** (Cobertura): identifica el plan de tarifa, Gratis o Estándar, en el que se ejecuta el grupo de administración, la suscripción o el área de trabajo.  Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
-   - **Settings** (Configuración): las suscripciones tienen el vínculo **Edit settings** (Editar configuración). Seleccionar **Edit settings** (Editar configuración) le permite actualizar su [configuración de Security Center](security-center-policies-overview.md) para cada grupo de administración o suscripción.
-   - **Puntuación segura**: [Puntuación segura](security-center-secure-score.md) proporciona una medida de cuán segura es su postura de seguridad de cargas de trabajo y le ayuda a dar prioridad a las recomendaciones para mejorar.
-
 2. Seleccione el grupo de administración o la suscripción cuyas directivas desea ver.
 
    - La pantalla **Directiva de seguridad** refleja la acción realizada por las directivas asignadas en el grupo de administración o la suscripción que ha seleccionado.
@@ -102,28 +95,28 @@ Puede editar directivas de seguridad mediante el portal de Azure Policy, la API 
 
 
 ## <a name="disable-security-policies"></a>Deshabilitar las directivas de seguridad
-Si la directiva de seguridad predeterminada es generar una recomendación que no es relevante para su entorno, puede detenerla si deshabilita la definición de directiva que envía la recomendación.
-Para obtener más información acerca de las recomendaciones, consulte [administrar recomendaciones de seguridad](security-center-recommendations.md).
+Si la directiva de seguridad predeterminada genera una recomendación que no es pertinente para su entorno, puede deshabilitar la definición de directiva que envía la recomendación para detenerla.
+Para obtener más información sobre las recomendaciones, consulte [Administración de recomendaciones de seguridad](security-center-recommendations.md).
 
-1. En el centro de seguridad, desde el **directiva y cumplimiento** sección, haga clic en **directiva de seguridad**.
+1. En Security Center, en **DIRECTIVA Y CUMPLIMIENTO**, seleccione **Directiva de seguridad**.
 
-   ![Administración de directivas](./media/tutorial-security-policy/policy-management.png)
+   ![administración de directivas](./media/tutorial-security-policy/policy-management.png)
 
-2. Haga clic en el grupo de administración o de suscripción para el que desea deshabilitar la recomendación.
+2. Haga clic en el grupo de administración o de suscripción para el que quiere deshabilitar la recomendación.
 
    > [!Note]
-   > Recuerde que un grupo de administración aplica sus directivas a sus suscripciones. Por lo tanto, si deshabilita la directiva de una suscripción y la suscripción pertenece a un grupo de administración que aún use la misma directiva, se seguirá recibir las recomendaciones de directivas. Todavía se aplicará la directiva desde el nivel de administración y las recomendaciones se seguirá generando.
+   > Recuerde que un grupo de administración aplica sus directivas a sus suscripciones. Por lo tanto, si deshabilita la directiva de una suscripción y la suscripción pertenece a un grupo de administración que usa la misma directiva, seguirá recibiendo las recomendaciones de directivas. La directiva se seguirá aplicando desde el nivel de administración y las recomendaciones se seguirán generando.
 
 1. Haga clic en la directiva asignada.
 
-   ![Deshabilitar directiva](./media/tutorial-security-policy/security-policy.png)
+   ![deshabilitar la directiva](./media/tutorial-security-policy/security-policy.png)
 
-1. En el **parámetros** sección, busque la directiva que invoca la recomendación que desee deshabilitar y, en la lista desplegable, seleccione **deshabilitado**
+1. En la sección **PARÁMETROS**, busque la directiva que invoca la recomendación que quiere deshabilitar y, en la lista desplegable, seleccione **Deshabilitado**
 
-   ![Deshabilitar directiva](./media/tutorial-security-policy/disable-policy.png)
+   ![deshabilitar la directiva](./media/tutorial-security-policy/disable-policy.png)
 1. Haga clic en **Save**(Guardar).
    > [!Note]
-   > Los cambios de directiva de deshabilitación pueden tardar hasta 12 horas en aplicarse.
+   > Los cambios de deshabilitación de directiva pueden tardar hasta 12 horas en surtir efecto.
 
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Configuración de una directiva de seguridad mediante la API REST
@@ -132,11 +125,11 @@ Como parte de la integración nativa con Azure Policy, Azure Security Center le 
 
 Conceptos importantes de Azure Policy: 
 
-- Un **definición de directiva** es una regla 
+- Una **definición de directiva** es una regla. 
 
-- Un **iniciativa** es una colección de definiciones de directivas (reglas) 
+- Una **iniciativa** es una colección de definiciones de directivas (reglas). 
 
-- Una **asignación** es una aplicación de una iniciativa o una directiva para un ámbito concreto (grupo de administración o suscripción, entre otras). 
+- Una **asignación** es una aplicación de una iniciativa o una directiva para un ámbito concreto (grupo de administración o suscripción, entre otros). 
 
 Security Center tiene una iniciativa incorporada que incluye todas las directivas de seguridad. Para evaluar las directivas de Security Center sobre los recursos de Azure, debe crear una asignación en el grupo de administración o en la suscripción que desee evaluar.  
 
@@ -194,17 +187,17 @@ En este ejemplo se muestra cómo asignar la iniciativa integrada de Security Cen
     
       "properties":{ 
     
-    "displayName": "Habilitar la supervisión en Azure Security Center," 
+    "displayName":"Enable Monitoring in Azure Security Center", 
     
     "metadata":{ 
     
-    "assignedBy": "{Name}" 
+    "assignedBy":"{Name}" 
     
     }, 
     
     "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
     
-    "parameters": {} 
+    "parameters":{ 
     
     "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
     

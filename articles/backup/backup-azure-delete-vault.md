@@ -1,131 +1,209 @@
 ---
-title: Eliminar un almacén de Recovery Services en Azure
-description: Describe cómo eliminar un almacén de Recovery Services.
+title: Eliminación de un almacén de Recovery Services en Azure
+description: Se describe cómo eliminar un almacén de Recovery Services.
 services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 07/02/2019
 ms.author: raynew
-ms.openlocfilehash: a7dd5530c3941fe55e8a649f8adb217159823f5d
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: e195d9a4b9d2bbe21848e083dbccf864188e0790
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66492791"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508456"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
 
-En este artículo se describe cómo eliminar un [Azure Backup](backup-overview.md) almacén de Recovery Services. Contiene instrucciones para quitar las dependencias y, a continuación, eliminar un almacén y eliminar un almacén a la fuerza.
+En este artículo se describe cómo eliminar un almacén de Recovery Services de [Azure Backup](backup-overview.md). Contiene instrucciones para quitar las dependencias y, a continuación, eliminar un almacén, así como eliminar un almacén a la fuerza.
 
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Antes de empezar, es importante entender que no se puede eliminar un almacén de Recovery Services que tiene servidores registrados en él, o que contiene datos de copia de seguridad.
+Antes de comenzar, es importante entender que no se puede eliminar un almacén de Recovery Services que tiene servidores registrados en él o que contiene datos de copia de seguridad.
 
-- Para eliminar un almacén correctamente, anular el registro de servidores en él, quitar los datos del almacén y, a continuación, elimine el almacén.
-- Si se intenta eliminar un almacén que todavía tiene dependencias, se emite un mensaje de error. y deberá quitar manualmente las dependencias del almacén, incluyendo:
-    - Copia los elementos de seguridad
-    - Servidores protegidos
-    - Copia de seguridad de servidores de administración (servidor de copia de seguridad de Azure, DPM) ![seleccione el almacén para abrir su panel](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
-- Si no desea conservar los datos en el almacén de Recovery Services y quiere eliminar el almacén, puede eliminar el almacén a la fuerza.
+- Para eliminar correctamente un almacén, anule el registro de los servidores que contiene, quite los datos del almacén y, a continuación, elimine el almacén.
+- Si se intenta eliminar un almacén que todavía tiene dependencias, se emite un mensaje de error y deberá quitar manualmente las dependencias del almacén, incluidos:
+    - Los elementos de los que se ha hecho una copia de seguridad.
+    - Los servidores protegidos.
+    - Realice la copia de seguridad de los servidores de administración (Azure Backup Server y DPM) y ![seleccione el almacén para abrir su panel](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png).
+- Si no quiere conservar datos en el almacén de Recovery Services y quiere eliminar el almacén, puede eliminar un almacén a la fuerza.
 - Si intenta eliminar un almacén, pero no puede, el almacén todavía está configurado para recibir datos de copia de seguridad.
 
 
-## <a name="delete-a-vault-from-the-azure-portal"></a>Eliminar un almacén de Azure portal
+## <a name="delete-a-vault-from-the-azure-portal"></a>Eliminación de un almacén desde Azure Portal
 
 1. Abra el panel del almacén.  
-2. En el panel, haga clic en **eliminar**. Compruebe que desea eliminar.
+2. En el panel, haga clic en **Eliminar**. Compruebe si quiere eliminar.
 
     ![Seleccionar el almacén para abrir su panel](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-Si recibe un error, quite [elementos de copia de seguridad](#remove-backup-items), [servidores de infraestructura](#remove-backup-infrastructure-servers), y [puntos de recuperación](#remove-azure-backup-agent-recovery-points)y, a continuación, elimine el almacén.
+Si recibe un error, quite los [elementos de copia de seguridad](#remove-backup-items), los [servidores de infraestructura](#remove-azure-backup-management-servers) y los [puntos de recuperación](#remove-azure-backup-agent-recovery-points) y, a continuación, elimine el almacén.
 
-![Eliminar error de almacén](./media/backup-azure-delete-vault/error.png)
+![error de eliminación de almacén](./media/backup-azure-delete-vault/error.png)
 
 
 ## <a name="delete-the-recovery-services-vault-using-azure-resource-manager-client"></a>Eliminación del almacén de Recovery Services mediante el cliente de Azure Resource Manager
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Instalar chocolatey desde [aquí](https://chocolatey.org/) e instalar ARMClient que se ejecute el comando siguiente:
+1. Instale Chocolatey desde [aquí](https://chocolatey.org/) y ejecute el comando siguiente para instalar ARMClient:
 
-   ` choco install armclient --source=https://chocolatey.org/api/v2/ `
-2. Inicie sesión en la cuenta de Azure, ejecute el comando siguiente
+   `choco install armclient --source=https://chocolatey.org/api/v2/`
+2. Inicie sesión en su cuenta de Azure y ejecute este comando:
 
-    ` ARMClient.exe login [environment name] `
+    `ARMClient.exe login [environment name]`
 
-3. En el portal de Azure, recopile el nombre del grupo suscripción ID y recursos para el almacén que desea eliminar.
+3. En Azure Portal, recopile el id. de suscripción y el nombre del grupo de recursos del almacén que quiere eliminar.
 
-Para obtener más información sobre el comando de ARMClient, hacer referencia a esta [documento](https://github.com/projectkudu/ARMClient/blob/master/README.md).
+Para obtener más información sobre el comando de ARMClient, consulte este [documento](https://github.com/projectkudu/ARMClient/blob/master/README.md).
 
-### <a name="use-azure-resource-manager-client-to-delete-recovery-services-vault"></a>Use el cliente de Azure Resource Manager para eliminar el almacén de Recovery Services
+### <a name="use-azure-resource-manager-client-to-delete-recovery-services-vault"></a>Uso del cliente de Azure Resource Manager para eliminar el almacén de Recovery Services
 
-1. Ejecute el comando siguiente con el Id. de suscripción, el nombre del grupo de recursos y el nombre del almacén. Al ejecutar el comando elimina el almacén si no tienen ninguna dependencia.
+1. Ejecute el comando siguiente con el id. de suscripción, el nombre del grupo de recursos y el nombre de almacén. Al ejecutar el comando, se elimina el almacén y ya no tendrá ninguna dependencia.
 
    ```
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-2. Si el almacén Value no de vacío, recibe el error "No se puede eliminar porque hay recursos existentes dentro de este almacén". Para quitar un elementos protegidos / contenedor dentro de un almacén, haga lo siguiente:
+2. Si el almacén no está vacío, se recibe un error que indica que no se puede eliminar el almacén porque contiene recursos. Para quitar un contenedor o elementos protegidos de un almacén, haga lo siguiente:
 
    ```
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
-3. En el portal de Azure, compruebe que se ha eliminado el almacén.
+3. En Azure Portal, compruebe que se ha eliminado el almacén.
 
 
-## <a name="remove-vault-items-and-delete-the-vault"></a>Quitar elementos del almacén y la eliminación del almacén
+## <a name="remove-vault-items-and-delete-the-vault"></a>Quite los elementos del almacén y elimine el almacén.
 
-Estos procedimientos se proporcionan algunos ejemplos para quitar datos de copia de seguridad y los servidores de infraestructura. Después de quita todo el contenido de un almacén, puede eliminarlo.
+Quite todas las dependencias antes de eliminar el almacén de Recovery Services.
 
-### <a name="remove-backup-items"></a>Quitar elementos de copia de seguridad
+### <a name="remove-backup-items"></a>Eliminación de elementos de copia de seguridad
 
 Este procedimiento proporciona un ejemplo que muestra cómo quitar datos de copia de seguridad de Azure Files.
 
-1. Haga clic en **elementos de copia de seguridad** > **Azure Storage (Azure Files)**
+1. Haga clic en **Elementos de copia de seguridad** > **Azure Storage (Azure Files)** .
 
     ![Seleccionar el tipo de copia de seguridad](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
-2. Haga clic en cada elemento de archivos de Azure para quitar y haga clic en **Detener copia de seguridad**.
+2. Haga clic con el botón derecho en los elementos de Azure Files que se deben quitar y haga clic en **Detener copia de seguridad**.
 
     ![Seleccionar el tipo de copia de seguridad](./media/backup-azure-delete-vault/stop-backup-item.png)
 
 
-3. En **Detener copia de seguridad** > **elija una opción**, seleccione **eliminar datos de copia de seguridad**.
+3. En **Detener copia de seguridad** > **Elegir una opción**, seleccione **Eliminar datos de copia de seguridad**.
 4. Escriba el nombre del elemento y haga clic en **Detener copia de seguridad**.
-   - Esto confirma que desea eliminar el elemento.
-   - El **Detener copia de seguridad** botón activa después de comprobar.
-   - Si se conservan y no eliminan los datos, no podrá eliminar el almacén.
+   - Esta acción verifica que quiere eliminar el elemento.
+   - El botón **Detener copia de seguridad** se activa después de la verificación.
+   - Si se conservan y no se eliminan los datos, no podrá eliminar el almacén.
 
      ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. Opcionalmente, proporcionar un motivo por qué está eliminando los datos y agregar comentarios.
-6. Para comprobar que el trabajo de eliminación completado, compruebe los mensajes de Azure ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/messages.png).
-7. Una vez completado el trabajo, el servicio envía un mensaje: **se detuvo el proceso de copia de seguridad y se han eliminado los datos de copia de seguridad**.
+5. También puede proporcionar el motivo por el que va a eliminar los datos y agregar comentarios.
+6. Para comprobar que el trabajo de eliminación se ha completado, compruebe los mensajes de Azure ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/messages.png).
+7. Una vez finalizado el trabajo, el servicio envía un mensaje que indica que **el proceso de copia de seguridad se ha detenido y se han eliminado los datos de copia de seguridad**.
 8. Después de eliminar un elemento de la lista, en el menú **Elementos de copia de seguridad**, haga clic en **Actualizar** para ver los elementos del almacén.
 
       ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/empty-items-list.png)
 
+## <a name="deleting-backup-items-from-management-console"></a>Eliminación de elementos de copia de seguridad de la consola de administración
 
-### <a name="remove-backup-infrastructure-servers"></a>Quitar servidores de infraestructura de copia de seguridad
+Para eliminar los elementos de copia de seguridad de la infraestructura de copia de seguridad, vaya a la consola de administración (MARS, Azure Backup Server o SC DPM en función de dónde se protegen los elementos de copia de seguridad) del servidor local.
 
-1. En el menú del panel del almacén, haga clic en **infraestructura de copia de seguridad**.
-2. Haga clic en **servidores de administración de copia de seguridad** para ver los servidores.
+### <a name="for-mars-agent"></a>Para el agente de MARS
 
-    ![Seleccionar el almacén para abrir su panel](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+- Inicie la consola de administración de MARS, vaya al panel **Acciones** y elija **Programar copia de seguridad**.
+- En el asistente **Modificar o detener una copia de seguridad programada**, elija la opción **Dejar de utilizar esta programación de copias de seguridad y eliminar todas las copias de seguridad almacenadas** y haga clic en **Siguiente**.
 
-3. Haga clic en el elemento > **eliminar**.
-4. Para comprobar que el trabajo de eliminación completado, compruebe los mensajes de Azure ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/messages.png).
-5. Una vez completado el trabajo, el servicio envía un mensaje: **se detuvo el proceso de copia de seguridad y se han eliminado los datos de copia de seguridad**.
-6. Después de eliminar un elemento en la lista, en el **infraestructura de copia de seguridad** menú, haga clic en **actualizar** para ver los elementos en el almacén.
+    ![Modificación o detención de una copia de seguridad programada](./media/backup-azure-delete-vault/modify-schedule-backup.png)
+
+- En el asistente **Detener copia de seguridad programada**, haga clic en **Finalizar**.
+
+    ![Detención de una copia de seguridad programada](./media/backup-azure-delete-vault/stop-schedule-backup.png)
+- Se le solicita que escriba un PIN de seguridad. Para generar el PIN, realice los pasos siguientes:
+  - Inicie sesión en el Portal de Azure.
+  - Vaya al **almacén de Recovery Services** > **Configuración** > **Propiedades**.
+  - En **PIN de seguridad**, haga clic en **Generar**. Copie este código PIN. (Este PIN solo es válido durante cinco minutos).
+- En la consola de administración (aplicación cliente), pegue el código PIN y haga clic en **Aceptar**.
+
+  ![PIN de seguridad](./media/backup-azure-delete-vault/security-pin.png)
+
+- En el asistente **Modificar progreso de la copia de seguridad** verá que los *datos de copia de seguridad eliminados se conservarán durante 14 días. Tras ese período, se eliminarán permanentemente los datos de copia de seguridad.*  
+
+    ![Eliminación de la infraestructura de copia de seguridad](./media/backup-azure-delete-vault/deleted-backup-data.png)
+
+Ahora que ha eliminado los elementos de copia de seguridad del entorno local, complete los pasos siguientes desde el portal:
+- Para MARS, siga los pasos descritos en [Eliminación de puntos de recuperación del agente de Azure Backup](#remove-azure-backup-agent-recovery-points).
+
+### <a name="for-mabs-agent"></a>Para el agente de MABS
+
+Existen diferentes métodos para detener o eliminar la protección en línea; lleve a cabo cualquiera de los siguientes métodos:
+
+**Método 1**
+
+Inicie la consola de **administración de MABS**. En la sección **Seleccionar método de protección de datos**, anule la selección de la opción **Deseo protección en línea**.
+
+  ![seleccionar método de protección de datos](./media/backup-azure-delete-vault/data-protection-method.png)
+
+**Método 2**
+
+Para eliminar un grupo de protección, primero debe detener la protección del grupo. Use el procedimiento siguiente para detener la protección y permitir la eliminación de un grupo de protección.
+
+1.  En la Consola de administrador DPM, haga clic en **Protección** en la barra de navegación.
+2.  En el panel de información, seleccione el miembro del grupo de protección que quiere quitar. Haga clic con el botón derecho para elegir la opción **Stop Protection of Group Members** (Detener la protección de miembros del grupo).
+3.  Desde el cuadro de diálogo **Detener protección**, seleccione la casilla **Eliminar datos protegidos** > **Eliminar almacenamiento en línea** y, a continuación, haga clic en **Detener protección**.
+
+    ![Eliminación de almacenamiento en línea](./media/backup-azure-delete-vault/delete-storage-online.png)
+
+Ahora se cambia el estado de miembro protegido a **Réplica inactiva disponible**.
+
+5. Haga clic en el grupo de protección inactiva y seleccione **Quitar protección inactiva**.
+
+    ![Quitar protección inactiva](./media/backup-azure-delete-vault/remove-inactive-protection.png)
+
+6. Desde la ventana **Eliminar protección inactiva**, seleccione **Eliminar almacenamiento en línea** y haga clic en **Aceptar**.
+
+    ![Quitar las réplicas en el disco y en línea](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
+
+Ahora que ha eliminado los elementos de copia de seguridad del entorno local, complete los pasos siguientes desde el portal:
+- Para MABS y DPM, siga los pasos descritos en [Eliminación de servidores de administración de Azure Backup](#remove-azure-backup-management-servers).
 
 
-### <a name="remove-azure-backup-agent-recovery-points"></a>Quitar puntos de recuperación de agente de copia de seguridad de Azure
+### <a name="remove-azure-backup-management-servers"></a>Eliminación de servidores de administración de Azure Backup
 
-1. En el menú del panel del almacén, haga clic en **infraestructura de copia de seguridad**.
-2. Haga clic en **servidores de administración de copia de seguridad** para ver los servidores de infraestructura.
+Antes de quitar el servidor de administración de Azure Backup, asegúrese de realizar los pasos descritos en [Eliminación de elementos de copia de seguridad de la consola de administración](#deleting-backup-items-from-management-console).
+
+1. En el menú del panel del almacén, haga clic en **Infraestructura de copia de seguridad**.
+2. Haga clic en **Servidores de administración de copias de seguridad** para ver los servidores.
+
+    ![Seleccionar el almacén para abrir su panel.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+
+3. Haga clic con el botón derecho en el elemento > **Eliminar**.
+4. En el menú **Eliminar**, escriba el nombre del servidor y haga clic en **Eliminar**.
+
+     ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
+5.  También puede proporcionar el motivo por el que va a eliminar los datos y agregar comentarios.
+
+> [!NOTE]
+> Si ve el siguiente error, primero siga los pasos indicados en la sección [Eliminación de elementos de copia de seguridad de la consola de administración](#deleting-backup-items-from-management-console).
+>
+>![error en la eliminación](./media/backup-azure-delete-vault/deletion-failed.png)
+>
+> Si no puede realizar los pasos para eliminar las copias de seguridad de la consola de administración, por ejemplo, debido a la indisponibilidad del servidor con la consola de administración, póngase en contacto con soporte técnico de Microsoft.
+
+6. Para comprobar que el trabajo de eliminación se ha completado, compruebe los mensajes de Azure ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/messages.png).
+7. Una vez finalizado el trabajo, el servicio envía un mensaje que indica que **el proceso de copia de seguridad se ha detenido y se han eliminado los datos de copia de seguridad**.
+8. Después de eliminar un elemento de la lista, en el menú **Infraestructura de copia de seguridad**, haga clic en **Actualizar** para ver los elementos del almacén.
+
+
+### <a name="remove-azure-backup-agent-recovery-points"></a>Quitar puntos de recuperación del agente de Azure Backup
+
+Antes de quitar puntos de recuperación de Azure Backup, asegúrese de realizar los pasos descritos en [Eliminación de elementos de copia de seguridad de la consola de administración](#deleting-backup-items-from-management-console).
+
+1. En el menú del panel del almacén, haga clic en **Infraestructura de copia de seguridad**.
+2. Haga clic en **Servidores protegidos** para ver los servidores de infraestructura.
 
     ![Seleccionar el almacén para abrir su panel](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
@@ -133,26 +211,35 @@ Este procedimiento proporciona un ejemplo que muestra cómo quitar datos de copi
 
     ![Seleccionar el tipo de copia de seguridad](./media/backup-azure-delete-vault/list-of-protected-server-types.png)
 
-4. Haga clic en el servidor en la lista de servidores protegidos con Azure Backup agent.
+4. Haga clic en el servidor en la lista de servidores protegidos con el agente de Azure Backup.
 
     ![Seleccionar el servidor protegido específico](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
 
-5. En el panel del servidor seleccionado, haga clic en **eliminar**.
+5. En el panel del servidor seleccionado, haga clic en **Eliminar**.
 
     ![Eliminar el servidor seleccionado](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
-6. En el menú **Eliminar**, escriba el nombre del elemento y haga clic en **Eliminar**.
+6. En el menú **Eliminar**, escriba el nombre del servidor y haga clic en **Eliminar**.
 
      ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
-7. Opcionalmente, proporcionar un motivo por qué está eliminando los datos y agregar comentarios.
-8. Para comprobar que el trabajo de eliminación completado, compruebe los mensajes de Azure ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/messages.png).
-9. Después de eliminar un elemento en la lista, en el **infraestructura de copia de seguridad** menú, haga clic en **actualizar** para ver los elementos en el almacén.
+7. También puede proporcionar el motivo por el que va a eliminar los datos y agregar comentarios.
 
-### <a name="delete-the-vault-after-removing-dependencies"></a>Eliminar el almacén después de quitar las dependencias
+> [!NOTE]
+> Si ve el siguiente error, primero siga los pasos indicados en la sección [Eliminación de elementos de copia de seguridad de la consola de administración](#deleting-backup-items-from-management-console).
+>
+>![error en la eliminación](./media/backup-azure-delete-vault/deletion-failed.png)
+>
+> Si no puede realizar los pasos para eliminar las copias de seguridad de la consola de administración, por ejemplo, debido a la indisponibilidad del servidor con la consola de administración, póngase en contacto con soporte técnico de Microsoft. 
 
-1. Cuando se han quitado todas las dependencias, desplácese a la **Essentials** panel en el menú del almacén.
-2. Compruebe que no existe ninguna **elementos de copia de seguridad**, **servidores de administración de copia de seguridad**, o **elementos replicados** enumerados. Si todavía aparecen elementos en el almacén, quitarlos.
+8. Para comprobar que el trabajo de eliminación se ha completado, compruebe los mensajes de Azure ![Eliminar datos de copia de seguridad](./media/backup-azure-delete-vault/messages.png).
+9. Después de eliminar un elemento de la lista, en el menú **Infraestructura de copia de seguridad**, haga clic en **Actualizar** para ver los elementos del almacén.
+
+
+### <a name="delete-the-vault-after-removing-dependencies"></a>Eliminación del almacén después de quitar las dependencias
+
+1. Cuando se hayan quitado todas las dependencias, desplácese al panel **Essentials** en el menú del almacén.
+2. Compruebe que no haya **elementos de copia de seguridad**, **servidores de administración de copias de seguridad** ni **elementos replicados** en la lista. Si todavía aparecen elementos en el almacén, quítelos.
 
 3. Cuando no haya ningún otro elemento en el almacén, haga clic en **Eliminar** en el panel del almacén.
 
@@ -162,8 +249,8 @@ Este procedimiento proporciona un ejemplo que muestra cómo quitar datos de copi
 
 ## <a name="what-if-i-stop-the-backup-process-but-retain-the-data"></a>¿Qué ocurre si detengo el proceso de copia de seguridad pero retengo los datos?
 
-Si detener el proceso de copia de seguridad pero mantener accidentalmente los datos, debe eliminar los datos de copia de seguridad, como se describe en las secciones anteriores.
+Si detiene el proceso de copia de seguridad, pero accidentalmente retiene los datos, debe eliminar los datos de copia de seguridad conforme se describe en las secciones anteriores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Obtenga información sobre](backup-azure-recovery-services-vault-overview.md) almacenes de Recovery Services.
+[Más información](backup-azure-recovery-services-vault-overview.md) sobre los almacenes de Recovery Services.

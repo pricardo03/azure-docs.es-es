@@ -5,38 +5,36 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83e2490821f59adeb37958c6c31403121a40274e
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126374"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540897"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal
 
-[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
+Cree una **implementación automática de IoT Edge** en Azure Portal para administrar las implementaciones en curso de muchos dispositivos a la vez. Las implementaciones automáticas de IoT Edge forman parte de la característica de [Administración de dispositivos automática](/azure/iot-hub/iot-hub-automatic-device-management) de IoT Hub. Las implementaciones son procesos dinámicos que permiten implementar varios módulos en múltiples dispositivos, realizar un seguimiento del estado y del mantenimiento de los módulos, y realizar cambios cuando sea necesario. 
 
-Azure IoT Edge permite mover los análisis al perímetro y proporciona una interfaz en la nube para que pueda administrar y supervisar los dispositivos de IoT Edge sin tener que acceder físicamente a cada uno de ellos. La capacidad de administrar dispositivos de forma remota es cada vez más importante, ya que las soluciones de Internet de las cosas son cada vez más grandes y complejas. Azure IoT Edge está pensado para apoyar sus objetivos empresariales, sin importar cuántos dispositivos agregue.
-
-Puede administrar dispositivos individuales e implementarles módulos de uno en uno. Sin embargo, si desea realizar cambios en los dispositivos en a gran escala, puede crear una **implementación automática de IoT Edge**, que forma parte de la administración automática de dispositivos de IoT Hub. Las implementaciones son procesos dinámicos que permiten poner en marcha varios módulos en múltiples dispositivos a la vez, realizar un seguimiento del estado y del mantenimiento de los módulos y realizar cambios cuando sea necesario. 
+Para más información, consulte el artículo [Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md).
 
 ## <a name="identify-devices-using-tags"></a>Identificación de dispositivos mediante etiquetas
 
-Antes de crear una implementación, tendrá que especificar los dispositivos que desea afectar. Azure IoT Edge identifica los dispositivos mediante **etiquetas** en el dispositivo gemelo. Cada dispositivo puede tener varias etiquetas y puede definirlas de cualquier manera que tenga sentido para su solución. Por ejemplo, si administra un campus de edificios inteligentes, puede agregar las siguientes etiquetas a un dispositivo:
+Antes de crear una implementación, tendrá que especificar los dispositivos que desea afectar. Azure IoT Edge identifica los dispositivos mediante **etiquetas** en el dispositivo gemelo. Cada dispositivo puede tener varias etiquetas que puede definir de cualquier manera que tenga sentido para su solución. Por ejemplo, si administra un campus de edificios inteligentes, puede agregar las siguientes etiquetas a un dispositivo:
 
 ```json
 "tags":{
-    "location":{
-        "building": "20",
-        "floor": "2"
-    },
-    "roomtype": "conference",
-    "environment": "prod"
+  "location":{
+    "building": "20",
+    "floor": "2"
+  },
+  "roomtype": "conference",
+  "environment": "prod"
 }
 ```
 
@@ -58,24 +56,21 @@ Hay cinco pasos para crear una implementación. En las siguientes secciones se a
 
 ### <a name="step-2-add-modules-optional"></a>Paso 2: Incorporación de módulos (opcional)
 
-Hay dos tipos de módulos que se pueden agregar a una implementación. El primero es un módulo basado en un servicio de Azure, como una cuenta de Storage o Stream Analytics. El segundo es un módulo que utiliza su propio código. Puede agregar varios módulos de cualquier tipo a una implementación. 
+Puede agregar hasta 20 módulos a una implementación. 
 
-Si se crea una implementación sin módulos, quita cualquier módulo actual de los dispositivos. 
-
->[!NOTE]
->Azure Functions todavía no admiten la implementación del servicio de Azure automatizada. Use la implementación de módulo personalizada para agregar manualmente ese servicio a la implementación. 
+Si crea una implementación sin módulos, se quitan todos los módulos actuales de los dispositivos de destino. 
 
 Para agregar un módulo desde Azure Stream Analytics, siga estos pasos:
 
 1. En la sección **Deployment Modules** (Módulos de implementación) de la página, haga clic en **Agregar**.
 1. Seleccione **Azure Stream Analytics module** (Módulo de Azure Stream Analytics).
 1. Seleccione su **Suscripción** en el menú desplegable.
-1. Seleccione su **trabajo de Microsoft Edge** en el menú desplegable.
+1. Seleccione su **trabajo de IoT Edge** en el menú desplegable.
 1. Seleccione **Guardar** para agregar el módulo a la implementación. 
 
 Para agregar código personalizado como un módulo, o para agregar manualmente un módulo de servicio de Azure, siga estos pasos:
 
-1. En la sección **Configuración de Container Registry** de la página, proporcione los nombres y las credenciales para cualquier registro del contenedor privado que contenga las imágenes del módulo para esta implementación. El agente de Edge notificará el error 500 si no puede encontrar las credenciales del registro del contenedor para una imagen de Docker.
+1. En la sección **Configuración de Container Registry** de la página, proporcione los nombres y las credenciales para cualquier registro del contenedor privado que contenga las imágenes del módulo para esta implementación. El agente de IoT Edge notificará el error 500 si no puede encontrar las credenciales del registro del contenedor para una imagen de Docker.
 1. En la sección **Deployment Modules** (Módulos de implementación) de la página, haga clic en **Agregar**.
 1. Seleccione **Módulo IoT Edge**.
 1. Asigne un **nombre** al módulo.
@@ -83,14 +78,14 @@ Para agregar código personalizado como un módulo, o para agregar manualmente u
 1. Especifique cualquier **opción de creación de contenedor** que deba pasarse al contenedor. Para más información, consulte [docker create](https://docs.docker.com/engine/reference/commandline/create/).
 1. Use el menú desplegable para seleccionar una **directiva de reinicio**. Elija entre las siguientes opciones: 
    * **Always** (Siempre): el módulo siempre se reinicia si se cierra por cualquier razón.
-   * **Never** (Nunca): el módulo nunca se reinicia si se cierra por cualquier razón.
-   * **On-failed** (En error): el módulo se reinicia si se bloquea, pero no si se cierra sin problemas. 
-   * **On-unhealthy** (En estado incorrecto): el módulo se reinicia si se bloquea o devuelve un estado incorrecto. Depende de cada módulo la implementación de la función de estado de mantenimiento. 
+   * **Nunca**: el módulo nunca se reinicia si se cierra por cualquier razón.
+   * **En caso de error**: el módulo se reinicia si se bloquea, pero no si se cierra sin problemas. 
+   * **En estado incorrecto**: el módulo se reinicia si se bloquea o devuelve un estado incorrecto. Depende de cada módulo la implementación de la función de estado de mantenimiento. 
 1. Use el menú desplegable para seleccionar el **estado deseado** para el módulo. Elija entre las siguientes opciones:
    * **En ejecución**: esta es la opción predeterminada. El módulo volverá a ejecutarse inmediatamente después de la implementación.
-   * **Detenido**: tras la implementación, el módulo permanecerá inactivo hasta que se llame después del inicio por el usuario u otro módulo.
+   * **Detenido**: tras la implementación, el módulo permanecerá inactivo hasta que el usuario u otro módulo lo llamen después del inicio.
 1. Seleccione **Set module twin's desired properties** (Establecer propiedades deseadas del módulo gemelo) si desea agregar etiquetas u otras propiedades al módulo gemelo.
-1. Escriba las **Variables de entorno** para este módulo. Las variables de entorno brindan información adicional a un módulo, lo cual facilita el proceso de configuración.
+1. Escriba las **Variables de entorno** para este módulo. Las variables de entorno proporcionan información de configuración a un módulo.
 1. Seleccione **Guardar** para agregar el módulo a la implementación. 
 
 Cuando tenga todos los módulos configurados para una implementación, seleccione **Siguiente** para ir al tercer paso.
@@ -109,12 +104,12 @@ Las métricas proporcionan el número de resúmenes de los distintos estados que
 
 1. Escriba una consulta para **Criterios de las métricas**. La consulta se basa en las [propiedades notificadas](module-edgeagent-edgehub.md#edgehub-reported-properties) del módulo gemelo del centro de IoT Edge. La métrica representa el número de filas devueltas por la consulta.
 
-Por ejemplo:
+   Por ejemplo:
 
-```sql
-SELECT deviceId FROM devices
-  WHERE properties.reported.lastDesiredStatus.code = 200
-```
+   ```sql
+   SELECT deviceId FROM devices
+     WHERE properties.reported.lastDesiredStatus.code = 200
+   ```
 
 ### <a name="step-5-target-devices"></a>Paso 5: Dispositivos de destino
 
@@ -122,7 +117,7 @@ Use la propiedad de etiquetas en los dispositivos para dirigirse a los dispositi
 
 Como varias implementaciones pueden tener como destino el mismo dispositivo, debe dar a cada implementación un número de prioridad. En caso de conflicto, gana la implementación con la prioridad más alta (los valores más altos indican prioridad más alta). Si dos implementaciones tienen el mismo número de prioridad, gana la que se creó más recientemente. 
 
-1. Especifique un número entero positivo en el valor de **Prioridad** de la implementación. En el caso de que dos o más implementaciones se destinen al mismo dispositivo, se aplicará la implementación con el valor numérico más alto para la prioridad.
+1. Especifique un número entero positivo en el valor de **Prioridad** de la implementación.
 1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
 1. Seleccione **Siguiente** para pasar al último paso.
 
@@ -134,7 +129,7 @@ Revise la información de implementación y seleccione **Enviar**.
 
 Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que puede examinar una amplia gama de aplicaciones y soluciones empresariales que están certificadas y optimizadas para ejecutarse en Azure, incluyendo los [módulos de IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). También puede acceder a Azure Marketplace desde la sección **Crear un recurso** de Azure Portal.
 
-Puede instalar un módulo IoT Edge desde Azure Marketplace o desde Azure Portal:
+Puede implementar un módulo IoT Edge desde Azure Marketplace o desde Azure Portal:
 
 1. Encuentre un módulo e inicie el proceso de implementación.
 
@@ -168,8 +163,8 @@ Para ver los detalles de una implementación y supervisar los dispositivos que l
    * **Target condition** (Condición de destino): la etiqueta que se utiliza para definir los dispositivos dirigidos.
    * **Priority** (Prioridad): el número de prioridad asignado a la implementación.
    * **Métricas del sistema** - **Dirigidas** especifica el número de dispositivos gemelos en IoT Hub que coinciden con la condición de destino, y **Aplicadas** especifica el número de dispositivos que ha tenido el contenido de implementación aplicado a sus módulos gemelos en IoT Hub. 
-   * **Métricas del dispositivo**: el número de dispositivos de Edge en el informe de implementación correcto o con errores del entorno de ejecución del cliente de IoT Edge.
-   * **Métricas personalizadas**: el número de dispositivos de Edge en los datos del informe de implementación para cualquiera de las métricas que haya definido para la implementación.
+   * **Métricas del dispositivo**: el número de dispositivos IoT Edge en el informe de implementación correcto o con errores del entorno de ejecución del cliente de IoT Edge.
+   * **Métricas personalizadas**: el número de dispositivos IoT Edge en los datos del informe de implementación para cualquiera de las métricas que haya definido para la implementación.
    * **Creation time** (Hora de creación): la marca de tiempo de cuando se creó la implementación. Esta marca de tiempo se utiliza para dirimir cuando dos implementaciones tienen la misma prioridad. 
 1. Seleccione la implementación que desea supervisar.  
 1. Examine los detalles de la implementación. Puede usar las pestañas para revisar los detalles de la implementación.
@@ -217,4 +212,4 @@ Cuando se elimina una implementación, los dispositivos adoptan la siguiente imp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre cómo [implementar módulos en dispositivos Edge](module-deployment-monitoring.md).
+Obtenga más información sobre la [implementación de módulos en dispositivos IoT Edge](module-deployment-monitoring.md).

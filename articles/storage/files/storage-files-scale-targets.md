@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 91ec65e17b77ccb3864fce45e30729ff420a48b6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190034"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542640"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 
@@ -30,28 +30,38 @@ El recurso primario de un recurso compartido de archivos de Azure es una cuenta 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> Uso de cuenta de almacenamiento de propósito general de otros servicios de almacenamiento afecta a los recursos compartidos de archivos de Azure en su cuenta de almacenamiento. Por ejemplo, si alcanza la capacidad máxima de la cuenta de almacenamiento con Azure Blob Storage, no podrá crear archivos en el recurso compartido de archivos de Azure, aunque este no llegue al tamaño máximo del recurso compartido.
+> La utilización de la cuenta de almacenamiento de uso general desde otros servicios de almacenamiento afecta a los recursos compartidos de archivos de Azure de su cuenta de almacenamiento. Por ejemplo, si alcanza la capacidad máxima de la cuenta de almacenamiento con Azure Blob Storage, no podrá crear archivos en el recurso compartido de archivos de Azure, aunque este no llegue al tamaño máximo del recurso compartido.
 
 ## <a name="azure-files-scale-targets"></a>Objetivos de escalabilidad de Azure Files
 
-### <a name="premium-scale-targets"></a>Objetivos de escalabilidad de Premium
+Existen tres categorías de limitaciones a tener en cuenta para Azure Files: cuentas de almacenamiento, recursos compartidos y archivos.
 
-Hay tres categorías de limitaciones que deben considerarse para recursos compartidos de archivos premium: cuentas de almacenamiento, recursos compartidos y archivos.
+Por ejemplo:  con los recursos compartidos de archivos Premium, un solo recurso compartido puede lograr 100 000 IOPS y un único archivo puede escalar verticalmente hasta 5000 IOPS. Por lo tanto, si tiene tres archivos en un recurso compartido, el número máximo de IOPS que puede obtener de ese recurso compartido es de 15 000.
 
-Por ejemplo:  Un solo recurso compartido puede lograr 100.000 IOPS y un único archivo puede escalar hasta 5000 e/s por segundo. Por ejemplo, si tiene tres archivos en un recurso compartido, el número máximo de IOPS puede obtener de ese recurso compartido es 15.000.
+### <a name="standard-storage-account-limits"></a>Límites de la cuenta de almacenamiento estándar
 
-### <a name="premium-filestorage-account-limits"></a>Límites de la cuenta de Premium FileStorage
+Consulte la sección [Objetivos de escalabilidad de la cuenta de almacenamiento Azure](#azure-storage-account-scale-targets) para conocer estos límites.
 
-Recursos compartidos de archivos Premium se aprovisionan en una cuenta de almacenamiento especial denominada **filestorage (versión preliminar)**. Esta cuenta tiene objetivos de escalabilidad ligeramente diferente que la cuenta de almacenamiento utilizada para recursos compartidos de archivos estándar. Para los objetivos de escalabilidad de cuenta de almacenamiento, consulte la tabla en la [objetivos de escalabilidad de cuenta de Azure storage](#azure-storage-account-scale-targets) sección.
+### <a name="premium-filestorage-account-limits"></a>Límites de la cuenta FileStorage Premium
+
+[!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> Límites de la cuenta de almacenamiento se aplican a todos los recursos compartidos. El escalado hasta el número máximo de las cuentas de almacenamiento solo es factible si hay solo un recurso compartido por cuenta de almacenamiento.
+> Los límites de la cuenta de almacenamiento se aplican a todos los recursos compartidos. El escalado vertical hasta el número máximo de cuentas FileStorage solo se puede lograr si hay un solo recurso compartido por cuenta FileStorage.
+
+### <a name="file-share-and-file-scale-targets"></a>Objetivos de escalabilidad de archivos y recursos compartido de archivos
+
+> [!NOTE]
+> Los recursos compartidos de archivos estándar de más de 5 TiB están en versión preliminar y tienen ciertas limitaciones.
+> Para obtener una lista de las limitaciones y para incorporar a la versión preliminar de estos tamaños de recursos compartidos de archivos mayores, consulte la sección sobre [recursos compartidos de archivos estándar](storage-files-planning.md#standard-file-shares) de la Guía de planeamiento.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-file-sync-scale-targets"></a>Objetivos de escalabilidad de Azure File Sync
 
-Con Azure File Sync, hemos tratado de diseñar, en la medida de lo posible, un uso sin límites; sin embargo, no siempre es posible. La tabla siguiente indica los límites de nuestras pruebas y los objetivos que son límites estrictos realmente:
+Azure File Sync se ha diseñado con el objetivo de un uso sin límites, pero el uso sin límites no siempre es posible. La tabla siguiente indica los límites de las pruebas de Microsoft y también indica qué objetivos son límites estrictos:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -77,12 +87,12 @@ Para ayudarle a planear la implementación de cada una de las fases, a continuac
 | Aprovisionamiento inicial que se realiza una sola vez  |  |
 |-|-|
 | Número de objetos | 25 millones de objetos |
-| Tamaño del conjunto de datos| ~4.7 TiB |
-| Tamaño de archivo medio | ~ 200 KiB (archivo de mayor tamaño: 100 GiB) |
+| Tamaño del conjunto de datos| ~4,7 TiB |
+| Tamaño de archivo medio | ~200 KiB (archivo más grande: 100 GiB) |
 | Rendimiento de carga | 20 objetos por segundo |
 | Rendimiento de descarga de espacio de nombres* | 400 objetos por segundo |
 
-* Cuando se crea un nuevo punto de conexión de servidor, el agente de Azure File Sync no descarga nada del contenido del archivo. En primer lugar sincroniza el espacio de nombres completo y, después, desencadena la recuperación en segundo plano para descargar los archivos, ya sea en su totalidad o, si está habilitada la organización en niveles en la nube, la directiva de niveles en la nube establecida en el punto de conexión del servidor.
+\* Cuando se crea un nuevo punto de conexión de servidor, el agente de Azure File Sync no descarga nada del contenido del archivo. En primer lugar sincroniza el espacio de nombres completo y, después, desencadena la recuperación en segundo plano para descargar los archivos, ya sea en su totalidad o, si está habilitada la organización en niveles en la nube, la directiva de niveles en la nube establecida en el punto de conexión del servidor.
 
 | Sincronización en curso  |   |
 |-|--|
@@ -102,7 +112,7 @@ Como guía general para la implementación, debería tener varios factores en cu
 - El rendimiento de los objetos se escala aproximadamente en proporción al número de grupos de sincronización del servidor. La división de los datos en varios grupos de sincronización en un servidor mejora el rendimiento, que también está limitado por el servidor y la red.
 - El rendimiento de los objetos es inversamente proporcional al rendimiento de MiB por segundo. En archivos pequeños, el rendimiento será mayor en cuanto al número de objetos procesados por segundo, pero el rendimiento en MiB por segundo será inferior. Por el contrario, en archivos grandes, se procesarán menos objetos por segundo, pero el rendimiento en MiB por segundo será superior. El rendimiento en MiB por segundo está limitado por los destinos del escalado de Azure Files.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
 - [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)

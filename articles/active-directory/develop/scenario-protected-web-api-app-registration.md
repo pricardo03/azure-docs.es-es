@@ -1,6 +1,6 @@
 ---
-title: API de web - registro de la aplicación protegida | Azure
-description: Obtenga información sobre cómo crear una API Web protegida y la información que necesita registrar la aplicación.
+title: 'API web protegida: registro de aplicaciones | Azure'
+description: Obtenga información sobre cómo crear una API web protegida y la información que necesita para registrar la aplicación.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,73 +16,127 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59af4e20c7fe838f7c725b47e45968941fa85cb7
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: e4622cffedc159ce85166eafe571ccb26c2c1b4d
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254051"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536862"
 ---
-# <a name="protected-web-api---app-registration"></a>API - registro de la aplicación web protegida
+# <a name="protected-web-api-app-registration"></a>API web protegida: Registro de aplicación
 
-En este artículo se explica los detalles de registro de aplicación para una API web protegida.
+En este artículo se explican los detalles específicos de registro de la aplicación para una API web protegida.
 
-Consulte [Quickstart: Registrar una aplicación con la plataforma Microsoft identity](quickstart-register-app.md) para conocer los pasos comunes sobre cómo registrar la aplicación.
+Consulte [Quickstart: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md) para obtener información sobre los pasos comunes para registrar una aplicación.
 
-## <a name="accepted-token-version"></a>Versión del token aceptado
+## <a name="accepted-token-version"></a>Versión del token aceptada
 
-El punto de conexión de plataforma de identidad de Microsoft puede emitir dos tipos de tokens: v1.0 tokens y los tokens de v2.0. Puede aprender más acerca de estos tokens en [tokens de acceso](access-tokens.md). Depende de la versión del token aceptada el **admite tipos de cuenta** eligió al crear la aplicación:
+El punto de conexión de la plataforma de identidad de Microsoft puede emitir dos tipos de tokens: v1.0 y v2.0. Para obtener más información sobre estos tokens, consulte [Tokens de acceso](access-tokens.md). La versión del token aceptada depende de los **Tipos de cuentas admitidos** que eligió al crear la aplicación:
 
-- Si el valor de **admite tipos de cuenta** es **cuentas en cualquier directorio de organización y cuentas personales de Microsoft (por ejemplo, Skype, Xbox, Outlook.com)** , la versión del token aceptada será v2.0.
+- Si el valor de **tipos de cuentas admitidos** es **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio organizativo y cuentas Microsoft personales) como, por ejemplo, Skype, Xbox y Outlook.com, la versión del token será v2.0.
 - En caso contrario, la versión del token aceptada será v1.0.
 
-Una vez que haya creado la aplicación, puede cambiar la versión del token aceptada siguiendo estos pasos:
+Después de crear la aplicación, puede determinar o cambiar la versión del token aceptada siguiendo estos pasos:
 
-1. En el portal de Azure, seleccione la aplicación y, a continuación, seleccione el **manifiesto** para la aplicación.
-2. En el manifiesto, busque **"accessTokenAcceptedVersion"** y verá que su valor es **2**. Esta propiedad permite a Azure AD saber que la API web acepte tokens de v2.0. Si es **null**, la versión del token aceptada será v1.0.
-3. Seleccione **Guardar**.
+1. En Azure Portal, seleccione la aplicación y, a continuación, seleccione el **Manifiesto** para la aplicación.
+2. En el manifiesto, busque **"accessTokenAcceptedVersion"** . Observe que su valor es **2**. Esta propiedad especifica a Azure Active Directory (Azure AD) que la API web acepta tokens v2.0. Si el valor es **null**, la versión del token aceptada es v1.0.
+3. Si ha cambiado la versión de token, seleccione **Guardar**.
 
 > [!NOTE]
-> Depende de la API web para decidir qué versión de token (v1.0 o v2.0) acepta. Cuando los clientes solicitan un token para su API web mediante el punto de conexión de v2.0 de plataforma de Microsoft identity, obtendrá un token que indica qué versión está aceptada por la API web.
+> La API web especifica qué versión del token (v1.0 o v2.0) acepta. Cuando los clientes solicitan un token para la API web desde el punto de conexión de la plataforma de identidad de Microsoft v2.0, reciben un token que indica qué versión acepta la API web.
 
-## <a name="no-redirect-uri"></a>Ningún URI de redireccionamiento
+## <a name="no-redirect-uri"></a>URI sin redireccionamiento
 
-Las API Web no es necesario registrar un URI de redirección, como no es de ningún usuario ha iniciado sesión forma interactiva.
+Las API web no necesitan registrar ningún URI de redireccionamiento porque no hay ningún usuario con la sesión iniciada de forma interactiva.
 
 ## <a name="expose-an-api"></a>Exponer una API
 
 Otra configuración específica para las API web es la API expuesta y los ámbitos expuestos.
 
-### <a name="resource-uri-and-scopes"></a>URI de recurso y ámbitos
+### <a name="resource-uri-and-scopes"></a>Ámbitos y URI de recursos
 
-Los ámbitos son normalmente del formulario `resourceURI/scopeName`. Para Microsoft Graph, los ámbitos tienen métodos abreviados como `User.Read`, pero esta cadena es simplemente un acceso directo para `https://graph.microsoft.com/user.read`.
+Normalmente, los ámbitos tienen el formato `resourceURI/scopeName`. Para Microsoft Graph, los ámbitos tienen accesos directos, como `User.Read`. Esta cadena es un acceso directo para `https://graph.microsoft.com/user.read`.
 
-Durante el registro de aplicación, necesita definir los parámetros siguientes:
+Durante el registro de la aplicación, debe definir estos parámetros:
 
-- Un recurso de URI: de forma predeterminada, el portal de registro de aplicación recomienda usar `api://{clientId}`. Este URI de recurso es único, pero no es humano legible. Puede cambiarlo, pero asegúrese de que sea único.
-- Uno o varios ámbitos
+- URI del recurso. De forma predeterminada, el portal de registro de aplicación recomienda utilizar `api://{clientId}`. Este URI de recurso es único, pero los humanos no lo pueden leer. Puede cambiarlo, pero asegúrese de que el nuevo valor sea único.
+- Uno o varios *ámbitos*. (Para las aplicaciones cliente, se mostrarán como *permisos delegados* para su API web).
+- Uno o varios *roles de aplicación*. (Para las aplicaciones cliente, se mostrarán como *permisos de aplicación* para su API web).
 
-Los ámbitos también se muestran en la pantalla de consentimiento que se presenta a los usuarios finales que usen su aplicación. Por lo tanto, deberá proporcionar las cadenas correspondientes que describen el ámbito:
+Los ámbitos también se muestran en la pantalla de consentimiento que se presenta a los usuarios finales de la aplicación. Por lo que deberá proporcionar las cadenas correspondientes que describen el ámbito:
 
-- Tal como lo ve el usuario final
-- Tal como se muestra por el Administrador de inquilinos, que puede conceder consentimiento del administrador
+- Como las ve el usuario final.
+- Como las ve el administrador del inquilino, que puede otorgar el consentimiento del administrador.
 
-### <a name="how-to-expose-the-api"></a>Cómo exponer la API
+### <a name="exposing-delegated-permissions-scopes"></a>Exponer permisos delegados (ámbitos)
 
-1. Seleccione el **exponer una API** sección en el registro de aplicación, y:
-   1. Seleccione **Agregar un ámbito**.
-   1. Acepte el URI de Id. de aplicación propuesto (api :// {clientId}) seleccionando **guardar y continuar**.
-   1. Escriba los siguientes parámetros:
-      - Para **nombre de ámbito**, utilice `access_as_user`.
-      - Para **quién puede conceder**, asegúrese de que el **administradores y usuarios** está seleccionada.
-      - En **nombre para mostrar del consentimiento del administrador**, tipo `Access TodoListService as a user`.
-      - En **descripción del consentimiento del administrador**, tipo `Accesses the TodoListService Web API as a user`.
-      - En **nombre para mostrar del consentimiento del usuario**, tipo `Access TodoListService as a user`.
-      - En **descripción del consentimiento del usuario**, tipo `Accesses the TodoListService Web API as a user`.
-      - Mantener **estado** establecido en **habilitado**.
+1. Seleccione la sección **Exponer una API** en el registro de aplicación.
+1. Seleccione **Agregar un ámbito**.
+1. Si se le pide, acepte el URI de identificador de aplicación propuesto (`api://{clientId}`) seleccionando **Guardar y continuar**.
+1. Especifique estos parámetros:
+      - Para **Nombre de ámbito**, use **access_as_user**.
+      - Para **¿Quién puede dar el consentimiento?** , asegúrese de que esté seleccionada la opción **Administradores y usuarios**.
+      - En **Nombre para mostrar del consentimiento del administrador**, escriba **Access TodoListService as a user**.
+      - En **Descripción del consentimiento del administrador**, escriba **Accesses the TodoListService Web API as a user**.
+      - En **Nombre para mostrar del consentimiento del usuario** , escriba **Access TodoListService as a user**.
+      - En **Descripción del consentimiento del administrador**, escriba **Accesses the TodoListService Web API as a user**.
+      - Deje el **Estado** establecido en **Habilitado**.
       - Seleccione **Agregar ámbito**.
+
+### <a name="if-your-web-api-is-called-by-a-daemon-app"></a>Si una aplicación de demonio llama a la API web
+
+En esta sección, aprenderá a registrar su API web protegida para que las aplicaciones de demonio puedan invocarla de forma segura.
+
+- Deberá exponer los *permisos de aplicación*. Solo declarará permisos de aplicación porque las aplicaciones de demonio no interactúan con los usuarios, de modo que los permisos delegados no tendrían sentido.
+- Los administradores de inquilinos pueden requerir que Azure Active Directory (Azure AD) emita tokens para la API web solo para las aplicaciones que se han registrado para tener acceso a uno de los permisos de aplicación de la API web.
+
+#### <a name="exposing-application-permissions-app-roles"></a>Exposición de permisos de aplicación (roles de aplicación)
+
+Para exponer permisos de aplicación, debe editar el manifiesto.
+
+1. En el registro de aplicación para la aplicación, seleccione **Manifiesto**.
+1. Localice la opción de configuración `appRoles` y agregue uno o varios roles de aplicación para editar el manifiesto. En el siguiente bloque de JSON de ejemplo se proporciona la definición del rol. Deje `allowedMemberTypes` establecido solo en `"Application"`. Asegúrese de que `id` es un GUID único y de que `displayName` y `value` no contienen espacios.
+1. Guarde el manifiesto.
+
+En el ejemplo siguiente se muestra el contenido de `appRoles`. (`id` puede ser cualquier GUID único).
+
+```JSon
+"appRoles": [
+    {
+    "allowedMemberTypes": [ "Application" ],
+    "description": "Accesses the TodoListService-Cert as an application.",
+    "displayName": "access_as_application",
+    "id": "ccf784a6-fd0c-45f2-9c08-2f9d162a0628",
+    "isEnabled": true,
+    "lang": null,
+    "origin": "Application",
+    "value": "access_as_application"
+    }
+],
+```
+
+#### <a name="ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients"></a>Asegurarse de que Azure AD emite tokens para la API web solo para los clientes permitidos
+
+La API web comprueba el rol de aplicación. Es la manera que tiene el desarrollador de exponer los permisos de aplicación. Pero también puede configurar Azure AD para emitir un token para la API web solo para las aplicaciones que ha aprobado el administrador de inquilinos para que accedan a la API. Para agregar esta seguridad mejorada:
+
+1. En la página **Introducción** de la aplicación para el registro de la aplicación, seleccione el vínculo con el nombre de la aplicación en **Aplicación administrada en directorio local**. Es posible que el título de este campo se muestre truncado. Por ejemplo, puede que vea **Aplicación administrada en...**
+
+   > [!NOTE]
+   >
+   > Al seleccionar este vínculo, se le dirigirá a la página de **Introducción a la aplicación empresarial** asociada con la entidad de servicio para la aplicación en el inquilino donde la creó. Para volver a la página de registro de la aplicación, use el botón Atrás del explorador.
+
+1. Seleccione la página **Propiedades** de la sección **Administrar** de las páginas de la aplicación empresarial.
+1. Para que Azure AD permita el acceso a la API web solo desde determinados clientes, establezca **¿Asignación de usuarios?** en **Sí**.
+
+   > [!IMPORTANT]
+   >
+   > Si establece la opción **¿Asignación de usuarios?**  en **Sí**, Azure AD comprobará las asignaciones de roles de aplicación de los clientes cuando soliciten un token de acceso para la API web. Si el cliente no está asignado a ningún rol de aplicación, Azure AD devolverá el error `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`.
+   >
+   > Si define **¿Asignación de usuarios?** como **No**, *Azure AD no comprobará las asignaciones de rol de la aplicación cuando un cliente solicite un token de acceso para la API web*. Cualquier cliente de demonio (es decir, cualquier cliente que use el flujo de credenciales de cliente) podrá obtener un token de acceso para la API, simplemente, especificando su público. Cualquier aplicación podrá acceder a la API sin tener que solicitar permiso. Pero la API web siempre puede, como se explica en la sección anterior, comprobar que la aplicación tiene el rol correcto (autorizado por el administrador de inquilinos). Para realizar esta verificación, la API valida que el token de acceso tiene una notificación de roles con un valor correcto. (En nuestro caso, el valor es `access_as_application`).
+
+1. Seleccione **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Configuración de la aplicación de código](scenario-protected-web-api-app-configuration.md)
+> [Configuración del código de la aplicación](scenario-protected-web-api-app-configuration.md)

@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705502"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551388"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar)
 
 Con esta guía detallada aprenderá a personalizar las valoraciones de configuración de seguridad del sistema operativo en Azure Security Center.
+
+> [!NOTE]
+> La capacidad de personalizar las configuraciones de seguridad del sistema operativo se retirará el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
 
 ## <a name="what-are-os-security-configurations"></a>¿Cuáles son las configuraciones de seguridad del sistema operativo?
 
@@ -53,13 +56,11 @@ Para personalizar la configuración de seguridad predeterminada del sistema oper
 
 1.  Abra el panel **Security Center**.
 
-2.  En el panel izquierdo, seleccione **Directiva de seguridad**.      
+2.  Seleccione **Pricing & settings** (Precios y configuración) en el panel izquierdo.
 
     ![Lista de directivas de seguridad](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  En la fila de la suscripción que desea personalizar, haga clic en **Editar la configuración**.
-
-4. Seleccione **Edit security configurations** (Editar configuraciones de seguridad).  
+4. Seleccione la suscripción correspondiente y elija **Edit security configurations** (Editar configuraciones de seguridad).  
 
     ![Ventana "Edit security configurations" (Editar configuraciones de seguridad)](media/security-center-customize-os-security-config/blade.png)
 
@@ -112,7 +113,7 @@ Cada categoría tiene su propio conjunto de atributos. Puede cambiar los siguien
 
     - Lista de grupos de usuarios permitidos, por ejemplo: *Administrators*, *Backup Operators*
 
--   **state**: la cadena puede contener las opciones *Disabled* o *Enabled*. Esta versión, la cadena distingue mayúsculas de minúsculas.
+-   **state**: la cadena puede contener las opciones *Disabled* o *Enabled*. En esta versión, la cadena distingue mayúsculas de minúsculas.
 
 Estos son los únicos campos que se pueden configurar. Si se infringe el formato o el tamaño de archivo, no se podrá guardar el cambio. Recibirá un error que indica que necesita cargar un archivo de configuración JSON válido.
 
@@ -275,7 +276,7 @@ Todos los posibles errores se mencionan en la siguiente tabla:
 
 | **Error**                                | **Descripción**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfigurationSchemaVersionError  | La propiedad *schemaVersion* no es válida o está vacía. El valor se debe establecer en *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | La propiedad *schemaVersion* no es válida o está vacía. El valor se debe establecer en *{0}* .                                                         |
 | BaselineInvalidStringError               | La propiedad *{0}* no puede contener *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | La lista de reglas de configuración de línea de base contiene una regla con el valor *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | El CCE-ID *{0}* no es único.                                                                                                                  |
@@ -293,9 +294,9 @@ Todos los posibles errores se mencionan en la siguiente tabla:
 | BaselineRulesetAdded                     | No se encontró ningún conjunto de reglas con el identificador *{0}* en la configuración predeterminada. No se puede agregar el conjunto de reglas.                                               |
 | BaselineRulesetIdMustBeUnique            | El conjunto de reglas de línea de base determinado *{0}* debe ser único.                                                                                           |
 | BaselineRulesetNotFound                  | No se encontró el conjunto de reglas con el identificador *{0}* y el nombre *{1}* en la configuración establecida. No se puede eliminar el conjunto de reglas.                                |
-| BaselineRuleSourceNotMatch               | Ya hay una regla definida con el identificador *{0}*.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | El tipo de regla predeterminado es *{0}*.                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | El tipo real de la regla es *{0}*, pero la propiedad *ruleType* es *{1}*.                                                                          |
+| BaselineRuleSourceNotMatch               | La regla con el identificador *{0}* ya está definida.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | El tipo de regla predeterminado es *{0}* .                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | El tipo real de la regla es *{0}* , pero la propiedad *ruleType* es *{1}* .                                                                          |
 | BaselineRuleUnpermittedChangesError      | Solo se pueden cambiar las propiedades *expectedValue* y *state*.                                                                       |
 | BaselineTooManyRules                     | El número máximo permitido de reglas personalizadas es de {0}. La configuración establecida contiene reglas de {1}, reglas predeterminadas de {2} y reglas personalizadas de {3}. |
 | ErrorNoConfigurationStatus               | No se encontró ningún estado de configuración. Defina el estado de configuración que desea usar: *Default* o *Custom*.                                    |

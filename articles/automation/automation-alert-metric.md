@@ -3,17 +3,17 @@ title: Supervisar runbooks de Azure Automation con alertas de métricas
 description: En este artículo se indica cómo supervisar runbooks de Azure Automation en función de las métricas
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 142fb84624c2b0d3d92868aae5794792ed90b577
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119901"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478023"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Supervisión de runbooks con alertas de métricas
 
@@ -38,7 +38,7 @@ En Azure Portal, vaya a la cuenta de Automation. En **Supervisión**, seleccione
    Si quiere enviar una alerta sobre un estado o un runbook que no se muestran en la lista desplegable, haga clic en **\+** junto a la dimensión. Esta acción abre un cuadro de diálogo que le permite escribir un valor personalizado que no se haya emitido recientemente para esa dimensión. Si escribe un valor que no existe para una propiedad, no se activará la alerta.
 
    > [!NOTE]
-   > Si no aplica un nombre para el **RunbookName** de dimensión, si existen los runbooks que cumplen los criterios de estado, que incluye runbooks oculta del sistema, recibirá una alerta.
+   > Si no aplica un nombre para la dimensión **RunbookName** y existen runbooks que cumplen los criterios de estado, incluidos runbooks ocultos del sistema, recibirá una alerta.
 
 3. En **Lógica de alerta**, defina la condición y el umbral de la alerta. Debajo se muestra una vista previa de la condición definida.
 

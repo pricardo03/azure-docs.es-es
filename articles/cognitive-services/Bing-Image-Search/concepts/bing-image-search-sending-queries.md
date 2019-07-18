@@ -1,5 +1,5 @@
 ---
-title: 'Envío de consultas de imágenes: Bing Image Search API'
+title: 'Personalizar y sugerir las consultas de búsqueda de imagen: API Bing Image Search'
 titleSuffix: Azure Cognitive Services
 description: Información acerca de la personalización de las consultas de búsqueda que se envían a Bing Image Search API.
 services: cognitive-services
@@ -9,22 +9,20 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 32ced1d06a10f33e9d71ef09ba51d22e9e406f73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384397"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542755"
 ---
-# <a name="send-queries-to-the-bing-image-search-api"></a>Envío de consultas a Bing Image Search API
+# <a name="customize-and-suggest-image-search-queries"></a>Personalizar y sugerir consultas de búsqueda de imagen
 
-Bing Image Search API proporciona una experiencia similar a Bing.com/Images. Puede usarla para enviar una consulta de búsqueda a Bing y obtener una lista de imágenes pertinentes.
+Use este artículo para obtener información sobre cómo personalizar las consultas y sugerir términos de búsqueda para enviarlos a la API Bing Image Search.
 
-## <a name="use-and-suggest-search-terms"></a>Uso y sugerencia de los términos de búsqueda
-
-Después de escribir un término de búsqueda, codifique el término en formato de URL antes de establecer el parámetro de consulta [**q**](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query). Por ejemplo, si escribe *sailing dinghies*, establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
+## <a name="suggest-search-terms"></a>Sugerir términos de búsqueda
 
 Si la aplicación tiene un cuadro de búsqueda donde se escriben los términos de búsqueda, puede usar [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) para mejorar la experiencia. La API puede mostrar los términos de búsqueda sugeridos en tiempo real. La API devuelve sugerencias de cadenas de consulta basadas en términos de búsqueda parciales y Cognitive Services.
 

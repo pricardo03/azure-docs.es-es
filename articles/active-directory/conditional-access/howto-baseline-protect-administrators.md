@@ -1,6 +1,6 @@
 ---
-title: Directiva de línea base exigencia de MFA para que los administradores - Azure Active Directory
-description: Directiva de acceso condicional para requerir autenticación multifactor para administradores
+title: 'Directiva de base de referencia Requerir MFA para administradores: Azure Active Directory'
+description: Directiva de acceso condicional para requerir autenticación multifactor para los administradores
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,71 +11,60 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1ce48126c3e8867ac7f2696d8cf7db992a9a60a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.openlocfilehash: 4474283b9a233e39497cd05f0f04ea0984f02401
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003287"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560949"
 ---
-# <a name="baseline-policy-require-mfa-for-admins"></a>Directiva de línea de base: Requerir MFA para administradores
+# <a name="baseline-policy-require-mfa-for-admins-preview"></a>Directiva de base de referencia: Requerir MFA para administradores (versión preliminar)
 
 Los usuarios con acceso a cuentas con privilegios tienen acceso sin restricciones a su entorno. Dadas las facultades de estas cuentas, debe tratarlas con un cuidado especial. Un método común para mejorar la protección de las cuentas con privilegios es exigir una forma de verificación de la cuenta más estricta cuando se emplean para iniciar sesión. En Azure Active Directory, puede exigir MFA (Multi-Factor Authentication) para conseguir una verificación de cuentas más estricta.
 
-**Requerir MFA para que los administradores** es un [directiva de línea base](concept-baseline-protection.md) que requiere MFA cada vez que uno de los siguientes roles con privilegios de administrador inicia sesión:
+**Requerir MFA para administradores (versión preliminar)**  es un [directiva de base de referencia](concept-baseline-protection.md) que requiere MFA cada vez que uno de los siguientes roles de administrador con privilegios inicia sesión:
 
 * Administrador global
 * Administrador de SharePoint
 * Administrador de Exchange
 * Administrador de acceso condicional
 * Administrador de seguridad
-* Administrador de soporte técnico o administrador de contraseñas
+* Administrador del departamento de soporte técnico/administrador de contraseñas
 * Administrador de facturación
 * Administrador de usuarios
 
-Tras la habilitación de la exigencia de MFA para los administradores directiva, los roles de nueve administrador anterior deberán registrarse en MFA mediante la aplicación Authenticator. Una vez completado el registro de MFA, los administradores deberán realizar MFA cada vez que inicio de sesión único.
-
-![Requerir MFA para la directiva de línea de base de los administradores](./media/howto-baseline-protect-administrators/baseline-policy-require-mfa-for-admins.png)
+Tras la habilitación de la directiva Requerir MFA para administradores directiva, los nueve roles de administrador anteriores deberán registrarse en MFA mediante la aplicación Authenticator. Una vez completado el registro de MFA, los administradores deberán ejecutar MFA cada vez que inicien sesión.
 
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 
-Dado que el **exigencia de MFA para que los administradores** directiva se aplica a todos los administradores críticos, varias consideraciones deben realizarse para garantizar una implementación sin problemas. Estas consideraciones son la identificación de usuarios y entidades de servicio de Azure AD que no se puede o no se debe realizar la MFA, así como las aplicaciones y los clientes usados por la organización que no admiten la autenticación moderna.
+Dado que la directiva **Requerir MFA para administradores (versión preliminar)** se aplica a todos los administradores críticos, deben realizarse varias consideraciones para garantizar una implementación sin problemas. Estas consideraciones incluyen la identificación de usuarios y entidades de servicio de Azure AD que no pueden o no deben ejecutar MFA, así como aplicaciones y clientes que se usan en la organización y que no admiten la autenticación moderna.
 
 ### <a name="legacy-protocols"></a>Protocolos heredados
 
-Protocolos de autenticación heredados (IMAP, SMTP, POP3, etc.) se usan los clientes de correo para realizar solicitudes de autenticación. Estos protocolos no son compatibles con MFA. La mayoría de las cuentas comprometidas vistos por Microsoft está provocada por los actores no válidos la realización de ataques contra los protocolos heredados intenta omitir MFA. Para asegurarse de que se requiere MFA al iniciar sesión en una cuenta administrativa y actores no válidos no pueden omitir MFA, esta directiva bloquea todas las solicitudes de autenticación realizadas a las cuentas de administrador de protocolos heredados.
+Los clientes de correo usan los protocolos de autenticación heredados (IMAP, SMTP, POP3, etc.) para realizar solicitudes de autenticación. Estos protocolos no son compatibles con MFA. La mayoría de las cuentas en riesgo que ha encontrado Microsoft se deben a que los delincuentes realizan ataques contra los protocolos heredados al intentar omitir MFA. Para asegurarse de que se requiere MFA al iniciar sesión en una cuenta administrativa y que los delincuentes no pueden omitir MFA, esta directiva bloquea todas las solicitudes de autenticación realizadas a las cuentas de administrador de protocolos heredados.
 
 > [!WARNING]
-> Antes de habilitar esta directiva, asegúrese de que los administradores no usa protocolos de autenticación heredados. Consulte el artículo [Cómo: Autenticación heredada de bloque en Azure AD con el acceso condicional](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) para obtener más información.
+> Antes de habilitar esta directiva, asegúrese de que los administradores no usan protocolos de autenticación heredados. Consulte el artículo sobre [cómo bloquear la autenticación heredada a Azure AD con acceso condicional](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) para obtener más información.
 
-### <a name="user-exclusions"></a>Exclusiones de usuario
+## <a name="enable-the-baseline-policy"></a>Habilitar la directiva de base de referencia
 
-Esta directiva de línea de base proporciona la opción de excluir a los usuarios. Antes de habilitar la directiva para el inquilino, se recomienda excluir las cuentas siguientes:
-
-* **Acceso de emergencia** o **emergencia** cuentas para evitar el bloqueo de cuentas de todos los inquilinos. En el improbable caso de que todos los administradores quedan bloqueados fuera de su inquilino, la cuenta administrativa de acceso de emergencia puede usarse para iniciar sesión en los pasos de inquilinos take para recuperar el acceso.
-   * Se puede encontrar más información en el artículo, [administrar cuentas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Las cuentas de servicio** y **principios de servicio**, como la cuenta Azure AD Connect Sync. Cuentas de servicio son cuentas no interactivas que no están asociadas a un usuario concreto. Normalmente se utilizan por servicios back-end y permitir el acceso mediante programación a las aplicaciones. Puesto que no se puede completar mediante programación MFA, se deben excluir las cuentas de servicio.
-   * Si su organización tiene estas cuentas en uso en scripts o código, considere la posibilidad de reemplazarlos con [administra identidades](../managed-identities-azure-resources/overview.md). Como solución temporal, puede excluir estas cuentas específicas de la directiva de línea de base.
-* Usuarios que no tiene o no podrá usar un Smartphone.
-   * Esta directiva requiere que los administradores deben registrarse en MFA mediante la aplicación Microsoft Authenticator.
-
-## <a name="enable-the-baseline-policy"></a>Habilitar la directiva de línea base
-
-La directiva **directiva de línea base: Requerir MFA para que los administradores** viene previamente configurada y se mostrarán en la parte superior cuando vaya a la hoja de acceso condicional en Azure portal.
+La **Directiva de base de referencia: Requerir MFA para administradores (versión preliminar)** viene previamente configurada y se mostrará al principio cuando navegue a la hoja Acceso condicional en Azure Portal.
 
 Para habilitar esta directiva y proteger a los administradores:
 
-1. Inicie sesión en el **portal Azure** como administrador global, Administrador de seguridad o administrador de acceso condicional.
-1. Vaya a **Azure Active Directory** > **acceso condicional**.
-1. En la lista de directivas, seleccione **directiva de línea base: Requerir MFA para que los administradores**.
-1. Establecer **Habilitar directiva** a **usar la directiva inmediatamente**.
-1. Agregar exclusiones de cualquier usuario haciendo clic en **usuarios** > **Seleccionar usuarios excluidos** y elegir los usuarios que deben excluirse. Haga clic en **seleccione** , a continuación, **realiza**.
-1. Haga clic en **guardar**.
+1. Inicie sesión en  **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Vaya a **Azure Active Directory** > **Acceso condicional**.
+1. En la lista de directivas, seleccione **Directiva de base de referencia: Requerir MFA para administradores (versión preliminar)** .
+1. Establezca **Habilitar directiva** en **Usar la directiva inmediatamente**.
+1. Haga clic en **Guardar**.
+
+> [!WARNING]
+> Existía una opción **Habilitar automáticamente la directiva en el futuro** cuando esta directiva estaba en versión preliminar. Se ha eliminado esta opción para minimizar el impacto repentino para el usuario. Si seleccionó esta opción cuando estaba disponible, ahora estará seleccionada automáticamente la opción **No usar la directiva**. Si desean usar esta directiva de base de referencia, consulte los pasos anteriores para habilitarla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte:
 
-* [Directivas de protección de acceso condicional básicas](concept-baseline-protection.md)
+* [Directivas de la protección de base de referencia de acceso condicional](concept-baseline-protection.md)
 * [Cinco pasos para asegurar su infraestructura de identidad](../../security/azure-ad-secure-steps.md)
-* [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)
+* [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)

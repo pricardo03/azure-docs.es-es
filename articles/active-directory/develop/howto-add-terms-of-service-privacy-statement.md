@@ -1,5 +1,5 @@
 ---
-title: Condiciones de servicio y declaración de privacidad de aplicaciones | Azure
+title: Condiciones del servicio y declaración de privacidad para aplicaciones | Azure
 description: Aprenda a configurar las condiciones del servicio y la declaración de privacidad de las aplicaciones registradas para usar Azure AD.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: b0a01b50573405964b09339d03e84c62dbdd8582
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235320"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482867"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedimientos para: Configurar las condiciones de servicio y declaración de privacidad de una aplicación
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedimientos para: Configuración de las condiciones del servicio y a la declaración de privacidad para una aplicación
 
 Los desarrolladores que crean y administran las aplicaciones que se integran con Azure Active Directory (Azure AD) y cuentas Microsoft deben incluir vínculos a las declaraciones del servicio y la declaración de privacidad de la aplicación. Las condiciones del servicio y la declaración de privacidad se exponen a los usuarios mediante la experiencia de consentimiento del usuario. Ayudan a los usuarios a saber que pueden confiar en la aplicación. Las condiciones del servicio y la declaración de privacidad son especialmente importantes para las aplicaciones multiinquilino orientadas al usuario: aplicaciones utilizadas por varios directorios o que están disponibles para cualquier cuenta Microsoft.
 
@@ -60,16 +60,16 @@ Cuando las condiciones del servicio y la declaración de privacidad estén prepa
 * [Con JSON del objeto de aplicación](#app-object-json)
 * [Con la versión beta de la API REST MSGraph](#msgraph-beta-rest-api)
 
-### <a name="azure-portal"></a>Mediante el portal de Azure
-Siga estos pasos en el portal de Azure.
+### <a name="azure-portal"></a>Mediante Azure Portal
+Siga estos pasos en Azure Portal.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Navegue hasta la sección **Registros de aplicaciones** y seleccione la aplicación.
-3. Abra el **Branding** panel.
+3. Abra el panel **Personalización de marca**.
 4. Rellene los campos **URL de las condiciones del servicio** y **URL de la declaración de privacidad**.
 5. Guarde los cambios.
 
-    ![Sección de propiedades de aplicación con URL de las condiciones del servicio y de la declaración de privacidad](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Las propiedades de la aplicación incluyen las direcciones URL de las condiciones del servicio y de la declaración de privacidad.](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Con JSON del objeto de aplicación
 

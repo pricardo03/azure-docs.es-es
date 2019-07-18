@@ -4,7 +4,7 @@ description: Aprenda a habilitar InfiniBand con SR-IOV.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,27 +12,26 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 81acb804ed2ebb9e88bc7d8281a7fa52359d4455
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e28627359f339a3bf818a15d6a5c8e456fb554a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810088"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797524"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>Habilitación de InfiniBand con SR-IOV
-
 
 La manera más sencilla y recomendada de configurar una imagen de máquina virtual personalizada con InfiniBand (IB) es agregar la extensión de máquina virtual InfiniBandDriverLinux o InfiniBandDriverWindows a la implementación.
 Aprenda a usar estas extensiones de máquina virtual con [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) y [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
-Para configurar manualmente InfiniBand en máquinas virtuales con SR-IOV habilitado (actualmente, las series HB y HC), siga estos pasos. Estos pasos son solo para RHEL/CentOS. En el caso de Ubuntu (16.04 y 18.04) y SLES (12 SP4 y 15), los controladores integrados funcionan bien. Para Ubuntu, 
-
+Para configurar manualmente InfiniBand en máquinas virtuales con SR-IOV habilitado (actualmente, las series HB y HC), siga estos pasos. Estos pasos son solo para RHEL/CentOS. En el caso de Ubuntu (16.04 y 18.04) y SLES (12 SP4 y 15), los controladores integrados funcionan bien.
 
 ## <a name="manually-install-ofed"></a>Instalación manual de OFED
 
-Instale los controladores más recientes de MLNX_OFED para ConnectX-5 desde [Mellanox](http://www.mellanox.com/page/products_dyn?product_family=26).
+Instale los controladores más recientes de MLNX_OFED para ConnectX-5 desde [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26).
 
 Para RHEL/CentOS (el ejemplo siguiente es para la versión 7.6):
+
 ```bash
 sudo yum install -y kernel-devel python-devel
 sudo yum install -y redhat-rpm-config rpm-build gcc-gfortran gcc-c++
@@ -42,7 +41,19 @@ tar zxvf MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz
 sudo ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall --add-kernel-support
 ```
 
-Para Windows, descargue e instale los controladores WinOF-2 para ConnectX-5 de [Mellanox](http://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
+Para Windows, descargue e instale los controladores WinOF-2 para ConnectX-5 de [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
+
+## <a name="enable-ipoib"></a>Habilitar IPoIB
+
+```bash
+sudo sed -i 's/LOAD_EIPOIB=no/LOAD_EIPOIB=yes/g' /etc/infiniband/openib.conf
+sudo /etc/init.d/openibd restart
+if [ $? -eq 1 ]
+then
+  sudo modprobe -rv  ib_isert rpcrdma ib_srpt
+  sudo /etc/init.d/openibd restart
+fi
+```
 
 ## <a name="assign-an-ip-address"></a>Asignación de una dirección IP
 

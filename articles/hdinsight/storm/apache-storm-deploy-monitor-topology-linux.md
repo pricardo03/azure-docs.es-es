@@ -8,29 +8,25 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 8b27ad34bdc6fcbd7a1eb46515fbf33c96d02528
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: ac1a4c77589f4ef88c9ee862cb871b376ca8a0fe
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682892"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483848"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementación y administración de topologías de Apache Storm en Azure HDInsight 
 
 En este documento, aprenderá los aspectos básicos de administración y supervisión de las topologías de [Apache Storm](https://storm.apache.org/) que se ejecutan en clústeres de Storm en HDInsight.
 
-> [!IMPORTANT]  
-> Para realizar los pasos que se describen en este artículo se requiere un clúster de Storm basado en Linux en HDInsight. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
->
-
-
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Clúster de Storm basado en Linux en HDInsight**: consulte [Introducción a Apache Storm en HDInsight](apache-storm-tutorial-get-started-linux.md) para conocer los pasos para crear un clúster.
+* Un clúster de Apache Storm en HDInsight. Consulte el artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **Storm** como **Tipo de clúster**.
 
-* (Opcional) **Familiaridad con SSH y SCP**: Para más información, consulte [Uso SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (Opcional) **Visual Studio**: SDK de Azure 2.5.1 o versiones más recientes y Herramientas de Data Lake para Visual Studio. Para más información, consulte [Introducción al uso de Herramientas de Data Lake para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* (Opcional) Familiaridad con SSH y SCP: Para más información, consulte [Uso SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* (Opcional) Visual Studio: SDK de Azure 2.5.1 o versiones más recientes y Herramientas de Data Lake para Visual Studio. Para más información, consulte [Introducción al uso de Herramientas de Data Lake para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     Una de las siguientes versiones de Visual Studio:
 
@@ -58,7 +54,7 @@ Las herramientas de HDInsight puede utilizarse para enviar las topologías de C#
 
 3. En el cuadro de diálogo **Nuevo proyecto**, expanda **Instalado** > **Plantillas** y seleccione **HDInsight**. En la lista de plantillas, seleccione **Muestra de Storm**. En la parte inferior del cuadro de diálogo, escriba un nombre para la aplicación.
 
-    ![image](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![imagen](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
 
 4. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Submit to Storm on HDInsight** (Enviar a Storm en HDInsight).
 
@@ -159,7 +155,7 @@ El reequilibrio de una topología permite que el sistema revise el paralelismo d
 
 ## <a name="monitor-and-manage-storm-ui"></a>Supervisión y administración: UI de Storm
 
-La interfaz de usuario de Storm ofrece una interfaz web para trabajar con topologías en ejecución y se incluye en el clúster de HDInsight. Para ver la IU de Storm, use un explorador web para abrir **https://CLUSTERNAME.azurehdinsight.net/stormui**, donde **CLUSTERNAME** es el nombre del clúster.
+La interfaz de usuario de Storm ofrece una interfaz web para trabajar con topologías en ejecución y se incluye en el clúster de HDInsight. Para ver la IU de Storm, use un explorador web para abrir **https://CLUSTERNAME.azurehdinsight.net/stormui** , donde **CLUSTERNAME** es el nombre del clúster.
 
 > [!NOTE]  
 > Si se le pide que ofrezca un nombre de usuario y una contraseña, escriba el administrador de clústeres (admin) y la contraseña que usó al crear el clúster.
@@ -213,7 +209,7 @@ Para más información, consulte la [API REST de la interfaz de usuario de Apach
 
 ### <a name="base-uri"></a>URI base
 
-El URI base para la API de REST en clústeres de HDInsight basado en Linux está disponible en el nodo principal en **https:\//HEADNODEFQDN:8744/api/v1/**. El nombre de dominio del nodo principal se genera durante la creación de clúster y no es estático.
+El URI base de la API de REST en los clústeres de HDInsight basado en Linux está disponible en el nodo principal en **https:\//HEADNODEFQDN:8744/api/v1/** . El nombre de dominio del nodo principal se genera durante la creación de clúster y no es estático.
 
 Puede encontrar el nombre de dominio completo (FQDN) del nodo principal del clúster de varias maneras distintas:
 

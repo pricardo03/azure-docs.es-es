@@ -8,19 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66471446"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514575"
 ---
 # <a name="about-recovery-plans"></a>Acerca de los planes de recuperación
 
 En este artículo se describen los planes de recuperación en [Azure Site Recovery](site-recovery-overview.md).
 
-Un plan de recuperación agrupa máquinas en grupos de recuperación. Puede personalizar un plan agregándole un orden, instrucciones y tareas. Cuando un plan está definido, puede ejecutar una conmutación por error en él.
-
+Un plan de recuperación agrupa máquinas en grupos de recuperación. Puede personalizar un plan agregándole un orden, instrucciones y tareas. Cuando un plan está definido, puede ejecutar una conmutación por error en él.  Se puede hacer referencia a las máquinas en varios planes de recuperación; de este modo, los planes posteriores omitirán la implementación o inicio de la máquina si se implementó anteriormente a través de otro plan de recuperación.
 
 
 ## <a name="why-use-a-recovery-plan"></a>¿Por qué usar un plan de recuperación?
@@ -84,7 +83,7 @@ Puede usar un plan de recuperación para desencadenar una conmutación por error
 
 ## <a name="watch-the-video"></a>Visualización del vídeo
 
-Vea un vídeo de ejemplo rápido que muestra una conmutación por error de hacer clic para una aplicación de WordPress de dos niveles.
+Vea un vídeo de ejemplo rápido que muestra una conmutación por error al hacer clic para una aplicación de WordPress de dos niveles.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 

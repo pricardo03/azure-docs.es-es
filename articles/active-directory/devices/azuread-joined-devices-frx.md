@@ -1,28 +1,22 @@
 ---
 title: Unir un nuevo dispositivo Windows 10 con Azure AD durante la primera vista de Windows| Microsoft Docs
-description: Un tema en que se explica cómo los usuarios pueden configurar Azure AD Join durante la primera vista de Windows.
+description: Cómo los usuarios pueden configurar Azure AD Join durante la configuración rápida.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 02/03/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a79c5f89b14d15ffe4f3c582ac7e1e4cabbdc611
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 384157828e9c816b150e40bf3f09b74578c4a98e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521557"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482092"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Unir un nuevo dispositivo Windows 10 con Azure AD durante la primera vista de Windows
 
@@ -51,37 +45,28 @@ Además, si el inquilino es federado, el proveedor de identidad DEBE admitir pun
 
 **Para unir un dispositivo Windows 10 a Azure AD durante FRX:**
 
-
 1. Al activar el nuevo dispositivo e iniciar el proceso de configuración, debería ver el mensaje **Preparación** . Siga las indicaciones para configurar el dispositivo.
-
-2. Para comenzar, personalice su región e idioma. A continuación, acepte los términos de licencia del software de Microsoft.
+1. Para comenzar, personalice su región e idioma. A continuación, acepte los términos de licencia del software de Microsoft.
  
     ![Personalizar para la región](./media/azuread-joined-devices-frx/01.png)
 
-3. Seleccione la red que desea usar para conectarse a Internet.
-
-4. Haga clic en **Este dispositivo pertenece a mi organización**. 
+1. Seleccione la red que desea usar para conectarse a Internet.
+1. Haga clic en **Este dispositivo pertenece a mi organización**. 
 
     ![Pantalla ¿A quién pertenece el equipo?](./media/azuread-joined-devices-frx/02.png)
 
-5. Escriba las credenciales que le ha proporcionado la organización y después haga clic en **Iniciar sesión**.
+1. Escriba las credenciales que le ha proporcionado la organización y después haga clic en **Iniciar sesión**.
 
     ![Pantalla de inicio de sesión](./media/azuread-joined-devices-frx/03.png)
 
-6. El dispositivo busca un inquilino que coincida en Azure AD. Si se encuentra en un dominio federado, se le redirige al servidor del servicio de token seguro (STS) local; por ejemplo, Servicios de federación de Active Directory (AD FS).
-
-7. Si es un usuario en un dominio no federado, deberá escribir las credenciales directamente en la página hospedada en Azure AD. 
-
-8. Encontrará un desafío de autenticación multifactor. 
- 
-9. Azure AD comprobará si se requiere una inscripción en la administración de dispositivos móviles.
-
-10. Windows registra el dispositivo en el directorio de la organización en Azure AD y lo inscribe en la administración de dispositivos móviles, si procede.
-
-11. Si es:
-    - un usuario administrado, Windows le llevará al escritorio mediante el proceso de inicio de sesión automático;
-
-    - un usuario federado, verá la pantalla de inicio de sesión de Windows y deberá escribir sus credenciales.
+1. El dispositivo busca un inquilino que coincida en Azure AD. Si se encuentra en un dominio federado, se le redirige al servidor del servicio de token seguro (STS) local; por ejemplo, Servicios de federación de Active Directory (AD FS).
+1. Si es un usuario en un dominio no federado, deberá escribir las credenciales directamente en la página hospedada en Azure AD. 
+1. Encontrará un desafío de autenticación multifactor. 
+1. Azure AD comprobará si se requiere una inscripción en la administración de dispositivos móviles.
+1. Windows registra el dispositivo en el directorio de la organización en Azure AD y lo inscribe en la administración de dispositivos móviles, si procede.
+1. Si es:
+   - un usuario administrado, Windows le llevará al escritorio mediante el proceso de inicio de sesión automático;
+   - un usuario federado, verá la pantalla de inicio de sesión de Windows y deberá escribir sus credenciales.
 
 ## <a name="verification"></a>Comprobación
 
@@ -89,9 +74,7 @@ Para comprobar si un dispositivo está unido a Azure AD, consulte el cuadro de d
 
 ![Obtener acceso a trabajo o escuela](./media/azuread-joined-devices-frx/13.png)
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información, consulte [Introducción a la administración de dispositivos en Azure Active Directory](overview.md).
-
 - Para más información sobre cómo administrar dispositivos en el portal de Azure AD, consulte [Administración de dispositivos con Azure Portal](device-management-azure-portal.md).

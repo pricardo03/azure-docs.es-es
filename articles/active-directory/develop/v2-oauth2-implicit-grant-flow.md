@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f73756373a145375aa2b3d0bcb1c8fa0ede5cdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e6ac72a91ae14b6f9c513c84da6f1f06508caef
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65823483"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482222"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidad de Microsoft y concesión implícita de flujo
 
@@ -48,7 +48,7 @@ Pero si prefiere no usar una biblioteca en la aplicación de página única y en
 
 En el diagrama siguiente se muestra el aspecto que tiene el flujo implícito de inicio de sesión completo y en las secciones siguientes se describe cada paso con más detalle.
 
-![Calles OpenID Connect](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
+![Diagrama que muestra el flujo de inicio de sesión implícito](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
 
 ## <a name="send-the-sign-in-request"></a>Envío de la solicitud de inicio de sesión
 
@@ -243,4 +243,4 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Repase los [ejemplos de MSAL JS](sample-v2-code.md#single-page-applications-spa) para comenzar a codificar.
+* Repase los [ejemplos de MSAL JS](sample-v2-code.md) para comenzar a codificar.

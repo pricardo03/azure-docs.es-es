@@ -1,5 +1,5 @@
 ---
-title: 'Directiva de línea base exigencia de MFA para la administración de servicio (versión preliminar): Azure Active Directory'
+title: 'Directiva de base de referencia Requerir MFA para la administración de servicios (versión preliminar): Azure Active Directory'
 description: Directiva de acceso condicional para requerir MFA para Azure Resource Manager
 services: active-directory
 ms.service: active-directory
@@ -11,77 +11,63 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00ed40bef3f3cbe59825f546ffa39c3ebfb2e41f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.openlocfilehash: 203b752f9da67ebf60e373fe7ce0893b4fd7fcb5
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003182"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560957"
 ---
-# <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Directiva de línea de base: Requerir MFA para la administración de servicio (versión preliminar)
+# <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Directiva de base de referencia: Requerir MFA para la administración de servicios (versión preliminar)
 
-Puede que esté usando una variedad de servicios de Azure en su organización. Estos servicios se pueden administrar a través de API de Azure Resource Manager:
+Puede que esté usando una variedad de servicios de Azure en su organización. Estos servicios se pueden administrar a través de la API de Azure Resource Manager:
 
-* Azure Portal
+* Portal de Azure
 * Azure PowerShell
-* Azure CLI
+* CLI de Azure
 
-Con Azure Resource Manager para administrar los servicios es una acción con privilegios elevados. Azure Resource Manager se puede modificar las configuraciones de todos los inquilinos, como la configuración de servicio y facturación de suscripción. Autenticación de factor único es vulnerable a una variedad de ataques, como aerosol "phishing" y la contraseña. Por lo tanto, es importante comprobar la identidad de los usuarios que deseen tener acceso a Azure Resource Manager y actualizar configuraciones, al requerir autenticación multifactor antes de permitir el acceso.
+El uso de Azure Resource Manager para administrar los servicios es una acción con privilegios elevados. Azure Resource Manager puede modificar las configuraciones de todo el inquilino, como la configuración del servicio y la facturación de la suscripción. La autenticación de factor único es vulnerable a una variedad de ataques, como la suplantación de identidad (phishing) y la difusión de contraseña. Por lo tanto, es importante comprobar la identidad de los usuarios que quieren acceder a Azure Resource Manager y actualizar las configuraciones. Para ello, se debe requerir la autenticación multifactor antes de permitir el acceso.
 
-**Requerir MFA para la administración de servicio** es un [directiva de línea base](concept-baseline-protection.md) que requiere MFA para cualquier usuario tenga acceso a Azure portal, Azure PowerShell o CLI de Azure. Esta directiva se aplica a todos los usuarios tener acceso a Azure Resource Manager, independientemente de si son administradores.
+**Requerir MFA para la administración de servicios** es un [directiva de base de referencia](concept-baseline-protection.md) que requerirá MFA para que cualquier usuario acceda a Azure Portal, Azure PowerShell o la CLI de Azure. Esta directiva se aplica a todos los usuarios que acceden a Azure Resource Manager, independientemente de si son administradores.
 
-Una vez que esta directiva está habilitada en un inquilino, todos los usuarios iniciar sesión en los recursos de administración de Azure se se enfrentan al desafío de autenticación multifactor. Si el usuario no está registrado para MFA, le pedirá al usuario al registrarse con la aplicación Microsoft Authenticator para poder continuar.
+Una vez que esta directiva está habilitada en un inquilino, todos los usuarios que inician sesión en los recursos de administración de Azure se enfrentan al desafío de la autenticación multifactor. Si el usuario no está registrado para MFA, deberá registrarse con la aplicación Microsoft Authenticator para poder continuar.
 
-![Requerir MFA para Azure Resource Manager](./media/howto-baseline-protect-azure/baseline-policy-require-mfa-for-service-management.png)
-
-Para realizar interactivo inicio de sesión mediante [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), utilice el [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+Para el inicio de sesión interactivo mediante [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), utilice el cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
 
 ```PowerShell
 Connect-AzAccount
 ```
 
-Cuando se ejecuta, este cmdlet presentará una cadena de token. Para iniciar sesión, copie esta cadena y pegarlos en [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) en un explorador. La sesión de PowerShell se autenticará para conectarse a Azure.
+Cuando se ejecuta, este cmdlet presentará una cadena de token. Para iniciar sesión, copie esta cadena y péguela en [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)  en un explorador. La sesión de PowerShell se autenticará para conectarse a Azure.
 
-Para realizar interactivo inicio de sesión mediante [CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), ejecute el [inicio de sesión de az](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) comando.
+Para el inicio de sesión interactivo mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), ejecute el comando  [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) .
 
 ```azurecli
 az login
 ```
 
-Si la CLI puede abrir el explorador predeterminado, lo hará y cargará una página de inicio de sesión. En caso contrario, deberá abrir una página del explorador y siga las instrucciones de la línea de comandos que escriba un código de autorización después de navegar a [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin) en el explorador. Después, inicie sesión con sus credenciales de cuenta en el explorador.
+Si la CLI puede abrir el explorador predeterminado, lo hará y cargará una página de inicio de sesión. De lo contrario, deberá abrir una página del explorador y seguir las instrucciones de la línea de comandos para especificar un código de autorización después de ir a [https://aka.ms/devicelogin](https://aka.ms/devicelogin) en el explorador. A continuación, inicie sesión con las credenciales de su cuenta en el explorador.
 
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 
-Dado que el **exigencia de MFA para la administración de servicio** directiva se aplica a todos los usuarios de Azure Resource Manager, varias consideraciones deben realizarse para garantizar una implementación sin problemas. Estas consideraciones son la identificación de usuarios y entidades de servicio de Azure AD que no se puede o no se debe realizar la MFA, así como las aplicaciones y los clientes usados por la organización que no admiten la autenticación moderna.
+Dado que la directiva **Requerir MFA para la administración de servicios** se aplica a todos los usuarios de Azure Resource Manager, deben realizarse varias consideraciones para garantizar una implementación sin problemas. Estas consideraciones incluyen la identificación de usuarios y entidades de servicio de Azure AD que no pueden o no deben ejecutar MFA, así como aplicaciones y clientes que se usan en la organización y que no admiten la autenticación moderna.
 
-### <a name="user-exclusions"></a>Exclusiones de usuario
+## <a name="enable-the-baseline-policy"></a>Habilitar la directiva de base de referencia
 
-Esta directiva de línea de base proporciona la opción de excluir a los usuarios. Antes de habilitar la directiva para el inquilino, se recomienda excluir las cuentas siguientes:
-
-* **Acceso de emergencia** o **emergencia** cuentas para evitar el bloqueo de cuentas de todos los inquilinos. En el improbable caso de que todos los administradores quedan bloqueados fuera de su inquilino, la cuenta administrativa de acceso de emergencia puede usarse para iniciar sesión en los pasos de inquilinos take para recuperar el acceso.
-   * Se puede encontrar más información en el artículo, [administrar cuentas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Las cuentas de servicio** y **principios de servicio**, como la cuenta Azure AD Connect Sync. Cuentas de servicio son cuentas no interactivas que no están asociadas a un usuario concreto. Normalmente se utilizan por servicios back-end y permitir el acceso mediante programación a las aplicaciones. Puesto que no se puede completar mediante programación MFA, se deben excluir las cuentas de servicio.
-   * Si su organización tiene estas cuentas en uso en scripts o código, considere la posibilidad de reemplazarlos con [administra identidades](../managed-identities-azure-resources/overview.md). Como solución temporal, puede excluir estas cuentas específicas de la directiva de línea de base.
-* Usuarios que no tiene o no podrá usar un Smartphone.
-   * Esta directiva requiere que los usuarios deben registrarse en MFA mediante la aplicación Microsoft Authenticator.
-
-## <a name="enable-the-baseline-policy"></a>Habilitar la directiva de línea base
-
-La directiva **directiva de línea base: Requerir MFA para la administración de servicio (versión preliminar)** viene previamente configurada y se mostrarán en la parte superior cuando vaya a la hoja de acceso condicional en Azure portal.
+La **Directiva de base de referencia: Requerir MFA para la administración de servicios (versión preliminar)** viene previamente configurada y se mostrará al principio cuando navegue a la hoja Acceso condicional en Azure Portal.
 
 Para habilitar esta directiva y proteger a los administradores:
 
-1. Inicie sesión en el **portal Azure** como administrador global, Administrador de seguridad o administrador de acceso condicional.
-1. Vaya a **Azure Active Directory** > **acceso condicional**.
-1. En la lista de directivas, seleccione **directiva de línea base: Requerir MFA para la administración de servicio (versión preliminar)**.
-1. Establecer **Habilitar directiva** a **usar la directiva inmediatamente**.
-1. Agregar exclusiones de cualquier usuario haciendo clic en **usuarios** > **Seleccionar usuarios excluidos** y elegir los usuarios que deben excluirse. Haga clic en **seleccione** , a continuación, **realiza**.
-1. Haga clic en **guardar**.
+1. Inicie sesión en  **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Vaya a **Azure Active Directory** > **Acceso condicional**.
+1. En la lista de directivas, seleccione **Directiva de línea base: Requerir MFA para la administración de servicios (versión preliminar)** .
+1. Establezca **Habilitar directiva** en **Usar la directiva inmediatamente**.
+1. Haga clic en **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte:
 
-* [Directivas de protección de acceso condicional básicas](concept-baseline-protection.md)
+* [Directivas de la protección de base de referencia de acceso condicional](concept-baseline-protection.md)
 * [Cinco pasos para asegurar su infraestructura de identidad](../../security/azure-ad-secure-steps.md)
-* [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)
+* [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)

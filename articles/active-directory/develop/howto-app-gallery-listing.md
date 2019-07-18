@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540547"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482947"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedimientos para: Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory
 
@@ -117,11 +117,11 @@ Para actualizar o eliminar una aplicación existente en la galería de aplicacio
 
 Los clientes pueden enviar una solicitud para mostrar una aplicación a través de **App requests by Customers** -> **Submit new request** (Solicitudes de aplicaciones de los clientes -> Enviar solicitud nueva).
 
-![Icono aplicaciones solicitadas por los clientes](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Muestra el icono de aplicaciones solicitadas por los clientes](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 A continuación se muestra el flujo de las aplicaciones solicitadas por los clientes.
 
-![Flujo de las aplicaciones solicitadas por los clientes](./media/howto-app-gallery-listing/customer-request.png)
+![Muestra el flujo de aplicaciones solicitadas por los clientes](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Escalas de tiempo
 

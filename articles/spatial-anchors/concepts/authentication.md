@@ -1,6 +1,6 @@
 ---
-title: Autenticación y autorización a Azure espacial delimitadores | Microsoft Docs
-description: Obtenga información sobre las distintas formas en que puede autenticar una aplicación o servicio a Azure espacial delimitadores y los niveles de control que tiene que obtener acceso a Azure espacial delimitadores.
+title: Autenticación y autorización en Azure Spatial Anchors | Microsoft Docs
+description: Obtenga información sobre las distintas formas en que puede autenticar una aplicación o servicio para Azure Spatial Anchors y los niveles de control para los que tiene que obtener acceso para Azure Spatial Anchors.
 author: julianparismorgan
 manager: vriveras
 services: azure-spatial-anchors
@@ -8,108 +8,180 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e641025d49dd42125aa692925c0697235489b1db
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: c7ffa432c9311ba9d4ecf4ba82c375e2dad988d0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307158"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478543"
 ---
-# <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticación y autorización a Azure espacial delimitadores
+# <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticación y autorización en Azure Spatial Anchors
 
-En esta sección, trataremos las diversas maneras de que poder autenticarse en Azure delimitadores espacial de la aplicación o servicio web y las formas en que puede usar el Control de acceso basado en roles de Azure Directory (Azure AD) para controlar el acceso a las cuentas de delimitadores espacial.  
+En esta sección, trataremos las diversas maneras en las que puede autenticarse en Azure Spatial Anchors desde la aplicación o servicio web y las formas en que puede usar el Control de acceso basado en roles de Azure Directory (Azure AD) para controlar el acceso a las cuentas de Spatial Anchors.  
 
 ## <a name="overview"></a>Información general
 
-![Información general de autenticación para Azure espacial delimitadores](./media/spatial-anchors-authentication-overview.png)
+![Introducción a la autenticación y autorización en Azure Spatial Anchors](./media/spatial-anchors-authentication-overview.png)
 
-Para obtener acceso a una determinada cuenta de Azure espacial delimitadores, los clientes deben obtener un token de acceso de Azure Mixed Reality Security Token Service (STS). Los tokens obtenidos de STS live durante 24 horas y contienen información de los servicios espaciales delimitadores tomar decisiones de autorización en la cuenta y asegúrese de que solo las entidades autorizadas pueden tener acceso a esa cuenta. 
+Para obtener acceso a una determinada cuenta de Azure Spatial Anchors, los clientes deben obtener primero un token de acceso del servicio de token de seguridad (STS) de Azure Mixed Reality. Los tokens obtenidos de STS se publican durante 24 horas e incluyen información de los servicios de Spatial Anchors para tomar decisiones de autorización acerca de la cuenta y asegurarse de que solo entidades de seguridad autorizadas pueden tener acceso a esta. 
 
-Los tokens de acceso pueden obtenerse en exchange desde cualquier claves de cuenta, o desde los tokens emitidos por AD de Azure. 
+Los tokens de acceso pueden obtenerse a cambio de claves de cuenta o desde los tokens emitidos por Azure AD. 
 
-Las claves de cuenta le permiten comenzar rápidamente sobre el uso del servicio Azure espacial delimitadores; Sin embargo, antes de implementar la aplicación en producción, se recomienda que actualice la aplicación para usar la autenticación basada en AD de Azure. 
+Las claves de cuenta le permiten comenzar rápidamente a usar el servicio de Azure Spatial Anchors; sin embargo, antes de implementar la aplicación en producción, se recomienda que la actualice para usar la autenticación basada en Azure AD. 
 
 Los tokens de autenticación de Azure AD pueden obtenerse de dos maneras:
 
-- Si está creando una aplicación empresarial y su empresa usa Azure AD como su sistema de identidad, puede usar Azure basada en usuario autenticación AD en la aplicación y conceder acceso a las cuentas de delimitadores espaciales mediante los grupos de seguridad de Azure AD existentes, o directamente a los usuarios de su organización. 
-- En caso contrario, se recomienda que obtener los tokens de Azure AD desde un servicio web de la aplicación. Uso de un servicio web de soporte es el método de autenticación recomendado para aplicaciones de producción, ya que evita la incrustación de las credenciales para tener acceso a Azure espacial anclajes en la aplicación cliente. 
+- Si está creando una aplicación empresarial y la empresa usa Azure AD como sistema de identidad, puede usar la autenticación de Azure AD basada en el usuario en la aplicación y conceder acceso a las cuentas de Spatial Anchors mediante los grupos de seguridad existentes de Azure AD o directamente a los usuarios de la organización. 
+- En caso contrario, se recomienda que obtenga los tokens de Azure AD desde un servicio web compatible con la aplicación. El uso de un servicio web compatible es el método de autenticación recomendado para las aplicaciones de producción, ya que evita la incrustación de las credenciales para tener acceso a Azure Spatial Anchors en la aplicación cliente. 
 
 ## <a name="account-keys"></a>Claves de cuenta
 
-Uso de claves de cuenta para tener acceso a su cuenta de Azure espacial delimitadores es la manera más sencilla de empezar a trabajar. Encontrará las claves de cuenta en el portal de Azure. Vaya a la cuenta y seleccione la pestaña "Claves".
+El uso de claves de cuenta para tener acceso a la cuenta de Azure Spatial Anchors es la manera más sencilla de comenzar. Encontrará las claves de cuenta en Azure Portal. Vaya a la cuenta y seleccione la pestaña "Claves".
 
-![Información general de autenticación para Azure espacial delimitadores](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Introducción a la autenticación y autorización en Azure Spatial Anchors](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 
-Dos claves se ponen a disposición, ambas al mismo tiempo válidas para el acceso a la cuenta de delimitadores espacial. Se recomienda que actualice periódicamente la clave para acceder a la cuenta; tener dos separar habilitar claves válidas como actualizaciones sin tiempo de inactividad; solo debe actualizar también la clave principal y la clave secundaria. 
+Se ponen a disposición dos claves, ambas válidas simultáneamente para tener acceso a la cuenta de Spatial Anchors. Se recomienda que actualice periódicamente la clave que usa para tener acceso a la cuenta, que tenga dos claves válidas independientes como actualizaciones sin tiempo de inactividad y que solo deba actualizar la clave principal y la clave secundaria de manera alternativa. 
 
-El SDK tiene compatibilidad integrada para la autenticación con claves de cuenta; basta con establecer la propiedad de AccountKey en el objeto cloudSession. 
+El SDK tiene compatibilidad integrada para la autenticación con claves de cuenta; basta con establecer la propiedad AccountKey en el objeto cloudSession. 
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 ```
 
-Una vez hecho esto, el SDK controlará el intercambio de la clave de cuenta para un token de acceso y el almacenamiento en caché necesaria de tokens para la aplicación. 
+# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.accountKey = @"MyAccountKey";
+```
+
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.accountKey = "MyAccountKey"
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
+```
+
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+
+```cpp
+auto configuration = cloudSession_->Configuration();
+configuration->AccountKey(R"(MyAccountKey)");
+```
+
+# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AccountKey(LR"(MyAccountKey)");
+```
+
+***
+
+Una vez hecho esto, el SDK controlará el intercambio de la clave de cuenta para un token de acceso, así como el almacenamiento en caché necesaria de tokens para la aplicación. 
 
 > [!WARNING] 
-> Se recomienda el uso de claves de cuenta sobre la incorporación rápida, pero durante el desarrollo y la creación de prototipos solo. Se recomienda encarecidamente no para enviar su aplicación en producción mediante una clave de cuenta incrustado en él y usar en su lugar Azure basado en usuario o servicio de autenticación de AD aproxima a la siguiente lista.
+> Se recomienda el uso de claves de cuenta para una incorporación rápida, pero solo durante el desarrollo y la creación de prototipos. Se recomienda encarecidamente no enviar la aplicación a producción mediante una clave de cuenta incrustada en ella; en su lugar, use los enfoques de autenticación de Azure AD basada en el usuario o en el servicio que se incluyen a continuación.
 
 ## <a name="azure-ad-user-authentication"></a>Autenticación de usuario de Azure AD
 
-Para las aplicaciones destinadas a los usuarios de Azure Active Directory, el enfoque recomendado es usar un token de Azure AD para el usuario, que puede obtenerse mediante la biblioteca ADAL como se describe en la siguiente documentación: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; debe seguir los pasos enumerados en "Inicios rápidos", que incluyen:
+Para las aplicaciones destinadas a usuarios de Azure Active Directory, el enfoque recomendado consiste en usar un token de Azure AD para el usuario, que puede obtenerse mediante la biblioteca ADAL como se describe en la siguiente documentación: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md); se deben seguir los pasos indicados en "Inicios rápidos", que incluyen:
 
-1. Configuración en Azure portal
-    1.  Registre la aplicación en Azure AD como **aplicación nativa**. Como parte del registro, deberá determinar si la aplicación debe ser apto para multiempresa o no y proporcione la redirección de direcciones URL permitidas para su aplicación.  
-    2.  Conceda a la aplicación o los usuarios acceso al recurso de: 
-        1.  Vaya al recurso delimitadores espaciales en Azure portal
-        2.  Cambie a la **control de acceso (IAM)** ficha
-        3.  Presione **Agregar asignación de roles**
-            1.  [Seleccione un rol](#role-based-access-control)
-            2.  En el **seleccione** , escriba el nombre de los usuarios, grupos o aplicaciones a la que quieres asignar acceso. 
-            3.  Presione **guardar**.
+1. Configuración en Azure Portal
+    1.  Registre la aplicación en Azure AD como **Aplicación nativa**. Como parte del registro, deberá determinar si la aplicación debe ser multiempresa, así como proporcionar las direcciones URL de redireccionamiento permitidas para la aplicación.  
+    2.  Conceda acceso a la aplicación o a los usuarios para el recurso: 
+        1.  Vaya al recurso de Spatial Anchors en Azure Portal.
+        2.  Cambie a la pestaña **Control de acceso (IAM)** .
+        3.  Presione **Agregar asignación de roles**.
+            1.  [Seleccionar un rol](#role-based-access-control).
+            2.  En el campo **Seleccionar**, escriba el nombre de los usuarios, grupos o aplicaciones a los que quiere asignar acceso. 
+            3.  Presione **Guardar**.
 2. En el código:
-    1.  Asegúrese de usar el **Id. de aplicación** y **Uri de redirección** de su propia aplicación de Azure AD como el **Id. de cliente** y **RedirectUri** parámetros de ADAL
-    2.  Establecer la información del inquilino:
-        1.  Si la aplicación admite **mi organización sólo**, reemplace este valor por su **Id. de inquilino** o **nombredeinquilino** (por ejemplo, contoso.microsoft.com)
-        2.  Si la aplicación admite **cuentas en el directorio de cualquier organización**, reemplace este valor por **organizaciones**
-        3.  Si la aplicación admite **usuarios de cuentas Microsoft todas**, reemplace este valor por **comunes**
-    3.  En la solicitud de token, establezca el **recursos** a "https://sts.mixedreality.azure.com". Este "recurso" indicará a Azure AD que la aplicación solicita un token para el servicio Azure espacial delimitadores.  
+    1.  Asegúrese de usar el **Id. de aplicación** y el **URI de redirección** de la propia aplicación de Azure AD como parámetros de **Id. de cliente** y **RedirectUri** de ADAL.
+    2.  Establezca la información del inquilino:
+        1.  Si la aplicación admite **Solo mi organización**, reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
+        2.  Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por **Organizaciones**.
+        3.  Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, reemplace este valor por**Común**.
+    3.  En la solicitud de token, establezca el **recurso** en "https://sts.mixedreality.azure.com". Este "recurso" indicará a Azure AD que la aplicación solicita un token para el servicio de Azure Spatial Anchors.  
 
-Con esto, la aplicación debe poder obtener desde ADAL un token de Azure AD; puede establecer ese token de Azure AD como el **authenticationToken** en el objeto de configuración de sesión en la nube. 
+Con esto, la aplicación debe poder obtener de ADAL un token de Azure AD; puede establecer ese token de Azure AD como **authenticationToken** en el objeto de configuración de la sesión en la nube. 
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 ```
 
+# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.authenticationToken = @"MyAuthenticationToken";
+```
+
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.authenticationToken = "MyAuthenticationToken"
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
+```
+
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+
+```cpp
+auto configuration = cloudSession_->Configuration();
+configuration->AuthenticationToken(R"(MyAuthenticationToken)");
+```
+
+# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
+```
+
+***
+
 ## <a name="azure-ad-service-authentication"></a>Autenticación de servicio de Azure AD
 
-La opción recomendada para implementar aplicaciones aprovechando Azure espacial anclajes en producción es aprovechar un servicio back-end que se las solicitudes de autenticación de broker. El esquema general debe ser como se describe en este diagrama:
+La opción recomendada para implementar aplicaciones mediante el aprovechamiento de Azure Spatial Anchors en producción consiste en aprovechar un servicio back-end que gestione las solicitudes de autenticación. El esquema general debe ser como se describe en este diagrama:
 
-![Información general de autenticación para Azure espacial delimitadores](./media/spatial-anchors-aad-authentication.png)
+![Introducción a la autenticación y autorización en Azure Spatial Anchors](./media/spatial-anchors-aad-authentication.png)
 
-En este caso, se supone que la aplicación usa su propio mecanismo de (por ejemplo: Cuenta de Microsoft, PlayFab, Facebook, Google Id., nombre de usuario/contraseña personalizado, etcetera.) para autenticarse en su servicio back-end. Una vez que los usuarios se autentican en el servicio back-end, que puede recuperar el servicio de un token de Azure AD, cambiarlo por un token de acceso para Azure espacial delimitadores y devolverla a la aplicación cliente.
+En este caso, se supone que la aplicación usa su propio mecanismo (por ejemplo: cuenta de Microsoft, PlayFab, Facebook, Id. de Google, nombre de usuario/contraseña personalizado, etc.) para autenticarse en su servicio back-end. Una vez que los usuarios se autentican en el servicio back-end, dicho servicio puede recuperare un token de Azure AD, cambiarlo por un token de acceso para Azure Spatial Anchors y devolverlo a la aplicación cliente.
 
-El token de acceso de Azure AD se recupera mediante la biblioteca ADAL como se describe en la siguiente documentación: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; debe seguir los pasos indicados en "Inicios rápidos", que incluyen:
+El token de acceso de Azure AD se recupera mediante la biblioteca ADAL como se describe en la siguiente documentación: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md); debe seguir los pasos indicados en "Inicios rápidos", que incluyen:
 
-1.  Configuración en Azure portal:
-    1.  Registrar la aplicación en Azure AD:
-        1.  En Azure portal, vaya a **Azure Active Directory**y seleccione **registros de aplicaciones**
-        2.  Seleccione **nuevo registro de aplicaciones**
-        3.  Escriba el nombre de la aplicación, seleccione **aplicación Web / API** como tipo de aplicación y escriba la dirección URL de autenticación para el servicio. A continuación, presione **crear**.
-        4.  En esa aplicación, presione **configuración**, a continuación, seleccione el **claves** ficha. Escriba el nombre de la clave, seleccione una duración y posicionamiento **guardar**. Asegúrese de guardar el valor de clave que se muestra en ese momento, ya que lo necesitará incluirlo en el código del servicio web.
-    2.  Conceder el acceso de aplicación o los usuarios a sus recursos:
-        1.  Vaya al recurso delimitadores espaciales en Azure portal
-        2.  Cambie a la **control de acceso (IAM)** ficha
-        3.  Presione **Agregar asignación de roles**
-        1.  [Seleccione un rol](#role-based-access-control)
-        2.  En el **seleccione** campo, escriba el nombre de las aplicaciones que ha creado y al que desea asignar acceso. Si desea que los usuarios de la aplicación tengan distintos roles en la cuenta de delimitadores espaciales, debe registrar varias aplicaciones en Azure AD y asignar a cada uno un rol independiente. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios.  
-    3.  Presione **guardar**.
-2.  En el código (Nota: puede usar el servicio de ejemplo incluido en GitHub):
-    1.  Asegúrese de usar el identificador de la aplicación, el secreto de aplicación y redirigir la Uri de la propia aplicación de Azure AD como el identificador de cliente, secreto y los parámetros de RedirectUri en ADAL
-    2.  Establece el identificador del inquilino en su propio identificador de inquilino AAAzure agregar en el parámetro de autoridad en ADAL
-    3.  En la solicitud de token, establezca el **recursos** a "https://sts.mixedreality.azure.com" 
+1.  Configuración en Azure Portal:
+    1.  Registre la aplicación en Azure AD:
+        1.  En Azure Portal, vaya a **Azure Active Directory** y seleccione **Registros de aplicaciones**.
+        2.  Seleccione **Nuevo registro de aplicaciones**.
+        3.  Escriba el nombre de la aplicación, seleccione **Aplicación web o API** como tipo de aplicación y escriba la dirección URL de autenticación para el servicio. A continuación, presione **Crear**.
+        4.  En esa aplicación, presione **Configuración** y, a continuación, seleccione la pestaña **Claves**. Escriba el nombre de la clave, seleccione una duración y presione **Guardar**. Asegúrese de guardar el valor de clave que se muestra en ese momento, ya que lo necesitará para incluirlo en el código del servicio web.
+    2.  Conceda acceso a la aplicación o a los usuarios para el recurso:
+        1.  Vaya al recurso de Spatial Anchors en Azure Portal.
+        2.  Cambie a la pestaña **Control de acceso (IAM)** .
+        3.  Presione **Agregar asignación de roles**.
+        1.  [Seleccionar un rol](#role-based-access-control).
+        2.  En el campo **Seleccionar**, escriba el nombre de las aplicaciones que ha creado y a las que quiere asignar acceso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de Spatial Anchors, debe registrar varias aplicaciones en Azure AD y asignar a cada una un rol independiente. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios.  
+    3.  Presione **Guardar**.
+2.  En el código (nota: puede usar el servicio de ejemplo incluido en GitHub):
+    1.  Asegúrese de usar el Id. de aplicación, el secreto de aplicación y el URI de redirección de la propia aplicación de Azure AD como parámetros de Id. de cliente, secreto y RedirectUri de ADAL.
+    2.  Establezca el id. de inquilino en su propio id. de inquilino de Azure AD en el parámetro de autoridad de ADAL.
+    3.  En la solicitud de token, establezca el **recurso** en "https://sts.mixedreality.azure.com". 
 
-Con esto, el servicio de back-end puede recuperar un token de Azure AD. A continuación, puede cambiarlo por un token de MR que va a devolver al cliente. Mediante un token de Azure AD para recuperar un token MR se realiza a través de una llamada de REST. Este es un ejemplo de llamada:
+Con esto, el servicio back-end puede recuperar un token de Azure AD. A continuación, puede cambiarlo por un token de MR que va a devolver al cliente. El uso de un token de Azure AD para recuperar un token de MR se realiza a través de una llamada de REST. A continuación, se muestra una llamada de ejemplo:
 
 ```
 GET https://mrc-auth-prod.trafficmanager.net/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
@@ -126,27 +198,63 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-En el encabezado de autorización tiene el formato siguiente: `Bearer <accoundId>:<accountKey>`
+El encabezado de autorización tiene el formato siguiente: `Bearer <accoundId>:<accountKey>`
 
-Y la respuesta contiene el token MR en texto sin formato.
+Y la respuesta contiene el token de MR en texto sin formato.
  
-Ese token MR, a continuación, se devuelve al cliente. La aplicación cliente, a continuación, puede establecer que su token de acceso en la configuración de sesión en la nube.
+Ese token de MR se devuelve después al cliente. La aplicación cliente, a continuación, puede establecerlo como su token de acceso en la configuración de la sesión en la nube.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";
 ```
 
+# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.accessToken = @"MyAccessToken";
+```
+
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.accessToken = "MyAccessToken"
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAccessToken("MyAccessToken");
+```
+
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+
+```cpp
+auto configuration = cloudSession_->Configuration();
+configuration->AccessToken(R"(MyAccessToken)");
+```
+
+# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AccessToken(LR"(MyAccessToken)");
+```
+
+***
+
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
-Para ayudar a controlar el nivel de acceso concedidos a las aplicaciones, servicios o usuarios de Azure AD de su servicio, se crearon las siguientes funciones de asignación según sea necesario en las cuentas de Azure espacial delimitadores:
+Para ayudar a controlar el nivel de acceso concedido a las aplicaciones, los servicios o los usuarios de Azure AD de su servicio, se crearon los siguientes roles de asignación según fue necesario en las cuentas de Azure Spatial Anchors:
 
-- **Propietario de la cuenta de delimitadores espacial**: aplicaciones o usuarios que tienen este rol pueden crear delimitadores espaciales, realizar consultas y eliminarlos. Cuando se autentica con una cuenta mediante claves de cuenta, el **propietario de la cuenta de delimitadores espacial** rol se asigna a la entidad de seguridad autenticada. 
-- **Colaborador de la cuenta de delimitadores espacial**: las aplicaciones o los usuarios que tienen este rol pueden crear delimitadores espaciales, la consulta para ellos, pero no puede eliminarlas. 
-- **Lector de cuenta delimitadores espacial**: aplicaciones o usuarios que tienen este rol solo son capaces de consultar para delimitadores espaciales, pero no se puede crear otros nuevos, eliminar los existentes o actualizar los metadatos de los anclajes espaciales. Esto se utiliza normalmente para las aplicaciones que algunos usuarios ajustar el entorno, mientras que otros sólo pueden recuperar delimitadores colocados anteriormente en ese entorno.
+- **Propietario de cuenta de Spatial Anchors**: las aplicaciones o los usuarios que tienen este rol pueden crear anclajes espaciales, realizar consultas y eliminarlos. Al autenticarse en la cuenta mediante claves de cuenta, el rol **Propietario de cuenta de Spatial Anchors** se asigna a la entidad de seguridad autenticada. 
+- **Colaborador de cuenta de Spatial Anchors**: las aplicaciones o los usuarios que tienen este rol pueden crear anclajes espaciales y realizar consultas, pero no pueden eliminarlos. 
+- **Lector de cuenta de Spatial Anchors**: las aplicaciones o los usuarios que tienen este rol solo pueden realizar consultas para los anclajes espaciales, pero no pueden crear otros nuevos, eliminar los existentes ni actualizar los metadatos de dichos anclajes espaciales. Esto se utiliza normalmente para las aplicaciones en las que algunos usuarios ajustan el entorno, mientras que otros solo pueden recuperar los anclajes colocados anteriormente en ese entorno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cree su primera aplicación con Azure espacial delimitadores.
+Cree su primera aplicación con Azure Spatial Anchors.
 
 > [!div class="nextstepaction"]
 > [Unity](../unity-overview.yml)

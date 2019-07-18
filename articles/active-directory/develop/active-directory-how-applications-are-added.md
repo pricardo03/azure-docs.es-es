@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84069fb80ac751cbde53b0febdac451b54cd2b29
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688756"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483070"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Cómo y por qué se agregan aplicaciones a Azure AD
 
@@ -79,8 +79,10 @@ Al igual que los objetos de aplicación, las entidades de servicio se pueden cre
 * Mediante programación con Graph API de Azure AD o PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>¿Qué relación tienen los objetos de aplicación y las entidades de servicio?
+
 Una aplicación tiene un objeto de aplicación en su directorio principal al que una o varias entidades de servicio hacen referencia en cada uno de los directorios donde opera (incluido el directorio principal de la aplicación).
-![Un diagrama que muestra cómo los objetos de aplicación y las entidades de servicio interactúan entre sí y con instancias de Azure AD.][apps_service_principals_directory]
+
+![Muestra la relación entre los objetos de aplicación y las entidades de servicio][apps_service_principals_directory]
 
 En el diagrama anterior, Microsoft mantiene dos directorios internamente (a la izquierda) que usa para publicar aplicaciones:
 
@@ -96,6 +98,7 @@ Entre las aplicaciones que añade personalmente (representadas como **App (yours
 * Aplicaciones que ha publicado mediante el proxy de aplicación de Azure AD
 
 ### <a name="notes-and-exceptions"></a>Notas y excepciones
+
 * No todas las entidades de servicio señalan a un objeto de aplicación. Cuando se diseñó originalmente Azure AD, los servicios proporcionados a las aplicaciones eran más limitados y la entidad de servicio era suficiente para establecer una identidad de aplicación. La entidad de seguridad de servicio original era más cercana en cuanto a la forma a la cuenta de servicio de Windows Server Active Directory. Por este motivo, aún es posible crear entidades de servicio de otras maneras, como con Azure AD PowerShell, sin crear primero un objeto de aplicación. Graph API de Azure AD requiere un objeto de aplicación antes de crear una entidad de servicio.
 * Actualmente, no toda la información que se ha descrito anteriormente se expone mediante programación. Lo siguiente solo está disponible en la interfaz de usuario:
   * Reclama las reglas de transformación
@@ -105,6 +108,7 @@ Entre las aplicaciones que añade personalmente (representadas como **App (yours
   * [Entidad de seguridad de servicio](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>¿Por qué se integran las aplicaciones con Azure AD?
+
 Las aplicaciones se añaden a Azure AD para aprovechar uno o varios de los servicios que proporciona, como los siguientes:
 
 * Autenticación y autorización de aplicaciones.
@@ -116,6 +120,7 @@ Las aplicaciones se añaden a Azure AD para aprovechar uno o varios de los servi
 * Publicación de aplicaciones y proxy. Publique una aplicación desde una red privada en Internet.
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>¿Quién tiene permiso para agregar aplicaciones a la instancia de Azure AD?
+
 Aunque hay algunas tareas que solo los administradores globales pueden realizar (por ejemplo, añadir aplicaciones desde la galería de aplicaciones y configurar una aplicación para usar el proxy de aplicación), de forma predeterminada todos los usuarios del directorio tienen permisos para registrar objetos de aplicación que estén desarrollando y para decidir qué aplicaciones comparten o a cuáles permitirán acceder a sus datos de la organización mediante autorización. Si una persona es el primer usuario del directorio en iniciar sesión en una aplicación y conceder autorización, creará una entidad de servicio en el inquilino; en caso contrario, la información de concesión de autorización se almacenará en la entidad de servicio existente.
 
 Es posible que la idea de permitir a los usuarios registrar y autorizar aplicaciones pueda parecer inquietante en un principio, pero debe tenerse en cuenta lo siguiente:
@@ -132,10 +137,11 @@ Si aún desea impedir que los usuarios del directorio registren aplicaciones e i
 
 * Para impedir que los usuarios autoricen aplicaciones en su propio nombre:
   1. En Azure Portal, vaya a la sección [Configuración de usuario](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) en Aplicaciones empresariales.
-  2. Cambie **Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre** a **No**. 
+  2. Cambie **Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre** a **No**.
      
      > [!NOTE]
-     > Si decide desactivar el consentimiento del usuario, se necesitará que un administrador dé su consentimiento a cualquier nueva aplicación que un usuario necesite usar.    
+     > Si decide desactivar el consentimiento del usuario, se necesitará que un administrador dé su consentimiento a cualquier nueva aplicación que un usuario necesite usar.
+
 * Para impedir que los usuarios registren sus propias aplicaciones:
   1. En Azure Portal, vaya a la sección [Configuración de usuario](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) en Azure Active Directory.
   2. Cambie **Los usuarios pueden registrar aplicaciones** a **No**.
@@ -145,4 +151,3 @@ Si aún desea impedir que los usuarios del directorio registren aplicaciones e i
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

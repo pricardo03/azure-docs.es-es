@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50db9a588cd953bbd0e912ec942194a8deeffe4c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203708"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484035"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalización de los clústeres de HDInsight con Bootstrap
 
@@ -134,7 +134,7 @@ Puede usar Bootstrap en la plantilla de Resource Manager:
 
 ## <a name="see-also"></a>Otras referencias
 * En [Creación de clústeres de Apache Hadoop en HDInsight][hdinsight-provision-cluster] se proporcionan instrucciones sobre cómo crear un clúster de HDInsight con otras opciones personalizadas.
-* [Desarrollo de acciones de script con HDInsight][hdinsight-write-script]
+* [Desarrollo de la acción de script con HDInsight][hdinsight-write-script]
 * [Instalación y uso de Apache Spark en clústeres de HDInsight][hdinsight-install-spark]
 * [Instalación y uso de Apache Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
 
@@ -149,9 +149,6 @@ Puede usar Bootstrap en la plantilla de Resource Manager:
 ## <a name="appendix-powershell-sample"></a>Apéndice: Ejemplo de PowerShell
 
 Este script de PowerShell crea un clúster de HDInsight y personaliza una configuración de Hive. Asegúrese de especificar valores para `$nameToken`, `$httpPassword` y `$sshPassword`.
-
-> [!IMPORTANT]  
-> Los valores para `DefaultStorageAccount` y `DefaultStorageContainer` no se devuelven desde [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cuando la [transferencia segura](../storage/common/storage-require-secure-transfer.md) está habilitada en la cuenta de almacenamiento.
 
 > [!WARNING]  
 > El tipo de cuenta de almacenamiento `BlobStorage` no se puede usar para los clústeres de HDInsight.

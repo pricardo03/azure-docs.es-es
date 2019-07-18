@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54178ae8988266c751ae0e23ae8c5e6ef7a16f20
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61032582"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544155"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 
@@ -43,6 +43,7 @@ Esta característica está disponible en los siguientes servicios y regiones de 
 **Versión preliminar pública**
 
 - **[Azure Container Registry](../container-registry/container-registry-vnet.md)** : Hay una versión preliminar en todas las regiones de Azure donde está disponible Azure Container Registry.
+- **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions)** : versión preliminar disponible en todas las regiones de Azure donde App Service está disponible.
 
 Para conocer las notificaciones más actualizadas sobre, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -61,7 +62,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 - Esta característica solo está disponible en las redes virtuales implementadas con el modelo de implementación de Azure Resource Manager.
 - Los puntos de conexión están habilitados en subredes configuradas en redes virtuales de Azure. No se pueden usar los puntos de conexión para el tráfico desde las instalaciones a los servicios de Azure. Para más información, consulte [Protección del acceso del servicio de Azure desde el entorno local](#securing-azure-services-to-virtual-networks)
 - Para Azure SQL, un punto de conexión de servicio solo se aplica al tráfico del servicio de Azure dentro de la región de una red virtual. En el caso de Azure Storage, para admitir tráfico RA-GRS y GRS, los puntos de conexión también se extienden para incluir regiones emparejadas donde está implementada la red virtual. Obtenga más información acerca de las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
-- Para ADLS Gen 1, la funcionalidad de integración de redes virtuales solo está disponible para las que se encuentran en la misma región.
+- Para ADLS Gen 1, la funcionalidad de integración de redes virtuales solo está disponible para las que se encuentran en la misma región. Observe también que, para la integración de red virtual de Azure Data Lake Storage Gen1, se usa la seguridad del punto de conexión de servicio de red virtual entre la red virtual y Azure Active Directory (Azure AD) para generar notificaciones de seguridad adicionales en el token de acceso. Estas notificaciones se usan entonces para autenticar la red virtual en la cuenta de Data Lake Storage Gen1 y permitir el acceso. La etiqueta "Microsoft.AzureActiveDirectory" que aparece bajo los servicios compatibles con los puntos de conexión de servicio se usa solo para admitir los puntos de conexión de servicio para ADLS Gen 1. Azure Active Directory (Azure AD) no admite los puntos de conexión de servicio de forma nativa. Obtenga más información sobre la [Integración con red virtual de Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Protección de servicios de Azure para las redes virtuales
 
@@ -120,7 +121,7 @@ Después de configurar los puntos de conexión de servicio para un servicio espe
 
 ## <a name="provisioning"></a>Aprovisionamiento
 
-Los puntos de conexión de servicio pueden configurarse en redes virtuales de forma independiente por un usuario con acceso de escritura a una red virtual. Para proteger los recursos de servicio de Azure a una red virtual, el usuario debe tener permiso *Microsoft.Network/JoinServicetoaSubnet* para las subredes que se van a agregar. De forma predeterminada, este permiso se incluye en los roles de administrador de servicios integrado y puede modificarse mediante la creación de roles personalizados.
+Los puntos de conexión de servicio pueden configurarse en redes virtuales de forma independiente por un usuario con acceso de escritura a una red virtual. Para proteger los recursos de servicio de Azure en una red virtual, el usuario debe tener permiso para *Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* para las subredes que se agregan. De forma predeterminada, este permiso se incluye en los roles de administrador de servicios integrado y puede modificarse mediante la creación de roles personalizados.
 
 Obtenga más información sobre los [roles integrados](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y la asignación de permisos específicos a [roles personalizados](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

@@ -8,7 +8,7 @@
       href: whats-new.md
 - name: Tutoriales
   items:
-    - name: Migración y evaluación de máquinas virtuales de VMware
+    - name: Evaluación y migración de máquinas virtuales de VMware
       items:
         - name: Preparación de VMware para la migración y evaluación
           href: tutorial-prepare-vmware.md
@@ -22,7 +22,7 @@
               href: tutorial-migrate-vmware.md
             - name: Migración de máquinas virtuales de VMware con migración basada en agentes
               href: tutorial-migrate-vmware-agent.md
-    - name: Evaluación y migración de Hyper-V
+    - name: Evaluación y migración de máquinas virtuales de Hyper-V
       items:
         - name: Preparación de Hyper-V para la evaluación y migración
           href: tutorial-prepare-hyper-v.md

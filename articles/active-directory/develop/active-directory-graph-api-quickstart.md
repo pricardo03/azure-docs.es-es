@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b3d749eb3e2bc767889831b4c1ff01833a3f39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2ae83b655bfe607b1061168649ec74f02ab4064
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544676"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483178"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Procedimientos para: Usar Graph API de Azure AD
 
@@ -65,7 +65,7 @@ El Probador de Graph de Azure AD se puede usar para que Graph API de Azure AD co
 
 En la captura de pantalla siguiente se muestra el resultado que vería si fuera al Probador de Graph de Azure AD, iniciara y escribiera `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` para mostrar todos los usuarios del directorio del usuario que ha iniciado sesión:
 
-![Azure AD graph api explorador](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![Salida de ejemplo en Azure AD Graph API Explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Carga de Azure AD Graph Explorer**: para cargar la herramienta, vaya a [https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/). Haga clic en **Iniciar sesión** e inicie sesión con las credenciales de su cuenta de Azure AD para ejecutar el Probador de Graph de Azure AD con el inquilino. Si ejecuta el Probador de Graph de Azure AD con su propio inquilino, usted o el administrador tendrán que dar su consentimiento durante el inicio de sesión. Si dispone de una suscripción a Office 365, tendrá automáticamente un inquilino de Azure AD. De hecho, las credenciales que usa para iniciar sesión en Office 365 son cuentas de Azure AD y puede usarlas con el Probador de Graph de Azure AD.
 

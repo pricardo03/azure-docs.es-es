@@ -8,23 +8,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tylerfox
-ms.openlocfilehash: a7e129f43b957b271c77f451ab198a9068bb0797
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: f7c894bcb3183714a76578a6750c8e85493e3094
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718986"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508079"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Administración de clústeres de Apache Hadoop en HDInsight con Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Se puede usar Azure PowerShell para controlar y automatizar la implementación y la administración de las cargas de trabajo en Azure. En este artículo, obtendrá información sobre cómo administrar [Apache Hadoop](https://hadoop.apache.org/) clústeres en HDInsight de Azure mediante el módulo Azure PowerShell Az. Para obtener la lista de los cmdlets de HDInsight PowerShell, consulte el [Az.HDInsight referencia](https://docs.microsoft.com/powershell/module/az.hdinsight).
+Se puede usar Azure PowerShell para controlar y automatizar la implementación y la administración de las cargas de trabajo en Azure. En este artículo aprenderá a administrar clústeres de [Apache Hadoop](https://hadoop.apache.org/) en Azure HDInsight mediante el módulo Az de Azure PowerShell. Para más información sobre los cmdlets de PowerShell de HDInsight, consulte la [referencia de Az.HDInsight](https://docs.microsoft.com/powershell/module/az.hdinsight).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* PowerShell [módulo Az](https://docs.microsoft.com/powershell/azure/overview) instalado.
+* Instalación del [módulo Az](https://docs.microsoft.com/powershell/azure/overview) de PowerShell.
 
 ## <a name="create-clusters"></a>Creación de clústeres
 Consulte [Crear clústeres basados en Linux en HDInsight con Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -142,17 +142,13 @@ Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $c
 > [!NOTE]  
 > Al conceder o revocar el acceso, se restablece el nombre de usuario y la contraseña del clúster.
 
-También es posible conceder y revocar el acceso a través del portal. Consulte [administrar Apache Hadoop clústeres en HDInsight mediante Azure portal](hdinsight-administer-use-portal-linux.md).
+También es posible conceder y revocar el acceso a través del portal. Consulte [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Actualización de las credenciales de usuario HTTP
 Es el mismo procedimiento que la concesión o la revocación del acceso HTTP. Si se ha concedido al clúster el acceso HTTP, primero debe revocarlo.  Y después conceda el acceso con nuevas credenciales de usuario HTTP.
 
 ## <a name="find-the-default-storage-account"></a>Búsqueda de la cuenta de almacenamiento predeterminada
 El siguiente script de PowerShell muestra cómo obtener el nombre de la cuenta de almacenamiento predeterminada y la información relacionada:
-
-> [!IMPORTANT]  
-> Los valores de `DefaultStorageAccount`, y `DefaultStorageContainer` no se devuelven desde [Get AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cuando [transferencia segura](../storage/common/storage-require-secure-transfer.md) está habilitado en la cuenta de almacenamiento.
-
 
 ```powershell
 #Connect-AzAccount
@@ -198,10 +194,6 @@ Vea [Ejecución de los ejemplos de MapReduce incluidos en HDInsight](hadoop/apac
 
 Consulte [Ejecución de consultas de Apache Hive con PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**Para enviar trabajos de Apache Pig**
-
-Consulte [Ejecución de trabajos de Apache Pig con PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
-
 **Para enviar trabajos de Apache Sqoop**
 
 Consulte [Uso de Apache Sqoop con HDInsight](hadoop/hdinsight-use-sqoop.md).
@@ -212,13 +204,13 @@ Consulte [Uso de Apache Oozie con Apache Hadoop para definir y ejecutar un flujo
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Carga de archivos de datos al almacenamiento de blobs de Azure
 
-Consulte [cargar datos en HDInsight](hdinsight-upload-data.md).
+Consulte [Carga de datos en HDInsight](hdinsight-upload-data.md).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [Documentación de referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md)
-* [Administrar HDInsight mediante una interfaz de línea de comandos](hdinsight-administer-use-command-line.md)
+* [Administración de HDInsight con la interfaz de la línea de comandos](hdinsight-administer-use-command-line.md)
 * [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Envío de trabajos de Apache Hadoop mediante programación](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Introducción a Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

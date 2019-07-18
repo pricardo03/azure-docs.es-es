@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: e10717b0fe14d2ed6ee720a2414e753bdd2474f1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 8c7f6695880cfdb0a350edc37d61e771d03b92df
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708897"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543713"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Análisis de datos de Twitter con Apache Hive y Apache Hadoop en HDInsight
 
@@ -21,8 +21,6 @@ Aprenda a usar [Apache Hive](https://hive.apache.org/) para procesar los datos d
 
 > [!IMPORTANT]  
 > Los pasos de este documento se probaron en HDInsight 3.6.
->
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="get-the-data"></a>Obtener los datos
 
@@ -69,7 +67,7 @@ El siguiente código Python descarga 10 000 tweets de Twitter y los guarda en un
 
     Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Use los siguientes comandos para instalar [Tweepy](https://www.tweepy.org/), [barra de progreso](https://pypi.python.org/pypi/progressbar/2.2)y otros paquetes necesarios:
+3. Use los comandos siguientes para instalar [Tweepy](https://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2) y otros paquetes requeridos:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -324,7 +322,7 @@ Estos comandos almacenan los datos en una ubicación a la que pueden tener acces
 Ha aprendido cómo transformar un conjunto de datos JSON no estructurado en una tabla de [Apache Hive](https://hive.apache.org/) estructurada. Para obtener más información sobre Hive en HDInsight, consulte los siguientes documentos:
 
 * [Introducción a HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Análisis de la información de retraso de vuelos con HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Análisis de la información de retraso de vuelos con HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 
 [curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html

@@ -4,28 +4,30 @@ ms.service: storage
 ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
-ms.openlocfilehash: c9561f868c70920a0ffb80777f1fc57abafb0df9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 368f08272173b019873dfe20e1164d6baf72ff5e
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073746"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542655"
 ---
-#### <a name="additional-premium-file-share-limits"></a>Límites del recurso compartido de archivos adicionales Premium
+#### <a name="additional-premium-file-share-level-limits"></a>Límites del nivel de recurso compartido de archivos prémium adicionales
 
 |Ámbito  |Destino  |
 |---------|---------|
 |Aumento o disminución del tamaño mínimo    |1 GiB      |
-|IOPS base    |1 IOPS por GiB hasta 100 000|
+|IOPS base    |1 IOPS por GiB hasta 100 000|
 |Ampliación de IOPS    |3 x IOPS por GiB hasta 100 000|
 |Velocidad de salida         |60 MiB/s + 0,06 * GiB aprovisionado        |
 |Velocidad de entrada| 40 MiB/s + 0,04 * GiB aprovisionado |
-|Número máximo de instantáneas        |200       |
 
-#### <a name="premium-file-limits"></a>Límites de archivo Premium
+#### <a name="file-level-limits"></a>Límites de nivel de archivo
 
-|Ámbito  |Destino  |
-|---------|---------|
-|Tamaño                  |1 TiB         |
-|IOPS máximas por archivo     |5\.000         |
-|Identificadores simultáneos    |2\.000         |
+|Ámbito  |Archivo prémium  |Archivo estándar |
+|---------|---------|---------|
+|Size                  |1 TiB         |1 TiB|
+|IOPS máximas por archivo     |5\.000         |1000|
+|Identificadores simultáneos    |2\.000         |2\.000|
+|Entrada  |300 MiB/s|      Consulte los valores de rendimiento de archivo estándar|
+|Salida   |200 MiB/s| Consulte los valores de rendimiento de archivo estándar|
+|Throughput| Consulte los valores de entrada y salida de archivos prémium| Hasta 60 MiB/s|

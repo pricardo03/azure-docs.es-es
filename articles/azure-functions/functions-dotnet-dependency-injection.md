@@ -1,28 +1,30 @@
 ---
-title: Usar inserción de dependencias en .NET de Azure Functions
-description: Aprenda a usar la inserción de dependencias para el registro y uso de servicios en las funciones de .NET
+title: Uso de la inserción de dependencias en Azure Functions con .NET
+description: Aprenda a usar la inserción de dependencias para el registro y uso de servicios en las funciones de .NET.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: funciones de azure, funciones, arquitectura sin servidor
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/28/2019
-ms.author: jehollan, glenga, cshoe
-ms.openlocfilehash: b1a6751f0d788c26af60b28eee994dc9b3877f00
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
-ms.translationtype: MT
+ms.author: jehollan, cshoe
+ms.openlocfilehash: 781bcdc158cb362b7c46e1ba9771b6a92ebc56a8
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693255"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479615"
 ---
-# <a name="use-dependency-injection-in-net-azure-functions"></a>Usar inserción de dependencias en .NET de Azure Functions
+# <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
-Azure Functions admite el patrón de diseño de dependencia (DI) de inyección software, que es una técnica para lograr [inversión de Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) entre clases y sus dependencias.
+Azure Functions admite el modelo de diseño de software de inserción de dependencias (DI), que es una técnica para lograr la [inversión de control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) entre las clases y sus dependencias.
 
-Azure Functions se basa en las características de inserción de dependencias de ASP.NET Core. Ser consciente de los servicios, duraciones y patrones de diseño de [inserción de dependencias de ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) antes de usar las características de inserción de dependencias en un Azure Functions se recomienda la aplicación.
+Azure Functions se basa en las características de inserción de dependencias en ASP.NET Core. Se recomienda tener en cuenta los servicios, la duración y los modelos de diseño de la [inserción de dependencias en Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) antes de usar las características de DI en una aplicación de Azure Functions.
+
+La compatibilidad con la inserción de dependencias comienza con Azure Functions 2.x.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,15 +32,24 @@ Para poder usar la inserción de dependencias, debe instalar los siguientes paqu
 
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-- [Paquete Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) versión 1.0.28 o posterior
+- Versión 1.0.28 o posterior del [paquete de Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
+
+- Opcional: [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) solo se necesita para registrar HttpClient al inicio
 
 ## <a name="register-services"></a>Registro de los servicios
 
-Para registrar los servicios, puede crear un método para configurar y agregar componentes a un `IFunctionsHostBuilder` instancia.  El host de Azure Functions crea una instancia de `IFunctionsHostBuilder` y lo pasa directamente a su método.
+Para registrar los servicios, puede crear un método para configurar y agregar componentes a una instancia de `IFunctionsHostBuilder`.  El host de Azure Functions crea una instancia de `IFunctionsHostBuilder` y la pasa directamente al método.
 
-Para registrar el método, agregue el `FunctionsStartup` usa el atributo de ensamblado que especifica el nombre de tipo durante el inicio.
+Para registrar el método, agregue el atributo de ensamblado `FunctionsStartup` que especifica el nombre del tipo usado durante el inicio. El código también hace referencia a una versión preliminar de [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) en Nuget.
 
 ```csharp
+using System;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Cosmos;
+
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
 namespace MyNamespace
@@ -57,11 +68,21 @@ namespace MyNamespace
 }
 ```
 
-## <a name="use-injected-dependencies"></a>Usar dependencias insertadas
+## <a name="use-injected-dependencies"></a>Uso de dependencias insertadas
 
-ASP.NET Core usa la inserción del constructor para que las dependencias estén disponibles para la función. El ejemplo siguiente se muestra cómo el `IMyService` y `HttpClient` dependencias se insertan en una función desencadenada por HTTP.
+ASP.NET Core usa la inserción de constructores para que las dependencias estén disponibles para la función. El ejemplo siguiente muestra cómo las dependencias `IMyService` y `HttpClient` se insertan en una función desencadenada por HTTP.
 
 ```csharp
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+
 namespace MyNamespace
 {
     public class HttpTrigger
@@ -90,43 +111,43 @@ namespace MyNamespace
 }
 ```
 
-El uso de inserción del constructor significa que no debe utilizar las funciones estáticas si desea aprovechar las ventajas de inserción de dependencias.
+El uso de la inserción de constructores significa que no debe usar funciones estáticas si quiere aprovechar las ventajas de la inserción de dependencias.
 
-## <a name="service-lifetimes"></a>Duración de los servicios
+## <a name="service-lifetimes"></a>Vigencia de los servicios
 
-Aplicaciones de funciones de Azure proporcionan la misma duración de servicio como [inserción de dependencias de ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes): transitorios, de ámbito y singleton.
+Las aplicaciones de Azure Functions proporcionan la misma vigencia de servicio que la [inserción de dependencias de ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes): transitoria, de ámbito y singleton.
 
-En una aplicación de functions, una duración de servicio con ámbito coincide con una duración de ejecución de la función. Los servicios de ámbito se crean una vez por cada ejecución. Las solicitudes posteriores para ese servicio durante la ejecución volver a usar la instancia de servicio existente. Una duración de singleton del servicio coincide con la duración de host y se reutiliza en ejecuciones de función en esa instancia.
+En una aplicación de Functions, una vigencia de servicio de ámbito coincide con una vigencia de ejecución de la función. Los servicios de ámbito se crean una vez por cada ejecución. Las solicitudes posteriores para ese servicio durante la ejecución vuelven a usar la instancia de servicio existente. Una vigencia singleton del servicio coincide con la vigencia del host y se reutiliza en ejecuciones de la función en esa instancia.
 
-Servicios de duración de singleton se recomiendan para las conexiones y los clientes, por ejemplo `SqlConnection`, `CloudBlobClient`, o `HttpClient` instancias.
+Los servicios de vigencia singleton se recomiendan para conexiones y clientes, por ejemplo, para instancias `SqlConnection`, `CloudBlobClient` o `HttpClient`.
 
-Ver o descargar un [ejemplo de duración de los diferentes servicios](https://aka.ms/functions/di-sample) en GitHub.
+Consulte o descargue un [ejemplo de vigencia de servicio diferente](https://aka.ms/functions/di-sample) en GitHub.
 
-## <a name="logging-services"></a>Servicios de registro
+## <a name="logging-services"></a>Registro de servicios
 
-Si tiene su propio proveedor de registro, el método recomendado es registrar un `ILoggerProvider` instancia. Application Insights se agrega automáticamente mediante Azure Functions.
+Si tiene su propio proveedor de registro, el método recomendado consiste en registrar una instancia `ILoggerProvider`. Azure Functions agrega Application Insights automáticamente.
 
 > [!WARNING]
-> No agregue `AddApplicationInsightsTelemetry()` a la colección de servicios tal y como registros de servicios que entran en conflicto con los servicios proporcionados por el entorno.
+> No agregue `AddApplicationInsightsTelemetry()` a la colección de servicios, ya que registra los servicios que entran en conflicto con los servicios proporcionados por el entorno.
 
-## <a name="function-app-provided-services"></a>Servicios de aplicación proporcionada (función)
+## <a name="function-app-provided-services"></a>Servicios proporcionados por la aplicación de funciones
 
-El host de la función registra muchos servicios. Los siguientes servicios son seguros tomar como una dependencia en la aplicación:
+El host de la función registra muchos servicios. Los siguientes servicios son seguros para tomar como dependencia en la aplicación:
 
 |Tipo de servicio|Vigencia|DESCRIPCIÓN|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|singleton|Configuración de tiempo de ejecución|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|singleton|Responsable de proporcionar el identificador de la instancia de host|
+|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Configuración del entorno en tiempo de ejecución|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsable de proporcionar el id. de la instancia de host|
 
-Si hay otros servicios que desea tomar una dependencia en, [crear un problema y proponer a ellos en GitHub](https://github.com/azure/azure-functions-host).
+Si hay otros servicios en los que quiere tomar una dependencia, [cree un problema y propóngalo en GitHub](https://github.com/azure/azure-functions-host).
 
-### <a name="overriding-host-services"></a>Reemplazo host de servicios
+### <a name="overriding-host-services"></a>Invalidación de los servicios de host
 
-Reemplazar servicios proporcionados por el host no se admite.  Si hay servicios que desee invalidar, [crear un problema y proponer a ellos en GitHub](https://github.com/azure/azure-functions-host).
+La invalidación de los servicios proporcionados por el host no se admite.  Si hay otros servicios que quiere invalidar, [cree un problema y propóngalo en GitHub](https://github.com/azure/azure-functions-host).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información, consulte los siguientes recursos:
 
-- [Cómo supervisar la aplicación de función](functions-monitoring.md)
-- [Procedimientos recomendados para las funciones](functions-best-practices.md)
+- [Cómo supervisar la aplicación de funciones](functions-monitoring.md)
+- [Procedimientos recomendados para Functions](functions-best-practices.md)

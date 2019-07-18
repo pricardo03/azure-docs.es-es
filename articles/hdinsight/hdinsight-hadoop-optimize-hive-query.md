@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 1610678b0ae1d94c3f3b8f91913beceb211d08d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 218085d8d3969218be1a0557fdc477c730879cbe
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701699"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543707"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimización de las consultas de Azure Hive en Azure HDInsight
 
 En Azure HDInsight, hay varios tipos de clúster y tecnologías que pueden ejecutar consultas de Apache Hive. Al crear el clúster de HDInsight, elija el tipo de clúster adecuado para ayudar a optimizar el rendimiento de sus necesidades de carga de trabajo.
 
-Por ejemplo, elija **Interactive Query** tipo para optimizar las consultas ad hoc e interactivas de clúster. Elija el tipo de clúster Apache **Hadoop** para optimizar la consultas de Hive utilizadas como un proceso por lotes. Los tipos de clúster **Spark** y **HBase** también pueden ejecutar consultas de Hive. Para más información sobre la ejecución de consultas de Hive en diversos tipos de clúster de HDInsight, vea [¿Qué son Apache Hive y HiveQL en Azure HDInsight?](hadoop/hdinsight-use-hive.md)
+Por ejemplo, elija el tipo de clúster **Interactive Query** para optimizar las consultas interactivas ad hoc. Elija el tipo de clúster Apache **Hadoop** para optimizar la consultas de Hive utilizadas como un proceso por lotes. Los tipos de clúster **Spark** y **HBase** también pueden ejecutar consultas de Hive. Para más información sobre la ejecución de consultas de Hive en diversos tipos de clúster de HDInsight, vea [¿Qué son Apache Hive y HiveQL en Azure HDInsight?](hadoop/hdinsight-use-hive.md)
 
 Los clústeres de HDInsight del tipo de clúster de Hadoop no están optimizados para el rendimiento de forma predeterminada. En este artículo se describen algunos de los métodos de optimización de rendimiento de Hive más comunes que se pueden aplicar a nuestras consultas.
 
@@ -39,7 +39,7 @@ Para más información sobre la escalabilidad de HDInsight, vea [Escalabilidad d
 
 ## <a name="use-apache-tez-instead-of-map-reduce"></a>Uso de Apache Tez en lugar de MapReduce
 
-[Apache Tez](https://hortonworks.com/hadoop/tez/) es un motor de ejecución alternativo al motor de MapReduce. Los clústeres de HDInsight basados en Linux tienen Tez habilitada de forma predeterminada.
+[Apache Tez](https://tez.apache.org/) es un motor de ejecución alternativo al motor de MapReduce. Los clústeres de HDInsight basados en Linux tienen Tez habilitada de forma predeterminada.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -51,7 +51,7 @@ Tez es más rápido porque:
 * **Reutiliza contenedores**. Siempre que es posible, Tez puede reutilizar contenedores para asegurarse de que se reduce la latencia debido al reinicio de contenedores.
 * **Técnicas de optimización continua**. Tradicionalmente, la optimización se realizó durante la fase de compilación. Sin embargo, hay más información disponible acerca de las entradas que permiten una mejor optimización en tiempo de ejecución. Tez usa las técnicas de optimización continua que le permiten optimizar más el plan en la fase de tiempo de ejecución.
 
-Para obtener más detalles sobre estos conceptos, consulte [Apache TEZ](https://hortonworks.com/hadoop/tez/).
+Para obtener más detalles sobre estos conceptos, consulte [Apache TEZ](https://tez.apache.org/).
 
 Puede realizar cualquier consulta de Hive habilitada con Tez anteponiendo a la consulta el siguiente comando set:
 
@@ -121,7 +121,7 @@ Cuando se cree la tabla con particiones, puede crear las particiones estáticas 
 Para obtener más información, consulte [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) (Tablas con particiones).
 
 ## <a name="use-the-orcfile-format"></a>Usar el formato ORCFile
-Hive admite diferentes formatos de archivo. Por ejemplo: 
+Hive admite diferentes formatos de archivo. Por ejemplo:
 
 * **Texto**: el formato de archivo predeterminado y funciona con la mayoría de escenarios.
 * **Avro**: funciona bien en escenarios de interoperabilidad.
@@ -147,7 +147,7 @@ Para habilitar el formato ORC, debe crear primero una tabla con la cláusula *Al
    STORED AS ORC;
    ```
    
-A continuación, inserte datos en la tabla ORC desde la tabla de almacenamiento temporal. Por ejemplo: 
+A continuación, inserte datos en la tabla ORC desde la tabla de almacenamiento temporal. Por ejemplo:
 
    ```hive
    INSERT INTO TABLE lineitem_orc
@@ -195,7 +195,7 @@ Hay más métodos de optimización que puede considerar, por ejemplo:
 En este artículo, ha aprendido varios métodos comunes de optimización de consultas de Hive. Para obtener más información, consulte los artículos siguientes:
 
 * [Uso de Apache Hive en HDInsight](hadoop/hdinsight-use-hive.md)
-* [Análisis de datos de retraso de vuelos con Apache Hive en HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Análisis de datos de retraso de vuelos con Interactive Query en HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [Análisis de datos de Twitter con Apache Hive en HDInsight](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png

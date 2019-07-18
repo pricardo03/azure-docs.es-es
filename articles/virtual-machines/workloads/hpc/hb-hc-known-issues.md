@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: ff65f3937069be87e922dad9287ba22380632329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a41155b90257f7eaec85c3adbd975a0a37e24d91
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810043"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560412"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Problemas conocidos de las máquinas virtuales de las series HB y HC
 
@@ -31,13 +31,13 @@ Las máquinas virtuales de serie HB solo pueden exponer 228 GB de RAM para las
 
 Azure Accelerated Networking no está habilitado en este momento, pero lo estará a medida que progresemos en el período de la versión preliminar. Se notificará a los clientes cuando se admita esta característica.
 
+## <a name="qp0-access-restriction"></a>Restricción de acceso qp0
+
+Para evitar el acceso de hardware de bajo nivel que pueda provocar vulnerabilidades de seguridad, el par de cola 0 no es accesible para las VM invitadas. Esto solo debería afectar a las acciones normalmente asociadas con la administración de la NIC ConnectX-5 y a la ejecución de algunos diagnósticos de InfiniBand, como ibdiagnet, pero no a las aplicaciones de usuario final.
+
 ## <a name="ud-transport"></a>Transporte UD
 
-En el lanzamiento, la serie HB no admite el transporte conectado dinámicamente (DCT). La compatibilidad con DCT se implementarán con el tiempo. Se admiten los transportes de datagramas no confiables (UD) y de conexión (RC) de confianza.
-
-## <a name="azure-batch"></a>Azure Batch
-
-Mientras las máquinas virtuales de serie HB estén en versión preliminar, use una cuenta de Batch en modo de suscripción de usuario y no en modo de servicio.
+En el lanzamiento, las series HB y HC no admiten el transporte conectado dinámicamente (DCT). La compatibilidad con DCT se implementarán con el tiempo. Se admiten los transportes de datagramas no confiables (UD) y de conexión (RC) de confianza.
 
 ## <a name="gss-proxy"></a>Proxy GSS
 

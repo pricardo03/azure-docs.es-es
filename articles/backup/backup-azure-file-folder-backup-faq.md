@@ -5,34 +5,30 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808300"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514453"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas 
+# <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas
 
 Este artículo contiene respuestas a preguntas habituales acerca de la copia de seguridad de archivos y carpetas con el agente de Microsoft Azure Recovery Services (MARS) en el servicio [Azure Backup](backup-overview.md).
 
 ## <a name="general"></a>General
 
-### <a name="why-does-the-mars-agent-need-net-framework-452-or-higher"></a>¿Por qué necesita el agente de MARS .NET Framework 4.5.2, o cualquier versión superior?
-
-La nueva funcionalidad disponible en [restauración instantánea](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) necesita .NET Framework 4.5.2, o cualquier versión superior.
-
 ## <a name="configure-backups"></a>Configuración de copias de seguridad
 
-### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>¿Dónde se puede descargar la versión más reciente del agente de MARS? 
-La versión más reciente del agente de MARS que se usa al hacer copias de seguridad de equipos con Windows Server machines, del DPM de System Center y del servidor de Microsoft Azure Backup esta disponible para [descargarla](https://aka.ms/azurebackup_agent). 
+### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>¿Dónde se puede descargar la versión más reciente del agente de MARS?
+La versión más reciente del agente de MARS que se usa al hacer copias de seguridad de equipos con Windows Server machines, del DPM de System Center y del servidor de Microsoft Azure Backup esta disponible para [descargarla](https://aka.ms/azurebackup_agent).
 
 ### <a name="how-long-are-vault-credentials-valid"></a>¿Cuál es el tiempo de validez de las credenciales de un almacén?
 Las credenciales de almacén expiran a las 48 horas. Si el archivo de credenciales expira, vuelva a descargarlo de Azure Portal.
 
-### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>¿De qué unidades se pueden hacer copias de seguridad de archivos y carpetas? 
+### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>¿De qué unidades se pueden hacer copias de seguridad de archivos y carpetas?
 
 No se pueden hacer copias de seguridad de los siguientes unidades y volúmenes:
 
@@ -45,29 +41,20 @@ No se pueden hacer copias de seguridad de los siguientes unidades y volúmenes:
 
 ### <a name="what-file-and-folder-types-are-supported"></a>¿Qué tipos de archivos y carpetas se admiten?
 
-Se admiten los siguientes tipos:
-
-* Cifrados
-* Comprimidos
-* Dispersos
-* Comprimidos + dispersos
-* Vínculos físicos: no compatibles, se omiten
-* Punto de repetición de análisis: no compatibles, se omiten
-* Cifrados + dispersos: no compatibles, se omiten
-* Flujo comprimido: no compatibles, se omiten
-* Puntos de repetición de análisis, que incluyen vínculos DFS y puntos de unión
-
+[Más información](backup-support-matrix-mars-agent.md#supported-file-types-for-backup) sobre los tipos de archivos y carpetas que admite la copia de seguridad.
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>¿Puedo usar al agente de MARS para realizar copias de seguridad de archivos y carpetas en una máquina virtual de Azure?  
-Sí. Azure Backup proporciona copia de seguridad de nivel de máquina virtual para las máquinas virtuales de Azure Virtual Machines que usen la extensión de máquina virtual para el agente de máquina virtual de Azure. Si desea realizar copias de seguridad de archivos y carpetas del sistema de operativo Windows en la máquina virtual, puede instalar el agente de MARS para hacerlo. 
+Sí. Azure Backup proporciona copia de seguridad de nivel de máquina virtual para las máquinas virtuales de Azure Virtual Machines que usen la extensión de máquina virtual para el agente de máquina virtual de Azure. Si desea realizar copias de seguridad de archivos y carpetas del sistema de operativo Windows en la máquina virtual, puede instalar el agente de MARS para hacerlo.
 
-### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>¿Se puede usar al agente de MARS para realizar copias de seguridad de archivos y carpetas que se encuentren en un almacenamiento temporal para la máquina virtual de Azure? 
-Sí. Instale el agente de MARS y realice una copia de seguridad de los archivos y las carpetas del sistema operativo Windows invitado en un almacenamiento temporal. Error de los trabajos de copia de seguridad relativo a que los datos del almacenamiento temporal se han eliminado.
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>¿Se puede usar al agente de MARS para realizar copias de seguridad de archivos y carpetas que se encuentren en un almacenamiento temporal para la máquina virtual de Azure?
+Sí. Instale el agente de MARS y realice una copia de seguridad de los archivos y las carpetas del sistema operativo Windows invitado en un almacenamiento temporal.
+
+- Las copias de seguridad de los trabajos dejarán de funcionar cuando se borren los datos del almacenamiento temporal.
 - Si los datos del almacenamiento temporal se eliminan, la restauración solo se podrá realizar en un almacenamiento no volátil.
 
 ### <a name="how-do-i-register-a-server-to-another-region"></a>¿Cómo se registra un servidor en otra región?
 
-Los datos de la copia de seguridad se envían al centro de datos del almacén en el que está registrado el servidor. La forma más sencilla de cambiar el centro de datos es desinstalar el agente y volver a instalarlo y, después, registrar el equipo en un nuevo almacén de la región que se necesite
+Los datos de la copia de seguridad se envían al centro de datos del almacén en el que está registrado el servidor. La forma más sencilla de cambiar el centro de datos es desinstalar el agente y volver a instalarlo y, después, registrar la máquina en un nuevo almacén de la región que se necesite.
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>¿Admite el agente de MARS la desduplicación de Windows Server 2012?
 Sí. El agente de MARS convierte los datos desduplicados en datos normales cuando prepara la operación de copia de seguridad. Luego optimiza los datos para la copia de seguridad, los cifra y los envía al almacén.
@@ -80,7 +67,7 @@ Al cambiar el nombre de un equipo Windows, se detienen todas las copias de segur
 
 - Es preciso registrar el nuevo nombre del equipo en el almacén de Backup.
 - Cuando se registra el nuevo nombre en el almacén, la primera operación es una *copia de seguridad* completa.
-- Si necesita recuperar los datos de una copia de seguridad en el almacén con el nombre de servidor antiguo, utilice la opción de restaurar en una ubicación alternativa en el Asistente para recuperar datos. [Más información](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
+- Si necesita recuperar los datos de una copia de seguridad en el almacén con el nombre de servidor antiguo, utilice la opción de restaurar en una ubicación alternativa en el Asistente para recuperar datos. [Más información](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>¿Cuál es la longitud máxima de la ruta de acceso de un archivo del que se va a realizar una copia de seguridad?
 El agente de MARS usa NTFS y utiliza la especificación de longitud de la ruta de acceso a los archivos limitada por la [API de Windows](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Si el tamaño de los archivos que desea proteger supera el valor permitido, realice una copia de seguridad de la carpeta primaria o de la unidad de disco.  
@@ -143,8 +130,8 @@ No se admiten los siguientes atributos ni sus combinaciones para la carpeta de c
 Ni la carpeta de caché ni los metadatos del disco duro virtual tienen los atributos necesarios para el agente de Azure Backup.
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>¿Hay alguna forma de ajustar la cantidad de ancho de banda que se utiliza para la copia de seguridad?
- 
-Sí, puede usar la opción **Cambiar propiedades** del agente de MARS para ajustar el ancho de banda y el tiempo. [Más información](backup-configure-vault.md#enable-network-throttling)**.
+
+Sí, puede usar la opción **Cambiar propiedades** del agente de MARS para ajustar el ancho de banda y el tiempo. [Más información](backup-configure-vault.md#enable-network-throttling).
 
 ## <a name="restore"></a>Restauración
 

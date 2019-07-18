@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: f169f969a1acf4cefc8cee27f74a99730491176a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389410"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542757"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Obtención de imágenes desde la web con Bing Image Search API
 
@@ -31,10 +31,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
+Use el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) para el término de búsqueda con codificación URL. Por ejemplo, si escribe *sailing dinghies*, establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
+
 > [!IMPORTANT]
 > * Todas las solicitudes se deben realizar desde un servidor y no desde un cliente.
 > * Si es la primera vez que llama a cualquiera de las API de búsqueda de Bing, no incluya el encabezado de identificador de cliente. Solo debe incluir el identificador de cliente si se ha llamado previamente a una API de Bing que ha devuelto un identificador de cliente para esa combinación de usuario y dispositivo.
-> * Debe mostrar las imágenes en el orden proporcionado en la respuesta.
 
 ## <a name="get-images-from-a-specific-web-domain"></a>Obtención de imágenes de un dominio web específico
 
@@ -46,17 +47,6 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 
 > [!NOTE]
 > Las respuestas a las consultas que utilizan el operador `site:` pueden incluir contenido para adultos, independientemente de la configuración de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch). Use `site:` solo si es consciente del contenido del dominio.
-
-En el ejemplo siguiente se muestra cómo obtener imágenes pequeñas de ContosoSailing.com que Bing ha detectado en la última semana.  
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
-Ocp-Apim-Subscription-Key: 123456789ABCDE  
-X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-Host: api.cognitive.microsoft.com  
-```
 
 ## <a name="filter-images"></a>Filtrado de imágenes
 
@@ -73,9 +63,6 @@ Host: api.cognitive.microsoft.com
 
 Para obtener imágenes de un dominio específico, utilice el operador de consulta [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
- > [!NOTE]
- > Las respuestas a las consultas que utilizan el operador `site:` pueden incluir contenido para adultos, independientemente de la configuración de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch). Use `site:` solo si es consciente del contenido del dominio.
-
 En el ejemplo siguiente se muestra cómo obtener imágenes pequeñas de ContosoSailing.com que Bing ha detectado en la última semana.  
 
 ```http
@@ -90,6 +77,10 @@ Host: api.cognitive.microsoft.com
 ## <a name="bing-image-search-response-format"></a>Formato de respuesta de Bing Image Search
 
 El mensaje de respuesta de Bing contiene la respuesta [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) que contiene una lista de imágenes que Cognitive Services ha determinado como pertinentes para la consulta. Cada objeto [Image](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) de la lista incluye la siguiente información sobre la imagen: la dirección URL, su tamaño, sus dimensiones, su formato de codificación, la dirección URL de una vista en miniatura de la imagen y las dimensiones de la miniatura.
+
+> [!NOTE]
+> * Debe mostrar las imágenes en el orden proporcionado en la respuesta.
+> * Como los formatos y los parámetros de dirección URL están sujetos a cambios sin previo aviso, use todas las direcciones URL tal y como están. No debe tomar dependencias en el formato o los parámetros de dirección URL, excepto donde se indique.
 
 ```json
 {
