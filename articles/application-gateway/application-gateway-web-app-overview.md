@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: victorh
-ms.openlocfilehash: 256fb42be8fec056ed7d10cfc4197a1b5a33fac1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66e4a578e3f443f4cbc3f6e5467cf9a86adf05fe
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807167"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297041"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Compatibilidad de Application Gateway con back-ends multiinquilino como App Service
 
@@ -55,11 +55,11 @@ El reemplazo del encabezado de host en la **configuración de HTTP** solo afecta
 
 Puede haber escenarios en los que el nombre de host de la respuesta de App Service pueda dirigir el explorador del usuario final al nombre de host *. azurewebsites.net, en lugar de al dominio asociado con Application Gateway. Este problema puede ocurrir cuando:
 
-- Ha configurado el redireccionamiento en su instancia de App Service. El redireccionamiento puede ser tan sencillo como agregar una barra oblicua final a la solicitud.
+- Ha configurado el redireccionamiento en su instancia de App Service. El redireccionamiento puede ser tan sencillo como agregar una barra diagonal final a la solicitud.
 - Tiene la autenticación de Azure AD, lo que provoca el redireccionamiento.
 
 Para resolver estos casos, consulte [Solución de problemas de redireccionamiento a la dirección URL de App Service](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a configurar una puerta de enlace de aplicaciones con una aplicación multiinquilino como App Service Web Apps de Azure como miembro del grupo de back-ends, visite [Configuración de App Service Web Apps con Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-web-app)
+Para aprender a configurar una puerta de enlace de aplicaciones con una aplicación multiinquilino como App Service Web Apps de Azure como miembro del grupo de back-ends, visite [Configuración de App Service Web Apps con Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal)

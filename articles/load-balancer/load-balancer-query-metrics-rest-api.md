@@ -3,20 +3,20 @@ title: Recuperación de métricas con la API de REST
 titlesuffix: Azure Load Balancer
 description: Use las API REST de Azure para recopilar métricas de mantenimiento y de utilización de Load Balancer para un intervalo de tiempo y fechas determinados.
 services: sql-database
-author: KumudD
+author: asudbring
 ms.reviewer: routlaw
 manager: jeconnoc
 ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: KumudD
-ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 0d12dc04aff58dd6273d8d29d422bdbd9e7c886b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734548"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274539"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Obtención de métricas de utilización de Load Balancer con la API REST
 

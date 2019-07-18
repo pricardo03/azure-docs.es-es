@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: da045a561fba81bf9a5e412a6f2bf0a6160acfa7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979155"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807445"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Introducción al servicio Azure Policy
 
@@ -25,6 +25,8 @@ Azure Policy es un servicio de Azure que se usa para crear, asignar y administra
 
 > [!IMPORTANT]
 > La evaluación de cumplimiento de Azure Policy se ofrece ahora para todas las asignaciones independientemente del nivel de precios. Si las asignaciones no muestran los datos de cumplimiento, asegúrese de que la suscripción está registrada con el proveedor de recursos Microsoft.PolicyInsights.
+
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>¿En qué se diferencia de RBAC?
 
@@ -45,7 +47,7 @@ Si ninguno de los roles integrados tiene los permisos necesarios, cree un [rol p
 
 El proceso de creación e implementación de una directiva en Azure Policy comienza con la creación de una definición de directiva. Cada definición de directiva tiene condiciones que regulan su aplicación. Además, tiene un efecto definido que se produce cuando se cumplen las condiciones.
 
-En Azure Policy, se ofrecen varias directivas integradas que están disponibles de manera predeterminada. Por ejemplo: 
+En Azure Policy, se ofrecen varias directivas integradas que están disponibles de manera predeterminada. Por ejemplo:
 
 - **Requerir SQL Server 12.0**: valida que todos los servidores SQL usan la versión 12.0. Su efecto es denegar todos los servidores que no cumplen estos criterios.
 - **SKU permitidas de cuentas de almacenamiento**: determina si una cuenta de almacenamiento que se va a implementar se engloba dentro de un conjunto de tamaños de SKU. Su efecto es denegar todas las cuentas de almacenamiento que no cumplen el conjunto de tamaños de SKU definidos.

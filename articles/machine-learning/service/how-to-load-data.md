@@ -10,14 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 02/22/2019
+ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: fef3281f1f4e727b58878439e3f6456fee3b6241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0fa60198af66154e0ddc703f90224adf5be89447
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752934"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876404"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Carga y lectura de datos con el SDK de preparación de datos de Azure Machine Learning
 En este artículo obtendrá información sobre los diferentes métodos de carga de datos mediante el SDK de preparación de datos de Azure Machine Learning.  El SDK es compatible con varias características de ingesta de datos, entre las que se incluyen:
@@ -28,7 +28,7 @@ En este artículo obtendrá información sobre los diferentes métodos de carga 
 
 > [!Important]
 > Si va a compilar una nueva solución, pruebe los [conjuntos de datos de Azure Machine Learning](how-to-explore-prepare-data.md) (versión preliminar) para la preparación y exploración de los datos. Los conjuntos de datos son la próxima versión del SDK de preparación de datos y ofrecen funcionalidad ampliada para administrar conjuntos de datos en soluciones de inteligencia artificial.
-> Si usa el paquete `azureml-dataprep` para crear un flujo de datos con las transformaciones en lugar de usar el paquete `azureml-datasets` para crear un conjunto de datos, no podrá usar más adelante instantáneas o conjuntos de datos con versiones.
+
 
 En la tabla siguiente se muestra una selección de funciones que se usan para cargar los datos a partir de tipos de archivo comunes.
 
@@ -128,7 +128,7 @@ Salida:
 
 De forma predeterminada, el SDK de preparación de datos de Azure Machine Learning no cambia el tipo de datos. El origen de datos del que se lee es un archivo de texto, por lo que el SDK lee todos los valores como cadenas. En este ejemplo, las columnas numéricas se deben analizar como números. Establezca el parámetro `inference_arguments` en `InferenceArguments.current_culture()` para inferir y convertir automáticamente los tipos de columna durante la lectura del archivo.
 
-```
+```python
 dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
@@ -228,7 +228,7 @@ dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dflow.head(5)
 ```
 
-| |ProductID|NOMBRE|ProductNumber|Color|StandardCost|ListPrice|Tamaño|Peso|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
+| |ProductID|NOMBRE|ProductNumber|Color|StandardCost|ListPrice|Size|Peso|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
 |-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
 |0|680|HL Road Frame - Black, 58|FR-R92B-58|Negro|1059,3100|1431,50|58|1016,04|18|6|2002-06-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
 |1|706|HL Road Frame - Red, 58|FR-R92R-58|Rojo|1059,3100|1431,50|58|1016,04|18|6|2002-06-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|

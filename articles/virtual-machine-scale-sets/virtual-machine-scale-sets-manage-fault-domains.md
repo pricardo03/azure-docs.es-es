@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: rajraj
-ms.openlocfilehash: bab264769576b6e5478236c452d7de920d887c1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: drewm
+ms.openlocfilehash: f97c7e6971fb9c58a3f08959c00c84e64e160916
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617986"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871949"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Elección del número correcto de dominios de error para el conjunto de escalado de máquinas virtuales
 Los conjuntos de escalado de máquinas virtuales se crean con cinco dominios de error de forma predeterminada en las regiones de Azure sin zonas. Para las regiones que admiten la implementación con zonas de conjuntos de escalado de máquinas virtuales, el valor predeterminado del número de dominios de error es 1 para cada una de las zonas. FD=1 en este caso implica que las instancias de VM que pertenecen al conjunto de escalado se distribuirán entre varios bastidores en función del mejor esfuerzo.
@@ -30,7 +30,7 @@ También puede considerar la alineación del número de dominios de error del co
 ## <a name="rest-api"></a>API DE REST
 Puede establecer la propiedad `properties.platformFaultDomainCount` en 1, 2 o 3 (el valor predeterminado es 5 si no se especifica). Consulte la documentación de la API REST [aquí](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 Puede establecer el parámetro `--platform-fault-domain-count` en 1, 2 o 3 (el valor predeterminado es 5 si no se especifica). Consulte la documentación de la CLI de Azure [aquí](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
 
 ```azurecli-interactive
@@ -47,4 +47,4 @@ az vmss create \
 Se tardan unos minutos en crear y configurar todos los recursos de conjunto de escalado y máquinas virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre [características de disponibilidad y redundancia](../virtual-machines/windows/regions-and-availability.md) para entornos de Azure.
+- Obtenga más información sobre [características de disponibilidad y redundancia](../virtual-machines/windows/availability.md) para entornos de Azure.

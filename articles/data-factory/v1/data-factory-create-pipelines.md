@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ee34c91787ede0431c71b0fd96d2c040717dbca2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58db6f9903c4dc02c2d76f3784b004972621a000
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487425"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836493"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -291,7 +291,6 @@ Para obtener más información, vea [Programación y ejecución](data-factory-sc
 Puede crear canalizaciones utilizando una de estas herramientas o SDK.
 
 - Asistente para copia
-- Portal de Azure
 - Visual Studio
 - Azure PowerShell
 - Plantilla del Administrador de recursos de Azure

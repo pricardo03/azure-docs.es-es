@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/11/2019
+ms.openlocfilehash: c19ec06ce353d653086fa693dde975a55f51f823
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364446"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839252"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replicar datos en Azure Database for MariaDB
 
@@ -37,7 +37,6 @@ La [*base de datos del sistema mysql* ](https://mariadb.com/kb/en/library/the-my
 
 ### <a name="other"></a>Otros
 - La Replicación de datos de entrada solo se admite en los planes de tarifa De uso general y Optimizada para memoria.
-- No se admiten identificadores de transacción global (GTID).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Información sobre cómo [configurar la replicación de datos internos](howto-data-in-replication.md).

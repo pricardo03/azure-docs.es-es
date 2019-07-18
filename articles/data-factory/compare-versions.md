@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d31a134ae15e4ddbda0cc60a741f8780fec8d12
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432709"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838114"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparación de Azure Data Factory con Azure Data Factory versión 1
 En este artículo se compara Data Factory con Data Factory versión 1. Para obtener una introducción a Data Factory, consulte [Introducción a Data Factory](introduction.md). Para obtener una introducción a Data Factory versión 1, consulte [Introducción a Azure Data Factory](v1/data-factory-introduction.md). 
@@ -130,11 +130,11 @@ Los SDK que se actualizan en la versión actual no son compatibles con los clien
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Azure Portal | [Sí](quickstart-create-data-factory-portal.md) | [Sí](data-factory-build-your-first-pipeline-using-editor.md) |
+| Portal de Azure | [Sí](quickstart-create-data-factory-portal.md) | Sin |
 | Azure PowerShell | [Sí](quickstart-create-data-factory-powershell.md) | [Sí](data-factory-build-your-first-pipeline-using-powershell.md) |
 | .NET SDK | [Sí](quickstart-create-data-factory-dot-net.md) | [Sí](data-factory-build-your-first-pipeline-using-vs.md) |
 | API DE REST | [Sí](quickstart-create-data-factory-rest-api.md) | [Sí](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| SDK de Python | [Sí](quickstart-create-data-factory-python.md) | Sin  |
+| SDK de Python | [Sí](quickstart-create-data-factory-python.md) | Sin |
 | Plantilla de Resource Manager | [Sí](quickstart-create-data-factory-resource-manager-template.md) | [Sí](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Roles y permisos

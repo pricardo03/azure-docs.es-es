@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fc481129e652c6dacd15a5a6d039a9118393e8f1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332659"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854243"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locales recomendados
 Cuando realice streaming en directo con Azure Media Services, puede especificar cómo desea que el canal reciba la transmisión de entrada. Si elige usar un codificador local con un canal de codificación en directo, el codificador debe insertar una transmisión con velocidad de bits única de alta calidad como salida. Si elige usar un codificador local con un canal de paso a través, el codificador debe insertar una transmisión con múltiples velocidades de bits como salida con todas las cualidades de salida deseadas. Para más información, consulte el artículo sobre [streaming en directo con codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
@@ -54,7 +54,7 @@ Comprobación del canal de paso a través
 4. Cree un evento en directo publicado
 5. Ejecute el codificador en directo durante aproximadamente diez minutos
 6. Detenga el evento en directo
-7. Cree, inicie un punto de conexión de streaming, use un reproductor como [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) para ver el recurso archivado para asegurarse de que la reproducción no tiene problemas visibles para todos los niveles de calidad (o también para ver y validar a través de la dirección URL de vista previa durante la sesión en vivo antes del paso 6)
+7. Cree, inicie un punto de conexión de streaming, use un reproductor como [Azure Media Player](https://aka.ms/azuremediaplayer) para ver el recurso archivado para asegurarse de que la reproducción no tiene problemas visibles para todos los niveles de calidad (o también para ver y validar a través de la dirección URL de vista previa durante la sesión en vivo antes del paso 6)
 8. Anote el id. del activo, la dirección URL del streaming publicado del archivo en directo y la configuración y la versión que se usó desde el codificador en directo
 9. Restablezca el estado del canal después de crear cada ejemplo
 10. Repita del paso 3 al paso 9 para todas las configuraciones compatibles con el codificador (con y sin señalización de anuncios, leyendas o velocidades de codificación distintas)
@@ -66,7 +66,7 @@ Comprobación del canal de codificación en directo
 4. Cree un evento en directo publicado
 5. Ejecute el codificador en directo durante aproximadamente diez minutos
 6. Detenga el evento en directo
-7. Cree, inicie un punto de conexión de streaming, use un reproductor como [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) para ver el recurso archivado para asegurarse de que la reproducción no tiene problemas visibles para todos los niveles de calidad (o también para ver y validar a través de la dirección URL de vista previa durante la sesión en vivo antes del paso 6)
+7. Cree, inicie un punto de conexión de streaming, use un reproductor como [Azure Media Player](https://aka.ms/azuremediaplayer) para ver el recurso archivado para asegurarse de que la reproducción no tiene problemas visibles para todos los niveles de calidad (o también para ver y validar a través de la dirección URL de vista previa durante la sesión en vivo antes del paso 6)
 8. Anote el id. del activo, la dirección URL del streaming publicado del archivo en directo y la configuración y la versión que se usó desde el codificador en directo
 9. Restablezca el estado del canal después de crear cada ejemplo
 10. Repita del paso 3 al paso 9 para todas las configuraciones compatibles con el codificador (con y sin señalización de anuncios, leyendas o velocidades de codificación variadas)
@@ -77,7 +77,7 @@ Comprobación de duración
 3. Configure el codificador para insertar una transmisión en directo con múltiples velocidades de bits
 4. Cree un evento en directo publicado
 5. Ejecute el codificador en directo durante una semana o más
-6. Use un reproductor, como [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html), para ver el streaming en vivo cada cierto tiempo (o recurso archivado) para asegurarse de que la reproducción no tenga problemas visibles
+6. Use un reproductor, como [Azure Media Player](https://aka.ms/azuremediaplayer), para ver el streaming en vivo cada cierto tiempo (o recurso archivado) para asegurarse de que la reproducción no tenga problemas visibles
 7. Detenga el evento en directo
 8. Anote el id. del activo, la dirección URL del streaming publicado del archivo en directo y la configuración y la versión que se usó desde el codificador en directo
 

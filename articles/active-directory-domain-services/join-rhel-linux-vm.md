@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: a6e78ea6a4427043bf3c06a4663029585c99e331
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 52df4308020b03565c851b6969c0e2e31464d7d7
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473147"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234050"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual de Red Hat Enterprise Linux 7 a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual de Red Hat Enterprise Linux (RHEL) 7 a un dominio administrado con Servicios de dominio de Azure AD.
@@ -57,24 +57,25 @@ Siga las instrucciones que aparecen en el artículo [cómo iniciar sesión en un
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configuración del archivo hosts en la máquina virtual Linux
 En el terminal SSH, edite el archivo /etc/hosts y actualice la dirección IP y el nombre de host de la máquina.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 En el archivo hosts, escriba el siguiente valor:
 
-```
+```console
 127.0.0.1 contoso-rhel.contoso100.com contoso-rhel
 ```
+
 En este caso, "contoso100.com" es el nombre de dominio DNS del dominio administrado. "contoso-rhel" es el nombre de host de la máquina virtual RHEL que va a unir al dominio administrado.
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Instalación de los paquetes necesarios en la máquina virtual de Linux
 A continuación, instale los paquetes necesarios para unirse a un dominio en la máquina virtual. En el terminal SSH, escriba el siguiente comando para instalar los paquetes necesarios:
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
-    ```
+```console
+sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
+```
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Unión de la máquina virtual de Linux al dominio administrado
@@ -82,7 +83,7 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
 
 1. Detecte el dominio administrado con Servicios de dominio de AAD. En el terminal SSH, escriba el siguiente comando:
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -97,9 +98,8 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
     > [!TIP]
     > * Asegúrese de especificar un usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD".
     > * Especifique el nombre de dominio en mayúsculas o kinit generará un error.
-    >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -107,9 +107,8 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
 
     > [!TIP]
     > Utilice la misma cuenta de usuario que ha especificado el paso anterior ("kinit").
-    >
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
 
@@ -120,17 +119,20 @@ Debe obtener un mensaje (Máquina inscrita correctamente en el dominio kerberos)
 Verifique si la máquina se ha unido correctamente al dominio administrado. Conéctese a la máquina virtual RHEL unida al dominio con otra conexión SSH. Utilice una cuenta de usuario del dominio y, a continuación, compruebe si la cuenta de usuario se ha resuelto correctamente.
 
 1. En el terminal SSH, escriba el comando siguiente para conectarse a la máquina virtual RHEL unida al dominio con SSH. Use una cuenta de dominio que pertenezca al dominio administrado (por ejemplo, "bob@CONTOSO100.COM" en este caso).
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
     ```
 
 2. En el terminal SSH, escriba el comando siguiente para ver si el directorio principal se ha inicializado correctamente.
-    ```
+    
+    ```console
     pwd
     ```
 
 3. En el terminal SSH, escriba el comando siguiente para ver si los miembros del grupo se están resolviendo correctamente.
-    ```
+    
+    ```console
     id
     ```
 

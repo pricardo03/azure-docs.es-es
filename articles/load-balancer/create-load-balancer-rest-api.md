@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Aprenda a crear una instancia de Azure Load Balancer mediante API REST.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
-ms.author: kumud
-ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60884986"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275558"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Creación de una instancia de Azure Basic Load Balancer mediante API REST
 
@@ -33,7 +33,7 @@ Utilice la siguiente solicitud PUT de HTTP para crear un nuevo Azure Load Balanc
   ```
 ### <a name="uri-parameters"></a>Parámetros del identificador URI
 
-|NOMBRE  |En  |Obligatorio |Type |DESCRIPCIÓN |
+|NOMBRE  |En  |Obligatorio |type |DESCRIPCIÓN |
 |---------|---------|---------|---------|--------|
 |subscriptionId   |  path       |  True       |   string      |  Las credenciales de suscripción que identifican de forma única la suscripción de Microsoft Azure. El identificador de suscripción forma parte del URI para cada llamada al servicio.      |
 |resourceGroupName     |     path    | True        |  string       |   Nombre del grupo de recursos.     |
@@ -46,7 +46,7 @@ Utilice la siguiente solicitud PUT de HTTP para crear un nuevo Azure Load Balanc
 
 El único parámetro necesario es `location`. Si no se define la versión *SKU*, se crea una instancia de Load Balancer básico de forma predeterminada.  Use [parámetros opcionales](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) para personalizar el equilibrador de carga.
 
-| NOMBRE | Type | DESCRIPCIÓN |
+| NOMBRE | type | DESCRIPCIÓN |
 | :--- | :--- | :---------- |
 | location | string | Ubicación del recurso Obtenga una lista actualizada de ubicaciones mediante la operación [Enumerar ubicaciones](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) operación. |
 

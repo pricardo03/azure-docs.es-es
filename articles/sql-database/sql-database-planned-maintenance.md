@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 928338a911efae051df7164239dbd19f9317338a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 235d29c876616948516bbe4309ddd630bc3f6dca
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584614"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852600"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planeación de los eventos de mantenimiento en Azure SQL Database
 
@@ -41,7 +41,7 @@ En promedio, se producen 1,7 eventos de mantenimiento planeado cada mes.
 
 ## <a name="resource-health"></a>Estado de los recursos
 
-Si la base de datos SQL está experimentando errores de inicio de sesión, compruebe la ventana de [Resource Health](../service-health/resource-health-overview.md#getting-started) en [Azure Portal](https://portal.azure.com) para conocer el estado actual. La sección del historial de estado contiene el motivo del tiempo de inactividad de cada evento (si está disponible).
+Si la base de datos SQL está experimentando errores de inicio de sesión, compruebe la ventana de [Resource Health](../service-health/resource-health-overview.md#get-started) en [Azure Portal](https://portal.azure.com) para conocer el estado actual. La sección del historial de estado contiene el motivo del tiempo de inactividad de cada evento (si está disponible).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

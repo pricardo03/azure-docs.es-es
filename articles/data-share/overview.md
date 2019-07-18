@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 1e0d640c5434c27695b90ee7fd4c20a4959c24b3
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 7d4e51ec9564bfb123cf73d9fe89d040f42fe650
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788989"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807540"
 ---
 # <a name="what-is-azure-data-share-preview"></a>¿Qué es Azure Data Share (versión preliminar)?
 
@@ -78,14 +78,6 @@ Azure Data Share aprovecha la seguridad subyacente que ofrece Azure para protege
 Se pueden establecer controles de acceso en el nivel de recursos de Azure Data Share para asegurarse de que solo acceden los que tienen autorización. 
 
 Azure Data Share aprovecha las identidades administradas para recursos de Azure (que antes se conocían como archivos MSI) para la administración automática de identidades en Azure Active Directory. Las identidades administradas para recursos de Azure se aprovechan para acceder a las cuentas de almacenamiento que se utilizan para el uso compartido de datos. No hay intercambio de credenciales entre un proveedor de datos y un consumidor de datos. Para más información, consulte la [página de identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities) (Identidades administradas para los recursos de Azure). 
-
-## <a name="pricing"></a>Precios
-
-La versión preliminar de Azure Data Share factura dos componentes. El primero es para la administración de recursos compartido de datos. En la versión preliminar, la administración de recursos compartidos de datos será gratuita.
-
-El segundo componente es para el movimiento. Azure Data Share cobra el movimiento de los datos de desde el inquilino de Azure del proveedor de datos al inquilino de Azure del consumidor de datos. El movimiento de datos se paga por operación y por el proceso necesario para mover un conjunto de datos. El proceso del movimiento del conjunto de datos se cobra por hora de núcleo virtual. Los cargos del proceso del movimiento de datos se prorratean por minuto de entrada y se redondean hacia arriba. En la versión preliminar, las operaciones de movimiento del conjunto de datos son gratuitas. 
-
-Para más información acerca de los precios, visite la [página de precios](https://azure.microsoft.com/pricing/) de Azure Data Share.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 

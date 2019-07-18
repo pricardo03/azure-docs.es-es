@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: 832f927f81b57fd16c202b855d8f1dbe0617ad56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 839ab291a99de646053b638520ce43f459d5c41f
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149897"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297015"
 ---
 # <a name="dependency-auto-collection"></a>Recopilación automática de dependencias
 
-A continuación encontrará la lista de las llamadas de dependencia admitida actualmente que se detectan automáticamente como dependencias sin requerir ninguna modificación adicional en el código de la aplicación. Consta de las llamadas salientes a bibliotecas de comunicaciones, clientes de almacenamiento, bibliotecas de registro y métricas, así como las llamadas entrantes a marcos de trabajo de la aplicación y servidores. Estas dependencias se visualizan en el [Mapa de aplicación](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) de Application Insights y las vistas de [Diagnóstico de transacciones](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics). Si la dependencia no se encuentra en la siguiente lista, todavía puede realizar un seguimiento manual con una [llamada a TrackDependency ](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+A continuación encontrará la lista de las llamadas de dependencia admitida actualmente que se detectan automáticamente como dependencias sin requerir ninguna modificación adicional en el código de la aplicación. Estas dependencias se visualizan en el [Mapa de aplicación](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) de Application Insights y las vistas de [Diagnóstico de transacciones](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics). Si la dependencia no se encuentra en la siguiente lista, todavía puede realizar un seguimiento manual con una [llamada a TrackDependency ](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -38,11 +38,6 @@ A continuación encontrará la lista de las llamadas de dependencia admitida act
 | [SDK de cliente de Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Clientes de Storage</b>|  |
 | ADO.NET | 4.5+ |
-| <b>Bibliotecas de registro</b> |  |
-| ILogger | 1.1+ |
-| System.Diagnostics.Trace | 4.5+ |
-| [nLog](https://www.nuget.org/packages/NLog/) | 4.4.12+ |
-| [log4net](https://www.nuget.org/packages/log4net/) | 2.0.8+ en NetStandard 1.3, 2.0.6+ en .NET 4.5+ |
 
 ## <a name="java"></a>Java
 | Servidores de aplicaciones | Versiones |

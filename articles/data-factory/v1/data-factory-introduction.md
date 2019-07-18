@@ -13,15 +13,15 @@ ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9bf8c51fda6985f88ecffa60b32c1c62e364a511
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: aed073e7d65f193c4123106ba1ae3f4f442965e1
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014937"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836312"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-introduction.md)
 > * [Versión 2 (versión actual)](../introduction.md)
 
@@ -133,7 +133,6 @@ Por ejemplo, supongamos que sus entornos de proceso, tales como un clúster de A
 ## <a name="get-started-with-creating-a-pipeline"></a>Introducción a la creación de una canalización
 Puede usar una de esas herramientas o una de estas API para crear canalizaciones de datos en Azure Data Factory: 
 
-- Azure Portal
 - Visual Studio
 - PowerShell
 - API de .NET

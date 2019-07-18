@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 38403efd72843e7cd6d1afff5ff65a15af39c107
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6b808126fe4366d3ca3cc19c674b489ec3055665
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473969"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234156"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Comprobación del estado de un dominio administrado con Azure AD Domain Services
 
@@ -43,10 +43,10 @@ El estado de la parte superior derecha de la página de mantenimiento indica el 
 
 | Status | Icono | Explicación |
 | --- | :----: | --- |
-| En ejecución | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | El dominio administrado se ejecuta sin problemas y no tiene ninguna alerta crítica ni de advertencia. Este dominio puede tener alertas informativas. |
-| Requiere atención (advertencia) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | No hay ninguna alerta crítica en el dominio administrado, pero hay una o varias alertas de advertencia que se deben abordar. |
-| Requiere atención (crítico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Hay una o varias alertas críticas en el dominio administrado. También puede tener alertas de advertencia o informativas. |
-| Implementando | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | El dominio está en proceso de implementación. |
+| En ejecución | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | El dominio administrado se ejecuta sin problemas y no tiene ninguna alerta crítica ni de advertencia. Este dominio puede tener alertas informativas. |
+| Requiere atención (advertencia) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | No hay ninguna alerta crítica en el dominio administrado, pero hay una o varias alertas de advertencia que se deben abordar. |
+| Requiere atención (crítico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Hay una o varias alertas críticas en el dominio administrado. También puede tener alertas de advertencia o informativas. |
+| Implementando | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | El dominio está en proceso de implementación. |
 
 ## <a name="monitors"></a>Monitores
 Los monitores son aspectos del dominio administrado que Azure AD Domain Services supervisa de forma regular. La mejor manera de mantener los monitores en un estado correcto es resolver todas las alertas activas de su dominio administrado.

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cccd5ddc2f268eda48bd9803596a1db1c5ee9395
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1ae5e16aa00147d6ea434090720b51af06e8e0c5
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481174"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807563"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Visualización de las aplicaciones del inquilino de Azure Active Directory
 
@@ -39,20 +39,16 @@ Las aplicaciones del inquilino de Azure AD están visibles en la sección **Apli
 
 Para buscar las aplicaciones del inquilino:
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**. 
-
-1. En el panel **Azure Active Directory**, seleccione **Aplicaciones empresariales**. 
-
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
+1. En el panel **Azure Active Directory**, seleccione **Aplicaciones empresariales**.
 1. En el menú desplegable **Tipo de aplicación**, seleccione **Todas las aplicaciones** y elija **Aplicar**. Aparece una muestra aleatoria de las aplicaciones del inquilino.
-   
 1. Para ver más aplicaciones, seleccione **Cargar más** en la parte inferior de la lista. En función del número de aplicaciones del inquilino, puede resultar más fácil [buscar una aplicación específica](#search-for-a-tenant-application) en lugar de desplazarse por la lista.
 
 ## <a name="select-viewing-options"></a>Selección de las opciones de visualización
 
 Seleccione las opciones en función de lo que busque.
 
-1. Puede ver las aplicaciones por **tipo de aplicación**, **estado de aplicación** y **visibilidad de aplicación**. 
-
+1. Puede ver las aplicaciones por **tipo de aplicación**, **estado de aplicación** y **visibilidad de aplicación**.
 1. En **Tipo de aplicación**, elija una de estas opciones:
 
     - **Aplicaciones empresariales** muestra las aplicaciones que no son de Microsoft.
@@ -60,9 +56,7 @@ Seleccione las opciones en función de lo que busque.
     - **Todas las aplicaciones** muestra las aplicaciones de Microsoft y las que no son de Microsoft.
 
 1. En **Estado de la aplicación**, elija **Cualquiera**, **Deshabilitada** o **Habilitada**. La opción **Cualquiera** incluye tanto aplicaciones habilitadas como deshabilitadas.
-
 1. En **Visibilidad de la aplicación**, elija **Cualquiera** u **Oculta**. La opción **Ocultas** muestra las aplicaciones que están en el inquilino, pero que los usuarios no pueden ver.
-
 1. Después de elegir las opciones que desee, seleccione **Aplicar**.
 
 ## <a name="search-for-a-tenant-application"></a>Búsqueda de una aplicación del inquilino
@@ -70,7 +64,6 @@ Seleccione las opciones en función de lo que busque.
 Para buscar una aplicación concreta:
 
 1. En el menú **Tipo de aplicación**, seleccione **Todas las aplicaciones** y elija **Aplicar**.
-
 1. Escriba el nombre de la aplicación que desea buscar. Si la aplicación se ha agregado al inquilino de Azure AD, aparece en los resultados de la búsqueda. En este ejemplo, se muestra que GitHub no se ha agregado a las aplicaciones del inquilino.
 
     ![En el ejemplo se muestra que una aplicación no se ha agregado al inquilino.](media/view-applications-portal/search-for-tenant-application.png)

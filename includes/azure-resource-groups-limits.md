@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 04/19/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8bd16378e9c82a011309c12cf241b59d03405a77
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5e251402a89f84a0aa67eee676c1794207dd24fb
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186681"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869883"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ ms.locfileid: "67186681"
 | Salidas |64 |64 |
 | Expresión de plantilla |24 576 caracteres |24 576 caracteres |
 | Recursos de plantillas exportadas |200 |200 | 
-| Tamaño de la plantilla |1 MB |1 MB |
+| Tamaño de la plantilla |4 MB |4 MB |
 | Tamaño del archivo de parámetros |64 KB |64 KB |
 
 Puede superar algunos límites de plantilla utilizando una plantilla anidada. Para más información, consulte [Uso de plantillas vinculadas al implementar recursos de Azure](../articles/azure-resource-manager/resource-group-linked-templates.md). Para reducir el número de parámetros, variables o salidas, puede combinar varios valores en un objeto. Para más información, consulte [Objetos como parámetros](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).

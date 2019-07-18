@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
-ms.author: njray
-ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: edprice
+ms.openlocfilehash: 68fde09b1ee5f18aa784793cc19e9f547b19ed43
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60716054"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871877"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Implementación de IBM DB2 pureScale en Azure
 
@@ -28,7 +28,7 @@ En este artículo, se muestra cómo implementar un [ejemplo de arquitectura](ibm
 
 Para seguir los pasos que se usan para la migración, vea los scripts de instalación en el repositorio [DB2onAzure](https://aka.ms/db2onazure) de GitHub. Estos scripts están basados en la arquitectura usada para una carga de trabajo de procesamiento de transacciones en línea (OLTP) de tamaño mediano.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 Para implementar esta arquitectura, descargue y ejecute el script deploy.sh que puede encontrar en el repositorio [DB2onAzure](https://aka.ms/db2onazure) de GitHub.
 

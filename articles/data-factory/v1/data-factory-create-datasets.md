@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f88d83a851ad878ac9ee9b0195816d2ca35e4c13
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487268"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839372"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -328,7 +328,6 @@ A menos que se esté produciendo un conjunto de datos mediante Data Factory, deb
 Puede crear conjuntos de datos mediante el uso de algunas de estas herramientas o SDK:
 
 - Asistente para copia
-- Portal de Azure
 - Visual Studio
 - PowerShell
 - Plantilla del Administrador de recursos de Azure

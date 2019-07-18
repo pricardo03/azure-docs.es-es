@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 07/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 2905cae6d5d97062d5a2fc1da41d55290d89fb4a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1b749df7c5b3badbc6e7eccd885cb953ab3d0afa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924494"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277386"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>¿Qué es Azure Data Box Gateway?
 
@@ -90,12 +90,7 @@ La solución Data Box Gateway consta de un recurso Data Box Gateway, un disposit
 
 El dispositivo físico de Data Box Edge, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
 
-- **Disponibilidad del recurso**: en esta versión, el recurso de Data Box Edge está disponible en las siguientes regiones que admiten la nube pública:
-    - **Estados Unidos**: Este de EE. UU.
-    - **Unión Europea**: Europa Occidental
-    - **Asia Pacífico**: Sudeste Asiático
-
-    Data Box Gateway también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Disponibilidad de recursos**: para obtener una lista de todas las regiones en donde está disponible el recurso de Data Box Edge, vaya a [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure.
 

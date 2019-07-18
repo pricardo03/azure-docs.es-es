@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a020221d841682d1e18d2b728a732ec4dfc35ef3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743262"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67988282"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB
 
@@ -24,9 +24,9 @@ El número de secuencia es una representación de cadena de un número hexadecim
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede [crear una gratis](https://azure.microsoft.com/pricing/free-trial/).
 
-* Una cuenta activa de la API de SQL de Azure Cosmos DB. Si aún no la ha creado, consulte [Creación de una cuenta de base de datos](../cosmos-db/create-sql-api-dotnet.md#create-an-azure-cosmos-db-account) para ver un tutorial.
+* Una cuenta activa de la API de SQL de Azure Cosmos DB. Si aún no la ha creado, consulte [Creación de una cuenta de base de datos](../cosmos-db/create-sql-api-java.md#create-a-database-account) para ver un tutorial.
 
-* Una colección en la base de datos. Consulte [Incorporación de una colección](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) para ver un tutorial. Cuando cree la colección, use `/id` para la clave de partición.
+* Una colección en la base de datos. Consulte [Incorporación de una colección](../cosmos-db/create-sql-api-java.md#add-a-container) para ver un tutorial. Cuando cree la colección, use `/id` para la clave de partición.
 
 * Una instancia de IoT Hub en Azure. Si aún no ha creado ninguna, vea un tutorial en [Introducción a Azure IoT Hub](iot-hub-csharp-csharp-getstarted.md).
 

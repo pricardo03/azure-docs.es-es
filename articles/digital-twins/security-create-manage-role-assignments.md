@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 12/26/2018
-ms.author: lyrana
+ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a57089eb2cd87b08ba647afed002d90d6f14891a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66162108"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846655"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Crear y administrar las asignaciones de roles en Azure Digital Twins
 
@@ -39,7 +39,7 @@ Cada asignación de roles se ajusta a la siguiente definición:
 
 En la tabla siguiente se describe cada atributo.
 
-| Atributo | NOMBRE | Obligatorio | Type | DESCRIPCIÓN |
+| Atributo | NOMBRE | Obligatorio | type | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | roleId | Identificador de definición de rol | Sí | Cadena | El identificador único de la asignación de roles deseada. Busque las definiciones de roles y su identificador consultando la API de sistema o revisando la siguiente tabla. |
 | objectId | Identificador de objeto | Sí | Cadena | Un identificador de Azure Active Directory, el identificador de objeto de la entidad de servicio o el nombre de dominio. ¿A qué o a quién se asignan los roles? La asignación de roles debe tener el formato en función del tipo asociado. Para el objectIdType `DomainName`, objectId debe comenzar con el carácter `“@”`. |
