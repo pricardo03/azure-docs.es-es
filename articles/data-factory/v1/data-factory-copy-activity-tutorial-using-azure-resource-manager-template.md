@@ -14,18 +14,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f3ed7f64b817be64a332ebd65a94e588c836ae38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4d972620d03bb856f06040f0a9b2d6f53f5873b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163781"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836615"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de plantillas de Azure Resource Manager para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Plantilla de Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -352,7 +351,7 @@ Cree un archivo JSON denominado **ADFCopyTutorialARM Parameters.json** que conti
 4. Haga clic en su factoría de datos de Azure. Verá la página principal de la factoría de datos.
    
     ![Página principal de la factoría de datos](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. Siga las instrucciones que se indican en [Supervisión de conjuntos de datos y canalizaciones](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial. Actualmente, Visual Studio no permite supervisar canalizaciones de Data Factory.
+6. Siga las instrucciones que se indican en [Supervisión de conjuntos de datos y canalizaciones](data-factory-monitor-manage-pipelines.md) para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial. Actualmente, Visual Studio no permite supervisar canalizaciones de Data Factory.
 7. Cuando un segmento se encuentre en el estado **Listo**, compruebe que los datos se copian en la tabla **emp** de la base de datos de Azure SQL.
 
 

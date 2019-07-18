@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: c8213e7d725c7c06d40555176fff24be4cff7607
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 044cdde8e7c2f79835f4197ae70f7f0dc8d9ccec
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388674"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302671"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>¿Qué es Bing Image Search API?
 
@@ -31,7 +31,7 @@ Aunque Bing Image Search API proporciona resultados de búsqueda solo de imágen
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Sugerencia de términos de búsqueda en tiempo real](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | Mejore su experiencia con las aplicaciones mediante [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) para mostrar términos de búsqueda sugeridos a medida que se escriben. |
 | [Filtrado y restricción de resultados de imagen](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | Filtre las imágenes que devuelve Bing mediante la edición de parámetros de consulta.                                                                                                       |
-| [Recorte, cambio de tamaño y vista de miniaturas](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | Edite y muestre vistas previas en miniatura de las imágenes que devuelve Bing Image Search.                                                                                      |
+| [Recorte, cambio de tamaño y vista de miniaturas](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails)                                                | Edite y muestre vistas previas en miniatura de las imágenes que devuelve Bing Image Search.                                                                                      |
 | [Dinamización y expansión de las consultas de búsqueda de usuarios](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | Expanda las funcionalidades de búsqueda con la inclusión y visualización de términos de búsqueda sugeridos por Bing en las consultas.                                                                    |
 | [Obtención de imágenes populares](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | Personalice una búsqueda de imágenes de tendencias de todo el mundo.                                                                                                          |
 

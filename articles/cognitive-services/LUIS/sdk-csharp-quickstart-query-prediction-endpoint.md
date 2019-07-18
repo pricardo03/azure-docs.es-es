@@ -8,14 +8,14 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: af20d555a83e8d229ed5d83d3b1d3f242de1e4a8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404100"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275803"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Inicio rápido: Consulta de un punto de conexión de predicción con el SDK de .NET de C#
 
@@ -64,7 +64,7 @@ Cree un proyecto de consola .NET Core en Visual Studio Community 2017.
 
 ## <a name="add-sdk-with-nuget"></a>Incorporación del SDK con NuGet
 
-1. En el **Explorador de soluciones**, seleccione el proyecto en la vista de árbol denominada **QueryPrediction** y haga clic con el botón derecho. En el menú, seleccione **Administrar paquetes de NuGet...**.
+1. En el **Explorador de soluciones**, seleccione el proyecto en la vista de árbol denominada **QueryPrediction** y haga clic con el botón derecho. En el menú, seleccione **Administrar paquetes de NuGet...** .
 1. Seleccione **Examinar** y escriba `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`. Cuando se muestre la información del paquete, seleccione **Instalar** para instalar el paquete en el proyecto. 
 1. Agregue las siguientes instrucciones _using_ al principio del archivo **Program.cs**. No quite la instrucción _using_ existente para `System`. 
 

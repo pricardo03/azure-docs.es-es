@@ -3,17 +3,17 @@ title: Personalización de las vistas del operador en Azure IoT Central | Micros
 description: Como generador, personalice las vistas del operador en la aplicación de Azure IoT Central.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 03/26/2019
+ms.date: 07/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 7fc42b24090b5fc68176fea2c7b993643ea24200
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: ced771002ca9f542f89dbf74ba4a4745ad2a0339
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678231"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850172"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalización de la vista del operador en Azure IoT Central
 

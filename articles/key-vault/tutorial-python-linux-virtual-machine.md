@@ -7,14 +7,14 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e5fbb4e6f6599d8f9560561fc219dbf57ac0cee1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f002a4d67ee782b11cd8f39784eb48b136328c89
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "66147755"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876703"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: Uso de una máquina virtual Linux y una aplicación Python para almacenar secretos en Azure Key Vault
 
@@ -99,7 +99,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 Cree una máquina virtual con el comando `az vm create`.
 
-En el ejemplo siguiente se crea una máquina virtual llamada **myVM** y se agrega una cuenta de usuario llamada **azureuser**. El parámetro `--generate-ssh-keys` genera automáticamente una clave SSH y la coloca en la ubicación de la clave predeterminada (**~/.ssh**). Para crear un conjunto de claves concreto, utilice la opción `--ssh-key-value`.
+En el ejemplo siguiente se crea una máquina virtual llamada **myVM** y se agrega una cuenta de usuario llamada **azureuser**. El parámetro `--generate-ssh-keys` genera automáticamente una clave SSH y la coloca en la ubicación de la clave predeterminada ( **~/.ssh**). Para crear un conjunto de claves concreto, utilice la opción `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \

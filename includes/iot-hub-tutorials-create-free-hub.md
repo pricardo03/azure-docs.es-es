@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: a7a86c6a2661a8a1f30491391fc76f4dc5d71f54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 367a0b1d17f8d5ebe4f46835ace963b00e75354e
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186940"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229238"
 ---
 Para crear una instancia de IoT Hub mediante Azure Portal:
 
-1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 1. Seleccione **Crear un recurso** > **Internet de las cosas** > **IoT Hub**.
 
@@ -28,7 +28,7 @@ Para crear una instancia de IoT Hub mediante Azure Portal:
     | Configuración | Valor |
     | ------- | ----- |
     | Subscription | Seleccione la suscripción de Azure en el menú desplegable. |
-    | Grupos de recursos | Cree uno nuevo. Este tutorial utiliza el nombre **tutorials-iot-hub-rg**. |
+    | Resource group | Cree uno nuevo. Este tutorial utiliza el nombre **tutorials-iot-hub-rg**. |
     | Region | En este tutorial se usa **Oeste de EE. UU.** Puede elegir la región más cercana. |
     | NOMBRE | En la captura de pantalla siguiente se usa el nombre **tutorials-iot-hub**. Debe elegir un nombre exclusivo de su elección al crear el concentrador. |
 

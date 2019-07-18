@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Este tutorial muestra cómo crear una instancia de Standard Load Balancer con un front-end de zona para equilibrar la carga de las máquinas virtuales en una zona de disponibilidad mediante Azure Portal
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ec9fae1ce4ef976d5f50e1d8d8412354706c5f8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899553"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273400"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad con Standard Load Balancer mediante Azure Portal
 
@@ -53,10 +53,10 @@ Standard Load Balancer solo admite direcciones IP públicas estándar. Cuando se
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
-    | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupZLB* en el cuadro de texto.|
+    | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupZLB* en el cuadro de texto.|
     | NOMBRE                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Europa Occidental**.                                        |
-    | Type          | Seleccione **Público**.                                        |
+    | type          | Seleccione **Público**.                                        |
     | SKU           | Seleccione **Estándar**.                          |
     | Dirección IP pública | Seleccione **Crear nuevo**. |
     | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   |

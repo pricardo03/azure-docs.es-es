@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f3c4fc379ac932e66c5d02e08e72ef4d16db638b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163855"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836698"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Creación de una factoría de datos mediante Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Introducción y requisitos previos](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -124,8 +123,8 @@ Con el servicio vinculado de HDInsight a petición, se crea automáticamente el 
 
     Propiedad | DESCRIPCIÓN
     -------- | ----------- 
-    ClusterSize | Especifica el tamaño del clúster de HDInsight Hadoop.
-    TimeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine.
+    clusterSize | Especifica el tamaño del clúster de HDInsight Hadoop.
+    timeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine.
     linkedServiceName | Especifica la cuenta de almacenamiento que se usa para almacenar los registros que genera el clúster de HDInsight Hadoop. 
 
     > [!IMPORTANT]
@@ -176,9 +175,9 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
     Tipo |La propiedad type se establece en **AzureBlob** porque los datos residen en Azure Blob Storage.
     linkedServiceName | Hace referencia al servicio AzureStorageLinkedService1 que creó anteriormente.
     fileName |Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este caso, se procesa solo el archivo input.log.
-    Tipo | Los archivos de registro están en formato de texto, por lo que usaremos TextFormat. |
+    type | Los archivos de registro están en formato de texto, por lo que usaremos TextFormat. |
     columnDelimiter | Las columnas de los archivos de registro están delimitadas por una coma (`,`).
-    frecuencia/intervalo | La frecuencia está establecida en Mes y el intervalo es 1, lo que significa que los segmentos de entrada estarán disponibles cada mes.
+    frequency/interval | La frecuencia está establecida en Mes y el intervalo es 1, lo que significa que los segmentos de entrada estarán disponibles cada mes.
     external | Esta propiedad se establece en true si los datos de entrada de la actividad no se han generado en la canalización. Esta propiedad solo se especifica en los conjuntos de datos de entrada. Para el conjunto de datos de entrada de la primera actividad, establézcala siempre en true.
 4. Guarde el archivo **InputDataset.json** .
 

@@ -14,18 +14,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2d04cdfb3ec12406e60fcb265966e0271b7220d9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 934effe585b85075a80eede4236258d4a428b9ce
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258069"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836567"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Creación de una canalización con la actividad de copia mediante Visual Studio
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Plantilla de Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -362,7 +361,7 @@ Vaya a la página principal de la factoría de datos:
 4. Haga clic en la factoría de datos en la lista de resultados para ver la página principal de la factoría de datos.
 
     ![Página principal Factoría de datos](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
-5. Siga las instrucciones que se indican en [Supervisión de conjuntos de datos y canalizaciones](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial. Actualmente, Visual Studio no permite supervisar canalizaciones de Data Factory. 
+5. Siga las instrucciones que se indican en [Supervisión de conjuntos de datos y canalizaciones](data-factory-monitor-manage-pipelines.md) para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial. Actualmente, Visual Studio no permite supervisar canalizaciones de Data Factory. 
 
 ## <a name="summary"></a>Resumen
 En este tutorial, ha creado una factoría de datos de Azure para copiar datos de un blob de Azure en una base de datos de Azure SQL. Ha usado Visual Studio para crear la factoría de datos, los servicios vinculados, los conjuntos de datos y una canalización. Estos son los pasos de alto nivel que realizó en este tutorial:  

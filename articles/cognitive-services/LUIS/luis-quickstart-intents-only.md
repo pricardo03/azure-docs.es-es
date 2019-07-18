@@ -3,20 +3,20 @@ title: Predicción de las intenciones
 titleSuffix: Azure Cognitive Services
 description: En este tutorial, cree una aplicación personalizada que prediga la intención de un usuario. Esta aplicación es el tipo más primitivo de aplicación de LUIS, dado que no extrae varios elementos de datos del texto de la expresión, como direcciones de correo electrónico o fechas.
 services: cognitive-services
-author: lingliw
-manager: digimobile
+author: diberry
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/19/19
-ms.author: v-lingwu
-ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/16/2019
+ms.author: diberry
+ms.openlocfilehash: 534aa678df69a4ef71296005922fa59bbe7bbcfa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66123944"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277575"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: Compilación de una aplicación LUIS para determinar las intenciones del usuario
 
@@ -131,7 +131,7 @@ Esta aplicación tiene algunas intenciones.
 
     El parámetro QueryString de `verbose=true` significa incluir **todas las intenciones** en los resultados de la consulta de la aplicación. La matriz de entidades está vacía porque esta aplicación no tiene actualmente ninguna entidad. 
 
-    El resultado de JSON identifica la intención que tiene la puntuación más alta como propiedad **`topScoringIntent`**. Todas las puntuaciones están comprendidas entre 1 y 0, y la mejor está próxima a 1. 
+    El resultado de JSON identifica la intención que tiene la puntuación más alta como propiedad **`topScoringIntent`** . Todas las puntuaciones están comprendidas entre 1 y 0, y la mejor está próxima a 1. 
 
 ## <a name="create-intent-for-job-applications"></a>Creación de intención para solicitudes de trabajo
 
@@ -239,7 +239,3 @@ Continúe con esta aplicación y [agregue una lista sencilla de entidades y fras
 
 > [!div class="nextstepaction"]
 > [Add prebuilt intents and entities to this app](luis-tutorial-prebuilt-intents-entities.md) (Incorporación de entidades e intenciones creadas previamente a esta aplicación)
-
-
-
-

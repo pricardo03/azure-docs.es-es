@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/14/2019
+ms.date: 07/10/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 998d33730586316fe3bf423663ffae5148843ed0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 4c73fe170d0b2cb6f12534de2ccc43bfc7b530f0
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515847"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228147"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Creación e implementación de una aplicación con un servicio de front-end de ASP.NET Core Web API y un servicio back-end con estado
 
@@ -47,7 +47,7 @@ En esta serie de tutoriales, se aprende a:
 
 Antes de empezar este tutorial:
 * Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instale Visual Studio 2017](https://www.visualstudio.com/) versión 15.5 o posteriores con las cargas de trabajo de **Desarrollo de Azure** y de **Desarrollo de ASP.NET y web**.
+* [Instale Visual Studio 2019](https://www.visualstudio.com/) versión 15.5 o posteriores con las cargas de trabajo de **desarrollo de Azure** y de **desarrollo de ASP.NET y web**.
 * [Instale el SDK de Service Fabric](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Creación de un servicio de ASP.NET Web API como un servicio de confianza

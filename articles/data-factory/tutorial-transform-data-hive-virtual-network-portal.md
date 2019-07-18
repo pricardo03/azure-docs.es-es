@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6e57500da0ca863f0c5810f625d6a4b0c56d1bf
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66164728"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277467"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformación de datos en Azure Virtual Network mediante la actividad de Hive en Azure Data Factory
 En este tutorial, se usa Azure Portal para crear una canalización de Data Factory que transforma los datos mediante la actividad de Hive en un clúster de HDInsight que se encuentra en una instancia de Azure Virtual Network (VNet). En este tutorial, realizará los siguientes pasos:
@@ -201,7 +201,7 @@ En este paso, se crea una canalización con una actividad de Hive. La actividad 
 Tenga en cuenta los siguientes puntos:
 
 - **scriptPath** apunta a la ruta de acceso al script de Hive de la cuenta de Azure Storage que usó para MyStorageLinkedService. La ruta de acceso distingue mayúsculas de minúsculas.
-- **Output** es un argumento que se usa en el script de Hive. Use el formato de `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` para que apunte a una carpeta existente de su instancia de Azure Storage. La ruta de acceso distingue mayúsculas de minúsculas. 
+- **Output** es un argumento que se usa en el script de Hive. Use el formato de `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` para que apunte a una carpeta existente de su instancia de Azure Storage. La ruta de acceso distingue mayúsculas de minúsculas. 
 
 1. En la interfaz de usuario de Data Factory, haga clic en **+ (signo más)** en el panel izquierdo y haga clic en **Pipeline** (Canalización). 
 
@@ -226,7 +226,7 @@ Tenga en cuenta los siguientes puntos:
         ![Configuración del script](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. En la **pestaña Script**, expanda la sección **Advanced** (Avanzadas). 
     6. Haga clic en **Auto-fill from script** (Rellenado automático a partir de script) en **Parameters** (Parámetros). 
-    7. Escriba el valor del parámetro **Output** en el siguiente formato: `wasb://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Por ejemplo: `wasb://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
+    7. Escriba el valor del parámetro **Output** en el siguiente formato: `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Por ejemplo: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
  
         ![Argumentos de script](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Para publicar artefactos en Data Factory, haga clic en **Publish** (Publicar).
@@ -235,7 +235,7 @@ Tenga en cuenta los siguientes puntos:
 
 ## <a name="trigger-a-pipeline-run"></a>Desencadenamiento de una ejecución de la canalización
 
-1. En primer lugar, valide la canalización haciendo clic en el botón **Validate** (Comprobar) en la barra de herramientas. Cierre la ventana **Pipeline Validation Output** (Salida de comprobación de canalización) haciendo clic en **flecha derecha (>>)**. 
+1. En primer lugar, valide la canalización haciendo clic en el botón **Validate** (Comprobar) en la barra de herramientas. Cierre la ventana **Pipeline Validation Output** (Salida de comprobación de canalización) haciendo clic en **flecha derecha (>>)** . 
 
     ![Comprobar la canalización](./media/tutorial-transform-data-using-hive-in-vnet-portal/validate-pipeline.png) 
 2. Para desencadenar una ejecución de la canalización, haga clic en Trigger (Desencadenar) en la barra de herramientas y en Trigger Now (Desencadenar ahora). 

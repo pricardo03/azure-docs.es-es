@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: En este tutorial se explica cómo configurar el reenvío de puertos mediante Azure Load Balancer para crear conexiones a las máquinas virtuales de una red virtual de Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: db94f1d241223a9c54a6e3d516840dd17fd0c576
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ee4ed818364d04f03caedc8b876ea29c41cb59b7
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007515"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273444"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configuración del enrutamiento de puerto en Azure Load Balancer mediante Azure Portal
 
@@ -50,10 +50,10 @@ En primer lugar, cree un equilibrador de carga estándar público que pueda equi
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
-    | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
+    | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
     | NOMBRE                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Europa Occidental**.                                        |
-    | Type          | Seleccione **Público**.                                        |
+    | type          | Seleccione **Público**.                                        |
     | SKU           | Seleccione **Estándar**.                          |
     | Dirección IP pública | Seleccione **Crear nuevo**. |
     | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   |

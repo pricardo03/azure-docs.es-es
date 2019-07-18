@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 12b141f9aa75231adae9f64c57709f290883b420
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 629b484d27d863727d180bb3e2d01b605ca539a6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433939"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850134"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Clasificación de imágenes en el perímetro con Custom Vision Service
 
@@ -141,17 +141,9 @@ Una solución es una manera lógica de desarrollar y organizar varios módulos p
 
 1. En Visual Studio Code, seleccione **Ver** > **Terminal** para abrir el terminal integrado de VS Code.
 
-2. En el terminal integrado, escriba el siguiente comando para instalar (o actualizar) **cookiecutter**, ya que lo necesitará para crear la plantilla del módulo de Python de IoT Edge en VS Code:
+1. Seleccione **Ver** > **Paleta de comandos** para abrir la paleta de comandos de VS Code. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Asegúrese del directorio en el que se va a instalar cookiecutter está en el `Path` de su entorno para que sea posible invocarlo desde un símbolo del sistema.
-
-3. Seleccione **Ver** > **Paleta de comandos** para abrir la paleta de comandos de VS Code. 
-
-4. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Nueva solución de IoT Edge). En la paleta de comandos, proporcione la siguiente información para crear la solución: 
+1. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Nueva solución de IoT Edge). En la paleta de comandos, proporcione la siguiente información para crear la solución: 
 
    | Campo | Valor |
    | ----- | ----- |

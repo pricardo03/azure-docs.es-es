@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: En este tutorial se muestra cómo crear un equilibrador de carga interno Básico mediante Azure Portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 09a73b5d97e46797dd880f64383fdf03fd591f3d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489321"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273490"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Equilibrio de la carga de tráfico interno con un equilibrador de carga básico en Azure Portal
 
@@ -92,10 +92,10 @@ Cree un equilibrador de carga interno Básico mediante el portal. El nombre y di
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
-    | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
+    | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
     | NOMBRE                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Europa Occidental**.                                        |
-    | Type          | seleccione **Interno**.                                        |
+    | type          | seleccione **Interno**.                                        |
     | SKU           | Seleccione **Básica**.                          |
     | Virtual network           | Seleccione *MyVNet*.                          |    
     | Asignación de dirección IP              | Seleccione **Estática**.   |
@@ -141,7 +141,7 @@ Para distribuir el tráfico a las máquinas virtuales, el equilibrador de carga 
 
 Para permitir que el equilibrador de carga supervise el mantenimiento de la máquina virtual, utilice un sondeo de mantenimiento. El sondeo de estado agrega o quita de forma dinámica las máquinas virtuales de la rotación del equilibrador de carga en base a su respuesta a las comprobaciones de estado. 
 
-**Para crear un sondeo de mantenimiento para supervisar el estado de las máquinas virtuales:**
+**Para crear un sondeo de mantenimiento para supervisar el mantenimiento de las máquinas virtuales:**
 
 1. Seleccione **Todos los recursos** en el menú de la izquierda y, a continuación, en la lista de recursos seleccione **MyLoadBalancer**.
    
@@ -265,4 +265,4 @@ En este tutorial, ha creado un equilibrador de carga interno de nivel Básico. H
 A continuación, aprenda a equilibrar la carga de las máquinas virtuales entre las zonas de disponibilidad.
 
 > [!div class="nextstepaction"]
-> [Equilibrio de carga de máquinas virtuales entre zonas de disponibilidad](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

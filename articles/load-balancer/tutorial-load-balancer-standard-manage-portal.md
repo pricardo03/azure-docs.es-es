@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Este tutorial muestra cómo crear y administrar una instancia de Standard Load Balancer mediante Azure Portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create and Standard Load Balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 78266e447d1ddf6daf5a9b0ad9172ab6470bf0c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 22d0e56a77036c551b6006f43997c92fcce07499
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845212"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273351"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Equilibrio de carga del tráfico de Internet en máquinas virtuales mediante Azure Portal
 
@@ -50,10 +50,10 @@ En esta sección, se crea una instancia de Standard Load Balancer que ayuda a eq
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
-    | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupSLB* en el cuadro de texto.|
+    | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupSLB* en el cuadro de texto.|
     | NOMBRE                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Europa Occidental**.                                        |
-    | Type          | Seleccione **Público**.                                        |
+    | type          | Seleccione **Público**.                                        |
     | SKU           | Seleccione **Estándar**.                          |
     | Dirección IP pública | Seleccione **Crear nuevo**. |
     | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   |
@@ -127,8 +127,8 @@ En esta sección, se crea una red virtual, luego tres máquinas virtuales para e
     | NOMBRE | Escriba *myVNet*. |
     | Espacio de direcciones | Escriba *10.1.0.0/16*. |
     | Subscription | Seleccione su suscripción.|
-    | Grupos de recursos | Seleccione el recurso existente: *myResourceGroupSLB*. |
-    | Ubicación | Seleccione **Europa Occidental**.|
+    | Resource group | Seleccione el recurso existente: *myResourceGroupSLB*. |
+    | Location | Seleccione **Europa Occidental**.|
     | Subred: nombre | Escriba *myBackendSubnet*. |
     | Subred: intervalo de direcciones | Escriba *10.1.0.0/24*. |
     

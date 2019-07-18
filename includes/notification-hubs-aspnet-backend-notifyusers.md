@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186561"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227800"
 ---
 ## <a name="create-the-webapi-project"></a>Creación del proyecto de API web
 
@@ -158,7 +158,7 @@ En esta sección, agregaremos un nuevo controlador al back-end de WebAPI para ad
 
 3. En la lista de resultados, seleccione **Microsoft Azure Notification Hubs** e **Instalar**. Complete la instalación y cierre la ventana del Administrador de paquetes NuGet.
 
-    Esta acción agrega una referencia al SDK de Azure Notification Hubs mediante el [paquete NuGet Microsoft.Azure.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    Esta acción agrega una referencia al SDK de Azure Notification Hubs mediante el [paquete NuGet Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 4. Cree un archivo de clase que represente la conexión con el centro de notificaciones de envío. En el Explorador de soluciones, haga clic con el botón derecho en la carpeta **Modelos**, seleccione **Agregar** y **Clase**. Asigne el nombre a la nueva clase **Notifications.cs** y seleccione **Agregar** para generar la clase.
 
@@ -170,7 +170,7 @@ En esta sección, agregaremos un nuevo controlador al back-end de WebAPI para ad
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. Reemplace la definición de clase `Notifications` con el código siguiente y los dos marcadores de posición con la cadena de conexión (de acceso total) del centro de notificaciones y el nombre del centro (disponible en el [Portal de Azure](http://portal.azure.com)):
+6. Reemplace la definición de clase `Notifications` con el código siguiente y los dos marcadores de posición con la cadena de conexión (de acceso total) del centro de notificaciones y el nombre del centro (disponible en el [Portal de Azure](https://portal.azure.com)):
 
     ```csharp
     public class Notifications

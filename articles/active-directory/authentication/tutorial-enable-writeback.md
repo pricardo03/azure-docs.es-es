@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabe0ad1a556ee43f3e6cae0e1cd421db5cde0fd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1efb67df6c31a3b03fdc45fffc0564fb09e39faf
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183214"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853035"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Tutorial: Habilitación de la escritura diferida de contraseñas
 
@@ -61,4 +61,4 @@ Habilitar la característica de escritura diferida de contraseñas en Azure AD C
 En este tutorial, ha habilitado la escritura diferida de contraseñas para el autoservicio de restablecimiento de contraseñas. Deje abierta la ventana de Azure Portal y siga con el siguiente tutorial para configurar opciones adicionales relacionadas con el autoservicio de restablecimiento de contraseñas antes de implementar la solución en un entorno piloto.
 
 > [!div class="nextstepaction"]
-> [Habilitación de SSPR en la pantalla de inicio de sesión de Windows](tutorial-sspr-windows.md)
+> [Evaluación del riesgo en el inicio de sesión](tutorial-risk-based-sspr-mfa.md)
