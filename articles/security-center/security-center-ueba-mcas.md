@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af7896ec4afaeefda7261542bf593a89a7bb9ae8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332404"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551800"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA para los usuarios y recursos de Azure 
 
@@ -55,8 +55,8 @@ Security Center admite las alertas de detección de anomalías de Cloud App Secu
 
 Estas alertas están habilitadas de forma predeterminada, pero puede deshabilitarlas:
 
-1. En la hoja Security Center, seleccione **Directiva de seguridad**. Para la suscripción que desea cambiar, haga clic en **Editar la configuración**.
-2.  Haga clic en **Detección de amenazas**.
+1. En la hoja Security Center, seleccione **Pricing & settings** (Precios y configuración) y seleccione la suscripción correspondiente.
+2. Haga clic en **Detección de amenazas**.
 3. En **Enable integrations** (Habilitar integraciones), desactive la opción **Allow Microsoft Cloud App Security to access my data** (Permitir a Microsoft Cloud App Security acceder a mis datos) y haga clic en **Guardar**.
 
    ![alerta de detección de amenazas](./media/security-center-ueba-mcas/security-center-mcas-optout.png)

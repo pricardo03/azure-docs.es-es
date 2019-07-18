@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 8ba4763e8d4835911d33d21c0f5bb431851a649b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fe0af4ca7b6860fff19f4df3165a975c42b54a03
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444712"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277776"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Escalado y planeamiento de capacidad de Azure Service Fabric
 
@@ -80,15 +80,6 @@ Una vez declaradas las restricciones de ubicación y las propiedades de nodo, re
 4. repita los pasos del 1 al 3 según vea necesario, pero nunca apague las instancias del nodo principal ni las reduzca a un número inferior al que garantiza el nivel de confiabilidad. Consulte el [planeamiento de la capacidad del clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obtener una lista de instancias recomendadas.
 5. Una vez que todas las máquinas virtuales hayan desaparecido (representadas como "Fuera de servicio"), fabric:/System/InfrastructureService/[nombre de nodo] mostrará un estado de Error. Luego, puede actualizar el recurso de clúster para quitar el tipo de nodo. Puede usar la implementación de plantilla de Resource Manager o editar el recurso de clúster a través de [Azure Resource Manager](https://resources.azure.com). Esta acción iniciará una actualización de clúster que quitará al servicio fabric:/System/InfrastructureService/[tipo de nodo] que se encuentra en estado de error.
  6. Después de eliminar, si quiere, VMScaleSet, seguirá viendo los nodos como "Fuera de servicio" en la vista de Service Fabric Explorer. El último paso sería limpiarlos con el comando `Remove-ServiceFabricNodeState`.
-
-### <a name="example-scenario"></a>Escenario de ejemplo
-Un escenario admitido para la realización de una operación de escalado vertical sería el siguiente: se van a migrar el clúster y la aplicación de Service Fabric desde un disco no administrado a discos administrados sin tiempo de inactividad de la aplicación. 
-
-Puede aprovisionar un nuevo conjunto de escalado de máquinas virtuales con discos administrados y realizar una actualización de la aplicación con las restricciones de ubicación que tienen como destino la capacidad aprovisionada. Después, el clúster de Service Fabric puede programar la carga de trabajo en la capacidad del nodo de clúster aprovisionado que se implanta por medio de un dominio de actualización sin tiempo de inactividad de aplicación. 
-
-Los puntos de conexión del grupo de back-end para la [SKU básica de Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) pueden ser máquinas virtuales en un único conjunto de disponibilidad o un conjunto de escalado de máquinas virtuales. Esto significa que no puede usar un equilibrador de carga de SKU básica si mueve la aplicación de sistemas de Service Fabric entre conjuntos de escalado, sin provocar una inaccesibilidad temporal del punto de conexión de administración del clúster de Service Fabric. Esto es cierto incluso cuando el clúster y su aplicación siguen en ejecución.
-
-Normalmente, los usuarios aprovisionan un equilibrador de carga de SKU estándar al realizar un intercambio de direcciones IP virtuales (VIP) entre el equilibrador de carga de la SKU básica y los recursos del equilibrador de carga de la SKU estándar. Esta técnica limita cualquier inaccesibilidad futuras a unos 30 segundos, necesario para el intercambio de VIP.
 
 ## <a name="horizontal-scaling"></a>Escalado horizontal
 

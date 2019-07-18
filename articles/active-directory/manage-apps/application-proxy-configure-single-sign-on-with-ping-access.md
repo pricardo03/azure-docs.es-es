@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43498a7829a43fad331841aca045f52ae680be
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 54a99d001f8cb59af3042ce8b6849a2cd9480e99
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481469"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723997"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -53,10 +53,11 @@ Si ya tiene habilitado Application Proxy y tiene instalado un conector, puede om
 El conector de Application Proxy es un servicio de Windows Server que dirige el tráfico de los empleados remotos a las aplicaciones publicadas. Para obtener instrucciones de instalación detalladas, vea [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com/) como administrador de la aplicación. Aparecerá la página del **Centro de administración de Azure Active Directory**.
-2. Seleccione **Azure Active Directory** > **Proxy de la aplicación** > **Descargar servicio de conector**. Se abre la página **Descarga de conectores del proxy de aplicación**.
+1. Seleccione **Azure Active Directory** > **Proxy de la aplicación** > **Descargar servicio de conector**. Se abre la página **Descarga de conectores del proxy de aplicación**.
 
    ![Descarga del conector Application Proxy](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
-3. Siga las instrucciones de instalación.
+
+1. Siga las instrucciones de instalación.
 
 La descarga del conector debería habilitar automáticamente Application Proxy en el directorio, pero si no lo hace, puede seleccionar **Habilitar el proxy de la aplicación**.
 
@@ -205,7 +206,7 @@ Ejemplo de cómo incluir la dirección de correo electrónico en el access_token
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>Uso de una directiva de asignación de notificaciones (opcional)
 
-La [directiva de asignación de notificaciones (versión preliminar)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) está pensada para los atributos que no existen en Azure AD. La asignación de notificaciones permite migrar a la nube aplicaciones locales antiguas, agregando para ello notificaciones personalizadas respaldadas por los objetos de usuario o AD FS.
+La [directiva de asignación de notificaciones (versión preliminar)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties) está pensada para los atributos que no existen en Azure AD. La asignación de notificaciones permite migrar a la nube aplicaciones locales antiguas, agregando para ello notificaciones personalizadas respaldadas por los objetos de usuario o AD FS.
 
 Para que la aplicación use una notificación personalizada e incluya campos adicionales, asegúrese de que también ha [creado una directiva de asignación de notificaciones personalizadas y la ha asignado a la aplicación](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 

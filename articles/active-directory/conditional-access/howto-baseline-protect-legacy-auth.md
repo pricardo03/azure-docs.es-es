@@ -1,6 +1,6 @@
 ---
-title: 'Línea base directiva bloque autenticación heredados (versión preliminar): Azure Active Directory'
-description: Directiva de acceso condicional para bloquear protocolos de autenticación heredados
+title: 'Directiva de base de referencia: bloqueo de la autenticación heredada (versión preliminar) - Azure Active Directory'
+description: Directiva de acceso condicional para bloquear los protocolos de autenticación heredados
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,113 +11,110 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235555"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560933"
 ---
-# <a name="baseline-policy-block-legacy-authentication-preview"></a>Directiva de línea de base: Autenticación heredados de bloque (versión preliminar)
+# <a name="baseline-policy-block-legacy-authentication-preview"></a>Directiva de base de referencia: bloqueo de la autenticación heredada (versión preliminar)
 
-Para brindar a los usuarios un acceso sencillo a las aplicaciones en la nube, Azure Active Directory (Azure AD) admite una amplia variedad de protocolos de autenticación, incluida la autenticación heredada. Autenticación heredados es un término que se hace referencia a una solicitud de autenticación realizada por:
+Para brindar a los usuarios un acceso sencillo a las aplicaciones en la nube, Azure Active Directory (Azure AD) admite una amplia variedad de protocolos de autenticación, incluida la autenticación heredada. La autenticación heredada es un término que hace referencia a una solicitud de autenticación realizada por:
 
-* Clientes de Office más antiguos que no usan autenticación moderna (por ejemplo, el cliente de Office 2010)
-* Cualquier cliente que usa los protocolos de correo antiguos, como IMAP, SMTP/POP3
+* Clientes de Office antiguos que no usan la autenticación moderna (por ejemplo, el cliente de Office 2010)
+* Cualquier cliente que use protocolos de correo heredados, como IMAP, SMTP o POP3
 
-Hoy en día, la mayoría de todos los intentos de inicio de sesión de poner en peligro proceden de autenticación heredados. La autenticación heredada no admite la autenticación multifactor (MFA). Incluso si tiene una directiva MFA habilitada en su directorio, un actor perjudicial puede autenticar mediante un protocolo heredado y omitir MFA.
+Hoy en día, la mayoría de los intentos de inicio de sesión que ponen en peligro la seguridad proceden de la autenticación heredada. La autenticación heredada no admite la autenticación multifactor (MFA). Aunque tenga una directiva MFA habilitada en su directorio, un actor malintencionado puede autenticarse mediante un protocolo heredado y omitir MFA.
 
-La mejor manera de proteger la cuenta de las solicitudes de autenticación malintencionado realizadas por los protocolos heredados es bloquear todos juntos estos intentos. Para facilitar la bloquear todas las solicitudes de inicio de sesión realizadas por los protocolos heredados, hemos creado una directiva de línea de base que hace justamente eso.
+La mejor manera de proteger su cuenta frente a las solicitudes de autenticación malintencionadas que realizan los protocolos heredados es bloquear todos estos intentos. A fin de que pueda bloquear fácilmente todas las solicitudes de inicio de sesión que realizan los protocolos heredados, hemos creado una directiva de base de referencia que se encarga justamente de esto.
 
-![Autenticación heredados de bloque con el acceso condicional](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
+**Bloqueo de la autenticación heredada** es una [directiva de base de referencia](concept-baseline-protection.md) que bloquea todas las solicitudes de autenticación que se hacen mediante protocolos heredados. Todos los usuarios deben usar una autenticación moderna para iniciar sesión correctamente. Si se usa junto con las otras directivas de base de referencia, se bloquearán todas las solicitudes procedentes de protocolos heredados y todos los usuarios deberán usar MFA siempre que sea necesario. Esta directiva no bloquea a Exchange ActiveSync.
 
-**Autenticación heredados bloque** es [directiva de línea base](concept-baseline-protection.md) que bloquea todas las solicitudes de autenticación realizadas desde protocolos heredados. Autenticación moderna debe usarse para iniciar sesión correctamente para todos los usuarios. Se usa junto con las otras directivas de línea de base, se bloquearán todas las solicitudes procedentes de protocolos heredados y todos los usuarios deberán MFA siempre que sea necesario. Esta directiva no bloquea a Exchange ActiveSync.
+## <a name="identify-legacy-authentication-use"></a>Identificación del uso de la autenticación heredada
 
-## <a name="identify-legacy-authentication-use"></a>Identificar el uso de autenticación heredados
+Para poder bloquear la autenticación heredada en su directorio, primero debe entender si los usuarios tienen aplicaciones que la usen y cómo afecta a su directorio global. Se pueden usar los registros de inicio de sesión de Azure AD para saber si usa la autenticación heredada.
 
-Antes de autenticación heredados pueden bloquear en su directorio, debe entender primero si los usuarios tienen las aplicaciones que usan autenticación heredados y cómo afecta a su directorio global. Registros de inicio de sesión de AD Azure pueden usarse para comprender si está usando autenticación heredados.
+1. Vaya a **Azure Portal** > **Azure Active Directory** > **Inicios de sesión**.
+1. Agregue la columna Aplicación cliente si no se muestra; para ello, haga clic en **Columnas** > **Aplicación cliente**.
+1. Filtre por **Aplicación cliente** > **Otros clientes** y haga clic en **Aplicar**.
 
-1. Navegue hasta la **portal Azure** > **Azure Active Directory** > **inicios de sesión**.
-1. Agregar la columna de la aplicación cliente si no se muestra al hacer clic en **columnas** > **aplicación cliente**.
-1. Filtrar por **aplicación cliente** > **otros clientes** y haga clic en **aplicar**.
+Al filtrar solo se muestran los intentos de inicio de sesión que se realizaron con protocolos de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran detalles adicionales. El campo **Aplicación cliente** en la pestaña **Información básica** indicará qué protocolo de autenticación heredada se usó.
 
-Filtrado, sólo los intentos de presentación que inicie sesión que se han realizado mediante protocolos de autenticación heredados. Al hacer clic en cada intento de inicio de sesión individual se mostrarán detalles adicionales. El **aplicación cliente** campo bajo el **información básica** ficha indicará qué protocolo de autenticación heredados se utilizó.
+Estos registros indicarán qué usuarios dependen todavía de la autenticación heredada y qué aplicaciones usan protocolos heredados para realizar solicitudes de autenticación. Para los usuarios que no aparecen en estos registros y se confirme que no van a usar la autenticación heredada, implemente una directiva de acceso condicional o habilite la **directiva de base de referencia: bloqueo de la autenticación heredada** solo para estos usuarios.
 
-Estos registros se indicará qué usuarios se sigue dependiendo de autenticación heredados y qué aplicaciones están usando protocolos heredados para realizar solicitudes de autenticación. Para los usuarios que no aparecen en estos registros y se confirman que no se utiliza la autenticación heredada, implementar una directiva de acceso condicional o habilitar la **directiva de línea base: autenticación heredados de bloque** para solo estos usuarios.
+## <a name="moving-away-from-legacy-authentication"></a>Retirada de la autenticación heredada
 
-## <a name="moving-away-from-legacy-authentication"></a>Alejándose de autenticación heredados
+Una vez que tenga una idea más clara de quién está usando la autenticación heredada en su directorio y las aplicaciones que dependen de esta, el siguiente paso es actualizar a los usuarios para que usen la autenticación moderna. La autenticación moderna es un método de administración de identidades que ofrece una autenticación y autorización de usuario más seguras. Si tiene una directiva de MFA implementada en su directorio, la autenticación moderna garantiza que MFA se solicita al usuario cuando es necesario. Se trata de la alternativa más segura a los protocolos de autenticación heredados.
 
-Una vez que tenga una idea más clara de quién está usando autenticación heredados en el directorio y las aplicaciones que dependen de él, el siguiente paso es actualizar a los usuarios para usar la autenticación moderna. Autenticación moderna es un método de administración de identidades que ofrece más segura autenticación y autorización. Si tiene una directiva de MFA en el directorio en su lugar, la autenticación moderna garantiza que se solicita al usuario MFA cuando sea necesario. Es la alternativa más segura a los protocolos de autenticación heredados.
+En esta sección se ofrece una introducción paso a paso sobre cómo actualizar el entorno para la autenticación moderna. Lea los pasos siguientes antes de habilitar una directiva de bloqueo de la autenticación heredada en su organización.
 
-En esta sección se ofrece una introducción paso a paso sobre cómo actualizar el entorno para la autenticación moderna. Lea los pasos siguientes antes de habilitar un bloqueo de directiva en su organización de autenticación heredados.
+### <a name="step-1-enable-modern-authentication-in-your-directory"></a>Paso 1: Habilitación de la autenticación moderna en su directorio
 
-### <a name="step-1-enable-modern-authentication-in-your-directory"></a>Paso 1: Habilitar la autenticación moderna en su directorio
+El primer paso para habilitar la autenticación moderna es asegurarse de que el directorio admite la autenticación moderna. La autenticación moderna está habilitada de forma predeterminada para los directorios que creó el día 1 de agosto de 2017 o a partir de esta fecha. Si el directorio se creó antes de esta fecha, deberá habilitar manualmente la autenticación moderna para su directorio mediante los pasos siguientes:
 
-El primer paso para habilitar la autenticación moderna es asegurarse de que el directorio admite la autenticación moderna. Autenticación moderna está habilitada de forma predeterminada para los directorios que creó a partir del 1 de agosto de 2017. Si el directorio se creó antes de esta fecha, deberá habilitar manualmente la autenticación moderna para su directorio mediante los pasos siguientes:
+1. Compruebe si el directorio ya admite la autenticación moderna mediante la ejecución de `Get-CsOAuthConfiguration` desde el [módulo de PowerShell de Skype Empresarial en la Web](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Si el comando devuelve una propiedad `OAuthServers` vacía, la autenticación moderna se deshabilita. Actualice la configuración para habilitar la autenticación moderna mediante `Set-CsOAuthConfiguration`. Si su propiedad `OAuthServers` contiene una entrada, significa que está listo para empezar.
 
-1. Compruebe si el directorio ya admite la autenticación moderna mediante la ejecución de `Get-CsOAuthConfiguration` desde el [Skype para el módulo de PowerShell en línea de negocio](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Si el comando devuelve un valor vacío `OAuthServers` propiedad y, a continuación, la autenticación moderna está deshabilitado. Actualizar la configuración para habilitar el uso de la autenticación moderna `Set-CsOAuthConfiguration`. Si su `OAuthServers` propiedad contiene una entrada, que está listo para continuar.
-
-Asegúrese de completar este paso antes de continuar. Es fundamental que las configuraciones de directorio se modifican en primer lugar ya que dictan qué protocolo se usará en todos los clientes de Office. Incluso si usa a clientes de Office que admiten la autenticación moderna, su valor predeterminado será al uso de protocolos heredados si está deshabilitada la autenticación moderna en su directorio.
+Asegúrese de completar este paso antes de continuar. Es fundamental cambiar primero las configuraciones de directorio, ya que estas dictan qué protocolo usarán todos los clientes de Office. Aunque use clientes de Office que admitan la autenticación moderna, usarán de manera predeterminada protocolos heredados si la autenticación moderna está deshabilitada en su directorio.
 
 ### <a name="step-2-office-applications"></a>Paso 2: Aplicaciones de Office
 
-Una vez que se ha habilitado la autenticación moderna en su directorio, puede empezar a actualizar las aplicaciones habilitando la autenticación moderna para clientes de Office. Office 2016 o posterior clientes admiten la autenticación moderna de forma predeterminada. Se requiere ningún paso adicional.
+Una vez que haya habilitado la autenticación moderna en su directorio, puede empezar a actualizar las aplicaciones mediante la habilitación de la autenticación moderna para clientes de Office. Office 2016 o los clientes posteriores admiten la autenticación moderna de forma predeterminada. No se requiere ningún paso adicional.
 
-Si usa clientes de Office 2013 Windows o una versión anterior, se recomienda actualizar a Office 2016 o posterior. Incluso después de completar el paso anterior de habilitar la autenticación moderna en su directorio, las aplicaciones de Office anteriores seguirán usar protocolos de autenticación heredados. Si usa clientes de Office 2013 y no pueden actualizar inmediatamente a Office 2016 o posterior, siga los pasos descritos en el siguiente artículo para [Habilitar autenticación moderna de Office 2013 en los dispositivos de Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Para ayudar a proteger su cuenta mientras usa la autenticación heredada, se recomienda usar contraseñas seguras en su directorio. Desproteger [protección mediante contraseña de Azure AD](../authentication/concept-password-ban-bad.md) prohibir las contraseñas a través de su directorio.
+Si usa clientes de Windows con Office 2013 o una versión anterior, se recomienda actualizar a Office 2016 o posterior. Incluso después de completar el paso anterior para habilitar la autenticación moderna en su directorio, las aplicaciones de Office anteriores seguirán usando protocolos de autenticación heredados. Si usa clientes de Office 2013 y no puede actualizar inmediatamente a Office 2016 o posterior, siga los pasos descritos en el siguiente artículo para [Habilitar la autenticación moderna para Office 2013 en los dispositivos Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Para ayudar a proteger su cuenta mientras usa la autenticación heredada, le recomendamos que use contraseñas seguras en su directorio. Eche un vistazo al artículo sobre [protección con contraseña de Azure AD](../authentication/concept-password-ban-bad.md) para prohibir las contraseñas no seguras en su directorio.
 
-Office 2010 no admite la autenticación moderna. Deberá actualizar todos los usuarios con Office 2010 a una versión más reciente de Office. Se recomienda actualizar a Office 2016 o posterior, ya que bloquea la autenticación heredada de forma predeterminada.
+Office 2010 no admite la autenticación moderna. Deberá actualizar todos los usuarios con Office 2010 a una versión más reciente de Office. Le recomendamos que actualice a Office 2016 o posterior, ya que bloquea la autenticación heredada de forma predeterminada.
 
-Si usa MacOS, se recomienda actualizar a Office para Mac 2016 o posterior. Si usa al cliente de correo electrónico nativa, deberá tener MacOS versión 10.14 o posterior en todos los dispositivos.
+Si usa MacOS, le recomendamos que actualice a Office para Mac 2016 o posterior. Si usa el cliente de correo electrónico nativo, deberá tener la versión de MacOS 10.14 o posterior en todos los dispositivos.
 
 ### <a name="step-3-exchange-and-sharepoint"></a>Paso 3: Exchange y SharePoint
 
-Para que los clientes de Outlook basado en Windows usan la autenticación moderna, Exchange Online debe ser también habilitada la autenticación moderna. Si se deshabilita la autenticación moderna para Exchange Online, los clientes de Outlook basado en Windows que admiten autenticación moderna (Outlook 2013 o versiones posterior) usará la autenticación básica para conectarse a buzones de Exchange Online.
+Para que los clientes de Outlook basado en Windows usen la autenticación moderna, Exchange Online también debe tener habilitada la autenticación moderna. Si se deshabilita la autenticación moderna para Exchange Online, los clientes de Outlook basado en Windows que admiten la autenticación moderna (Outlook 2013 o versiones posteriores) usarán la autenticación básica para conectarse a buzones de Exchange Online.
 
-SharePoint Online está habilitado de forma predeterminada la autenticación moderna. Para los directorios creados después del 1 de agosto de 2017, la autenticación moderna está habilitada de forma predeterminada en Exchange Online. Sin embargo, si anteriormente tenía deshabilitada la autenticación moderna o está usando un directorio creado antes de esta fecha, siga los pasos descritos en el siguiente artículo para [habilitar la autenticación moderna en Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online está habilitado de forma predeterminada para la autenticación moderna. En el caso de los directorios creados a partir del 1 de agosto de 2017, la autenticación moderna está habilitada de forma predeterminada en Exchange Online. Sin embargo, si anteriormente tenía deshabilitada la autenticación moderna o usa un directorio creado antes de esta fecha, siga los pasos descritos en el artículo [Habilitar la autenticación moderna en Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Paso 4: Skype Empresarial
 
-Para evitar que las solicitudes de autenticación heredados realizadas por Skype para la empresa, es necesario habilitar la autenticación moderna para Skype empresarial Online. Para los directorios creados después del 1 de agosto de 2017, la autenticación moderna para Skype para la empresa está habilitada de forma predeterminada.
+Para evitar las solicitudes de autenticación heredadas realizadas por Skype Empresarial, es necesario habilitar la autenticación moderna para Skype Empresarial en la Web. En el caso de los directorios creados a partir del 1 de agosto de 2017, la autenticación moderna está habilitada de forma predeterminada en Skype Empresarial.
 
-Para habilitar la autenticación moderna de Skype para la empresa, se recomienda realizar la transición a Microsoft Teams, que admite la autenticación moderna de forma predeterminada. Sin embargo, si no es capaz de tr en este momento, deberá habilitar la autenticación moderna para Skype empresarial Online para que empiece de Skype para los clientes empresariales que usan autenticación moderna. Siga estos pasos en el artículo [Skype para las topologías de negocio compatibles con la autenticación moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), para conocer los pasos habilitar la autenticación moderna para Skype para la empresa.
+Para habilitar la autenticación moderna de Skype Empresarial, le sugerimos que realice la transición a Microsoft Teams, que admite la autenticación moderna de forma predeterminada. Sin embargo, si no puede realizarla en este momento, deberá habilitar la autenticación moderna para Skype Empresarial en la Web para que Skype Empresarial empiece a usar la autenticación moderna. Consulte el artículo [Skype for Business topologies supported with Modern Authentication](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported) (Topologías de Skype Empresarial admitidas con la autenticación moderna) para conocer los pasos para habilitar la autenticación moderna para Skype Empresarial.
 
-Además de habilitar la autenticación moderna para Skype empresarial Online, se recomienda modernas autenticación habilitarse para Exchange Online cuando se habilita la autenticación moderna para Skype para la empresa. Este proceso le ayudarán a sincronizar el estado de la autenticación moderna en Exchange Online y Skype para la empresa en línea y evitará que varias solicitudes de inicio de sesión de Skype para los clientes empresariales.
+Además de habilitar la autenticación moderna para Skype Empresarial en la Web, le recomendamos que habilite la autenticación moderna para Exchange Online cuando habilite la autenticación moderna para Skype Empresarial. Este proceso permitirá sincronizar el estado de la autenticación moderna en Exchange Online y Skype Empresarial en la Web y evitará que se realicen varias solicitudes de inicio de sesión de los clientes de Skype Empresarial.
 
 ### <a name="step-5-using-mobile-devices"></a>Paso 5: Uso de dispositivos móviles
 
-Las aplicaciones en su dispositivo móvil necesitan bloquear también autenticación heredados. Se recomienda usar Outlook para dispositivos móviles. Outlook Mobile admite la autenticación moderna de forma predeterminada y cumplirá otras directivas de protección de la línea de base MFA.
+Las aplicaciones de su dispositivo móvil también necesitan bloquear la autenticación heredada. Le recomendamos usar Outlook para dispositivos móviles. Outlook para dispositivos móviles admite la autenticación moderna de forma predeterminada y cumplirá otras directivas de protección de la base de referencia de MFA.
 
-Para poder usar al cliente de correo electrónico nativas para iOS, deberá ejecutar iOS versión 11.0 o versiones posteriores para asegurarse de que el cliente de correo se ha actualizado para bloquear autenticación heredados.
+Para usar el cliente de correo electrónico nativo de iOS, deberá ejecutar la versión 11.0 u otra posterior de iOS para asegurarse de que el cliente de correo electrónico se ha actualizado a fin de bloquear la autenticación heredada.
 
 ### <a name="step-6-on-premises-clients"></a>Paso 6: Clientes locales
 
-Si es un cliente híbrida con Exchange Server local y Skype empresarial local, ambos servicios deberá actualizarse para habilitar la autenticación moderna. Cuando se usa la autenticación moderna en un entorno híbrido, todavía está autenticando usuarios locales. La historia de autorizar su acceso a los cambios de recursos (archivos o mensajes de correo electrónico).
+Si es un cliente híbrido que usa Exchange Server y Skype Empresarial en el entorno local, ambos servicios deberán actualizarse para habilitar la autenticación moderna. Cuando usa la autenticación moderna en un entorno híbrido, igualmente autentica a los usuarios en el entorno local. Sin embargo, el proceso para autorizar su acceso a los recursos (archivos o mensajes de correo electrónico) cambia.
 
-Para poder habilitar la autenticación moderna de forma local, asegúrese de cumplir theIf cumplen los requisitos, ahora está preparado para habilitar la autenticación moderna de forma local.
+Antes de empezar a habilitar la autenticación moderna en el entorno local, asegúrese de cumplir los requisitos y, cuando sea así, estará listo para habilitarla.
 
-Pasos para habilitar la autenticación moderna se encuentra en los siguientes artículos:
+Los pasos para habilitar la autenticación moderna se encuentran en los artículos siguientes:
 
-* [Cómo configurar Exchange Server local para usar la autenticación moderna híbrida](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-* [Cómo usar la autenticación moderna (ADAL) con Skype para la empresa](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+* [Cómo configurar Exchange Server local para usar la autenticación moderna híbrida](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+* [Cómo usar la autenticación moderna (ADAL) con Skype Empresarial](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
 
-## <a name="enable-the-baseline-policy"></a>Habilitar la directiva de línea base
+## <a name="enable-the-baseline-policy"></a>Habilitación de la directiva de base de referencia
 
-La directiva **directiva de línea base: Autenticación heredados de bloque (versión preliminar)** viene previamente configurada y se mostrarán en la parte superior cuando vaya a la hoja de acceso condicional en Azure portal.
+La **directiva de base de referencia: bloqueo de la autenticación heredada (versión preliminar)** viene preconfigurada y se mostrará en la parte superior cuando navegue a la hoja Acceso condicional en Azure Portal.
 
-Para habilitar esta directiva y proteger su organización:
+Para habilitar esta directiva y proteger a su organización:
 
-1. Inicie sesión en el **portal Azure** como administrador global, Administrador de seguridad o administrador de acceso condicional.
-1. Vaya a **Azure Active Directory** > **acceso condicional**.
-1. En la lista de directivas, seleccione **directiva de línea base: Autenticación heredados de bloque (versión preliminar)** .
-1. Establecer **Habilitar directiva** a **usar la directiva inmediatamente**.
-1. Agregar exclusiones de cualquier usuario haciendo clic en **usuarios** > **Seleccionar usuarios excluidos** y elegir los usuarios que deben excluirse. Haga clic en **seleccione** , a continuación, **realiza**.
-1. Haga clic en **guardar**.
+1. Inicie sesión en  **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Vaya a **Azure Active Directory** > **Acceso condicional**.
+1. En la lista de directivas, seleccione **Baseline policy: Block legacy authentication (preview)** (Directiva de base de referencia: Bloquear la autenticación heredada [versión preliminar]).
+1. Establezca **Habilitar directiva** en **Usar la directiva inmediatamente**.
+1. Haga clic en  **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte:
 
-* [Directivas de protección de acceso condicional básicas](concept-baseline-protection.md)
+* [Directivas de protección de base de referencia de acceso condicional](concept-baseline-protection.md)
 * [Cinco pasos para asegurar su infraestructura de identidad](../../security/azure-ad-secure-steps.md)
-* [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)
+* [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)

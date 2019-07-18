@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c476c2b326045db37c54a358d68f4b5f8bbaed9a
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: abb050eb527e65b4fd31f3251d37fef7d51e867e
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509594"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655976"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -87,7 +87,7 @@ Si se basa en la herramienta de preparación del sistema (Sysprep) y utiliza par
 
 Si se basa en la instantánea de una máquina virtual (VM) para crear otras VM, asegúrese de que esa instantánea no sea de una VM que ya se haya registrado en Azure AD como unión a Azure AD híbrido.
 
-Si los dispositivos de Windows 10 unidos a un dominio ya están [registrados en Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) para el inquilino, se recomienda encarecidamente quitar ese estado antes de habilitar Unión a Azure AD híbrido. A partir de la versión Windows 10 1809, se han realizado los siguientes cambios para evitar este estado dual:
+Si los dispositivos de Windows 10 unidos a un dominio ya están [registrados en Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#getting-devices-in-azure-ad) para el inquilino, se recomienda encarecidamente quitar ese estado antes de habilitar Unión a Azure AD híbrido. A partir de la versión Windows 10 1809, se han realizado los siguientes cambios para evitar este estado dual:
 
 - Cualquier estado registrado en Azure AD existente se eliminará automáticamente cuando el dispositivo se una a Azure AD híbrido.
 - Puede impedir que el dispositivo unido al dominio se registre en Azure AD mediante la incorporación de esta clave del registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.

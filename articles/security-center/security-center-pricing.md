@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 8f6f94fa8602dcc2b8eed19262f595cb18c40b57
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: 547aed05746cb3f6c73c420169c727cc98c4ac4f
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968311"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551747"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Actualización al nivel Estándar de Security Center para mejorar la seguridad
 Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Ofrece visibilidad y control sobre las cargas de trabajo de nube híbrida, defensas activas que reducen la exposición a las amenazas y una detección inteligente, lo que le permitirá mantenerse al día de los ciberataques, que se expanden rápidamente.
@@ -28,7 +28,7 @@ Azure Security Center ofrece una administración de seguridad unificada y una pr
 Security Center se ofrece en dos niveles:
 
 - El nivel **Gratis** se habilita automáticamente en todas las suscripciones de Azure y proporciona recomendaciones de directivas de seguridad, de evaluación continua de la seguridad y de seguridad que requieren acción para que pueda proteger sus recursos de Azure.
-- El nivel **Estándar** amplía las capacidades del nivel Gratis a las cargas de trabajo que se ejecutan en nubes privadas y otras nubes públicas, lo que ofrece una administración de seguridad unificada y protección contra amenazas en todas sus cargas de trabajo de nube híbrida. El nivel Estándar también incorpora capacidades de detección de amenazas avanzada, donde se emplea el análisis de comportamiento integrado y el aprendizaje automático para identificar ataques y vulnerabilidades de día cero, controles de acceso y de aplicación para reducir la exposición a los ataques a la red y al malware, etc. Puede probar el nivel estándar de forma gratuita. Estándar de Security Center es compatible con Azure escalado de máquinas virtuales de los recursos incluidas las máquinas virtuales, conjuntos, App Service, servidores SQL Server y las cuentas de almacenamiento. Si tiene el nivel estándar de Azure Security Center, puede optar por no recibir soporte técnico en función del tipo de recurso. 
+- El nivel **Estándar** amplía las capacidades del nivel Gratis a las cargas de trabajo que se ejecutan en nubes privadas y otras nubes públicas, lo que ofrece una administración de seguridad unificada y protección contra amenazas en todas sus cargas de trabajo de nube híbrida. El nivel Estándar también incorpora capacidades de detección de amenazas avanzada, donde se emplea el análisis de comportamiento integrado y el aprendizaje automático para identificar ataques y vulnerabilidades de día cero, controles de acceso y de aplicación para reducir la exposición a los ataques a la red y al malware, etc. Puede probar el nivel Estándar de manera gratuita. El nivel Estándar de Security Center es compatible con recursos de Azure, incluidas las máquinas virtuales, los conjuntos de escalado de máquinas virtuales, App Service, los servidores SQL Server y las cuentas de almacenamiento. Si tiene el nivel estándar de Azure Security Center, puede optar por no recibir soporte técnico en función del tipo de recurso. 
 
 
 Para más información, vea la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -40,13 +40,13 @@ Puede actualizar una suscripción a Azure entera al nivel Estándar, que heredar
 
 Para obtener el nivel Estándar:
 
-1. Seleccione **Directiva de seguridad** en el menú principal de **Security Center**.
+1. En el menú principal de **Security Center**, seleccione **Pricing & settings** (Precios y configuración).
 2. Seleccione la suscripción que quiera actualizar al nivel Estándar.
-3. En la hoja **Directiva de seguridad**, seleccione **Plan de tarifa**.
+3. Seleccione **Plan de tarifa**.
 4. Seleccione **Estándar** para efectuar la actualización.
 5. Haga clic en **Save**(Guardar).
 
-(Los precios en la imagen por ejemplo son solo con fines). ![Precios de Security Center](./media/security-center-pricing/get-standard.png)
+(Los precios de la imagen son solo para los fines de este ejemplo). ![Precios de Security Center](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
 > Para habilitar todas las características de Security Center, debe aplicar el plan de tarifa Estándar a la suscripción que contiene las máquinas virtuales aplicables. La configuración de los precios para un área de trabajo no habilita el acceso a VM Just-In-Time, los controles de aplicación adaptables ni las detecciones de red para los recursos de Azure.

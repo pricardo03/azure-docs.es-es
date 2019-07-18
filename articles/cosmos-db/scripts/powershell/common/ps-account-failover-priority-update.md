@@ -1,17 +1,17 @@
 ---
-title: 'Script de Azure PowerShell: cambiar la prioridad de conmutación por error para una cuenta de Azure Cosmos'
-description: 'Ejemplo de script de Azure PowerShell: cambiar la prioridad de conmutación por error para una cuenta de Azure Cosmos'
+title: 'Script de Azure PowerShell: cambiar la prioridad de conmutación por error de una cuenta de Azure Cosmos'
+description: 'Muestra de Azure PowerShell: cambiar la prioridad de conmutación por error de una cuenta de Azure Cosmos'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 2e6fefbbd3db23a41fc64021b19a412d7a12b322
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 785ca8941c24014fd00d8135b66cefccd99d2951
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247895"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561215"
 ---
 # <a name="change-failover-priority-for-an-azure-cosmos-account-using-powershell"></a>Cambiar la prioridad de conmutación por error de una cuenta de Azure Cosmos mediante PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "66247895"
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-failover-priority-update.ps1 "Update failover priority for an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-failover-priority-update.ps1 "Update failover priority for an Azure Cosmos account")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 

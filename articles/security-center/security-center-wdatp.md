@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
-ms.author: monhaber
-ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 87f5a14bcd6003ad81b663ed97e5349dcbff2a30
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752574"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296528"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Protección contra amenazas avanzada de Windows Defender con Azure Security Center
 
@@ -71,7 +71,7 @@ Para incorporar servidores a Security Center, haga clic en **Go to Azure Securit
 
 ## <a name="enable-windows-defender-atp-integration"></a>Habilitación de la integración con ATP de Windows Defender
 
-Para comprobar si la integración de ATP de Windows Defender está habilitada, seleccione **Security Center** > **Directiva de seguridad** > **Suscripción**  >  **Editar la configuración**.
+Para comprobar si la integración de ATP de Windows Defender está habilitada, seleccione **Security Center** > **Pricing & settings** (Precios y configuración) > haga clic en su suscripción.
 
   ![Administración de directivas de Azure Security Center](media/security-center-wdatp/policy-management.png)
 
