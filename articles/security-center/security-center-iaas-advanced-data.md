@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: monhaber
-ms.openlocfilehash: ed94b92a34e2989c9f2226c344ac4d34a279eeac
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.author: v-mohabe
+ms.openlocfilehash: 0b83575baa2221f0b502abbf919654492c7ab6cf
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551841"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295751"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Advanced Data Security para servidores SQL Server en Azure Virtual Machines (versión preliminar pública)
 Advanced Data Security para servidores SQL Server en Azure Virtual Machines es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Actualmente, incluye (en versión preliminar pública) una funcionalidad para buscar y mitigar posibles vulnerabilidades de la base de datos, así como y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. 

@@ -12,47 +12,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 8fed3ce98b23c5ac1cc97b88a278c5946f06af8e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: 86d48360e37f26d19d15c62a8109c030d421c661
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968739"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551870"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
-Security Center recopila datos de sus máquinas virtuales (VM), conjuntos de escalado de máquinas virtuales, contenedores de IaaS y los equipos que no son de Azure (incluido local) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Microsoft Monitoring Agent también copia los archivos de volcado en el área de trabajo.
+Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y de los equipos que no son de Azure (incluidos los equipos locales) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. Asimismo, el agente de Microsoft Monitoring Agent copia los archivos de volcado de memoria en esta área de trabajo.
 
 La recopilación de datos es necesaria para proporcionar visibilidad sobre actualizaciones que faltan, valores de seguridad del sistema operativo mal configurados, habilitación de la protección de punto de conexión y detecciones de amenazas y mantenimiento. 
 
 Este artículo proporcionan instrucciones sobre cómo instalar Microsoft Monitoring Agent y establecer un área de trabajo de Log Analytics para almacenar los datos recopilados. Ambas operaciones son necesarias para habilitar la recopilación de datos. 
 
 > [!NOTE]
-> - Recopilación de datos solo es necesario para los recursos de proceso (máquinas virtuales, conjuntos de escalado de máquinas virtuales, contenedores de IaaS y los equipos que no son de Azure). Puede beneficiarse de Azure Security Center incluso si no aprovisiona a agentes; de todas formas, tendrá una seguridad limitada y no tendrá las funcionalidades enumeradas anteriormente.  
+> - La recopilación de datos solo es necesaria para los recursos de Proceso (máquinas virtuales, conjuntos de escalado de máquinas virtuales, contenedores de IaaS y equipos que no son de Azure). Puede beneficiarse de Azure Security Center incluso si no aprovisiona a agentes; de todas formas, tendrá una seguridad limitada y no tendrá las funcionalidades enumeradas anteriormente.  
 > - Consulte [Plataformas compatibles con Azure Security Center](security-center-os-coverage.md) para ver una lista de plataformas compatibles.
-> - La recopilación de datos para el conjunto de escalado de máquinas virtuales no se admite actualmente.
-> - Almacenar datos en Log Analytics, independientemente de si usa un área de trabajo nueva o existente, puede incurrir en cargos adicionales por almacenamiento de datos, vea la página de precios para obtener más detalles.
+> - El almacenamiento de datos en Log Analytics, independientemente de si usa un área de trabajo nueva o existente, puede incurrir en cargos adicionales por almacenamiento de datos. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) para obtener más información.
 
 ## Habilitar el aprovisionamiento automático de Microsoft Monitoring Agent<a name="auto-provision-mma"></a>
 
-Para recopilar los datos de las máquinas, debe tener instalado Microsoft Monitoring Agent.  La instalación del agente puede ser automática (recomendado) o se puede optar por instalar el agente manualmente.  
+Para recopilar los datos de las máquinas, debe tener instalado Microsoft Monitoring Agent.  La instalación del agente puede ser automática (recomendado) o manual.  
 
 >[!NOTE]
 > El aprovisionamiento automático está desactivado de manera predeterminada. Para establecer Security Center para que instale el aprovisionamiento automático de forma predeterminada, establézcalo en **Activado**.
 >
 
-Cuando el aprovisionamiento automático está activado, Security Center aprovisiona a Microsoft Monitoring agent en todas las máquinas virtuales de Azure y en las que se crean. El aprovisionamiento automático está muy recomendado, pero la instalación manual del agente también está disponible. [Aprenda a instalar la extensión Microsoft Monitoring Agent](#manualagent).
+Si el aprovisionamiento automático está activado, Security Center aprovisiona Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles y en las nuevas que se creen. El aprovisionamiento automático está muy recomendado, pero la instalación manual del agente también está disponible. [Aprenda a instalar la extensión Microsoft Monitoring Agent](#manualagent).
 
 
 
 Para habilitar el aprovisionamiento automático de Microsoft Monitoring Agent:
-1. En el menú principal de Security Center, seleccione **Directiva de seguridad**.
-2. Haga clic en **Editar configuración** en la columna Configuración de la suscripción deseada en la lista.
+1. En el menú principal de Security Center, seleccione **Precios y configuración**.
+2. Haga clic en la suscripción aplicable.
 
    ![Selección de la suscripción][7]
 
-3. En **Directiva de seguridad**, seleccione **Recopilación de datos**.
+3. Seleccione **Recopilación de datos**.
 4. En **Aprovisionamiento automático**, seleccione **Activado** para habilitarlo.
 5. Seleccione **Guardar**.
 
@@ -88,11 +87,9 @@ Para seleccionar un área de trabajo creada por Security Center:
 
 > [!NOTE]
 > El plan de tarifa de Log Analytics de áreas de trabajo creadas por Security Center no afecta a la facturación de Security Center. La facturación de Security Center siempre se basa en la directiva de seguridad de Security Center y en las soluciones instaladas en un área de trabajo. Para el nivel Gratis, Security Center habilita la solución *SecurityCenterFree* en el área de trabajo predeterminada. Para el nivel Estándar, Security Center habilita la solución *Security* en el área de trabajo predeterminada.
-> El almacenamiento de datos en Log Analytics podría suponer cargos adicionales. Consulte la página de precios para más información.
+> El almacenamiento de datos en Log Analytics podría incurrir en cargos adicionales por almacenamiento de datos. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) para obtener más información.
 
-Para más información, vea [Precios de Security Center ](https://azure.microsoft.com/pricing/details/security-center/).
-
-Para obtener más información acerca de las cuentas de análisis de registro existente, consulte [clientes de análisis de registro existentes](security-center-faq.md#existingloganalyticscust).
+Para obtener más información acerca de las cuentas de Log Analytics, consulte [Clientes existentes de Log Analytics](security-center-faq.md#existingloganalyticscust).
 
 ### <a name="using-an-existing-workspace"></a>Uso de un área de trabajo existente
 
@@ -102,7 +99,7 @@ Para usar el área de trabajo de Log Analytics existente, tiene que tener permis
 
 > [!NOTE]
 > Las soluciones habilitadas en el área de trabajo existente se aplicarán a las máquinas virtuales de Azure que están conectadas a él. Para las soluciones de pago, esto puede conllevar cargos adicionales. Por motivos de privacidad de datos, asegúrese de que el área de trabajo seleccionado está en la región geográfica adecuada.
-> Almacenar datos en log analytics puede incurrir en cargos adicionales por almacenamiento de datos, vea la página de precios para obtener más detalles.
+> El almacenamiento de datos en Log Analytics podría incurrir en cargos adicionales por almacenamiento de datos. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) para obtener más información.
 
 Para seleccionar un área de trabajo de Log Analytics existente:
 
@@ -134,11 +131,11 @@ Para seleccionar un área de trabajo de Log Analytics existente:
 
 5. Seleccione el plan de tarifa del área de trabajo deseada en la que se va a configurar Microsoft Monitoring Agent. <br>Para usar un área de trabajo existente, establezca el plan de tarifa del área de trabajo. Esto instalará una solución de Security Center en el área de trabajo si todavía no está presente.
 
-     a.  En el menú principal de Security Center, seleccione **Directiva de seguridad**.
+    a.  En el menú principal de Security Center, seleccione **Precios y configuración**.
      
-    b.  Para seleccionar el área de trabajo deseada en la que quiere conectar el agente, haga clic en **Editar configuración** en la columna de Configuración de la suscripción deseada en la lista.
-        ![Selección del área de trabajo][8] c. Establezca el plan de tarifa.
-        ![Selección del plan de tarifa][9] 
+    b.  Seleccione el área de trabajo deseada en la que se quiere conectar al agente.
+        ![Selección del área de trabajo][7] c. Establezca el plan de tarifa.
+        ![Selección del plan de tarifa][9]
    
    >[!NOTE]
    >Si el área de trabajo ya tiene una solución **Security** o **SecurityCenterFree** habilitada, los precios se establecerán automáticamente. 
@@ -148,9 +145,9 @@ Cuando se selecciona un área de trabajo para almacenar los datos, todas las ár
 
 
 ## <a name="data-collection-tier"></a>Nivel de recopilación de datos
-La selección de un nivel de recopilación de datos en Azure Security Center solo afecta al almacenamiento de eventos de seguridad en el área de trabajo de Log Analytics. El agente de Log Analytics aún se recopile y analice los eventos de seguridad necesarios para las detecciones de amenazas de Azure Security Center, independientemente de qué nivel de eventos de seguridad que elija almacenar en el área de trabajo de Log Analytics (si existe). Si elige almacenar los eventos de seguridad en el área de trabajo, permitirá la investigación, búsqueda y auditoría de esos eventos en el área de trabajo. 
+La selección de un nivel de recopilación de datos en Azure Security Center solo afecta al almacenamiento de eventos de seguridad en el área de trabajo de Log Analytics. El agente de Log Analytics sigue recopilando y analizando los eventos de seguridad necesarios para las detecciones de amenazas de Azure Security Center, con independencia del nivel de eventos de seguridad que elija almacenar en el área de trabajo de Log Analytics (si lo hay). Si elige almacenar los eventos de seguridad en el área de trabajo, permitirá la investigación, búsqueda y auditoría de esos eventos en el área de trabajo. 
 > [!NOTE]
-> Almacenar datos en log analytics puede incurrir en cargos adicionales por almacenamiento de datos, vea la página de precios para obtener más detalles.
+> El almacenamiento de datos en Log Analytics podría incurrir en cargos adicionales por almacenamiento de datos. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) para obtener más información.
 > 
 > Puede elegir la directiva de filtrado adecuada para sus suscripciones y áreas de trabajo entre cuatro conjuntos de eventos para almacenar en el área de trabajo. 
 
@@ -169,7 +166,7 @@ Estos conjuntos se han diseñado para abordar escenarios típicos. Asegúrese de
 Para determinar los eventos que formarán parte de los conjuntos de eventos **Común** y **Mínimo**, hemos colaborado con los clientes y los estándares del sector para obtener información sobre la frecuencia sin filtrar de cada evento y su uso. En este proceso se han empleado las siguientes directrices:
 
 - **Mínimo**: Asegúrese de que este conjunto abarque solamente los eventos que podrían indicar una brecha correcta y eventos importantes que tengan un volumen muy bajo. Por ejemplo, este conjunto contiene un inicio de sesión de usuario correcto y uno erróneo (identificadores de evento 4624 y 4625), pero no contiene el cierre de sesión, que es importante para la auditoría pero no lo es para la detección y tiene un volumen relativamente alto. La mayor parte del volumen de datos de este conjunto son los eventos de inicio de sesión y el evento de creación de proceso (Id. de evento 4688).
-- **Común**: Proporcione una pista de auditoría de usuario completa en este conjunto. Por ejemplo, este conjunto contiene los inicios de sesión y los cierres de sesión de usuario (Id. de evento 4634). Se incluyen acciones de auditoría como cambios en los grupos de seguridad, operaciones de Kerberos en los controladores de dominio de clave y otros eventos que recomiendan las organizaciones del sector.
+- **Común**: Proporcione una pista de auditoría de usuario completa en este conjunto. Por ejemplo, este conjunto contiene los inicios de sesión y los cierres de sesión de usuario (identificador de evento 4634). Se incluyen acciones de auditoría como cambios en los grupos de seguridad, operaciones de Kerberos en los controladores de dominio de clave y otros eventos que recomiendan las organizaciones del sector.
 
 Los eventos que tienen un volumen muy bajo se han incluido en el conjunto Común, ya que la motivación principal para elegirlo respecto de todos los eventos pasa por reducir el volumen, y no por filtrar eventos específicos.
 
@@ -194,7 +191,7 @@ A continuación se muestra un desglose completo de los identificadores de evento
 >
 
 Para elegir la directiva de filtrado:
-1. En la hoja **Directiva de seguridad: Recopilación de datos** (Recopilación de datos de directivas de seguridad), seleccione la directiva de filtrado en **Eventos de seguridad**.
+1. En la página **Recopilación de datos**, seleccione la directiva de filtrado en **Eventos de seguridad**.
 2. Seleccione **Guardar**.
 
    ![Elegir la directiva de filtrado][5]
@@ -203,29 +200,31 @@ Para elegir la directiva de filtrado:
 
 Los siguientes casos de uso especifican cómo funciona el aprovisionamiento automático en los casos en los que ya hay un agente o una extensión instalados. 
 
-- Microsoft Monitoring Agent está instalado en el equipo, pero no como una extensión (agente directo)<br>
-Si Microsoft Monitoring Agent se instala directamente en la máquina virtual (no como una extensión de Azure), Security Center se instalará la extensión Microsoft Monitoring Agent y puede actualizar a Microsoft Monitoring agent a la versión más reciente.
-Instalado el agente continuará informando en sus áreas de trabajo ya configurado y además informará al área de trabajo configurada en el centro de seguridad (multi-homing se admite).
-Si el área de trabajo configurada es un área de trabajo de usuario (no del centro de seguridad predeterminada del área de trabajo), deberá instalar el "seguridad / solución"securityFree"en el mismo centro de seguridad iniciar el procesamiento de eventos desde máquinas virtuales y equipos de informar a esa área de trabajo.<br>
+- Microsoft Monitoring Agent está instalado en la máquina, pero no como una extensión (agente directo).<br>
+Si Microsoft Monitoring Agent se instala directamente en la máquina virtual (no como una extensión de Azure), Security Center instalará la extensión de Microsoft Monitoring Agent y puede que lo actualice a la versión más reciente.
+El agente instalado continuará informando a las áreas de trabajo ya configuradas y además informará al área de trabajo configurada en Security Center (el hospedaje múltiple es compatible en máquinas Windows).
+Si el área de trabajo configurada es un área de trabajo de usuario (no el área de trabajo predeterminada de Security Center), deberá instalar la solución "security" o "securityFree" para que Security Center empiece a procesar eventos desde máquinas virtuales y equipos que generan informes a esa área de trabajo.<br>
 <br>
-Para las máquinas existentes en suscripciones incorporado a Security Center antes de 2019-03-17, cuando se detectará un agente existente, no se instalará la extensión Microsoft Monitoring Agent y la máquina no se verán afectada. Para estos equipos, vea la recomendación "Resolver problemas de agent health en los equipos de supervisión" para resolver los problemas de instalación de agente en estas máquinas.
+El hospedaje múltiple del agente todavía no es compatible con las máquinas Linux; por lo tanto, si se detecta una instalación de agente existente, no se producirá el aprovisionamiento automático y no se modificará la configuración de la máquina.
+<br>
+Para las máquinas existentes en suscripciones incorporadas a Security Center antes del 17-03-2019, cuando se detecte un agente existente, no se instalará la extensión de Microsoft Monitoring Agent y la máquina no se modificará. Para estas máquinas, consulte la recomendación "Resolver incidencias de supervisión de estado del agente en las máquinas" con el fin de resolver las incidencias de instalación del agente en estas máquinas.
 
   
-- Agente de System Center Operations Manager está instalado en el equipo<br>
-Centro de seguridad instalará la extensión de Microsoft Monitoring Agent en paralelo a Operations Manager existente. El agente de Operations Manager existente continuará informando normalmente en el servidor de Operations Manager. Tenga en cuenta que el agente de Operations Manager y Microsoft Monitoring Agent compartan bibliotecas en tiempo de ejecución común, que se actualizará a la versión más reciente durante este proceso.
-Nota: si está instalada la versión 2012 de agente de Operations Manager, **no** activar aprovisionamiento en automático.<br>
+- El agente de System Center Operations Manager está instalado en la máquina<br>
+Security Center instalará la extensión de Microsoft Monitoring Agent en paralelo a la versión de Operations Manager existente. El agente de Operations Manager existente continuará enviando informes con normalidad al servidor de Operations Manager. Tenga en cuenta que el agente de Operations Manager y Microsoft Monitoring Agent comparten bibliotecas en tiempo de ejecución, las cuales se actualizarán a la versión más reciente durante este proceso.
+Nota: si está instalada la versión 2012 del agente de Operations Manager, **no** active el aprovisionamiento automático.<br>
 
 - Está presente una extensión de máquina virtual existente<br>
-    - Cuando se instala el agente de supervisión como una extensión, la configuración de extensión permite informar a una sola área de trabajo. Security Center no invalida las conexiones existentes con áreas de trabajo de usuario. Centro de seguridad almacenará datos de seguridad de la máquina virtual en el área de trabajo ya está conectado, siempre que se instaló el "seguridad" o "securityFree" solución en él. Security Center puede actualizar la versión de extensión a la versión más reciente de este proceso.  
-    - Para ver el área de trabajo, a la que la extensión existente está enviando datos, ejecute la prueba de [Validación de la conectividad con Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Como alternativa, puede abrir las áreas de trabajo de Log Analytics, seleccione un área de trabajo, seleccione la máquina virtual y examine la conexión del agente de Log Analytics. 
-    - Si tiene un entorno donde está instalado el agente de Log Analytics en estaciones de trabajo cliente y se informan a un área de trabajo de Log Analytics existente, revise la lista de [sistemas operativos compatibles con Azure Security Center](security-center-os-coverage.md) para asegurarse de que es compatible con el sistema operativo y vea [clientes de análisis de registro existentes](security-center-faq.md#existingloganalyticscust) para obtener más información.
+    - Cuando se instala Monitoring Agent como una extensión, la configuración de extensión permite enviar informes a una sola área de trabajo. Security Center no invalida las conexiones existentes con áreas de trabajo de usuario. Security Center almacenará datos de seguridad de la máquina virtual en el área de trabajo que ya está conectada, siempre que se haya instalado la solución "security" o "securityFree". Durante este proceso, Security Center puede actualizar la versión de extensión a la versión más reciente.  
+    - Para ver el área de trabajo, a la que la extensión existente está enviando datos, ejecute la prueba de [Validación de la conectividad con Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). También puede abrir las áreas de trabajo de Log Analytics, seleccionar un área de trabajo, seleccionar la máquina virtual y examinar la conexión del agente de Log Analytics. 
+    - Si tiene un entorno donde esté instalado el agente de Log Analytics en estaciones de trabajo de cliente y esté informando a un área de trabajo de Log Analytics existente, revise la lista de [sistemas operativos compatibles con Azure Security Center](security-center-os-coverage.md) para asegurarse de que el sistema operativo es compatible y consulte [Clientes existentes de Log Analytics](security-center-faq.md#existingloganalyticscust) para obtener más información.
  
 ### Desactivación del aprovisionamiento automático <a name="offprovisioning"></a>
 Puede desactivar en cualquier momento el aprovisionamiento automático de los recursos desactivando esta opción en la directiva de seguridad. 
 
 
 1. Vuelva al menú principal de Security Center y seleccione la directiva de seguridad.
-2. Haga clic en **editar la configuración de** en la fila de la suscripción para el que desea deshabilitar el aprovisionamiento automático.
+2. Haga clic en **Editar configuración** en la fila de la suscripción en la que quiera deshabilitar el aprovisionamiento automático.
 3. En la hoja **Directiva de seguridad: recopilación de datos**, en **Aprovisionamiento automático**, seleccione **Desactivado**.
 4. Seleccione **Guardar**.
 
@@ -251,7 +250,7 @@ Puede instalar Microsoft Monitoring Agent manualmente para que Security Center p
 1. Seleccione aprovisionamiento automático: Desactivado.
 2. Cree un área de trabajo y seleccione el plan de tarifa del área de trabajo en la que se va a configurar Microsoft Monitoring Agent:
 
-    a.  En el menú principal de Security Center, seleccione **Directiva de seguridad**.
+   a.  En el menú principal de Security Center, seleccione **Directiva de seguridad**.
      
    b.  Seleccione el área de trabajo deseada en la que quiere conectar al agente. Asegúrese de que el área de trabajo está en la misma suscripción que se usa en Security Center y que tiene permisos de lectura/escritura en el área de trabajo.
        ![Selección del área de trabajo][8]
@@ -263,7 +262,7 @@ Puede instalar Microsoft Monitoring Agent manualmente para que Security Center p
 
 4. Si desea implementar los agentes en nuevas máquinas virtuales mediante una plantilla de Resource Manager, instale la extensión de máquina virtual de OMS:
 
-    a.  [Instalación de la extensión de máquina virtual de OMS para Windows](../virtual-machines/extensions/oms-windows.md)
+   a.  [Instalación de la extensión de máquina virtual de OMS para Windows](../virtual-machines/extensions/oms-windows.md)
     
    b.  [Instalación de la extensión de máquina virtual de OMS para Linux](../virtual-machines/extensions/oms-linux.md)
 5. Para implementar las extensiones en máquinas virtuales existentes, siga las instrucciones de [Recopilación de datos acerca de máquinas virtuales de Azure](../azure-monitor/learn/quick-collect-azurevm.md).
