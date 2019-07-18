@@ -131,7 +131,7 @@ Las propiedades disponibles para un parámetro son:
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | parameterName |Sí |Nombre del parámetro. Debe ser un identificador válido de JavaScript. |
-| Tipo |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
+| type |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
 | defaultValue |Sin |Valor predeterminado del parámetro, si no se proporciona ningún valor. |
 | allowedValues |Sin |Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto. |
 | minValue |Sin |El valor mínimo de parámetros de tipo int, este valor es inclusivo. |
