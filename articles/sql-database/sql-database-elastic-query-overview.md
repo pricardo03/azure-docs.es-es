@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 01/19/2019
-ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 07/01/2019
+ms.openlocfilehash: 5188862c50895c8e3f1bdecb4e08d39409bb5f9e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60585717"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491666"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Información general sobre las consultas elásticas de Azure SQL Database (versión preliminar)
 
@@ -77,13 +77,13 @@ Se puede usar una consulta elástica para que los datos de una base de datos SQL
 
 **Ilustración 2** Particionamiento vertical: usar una consulta elástica para consultar datos de referencia
 
-![ Particionamiento vertical: usar una consulta elástica para consultar datos de referencia][3]
+![Particionamiento vertical: usar una consulta elástica para consultar datos de referencia][3]
 
 **Consultas entre bases de datos**: las consultas elásticas hacen posibles los casos de uso que requieren realizar consultas en varias bases de datos SQL. En la figura 3 se muestran cuatro bases de datos distintas: CRM, Inventory, HR y Products. Las consultas realizadas en una de las bases de datos también necesitan acceder a una de las otras bases de datos o a todas ellas. Mediante una consulta elástica, puede configurar la base de datos para este caso ejecutando unas pocas instrucciones DDL sencillas en cada una de las cuatro bases de datos. Después de esta configuración única, el acceso a una tabla remota es tan sencillo como hacer referencia a una tabla local desde las consultas T-SQL o las herramientas de BI. Se recomienda este enfoque si las consultas remotas no devuelven resultados de gran tamaño.
 
 **Ilustración 3** Particionamiento vertical: usar una consulta elástica para consultar en varias bases de datos
 
-![ Particionamiento vertical: usar una consulta elástica para consultar en varias bases de datos][4]
+![Particionamiento vertical: usar una consulta elástica para consultar en varias bases de datos][4]
 
 Con los siguientes pasos, se configuran consultas de bases de datos elásticas para escenarios de particionamiento vertical que requieren acceso a tablas ubicadas en una base de datos SQL remota con el mismo esquema:
 
@@ -100,7 +100,7 @@ El uso de una consulta elástica para realizar tareas de informes en una capa de
 
 **Ilustración 4** Particionamiento horizontal: usar una consulta elástica para informes en capas de datos particionadas
 
-![ Particionamiento horizontal: usar una consulta elástica para informes en capas de datos particionadas][5]
+![Particionamiento horizontal: usar una consulta elástica para informes en capas de datos particionadas][5]
 
 > [!NOTE]
 > La base de datos de consulta elástica (nodo principal) puede ser una independiente o la misma que hospeda el mapa de particiones.
@@ -140,9 +140,10 @@ La consulta elástica se incluye en el costo de las bases de datos de Azure SQL 
 * Aún no se admite el scripting de orígenes de datos externos o tablas externas desde SSMS o SSDT.
 * La función Importación/Exportación para bases de datos SQL aún no admite orígenes de datos externos ni tablas externas. Si necesita usar Importación/Exportación, quite estos objetos antes de exportar y después vuelva a crearlos después de importar.
 * Actualmente, la consulta elástica solo es compatible con el acceso de solo lectura a tablas externas. Sin embargo, puede usar toda la funcionalidad de T-SQL en la base de datos donde se define la tabla externa. Esto puede ser útil, por ejemplo, para conservar resultados temporales mediante por ejemplo SELECT <column_list> INTO <local_table>, o para definir procedimientos almacenados en la base de datos de consulta elástica que hacen referencia a tablas externas.
-* A excepción de nvarchar(max), los tipos LOB no se admiten en las definiciones de tabla externa. Como alternativa, cree una vista en la base de datos remota que convierta el tipo LOB en nvarchar(max), defina la tabla externa en la vista en lugar de la tabla base y después conviértala en el tipo LOB original en las consultas.
+* A excepción de nvarchar(max), los tipos LOB (tipos espaciales incluidos) no se admiten en las definiciones de tabla externa. Como alternativa, cree una vista en la base de datos remota que convierta el tipo LOB en nvarchar(max), defina la tabla externa en la vista en lugar de la tabla base y después conviértala en el tipo LOB original en las consultas.
 * Las columnas del tipo de datos nvarchar (max) que hay en el conjunto de resultados deshabilitan las técnicas de procesamiento por lotes avanzadas usadas en la implementación de la consulta elástica y pueden afectar al rendimiento de consulta para un orden de magnitud, o incluso dos órdenes de magnitud en casos de uso no canónicos en los que grandes cantidades de datos no agregados se transfieren como resultado de la consulta.
 * Actualmente no se admiten estadísticas de columna con tablas externas. Se admiten las estadísticas de las tablas, pero se deben crear manualmente.
+* Las consultas elásticas solo funcionan con Azure SQL Database. No se pueden usar para realizar consultas en una instalación local de SQL Server ni en una instalación de SQL Server en una máquina virtual.
 
 ## <a name="feedback"></a>Comentarios
 

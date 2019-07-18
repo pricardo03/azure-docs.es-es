@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4afe5c89a83f251ee354c955b6dc28b0bccc9e6c
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570643"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561138"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -246,7 +246,7 @@ En esta sección, configurará el servidor VPN para utilizar la autenticación R
 
     b. En **Secreto compartido**, seleccione **Cambiar** y agregue la contraseña secreta compartida que creó y anotó anteriormente.
 
-    c. En el cuadro **Tiempo de espera (en segundos)** , seleccione un valor de **30** a **60**.  
+    c. En el cuadro **Tiempo de espera (segundos)** , escriba el valor **30**.  
     El valor de tiempo es necesario para dar tiempo suficiente para completar el segundo factor de autenticación.
 
     ![Ventana Agregar servidor de RADIUS que configura el tiempo de espera](./media/howto-mfa-nps-extension-vpn/image16.png)
@@ -304,7 +304,7 @@ Para solucionar estos problemas, un lugar ideal para comenzar es examinar los re
 
 ## <a name="configure-multi-factor-authentication"></a>Configuración de Multi-Factor Authentication
 
-Para ayuda en la configuración de los usuarios para Multi-Factor Authentication, consulte los artículos [Exigencia de verificación en dos pasos para un usuario o grupo](howto-mfa-userstates.md) y [Configuración de mi cuenta para la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md)
+Para obtener ayuda para configurar los usuarios para Multi-Factor Authentication, consulte los artículos [Planear una implementación de Azure Multi-Factor Authentication basada en la nube](howto-mfa-getstarted.md#create-conditional-access-policy) y [Configuración de mi cuenta para la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ## <a name="install-and-configure-the-nps-extension"></a>Instalación y configuración de la extensión NPS
 

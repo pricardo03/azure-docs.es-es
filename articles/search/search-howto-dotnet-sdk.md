@@ -7,20 +7,16 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 06/19/2019
 ms.author: brjohnst
-ms.openlocfilehash: d0921761b565d9e61374bf340f812af4d43f192a
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.openlocfilehash: 9f0af40d442747181636b50612f7d2162ead6a86
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426759"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450012"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Cómo usar Azure Search desde una aplicación .NET
-
-> [!Important]
-> Este contenido todavía está en construcción. La versión 9.0 del SDK de .NET de Azure Search está disponible en NuGet. Estamos trabajando en esta guía de migración para explicar cómo actualizar a la nueva versión de la actualización. Permanezca atento.
->
 
 Este artículo es un tutorial para empezar a trabajar con el [SDK de Azure Search para .NET](https://aka.ms/search-sdk). Puede utilizar el SDK para .NET para implementar una experiencia de búsqueda enriquecida en la aplicación mediante Azure Search.
 
@@ -33,28 +29,28 @@ Estos son otros paquetes de NuGet que tiene el SDK:
  
   - `Microsoft.Azure.Search.Data`: use este paquete si va a desarrollar una aplicación de .NET mediante Azure Search y solo necesita consultar o actualizar los documentos en los índices. Si también tiene que crear o actualizar los índices, las asignaciones de sinónimos u otros recursos de nivel de servicio, use el paquete `Microsoft.Azure.Search`.
   - `Microsoft.Azure.Search.Service`: use este paquete si está desarrollando la automatización en .NET para administrar los índices, las asignaciones de sinónimos, los indexadores, los orígenes de datos u otros recursos de nivel de servicio de Azure Search. Si solo necesita consultar o actualizar los documentos de los índices, use el paquete `Microsoft.Azure.Search.Data` en su lugar. Si necesita toda la funcionalidad de Azure Search, use el paquete `Microsoft.Azure.Search`.
-  - `Microsoft.Azure.Search.Common`: tipos comunes que necesitan las bibliotecas de .NET de Azure Search. No es necesario usar este paquete directamente en la aplicación. Sólo está destinada a usarse como una dependencia.
+  - `Microsoft.Azure.Search.Common`: tipos comunes que necesitan las bibliotecas de .NET de Azure Search. No es necesario usar este paquete directamente en la aplicación, sino que está concebido únicamente para usarse como una dependencia.
 
 Las diferentes bibliotecas de cliente definen clases como `Index`, `Field` y `Document`, además de operaciones como `Indexes.Create` y `Documents.Search` en las clases `SearchServiceClient` y `SearchIndexClient`. Estas clases están organizadas en los espacios de nombres siguientes:
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
-La versión actual del SDK de .NET para Azure Search ya está disponible con carácter general. Si desea enviarnos comentarios para incorporar en la próxima versión, consulte nuestra [página comentarios](https://feedback.azure.com/forums/263029-azure-search/).
+Si desea proporcionar comentarios para una actualización futura del SDK, vaya a nuestra [página de comentarios](https://feedback.azure.com/forums/263029-azure-search/) o cree un problema en [GitHub](https://github.com/azure/azure-sdk-for-net/issues) y mencione "Azure Search" en el título del problema.
 
-El SDK para .NET es compatible con la versión `2017-11-11` de la [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/). En esta versión se incluye la compatibilidad con sinónimos, así como mejoras incrementales para los indexadores. 
+El SDK para .NET es compatible con la versión `2019-05-06` de la [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Esta versión incluye compatibilidad con [tipos complejos](search-howto-complex-data-types.md), con la [búsqueda cognitiva](cognitive-search-concept-intro.md), con la característica [Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) y con el [modo de análisis JsonLines](search-howto-index-json-blobs.md) al indexar Azure Blobs. 
 
 Este SDK no admite [operaciones de administración](https://docs.microsoft.com/rest/api/searchmanagement/) como la creación y el escalado de servicios de Search y las claves de API de administración. Si necesita administrar los recursos de Search desde una aplicación .NET, puede usar el [SDK de administración para .NET de Azure Search](https://aka.ms/search-mgmt-sdk).
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>Actualización a la versión más reciente del SDK
-Si ya utiliza una versión anterior del SDK de .NET para Azure Search y desea actualizar a la nueva versión disponible, en [este artículo](search-dotnet-sdk-migration-version-5.md) se explica el proceso.
+Si ya utiliza una versión anterior del SDK de .NET para Azure Search y desea actualizar a la versión disponible más reciente, en [este artículo](search-dotnet-sdk-migration-version-9.md) se explica el proceso.
 
 ## <a name="requirements-for-the-sdk"></a>Requisitos para el SDK
-1. Visual Studio 2017 o posterior.
+1. Visual Studio 2017 o cualquier versión posterior.
 2. Su propio servicio Azure Search. Para usar el SDK, será necesario el nombre del servicio y una o varias claves de API. [Crear un servicio en el portal](search-create-service-portal.md) le ayudará con estos pasos.
 3. Descargue el [paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search) del SDK de Azure Search para .NET mediante "Administrar paquetes de NuGet" en Visual Studio. Simplemente busque el nombre del paquete `Microsoft.Azure.Search` en NuGet.org (o uno de los otros nombres de paquetes mencionados anteriormente si solo necesita un subconjunto de la funcionalidad).
 
-El SDK de .NET de Azure Search es compatible con las aplicaciones destinadas a .NET Framework 4.5.2 y otras versiones superiores, así como a .NET Core.
+El SDK de .NET de Azure Search es compatible con las aplicaciones destinadas a .NET Framework 4.5.2 y otras versiones superiores, así como a .NET Core 2.0 y otras versiones superiores.
 
 ## <a name="core-scenarios"></a>Escenarios principales
 Hay varias tareas que debe realizar en su aplicación de búsqueda. En este tutorial, hablaremos sobre estos escenarios básicos:
@@ -63,7 +59,7 @@ Hay varias tareas que debe realizar en su aplicación de búsqueda. En este tuto
 * Llenado del índice con documentos
 * Búsqueda de documentos mediante filtros y búsqueda de texto completo
 
-El código de ejemplo siguiente muestra cada uno de estos escenarios. No dude en usar los fragmentos de código en su propia aplicación.
+El código de ejemplo siguiente ilustra cada uno de estos escenarios. No dude en usar los fragmentos de código en su propia aplicación.
 
 ### <a name="overview"></a>Información general
 La aplicación de ejemplo que vamos a explorar crea un nuevo índice denominado "hotels", lo rellena con varios documentos y, a continuación, ejecuta varias consultas de búsqueda. Este es el programa principal, que muestra el flujo general:
@@ -77,13 +73,15 @@ static void Main(string[] args)
 
     SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 
+    string indexName = configuration["SearchIndexName"];
+
     Console.WriteLine("{0}", "Deleting index...\n");
-    DeleteHotelsIndexIfExists(serviceClient);
+    DeleteIndexIfExists(indexName, serviceClient);
 
     Console.WriteLine("{0}", "Creating index...\n");
-    CreateHotelsIndex(serviceClient);
+    CreateIndex(indexName, serviceClient);
 
-    ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+    ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
 
     Console.WriteLine("{0}", "Uploading documents...\n");
     UploadDocuments(indexClient);
@@ -124,24 +122,24 @@ Las siguientes líneas llaman a métodos para crear un índice llamado "hotels",
 
 ```csharp
 Console.WriteLine("{0}", "Deleting index...\n");
-DeleteHotelsIndexIfExists(serviceClient);
+DeleteIndexIfExists(indexName, serviceClient);
 
 Console.WriteLine("{0}", "Creating index...\n");
-CreateHotelsIndex(serviceClient);
+CreateIndex(indexName, serviceClient);
 ```
 
-A continuación, el índice debe rellenarse. Para rellenar el índice, necesitamos un `SearchIndexClient`. Hay dos maneras de obtener uno: se puede crear o se puede llamar a `Indexes.GetClient` en el `SearchServiceClient`. Usamos esta última por motivos de comodidad.
+A continuación, el índice debe rellenarse. Para rellenar el índice, necesitamos un objeto `SearchIndexClient`. Hay dos maneras de obtener uno: se puede crear o se puede llamar a `Indexes.GetClient` en el `SearchServiceClient`. Usamos esta última por motivos de comodidad.
 
 ```csharp
-ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
 ```
 
 > [!NOTE]
-> En una aplicación de búsqueda típica, el llenado y la administración de índices se controlan mediante un componente independiente de las consultas de búsqueda. `Indexes.GetClient` resulta cómodo para rellenar un índice porque evita la molestia de dar otro `SearchCredentials`. Con este fin, pasa la clave de administrador que se usó para crear el `SearchServiceClient` al nuevo `SearchIndexClient`. Sin embargo, en la parte de la aplicación que ejecuta consultas, es mejor crear directamente el `SearchIndexClient` para poder pasar una clave de consulta en lugar de una clave de administración. Esto está en consonancia con el principio de privilegios mínimos y le ayudará a proteger su aplicación. Puede encontrar más información acerca de las claves de administración y consulta [aquí](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization).
+> En una aplicación de búsqueda típica, el llenado y la administración de índices se pueden controlar mediante un componente independiente de las consultas de búsqueda. `Indexes.GetClient` resulta cómodo para rellenar un índice, porque evita la molestia de dar otro `SearchCredentials` más. Con este fin, pasa la clave de administrador que se usó para crear el `SearchServiceClient` al nuevo `SearchIndexClient`. Sin embargo, en la parte de la aplicación que ejecuta consultas, es mejor crear directamente el objeto `SearchIndexClient` para poder pasar una clave de consulta (que solo permite leer datos) en lugar de una clave de administración. Esto está en consonancia con el principio de privilegios mínimos y le ayudará a proteger su aplicación. Puede encontrar más información acerca de las claves de administración y consulta [aquí](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization).
 > 
 > 
 
-Ahora que tenemos un `SearchIndexClient`, podemos rellenar el índice. El rellenado del índice se realiza mediante otro método que se explicará más adelante.
+Ahora que tenemos un `SearchIndexClient`, podemos rellenar el índice. Para ello, utilizaremos otro método que trataremos más adelante.
 
 ```csharp
 Console.WriteLine("{0}", "Uploading documents...\n");
@@ -151,7 +149,7 @@ UploadDocuments(indexClient);
 Finalmente, ejecutamos algunas consultas de búsqueda y mostramos los resultados. Esta vez usamos otro `SearchIndexClient`:
 
 ```csharp
-ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(configuration);
+ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(indexName, configuration);
 
 RunQueries(indexClientForQueries);
 ```
@@ -159,61 +157,74 @@ RunQueries(indexClientForQueries);
 Echaremos un vistazo al método `RunQueries` más adelante. Este es el código para crear el nuevo elemento `SearchIndexClient`:
 
 ```csharp
-private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+private static SearchIndexClient CreateSearchIndexClient(string indexName, IConfigurationRoot configuration)
 {
     string searchServiceName = configuration["SearchServiceName"];
     string queryApiKey = configuration["SearchServiceQueryApiKey"];
 
-    SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
+    SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, indexName, new SearchCredentials(queryApiKey));
     return indexClient;
 }
 ```
 
 Esta vez usamos una clave de consulta dado que no necesitamos acceso de escritura al índice. Puede escribir esta información en el archivo `appsettings.json` de la [aplicación de ejemplo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
-Si ejecuta esta aplicación con un nombre de servicio válido y claves de API, la salida debería parecerse a este ejemplo:
+Si ejecuta esta aplicación con un nombre de servicio válido y claves de API, la salida será parecida a la de este ejemplo (parte de la salida de la consola se ha reemplazado por "..." con fines meramente ilustrativos):
 
     Deleting index...
-    
+
     Creating index...
-    
+
     Uploading documents...
-    
+
     Waiting for documents to be indexed...
-    
-    Search the entire index for the term 'budget' and return only the hotelName field:
-    
-    Name: Roach Motel
-    
-    Apply a filter to the index to find hotels cheaper than $150 per night, and return the hotelId and description:
-    
-    ID: 2   Description: Cheapest hotel in town
-    ID: 3   Description: Close to town hall and the river
-    
+
+    Search the entire index for the term 'motel' and return only the HotelName field:
+
+    Name: Secret Point Motel
+
+    Name: Twin Dome Motel
+
+
+    Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
+
+    HotelId: 1
+    Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
+
+    HotelId: 2
+    Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
+
+
     Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
-    
-    Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-    Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
-    
-    Search the entire index for the term 'motel':
-    
-    ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
-    
-    Complete.  Press any key to end application...
+
+    Name: Triple Landscape Hotel
+    Last renovated on: 9/20/2015 12:00:00 AM +00:00
+
+    Name: Twin Dome Motel
+    Last renovated on: 2/18/1979 12:00:00 AM +00:00
+
+
+    Search the hotel names for the term 'hotel':
+
+    HotelId: 3
+    Name: Triple Landscape Hotel
+    ...
+
+    Complete.  Press any key to end application... 
 
 El código fuente completo de la aplicación se proporciona al final de este artículo.
 
 A continuación, veremos más de cerca cada uno de los métodos llamados por `Main`.
 
 ### <a name="creating-an-index"></a>Creación de un índice
-Después de crear un `SearchServiceClient`, `Main` elimina el índice "hotels" Si ya existe. Dicha eliminación se realiza mediante el método siguiente:
+Después de crear un objeto `SearchServiceClient`, `Main` es eliminar el índice "hotels", si ya existe. Esta eliminación se lleva a cabo mediante el método siguiente:
 
 ```csharp
-private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
+private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
 {
-    if (serviceClient.Indexes.Exists("hotels"))
+    if (serviceClient.Indexes.Exists(indexName))
     {
-        serviceClient.Indexes.Delete("hotels");
+        serviceClient.Indexes.Delete(indexName);
     }
 }
 ```
@@ -228,14 +239,14 @@ Este método utiliza el `SearchServiceClient` proporcionado para comprobar si ex
 A continuación, `Main` crea un nuevo índice "hotels" mediante una llamada a este método:
 
 ```csharp
-private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
 {
     var definition = new Index()
     {
-        Name = "hotels",
+        Name = indexName,
         Fields = FieldBuilder.BuildForType<Hotel>()
     };
-
+    
     serviceClient.Indexes.Create(definition);
 }
 ```
@@ -247,10 +258,10 @@ Este método crea un nuevo objeto `Index` con una lista de objetos `Field` que d
 >
 > 
 
-Además de campos, también puede agregar perfiles de puntuación, proveedores de sugerencias u opciones de CORS para el índice (se omiten estos parámetros en el ejemplo para mayor brevedad). Puede encontrar más información sobre el objeto Index y sus partes constituyentes en la [referencia del SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), así como en la [referencia de la API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
+Además de campos, puede agregar al índice perfiles de puntuación, proveedores de sugerencias u opciones de CORS (estos parámetros se omiten en el ejemplo para mayor brevedad). Puede encontrar más información sobre el objeto Index y sus partes constituyentes en la [referencia del SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), así como en la [referencia de la API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
 
 ### <a name="populating-the-index"></a>Llenado del índice
-El siguiente paso en `Main` consiste en rellenar el índice recién creado. Este rellenado del índice se realiza en el siguiente método:
+El siguiente paso en `Main` rellena el índice recién creado. Esto se lleva a cabo mediante el método siguiente (parte del código se ha reemplazado por "..." con fines meramente ilustrativos,  pero puede consultar la solución de ejemplo completa para ver el código de llenado de datos completo):
 
 ```csharp
 private static void UploadDocuments(ISearchIndexClient indexClient)
@@ -258,40 +269,90 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
     var hotels = new Hotel[]
     {
         new Hotel()
-        { 
-            HotelId = "1", 
-            BaseRate = 199.0, 
-            Description = "Best hotel in town",
-            DescriptionFr = "Meilleur hôtel en ville",
-            HotelName = "Fancy Stay",
-            Category = "Luxury", 
-            Tags = new[] { "pool", "view", "wifi", "concierge" },
-            ParkingIncluded = false, 
-            SmokingAllowed = false,
-            LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-            Rating = 5, 
-            Location = GeographyPoint.Create(47.678581, -122.131577)
+        {
+            HotelId = "1",
+            HotelName = "Secret Point Motel",
+            ...
+            Address = new Address()
+            {
+                StreetAddress = "677 5th Ave",
+                ...
+            },
+            Rooms = new Room[]
+            {
+                new Room()
+                {
+                    Description = "Budget Room, 1 Queen Bed (Cityside)",
+                    ...
+                },
+                new Room()
+                {
+                    Description = "Budget Room, 1 King Bed (Mountain View)",
+                    ...
+                },
+                new Room()
+                {
+                    Description = "Deluxe Room, 2 Double Beds (City View)",
+                    ...
+                }
+            }
         },
         new Hotel()
-        { 
-            HotelId = "2", 
-            BaseRate = 79.99,
-            Description = "Cheapest hotel in town",
-            DescriptionFr = "Hôtel le moins cher en ville",
-            HotelName = "Roach Motel",
-            Category = "Budget",
-            Tags = new[] { "motel", "budget" },
-            ParkingIncluded = true,
-            SmokingAllowed = true,
-            LastRenovationDate = new DateTimeOffset(1982, 4, 28, 0, 0, 0, TimeSpan.Zero),
-            Rating = 1,
-            Location = GeographyPoint.Create(49.678581, -122.131577)
+        {
+            HotelId = "2",
+            HotelName = "Twin Dome Motel",
+            ...
+            {
+                StreetAddress = "140 University Town Center Dr",
+                ...
+            },
+            Rooms = new Room[]
+            {
+                new Room()
+                {
+                    Description = "Suite, 2 Double Beds (Mountain View)",
+                    ...
+                },
+                new Room()
+                {
+                    Description = "Standard Room, 1 Queen Bed (City View)",
+                    ...
+                },
+                new Room()
+                {
+                    Description = "Budget Room, 1 King Bed (Waterfront View)",
+                    ...
+                }
+            }
         },
-        new Hotel() 
-        { 
-            HotelId = "3", 
-            BaseRate = 129.99,
-            Description = "Close to town hall and the river"
+        new Hotel()
+        {
+            HotelId = "3",
+            HotelName = "Triple Landscape Hotel",
+            ...
+            Address = new Address()
+            {
+                StreetAddress = "3393 Peachtree Rd",
+                ...
+            },
+            Rooms = new Room[]
+            {
+                new Room()
+                {
+                    Description = "Standard Room, 2 Queen Beds (Amenities)",
+                    ...
+                },
+                new Room ()
+                {
+                    Description = "Standard Room, 2 Double Beds (Waterfront View)",
+                    ...
+                },
+                new Room()
+                {
+                    Description = "Deluxe Room, 2 Double Beds (Cityside)",
+                    ...
+                }
+            }
         }
     };
 
@@ -316,7 +377,7 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 }
 ```
 
-Este método tiene cuatro partes. La primera crea una matriz de objetos `Hotel` que serán los datos de entrada que cargaremos en el índice. Estos datos están incluidos en el código por motivos de simplicidad. En su propia aplicación, los datos provendrán normalmente de un origen de datos externo, como una base de datos SQL.
+Este método tiene cuatro partes. La primera crea una matriz de tres objetos `Hotel` (cada uno con tres objetos `Room`), que serán los datos de entrada que cargaremos en el índice. Estos datos están incluidos en el código por motivos de simplicidad. En su propia aplicación, los datos provendrán normalmente de un origen de datos externo, como una base de datos SQL.
 
 En la segunda parte se crea un `IndexBatch` que contiene los documentos. Especifique la operación que desee aplicar al lote en el momento de su creación, en este caso llamando a `IndexBatch.Upload`. A continuación, el lote se carga en el índice de Azure Search mediante el método `Documents.Index` .
 
@@ -325,7 +386,7 @@ En la segunda parte se crea un `IndexBatch` que contiene los documentos. Especif
 > 
 > 
 
-La tercera parte de este método es un bloque catch que controla un caso de error importante para la indización. Si su servicio Azure Search no logra indizar algunos de los documentos del lote, aparece una `IndexBatchException` producida por `Documents.Index`. Esta excepción puede producirse si indiza documentos mientras el servicio está sobrecargado. **Recomendamos encarecidamente controlar este caso de forma explícita en el código.** Puede retrasar la indización de los documentos que dieron error y volver a intentarlo; puede crear un registro y continuar, como hace el ejemplo, o puede adoptar otro enfoque según los requisitos de coherencia de datos de la aplicación.
+La tercera parte de este método es un bloque catch que controla un caso de error importante para la indización. Si su servicio Azure Search no logra indizar algunos de los documentos del lote, aparece una `IndexBatchException` producida por `Documents.Index`. Esta excepción puede suceder si se indexan documentos mientras el servicio está sobrecargado. **Recomendamos encarecidamente controlar este caso de forma explícita en el código.** Puede retrasar la indización de los documentos que dieron error y volver a intentarlo; puede crear un registro y continuar, como hace el ejemplo, o puede adoptar otro enfoque según los requisitos de coherencia de datos de la aplicación.
 
 > [!NOTE]
 > Puede usar el método [`FindFailedActionsToRetry`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) para construir un nuevo lote que contenga solo las acciones que dieron error en una llamada anterior a `Index`. Hay una explicación sobre cómo se usa correctamente [en StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
@@ -346,29 +407,23 @@ using Microsoft.Azure.Search.Models;
 using Microsoft.Spatial;
 using Newtonsoft.Json;
 
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
     [System.ComponentModel.DataAnnotations.Key]
     [IsFilterable]
     public string HotelId { get; set; }
 
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? BaseRate { get; set; }
+    [IsSearchable, IsSortable]
+    public string HotelName { get; set; }
 
     [IsSearchable]
+    [Analyzer(AnalyzerName.AsString.EnLucene)]
     public string Description { get; set; }
 
     [IsSearchable]
     [Analyzer(AnalyzerName.AsString.FrLucene)]
-    [JsonProperty("description_fr")]
+    [JsonProperty("Description_fr")]
     public string DescriptionFr { get; set; }
-
-    [IsSearchable, IsFilterable, IsSortable]
-    public string HotelName { get; set; }
 
     [IsSearchable, IsFilterable, IsSortable, IsFacetable]
     public string Category { get; set; }
@@ -376,35 +431,129 @@ public partial class Hotel
     [IsSearchable, IsFilterable, IsFacetable]
     public string[] Tags { get; set; }
 
-    [IsFilterable, IsFacetable]
+    [IsFilterable, IsSortable, IsFacetable]
     public bool? ParkingIncluded { get; set; }
 
-    [IsFilterable, IsFacetable]
-    public bool? SmokingAllowed { get; set; }
+    // SmokingAllowed reflects whether any room in the hotel allows smoking.
+    // The JsonIgnore attribute indicates that a field should not be created 
+    // in the index for this property and it will only be used by code in the client.
+    [JsonIgnore]
+    public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
 
     [IsFilterable, IsSortable, IsFacetable]
     public DateTimeOffset? LastRenovationDate { get; set; }
 
     [IsFilterable, IsSortable, IsFacetable]
-    public int? Rating { get; set; }
+    public double? Rating { get; set; }
+
+    public Address Address { get; set; }
 
     [IsFilterable, IsSortable]
     public GeographyPoint Location { get; set; }
+
+    public Room[] Rooms { get; set; }
 }
 ```
 
-Lo primero que debe observar es que cada propiedad pública de `Hotel` corresponde a un campo en la definición del índice, pero con una diferencia fundamental: El nombre de cada campo comienza con una letra minúscula ("Camel Case"), mientras que el nombre de cada propiedad pública de `Hotel` comienza con una letra mayúscula ("Pascal Case"). Este escenario es habitual en aplicaciones .NET que se realizan el enlace de datos donde el esquema de destino está fuera del control del desarrollador de la aplicación. En lugar de tener que infringir las directrices de nomenclatura de .NET utilizando mayúsculas y minúsculas Camel para los nombres de las propiedades, puede usar el atributo `[SerializePropertyNamesAsCamelCase]` para indicar al SDK que asigne los nombres de las propiedades automáticamente a mayúsculas y minúsculas Camel.
+Lo primero que se debe tener en cuenta es que el nombre de cada propiedad pública de la clase `Hotel` se asignará a un campo con el mismo nombre en la definición del índice. Si quiere que cada campo comience por una letra minúscula, puede indicar al SDK que asigne los nombres de propiedad en mayúscula y minúscula automáticamente con el atributo `[SerializePropertyNamesAsCamelCase]` de la clase. Este escenario es habitual en aplicaciones .NET que realizan enlaces de datos cuando el esquema de destino está fuera del control del desarrollador de la aplicación, sin infringir ninguna directriz de nomenclatura de "Pascal Case" en .NET.
 
 > [!NOTE]
-> El SDK de .NET para Azure Search usa la biblioteca [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar y deserializar los objetos de modelo personalizados en JSON y de este. Puede personalizar esta serialización si es necesario. Para obtener más información, consulte [serialización personalizada con JSON.NET](#JsonDotNet).
+> El SDK de .NET para Azure Search usa la biblioteca [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar y deserializar los objetos de modelo personalizados en JSON y de este. Puede personalizar esta serialización si es necesario. Para más información, vea [Serialización personalizada con JSON.NET](#JsonDotNet).
 > 
 > 
 
-La segunda cosa a tener en cuenta es los atributos que decoran cada propiedad pública (como `IsFilterable`, `IsSearchable`, `Key`, y `Analyzer`). Estos atributos se asignan directamente a los [atributos correspondientes del índice de Azure Search](https://docs.microsoft.com/rest/api/searchservice/create-index#request). La `FieldBuilder` clase utiliza estas propiedades para construir las definiciones de campo para el índice.
+La segunda cuestión que debe considerarse es que cada propiedad se representa con atributos como `IsFilterable`, `IsSearchable`, `Key` y `Analyzer`. Estos atributos se asignan directamente a los [atributos de campo correspondientes de un índice de Azure Search](https://docs.microsoft.com/rest/api/searchservice/create-index#request). La clase `FieldBuilder` usa estas propiedades para construir definiciones de campo para el índice.
 
-El segundo aspecto importante sobre el `Hotel` clase es que los tipos de datos de las propiedades públicas. Los tipos .NET de estas propiedades se asignan a los tipos de campo equivalentes de la definición del índice. Por ejemplo, la propiedad de cadena `Category` se asigna al campo `category`, que es de tipo `Edm.String`. Se dan asignaciones de tipos semejantes entre `bool?` y `Edm.Boolean`, `DateTimeOffset?` y `Edm.DateTimeOffset`, etc. Las reglas específicas para la asignación de tipos se documentan con el método `Documents.Get` en la [referencia del SDK de Azure Search para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). Aunque la clase `FieldBuilder` se ocupa de esta asignación, todavía puede ser útil comprenderlo por si necesitara solucionar los problemas de serialización.
+La tercera cuestión importante sobre la clase `Hotel` son los tipos de datos de las propiedades públicas. Los tipos .NET de esas propiedades se asignan a los tipos de campo equivalentes de la definición del índice. Por ejemplo, la propiedad de cadena `Category` se asigna al campo `category`, que es de tipo `Edm.String`. Se dan asignaciones de tipos semejantes entre `bool?`, `Edm.Boolean`, `DateTimeOffset?` y `Edm.DateTimeOffset`, etc. Las reglas específicas para la asignación de tipos se documentan con el método `Documents.Get` en la [referencia del SDK de Azure Search para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). Aunque la clase `FieldBuilder` se ocupa de esta asignación, todavía puede ser útil comprenderlo por si necesitara solucionar los problemas de serialización.
 
-Esta posibilidad de usar sus propias clases como documentos funciona en ambas direcciones: también puede recuperar los resultados de la búsqueda y hacer que el SDK los deserialice automáticamente a un tipo de su elección, como veremos en la siguiente sección.
+¿Se ha dado cuenta de la propiedad `SmokingAllowed`?
+
+```csharp
+[JsonIgnore]
+public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
+```
+
+El atributo `JsonIgnore` de esta propiedad indica a `FieldBuilder` que no la serialice en el índice como un campo.  Se trata de una excelente manera de crear propiedades calculadas del lado cliente que puede usar como aplicaciones auxiliares en su aplicación.  En este caso, la propiedad `SmokingAllowed` refleja si está permitido fumar en algún objeto `Room` de la colección de objetos `Rooms`.  Si todos están establecidos en false, quiere decir que no se puede fumar en todo el hotel.
+
+Algunas propiedades, como `Address` y `Rooms`, son instancias de clases. NET.  Estas propiedades representan estructuras de datos más complejas y, como resultado, se requieren campos con un [tipo de datos complejo](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) en el índice.
+
+La propiedad `Address` representa un conjunto de varios valores de la clase `Address`, definida aquí:
+
+```csharp
+using System;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Newtonsoft.Json;
+
+namespace AzureSearch.SDKHowTo
+{
+    public partial class Address
+    {
+        [IsSearchable]
+        public string StreetAddress { get; set; }
+
+        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+        public string City { get; set; }
+
+        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+        public string StateProvince { get; set; }
+
+        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+        public string PostalCode { get; set; }
+
+        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+        public string Country { get; set; }
+    }
+}
+```
+
+Esta clase contiene los valores estándar que se usan para describir direcciones de Estados Unidos o Canadá. Puede usar tipos como este para agrupar campos lógicos en el índice.
+
+La propiedad `Rooms` representa una matriz de objetos `Room`:
+
+```csharp
+using System;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Newtonsoft.Json;
+
+namespace AzureSearch.SDKHowTo
+{
+    public partial class Room
+    {
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrMicrosoft)]
+        [JsonProperty("Description_fr")]
+        public string DescriptionFr { get; set; }
+
+        [IsSearchable, IsFilterable, IsFacetable]
+        public string Type { get; set; }
+
+        [IsFilterable, IsFacetable]
+        public double? BaseRate { get; set; }
+
+        [IsSearchable, IsFilterable, IsFacetable]
+        public string BedOptions { get; set; }
+
+        [IsFilterable, IsFacetable]
+        public int SleepsCount { get; set; }
+
+        [IsFilterable, IsFacetable]
+        public bool? SmokingAllowed { get; set; }
+
+        [IsSearchable, IsFilterable, IsFacetable]
+        public string[] Tags { get; set; }
+    }
+}
+```
+
+El modelo de datos de .NET y su esquema de índice correspondiente se deben diseñar para dar cabida a la experiencia de búsqueda que quiera proporcionar al usuario final. Cada objeto de nivel superior en .NET (es decir, cada documento en el índice) corresponde a un resultado de búsqueda que aparecería en la interfaz de usuario. Por ejemplo, en una aplicación de búsqueda de alojamiento, puede que los usuarios finales quieran realizar búsquedas por nombre de hotel, por las características del hotel o por las características de una habitación determinada. Analizaremos algunos ejemplos de consultas un poco más adelante.
+
+Esta posibilidad de usar sus propias clases para interactuar con los documentos del índice funciona en ambas direcciones: también puede recuperar los resultados de la búsqueda y hacer que el SDK los deserialice automáticamente a un tipo de su elección, como veremos en la siguiente sección.
 
 > [!NOTE]
 > El SDK de Azure Search para .NET también admite documentos de tipo dinámico mediante la clase `Document`, que es una asignación clave/valor de nombres de campo a valores de campo. Esto es útil en escenarios en los que no se conoce el esquema del índice en el momento del diseño o en los que resulte inconveniente enlazar a clases de modelo específicas. Todos los métodos del SDK que se ocupan de los documentos tienen sobrecargas que funcionan con la clase `Document` , así como sobrecargas de asignación rigurosa que aceptan un parámetro de tipo genérico. En el código de ejemplo de este tutorial solo se utilizan las últimas. La [clase `Document`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) se hereda de `Dictionary<string, object>`.
@@ -424,7 +573,7 @@ Por este motivo, recomendamos utilizar tipos que aceptan valores NULL en las cla
 <a name="JsonDotNet"></a>
 
 #### <a name="custom-serialization-with-jsonnet"></a>Serialización personalizada con JSON.NET
-El SDK usa JSON.NET para serializar y deserializar documentos. Puede personalizar la serialización y deserialización si lo necesita definiendo su propio `JsonConverter` o `IContractResolver`. Para obtener más información, consulte el [documentación JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm). Esto puede ser útil cuando desea adaptar una clase de modelo existente de la aplicación para usarla con Azure Search y otros escenarios más avanzados. Por ejemplo, con la serialización personalizada, puede:
+El SDK usa JSON.NET para serializar y deserializar documentos. Puede personalizar la serialización y deserialización si lo necesita definiendo su propio `JsonConverter` o `IContractResolver`. Para más información, vea la [documentación de JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm). Esto puede ser útil cuando desea adaptar una clase de modelo existente de la aplicación para usarla con Azure Search y otros escenarios más avanzados. Por ejemplo, con la serialización personalizada, puede:
 
 * Incluir o excluir determinadas propiedades de la clase de modelo para que se almacenen como campos del documento.
 * Asignar entre los nombres de propiedad del código y los nombres de campo del índice.
@@ -433,7 +582,7 @@ El SDK usa JSON.NET para serializar y deserializar documentos. Puede personaliza
 Puede encontrar ejemplos de implementación de serialización personalizada en las pruebas unitarias del SDK de .NET para Azure Search en GitHub. [Esta carpeta](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models) es un buen punto de partida. Contiene clases que las pruebas de serialización personalizada utilizan.
 
 ### <a name="searching-for-documents-in-the-index"></a>Búsqueda de documentos en el índice
-El último paso de la aplicación de ejemplo es buscar algunos documentos del índice:
+El último paso de la aplicación de ejemplo es buscar algunos documentos en el índice:
 
 ```csharp
 private static void RunQueries(ISearchIndexClient indexClient)
@@ -441,26 +590,26 @@ private static void RunQueries(ISearchIndexClient indexClient)
     SearchParameters parameters;
     DocumentSearchResult<Hotel> results;
 
-    Console.WriteLine("Search the entire index for the term 'budget' and return only the hotelName field:\n");
+    Console.WriteLine("Search the entire index for the term 'motel' and return only the HotelName field:\n");
 
     parameters =
         new SearchParameters()
         {
-            Select = new[] { "hotelName" }
+            Select = new[] { "HotelName" }
         };
 
-    results = indexClient.Documents.Search<Hotel>("budget", parameters);
+    results = indexClient.Documents.Search<Hotel>("motel", parameters);
 
     WriteDocuments(results);
 
-    Console.Write("Apply a filter to the index to find hotels cheaper than $150 per night, ");
+    Console.Write("Apply a filter to the index to find hotels with a room cheaper than $100 per night, ");
     Console.WriteLine("and return the hotelId and description:\n");
 
     parameters =
         new SearchParameters()
         {
-            Filter = "baseRate lt 150",
-            Select = new[] { "hotelId", "description" }
+            Filter = "Rooms/any(r: r/BaseRate lt 100)",
+            Select = new[] { "HotelId", "Description" }
         };
 
     results = indexClient.Documents.Search<Hotel>("*", parameters);
@@ -474,8 +623,8 @@ private static void RunQueries(ISearchIndexClient indexClient)
     parameters =
         new SearchParameters()
         {
-            OrderBy = new[] { "lastRenovationDate desc" },
-            Select = new[] { "hotelName", "lastRenovationDate" },
+            OrderBy = new[] { "LastRenovationDate desc" },
+            Select = new[] { "HotelName", "LastRenovationDate" },
             Top = 2
         };
 
@@ -483,18 +632,18 @@ private static void RunQueries(ISearchIndexClient indexClient)
 
     WriteDocuments(results);
 
-    Console.WriteLine("Search the entire index for the term 'motel':\n");
+    Console.WriteLine("Search the entire index for the term 'hotel':\n");
 
     parameters = new SearchParameters();
-    results = indexClient.Documents.Search<Hotel>("motel", parameters);
+    results = indexClient.Documents.Search<Hotel>("hotel", parameters);
 
     WriteDocuments(results);
 }
 ```
 
-Cada vez que ejecuta una consulta, este método crea primero un nuevo objeto `SearchParameters`. Este objeto se usa para especificar opciones adicionales para la consulta, como ordenación, filtrado, paginación y el uso de facetas. En este método, vamos a establecer la propiedad `Filter`, `Select`, `OrderBy` y `Top` para diferentes consultas. Todas las `SearchParameters`propiedades se documentan [aquí](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
+Cada vez que ejecuta una consulta, este método crea primero un nuevo objeto `SearchParameters`. Este objeto se usa para especificar más opciones en la consulta, como el orden, los filtros, la paginación y las facetas. En este método, vamos a establecer la propiedad `Filter`, `Select`, `OrderBy` y `Top` para diferentes consultas. Todas las `SearchParameters`propiedades se documentan [aquí](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
 
-El siguiente paso consiste en ejecutar la consulta de búsqueda. Ejecuta la búsqueda se realiza mediante el `Documents.Search` método. Para cada consulta, pasamos el texto de búsqueda para usarlo como cadena (o `"*"` si no hay ningún texto de búsqueda), además de los parámetros de búsqueda creados anteriormente. También especificamos `Hotel` como el parámetro de tipo para `Documents.Search`, lo que indica al SDK que deserialice los documentos de los resultados de búsqueda en objetos de tipo `Hotel`.
+El siguiente paso consiste en ejecutar la consulta de búsqueda. La búsqueda se ejecuta mediante el método `Documents.Search`. Para cada consulta, pasamos el texto de búsqueda para usarlo como cadena (o `"*"` si no hay ningún texto de búsqueda), además de los parámetros de búsqueda creados anteriormente. También especificamos `Hotel` como el parámetro de tipo para `Documents.Search`, lo que indica al SDK que deserialice los documentos de los resultados de búsqueda en objetos de tipo `Hotel`.
 
 > [!NOTE]
 > Puede encontrar más información acerca de la sintaxis de expresiones de consulta de búsqueda [aquí](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).
@@ -521,26 +670,28 @@ Examinemos más de cerca cada una de las consultas de una en una. Este es el có
 parameters =
     new SearchParameters()
     {
-        Select = new[] { "hotelName" }
+        Select = new[] { "HotelName" }
     };
 
-results = indexClient.Documents.Search<Hotel>("budget", parameters);
+results = indexClient.Documents.Search<Hotel>("motel", parameters);
 
 WriteDocuments(results);
 ```
 
-En este caso, estamos buscando hoteles que coincidan con la palabra "presupuesto" y queremos que los resultados solo devuelvan los nombres de hotel, como especifica el parámetro `Select`. Estos son los resultados:
+En este caso, buscamos en todo el índice la palabra "motel" en cualquier campo de búsqueda, y solo queremos recuperar los nombres de hotel, según lo especificado por el parámetro `Select`. Estos son los resultados:
 
-    Name: Roach Motel
+    Name: Secret Point Motel
 
-A continuación, queremos encontrar los hoteles con una tarifa por noche inferior a 150 dólares USA y que solo se devuelvan el identificador del hotel y la descripción:
+    Name: Twin Dome Motel
+
+La consulta siguiente es un poco más interesante.  Queremos encontrar hoteles que tengan habitaciones con una tarifa por noche inferior a 100 $, y que solo se devuelvan el identificador del hotel y la descripción:
 
 ```csharp
 parameters =
     new SearchParameters()
     {
-        Filter = "baseRate lt 150",
-        Select = new[] { "hotelId", "description" }
+        Filter = "Rooms/any(r: r/BaseRate lt 100)",
+        Select = new[] { "HotelId", "Description" }
     };
 
 results = indexClient.Documents.Search<Hotel>("*", parameters);
@@ -548,12 +699,15 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 WriteDocuments(results);
 ```
 
-Esta consulta usa una expresión `$filter` de OData, `baseRate lt 150`, para filtrar los documentos del índice. Puede encontrar más información acerca de la sintaxis de OData admitida por Azure Search [aquí](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search).
+Esta consulta usa una expresión `$filter` de OData, `Rooms/any(r: r/BaseRate lt 100)`, para filtrar los documentos del índice. Aquí se usa [cualquier operador](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) para aplicar "BaseRate lt 100" a todos los elementos de la colección de objetos Rooms. Puede encontrar más información acerca de la sintaxis de OData admitida por Azure Search [aquí](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
 
 Estos son los resultados de la consulta:
 
-    ID: 2   Description: Cheapest hotel in town
-    ID: 3   Description: Close to town hall and the river
+    HotelId: 1
+    Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
+
+    HotelId: 2
+    Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
 
 Seguidamente, quiere encontrar los dos mejores hoteles que se han renovado más recientemente y mostrar el nombre del hotel y la última fecha de renovación. Este es el código: 
 
@@ -561,8 +715,8 @@ Seguidamente, quiere encontrar los dos mejores hoteles que se han renovado más 
 parameters =
     new SearchParameters()
     {
-        OrderBy = new[] { "lastRenovationDate desc" },
-        Select = new[] { "hotelName", "lastRenovationDate" },
+        OrderBy = new[] { "LastRenovationDate desc" },
+        Select = new[] { "HotelName", "LastRenovationDate" },
         Top = 2
     };
 
@@ -578,20 +732,25 @@ Estos son los resultados:
     Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
     Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
 
-Por último, queremos encontrar todos los hoteles que coinciden con la palabra "motel":
+Por último, queremos encontrar todos los nombres de hoteles que coincidan con la palabra "hotel":
 
 ```csharp
-parameters = new SearchParameters();
-results = indexClient.Documents.Search<Hotel>("motel", parameters);
+parameters = new SearchParameters()
+{
+    SearchFields = new[] { "HotelName" }
+};
+results = indexClient.Documents.Search<Hotel>("hotel", parameters);
 
 WriteDocuments(results);
 ```
 
 Y estos son los resultados, que incluyen todos los campos, ya que no se especificó la propiedad `Select`:
 
-    ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
+    HotelId: 3
+    Name: Triple Landscape Hotel
+    ...
 
-Este paso finaliza el tutorial, pero no se detenga aquí. ** Los siguientes pasos proporcionan recursos adicionales para obtener más información sobre Azure Search.
+Este paso finaliza el tutorial, pero no se detenga aquí. **En los pasos siguientes se proporcionan recursos adicionales para obtener más información sobre Azure Search.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Examine las referencias del [SDK para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) y la [API de REST](https://docs.microsoft.com/rest/api/searchservice/).

@@ -199,8 +199,8 @@ Esta sección es opcional. Inclúyala para una alerta de unidades métricas.
 | Nombre del elemento | Obligatorio | description |
 |:--|:--|:--|
 | TriggerCondition | Sí | Especifica si el umbral es para el número total de infracciones o para infracciones consecutivas con los siguientes valores:<br><br>**Total<br>Consecutive** (Total, Consecutivos) |
-| Operador | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
-| Valor | Sí | Número de veces que se deben cumplir los criterios para desencadenar la alerta. |
+| Operator | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
+| Value | Sí | Número de veces que se deben cumplir los criterios para desencadenar la alerta. |
 
 
 #### <a name="throttling"></a>Limitaciones

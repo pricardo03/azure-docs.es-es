@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: 6de16b7264c7ae7ead06b4e131e7fa46c664cedd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.date: 07/02/2019
+ms.openlocfilehash: 2c1b7e8f777f1975a20bbf63919a3dbfe543e683
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573340"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537740"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MariaDB
 Azure Database for MariaDB permite conectar el servidor de Azure Database for MariaDB con aplicaciones cliente mediante Capa de sockets seguros (SSL). Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.
@@ -21,9 +21,19 @@ Descargue de [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](
 **Para Microsoft Internet Explorer y Microsoft Edge:** una vez finalizada la descarga, cambie el nombre del certificado a BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="bind-ssl"></a>Enlace de SSL
-### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Conexión al servidor mediante MySQL Workbench a través de SSL
-Configure MySQL Workbench para conectarse de forma segura a través de SSL. En el cuadro de diálogo para configurar una conexión nueva, vaya a la pestaña **SSL**. En el campo **Archivo CA SSL**, escriba la ubicación del archivo **BaltimoreCyberTrustRoot.crt.pem**. 
-![icono personalizado para guardar](./media/howto-configure-ssl/mysql-workbench-ssl.png) En el caso de las conexiones existentes, puede enlazar SSL haciendo clic con el botón derecho en el icono de conexión y eligiendo Editar. A continuación, navegue hasta la pestaña **SSL** y enlace el archivo de certificado.
+
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Conexión al servidor mediante MySQL Workbench a través de SSL
+Configure MySQL Workbench para conectarse de forma segura a través de SSL. 
+
+1. En el cuadro de diálogo para configurar una conexión nueva, vaya a la pestaña **SSL**. 
+
+1. Actualice el campo **Usar SSL** a "Requerir".
+
+1. En el campo **Archivo CA SSL**, escriba la ubicación del archivo **BaltimoreCyberTrustRoot.crt.pem**. 
+    
+    ![Guardar la configuración de SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+
+En el caso de las conexiones existentes, puede enlazar SSL haciendo clic con el botón derecho en el icono de conexión y eligiendo Editar. A continuación, navegue hasta la pestaña **SSL** y enlace el archivo de certificado.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Conexión al servidor mediante la CLI de MySQL a través de SSL
 Otra forma de enlazar el certificado SSL es usar la interfaz de la línea de comandos de MySQL ejecutando los siguientes comandos. 
