@@ -2,19 +2,19 @@
 title: 'Filtrado de datos: Traductor personalizado'
 titleSuffix: Azure Cognitive Services
 description: Al enviar documentos que se usarán para entrenar un sistema personalizado, dichos documentos se someten a una serie de pasos de procesamiento y filtrado para prepararse para el aprendizaje.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ba6d1ed5bc26f121f32fad548e7a17c1f4998851
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: a224a30114d03468c5764528e6c7472572a93f1c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389346"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443434"
 ---
 # <a name="data-filtering"></a>Filtrado de datos
 
@@ -23,7 +23,7 @@ Al enviar documentos que se usarán para entrenar un sistema personalizado, dich
 ## <a name="sentence-alignment"></a>Alineación de frases
 Si el documento no está en formato XLIFF, TMX o ALIGN, Traductor personalizado alinea las oraciones de los documentos de origen y de destino entre sí, oración por oración. Traductor no realiza la alineación del documento, sigue la nomenclatura de los documentos para buscar el documento coincidente del otro idioma. Dentro del documento, Traductor personalizado intenta encontrar la frase correspondiente en el otro idioma. Usa el marcado de documento, como etiquetas HTML incrustadas, para ayudar con la alineación.  
 
-Si ve una gran discrepancia entre el número de frases en el origen y los documentos del lado de destino, el documento puede no haber sido paralelo en primer lugar, o por otros motivos no se pudo alinearse. Si el documento se empareja con una gran diferencia (>10 %) de oraciones en cada lado, deberá asegurarse de que están realmente en paralelo. Traductor personalizado muestra una advertencia junto al documento si el recuento de frases es sospechosamente diferente.  
+Si ve una discrepancia importante entre el número de frases en el lado de origen y de destino de los documentos, es posible que el documento no fuese paralelo en primer lugar, o que no se pudiera alinear bien por otros motivos. Si el documento se empareja con una gran diferencia (>10 %) de oraciones en cada lado, deberá asegurarse de que están realmente en paralelo. Traductor personalizado muestra una advertencia junto al documento si el recuento de frases es sospechosamente diferente.  
 
 
 ## <a name="deduplication"></a>Desduplicación
@@ -45,7 +45,7 @@ Traductor personalizado quita las frases que están presentes en los documentos 
 Reemplace varios caracteres de puntuación de final de frase con una sola instancia.  
 
 ## <a name="japanese-character-normalization"></a>Normalización de caracteres japoneses
-Convertir ancho completo letras y dígitos y caracteres de byte.
+Convierta las letras y dígitos de ancho completo en caracteres de ancho medio.
 
 ## <a name="unescaped-xml-tags"></a>Etiquetas XML sin escape
 El filtrado transforma las etiquetas sin escape en etiquetas con escape:

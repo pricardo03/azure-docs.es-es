@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Características | Microsoft Doc
 description: Características de Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.author: mstephen
-ms.openlocfilehash: 27aaaca4f28feac0f68b4e034426c64b934b1f95
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.author: iainfou
+ms.openlocfilehash: e49a37ec95a8cf26a2c63bd90759da35fc537e41
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234928"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67474245"
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 ## <a name="features"></a>Características
@@ -32,7 +32,7 @@ Las siguientes características están disponibles en los dominios administrados
 * **Crear dominios con nombres personalizados:** puede crear dominios con nombres personalizados (por ejemplo, "contoso100.com") mediante Azure AD Domain Services. Puede utilizar nombres de dominio comprobados o sin comprobar. Si lo desea, también puede crear un dominio con el sufijo de dominio integrado (es decir, *.onmicrosoft.com) que se ofrece a través del directorio de Azure AD.
 * **Integración con Azure AD:** no es necesario configurar o administrar la replicación en Azure AD Domain Services. Las cuentas de usuario, las pertenencias a grupos y las credenciales de usuario (contraseñas) del directorio de Azure AD están disponibles automáticamente con Azure AD Domain Services. Los nuevos usuarios, grupos o cambios de atributos que se producen en el inquilino de Azure AD o en el directorio local se sincronizan automáticamente con Azure AD Domain Services.
 * **Autenticación Kerberos y NTLM:** con compatibilidad para la autenticación Kerberos y NTLM, puede implementar las aplicaciones que dependen de la autenticación integrada de Windows.
-* **Utilizar las credenciales y contraseñas corporativas:** las contraseñas para usuarios del inquilino de Azure AD funcionan con Azure AD Domain Services. Los usuarios pueden usar sus credenciales corporativas para unir máquinas mediante dominio, inicie sesión en forma interactiva o a través de escritorio remoto y autenticarse en el dominio administrado.
+* **Utilizar las credenciales y contraseñas corporativas:** las contraseñas para usuarios del inquilino de Azure AD funcionan con Azure AD Domain Services. Los usuarios pueden utilizar sus credenciales corporativas para las máquinas de unión al dominio, iniciar sesión de forma interactiva o a través de escritorio remoto y autenticarse en el dominio administrado.
 * **Enlace LDAP y compatibilidad con lectura LDAP**: puede utilizar las aplicaciones que dependen de enlaces LDAP para autenticar usuarios en dominios ofrecidos por Azure AD Domain Services. Además, las aplicaciones que utilizan operaciones de lectura LDAP para consultar los atributos de usuario y equipo desde el directorio también pueden trabajar con Servicios de dominio de Azure AD.
 * **LDAP seguro (LDAPS):** puede habilitar el acceso al directorio sobre LDAP seguro (LDAPS). El acceso LDAP seguro está disponible de forma predeterminada dentro de la red virtual. Sin embargo, también tiene la opción de habilitar el acceso LDAP seguro a través de Internet.
 * **Directiva de grupo:** puede aprovechar un único GPO integrado para los usuarios y contenedores de equipos para exigir el cumplimiento de directivas de seguridad necesarias para las cuentas de usuario, así como para los equipos unidos a dominios. También puede crear sus propios GPO personalizados y asignarlos a unidades organizativas personalizadas para [administrar la directiva de grupo](manage-group-policy.md).

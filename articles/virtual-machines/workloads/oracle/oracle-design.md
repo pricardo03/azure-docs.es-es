@@ -15,18 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c5a76b9cee8fd6eb09ee4d24c1380202fd17cc6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 039b1628571b786a4997c08f96cc9aa0f347c7f7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836356"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446697"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
 ## <a name="assumptions"></a>Supuestos
 
 - Planea la migración de una base de datos Oracle del entorno local a Azure.
+- Tiene el [paquete de diagnósticos](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) para la instancia de Oracle Database que quiere migrar
 - Conoce las diversas métricas de los informes de AWR de Oracle.
 - Tiene conocimientos básicos sobre el rendimiento de la aplicación y el uso de la plataforma.
 
@@ -72,11 +73,11 @@ Hay cuatro áreas posibles que se pueden ajustar para mejorar el rendimiento en 
 
 ### <a name="generate-an-awr-report"></a>Generar un informe de AWR
 
-Si tiene una base de datos de Oracle y está planeando migrar a Azure, tiene varias opciones. Puede ejecutar el informe AWR de Oracle para obtener las métricas (IOPS, Mbps, GiBs, etc). A continuación, elija la máquina virtual en función de las métricas recopiladas. También puede ponerse en contacto con el equipo de infraestructura para obtener información similar.
+Si tiene una base de datos de Oracle y está planeando migrar a Azure, tiene varias opciones. Si tiene el [paquete de diagnósticos](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) para sus instancias de Oracle, puede ejecutar el informe de AWR de Oracle para obtener las métricas (IOPS, Mbps, GiBs, etc.). A continuación, elija la máquina virtual en función de las métricas recopiladas. También puede ponerse en contacto con el equipo de infraestructura para obtener información similar.
 
 Puede considerar la posibilidad de ejecutar el informe de AWR durante la carga de trabajo normal y máxima, para poder comparar ambas. En función de estos informes, puede ajustar el tamaño de las máquinas virtuales según la carga de trabajo media o máxima.
 
-A continuación, se muestra un ejemplo de cómo generar un informe de AWR:
+A continuación, se muestra un ejemplo de cómo generar un informe de AWR (genere sus informes de AWR con Oracle Enterprise Manager, si su instalación actual lo tiene disponible):
 
 ```bash
 $ sqlplus / as sysdba
@@ -143,6 +144,10 @@ En función de los requisitos de ancho de banda de red, puede elegir diferentes 
 
 - La latencia de red es superior en comparación con una implementación local. El rendimiento puede mejorar considerablemente si se reducen los recorridos de ida y vuelta de red.
 - Consolide las aplicaciones que tengan transacciones elevadas o estén "fragmentadas" en la misma máquina virtual para reducir los recorridos de ida y vuelta.
+- Use una instancia de Virtual Machines con las [redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para mejorar el rendimiento de la red.
+- En cuanto a ciertas distribuciones de Linux, habilite la [compatibilidad con TRIM/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Instale [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) en una máquina virtual individual.
+- Las páginas de gran tamaño no están habilitadas en Linux de forma predeterminada. Habilite las páginas de gran tamaño y establezca `use_large_pages = ONLY` en Oracle DB. Esto puede ayudarle a mejorar el rendimiento. Puede encontrar más información [aquí](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Tipos y configuraciones de disco
 
@@ -183,14 +188,15 @@ Una vez que se haya hecho una idea de los requisitos de E/S, puede elegir la com
 - Use la compresión de datos para reducir la E/S (para datos e índices).
 - Separe los registros de rehacer, sistema, temporales y de deshacer TS en discos de datos independientes.
 - No colocar ningún archivo de aplicación en el disco predeterminado del sistema operativo (/dev/sda). Estos discos están optimizados para un tiempo de arranque rápido de la máquina virtual y podría no proporcionar un buen rendimiento para la aplicación.
+- Al usar VM de la serie M en el almacenamiento Premium, habilite el [acelerador de escritura](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) en el disco de registros de fase de puesta al día.
 
 ### <a name="disk-cache-settings"></a>Configuración de la caché de disco
 
 Existen tres opciones para el almacenamiento en caché de host:
 
-- *Solo lectura*: todas las solicitudes se almacenan en caché para lecturas futuras. Todas las escrituras se guardan de modo permanente directamente en Azure Blob Storage.
+- *ReadOnly*: todas las solicitudes se almacenan en caché para lecturas futuras. Todas las escrituras se guardan de modo permanente directamente en Azure Blob Storage.
 
-- *Lectura y escritura*: se trata de un algoritmo de "lectura anticipada". Las lecturas y las escrituras se almacenan en caché para lecturas futuras. Si no son escrituras a través, se guardan primero en la caché local. Para SQL Server, las escrituras se conservan en Azure Storage porque usa la escritura a través. También proporciona la menor latencia de disco para cargas de trabajo ligeras.
+- *ReadWrite*: se trata de un algoritmo de "lectura anticipada". Las lecturas y las escrituras se almacenan en caché para lecturas futuras. Si no son escrituras a través, se guardan primero en la caché local. También proporciona la menor latencia de disco para cargas de trabajo ligeras. El uso de la memoria caché ReadWrite con una aplicación que no administre la persistencia de los datos necesarios puede provocar la pérdida de los datos, si se bloquea la máquina virtual.
 
 - *Ninguno* (deshabilitado): con esta opción, puede omitir la memoria caché. Todos los datos se transfieren al disco y se guardan en Azure Storage. Este método proporciona la mayor velocidad de E/S para cargas de trabajo intensivas de E/S. También debe tener en cuenta el "costo de transacción".
 
@@ -205,7 +211,6 @@ Para maximizar el rendimiento, se recomienda comenzar con la opción **Ninguno**
 - Para los datos, utilice **Ninguno** para el almacenamiento en caché. Pero si la base de datos es de solo lectura o de lectura intensiva, use el almacenamiento en caché de **Solo lectura**.
 
 Una vez que se haya guardado la configuración del disco de datos, no se puede cambiar la configuración de la caché de host, a menos que se desmonte la unidad en el nivel de sistema operativo y se vuelva a montar después de cambiarla.
-
 
 ## <a name="security"></a>Seguridad
 

@@ -6,16 +6,16 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 6/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66157347"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203060"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: Azure Portal
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: Portal de Azure
 
 Este artículo le ayudará con la conexión segura de clientes que ejecuten Windows, Linux o Mac OS X a una red virtual de Azure. Las conexiones VPN de punto a sitio son útiles cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia. También puede usar P2S en lugar de una VPN de sitio a sitio cuando son pocos los clientes que necesitan conectarse a una red virtual. Las conexiones de punto a sitio no requieren un dispositivo VPN ni una dirección IP de acceso público. P2S crea la conexión VPN sobre SSTP (Protocolo de túnel de sockets seguros) o IKEv2. Para más información sobre las conexiones VPN de punto a sitio, consulte [Acerca de las conexiones VPN de punto a sitio](point-to-site-about.md).
 
@@ -35,9 +35,9 @@ Las conexiones con autenticación mediante certificado de Azure nativas de punto
 
 Puede usar los siguientes valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo:
 
-* **Nombre de la red virtual:** VNET1
+* **Nombre de la red virtual:** VNet1
 * **Espacio de direcciones**: 192.168.0.0/16<br>En este ejemplo, se utiliza solo un espacio de direcciones. Puede tener más de un espacio de direcciones para la red virtual.
-* **Nombre de subred:** Front-end
+* **Nombre de subred:** FrontEnd
 * **Intervalo de direcciones de subred:** 192.168.1.0/24
 * **Subscription** (Suscripción): si tiene más de una suscripción, compruebe que usa la correcta.
 * **Grupos de recursos:** TestRG
@@ -46,7 +46,7 @@ Puede usar los siguientes valores para crear un entorno de prueba o hacer refere
 * **Servidor DNS:** (opcional) dirección IP del servidor DNS que desea usar para la resolución de nombres.
 * **Nombre de la puerta de enlace de red virtual:** VNet1GW
 * **Tipo de puerta de enlace:** VPN
-* **Tipo de VPN:** Basada en rutas
+* **Tipo de VPN:** basada en rutas
 * **Nombre de dirección IP pública:** VNet1GWpip
 * **Tipo de conexión**: De punto a sitio
 * **Grupo de direcciones de clientes:** 172.16.201.0/24<br>Los clientes de VPN que se conectan a la red virtual mediante esta conexión de punto a sitio reciben una dirección IP del grupo de clientes.
@@ -98,7 +98,7 @@ El grupo de direcciones de cliente es un intervalo de direcciones IP privadas qu
 2. Haga clic en **Configurar ahora** para abrir la página de configuración.
 
    ![Configurar ahora](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. En la página **Configuración de punto a sitio**, en el cuadro **Grupo de direcciones**, agregue el intervalo de direcciones IP privadas que desea utilizar. Los clientes VPN reciben de forma dinámica una dirección IP del intervalo que especifique. Haga clic en **Guardar** para validar y guardar la configuración.
+3. En la página **Configuración de punto a sitio**, en el cuadro **Grupo de direcciones**, agregue el intervalo de direcciones IP privadas que desea utilizar. Los clientes VPN reciben de forma dinámica una dirección IP del intervalo que especifique. La máscara de subred mínima es de 29 bits para la configuración activa/pasiva, y de 28 bits para la configuración activa/activa. Haga clic en **Guardar** para validar y guardar la configuración.
 
    ![Grupo de direcciones de clientes](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
@@ -108,7 +108,7 @@ El grupo de direcciones de cliente es un intervalo de direcciones IP privadas qu
 
 ## <a name="tunneltype"></a>7. Configuración del tipo de túnel
 
-Puede seleccionar el tipo de túnel. Las opciones de túnel son OpenVPN, SSTP e IKEv2. El cliente Strongswan de Linux y Android, y el cliente VPN IKEv2 nativo de iOS y OSX solo utilizarán el túnel IKEv2 para conectarse. Los clientes Windows prueban primero el túnel IKEv2 y, si no se conecta, recurren a SSTP. Puede usar al cliente OpenVPN para conectar con el tipo de túnel OpenVPN.
+Puede seleccionar el tipo de túnel. Las opciones de túnel son OpenVPN, SSTP y IKEv2. El cliente Strongswan de Linux y Android, y el cliente VPN IKEv2 nativo de iOS y OSX solo utilizarán el túnel IKEv2 para conectarse. Los clientes Windows prueban primero el túnel IKEv2 y, si no se conecta, recurren a SSTP. Puede usar el cliente OpenVPN para conectarse con el tipo de túnel OpenVPN.
 
 ![Tipo de túnel](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 
@@ -146,7 +146,7 @@ Para obtener los pasos de instalación, consulte [Instalación de un certificado
 
 Los archivos de configuración del cliente VPN contienen opciones para configurar los dispositivos para conectarse a una red virtual a través de una conexión de punto a sitio. Para obtener instrucciones para generar e instalar archivos de configuración de cliente VPN, consulte [Creación e instalación de archivos de configuración de cliente VPN para configuraciones de punto a sitio con autenticación con certificados nativos de Azure](point-to-site-vpn-client-configuration-azure-cert.md).
 
-## <a name="connect"></a>12. Conéctese a Azure
+## <a name="connect"></a>12. Conexión a Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Para conectarse desde un cliente VPN en Windows
 

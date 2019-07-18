@@ -3,30 +3,30 @@ title: Instalación y ejecución de contenedores
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Cómo descargar, instalar y ejecutar contenedores para Text Analytics en este tutorial paso a paso.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: f9f68b74c09bf0122ba856680a60bdb14ffa868f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.topic: conceptual
+ms.date: 06/21/2019
+ms.author: dapine
+ms.openlocfilehash: c4ef58f35b3d038f360ff962c70e92711bc205ce
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306523"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446505"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
-Los contenedores de Text Analytics proporcionan un procesamiento avanzado de lenguaje natural sobre texto sin formato, e incluye tres funciones principales: análisis de sentimiento, extracción de frases clave y detección de idioma. Actualmente no se admite la vinculación de entidad en un contenedor. 
+Los contenedores de Text Analytics proporcionan un procesamiento avanzado de lenguaje natural sobre texto sin formato, e incluye tres funciones principales: análisis de sentimiento, extracción de frases clave y detección de idioma. Actualmente no se admite la vinculación de entidad en un contenedor.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para poder ejecutar cualquiera de los contenedores de Text Analytics, debe tener los entornos de equipo y el contenedor del host.
+Para poder ejecutar cualquiera de los contenedores de Text Analytics, debe tener un equipo host y los entornos de contenedores.
 
 ## <a name="preparation"></a>Preparación
 
@@ -36,7 +36,7 @@ Debe cumplir los siguientes requisitos previos para poder usar contenedores de T
 |--|--|
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
-|`Cognitive Services` Recurso |Para poder usar el contenedor, debe tener:<br><br>Un [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) recursos de Azure para obtener la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en las páginas de información general de servicios cognitivos y las claves del portal de Azure y es necesario para iniciar el contenedor. Deberá agregar el `text/analytics/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI.<br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|`Cognitive Services` recurso |Para poder usar el contenedor, debe tener:<br><br>Un recurso de Azure del [_Cognitive Services_](text-analytics-how-to-access-key.md) a fin de obtener la clave de facturación asociada y el URI del punto de conexión de facturación. Ambos valores están disponibles en las páginas de claves e información general de Cognitive Services de Azure Portal, y son necesarios para iniciar el contenedor. Deberá agregar el enrutamiento `text/analytics/v2.0` al URI del punto de conexión, tal como se muestra en el siguiente ejemplo de BILLING_ENDPOINT_URI.<br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 ### <a name="the-host-computer"></a>El equipo host
 
@@ -46,10 +46,10 @@ Debe cumplir los siguientes requisitos previos para poder usar contenedores de T
 
 En la tabla siguiente, se describe el número mínimo y recomendado de núcleos de CPU, por lo menos 2,6 gigahercios (GHz) o con mayor rapidez, y de memoria, en gigabytes (GB), para asignar a cada contenedor de Text Analytics.
 
-| Contenedor | Mínimo | Recomendada | TPS<br>(Mínimo, máximo)|
+| Contenedor | Mínima | Recomendado | TPS<br>(mínimo, máximo)|
 |-----------|---------|-------------|--|
 |Extracción de frases clave | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15, 30|
-|Detección de idioma | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15, 30|
+|Detección de idiomas | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15, 30|
 |Análisis de sentimiento | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15, 30|
 
 * Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
@@ -64,10 +64,10 @@ Las imágenes de contenedor de Text Analytics están disponibles en Microsoft Co
 | Contenedor | Repositorio |
 |-----------|------------|
 |Extracción de frases clave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|Detección de idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
+|Detección de idiomas | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Análisis de sentimiento | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Use la [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para descargar una imagen de contenedor de registro de contenedor de Microsoft.
+Use el comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descargar la imagen de contenedor del Registro de contenedor de Microsoft.
 
 Para obtener una descripción completa de las etiquetas disponibles para los contenedores de Text Analytics, consulte los siguientes contenedores en Docker Hub:
 
@@ -112,10 +112,10 @@ Utilice el comando [docker run](https://docs.docker.com/engine/reference/command
 
 | Marcador de posición | Valor |
 |-------------|-------|
-|{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en el portal de Azure `Cognitive Services` página claves.  |
-|{BILLING_ENDPOINT_URI} | El valor del identificador URI de extremo facturación está disponible en Azure `Cognitive Services` página de información general. <br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en la página de claves `Cognitive Services` en Azure Portal.  |
+|{BILLING_ENDPOINT_URI} | El valor del URI del punto de conexión de facturación está disponible en la página de información general `Cognitive Services` de Azure. <br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
-Deberá agregar el `text/analytics/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el ejemplo anterior de BILLING_ENDPOINT_URI.
+Deberá agregar el enrutamiento `text/analytics/v2.0` al URI del punto de conexión, tal como se mostró en el ejemplo anterior de BILLING_ENDPOINT_URI.
 
 Reemplace estos parámetros con sus propios valores en el siguiente comando `docker run` de ejemplo.
 
@@ -161,7 +161,7 @@ Si ejecuta el contenedor con un [montaje](../text-analytics-resource-container-c
 
 ## <a name="billing"></a>Facturación
 
-El envío de los contenedores de Text Analytics información de facturación para Azure, mediante un _Cognitive Services_ recursos en su cuenta de Azure. 
+Los contenedores de Text Analytics envían información de facturación a Azure mediante un recurso de _Cognitive Services_ en la cuenta de Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

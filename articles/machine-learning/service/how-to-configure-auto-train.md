@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: df05bd984667283b0ccc143ba14fff6b35d69144
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c003ebaed645fcdefb379eb100220ccc2207d82
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753178"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202973"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 
@@ -125,7 +125,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 El script `get_data` puede devolver:
 
-Clave | Type | Se excluye mutuamente con    | DESCRIPCIÓN
+Clave | type | Se excluye mutuamente con    | DESCRIPCIÓN
 ---|---|---|---
 X | Dataframe de Pandas o matriz de Numpy | data_train, label, columns |  Todas las características que se usan para el aprendizaje
 y | Dataframe de Pandas o matriz de Numpy |   label   | Datos de etiquetas que se usan para el aprendizaje. Para la clasificación, debe ser una matriz de enteros.
@@ -259,6 +259,20 @@ automl_config = AutoMLConfig(task='forecasting',
 
 ## <a name="run-experiment"></a>Ejecutar experimento
 
+Para una instancia automatizada de Machine Learning, deberá crear un objeto `Experiment`, que es objeto con nombre en un objeto `Workspace` que se usa para ejecutar experimentos.
+
+```python
+from azureml.core.experiment import Experiment
+
+ws = Workspace.from_config()
+
+# Choose a name for the experiment and specify the project folder.
+experiment_name = 'automl-classification'
+project_folder = './sample_projects/automl-classification'
+
+experiment = Experiment(ws, experiment_name)
+```
+
 Envíe el experimento para ejecutar y generar un modelo. Pase `AutoMLConfig` al método `submit` para generar el modelo.
 
 ```python
@@ -358,7 +372,7 @@ Utilice estas dos API en el primer paso del modelo ajustado para más informaci�
 
    Donde:
 
-   |Salida|Definición|
+   |Output|Definición|
    |----|--------|
    |RawFeatureName|Nombre de columna o característica de entrada desde el conjunto de datos proporcionado.|
    |TypeDetected|Tipo de datos detectado de la característica de entrada.|

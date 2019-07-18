@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 1a56006e5209a8ff6c15a2c626a752c00fcf131e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243917"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509174"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copia de datos de SAP ECC mediante Azure Data Factory
 
@@ -34,7 +34,7 @@ En concreto, este conector SAP ECC admite las siguientes funcionalidades:
 - Copiar datos con la autenticación básica.
 
 >[!TIP]
->Para copiar datos desde SAP ECC a través de la tabla o vista SAP, puede usar [tabla SAP](connector-sap-table.md) conector que es más eficaz y escalable.
+>Para copiar datos de SAP ECC a través de SAP Table/View, puede usar el conector de [SAP Table](connector-sap-table.md) más eficaz y escalable.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -57,10 +57,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP ECC:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **SapEcc** | Sí |
-| URL | La dirección URL del servicio SAP ECC OData. | Sí |
-| userName | Nombre de usuario usado para conectarse a SAP ECC. | No |
-| password | Contraseña de texto no cifrado que se usa para conectarse a SAP ECC. | No |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
+| url | La dirección URL del servicio SAP ECC OData. | Sí |
+| nombre de usuario | Nombre de usuario usado para conectarse a SAP ECC. | Sin |
+| contraseña | Contraseña de texto no cifrado que se usa para conectarse a SAP ECC. | Sin |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 **Ejemplo:**
 
@@ -123,8 +123,8 @@ Para copiar datos desde SAP ECC, establezca el tipo de origen de la actividad de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SapEccSource** | Sí |
-| query | Opciones de consulta de OData para filtrar los datos. Ejemplo: "$select=Name,Description&$top=10".<br/><br/>El conector de SAP ECC copia datos de la dirección URL combinada: (dirección URL especificada en el servicio vinculado) / (ruta de acceso especificada en el conjunto de datos)?(consulta especificada en el origen de la actividad de copia). Consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Sin  |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SapEccSource** | Sí |
+| query | Opciones de consulta de OData para filtrar los datos. Ejemplo: "$select=Name,Description&$top=10".<br/><br/>El conector de SAP ECC copia datos de la dirección URL combinada: `(url specified in linked service)/(path specified in dataset)?(query specified in copy activity source)`. Consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Sin |
 
 **Ejemplo:**
 
@@ -164,14 +164,14 @@ Al copiar datos desde SAP ECC, se utilizan las siguientes asignaciones de tipos 
 
 | Tipo de datos de OData | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| Edm.Binary | String |
+| Edm.Binary | Cadena |
 | Edm.Boolean | Bool |
-| Edm.Byte | String |
+| Edm.Byte | Cadena |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
-| Edm.Guid | String |
+| Edm.Guid | Cadena |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |

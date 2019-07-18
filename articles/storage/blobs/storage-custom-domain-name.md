@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0fb3551b14a2239f26c54f639b90400277fab25
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148931"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501933"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage
 
@@ -34,10 +34,10 @@ La siguiente tabla muestra algunas direcciones URL de ejemplo para datos de blob
 
 | Tipo de recurso | Dirección URL predeterminada | URL de dominio personalizado |
 | --- | --- | --- |
-| Cuenta de almacenamiento | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
-| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Contenedor raíz | http://mystorageaccount.blob.core.windows.net/myblob o http://mystorageaccount.blob.core.windows.net/ $root/myblob| http://www.contoso.com/myblob o http://www.contoso.com/ $root/myblob |
-| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] o http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] o http://mystorageaccount.[zone].web.core.windows.net/$web o http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/ $web o http://www.contoso.com/ o http://www.contoso.com/ $web/[indexdoc] o http://www.contoso.com/ [indexdoc] |
+| Cuenta de almacenamiento | http:\//mystorageaccount.blob.core.windows.net | http:\//www.contoso.com |
+| Blob |http:\//mystorageaccount.blob.core.windows.net/mycontainer/myblob | http:\//www.contoso.com/mycontainer/myblob |
+| Contenedor raíz | http:\//mystorageaccount.blob.core.windows.net/myblob o http:\//mystorageaccount.blob.core.windows.net/$root/myblob | http:\//www.contoso.com/myblob o http:\//www.contoso.com/$root/myblob |
+| Web |  http:\//mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc], http:\//mystorageaccount.[zone].web.core.windows.net/[indexdoc], http:\//mystorageaccount.[zone].web.core.windows.net/$web o http:\//mystorageaccount.[zone].web.core.windows.net/ | http:\//www.contoso.com/$web, http:\//www.contoso.com/, http:\//www.contoso.com/$web/[indexdoc] o http:\//www.contoso.com/[indexdoc] |
 
 > [!NOTE]  
 > Como se muestra en las siguientes secciones, todos los ejemplos del punto de conexión de Blob service también se aplican al punto de conexión de servicio web.
@@ -156,7 +156,7 @@ Para quitar la configuración del dominio personalizado, haga lo siguiente:
 
 Una vez se haya quitado correctamente el dominio personalizado, verá una notificación del portal que indica que la cuenta de almacenamiento se actualizó correctamente.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 Para quitar un registro de dominio personalizado, use el comando de la CLI [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) y especifique una cadena vacía (`""`) para el valor del argumento `--custom-domain`.
 

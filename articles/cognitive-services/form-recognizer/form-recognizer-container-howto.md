@@ -2,44 +2,46 @@
 title: 'Instalación y ejecución del contenedor: Form Recognizer'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a utilizar el contenedor de Form Recognizer para analizar datos de formularios y tablas.
-author: PatrickFarley
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
-ms.topic: overview
-ms.date: 05/31/2019
-ms.author: pafarley
-ms.openlocfilehash: 1c9e68f643f27f70190b5847225692d554cc5480
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
+ms.openlocfilehash: f38752928832b7dee6a7e55f1d25374a64391bbe
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475442"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441896"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Instalación y ejecución de contenedores de Form Recognizer
-Form Recognizer aplica tecnología de aprendizaje automático para identificar y extraer pares clave-valor de los formularios. Asocia valores y entradas en tabla con ellos y, después, genera datos estructurados que incluyen las relaciones en el fichero original. Puede llamar al modelo personalizado de Form Recognizer mediante una simple API REST para reducir la complejidad e integrarla fácilmente en su proceso de automatización del flujo de trabajo u otra aplicación. Solo se necesitan cinco documentos (o un formulario vacío), por lo que puede obtener resultados de forma rápida, precisa y adaptada a su contenido específico sin necesidad de una pesada intervención manual o una amplia experiencia en ciencia de datos. No requiere el etiquetado ni la anotación de datos.
+Azure Form Recognizer aplica tecnología de aprendizaje automático para identificar y extraer pares clave-valor de los formularios. Asocia valores y entradas de tabla con los pares clave-valor y, después, genera datos estructurados que incluyen las relaciones en el fichero original. 
+
+Para reducir la complejidad e integrar fácilmente un modelo de Form Recognizer personalizado en su proceso de automatización del flujo de trabajo u otra aplicación, puede llamar al modelo personalizado de Form Recognizer mediante una simple API REST. Solo se necesitan cinco documentos de formulario (o un formulario vacío y dos formularios completados), por lo que puede obtener resultados rápidamente, con precisión y adaptados a su contenido específico. No son necesarias las intervenciones manuales complicadas ni un amplio conocimiento sobre ciencia de datos. No requiere etiquetas de datos ni anotaciones de datos.
 
 |Función|Características|
 |-|-|
-|Form Recognizer| <li>Procesa los archivos de tipo PDF, PNG y JPG.<li>Entrena modelos personalizados con un mínimo de cinco formas del mismo diseño. <li>Extrae información de la tabla y de pares clave-valor. <li>Utiliza la operación RecognizeText de la API Computer Vision de Cognitive Services con el fin de detectar y extraer texto impreso de las imágenes dentro de formularios.<li>No requiere la anotación ni el etiquetado.|
+|Form Recognizer| <li>Procesa archivos PDF, PNG y JPG.<li>Entrena modelos personalizados con un mínimo de cinco formularios del mismo diseño. <li>Extrae información de la tabla y de pares clave-valor. <li>Utiliza la característica Reconocer texto de la API Computer Vision de Azure Cognitive Services con el fin de detectar y extraer texto impreso de las imágenes dentro de formularios.<li>No requiere anotaciones ni etiquetas.|
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe cumplir los siguientes requisitos previos para poder usar los contenedores de Form Recognizer:
+Antes de utilizar los contenedores de Form Recognizer, debe cumplir los siguientes requisitos previos:
 
 |Obligatorio|Propósito|
 |--|--|
-|Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
+|Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> En Windows, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.|
-|Azure CLI| Deberá instalar la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en el host.|
-|Recurso de la API Computer Vision| Para procesar documentos e imágenes digitalizados, se requiere un **recurso de Computer Vision**. Puede acceder a la característica **Reconocer texto** como un recurso de Azure (REST API o SDK) o como un [contenedor](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) `cognitive-services-recognize-text`. Se aplican las tarifas de facturación habituales. <br><br>Debe pasar tanto la clave como el punto de conexión de facturación para el recurso específico de Computer Vision (nube de Azure o contenedor de Cognitive Services). Utilice esta clave y el punto de conexión de facturación como {COMPUTER_VISION_API_KEY} y {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Si se usa el **`cognitive-services-recognize-text`contenedor**, asegúrese de que:<br><br>* La clave de Computer Vision para el contenedor de Form Recognizer es la clave especificada en el comando `docker run` de Computer Vision para el contenedor `cognitive-services-recognize-text`.<br>* El punto de conexión de facturación es el punto de conexión del contenedor, como `https://localhost:5000`. Si se utilizan los contenedores Computer Vision y Form Recognizer juntos en el mismo host, no se pueden iniciar con el puerto predeterminado de `5000`.  |  
-|Recurso de Form Recognizer |Para usar estos contenedores, debe tener:<br><br>Un recurso de Azure de _Form Recognizer_ para obtener la clave de facturación asociada y el URI del punto de conexión de facturación. Ambos valores están disponibles en las páginas de claves y de información general de **Form Recognizer** en Azure Portal y son necesarios para iniciar el contenedor.<br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
+|La CLI de Azure| Instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en el host.|
+|Recurso de la API Computer Vision| Para procesar documentos e imágenes digitalizados, necesita un recurso de Computer Vision. Puede acceder a la característica Reconocer texto como un recurso de Azure (API REST o SDK) o como un [contenedor](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) *cognitive-services-recognize-text*. Se aplican las tarifas de facturación habituales. <br><br>Pase tanto la clave como el punto de conexión de facturación para el recurso de Computer Vision (nube de Azure o contenedor de Cognitive Services). Utilice esta clave y el punto de conexión de facturación como {COMPUTER_VISION_API_KEY} y {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Si utiliza el contenedor *cognitive-services-recognize-text*, asegúrese de cumplir con lo siguiente:<br><br>La clave de Computer Vision para el contenedor de Form Recognizer es la clave especificada en el comando `docker run` de Computer Vision para el contenedor *cognitive-services-recognize-text*.<br>El punto de conexión de facturación es el punto de conexión del contenedor (por ejemplo, `https://localhost:5000`). Si se utilizan los contenedores Computer Vision y Form Recognizer juntos en el mismo host, no se pueden iniciar con el puerto predeterminado de *5000*.  |  
+|Recurso de Form Recognizer |Para usar estos contenedores, debe tener lo siguiente:<br><br>Un recurso de Azure de _Form Recognizer_ para obtener la clave de facturación asociada y el URI del punto de conexión de facturación. Ambos valores están disponibles en las páginas de **información general de Form Recognizer** y **claves de información general de Form Recognizer** en Azure Portal y son necesarios para iniciar el contenedor.<br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
-Primero debe completar y enviar el [formulario de solicitud de contenedores de Form Recognizer de Cognitive Services](https://aka.ms/FormRecognizerRequestAccess) para solicitar acceso al contenedor. Esto también le registrará en Computer Vision. No es necesario registrarse para obtener el formulario de solicitud de Computer Vision por separado. 
+Primero debe completar y enviar el [formulario de solicitud de acceso a contenedores de Form Recognizer de Cognitive Services](https://aka.ms/FormRecognizerRequestAccess) para solicitar acceso al contenedor. Esto también le registrará en Computer Vision. No es necesario registrarse para obtener el formulario de solicitud de Computer Vision por separado. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -51,7 +53,7 @@ Primero debe completar y enviar el [formulario de solicitud de contenedores de F
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 
-En la tabla siguiente se describen los núcleos de CPU y de memoria mínimos y recomendados para asignar cada contenedor de Form Recognizer.
+Los núcleos de CPU y de memoria mínimos y recomendados para asignar a cada contenedor de Form Recognizer se describen en la siguiente tabla:
 
 | Contenedor | Mínima | Recomendado |
 |-----------|---------|-------------|
@@ -59,15 +61,14 @@ En la tabla siguiente se describen los núcleos de CPU y de memoria mínimos y r
 
 * Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
 * TPS: transacciones por segundo
-
-El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
+* El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
 
 > [!Note]
 > Los valores mínimos y recomendados se basan en los límites de Docker y *no* de los recursos de la máquina host.
 
-## <a name="get-the-container-image-with-docker-pull-command"></a>Obtención de la imagen de contenedor con el comando docker pull
+## <a name="get-the-container-image-with-the-docker-pull-command"></a>Obtención de la imagen de contenedor con el comando docker pull
 
-Hay imágenes de contenedor disponibles para Form Recognizer.
+Hay imágenes de contenedor disponibles para Form Recognizer en el siguiente repositorio:
 
 | Contenedor | Repositorio |
 |-----------|------------|
@@ -81,10 +82,11 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-
 ### <a name="docker-pull-for-the-form-recognizer-container"></a>Extracción de Docker para el contenedor de Form Recognizer
 
 #### <a name="form-recognizer"></a>Form Recognizer
+
+Para obtener el contenedor de Form Recognizer, utilice el siguiente comando:
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
@@ -92,21 +94,21 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recogn
 
 ## <a name="how-to-use-the-container"></a>Uso del contenedor
 
-Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice el siguiente proceso para trabajar con el contenedor.
+Cuando el contenedor esté en el [equipo host](#the-host-computer), utilice el siguiente proceso para trabajar con el contenedor.
 
-1. [Ejecute el contenedor](#run-the-container-with-docker-run) con la configuración de facturación requerida pero no utilizada. Hay más [ejemplos](form-recognizer-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles.
+1. [Ejecute el contenedor](#run-the-container-by-using-the-docker-run-command) con la configuración de facturación requerida pero no utilizada. Hay más [ejemplos](form-recognizer-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles.
 1. [Consulta del punto de conexión de predicción del contenedor](#query-the-containers-prediction-endpoint).
 
-## <a name="run-the-container-with-docker-run"></a>Ejecute el contenedor con `docker run`.
+## <a name="run-the-container-by-using-the-docker-run-command"></a>Ejecución del contenedor mediante el comando docker run
 
 Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar cualquiera de los tres contenedores. El comando usa los parámetros siguientes:
 
 | Marcador de posición | Valor |
 |-------------|-------|
-|{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en página de claves de Form Recognizer en Azure Portal.  |
-|{BILLING_ENDPOINT_URI} | El valor de URI del punto de conexión de facturación está disponible en Azure Portal, en la página de información general de Form Recognizer.|
-|{COMPUTER_VISION_API_KEY}| La clave está disponible en la página Claves de la API Computer Vision de Azure Portal.|
-|{COMPUTER_VISION_ENDPOINT_URI}|El punto de conexión de facturación. Si está utilizando un recurso de Computer Vision en la nube, el valor del identificador URI está disponible en la página de introducción de la API Computer Vision de Azure Portal. Si utiliza un contenedor `cognitive-services-recognize-text`, use la dirección URL del punto de conexión de facturación pasada al contenedor en el comando `docker run`.|
+|{BILLING_KEY} | Esta clave se usa para iniciar el contenedor. Está disponible en la página de **claves de Form Recognizer** de Azure Portal.  |
+|{BILLING_ENDPOINT_URI} | El valor de URI del punto de conexión de facturación está disponible en Azure Portal, en la página de **información general de Form Recognizer**.|
+|{COMPUTER_VISION_API_KEY}| La clave está disponible en la página **Claves de la API Computer Vision** de Azure Portal.|
+|{COMPUTER_VISION_ENDPOINT_URI}|El punto de conexión de facturación. Si está utilizando un recurso de Computer Vision en la nube, el valor del identificador URI está disponible en la página de **información general de la API Computer Vision** de Azure Portal. Si utiliza un contenedor `cognitive-services-recognize-text`, use la dirección URL del punto de conexión de facturación que se pasó al contenedor en el comando `docker run`.|
 
 Reemplace estos parámetros con sus propios valores en el siguiente comando `docker run` de ejemplo.
 
@@ -136,7 +138,7 @@ Este comando:
 
 ### <a name="run-separate-containers-as-separate-docker-run-commands"></a>Ejecución de contenedores diferentes como comandos de ejecución de Docker independientes
 
-Para la combinación de Form Recognizer y del reconocedor de texto hospedados localmente en el mismo host, se muestran dos ejemplos de comandos de la CLI de Docker.
+Para la combinación de Form Recognizer y Reconocedor de texto hospedados localmente en el mismo host, use los dos siguientes ejemplos de comandos de la CLI de Docker:
 
 Ejecute el primer contenedor en el puerto 5000. 
 
@@ -166,7 +168,7 @@ Cada contenedor posterior debe estar en un puerto diferente.
 
 ### <a name="run-separate-containers-with-docker-compose"></a>Ejecución de contenedores diferentes con Docker Compose
 
-Para la combinación de Form Recognizer y del reconocedor de texto hospedados localmente en el mismo host, se muestra un ejemplo de archivo YAML de Docker Compose. El reconocedor de texto `{COMPUTER_VISION_API_KEY}` debe ser el mismo para los contenedores `formrecognizer` y `ocr`. `{COMPUTER_VISION_ENDPOINT_URI}` solo se utiliza en el contenedor `ocr` porque el contenedor `formrecognizer` utiliza el nombre y el puerto `ocr`. 
+Para la combinación de Form Recognizer y Reconocedor de texto hospedados localmente en el mismo host, consulte el siguiente ejemplo de archivo YAML de Docker Compose. El reconocedor de texto `{COMPUTER_VISION_API_KEY}` debe ser el mismo para los contenedores `formrecognizer` y `ocr`. `{COMPUTER_VISION_ENDPOINT_URI}` solo se utiliza en el contenedor `ocr` porque el contenedor `formrecognizer` utiliza el nombre y el puerto `ocr`. 
 
 ```docker
 version: '3.3'
@@ -218,7 +220,7 @@ services:
 
 
 > [!IMPORTANT]
-> Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey`, así como las opciones `FormRecognizer:ComputerVisionApiKey` y `FormRecognizer:ComputerVisionEndpointUri`, deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](#billing).
+> Para ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey`, así como las opciones `FormRecognizer:ComputerVisionApiKey` y `FormRecognizer:ComputerVisionEndpointUri`, deben estar especificadas; de lo contrario, el contenedor no se iniciará. Para obtener más información, vea [Facturación](#billing).
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consulta del punto de conexión de predicción del contenedor
 
@@ -229,7 +231,7 @@ services:
 
 ### <a name="form-recognizer"></a>Form Recognizer
 
-El contenedor proporciona las API de punto de conexión de consulta basadas en WebSocket, a las que se accede mediante la [documentación del SDK de servicios de Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
+El contenedor proporciona las API de punto de conexión de consulta basadas en WebSocket, a las que puede acceder mediante la [documentación del SDK de servicios de Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 
 De forma predeterminada, el SDK de Form Recognizer utiliza los servicios en línea. Para usar el contenedor, deberá cambiar el método de inicialización. Consulte los ejemplos siguientes.
 
@@ -241,7 +243,7 @@ Cambie de usar esta llamada de inicialización en la nube de Azure:
 var config = FormRecognizerConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-por esta llamada mediante el punto de conexión de contenedor:
+por esta llamada, que usa el punto de conexión de contenedor:
 
 ```C#
 var config = FormRecognizerConfig.FromEndpoint("ws://localhost:5000/formrecognizer/v1.0-preview/custom", "YourSubscriptionKey");
@@ -249,13 +251,13 @@ var config = FormRecognizerConfig.FromEndpoint("ws://localhost:5000/formrecogniz
 
 #### <a name="for-python"></a>Para Python
 
-Cambie de usar esta llamada de inicialización en la nube de Azure
+Cambie de usar esta llamada de inicialización en la nube de Azure:
 
 ```python
 formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=formrecognizer_key, region=service_region)
 ```
 
-por esta llamada mediante el punto de conexión de contenedor:
+por esta llamada, que usa el punto de conexión de contenedor:
 
 ```python
 formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=formrecognizer_key, endpoint="ws://localhost:5000/formrecognizer/v1.0-preview/custom"
@@ -263,7 +265,7 @@ formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=form
 
 ### <a name="form-recognizer"></a>Form Recognizer
 
-El contenedor proporciona API de punto de conexión de REST, que se pueden encontrar [aquí](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel).
+El contenedor proporciona las API de punto de conexión REST, que puede encontrar en la página [API de Form Recognizer](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -275,7 +277,7 @@ El contenedor proporciona API de punto de conexión de REST, que se pueden encon
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-Al ejecutar el contenedor, este usa **stdout** y **stderr** para generar información útil para solucionar problemas que se producen al inicio o ejecución del contenedor.
+Al ejecutar el contenedor, este usa **stdout** y **stderr** para generar información útil para solucionar problemas que surgen cuando se inicia o ejecuta el contenedor.
 
 ## <a name="billing"></a>Facturación
 
@@ -285,7 +287,7 @@ Los contenedores de Form Recognizer envían información de facturación a Azure
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](form-recognizer-container-configuration.md) (Configuración de contenedores).
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video courses -->
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
@@ -296,13 +298,13 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
 * Form Recognizer proporciona un contenedor de Linux para Docker.
 * Las imágenes de contenedor se descargan desde el registro de contenedor privado de Azure.
 * Las imágenes de contenedor se ejecutan en Docker.
-* Puede usar la API REST o el SDK para llamar a operaciones en contenedores de Form Recognizer mediante la especificación del URI del host del contenedor.
-* Debe especificar la información de facturación al crear una instancia de un contenedor.
+* Puede usar la API REST o el SDK REST para llamar a operaciones en contenedores de Form Recognizer mediante la especificación del URI del host del contenedor.
+* Debe especificar la información de facturación al crear una instancia de contenedor.
 
 > [!IMPORTANT]
 >  Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían datos de los clientes (por ejemplo, la imagen o el texto que se está analizando) a Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Revise [Configure containers](form-recognizer-container-configuration.md) (Configuración de contenedores) para ver las opciones de configuración.
-* Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)
+* Revise [Configuración de contenedores](form-recognizer-container-configuration.md) para ver las opciones de configuración.
+* Use otros [Contenedores de Cognitive Services](../cognitive-services-container-support.md).

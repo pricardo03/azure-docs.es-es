@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 3/5/2019
+ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3cafa4d5aecaa4c8f3863c3269ec02793340e3e6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "57570103"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509267"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -43,6 +43,16 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 | **Tiempo de ejecución mínimo admitido**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+* El modo TCP ahora está activado de manera predeterminada.
+* Ahora las métricas de consulta de partición cruzada devuelven todas las particiones.
+* Ahora Global Strong funciona correctamente.
+* La conmutación por error de las consultas no se recupera correctamente para la arquitectura multimaestro.
+* Choques de dependencia para las revisiones de seguridad.
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* Corrección de errores para la compatibilidad con Hash V2.
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
 * Corrección de errores para la fuga de recursos en client#close() ([github 88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).

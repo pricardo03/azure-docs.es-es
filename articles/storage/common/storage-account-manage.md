@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 66bdc4bd1e17347419a6eccd7c9532db17b33001
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484282"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303490"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Administración de la configuración de cuentas de almacenamiento en Azure Portal
 
@@ -20,16 +20,13 @@ Existen diversas opciones de configuración de la cuenta de almacenamiento en [A
 
 ## <a name="access-control"></a>Control de acceso
 
-Almacenamiento de Azure admite la autenticación con Azure Active Directory para el almacenamiento de Blob Storage y Queue storage a través del control de acceso basado en roles (RBAC). Para obtener más información acerca de la autenticación con Azure AD, consulte [autenticar el acceso a Azure blobs y colas con Azure Active Directory](storage-auth-aad.md).
+Azure Storage admite la autorización con Azure Active Directory para Blob Storage y Queue Storage mediante el control de acceso basado en rol (RBAC). Para más información sobre la autenticación con Azure AD, consulte [Autorización del acceso a los blobs y las colas de Azure con Azure Active Directory](storage-auth-aad.md).
 
-La configuración del **control de acceso** en Azure Portal ofrece una manera sencilla de asignar roles de RBAC a usuarios, grupos, entidades de servicio e identidades administradas. Para obtener más información sobre la asignación de roles de RBAC, consulte [administrar derechos de acceso a datos blob y cola con RBAC](storage-auth-aad-rbac.md).
-
-> [!NOTE]
-> Si autentica a los usuarios o a las aplicaciones que usan las credenciales de Azure AD, mejorará la seguridad y le será más fácil usar esta opción en lugar de otros medios de autorización. Aunque puede seguir utilizando la autorización con clave compartida con las aplicaciones, el uso de Azure AD evita la necesidad de almacenar su clave de acceso de cuenta con el código. Asimismo, aún puede usar firmas de acceso compartido (SAS) para conceder acceso pormenorizado a los recursos de su cuenta de almacenamiento, pero Azure AD ofrece funcionalidades similares sin necesidad de administrar tokens de SAS ni de preocuparse sobre cómo revocar una SAS en peligro. 
+La configuración del **control de acceso** en Azure Portal ofrece una manera sencilla de asignar roles de RBAC a usuarios, grupos, entidades de servicio e identidades administradas. Para más información sobre la asignación de roles de RBAC, consulte [Manage access rights to blob and queue data with RBAC](storage-auth-aad-rbac.md) (Administración de derechos de acceso a los datos de blobs y colas con RBAC).
 
 ## <a name="tags"></a>Etiquetas
 
-Azure Storage admite etiquetas de Azure Resource Manager para organizar los recursos de Azure con una taxonomía personalizada. Puede aplicar etiquetas a las cuentas de almacenamiento para agruparlas dentro de su suscripción de una manera lógica. 
+Azure Storage admite etiquetas de Azure Resource Manager para organizar los recursos de Azure con una taxonomía personalizada. Puede aplicar etiquetas a las cuentas de almacenamiento para agruparlas dentro de su suscripción de una manera lógica.
 
 En las cuentas de almacenamiento, el nombre de etiqueta se limita a 128 caracteres y el valor de la etiqueta a 256.
 
@@ -41,24 +38,18 @@ Cuando se crea una cuenta de almacenamiento, Azure genera dos claves de acceso d
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-### <a name="view-and-copy-access-keys"></a>Visualización y copia de las claves de acceso
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
-Para ver las credenciales de la cuenta de almacenamiento:
+### <a name="view-account-keys-and-connection-string"></a>Visualización de claves de cuenta y cadena de conexión
 
-1. Acceda a [Azure Portal](https://portal.azure.com).
-2. Busque su cuenta de almacenamiento.
-3. En la sección **Configuración** de la información general de la cuenta de almacenamiento, seleccione **Claves de acceso**. Aparecen las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
-4. Busque el valor de **Clave** en **key1** y haga clic en el botón **Copiar** para copiar la clave de la cuenta.
-5. Como alternativa, puede copiar la cadena de conexión completa. Busque el valor de **Cadena de conexión** en **key1**y haga clic en el botón **Copiar** para copiar la cadena de conexión.
-
-    ![Captura de pantalla muestra cómo ver las claves de acceso en el portal de Azure](media/storage-manage-account/portal-connection-string.png)
+[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
 ### <a name="regenerate-access-keys"></a>Regenerar las claves de acceso
 
 Microsoft recomienda volver a generar las claves de acceso periódicamente para ayudar a proteger la cuenta de almacenamiento. Para poder rotar las claves, se asignan dos claves de acceso. Al rotar las claves, garantiza que su aplicación mantiene el acceso a Azure Storage a lo largo del proceso. 
 
 > [!WARNING]
-> La regeneración de las claves de acceso puede afectar a aplicaciones o servicios de Azure que dependen de la clave de cuenta de almacenamiento. Los clientes que usan la clave de cuenta para acceder a la cuenta de almacenamiento se deben actualizar para usar la nueva clave, lo que incluye los servicios multimedia, las aplicaciones de nube, escritorio y móviles y las aplicaciones de interfaz gráfica de usuario de Azure Storage, como el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/). 
+> La regeneración de las claves de acceso puede afectar a aplicaciones o servicios de Azure que dependen de la clave de cuenta de almacenamiento. Los clientes que usan la clave de cuenta para acceder a la cuenta de almacenamiento se deben actualizar para usar la nueva clave, lo que incluye los servicios multimedia, las aplicaciones de nube, escritorio y móviles y las aplicaciones de interfaz gráfica de usuario de Azure Storage, como el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
 Para rotar las claves de la cuenta de almacenamiento, siga este proceso:
 
@@ -74,6 +65,7 @@ Después de crear una cuenta de almacenamiento, puede modificar su configuració
 Cambiar la configuración de la cuenta de almacenamiento puede dar lugar a costos adicionales. Para más información, consulte la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="delete-a-storage-account"></a>Eliminar una cuenta de almacenamiento
+
 Para quitar una cuenta de almacenamiento que ha dejado de usarse, navegue a la cuenta de almacenamiento en el [Portal de Azure](https://portal.azure.com)y haga clic en **Eliminar**. Si se elimina la cuenta de almacenamiento, se elimina toda la cuenta, incluidos todos los datos de la cuenta.
 
 > [!WARNING]

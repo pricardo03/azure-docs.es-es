@@ -3,7 +3,7 @@ title: Introducción a Mobile Apps mediante Xamarin.Forms
 description: Siga este tutorial para empezar a usar Mobile Apps para el desarrollo de Xamarin.Forms.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.service: app-service-mobile
@@ -11,19 +11,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: crdun
-ms.openlocfilehash: b0719f6ac2f99f9e665b1265665752dd53ccbaf0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: bca0f0de7de321060635459c4435525f650c7467
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242654"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446320"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Creación de una aplicación Xamarin.Forms con Azure
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
+> [!NOTE]
+> Visual Studio App Center está invirtiendo en servicios nuevos e integrados que son fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de entrega e integración continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios mediante el servicio de **inserción**. Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube. Consulte [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started) hoy mismo.
+>
+
+## <a name="overview"></a>Información general
 En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube a una aplicación móvil Xamarin.Forms mediante la característica Mobile Apps de Azure App Service como back-end. Va a crear tanto un back-end de Mobile Apps nuevo como una aplicación Xamarin.Forms simple de la lista de tareas pendientes que almacene los datos de la aplicación en Azure.
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Apps para aplicaciones Xamarin.Forms.
@@ -34,39 +39,27 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para más información, consulte [Obtener una evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio Tools para Xamarin en Visual Studio 2017 o posterior, o Visual Studio para Mac. Consulte la [página de instalación de Xamarin][Install Xamarin] para obtener instrucciones.
+* Visual Studio Tools para Xamarin, en Visual Studio 2017 o superior, o Visual Studio para Mac. Consulte la [página de instalación de Xamarin][Install Xamarin] para obtener instrucciones.
 
-* (opcional) Para crear una aplicación iOS, es necesario un equipo Mac con Xcode 9.0 o posterior. Visual Studio para Mac se puede usar para desarrollar aplicaciones de iOS o Visual Studio 2017 o versiones posteriores puede usarse (siempre y cuando el equipo Mac está disponible en la red).
+* (opcional) Para crear una aplicación iOS, es necesario un equipo Mac con Xcode 9.0 o posterior. Se puede usar Visual Studio para Mac para desarrollar aplicaciones iOS, o se puede usar Visual Studio 2017 o una versión superior (siempre y cuando el equipo Mac esté disponible en la red).
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Creación de un back-end de Mobile Apps
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Crear una conexión de base de datos y configurar el proyecto de cliente y servidor
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Creación de una conexión de base de datos y configuración del proyecto de cliente y servidor
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinforms-solution"></a>Ejecutar la solución de Xamarin.Forms
+## <a name="run-the-xamarinforms-solution"></a>Ejecución de la solución Xamarin.Forms
 
 Para abrir la solución, se necesita Visual Studio Tools para Xamarin (consulte las [instrucciones de instalación de Xamarin][Install Xamarin]). Si las herramientas ya están instaladas, siga estos pasos para descargar y abrir la solución:
 
-### <a name="visual-studio"></a>Visual Studio
+### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows y Mac)
 
-1. Vaya a [Azure Portal](https://portal.azure.com/).
+1. Vaya a [Azure Portal](https://portal.azure.com/) y diríjase a la aplicación móvil que ha creado. En la hoja `Overview`, busque la dirección URL que es el punto de conexión público de la aplicación móvil. Por ejemplo, el nombre de sitio para el nombre de mi aplicación "test123" será https://test123.azurewebsites.net.
 
-2. En la hoja Configuración de la aplicación móvil, haga clic en **Inicio rápido** (en Implementación) > **Xamarin.Forms**. En el paso 3, haga clic en **Crear una nueva aplicación** en caso de que no esté seleccionado.  A continuación, haga clic en el botón **Descargar** .
+2. Abra el archivo `Constants.cs` en esta carpeta - xamarin.forms/ZUMOAPPNAME. El nombre de la aplicación es `ZUMOAPPNAME`.
 
-   Esta acción permite descargar un proyecto que contiene la aplicación cliente que está conectada a la aplicación móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
-
-3. Extraiga el proyecto que ha descargado y luego ábralo en Visual Studio.
-
-4. Siga estas instrucciones para ejecutar los proyectos de Android o Windows y, si hay un equipo Mac en red disponible, el proyecto de iOS.
-
-### <a name="visual-studio-for-mac"></a>Visual Studio para Mac
-
-1. Vaya a la [portal Azure](https://portal.azure.com/) y vaya a la aplicación móvil que ha creado. En el `Overview` hoja, busque la dirección URL que es el punto de conexión público para la aplicación móvil. Por ejemplo, será el nombre del sitio para el nombre de mi aplicación "test123" https://test123.azurewebsites.net.
-
-2. Abra el archivo `Constants.cs` en esta carpeta - xamarin.forms/ZUMOAPPNAME. Es el nombre de la aplicación `ZUMOAPPNAME`.
-
-3. En `Constants.cs` class, reemplace `ZUMOAPPURL` variable con el punto de conexión público anterior.
+3. En la clase `Constants.cs`, reemplace la variable `ZUMOAPPURL` con el punto de conexión público anterior.
 
     `public static string ApplicationURL = @"ZUMOAPPURL";`
 

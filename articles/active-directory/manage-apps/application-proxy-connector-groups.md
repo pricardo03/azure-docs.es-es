@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22d44b02b3cc25c855361cab17132c46fa04794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d896a45931512b925491e05ff6e5eef8a856d83d
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783695"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481320"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores
 
@@ -42,7 +42,7 @@ Siga estos pasos para crear tantos grupos de conectores como desee.
 1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Proxy de aplicación**.
 2. Seleccione **Nuevo grupo de conectores**. Aparece la hoja New Connector Group (Nuevo grupo de conectores).
 
-   ![Seleccione Nuevo grupo de conectores](./media/application-proxy-connector-groups/new-group.png)
+   ![Muestra la pantalla para seleccionar un nuevo grupo de conectores](./media/application-proxy-connector-groups/new-group.png)
 
 3. Asigne un nombre al nuevo grupo de conectores y use luego el menú deplegable para seleccionar qué conectores pertenecen a este grupo.
 4. Seleccione **Guardar**.
@@ -74,25 +74,25 @@ En lo que respecta a las aplicaciones instaladas en IaaS para el acceso a la nub
 
 Sirva como ejemplo una organización que tiene varias máquinas virtuales conectadas a su propia red virtual hospedada en IaaS. Para permitir que los empleados usen estas aplicaciones, estas redes privadas están conectadas a la red corporativa mediante VPN de sitio a sitio. De este modo, los empleados que trabajan en un entorno local podrán usarlas sin ningún problema. Sin embargo, puede que este enfoque no sea el ideal para los empleados remotos, ya que requiere contar con otra infraestructura local para enrutar el acceso, como puede ver en el diagrama siguiente:
 
-![Red IaaS de Azure AD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![Diagrama que ilustra la red de IaaS de Azure AD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 Con los grupos de conectores de proxy de aplicación de Azure AD, puede habilitar un servicio común para proteger el acceso a todas las aplicaciones sin necesidad de crear otra dependencia de la red corporativa:
 
-![Varios proveedores de nube (IaaS de Azure AD)](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Varios proveedores de nube de IaaS de Azure AD](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Varios bosques: grupos de conectores diferentes para cada bosque
 
 La mayoría de los clientes que han implementado el proxy de aplicación usan sus funcionalidades de inicio de sesión único (SSO) mediante la delegación restringida de kerberos (KCD). Para tal fin, las máquinas del conector deben estar unidas a un dominio que pueda delegar los usuarios a la aplicación. KCD es compatible con las funcionalidades de varios bosques. No obstante, en el caso de las empresas que tienen distintos entornos de varios bosques sin ninguna relación de confianza entre ellos, no se puede usar un solo conector para todos los bosques. 
 
 Entonces, pueden implementarse conectores específicos por cada bosque y establecer que se atiendan a las aplicaciones que se publicaron para dar servicio solo a los usuarios de ese bosque concreto. Cada grupo de conectores representa un bosque diferente. Aunque el inquilino y la mayor parte de la experiencia queda unificada en todos los bosques, pueden asignarse usuarios a sus aplicaciones de bosque mediante los grupos de Azure AD.
- 
+
 ### <a name="disaster-recovery-sites"></a>Sitios de recuperación ante desastres
 
 Hay dos enfoques diferentes que puede adoptar con un sitio de recuperación ante desastres, dependiendo de cómo estén implementados sus sitios:
 
 * Si el sitio de recuperación ante desastres se basa en el modo activo-activo, que es exactamente igual que el sitio principal, con la misma red y configuración de AD, puede crear los conectores del sitio de recuperación ante desastres en el mismo grupo de conectores que el sitio principal. De esta forma, Azure AD podrá detectar automáticamente las conmutaciones por error.
 * Si el sitio de recuperación ante desastres es independiente del principal, puede crear un grupo de conectores diferente en el sitio de recuperación ante desastres, y 1) tener aplicaciones de la copia de seguridad y 2) desviar manualmente la aplicación existente al grupo de conectores de recuperación ante desastres según sea necesario.
- 
+
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Servicio a varias empresas desde un solo inquilino
 
 Hay muchas maneras de implementar un modelo en el que un solo proveedor de servicio implemente y mantenga servicios relacionados con Azure AD para varias empresas. Los grupos de conectores ayudan al administrador a separar los conectores y las aplicaciones en grupos distintos. Un método, que es adecuado para las pequeñas empresas, consiste en contar con un solo inquilino de Azure AD mientras que las diferentes empresas tienen sus propias redes y su propio nombre de dominio. También es válido para los escenarios de fusión y adquisición, donde una sola división de TI presta servicios a varias empresas por motivos normativos o empresariales. 
@@ -100,32 +100,30 @@ Hay muchas maneras de implementar un modelo en el que un solo proveedor de servi
 ## <a name="sample-configurations"></a>Configuraciones de ejemplo
 
 Algunos ejemplos que puede implementar incluyen los siguientes grupos de conectores.
- 
+
 ### <a name="default-configuration--no-use-for-connector-groups"></a>Configuración predeterminada: ningún uso para los grupos de conectores
 
 Si no usa grupos de conectores, la configuración tendría un aspecto similar al siguiente:
 
-![Sin grupos de conectores de Azure AD](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
- 
+![Ejemplo de Azure AD sin grupos de conectores](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+
 Esta configuración es suficiente para pruebas e implementaciones de menor envergadura. También funcionará bien si su organización tiene una topología de red plana.
- 
+
 ### <a name="default-configuration-and-an-isolated-network"></a>Configuración predeterminada y red aislada
 
-Esta configuración es una evolución de la predeterminada, en la que hay una aplicación específica que se ejecuta en una red aislada, como la red virtual IaaS: 
+Esta configuración es una evolución de la predeterminada, en la que hay una aplicación específica que se ejecuta en una red aislada, como la red virtual IaaS:
 
-![Sin grupos de conectores de Azure AD](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
- 
+![Ejemplo de Azure AD sin grupos de conectores](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Configuración recomendada: varios grupos específicos y un grupo predeterminado para conectores inactivos
 
 La configuración recomendada para organizaciones grandes y complejas consiste en que el grupo de conectores predeterminado actúe como un grupo que no atienda a ninguna aplicación y que se use para los conectores inactivos o recién instalados. Las aplicaciones se atienden con grupos de conectores personalizados. Así es como se genera toda la complejidad de los escenarios descritos anteriormente.
 
-En el ejemplo siguiente, la empresa tiene dos centros de datos, A y B, con dos conectores que atienden a cada sitio. Cada uno de los sitios tienen distintas aplicaciones que se ejecutan en él. 
+En el ejemplo siguiente, la empresa tiene dos centros de datos, A y B, con dos conectores que atienden a cada sitio. Cada uno de los sitios tienen distintas aplicaciones que se ejecutan en él.
 
-![Sin grupos de conectores de Azure AD](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
- 
+![Ejemplo de la empresa con dos centros de datos y dos conectores](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-connectors.md)
 * [Habilitar el inicio de sesión único](what-is-single-sign-on.md)
-
-

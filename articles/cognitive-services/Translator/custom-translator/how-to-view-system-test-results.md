@@ -2,19 +2,19 @@
 title: 'Ver resultados de pruebas del sistema e implementación: Custom Translator'
 titleSuffix: Azure Cognitive Services
 description: Cuando el entrenamiento se realice correctamente, revise las pruebas del sistema para analizar los resultados del entrenamiento. Si está satisfecho con los resultados del entrenamiento, envíe una solicitud de implementación para el modelo entrenado.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 675ae10e304bd22c441740a87e8033136ff63ebd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389314"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442480"
 ---
 # <a name="view-system-test-results"></a>Ver resultados de pruebas del sistema
 
@@ -26,7 +26,7 @@ Seleccione un proyecto y, a continuación, seleccione la pestaña de modelos de 
 
 En la pestaña de pruebas se muestra lo siguiente:
 
-1.  **Resultados de pruebas del sistema:** El resultado del proceso de prueba en el aprendizaje. El proceso de pruebas genera la puntuación BLEU.
+1.  **Resultados de pruebas del sistema:** el resultado del proceso de pruebas en los entrenamientos. El proceso de pruebas genera la puntuación BLEU.
 
     **Recuento de oraciones:** cuántas oraciones paralelas se usaron en el conjunto de pruebas.
 
@@ -80,7 +80,7 @@ Para solicitar una implementación, haga lo siguiente:
 5.  Puede ver el estado del modelo en la columna "Estado".
 
 >[!Note]
->Traductor personalizado es compatible con 10 modelos implementados dentro de un área de trabajo en cualquier momento dado.
+>Traductor personalizado es compatible con 10 modelos implementados dentro de un área de trabajo en cualquier momento dado.
 
 ## <a name="update-deployment-settings"></a>Actualizar la configuración de implementación
 

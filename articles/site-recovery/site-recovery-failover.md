@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: raynew
-ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1471188999182623a57db50d3205a859c160a2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399974"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491793"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Conmutación por error de máquinas virtuales y servidores físicos 
 
@@ -70,9 +70,9 @@ Las máquinas virtuales y los servidores físicos protegidos con Site Recovery t
 
 > [!NOTE]
 > Durante la conmutación por error de máquinas virtuales de Hyper-V de un sitio local a otro sitio local, para regresar al sitio local principal local, debe realizar primero una **replicación inversa** de la máquina virtual en el sitio principal y luego desencadenar la conmutación por error. Si la máquina virtual principal no está disponible, antes de iniciar la **replicación inversa** tiene que restaurar la máquina virtual desde una copia de seguridad.   
-> 
-> 
-> ## <a name="failover-job"></a>Trabajo de conmutación por error
+ 
+ 
+## <a name="failover-job"></a>Trabajo de conmutación por error
 
 ![Conmutación por error](./media/site-recovery-failover/FailoverJob.png)
 
@@ -111,7 +111,7 @@ Es posible que desee automatizar determinadas acciones de la conmutación por er
 ## <a name="post-failover-considerations"></a>Consideraciones posteriores a la conmutación por error
 Conviene tener en cuenta las siguientes recomendaciones tras la conmutación por error:
 ### <a name="retaining-drive-letter-after-failover"></a>Conservación de la letra de unidad después de la conmutación por error
-Para conservar la letra de unidad en las máquinas virtuales después de la conmutación por error, puede establecer la **Directiva SAN** de la máquina virtual en **OnlineAll**. [Más información](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Azure Site Recovery controla la retención de letras de unidad. [Más información](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) sobre el procedimiento para excluir algunos discos.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error
 

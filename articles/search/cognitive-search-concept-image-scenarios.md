@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ca9b3607041f75b1c866aa2813308312ad5d1017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023749"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448446"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de búsqueda cognitiva
 
@@ -30,7 +30,7 @@ En este artículo se trata con más detalle el procesamiento de imágenes y se p
 
 Como parte de la averiguación de documentos, hay un nuevo conjunto de parámetros de configuración de indexador para administrar archivos de imagen o imágenes incrustadas en archivos. Estos parámetros se utilizan para normalizar imágenes para un procesamiento adicional. Normalizar imágenes hace que sean más uniformes. El tamaño de las imágenes grandes se cambia a un alto y ancho máximos para que se puedan consumir. Para las imágenes que proporcionan metadatos sobre la orientación, la rotación de la imagen se ajusta para la carga vertical. Los ajustes de metadatos se capturan en un tipo complejo que se crea para cada imagen. 
 
-No puede desactivar la normalización de imágenes. Las habilidades que iteran las imágenes esperan imágenes normalizadas.
+No puede desactivar la normalización de imágenes. Las habilidades que iteran las imágenes esperan imágenes normalizadas. Para habilitar la normalización de imágenes en un indexador debe adjuntar un conjunto de aptitudes a ese indexador.
 
 | Parámetro de configuración | DESCRIPCIÓN |
 |--------------------|-------------|

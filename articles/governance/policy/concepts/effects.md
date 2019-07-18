@@ -8,29 +8,30 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: c2bf19a2599d59b9ff2b3d189b26134f1528a878
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116200"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448573"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
 Cada definición de directiva en Azure Policy tiene un único efecto. Dicho efecto determina lo que ocurre cuando la regla de directivas se evalúa con la coincidencia. Los efectos se comportan de manera diferente si son para un nuevo recurso, un recurso actualizado o un recurso existente.
 
-Actualmente, se admiten seis efectos en una definición de directiva:
+Actualmente, se admiten estos efectos en una definición de directiva:
 
-- Append
-- Auditoría
-- AuditIfNotExists
-- Denegar
-- DeployIfNotExists
-- Disabled
+- [Append](#append)
+- [Auditoría](#audit)
+- [AuditIfNotExists](#auditifnotexists)
+- [Deny](#deny)
+- [DeployIfNotExists](#deployifnotexists)
+- [Deshabilitada](#disabled)
+- [EnforceRegoPolicy](#enforceregopolicy) (versión preliminar)
 
 ## <a name="order-of-evaluation"></a>Orden de evaluación
 
-Las solicitudes para crear o actualizar un recurso a través de Azure Resource Manager se evalúan primero por la directiva de Azure. Directiva de Azure crea una lista de todas las asignaciones que se aplican a los recursos y, a continuación, se evalúa como el recurso en cada definición. Directiva de Azure procesa algunos de los efectos antes de entregar la solicitud al proveedor de recursos adecuado. Si lo hace, impide el procesamiento innecesario por un proveedor de recursos cuando un recurso no cumple con los controles diseñados de directiva de Azure.
+En primer lugar, Azure Policy evalúa las solicitudes para crear o actualizar un recurso a través de Azure Resource Manager. Azure Policy crea una lista de todas las asignaciones que se aplican al recurso y, a continuación, evalúa el recurso de acuerdo con cada definición. Azure Policy procesa algunos de los efectos antes de entregar la solicitud al proveedor de recursos adecuado. De este modo, se evita que un proveedor de recursos realice un procesamiento innecesario cuando un recurso no cumple con los controles de gobernanza diseñados de Azure Policy.
 
 - Primero se selecciona **Deshabilitado** para determinar si se debe evaluar la regla de directivas.
 - Luego se evalúa **Append**. Dado que append ya podría alterar la solicitud, un cambio realizado por append podría evitar la activación de un efecto audit o deny.
@@ -38,6 +39,8 @@ Las solicitudes para crear o actualizar un recurso a través de Azure Resource M
 - A continuación, se evalúa **audit** antes de que la solicitud vaya al proveedor de recursos.
 
 Después de que el proveedor de recursos devuelva un código correcto, **AuditIfNotExists** y **DeployIfNotExists** se evalúan para determinar si es necesario realizar una acción o un registro de cumplimiento adicionales.
+
+Actualmente, no hay ningún orden de evaluación para el efecto **EnforceRegoPolicy**.
 
 ## <a name="disabled"></a>Disabled
 
@@ -88,7 +91,7 @@ Ejemplo 2: varios pares **campo/valor** para anexar un conjunto de etiquetas.
 }
 ```
 
-Ejemplo 3: Solo **campo-valor** emparejar con una que no sean de **[\*]** [alias](definition-structure.md#aliases) con una matriz **valor** para establecer las reglas IP en una cuenta de almacenamiento. Cuando el alias que no es **[\*]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
+Ejemplo 3: un único par **campo/valor** que usa un [alias](definition-structure.md#aliases) distinto de- **[\*]** con un **valor** de matriz para establecer reglas de IP en una cuenta de almacenamiento. Cuando el alias que no es **[\*]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
 
 ```json
 "then": {
@@ -103,7 +106,7 @@ Ejemplo 3: Solo **campo-valor** emparejar con una que no sean de **[\*]** [alias
 }
 ```
 
-Ejemplo 4: un único par **campo/valor** que usa un [alias](definition-structure.md#aliases) **[\*]** con un **valor** de matriz para establecer reglas IP en una cuenta de almacenamiento. Mediante el uso del alias **[\*]**, el efecto anexa el **valor** a una matriz que es posible que ya exista. Si la matriz no existe aún, se creará.
+Ejemplo 4: un único par **campo/valor** que usa un [alias](definition-structure.md#aliases) **[\*]** con un **valor** de matriz para establecer reglas IP en una cuenta de almacenamiento. Mediante el uso del alias **[\*]** , el efecto anexa el **valor** a una matriz que es posible que ya exista. Si la matriz no existe aún, se creará.
 
 ```json
 "then": {
@@ -148,7 +151,7 @@ Audit se utiliza para crear un evento de advertencia en el registro de actividad
 
 ### <a name="audit-evaluation"></a>Evaluación de audit
 
-Auditoría es el último efecto activado por la directiva de Azure durante la creación o actualización de un recurso. Directiva de Azure, a continuación, envía el recurso para el proveedor de recursos. Audit funciona igual para una solicitud de recurso y un ciclo de evaluación. Directiva de Azure agrega un `Microsoft.Authorization/policies/audit/action` operación en el registro de actividad y se marca como no conforme.
+Audit es el último efecto que Azure Policy comprueba durante la creación o actualización de un recurso. A continuación, Azure Policy envía el recurso al proveedor de recursos. Audit funciona igual para una solicitud de recurso y un ciclo de evaluación. Azure Policy agrega una operación `Microsoft.Authorization/policies/audit/action` al registro de actividad y marca el recurso como no compatible.
 
 ### <a name="audit-properties"></a>Propiedades de audit
 
@@ -170,7 +173,7 @@ AuditIfNotExists habilita la auditoría en recursos que coinciden con la condici
 
 ### <a name="auditifnotexists-evaluation"></a>Evaluación de AuditIfNotExists
 
-AuditIfNotExists se ejecuta después de que un proveedor de recursos haya operado con una solicitud de creación o actualización de recursos y haya devuelto un código de estado correcto. La auditoría se produce si no hay recursos relacionados o si los recursos definidos por **ExistenceCondition** no se evalúan como true. Directiva de Azure agrega un `Microsoft.Authorization/policies/audit/action` operación a la actividad de registro del mismo modo que el efecto de auditoría. Cuando se desencadena, el recurso que cumple la condición **if** es el recurso que está marcado como no conforme.
+AuditIfNotExists se ejecuta después de que un proveedor de recursos haya operado con una solicitud de creación o actualización de recursos y haya devuelto un código de estado correcto. La auditoría se produce si no hay recursos relacionados o si los recursos definidos por **ExistenceCondition** no se evalúan como true. Azure Policy agrega una operación `Microsoft.Authorization/policies/audit/action` al registro de actividad del mismo modo que el efecto Audit. Cuando se desencadena, el recurso que cumple la condición **if** es el recurso que está marcado como no conforme.
 
 ### <a name="auditifnotexists-properties"></a>Propiedades de AuditIfNotExists
 
@@ -178,10 +181,10 @@ La propiedad **details** de los efectos de AuditIfNotExists tiene todas las subp
 
 - **Type** [obligatorio]
   - Especifica el tipo del recurso relacionado para coincidir.
-  - Si **details.type** es un tipo de recurso debajo el **si** condición recursos, la directiva de consulta para los recursos de este **tipo** dentro del ámbito del recurso evaluado. Consultas de la directiva en caso contrario, dentro del mismo grupo de recursos que el recurso evaluado.
+  - Si **details.type** es un tipo de recurso debajo del recurso de condición **if**, la directiva consultará los recursos de este **tipo** que estén dentro del alcance del recurso evaluado. De lo contrario, la directiva realizará consultas dentro del mismo grupo de recursos que el recurso evaluado.
 - **Nombre** (opcional)
   - Especifica el nombre exacto del recurso para coincidir y hace que la directiva recupere un recurso específico en lugar de todos los recursos del tipo especificado.
-  - Cuando la condición de valores para **if.field.type** y **then.details.type** coinciden, a continuación, **nombre** se convierte en _requiere_ y debe ser `[field('name')]`. Sin embargo, un [auditar](#audit) efecto debe tenerse en cuenta en su lugar.
+  - Cuando los valores de condición para **if.field.type** y **then.details.type** coinciden, entonces el valor **Name** es _necesario_ y debe ser `[field('name')]`. Sin embargo, un efecto [Audit](#audit) debe tenerse en cuenta en su lugar.
 - **ResourceGroupName** (opcional)
   - Permite que la coincidencia del recurso relacionado provenga de un grupo de recursos diferente.
   - No se aplica si **type** es un recurso que estaría debajo del recurso de condición **if**.
@@ -252,7 +255,7 @@ La propiedad **details** de los efectos de DeployIfNotExists tiene todas las sub
   - Comienza tratando de recuperar un recurso debajo del recurso de condición **if** , luego consulta dentro del mismo grupo de recursos que el recurso de condición **if**.
 - **Nombre** (opcional)
   - Especifica el nombre exacto del recurso para coincidir y hace que la directiva recupere un recurso específico en lugar de todos los recursos del tipo especificado.
-  - Cuando la condición de valores para **if.field.type** y **then.details.type** coinciden, a continuación, **nombre** se convierte en _requiere_ y debe ser `[field('name')]`.
+  - Cuando los valores de condición para **if.field.type** y **then.details.type** coinciden, entonces el valor **Name** es _necesario_ y debe ser `[field('name')]`.
 - **ResourceGroupName** (opcional)
   - Permite que la coincidencia del recurso relacionado provenga de un grupo de recursos diferente.
   - No se aplica si **type** es un recurso que estaría debajo del recurso de condición **if**.
@@ -337,9 +340,61 @@ Ejemplo: evalúa las bases de datos de SQL Server para determinar si está habil
 }
 ```
 
+## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+
+Este efecto se usa con un *modo* de definición de directiva de `Microsoft.ContainerService.Data`. Se usa para pasar las reglas de control de admisión definidas con [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) al [Agente de directivas abierto](https://www.openpolicyagent.org/) (OPA) en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy para Kubernetes](rego-for-aks.md) está en su versión preliminar pública y solo admite definiciones de directivas integradas.
+
+### <a name="enforceregopolicy-evaluation"></a>Evaluación de EnforceRegoPolicy
+
+El controlador de admisión del Agente de directivas abierto evalúa cualquier solicitud nueva en el clúster en tiempo real.
+Cada 5 minutos, se completa un análisis completo del clúster y los resultados se envían a Azure Policy.
+
+### <a name="enforceregopolicy-properties"></a>Propiedades de EnforceRegoPolicy
+
+La propiedad de **detalles** del efecto EnforceRegoPolicy tiene las subpropiedades que describen la regla de control de admisión de Rego.
+
+- **policyId** [obligatorio]
+  - Un nombre único que pasa como parámetro a la regla de control de admisión de Rego.
+- **policy** [obligatorio]
+  - Especifica el URI de la regla de control de admisión de Rego.
+- **policyParameters** [opcional]
+  - Define cualquier parámetro y valor para pasar a la directiva de Rego.
+
+### <a name="enforceregopolicy-example"></a>Ejemplo de EnforceRegoPolicy
+
+Ejemplo: Regla de control de admisión de Rego para permitir solo las imágenes de contenedor especificadas en AKS.
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "equals": "Microsoft.ContainerService/managedClusters"
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "EnforceRegoPolicy",
+    "details": {
+        "policyId": "ContainerAllowedImages",
+        "policy": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/KubernetesService/container-allowed-images/limited-preview/gatekeeperpolicy.rego",
+        "policyParameters": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]"
+        }
+    }
+}
+```
+
 ## <a name="layering-policies"></a>Directivas de distribución en capas
 
-Un recurso puede verse afectado por varias asignaciones. Estas asignaciones pueden estar en el mismo o diferentes ámbitos. Cada una de estas asignaciones también es probable que tenga un efecto diferente al definido. La condición y el efecto de cada directiva se evalúan por separado. Por ejemplo: 
+Un recurso puede verse afectado por varias asignaciones. Estas asignaciones pueden estar en el mismo o diferentes ámbitos. Cada una de estas asignaciones también es probable que tenga un efecto diferente al definido. La condición y el efecto de cada directiva se evalúan por separado. Por ejemplo:
 
 - Directiva 1
   - Restringe la ubicación de recursos a "westus".
@@ -368,9 +423,9 @@ Cada asignación se evalúa individualmente. Por lo tanto, no hay ninguna oportu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise los ejemplos en [ejemplos de Azure Policy](../samples/index.md).
+- Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md).
 - Revise la [estructura de definición de Azure Policy](definition-structure.md).
-- Comprender cómo [crear mediante programación las directivas](../how-to/programmatically-create.md).
+- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md).
 - Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md).
 - Obtenga información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md).
-- Compruebe que un grupo de administración con [organizar los recursos con grupos de administración de Azure](../../management-groups/overview.md).
+- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

@@ -12,24 +12,24 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 311015aff5ea7020043ad8e43fd987144cdcbf52
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074259"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206751"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
-En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para una sola base de datos en el nivel de proceso aprovisionada. Como alternativa, el [nivel de proceso sin servidor (versión preliminar)](sql-database-serverless.md) proporciona escalado automático de proceso y las facturas por segundo para el proceso usa.
+En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para una base de datos única en el nivel de proceso aprovisionado. Como alternativa, el [nivel de proceso sin servidor (versión preliminar)](sql-database-serverless.md) proporciona escalado automático de proceso y factura por segundo el proceso que se usa.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
-## <a name="change-compute-size-vcores-or-dtus"></a>Cambiar el tamaño de proceso (núcleos virtuales o Dtu)
+## <a name="change-compute-size-vcores-or-dtus"></a>Cambio del tamaño de proceso (núcleos virtuales o DTU)
 
-Después de elegir inicialmente el número de Dtu o de núcleos virtuales, puede escalar una base de datos única hacia arriba o abajo dinámicamente en función de la experiencia real mediante la [portal Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [ PowerShell](/powershell/module/az.sql/set-azsqldatabase), [CLI de Azure](/cli/azure/sql/db#az-sql-db-update), o el [API de REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+Después de elegir inicialmente el número de núcleos virtuales o DTU, puede escalar o reducir una base de datos verticalmente de manera dinámica en función de la experiencia real mediante [Azure Portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az-sql-db-update) o la [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 El vídeo siguiente muestra cómo cambiar de manera dinámica el nivel de servicio y el tamaño de proceso para aumentar las DTU disponibles para una base de datos única.
 
@@ -39,51 +39,51 @@ El vídeo siguiente muestra cómo cambiar de manera dinámica el nivel de servic
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
-### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto de cambiar el tamaño de proceso de nivel o cambiar la escala de servicio
+### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto de cambiar el nivel de servicio o la escala del tamaño de proceso
 
-Cambiar el servicio de nivel o calcular el tamaño de una sola base de datos implica principalmente el servicio siguiendo estos pasos:
+El cambio en el nivel de servicio o el tamaño de proceso de una base de datos única principalmente implica que el servicio realice los pasos siguientes:
 
-1. Crear nueva instancia de proceso para la base de datos  
+1. Creación de una instancia de proceso nueva para la base de datos  
 
-    Se crea una nueva instancia de proceso para la base de datos con el tamaño de proceso y el nivel de servicio solicitado. Para algunas combinaciones de nivel de servicio y los cambios de tamaño de proceso, una réplica de la base de datos debe crearse en la nueva instancia de proceso que implica copiar los datos y puede influir notoriamente en la latencia total. En cualquier caso, la base de datos permanece en línea durante este paso y continuarán conexiones para que se dirijan a la base de datos en la instancia de proceso original.
+    Se crea una instancia de proceso nueva para la base de datos con el tamaño de proceso y el nivel de servicio solicitados. Para algunas combinaciones de cambios en el nivel de servicio y el tamaño de proceso, se debe crear una réplica de la base de datos en la nueva instancia de proceso que implique copiar los datos y pueda influir en gran medida en la latencia general. En cualquier caso, la base de datos permanece en línea durante este paso y las conexiones se continúan dirigiendo a la base de datos en la instancia de proceso original.
 
-2. Cambiar el enrutamiento de conexiones a la nueva instancia de proceso
+2. Cambio en el enrutamiento de conexiones a la nueva instancia de proceso
 
-    Se quitan las conexiones existentes con la base de datos en la instancia de proceso original. Las nuevas conexiones se establecen en la base de datos en la nueva instancia de proceso. Para algunas combinaciones de nivel de servicio y los cambios de tamaño de proceso, los archivos de base de datos se separa y volver a adjuntar durante la conmutación.  No obstante, el conmutador puede provocar una breve interrupción del servicio cuando la base de datos no está disponible con carácter general para menos de 30 segundos y a menudo solo unos segundos. Si no hay de larga ejecución transacciones que se ejecutan cuando se quitan conexiones, la duración de este paso puede tardar más tiempo con el fin de recuperar las transacciones anuladas. [Acelerado de recuperación de base de datos](sql-database-accelerated-database-recovery.md) puede reducir el impacto de anulación de transacciones de larga ejecución.
+    Se colocan las conexiones existentes en la base de datos en la instancia de proceso original. En la nueva instancia de proceso las nuevas conexiones se establecen en la base de datos. Para algunas combinaciones de cambios de nivel de servicio y de tamaño de proceso, los archivos de base de datos se desasocian y se vuelven a asociar durante la modificación.  No obstante, el modificador puede provocar una breve interrupción del servicio cuando la base de datos no esté disponible de forma general durante menos de 30 segundos y, a menudo, durante solo unos segundos. Si hay transacciones de larga duración que se ejecutan cuando se colocan las conexiones, la duración de este paso puede ser mayor con el fin de recuperar las transacciones anuladas. La [Recuperación de base de datos acelerada](sql-database-accelerated-database-recovery.md) puede reducir el impacto de la anulación de transacciones de larga duración.
 
 > [!IMPORTANT]
-> No se pierden datos durante los pasos del flujo de trabajo.
+> Durante los pasos del flujo de trabajo no se pierden datos.
 
-### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latencia del cambio de tamaño de proceso de nivel o cambiar la escala de servicio
+### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latencia de cambiar el nivel de servicio o la escala del tamaño de proceso
 
-La latencia para cambiar el nivel de servicio o cambiar el tamaño de proceso de una sola base de datos o el grupo elástico se parametriza como sigue:
+La latencia estimada de cambiar el nivel de servicio o la escala del tamaño de proceso de una base de datos única o un grupo elástico se parametriza como sigue:
 
-|Nivel de servicio|Básica única base de datos</br>Estándar (S0-S1)|Grupo elástico básico,</br>Estándar (S2-S12) </br>A gran escala, </br>Finalidad única base de datos general o del grupo elástico|Base de datos única Premium o crítico para la empresa o el grupo elástico|
+|Nivel de servicio|Base de datos única básica,</br>estándar (S0-S1)|Grupo elástico básico,</br>estándar (S2-S12), </br>hiperescala, </br>base de datos única o grupo elástico de uso general|Base de datos única o grupo elástico Premium o Crítico para la empresa|
 |:---|:---|:---|:---|
-|**Base de datos único básica,</br> estándar (S0-S1)**|&bull; &nbsp;Latencia de tiempo constante independientemente del espacio utilizado</br>&bull; &nbsp;Normalmente, menos de 5 minutos|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
-|**Grupo elástico básico, </br>estándar (S2-S12) </br>a gran escala, </br>única base de datos de uso General o el grupo elástico**|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia de tiempo constante independientemente del espacio utilizado</br>&bull; &nbsp;Normalmente, menos de 5 minutos|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
-|**Base de datos única Premium o crítico para la empresa o el grupo elástico**|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
+|**Base de datos único básica,</br> estándar (S0-S1)**|&bull; &nbsp;Latencia de tiempo constante independientemente del espacio usado</br>&bull; &nbsp;Normalmente, menos de 5 minutos|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
+|**Grupo elástico básico, </br>estándar (S2-S12) </br>hiperescala, </br>base de datos única o grupo elástico de uso general**|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia de tiempo constante independientemente del espacio usado</br>&bull; &nbsp;Normalmente, menos de 5 minutos|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
+|**Base de datos única o grupo elástico Premium o Crítico para la empresa**|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
 
 > [!TIP]
 > Para supervisar las operaciones en curso, consulte: [Administración de operaciones mediante la API REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Administración de operaciones mediante la CLI](/cli/azure/sql/db/op), [Supervisión de operaciones mediante T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) y estos dos comandos de PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) y [Stop AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
-### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>Cancelar cambios de nivel de servicio o cambiar la escala de las operaciones de proceso
+### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>Cancelación de cambios del nivel de servicio o de la escala del proceso
 
-Un nivel de servicio cambie o se puede cancelar la operación de cambio de escala de proceso.
+Un cambio del nivel de servicio o de la escala del proceso se puede cancelar.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
-En la hoja de información general de la base de datos, vaya a **notificaciones** y haga clic en el icono que indica que hay una operación en curso:
+En la hoja de información general de la base de datos, vaya a **Notificaciones** y haga clic en el icono que indica que hay una operación en curso:
 
 ![Operación en curso](media/sql-database-single-database-scale/ongoing-operations.png)
 
-A continuación, haga clic en el botón rotulado **cancelar esta operación**.
+A continuación, haga clic en el botón **Cancelar esta operación**.
 
-![Cancelar la operación en curso](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
+![Cancelación de la operación en curso](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
 
 #### <a name="powershell"></a>PowerShell
 
-Desde un símbolo del sistema de PowerShell, establezca el `$ResourceGroupName`, `$ServerName`, y `$DatabaseName`, y, a continuación, ejecute el siguiente comando:
+Desde un símbolo del sistema de PowerShell, defina los valores `$ResourceGroupName`, `$ServerName` y `$DatabaseName` y, después, ejecute el comando siguiente:
 
 ```PowerShell
 $OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
@@ -98,7 +98,7 @@ if(-not [string]::IsNullOrEmpty($OperationName))
     }
 ```
 
-### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Consideraciones adicionales cuando se cambia de servicio de nivel o cambiar la escala de tamaño de proceso
+### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Consideraciones adicionales cuando se cambia el nivel de servicio o la escala de tamaño de proceso
 
 - Si va a actualizar a un nivel de servicio o tamaño de proceso más elevado, el tamaño máximo de la base de datos no aumenta a no ser que especifique un tamaño mayor (maxsize).
 - Para cambiar una base de datos a una versión anterior, su espacio usado no debe alcanzar el tamaño máximo permitido del nivel de servicio de destino y del tamaño de proceso.
@@ -133,11 +133,11 @@ Se le cobrará por cada hora que una base de datos exista con el mayor nivel de 
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
-## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>Las restricciones de P11 y P15 cuando el máximo tamaño es mayor de 1 TB
+## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>P11 y P15 se restringen cuando el tamaño máximo es mayor de 1 TB
 
 Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Centro-oeste de EE. UU., US regiones de US DoD y Centro de Gobierno de EE. UU. En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB. Las siguientes consideraciones y limitaciones se aplican a las bases de datos P11 y P15 con un tamaño máximo mayor de 1 TB:
 
-- Si el tamaño máximo de una base de datos P11 o P15 nunca se estableció en un valor mayor que 1 TB, a continuación, puede lo solo puede restaurar o copiar a una base de datos P11 o P15.  Posteriormente, la base de datos puede se escala a un tamaño de proceso diferente siempre que la cantidad de espacio asignado en el momento de la operación de cambio de escala no supere los límites de tamaño máximo con el nuevo tamaño de proceso.
+- Si el tamaño máximo de una base de datos P11 o P15 nunca se estableció en un valor mayor que 1 TB, entonces solo puede restablecerse o copiarse a una base de datos P11 o P15.  Posteriormente, la base de datos puede escalarse de nuevo a un tamaño de proceso diferente siempre que la cantidad de espacio asignado en el momento de la operación de cambio de escala no supere los límites de tamaño máximo con el nuevo tamaño de proceso.
 - En escenarios de replicación geográfica activa:
   - Configuración de una relación de replicación geográfica: si la base de datos principal es P11 o P15, la secundaria (una o varias) también debe ser P11 o P15; aquellas con un tamaño de proceso inferior se rechazarán como secundarias, puesto que no tienen capacidad para admitir más de 1 TB.
   - Actualización de la base de datos principal en una relación de replicación geográfica: al cambiar el tamaño máximo a 1 TB en una base de datos principal, se desencadenará el mismo cambio en la base de datos secundaria. Ambas actualizaciones deben realizarse correctamente para que el cambio en la principal surta efecto. Se aplican limitaciones por región para la opción de más de 1 TB. Si la base de datos secundaria está en una región que no admite más de 1 TB, no se actualizará la principal.

@@ -1,6 +1,6 @@
 ---
-title: Revisar el acceso por sí mismo a grupos o aplicaciones en las revisiones de acceso - Azure Active Directory | Microsoft Docs
-description: Aprenda a revisar su propio acceso a grupos o aplicaciones en las revisiones de acceso de Azure Active Directory.
+title: 'Revisión de su acceso a los grupos o las aplicaciones en las revisiones de acceso: Azure Active Directory | Microsoft Docs'
+description: Obtenga información sobre cómo revisar su propio acceso a grupos o aplicaciones en las revisiones de acceso de Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,16 +15,16 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 22f12255bf14ca424a8a79107e7ca8e403552b62
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113185"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471739"
 ---
-# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Revisar el acceso por sí mismo a grupos o las revisiones de acceso de las aplicaciones de Azure AD
+# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Revisión del acceso a los grupos o las aplicaciones en las revisiones de acceso de Azure AD
 
-Azure Active Directory (Azure AD) simplifica el modo en que las empresas administran el acceso a grupos o aplicaciones de Azure AD y revisiones de otros servicios en línea de Microsoft con una característica denominada acceso de Azure AD.
+Azure Active Directory (Azure AD) simplifica el modo en que las empresas administran el acceso a los grupos o las aplicaciones en Azure AD y otras instancias de Microsoft Online Services, con una característica denominada revisiones de acceso de Azure AD.
 
 En este artículo se describe cómo revisar su propio acceso a un grupo o una aplicación.
 
@@ -32,59 +32,59 @@ En este artículo se describe cómo revisar su propio acceso a un grupo o una ap
 
 - Azure AD Premium P2
 
-Para obtener más información, consulte [qué usuarios deben tener licencias?](access-reviews-overview.md#which-users-must-have-licenses).
+Para más información, consulte [¿Qué usuarios deben tener licencias?](access-reviews-overview.md#which-users-must-have-licenses).
 
-## <a name="open-the-access-review"></a>Abra la revisión de acceso
+## <a name="open-the-access-review"></a>Apertura de la revisión de acceso
 
-Es el primer paso para realizar una revisión de acceso buscar y abrir la revisión de acceso.
+El primer paso para realizar una revisión de acceso es buscar y abrir la revisión de acceso.
 
-1. Busque un correo electrónico de Microsoft que le pide que revise el acceso. Este es un correo electrónico de ejemplo para revisar su acceso a un grupo.
+1. Busque un correo electrónico de Microsoft que le pide que revise el acceso. Este es un ejemplo de un correo electrónico para revisar su acceso a un grupo.
 
-    ![Correo electrónico de revisión de acceso](./media/review-your-access/access-review-email.png)
+    ![Ejemplo de correo electrónico de Microsoft para revisar su acceso a un grupo](./media/review-your-access/access-review-email.png)
 
-1. Haga clic en el **revisar acceso** vínculo para abrir la revisión de acceso.
+1. Haga clic en el vínculo **Review access** (Revisar acceso) para abrir la revisión de acceso.
 
-Si no tiene el correo electrónico, puede encontrar que revisa su acceso pendiente siguiendo estos pasos.
+Si no tiene el correo electrónico, puede encontrar las revisiones de acceso pendientes mediante estos pasos.
 
-1. Inicie sesión en el portal de MyApps en [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. Inicie sesión en el portal de aplicaciones en [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-    ![Portal de MyApps](./media/review-your-access/myapps-access-panel.png)
+    ![Portal de aplicaciones con las aplicaciones para las que tiene permiso](./media/review-your-access/myapps-access-panel.png)
 
 1. En la esquina superior derecha de la página, haga clic en el símbolo de usuario que muestra la organización predeterminada y el nombre de usuario. Si aparece más de una organización, seleccione la que haya solicitado una revisión de acceso.
 
-1. En el lado derecho de la página, haga clic en el **las revisiones de acceso** icono para ver una lista de las revisiones de acceso pendientes.
+1. En el lado derecho de la página, haga clic en el icono **Access reviews** (Revisiones de acceso) para ver una lista de las revisiones de acceso pendientes.
 
     Si el icono no está visible, no hay ninguna revisión de acceso para esa organización y no se requiere ninguna acción en este momento.
 
-    ![Lista de revisiones de acceso](./media/review-your-access/access-reviews-list.png)
+    ![Lista de revisiones de acceso pendientes para aplicaciones y grupos](./media/review-your-access/access-reviews-list.png)
 
-1. Haga clic en el **comenzar revisión** vínculo para la revisión de acceso que desea realizar.
+1. Haga clic en el vínculo **Begin review** (Comenzar revisión) para la revisión de acceso que quiere realizar.
 
-## <a name="perform-the-access-review"></a>Realizar la revisión de acceso
+## <a name="perform-the-access-review"></a>Realización de la revisión de acceso
 
 Una vez que ha abierto la revisión de acceso, puede ver los derechos de acceso.
 
-1. Revisión del acceso y decida si todavía tiene acceso.
+1. Revise su acceso y decida si todavía lo necesita.
 
-    Si la solicitud es para revisar el acceso para que otros usuarios, la página tendrá un aspecto diferente. Para obtener más información, consulte [revisen el acceso a grupos o aplicaciones](perform-access-review.md).
+    Si la solicitud es revisar el acceso de otros usuarios, la página se verá diferente. Para obtener más información, consulte [Revisar el acceso a grupos o aplicaciones](perform-access-review.md).
 
-    ![Realizar la revisión de acceso](./media/review-your-access/perform-access-review.png)
+    ![Abrir la revisión de acceso que le pregunta si aún necesita acceso a un grupo](./media/review-your-access/perform-access-review.png)
 
-1. Haga clic en **Sí** para mantener el acceso o haga clic en **No** para quitar el acceso.
+1. Seleccione **Yes** (Sí) para mantener el acceso o **No** para quitarlo.
 
-1. Si hace clic en **Sí**, es posible que necesite especificar una justificación en el **motivo** cuadro.
+1. Si selecciona **Yes** (Sí), es posible que necesite especificar una justificación en el cuadro **Reason** (Motivo).
 
-    ![Realizar la revisión de acceso](./media/review-your-access/perform-access-review-submit.png)
+    ![Revisión de acceso completada que pregunta si todavía necesita acceso a un grupo](./media/review-your-access/perform-access-review-submit.png)
 
 1. Haga clic en **Enviar**.
 
-    La selección se envía y devuelve en el portal de MyApps.
+    Su selección se envía y vuelve al portal de aplicaciones.
 
-    Si desea cambiar la respuesta, vuelva a abrir la página de revisiones de acceso y actualizar su respuesta. Puede cambiar su respuesta en cualquier momento hasta que haya finalizado la revisión de acceso.
+    Si quiere cambiar su respuesta, vuelva a abrir la página de revisiones de acceso y actualícela. Puede cambiar su respuesta en cualquier momento hasta que finalice la revisión de acceso.
 
     > [!NOTE]
-    > Si se ha indicado que ya no necesitan tener acceso, no se quitan inmediatamente. Se quitan cuando la revisión ha finalizado o cuando un administrador detiene la revisión.
+    > Si indicó que ya no necesita acceso, este no se eliminará de inmediato. Se quitará cuando la revisión haya finalizado o cuando un administrador la detenga.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Revisión de acceso de grupos o aplicaciones](complete-access-review.md)
+- [Completar una revisión de acceso de grupos o aplicaciones](complete-access-review.md)

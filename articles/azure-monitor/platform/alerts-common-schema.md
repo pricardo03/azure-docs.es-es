@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be38f5d3bbf4fe3d90fc78feab8774595b5338f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776594"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447665"
 ---
 # <a name="common-alert-schema"></a>Esquema de alertas comunes
 
@@ -24,7 +24,7 @@ Este artículo describe qué es el esquema de alertas comunes, las ventajas de u
 El esquema de alertas comunes estandariza hoy en día la experiencia de consumo para las notificaciones de alerta en Azure. Históricamente, los tres tipos de alerta en Azure actuales (métrica, registro y registro de actividad) han tenido sus propias plantillas de correo electrónico, esquemas de webhook, etc. Con el esquema de alerta comunes, ahora puede recibir notificaciones de alertas con un esquema coherente.
 
 Cualquier instancia de alerta describe **el recurso que resultó afectado** y **la causa de la alerta**, y estas instancias se describen en el esquema común en las secciones siguientes:
-* **Información esencial**: Un conjunto de **campos estandarizado** común a todos los tipos de alertas, que describen en **qué recurso** se encuentra la alerta junto con otros metadatos de alerta comunes (por ejemplo, gravedad o descripción). 
+* **Información esencial**: Un conjunto de **campos estandarizados** común a todos los tipos de alertas, que describen en **qué recurso** se encuentra la alerta junto con otros metadatos de alerta comunes (por ejemplo, gravedad o descripción). 
 * **Contexto de alerta**: Un conjunto de campos que describen la **causa de la alerta**, con campos que varían **según el tipo de alerta**. Por ejemplo, una alerta de métrica tendría campos como el nombre de la métrica y el valor de la métrica en el contexto de la alerta, mientras que una alerta de registro de actividad tendría información sobre el evento que generó la alerta. 
 
 Entre los escenarios de integración típicos que nos cuentan nuestros clientes está el enrutamiento de la instancia de alerta al equipo correspondiente según alguna variable dinámica (por ejemplo, grupo de recursos), después de que el equipo responsable empiece a trabajar en ella. Con el esquema de alertas comunes, puede tener una lógica de enrutamiento estandarizada con tipos de alerta al utilizar los campos esenciales, dejando los campos de contexto tal cual para que los equipos afectados los investiguen en profundidad.
@@ -125,6 +125,7 @@ Por ejemplo, el siguiente cuerpo de la solicitud realizado en la API REST de [c
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Definiciones del esquema de alertas comunes para webhooks/Logic Apps/Azure Functions/runbook de Automation.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Obtenga información sobre cómo crear una aplicación lógica que aproveche el esquema común de alertas para controlar todas las alertas.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

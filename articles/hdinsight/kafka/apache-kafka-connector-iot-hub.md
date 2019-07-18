@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5559d243573ea04400007cdce0e71009dc91e27a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698162"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446437"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Uso de Apache Kafka en HDInsight con Azure IoT Hub
 
@@ -37,7 +37,7 @@ Para más información sobre las API de Connect, consulte [https://kafka.apache.
 
 * Un nodo perimetral del clúster de Kafka. Para más información, consulte el documento [Uso de nodos perimetrales con HDInsight](../hdinsight-apps-use-edge-node.md).
 
-* Una instancia de Azure IoT Hub. Para este tutorial, se recomienda el documento[Conexión del simulador en línea Raspberry Pi a Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started).
+* Una instancia de Azure IoT Hub. Para este artículo, se recomienda el documento[Conexión del simulador en línea Raspberry Pi a Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started).
 
 * Un cliente SSH. Los pasos descritos en este documento usan SSH para conectarse al clúster. Para más información, vea el documento [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -238,14 +238,14 @@ Para configurar el origen para que funcione con su instancia de IoT Hub, realice
 
     En el editor, busque y cambie las siguientes entradas:
 
-   * `Kafka.Topic=PLACEHOLDER`: Reemplace  por `iotin`. Los mensajes recibidos del centro de IoT se colocan en el tema `iotin`.
+   * `Kafka.Topic=PLACEHOLDER`: Reemplace `PLACEHOLDER` por `iotin`. Los mensajes recibidos del centro de IoT se colocan en el tema `iotin`.
    * `IotHub.EventHubCompatibleName=PLACEHOLDER`: reemplace `PLACEHOLDER` por el nombre compatible con el centro de eventos.
    * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: reemplace `PLACEHOLDER` por el punto de conexión compatible con el centro de eventos.
    * `IotHub.Partitions=PLACEHOLDER`: reemplace `PLACEHOLDER` por el número de particiones de los pasos anteriores.
-   * `IotHub.AccessKeyName=PLACEHOLDER`: Reemplace  por `service`.
+   * `IotHub.AccessKeyName=PLACEHOLDER`: Reemplace `PLACEHOLDER` por `service`.
    * `IotHub.AccessKeyValue=PLACEHOLDER`: reemplace `PLACEHOLDER` por la clave principal de la directiva `service`.
    * `IotHub.StartType=PLACEHOLDER`: reemplace `PLACEHOLDER` por una fecha UTC. Esta fecha corresponde a cuando el conector comienza a buscar mensajes. El formato de fecha es `yyyy-mm-ddThh:mm:ssZ`.
-   * `BatchSize=100`: Reemplace  por `5`. Este cambio hace que el conector lea los mensajes en Kafka una vez que hay cinco nuevos mensajes en el centro de IoT.
+   * `BatchSize=100`: Reemplace `100` por `5`. Este cambio hace que el conector lea los mensajes en Kafka una vez que hay cinco nuevos mensajes en el centro de IoT.
 
      Para ver una configuración de ejemplo, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
@@ -271,7 +271,7 @@ Para configurar la conexión de receptor para que funcione con su instancia de I
 
     En el editor, busque y cambie las siguientes entradas:
 
-   * `topics=PLACEHOLDER`: Reemplace  por `iotout`. Los mensajes enviados a `iotout` se reenvían al centro de IoT.
+   * `topics=PLACEHOLDER`: Reemplace `PLACEHOLDER` por `iotout`. Los mensajes enviados a `iotout` se reenvían al centro de IoT.
    * `IotHub.ConnectionString=PLACEHOLDER`: reemplace `PLACEHOLDER` por la cadena de conexión de la directiva `service`.
 
      Para ver una configuración de ejemplo, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).

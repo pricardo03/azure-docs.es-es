@@ -1,27 +1,39 @@
 ---
-title: Cómo configurar la directiva de Azure Active Directory para Azure Data Catalog
-description: Puede encontrar una situación que puede iniciar sesión el portal de Azure Data Catalog, pero cuando se intenta iniciar sesión en la herramienta de registro del origen de datos, se mostrará un mensaje de error.
+title: Cómo solucionar problemas de Azure Data Catalog
+description: En este artículo se describen cuestiones comunes de solución de problemas para los recursos de Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
-ms.date: 04/06/2019
-ms.openlocfilehash: e69a7e3bd104d0fb82b248b6560d4fd082c88426
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.topic: troubleshooting
+ms.date: 06/13/2019
+ms.openlocfilehash: ed74e90e5e8ed55b75968f51cb50e6a1b4cdd75d
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116608"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203502"
 ---
-# <a name="azure-active-directory-policy-configuration"></a>Configuración de directivas de Azure Active Directory
+# <a name="troubleshooting-azure-data-catalog"></a>Solución de problemas de Azure Data Catalog
 
-Se puede dar el caso de que pueda iniciar sesión en el portal de Azure Data Catalog, pero al intentar iniciar sesión en la herramienta de registro de orígenes de datos, se mostrará un mensaje de error que le impedirá hacerlo. Este error puede producirse cuando se encuentra en la red de empresa o cuando se conecta desde fuera de la red de empresa.
+En este artículo se describen cuestiones comunes de solución de problemas para los recursos de Azure Data Catalog. 
 
-## <a name="registration-tool"></a>Herramienta de registro
+## <a name="functionality-limitations"></a>Limitaciones de funcionalidad
+
+Cuando se usa Azure Data Catalog, la funcionalidad siguiente está limitada:
+
+- Las cuentas de tipo **Función de invitado** no se admiten. No se pueden agregar las cuentas de invitado como usuarios de Azure Data Catalog y los usuarios invitados no pueden usar el portal en www.azuredatacatalog.com.
+
+- No se admite la creación de recursos de Azure Data Catalog mediante plantillas de Azure Resource Manager ni comandos de Azure PowerShell.
+
+- El recurso de Azure Data Catalog no se puede mover entre inquilinos de Azure.
+
+## <a name="azure-active-directory-policy-configuration"></a>Configuración de directivas de Azure Active Directory
+
+Se puede dar el caso de que pueda iniciar sesión en el portal de Azure Data Catalog, pero al intentar iniciar sesión en la herramienta de registro de orígenes de datos, se mostrará un mensaje de error que le impedirá hacerlo. Dicho error puede aparecer cuando se utiliza la red de la empresa o cuando la conexión se realiza desde fuera de la red de la empresa.
 
 La herramienta de registro usa la *autenticación de formularios* para validar los inicios de sesión de usuario en Azure Active Directory. Para que el inicio de sesión sea correcto, un administrador de Azure Active Directory tiene que habilitar la autenticación de formularios en la *directiva de autenticación global*.
 
-Con la directiva de autenticación global se puede habilitar la autenticación de forma independiente para las conexiones de extranet y de intranet, como se muestra en la siguiente imagen. Errores de inicio de sesión pueden producirse si no está habilitada la autenticación de formularios para la red desde la que se conecta.
+Con la directiva de autenticación global se puede habilitar la autenticación de forma independiente para las conexiones de extranet y de intranet, como se muestra en la siguiente imagen. Pueden producirse errores de inicio de sesión si no está habilitada la autenticación de formularios en la red desde la que se conecta.
 
  ![Directiva de autenticación global de Azure Active Directory](./media/troubleshoot-policy-configuration/global-auth-policy.png)
 
@@ -29,4 +41,4 @@ Para más información, consulte [Configuración de directivas de autenticación
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Crear un catálogo de datos de Azure](data-catalog-get-started.md)
+* [Creación de una instancia de Azure Data Catalog](data-catalog-get-started.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: d3ff97dc86ea6932ba51a4a30e53edf1082d5305
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae5fdd51d9bc1a3e7e2521c6ca1ff64d884c96f8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937482"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341781"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Streaming de PlayReady sin conexión para Windows 10
 
@@ -27,6 +27,9 @@ Azure Media Services admite la descarga o reproducción sin conexión con protec
 
 - [Streaming de FairPlay sin conexión para iOS](offline-fairplay-for-ios.md)
 - [Streaming de Widevine sin conexión para Android](offline-widevine-for-android.md)
+
+> [!NOTE]
+> DRM sin conexión solo se factura para hacer una única solicitud de una licencia al descargar el contenido. Los errores no se facturan.
 
 ## <a name="overview"></a>Información general
 

@@ -3,26 +3,26 @@ title: Informes de Collaborative Translation Framework (CTF) - Translator Text A
 titlesuffix: Azure Cognitive Services
 description: Cómo usar los informes de Collaborative Translation Framework (CTF).
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-pawal
-ms.openlocfilehash: 166c152828a91889d7d1d7eb6f8c03dac48172f5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 79a645b0b41f200c384c165f244efa679be65171
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389387"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443462"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Cómo usar los informes de Collaborative Translation Framework (CTF)
 
 > [!NOTE]
 > Este método está obsoleto. No está disponible en la versión 3.0 de Translator Text API.
 > 
-> Collaborative Translations Framework (CTF), que se utilizaba antes para la versión 2.0 de Translator Text API, ha quedado en desuso a partir del 1 de febrero de 2018. Las funciones AddTranslation y AddTranslationArray permiten a los usuarios proporcionar correcciones a través del marco Collaborative Translation Framework. Después del 31 de enero de 2018, estas dos funciones no aceptan nuevos envíos de frases, y los usuarios reciben un mensaje de error. Estas funciones se han retirado y no se reemplazará.
+> Collaborative Translations Framework (CTF), que se utilizaba antes para la versión 2.0 de Translator Text API, ha quedado en desuso a partir del 1 de febrero de 2018. Las funciones AddTranslation y AddTranslationArray permiten a los usuarios proporcionar correcciones a través del marco Collaborative Translation Framework. Después del 31 de enero de 2018, estas dos funciones no aceptan nuevos envíos de frases, y los usuarios reciben un mensaje de error. Estas funciones se retiraron y no se reemplazarán.
 
 La API de informes de Collaborative Translation Framework (CTF) devuelve estadísticas y el contenido real en el almacén de CTF. Esta API es diferente del método GetTranslations() por lo siguiente:
 * Devuelve el contenido traducido y su recuento total solo de su cuenta (appId o cuenta de Azure Marketplace).
@@ -76,7 +76,7 @@ Este método obtiene el recuento de traducciones que se crean por el usuario. Pr
 |:---|:---|
 | appId | **Obligatorio** Si se usa el encabezado de autorización, deje el campo appid vacío o incluya una cadena que contenga "Bearer" + " " + token de acceso.|
 | uriPrefix | **Opcional** Una cadena que contiene el prefijo del URI de la traducción.|
-| from | **Opcional** Una cadena que representa el código de idioma del texto de traducción. |
+| De | **Opcional** Una cadena que representa el código de idioma del texto de traducción. |
 | to | **Opcional** Una cadena que representa el código de idioma al que se va a traducir el texto.|
 | minRating| **Opcional** Un valor entero que representa la clasificación de calidad mínima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
 | maxRating| **Opcional** Un valor entero que representa la clasificación de calidad máxima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
@@ -96,10 +96,10 @@ El conjunto de resultados contiene la matriz de **UserTranslationCount**. Cada U
 
 | Campo | DESCRIPCIÓN |
 |:---|:---|
-| Count| Número de resultados que se recupera|
+| Recuento| Número de resultados que se recupera|
 | De | Idioma de origen|
 | Rating| Clasificación que se aplica por el remitente en la llamada al método AddTranslation()|
-| En| Idioma de destino|
+| Para| Idioma de destino|
 | Identificador URI| URI que se aplica en la llamada al método AddTranslation()|
 | Usuario| Nombre del usuario|
 
@@ -147,7 +147,7 @@ Este método recupera las traducciones creadas por el usuario. Proporciona las t
 |:---|:---|
 | appId | **Obligatorio** Si se usa el encabezado de autorización, deje el campo appid vacío o incluya una cadena que contenga "Bearer" + " " + token de acceso.|
 | uriPrefix| **Opcional** Una cadena que contiene el prefijo del URI de la traducción.|
-| from| **Opcional** Una cadena que representa el código de idioma del texto de traducción.|
+| De| **Opcional** Una cadena que representa el código de idioma del texto de traducción.|
 | to| **Opcional** Una cadena que representa el código de idioma al que se va a traducir el texto.|
 | minRating| **Opcional** Un valor entero que representa la clasificación de calidad mínima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
 | maxRating| **Opcional** Un valor entero que representa la clasificación de calidad máxima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
@@ -171,7 +171,7 @@ El conjunto de resultados contiene la matriz de **UserTranslation**. Cada UserTr
 | De| Idioma de origen|
 | OriginalText| Texto de lenguaje de origen que se usa al enviar la solicitud|
 |Rating |Clasificación que se aplica por el remitente en la llamada al método AddTranslation()|
-|En|    Idioma de destino|
+|Para|    Idioma de destino|
 |TranslatedText|    Traducción tal y como se envió en la llamada al método AddTranslation()|
 |Identificador URI|   URI que se aplica en la llamada al método AddTranslation()|
 |Usuario   |Nombre del usuario|

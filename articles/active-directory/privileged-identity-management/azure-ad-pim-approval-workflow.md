@@ -16,12 +16,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e9033b33c70a72a1685696f75a442e88eed033
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f83cb38567feb51ba7959ada7730d66ded677bf9
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289776"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476532"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Aprobación o rechazo de solicitudes para los roles de Azure AD en PIM
 
@@ -41,7 +41,7 @@ Como aprobador delegado, recibirá una notificación por correo electrónico cua
 
 1. Haga clic en **Aprobar solicitudes**.
 
-    ![Roles de Azure AD de PIM: roles](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Roles de Azure AD: Aprobar solicitudes](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     Verá una lista de solicitudes pendientes de su aprobación.
 
@@ -49,27 +49,27 @@ Como aprobador delegado, recibirá una notificación por correo electrónico cua
 
 1. Seleccione las solicitudes que quiera aprobar y luego haga clic en **Aprobar** para abrir el panel Aprobar las solicitudes seleccionadas.
 
-    ![Lista de solicitudes de aprobación de PIM](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+    ![Lista de Aprobar solicitudes con la opción Aprobar resaltada](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
 1. En el cuadro **Razón de la aprobación**, escriba una razón.
 
-    ![PIM: Aprobar las solicitudes seleccionadas](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+    ![Panel de Aprobar las solicitudes seleccionadas con una razón de la aprobación](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
 1. Haga clic en **Approve** (Aprobar).
 
     El símbolo de estado se actualizará con la aprobación.
 
-    ![PIM: Aprobar las solicitudes seleccionadas](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+    ![Panel de Aprobar las solicitudes seleccionadas tras hacer clic en el botón Aprobar](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
 ## <a name="deny-requests"></a>Denegar solicitudes
 
 1. Seleccione las solicitudes que quiera denegar y luego haga clic en **Denegar** para abrir el panel Denegar las solicitudes seleccionadas.
 
-    ![Lista de solicitudes de aprobación de PIM](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+    ![Lista de Aprobar solicitudes con la opción Denegar resaltada](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
 
 1. En el cuadro **Razón de la denegación**, escriba una razón.
 
-    ![PIM: Denegar las solicitudes seleccionadas](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+    ![Panel de Aprobar las solicitudes seleccionadas con una razón de la denegación](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
 1. Haga clic en **Denegar**.
 

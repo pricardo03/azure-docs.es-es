@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9cff5fdac39be2338305cd37a4b2328a28a48255
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995651"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269265"
 ---
 # <a name="limits-and-quotas"></a>Límites y cuotas
 
@@ -39,3 +39,5 @@ Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto
 |[Otras llamadas API](https://go.microsoft.com/fwlink/?linkid=865446) (transacciones por segundo)|10|10|
 |Tamaño de imagen máximo (carga de la imagen de aprendizaje) |6 MB|6 MB|
 |Tamaño de imagen máximo (predicción)|4 MB|4 MB|
+|Núm. máximo de regiones por imagen de entrenamiento de detección de objetos|200|200|
+|Núm. máximo de etiquetas por imagen de clasificación|30|30|

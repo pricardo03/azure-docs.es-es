@@ -3,24 +3,24 @@ title: Obtenga información sobre la incorporación de las soluciones Update Man
 description: Obtenga información acerca de cómo incorporar una máquina virtual de Azure con las soluciones Update Management, Change Tracking e Inventory que forman parte de Azure Automation
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a1bb5534d2f98a4e5143038ab1d5fbbcc76184fe
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 114ddf8f545f3f8d1f6c1a80725668d7875774f8
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66133183"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476639"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
 Azure Automation proporciona soluciones para administrar las actualizaciones de seguridad del sistema operativo, el seguimiento de cambios y el inventario de los componentes instalados en los equipos. Hay varias maneras de incorporar máquinas; puede incorporar la solución [desde una máquina virtual](automation-onboard-solutions-from-vm.md), [explorando varias máquinas](automation-onboard-solutions-from-browse.md), desde su cuenta de Automation o mediante un [runbook](automation-onboard-solutions.md). Este artículo trata la incorporación de estas soluciones desde la cuenta de Automation.
 
-## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure en https://portal.azure.com
 
@@ -28,14 +28,14 @@ Inicie sesión en Azure en https://portal.azure.com
 
 Vaya a la cuenta de Automation y seleccione **Inventory** o **Change Tracking** en **ADMINISTRACIÓN DE CONFIGURACIÓN**.
 
-Elija el área de trabajo de Log Analytics y cuenta de Automation y haga clic en **habilitar** para habilitar la solución. La solución tarda hasta 15 minutos en habilitarse.
+Para habilitar la solución, elija el área de trabajo de Log Analytics y la cuenta de Automation y haga clic en **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
 
 ![Incorporación de la solución Inventory](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
 > [!NOTE]
 > Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
 >
-> Para obtener una lista de los pares de asignaciones admitidas, consulte [asignación de región para la cuenta de Automation y Log Analytics workspace](how-to/region-mappings.md).
+> Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md).
 
 La solución Change Tracking e Inventario permite realizar un [control de cambios](automation-vm-change-tracking.md) e [inventario](automation-vm-inventory.md) en sus máquinas virtuales. En este paso, se habilita la solución en una máquina virtual.
 
@@ -78,7 +78,7 @@ Seleccione cualquier búsqueda guardada para ver la consulta utilizada para rell
 
 Desde la cuenta de Automation, seleccione **Inventory** o **Change Tracking** en **ADMINISTRACIÓN DE CONFIGURACIÓN** o **Update management** en **UPDATE MANAGEMENT**.
 
-Haga clic en **+ Agregar máquinas virtuales de Azure** y seleccione una o varias máquinas virtuales en la lista. Las máquinas virtuales que no se pueden habilitar se atenúan y no se pueden seleccionar. Máquinas virtuales de Azure pueden existir en cualquier región con independencia de la ubicación de la cuenta de Automation. En la página **Habilitar la administración de actualizaciones**, haga clic en **Habilitar**. Esta operación agrega las máquinas virtuales seleccionadas a la búsqueda guardada de los grupos de equipos de la solución.
+Haga clic en **+ Agregar máquinas virtuales de Azure** y seleccione una o varias máquinas virtuales en la lista. Las máquinas virtuales que no se pueden habilitar se atenúan y no se pueden seleccionar. Las VM de Azure pueden existir en cualquier región independientemente de la ubicación de la cuenta de Automation. En la página **Habilitar la administración de actualizaciones**, haga clic en **Habilitar**. Esta operación agrega las máquinas virtuales seleccionadas a la búsqueda guardada de los grupos de equipos de la solución.
 
 ![Habilitar máquinas virtuales de Azure](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
@@ -116,7 +116,7 @@ Las siguientes soluciones dependen de un área de trabajo de Log Analytics:
 * [Seguimiento de cambios](automation-change-tracking.md)
 * [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
 
-Si decide que ya no desea integrar su cuenta de Automation con un área de trabajo de Log Analytics, puede desvincular la cuenta directamente desde el portal de Azure.  Para poder continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá avanzar. Consulte en el artículo de la solución concreta que ha importado los pasos necesarios para quitar dicha solución.
+Si decide que ya no quiere integrar su cuenta de Automation con un área de trabajo de Log Analytics, puede desvincular la cuenta directamente desde Azure Portal.  Para poder continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá avanzar. Consulte en el artículo de la solución concreta que ha importado los pasos necesarios para quitar dicha solución.
 
 Después de quitar estas soluciones, puede seguir los pasos que se indican a continuación para desvincular la cuenta de Automation.
 
@@ -145,7 +145,7 @@ Si ha usado la solución Start and Stop VMs during off-hours, también puede qui
 * Runbooks de inicio y detención de máquinas virtuales
 * variables
 
-Como alternativa también puede desvincular el área de trabajo desde su cuenta de Automation desde el área de trabajo de Log Analytics. En el área de trabajo, seleccione **cuenta de Automation** en **recursos relacionados**. En la página cuenta de Automation, seleccione **desvincular la cuenta**.
+También puede desvincular el área de trabajo de la cuenta de Automation desde el área de trabajo de Log Analytics. En el área de trabajo, seleccione **Cuenta de Automation** en **Recursos relacionados**. En la página Cuenta de Automation, seleccione **Desvincular cuenta**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

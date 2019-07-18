@@ -2,7 +2,7 @@
 title: Habilitación de la sincronización sin conexión con aplicaciones móviles iOS | Microsoft Docs
 description: Aprenda a usar App Service Mobile Apps para almacenar en caché y sincronizar datos sin conexión en aplicaciones iOS.
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f7ae3e7a33ae7df70214ed171b00cc2accbaccb5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112657"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446367"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitación de la sincronización sin conexión con aplicaciones móviles iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center está invirtiendo en servicios nuevos e integrados que son fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de entrega e integración continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios mediante el servicio de **inserción**. Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube. Consulte [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-offline-data) hoy mismo.
+>
 
 ## <a name="overview"></a>Información general
 En este tutorial, se trata la sincronización sin conexión con la característica Mobile Apps de Azure App Service para iOS. Con la sincronización sin conexión, los usuarios finales pueden interactuar con una aplicación móvil para ver, agregar o modificar datos, incluso si carecen de conexión a red. Los cambios se almacenan en una base de datos local. Una vez que el dispositivo se vuelve a conectar, los cambios se sincronizan con el back-end remoto.
@@ -159,12 +163,12 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 ![Atributos de la tabla MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Atributo | Type |
+| Atributo | type |
 | --- | --- |
 | id | Integer 64 |
-| itemId | String |
+| itemId | Cadena |
 | properties | Binary Data |
-| table | String |
+| table | Cadena |
 | tableKind | Integer 16 |
 
 
@@ -172,9 +176,9 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
  ![Atributos de la tabla MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Atributo | Type |
+| Atributo | type |
 | --- | --- |
-| id |String |
+| id |Cadena |
 | operationId |Integer 64 |
 | properties |Binary Data |
 | tableKind |Integer 16 |
@@ -183,26 +187,26 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
  ![][defining-core-data-tableconfig-entity]
 
-| Atributo | Type |
+| Atributo | type |
 | --- | --- |
-| id |String |
-| key |String |
+| id |Cadena |
+| key |Cadena |
 | keyType |Integer 64 |
-| table |String |
-| value |String |
+| table |Cadena |
+| value |Cadena |
 
 ### <a name="data-table"></a>Tabla de datos
 
 **TodoItem**
 
-| Atributo | Type | Nota: |
+| Atributo | type | Nota: |
 | --- | --- | --- |
-| id | String, marcado obligatorio |Clave principal en almacén remoto |
+| id | Cadena, marcado obligatorio |Clave principal en almacén remoto |
 | complete | Boolean | Campo de tarea pendiente |
-| text |String |Campo de tarea pendiente |
+| text |Cadena |Campo de tarea pendiente |
 | createdAt | Date | (opcional) Se asigna a la propiedad del sistema **createdAt** |
 | updatedAt | Date | (opcional) Se asigna a la propiedad del sistema **updatedAt** |
-| version | String | (opcional) Se usa para detectar conflictos; se asigna a version |
+| version | Cadena | (opcional) Se usa para detectar conflictos; se asigna a version |
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
 En esta sección, modifique la aplicación para que no se sincronice al iniciarse la aplicación ni cuando se inserten y actualicen elementos. Solo se sincroniza cuando se realiza el gesto de actualización.

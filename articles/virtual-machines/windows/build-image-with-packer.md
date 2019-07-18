@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 81dbd8082d5a7ab473cc0cbe5fcb6e564fbd750c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 7210f80ab1a475c944390e56647177218c896221
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951137"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202930"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Uso de Packer para crear imágenes de máquinas virtuales Windows en Azure
 Cada máquina virtual (VM) en Azure se crea a partir de una imagen que define la distribución de Windows y la versión del sistema operativo. Las imágenes pueden incluir configuraciones y aplicaciones preinstaladas. Azure Marketplace proporciona muchas imágenes propias y de terceros para los entornos de aplicaciones y sistemas operativos más comunes, pero también puede crear sus propias imágenes personalizadas adaptadas a sus necesidades. En este artículo se detalla cómo utilizar la herramienta de código abierto [Packer](https://www.packer.io/) para definir y crear imágenes personalizadas en Azure.
 
-En este artículo se ha probado por última vez en 21/2/2019 utilizando el [módulo de PowerShell de Az](https://docs.microsoft.com/powershell/azure/install-az-ps) versión 1.3.0 y [Packer](https://www.packer.io/docs/install/index.html) versión 1.3.4.
+Este artículo se probó por última vez el 21/02/2019 mediante la versión 1.3.0 del [módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) y la versión 1.3.4 de [Packer](https://www.packer.io/docs/install/index.html).
 
 > [!NOTE]
-> Azure tiene ahora un servicio, el generador de imágenes de Azure (versión preliminar), para definir y crear sus propias imágenes personalizadas. Generador de imágenes de Azure se basa en Packer, por lo que puede usar incluso Packer shell aprovisionador secuencias de comandos existentes con él. Para empezar a trabajar con el generador de imágenes de Azure, consulte [crear una máquina virtual de Windows con el generador de imágenes de Azure](image-builder.md).
+> Azure tiene ahora un servicio, Azure Image Builder (versión preliminar), para definir y crear sus propias imágenes personalizadas. Azure Image Builder se basa en Packer, por lo que puede usar incluso los scripts del aprovisionador de shell de Packer. Para empezar a trabajar con Azure Image Builder, vea [Vista previa: Crear una máquina virtual Windows con Azure Image Builder](image-builder.md).
 
 ## <a name="create-azure-resource-group"></a>Creación del grupo de recursos de Azure
 Durante el proceso de compilación, Packer crea recursos de Azure temporales mientras genera la máquina virtual de origen. Para capturar dicha máquina virtual para usarla como imagen, debe definir un grupo de recursos. La salida del proceso de compilación de Packer se almacena en este grupo de recursos.
@@ -35,7 +35,7 @@ Durante el proceso de compilación, Packer crea recursos de Azure temporales mie
 Cree un grupo de recursos con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurepowershell
-$rgName = "mypackerGroup"
+$rgName = "myResourceGroup"
 $location = "East US"
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Creación de credenciales de Azure
 Packer se autentica con Azure mediante una entidad de servicio. Las entidades de servicio de Azure son identidades de seguridad que pueden usarse con aplicaciones, servicios y herramientas de automatización como Packer. El usuario controla los permisos y los define con respecto a cuáles son las operaciones que la entidad de servicio puede realizar en Azure.
 
-Cree una entidad de servicio con [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) y asigne permisos para que la entidad de servicio cree y administre recursos con [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). El valor de `-DisplayName` debe ser único; reemplace por su propio valor según sea necesario.  
+Cree una entidad de servicio con [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) y asigne permisos para que la entidad de servicio cree y administre recursos con [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). El valor de `-DisplayName` debe ser único; reemplácelo por su propio valor según sea necesario.  
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
@@ -52,7 +52,7 @@ $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR
 New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-A continuación, genera el identificador de aplicación y la contraseña.
+A continuación, genera el identificador de la aplicación y la contraseña.
 
 ```powershell
 $plainPassword
@@ -91,7 +91,7 @@ Cree un archivo denominado *windows.json* y pegue el siguiente contenido. Escrib
     "tenant_id": "zzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz",
     "subscription_id": "yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy",
 
-    "managed_image_resource_group_name": "myPackerGroup",
+    "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",
 
     "os_type": "Windows",
@@ -130,7 +130,7 @@ Esta plantilla crea una máquina virtual de Windows Server 2016, instala IIS y g
 ## <a name="build-packer-image"></a>Creación de una imagen de Packer
 Si Packer aún no está instalado en el equipo local, de compresor [siga las instrucciones de instalación de Packer](https://www.packer.io/docs/install/index.html).
 
-Compilar la imagen, abra un símbolo del sistema y especifique su Packer archivo de plantilla como sigue:
+Para generar la imagen, abra el símbolo del sistema cmd y especifique el archivo de plantilla de Packer como sigue:
 
 ```
 ./packer build windows.json

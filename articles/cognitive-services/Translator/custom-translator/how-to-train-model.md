@@ -2,19 +2,19 @@
 title: 'Entrenamiento de un modelo: Custom Translator'
 titleSuffix: Azure Cognitive Services
 description: Entrenar un modelo es un paso importante al crear un modelo de traducción. El entrenamiento se produce según los documentos que seleccione para ello.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2d9c6a9636629d3ad05d50320e00ed4c4d7f0b83
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: 8804285bf419bce5ca85cc5070cd47ce9a87392a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389277"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447965"
 ---
 # <a name="train-a-model"></a>Entrenamiento de un modelo
 
@@ -53,7 +53,7 @@ Para entrenar un modelo:
     ![Página Entrenar modelo](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->Traductor personalizado es compatible con 10 cursos simultáneas dentro de un área de trabajo en cualquier momento en el tiempo.
+>El traductor personalizado es compatible con 10 modelos de aprendizaje de un área de trabajo en cualquier momento dado.
 
 
 ## <a name="edit-a-model"></a>Edición de un modelo

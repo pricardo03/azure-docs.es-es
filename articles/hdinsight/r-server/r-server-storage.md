@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: cb0c350df3056636701b5ff5d3962e2a0e96f40d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 8c1624ba6780fc45e3e663cadc032e253ce9545f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696363"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448874"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluciones de Azure Storage para ML Services en HDInsight
 
@@ -94,7 +94,7 @@ En el código R, apunte la referencia del nodo de nombres a la cuenta de almacen
 
 Todas las referencias de archivos y directorios apuntan ahora a la cuenta de almacenamiento `wasb://container2@storage2.blob.core.windows.net`. Este es el **nodo de nombres** que ha especificado.
 
-Tendrá que configurar el `/user/RevoShare/<SSH username>` directorio **storage2** como sigue:
+Debe configurar el directorio `/user/RevoShare/<SSH username>` en **storage2** de la forma siguiente:
 
 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
@@ -120,7 +120,7 @@ También es posible agregar acceso al clúster a una o varias cuentas de Data La
 
 ### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>Acceso a Data Lake Storage Gen1 desde el clúster ML Services de HDInsight
 
-Una vez que tenga acceso a Data Lake Storage Gen1, puede usar el almacenamiento del clúster ML Services de HDInsight tal y como lo haría con una cuenta de almacenamiento de Azure secundaria. La única diferencia es que el prefijo **wasb://** cambia a **adl://**, de la forma siguiente:
+Una vez que tenga acceso a Data Lake Storage Gen1, puede usar el almacenamiento del clúster ML Services de HDInsight tal y como lo haría con una cuenta de almacenamiento de Azure secundaria. La única diferencia es que el prefijo **wasb://** cambia a **adl://** , de la forma siguiente:
 
 
     # Point to the ADL Storage (e.g. ADLtest)
@@ -169,6 +169,5 @@ Una ventaja importante de Archivos de Azure es que los recursos compartidos de a
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Información general de clústeres de ML Services en HDInsight](r-server-overview.md)
-* [Introducción a clústeres ML Services en Apache Hadoop](r-server-get-started.md)
 * [Opciones de contexto de proceso para un clúster de ML Services en HDInsight](r-server-compute-contexts.md)
 * [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

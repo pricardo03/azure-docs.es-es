@@ -4,19 +4,19 @@ description: Creación de pruebas automatizadas para una función de C# en Visua
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: funciones de Azure, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 7489f42719223dbd7f9cc2908f666dca53fe7c04
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: 800c9db245007047b2dc17b3f270737254ed42d7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496387"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479718"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
@@ -44,7 +44,7 @@ Para configurar el entorno, cree una función y pruebe la aplicación. Los pasos
 2. [Cree una función HTTP a partir de la plantilla](./functions-create-first-azure-function.md) y asígnele el nombre *HttpTrigger*.
 3. [Cree una función de temporizador a partir de la plantilla](./functions-create-scheduled-function.md) y asígnele el nombre *TimerTrigger*.
 4. [Cree la aplicación de prueba de xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) en Visual Studio, para lo que debe hacer clic en **Archivo > Nuevo > Proyecto > Visual C# > .NET Core > Proyecto de prueba de xUnit**  y asígnele el nombre *Functions.Test*. 
-5. Use Nuget para agregar una referencias desde la aplicación de prueba [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+5. Use Nuget para agregar referencias desde la aplicación de prueba [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/).
 6. [Haga referencia a la aplicación *Functions*](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) desde la aplicación *Functions.Test*.
 
 ### <a name="create-test-classes"></a>Crear clases de prueba
@@ -55,7 +55,7 @@ Cada función toma una instancia de [ILogger](https://docs.microsoft.com/dotnet/
 
 La clase `ListLogger` pretende implementar la interfaz `ILogger` y mantener una lista interna de mensajes para su evaluación durante una prueba.
 
-**Haga clic en** en el *Functions.Test* aplicación y seleccione **Agregar > clase**, asígnele el nombre **NullScope.cs** y escriba el código siguiente:
+**Haga clic con el botón derecho** en la aplicación *Functions.Test* y seleccione **Agregar > Clase**, asígnele el nombre **NullScope.cs** y escriba el código siguiente:
 
 ```csharp
 using System;
@@ -73,7 +73,7 @@ namespace Functions.Tests
 }
 ```
 
-A continuación, **haga** en el *Functions.Test* aplicación y seleccione **Agregar > clase**, asígnele el nombre **ListLogger.cs** y escriba el código siguiente:
+A continuación, **haga clic con el botón derecho** en la aplicación *Functions.Test* y seleccione **Agregar > Clase**, asígnele el nombre **ListLogger.cs** y escriba el código siguiente:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -111,7 +111,7 @@ namespace Functions.Tests
 
 La clase `ListLogger` implementa los siguientes miembros según los contrata la interfaz `ILogger`:
 
-- **BeginScope**: Los ámbitos agregan contexto al registro. En este caso, la prueba simplemente apunta a la instancia estática en el `NullScope` clase para permitir la prueba de la función.
+- **BeginScope**: Los ámbitos agregan contexto al registro. En este caso, la prueba simplemente apunta a la instancia estática en la clase `NullScope` para permitir la prueba de la función.
 
 - **IsEnabled**: Se proporciona un valor predeterminado de `false`.
 
@@ -253,7 +253,7 @@ Los miembros implementados en esta clase son:
 
 - **Timer_should_log_message**: Esta prueba crea una instancia de `ListLogger` y la pasa a una función de temporizador. Una vez que se ejecuta la función, se comprueba el registro para garantizar que esté presente el mensaje esperado.
 
-Si desea obtener acceso a la configuración de la aplicación en las pruebas, puede usar [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+Si quiere obtener acceso a la configuración de la aplicación en las pruebas, puede usar [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
 ### <a name="run-tests"></a>Ejecución de las pruebas
 
@@ -312,7 +312,7 @@ module.exports = {
 ```
 Este módulo implementa la propiedad `IsPastDue` para que permanezca como una instancia de temporizador falsa.
 
-A continuación, utilice la extensión Functions de VS Code para [crear una nueva función HTTP de JavaScript](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started) y asígnele el nombre *HttpTrigger*. Una vez creada la función, agregue un nuevo archivo en la misma carpeta denominado **index.test.js** y agregue el código siguiente:
+A continuación, utilice la extensión Functions de VS Code para [crear una nueva función HTTP de JavaScript](https://code.visualstudio.com/tutorials/functions-extension/getting-started) y asígnele el nombre *HttpTrigger*. Una vez creada la función, agregue un nuevo archivo en la misma carpeta denominado **index.test.js** y agregue el código siguiente:
 
 ```javascript
 const httpFunction = require('./index');

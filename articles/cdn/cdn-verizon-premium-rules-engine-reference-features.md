@@ -1,20 +1,20 @@
 ---
-title: Las características del motor de reglas de red CDN de Azure de Verizon Premium | Microsoft Docs
-description: Las características del motor de reglas de documentación de referencia para Azure CDN de Verizon Premium.
+title: Características del motor de reglas de Azure CDN de Verizon Premium | Microsoft Docs
+description: Documentación de referencia sobre las características del motor de reglas de Azure CDN de Verizon Premium.
 services: cdn
 author: mdgattuso
 ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: dab0b11a350a10a209d67ddc69db5531a2cc292c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481480"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443489"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN de las características del motor de reglas de Verizon Premium
+# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Características del motor de reglas de Azure CDN de Verizon Premium
 
 En este tema se muestran descripciones detalladas de las características disponibles para el [motor de reglas](cdn-verizon-premium-rules-engine.md)de Azure Content Delivery Network (CDN).
 
@@ -24,7 +24,7 @@ La tercera parte de una regla es la característica. Una característica define 
 
 Estas características están diseñadas para controlar el acceso al contenido.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Denegar acceso (403)](#deny-access-403) | Determina si todas las solicitudes se rechazan con una respuesta 403-Prohibido.
 [Autenticación de token](#token-auth) | Determina si se aplica una solicitud de autenticación basada en tokens a una solicitud.
@@ -36,7 +36,7 @@ Name | Propósito
 
 Estas características están diseñadas para personalizar cuándo y cómo se almacena el contenido en caché.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Parámetros de ancho de banda](#bandwidth-parameters) | Determina si los parámetros de limitación de ancho de banda (por ejemplo, ec_rate y ec_prebuf) están activos.
 [Limitación de ancho de banda](#bandwidth-throttling) | Limita el ancho de banda de la respuesta proporcionada por el punto de presencia (POP).
@@ -66,7 +66,7 @@ Name | Propósito
 
 Esta característica está diseñada para proporcionar información adicional dentro de una regla.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Comment](#comment) | Permite agregar una nota en una regla.
 
@@ -74,7 +74,7 @@ Name | Propósito
 
 Estas características están diseñadas para agregar, modificar o eliminar encabezados de la solicitud o respuesta.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Encabezado de respuesta Age](#age-response-header) | Determina si se incluye un encabezado de respuesta Age en la respuesta enviada al solicitante.
 [Depurar encabezados de respuesta de la caché](#debug-cache-response-headers) | Determina si una respuesta puede incluir el encabezado de respuesta X-EC-Debug que proporciona información sobre la directiva de caché del recurso solicitado.
@@ -86,7 +86,7 @@ Name | Propósito
 
 Estas características están diseñadas para personalizar los datos almacenados en archivos de registro sin procesar.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Campo de registro personalizado 1](#custom-log-field-1) | Determina el formato y el contenido que se asigna al campo de registro personalizado en un archivo de registro sin procesar.
 [Cadena de consulta del registro](#log-query-string) | Determina si una cadena de consulta se almacena con la dirección URL en los registros de acceso.
@@ -140,7 +140,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Estas características están diseñadas para controlar la forma en que la red CDN se comunica con un servidor de origen.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Número máximo de solicitudes de conexión persistente](#maximum-keep-alive-requests) | Define el número máximo de solicitudes de conexión persistente antes de cerrarse.
 [Encabezados de proxy especiales](#proxy-special-headers) | Define el conjunto de encabezados de solicitud específicos de la red CDN que se reenvían desde un punto de presencia a un servidor de origen.
@@ -149,7 +149,7 @@ Name | Propósito
 
 Estas características ofrecen funcionalidades avanzadas que solo deben utilizar los usuarios avanzados.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Métodos HTTP almacenables en caché](#cacheable-http-methods) | Determina el conjunto de métodos HTTP adicionales que pueden almacenarse en caché en la red.
 [Tamaño del cuerpo de solicitud almacenable en caché](#cacheable-request-body-size) | Define el umbral que determina si una respuesta POST se puede almacenar en caché.
@@ -159,13 +159,13 @@ Name | Propósito
 
 Estas características permiten reescribir una solicitud o redirigirla a una dirección URL diferente.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Seguir redireccionamientos](#follow-redirects) | Determina si las solicitudes se pueden redirigir al nombre de host definido en el encabezado Ubicación que devuelve el servidor de origen de un cliente.
 [Redirección de direcciones URL](#url-redirect) | Redirige las solicitudes a través del encabezado Ubicación.
 [Reescritura de direcciones URL](#url-rewrite)  | Reescribe la dirección URL de la solicitud.
 
-## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Azure CDN de referencia de las características del motor de reglas de Verizon Premium
+## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Referencia de las características del motor de reglas de Azure CDN de Verizon Premium
 
 ---
 
@@ -175,10 +175,10 @@ Name | Propósito
 
 Valor|Resultado
 --|--
-Enabled | El encabezado de respuesta Age se incluye en la respuesta enviada al solicitante.
+habilitado | El encabezado de respuesta Age se incluye en la respuesta enviada al solicitante.
 Disabled | El encabezado de respuesta Age se excluye de la respuesta enviada al solicitante.
 
-**El comportamiento predeterminado de**: Deshabilitado.
+**Comportamiento predeterminado**: Deshabilitado.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -194,10 +194,10 @@ Los parámetros de limitación de ancho de banda determinan si la velocidad de t
 
 Valor|Resultado
 --|--
-Enabled|Permite que los puntos de presencia admitan las solicitudes de limitación de ancho de banda.
+habilitado|Permite que los puntos de presencia admitan las solicitudes de limitación de ancho de banda.
 Disabled|Hace que los puntos de presencia omitan los parámetros de limitación de ancho de banda. El contenido solicitado se sirve normalmente (es decir, sin limitación de ancho de banda).
 
-**Comportamiento predeterminado**: habilitada.
+**Comportamiento predeterminado**: Habilitado.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -207,7 +207,7 @@ Disabled|Hace que los puntos de presencia omitan los parámetros de limitación 
 
 ### <a name="bandwidth-throttling"></a>Limitación de ancho de banda
 
-**Propósito**: Limita el ancho de banda de la respuesta de los puntos de presencia.
+**Propósito**: limita el ancho de banda de la respuesta de los puntos de presencia.
 
 Dos de las siguientes opciones deben definirse para configurar correctamente la limitación de ancho de banda.
 
@@ -230,12 +230,12 @@ Segundos de búfer previo|Establezca esta opción en el número de segundos que 
 
 Valor|Resultado
 --|--
-Enabled|Hace que todas las solicitudes pasen al servidor de origen, aunque el contenido se haya almacenado antes en caché en los puntos de presencia.
+habilitado|Hace que todas las solicitudes pasen al servidor de origen, aunque el contenido se haya almacenado antes en caché en los puntos de presencia.
 Disabled|Hace que los puntos de presencia almacenen en caché los recursos según la directiva de caché definida en sus encabezados de respuesta.
 
 **Comportamiento predeterminado**:
 
-- **HTTP grande:** Disabled
+- **HTTP grande**: Disabled
 
 <!---
 - **ADN:** Enabled
@@ -258,7 +258,7 @@ Información importante:
 - Esta característica solo admite el método HTTP POST. Para habilitar el almacenamiento en caché de la respuesta POST, establezca esta característica en `POST`.
 - De forma predeterminada, solo se almacenan en caché las solicitudes cuyo cuerpo sea inferior a 14 Kb. Use la característica Tamaño del cuerpo de solicitud almacenable en caché para establecer el tamaño máximo del cuerpo de la solicitud.
 
-**Comportamiento predeterminado**: Sólo respuestas GET se almacenan en caché.
+**Comportamiento predeterminado**: solo se almacenan en caché las respuestas GET.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -279,10 +279,10 @@ Información importante:
     - valores x-www-form-urlencoded
     - Garantizar una clave de caché única
 - Definir un tamaño de cuerpo de solicitud máximo grande puede afectar al rendimiento de la entrega de datos.
-    - **Valor recomendado:** 14 kb
-    - **Valor mínimo:** 1 kb
+    - **Valor recomendado:** 14 KB
+    - **Valor mínimo:** 1 KB
 
-**Comportamiento predeterminado**: 14 kb
+**Comportamiento predeterminado**: 14 KB
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -292,7 +292,7 @@ Información importante:
 
 ### <a name="cache-control-header-treatment"></a>Tratamiento de encabezado Cache-Control
 
-**Propósito**: Controla la generación de `Cache-Control` encabezados por el punto de presencia cuando está activa la característica Max-Age externa.
+**Propósito**: controla la generación de encabezados `Cache-Control` mediante el punto de presencia cuando está activa la característica externa de antigüedad máxima.
 
 La manera más fácil de lograr este tipo de configuración es colocar las características Max-Age externa y Tratamiento de encabezados Cache-Control en la misma instrucción.
 
@@ -320,7 +320,7 @@ Información importante:
 - Especifique uno o varios nombres de parámetro de consulta y separe cada nombre de parámetro con un solo espacio.
 - Esta característica determina si los parámetros de cadena de consulta se incluyen o excluyen de la clave de caché. En la tabla siguiente se proporciona información adicional para cada opción.
 
-Escriba|DESCRIPCIÓN
+type|DESCRIPCIÓN
 --|--
  Include|  Indica que cada parámetro especificado debe estar incluido en la clave de caché. Se genera una clave de caché única para cada solicitud que contenga un valor único para un parámetro de cadena de consulta definido en esta característica.
  Include All  |Indica que se crea una clave de caché única para cada solicitud a un recurso que incluya una cadena de consulta única. Normalmente no se recomienda este tipo de configuración porque puede dar lugar a un pequeño porcentaje de aciertos de caché. Un bajo número de aciertos de caché aumenta la carga en el servidor de origen, porque debe atender más solicitudes. Esta configuración reproduce el comportamiento de almacenamiento en caché que se conoce como "cache única" en la página Almacenamiento en caché de cadenas de consulta.
@@ -338,7 +338,7 @@ Para replicar el comportamiento de almacenamiento en caché de cadenas de consul
 
 El siguiente ejemplo de uso de esta característica proporciona una solicitud de ejemplo y la clave de caché predeterminada:
 
-- **Solicitud de ejemplo:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Solicitud de ejemplo:** http://wpc.0001.&lt ;Domain&gt; /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Clave de caché predeterminada:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Include
@@ -367,7 +367,7 @@ Este tipo de configuración generaría la siguiente clave de caché de parámetr
 Configuración de ejemplo:
 
 - **Tipo:** Exclude
-- **Parámetros:** sessioned userid
+- **Parámetros:** id. de usuario y id. de sesión
 
 Este tipo de configuración generaría la siguiente clave de caché de parámetro de cadena de consulta:
 
@@ -402,7 +402,7 @@ Opción|DESCRIPCIÓN
 Ruta de acceso original| Define la ruta de acceso relativa a los tipos de solicitudes cuyas claves de caché se reescriben. Para definir una ruta de acceso relativa, seleccione una ruta de acceso de origen de base y, a continuación, define un patrón de expresión regular.
 Nueva ruta de acceso|Define la ruta de acceso relativa de la nueva clave de caché. Para definir una ruta de acceso relativa, seleccione una ruta de acceso de origen de base y, a continuación, define un patrón de expresión regular. Esta ruta de acceso relativa se puede construir dinámicamente mediante [variables HTTP](cdn-http-variables.md).
 
-**Comportamiento predeterminado**: Clave de caché de una solicitud viene determinada por el URI de solicitud.
+**Comportamiento predeterminado**: la clave de caché de una solicitud viene determinada por el URI de solicitud.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -443,10 +443,10 @@ Deje la configuración predeterminada de la plataforma HTTP Large, ya que reduce
 
 Valor|Resultado
 --|--
-Enabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado consiste en forzar al punto de presencia a que inicie una captura en segundo plano del recurso desde el servidor de origen. Después de eso, el recurso estará en la caché local del punto de presencia.
+habilitado|Restablece el comportamiento predeterminado. El comportamiento predeterminado consiste en forzar al punto de presencia a que inicie una captura en segundo plano del recurso desde el servidor de origen. Después de eso, el recurso estará en la caché local del punto de presencia.
 Disabled|Evita que un punto de presencia realice una captura en segundo plano del recurso. Como resultado, la próxima solicitud de ese recurso realizada desde esa región hace que un punto de presencia lo solicite desde el servidor de origen del cliente.
 
-**Comportamiento predeterminado**: habilitada.
+**Comportamiento predeterminado**: Habilitado.
 
 #### <a name="compatibility"></a>Compatibilidad
 
@@ -456,9 +456,9 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 - Dirección IP de cliente
 - Parámetro de cookie
 - Regex de parámetro de cookie
-- País
+- Country
 - Dispositivo
-- Microsoft Edge Cname
+- CNAME de Microsoft Edge
 - Dominio de referencia
 - Literal de encabezado de solicitud
 - Regex de encabezado de solicitud
@@ -516,8 +516,8 @@ El formato para especificar los encabezados de solicitud y respuesta se define d
 
 Tipo de encabezado|Formato|Ejemplos
 -|-|-
-Encabezado de solicitud|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
-Encabezado de respuesta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+Encabezado de solicitud|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
+Encabezado de respuesta|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Información importante:
 
@@ -536,7 +536,7 @@ Información importante:
 ---
 ### <a name="debug-cache-response-headers"></a>Depurar encabezados de respuesta de la caché
 
-**Propósito**: Determina si una respuesta puede incluir [encabezados de respuesta X-EC-Debug](cdn-http-debug-headers.md), que proporciona información sobre la directiva de caché para el recurso solicitado.
+**Propósito**: determina si una respuesta puede incluir el [encabezado de respuesta X-EC-Debug](cdn-http-debug-headers.md), que proporciona información sobre la directiva de caché para el recurso solicitado.
 
 Los encabezados de respuesta de depuración de caché se incluirán en la respuesta cuando se cumplan las dos condiciones siguientes:
 
@@ -553,7 +553,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 Valor|Resultado
 -|-
-Enabled|Las solicitudes de encabezados de respuesta de caché de depuración devolverán una respuesta que incluye el encabezado X-EC-Debug.
+habilitado|Las solicitudes de encabezados de respuesta de caché de depuración devolverán una respuesta que incluye el encabezado X-EC-Debug.
 Disabled|El encabezado de respuesta X-EC-Debug se excluirá de la respuesta.
 
 **Comportamiento predeterminado**: Deshabilitado.
@@ -588,7 +588,7 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 - Dirección IP de cliente
 - Parámetro de cookie
 - Regex de parámetro de cookie
-- País
+- Country
 - Dispositivo
 - Cname perimetral
 - Dominio de referencia
@@ -614,10 +614,10 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 
 Valor | Resultado
 ------|-------
-Enabled| Hace que todas las solicitudes que cumplen los criterios de coincidencia se rechacen con respuesta 403 Prohibido.
+habilitado| Hace que todas las solicitudes que cumplen los criterios de coincidencia se rechacen con respuesta 403 Prohibido.
 Disabled| Restablece el comportamiento predeterminado. El comportamiento predeterminado es permitir que el servidor de origen determine el tipo de respuesta que se devolverá.
 
-**El comportamiento predeterminado de**: Disabled
+**Comportamiento predeterminado**: Disabled
 
 > [!TIP]
    > Un uso posible para esta característica es asociarla a una condición de coincidencia del encabezado de solicitud para bloquear el acceso a los remitentes HTTP que usen vínculos en línea al contenido.
@@ -680,7 +680,7 @@ Información importante:
 
 Valor|Resultado
 -|-
-Enabled|Las solicitudes se pueden redirigir.
+habilitado|Las solicitudes se pueden redirigir.
 Disabled|Las solicitudes no se redirigirán.
 
 **Comportamiento predeterminado**: Deshabilitado.
@@ -715,7 +715,7 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 - Dirección IP de cliente
 - Parámetro de cookie
 - Regex de parámetro de cookie
-- País
+- Country
 - Dispositivo
 - Cname perimetral
 - Dominio de referencia
@@ -744,7 +744,7 @@ Información importante:
 - Defina un conjunto de extensiones de nombre de archivo H.264 permitidas, delimitadas por espacios, en la opción File Extensions (Extensiones de archivo). La opción File Extensions (Extensiones de archivo) invalidará el comportamiento predeterminado. Para mantener la compatibilidad con MP4 y F4V, incluya esas extensiones de nombre de archivo al establecer esta opción.
 - Incluya un punto al especificar cada extensión de nombre de archivo (por ejemplo, _.mp4_, _.f4v_).
 
-**Comportamiento predeterminado**: Descarga progresiva de HTTP es compatible con medios MP4 y F4V de forma predeterminada.
+**Comportamiento predeterminado**: la descarga progresiva HTTP es compatible con elementos multimedia MP4 y F4V de forma predeterminada.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -760,7 +760,7 @@ Una solicitud para no almacenar en caché se produce cuando el cliente HTTP env�
 
 Valor|Resultado
 --|--
-Enabled|Permite reenviar las solicitudes de no almacenar en caché de un cliente HTTP al servidor de origen, y el servidor de origen devolverá los encabezados y el cuerpo de respuesta a través del punto de presencia al cliente HTTP.
+habilitado|Permite reenviar las solicitudes de no almacenar en caché de un cliente HTTP al servidor de origen, y el servidor de origen devolverá los encabezados y el cuerpo de respuesta a través del punto de presencia al cliente HTTP.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es impedir que las solicitudes de no almacenar en caché se reenvíen al servidor de origen.
 
 Para todo el tráfico de producción, se recomienda dejar esta característica deshabilitada de forma predeterminada. De lo contrario, los servidores de origen no estarán protegidos frente a usuarios finales que accidentalmente podrían desencadenar muchas solicitudes de no almacenar en caché al actualizar las páginas web, o frente a muchos reproductores de medios populares que están codificados para enviar un encabezado de no almacenar en caché con cada solicitud de vídeo. No obstante, esta característica puede ser útil para aplicarla a determinados directorios de ensayo o pruebas que no son de producción, para poder extraer contenido nuevo a petición desde el servidor de origen.
@@ -777,7 +777,7 @@ El estado de la caché que se notificará para una solicitud que se puede reenvi
 
 ### <a name="ignore-origin-no-cache"></a>Ignorar no almacenar en caché de origen
 
-**Propósito**: Determina si la CDN omitirá las siguientes directivas procedentes de un servidor de origen:
+**Propósito**: determina si CDN ignorará las siguientes directivas procedentes de un servidor de origen:
 
 - `Cache-Control: private`
 - `Cache-Control: no-store`
@@ -787,10 +787,10 @@ El estado de la caché que se notificará para una solicitud que se puede reenvi
 Información importante:
 
 - Para configurar esta característica, defina una lista delimitada por espacios de códigos de estado para los que se pasarán por alto las directivas mencionadas anteriormente.
-- El conjunto de códigos de estado válido para esta característica son: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 y 505.
+- El conjunto de códigos de estados válidos para esta característica son: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 y 505.
 - Para deshabilitar esta característica, establézcala en un valor en blanco.
 
-**Comportamiento predeterminado**: El comportamiento predeterminado es respetar las directivas mencionadas anteriormente.
+**Comportamiento predeterminado**: el comportamiento predeterminado es respetar las directivas mencionadas anteriormente.
 
 #### <a name="compatibility"></a>Compatibilidad
 
@@ -799,7 +799,7 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 - Dirección IP de cliente
 - Parámetro de cookie
 - Regex de parámetro de cookie
-- País
+- Country
 - Dispositivo
 - Cname perimetral
 - Dominio de referencia
@@ -827,7 +827,7 @@ De forma predeterminada, este código de estado se devuelve cuando un punto de p
 
 Valor|Resultado
 -|-
-Enabled|Impide que nuestros puntos de presencia respondan a una solicitud de intervalo de bytes no válida con un código de estado "416 - No se puede satisfacer el intervalo solicitado". En su lugar, los servidores proporcionarán el recurso solicitado y devolverán un valor "200 OK" al cliente.
+habilitado|Impide que nuestros puntos de presencia respondan a una solicitud de intervalo de bytes no válida con un código de estado "416 - No se puede satisfacer el intervalo solicitado". En su lugar, los servidores proporcionarán el recurso solicitado y devolverán un valor "200 OK" al cliente.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es respetar el código de estado 416 No se puede satisfacer el intervalo solicitado.
 
 **Comportamiento predeterminado**: Deshabilitado.
@@ -858,7 +858,7 @@ Información importante:
 
 - Al establecer la unidad de tiempo en "Off" se deshabilitará esta característica. No se proporcionarán recursos almacenados en caché más allá de la fecha de expiración normal.
 
-**Comportamiento predeterminado**: Dos minutos
+**Comportamiento predeterminado**: dos minutos.
 
 #### <a name="compatibility"></a>Compatibilidad
 
@@ -867,7 +867,7 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 - Dirección IP de cliente
 - Parámetro de cookie
 - Regex de parámetro de cookie
-- País
+- Country
 - Dispositivo
 - Cname perimetral
 - Dominio de referencia
@@ -893,7 +893,7 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 
 Valor|Resultado
 -|-
-Enabled|Permite almacenar cadenas de consulta cuando se anotan direcciones URL en un registro de acceso. Si una dirección URL no contiene una cadena de consulta, esta opción no tendrá efecto.
+habilitado|Permite almacenar cadenas de consulta cuando se anotan direcciones URL en un registro de acceso. Si una dirección URL no contiene una cadena de consulta, esta opción no tendrá efecto.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es pasar por alto las cadenas de consulta cuando se anotan direcciones URL en un registro de acceso.
 
 **Comportamiento predeterminado**: Deshabilitado.
@@ -915,7 +915,7 @@ Información importante:
 - Especifique este valor como un número entero.
 - No incluya comas ni puntos en el valor especificado.
 
-**Valor predeterminado:** 10.000 solicitudes
+**Valor predeterminado:** 10 000 solicitudes.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -925,7 +925,7 @@ Información importante:
 
 ### <a name="modify-client-request-header"></a>Modificar encabezado de solicitud de cliente
 
-**Propósito**: Cada solicitud contiene un conjunto de encabezados de solicitud que lo describen. Esta característica puede:
+**Propósito**: cada solicitud contiene un conjunto de encabezados de solicitud que la describen. Esta característica puede:
 
 - Anexar o sobrescribir el valor asignado a un encabezado de solicitud. Si el encabezado de solicitud especificado no existe, esta característica lo agregará a la solicitud.
 - Eliminar un encabezado de solicitud de la solicitud.
@@ -996,7 +996,7 @@ Información importante:
     - content-length
     - content-range
     - date
-    - server
+    - Servidor
     - trailer
     - transfer-encoding
     - upgrade
@@ -1019,7 +1019,7 @@ Esta caché parcial puede utilizarse para atender nuevas solicitudes de ese cont
 
 Valor|Resultado
 -|-
-Enabled|Las solicitudes pueden generar contenido almacenado parcialmente en caché.
+habilitado|Las solicitudes pueden generar contenido almacenado parcialmente en caché.
 Disabled|Las solicitudes solamente pueden generar una versión completamente almacenada en caché del contenido solicitado.
 
 **Comportamiento predeterminado**: Deshabilitado.
@@ -1040,7 +1040,7 @@ Información importante:
 
 - Cuando se selecciona "Off" como unidad de tiempo, la revalidación debe realizarse después de que el contenido almacenado en caché haya expirado. No se debe especificar el tiempo y se pasará por alto.
 
-**Comportamiento predeterminado**: Desactivar. La revalidación solo puede realizarse después de que expire el período de vida del contenido almacenado en caché.
+**Comportamiento predeterminado**: Off. La revalidación solo puede realizarse después de que expire el período de vida del contenido almacenado en caché.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1050,7 +1050,7 @@ Información importante:
 
 ### <a name="proxy-special-headers"></a>Encabezados de proxy especiales
 
-**Propósito**: Define el conjunto de [encabezados de solicitud HTTP específicos de Verizon](cdn-verizon-http-headers.md) que se reenviará desde un punto de presencia a un servidor de origen.
+**Propósito**: define el conjunto de [encabezados de solicitud HTTP específicos de Verizon](cdn-verizon-http-headers.md) que se reenviará desde un punto de presencia a un servidor de origen.
 
 Información importante:
 
@@ -1067,7 +1067,7 @@ En la lista predeterminada, se incluyen los siguientes encabezados HTTP:
 - X-EC-Name
 - Host
 
-**Comportamiento predeterminado**: Todos los encabezados de solicitud específicos de la red CDN se reenviará al servidor de origen.
+**Comportamiento predeterminado**: se reenviarán todos los encabezados de solicitud específicos de la red CDN al servidor de origen.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1083,10 +1083,10 @@ Los valores válidos son:
 
 Valor|Resultado
 --|--
-Enabled|Hace que el punto de presencia vuelva a capturar el recurso desde el servidor de origen.
+habilitado|Hace que el punto de presencia vuelva a capturar el recurso desde el servidor de origen.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es atender los recursos de caché válidos cuando se soliciten.
 
-Esta característica no es necesaria para la entrega de contenido y un almacenamiento en caché correcto, pero puede resultar útil para solucionar este problema. Por ejemplo, los generadores de contenido dinámico en los servidores de origen pueden provocar accidentalmente que se envíen respuestas de 0 bytes a los puntos de presencia. Normalmente, los puntos de presencia almacenan estos tipos de respuestas en la caché. Si sabe que una respuesta de 0 bytes nunca es una respuesta válida para este tipo de contenido, esta característica puede impedir que estos tipos de recursos que se proporcionan a los clientes.
+Esta característica no es necesaria para la entrega de contenido y un almacenamiento en caché correcto, pero puede resultar útil para solucionar este problema. Por ejemplo, los generadores de contenido dinámico en los servidores de origen pueden provocar accidentalmente que se envíen respuestas de 0 bytes a los puntos de presencia. Normalmente, los puntos de presencia almacenan estos tipos de respuestas en la caché. Si sabe que es una respuesta de 0 bytes nunca es una respuesta válida para ese tipo de contenido, esta característica puede impedir que se proporcionen estos tipos de recursos a los clientes.
 
 **Comportamiento predeterminado**: Deshabilitado.
 
@@ -1107,10 +1107,10 @@ Defina un conjunto de los códigos de estado deseados, delimitados por espacios.
 Información importante:
 
 - Habilite la característica Ignorar no almacenar en caché de origen. Si esa característica no está habilitada, las respuestas 200 OK podrían no almacenarse en caché.
-- El conjunto de códigos de estado válido para esta característica son: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 y 505.
+- El conjunto de códigos de estados válidos para esta característica son: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 y 505.
 - Esta característica no se puede usar para deshabilitar el almacenamiento en caché de las respuestas que generan un código de estado 200 OK.
 
-**Comportamiento predeterminado**: Almacenamiento en caché está habilitada solo para las respuestas que generan un código de 200 estado OK.
+**Comportamiento predeterminado**: el almacenamiento en caché solo está habilitado para las respuestas que generan un código de estado 200 OK.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1120,7 +1120,7 @@ Información importante:
 
 ### <a name="set-client-ip-custom-header"></a>Establecer encabezado personalizado de IP de cliente
 
-**Propósito**: Agrega un encabezado personalizado que identifica al cliente solicitante por dirección IP para la solicitud.
+**Propósito**: agrega un encabezado personalizado que identifica el cliente solicitante por dirección IP de la solicitud.
 
 La opción Header name (Nombre de encabezado) define el nombre del encabezado de solicitud personalizado donde se almacena la dirección IP del cliente.
 
@@ -1128,7 +1128,7 @@ Esta característica permite al servidor de origen del cliente averiguar las dir
 
 Asegúrese de que el nombre de encabezado especificado no coincida con ninguno de los nombres siguientes:
 
-- Nombres de encabezado de solicitud estándar. Encontrará una lista de nombres de encabezado estándar en [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+- Nombres de encabezado de solicitud estándar. Encontrará una lista de nombres de encabezado estándar en [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Nombres de encabezado reservados:
     - forwarded-for
     - host
@@ -1150,7 +1150,7 @@ Asegúrese de que el nombre de encabezado especificado no coincida con ninguno d
 
 Valor|Resultado
 -|-
-Enabled|Cuando se produce un error durante una conexión a un servidor de origen, se sirve contenido obsoleto al solicitante.
+habilitado|Cuando se produce un error durante una conexión a un servidor de origen, se sirve contenido obsoleto al solicitante.
 Disabled|El error del servidor de origen se reenvía al solicitante.
 
 **Comportamiento predeterminado**: Disabled
@@ -1163,16 +1163,16 @@ Disabled|El error del servidor de origen se reenvía al solicitante.
 
 ### <a name="stale-while-revalidate"></a>Obsoleto durante revalidación
 
-**Propósito**: Mejora el rendimiento al permitir que los puntos de presencia proporcionen contenido obsoleto al solicitante mientras lleva a cabo la revalidación.
+**Propósito**: mejora el rendimiento al permitir que los puntos de presencia proporcionen contenido obsoleto al solicitante mientras se lleva a cabo la revalidación.
 
 Información importante:
 
 - El comportamiento de esta característica varía según la unidad de tiempo seleccionada.
-    - **Unidad de tiempo:** Especifique un período de tiempo y seleccione una unidad de tiempo (por ejemplo, segundos, minutos, horas, etc.) para permitir la entrega de contenido obsoleto. Este tipo de configuración permite que la red CDN amplíe el período de tiempo que puede entregar contenido antes de requerir la validación según la siguiente fórmula: **TTL** + **obsoletos al tiempo de revalidación**
-    - **Off:** Seleccione "Off" para exigir la renovación antes de atender una solicitud de contenido obsoleto.
+    - **Unidad de tiempo:** especifique un intervalo de tiempo y seleccione una unidad de tiempo (por ejemplo, segundos, minutos, horas, etc.) para permitir la entrega de contenido obsoleto. Este tipo de configuración permite que la red CDN amplíe el período de tiempo durante el cual puede entregar contenido antes de requerir la validación según la siguiente fórmula: **TTL** + **Contenido obsoleto durante el tiempo de revalidación**
+    - **Off:** seleccione "Off" para exigir la renovación antes de atender una solicitud de contenido obsoleto.
         - No especifique un período de tiempo ya que no es aplicable y se pasará por alto.
 
-**Comportamiento predeterminado**: Desactivar. La revalidación debe realizarse antes de que se pueda servir el contenido solicitado.
+**Comportamiento predeterminado**: Off. La revalidación debe realizarse antes de que se pueda servir el contenido solicitado.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1194,7 +1194,7 @@ Esta característica tiene prioridad sobre la mayoría de las características c
 
 Valor | Resultado
 ------|---------
-Enabled | Protege el contenido solicitado con autenticación basada en token. Solo se admitirán las solicitudes de los clientes que proporcionen un token válido y cumplan los requisitos. Las transacciones de FTP se excluyen de la autenticación basada en token.
+habilitado | Protege el contenido solicitado con autenticación basada en token. Solo se admitirán las solicitudes de los clientes que proporcionen un token válido y cumplan los requisitos. Las transacciones de FTP se excluyen de la autenticación basada en token.
 Disabled| Restablece el comportamiento predeterminado. El comportamiento predeterminado es permitir la configuración de la autenticación basada en token para determinar si se protegerá una solicitud.
 
 #### <a name="compatibility"></a>Compatibilidad
@@ -1209,7 +1209,7 @@ No use la autenticación de token con una condición de coincidencia Siempre.
 
 ### <a name="token-auth-denial-code"></a>Código de denegación de autorización de token
 
-**Propósito**: Determina el tipo de respuesta que se devolverá al usuario cuando se deniega una solicitud debido a la autenticación basada en token.
+**Propósito**: determina el tipo de respuesta que se devolverá al usuario cuando se deniega una solicitud debido a la autenticación basada en tokens.
 
 Los códigos de respuesta disponibles se enumeran en la tabla siguiente.
 
@@ -1272,7 +1272,7 @@ Los valores válidos son:
 
 Valor|Resultado
 ---|----
-Enabled|Hace que el punto de presencia no tenga en cuenta las mayúsculas y minúsculas al comparar las direcciones URL de los parámetros de autenticación basada en tokens.
+habilitado|Hace que el punto de presencia no tenga en cuenta las mayúsculas y minúsculas al comparar las direcciones URL de los parámetros de autenticación basada en tokens.
 Disabled|Restablece el comportamiento predeterminado. Es el comportamiento predeterminado de la comparación de direcciones URL es que la autenticación basada en token distinga mayúsculas de minúsculas.
 
 **Comportamiento predeterminado**: Deshabilitado.
@@ -1295,7 +1295,7 @@ Información importante:
 
 Valor|Resultado
 ----|----
-Enabled|La opción Value (Valor) define el nombre del parámetro de cadena de consulta a través del cual se definirá un token.
+habilitado|La opción Value (Valor) define el nombre del parámetro de cadena de consulta a través del cual se definirá un token.
 Disabled|Un token se puede especificar como un parámetro de cadena de consulta no definido en la dirección URL de la solicitud.
 
 **Comportamiento predeterminado**: Deshabilitado. Un token se puede especificar como un parámetro de cadena de consulta no definido en la dirección URL de la solicitud.
@@ -1315,7 +1315,7 @@ Para configurar esta característica hay que establecer las siguientes opciones:
 Opción|DESCRIPCIÓN
 -|-
 Código|Seleccione el código de respuesta que se devolverá al solicitante.
-Origen y patrón| Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden redirigir. Solo se redirigirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/> <br/> **Origen (o punto de acceso al contenido):** Seleccione una ruta de acceso relativa que identifica un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/><br/> **Origen (patrón):** Se debe definir un patrón que identifica solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> - Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. <br/> -Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
+Origen y patrón| Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden redirigir. Solo se redirigirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/> <br/> **Origen (o punto de acceso al contenido):** seleccione una ruta de acceso relativa que identifique un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/><br/> **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> - Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. <br/> -Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
 Destino| Defina la dirección URL a la que se redirigirán las solicitudes anteriores. <br/><br/> Construya esta dirección URL dinámicamente mediante: <br/> - Un patrón de expresión regular <br/>- [Variables HTTP](cdn-http-variables.md) <br/><br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. <br/>
 
 Es muy recomendable usar una dirección URL absoluta. El uso de direcciones URL relativas podría redirigir direcciones URL de la red CDN a rutas de acceso no válidas.
@@ -1326,7 +1326,7 @@ En este ejemplo, se muestra cómo redirigir una dirección URL del servidor peri
 
 Las solicitudes aptas se redirigirán a esta dirección URL del servidor perimetral CNAME: http:\//cdn.mydomain.com/resources
 
-Esta redirección de URL se puede lograr a través de la configuración siguiente: ![Redirección de URL](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Esta redirección de URL se puede realizar con la siguiente configuración: ![redirección de direcciones URL](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png).
 
 **Puntos clave:**
 
@@ -1360,7 +1360,7 @@ Información importante:
 
 Opción|DESCRIPCIÓN
 -|-
- Origen y patrón | Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden reescribir. Solo se reescribirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/><br/>  - **Origen (o punto de acceso al contenido):** Seleccione una ruta de acceso relativa que identifica un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/><br/> - **Origen (patrón):** Se debe definir un patrón que identifica solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> Compruebe que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
+ Origen y patrón | Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden reescribir. Solo se reescribirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/><br/>  - **Origen (o punto de acceso al contenido):** seleccione una ruta de acceso relativa que identifique un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/><br/> - **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> Compruebe que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
  Destino  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - [Variables HTTP](cdn-http-variables.md) <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor.
 
  Esta característica permite que los puntos de presencia vuelvan a escribir la dirección URL sin realizar una redirección tradicional. Es decir, el solicitante recibirá el mismo código de respuesta que si hubiera solicitado la reescritura de la dirección URL.
@@ -1371,13 +1371,13 @@ En este ejemplo, se muestra cómo redirigir una dirección URL del servidor peri
 
 Las solicitudes aptas se redirigirán a esta dirección URL del servidor perimetral CNAME: http:\//MyOrigin.azureedge.net/resources/
 
-Esta redirección de URL se puede lograr a través de la configuración siguiente: ![Redirección de URL](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Esta redirección de URL se puede realizar con la siguiente configuración: ![redirección de direcciones URL](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png).
 
 **Escenario de ejemplo 2**
 
 En este ejemplo, se muestra cómo redirigir una dirección URL del servidor perimetral CNAME de MAYÚSCULAS a minúsculas mediante expresiones regulares.
 
-Esta redirección de URL se puede lograr a través de la configuración siguiente: ![Redirección de URL](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Esta redirección de URL se puede realizar con la siguiente configuración: ![redirección de direcciones URL](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png).
 
 **Puntos clave:**
 

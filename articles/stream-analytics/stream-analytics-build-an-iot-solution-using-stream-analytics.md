@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201523"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443675"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilación de una solución de IoT con Stream Analytics
 
@@ -138,7 +138,8 @@ Existen varios recursos que se pueden implementar fácilmente en un grupo de rec
 10. Después de unos momentos, aparecerá una notificación para confirmar que la **implementación se realizó correctamente**.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Revisión de los recursos de TollApp de Azure Stream Analytics
-1. Iniciar sesión en Azure Portal
+
+1. Inicio de sesión en Azure Portal
 
 2. Ubique el grupo de recursos que nombró en la sección anterior.
 
@@ -171,7 +172,7 @@ Existen varios recursos que se pueden implementar fácilmente en un grupo de rec
    - La entrada **Registration** es una conexión de Azure Blob Storage que señala a un archivo estático registration.json, el que se usa para las búsquedas según sea necesario. Esta entrada de datos de referencia se usa en variaciones posteriores de la sintaxis de consulta.
 
 4. Examine las salidas del trabajo de TollApp de ejemplo.
-   - La salida **Cosmos DB** es una colección de bases de datos de Cosmos que recibe los eventos de receptor de salida. Observe que esta salida se usa en la cláusula INTO de la consulta de streaming.
+   - La salida de **Cosmos DB** es un contenedor de bases de datos de Cosmos que recibe los eventos del receptor de salida. Observe que esta salida se usa en la cláusula INTO de la consulta de streaming.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Inicio del trabajo de streaming TollApp
 Siga estos pasos para iniciar el trabajo de streaming:

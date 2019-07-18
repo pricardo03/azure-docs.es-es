@@ -4,14 +4,14 @@ description: Se enumeran todos los espacios de nombres de proveedor de recursos 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 04/25/2019
+ms.date: 06/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 54493efdc0bffcbb4654b65676554f6707716968
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f5ffbd9b1f2bde08023d1758792fab54c2885f7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235582"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442611"
 ---
 # <a name="resource-providers-for-azure-services"></a>Proveedores de recursos para servicios de Azure
 
@@ -33,7 +33,7 @@ En este artículo se muestra cómo se asignan los espacios de nombres de proveed
 | Microsoft.Authorization | [Azure Resource Manager](index.yml) |
 | Microsoft.Automation | [Automation](../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../active-directory-b2c/index.yml) |
-| Microsoft.AzureStack | [Azure Stack](/azure-stack/user/) |
+| Microsoft.AzureStack | core |
 | Microsoft.Batch | [Batch](../batch/index.yml) |
 | Microsoft.Billing | [Facturación](/azure/billing/) |
 | Microsoft.BingMaps | [Mapas de Bing](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
@@ -60,7 +60,8 @@ En este artículo se muestra cómo se asignan los espacios de nombres de proveed
 | Microsoft.ContentModerator | [Azure Content Moderator](../cognitive-services/content-moderator/index.yml) |
 | Microsoft.CostManagement | [Cost Management](/azure/cost-management/) |
 | Microsoft.CustomerInsights | Customer Insights |
-| Microsoft.CustomerLockbox | Caja de seguridad del cliente para Microsoft Azure |
+| Microsoft.CustomerLockbox | Caja de seguridad del cliente de Microsoft Azure |
+| Microsoft.CustomProviders | [Proveedores personalizados de Azure](../managed-applications/custom-providers-overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
 | Microsoft.DataBoxEdge | [Azure Data Box Edge](../databox-online/data-box-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
@@ -73,7 +74,7 @@ En este artículo se muestra cómo se asignan los espacios de nombres de proveed
 | Microsoft.DBforMySQL | [Azure Database for MySQL](/azure/mysql/) |
 | Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
 | Microsoft.DeploymentManager | [Azure Deployment Manager](deployment-manager-overview.md) |
-| Microsoft.Devices | [IoT Hub](/azure/iot-hub/) |
+| Microsoft.Devices | [IoT Hub](/azure/iot-hub/)<br />[Servicio IoT Hub Device Provisioning](/azure/iot-dps/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../cosmos-db/index.yml) |
@@ -115,7 +116,7 @@ En este artículo se muestra cómo se asignan los espacios de nombres de proveed
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Virtual Network](../virtual-network/index.yml)<br />[Equilibrador de carga](../load-balancer/index.yml)<br />[Application Gateway](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Azure Firewall](../firewall/index.yml)<br />[Azure Front Door Service](../frontdoor/index.yml) |
+| Microsoft.Network | [Virtual Network](../virtual-network/index.yml)<br />[Equilibrador de carga](../load-balancer/index.yml)<br />[Application Gateway](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Azure Firewall](../firewall/index.yml)<br />[Azure Front Door Service](../frontdoor/index.yml)<br />[Azure Bastion](/azure/bastion/) |
 | Microsoft.NotificationHubs | [Centros de notificaciones](../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../azure-monitor/index.yml) |
@@ -126,6 +127,7 @@ En este artículo se muestra cómo se asignan los espacios de nombres de proveed
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft.RecoveryServices | [Recuperación de sitios](../site-recovery/index.yml) |
 | Microsoft.Relay | [Azure Relay](../service-bus-relay/relay-what-is-it.md) |
+| Microsoft.ResourceGraph | [Azure Resource Graph](/azure/governance/resource-graph/) |
 | Microsoft.ResourceHealth | core |
 | Microsoft.Resources | [Azure Resource Manager](index.yml) |
 | Microsoft.SaaS | core |
@@ -148,6 +150,7 @@ En este artículo se muestra cómo se asignan los espacios de nombres de proveed
 | microsoft.support | core |
 | Microsoft.TimeSeriesInsights | [Time Series Insights](../time-series-insights/index.yml) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft.VMwareCloudSimple | [Solución de VMware en Azure de CloudSimple](/azure/vmware-cloudsimple/) |
 | Microsoft.Web | [App Service](../app-service/index.yml)<br />[Funciones](../azure-functions/index.yml) |
 | Microsoft.WindowsDefenderATP | [Advanced Threat Protection de Windows Defender](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection) |
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |

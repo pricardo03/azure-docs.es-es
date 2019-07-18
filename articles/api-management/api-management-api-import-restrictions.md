@@ -12,17 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 06/26/2019
 ms.author: apipm
-ms.openlocfilehash: 251caa840446e75ff13d9b4dcebcbae3a36473c8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f7c37843ccaf78c7b7e6ec7a959106df45053d6
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60657516"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461625"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restricciones de importación de API y problemas conocidos
+
 ## <a name="about-this-list"></a>Acerca de esta lista
+
 Al importar una API, podría encontrarse con algunas restricciones o identificar problemas que es necesario corregir antes de realizar esta operación. En este artículo se documenta todo esto, organizado por el formato de importación de la API.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger
@@ -31,35 +33,54 @@ Si recibe errores al importar el documento de OpenAPI, asegúrese de haberlo val
 
 ### <a name="open-api-general"> </a>General
 
-* Los parámetros necesarios en la ruta de acceso y en la consulta deben tener nombres únicos. (En OpenAPI, un nombre de parámetro solo debe ser único dentro de una ubicación; por ejemplo, ruta de acceso, consulta, encabezado. Pero en API Management se permite que los parámetros tanto de la ruta de acceso como de la consulta [que OpenAPI no admite] discriminen las operaciones. Por eso es necesario que los nombres de los parámetros sean únicos en toda la plantilla de la dirección URL).
-* Los punteros de **$ref** no pueden hacer referencia a archivos externos.
-* **x-ms-paths** y **x-servers** son las únicas extensiones admitidas.
-* Las extensiones personalizadas se omiten durante la importación y no se guardan ni conservan para la exportación.
-* **Recursión**: API Management no es compatible con definiciones establecidas de forma recursiva (por ejemplo, esquemas que hacen referencia a sí mismos).
-* La dirección URL (si está disponible) del archivo de origen se aplica a direcciones URL del servidor relativas.
+-   Los parámetros necesarios en la ruta de acceso y en la consulta deben tener nombres únicos. (En OpenAPI, un nombre de parámetro solo debe ser único dentro de una ubicación; por ejemplo, ruta de acceso, consulta, encabezado. Pero en API Management se permite que los parámetros tanto de la ruta de acceso como de la consulta [que OpenAPI no admite] discriminen las operaciones. Por eso es necesario que los nombres de los parámetros sean únicos en toda la plantilla de la dirección URL).
+-   Los punteros de **\$$ref** no pueden hacer referencia a archivos externos.
+-   **x-ms-paths** y **x-servers** son las únicas extensiones admitidas.
+-   Las extensiones personalizadas se omiten durante la importación y no se guardan ni conservan para la exportación.
+-   **Recursión**: API Management no es compatible con definiciones establecidas de forma recursiva (por ejemplo, esquemas que hacen referencia a sí mismos).
+-   La dirección URL (si está disponible) del archivo de origen se aplica a direcciones URL del servidor relativas.
 
 ### <a name="open-api-v2"> </a>OpenAPI versión 2
 
-* Solo se admite el formato JSON.
+-   Solo se admite el formato JSON.
 
 ### <a name="open-api-v3"> </a>OpenAPI versión 3
 
-* Si se especifican muchos **servidores**, API Management tratará de seleccionar la primera dirección URL HTTPS. Si no hay ninguna dirección URL HTTPS: la primera dirección URL HTTP. Si no hay ninguna dirección URL HTTP: la dirección URL del servidor estará vacía.
-* **Ejemplos** no se admite, pero **ejemplo** sí.
-* **Multipart/form-data** no se admite.
+-   Si se especifican muchos **servidores**, API Management tratará de seleccionar la primera dirección URL HTTPS. Si no hay ninguna dirección URL HTTPS: la primera dirección URL HTTP. Si no hay ninguna dirección URL HTTP: la dirección URL del servidor estará vacía.
+-   **Ejemplos** no se admite, pero **ejemplo** sí.
+-   **Multipart/form-data** no se admite.
 
 > [!IMPORTANT]
 > Consulte este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) para obtener información importante y consejos relacionados con la importación de OpenAPI.
 
 ## <a name="wsdl"></a>WSDL
-Los archivos WSDL se usan para generar las API de paso a través de SOAP, o para servir como back-end de una API de SOAP a REST.
-* **Enlaces SOAP**: solo se admiten los enlaces SOAP cuya codificación es de tipo "documento" o "literal". No se admiten las codificaciones de estilo "rpc" o SOAP.
-* **WSDL:Import**: no se admite este atributo. Los clientes deben combinar las importaciones en un único documento.
-* **Mensajes con varias partes**: en la actualidad no se admiten estos tipos de mensajes.
-* **WCF wsHttpBinding**: los servicios SOAP creados con Windows Communication Foundation deben usar basicHttpBinding. No se admite el uso de wsHttpBinding.
-* **MTOM**: los servicios que usan MTOM <em>podrían</em> funcionar. No se ofrece soporte técnico oficial en este momento.
-* **Recursión**: APIM no admite los tipos que se definen de modo recursivo (por ejemplo, hacen referencia a una matriz formada por ellos mismos).
-* **Varios espacios de nombres**: en un esquema se pueden usar varios espacios de nombres, pero el único que se puede usar para definir las partes del mensaje es el de destino. Los espacios de nombres que se usen para definir otros elementos de entrada o salidas, y que no sean el destino, no se conservan. Aunque se puede importar un documento WSDL, en la exportación todas las partes del mensaje tendrá el espacio de nombres de destino de WSDL.
+
+Los archivos WSDL se usan para crear API de paso a través de SOAP y de SOAP a REST.
+
+-   **Enlaces SOAP**: solo se admiten los enlaces SOAP cuya codificación es de tipo "documento" o "literal". No se admiten las codificaciones de estilo "rpc" o SOAP.
+-   **WSDL:Import**: no se admite este atributo. Los clientes deben combinar las importaciones en un único documento.
+-   **Mensajes con varias partes**: en la actualidad no se admiten estos tipos de mensajes.
+-   **WCF wsHttpBinding**: los servicios SOAP creados con Windows Communication Foundation deben usar basicHttpBinding. No se admite el uso de wsHttpBinding.
+-   **MTOM**: los servicios que usan MTOM <em>podrían</em> funcionar. No se ofrece soporte técnico oficial en este momento.
+-   **Recursión**: APIM no admite los tipos que se definen de modo recursivo (por ejemplo, hacen referencia a una matriz formada por ellos mismos).
+-   **Varios espacios de nombres**: en un esquema se pueden usar varios espacios de nombres, pero el único que se puede usar para definir las partes del mensaje es el de destino. Los espacios de nombres que se usen para definir otros elementos de entrada o salidas, y que no sean el destino, no se conservan. Aunque se puede importar un documento WSDL, en la exportación todas las partes del mensaje tendrá el espacio de nombres de destino de WSDL.
+-   **Matrices**: la transformación de SOAP a REST admite solo las matrices encapsuladas que se muestran en el siguiente ejemplo:
+
+```xml
+    <complexType name="arrayTypeName">
+        <sequence>
+            <element name="arrayElementValue" type="arrayElementType" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+    <complexType name="typeName">
+        <sequence>
+            <element name="element1" type="someTypeName" minOccurs="1" maxOccurs="1"/>
+            <element name="element2" type="someOtherTypeName" minOccurs="0" maxOccurs="1" nillable="true"/>
+            <element name="arrayElement" type="arrayTypeName" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+```
 
 ## <a name="wadl"></a>WADL
+
 Actualmente, no hay ningún problema de importación conocido de WADL.

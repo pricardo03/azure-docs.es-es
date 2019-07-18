@@ -14,12 +14,12 @@ ms.date: 04/27/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a0680ddf2c9e654455933bf09699ab81e8ab65d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e69bebfaeb28709b43ea74b7d33289426371a2bf
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65141691"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476444"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-pim"></a>Crear una revisión de acceso de roles de Azure AD en PIM
 
@@ -41,7 +41,7 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 1. En Administrar, haga clic en **Revisiones de acceso**.
 
-    ![Roles de Azure AD: revisiones de acceso](./media/pim-how-to-start-security-review/access-reviews.png)
+    ![Roles de Azure AD: lista de revisiones de acceso que muestra el estado de todas las revisiones](./media/pim-how-to-start-security-review/access-reviews.png)
 
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
@@ -51,7 +51,7 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 Una vez que haya especificado la configuración para una revisión de acceso, haga clic en **Iniciar**. La revisión de acceso aparecerá en la lista con un indicador de su estado.
 
-![Lista de revisiones de acceso](./media/pim-how-to-start-security-review/access-reviews-list.png)
+![Lista de revisiones de acceso que muestra el estado de las revisiones iniciadas](./media/pim-how-to-start-security-review/access-reviews-list.png)
 
 De forma predeterminada, Azure AD envía un correo electrónico a los revisores poco después de iniciar la revisión. Si decide no hacer que Azure AD envíe el correo electrónico, asegúrese de informar a los revisores de que hay una revisión de acceso esperando para que la lleven a cabo. Puede mostrarles las instrucciones sobre cómo [revisar el acceso a los roles de Azure AD](pim-how-to-perform-security-review.md).
 
@@ -59,7 +59,7 @@ De forma predeterminada, Azure AD envía un correo electrónico a los revisores 
 
 En la página **Información general** de la revisión de acceso, puede seguir el progreso de los revisores a medida que completan las revisiones. Los derechos de acceso no se cambian en el directorio hasta que [la revisión finaliza](pim-how-to-complete-review.md).
 
-![Progreso de las revisiones de acceso](./media/pim-how-to-start-security-review/access-review-overview.png)
+![Página de información general de revisiones de acceso que muestra los detalles de la revisión](./media/pim-how-to-start-security-review/access-review-overview.png)
 
 Si se trata de una revisión puntual, una vez finalizado el período de revisión de acceso o cuando el administrador detenga la revisión de acceso, siga los pasos sobre [cómo realizar una revisión de acceso de los roles de Azure AD](pim-how-to-complete-review.md) para ver los resultados y aplicarlos.  
 

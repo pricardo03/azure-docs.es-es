@@ -1,6 +1,6 @@
 ---
 title: Información sobre el formato de mensaje de Azure IoT Hub | Microsoft Docs
-description: 'Guía del desarrollador: describe el formato y el contenido esperado de mensajes de IoT Hub.'
+description: 'Guía del desarrollador: describe el formato y el contenido esperados de los mensajes de IoT Hub.'
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: e2aafa195fa463a405e2132cd41fada8d6903961
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252794"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450084"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
 
@@ -43,7 +43,7 @@ La mensajería de dispositivo a nube con IoT Hub tiene las siguientes caracterí
 
 * Como se explica en [Control del acceso a IoT Hub](iot-hub-devguide-security.md), IoT Hub habilita la autenticación y el control de acceso por dispositivo.
 
-* Puede marcar los mensajes con información que figura en las propiedades de la aplicación. Para obtener más información, consulte [enriquecimientos de mensaje](iot-hub-message-enrichments-overview.md).
+* Puede marcar los mensajes con información que se incluye en las propiedades de la aplicación. Para obtener más información, consulte el [enriquecimiento de mensajes](iot-hub-message-enrichments-overview.md).
 
 Para más información sobre cómo codificar y descodificar mensajes que se han enviado usando distintos protocolos, consulte [SDK de Azure IoT](iot-hub-devguide-sdks.md).
 
@@ -55,9 +55,9 @@ En la siguiente tabla, aparece el conjunto de propiedades del sistema en los men
 | sequence-number |Un número (exclusivo para cada cola de dispositivo) asignado por IoT Hub a cada mensaje de nube a dispositivo. | No para los mensajes C2D. En caso contrario, sí. |
 | to |Un destino especificado en los mensajes [de nube a dispositivo](iot-hub-devguide-c2d-guidance.md) . | No para los mensajes C2D. En caso contrario, sí. |
 | absolute-expiry-time |Fecha y hora de la expiración del mensaje. | Sí |
-| iothub-enqueuedtime |Fecha y hora en la que IoT Hub recibió el mensaje [de la nube al dispositivo](iot-hub-devguide-c2d-guidance.md). | No para los mensajes C2D. En caso contrario, sí. |
+| iothub-enqueuedtime |Fecha y hora en la que IoT Hub recibió el mensaje [del dispositivo a la nube](iot-hub-devguide-d2c-guidance.md). | No para los mensajes D2C. En caso contrario, sí. |
 | correlation-id |Cadena de propiedad en un mensaje de respuesta que normalmente contiene el identificador del mensaje de la solicitud en los patrones de solicitud y respuesta. | Sí |
-| user-id |Un identificador que se utiliza para especificar el origen de los mensajes. Cuando IoT Hub genera mensajes, se establece en `{iot hub name}`. | Sin  |
+| user-id |Un identificador que se utiliza para especificar el origen de los mensajes. Cuando IoT Hub genera mensajes, se establece en `{iot hub name}`. | Sin |
 | iothub-ack |Un generador de mensajes de comentarios. Esta propiedad se usa en los mensajes de nube a dispositivo para solicitar a IoT Hub que genere mensajes de comentarios debido al consumo del mensaje por el dispositivo. Valores posibles: **none** (valor predeterminado): no se genera ningún mensaje de comentarios, **positive**: recibe un mensaje de comentarios si el mensaje se completó, **negative**: recibe un mensaje de comentarios si el mensaje expiró (o si se alcanzó el número máximo de entregas) sin que se complete en el dispositivo, y **full**: comentarios positivos y negativos. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Sí |
 | iothub-connection-device-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **deviceId** del dispositivo que envió el mensaje. | No para los mensajes D2C. En caso contrario, sí. |
 | iothub-connection-auth-generation-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **generationId** (como se indica en [Propiedades de identidad de dispositivos](iot-hub-devguide-identity-registry.md#device-identity-properties)) del dispositivo que envió el mensaje. | No para los mensajes D2C. En caso contrario, sí. |

@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/23/2019
+ms.date: 06/26/2019
 ms.author: alkohli
-ms.openlocfilehash: d7a9923d5bd9e357bcd75fae6e0a7d1bcd437a53
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 09d9b5bbf3f9ca7a4eef37891d03c9c865e7f74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186772"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448626"
 ---
 Un certificado SSL correcto garantiza que envía la información cifrada al servidor correcto. Además del cifrado, el certificado también permite la autenticación. Puede cargar su propio certificado SSL de confianza mediante la interfaz de PowerShell del dispositivo.
 
@@ -18,11 +18,11 @@ Un certificado SSL correcto garantiza que envía la información cifrada al serv
 
    - `CertificateFilePath`: ruta de acceso al recurso compartido que contiene el archivo de certificado en formato *.pfx*.
    - `CertificatePassword`: contraseña usada para proteger el certificado.
-   - `Credentials`: nombre de usuario y contraseña para acceder al recurso compartido que contiene el certificado.
+   - `Credentials`: nombre de usuario para obtener acceso al recurso compartido que contiene el certificado. Proporcione la contraseña para el recurso compartido de red cuando se le solicite.
 
      En el ejemplo siguiente se muestra el uso de este cmdlet:
 
      ```
-     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credential "Username/Password"
+     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credential "Username"
      ```
 

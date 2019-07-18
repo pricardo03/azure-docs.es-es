@@ -1,34 +1,34 @@
 ---
-title: Conectarse y administrar dispositivos de borde del cuadro de datos de Microsoft Azure a través de la interfaz de Windows PowerShell | Microsoft Docs
-description: Describe cómo conectarse y, a continuación, administrar el borde del cuadro de datos a través de la interfaz de Windows PowerShell.
+title: Conectarse y administrar el dispositivo Microsoft Azure Data Box Edge a través de la interfaz de Windows PowerShell | Microsoft Docs
+description: Aquí se describe cómo puede conectarse y administrar Data Box Edge a través de la interfaz de Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 6af95b7f8bde6e77ba356fec9dde123e26a9a4a8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717491"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448614"
 ---
-# <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Administración de un dispositivo de borde del cuadro de datos de Azure a través de Windows PowerShell
+# <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Administrar un dispositivo Azure Data Box Edge a través de Windows PowerShell
 
-Solución de borde del cuadro de datos de Azure le permite procesar datos y enviarlo a través de la red en Azure. En este artículo se describe algunas de las tareas de configuración y administración para el dispositivo de borde del cuadro de datos. Puede usar el portal de Azure, IU web local o la interfaz de Windows PowerShell para administrar el dispositivo.
+La solución Azure Data Box Edge le permite procesar datos y enviarlos a través de la red a Azure. En este artículo se describen algunas de las tareas de configuración y administración para su dispositivo Data Box Edge. Puede usar Azure Portal, la interfaz de usuario web local o la interfaz de Windows PowerShell para administrar su dispositivo.
 
-En este artículo se centra en las tareas que realizar mediante la interfaz de PowerShell.
+Este artículo se centra en las tareas que realizará mediante la interfaz de PowerShell.
 
-En este artículo incluye los siguientes procedimientos:
+Asimismo, en este artículo se incluyen las secciones siguientes:
 
 - Conectarse a la interfaz de PowerShell
 - Crear un paquete de soporte
 - Carga del certificado
 - Restablecer el dispositivo
-- Ver información del dispositivo
-- Obtener registros de proceso
+- Ver la información del dispositivo
+- Obtener los registros de proceso
 - Supervisar y solucionar problemas de los módulos de proceso
 
 ## <a name="connect-to-the-powershell-interface"></a>Conectarse a la interfaz de PowerShell
@@ -43,21 +43,22 @@ En este artículo incluye los siguientes procedimientos:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-También puede cargar certificados de IoT Edge para habilitar una conexión segura entre el dispositivo IoT Edge y los dispositivos de nivel inferiores que pueden conectarse a él. Hay tres certificados de IoT Edge (*.pem* formato) que necesita instalar:
+También puede cargar certificados de IoT Edge para habilitar una conexión segura entre el dispositivo IoT Edge y los dispositivos de nivel inferior que pueden conectarse a él. Hay tres certificados de IoT Edge (con formato *.pem*) que necesita instalar:
 
-- Certificado de CA raíz o el propietario de la entidad de certificación
+- Certificado de entidad de certificación raíz o el propietario de la entidad de certificación
 - Certificado de entidad de certificación de dispositivo
-- Certificado de clave de dispositivo
+- Certificado clave del dispositivo
 
-El ejemplo siguiente muestra el uso de este cmdlet para instalar certificados de IoT Edge:
+En el siguiente ejemplo se muestra el uso de este cmdlet para instalar certificados de IoT Edge:
 
 ```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
+Cuando ejecute este cmdlet, se le solicitará que proporcione la contraseña para el recurso compartido de red.
 
-Para obtener más información sobre certificados, vaya a [certificados de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) o [instalar certificados en una puerta de enlace](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
+Para obtener más información sobre los certificados, vaya a [Certificados de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) o a [Instalación de los certificados en la puerta de enlace](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
-## <a name="view-device-information"></a>Ver información del dispositivo
+## <a name="view-device-information"></a>Ver la información del dispositivo
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -65,30 +66,29 @@ Para obtener más información sobre certificados, vaya a [certificados de Azure
 
 [!INCLUDE [Reset your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
 
-## <a name="get-compute-logs"></a>Obtener registros de proceso
+## <a name="get-compute-logs"></a>Obtener los registros de proceso
 
-Si el rol de ejecución está configurado en el dispositivo, también puede obtener los registros de proceso a través de la interfaz de PowerShell.
+Si el rol de proceso está configurado en su dispositivo, también puede obtener los registros del proceso gracias a la interfaz de PowerShell.
 
-1. [Conectarse a la interfaz de PowerShell](#connect-to-the-powershell-interface).
-2. Use la `Get-AzureDataBoxEdgeComputeRoleLogs` para obtener los registros de proceso para el dispositivo.
+1. [Conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface).
+2. Use `Get-AzureDataBoxEdgeComputeRoleLogs` para obtener los registros del proceso del dispositivo.
 
-    El ejemplo siguiente muestra el uso de este cmdlet:
+    En el ejemplo siguiente se muestra el uso de este cmdlet:
 
     ```powershell
-    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
+    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection
     ```
 
-    Esta es una descripción de los parámetros utilizados para el cmdlet:
-    - `Path`: Proporcione una ruta de acceso de red al recurso compartido donde desea crear el paquete de registro del proceso.
-    - `Credential`: Proporcione el nombre de usuario y la contraseña para el recurso compartido de red.
-    - `RoleInstanceName`: Proporciona esta cadena `IotRole` para este parámetro.
-    - `FullLogCollection`: Este parámetro garantiza que el paquete de registro contendrá todos los registros de proceso. De forma predeterminada, el paquete de registros contiene solo un subconjunto de registros.
+    Aquí tiene hay una descripción de los parámetros que se usan en el cmdlet:
+    - `Path`: proporcione una ruta de red al recurso compartido en el que quiere crear el paquete de registros del proceso.
+    - `Credential`: proporcione el nombre de usuario del recurso compartido de red. Cuando ejecute este cmdlet, deberá proporcionar la contraseña del recurso compartido.
+    - `FullLogCollection`: este parámetro garantiza que el paquete de registros contendrá todos los registros del proceso. De forma predeterminada, el paquete de registros contiene solo un subconjunto de registros.
 
 ## <a name="monitor-and-troubleshoot-compute-modules"></a>Supervisar y solucionar problemas de los módulos de proceso
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
-## <a name="exit-the-remote-session"></a>Salga de la sesión remota
+## <a name="exit-the-remote-session"></a>Salir de la sesión remota
 
 Para salir de la sesión remota de PowerShell, cierre la ventana de PowerShell.
 

@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84bd491d992ed15df288d9226b58bfe832e0692a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441451"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476509"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Visualización de la actividad y del historial de auditoría para los roles de recursos de Azure en PIM
 
@@ -43,11 +43,11 @@ Para ver las acciones que realizó un usuario específico en varios recursos, pu
 
     Observará una vista gráfica de las acciones del usuario en los recursos de Azure por fecha. También muestra las activaciones de roles recientes durante ese mismo período de tiempo.
 
-    ![Detalles del usuario](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![Detalles del usuario con las activaciones de roles y el resumen de actividad de recursos](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. Haga clic en una activación de un rol específico para ver los detalles y la actividad de los recursos de Azure correspondiente al tiempo de actividad de ese usuario.
 
-    ![Seleccionar activación de rol](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    ![Activación del rol seleccionado y detalles de la actividad mostrados por fecha](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
 ## <a name="export-role-assignments-with-children"></a>Exportación de asignaciones de roles con elementos secundarios
 
@@ -63,11 +63,11 @@ Puede tener un requisito de cumplimiento en el que debe proporcionar una lista c
 
 1. Haga clic en **Exportar** para abrir el panel de exportación de pertenencias.
 
-    ![Panel de exportación de pertenencias](media/azure-pim-resource-rbac/export-membership.png)
+    ![Panel de exportación de pertenencias para exportar todos los miembros](media/azure-pim-resource-rbac/export-membership.png)
 
 1. Haga clic en **Exportar todos los miembros** para exportar todas las asignaciones de roles en un archivo CSV.
 
-    ![Archivo CSV de exportación](media/azure-pim-resource-rbac/export-csv.png)
+    ![Asignaciones de roles exportadas en archivo CSV como se muestra en Excel](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>Visualización del historial de auditoría de recursos
 
@@ -83,15 +83,15 @@ La auditoría de recursos proporciona una vista de todas las actividades de rol 
 
 1. Filtre el historial con una fecha predefinida o un intervalo personalizado.
 
-    ![Filtrar auditoría de recursos](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Lista de auditoría de recursos con filtros](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. En **Tipo de auditoría**, seleccione **Activate (Assigned + Activated)** (Activar [Asignado + Activado]).
 
-    ![Detalles de actividad](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    ![Lista de auditoría de recursos que se filtra por tipo de auditoría de activación](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. En **Acción**, haga clic en **(actividad)** para que un usuario vea el detalle de la actividad de ese usuario en los recursos de Azure.
 
-    ![Detalles de actividad del usuario](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![Detalles de la actividad del usuario para una acción específica](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## <a name="view-my-audit"></a>Visualización de mi auditoría
 
@@ -107,7 +107,7 @@ Mi auditoría permite ver la actividad del rol personal.
 
 1. Filtre el historial con una fecha predefinida o un intervalo personalizado.
 
-    ![Actividad de rol personal](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Lista de auditoría para el usuario actual](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

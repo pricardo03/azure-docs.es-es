@@ -1,7 +1,7 @@
 ---
 title: Crear, ejecutar y realizar un seguimiento de las canalizaciones de ML
 titleSuffix: Azure Machine Learning service
-description: Cree y ejecute una canalización de aprendizaje automático con el SDK de Azure Machine Learning para Python. Las canalizaciones se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático (ML). Estas fases incluyen la preparación de datos, entrenamiento del modelo, implementación de modelos y puntuación de inferencia /.
+description: Cree y ejecute una canalización de aprendizaje automático con el SDK de Azure Machine Learning para Python. Las canalizaciones se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático (ML). Estas fases incluyen la preparación de los datos, el entrenamiento del modelo, la implementación de modelo y la inferencia o puntuación.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 948594a43cec92aa62386b041ce8c96a0558995e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165871"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466916"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Crear y ejecutar una canalización de aprendizaje automático con el SDK de Azure Machine Learning
 
@@ -53,12 +53,12 @@ Cree los recursos necesarios para ejecutar una canalización:
 
 * Configure un objeto `DataReference` para que apunte a los datos que se guardan o a los que puede acceder en un almacén de datos.
 
-* Configure los [destinos de proceso](concept-azure-machine-learning-architecture.md#compute-target) en los que se ejecutarán los pasos de su canalización.
+* Configure los [destinos de proceso](concept-azure-machine-learning-architecture.md#compute-targets) en los que se ejecutarán los pasos de su canalización.
 
 ### <a name="set-up-a-datastore"></a>Configurar un almacén de datos
 Un almacén de datos almacena los datos a los que la canalización puede obtener acceso. Cada área de trabajo tiene un almacén de datos predeterminado. Asimismo, puede registrar almacenes de datos adicionales. 
 
-Cuando cree su área de trabajo, una instancia de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) y una de [Azure Blob Storage ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) se adjuntan al área de trabajo de forma predeterminada. Azure Files es el almacén de datos predeterminado para un área de trabajo, pero también puede usar Blob Storage como un almacén de datos. Para obtener más información, consulte [Decisión sobre cuándo usar Azure Files, Azure Blobs o Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+Cuando cree su área de trabajo, una instancia de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) y una de [Azure Blob Storage ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) se adjuntan al área de trabajo de forma predeterminada. Azure Blob Storage es el "almacén de datos predeterminado" de un área de trabajo, pero también puede usar Blob Storage como un almacén de datos. Para obtener más información, consulte [Decisión sobre cuándo usar Azure Files, Azure Blobs o Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure file storage)
@@ -238,7 +238,7 @@ except ComputeTargetException:
 
 ## <a id="steps"></a>Construir los pasos de la canalización
 
-Después de crear y adjuntar un destino de proceso al área de trabajo, está listo para definir un paso de la canalización. Hay muchos pasos integrados disponibles a través del SDK de Azure Machine Learning. Es la más básica de estos pasos una [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), que ejecuta un script de Python en un destino de proceso especificado:
+Después de crear y adjuntar un destino de proceso al área de trabajo, está listo para definir un paso de la canalización. Hay muchos pasos integrados disponibles a través del SDK de Azure Machine Learning. El más básico de estos pasos es [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), que ejecuta un script de Python en un destino de proceso específico.
 
 ```python
 trainStep = PythonScriptStep(
@@ -251,7 +251,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-Reutilización de los resultados anteriores (`allow_reuse`) es clave al usar canalizaciones en un entorno de colaboración, puesto que eliminar ejecuciones repetidas innecesarios ofrece agilidad. Este es el comportamiento predeterminado cuando el comando $script_name, entradas y los parámetros de un paso que siguen siendo los mismos. Cuando se reutiliza la salida del paso, no se envía el trabajo para el proceso, en su lugar, los resultados de la ejecución anterior están inmediatamente disponibles para la ejecución del paso siguiente. Si se establece en false, una nueva ejecución siempre se generará para este paso durante la ejecución de la canalización. 
+La reutilización de los resultados anteriores (`allow_reuse`) es clave cuando se usan canalizaciones en un entorno de colaboración, ya que eliminar las repeticiones innecesarias ofrece agilidad. Este es el comportamiento predeterminado cuando el nombre del script, las entradas y los parámetros de un paso siguen siendo los mismos. Cuando se reutiliza la salida del paso indicado, el trabajo no se envía al proceso; en cambio, los resultados de la ejecución anterior están disponibles de inmediato para la ejecución del siguiente paso. Si se establece en "false", siempre se generará una nueva ejecución para este paso durante la ejecución de la canalización. 
 
 Después de definir sus pasos, debe compilar la canalización mediante algunos o todos ellos.
 
@@ -287,16 +287,16 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
-Para obtener más información, consulte el [pasos de la canalización de azure paquete](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) y [canalización clase](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) referencia.
+Para obtener más información, consulte el [paquete de pasos de canalizaciones de Azure](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) y la referencia [de clase de canalización](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py).
 
 ## <a name="submit-the-pipeline"></a>Enviar la canalización
 
-Cuando envía la canalización, Azure Machine Learning Service comprueba las dependencias para cada paso y carga una instantánea del directorio de origen especificado. Si no se especifica ningún directorio de origen, se carga el directorio local actual. La instantánea también se almacena como parte del experimento en el área de trabajo.
+Cuando envía la canalización, Azure Machine Learning Service comprueba las dependencias para cada paso y carga una instantánea del directorio de origen especificado. Si no se especifica ningún directorio de origen, se carga el directorio local actual. La instantánea también se almacena como parte del experimento del área de trabajo.
 
 > [!IMPORTANT]
-> Para evitar que los archivos que se incluye en la instantánea, cree un [.gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` en el directorio y agréguele los archivos. El `.amlignore` archivo usa la misma sintaxis y patrones como la [.gitignore](https://git-scm.com/docs/gitignore) archivo. Si ambos archivos se encuentran el `.amlignore` archivo tiene prioridad.
+> Para evitar que los archivos se incluyan en la instantánea, cree un archivo [.gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` en el directorio y agréguelos. El archivo `.amlignore` usa la misma sintaxis y patrones que el archivo [.gitignore](https://git-scm.com/docs/gitignore). Si ambos archivos existen, el archivo `.amlignore` tiene prioridad.
 >
-> Para más información, consulte [Instantánea](concept-azure-machine-learning-architecture.md#snapshot).
+> Para más información, consulte [Instantánea](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 # Submit the pipeline to be run
@@ -315,11 +315,11 @@ Cuando se ejecuta por primera vez una canalización, Azure Machine Learning:
 
 ![Diagrama de ejecución de un experimento como una canalización](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
-Para obtener más información, consulte el [experimentar clase](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) referencia.
+Para obtener más información, consulte la documentación de referencia de la [clase Experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py).
 
 ## <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
 
-Cuando se inicia un entrenamiento que se ejecute, donde el directorio de origen es un repositorio Git local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
+Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de Git local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
 
 ## <a name="publish-a-pipeline"></a>Publicar una canalización
 
@@ -366,7 +366,7 @@ response = requests.post(published_pipeline1.endpoint,
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## <a name="view-results"></a>Ver resultados
+## <a name="view-results"></a>Visualización de los resultados
 
 Ver la lista de todas las canalizaciones y sus detalles de ejecución:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).  
@@ -378,12 +378,12 @@ Ver la lista de todas las canalizaciones y sus detalles de ejecución:
 
 ## <a name="caching--reuse"></a>Almacenamiento en caché y reutilización  
 
-Con el fin de optimizar y personalizar el comportamiento de las canalizaciones pueden hacer algunas cosas en torno a almacenamiento en caché y reutilizar. Por ejemplo, puede elegir para:
-+ **Desactivar la reutilización de predeterminada del paso de la salida de la serie** estableciendo `allow_reuse=False` durante [paso definición](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). La reutilización es clave al utilizar canalizaciones en un entorno de colaboración, ya que eliminar ejecuciones innecesarios ofrece agilidad. Sin embargo, pueden rechazar este.
-+ **Extender más allá de la secuencia de comandos de hash**, para incluir también una ruta de acceso absoluta o rutas de acceso relativas a la directorioDeOrigen a otros archivos y directorios mediante la `hash_paths=['<file or directory']` 
-+ **Para forzar la regeneración de la salida de todos los pasos en una ejecución** con `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+Para optimizar y personalizar el comportamiento de sus canalizaciones, puede hacer algunas cosas en relación con el almacenamiento en caché y la reutilización. Por ejemplo, puede hacer lo siguiente:
++ **Desactivar la reutilización predeterminada de la salida de ejecución de pasos** configurando `allow_reuse=False` durante la [definición de pasos](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). La reutilización es clave cuando se usan canalizaciones en un entorno de colaboración, ya que eliminar las repeticiones innecesarias ofrece agilidad. Sin embargo, puede optar por ignorar esta opción.
++ **Extienda el hash más allá del script** para incluir también una ruta de acceso absoluta o rutas de acceso relativas de source_directory a otros archivos y directorios usando `hash_paths=['<file or directory']`. 
++ **Forzar la regeneración de salida de todos los pasos de una ejecución** con `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-De forma predeterminada, `allow-reuse` para pasos está habilitada y se aplica un algoritmo hash únicamente el archivo de script principal. Por lo tanto, si la secuencia de comandos para un paso determinado sigue siendo el mismo (`script_name`, las entradas y los parámetros), se reutiliza el resultado de un paso anterior que se ejecute, el proceso no se enviará el trabajo y los resultados de la ejecución anterior están inmediatamente disponibles para el paso siguiente en su lugar .  
+De forma predeterminada, `allow-reuse` está habilitado para los pasos y solo el archivo de script principal tiene aplicado un hash. Así pues, si el script de un paso determinado permanece igual (`script_name`, entradas y parámetros), la salida de un paso anterior se reutilizará, el trabajo no se enviará al proceso y los resultados de la ejecución anterior estarán inmediatamente disponibles para el siguiente paso.  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

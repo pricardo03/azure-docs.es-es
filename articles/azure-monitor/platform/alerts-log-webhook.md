@@ -1,25 +1,25 @@
 ---
 title: Acciones de webhook para alertas de registro en alertas de Azure
-description: En este artículo se describe cómo a una regla de alerta de registro mediante log analytics del área de trabajo o la aplicación, insertará datos como webhook HTTP y los detalles de las diferentes personalizaciones posibles.
+description: En este artículo se describe cómo una regla de alertas de registro puede insertar datos como webhook de HTTP mediante el área de trabajo de Log Analytics, así como los detalles de las diferentes personalizaciones posibles.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/25/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 809c98c1e2e51ae51d7fe03f2165a5d9eecb05cc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: cad1b0ab484d172000bd62146a88a27bfab1e9f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681817"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448766"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta de registro en Azure](alerts-log.md), tiene la opción de [configurarla mediante grupos de acciones](action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
 
 > [!NOTE]
-> También puede usar el [esquema común de alerta](https://aka.ms/commonAlertSchemaDocs), que proporciona la ventaja de tener una sola extensible y carga de alertas unificada a través de la alerta de todos los servicios en Azure Monitor, de sus integraciones de webhook. [Obtenga información sobre las definiciones de alerta de esquema comunes.](https://aka.ms/commonAlertSchemaDefinitions)
+> También puede usar el [esquema de alerta común](https://aka.ms/commonAlertSchemaDocs), que le ofrece la ventaja de tener una carga útil de alerta única y extensible en todos los servicios de alerta Azure Monitor, para las integraciones de su webhook. [Obtenga más información sobre las definiciones de esquemas de alertas comunes.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Acciones de webhook
 
@@ -41,7 +41,7 @@ Los webhooks incluyen una dirección URL y una carga en formato JSON que son los
 | Parámetro | Variable | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Nombre de la regla de alerta. |
-| Gravedad |#severity |Gravedad establecida en la alerta de registros activada. |
+| severity |#severity |Gravedad establecida en la alerta de registros activada. |
 | AlertThresholdOperator |ThresholdOperator |Operador de umbral para la regla de alerta.  *Mayor que* o *menor que*. |
 | AlertThresholdValue |#thresholdvalue |Valor de umbral para la regla de alerta. |
 | LinkToSearchResults |#linktosearchresults |Vincular al portal de análisis que devuelve los registros de la consulta que creó la alerta. |
@@ -51,12 +51,13 @@ Los webhooks incluyen una dirección URL y una carga en formato JSON que son los
 | Search Interval StartTime |#searchintervalstarttimeutc |Hora de inicio de la consulta en UTC, formato - mm/dd/aaaa HH:mm:ss AM/PM. 
 | SearchQuery |#searchquery |Consulta de búsqueda de registros utilizada por la regla de alerta. |
 | SearchResults |"IncludeSearchResults": true|Son los registros que devuelve la consulta a modo de tabla de JSON y que están limitados a los primeros 1000 registros, si el elemento "IncludeSearchResults":true se agrega a una definición de webhook personalizada de JSON como propiedad de alto nivel. |
+| Tipo de alerta| #alerttype | El tipo de regla de alertas de registro configurada: [Medidas métricas](alerts-unified-log.md#metric-measurement-alert-rules) o [Número de resultados](alerts-unified-log.md#number-of-results-alert-rules).|
 | WorkspaceID |#workspaceid |Identificador del área de trabajo de Log Analytics. |
 | Identificador de aplicación |#applicationid |Identificador de la aplicación Application Insights. |
-| Id. de suscripción |#subscriptionid |Identificador de la suscripción de Azure que se usa con Application Insights. 
+| Id. de suscripción |#subscriptionid |Id. de su suscripción de Azure usada. 
 
 > [!NOTE]
-> LinkToSearchResults pasa parámetros como SearchQuery, Search Interval StartTime y Search Interval End time en la dirección URL a Azure Portal para su visualización en la sección de Análisis. Portal de Azure tiene el URI de límite de aproximadamente 2000 caracteres de tamaño y le *no* abrir el vínculo proporcionado en las alertas, si los valores de parámetros superan el límite mencionado. Los usuarios pueden escribir manualmente los detalles para ver los resultados en el portal de Analytics o usar [Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) o [Log Analytics REST API](/rest/api/loganalytics/) de Application Insights para recuperar los resultados mediante programación 
+> LinkToSearchResults pasa parámetros como SearchQuery, Search Interval StartTime y Search Interval End time en la dirección URL a Azure Portal para su visualización en la sección de Análisis. Azure Portal tiene un límite de tamaño de URI de aproximadamente 2000 caracteres y *no* abrirá el vínculo proporcionado en las alertas si los valores de los parámetros superan dicho límite. Los usuarios pueden escribir manualmente los detalles para ver los resultados en el portal de Analytics o usar [Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) o [Log Analytics REST API](/rest/api/loganalytics/) de Application Insights para recuperar los resultados mediante programación 
 
 Por ejemplo, podría especificar la siguiente carga personalizada que incluye un único parámetro denominado *text*.  El servicio al que llama este webhook estaría esperando este parámetro.
 
@@ -88,8 +89,18 @@ A continuación, se muestra una carga de ejemplo de una acción de webhook está
 
 ```json
 {
-    "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName":"AcmeRule","SearchQuery":"search *",
+    "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
+    "AlertRuleName":"AcmeRule",
+    "SearchQuery":"Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 2,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": "log alert rule",
+    "Severity": "Warning",
     "SearchResult":
         {
         "tables":[
@@ -107,20 +118,13 @@ A continuación, se muestra una carga de ejemplo de una acción de webhook está
                     }
                 ]
         },
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "Description": null,
-    "Severity": "Warning"
+    "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
+    "AlertType": "Metric measurement"
  }
  ```
 
 > [!NOTE]
-> Puede cambiar el valor del campo de gravedad si tienes [cambiar sus preferencias de la API](alerts-log-api-switch.md) para alertas de registro en Log Analytics.
+> El valor del campo de gravedad puede cambiar si ha cambiado [su preferencia de API](alerts-log-api-switch.md) por alertas de registro en Log Analytics.
 
 
 #### <a name="log-alert-for-azure-application-insights"></a>Alerta de registro de Azure Application Insights
@@ -131,7 +135,17 @@ A continuación, se muestra una carga de ejemplo de un webhook estándar *sin la
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
     "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName":"AcmeRule","SearchQuery":"search *",
+    "AlertRuleName":"AcmeRule",
+    "SearchQuery":"requests | where resultCode == \"500\"",
+    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 2,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": null,
+    "Severity": "3",
     "SearchResult":
         {
         "tables":[
@@ -149,16 +163,8 @@ A continuación, se muestra una carga de ejemplo de un webhook estándar *sin la
                     }
                 ]
         },
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "Description": null,
-    "Severity": "3",
-    "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
+    "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1",
+    "AlertType": "Number of results"
     }
 }
 ```
@@ -204,5 +210,5 @@ A continuación se muestra una carga de ejemplo para una acción de webhook pers
 - Información sobre la [administración de alertas de registro en Azure](alerts-log.md)
 - Crear y administrar [grupos de acciones en Azure](action-groups.md)
 - Más información sobre [Application Insights](../../azure-monitor/app/analytics.md)
-- Obtenga más información sobre [registrar consultas](../log-query/log-query-overview.md). 
+- Obtenga más información sobre las [consultas de registro](../log-query/log-query-overview.md). 
 

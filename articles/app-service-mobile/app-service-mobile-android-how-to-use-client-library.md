@@ -3,7 +3,7 @@ title: Uso del SDK de Azure Mobile Apps para Android | Microsoft Docs
 description: Uso del SDK de Azure Mobile Apps para Android
 services: app-service\mobile
 documentationcenter: android
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
@@ -11,16 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 03/07/2019
-ms.author: crdun
-ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859399"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443538"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Uso del SDK de Azure Mobile Apps para Android
+
+> [!NOTE]
+> Visual Studio App Center está invirtiendo en servicios nuevos e integrados fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar las canalizaciones de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que usan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube. Visite [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) hoy mismo.
+>
 
 En esta guía se muestra cómo utilizar el SDK cliente de Android para Mobile Apps con el objetivo de implementar escenarios comunes, como los siguientes:
 
@@ -29,7 +33,7 @@ En esta guía se muestra cómo utilizar el SDK cliente de Android para Mobile Ap
 * Control de errores
 * Personalización del cliente
 
-Esta guía se centra en el SDK de Android del cliente.  Para más información sobre los SDK del lado servidor para Mobile Apps, consulte [Trabajar con el SDK del back-end de .NET][10] o [Cómo usar el SDK del back-end de Node.js][11].
+Esta guía se centra en el SDK de Android del cliente.  Para obtener más información sobre los SDK del lado servidor para Mobile Apps, consulte [Trabajar con el SDK del back-end de .NET][10] or [How to use the Node.js backend SDK][11].
 
 ## <a name="reference-documentation"></a>Documentación de referencia
 
@@ -77,7 +81,7 @@ Cambie ambos archivos **build.gradle** :
     implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    Actualmente, la versión más reciente es la 3.4.0. Las versiones compatibles se indican [en Bintray][14].
+    Actualmente, la versión más reciente es la 3.4.0. Las versiones compatibles se enumeran [en Bintray][14].
 
 ### <a name="enable-internet"></a>Habilitación de permisos de Internet
 
@@ -197,7 +201,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Para aprender a crear tablas adicionales en su back-end de Mobile Apps, consulte [Definición de un controlador de tabla][15] (back-end de .NET) o [Definición de tablas con un esquema dinámico][16] (back-end de Node.js).
+Para aprender a crear tablas adicionales en su back-end de Mobile Apps, consulte [Definición Definición de un controlador de tabla][15] (.NET backend) or [Define Tables using a Dynamic Schema][16] (back-end Node.js).
 
 Una tabla de back-end de Azure Mobile Apps define cinco campos especiales, cuatro de los cuales están disponibles para los clientes:
 
@@ -310,7 +314,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-En el ejemplo anterior se devuelven todos los resultados (hasta el tamaño máximo de página establecido por el servidor).  El método `.execute()` ejecuta la consulta en el back-end.  La consulta se convierte en una consulta [OData v3][19] antes de la transmisión al back.end de Mobile Apps.  A la recepción, el back-end de Mobile Apps convierte la consulta en una instrucción SQL antes de ejecutarla en la instancia de SQL Azure.  Dado que la actividad de red tarda algún tiempo, el método `.execute()` devuelve [`ListenableFuture<E>`][18].
+En el ejemplo anterior se devuelven todos los resultados (hasta el tamaño máximo de página establecido por el servidor).  El método `.execute()` ejecuta la consulta en el back-end.  La consulta se convierte en una consulta [OData v3][19] antes de transmitirse al back-end de Mobile Apps.  A la recepción, el back-end de Mobile Apps convierte la consulta en una instrucción SQL antes de ejecutarla en la instancia de SQL Azure.  Dado que la actividad de red tarda algún tiempo, el método `.execute()` devuelve [`ListenableFuture<E>`][18].
 
 ### <a name="filtering"></a>Filtrado de datos devueltos
 
@@ -382,7 +386,7 @@ List<ToDoItem> results = mToDoTable
     .execute().get();
 ```
 
-Para obtener más información y ver ejemplos de filtrado, consulte [Exploring the richness of the Android client query model ][20] (Exploración de la riqueza del modelo de consulta del cliente Android).
+Para obtener más información y ver ejemplos de filtrado, consulte [Exploring the richness of the Android client query model (Exploración de la riqueza del modelo de consulta del cliente Android)][20].
 
 ### <a name="sorting"></a>Ordenación de datos devueltos
 
@@ -697,7 +701,7 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 Cuando haya creado una instancia de **MobileServiceJsonTable**, tendrá disponible prácticamente la misma API que con el modelo de programación con tipo. En algunos casos, los métodos toman un parámetro sin tipo en lugar de uno con tipo.
 
 ### <a name="json_insert"></a>Inserción de una tabla sin tipo
-El código siguiente muestra cómo realizar una inserción. El primer paso es crear un [JsonObject][1], que forma parte de la biblioteca de [gson][3].
+El código siguiente muestra cómo realizar una inserción. El primer paso es crear una biblioteca [JsonObject][1], which is part of the [gson][3].
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -1003,7 +1007,7 @@ Obtenga el identificador del usuario que ha iniciado sesión desde una clase **M
 
 ### <a name="caching"></a>Almacenamiento en caché de tokens de autenticación
 
-El almacenamiento en caché de los tokens de autenticación requiere el almacenamiento del identificador de usuario y el token de autenticación localmente en el dispositivo. La próxima vez que se inicie la aplicación, compruebe la caché y, si estos valores están presentes, puede omitir el procedimiento de inicio de sesión y rehidratar el cliente con estos datos. No obstante, estos datos son confidenciales y deben almacenarse cifrados por seguridad en caso de que le roben el teléfono.  Puede ver un ejemplo completo de cómo almacenar tokens de autenticación en la memoria caché en la [sección Almacenamiento de tokens de autenticación en la caché][7].
+El almacenamiento en caché de los tokens de autenticación requiere el almacenamiento del identificador de usuario y el token de autenticación localmente en el dispositivo. La próxima vez que se inicie la aplicación, compruebe la caché y, si estos valores están presentes, puede omitir el procedimiento de inicio de sesión y rehidratar el cliente con estos datos. No obstante, estos datos son confidenciales y deben almacenarse cifrados por seguridad en caso de que le roben el teléfono.  Puede ver un ejemplo completo de cómo almacenar tokens de autenticación en la memoria caché en la [sección Almacenamiento en caché de tokens de autenticación][7].
 
 Si trata de utilizar un token caducado, recibirá como respuesta *401 unauthorized* . Puede controlar los errores de autenticación usando filtros.  Los filtros interceptan las solicitudes al back-end de App Service. El código de filtro probará la respuesta a un error 401, desencadenará el proceso de inicio de sesión y, luego, reanudará la solicitud que generó el 401.
 
@@ -1081,7 +1085,7 @@ Reemplace el método `onSuccess()` por cualquier código que desee usar en un in
 
 Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. La opción del inicio de sesión de flujo de cliente es, con frecuencia, preferible al uso de los métodos `loginAsync()` , ya que proporciona una experiencia UX más nativa y permite realizar más personalizaciones.
 
-1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación de App Service para usar el inicio de sesión de Azure Active Directory][22]. Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa.
+1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación de App Service para usar el inicio de sesión de Azure Active Directory][22] . Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa.
 2. Instale ADAL modificando el archivo build.gradle para incluir las siguientes definiciones:
 
     ```gradle
@@ -1276,7 +1280,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>Configuración de serialización automática
 
-Puede especificar una estrategia de conversión que se aplique a todas las columnas utilizando la API de [gson][3]. La biblioteca de cliente Android utiliza la biblioteca [gson][3] en segundo plano para serializar los objetos de Java en datos JSON, que se envían a Azure App Service.  El siguiente código utiliza el método **setFieldNamingStrategy()** para establecer la estrategia. Este ejemplo eliminará el carácter inicial (una "m") y, después, pondrá el siguiente carácter en minúscula (en cada nombre de campo). Por ejemplo, convertiría "mld" en "id".  Implemente una estrategia de conversión para reducir la necesidad de anotaciones `SerializedName()` en la mayoría de los campos.
+Puede especificar una estrategia de conversión que se aplique a todas las columnas mediante la API de [gson][3]. La biblioteca de cliente Android utiliza la biblioteca [gson][3] en segundo plano para serializar los objetos de Java en datos JSON que se envían a Azure App Service.  El siguiente código utiliza el método **setFieldNamingStrategy()** para establecer la estrategia. Este ejemplo eliminará el carácter inicial (una "m") y, después, pondrá el siguiente carácter en minúscula (en cada nombre de campo). Por ejemplo, convertiría "mld" en "id".  Implemente una estrategia de conversión para reducir la necesidad de anotaciones `SerializedName()` en la mayoría de los campos.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {

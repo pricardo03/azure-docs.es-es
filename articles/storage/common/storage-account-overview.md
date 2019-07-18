@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 157a421ce2cb4442597bfb0f75ae042a10a8ee03
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754989"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443746"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
@@ -68,7 +68,7 @@ En comparación con las cuentas de almacenamiento de blobs y de uso general v2,
 
 Las cuentas de almacenamiento de blob en bloques no admiten actualmente los niveles de acceso frecuente, esporádico ni de archivo.
 
-### <a name="filestorage-preview-storage-accounts"></a>Cuentas de almacenamiento FileStorage (versión preliminar)
+### <a name="filestorage-storage-accounts"></a>Cuentas de almacenamiento FileStorage
 
 Una cuenta de almacenamiento FileStorage es una cuenta de almacenamiento especializada que se utiliza para almacenar y crear recursos compartidos de archivos de prémium. Las cuentas de almacenamiento FileStorage ofrecen características dedicadas de rendimiento único, como la ampliación de IOPS. Para más información sobre estas características, consulte la sección sobre los [niveles de rendimiento de recursos compartidos de archivo](../files/storage-files-planning.md#file-share-performance-tiers) en la guía de planeación de archivos.
 
@@ -88,7 +88,7 @@ Las cuentas de almacenamiento de uso general pueden configurarse para cada uno d
 
 Las cuentas de almacenamiento de blob en bloques proporcionan un nivel de rendimiento prémium para almacenar blobs en bloques y blobs en anexos.
 
-Las cuentas de almacenamiento FileStorage (versión preliminar) proporcionan un nivel de rendimiento prémium para los recursos compartidos de archivos de Azure.
+Las cuentas de almacenamiento FileStorage proporcionan un nivel de rendimiento prémium para los recursos compartidos de archivos de Azure.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Niveles de acceso a datos de blob en bloques
 

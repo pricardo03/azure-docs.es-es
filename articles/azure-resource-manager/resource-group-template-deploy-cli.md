@@ -1,23 +1,17 @@
 ---
 title: Implementación de recursos con la plantilla y la CLI de Azure | Microsoft Docs
-description: Use Azure Resource Manager y CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
-services: azure-resource-manager
-documentationcenter: na
+description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 author: tfitzmac
-ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
 ms.service: azure-resource-manager
-ms.devlang: azurecli
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6cccae343e0a06af88c2e996c37910de72138c60
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 11d5b174dc21392df89def8e91847e8a0dd12562
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475044"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206534"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementación de recursos con plantillas de Resource Manager y la CLI de Azure
 
@@ -27,25 +21,25 @@ En este artículo, se explica el uso de la CLI de Azure con plantillas de Resour
 
 Si no tiene instalada la CLI de Azure, puede usar [Cloud Shell](#deploy-template-from-cloud-shell).
 
-## <a name="deployment-scope"></a>Ámbito de implementación
+## <a name="deployment-scope"></a>Ámbito de la implementación
 
-Puede tener como destino la implementación de una suscripción de Azure o un grupo de recursos dentro de una suscripción. En la mayoría de los casos, serán las objetivo implementación en un grupo de recursos. Use las implementaciones de suscripción para aplicar directivas y las asignaciones de roles a través de la suscripción. También se pueden usar implementaciones de la suscripción para crear un grupo de recursos e implementar recursos en ella. Según el ámbito de la implementación, use comandos diferentes.
+La implementación puede tener como destino una suscripción de Azure o un grupo de recursos dentro de una suscripción. En la mayoría de los casos, la implementación tendrá como destino un grupo de recursos. Use las implementaciones de la suscripción para aplicar directivas y asignaciones de roles en la suscripción. También puede usar las implementaciones de la suscripción para crear un grupo de recursos e implementar recursos en él. Según el ámbito de la implementación, usará comandos diferentes.
 
-Para implementar en un **grupo de recursos**, utilice [Crear implementación de un grupo az](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+Para implementar en un **grupo de recursos**, use [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
 
 ```azurecli
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
-Para implementar en un **suscripción**, utilice [Crear implementación az](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+Para implementar en una **suscripción**, use [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
 
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-Actualmente, solo se admiten las implementaciones de grupo de administración a través de la API de REST. Consulte [implementación de recursos con plantillas de Resource Manager y API de REST de Resource Manager](resource-group-template-deploy-rest.md).
+Actualmente, solo se admiten las implementaciones del grupo de administración a través de la API de REST. Vea [Implementación de recursos con las plantillas de Resource Manager y la API REST de Resource Manager](resource-group-template-deploy-rest.md).
 
-Los ejemplos en este artículo usan las implementaciones de grupo de recursos. Para obtener más información acerca de las implementaciones de suscripción, consulte [crear grupos de recursos y recursos en el nivel de suscripción](deploy-to-subscription.md).
+Los ejemplos de este artículo usan las implementaciones del grupo de recursos. Para obtener más información sobre la implementación de suscripciones, vea [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
 
 ## <a name="deploy-local-template"></a>Implementar una plantilla local
 
@@ -74,7 +68,7 @@ La implementación puede demorar unos minutos en completarse. Cuando termine, ve
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-remote-template"></a>Implementar plantilla remoto
+## <a name="deploy-remote-template"></a>Implementar plantilla remota
 
 En lugar de almacenar las plantillas de Resource Manager en el equipo local, quizás prefiera almacenarlas en una ubicación externa. Puede almacenar plantillas en un repositorio de control de código fuente (por ejemplo, GitHub). O bien, puede almacenarlas en una cuenta de Azure Storage para el acceso compartido en su organización.
 
@@ -104,12 +98,12 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>Nueva implementación cuando se produce un error en la implementación
 
-Esta característica también es conocido como *reversión en caso de error*. Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar una nueva implementación, utilice el parámetro `--rollback-on-error` en el comando de implementación. Esta funcionalidad es útil si tiene un estado correcto conocido para la implementación de infraestructura y desea volver a este estado. Hay una serie de advertencias y restricciones:
+Esta característica también es conocida como *reversión en caso de error*. Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar una nueva implementación, utilice el parámetro `--rollback-on-error` en el comando de implementación. Esta funcionalidad es útil si tiene un estado correcto conocido para la implementación de la infraestructura y quiere volver a ese estado. Hay una serie de advertencias y restricciones:
 
-- La nueva implementación se ejecuta exactamente como se ha ejecutado anteriormente con los mismos parámetros. No se puede cambiar los parámetros.
-- La implementación anterior se ejecuta con la [modo completo](./deployment-modes.md#complete-mode). Se eliminan todos los recursos que no se incluyen en la implementación anterior y se establecen las configuraciones de recursos a su estado anterior. Asegúrese de que comprende perfectamente el [modos de implementación](./deployment-modes.md).
-- La reimplementación solo afecta a los recursos, no se ven afectados los cambios de datos.
-- Esta característica solo se admite en las implementaciones de grupo de recursos, no implementaciones de nivel de suscripción. Para obtener más información acerca de la implementación de nivel de suscripción, consulte [crear grupos de recursos y recursos en el nivel de suscripción](./deploy-to-subscription.md).
+- La reimplementación se ejecuta exactamente como se ejecutó previamente y con los mismos parámetros. Los parámetros no se pueden cambiar.
+- La implementación anterior se ejecuta con el [modo completo](./deployment-modes.md#complete-mode). Los recursos no incluidos en la implementación anterior se eliminan, y se establecen las configuraciones del recurso al estado anterior. Asegúrese de que comprende perfectamente los [modos de implementación](./deployment-modes.md).
+- La reimplementación solo afecta a los recursos, los cambios de datos no se ven afectados.
+- Esta característica solo se admite en implementaciones del grupo de recursos, no en implementaciones en el nivel de suscripción. Para obtener más información sobre las implementaciones en el nivel de suscripción, vea [Creación de grupos de recursos y otros recursos en el nivel de suscripción](./deploy-to-subscription.md).
 
 Para usar esta opción, las implementaciones deben tener nombres únicos para que se puedan identificar en el historial. Si no tienen nombres únicos, la implementación con error en cuestión podría sobrescribir la implementación anteriormente correcta en el historial. Solo se puede usar esta opción con las implementaciones de nivel de raíz. Las implementaciones de una plantilla anidada no están disponibles para volver a implementarse.
 

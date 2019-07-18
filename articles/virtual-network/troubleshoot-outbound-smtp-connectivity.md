@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 385163d791bff0c02a05ee1b27afd82c3afd0ac3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13ed2dc2b304368e468c433b5abf5d056c33e406
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401926"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466480"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Solución de problemas de conectividad SMTP saliente en Azure
 
@@ -36,9 +36,9 @@ Para los usuarios de Azure de Contrato Enterprise, no hay ningún cambio en la c
 ## <a name="pay-as-you-go"></a>Pay-As-You-Go
 Si se suscribió antes del 15 de noviembre de 2017 en las ofertas de suscripción de Pago por uso o de Microsoft Partner Network, no habrá ningún cambio en la capacidad técnica de probar la entrega de correo electrónico saliente. Seguirá teniendo la posibilidad de probar la entrega de correo electrónico saliente desde máquinas virtuales de Azure dentro de estas suscripciones directamente a proveedores de correo electrónico externos sin ninguna restricción desde la plataforma de Azure. Como ya se indicó, no se garantiza que los proveedores de correo electrónico acepten el correo electrónico entrante de un usuario cualquiera y los usuarios deberán trabajar directamente con proveedores de correo electrónico para corregir cualquier problema de entrega de mensaje o filtrado de correo no deseado que implique a proveedores específicos.
 
-Para las suscripciones de Pago por uso o de Microsoft Partner Network creadas después del 15 de noviembre de 2017, habrá restricciones técnicas para el bloqueo del correo electrónico enviado directamente desde máquinas virtuales dentro de estas suscripciones. Si quiere poder enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (sin usar retransmisión SMTP autenticada), puede hacer una solicitud para quitar la restricción. Las solicitudes se revisarán y aprobarán a discreción de Microsoft y solo se concederán una vez que se hayan realizado comprobaciones adicionales contra fraudes. Para realizar una solicitud, abra un caso de soporte técnico mediante el siguiente tipo de incidencia: **Técnico** > **Red virtual** > **Conectividad** > **No se puede enviar correo (SMTP/Puerto 25)** . Asegúrese de agregar detalles sobre por qué la implementación tiene que enviar correo directamente a los proveedores de correo en lugar de usar una retransmisión autenticada.
+Para las suscripciones de Pago por uso o de Microsoft Partner Network creadas después del 15 de noviembre de 2017, habrá restricciones técnicas para el bloqueo del correo electrónico enviado directamente desde máquinas virtuales dentro de estas suscripciones. Si quiere poder enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (sin usar retransmisión SMTP autenticada), puede hacer una solicitud para quitar la restricción. Las solicitudes se revisarán y aprobarán a discreción de Microsoft y solo se concederán una vez que se hayan realizado comprobaciones adicionales contra fraudes. Para realizar una solicitud, abra un caso de soporte técnico mediante el siguiente tipo de incidencia: Tipo de problema **Administración de suscripciones**: **Solicitud para habilitar el flujo de correo electrónico del puerto 25**. Asegúrese de agregar detalles sobre por qué la implementación tiene que enviar correo directamente a los proveedores de correo en lugar de usar una retransmisión autenticada.
 
-Cuando hay una suscripción de Pago por uso o de Microsoft Partner Network exenta, las máquinas virtuales dentro de esa suscripción solo quedarán exentas a partir de ahora.
+Después de que una suscripción de pago por uso o de Microsoft Partner Network esté exenta y las VM hayan sido "detenidas" e "iniciadas" desde Azure Portal, todas las VM dentro de esa suscripción quedarán exentas en el futuro. La exención solo es aplicable a la suscripción solicitada.
 
 > [!NOTE]
 > Microsoft se reserva el derecho a revocar este exención si se determina que se produjo una infracción en los términos del servicio.
@@ -46,12 +46,12 @@ Cuando hay una suscripción de Pago por uso o de Microsoft Partner Network exent
 ## <a name="msdn-azure-pass-azure-in-open-education-bizspark-and-free-trial"></a>MSDN, Pase para Azure, Azure bajo licencia Open, Education, BizSpark y evaluación gratuita
 Si creó una suscripción de MSDN, Pase para Azure, Azure bajo licencia Open, Education, BizSpark, Patrocinio de Azure, Azure para estudiantes, Evaluación gratuita o cualquier suscripción de Visual Studio después del 15 de noviembre de 2017, tendrá restricciones técnica que bloquearán el correo electrónico que se envía desde máquinas virtuales dentro de estas suscripciones directamente a los proveedores de correo electrónico. Las restricciones existen para evitar abusos. No se concederá ninguna solicitud para quitar esta restricción.
 
-Si usa estos tipos de suscripción, le recomendamos que use los servicios de retransmisión SMTP tal como se indicó anteriormente en este artículo.
+Si usa estos tipos de suscripción, le recomendamos que use los servicios de retransmisión SMTP tal como se indicó anteriormente en este artículo o que cambie el tipo de suscripción.
 
 ## <a name="cloud-service-provider-csp"></a>Proveedor de servicios en la nube (CSP)
 
-Si usa los recursos de Azure a través de un CSP, puede crear un caso de soporte técnico a través del CSP que elija y puede solicitarle a este que cree un caso de desbloqueo en su nombre si no se puede usar una retransmisión SMTP segura.
+Si usa los recursos de Azure a través de CSP, puede solicitar que CSP cree en su nombre una solicitud de exención de desbloqueo con Microsoft, si no se puede usar una retransmisión de SMTP segura.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 
-Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+Si aún necesita ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver su problema rápidamente; para ello, use el siguiente tipo de problema: Tipo de problema **Administración de suscripciones**: **Solicitud para habilitar el flujo de correo electrónico del puerto 25**.

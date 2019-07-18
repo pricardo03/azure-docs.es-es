@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07259d90c7119dec4ca9139e10af2fb20a439425
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1760d0e0bd356a05d84c07eda005e0526da5d13
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289469"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476524"
 ---
 # <a name="assign-azure-ad-roles-in-pim"></a>Asignación de roles de Azure AD en PIM
 
@@ -42,17 +42,17 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
 1. Haga clic en **Roles** o en **Miembros**.
 
-    ![Roles de Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Roles de Azure AD con las opciones de menú Roles y Miembros resaltadas](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Haga clic en **Agregar miembro** para abrir Agregar miembros administrados.
 
 1. Haga clic en **Seleccionar un rol**, haga clic en un rol que desee administrar y luego haga clic en **Seleccionar**.
 
-    ![Seleccione un rol.](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+    ![Panel Seleccionar rol que muestra los roles de Azure AD](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
 1. Haga clic en **Seleccionar miembros**, seleccione los usuarios que desea asignar al rol y, a continuación, haga clic en **Seleccionar**.
 
-    ![Seleccione un rol.](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Panel Seleccionar miembros donde puede seleccionar un usuario](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. En Agregar miembros administrados, haga clic en **Aceptar** para agregar el usuario al rol.
 
@@ -60,7 +60,7 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
      Cuando el rol esté asignado, el usuario que ha seleccionado aparecerá en la lista de miembros como **Elegible** para el rol.
 
-    ![Usuario apto para un rol](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+    ![Los miembros de un rol se enumeran junto con su estado de activación.](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
 1. Ahora que el usuario es apto para el rol, hágale saber que puede activarlo de acuerdo con las instrucciones que se describen en [Activación de mis roles de Azure AD en PIM](pim-how-to-activate-role.md).
 
@@ -76,17 +76,17 @@ De forma predeterminada, los nuevos usuarios solo son aptos para un rol de admin
 
 1. Haga clic en **Miembros**.
 
-    ![Lista de miembros](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Roles de Azure AD: lista de miembros que muestra el rol y el estado de activación](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Haga clic en un rol **elegible** que desee convertir en permanente.
 
 1. Haga clic en **Más** y luego en **Establecer como permanente**.
 
-    ![Hacer que una asignación de roles sea permanente](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+    ![Panel que muestra un usuario que es apto para un rol con las opciones de menú Más abiertas](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
     El rol aparece ahora como **permanente**.
 
-    ![Lista de miembros con el cambio permanente](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
+    ![Lista de miembros que muestra el rol y el estado de activación que ahora es permanente](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
 ## <a name="remove-a-user-from-a-role"></a>Eliminación de un usuario de un rol
 
@@ -100,17 +100,17 @@ Siga estos pasos para quitar a un usuario específico de un rol de administrador
 
 1. Haga clic en **Miembros**.
 
-    ![Lista de miembros](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Roles de Azure AD: lista de miembros que muestra el rol y el estado de activación](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Haga clic en una asignación de roles que desee quitar.
 
 1. Haga clic en **Más** y después en **Quitar**.
 
-    ![Quitar un rol](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
+    ![Panel que muestra un usuario que tiene un rol permanente con las opciones de menú Más abiertas](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
 1. En el mensaje que le pide confirmación, haga clic en **Sí**.
 
-    ![Quitar un rol](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Mensaje que pregunta si quiere quitar al miembro del rol](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     La asignación de rol se quita.
 
@@ -140,13 +140,13 @@ Siga estos pasos para asignar el rol de administrador de acceso de usuario a la 
 
 1. En la lista **Seleccionar**, busque y seleccione la entidad de servicio **MS PIM**.
 
-   ![Adición de permisos para MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+   ![Panel Agregar asignación de roles: adición de permisos para la entidad de servicio MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
 
 1. Elija **Guardar** para asignar el rol.
 
    Después de unos momentos, se asignará a la entidad de servicio MS-PIM el rol Administrador de acceso de usuario en el ámbito de la suscripción.
 
-   ![Rol Administrador de acceso de usuario para MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+   ![Hoja Control de acceso (IAM) que muestra la asignación de roles de administrador de acceso del usuario para MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

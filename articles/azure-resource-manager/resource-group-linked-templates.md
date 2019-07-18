@@ -1,25 +1,17 @@
 ---
 title: Plantillas vinculadas para la implementación de Azure | Microsoft Docs
 description: Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.openlocfilehash: 4a5fe1bd2bf57fbec240ab242dd889014dde9578
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357400"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206432"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -91,7 +83,7 @@ Para anidar la plantilla dentro de la plantilla principal, use la propiedad **te
 > [!NOTE]
 > En las plantillas anidadas, no puede utilizar parámetros o variables definidos en la plantilla anidada. Puede usar parámetros y variables de la plantilla principal. En el ejemplo anterior, `[variables('storageName')]` recupera un valor de la plantilla principal, no de la plantilla anidada. Esta restricción no se aplica a las plantillas externas.
 >
-> Para dos recursos definen dentro de una plantilla anidada y un recurso depende de la otra, el valor de la dependencia es simplemente el nombre del recurso dependiente:
+> Para dos recursos definidos dentro de una plantilla anidada y dependientes entre ellos, el valor de la dependencia es simplemente el nombre del recurso dependiente:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
@@ -155,11 +147,11 @@ Para pasar un valor de la plantilla principal a la plantilla vinculada, use **pa
 ]
 ```
 
-## <a name="using-copy"></a>Mediante la copia
+## <a name="using-copy"></a>Uso de la copia
 
-Para crear varias instancias de un recurso con una plantilla anidada, agregue el elemento de copia en el nivel de la **Microsoft.resources/Deployments** recursos.
+Para crear varias instancias de un recurso con una plantilla anidada, agregue el elemento de copia en el nivel del recurso **Microsoft.resources/Deployments**.
 
-La plantilla de ejemplo siguiente muestra cómo usar la copia con una plantilla anidada.
+En la plantilla de ejemplo siguiente se muestra cómo usar la función de copiar con una plantilla anidada.
 
 ```json
 "resources": [

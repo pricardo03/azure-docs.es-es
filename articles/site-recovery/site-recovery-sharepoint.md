@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472154"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491828"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configuración de la recuperación ante desastres para una aplicación de SharePoint de niveles múltiples mediante Azure Site Recovery
 
@@ -29,7 +29,7 @@ Una buena solución de recuperación ante desastres debe permitir el modelado de
 
 En este artículo se describe detalladamente cómo proteger una aplicación de SharePoint mediante [Azure Site Recovery](site-recovery-overview.md). También se describen los procedimientos recomendados para replicar una aplicación de SharePoint de tres niveles en Azure, cómo llevar a cabo la recuperación ante desastres y cómo conmutar por error la aplicación en Azure.
 
-Puede ver el vídeo siguiente sobre la recuperación de una aplicación de niveles múltiples en Azure.
+También puede ver el vídeo siguiente sobre la recuperación de una aplicación de niveles múltiples en Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -196,7 +196,7 @@ Siga [estas directrices](site-recovery-test-failover-to-azure.md) para llevar a 
 
 Para obtener instrucciones sobre cómo realizar la conmutación por error para AD y DNS, consulte el documento [Consideraciones sobre la conmutación por error de prueba](site-recovery-active-directory.md#test-failover-considerations).
 
-Para obtener instrucciones sobre cómo realizar la conmutación por error de grupos de disponibilidad AlwaysOn de SQL, consulte el documento [Conmutación por error de prueba para Always On de SQL Server](site-recovery-sql.md#steps-to-do-a-test-failover).
+Para obtener instrucciones sobre cómo realizar la conmutación por error de grupos de disponibilidad AlwaysOn de SQL, consulte el documento [Ejecución de DR para aplicaciones con Azure Site Recovery y conmutación por error de prueba](site-recovery-sql.md#disaster-recovery-of-application).
 
 ## <a name="doing-a-failover"></a>Realización de una conmutación por error
 Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutación por error.

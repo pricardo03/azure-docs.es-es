@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.openlocfilehash: 9f985260175e5f54a17799ef07b3a280f42b716e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399573"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491881"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
@@ -31,7 +31,7 @@ En la tabla siguiente se resumen los componentes implicados en la recuperación 
 **Máquinas virtuales de la región de origen** | Una de más máquinas virtuales de Azure en una [región de origen compatible](azure-to-azure-support-matrix.md#region-support).<br/><br/> Las máquinas virtuales pueden ejecutar cualquier [sistema operativo compatible](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Almacenamiento de la máquina virtual de origen** | Las máquinas virtuales de Azure se pueden administrar o pueden tener discos no administrados en cuentas de almacenamiento.<br/><br/>[Aprenda sobre](azure-to-azure-support-matrix.md#replicated-machines---storage) el almacenamiento de Azure compatible.
 **Redes de máquinas virtuales de origen** | Las máquinas virtuales pueden encontrarse en una o varias subredes de una red virtual (VNet) en la región de origen. [Más información](azure-to-azure-support-matrix.md#replicated-machines---networking) sobre los requisitos de las redes.
-**Cuenta de almacenamiento en caché** | Necesita una cuenta de almacenamiento de caché en la red de origen. Durante la replicación, los cambios de la máquina virtual se almacenan en la memoria caché antes de enviarse al almacenamiento de destino.<br/><br/> Esto garantiza que las aplicaciones de producción que se ejecutan en la máquina virtual resulten mínimamente afectadas.<br/><br/> [Más información](azure-to-azure-support-matrix.md#cache-storage) acerca de los requisitos de almacenamiento en caché. 
+**Cuenta de almacenamiento en caché** | Necesita una cuenta de almacenamiento de caché en la red de origen. Durante la replicación, los cambios de la máquina virtual se almacenan en la memoria caché antes de enviarse al almacenamiento de destino.  Las cuentas de almacenamiento en caché deben ser estándar.<br/><br/> Esto garantiza que las aplicaciones de producción que se ejecutan en la máquina virtual resulten mínimamente afectadas.<br/><br/> [Más información](azure-to-azure-support-matrix.md#cache-storage) acerca de los requisitos de almacenamiento en caché. 
 **Recursos de destino** | Los recursos de destino se utilizan durante la replicación y al producirse una conmutación por error. Site Recovery puede configurar el recurso de destino de forma predeterminada o, si lo prefiere, puede crearlo usted o personalizarlo.<br/><br/> En la región de destino, compruebe que se pueden crear máquinas virtuales y que la suscripción tiene suficientes recursos para admitir los tamaños de máquina virtual necesarios en la región de destino. 
 
 ![Origen y destino de la replicación](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
@@ -131,7 +131,7 @@ Si se controla el acceso de salida para las máquinas virtuales con direcciones 
 
 | **URL** | **Detalles** |
 | ------- | ----------- |
-| * .blob.core.windows.net | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
+| \* .blob.core.windows.net | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
 | login.microsoftonline.com | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
 | *.hypervrecoverymanager.windowsazure.com | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
 | *.servicebus.windows.net | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |
@@ -142,17 +142,17 @@ Para controlar la conectividad de salida para máquinas virtuales con direccione
 
 #### <a name="source-region-rules"></a>Reglas de la región de origen
 
-**Rule** |  **Detalles** | **Etiqueta de servicio**
+**Regla** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de origen. | Almacenamiento. \<nombre de la región >.
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de origen. | Almacenamiento.\<region-name>.
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Active Directory (Azure AD).<br/><br/> Si se agregan direcciones de Azure AD en el futuro, debe crear reglas de grupo de seguridad de red.  | AzureActiveDirectory
 Permitir HTTPS de salida: puerto 443 | Permitir el acceso a los [puntos de conexión de Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondan a la ubicación de destino. 
 
 #### <a name="target-region-rules"></a>Reglas de la región de destino
 
-**Rule** |  **Detalles** | **Etiqueta de servicio**
+**Regla** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de destino. | Almacenamiento. \<nombre de la región >.
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de destino. | Almacenamiento.\<region-name>.
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure AD.<br/><br/> Si se agregan direcciones de Azure AD en el futuro, debe crear reglas de grupo de seguridad de red.  | AzureActiveDirectory
 Permitir HTTPS de salida: puerto 443 | Permitir el acceso a los [puntos de conexión de Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondan a la ubicación de origen. 
 

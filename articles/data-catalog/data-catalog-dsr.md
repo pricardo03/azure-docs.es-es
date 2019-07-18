@@ -7,12 +7,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65775677"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509292"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Orígenes de datos compatibles en Azure Data Catalog
 
@@ -152,7 +152,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td></td>
     </tr>
     <tr>
-      <td>Vista de SQL Data Warehouse</td>
+      <td>Vista de Azure SQL Data Warehouse</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -165,7 +165,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 y versiones posteriores.</td>
     </tr>
     <tr>
       <td>KPI de SQL Server Analysis Services</td>
@@ -173,7 +173,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 y versiones posteriores.</td>
     </tr>
     <tr>
       <td>Medida de SQL Server Analysis Services</td>
@@ -181,7 +181,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 y versiones posteriores.</td>
     </tr>
     <tr>
       <td>Tabla de SQL Server Analysis Services</td>
@@ -189,7 +189,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 y versiones posteriores.</td>
     </tr>
     <tr>
       <td>Informe de SQL Server Reporting Services</td>
@@ -197,7 +197,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Solo servidores de modo nativo. No se admite el modo de SharePoint.</td>
+      <td>Solo servidores de modo nativo. No se admite el modo de SharePoint. Solo SQL Server 2008 y versiones posteriores</td>
     </tr>
     <tr>
       <td>Tabla de SQL Server</td>
@@ -205,7 +205,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
-      <td></td>
+      <td>SQL Server 2008 y versiones posteriores.</td>
     </tr>
     <tr>
       <td>Vista de SQL Server</td>
@@ -213,7 +213,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
-      <td></td>
+      <td>SQL Server 2008 y versiones posteriores.</td>
     </tr>
     <tr>
       <td>Tabla de Teradata</td>
@@ -237,7 +237,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Funciona sólo en inglés. No se admiten las medidas.</td>
+      <td>Funciona solo en inglés. No se admiten las medidas.</td>
     </tr>
     <tr>
       <td>Vista de SAP HANA</td>
