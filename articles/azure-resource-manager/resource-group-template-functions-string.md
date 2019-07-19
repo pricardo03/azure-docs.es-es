@@ -45,7 +45,7 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 * [skip](#skip)
 * [split](#split)
 * [startsWith](#startswith)
-* [cadena](#string)
+* [string](#string)
 * [substring](#substring)
 * [take](#take)
 * [toLower](#tolower)
