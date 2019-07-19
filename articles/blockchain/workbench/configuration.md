@@ -55,7 +55,7 @@ Se puede modelar la lógica de negocios de una aplicación como una máquina de 
 
 | Campo | Description | Obligatorio | Longitud máxima |
 |-------|-------------|:--------:|-----------:|
-| NOMBRE | Nombre único de flujo de trabajo. El contrato inteligente correspondiente debe usar el mismo **nombre** para la clase de contrato aplicable. | Sí | 50 |
+| Name | Nombre único de flujo de trabajo. El contrato inteligente correspondiente debe usar el mismo **nombre** para la clase de contrato aplicable. | Sí | 50 |
 | DisplayName | Nombre descriptivo para mostrar del flujo de trabajo. | Sí | 255 |
 | Description | Descripción del flujo de trabajo. | Sin | 255 |
 | Iniciadores | Colección de [ApplicationRoles](#application-roles). Roles que se asignan a los usuarios que están autorizados para crear contratos en el flujo de trabajo. | Sí | |
