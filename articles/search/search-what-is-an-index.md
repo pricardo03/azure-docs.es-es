@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a6a5b0e3957141b9ea17a378a7cbeff33a0124e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024442"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485199"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Creación de un índice básico en Azure Search
 
@@ -36,7 +36,7 @@ Para llegar al diseño adecuado del índice, se necesitan normalmente varias ite
   
    Al hacer clic en **Create** (Crear), se crean todas las estructuras físicas que respaldan el índice en el servicio de búsqueda.
 
-3. Descargue el esquema de índice mediante [la API REST Get Index](https://docs.microsoft.com/rest/api/searchservice/get-index) y una herramienta de prueba web como [Postman](search-fiddler.md). Ahora tiene una representación JSON del índice que creó en el portal. 
+3. Descargue el esquema de índice mediante [la API REST Get Index](https://docs.microsoft.com/rest/api/searchservice/get-index) y una herramienta de prueba web como [Postman](search-get-started-postman.md). Ahora tiene una representación JSON del índice que creó en el portal. 
 
    Llegados a este punto, va a cambiar a un enfoque basado en código. El portal no es adecuado para la iteración porque no se puede editar un índice que ya se ha creado. Sin embargo, puede usar Postman y REST en el resto de las tareas.
 
@@ -48,7 +48,7 @@ Para llegar al diseño adecuado del índice, se necesitan normalmente varias ite
 
 Como se crean estructuras físicas en el servicio, cada vez que realiza cambios materiales en una definición de campo existente, es necesario [quitar y volver a crear los índices](search-howto-reindex.md). Esto significa que durante el desarrollo, debe estar preparado para recompilaciones frecuentes. Considere la posibilidad de trabajar con un subconjunto de los datos para asegurarse de que las recompilaciones van más rápido. 
 
-Para un diseño iterativo, se recomienda código, en lugar del portal. Si confía en el portal para la definición del índice, tendrá que rellenar la definición del índice en cada recompilación. Como alternativa, herramientas como [Postman y la API REST](search-fiddler.md) son útiles con pruebas de concepto cuando los proyectos de desarrollo están aún en las fases iniciales. Puede realizar cambios incrementales en una definición de índice de un cuerpo de solicitud y, luego, enviar la solicitud al servicio para volver a crear un índice mediante un esquema actualizado.
+Para un diseño iterativo, se recomienda código, en lugar del portal. Si confía en el portal para la definición del índice, tendrá que rellenar la definición del índice en cada recompilación. Como alternativa, herramientas como [Postman y la API REST](search-get-started-postman.md) son útiles con pruebas de concepto cuando los proyectos de desarrollo están aún en las fases iniciales. Puede realizar cambios incrementales en una definición de índice de un cuerpo de solicitud y, luego, enviar la solicitud al servicio para volver a crear un índice mediante un esquema actualizado.
 
 ## <a name="components-of-an-index"></a>Componentes de un índice
 
@@ -146,7 +146,7 @@ La [*recopilación de campos*](#fields-collection) es normalmente el elemento m�
 Al definir el esquema, debe especificar el nombre, el tipo y los atributos de cada campo del índice. El tipo de campo permite clasificar los datos que se almacenan en ese campo. Los atributos se establecen en campos individuales para especificar cómo se usa el campo. En la tabla siguiente se enumeran los tipos y los atributos que puede especificar.
 
 ### <a name="data-types"></a>Tipos de datos
-| Type | DESCRIPCIÓN |
+| type | DESCRIPCIÓN |
 | --- | --- |
 | *Edm.String* |Texto que opcionalmente se puede acortar para búsquedas de texto completo (separación de palabras, lematización, etc.). |
 | *Collection(Edm.String)* |Una lista de cadenas que opcionalmente se pueden acortar para búsquedas de texto completo. En teoría, no hay ningún límite superior para el número de elementos de una colección, pero el límite de 16 MB en el tamaño de la carga se aplica a las colecciones. |
@@ -160,16 +160,22 @@ Al definir el esquema, debe especificar el nombre, el tipo y los atributos de ca
 Puede encontrar información más detallada sobre los [tipos de datos de Azure Search admitidos aquí](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="index-attributes"></a>Atributos de índice
+
+Solamente un campo del índice tiene que designarse como campo **clave** que identifica de forma exclusiva cada documento.
+
+Los demás atributos determinan cómo se utiliza un campo en una aplicación. Por ejemplo, el atributo **searchable** se asigna a todos los campos que deben incluirse en una búsqueda de texto completo. 
+
+Las API que usa para crear un índice tienen distintos comportamientos predeterminados. En el caso de las [API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la mayoría de los atributos están habilitados de forma predeterminada (por ejemplo, **searchable** y **retrievable** son true para los campos de cadena) y a menudo solo deberá establecerlos si desea desactivarlos. Para el SDK de .NET, ocurre lo contrario. En cualquier propiedad que no establezca de forma explícita, el valor predeterminado es que el comportamiento de búsqueda correspondiente esté deshabilitado, a menos que lo habilite específicamente.
+
 | Atributo | DESCRIPCIÓN |
 | --- | --- |
-| *Clave* |Una cadena que proporciona el identificador único de cada documento, que se usa para buscar los documentos. Todos los índices deben tener una clave. Solo un campo puede ser la clave y se debe establecer su tipo en Edm.String. |
-| *Retrievable* |Establece si el campo se puede devolver en un resultado de búsqueda. |
-| *Filterable* |Permite que el campo se use en consultas de filtro. |
-| *Sortable* |Permite que una consulta ordene los resultados de búsqueda mediante este campo. |
-| *Facetable* |Permite que un campo se use en una estructura de [navegación con facetas](search-faceted-navigation.md) para el filtrado autodirigido. Normalmente los campos que contienen valores repetitivos que se pueden usar para agrupar varios documentos (por ejemplo, varios documentos que forman parte de una única categoría de servicio o un único producto) funcionan mejor como facetas. |
-| *Searchable* |Marca el campo como campo de búsqueda de texto completo. |
+| `key` |Una cadena que proporciona el identificador único de cada documento, que se usa para buscar los documentos. Todos los índices deben tener una clave. Solo un campo puede ser la clave y se debe establecer su tipo en Edm.String. |
+| `retrievable` |Establece si el campo se puede devolver en un resultado de búsqueda. |
+| `filterable` |Permite que el campo se use en consultas de filtro. |
+| `Sortable` |Permite que una consulta ordene los resultados de búsqueda mediante este campo. |
+| `facetable` |Permite que un campo se use en una estructura de [navegación con facetas](search-faceted-navigation.md) para el filtrado autodirigido. Normalmente los campos que contienen valores repetitivos que se pueden usar para agrupar varios documentos (por ejemplo, varios documentos que forman parte de una única categoría de servicio o un único producto) funcionan mejor como facetas. |
+| `searchable` |Marca el campo como campo de búsqueda de texto completo. |
 
-Puede encontrar información más detallada sobre los [atributos de índice de Azure Search aquí](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## <a name="storage-implications"></a>Implicaciones del almacenamiento
 

@@ -209,7 +209,7 @@ Define las funciones que se pueden ejecutar en el flujo de trabajo.
 
 | Campo | Description | Obligatorio | Longitud máxima |
 |-------|-------------|:--------:|-----------:|
-| NOMBRE | El nombre único de la función. El contrato inteligente correspondiente debe usar el mismo **nombre** para la función aplicable. | Sí | 50 |
+| Name | El nombre único de la función. El contrato inteligente correspondiente debe usar el mismo **nombre** para la función aplicable. | Sí | 50 |
 | DisplayName | Nombre descriptivo para mostrar de la función. | Sí | 255 |
 | Description | Descripción de la función | Sin | 255 |
 | Parámetros | Colección de [identificadores](#identifiers) que se corresponden con los parámetros de la función. | Sí | |
@@ -257,7 +257,7 @@ Una colección de estados únicos dentro de un flujo de trabajo. Cada estado cap
 
 | Campo | Description | Obligatorio | Longitud máxima |
 |-------|-------------|:--------:|-----------:|
-| NOMBRE | Nombre único del estado. El contrato inteligente correspondiente debe usar el mismo **nombre** para el estado aplicable. | Sí | 50 |
+| Name | Nombre único del estado. El contrato inteligente correspondiente debe usar el mismo **nombre** para el estado aplicable. | Sí | 50 |
 | DisplayName | Nombre descriptivo para mostrar del estado. | Sí | 255 |
 | Description | Descripción del estado. | Sin | 255 |
 | PercentComplete | Un valor entero que se muestra en la interfaz de usuario de Blockchain Workbench para mostrar el progreso en el flujo de control de la lógica de negocios. | Sí | |
@@ -371,7 +371,7 @@ Los roles de aplicación definen un conjunto de roles que se pueden asignar a lo
 
 | Campo | Description | Obligatorio | Longitud máxima |
 |-------|-------------|:--------:|-----------:|
-| NOMBRE | El nombre único del rol de aplicación. El contrato inteligente correspondiente debe usar el mismo **nombre** para el rol aplicable. Se reservan los nombres de tipo base. No puede asignar un nombre a un rol de aplicación con el mismo nombre como [Tipo](#type)| Sí | 50 |
+| Name | El nombre único del rol de aplicación. El contrato inteligente correspondiente debe usar el mismo **nombre** para el rol aplicable. Se reservan los nombres de tipo base. No puede asignar un nombre a un rol de aplicación con el mismo nombre como [Tipo](#type)| Sí | 50 |
 | Description | Descripción del rol de aplicación. | Sin | 255 |
 
 ### <a name="application-roles-example"></a>Ejemplo de roles de aplicación
@@ -394,7 +394,7 @@ Los identificadores representan una colección de información que se usa para d
 
 | Campo | Description | Obligatorio | Longitud máxima |
 |-------|-------------|:--------:|-----------:|
-| NOMBRE | El nombre único de la propiedad o parámetro. El contrato inteligente correspondiente debe usar el mismo **nombre** para la propiedad o parámetro aplicables. | Sí | 50 |
+| Name | El nombre único de la propiedad o parámetro. El contrato inteligente correspondiente debe usar el mismo **nombre** para la propiedad o parámetro aplicables. | Sí | 50 |
 | DisplayName | Nombre descriptivo para mostrar de la propiedad o parámetro. | Sí | 255 |
 | Description | Descripción de la propiedad o parámetro. | Sin | 255 |
 

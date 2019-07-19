@@ -130,7 +130,7 @@ Las propiedades disponibles para un parámetro son:
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | parameterName |Sí |Nombre del parámetro. Debe ser un identificador válido de JavaScript. |
-| Tipo |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
+| type |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
 | defaultValue |Sin |Valor predeterminado del parámetro, si no se proporciona ningún valor. |
 | allowedValues |Sin |Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto. |
 | minValue |Sin |El valor mínimo de parámetros de tipo int, este valor es inclusivo. |
@@ -503,7 +503,7 @@ Defina recursos con la siguiente estructura:
 |:--- |:--- |:--- |
 | condition | Sin | Valor booleano que indica si el recurso se aprovisionará durante esta implementación. Si es `true`, el recurso se crea durante la implementación. Si es `false`, el recurso se omite para esta implementación. Consulte [condition](#condition). |
 | apiVersion |Sí |Versión de la API de REST que debe usar para crear el recurso. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |
-| Tipo |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). Para un recurso secundario, el formato del tipo depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte los [recursos secundarios](#child-resources). |
+| type |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). Para un recurso secundario, el formato del tipo depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte los [recursos secundarios](#child-resources). |
 | Nombre |Sí |Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Además, los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. Para un recurso secundario, el formato del nombre depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte los [recursos secundarios](#child-resources). |
 | location |Varía |Ubicaciones geográficas compatibles del recurso proporcionado. Puede seleccionar cualquiera de las ubicaciones disponibles, pero normalmente tiene sentido elegir aquella que esté más cerca de los usuarios. Normalmente, también tiene sentido colocar los recursos que interactúan entre sí en la misma región. La mayoría de los tipos de recursos requieren una ubicación, pero algunos (por ejemplo, una asignación de roles) no la necesitan. |
 | etiquetas |Sin |Etiquetas asociadas al recurso. Aplique etiquetas para organizar de forma lógica los recursos en su suscripción. |
@@ -744,7 +744,7 @@ En el ejemplo siguiente se muestra la estructura de una definición de salida:
 |:--- |:--- |:--- |
 | outputName |Sí |Nombre del valor de salida. Debe ser un identificador válido de JavaScript. |
 | condition |Sin | Valor booleano que indica si se va a devolver este valor de salida. Si es `true`, el valor se incluye en la salida de la implementación. Si es `false`, el recurso se omite en esta implementación. Si no se especifica, el valor predeterminado es `true`. |
-| Tipo |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. Si especifica **securestring** para el tipo de salida, el valor no se muestra en el historial de implementación y no se puede recuperar desde otra plantilla. Para usar un valor de secreto en más de una plantilla, almacene el secreto en un almacén de claves y haga referencia al secreto en el archivo de parámetros. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](resource-manager-keyvault-parameter.md). |
+| type |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. Si especifica **securestring** para el tipo de salida, el valor no se muestra en el historial de implementación y no se puede recuperar desde otra plantilla. Para usar un valor de secreto en más de una plantilla, almacene el secreto en un almacén de claves y haga referencia al secreto en el archivo de parámetros. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](resource-manager-keyvault-parameter.md). |
 | value |Sí |Expresión de lenguaje de plantilla que se evaluará y devolverá como valor de salida. |
 
 ### <a name="define-and-use-output-values"></a>Definición y uso de valores de salida
