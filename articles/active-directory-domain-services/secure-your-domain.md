@@ -3,7 +3,7 @@ title: Protección de un dominio administrado con Azure Active Directory Domain 
 description: Protección de un dominio administrado
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: ab371553a96f3a8d393c8b773c4024d04fd171a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246740"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483275"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Protección de un dominio administrado con Azure AD Domain Services
 Este artículo sirve de ayuda para proteger un dominio administrado. Puede desactivar el uso de conjuntos de cifrado débil y deshabilitar la sincronización de códigos hash de credenciales NTLM.
@@ -56,6 +56,11 @@ $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPa
 // Apply the settings to the managed domain.
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
+
+> [!IMPORTANT]
+> Los usuarios (y las cuentas de servicio) no pueden realizar enlaces LDAP simples si ha desactivado la sincronización de hash de contraseñas NTLM en la instancia de Azure AD Domain Services.  Para más información acerca de cómo deshabilitar la sincronización de hash de contraseñas NTLM, lea [Protección de un dominio administrado con Azure AD Domain Services](secure-your-domain.md).
+>
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Sincronización de Azure AD Domain Services](synchronization.md)

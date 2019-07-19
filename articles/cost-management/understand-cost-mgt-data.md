@@ -5,36 +5,36 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: 4c1c987befe928d316b11c6ecd379be76f8f80d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969059"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490145"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
-Este artículo le ayudará a comprender mejor qué datos se incluyen en Azure Cost Management. En él también se explica con qué frecuencia se procesan, se recopilan, se muestran y se cierran los datos. Cada mes, se le factura el uso que haga de Azure. Sin embargo, el tipo de suscripción de Azure determina cuándo finaliza el mes de facturación. La frecuencia con que Cost Management recibe datos de uso varía en función de diferentes factores. Por ejemplo, cuánto tarda el procesamiento de los datos y cada cuánto transmiten los servicios de Azure el uso al sistema de facturación.
+Este artículo lo ayudará a comprender mejor los datos de costo y uso de Azure que se incluyen en Azure Cost Management. En él se explica con qué frecuencia se procesan, se recopilan, se muestran y se cierran los datos. Cada mes, se le factura el uso que haga de Azure. Si bien los ciclos de facturación son períodos mensuales, las fechas de inicio y finalización de los ciclos varían según el tipo de suscripción. La frecuencia con que Cost Management recibe datos de uso varía en función de diferentes factores. Por ejemplo, cuánto tarda el procesamiento de los datos y cada cuánto transmiten los servicios de Azure el uso al sistema de facturación.
 
-Administración de costos incluye todos los usos y las compras, incluidas las reservas y las ofertas de terceros para las cuentas de contrato Enterprise (EA). Las cuentas de contrato de cliente de Microsoft (MCA) y las suscripciones de pago por uso solo incluyen el uso de servicios de Azure y Marketplace. No se incluyen soporte técnico y otros costos. Los costos se calculan hasta que se genera una factura y no son un factor en créditos.
+Cost Management incluye todo el uso y todas las compras, incluidas reservas y ofertas de terceros para cuentas de Contrato Enterprise (EA). Las cuentas de contrato de cliente de Microsoft (MCA) y las suscripciones individuales con tarifas de pago por uso solo incluyen el uso de los servicios de Azure y de Marketplace. No se incluyen los costos de soporte técnico ni otros costos. Los costos se calculan hasta que se genera una factura y no tienen en cuenta los créditos.
 
-## <a name="supported-microsoft-offers"></a>Ofertas de Microsoft compatibles
+## <a name="supported-microsoft-azure-offers"></a>Ofertas compatibles de Microsoft Azure
 
-La siguiente información muestra las [ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) compatibles actualmente con Azure Cost Management.  Una oferta de Azure es el tipo de la suscripción a Azure que tiene.
+La información siguiente muestra las [ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) compatibles actualmente con Azure Cost Management. El contrato firmado por una oferta de Azure determina el tipo de suscripción de Azure que tiene.
 
-| Categoría  | **Nombre de la oferta** | **Id. de cuota** | **Número de la oferta** |
+| Categoría  | **Nombre de la oferta** | **Identificador de la cuota** | **Número de la oferta** |
 | --- | --- | --- | --- |
 | **Azure Alemania** | [Pago por uso de Azure Germany](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **Contrato Enterprise (EA)** | Desarrollo/pruebas - Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **Contrato Enterprise (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Contrato de cliente de Microsoft** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/D |
-| **Contrato de cliente de Microsoft** | [Plan de Microsoft Azure para desarrollo y pruebas](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/D |
+| **Contrato de cliente de Microsoft** | [Plan de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/D |
+| **Contrato de cliente de Microsoft** | [Plan de Microsoft Azure para Desarrollo/pruebas](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/D |
 | **Microsoft Developer Network (MSDN)** | [Plataformas de MSDN](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Pay-As-You-Go** | [Desarrollo/pruebas - Pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
@@ -49,14 +49,14 @@ La siguiente información muestra las [ofertas de Microsoft Azure](https://azure
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
-En la tabla siguiente se muestran las ofertas no compatibles.
+En la tabla siguiente se muestran las ofertas de Azure que no son compatibles con Cost Management.
 
-| Categoría  | **Nombre de la oferta** | **Id. de cuota** | **Número de la oferta** |
+| Categoría  | **Nombre de la oferta** | **Identificador de la cuota** | **Número de la oferta** |
 | --- | --- | --- | --- |
 | **Proveedor de soluciones en la nube (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Proveedor de soluciones en la nube (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Proveedor de soluciones en la nube (CSP)** | Azure Alemania en CSP para Microsoft Cloud Alemania   | CSP_2015-05-01 | MS-AZR-DE-0145P |
-| **Pay-As-You-Go**                 | Paquete de inicio de Azure para estudiantes | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **Pay-As-You-Go**                 | Paquete de inicio de Azure for Students | DreamSpark_2015-02-01 | MS-AZR-0144P |
 | **Pay-As-You-Go**                 | [Patrocinio de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Planes de soporte técnico** | Soporte técnico Standard                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Planes de soporte técnico** | Soporte técnico Professional Direct         | Default_2014-09-01 | MS-AZR-0042P |
@@ -66,38 +66,38 @@ En la tabla siguiente se muestran las ofertas no compatibles.
 | **Planes de soporte técnico** | Soporte técnico Pro-Direct de Azure Government | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Planes de soporte técnico** | Soporte técnico para desarrolladores de Azure Government  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-Los clientes con las categorías de oferta de pago por uso, MSDN y Visual Studio pueden encontrar los datos en Cost Management, a partir del 10/02/2018. Para obtener acceso a datos para su suscripción antes del 10/02/2018, puede usar el [centro de cuentas de Azure](https://account.azure.com/subscriptions) para descargar el uso de los detalles en un archivo CSV o puede usar el [API de detalles de uso](/rest/api/consumption/usagedetails).
+Los clientes con las categorías de oferta de pago por uso, MSDN y Visual Studio pueden encontrar los datos en Cost Management, a partir del 10/02/2018. Para acceder a los datos de la suscripción antes del 10/02/2018, puede usar el [Centro de cuentas de Azure](https://account.azure.com/subscriptions) para descargar los detalles de uso en un archivo .csv, o bien puede usar [Usage Details API](/rest/api/consumption/usagedetails).
 
-## <a name="determine-your-offer-type"></a>Determinar el tipo de oferta
+## <a name="determine-your-offer-type"></a>Determinación del tipo de oferta
 Si no ve los datos de una suscripción y desea determinar si tal suscripción se encuentra entre las ofertas admitidas, puede comprobar si realmente se admite. Para ello, inicie sesión en [Azure Portal](https://portal.azure.com). Luego, seleccione **Todos los servicios** en el panel del menú izquierdo. En la lista de servicios, seleccione **Suscripciones**. En el menú de la lista de suscripciones, elija la suscripción que desee comprobar. La suscripción se muestra en la pestaña Información general y puede ver la **Oferta** y el **Id. de oferta**. En la imagen siguiente se muestra un ejemplo:
 
 ![Ejemplo de la pestaña Información general de la suscripción mostrando la Oferta y el Id. de oferta](./media/understand-cost-mgt-data/offer-and-offer-id.png)
 
 ## <a name="costs-included-in-cost-management"></a>Costos incluidos en Cost Management
 
-Las siguientes tablas muestran los datos que se incluyen o no se incluyen en Cost Management. Todos los costos se calculan hasta que se genera una factura. Costos que se muestran no incluyen créditos gratuitos y pagados por adelantado.
+Las siguientes tablas muestran los datos que se incluyen o no se incluyen en Cost Management. Todos los costos se calculan hasta que se genera una factura. Los costos que se muestran no incluyen los créditos gratis ni los pagados por adelantado.
 
 **Datos de costo y uso**
 
 | **Se incluye** | **No se incluye** |
 | --- | --- |
 | Uso del servicio Azure <sup>1</sup> | Compras de reservas - Para más información, consulte [API para la automatización de reservas de Azure](../billing/billing-reservation-apis.md). |
-| Uso de oferta de Marketplace<sup>2</sup> | Compras en Marketplace - Para obtener más información, consulte [Cargos por servicios de terceros](../billing/billing-understand-your-azure-marketplace-charges.md). |
+| Uso de las ofertas de Marketplace<sup>2</sup> | Compras en Marketplace - Para obtener más información, consulte [Cargos por servicios de terceros](../billing/billing-understand-your-azure-marketplace-charges.md). |
 |   | Cargos de soporte técnico - Para obtener más información, consulte [Explicación de los términos de facturación](../billing/billing-understand-your-invoice.md). |
 |   | Impuestos - Para obtener más información, consulte [Explicación de los términos de facturación](../billing/billing-understand-your-invoice.md). |
 |   | Créditos - Para obtener más información, consulte [Explicación de los términos de facturación](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> El uso del servicio de Azure se basa en la reserva y la negociación de los precios.
 
-<sup>2</sup> mercado que ofrece el uso no está disponible para pago por uso, MSDN, y Visual Studio se ofrece en este momento.
+<sup>2</sup> El uso de las ofertas de Marketplace no está disponible para las ofertas de pago por uso, MSDN ni Visual Studio por el momento.
 
 **Metadata**
 
 | **Se incluye** | **No se incluye** |
 | --- | --- |
-| Las etiquetas del recurso<sup>3</sup> | Etiquetas de grupos de recursos |
+| Etiquetas de recurso<sup>3</sup> | Etiquetas de grupos de recursos |
 
-<sup>3</sup> etiquetas de recursos se aplican mientras se genera el uso de cada servicio y no están disponibles con carácter retroactivo a historial de uso.
+<sup>3</sup> Las etiquetas de recursos se aplican mientras se transmite el uso de cada servicio y no están disponibles con carácter retroactivo para el historial del uso.
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Programación de actualización de datos de uso valorados
 
@@ -116,7 +116,7 @@ Suscripciones de pago por uso: si el mes de facturación termina el 15 de mayo, 
 
 ### <a name="rerated-data"></a>Nueva valoración de los datos
 
-Si usa el [API de administración de costos](https://aka.ms/costmgmt/docs), Power BI o Azure portal para recuperar datos, esperar los cargos del período de facturación actual para volver a obtener clasificación y cambie por lo tanto, hasta que se cierre la factura.
+Si usa las [API de Cost Management](index.yml), Power BI o Azure Portal para recuperar datos, es posible que los cargos del período de facturación actual se vuelvan a valorar y, consecuentemente, cambien, hasta que se cierre la factura.
 
 ## <a name="usage-data-update-frequency-varies"></a>La frecuencia de actualización de los datos de uso varía.
 
@@ -127,9 +127,9 @@ La disponibilidad de los datos de uso en que ha incurrido en Cost Management dep
 
 Algunos servicios transmiten la utilización con más frecuencia que otros. Por lo tanto, podría ver datos de Cost Management para algunos servicios antes que otros servicios que transmiten datos menos frecuentemente. Normalmente, el uso de servicios tarda 8-24 horas en aparecer en Cost Management. Tenga en cuenta que los datos de un mes abierto se actualizan a medida en que incurre en más uso porque las actualizaciones son acumulativas.
 
-## <a name="historical-data-might-not-match-invoice"></a>Los datos históricos podrían no coincidir con factura
+## <a name="historical-data-might-not-match-invoice"></a>Los datos históricos pueden no coincidir con la factura
 
-Los datos históricos para las ofertas de pago adelantado y basadas en crédito podrían no coincidir con la factura. Pueden tener algunas ofertas de pago por uso de Azure, MSDN y Visual Studio los créditos de Azure y los pagos avanzados aplicados a la factura. Sin embargo, los datos históricos que se muestra en la administración de costos se basan en los cargos de consumo estimado únicamente. Datos históricos de administración de costos no incluyen los pagos y créditos. Como resultado, los datos históricos que se muestra para las ofertas siguientes pueden no coincidir exactamente con la factura.
+Es posible que los datos históricos de las ofertas basadas en crédito y pagadas por adelantado no coincidan con la factura. Algunas ofertas de pago por uso, MSDN y Visual Studio para Azure pueden tener créditos de Azure y pagos por adelantado aplicados en la factura. Sin embargo, los datos históricos que se muestran en Cost Management se basan solo en los cargos de consumo calculados. Los datos históricos de Cost Management no incluyen pagos ni créditos. Como resultado, es posible que los datos históricos que se muestran para estas ofertas no coincidan exactamente con la factura.
 
 -   MS-AZR-0029P
 -   MS-AZR-0064P
@@ -146,6 +146,6 @@ Los datos históricos para las ofertas de pago adelantado y basadas en crédito 
 -   MS-AZR-0060P
 -   MS-AZR-0111P
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - Si aún no ha completado la primera guía rápida de Cost Management, léala en [Start analyzing costs](quick-acm-cost-analysis.md) (Comenzar a analizar los costos).

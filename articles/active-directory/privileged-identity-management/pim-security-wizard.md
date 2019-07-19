@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4fd850ac2116dc7f353eea87845501fff020bb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286968"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476235"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Asistente para la seguridad de los roles de Azure AD en PIM
 
@@ -43,27 +43,27 @@ El segundo paso del asistente le ofrece la oportunidad de cambiar las asignacion
 
 1. Haga clic en **Roles de Azure AD** y, luego, en **Asistente**.
 
-    ![Roles de AD Azure: Asistente](./media/pim-security-wizard/wizard-start.png)
+    ![Roles de Azure AD: página del asistente que muestra los 3 pasos para ejecutar el asistente](./media/pim-security-wizard/wizard-start.png)
 
 1. Haga clic en **1 Detectar roles con privilegios**.
 
 1. Revise la lista de roles con privilegios para ver qué usuarios son permanentes o aptos.
 
-    ![Detección de usuarios de roles con privilegios](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Detección de roles con privilegios: panel de roles que muestra los miembros permanentes y aptos](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
 1. Haga clic en **Siguiente** para seleccionar los miembros que quiere convertir en aptos.
 
-    ![Conversión de los miembros en aptos](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Página de conversión de los miembros en aptos con opciones para seleccionar los miembros que quiere que sean aptos para los roles](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Una vez haya seleccionado los miembros, haga clic en **Siguiente**.
 
-    ![Revisión de los cambios](./media/pim-security-wizard/review-changes.png)
+    ![Página de revisión de cambios que muestra a los miembros con asignaciones de roles permanentes que se convertirán](./media/pim-security-wizard/review-changes.png)
 
 1. Haga clic en **Aceptar** para convertir las asignaciones permanentes en aptas.
 
     Cuando se complete la conversión, verá una notificación.
 
-    ![Notificaciones](./media/pim-security-wizard/notification-completion.png)
+    ![Notificación que muestra el estado de una conversión](./media/pim-security-wizard/notification-completion.png)
 
 Si necesita convertir otras asignaciones de roles con privilegios en aptas, puede volver a ejecutar el asistente. Si desea usar la interfaz de PIM en lugar del asistente, consulte [Asignación de roles de Azure AD en PIM](pim-how-to-add-role-to-user.md).
 

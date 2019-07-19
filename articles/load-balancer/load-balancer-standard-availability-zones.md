@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
-ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0820285555110e8e85bff814f4774d6da6443f69
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734463"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491988"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Estándar y zonas de disponibilidad
 
@@ -186,7 +186,7 @@ Load Balancer es deliberadamente flexible en el contexto de las zonas de disponi
 
 Load Balancer hace sencillo tener una dirección IP única como un front-end con redundancia de zona. Una dirección IP con redundancia de zona puede servir de forma segura un recurso zonal de cualquier zona y puede sobrevivir a uno o más errores de zona mientras una zona funcione correctamente en la región. Por el contrario, un front-end zonal es una reducción del servicio a una única zona y comparte el destino con la zona correspondiente.
 
-La redundancia de zona no implica una ruta de acceso de datos sin incidencias ni un plano de control; es expresamente un plano de datos. Los flujos con redundancia de zona pueden usar cualquier zona y los flujos de un cliente utilizarán todas las zonas correctas de una región. En caso de error de zona, el tráfico fluye por las zonas correctas que en ese momento del tiempo no se ven afectadas.  El tráfico que fluye por una zona en el momento de un error en dicha zona puede verse afectado, pero las aplicaciones se pueden recuperar y los flujos continúan en las restantes zonas correctas de la región después de la retransmisión o el restablecimiento una vez que Azure ha detectado el error en la zona.
+La redundancia de zona no implica una ruta de acceso de datos sin incidencias ni un plano de control; es expresamente un plano de datos. Los flujos con redundancia de zona pueden usar cualquier zona y los flujos de un cliente utilizarán todas las zonas correctas de una región. En caso de error de zona, el tráfico fluye por las zonas correctas que en ese momento del tiempo no se ven afectadas.  Los flujos de tráfico que están usando una zona en el momento en que se produce un error en esta se pueden ver afectados pero las aplicaciones se pueden recuperar. Estos flujos pueden continuar en las restantes zonas correctas de la región después de la retransmisión o el restablecimiento una vez que Azure ha detectado el error en la zona.
 
 ### <a name="xzonedesign"></a> Límites entre zonas
 

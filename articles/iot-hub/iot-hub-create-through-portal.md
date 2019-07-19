@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f070462dca6e835504a33014a7ed48e9949f874
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60742078"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432626"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 
@@ -34,13 +34,13 @@ Puede cambiar la configuración de un centro de IoT existente después de crearl
 
 Estas son algunas de las propiedades que puede establecer para un centro de IoT:
 
-**Precios y escala**: Puede utilizar esta propiedad para migrar a un nivel diferente o establecer al número de IoT Hub unidades. 
+**Pricing and scale** (Precios y escala): puede usar esta propiedad para migrar a un nivel diferente o establecer el número de unidades de IoT Hub. 
 
-**Supervisión de operaciones**: Activar las diferentes categorías de supervisión o desactivar, como el registro de eventos relacionados con mensajes de dispositivo a nube o en la nube a dispositivo.
+**Operations monitoring** (Supervisión de operaciones): active o desactive las distintas categorías de supervisión, como el registro de eventos relacionados con los mensajes del dispositivo a la nube o con los mensajes de la nube al dispositivo.
 
-**Filtro IP**: Especifique un intervalo de direcciones IP que se aceptará o rechazará IoT hub.
+**IP Filter** (Filtro de IP): especifique un intervalo de direcciones IP que el centro de IoT va a aceptar o rechazar.
 
-**Propiedades**: Proporciona la lista de propiedades que puede copiar y usar en otros lugares, como el identificador de recurso, grupo de recursos, ubicación y así sucesivamente.
+**Propiedades**: proporciona la lista de propiedades que puede copiar y usar en otra parte, como el identificador de recursos, el grupo de recursos, la ubicación, etc.
 
 ### <a name="shared-access-policies"></a>Directivas de acceso compartido
 
@@ -50,13 +50,15 @@ Haga clic en **Add** (Agregar) para abrir la hoja **Add a shared access policy**
 
 ![Captura de pantalla muestra la adición de una directiva de acceso compartido](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* Las directivas **Lectura del Registro** y **Escritura del Registro** conceden derechos de acceso de lectura y escritura para el registro de identidades. Si selecciona la opción de escritura, se elegirá automáticamente la opción de lectura.
+* Las directivas **Lectura del Registro** y **Escritura del Registro** conceden derechos de acceso de lectura y escritura para el registro de identidades. Estos permisos se usan en los servicios de back-end en la nube para administrar las identidades de los dispositivos. Si selecciona la opción de escritura, se elegirá automáticamente la opción de lectura.
 
-* La directiva **Conexión del servicio** concede permiso de acceso a los puntos de conexión de servicio como **Recepción del dispositivo a la nube**. 
+* La directiva **Conexión del servicio** concede permiso de acceso a los puntos de conexión de servicio. Los servicios de back-end en la nube usan este permiso para enviar y recibir mensajes de los dispositivos, así como para actualizar y leer los datos del dispositivo gemelo y del módulo gemelo.
 
-* La directiva **Conexión del dispositivo** concede permisos para enviar y recibir mensajes con los puntos de conexión del dispositivo de IoT Hub.
+* La directiva **Conexión del dispositivo** concede permisos para enviar y recibir mensajes con los puntos de conexión del dispositivo de IoT Hub. Los dispositivos usan este permiso para enviar y recibir mensajes desde un centro de IoT, actualizar y leer datos del dispositivo gemelo y del módulo gemelo y realizar cargas de archivos.
 
 Haga clic en **Crear** para agregar la directiva recién creada a la lista existente.
+
+Para más información sobre el acceso que concede cada permiso específico, consulte [Permisos de IoT Hub](./iot-hub-devguide-security.md#iot-hub-permissions).
 
 ## <a name="message-routing-for-an-iot-hub"></a>Enrutamiento de mensajes para un centro de IoT
 

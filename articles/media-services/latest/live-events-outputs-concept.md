@@ -11,36 +11,39 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732983"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296206"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos en directo y salidas en vivo
 
-Azure Media Services permite entregar eventos en directo a sus clientes en la nube de Azure. Para configurar los eventos de streaming en vivo en Media Services v3, deberá comprender los conceptos tratados en este artículo.
+Azure Media Services permite entregar eventos en directo a sus clientes en la nube de Azure. Para configurar los eventos de streaming en vivo en Media Services v3, debe comprender los conceptos examinados en este artículo:
 
 > [!TIP]
-> Para los clientes que migran desde las API de Media Services v2, la **evento en directo** entidad reemplaza **canal** en v2 y **Live salida** reemplaza **programa**.
-
+> En el caso de los clientes que migran desde las API de Media Services v2, la entidad **Live Event** reemplaza a **Channel** en v2 y **Live Output** reemplaza a **Program**.
 
 ## <a name="live-events"></a>Eventos en vivo
 
-Los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Al crear un objeto LiveEvent, se crea un punto de conexión de entrada que puede utilizar para enviar una señal en directo desde un codificador remoto. El codificador en directo remoto envía la fuente de contribución a ese punto de conexión de entrada mediante el protocolo [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmentado). Para el protocolo de introducción Smooth Streaming, los esquemas de dirección URL admitidos son `http://` o `https://`. Para el protocolo de introducción RTMP, los esquemas de dirección URL admitidos son `rtmp://` o `rtmps://`. 
+Los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Al crear un evento en directo, se crea un punto de conexión de entrada primario y secundario que puede usar para enviar una señal en directo desde un codificador remoto. El codificador en directo remoto envía la fuente de contribución a ese punto de conexión de entrada mediante el protocolo de entrada [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmentado). Con el protocolo de ingesta de RTMP, el contenido se puede enviar sin cifrar (`rtmp://`) o cifrado de forma segura en la conexión (`rtmps://`). Para el protocolo de introducción Smooth Streaming, los esquemas de dirección URL admitidos son `http://` o `https://`.  
 
 ## <a name="live-event-types"></a>Tipos de objetos LiveEvent
 
-Un [objeto LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) puede ser de uno de estos dos tipos: paso a través y codificación en directo. 
+Un [objeto LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) puede ser de uno de estos dos tipos: paso a través y codificación en directo. Los tipos se establecen durante la creación mediante [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+
+* **LiveEventEncodingType.None**:-un codificador en directo local envía una secuencia de velocidad de bits múltiple. Las secuencias ingeridas pasan por el evento en directo sin más procesamiento. 
+* **LiveEventEncodingType.Standard**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. Si la fuente de contribución tiene una resolución de 720p o más, el valor preestablecido **Default720p** codificará un conjunto de seis pares de velocidad de bits-resolución.
+* **LiveEventEncodingType.Premium1080p**: un codificador en directo local envía una única secuencia de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. El valor preestablecido Default1080p especifica el conjunto de salida de pares de resolución-velocidad de bits. 
 
 ### <a name="pass-through"></a>Paso a través
 
 ![paso a través](./media/live-streaming/pass-through.svg)
 
-Cuando se utiliza el **objeto LiveEvent** de paso a través, se confía en el codificador en directo local para generar una secuencia de vídeo con múltiples velocidades de bits y enviarla como fuente de contribución al objeto LiveEvent (mediante el protocolo RTMP o MP4 fragmentado). El objeto LiveEvent lleva a cabo las secuencias de vídeo entrantes sin ningún otro procesamiento. Este tipo de objeto LiveEvent está optimizado para eventos en vivo de larga duración o para el streaming en vivo ininterrumpidamente. Al crear este tipo de objeto LiveEvent, especifique None (LiveEventEncodingType.None).
+Cuando se utiliza el **objeto LiveEvent** de paso a través, se confía en el codificador en directo local para generar una secuencia de vídeo con múltiples velocidades de bits y enviarla como fuente de contribución al objeto LiveEvent (mediante el protocolo RTMP o MP4 fragmentado). El objeto LiveEvent lleva a cabo las secuencias de vídeo entrantes sin ningún otro procesamiento. Este tipo de objeto LiveEvent de paso a través está optimizado para eventos en directo de larga duración o para el streaming en vivo ininterrumpidamente. Al crear este tipo de objeto LiveEvent, especifique None (LiveEventEncodingType.None).
 
 Puede enviar la fuente de contribución a resoluciones de hasta 4K y a una velocidad de fotogramas de 60 fotogramas/segundo, con códecs de vídeo H.264/AVC o H.265/HEVC y códecs de audio AAC (AAC-LC, HE-AACv1 o HE-AACv2).  Consulte el artículo [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md) para obtener más detalles.
 
@@ -54,14 +57,14 @@ Consulte un ejemplo de código .NET en [MediaV3LiveApp](https://github.com/Azure
 
 ![codificación en directo](./media/live-streaming/live-encoding.svg)
 
-Si utiliza la codificación en directo con Media Services, deberá configurar el codificador en directo local para que envíe un vídeo con una única velocidad de bits como fuente de contribución al objeto LiveEvent (mediante el protocolo RTMP o Mp4 fragmentado). El objeto LiveEvent codifica ese flujo entrante de una velocidad de bits única en un [flujo de vídeo con varias velocidades de bits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) y hace que esté disponible para que pueda reproducirse en dispositivos mediante protocolos como MPEG-DASH, HLS y Smooth Streaming. Al crear este tipo de objeto LiveEvent, especifique el tipo de codificación como **Estándar** (LiveEventEncodingType.Standard).
+Si utiliza la codificación en directo con Media Services, deberá configurar el codificador en directo local para que envíe un vídeo con una única velocidad de bits como fuente de contribución al objeto LiveEvent (mediante el protocolo RTMP o Mp4 fragmentado). Configuraría entonces un evento en directo para que codifique esa secuencia de velocidad de bits única entrante como una [secuencia de vídeo de velocidad de bits múltiple](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) y permita que la salida esté disponible para la entrega para la reproducción de los dispositivos mediante protocolos como MPEG-DASH, HLS y Smooth Streaming.
 
-Puede enviar la fuente de contribución a una resolución de hasta 1080p a una velocidad de fotogramas de 30 fotogramas/segundo, con códec de vídeo H.264/AVC y códec de audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Consulte el artículo [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md) para obtener más detalles.
+Cuando se usa la codificación en directo, puede enviar la fuente de contribución solo con resoluciones de hasta 1080p y a una velocidad de 30 fotogramas/segundo, con el códec de vídeo H.264/AVC y el códec de audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Tenga en cuenta que los eventos en directo de paso a través pueden admitir resoluciones de hasta 4 K a 60 fotogramas por segundo. Consulte el artículo [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md) para obtener más detalles.
 
-Cuando se usa la codificación en directo (el evento LiveEvent se establece en **Standard**), la codificación preestablecida define cómo se codifica la transmisión entrante en varias velocidades de bits o capas. Para más información, consulte [Valores preestablecidos del sistema](live-event-types-comparison.md#system-presets).
+Las resoluciones y velocidades de bits contenidas en la salida del codificador en directo vienen determinadas por el valor preestablecido. Si usa un codificador en directo **Standard** (LiveEventEncodingType.Standard), el valor preestablecido *Default720p* especifica un conjunto de seis pares de resolución-velocidad de bits, que van desde 720p a 3,5 Mbps hasta 192p a 200 kbps. De lo contrario, si usa un codificador en directo **Premium1080p** (LiveEventEncodingType.Premium1080p), el valor preestablecido *Default1080p* especifica un conjunto de seis pares de resolución-velocidad de bits, que van desde 1080p a 3,5 Mbps hasta 180p a 200 kbps. Para más información, consulte [Valores preestablecidos del sistema](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
-> Actualmente, el único valor preestablecido permitido para el tipo de evento en directo estándar es *Default720p*. Si necesita usar un valor preestablecido personalizado para la codificación en directo, póngase en contacto con amshelp@microsoft.com. Debe especificar la tabla de resoluciones y velocidades de bits deseadas. Compruebe que hay solo una capa a 720p y, como máximo, 6 capas.
+> Si necesita personalizar el valor preestablecido de codificación en directo, abra una incidencia de soporte técnico a través de Azure Portal. Debe especificar la tabla de resoluciones y velocidades de bits deseadas. Compruebe que solo haya una capa a 720p (si se solicita un valor preestablecido para un codificador en directo Standard) o a 1080p (si se solicita un valor preestablecido para un codificador en directo Premium1080p) y, al menos, seis capas.
 
 ## <a name="live-event-creation-options"></a>Opciones de creación de objetos LiveEvent
 
@@ -80,63 +83,73 @@ Una vez que se crea el objeto LiveEvent, puede ingerir las direcciones URL que p
 Puede usar direcciones URL que sean mnemónicas o no mnemónicas. 
 
 > [!NOTE] 
-> Para que una dirección URL de introducción ser predictiva, establezca el modo de "personal".
+> Para que una dirección URL de ingesta sea predictiva, establezca el modo "mnemónica".
 
 * Dirección URL no mnemónica
 
-    Este es el modo predeterminado en AMS v3. Posiblemente, puede obtener el objeto LiveEvent rápidamente, pero solo conocerá la dirección URL de ingesta cuando se haya iniciado el evento en directo. La dirección URL cambiará si detiene o inicia el objeto LiveEvent. <br/>El modo no mnemónico es útil en aquellos casos en los que un usuario final quiere hacer streaming mediante una aplicación y esta quiere obtener un objeto LiveEvent lo antes posible, y en los que tener una dirección URL de ingesta dinámica no es un problema.
+    Dirección URL no mnemónica es el modo predeterminado en Media Services v3. Posiblemente, puede obtener el objeto LiveEvent rápidamente, pero solo conocerá la dirección URL de ingesta cuando se haya iniciado el evento en directo. La dirección URL cambiará si detiene o inicia el objeto LiveEvent. <br/>El modo no mnemónico es útil en aquellos casos en los que un usuario final quiere hacer streaming mediante una aplicación y esta quiere obtener un objeto LiveEvent lo antes posible, y en los que tener una dirección URL de ingesta dinámica no es un problema.
+    
+    Si no es necesario que la aplicación cliente genere previamente una dirección URL de ingesta para crear el evento en directo, permita que Media Services genere automáticamente el token de acceso para el evento en directo.
 * Dirección URL mnemónica
 
     El modo mnemónico lo prefieren los grandes operadores de difusión multimedia que usan codificadores de difusión y no quieren volver a configurarlos cuando empiezan un objeto LiveEvent. Prefieren una dirección URL de ingesta predictiva que no cambie con el tiempo.
     
-    Para especificar este modo, establezca `vanityUrl` a `true` en tiempo de creación (valor predeterminado es `false`). También deberá pasar su propio token de acceso (`LiveEventInput.accessToken`) en tiempo de creación. Especifique el valor del token para evitar un token aleatorio en la dirección URL. El token de acceso debe ser una cadena GUID válida (con o sin guiones). Una vez establecido el modo de no pueden actualizarse.
+    Para especificar este modo, establezca `vanityUrl` en `true` en tiempo de creación (el valor predeterminado es `false`). También debe pasar su propio token de acceso (`LiveEventInput.accessToken`) en tiempo de creación. El valor del token se especifica para evitar un token aleatorio en la dirección URL. El token de acceso debe ser una cadena GUID válida (con o sin guiones). Una vez establecido el modo, no puede actualizarse.
 
-    El token de acceso debe ser único en su centro de datos. Si la aplicación necesita usar una dirección URL de personal, se recomienda crear siempre una nueva instancia GUID para el token de acceso (en lugar de reutilizar cualquier GUID existente). 
+    El token de acceso debe ser único en su centro de datos. Si la aplicación necesita usar una dirección URL mnemónica, se recomienda crear siempre una instancia de GUID para el token de acceso (en lugar de reutilizar el GUID existente). 
 
+    Use las siguientes API para habilitar la dirección URL mnemónica y establezca el token de acceso en un GUID válido (por ejemplo, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
+    
+    |Idioma|Habilitar la dirección URL mnemónica|Establecer un token de acceso|
+    |---|---|---|
+    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    
 ### <a name="live-ingest-url-naming-rules"></a>Reglas de nomenclatura de direcciones URL de ingesta en directo
 
-La cadena *random* que aparece a continuación es un número hexadecimal de 128 bits (que se compone de 32 caracteres del 0 al 9 y de la "a" a la "f").<br/>
-El *token de acceso* es lo que debe especificar para la dirección URL fijo. Debe establecer una cadena de token de acceso es una cadena GUID de longitud válida. <br/>
-El *nombre de la secuencia* indica el nombre del flujo de una conexión específica. El valor de nombre de secuencia normalmente se agrega el codificador en directo que utilice.
+* La cadena *random* que aparece a continuación es un número hexadecimal de 128 bits (que se compone de 32 caracteres del 0 al 9 y de la "a" a la "f").
+* *el token de acceso*: la cadena GUID válida establecida al usar el modo mnemónico. Por ejemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *nombre de secuencia*: indica el nombre de la secuencia de una conexión específica. El valor del nombre de secuencia normalmente lo agrega el codificador en directo que use. Puede configurar el codificador en directo para usar cualquier nombre para describir la conexión, por ejemplo: "vídeo1_audio1", "vídeo2_audio1", "secuencia".
 
 #### <a name="non-vanity-url"></a>Dirección URL no mnemónica
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<auto-generated access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>Dirección URL mnemónica
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<your access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<your access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>Dirección URL de vista previa de objeto LiveEvent
 
-Cuando el **objeto LiveEvent** comienza a recibir la fuente de contribución, puede utilizar el punto de conexión de vista previa para obtener una vista previa y validar que está recibiendo el streaming en vivo antes de seguir publicándola. Una vez que haya comprobado que la secuencia de vista previa es buena, puede utilizar el objeto LiveEvent para que el streaming en vivo esté disponible para su entrega mediante uno o más **puntos de conexión de streaming** (creados previamente). Para ello, cree un nuevo [objeto LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) en el **objeto LiveEvent**. 
+Cuando el **objeto LiveEvent** comienza a recibir la fuente de contribución, puede utilizar el punto de conexión de vista previa para obtener una vista previa y validar que está recibiendo el streaming en vivo antes de seguir publicándola. Después de haber comprobado que la secuencia de vista previa es buena, puede usar el evento en directo para que el streaming en vivo esté disponible para su entrega mediante uno o más **puntos de conexión de streaming** (creados previamente). Para ello, cree un nuevo [objeto LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) en el **objeto LiveEvent**. 
 
 > [!IMPORTANT]
 > Asegúrese de que el vídeo fluye a la dirección URL de vista previa antes de continuar.
 
-## <a name="live-event-long-running-operations"></a>Operaciones de larga ejecución eventos en directo
+## <a name="live-event-long-running-operations"></a>Operaciones de larga duración de eventos en directo
 
-Para obtener más información, consulte [operaciones de larga ejecución](media-services-apis-overview.md#long-running-operations)
+Para más información, consulte [Operaciones de larga duración](media-services-apis-overview.md#long-running-operations).
 
 ## <a name="live-outputs"></a>Salidas en vivo
 

@@ -3,19 +3,19 @@ title: 'Idiomas admitidos: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: Una lista de los idiomas naturales admitidos por Translator Text API.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: 924324b11f49a50bfb5f00e117b33c0cc572e3bb
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 14ab1988f28de214036fa80fa36a4006a3359f30
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514981"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435894"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
@@ -23,12 +23,12 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 
 [Más información sobre cómo funciona la traducción automática](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>Conversión
+## <a name="translation"></a>Traducción
 
 **Translator API V2**
 
 > [!NOTE]
-> Ha quedado en desuso v2 en el 30 de abril de 2018. Migre sus aplicaciones a V3 con el fin de aprovechar las ventajas de la nueva funcionalidad disponible exclusivamente en V3.
+> V2 quedó en desuso el 30 de abril de 2018. Migre sus aplicaciones a V3 para aprovechar la nueva funcionalidad disponible exclusivamente en V3.
 
 * Solo estadísticas: no hay ningún sistema neuronal disponible para este idioma.
 * Traducción neuronal disponible: hay un sistema neuronal disponible. Utilice el parámetro `category=generalnn` para acceder al sistema neuronal.
@@ -38,9 +38,9 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 **Translator API V3** Translator API V3 utiliza el sistema neuronal de forma predeterminada, por lo que los sistemas estadísticos solamente están disponibles cuando no existe un sistema neuronal.
 
 > [!NOTE]
-> Actualmente, un subconjunto de los lenguajes neuronales están disponibles en Translator personalizado y otros que estamos agregando gradualmente. [Ver los idiomas disponibles actualmente en el traductor personalizado](#customization).
+> Actualmente, un subconjunto de los idiomas neuronales está disponible en Traductor personalizado y agregamos otros adicionales de forma gradual. [Vea los idiomas disponibles actualmente en Traductor personalizado](#customization).
 
-|Lenguaje|  Código de idioma|  API V2| API V3|
+|Idioma|  Código de idioma|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
 |Afrikáans| `af`    |Solo estadísticas|  Neuronal|
 |Árabe|    `ar`    |Traducción neuronal disponible|  Neuronal|
@@ -111,7 +111,7 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 
 El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->" indica que el idioma se puede transliterar hacia o desde cualquiera de los alfabetos enumerados. "-->" indica que el idioma solo se puede transliterar de un idioma al otro.
 
-| Lenguaje    | Código de idioma | Script | Hacia/Desde | Script|
+| Idioma    | Código de idioma | Script | Hacia/Desde | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latino `Latn` |
 |Bangla  | `bn` | Bengalí `Beng` | <--> | Latino `Latn` |
@@ -126,7 +126,7 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 | Canarés | `kn` | Canarés `Knda` | --> | Latino `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
 | Maratí | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
-| Oriya | `or` | Odia `Orya` | <--> | Latino `Latn` |
+| Odia | `or` | Odia `Orya` | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
 | Serbio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latino `Latn` |
 | Serbio (latino) | `sr-Latn` | Latino `Latn` | --> | Cirílico `Cyrl`|
@@ -138,7 +138,7 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 
 El diccionario admite los siguientes idiomas desde o hacia el inglés con los métodos Lookup y Examples.
 
-| Lenguaje    | Código de idioma |
+| Idioma    | Código de idioma |
 |:----------- |:-------------:|
 | Afrikáans      | `af`          |
 | Árabe       | `ar`          |
@@ -193,7 +193,7 @@ El diccionario admite los siguientes idiomas desde o hacia el inglés con los m�
 
 ## <a name="detect"></a>Detect
 
-Translator Text API detecta todos los idiomas disponibles para la traducción y transliteración.
+Translator Text API detecta todos los idiomas disponibles para traducción y transliteración.
 
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Acceso a la lista de idiomas de Translator Text API mediante programación
@@ -204,9 +204,9 @@ Puede recuperar una lista de los idiomas admitidos por Translator Text API v3.0 
 
 ## <a name="customization"></a>Personalización
 
-Los siguientes idiomas están disponibles para la personalización a o desde inglés mediante [personalizado traductor](https://aka.ms/CustomTranslator).
+Los siguientes idiomas están disponibles para personalización al y del inglés mediante [Traductor personalizado](https://aka.ms/CustomTranslator).
 
-| Lenguaje    | Código de idioma |
+| Idioma    | Código de idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
 | Bangla      | `bn`          |

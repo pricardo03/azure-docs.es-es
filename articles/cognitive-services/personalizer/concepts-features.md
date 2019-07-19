@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: concept
+ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: ebe7f9307fcfa39d6cb133203a4c17243ad390c5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025505"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340887"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Las características son información acerca de las acciones y del contexto
 
@@ -41,6 +41,12 @@ Personalizer no prescribe, limita ni corrige las características que puede envi
 
 Personalizer admite características de los tipos cadena, numérico y booleano.
 
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Cómo afecta la elección del tipo de característica a Machine Learning en Personalizer
+
+* **Cadenas**: Para los tipos de cadena, cada combinación de clave y valor crea nuevas ponderaciones en el modelo de aprendizaje automático de Personalizer. 
+* **Numérico**: Debe usar valores numéricos cuando el número debe afectar proporcionalmente al resultado de la personalización. Esto depende mucho del escenario. En un ejemplo simplificado, al personalizar una experiencia de venta al por menor, NumberOfPetsOwned (número de mascotas en propiedad) podría ser una característica de tipo numérico si quiere que las personas con 2 o 3 mascotas tengan influencia en el resultado de la personalización el doble o el triple de las que tienen 1 mascota. Las características que se basan en unidades numéricas cuyo significado no es lineal, como la edad, la temperatura o la estatura de la persona, se podrían codificar mejor como cadenas y la calidad de la característica normalmente se puede mejorar mediante el uso de rangos. Por ejemplo, la edad podría codificarse como "Age":"0-5", "Age":"6-10", etc.
+* Los valores **booleanos** enviados con el valor "false" actúan como si no se hubiesen enviado.
+
 Las características que no estén presentes deben omitirse de la solicitud. Procure no enviar características con un valor nulo, ya que se procesarán como existentes y con un valor "null" al entrenar el modelo.
 
 ## <a name="categorize-features-with-namespaces"></a>Clasificación de características con espacios de nombres
@@ -64,12 +70,15 @@ Al asignar nombres a los espacios de nombres de las características puede segui
 
 En el siguiente JSON, `user`, `state` y `device` son espacios de nombres de características.
 
+Los objetos JSON pueden incluir objetos JSON anidados y propiedades y valores simples. Solo se puede incluir una matriz si los elementos de la matriz son números. 
+
 ```JSON
 {
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "name":"Doug",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -123,7 +132,7 @@ Tanto la inteligencia artificial como una instancia de Cognitive Services lista 
 
 Si se procesan previamente los elementos mediante servicios de inteligencia artificial, es posible extraer automáticamente información que es probable que sea relevante para la personalización.
 
-Por ejemplo: 
+Por ejemplo:
 
 * Puede ejecutar un archivo de películas a través de [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) para extraer elementos de escenas, texto, opiniones y muchos otros atributos. La densidad de estos atributos pueden aumentar para reflejar las particularidades que no tenían los metadatos del elemento original. 
 * Las imágenes se pueden ejecutar mediante la detección de objetos, las mediante las opiniones, etc.
@@ -190,6 +199,8 @@ En algunos casos, solo se puede determinar más adelante en la lógica de negoci
 
 Al llamar a Rank, enviará varias acciones entre las que elegir:
 
+Los objetos JSON pueden incluir objetos JSON anidados y propiedades y valores simples. Solo se puede incluir una matriz si los elementos de la matriz son números. 
+
 ```json
 {
     "actions": [
@@ -198,7 +209,8 @@ Al llamar a Rank, enviará varias acciones entre las que elegir:
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
@@ -211,7 +223,8 @@ Al llamar a Rank, enviará varias acciones entre las que elegir:
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
@@ -223,7 +236,8 @@ Al llamar a Rank, enviará varias acciones entre las que elegir:
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
@@ -238,7 +252,8 @@ Al llamar a Rank, enviará varias acciones entre las que elegir:
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
@@ -265,6 +280,8 @@ La aplicación es responsable de cargar la información acerca del contexto de l
 
 El contexto se expresa en forma de objeto JSON que se envía a la API Rank:
 
+Los objetos JSON pueden incluir objetos JSON anidados y propiedades y valores simples. Solo se puede incluir una matriz si los elementos de la matriz son números. 
+
 ```JSON
 {
     "contextFeatures": [
@@ -282,7 +299,9 @@ El contexto se expresa en forma de objeto JSON que se envía a la API Rank:
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]

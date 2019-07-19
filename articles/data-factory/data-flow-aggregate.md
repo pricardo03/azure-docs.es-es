@@ -1,35 +1,44 @@
 ---
-title: Transformación Agregar de Azure Data Factory Mapping Data Flow
-description: Transformación Agregar de Azure Data Factory Data Flow
+title: 'Transformación Agregar en Mapping Data Flow: Azure Data Factory | Microsoft Docs'
+description: Aprenda cómo agregar datos a escala en Azure Data Factory con la transformación Agregar en Mapping Data Flow.
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7b488b243c0520befb6b5470598f460b5a759fed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21135b26d4bc840b3fcb091e675e5e6bd24d8548
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61467384"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312108"
 ---
-# <a name="azure-data-factory-mapping-data-flow-aggregate-transformation"></a>Transformación Agregar de Azure Data Factory Mapping Data Flow
+# <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformación Agregar en Mapping Data Flow 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-En la transformación Agregar se definen las agregaciones de columnas de las secuencias de datos. En el Generador de expresiones, puede definir distintos tipos de agregaciones (por ejemplo, SUM, MIN, MAX, COUNT, etc.) y crear un nuevo campo en la salida que incluya estas agregaciones con campos de agrupación opcionales.
-
-![Opciones de la transformación Agregar](media/data-flow/agg.png "aggregate 1")
+En la transformación Agregar se definen las agregaciones de columnas de las secuencias de datos. Mediante el Generador de expresiones, puede definir diferentes tipos de agregaciones, tales como SUM, MIN, MAX y COUNT, que se puede agrupar por columnas calculadas o existentes.
 
 ## <a name="group-by"></a>Agrupar por
-(Opcional) Elija una cláusula Agrupar por para la agregación y use el nombre de una columna existente o un nombre nuevo. Use "Agregar columna" para agregar más cláusulas group-by y haga clic en el cuadro de texto junto al nombre de columna para abrir el Generador de expresiones. Seleccione solo una columna o una combinación de columnas o expresiones para su agrupación.
+Seleccione una columna existente o cree una nueva columna calculada para usarla como una cláusula Agrupar por para la agregación. Para usar una columna existente, seleccione la columna que desee en la lista desplegable. Para crear una nueva columna calculada, mantenga el mouse sobre la cláusula y haga clic en "Columna calculada". Se abrirá el [Generador de expresiones de Data Flow](concepts-data-flow-expression-builder.md). Una vez creada la columna calculada, escriba el nombre de la columna de salida en el campo "Name as" (Nombre como). Si desea agregar una cláusula Agrupar por adicional, mantenga el mouse sobre una cláusula existente y haga clic en "+".
 
-## <a name="the-aggregate-column-tab"></a>Pestaña Agregar columna 
-(Obligatorio) Elija la pestaña Agregar columna para generar las expresiones de agregación. Puede elegir una columna existente para sobrescribir el valor con la agregación o crear un nuevo campo con el nuevo nombre para la agregación. La expresión que vaya a usar para la agregación se escribirá en el cuadro de la derecha, junto al selector de nombre de columna. Al hacer clic en ese cuadro de texto, se abrirá el Generador de expresiones.
+![Configuración de Agrupar por de la transformación Agregar](media/data-flow/agg.png "Aggregate transformation group by settings")
 
-![Opciones de la transformación Agregar](media/data-flow/agg2.png "aggregator")
+> [!NOTE]
+> Una cláusula Agrupar por es opcional en una transformación Agregar.
 
-## <a name="data-preview-in-expression-builder"></a>Vista previa de datos en el Generador de expresiones
+## <a name="aggregate-column"></a>Columna de agregación 
+Elija la pestaña "Agregados" para generar las expresiones de agregación. Puede elegir una columna existente y sobrescribir el valor con la agregación o crear un nuevo campo con un nuevo nombre. La expresión de agregación se escribirá en el cuadro de la derecha, junto al selector de nombre de columna. Para editar la expresión, haga clic en el cuadro de texto para abrir el Generador de expresiones. Para incorporar una agregación adicional, mantenga el mouse sobre una expresión existente y haga clic en "+" para crear una nueva columna de agregación o un [patrón de columnas](concepts-data-flow-column-pattern.md).
 
-En el modo de depuración, el Generador de expresiones no puede generar vistas previas de los datos con las funciones de agregado. Para ver las vistas previas de los datos con las transformaciones Agregar, cierre el Generador de expresiones y vea el perfil de datos en el diseñador de flujos de datos.
+![Configuración de agregación de la transformación Agregar](media/data-flow/agg2.png "Aggregate transformation aggregate settings")
+
+> [!NOTE]
+> Cada expresión de agregación debe contener al menos una función de agregado.
+
+> [!NOTE]
+> En el modo Depurar, el Generador de expresiones no puede generar vistas previas de los datos con las funciones de agregado. Para ver las vistas previas de los datos para las transformaciones Agregar, cierre el Generador de expresiones y vea los datos a través de la pestaña "Vista previa de los datos".
+
+## <a name="next-steps"></a>Pasos siguientes
+
+-Definir un agregación basada en ventanas mediante la [transformación Ventana](data-flow-window.md)

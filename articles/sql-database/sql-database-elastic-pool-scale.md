@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 3/14/2019
-ms.openlocfilehash: d8aaf51c836a8e88c4e9b92798067167cd044e72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f73fc58abfa6cde4133bd56858b7f26bf0c3d4a3
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848104"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204813"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Escalar recursos de grupos elásticos en Azure SQL Database
 
@@ -44,7 +44,7 @@ El cambio en el nivel de servicio o el tamaño de proceso de un grupo elástico 
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latencia de cambiar el nivel de servicio o la escala del tamaño de proceso
 
-La latencia de cambiar el nivel de servicio o la escala del tamaño de proceso de una base de datos única o un grupo elástico se parametriza como sigue:
+La latencia estimada de cambiar el nivel de servicio o la escala del tamaño de proceso de una base de datos única o un grupo elástico se parametriza como sigue:
 
 |Nivel de servicio|Base de datos única básica,</br>estándar (S0-S1)|Grupo elástico básico,</br>estándar (S2-S12), </br>hiperescala, </br>base de datos única o grupo elástico de uso general|Base de datos única o grupo elástico Premium o Crítico para la empresa|
 |:---|:---|:---|:---|

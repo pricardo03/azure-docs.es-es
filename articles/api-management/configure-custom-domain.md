@@ -9,18 +9,18 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/01/2019
 ms.author: apimpm
-ms.openlocfilehash: a8bfa7c5baa316b4019480bfc146b6cc61eff979
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 59b44dcc9ec3a1f7c274f426a19aa8ed2258db3e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141298"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509296"
 ---
-# <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado 
+# <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
-Cuando se crea una instancia de API Management (APIM), Azure la asigna a un subdominio de azure-api.net (por ejemplo, `apim-service-name.azure-api.net`). Sin embargo, los puntos de conexión de APIM también se pueden exponer utilizando un nombre de dominio propio, como **contoso.com**. En este tutorial, se muestra cómo se asigna un nombre DNS personalizado existente a los puntos de conexión expuestos por una instancia de Azure API Management.
+Cuando se crea una instancia del servicio Azure API Management (APIM), Azure le asigna el subdominio de azure-api.net (por ejemplo, `apim-service-name.azure-api.net`). Sin embargo, los puntos de conexión de APIM se pueden exponer con su propio nombre de dominio personalizado, como **contoso.com**. En este tutorial se muestra cómo asignar un nombre DNS personalizado existente a los puntos de conexión expuestos por una instancia de API Management.
 
 > [!WARNING]
 > Los clientes que deseen usar la asignación de certificados para mejorar la seguridad de sus aplicaciones deben usar un nombre de dominio personalizado > y el certificado que administran, no el certificado predeterminado. Los clientes que asignen el certificado predeterminado en su lugar tendrán > una gran dependencia de las propiedades del certificado que no controlen, no siendo esto una práctica recomendada.
@@ -29,41 +29,47 @@ Cuando se crea una instancia de API Management (APIM), Azure la asigna a un subd
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
-+ Una suscripción de Azure activa.
+-   Una suscripción de Azure activa.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ Una instancia de APIM. Para más información, consulte [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Nombre de dominio personalizado que sea de su propiedad. El nombre de dominio personalizado que desee usar debe adquirirse por separado y hospedarse en un servidor DNS. Este tema no contiene instrucciones acerca de cómo hospedar un nombre de dominio personalizado.
-+ Debe tener un certificado válido con una clave pública y privada (. PFX). El firmante o el nombre alternativo del firmante (SAN) debe coincidir con el nombre de dominio; de este modo, APIM puede exponer de forma segura direcciones URL a través de SSL.
+-   Una instancia de API Management Para más información, vea [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
+-   Nombre de dominio personalizado que sea de su propiedad. El nombre de dominio personalizado que desee usar debe adquirirse por separado y hospedarse en un servidor DNS. Este tema no contiene instrucciones acerca de cómo hospedar un nombre de dominio personalizado.
+-   Debe tener un certificado válido con una clave pública y privada (. PFX). El firmante o el nombre alternativo del firmante (SAN) debe coincidir con el nombre de dominio; de este modo, API Management puede exponer de forma segura direcciones URL a través de SSL.
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Uso de Azure Portal para configurar un nombre de dominio personalizado
 
-1. Acceda a la instancia de APIM de [Azure Portal](https://portal.azure.com/).
+1. Vaya a la instancia de API Management en [Azure Portal](https://portal.azure.com/).
 1. Seleccione **Dominios personalizados y SSL**.
-    
-    Hay una serie de puntos de conexión a la que puede asignar un nombre de dominio personalizado. En la actualidad, están disponibles los siguientes: 
-   + **Proxy** (el valor predeterminado es `<apim-service-name>.azure-api.net`), 
-   + **Portal** (el valor predeterminado es `<apim-service-name>.portal.azure-api.net`),     
-   + **Management** (el valor predeterminado es `<apim-service-name>.management.azure-api.net`), 
-   + **SCM** (el valor predeterminado es `<apim-service-name>.scm.azure-api.net`).
 
-     >[!NOTE]
-     > Puede actualizar algunos o todos los puntos de conexión. Por lo general, los clientes actualizan **Proxy** (esta dirección URL se utiliza para llamara a la API expuesta a través de API Management) y **Portal** (dirección URL del portal del desarrollador). Por lo general, los clientes de APIM utilizan los puntos de conexión **Management** y **SCM** internamente y, por tanto, se les asigna con menor frecuencia un nombre de dominio.
+    Hay varios puntos de conexión a los que puede asignar un nombre de dominio personalizado. En la actualidad, están disponibles los siguientes:
 
-1. Seleccione el punto de conexión que desee actualizar. 
+    - **Proxy** (el valor predeterminado es `<apim-service-name>.azure-api.net`),
+    - **Portal** (el valor predeterminado es `<apim-service-name>.portal.azure-api.net`),
+    - **Management** (el valor predeterminado es `<apim-service-name>.management.azure-api.net`),
+    - **SCM** (el valor predeterminado es `<apim-service-name>.scm.azure-api.net`).
+
+    > [!NOTE]
+    > Puede actualizar algunos o todos los puntos de conexión. Por lo general, los clientes actualizan **Proxy** (esta dirección URL se utiliza para llamara a la API expuesta a través de API Management) y **Portal** (dirección URL del portal del desarrollador). Los puntos de conexión **Management** y **SCM** los usan internamente los propietarios de la instancia de API Management y, por tanto, se les asigna con menor frecuencia un nombre de dominio personalizado. En la mayoría de los casos, solo se puede establecer un nombre de dominio personalizado para un punto de conexión dado. Sin embargo, el nivel **premium** admite la configuración de varios nombres de host para el punto de conexión **Proxy**.
+
+1. Seleccione el punto de conexión que desee actualizar.
 1. En la ventana de la derecha, haga clic en **Personalizar**.
 
-   + En **Nombre de dominio personalizado**, especifique el nombre que desee usar. Por ejemplo, `api.contoso.com`. También se pueden usar nombres de dominio comodín (por ejemplo, *. dominio.com).
-   + En el **certificado**, seleccione un certificado de Key Vault. También puede cargar una válida. PFX de archivo y proporcione su **contraseña**, si el certificado está protegido con una contraseña.
+    - En **Nombre de dominio personalizado**, especifique el nombre que desee usar. Por ejemplo, `api.contoso.com`. También se pueden usar nombres de dominio comodín (por ejemplo, \*. dominio.com).
+    - En **Certificado**, seleccione un certificado de Key Vault. También puede cargar un archivo .PFX válido y proporcionar su **contraseña**, si el certificado está protegido con una contraseña.
 
-     > [!TIP]
-     > Si usa Azure Key Vault para administrar el certificado SSL de dominio personalizado, asegúrese de que se inserta el certificado en Key Vault [como un *certificado*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), no un *secreto*. Si el certificado se establece en autorotate, API Management recogerá la versión más reciente automáticamente.
+    > [!TIP]
+    > Se recomienda usar Azure Key Vault para administrar certificados y configurarlos para la rotación automática.
+    > Si usa Azure Key Vault para administrar el certificado SSL de dominio personalizado, asegúrese de que el certificado se inserta en Key Vault [como un _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), no como un _secreto_.
+    >
+    > Para obtener un certificado SSL, API Management debe tener la lista de permisos y obtener los permisos de secretos en la instancia de Key Vault que contiene el certificado. Cuando se usa Azure Portal, todos los pasos de configuración necesarios se realizarán automáticamente. Cuando se usan las herramientas de línea de comandos o API Management, estos permisos se deben conceder manualmente. Para ello, debe realizar dos pasos. En primer lugar, use la página de identidades administradas de la instancia de API Management para asegurarse de que está habilitada la identidad administrada, y anote el identificador de la entidad que se muestra en esa página. En segundo lugar, proporcione la lista de permisos y obtenga los permisos de secretos de este identificador de entidad en la instancia de Azure Key Vault que contiene el certificado.
+    >
+    > Si el certificado está establecido para rotar automáticamente, API Management seleccionará automáticamente la versión más reciente sin tiempo de inactividad para el servicio (si el plan de API Management tiene SLA en todos los planes, excepto el plan de desarrollador).
 
 1. Haga clic en Aplicar.
 
-    >[!NOTE]
-    >El proceso de asignación del certificado puede tardar unos 15 minutos o más según el tamaño de la implementación. La SKU de desarrollador tiene un tiempo de inactividad, mientras que las SKU básica y superiores no.
+    > [!NOTE]
+    > El proceso de asignación del certificado puede tardar unos 15 minutos o más según el tamaño de la implementación. La SKU de desarrollador tiene un tiempo de inactividad, mientras que las SKU básica y superiores no.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 

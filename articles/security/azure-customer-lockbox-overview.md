@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 05/07/2019
-ms.openlocfilehash: 468e392cd2c45d79cbb24f8d737a6e83fbcd2725
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 0ee2dde5a941d069f5b745eafb35df780f657a47
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65079276"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312631"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 
@@ -97,7 +97,7 @@ Los siguientes servicios y escenarios ya están disponibles con carácter genera
 ### <a name="remote-desktop-access-to-virtual-machines"></a>Acceso del escritorio remoto a las máquinas virtuales
 
 La Caja de seguridad del cliente está actualmente habilitada para poder acceder desde el escritorio remoto a las máquinas virtuales. Se admiten las siguientes áreas de trabajo:
-- Plataforma como servicio (PaaS): versión 1
+- Plataforma como servicio (PaaS): Azure Cloud Services (rol web y rol de trabajo)
 - Infraestructura como servicio (IaaS): Windows y Linux (solo Azure Resource Manager)
 - Conjunto de escalado de máquinas virtuales: Windows y Linux
 

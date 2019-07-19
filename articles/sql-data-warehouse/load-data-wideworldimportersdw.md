@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Carga de datos en Azure SQL Data Warehouse | Microsoft Docs'
-description: En este tutorial se utilizan Azure Portal y SQL Server Management Studio para cargar el almacenamiento de datos WideWorldImportersDW de un blob de Azure público en Azure SQL Data Warehouse.
+description: En este tutorial se utilizan Azure Portal y SQL Server Management Studio para cargar el almacenamiento de datos WideWorldImportersDW de un blob de Azure global en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: a4f52c2bd0040efef9e12a8feec0bfc779105ad4
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242924"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461864"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos en Azure SQL Data Warehouse
 
@@ -38,9 +38,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Antes de completar este tutorial, descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
+Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Creación de un almacenamiento de datos SQL en blanco
 
@@ -67,7 +67,7 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 
 4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
 
-    | Configuración | Valor sugerido | Description | 
+    | Configuración | Valor sugerido | DESCRIPCIÓN | 
     | ------- | --------------- | ----------- |
     | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
@@ -132,7 +132,7 @@ Ahora puede conectarse a SQL server y sus almacenamientos de datos mediante esta
 
 En Azure Portal encontrará el nombre completo del servidor SQL. Más adelante usará el nombre completo cuando se conecte al servidor.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Seleccione **SQL Database** en el menú de la izquierda y haga clic en la base de datos en la página **SQL Database**. 
 3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**. En este ejemplo, el nombre completo es mynewserver-20171113.database.windows.net. 
 
@@ -151,14 +151,14 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
     | Nombre de servidor | Nombre completo del servidor | Por ejemplo, **sample-svr.database.windows.net** es el nombre completo de un servidor. |
     | Authentication | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que se ha configurado en este tutorial. |
-    | Inicio de sesión | La cuenta de administrador del servidor | Se trata de la cuenta que especificó cuando creó el servidor. |
-    | Contraseña | Contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
+    | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
+    | Contraseña | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 
     ![conectar con el servidor](media/load-data-wideworldimportersdw/connect-to-server.png)
 
 4. Haga clic en **Conectar**. Se abre la ventana del Explorador de objetos en SSMS. 
 
-5. En el Explorador de objetos, expanda **Bases de datos**. A continuación, expanda **Bases de datos del sistema** y **maestro** para ver los objetos de la base de datos maestra.  Expanda **mySampleDatabase** para ver los objetos de la base de datos.
+5. En el Explorador de objetos, expanda **Bases de datos**. A continuación, expanda **Bases de datos del sistema** y **maestro** para ver los objetos de la base de datos maestra.  Expanda **SampleDW** para ver los objetos de la base de datos nueva.
 
     ![Objetos de base de datos](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -217,7 +217,7 @@ El primer paso para cargar los datos es iniciar sesión como LoaderRC60.
 
 Está listo para comenzar el proceso de carga de datos en el nuevo almacenamiento de datos. Para consultas futuras y aprender cómo obtener los datos en Azure Blob Storage o cómo cargarlos directamente desde cualquier origen a SQL Data Warehouse, consulte la [introducción a la carga](sql-data-warehouse-overview-load.md).
 
-Ejecute los siguientes scripts SQL para especificar información acerca de los datos que desea cargar. Esta información incluye dónde se encuentran los datos, el formato del contenido de los mismos y la definición de tabla para ellos. Los datos se encuentran en un Blob de Azure público.
+Ejecute los siguientes scripts SQL para especificar información acerca de los datos que desea cargar. Esta información incluye dónde se encuentran los datos, el formato del contenido de los mismos y la definición de tabla para ellos. Los datos se encuentran en un blob de Azure global.
 
 1. En la sección anterior, inició sesión en el almacenamiento de datos como LoaderRC60. En SSMS, haga clic con el botón derecho en **SampleDW** en la conexión de LoaderRC60 y seleccione **Nueva consulta**.  Aparece una nueva ventana de consulta. 
 
@@ -231,7 +231,7 @@ Ejecute los siguientes scripts SQL para especificar información acerca de los d
     CREATE MASTER KEY;
     ```
 
-4. Ejecute la siguiente instrucción [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) para definir la ubicación del blob de Azure. Esta es la ubicación de los datos de taxis externos.  Para ejecutar un comando que se ha anexado a la ventana de consulta, resalte los comandos que desea ejecutar y haga clic en **Ejecutar**.
+4. Ejecute la siguiente instrucción [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) para definir la ubicación del blob de Azure. Esta es la ubicación de los datos de importadores globales externos.  Para ejecutar un comando que se ha anexado a la ventana de consulta, resalte los comandos que desea ejecutar y haga clic en **Ejecutar**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -540,13 +540,13 @@ Ejecute los siguientes scripts SQL para especificar información acerca de los d
     );
     ```
 
-8. En el Explorador de objetos, expanda SampleDW para ver la lista de tablas externas que acaba de crear.
+8. En el Explorador de objetos, expanda SampleDW para ver la lista de tablas externas que creó.
 
     ![Visualización de tablas externas](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Carga de datos en el almacenamiento de datos
 
-En esta sección se utilizan las tablas externas que acaba de definir para cargar los datos de ejemplo del Blob de Azure en SQL Data Warehouse.  
+En esta sección se utilizan las tablas externas que definió para cargar los datos de ejemplo del Blob de Azure en SQL Data Warehouse.  
 
 > [!NOTE]
 > En este tutorial se cargan los datos directamente en la tabla final. En un entorno de producción, normalmente se usa CREATE TABLE AS SELECT para cargar en una tabla de almacenamiento provisional. Con los datos en la tabla de almacenamiento provisional, puede realizar las transformaciones necesarias. Para anexar los datos de la tabla de almacenamiento provisional a una tabla de producción, use la instrucción INSERT...SELECT. Para más información, consulte [Inserción de datos en una tabla de producción](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -554,7 +554,7 @@ En esta sección se utilizan las tablas externas que acaba de definir para carga
 
 El script utiliza la instrucción de T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para cargar los datos de Azure Storage Blob en nuevas tablas en el almacenamiento de datos. CTAS crea una tabla nueva en función de los resultados de una instrucción select. La nueva tabla tiene las mismas columnas y los mismos tipos de datos que los resultados de la instrucción select. Cuando la instrucción select realiza la selección en una tabla externa, SQL Data Warehouse importa los datos en una tabla relacional en el almacenamiento de datos. 
 
-Este script no carga datos en las tablas wwi.dimension_Date y wwi.fact_Sales. Estas tablas se generan en un paso posterior para que tengan un número considerable de filas.
+Este script no carga datos en las tablas wwi.dimension_Date y wwi.fact_Sale. Estas tablas se generan en un paso posterior para que tengan un número considerable de filas.
 
 1. Ejecute el siguiente script para cargar los datos en tablas nuevas en el almacenamiento de datos.
 
@@ -750,7 +750,7 @@ Este script no carga datos en las tablas wwi.dimension_Date y wwi.fact_Sales. Es
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Creación de tablas y procedimientos para generar las tablas Date y Sales
 
-En esta sección se crean las tablas wwi.dimension_Date y wwi.fact_Sales. También se crean procedimientos almacenados que pueden generar millones de filas en las tablas wwi.dimension_Date y wwi.fact_Sales.
+En esta sección se crean las tablas wwi.dimension_Date y wwi.fact_Sale. También se crean procedimientos almacenados que pueden generar millones de filas en las tablas wwi.dimension_Date y wwi.fact_Sale.
 
 1. Cree las tablas dimension_Date y fact_Sales.  
 
@@ -893,7 +893,7 @@ En esta sección se crean las tablas wwi.dimension_Date y wwi.fact_Sales. Tambi�
     DROP table #days;
     END;
     ```
-4. Cree este procedimiento que rellena las filas de las tablas wwi.dimension_Date y wwi.fact_Sales. Llama a [wwi]. [PopulateDateDimensionForYear] para rellenar wwi.dimension_Date.
+4. Cree este procedimiento que rellena las filas de las tablas wwi.dimension_Date y wwi.fact_Sale. Llama a [wwi]. [PopulateDateDimensionForYear] para rellenar wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -949,7 +949,7 @@ En esta sección se crean las tablas wwi.dimension_Date y wwi.fact_Sales. Tambi�
     ```
 
 ## <a name="generate-millions-of-rows"></a>Generación de millones de filas
-Utilice los procedimientos almacenados que creó para generar millones de filas en la tabla wwi.fact_Sales y los datos correspondientes en la tabla wwi.dimension_Date. 
+Utilice los procedimientos almacenados que creó para generar millones de filas en la tabla wwi.fact_Sale y los datos correspondientes en la tabla wwi.dimension_Date. 
 
 
 1. Ejecute este procedimiento para inicializar [wwi]. [seed_Sale] con más filas.
@@ -958,7 +958,7 @@ Utilice los procedimientos almacenados que creó para generar millones de filas 
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Ejecute este procedimiento para rellenar wwi.fact_Sales con 100 000 filas todos y cada uno de los días del año 2000.
+2. Ejecute este procedimiento para rellenar wwi.fact_Sale con 100 000 filas todos y cada uno de los días del año 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1120,7 +1120,7 @@ Hizo todo esto:
 > * Vio el progreso de los datos a medida que se cargaban
 > * Creó estadísticas de los datos recién cargados
 
-Vaya a la información general de desarrollo para obtener información sobre cómo migrar una base de datos a SQL Data Warehouse.
+Avance a la introducción al desarrollo para obtener información sobre cómo migrar una base de datos existente a SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Decisiones de diseño para migrar una base de datos a SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+>[Decisiones de diseño y técnicas de codificación para SQL Data Warehouse](sql-data-warehouse-overview-develop.md)

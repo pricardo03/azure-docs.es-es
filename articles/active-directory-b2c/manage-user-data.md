@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eb99cd94dca2a463c275dd5d4fab540b4fc55318
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 4cbca467b50dd0e43132b6d09dc0785c501fca0f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510440"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204689"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Administración de los datos de usuarios en Azure Active Directory B2C
 
@@ -25,7 +26,7 @@ ms.locfileid: "66510440"
 
 ## <a name="delete-user-data"></a>Eliminación de los datos de usuario
 
-Los datos de usuario se almacenan en el directorio de Azure AD B2C y en los registros de auditoría. Todos los datos de auditoría del usuario se conservan durante un período de 30 días en Azure AD B2C. Si quiere eliminar los datos de usuario dentro de esos 30 días, puede usar la operación [Eliminar un usuario](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser). Se requiere una operación DELETE para cada uno de los inquilinos de Azure AD B2C donde puedan residir los datos. 
+Los datos de usuario se almacenan en el directorio de Azure AD B2C y en los registros de auditoría. Todos los datos de auditoría del usuario se conservan durante un período de 7 días en Azure AD B2C. Si quiere eliminar los datos de usuario dentro de esos 7 días, puede usar la operación [Eliminar un usuario](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser). Se requiere una operación DELETE para cada uno de los inquilinos de Azure AD B2C donde puedan residir los datos. 
 
 A cada usuario en Azure AD B2C se le asigna un identificador de objeto. El identificador de objeto proporciona un identificador inequívoco, que puede usar para eliminar datos de usuario en Azure AD B2C. Según la arquitectura, el identificador de objeto puede ser un identificador de correlación útil a través de otros servicios, como bases de datos de administración de relación con los clientes, finanzas y marketing. 
 

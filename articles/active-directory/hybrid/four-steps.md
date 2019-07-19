@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.subservice: hybrid
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96b5e8ab63c1784ff073c7ba38cd4a6319db43c5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a20a1a1009949aa2e6de8586040e918ae15c8d39
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454255"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655939"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -147,7 +147,7 @@ Del mismo modo, el [informe de autoservicio de administración de contraseñas](
 
 ### <a name="self-service-app-management"></a>Autoservicio de administración de aplicaciones
 
-Para que los usuarios puedan detectar automáticamente aplicaciones en su panel de acceso, debe habilitar el [autoservicio de acceso a las aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) para las aplicaciones que quiera que los usuarios detecten automáticamente y puedan solicitar acceso. El autoservicio de acceso a las aplicaciones es una excelente manera de permitir que los usuarios detecten automáticamente las aplicaciones y, si lo desea, permitir que el grupo de negocios apruebe el acceso a esas aplicaciones. Puede permitir que el grupo de negocios administre las credenciales asignadas a esos usuarios para que puedan realizar un [inicio de sesión único con contraseña en las aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-the-application-for-password-single-sign-on) directamente desde sus paneles de acceso.
+Para que los usuarios puedan detectar automáticamente aplicaciones en su panel de acceso, debe habilitar el [autoservicio de acceso a las aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) para las aplicaciones que quiera que los usuarios detecten automáticamente y puedan solicitar acceso. El autoservicio de acceso a las aplicaciones es una excelente manera de permitir que los usuarios detecten automáticamente las aplicaciones y, si lo desea, permitir que el grupo de negocios apruebe el acceso a esas aplicaciones. Puede permitir que el grupo de negocios administre las credenciales asignadas a esos usuarios para que puedan realizar un [inicio de sesión único con contraseña en las aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-password-sso-for-an-azure-ad-gallery-app) directamente desde sus paneles de acceso.
 
 ### <a name="self-service-group-management"></a>Self-service group management (Administración de grupos de autoservicio)
 

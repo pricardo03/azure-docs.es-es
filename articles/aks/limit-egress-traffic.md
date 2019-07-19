@@ -2,17 +2,17 @@
 title: Restringir el tráfico de salida en Azure Kubernetes Service (AKS)
 description: Obtenga información sobre qué puertos y direcciones son necesarios para controlar el tráfico de salida en Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 12922496bc97ad51d1cc96f7ffe8df05c1fd66ea
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441918"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614959"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Limitar el tráfico de salida en los nodos de clúster y controlar el acceso a los puertos y servicios necesarios en Azure Kubernetes Service (AKS), versión preliminar
 

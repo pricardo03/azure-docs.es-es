@@ -1,44 +1,40 @@
 ---
-title: Pagar las suscripciones de Azure con factura | Microsoft Docs
-description: Describe cómo pagar las suscripciones de Azure mediante factura
-services: ''
-documentationcenter: ''
-author: genlin
+title: Pago de suscripciones de Azure con factura
+description: Describe cómo pagar las suscripciones de Azure mediante factura.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 7caa7df3817c51d63dfa2838e4223d3fba88e529
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 9ca726ef737ce4750018d2461bc4bcd6c7ebb5f5
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827355"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491214"
 ---
-# <a name="pay-azure-subscription-by-invoice"></a>Suscripción de Azure de pago mediante factura
+# <a name="pay-for-your-azure-subscription-by-invoice"></a>Pago de las suscripciones de Azure con factura
 
-Si cambia al pago mediante factura, significa que pagar la factura de 30 días después de la fecha de factura. Para ser elegible para pagar su suscripción de Azure mediante factura, envíe una solicitud de soporte técnico de Azure. Una vez aprobada su solicitud, puede cambiar una suscripción de pago de factura en el [portal Azure](https://portal.azure.com).
+Si cambia al pago con factura, significa que pagará el importe en un plazo de 30 días después de la fecha de factura mediante cheque o transferencia bancaria. Para ser apto para pagar su suscripción de Azure mediante factura, envíe una solicitud a Soporte técnico de Azure. Una vez aprobada su solicitud, puede cambiar al pago con factura (cheque o transferencia bancaria) en [Azure Portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> * El pago de facturas solo está disponible para cuentas profesionales.
-> * Debe pagar todos los cargos pendientes antes de cambiar de pago de factura.
-> * Una vez que cambie al pago de facturas, no podrá cambiar de nuevo al pago mediante tarjeta de crédito o débito.
+> * El pago con factura (cheque o transferencia bancaria) solo está disponible para las cuentas empresariales.
+> * Debe pagar todos los cargos pendientes antes de cambiar al pago con factura.
 
-## <a name="request-to-pay-by-invoice"></a>Solicitud para pagar mediante factura
+## <a name="request-to-pay-by-invoice"></a>Solicitud de pago con factura
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/). Seleccione **Ayuda y soporte técnico** > **Nueva solicitud de soporte técnico**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/). Seleccione **Ayuda y soporte técnico** > **Nueva solicitud de soporte técnico**.
 
-    ![botón de ayuda y soporte técnico](./media/billing-how-to-pay-by-invoice/help-and-support.png)
+    ![Enlace de ayuda y soporte técnico](./media/billing-how-to-pay-by-invoice/help-and-support.png)
 
-2. Seleccione **Facturación** como tipo de problema, seleccione la suscripción que quiere pagar mediante factura, seleccione un plan de soporte técnico y, después, haga clic en **Siguiente**.
+2. Seleccione **Facturación** como **tipo de incidencia**. El *tipo de incidencia* es la categoría de la solicitud de soporte técnico. Seleccione la suscripción que quiere pagar con factura, seleccione un plan de soporte técnico y, después, haga clic en **Siguiente**.
 
-3. Seleccione la opción **Pago mediante factura** en el cuadro **Tipo de problema**.
+3. Seleccione la opción **Pago mediante factura** en el cuadro **Tipo de problema**. El *tipo de problema* es la subcategoría de la solicitud de soporte técnico.
 
 4. Escriba la siguiente información en el cuadro **Detalles** y después haga clic en **Siguiente**.
 
@@ -65,28 +61,60 @@ Si cambia al pago mediante factura, significa que pagar la factura de 30 días d
          (New quota) Requested cores:
          Specific region & series of Subscription:
 
-    - El **nombre de la compañía** y **dirección de la empresa** debería coincidir con la información que ha proporcionado para la cuenta de Azure.  Para ver o actualizar la información, consulte [cambiar su información de perfil de cuenta de Azure](billing-how-to-change-azure-account-profile.md).
-    - Debe agregar su contacto de facturación en Azure portal antes de que se puede aprobar el límite de crédito. Deben estar relacionado con los detalles de contacto al departamento de cuentas por pagar o finanzas de la empresa. Para actualizar el contacto de facturación, vaya a [centro de cuentas de Azure](https://account.azure.com/Profile).
+    - El **nombre de la empresa** y la **dirección de la empresa** deben coincidir con la información que haya proporcionado para la cuenta de Azure. Para ver o actualizar la información, consulte [Cambio de la información de perfil de la cuenta de Azure](billing-how-to-change-azure-account-profile.md).
+    - Debe agregar la información de contacto de facturación en Azure Portal antes de que se pueda aprobar el límite de crédito. La información de contacto debe ser la del departamento de Contabilidad o Finanzas. Para actualizar la información de contacto de facturación, vaya al [Centro de cuentas de Azure](https://account.azure.com/Profile).
 
 5. Compruebe la información de contacto y el método de contacto preferido, y haga clic en **Crear**.
 
-Si es necesario ejecutar una comprobación de crédito debido a la cantidad de crédito que necesita, te enviaremos un crédito de que compruebe la aplicación.
+Si es necesario realizar una comprobación de crédito debido a la cantidad de crédito que necesita, le enviaremos una solicitud a tal fin.
 
-## <a name="switch-to-invoice-pay"></a>Cambiar a pago de factura
+## <a name="switch-to-invoice-pay-checkwire-transfer"></a>Cambio a pago con factura (cheque o transferencia bancaria)
 
-Una vez que se aprueban para pagar mediante factura, puede cambiar su suscripción de Azure para el método de pago de factura en el [portal Azure](https://portal.azure.com).
+Una vez aprobada su solicitud, puede cambiar al pago con factura (cheque o transferencia bancaria) en Azure Portal.
+
+Si tiene una cuenta del programa de Microsoft Online Services, puede cambiar su suscripción de Azure para pagar mediante cheque o transferencia bancaria. Si tiene un contrato de cliente de Microsoft, puede cambiar el perfil de facturación para pagar mediante cheque o transferencia bancaria. [Aprenda a comprobar el tipo de cuenta](#check-access-to-a-microsoft-customer-agreement).
+
+### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Cambio de la suscripción de Azure para pagar mediante cheque o transferencia bancaria
+
+Siga los pasos siguientes para cambiar su suscripción de Azure para pagar mediante cheque o transferencia bancaria. **Una vez que cambia al pago con factura (cheque o transferencia bancaria), no puede cambiar de vuelta al pago con tarjeta de crédito**.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta.
-1. Busque en **Administración de costos + facturación**.
+1. Busque **Administración de costos + facturación**.
 
-    ![Captura de pantalla que muestra la búsqueda](./media/billing-how-to-pay-by-invoice/search.png)
+    ![Captura de pantalla que muestra la búsqueda.](./media/billing-how-to-pay-by-invoice/search.png)
 
-1. Seleccione la suscripción que le gustaría cambiar a factura de pago.
+1. Seleccione la suscripción que le gustaría cambiar a pago con factura.
 1. Seleccione **Métodos de pago**.
-1. En la barra de comandos, haga clic en el **pagar mediante factura** botón.
+1. En la barra de comandos, haga clic en el botón **Pagar por factura**.
 
-    ![Captura de pantalla que muestra pagar con el botón de factura](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
+    ![Captura de pantalla que muestra el botón Pagar por factura](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
 
-## <a name="need-help-contact-us"></a>¿Ayuda? Póngase en contacto con nosotros.
+### <a name="switch-billing-profile-to-checkwire-transfer"></a>Cambio del perfil de facturación para pagar mediante cheque o transferencia bancaria
 
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+Siga los pasos siguientes para cambiar un perfil de facturación para pagar mediante cheque o transferencia bancaria. Tenga en cuenta que solo la persona que se registró en Azure puede cambiar el método de pago predeterminado de un perfil de facturación.
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Busque en **Administración de costos + facturación**.
+1. En el menú izquierdo, haga clic en **Perfiles de facturación**.
+
+    ![Captura de pantalla que muestra el perfil de facturación en el menú](./media/billing-how-to-pay-by-invoice/billing-profile.png)
+
+1. Seleccione un perfil de facturación.
+1. En el menú de la izquierda, seleccione **Métodos de pago**.
+
+   ![Captura de pantalla que muestra los métodos de pago del menú](./media/billing-how-to-pay-by-invoice/billing-profile-payment-methods.png)
+
+1. Haga clic en el banner azul que le informa de que es apto para pagar mediante cheque o transferencia bancaria.
+
+    ![Captura de pantalla que muestra el banner azul para cambiar al pago mediante cheque o transferencia bancaria](./media/billing-how-to-pay-by-invoice/customer-led-switch-to-invoice.png)
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Si es necesario, actualice la información de contacto de facturación en el [Centro de cuentas de Azure](https://account.azure.com/Profile).

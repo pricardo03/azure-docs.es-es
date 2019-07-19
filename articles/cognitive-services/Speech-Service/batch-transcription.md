@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 2148d1bd79a858bec37e6c574c2a6b6e2009fe46
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190413"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606742"
 ---
 # <a name="why-use-batch-transcription"></a>¿Por qué usar la transcripción de lotes?
 
@@ -56,7 +55,7 @@ Transcription API de Batch admite los siguientes formatos:
 | MP3 | PCM | 16 bits | 8 o 16 kHz, mono, estéreo |
 | OGG | OPUS | 16 bits | 8 o 16 kHz, mono, estéreo |
 
-Si se trata de secuencias de audio estéreo, Batch Transcription API divide los canales izquierdo y derecho durante la transcripción. Los dos archivos JSON con el resultado se crean desde un único canal. Las marcas de tiempo por expresión permiten al desarrollador crear una transcripción final ordenada. Esta solicitud de ejemplo incluye las propiedades de filtrado de blasfemias, signos de puntuación y marcas de tiempo de nivel de palabra. 
+Si se trata de secuencias de audio estéreo, Batch Transcription API divide los canales izquierdo y derecho durante la transcripción. Los dos archivos JSON con el resultado se crean desde un único canal. Las marcas de tiempo por expresión permiten al desarrollador crear una transcripción final ordenada. Esta solicitud de ejemplo incluye las propiedades de filtrado de blasfemias, signos de puntuación y marcas de tiempo de nivel de palabra.
 
 ### <a name="configuration"></a>Configuración
 
@@ -66,8 +65,8 @@ Los parámetros de configuración se proporcionan como JSON:
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<local to us, for example en-US>",
-  "name": "<user define name of the transcription batch>",
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
     "ProfanityFilterMode": "Masked",
@@ -83,38 +82,70 @@ Los parámetros de configuración se proporcionan como JSON:
 
 ### <a name="configuration-properties"></a>Propiedades de configuración
 
-| Parámetro | DESCRIPCIÓN | Obligatorio u opcional |
-|-----------|-------------|---------------------|
-| `ProfanityFilterMode` | Especifica cómo controlar las palabras soeces en los resultados del reconocimiento. Los valores aceptados son `none`, que deshabilita el filtrado de palabras soeces; `masked`, que reemplaza las palabras soeces con asteriscos; `removed`, que quita todas las palabras soeces del resultado; o `tags`, que agrega etiquetas de "palabras soeces". La configuración predeterminada es `masked`. | Opcional |
-| `PunctuationMode` | Especifica cómo controlar la puntuación en los resultados del reconocimiento. Los valores aceptados son: `none`, que deshabilita la puntuación; `dictated`, que implica puntuación explícita; `automatic`, que permite que el descodificador se ocupe de la puntuación; o `dictatedandautomatic`, que implica signos de puntuación dictados o puntuación automática. | Opcional |
- | `AddWordLevelTimestamps` | Especifica si las marcas de tiempo de nivel de palabra se deben agregar a la salida. Los valores aceptados son `true`, que permite las marcas de tiempo de nivel de palabra, y `false` (el valor predeterminado) que las deshabilita. | Opcional |
- | `AddSentiment` | Especifica las opiniones que se deben agregar a la declaración. Valores aceptados son `true` lo que permite la opinión por utterance (dictado) y `false` (usar el valor predeterminado) para deshabilitarlo. | Opcional |
+Utilice estas propiedades opcionales para configurar la transcripción:
 
-### <a name="storage"></a>Almacenamiento
+| Parámetro | DESCRIPCIÓN |
+|-----------|-------------|
+| `ProfanityFilterMode` | Especifica cómo controlar las palabras soeces en los resultados del reconocimiento. Los valores aceptados son `none`, que deshabilita el filtrado de palabras soeces; `masked`, que reemplaza las palabras soeces con asteriscos; `removed`, que quita todas las palabras soeces del resultado; o `tags`, que agrega etiquetas de "palabras soeces". La configuración predeterminada es `masked`. |
+| `PunctuationMode` | Especifica cómo controlar la puntuación en los resultados del reconocimiento. Los valores aceptados son: `none`, que deshabilita la puntuación; `dictated`, que implica puntuación explícita; `automatic`, que permite que el descodificador se ocupe de la puntuación; o `dictatedandautomatic`, que implica signos de puntuación dictados o puntuación automática. |
+ | `AddWordLevelTimestamps` | Especifica si las marcas de tiempo de nivel de palabra se deben agregar a la salida. Los valores aceptados son `true`, que permite las marcas de tiempo de nivel de palabra, y `false` (el valor predeterminado) que las deshabilita. |
+ | `AddSentiment` | Especifica que la opinión se debe agregar a la expresión. Los valores aceptados son `true`, que permite la opinión por expresión y `false` (el valor predeterminado) que la deshabilita. |
+ | `AddDiarization` | Especifica que el análisis de la diarización se debe llevar a cabo en la entrada que se espera sea un canal mono que contenga dos voces. Los valores aceptados son `true`, que permite la diarización, y `false` (el valor predeterminado) que la deshabilita. También requiere que `AddWordLevelTimestamps` se establezca en true.|
 
-Batch admite transcripción [almacenamiento de blobs de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) para leer de audio y transcripciones de escritura al almacenamiento.
+### <a name="storage"></a>Storage
 
-## <a name="webhooks"></a>Webhooks 
+La transcripción de lotes admite [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) para leer el audio y escribir las transcripciones en el almacenamiento.
 
-Sondeo del estado de transcripción no puede ser el mayor rendimiento, o proporcionar la mejor experiencia de usuario. Para sondear el estado de, puede registrar devoluciones de llamada, que se notificación al cliente cuando se hayan completado las tareas de transcripción de ejecución prolongada.
+## <a name="webhooks"></a>webhooks
 
-Para obtener más información, consulte [Webhooks](webhooks.md).
+El sondeo del estado de transcripción puede no ser el de mayor rendimiento o proporcionar la mejor experiencia de usuario. Para sondear el estado, puede registrar devoluciones de llamada, que notificarán al cliente cuando se hayan completado las tareas de transcripción de larga ejecución.
+
+Para más información, consulte [Webhooks](webhooks.md).
+
+## <a name="speaker-separation-diarization"></a>Separación de altavoces (diarización)
+
+La diarización es el proceso de separación de los altavoces en una parte del audio. Nuestra canalización de Batch admite la diarización y es capaz de reconocer dos altavoces en las grabaciones de un canal mono.
+
+Para pedir que la solicitud de transcripción de audio se procese para la diarización, simplemente tiene que agregar el parámetro pertinente en la solicitud HTTP como se muestra a continuación.
+
+ ```json
+{
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
+  "description": "<optional description of the transcription>",
+  "properties": {
+    "AddWordLevelTimestamps" : "True",
+    "AddDiarization" : "True"
+  }
+}
+```
+
+Las marcas de tiempo de nivel de palabra también tendría que estar "activadas" como indican los parámetros de la solicitud anterior.
+
+El audio correspondiente contendrá los altavoces identificados por un número (actualmente se admiten solo dos voces, por lo que los altavoces se identificarán como "Altavoz 1" y "Altavoz 2") seguidos de la salida de la transcripción.
+
+Tenga en cuenta también que la diarización no está disponible en las grabaciones estéreo. Además, toda la salida JSON contendrá la etiqueta Speaker. Si no se usa diarización, mostrará "Speaker: Null" en la salida JSON.
+
+> [!NOTE]
+> ¡La diarización está disponible en todas las regiones y para todas las configuraciones regionales!
 
 ## <a name="sentiment"></a>Opinión
 
-Las opiniones es una característica nueva de transcripción de API de Batch y es una característica importante en el dominio del centro de llamadas. Los clientes pueden usar el `AddSentiment` parámetros a sus solicitudes a 
+Opinión es una nueva característica de Transcription API de Batch, que es importante en el dominio del centro de llamadas. Los clientes pueden usar los parámetros `AddSentiment` en sus solicitudes para
 
 1.  Obtener información sobre la satisfacción del cliente
-2.  Obtener información sobre el rendimiento de los agentes (equipo teniendo las llamadas)
-3.  Identificar el punto exacto en tiempo de cuándo una llamada tuvo un turno en una dirección negativa
-4.  Identificar qué salió bien al convertir las llamadas negativo a positivo
-5.  Identificar lo que los clientes les gusta y lo gusta un producto o un servicio
+2.  Obtener información sobre el rendimiento de los agentes (equipo que atiende las llamadas)
+3.  Identificar el punto exacto en el tiempo de cuándo una llamada giró hacia una dirección negativa
+4.  Identificar qué salió bien al convertir las llamadas negativas en positivas
+5.  Identificar lo que les gusta a los clientes y lo que no les gusta de un producto o servicio
 
-Las opiniones se puntúan por segmento de audio donde se define un segmento de audio como el lapso de tiempo entre el inicio de la declaración (desplazamiento) y la latencia de detección de final de secuencia de bytes. Todo el texto dentro del segmento se utiliza para calcular las opiniones. NO se calculará ningún valor de opinión agregada para la llamada completa o el contenido de voz completa de cada canal. Esto se dejan al propietario del dominio para aplicar aún más.
+Opinión se puntúa por segmento de audio, donde un segmento de audio se define como el lapso de tiempo entre el inicio de la expresión (desplazamiento) y el silencio de detección del fin del flujo de bytes. Todo el texto dentro de ese segmento se utiliza para calcular la opinión. NO se calcula ningún valor agregado de opinión para toda la llamada o la voz completa de cada canal. Estas agregaciones se dejan al propietario del dominio para seguir aplicándolas.
 
-Las opiniones se aplican en la forma léxica.
+Opinión se aplica en la forma léxica.
 
-Un ejemplo de salida JSON como el siguiente:
+Un ejemplo de salida JSON tiene el siguiente aspecto:
 
 ```json
 {
@@ -149,13 +180,13 @@ Un ejemplo de salida JSON como el siguiente:
   ]
 }
 ```
-Las características se usa un modelo de las opiniones que se encuentra actualmente en versión Beta.
+La característica utiliza un modelo de Opinión, que se encuentra actualmente en versión Beta.
 
 ## <a name="sample-code"></a>Código de ejemplo
 
-El ejemplo completo está disponible en el [repositorio de ejemplos de GitHub](https://aka.ms/csspeech/samples) dentro del subdirectorio `samples/batch`.
+Hay ejemplos completos disponibles en el [repositorio de ejemplos de GitHub](https://aka.ms/csspeech/samples) dentro del subdirectorio `samples/batch`.
 
-Si quiere usar un modelo acústico o de lenguaje personalizado, deberá personalizar el código de ejemplo con la información de suscripción, la región del servicio, el URI de SAS que apunta al archivo de audio que se va a transcribir y los identificadores del modelo. 
+Si quiere usar un modelo acústico o de lenguaje personalizado, deberá personalizar el código de ejemplo con la información de suscripción, la región del servicio, el URI de SAS que apunta al archivo de audio que se va a transcribir y los identificadores del modelo.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 

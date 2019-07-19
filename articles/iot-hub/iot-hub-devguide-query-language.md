@@ -1,22 +1,22 @@
 ---
 title: Información sobre el lenguaje de consulta de IoT Hub de Azure | Microsoft Docs
 description: 'Guía del desarrollador: descripción del lenguaje de consulta de IoT Hub de tipo SQL que se usa para recuperar información sobre dispositivos o módulos gemelos y trabajos desde IoT Hub.'
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
-ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442157"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450071"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos y módulos gemelos, trabajos y enrutamiento de mensajes
 
-IoT Hub proporciona un lenguaje eficaz de tipo SQL para recuperar información sobre [dispositivos gemelos](iot-hub-devguide-device-twins.md), [trabajos](iot-hub-devguide-jobs.md) y [enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md). Este artículo presenta:
+IoT Hub proporciona un lenguaje eficaz de tipo SQL para recuperar información con respecto a los [dispositivos gemelos](iot-hub-devguide-device-twins.md), [módulos gemelos](iot-hub-devguide-module-twins.md), [trabajos](iot-hub-devguide-jobs.md) y [enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md). Este artículo presenta:
 
 * una introducción a las características principales del lenguaje de consulta de IoT Hub y
 * una descripción más detallada del lenguaje. Para más información acerca del lenguaje de consulta del enrutamiento de mensajes, consulte [Consultas en el enrutamiento de mensajes](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ IoT Hub proporciona un lenguaje eficaz de tipo SQL para recuperar información s
 
 ## <a name="device-and-module-twin-queries"></a>Consultas de dispositivos y módulos gemelos
 
-Los [dispositivos gemelos](iot-hub-devguide-device-twins.md) y los módulos gemelos pueden contener objetos JSON arbitrarios en forma de etiquetas y propiedades. IoT Hub permite consultar dispositivos gemelos y módulos gemelos como un solo documento JSON que contiene toda la información sobre ellos.
+Los [dispositivos gemelos](iot-hub-devguide-device-twins.md) y los [módulos gemelos](iot-hub-devguide-module-twins.md) pueden contener objetos JSON arbitrarios en forma de etiquetas y propiedades. IoT Hub permite consultar dispositivos gemelos y módulos gemelos como un solo documento JSON que contiene toda la información sobre ellos.
 
 Por ejemplo, suponga que los dispositivos gemelos de su centro de IoT tienen la siguiente estructura (lo mismo se aplica a los módulos gemelos, excepto que tienen un valor de moduleId adicional):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Consultas de módulo gemelo
 
-Las consultas en los módulos gemelos son parecidas a las consultas en los dispositivos gemelos, pero usan un espacio de nombres o colección diferentes; es decir, en lugar de "from devices", puede realizar la consulta device.modules:
+Las consultas en los módulos gemelos son parecidas a las consultas en los dispositivos gemelos, pero usan un espacio de nombres o colección diferentes porque, en lugar de realizar la consulta desde **devices**, se realiza desde **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -315,7 +315,7 @@ Actualmente, las consultas en **devices.jobs** no admiten:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Conceptos básicos de una consulta de IoT Hub
 
-Cada consulta de IoT Hub consta de las cláusulas SELECT y FROM, además de las cláusulas opcionales WHERE y GROUP BY. Cada consulta se ejecuta en una colección de documentos JSON, por ejemplo, dispositivos gemelos. La cláusula FROM indica la colección de documentos en la que se va a iterar (**devices** o **devices.jobs**). Después se aplica el filtro en la cláusula WHERE. Con agregaciones, los resultados de este paso se agrupan según se especifique en la cláusula GROUP BY. Para cada grupo, se genera una fila de acuerdo con lo especificado en la cláusula SELECT.
+Cada consulta de IoT Hub consta de las cláusulas SELECT y FROM, además de las cláusulas opcionales WHERE y GROUP BY. Cada consulta se ejecuta en una colección de documentos JSON, por ejemplo, dispositivos gemelos. La cláusula FORM indica la colección de documentos en la que se va a iterar (**devices**, **devices.modules** o **devices.jobs**). Después se aplica el filtro en la cláusula WHERE. Con agregaciones, los resultados de este paso se agrupan según se especifique en la cláusula GROUP BY. Para cada grupo, se genera una fila de acuerdo con lo especificado en la cláusula SELECT.
 
 ```sql
 SELECT <select_list>
@@ -326,10 +326,10 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Cláusula FROM
 
-La cláusula **FROM <from_specification>** solo puede asumir dos valores: **FROM devices** para consultar dispositivos gemelos o **FROM devices.jobs** para consultar los detalles del trabajo por dispositivo.
-
+La cláusula **FROM <from_specification>** solo puede asumir tres valores: **FROM devices** para consultar los dispositivos gemelos, **FROM devices.modules** para consultar desde los módulos gemelos o **FROM devices.jobs** para consultar los detalles de un trabajo por dispositivo.
 
 ## <a name="where-clause"></a>Cláusula WHERE
+
 La cláusula **WHERE <filter_condition>** es opcional. Especifica una o varias condiciones que los documentos JSON en la colección FROM deben satisfacer para incluirse como parte del resultado. Cualquier documento JSON debe evaluar las condiciones especificadas como "true" para que se incluya en el resultado.
 
 Las condiciones permitidas se describen en la sección [Expresiones y condiciones](iot-hub-devguide-query-language.md#expressions-and-conditions).
@@ -366,6 +366,7 @@ SELECT [TOP <max number>] <projection list>
 Actualmente, las cláusulas de selección distintas a **SELECT** * solo se admiten en las consultas agregadas de dispositivos gemelos.
 
 ## <a name="group-by-clause"></a>Cláusula GROUP BY
+
 La cláusula **GROUP BY <group_specification>** es un paso opcional que se ejecuta después del filtro especificado en la cláusula WHERE y antes de la proyección especificada en la cláusula SELECT. Agrupa los documentos según el valor de un atributo. Estos grupos se usan para generar valores agregados, como se especifica en la cláusula SELECT.
 
 Un ejemplo de consulta con GROUP BY es:
@@ -393,9 +394,9 @@ Actualmente, solo se admite la cláusula GROUP BY al consultar dispositivos geme
 > [!IMPORTANT]
 > En la actualidad, el término `group` se trata en las consultas como si fuera una palabra clave especial. Si utiliza `group` como un nombre de propiedad, considere la posibilidad de incluirlo entre corchetes dobles para evitar errores; por ejemplo, `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## <a name="expressions-and-conditions"></a>Expresiones y condiciones
+
 Brevemente, una *expresión*:
 
 * Se evalúa como una instancia de tipo JSON (como booleano, número, cadena, matriz u objeto).
@@ -443,6 +444,7 @@ Para comprender lo que significa cada símbolo en la sintaxis de expresiones, co
 | string_literal |Los literales de cadena son cadenas Unicode representadas por una secuencia de cero o varios caracteres Unicode o secuencias de escape. Los literales de cadena se cierran entre comillas simples o dobles. Caracteres de escape permitidos: `\'`, `\"`, `\\`, `\uXXXX` para los caracteres Unicode definidos con 4 dígitos hexadecimales. |
 
 ### <a name="operators"></a>Operadores
+
 Se admiten los siguientes operadores:
 
 | Familia | Operadores |
@@ -452,6 +454,7 @@ Se admiten los siguientes operadores:
 | De comparación |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Functions
+
 Cuando se consultan gemelos y trabajos, la única función admitida es:
 
 | Función | DESCRIPCIÓN |

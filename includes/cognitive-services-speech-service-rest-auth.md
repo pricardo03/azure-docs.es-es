@@ -4,20 +4,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 5f06ca04b0b6ea48ebb49952df71cb02946777fa
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145365"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333391"
 ---
 ## <a name="authentication"></a>Authentication
 
 Cada solicitud requiere un encabezado de autorización. Esta tabla muestra qué encabezados son compatibles con cada servicio:
 
-| Encabezados de autorización compatibles | Conversión de voz en texto | Texto a voz |
+| Encabezados de autorización compatibles | Voz a texto | Texto a voz |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Sí | No |
+| Ocp-Apim-Subscription-Key | Sí | Sin |
 | Autorización: Portador | Sí | Sí |
 
 Cuando se usa el encabezado `Ocp-Apim-Subscription-Key`, solo se le pide que proporcione la clave de suscripción. Por ejemplo:
@@ -26,8 +26,7 @@ Cuando se usa el encabezado `Ocp-Apim-Subscription-Key`, solo se le pide que pro
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-Cuando se usa el encabezado `Authorization: Bearer`, se le pide que haga una solicitud al punto de conexión `issueToken`. En esta solicitud, va a intercambiar la clave de suscripción de un token de acceso que es válido durante 10 minutos. En las secciones siguientes aprenderá a obtener, usar y actualizar un token.
-
+Cuando se usa el encabezado `Authorization: Bearer`, se le pide que haga una solicitud al punto de conexión `issueToken`. En esta solicitud, va a intercambiar la clave de suscripción de un token de acceso que es válido durante 10 minutos. En las secciones siguientes obtendrá información sobre cómo obtener un token y usar un token.
 
 ### <a name="how-to-get-an-access-token"></a>Obtención de un token de acceso
 

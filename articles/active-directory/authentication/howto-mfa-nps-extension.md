@@ -1,5 +1,5 @@
 ---
-title: 'Usar servidores NPS existentes para proporcionar capacidades de MFA de Azure: Azure Active Directory'
+title: 'Uso de servidores NPS existentes para proporcionar funcionalidades de Azure MFA: Azure Active Directory'
 description: Agregue funcionalidades de verificación en dos pasos basadas en la nube a su infraestructura de autenticación existente.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 080a37a88e46117a9963f07c14d64f00c6bae6d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570478"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560759"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -76,14 +76,14 @@ Para instalar la extensión, necesita el identificador de directorio y las crede
 
 El servidor NPT necesita poder comunicarse con las siguientes direcciones URL a través de los puertos 80 y 443.
 
-* https:\//adnotifications.windowsazure.com  
-* https:\//login.microsoftonline.com
+- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
 
-Además, se requiere conectividad a las direcciones URL siguientes para completar la [el programa de instalación del adaptador mediante el script de PowerShell proporcionado](#run-the-powershell-script)
+Además, se requiere conectividad con las direcciones URL siguientes para completar la [instalación del adaptador mediante el script de PowerShell proporcionado](#run-the-powershell-script).
 
-- https:\//login.microsoftonline.com
-- https:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.net
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
+- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
 
 ## <a name="prepare-your-environment"></a>Preparación del entorno
 
@@ -121,9 +121,14 @@ Existen dos factores que afectan a la disponibilidad de los métodos de autentic
 1. El algoritmo de cifrado de contraseña utilizado entre el cliente RADIUS (VPN, servidor Netscaler u otros) y los servidores NPS.
    - **PAP** es compatible con todos los métodos de autenticación de Azure MFA en la nube: llamada de teléfono, mensaje de texto unidireccional, notificación de aplicación móvil y código de verificación de la aplicación móvil.
    - **CHAPV2** y **EAP** admiten llamadas de teléfono y notificaciones de aplicación móvil.
-2. Los métodos de entrada que la aplicación cliente (VPN, servidor Netscaler u otros) puede controlar. Por ejemplo, ¿tiene el cliente de VPN algún medio para que el usuario escriba un código de comprobación de aplicación móvil o de texto?
 
-Al implementar la extensión NPS, use estos factores para estudiar qué métodos están disponibles para los usuarios. Si el cliente RADIUS es compatible con PAP, pero el cliente UX no tiene campos de entrada para un código de verificación, las dos opciones compatibles son la llamada de teléfono y notificación de aplicación móvil.
+      > [!NOTE]
+      > Al implementar la extensión NPS, use estos factores para estudiar qué métodos están disponibles para los usuarios. Si el cliente RADIUS es compatible con PAP, pero el cliente UX no tiene campos de entrada para un código de verificación, las dos opciones compatibles son la llamada de teléfono y notificación de aplicación móvil.
+      >
+      > Además, si la experiencia de usuario del cliente de VPN es compatible con el campo de entrada y ha configurado la directiva de acceso de red, la autenticación puede realizarse correctamente, pero no se aplicará ninguno de los atributos de RADIUS configurados en la directiva de red ni el dispositivo de acceso a la red, como el servidor RRAS o el cliente de VPN. Como resultado, el cliente de VPN puede tener más acceso del deseado o menos o ninguno.
+      >
+
+2. Los métodos de entrada que la aplicación cliente (VPN, servidor Netscaler u otros) puede controlar. Por ejemplo, ¿tiene el cliente de VPN algún medio para que el usuario escriba un código de comprobación de aplicación móvil o de texto?
 
 Puede [deshabilitar los métodos de autenticación no compatibles](howto-mfa-mfasettings.md#verification-methods) en Azure.
 
@@ -132,11 +137,10 @@ Puede [deshabilitar los métodos de autenticación no compatibles](howto-mfa-mfa
 Antes de implementar y utilizar la extensión NPS, es necesario que los usuarios a los que se les pide la verificación en dos pasos estén registrados en MFA. De forma más inmediata, para probar la extensión mientras se implementa, necesita al menos una cuenta de prueba totalmente registrada para la autenticación multifactor.
 
 Para iniciar una cuenta de prueba, use estos pasos:
-1. Inicie sesión en [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con una cuenta de prueba. 
-2. Siga las indicaciones para configurar un método de verificación.
-3. Cree una directiva de acceso condicional o [cambie el estado de usuario](howto-mfa-userstates.md) para exigir la verificación en dos pasos para la cuenta de prueba. 
 
-Los usuarios también necesitan seguir estos pasos para inscribirse para poder autenticarse con la extensión de NPS.
+1. Inicie sesión en [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con una cuenta de prueba.
+2. Siga las indicaciones para configurar un método de verificación.
+3. [Cree una directiva de acceso condicional](howto-mfa-getstarted.md#create-conditional-access-policy) para requerir la autenticación multifactor para la cuenta de pruebas.
 
 ## <a name="install-the-nps-extension"></a>Instalación de la extensión de NPS
 
@@ -149,13 +153,13 @@ Los usuarios también necesitan seguir estos pasos para inscribirse para poder a
 2. Copie el archivo binario en el Servidor de directivas de redes que quiere configurar.
 3. Ejecute *setup.exe* y siga las instrucciones de instalación. Si se producen errores, compruebe que las dos bibliotecas de la sección de requisitos previos se han instalado correctamente.
 
-#### <a name="upgrade-the-nps-extension"></a>Actualizar la extensión de NPS
+#### <a name="upgrade-the-nps-extension"></a>Actualización de la extensión NPS
 
-Cuando se instala la actualización de una extensión NPS existente, para evitar un reinicio del servidor subyacente complete los pasos siguientes:
+Cuando se actualiza una instalación de una extensión NPS existente, realice los pasos siguientes para evitar un reinicio del servidor subyacente:
 
-1. Desinstale la versión existente
-1. Ejecute el nuevo instalador
-1. Reinicie el servicio servidor de directivas de red (IAS)
+1. Desinstalación de la versión existente
+1. Ejecución del nuevo instalador
+1. Reinicio del servicio del Servidor de directivas de redes (IAS)
 
 ### <a name="run-the-powershell-script"></a>Ejecución del script de PowerShell
 
@@ -184,10 +188,18 @@ A menos que desee utilizar sus propios certificados (en lugar de los certificado
 
 Repita estos pasos en todos los servidores NPS adicionales que desee configurar para equilibrio de carga.
 
-Si ha expirado el certificado de equipo anterior, y se ha generado un nuevo certificado, debe eliminar todos los certificados caducados. Tener los certificados caducados pueden causar problemas con la extensión de NPS iniciando.
+Si ha expirado el certificado de equipo anterior y se ha generado un nuevo certificado, debe eliminar todos los certificados expirados. Tener los certificados expirados puede provocar incidencias con el inicio de la extensión NPS.
 
 > [!NOTE]
 > Si utiliza certificados propios en lugar de generar certificados con el script de PowerShell, asegúrese de que se ajustan a la convención de nomenclatura de NPS. El nombre del firmante debe ser **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
+
+### <a name="certificate-rollover"></a>Sustitución del certificado
+
+Desde la versión 1.0.1.32 de la extensión NPS se admite la lectura de varios certificados. Esta funcionalidad le ayudará a facilitar las actualizaciones graduales de certificados antes de su expiración. Si en la organización se ejecuta una versión anterior de la extensión NPS, debe actualizar a la versión 1.0.1.32 o superior.
+
+Los certificados creados por el script `AzureMfaNpsExtnConfigSetup.ps1` son válidos durante 2 años. Las organizaciones de TI deben supervisar la expiración de los certificados. Los certificados para la extensión NPS se encuentran en el almacén de certificados del equipo local, en la carpeta Personal y se emiten para el identificador de inquilino proporcionado al script.
+
+Cuando un certificado se aproxima a la fecha de expiración, se debe crear un nuevo certificado para reemplazarlo.  Este proceso se realiza de nuevo mediante la ejecución del script `AzureMfaNpsExtnConfigSetup.ps1` y se debe mantener el mismo identificador de inquilino cuando se le solicite. Este proceso se debe repetir en cada servidor de NPS del entorno.
 
 ## <a name="configure-your-nps-extension"></a>Configuración de la extensión de NPS
 
@@ -223,9 +235,9 @@ Puede crear esta clave y establecerla en FALSE mientras los usuarios se incorpor
 
 Busque el certificado autofirmado creado por el instalador en el almacén de certificados y compruebe que la clave privada tenga permisos concedidos al usuario **NETWORK SERVICE**. El certificado tiene un nombre de asunto **CN \<Id_inquilino\>, OU = Microsoft NPS Extension**
 
-Los certificados autofirmados generados por el *AzureMfaNpsExtnConfigSetup.ps1* script también tienen una duración de validez de dos años. Al comprobar que el certificado está instalado, también debe comprobar que el certificado no expiró.
+Los certificados autofirmados generados por el script *AzureMfaNpsExtnConfigSetup.ps1* también tienen una vigencia de validez de dos años. Al comprobar que el certificado está instalado, también debe comprobar que el certificado no ha expirado.
 
--------------------------------------------------------------
+---
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>¿Cómo se puede comprobar que el certificado de cliente está asociado a mi inquilino en Azure Active Directory?
 
@@ -251,13 +263,13 @@ Una vez que ejecute este comando, vaya a la unidad C, busque el archivo y haga d
 
 Las marcas de tiempo válido-desde y válido-hasta, que se encuentran en un formato legible, se pueden utilizar para filtrar desajustes evidentes si el comando devuelve más de un certificado.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-cant-i-sign-in"></a>¿Por qué no puedo iniciar sesión?
 
-Compruebe que la contraseña no ha expirado. La extensión NPS no admite el cambio de contraseñas como parte del flujo de trabajo del inicio de sesión. Para obtener más ayuda, póngase en contacto con el personal de TI de su organización.
+Compruebe que la contraseña no ha expirado. La extensión NPS no admite el cambio de contraseñas como parte del flujo de trabajo del inicio de sesión. Póngase en contacto con el personal de TI de la organización para obtener más ayuda.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-are-my-requests-failing-with-adal-token-error"></a>¿Por qué las solicitudes provocan un error de token de ADAL?
 
@@ -268,29 +280,33 @@ Este error puede deberse a varias razones. Siga estos pasos para poder resolver 
 3. Compruebe que el certificado esté asociado a su inquilino en Azure AD.
 4. Compruebe que https://login.microsoftonline.com/ es accesible desde el servidor que ejecuta la extensión.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-does-authentication-fail-with-an-error-in-http-logs-stating-that-the-user-is-not-found"></a>¿Por qué produce un error de autenticación en los registros HTTP que indica que no se encuentra el usuario?
 
 Compruebe que se esté ejecutando AD Connect y que el usuario esté presente en Windows Active Directory y Azure Active Directory.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>¿Por qué aparecen errores de conexión de HTTP en los registros con errores en todas las autenticaciones?
 
 Compruebe que https://adnotifications.windowsazure.com es accesible desde el servidor que ejecuta la extensión NPS.
 
--------------------------------------------------------------
+---
 
-### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>¿Por qué la autenticación no funciona, a pesar de un certificado válido que esté presente?
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>¿Por qué la autenticación no funciona a pesar de tener un certificado válido?
 
-Si ha expirado el certificado de equipo anterior, y se ha generado un nuevo certificado, debe eliminar todos los certificados caducados. Tener los certificados caducados pueden causar problemas con la extensión de NPS iniciando.
+Si ha expirado el certificado de equipo anterior y se ha generado un nuevo certificado, debe eliminar todos los certificados expirados. Tener los certificados expirados puede provocar incidencias con el inicio de la extensión NPS.
 
-Para comprobar si tiene un certificado válido, compruebe Certificate Store la cuenta de equipo local con MMC y asegúrese de que el certificado no ha superado la fecha de expiración. Para generar un certificado válido recientemente, vuelva a ejecutar los pasos descritos en la sección "[ejecutar el script de PowerShell](#run-the-powershell-script)"
+Para comprobar si tiene un certificado válido, compruebe el almacén de certificados de la cuenta del equipo local mediante el uso de MMC y asegúrese de que el certificado no ha superado la fecha de expiración. Para generar un nuevo certificado válido, vuelva a ejecutar los pasos descritos en la sección "[Ejecución del script de PowerShell](#run-the-powershell-script)".
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Administración de los protocolos TLS/SSL y conjuntos de cifrado
 
 Se recomienda deshabilitar o quitar los conjuntos de cifrado más antiguos o débiles a menos que los exija la organización. Se puede encontrar información sobre cómo completar esta tarea en el artículo sobre [Administración de conjuntos de cifrado y protocolos SSL/TLS de AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs).
+
+### <a name="additional-troubleshooting"></a>Solución de problemas adicional
+
+Puede encontrar una guía de solución de problemas adicional y posibles soluciones en el artículo [Resolución de mensajes de error de la extensión NPS para Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

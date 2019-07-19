@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24fba1961c8fd95f1b9489716d690dd6eaa97b62
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589748"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274834"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Service Bus
 
@@ -56,7 +56,7 @@ La replicación activa usa entidades en ambos espacios de nombres para cada oper
 
 Un cliente recibe mensajes de ambas colas. El receptor procesa la primera copia de un mensaje y se suprime la segunda copia. Para suprimir mensajes duplicados, el remitente debe etiquetar cada mensaje con un identificador único. Ambas copias del mensaje deben estar etiquetadas con el mismo identificador. Puede usar las propiedades [BrokeredMessage.MessageId][BrokeredMessage.MessageId] o [BrokeredMessage.Label][BrokeredMessage.Label], o bien una propiedad personalizada, para etiquetar el mensaje. El receptor debe mantener una lista de los mensajes que ya haya recibido.
 
-El ejemplo de [replicación geográfica con el plan de tarifa estándar de Service Bus][Geo-replication with Service Bus Standard Tier] muestra la replicación activa de entidades de mensajería.
+En el ejemplo de [replicación geográfica con el plan de tarifa estándar de Service Bus][Geo-replication with Service Bus Standard Tier] se muestra la replicación activa de entidades de mensajería.
 
 > [!NOTE]
 > La replicación activa dobla el número de operaciones; por lo tanto, este enfoque puede suponer un costo mayor.
@@ -75,10 +75,10 @@ Cuando se usa la replicación pasiva, en los siguientes escenarios se pueden per
 * **Demora o pérdida de mensajes**: se supone que el remitente envió correctamente un mensaje m1 a la cola principal y después la cola deja de estar disponible antes de que el receptor reciba m1. El remitente envía otro mensaje m2 a la cola secundaria. Si la cola principal no está disponible temporalmente, el receptor recibe m1 una vez que la cola esté disponible de nuevo. En caso de desastre, puede que el receptor no reciba nunca m1.
 * **Recepción duplicada**: supongamos que el remitente envía un mensaje m a la cola principal. Service Bus procesa m correctamente , pero no envía una respuesta. Una vez que la operación de envío agota el tiempo de espera, el remitente envía una copia idéntica de m a la cola secundaria. Si el receptor puede recibir la primera copia de m antes de que la cola principal deje de estar disponible, el receptor recibe ambas copias de m aproximadamente al mismo tiempo. Si el receptor no recibe la primera copia de m antes de que la cola principal deje de estar disponible, el receptor recibe inicialmente solo la segunda copia de m pero, a continuación, recibe una segunda copia de m cuando la cola principal vuelve a estar disponible.
 
-El ejemplo de [replicación geográfica con el plan de tarifa estándar de Service Bus][Geo-replication with Service Bus Standard Tier] muestra la replicación pasiva de entidades de mensajería.
+En el ejemplo de [replicación geográfica con el plan de tarifa estándar de Service Bus][Geo-replication with Service Bus Standard Tier] se muestra la replicación pasiva de entidades de mensajería.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protección de los extremos de retransmisión contra desastres o interrupciones del centro de datos
-La replicación geográfica de los extremos de retransmisión permite que un servicio que exponga un extremo de retransmisión sea accesible en caso de interrupciones de Service Bus. Para lograr la replicación geográfica, el servicio debe crear dos extremos de retransmisión en diferentes espacios de nombres. Los espacios de nombres deben residir en distintos centros de datos y ambos extremos deben tener nombres diferentes. Por ejemplo, se puede acceder a un punto de conexión principal en **contosoPrimary.servicebus.windows.net/myPrimaryService**, mientras que su equivalente secundario resulta accesible en **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+La replicación geográfica de los puntos de conexión de [Azure Relay](../service-bus-relay/relay-what-is-it.md) permite que un servicio que expone un punto de conexión de retransmisión sea accesible en caso de interrupciones de Service Bus. Para lograr la replicación geográfica, el servicio debe crear dos extremos de retransmisión en diferentes espacios de nombres. Los espacios de nombres deben residir en distintos centros de datos y ambos extremos deben tener nombres diferentes. Por ejemplo, se puede acceder a un punto de conexión principal en **contosoPrimary.servicebus.windows.net/myPrimaryService**, mientras que su equivalente secundario resulta accesible en **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 A continuación, el servicio escucha en ambos extremos y un cliente puede invocar el servicio a través de cualquiera de ellos. Una aplicación cliente selecciona de forma aleatoria una de las retransmisiones como extremo principal y envía su solicitud al extremo activo. Si la operación da como resultado un código de error, este error indica que el extremo de retransmisión no está disponible. La aplicación abre un canal al extremo de reserva y vuelve a emitir la solicitud. En ese momento, el extremo activo y el de reserva intercambian roles: la aplicación cliente considera el anterior extremo activo como el nuevo extremo de reserva y el anterior extremo de reserva pasa a ser el nuevo extremo activo. Si ambas operaciones de envío generan un error, no se modifican los roles de las dos entidades y se devuelve un error.
 
@@ -86,7 +86,7 @@ A continuación, el servicio escucha en ambos extremos y un cliente puede invoca
 Para obtener más información acerca de la recuperación ante desastres, consulte estos artículos:
 
 * [Recuperación ante desastres con localización geográfica de Azure Service Bus](service-bus-geo-dr.md)
-* [Continuidad de negocio de Azure SQL Database][Azure SQL Database Business Continuity]
+* [Continuidad del negocio con Azure SQL Database][Azure SQL Database Business Continuity]
 * [Diseño de aplicaciones resistentes de Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md

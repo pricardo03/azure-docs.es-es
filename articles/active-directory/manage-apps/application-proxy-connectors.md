@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 674d055c40ff594f0e4e05ec512b9124b1d7ab77
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113082"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341329"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -29,12 +29,12 @@ Los conectores son agentes ligeros que se colocan en local y facilitan la conexi
 
 ## <a name="requirements-and-deployment"></a>Requisitos e implementación
 
-Para implementar correctamente Proxy de aplicación necesita al menos un conector, pero se recomiendan dos o más para conseguir una mayor resistencia. Instalar el conector en un equipo que ejecuta Windows Server 2012 R2 o posterior. El conector tiene que comunicarse con el servicio Application Proxy, así como con las aplicaciones locales que se publiquen. 
+Para implementar correctamente Proxy de aplicación necesita al menos un conector, pero se recomiendan dos o más para conseguir una mayor resistencia. Instale el conector en una máquina con Windows Server 2012 R2 o posterior. El conector tiene que comunicarse con el servicio Application Proxy, así como con las aplicaciones locales que se publiquen. 
 
-### <a name="windows-server"></a>Servidor de Windows
+### <a name="windows-server"></a>Windows Server
 Se necesita un servidor en el que se ejecute Windows Server 2012 R2 o superior en el que se pueda instalar el conector del proxy de la aplicación. El servidor tiene que conectarse a los servicios de Application Proxy de Azure y a las aplicaciones locales que se publiquen.
 
-El servidor de Windows debe tener habilitado TLS 1.2 antes de instalar el conector del proxy de aplicación. Los conectores existentes con versiones anteriores a 1.5.612.0 seguirán funcionando en versiones anteriores de TLS hasta nuevo aviso. Para habilitar TLS 1.2, siga estos pasos:
+El servidor de Windows debe tener habilitado TLS 1.2 antes de instalar el conector del proxy de aplicación. Para habilitar TLS 1.2 en el servidor:
 
 1. Establezca las siguientes claves del Registro:
     
@@ -50,7 +50,7 @@ El servidor de Windows debe tener habilitado TLS 1.2 antes de instalar el conect
 
 Para más información sobre los requisitos de red del servidor del conector, vea [Get started with Application Proxy and install a connector (Información general sobre Proxy de aplicación e instalación de un conector)](application-proxy-add-on-premises-application.md).
 
-## <a name="maintenance"></a>Mantenimiento 
+## <a name="maintenance"></a>Mantenimiento
 Los conectores y el servicio se encargan de todas las tareas de alta disponibilidad. Se pueden agregar o quitar de forma dinámica. Cada vez que llega una solicitud nueva, esta se enruta a uno de los conectores que estén disponibles en ese momento. Si un conector no está disponible temporalmente, no responde a este tráfico.
 
 Los conectores no tienen estado ni datos de configuración en el equipo. Los únicos datos que almacenan son los valores de configuración para conectar el servicio y su certificado de autenticación. Cuando se conectan al servicio, extraen todos los datos de configuración requeridos y los actualizan cada dos minutos.
@@ -85,11 +85,11 @@ Los grupos de conectores facilitan la administración de implementaciones a gran
 
 Para más información acerca de los grupos de conectores, consulte [Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores](application-proxy-connector-groups.md).
 
-## <a name="capacity-planning"></a>Planeamiento de capacidad 
+## <a name="capacity-planning"></a>Planificación de capacidad 
 
-Es importante asegurarse de que la capacidad prevista entre los conectores es suficiente para administrar el volumen de tráfico esperado. Se recomienda que cada grupo de conectores tiene al menos dos conectores para proporcionar escalabilidad y alta disponibilidad. Tener tres conectores es óptimo en caso de que necesite una máquina en cualquier punto de servicio. 
+Es importante asegurarse de que la capacidad prevista entre los conectores es suficiente para administrar el volumen de tráfico esperado. Se recomienda que cada grupo de conectores tenga al menos dos conectores para proporcionar disponibilidad y escala altas. Tener tres conectores es una situación óptima en caso de que necesite realizar tareas de servicio en una máquina en cualquier momento. 
 
-En general, cuantos más usuarios tenga, mayor será la máquina que necesitará. A continuación es una tabla que proporciona un esquema del volumen y latencia esperada pueden controlar distintas máquinas. Tenga en cuenta que todo se basa en las transacciones por segundo (TPS) que se esperan en len lugar de en las transacciones por usuario, ya que los patrones de uso varían y no se pueden utilizar para predecir la carga. Tenga en cuenta también que habrá algunas diferencias en función del tamaño de las respuestas y el tiempo de respuesta de la aplicación de back-end: cuanto mayor sea el tamaño de respuesta y menor el tiempo de respuesta, menor será el TPS máximo. También se recomienda tener máquinas adicionales para que la carga distribuida entre las máquinas siempre proporciona suficiente búfer. La capacidad adicional garantizará que tanto la resistencia como la disponibilidad son elevadas.
+En general, cuantos más usuarios tenga, mayor será la máquina que necesitará. A continuación se muestra una tabla que proporciona un esquema del volumen y la latencia que diferentes máquinas pueden controlar. Tenga en cuenta que todo se basa en las transacciones por segundo (TPS) que se esperan en len lugar de en las transacciones por usuario, ya que los patrones de uso varían y no se pueden utilizar para predecir la carga. Tenga en cuenta también que habrá algunas diferencias en función del tamaño de las respuestas y el tiempo de respuesta de la aplicación de back-end: cuanto mayor sea el tamaño de respuesta y menor el tiempo de respuesta, menor será el TPS máximo. También le recomendamos que tenga máquinas adicionales para que la carga distribuida entre las máquinas siempre proporcione un búfer amplio. La capacidad adicional garantizará que tanto la resistencia como la disponibilidad son elevadas.
 
 |Núcleos|RAM|Latencia esperada (MS)-P99|TPS Máximo|
 | ----- | ----- | ----- | ----- |
@@ -98,14 +98,14 @@ En general, cuantos más usuarios tenga, mayor será la máquina que necesitará
 |8|32|270|1190|
 |16|64|245|1200*|
 
-\* Este equipo usa una configuración personalizada para generar algunos de los límites de conexión predeterminada más allá de la configuración recomendada. NET. Se recomienda ejecutar una prueba con la configuración predeterminada antes de ponerse en contacto con el equipo de soporte técnico para obtener este límite cambiado para el inquilino.
+\* Esta máquina usa una configuración personalizada para generar algunos de los límites de conexión predeterminados más allá de la configuración recomendada de .NET. Se recomienda ejecutar una prueba con la configuración predeterminada antes de ponerse en contacto con el equipo de soporte técnico para obtener este límite cambiado para el inquilino.
  
 >[!NOTE]
 >No hay mucha diferencia en el TPS máximo entre máquinas de 4, 8 y 16 núcleos. La diferencia principal entre ellas está en la latencia esperada.  
 
 ## <a name="security-and-networking"></a>Seguridad y redes
 
-Los conectores pueden instalarse en cualquier ubicación de la red que les permita enviar solicitudes al servicio Proxy de aplicación. Lo importante es que el equipo que ejecuta el conector también tenga acceso a las aplicaciones. Puede instalar conectores dentro de la red corporativa o en una máquina virtual que se ejecute en la nube. Los conectores se pueden ejecutar dentro de una red perimetral, también conocida como zona desmilitarizada (DMZ), pero no es necesario porque todo el tráfico es saliente, por lo que la red se mantengan segura.
+Los conectores pueden instalarse en cualquier ubicación de la red que les permita enviar solicitudes al servicio Proxy de aplicación. Lo importante es que el equipo que ejecuta el conector también tenga acceso a las aplicaciones. Puede instalar conectores dentro de la red corporativa o en una máquina virtual que se ejecute en la nube. Los conectores se pueden ejecutar en una red perimetral, también conocida como zona desmilitarizada (DMZ), pero no es necesario porque todo el tráfico es saliente, por lo que la red se mantiene protegida.
 
 Los conectores solo envían solicitudes salientes. El tráfico saliente se envía al servicio de Proxy de aplicación y a las aplicaciones publicadas. No hay que abrir los puertos de entrada, porque una vez que se ha establecido una sesión, el tráfico fluye en ambos sentidos. Tampoco es necesario que configure el acceso de entrada en los firewalls. 
 

@@ -1,5 +1,5 @@
 ---
-title: Requisitos previos de la oferta de Dynamics 365 for Customer Engagement | Azure Marketplace
+title: Requisitos previos de una oferta de Dynamics 365 for Customer Engagement | Azure Marketplace
 description: En este artículo se describen los requisitos previos para la publicación de una oferta de aplicación de Azure en Azure Marketplace.
 services: Dynamics 365 for Customer Engagement offer, Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 9cfec65843012e781c8a8dd06cbc4d1225b0dd36
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257522"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338906"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Requisitos previos para Dynamics 365 for Customer Engagement
 
-En este artículo se describen los requisitos previos técnicos y empresariales para la publicación de una oferta de aplicación de Dynamics 365 for Customer Engagement en AppSource Marketplace.  Si aún no lo ha hecho, revise el [Office 365, Dynamics 365, PowerApps y Power BI ofrecen guía para la publicación](../../appsource-offer-publishing-guide.md).
+En este artículo se describen los requisitos previos técnicos y empresariales para la publicación de una oferta de aplicación de Dynamics 365 for Customer Engagement en AppSource Marketplace.  Si aún no lo ha hecho, revise la [Guía de publicación de ofertas de Office 365, Dynamics 365, PowerApps y Power BI](../../appsource-offer-publishing-guide.md).
 
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
@@ -40,7 +40,7 @@ Su aplicación de Dynamics 365 for Customer Engagement debe cumplir con las [dir
 
 Los requisitos empresariales incluyen las siguientes obligaciones contractuales, de procedimientos y legales:
 
-* Debe estar registrado en [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) o ser un anunciante registrado en Cloud Marketplace. Si no está registrado, siga los pasos que se indican en [Conviértase en anunciante de Cloud Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Para el tercer paso, use [el formulario de nominación de asociado de AppSource](https://appsource.microsoft.com/partners/signup) en su lugar). 
+* Debe estar registrado en [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) o ser un anunciante registrado en Cloud Marketplace. Si no está registrado, siga los pasos que se indican en [Conviértase en anunciante de Cloud Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher).  (También se puede poner en contacto con el [equipo de incorporación de Dynamics 365 for Customer Engagement](https://experience.dynamics.com/isvengage/)).
 
     >[!NOTE]
     >Debe usar la misma cuenta de registro de Microsoft Developer Center para iniciar sesión en Cloud Partner Portal. Solo debe tener una cuenta Microsoft para sus ofertas de Azure Marketplace. Esta cuenta no debería ser específica de servicios ni de ofertas individuales.

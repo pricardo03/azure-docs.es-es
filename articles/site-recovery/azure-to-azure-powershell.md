@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: c585b300a65091bee3320a21b7bce7ba94d269ec
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 766b004217d6679dcba00c581ade4fe911b5f8b9
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258798"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491865"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configuración de la recuperación ante desastres en máquinas virtuales de Azure mediante Azure PowerShell
 
@@ -44,16 +44,16 @@ Aprenderá a:
 Antes de comenzar:
 - Asegúrese de entender la [arquitectura y los componentes del escenario](azure-to-azure-architecture.md).
 - Revise los [requisitos de compatibilidad](azure-to-azure-support-matrix.md) de todos los componentes.
-- Tiene Azure PowerShell `Az` módulo. Si necesita instalar o actualizar Azure PowerShell, siga la guía [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
+- Tiene el módulo `Az` de Azure PowerShell. Si necesita instalar o actualizar Azure PowerShell, siga la guía [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Inicio de sesión en la suscripción de Microsoft Azure
 
-Inicie sesión en su suscripción de Azure mediante el cmdlet Connect-AzAccount
+Inicie sesión en su suscripción de Azure con el cmdlet Connect-AzAccount.
 
 ```azurepowershell
 Connect-AzAccount
 ```
-Seleccione su suscripción a Azure. Use el cmdlet Get-AzSubscription para obtener la lista de las suscripciones de Azure que se tiene acceso a. Seleccione la suscripción de Azure para trabajar con el cmdlet Select-AzSubscription.
+Seleccione su suscripción a Azure. Use el cmdlet Get-AzSubscription para obtener la lista de suscripciones de Azure a las que tiene acceso. Seleccione la suscripción de Azure con la que quiere trabajar mediante el cmdlet Select-AzSubscription.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -584,9 +584,9 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
-## <a name="reprotect-and-failback-to-source-region"></a>Volver a proteger y conmutar por recuperación a la región de origen
+## <a name="reprotect-and-failback-to-source-region"></a>Reprotección y conmutación por recuperación en una región de origen
 
-Después de una conmutación por error, cuando esté listo para volver a la región original, iniciar la replicación inversa para el artículo de replicación protegido mediante el cmdlet Update-AzRecoveryServicesAsrProtectionDirection.
+Después de una conmutación por error, cuando esté listo para volver a la región original, inicie la replicación inversa del elemento protegido de replicación mediante el cmdlet Update-AzRecoveryServicesAsrProtectionDirection.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -599,7 +599,15 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 -ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
 ```
 
-Una vez completada la reprotección, puede iniciar la conmutación por error en dirección inversa (oeste de Estados Unidos para este de Estados Unidos) y la conmutación por recuperación a la región de origen.
+Una vez que se complete la reprotección, puede iniciar la conmutación por error en dirección inversa (Oeste de EE. UU. a Este de EE. UU.) y la conmutación por recuperación en la región de origen.
+
+## <a name="disable-replication"></a>Deshabilitar replicación
+
+Para deshabilitar la replicación, use el cmdlet Remove-ASRReplicationProtectedItem.
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ver el [referencia de PowerShell de Azure Site Recovery](https://docs.microsoft.com/powershell/module/az.RecoveryServices) para obtener información sobre cómo puede realizar otras tareas como la creación de planes de recuperación y las pruebas de conmutación por error de los planes de recuperación a través de PowerShell.
+Consulte la [referencia de PowerShell de Azure Site Recovery](https://docs.microsoft.com/powershell/module/az.RecoveryServices) para obtener información sobre cómo realizar otras tareas, como la creación de planes de recuperación y la prueba de la conmutación por error de los planes de recuperación a través de PowerShell.

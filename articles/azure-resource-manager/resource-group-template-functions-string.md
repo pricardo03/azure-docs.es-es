@@ -1,23 +1,17 @@
 ---
 title: 'Funciones de la plantilla de Azure Resource Manager: cadena | Microsoft Docs'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con cadenas.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 82b9403a3d5a5b6938f5b95bbfce888d1e70e451
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
-ms.translationtype: MT
+ms.openlocfilehash: 979474ea6b5b61935742591f8fba87d200d618e4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431218"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206351"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
 
@@ -65,7 +59,7 @@ Devuelve la representación de base64 de la cadena de entrada.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | inputString |Sí |string |Valor que se va a devolver como una representación de base64. |
 
@@ -116,10 +110,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| base64Output | string | b25lLCB0d28sIHRocmVl |
-| toStringOutput | string | one, two, three |
+| base64Output | Cadena | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadena | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
@@ -130,7 +124,7 @@ Convierte una representación en base64 a un objeto JSON.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | base64Value |Sí |string |La representación en base64 para convertir en un objeto JSON. |
 
@@ -181,10 +175,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| base64Output | string | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | Cadena | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadena | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
@@ -195,7 +189,7 @@ Convierte una representación en base64 en una cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | base64Value |Sí |string |La representación en base64 para convertir en una cadena. |
 
@@ -246,10 +240,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| base64Output | string | b25lLCB0d28sIHRocmVl |
-| toStringOutput | string | one, two, three |
+| base64Output | Cadena | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadena | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
@@ -260,7 +254,7 @@ Combina varios valores de cadena y devuelve la cadena concatenada, o combina var
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o matriz |El primer valor para la concatenación. |
 | argumentos adicionales |Sin |string |Valores adicionales en orden secuencial para la concatenación. |
@@ -296,7 +290,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Cadena | prefix-5yj4yjf5mbg72 |
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) siguiente se muestra cómo combinar dos matrices.
 
@@ -337,7 +331,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| return | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>contains
 
@@ -347,7 +341,7 @@ Comprueba si una matriz contiene un valor, un objeto contiene una clave o una ca
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | container |Sí |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
 | itemToFind |Sí |cadena o entero |El valor para buscar. |
@@ -428,7 +422,7 @@ Convierte un valor en un identificador URI de datos.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToConvert |Sí |string |El valor para convertir en un identificador URI de datos. |
 
@@ -472,8 +466,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | string | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | string | Hola mundo. |
+| dataUriOutput | Cadena | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Cadena | Hola mundo. |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -483,7 +477,7 @@ Convierte un valor con formato de identificador URI de datos en una cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |Sí |string |El valor del identificador URI para convertir. |
 
@@ -527,8 +521,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | string | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hola mundo. |
+| dataUriOutput | Cadena | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Cadena | Hola mundo. |
 
 ## <a name="empty"></a>empty
 
@@ -538,7 +532,7 @@ Determina si una matriz, un objeto o una cadena están vacíos.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sí |matriz, objeto o cadena |El valor para comprobar si está vacío. |
 
@@ -589,7 +583,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -603,7 +597,7 @@ Determina si una cadena termina con un valor. La comparación distingue entre ma
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
@@ -652,7 +646,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -669,7 +663,7 @@ Devuelve el primer carácter de la cadena o el primer elemento de la matriz.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
 
@@ -708,32 +702,32 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | string | one |
-| stringOutput | string | O |
+| arrayOutput | Cadena | one |
+| stringOutput | Cadena | O |
 
 ## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
-Crea una cadena con formato de valores de entrada.
+Crea una cadena con formato a partir de valores de entrada.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| formatString | Sí | string | La cadena de formato compuesto. |
+| formatString | Sí | string | La cadena de formato compuesta. |
 | arg1 | Sí | valor booleano, entero o cadena | El valor que se va a incluir en la cadena con formato. |
-| argumentos adicionales | Sin | valor booleano, entero o cadena | Valores adicionales que incluir en la cadena con formato. |
+| argumentos adicionales | Sin | valor booleano, entero o cadena | Valores adicionales que se van a incluir en la cadena con formato. |
 
 ### <a name="remarks"></a>Comentarios
 
-Utilice esta función para dar formato a una cadena en la plantilla. Usa las mismas opciones de formato que el [System.String.Format](/dotnet/api/system.string.format) método en. NET.
+Utilice esta función para dar formato a una cadena en la plantilla. Usa las mismas opciones de formato que el método [System.String.Format](/dotnet/api/system.string.format) en. NET.
 
 ### <a name="examples"></a>Ejemplos
 
-La plantilla de ejemplo siguiente muestra cómo usar la función format.
+En la plantilla de ejemplo siguiente se muestra cómo usar la función de formato.
 
 ```json
 {
@@ -766,9 +760,9 @@ La plantilla de ejemplo siguiente muestra cómo usar la función format.
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| formatTest | string | Hola, usuario. Número con formato: 8,175,133 |
+| formatTest | Cadena | Hola, usuario. Número con formato: 8 175 133 |
 
 ## <a name="guid"></a>GUID
 
@@ -778,7 +772,7 @@ Crea un valor en el formato de un identificador único global en función de los
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | baseString |Sí |string |El valor utilizado en la función hash para crear el GUID. |
 | parámetros adicionales según sea necesario |Sin |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
@@ -787,7 +781,7 @@ Crea un valor en el formato de un identificador único global en función de los
 
 Esta función es útil cuando se necesita crear un valor en el formato de un identificador único global. Proporciona valores de parámetros que limitan el ámbito de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación.
 
-El valor devuelto no es una cadena aleatoria, pero en su lugar el resultado de una función hash en los parámetros. El valor devuelto tiene 36 caracteres. No es único globalmente. Para crear un nuevo GUID que no se basa en el valor hash de los parámetros, use la [newGuid](#newguid) función.
+El valor devuelto no es una cadena aleatoria, sino que es el resultado de una función hash en los parámetros. El valor devuelto tiene 36 caracteres. No es único globalmente. Para crear un nuevo GUID que no se base en el valor hash de los parámetros, use la función [newGuid](#newguid).
 
 En los ejemplos siguientes se muestra cómo utilizar un GUID para crear un valor único para niveles de uso común.
 
@@ -849,7 +843,7 @@ Devuelve la primera posición de un valor dentro de una cadena. La comparación 
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
@@ -910,7 +904,7 @@ Devuelve el último carácter de la cadena, o el último elemento de la matriz.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el último elemento o carácter. |
 
@@ -949,10 +943,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | string | three |
-| stringOutput | string | e |
+| arrayOutput | Cadena | three |
+| stringOutput | Cadena | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -962,7 +956,7 @@ Devuelve la última posición de un valor dentro de una cadena. La comparación 
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
@@ -1023,7 +1017,7 @@ Devuelve el número de caracteres de una cadena, o elementos de una matriz.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
 
@@ -1069,7 +1063,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1082,15 +1076,15 @@ Devuelve un valor en el formato de un identificador único global. **Esta funci�
 
 ### <a name="remarks"></a>Comentarios
 
-Solo puede usar esta función dentro de una expresión para el valor predeterminado de un parámetro. Uso de esta función en cualquier otro en una plantilla, devuelve un error. La función no se permite en otras partes de la plantilla porque devuelve un valor diferente cada vez que se llama. Implementación de la misma plantilla con los mismos parámetros no sería producir de forma confiable los mismos resultados.
+Solo puede usar esta función dentro de una expresión para el valor predeterminado de un parámetro. El uso de esta función en cualquier otro lugar de una plantilla genera un error. La función no se permite en otras partes de la plantilla porque devuelve un valor diferente cada vez que se le llama. La implementación de la misma plantilla con los mismos parámetros no produciría de forma confiable los mismos resultados.
 
-La función newGuid difiere el [guid](#guid) funcionen, ya que no toma ningún parámetro. Cuando se llama a guid con el mismo parámetro, devuelve el mismo identificador de cada vez. Usar guid cuando se necesita generar de forma confiable el mismo GUID para un entorno específico. Utilice newGuid cuando necesite un identificador diferente cada vez, como implementar recursos en un entorno de prueba.
+La función newGuid difiere de la función [guid](#guid) en que no toma ningún parámetro. Cuando se llama a guid con el mismo parámetro, devuelve el mismo identificador cada vez. Use guid cuando necesite generar de forma confiable el mismo GUID para un entorno específico. Use newGuid cuando necesite un identificador diferente cada vez, como en la implementación de recursos en un entorno de prueba.
 
-Si usas el [opción a volver a implementar una implementación anteriormente correcta](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)y la implementación anterior incluye un parámetro que usa newGuid, el parámetro no se vuelven a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
+Si usa la [opción de volver a implementar una implementación que se completó correctamente en un momento anterior](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails) y esa implementación anterior incluye un parámetro que usa newGuid, el parámetro no se vuelve a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
 
-En un entorno de pruebas, necesita implementar repetidamente los recursos que residen sólo durante un breve período. En lugar de construir nombres únicos, puede usar newGuid con [uniqueString](#uniquestring) para crear nombres únicos.
+En un entorno de prueba, es posible que deba implementar repetidamente recursos que solo duran un corto tiempo. En lugar de construir nombres únicos, puede usar newGuid con [uniqueString](#uniquestring) para crear nombres únicos.
 
-Tenga cuidado de volver a implementar una plantilla que se basa en la función newGuid para un valor predeterminado. Al volver a implementar y no proporciona un valor para el parámetro, se vuelve a evaluar la función. Si desea actualizar un recurso existente en lugar de crear uno nuevo, pase el valor de parámetro de la implementación anterior.
+Tenga cuidado al volver a implementar una plantilla que se base en la función newGuid para un valor predeterminado. Si vuelve a implementar y no proporciona un valor para el parámetro, la función se vuelve a evaluar. Si desea actualizar un recurso existente en lugar de crear uno nuevo, pase el valor de parámetro de la implementación anterior.
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1123,11 +1117,11 @@ La plantilla de ejemplo siguiente muestra un parámetro con un nuevo identificad
 
 El resultado del ejemplo anterior varía para cada implementación, pero será similar a:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-En el ejemplo siguiente se usa la función newGuid para crear un nombre único para una cuenta de almacenamiento. Esta plantilla puede funcionar en el entorno de prueba donde la cuenta de almacenamiento existe durante un breve tiempo y no se volvió a implementar.
+En el ejemplo siguiente se usa la función newGuid para crear un nombre único para una cuenta de almacenamiento. Esta plantilla puede funcionar en el entorno de prueba donde la cuenta de almacenamiento existe durante un breve tiempo y no se vuelve a implementar.
 
 ```json
 {
@@ -1166,7 +1160,7 @@ En el ejemplo siguiente se usa la función newGuid para crear un nombre único p
 
 El resultado del ejemplo anterior varía para cada implementación, pero será similar a:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | nameOutput | string | storagenziwvyru7uxie |
 
@@ -1179,7 +1173,7 @@ Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda ha
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | valueToPad |Sí |cadena o entero |Valor que se va a alinear a la derecha. |
 | totalLength |Sí |int |El número total de caracteres de la cadena devuelta. |
@@ -1219,7 +1213,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| stringOutput | string | 0000000123 |
+| stringOutput | Cadena | 0000000123 |
 
 ## <a name="replace"></a>replace
 
@@ -1229,7 +1223,7 @@ Devuelve una nueva cadena con todas las instancias de una cadena reemplazadas po
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalString |Sí |string |Valor que tiene todas las instancias de una cadena reemplazadas por otra cadena. |
 | oldString |Sí |string |Cadena que se va a quitar de la cadena original. |
@@ -1271,8 +1265,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| firstOutput | string | 1231231234 |
-| secondOutput | string | 123-123-xxxx |
+| firstOutput | Cadena | 1231231234 |
+| secondOutput | Cadena | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
 
@@ -1282,10 +1276,10 @@ Devuelve una cadena con todos los caracteres después del número especificado d
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena que se usará para la omisión. |
-| numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o cadena, se devuelve una matriz o cadena vacía. |
+| numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1339,8 +1333,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["three"] |
-| stringOutput | string | two three |
+| arrayOutput | Array | ["three"] |
+| stringOutput | Cadena | two three |
 
 ## <a name="split"></a>split
 
@@ -1350,7 +1344,7 @@ Devuelve una matriz de cadenas que contiene las subcadenas de la cadena de entra
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | inputString |Sí |string |La cadena que se va a dividir. |
 | delimiter |Sí |cadena o matriz de cadenas |Delimitador que se utilizará para dividir la cadena. |
@@ -1396,10 +1390,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| firstOutput | Matriz | ["one", "two", "three"] |
-| secondOutput | Matriz | ["one", "two", "three"] |
+| firstOutput | Array | ["one", "two", "three"] |
+| secondOutput | Array | ["one", "two", "three"] |
 
 ## <a name="startswith"></a>startsWith
 
@@ -1409,7 +1403,7 @@ Determina si una cadena empieza con un valor. La comparación distingue entre ma
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
@@ -1475,7 +1469,7 @@ Convierte el valor especificado en cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sí | Cualquiera |El valor que se convierte en cadena. Se puede convertir cualquier tipo de valor, incluidos objetos y matrices. |
 
@@ -1534,9 +1528,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | string | ["a","b","c"] |
-| intOutput | string | 5 |
+| objectOutput | Cadena | {"valueA":10,"valueB":"Example Text"} |
+| arrayOutput | Cadena | ["a","b","c"] |
+| intOutput | Cadena | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1546,10 +1540,10 @@ Devuelve una subcadena que empieza en la posición de carácter especificada y q
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sí |string |La cadena original desde la que se extrae la subcadena. |
-| startIndex |No |int |La posición de carácter inicial basado en cero de la subcadena. |
+| startIndex |Sin |int |La posición de carácter inicial basado en cero de la subcadena. |
 | length |Sin |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. Debe ser cero o mayor. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -1595,9 +1589,9 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| substringOutput | string | two |
+| substringOutput | Cadena | two |
 
 ## <a name="take"></a>take
 
@@ -1607,10 +1601,10 @@ Devuelve una cadena con el número especificado de caracteres desde el inicio de
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
-| numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la cadena o matriz, se devuelven todos los elementos de la matriz o cadena. |
+| numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1662,10 +1656,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["one", "two"] |
-| stringOutput | String | en |
+| arrayOutput | Array | ["one", "two"] |
+| stringOutput | Cadena | en |
 
 ## <a name="tolower"></a>toLower
 
@@ -1675,7 +1669,7 @@ Convierte la cadena especificada a minúsculas.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToChange |Sí |string |Valor que se va a convertir a minúsculas. |
 
@@ -1713,10 +1707,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | string | one two three |
-| toUpperOutput | string | ONE TWO THREE |
+| toLowerOutput | Cadena | one two three |
+| toUpperOutput | Cadena | ONE TWO THREE |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1726,7 +1720,7 @@ Convierte la cadena especificada a mayúsculas.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToChange |Sí |string |Valor que se va a convertir a mayúsculas. |
 
@@ -1764,10 +1758,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | Cadena | one two three |
+| toUpperOutput | Cadena | ONE TWO THREE |
 
 ## <a name="trim"></a>trim
 
@@ -1777,7 +1771,7 @@ Quita todos los caracteres de espacio en blanco iniciales y finales de la cadena
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |Sí |string |Valor que se recortará. |
 
@@ -1813,7 +1807,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| return | String | one two three |
+| return | Cadena | one two three |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1823,7 +1817,7 @@ Crea una cadena de hash determinista basada en los valores proporcionados como p
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | baseString |Sí |string |Valor utilizado en la función hash para crear una cadena única. |
 | parámetros adicionales según sea necesario |Sin |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
@@ -1832,7 +1826,7 @@ Crea una cadena de hash determinista basada en los valores proporcionados como p
 
 Esta función es útil cuando se debe crear un nombre único para un recurso. Proporciona valores de parámetros que limitan el ámbito de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación. 
 
-El valor devuelto no es una cadena aleatoria, sino más bien el resultado de una función hash. El valor devuelto tiene 13 caracteres. No es único globalmente. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre que sea más fácil de reconocer. En el ejemplo siguiente se muestra el formato del valor devuelto. El valor real varía según los parámetros proporcionados.
+El valor devuelto no es una cadena aleatoria, sino que es el resultado de una función hash. El valor devuelto tiene 13 caracteres. No es único globalmente. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre que sea más fácil de reconocer. En el ejemplo siguiente se muestra el formato del valor devuelto. El valor real varía según los parámetros proporcionados.
 
     tcvhiyu5h2o5o
 
@@ -1856,7 +1850,7 @@ En los ejemplos siguientes se muestra cómo utilizar uniqueString a fin de crear
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta de almacenamiento basada en el grupo de recursos. En el grupo de recursos, el nombre no es único si crea la misma manera.
+En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta de almacenamiento basada en el grupo de recursos. Dentro del grupo de recursos, el nombre no es único si se crea de la misma manera.
 
 ```json
 "resources": [{ 
@@ -1865,7 +1859,7 @@ En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta 
     ...
 ```
 
-Si necesita crear un nuevo nombre único cada vez que implemente una plantilla y no tiene intención de actualizar el recurso, puede usar el [utcNow](#utcnow) función con uniqueString. Podría utilizar este enfoque en un entorno de prueba. Para obtener un ejemplo, vea [utcNow](#utcnow).
+Si necesita crear un nuevo nombre único cada vez que implemente una plantilla y no tiene intención de actualizar el recurso, puede usar la función [utcNow](#utcnow) con uniqueString. Podría utilizar este enfoque en un entorno de prueba. Para ver un ejemplo, consulte [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1901,7 +1895,7 @@ Crea un URI absoluto mediante la combinación de la cadena de relativeUri y base
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | baseUri |Sí |string |La cadena de uri base. |
 | relativeUri |Sí |string |La cadena de uri relativo que se agregará a la cadena de uri base. |
@@ -1951,11 +1945,11 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| uriOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | string | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Cadena | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Cadena | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Cadena | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -1965,7 +1959,7 @@ Codifica un identificador URI.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Sí |string |El valor para codificar. |
 
@@ -2006,11 +2000,11 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| uriOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | string | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Cadena | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Cadena | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Cadena | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2020,7 +2014,7 @@ Devuelve una cadena del valor codificado por el identificador URI.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |Sí |string |El valor codificado por el identificador URI para convertir en una cadena. |
 
@@ -2061,31 +2055,31 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Name | type | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| uriOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Cadena | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Cadena | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Cadena | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="utcnow"></a>utcNow
 
 `utcNow(format)`
 
-Devuelve el valor de fecha y hora (UTC) actual en el formato especificado. Si no se proporciona ningún formato, se utiliza el formato ISO 8601 (yyyyMMddTHHmmssZ). **Esta función sólo puede utilizarse en el valor predeterminado para un parámetro.**
+Devuelve el valor de fecha y hora (UTC) actual en el formato especificado. Si no se proporciona ningún formato, se utiliza el formato ISO 8601 (yyyyMMddTHHmmssZ). **Esta función solo puede utilizarse en el valor predeterminado para un parámetro.**
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| format |Sin |string |El valor codificado por el identificador URI para convertir en una cadena. Usar [cadenas de formato estándar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Sin |string |El valor codificado por el identificador URI para convertir en una cadena. Use [cadenas de formato estándar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Comentarios
 
-Solo puede usar esta función dentro de una expresión para el valor predeterminado de un parámetro. Uso de esta función en cualquier otro en una plantilla, devuelve un error. La función no se permite en otras partes de la plantilla porque devuelve un valor diferente cada vez que se llama. Implementación de la misma plantilla con los mismos parámetros no sería producir de forma confiable los mismos resultados.
+Solo puede usar esta función dentro de una expresión para el valor predeterminado de un parámetro. El uso de esta función en cualquier otro lugar de una plantilla genera un error. La función no se permite en otras partes de la plantilla porque devuelve un valor diferente cada vez que se le llama. La implementación de la misma plantilla con los mismos parámetros no produciría de forma confiable los mismos resultados.
 
-Si usas el [opción a volver a implementar una implementación anteriormente correcta](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)y la implementación anterior incluye un parámetro que usa utcNow, el parámetro no se vuelven a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
+Si usa la [opción de volver a implementar una implementación que se completó correctamente en un momento anterior](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails) y esa implementación anterior incluye un parámetro que usa utcNow, el parámetro no se vuelve a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
 
-Tenga cuidado de volver a implementar una plantilla que se basa en la función utcNow para un valor predeterminado. Al volver a implementar y no proporciona un valor para el parámetro, se vuelve a evaluar la función. Si desea actualizar un recurso existente en lugar de crear uno nuevo, pase el valor de parámetro de la implementación anterior.
+Tenga cuidado al volver a implementar una plantilla que se base en la función utcNow para un valor predeterminado. Si vuelve a implementar y no proporciona un valor para el parámetro, la función se vuelve a evaluar. Si desea actualizar un recurso existente en lugar de crear uno nuevo, pase el valor de parámetro de la implementación anterior.
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -2093,7 +2087,7 @@ El valor de fecha y hora UTC actual.
 
 ### <a name="examples"></a>Ejemplos
 
-La plantilla de ejemplo siguiente muestra los formatos diferentes para el valor de fecha y hora.
+La plantilla de ejemplo siguiente muestra formatos diferentes para el valor de fecha y hora.
 
 ```json
 {
@@ -2137,7 +2131,7 @@ El resultado del ejemplo anterior varía para cada implementación, pero será s
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | utcOutput | string | 20190305T175318Z |
-| utcShortOutput | string | 03/05/2019 |
+| utcShortOutput | string | 05/03/2019 |
 | utcCustomOutput | string | 3 5 |
 
 El ejemplo siguiente muestra cómo usar un valor de la función cuando se establece un valor de etiqueta.

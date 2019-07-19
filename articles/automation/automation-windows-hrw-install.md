@@ -4,17 +4,17 @@ description: En este artículo encontrará información sobre cómo instalar una
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc3307a4f32d77b9b8d259ac846c4db1c1ae4a99
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.openlocfilehash: a8f6d46b8db6761204e39f14bbb51a493445ad26
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002515"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477914"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
 
@@ -63,7 +63,7 @@ Realice los pasos siguientes para automatizar la instalación y configuración d
    > [!NOTE]
    > Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
    >
-   > Para obtener una lista de los pares de asignaciones admitidas, consulte [asignación de región para la cuenta de Automation y Log Analytics workspace](how-to/region-mappings.md).
+   > Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md).
 
 2. En el equipo, inicie **Windows PowerShell** desde la pantalla **Inicio** en modo de administrador.
 3. Desde el shell de línea de comandos de PowerShell, vaya a la carpeta que contiene el script que ha descargado. Cambie los valores de los parámetros *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* y *-WorkspaceName*. Después, ejecute el script.
@@ -93,9 +93,9 @@ Si todavía no tiene un área de trabajo de Log Analytics, puede crear una media
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Adición de la solución de Automation al área de trabajo de Log Analytics
 
-La solución de los registros de Monitor de Azure Automation agrega funcionalidad para la automatización de Azure, incluida la compatibilidad con Hybrid Runbook Worker. Cuando se agrega la solución al área de trabajo, se insertan automáticamente los componentes de trabajo al equipo del agente que va a instalar en el paso siguiente.
+La solución de registros de Azure Monitor de Automation agrega funcionalidad a Azure Automation, incluida la compatibilidad con Hybrid Runbook Worker. Cuando se agrega la solución al área de trabajo, se insertan automáticamente los componentes de trabajo al equipo del agente que va a instalar en el paso siguiente.
 
-Para agregar la **automatización** Azure Monitor registra la solución al área de trabajo, ejecute el siguiente comando de PowerShell.
+Para agregar la solución de registros de Azure Monitor de **Automation** al área de trabajo, ejecute la instancia de PowerShell siguiente.
 
 ```powershell-interactive
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
@@ -105,13 +105,13 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsR
 
 Microsoft Monitoring Agent conecta los equipos a los registros de Azure Monitor. Cuando instala el agente en el equipo local y se conecte al espacio de trabajo, se descargan automáticamente los componentes necesarios para Hybrid Runbook Worker.
 
-Para instalar el agente en el equipo local, siga las instrucciones de [equipos Windows conectarse a los registros de Azure Monitor](../log-analytics/log-analytics-windows-agent.md). Puede repetir este proceso para varios equipos para agregar varios trabajos a su entorno.
+Para instalar el agente en el equipo local, siga las instrucciones que se encuentran en [Connect Windows computers to Azure Monitor logs](../log-analytics/log-analytics-windows-agent.md) (Conexión de equipos Windows a los registros de Azure Monitor). Puede repetir este proceso para varios equipos para agregar varios trabajos a su entorno.
 
-Cuando el agente se conectó correctamente a los registros de Azure Monitor, se muestra en el **orígenes conectados** ficha de log analytics **configuración** página. Puede comprobar que el agente ha descargado correctamente la solución Automation cuando tiene una carpeta llamada **AzureAutomationFiles** en C:\Program Files\Microsoft Monitoring Agent\Agent. Para confirmar la versión de Hybrid Runbook Worker, puede ir a C:\Archivos de programa\Microsoft Monitoring Agent\Agent\AzureAutomation\ y examinar la subcarpeta \\*versión*.
+Cuando el agente se ha conectado correctamente a los registros de Azure Monitor, se mostrará en la pestaña **Orígenes conectados** de la página **Configuración** de Log Analytics. Puede comprobar que el agente ha descargado correctamente la solución Automation cuando tiene una carpeta llamada **AzureAutomationFiles** en C:\Program Files\Microsoft Monitoring Agent\Agent. Para confirmar la versión de Hybrid Runbook Worker, puede ir a C:\Archivos de programa\Microsoft Monitoring Agent\Agent\AzureAutomation\ y examinar la subcarpeta \\*versión*.
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Instalación del entorno de runbook y conexión con Azure Automation
 
-Cuando se agrega un agente a los registros de Azure Monitor, la solución Automation inserta el **HybridRegistration** módulo de PowerShell, que contiene el **Add-HybridRunbookWorker** cmdlet. Este cmdlet se usa para instalar el entorno de runbook en el equipo y registrarlo con Azure Automation.
+Cuando se agrega un agente a los registros de Azure Monitor, la solución de Automation inserta el módulo **HybridRegistration** de PowerShell, que contiene el cmdlet **Add-HybridRunbookWorker**. Este cmdlet se usa para instalar el entorno de runbook en el equipo y registrarlo con Azure Automation.
 
 Abra una sesión de PowerShell en modo de Administrador y ejecute los comandos siguientes para importar el módulo:
 

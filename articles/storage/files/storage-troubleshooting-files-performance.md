@@ -1,6 +1,6 @@
 ---
 title: Guía de solución de problemas de rendimiento de Azure Files
-description: Problemas de rendimiento conocidos con los recursos compartidos de archivos Premium de Azure (versión preliminar) y soluciones asociadas.
+description: Problemas de rendimiento conocidos con los recursos compartidos de archivos de Azure y las soluciones asociadas.
 services: storage
 author: gunjanj
 ms.service: storage
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190047"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445669"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de rendimiento de Azure Files
 
-En este artículo se enumeran algunos problemas habituales relacionados con los recursos compartidos de archivos Premium de Azure (versión preliminar). Se proporcionan las posibles causas y soluciones alternativas cuando se producen estos problemas.
+En este artículo se enumeran algunos problemas habituales relacionados con los recursos compartidos de archivos de Azure. Se proporcionan las posibles causas y soluciones alternativas cuando se producen estos problemas.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Alta latencia, rendimiento bajo y problemas de rendimiento general
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: El recurso compartido está experimentando limitación
 
-La cuota predeterminada en un recurso compartido es de 100 GB, que proporciona 100 IOPS de base de referencia (con un potencial para aumentar hasta 300 durante una hora). Para obtener más información sobre el aprovisionamiento y su relación con IOPS, consulte la sección [Recursos compartidos aprovisionados](storage-files-planning.md#provisioned-shares) de la guía de planificación.
+La cuota predeterminada en un recurso compartido Premium es de 100 GiB, que proporciona 100 IOPS de base de referencia (con un potencial para aumentar hasta 300 durante una hora). Para obtener más información sobre el aprovisionamiento y su relación con IOPS, consulte la sección [Recursos compartidos aprovisionados](storage-files-planning.md#provisioned-shares) de la guía de planificación.
 
 Para confirmar si se está limitando el recurso compartido, puede aprovechar las métricas de Azure en el portal.
 
@@ -39,7 +39,7 @@ Para confirmar si se está limitando el recurso compartido, puede aprovechar las
 
 1. Seleccione **Transacciones** como métrica.
 
-1. Agregue un filtro para **ResponseType** y compruebe si alguna solicitud tiene un código de respuesta de **SuccessWithThrottling**.
+1. Agregue un filtro para **ResponseType** y compruebe si alguna solicitud tiene un código de respuesta de **SuccessWithThrottling** (para SMB) o **ClientThrottlingError** (para REST).
 
 ![Opciones de métricas para recursos compartidos de archivos Premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -72,11 +72,11 @@ Si la aplicación que usa el cliente tiene un único subproceso, esto puede dar 
 
 ### <a name="cause"></a>Causa
 
-La máquina virtual del cliente podría encontrarse en una región diferente de la del recurso compartido de archivos Premium.
+La máquina virtual del cliente podría encontrarse en una región diferente de la del recurso compartido de archivos.
 
 ### <a name="solution"></a>Solución
 
-- Ejecute la aplicación desde una máquina virtual que se encuentre en la misma región que el recurso compartido de archivos Premium.
+- Ejecute la aplicación desde una máquina virtual que se encuentre en la misma región que el recurso compartido de archivos.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>El cliente no puede lograr el rendimiento máximo admitido por la red
 
@@ -121,6 +121,10 @@ No se admite una profundidad de IO mayor que uno en RHEL/CentOS.
 
 - Actualice a CentOS 8 o RHEL 8.
 - Cambie a Ubuntu.
+
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Copia de archivos lenta en y desde Azure Files en Linux
+
+Si experimenta una copia de archivos lenta desde y hacia Azure Files, consulte la sección [Copia de archivos lenta en y desde Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) de la guía de solución de problemas de Linux.
 
 ## <a name="jitterysaw-tooth-pattern-for-iops"></a>Patrón de vibración/sierra para IOPS
 

@@ -1,6 +1,6 @@
 ---
-title: 'Configurar el contenedor personalizado: Azure App Service | Microsoft Docs'
-description: Obtenga información sobre cómo configurar aplicaciones de Node.js para que funcione en Azure App Service
+title: 'Configuración de un contenedor personalizado: Azure App Service | Microsoft Docs'
+description: Aprenda a configurar las aplicaciones de Node.js para que funcionen en Azure App Service
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -13,22 +13,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
-ms.translationtype: MT
+ms.openlocfilehash: 02231f86d4ceddd6cde53fd242c2c91158d744a9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66430929"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480766"
 ---
-# <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurar un contenedor de Linux personalizado para Azure App Service
+# <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configuración de un contenedor de Linux personalizado para Azure App Service
 
-Este artículo muestra cómo configurar un contenedor de Linux personalizado para ejecutarse en Azure App Service.
+En este artículo se muestra cómo configurar un contenedor de Linux personalizado para que se ejecute en Azure App Service.
 
-Esta guía proporciona los conceptos clave e instrucciones para la inclusión en contenedores de aplicaciones de Linux en App Service. Si nunca ha usado Azure App Service, siga el [inicio rápido de contenedor personalizado](quickstart-docker-go.md) y [tutorial](tutorial-custom-docker-image.md) primero. También hay un [inicio rápido de aplicaciones de varios contenedores](quickstart-multi-container.md) y [tutorial](tutorial-multi-container-app.md).
+Esta guía incluye conceptos clave e instrucciones para la creación de contenedores de aplicaciones de Linux en App Service. Si nunca ha usado Azure App Service, siga primero el [inicio rápido de contenedores personalizados](quickstart-docker-go.md) y el [tutorial](tutorial-custom-docker-image.md). También hay un [inicio rápido para aplicaciones de varios contenedores](quickstart-multi-container.md) y un [tutorial](tutorial-multi-container-app.md).
 
-## <a name="configure-port-number"></a>Configurar el número de puerto
+## <a name="configure-port-number"></a>Configuración del número de puerto
 
-El servidor web en la imagen personalizada puede utilizar un puerto distinto de 80. Para indicar a Azure el puerto que usa el contenedor personalizado mediante la `WEBSITES_PORT` configuración de la aplicación. La página de GitHub que contiene el [ejemplo de Python de este tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) muestra que es preciso establecer `WEBSITES_PORT` en _8000_. Puede establecer mediante la ejecución de [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando en Cloud Shell. Por ejemplo:
+El servidor web de la imagen personalizada puede utilizar un puerto distinto al 80. Para indicar a Azure el puerto que usa el contenedor personalizado se utiliza el valor de la aplicación `WEBSITES_PORT`. La página de GitHub que contiene el [ejemplo de Python de este tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) muestra que es preciso establecer `WEBSITES_PORT` en _8000_. Puede establecerlo ejecutando el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell. Por ejemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -36,24 +36,24 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>Configuración de las variables de entorno
 
-El contenedor personalizado puede usar variables de entorno que deben proporcionarse externamente. Puede pasar en ejecutando [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando en Cloud Shell. Por ejemplo:
+El contenedor personalizado puede usar variables de entorno que se deben proporcionar de forma externa. Puede pasarlos ejecutando el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell. Por ejemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
 ```
 
-Este método funciona tanto para aplicaciones de contenedor único o varios contenedores, donde se especifican las variables de entorno en el *docker-compose.yml* archivo.
+Este método funciona tanto para aplicaciones de contenedor único o de varios contenedores, en los que las variables de entorno se especifican en el archivo *docker-compose.yml*.
 
-## <a name="use-persistent-shared-storage"></a>Usar almacenamiento compartido persistente
+## <a name="use-persistent-shared-storage"></a>Uso de almacenamiento compartido persistente
 
-Puede usar el */home* directorio en el sistema de archivos de la aplicación para conservar archivos entre reinicios y compartirlos entre instancias. El `/home` en la aplicación se proporciona para habilitar la aplicación de contenedor para acceder al almacenamiento persistente.
+Puede usar el directorio */home* en el sistema de archivos de la aplicación para conservar archivos entre reinicios y compartirlos entre instancias. El directorio `/home` de la aplicación se proporciona para permitir a la aplicación de contenedor el acceso al almacenamiento persistente.
 
-Cuando se deshabilita el almacenamiento persistente después se escribe en el `/home` directorio no se conservan entre reinicios de aplicación o entre varias instancias. La única excepción es el `/home/LogFiles` directorio, que se usa para almacenar los registros de Docker y el contenedor. Cuando se habilita el almacenamiento persistente, todas las escrituras a la `/home` directory se conservan y pueden tener acceso a todas las instancias de una aplicación de escala horizontal.
+Si se deshabilita el almacenamiento persistente, no se conservarán las escrituras en el directorio `/home` entre reinicios de aplicación ni entre varias instancias. La única excepción es el directorio `/home/LogFiles`, que se usa para almacenar los registros de Docker y del contenedor. Cuando se habilita el almacenamiento persistente, se conservan todas las escrituras en el directorio `/home` y todas las instancias de una aplicación escalada horizontalmente podrán acceder a ellas.
 
-De forma predeterminada, el almacenamiento persistente es *deshabilitado*. Para habilitarlo o deshabilitarlo, establezca el `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuración de la aplicación mediante la ejecución de [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando en Cloud Shell. Por ejemplo:
+De forma predeterminada, el almacenamiento persistente está *habilitado* y la configuración no está expuesta en la configuración de la aplicación. Para deshabilitarlo, establezca el valor de la aplicación `WEBSITES_ENABLE_APP_SERVICE_STORAGE` mediante la ejecución del comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell. Por ejemplo:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
 ```
 
 > [!NOTE]
@@ -61,21 +61,21 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="enable-ssh"></a>Habilite SSH
 
-SSH habilita la comunicación segura entre un contenedor y un cliente. En el orden de un contenedor personalizado admitir SSH, debe agregarlo en el Dockerfile propio.
+SSH habilita la comunicación segura entre un contenedor y un cliente. Para que un contenedor personalizado admita SSH, deberá agregarlo en el propio archivo de Dockerfile.
 
 > [!TIP]
-> Todos los contenedores de Linux integrados agregó las instrucciones de SSH en sus repositorios de imágenes. Puede seguir las instrucciones siguientes con el [Node.js 10.14 repositorio](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver cómo se habilita allí.
+> Todos los contenedores de Linux integrados han agregado las instrucciones de SSH en sus repositorios de imágenes. Puede seguir las instrucciones siguientes con el [repositorio de Node.js 10.14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver cómo se habilita allí.
 
-- Use la [ejecutar](https://docs.docker.com/engine/reference/builder/#run) instrucciones para instalar el servidor SSH y establecer la contraseña para la cuenta raíz en `"Docker!"`. Por ejemplo, para una imagen basada en [Alpine Linux](https://hub.docker.com/_/alpine), necesita los siguientes comandos:
+- Use la instrucción [RUN](https://docs.docker.com/engine/reference/builder/#run) para instalar el servidor SSH y establecer la contraseña para la cuenta raíz en `"Docker!"`. Por ejemplo, para una imagen basada en [Alpine Linux](https://hub.docker.com/_/alpine), necesita los siguientes comandos:
 
     ```Dockerfile
     RUN apk add openssh \
          && echo "root:Docker!" | chpasswd 
     ```
 
-    Esta configuración no permite realizar conexiones externas al contenedor. SSH solo está disponible en `https://<app-name>.scm.azurewebsites.net` y autentica con las credenciales de publicación.
+    Esta configuración no permite realizar conexiones externas al contenedor. SSH solo está disponible en `https://<app-name>.scm.azurewebsites.net` y después de autenticarse con las credenciales de publicación.
 
-- Agregar [este archivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) en su repositorio de imágenes y usar el [copia](https://docs.docker.com/engine/reference/builder/#copy) instrucciones para copiar el archivo a la */etcetera/ssh/* directory. Para obtener más información acerca de *sshd_config* archivos, consulte [OpenBSD documentación](https://man.openbsd.org/sshd_config).
+- Agregue [este archivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) al repositorio de imágenes y use la instrucción [COPY](https://docs.docker.com/engine/reference/builder/#copy) para copiar el archivo en el directorio */etc/ssh/* . Para más información acerca de los archivos *sshd_config*, consulte la [documentación de OpenBSD](https://man.openbsd.org/sshd_config).
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
@@ -86,41 +86,41 @@ SSH habilita la comunicación segura entre un contenedor y un cliente. En el ord
     > - `Ciphers` debe incluir al menos un elemento de esta lista: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` debe incluir al menos un elemento de esta lista: `hmac-sha1,hmac-sha1-96`.
 
-- Use la [exponer](https://docs.docker.com/engine/reference/builder/#expose) instrucciones para abrir el puerto 2222 en el contenedor. Aunque se conoce la contraseña raíz, el puerto 2222 no es accesible desde internet. Es accesible solo por los contenedores dentro de la red de puente de una red privada virtual.
+- Use la instrucción [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) para abrir el puerto 2222 en el contenedor. Aunque se conozca la contraseña raíz, no se puede acceder al puerto 2222 desde Internet. Solo se puede acceder mediante los contenedores que se encuentren en el puente de una red privada virtual.
 
     ```Dockerfile
     EXPOSE 80 2222
     ```
 
-- En el script de inicio para el contenedor, inicie el servidor SSH.
+- En el script de inicio del contenedor, inicie el servidor SSH.
 
     ```bash
     /usr/sbin/sshd
     ```
 
-    Para obtener un ejemplo, vea cómo el valor predeterminado [Node.js 10.14 contenedor](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) inicia el servidor SSH.
+    Para obtener un ejemplo, consulte cómo el [contenedor de Node.js 10.14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) predeterminado inicia el servidor SSH.
 
 ## <a name="access-diagnostic-logs"></a>Acceso a los registros de diagnóstico
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="configure-multi-container-apps"></a>Configurar aplicaciones de varios contenedores
+## <a name="configure-multi-container-apps"></a>Configuración de aplicaciones de varios contenedores
 
-- [Utilice el almacenamiento persistente en Docker Compose](#use-persistent-storage-in-docker-compose)
-- [Limitaciones de vista previa](#preview-limitations)
-- [Opciones de docker Compose](#docker-compose-options)
+- [Uso del almacenamiento persistente en Docker Compose](#use-persistent-storage-in-docker-compose)
+- [Limitaciones de la versión preliminar](#preview-limitations)
+- [Opciones de Docker Compose](#docker-compose-options)
 
-### <a name="use-persistent-storage-in-docker-compose"></a>Utilice el almacenamiento persistente en Docker Compose
+### <a name="use-persistent-storage-in-docker-compose"></a>Uso del almacenamiento persistente en Docker Compose
 
-Aplicaciones de varios contenedores, como WordPress necesitan almacenamiento persistente para funcionar correctamente. Para habilitarla, la configuración de Docker Compose debe apuntar a una ubicación de almacenamiento *fuera* su contenedor. Ubicaciones de almacenamiento dentro del contenedor no conservan los cambios más allá de reinicio de la aplicación.
+Las aplicaciones de varios contenedores como WordPress necesitan almacenamiento persistente para funcionar correctamente. Para habilitarla, la configuración de Docker Compose debe apuntar a una ubicación de almacenamiento *fuera* del contenedor. Las ubicaciones de almacenamiento dentro del contenedor no conservan los cambios más allá del reinicio de la aplicación.
 
-Habilitar el almacenamiento persistente, establezca el `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app, mediante el [az appservice Web config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando en Cloud Shell.
+Habilite el almacenamiento persistente, establezca el valor de la aplicación `WEBSITES_ENABLE_APP_SERVICE_STORAGE` mediante el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-En su *docker-compose.yml* de archivos, asigne el `volumes` opción `${WEBAPP_STORAGE_HOME}`. 
+En el archivo *docker-compose.yml*, asigne la opción `volumes` a `${WEBAPP_STORAGE_HOME}`. 
 
 `WEBAPP_STORAGE_HOME` es una variable de entorno en App Service que se asigna al almacenamiento persistente para la aplicación. Por ejemplo:
 
@@ -135,21 +135,21 @@ wordpress:
 
 ### <a name="preview-limitations"></a>Limitaciones de vista previa
 
-Varios contenedores está actualmente en versión preliminar. No se admiten las siguientes características de la plataforma de App Service:
+La aplicación de varios contenedores está actualmente en versión preliminar. Las siguientes características de la plataforma de App Service no se admiten:
 
 - Autenticación/autorización
 - Identidades administradas
 
-### <a name="docker-compose-options"></a>Opciones de docker Compose
+### <a name="docker-compose-options"></a>Opciones de Docker Compose
 
-Las listas siguientes muestran las opciones de configuración admitidas y Docker Compose:
+Las listas siguientes muestran opciones de configuración admitidas y no admitidas de Docker Compose:
 
 #### <a name="supported-options"></a>Opciones admitidas
 
 - command
 - entrypoint
 - Environment
-- image
+- imagen
 - ports
 - restart
 - services
@@ -164,7 +164,7 @@ Las listas siguientes muestran las opciones de configuración admitidas y Docker
 - puertos que no sean el 80 y 8080 (omitido)
 
 > [!NOTE]
-> Se omiten otras opciones no expresamente en versión preliminar pública.
+> Cualquier otra opción que no se mencione de forma explícita, se omitirá en la versión preliminar pública.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dbb04a9d002fdcff49d28f69ee0975500bb7ed0
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761750"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340782"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solución de problemas en las salidas de Azure Stream Analytics
 
@@ -90,6 +90,10 @@ Tenga en cuenta las observaciones siguientes al configurar IGNORE_DUP_KEY para v
 * No se puede establecer IGNORE_DUP_KEY en una clave principal o una restricción única que use ALTER INDEX, debe quitar y volver a crear el índice.  
 * Puede establecer la opción IGNORE_DUP_KEY con ALTER INDEX para un índice único, que es diferente de la restricción PRIMARY KEY/UNIQUE y se crea con la definición de INDEX o CREATE INDEX.  
 * IGNORE_DUP_KEY no se aplica a los índices de almacén de columna, ya que en ellos no se puede exigir exclusividad.  
+
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Azure Stream Analytics pone en minúsculas los nombres de columna.
+Cuando se usa el nivel de compatibilidad original (1.0), Azure Stream Analytics cambiaba los nombres de columna a minúsculas. Este comportamiento se corrigió en niveles de compatibilidad posteriores. Con el fin de conservar las mayúsculas y minúsculas, se recomienda a los clientes usar el nivel de compatibilidad 1.1 y posteriores. Puede encontrar más información en [Nivel de compatibilidad de los trabajos de Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+
 
 ## <a name="get-help"></a>Obtención de ayuda
 

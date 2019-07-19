@@ -1,42 +1,62 @@
 ---
 title: Visualización de datos de Azure Data Explorer
-description: Obtenga información sobre las distintas formas que puede visualizar los datos del explorador de datos de Azure
+description: Obtenga información sobre las distintas formas en que puede visualizar los datos de Azure Data Explorer.
 services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 85c37b6d626fc9942f5df956e738431d2727d282
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.date: 06/30/2019
+ms.openlocfilehash: d1c73d8eb65ed5d67d5250b4a3bca3b80450001e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481840"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536730"
 ---
-# <a name="data-visualization-with-azure-data-explorer"></a>Visualización de datos con el Explorador de datos de Azure 
+# <a name="data-visualization-with-azure-data-explorer"></a>Visualización de datos con Azure Data Explorer 
 
-El Explorador de datos de Azure es un servicio de exploración de datos rápida y muy escalable para los datos de telemetría y registros que se usan para crear soluciones de análisis complejos para grandes cantidades de datos. El Explorador de datos de Azure se integra con diversas herramientas de visualización, por lo que puede visualizar los datos y compartir los resultados en toda la organización. Estos datos se pueden transformar en información útil para lograr un efecto en su negocio.
+Azure Data Explorer es un servicio de exploración de datos altamente escalable para los datos de registro y telemetría que se usa para compilar soluciones complejas de análisis para grandes cantidades de datos. Azure Data Explorer se integra con varias herramientas de visualización, por lo que puede visualizar los datos y compartir los resultados en toda la organización. Estos datos se pueden convertir en información práctica que tendrá impacto en su empresa.
 
-Visualización de datos y los informes es un paso crítico en el proceso de análisis de datos. El Explorador de datos de Azure es compatible con muchos servicios de BI, por lo que puede usar lo que mejor se adapte a su escenario y su presupuesto.
+La generación de informes y visualización de los datos es un paso crítico del proceso de análisis de datos. Azure Data Explorer admite muchos servicios de inteligencia empresarial, por lo que puede usar el servicio que mejor se adapte a su escenario y presupuesto.
 
-* Visualizaciones en el Explorador de datos de Azure: Mediante el lenguaje de consulta Kusto el [ `render operator` ](/azure/kusto/query/renderoperator) ofrece diversos tipos de visualización para describir los resultados de la consulta. Visualizaciones de consulta son útiles para la detección de anomalías y previsión, aprendizaje automático y mucho más.
+## <a name="kusto-query-language-visualizations"></a>Visualizaciones del lenguaje de consulta Kusto
 
-* [Power BI](https://powerbi.microsoft.com): El Explorador de datos de Azure proporciona la funcionalidad para conectarse a Power BI mediante distintos métodos: 
+El [`render operator`](/azure/kusto/query/renderoperator) del lenguaje de consulta Kusto ofrece varios tipos de visualizaciones, como tablas, gráficos circulares y gráficos de barras para mostrar los resultados de la consulta. Las visualizaciones de las consultas resultan útiles para la previsión y la detección de anomalías, el aprendizaje automático, etc.
 
-  * [Conector de Power BI nativa integrado](/azure/data-explorer/power-bi-connector)
+## <a name="power-bi"></a>Power BI
 
-  * [Importación de la consulta desde el Explorador de datos de Azure en Power BI](/azure/data-explorer/power-bi-imported-query)
+Azure Data Explorer brinda la funcionalidad para conectarse a [Power BI](https://powerbi.microsoft.com) con varios métodos: 
+
+  * [Built-in native Power BI connector](/azure/data-explorer/power-bi-connector) (Conector nativo de Power BI integrado)
+
+  * [Query import from Azure Data Explorer into Power BI](/azure/data-explorer/power-bi-imported-query) (Importación de consultas desde Azure Data Explorer a Power BI)
  
-  * [Consulta SQL](/azure/data-explorer/power-bi-sql-query).
+  * [SQL query](/azure/data-explorer/power-bi-sql-query)
 
-* [Microsoft Excel](https://products.office.com/excel): El Explorador de datos de Azure proporciona la capacidad de conectarse a Excel mediante el conector de Excel nativo integrado o importar una consulta desde el Explorador de datos de Azure en Excel.
+## <a name="microsoft-excel"></a>Microsoft Excel
 
-* [Grafana](https://grafana.com): Grafana proporciona un complemento de explorador de datos de Azure que permite visualizar datos desde el Explorador de datos de Azure. Le [configurar el Explorador de datos de Azure como origen de datos de Grafana y, a continuación, visualizar los datos](/azure/data-explorer/grafana)
+Azure Data Explorer brinda la funcionalidad para conectarse a [Microsoft Excel](https://products.office.com/excel) con el conector nativo de Excel integrado o de importar una consulta desde Azure Data Explorer a Excel.
 
-* [Sisense](https://www.sisense.com): El Explorador de datos de Azure proporciona la capacidad para conectarse a Sisense mediante el conector JDBC. Le [configurar el Explorador de datos de Azure como origen de datos de Sisense y, a continuación, visualizar los datos](/azure/data-explorer/sisense).
+## <a name="grafana"></a>Grafana
 
-* [Tableau](https://www.tableau.com): El Explorador de datos de Azure proporciona la capacidad para conectarse a una plantilla mediante el [conector ODBC y visualizar los datos en Tableau](/azure/data-explorer/connect-odbc).
+[Grafana](https://grafana.com) proporciona un complemento para Azure Data Explorer que le permite visualizar los datos desde Azure Data Explorer. Puede [configurar Azure Data Explorer como un origen de datos para Grafana y, luego, visualizar los datos](/azure/data-explorer/grafana). 
 
-* [Qlik](https://www.qlik.com): El Explorador de datos de Azure proporciona la capacidad para conectarse a Qlik mediante la [conector ODBC](/azure/data-explorer/connect-odbc).
+## <a name="odbc-connector"></a>Conector ODBC
+
+Azure Data Explorer proporciona un [conector para la conectividad abierta de bases de datos (ODBC)](connect-odbc.md), por lo que cualquier aplicación compatible con ODBC se puede conectar a Azure Data Explorer.
+
+## <a name="tableau"></a>Tableau
+
+Azure Data Explorer brinda la funcionalidad para conectarse a [Tableau](https://www.tableau.com) mediante el [conector ODBC](/azure/data-explorer/connect-odbc) y, luego, [visualizar los datos en Tableau](tableau.md).
+
+## <a name="qlik"></a>Qlik
+
+Azure Data Explorer brinda la funcionalidad para conectarse a [Qlik](https://www.qlik.com) mediante el [conector ODBC](/azure/data-explorer/connect-odbc) y, luego, crear paneles de Qlik Sense y visualizar los datos. En el siguiente vídeo, descubrirá cómo visualizar los datos de Azure Data Explorer con Qlik. 
+
+> [!VIDEO https://www.youtube.com/embed/nhWIiBwxjjU]  
+
+## <a name="sisense"></a>Sisense
+
+Azure Data Explorer brinda la funcionalidad para conectarse a [Sisense](https://www.sisense.com) mediante el conector JDBC. Puede [configurar Azure Data Explorer como un origen de datos para Sisense y, luego, visualizar los datos](/azure/data-explorer/sisense).

@@ -4,20 +4,22 @@ description: Use Azure Portal para exportar una plantilla de Azure Resource Mana
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e482bf99013b9bec9dfbf64c4e8ad5a8a43ff540
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65515390"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296306"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Exportación de uno y varios recursos a la plantilla en Azure Portal
 
 Para ayudar con la creación de plantillas de Azure Resource Manager, puede exportar una plantilla desde los recursos existentes. La plantilla exportada le ayudará a comprender la sintaxis y las propiedades JSON que implementan los recursos. Para automatizar las implementaciones futuras, comience con la plantilla exportada y modifíquela para su escenario.
 
 Resource Manager permite elegir uno o más recursos para exportarlos a una plantilla. Se puede centrar en los recursos exactos que necesita en la plantilla.
+
+En este artículo se muestra cómo exportar plantillas mediante el portal. También puede usar la [CLI de Azure](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates) o la [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 
 ## <a name="choose-the-right-export-option"></a>Elección de la opción de exportación correcta
 
@@ -114,7 +116,7 @@ Puede exportar la plantilla que se ha usado para implementar los recursos existe
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre Azure Resource Manager, vea [Información general de Azure Resource Manager](./resource-group-overview.md).
-- Para obtener información sobre la sintaxis de las plantillas de Resource Manager, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./resource-group-authoring-templates.md).
-- Para obtener información sobre cómo desarrollar plantillas, vea los [tutoriales paso a paso](/azure/azure-resource-manager/).
-- Para ver los esquemas de plantilla de Resource Manager, vea [Referencia de plantilla](/azure/templates/).
+- Aprenda a exportar plantillas con la [CLI de Azure](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates) o la [API REST](/rest/api/resources/resourcegroups/exporttemplate).
+- Para obtener información sobre la sintaxis de las plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./resource-group-authoring-templates.md).
+- Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](/azure/azure-resource-manager/).
+- Para ver los esquemas de plantilla de Azure Resource Manager, vea la [referencia de plantilla](/azure/templates/).

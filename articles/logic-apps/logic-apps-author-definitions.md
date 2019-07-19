@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: daeb900abc3f24a408fc1b5f6e989e5181f2a463
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 121e2d2595b63a313d9307f7d47f90adacc30fc2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427059"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296115"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Creación, edición o extensión de JSON para definiciones de aplicaciones lógicas en Azure Logic Apps
 
@@ -50,6 +50,9 @@ En Visual Studio, puede abrir las aplicaciones lógicas creadas e implementadas 
 3. Abra el menú contextual para la definición de la aplicación lógica o la plantilla. Seleccione **Open with Logic App Designer** (Abrir con diseñador de aplicación lógica).
 
    ![Abrir la aplicación lógica en una solución de Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Si no tiene este comando en Visual Studio 2019, compruebe que tiene las actualizaciones más recientes de Visual Studio.
 
 4. En la parte inferior del diseñador, seleccione la **vista Código**. 
 

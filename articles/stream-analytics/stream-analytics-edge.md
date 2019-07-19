@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics en IoT Edge
 description: Cree trabajos perimetrales en Azure Stream Analytics e impleméntelos en dispositivos que ejecutan Azure IoT Edge.
-services: stream-analytics
+ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
+ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b9d11b75e2677e22fa2e38c21a69f018a4bee8
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804011"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508347"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics en IoT Edge
  
@@ -111,7 +110,7 @@ Estos pasos se describen en la documentación de IoT Edge para [Windows](https:/
 
 > [!Note]
 > Durante este paso, ASA crea una carpeta llamada "EdgeJobs" en el contenedor de almacenamiento (si aún no existe). Para cada implementación, se crea una nueva subcarpeta en la carpeta "EdgeJobs".
-> Con el fin de implementar el trabajo en dispositivos perimetrales, ASA crea una firma de acceso compartido (SAS) para el archivo de definición de trabajo. La clave SAS se transmite de forma segura a los dispositivos de IoT Edge que usen un dispositivo gemelo. Esta clave expira a los tres años de haberse creado.
+> Al implementar el trabajo en dispositivos de IoT Edge, ASA crea una firma de acceso compartido (SAS) para el archivo de definición del trabajo. La clave SAS se transmite de forma segura a los dispositivos de IoT Edge que usen un dispositivo gemelo. Esta clave expira a los tres años de haberse creado. Cuando se actualiza un trabajo de IoT Edge, la firma SAS cambia, pero la versión de la imagen permanece como está. Después de **actualizar**, siga el flujo de trabajo de implementación; se registra una notificación de actualización en el dispositivo.
 
 
 Para más información sobre las implementaciones de IoT Edge, consulte [esta página](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -203,9 +202,31 @@ Hay dos maneras de actualizar los datos de referencia:
 * [Licencia de Azure Stream Analytics en IoT Edge](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Aviso de terceros para Azure Stream Analytics en IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
+## <a name="azure-stream-analytics-module-image-information"></a>Información de la imagen del módulo de Azure Stream Analytics 
+
+Esta información de versión se actualizó por última vez el 27 de junio de 2019:
+
+- Imagen: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - imagen base: microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - plataforma:
+      - arquitectura: amd64
+      - so: linux
+  
+- Imagen: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - imagen base: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - plataforma:
+      - arquitectura: arm
+      - so: linux
+  
+- Imagen: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - imagen base: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - plataforma:
+      - arquitectura: amd64
+      - so: windows
+      
+      
 ## <a name="get-help"></a>Obtención de ayuda
 Para más ayuda, pruebe el [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

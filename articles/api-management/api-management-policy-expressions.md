@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: 22be5509a93d0713b8113ba17debfda3cf576006
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304355"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508961"
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
 Este artículo describe la sintaxis de expresiones de directiva C# 7. Cada expresión tiene acceso a la variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada de forma implícita y a un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.
@@ -74,7 +74,7 @@ Las expresiones pueden utilizarse como valores de atributos o valores de texto e
 ## <a name="CLRTypes"></a>Tipos de .NET framework que se permiten en expresiones de directiva
 En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en las expresiones de directiva y sus miembros.
 
-|Type|Miembros compatibles|
+|type|Miembros compatibles|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Todo|
 |Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
@@ -94,21 +94,21 @@ En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en
 |System.Byte|Todo|
 |System.Char|Todo|
 |System.Collections.Generic.Dictionary<TKey, TValue>|Todo|
-|System.Collections.Generic.HashSet<T>|Todo|
-|System.Collections.Generic.ICollection<T>|Todo|
+|System.Collections.Generic.HashSet\<T>|Todo|
+|System.Collections.Generic.ICollection\<T>|Todo|
 |System.Collections.Generic.IDictionary<TKey, TValue>|Todo|
-|System.Collections.Generic.IEnumerable<T>|Todo|
-|System.Collections.Generic.IEnumerator<T>|Todo|
-|System.Collections.Generic.IList<T>|Todo|
-|System.Collections.Generic.IReadOnlyCollection<T>|Todo|
+|System.Collections.Generic.IEnumerable\<T>|Todo|
+|System.Collections.Generic.IEnumerator\<T>|Todo|
+|System.Collections.Generic.IList\<T>|Todo|
+|System.Collections.Generic.IReadOnlyCollection\<T>|Todo|
 |System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|Todo|
-|System.Collections.Generic.ISet<T>|Todo|
+|System.Collections.Generic.ISet\<T>|Todo|
 |System.Collections.Generic.KeyValuePair<TKey, TValue>|Todo|
-|System.Collections.Generic.List<T>|Todo|
-|System.Collections.Generic.Queue<T>|Todo|
-|System.Collections.Generic.Stack<T>|Todo|
+|System.Collections.Generic.List\<T>|Todo|
+|System.Collections.Generic.Queue\<T>|Todo|
+|System.Collections.Generic.Stack\<T>|Todo|
 |System.Convert|Todo|
-|System.DateTime|(Constructor), agregar, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, fecha, día, DayOfWeek, DayOfYear, DaysInMonth, hora, IsDaylightSavingTime, IsLeapYear, MaxValue, milisegundo, minuto, MinValue, mes, ahora , Análisis, en segundo lugar, restar, ciclos, TimeOfDay, hoy en día, ToString, UtcNow, año|
+|System.DateTime|(Constructor), Add, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, Date, Day, DayOfWeek, DayOfYear, DaysInMonth, Hour, IsDaylightSavingTime, IsLeapYear, MaxValue, Millisecond, Minute, MinValue, Month, Now, Parse, Second, Subtract, Ticks, TimeOfDay, Today, ToString, UtcNow, Year|
 |System.DateTimeKind|UTC|
 |System.DateTimeOffset|Todo|
 |System.Decimal|Todo|
@@ -172,7 +172,7 @@ En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en
 |System.Text.RegularExpressions.Group|Captures, Success.|
 |System.Text.RegularExpressions.GroupCollection|Count, Item.|
 |System.Text.RegularExpressions.Match|Empty, Groups, Result.|
-|System.Text.RegularExpressions.Regex|(Constructor), IsMatch, Match, Matches, reemplazar, Unescape, dividir|
+|System.Text.RegularExpressions.Regex|(Constructor), IsMatch, Match, Matches, Replace, Unescape, Split|
 |System.Text.RegularExpressions.RegexOptions|Todo|
 |System.Text.StringBuilder|Todo|
 |System.TimeSpan|Todo|
@@ -192,7 +192,7 @@ En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en
 |System.Xml.Linq.XComment|Todo|
 |System.Xml.Linq.XContainer|Todo|
 |System.Xml.Linq.XDeclaration|Todo|
-|System.Xml.Linq.XDocument|Todos, excepto de: Carga|
+|System.Xml.Linq.XDocument|Todos, excepto: Carga|
 |System.Xml.Linq.XDocumentType|Todo|
 |System.Xml.Linq.XElement|Todo|
 |System.Xml.Linq.XName|Todo|
@@ -210,25 +210,25 @@ Una variable denominada `context` está disponible implícitamente en todas las 
 
 |Variable de contexto|Métodos, propiedades y valores de parámetro admitidos|
 |----------------------|-------------------------------------------------------|
-|contexto|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implementación](#ref-context-deployment)<br /><br /> Transcurrido: TimeSpan: intervalo de tiempo entre el valor de marca de tiempo y la hora actual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [operación](#ref-context-operation)<br /><br /> [Producto](#ref-context-product)<br /><br /> [Solicitud](#ref-context-request)<br /><br /> RequestId: Guid: identificador único de la solicitud<br /><br /> [Respuesta](#ref-context-response)<br /><br /> [Suscripción](#ref-context-subscription)<br /><br /> Marca de tiempo: DateTime: punto en el tiempo en que se recibió la solicitud<br /><br /> Tracing: bool - indica si el seguimiento está activado o desactivado <br /><br /> [User](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): IReadOnlyDictionary<cadena, objeto><br /><br /> void Trace(message: cadena)|
+|context|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implementación](#ref-context-deployment)<br /><br /> Transcurrido: TimeSpan: intervalo de tiempo entre el valor de marca de tiempo y la hora actual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [operación](#ref-context-operation)<br /><br /> [Producto](#ref-context-product)<br /><br /> [Solicitud](#ref-context-request)<br /><br /> RequestId: Guid: identificador único de la solicitud<br /><br /> [Respuesta](#ref-context-response)<br /><br /> [Suscripción](#ref-context-subscription)<br /><br /> Marca de tiempo: DateTime: punto en el tiempo en que se recibió la solicitud<br /><br /> Tracing: bool - indica si el seguimiento está activado o desactivado <br /><br /> [User](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): IReadOnlyDictionary<cadena, objeto><br /><br /> void Trace(message: cadena)|
 |<a id="ref-context-api"></a>context.Api|Id: cadena<br /><br /> IsCurrentRevision: bool<br /><br />  Name: cadena<br /><br /> Path: cadena<br /><br /> Revision: cadena<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: cadena |
 |<a id="ref-context-deployment"></a>context.Deployment|Region: cadena<br /><br /> ServiceName: cadena<br /><br /> Certificates: IReadOnlyDictionary<cadena, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Source: cadena<br /><br /> Reason: cadena<br /><br /> Message: cadena<br /><br /> Scope: cadena<br /><br /> Section: cadena<br /><br /> Path: cadena<br /><br /> PolicyId: cadena<br /><br /> Para obtener más información sobre context.LastError, consulte [Error handling in API Management policies](api-management-error-handling-policies.md) (Control de errores en directivas de API Management).|
 |<a id="ref-context-operation"></a>context.Operation|Id: cadena<br /><br /> Method: cadena<br /><br /> Name: cadena<br /><br /> UrlTemplate: cadena|
-|<a id="ref-context-product"></a>context.Product|Apis: IEnumerable<[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: cadena<br /><br /> Name: cadena<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|<a id="ref-context-request"></a>context.Request|Cuerpo: [IMessageBody](#ref-imessagebody)<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Encabezados](#ref-context-request-headers): IReadOnlyDictionary<cadena, cadena[]><br /><br /> IpAddress: cadena<br /><br /> MatchedParameters: IReadOnlyDictionary<cadena, cadena><br /><br /> Method: cadena<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> Url: [IUrl](#ref-iurl)|
-|<a id="ref-context-request-headers"></a>contexto de cadena. Request.Headers.GetValueOrDefault (headerName: cadena, defaultValue: cadena)|headerName: cadena<br /><br /> defaultValue: cadena<br /><br /> Devuelve valores de encabezado de solicitud separados por comas o `defaultValue`, si no se encuentra el encabezado.|
+|<a id="ref-context-product"></a>context.Product|Apis: IEnumerable<[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: cadena<br /><br /> Name: cadena<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
+|<a id="ref-context-request"></a>context.Request|Cuerpo: [IMessageBody](#ref-imessagebody) o `null` si la solicitud no tiene un cuerpo.<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Encabezados](#ref-context-request-headers): IReadOnlyDictionary<cadena, cadena[]><br /><br /> IpAddress: cadena<br /><br /> MatchedParameters: IReadOnlyDictionary<cadena, cadena><br /><br /> Method: cadena<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> Url: [IUrl](#ref-iurl)|
+|<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: cadena<br /><br /> defaultValue: cadena<br /><br /> Devuelve valores de encabezado de solicitud separados por comas o `defaultValue`, si no se encuentra el encabezado.|
 |<a id="ref-context-response"></a>context.Response|Cuerpo: [IMessageBody](#ref-imessagebody)<br /><br /> [Encabezados](#ref-context-response-headers): IReadOnlyDictionary<cadena, cadena[]><br /><br /> StatusCode: int<br /><br /> StatusReason: cadena|
-|<a id="ref-context-response-headers"></a>contexto de cadena. Response.Headers.GetValueOrDefault (headerName: cadena, defaultValue: cadena)|headerName: cadena<br /><br /> defaultValue: cadena<br /><br /> Devuelve valores de encabezado de respuesta separados por comas o `defaultValue`, si no se encuentra el encabezado.|
-|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: cadena<br /><br /> Key: cadena<br /><br /> Name: cadena<br /><br /> PrimaryKey: cadena<br /><br /> SecondaryKey: cadena<br /><br /> StartDate: DateTime?|
-|<a id="ref-context-user"></a>context.User|Email: cadena<br /><br /> FirstName: cadena<br /><br /> Groups: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: cadena<br /><br /> Identities: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: cadena<br /><br /> Note: cadena<br /><br /> RegistrationDate: DateTime|
+|<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: cadena<br /><br /> defaultValue: cadena<br /><br /> Devuelve valores de encabezado de respuesta separados por comas o `defaultValue`, si no se encuentra el encabezado.|
+|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: Datetime<br /><br /> EndDate: DateTime?<br /><br /> Id: cadena<br /><br /> Key: cadena<br /><br /> Name: cadena<br /><br /> PrimaryKey: cadena<br /><br /> SecondaryKey: cadena<br /><br /> StartDate: DateTime?|
+|<a id="ref-context-user"></a>context.User|Email: cadena<br /><br /> FirstName: cadena<br /><br /> Groups: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: cadena<br /><br /> Identities: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: cadena<br /><br /> Note: cadena<br /><br /> RegistrationDate: Datetime|
 |<a id="ref-iapi"></a>IApi|Id: cadena<br /><br /> Name: cadena<br /><br /> Path: cadena<br /><br /> Protocols: IEnumerable<cadena\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: cadena<br /><br /> Name: cadena|
 |<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Donde T: cadena, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Los métodos `context.Request.Body.As<T>` y `context.Response.Body.As<T>` se usan para leer los cuerpos de un mensaje de respuesta y solicitud en un tipo `T` especificado. De forma predeterminada, el método usa la secuencia de cuerpo del mensaje original y lo presenta como no disponible tras la devolución. Para evitar este resultado haciendo que el método procese una copia de la secuencia del cuerpo, establezca el parámetro `preserveContent` en `true`. Vaya [aquí](api-management-transformation-policies.md#SetBody) para ver un ejemplo.|
 |<a id="ref-iurl"></a>IUrl|Host: cadena<br /><br /> Path: cadena<br /><br /> Port: int<br /><br /> [Consultar](#ref-iurl-query) IReadOnlyDictionary<cadena, cadena[]><br /><br /> QueryString: cadena<br /><br /> Scheme: cadena|
 |<a id="ref-iuseridentity"></a>IUserIdentity|Id: cadena<br /><br /> Provider: cadena|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: cadena<br /><br /> Query: cadena|
-|<a id="ref-iurl-query"></a>String IUrl.Query.GetValueOrDefault (queryParameterName: cadena, defaultValue: cadena)|queryParameterName: cadena<br /><br /> defaultValue: cadena<br /><br /> Devuelve valores de parámetro de consulta separados por comas o `defaultValue`, si no se encuentra el parámetro.|
+|<a id="ref-iurl-query"></a>string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: cadena<br /><br /> defaultValue: cadena<br /><br /> Devuelve valores de parámetro de consulta separados por comas o `defaultValue`, si no se encuentra el parámetro.|
 |<a id="ref-context-variables"></a>T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: cadena<br /><br /> defaultValue: T<br /><br /> Devuelve el valor de la variable convertido al tipo `T` o `defaultValue` si no se encuentra la variable.<br /><br /> Este método produce una excepción si el tipo especificado no coincide con el tipo real de la variable devuelta.|
 |BasicAuthCredentials AsBasic(input: esta cadena)|input: cadena<br /><br /> Si el parámetro de entrada contiene un valor válido de encabezado de solicitud de autorización de autenticación básica HTTP, el método devuelve un objeto de tipo `BasicAuthCredentials`; en caso contrario, el método devuelve nulo.|
 |bool TryParseBasic(input: esta cadena, result: BasicAuthCredentials de salida)|input: cadena<br /><br /> resultado: out BasicAuthCredentials<br /><br /> Si el parámetro de entrada contiene un valor válido de autorización de autenticación básica HTTP en el encabezado de solicitud, el método devuelve `true` y el parámetro de resultado contiene un valor del tipo `BasicAuthCredentials`; en caso contrario, el método devuelve `false`.|
@@ -243,7 +243,7 @@ Una variable denominada `context` está disponible implícitamente en todas las 
 |byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input: texto cifrado que se va a descifrar<br /><br />alg: nombre de un algoritmo de cifrado simétrico<br /><br />key: clave de cifrado<br /><br />iv: vector de inicialización<br /><br />Devuelve texto no cifrado.|
 |byte[] Decrypt(entrada: este byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input: texto cifrado que se va a descifrar<br /><br />alg: algoritmo de cifrado<br /><br />Devuelve texto no cifrado.|
 |byte[] Decrypt(entrada: este byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input: texto cifrado que se va a descifrar<br /><br />alg: algoritmo de cifrado<br /><br />key: clave de cifrado<br /><br />iv: vector de inicialización<br /><br />Devuelve texto no cifrado.|
-|BOOL VerifyNoRevocation (input: esta System.Security.Cryptography.X509Certificates.X509Certificate2)|Realiza una validación de la cadena X.509 sin comprobar el estado de revocación de certificados.<br /><br />entrada: objeto de certificado<br /><br />Devuelve `true` si la validación es correcta; `false` si falla la validación.|
+|bool VerifyNoRevocation(input: this System.Security.Cryptography.X509Certificates.X509Certificate2)|Realiza una validación de la cadena X.509 sin comprobar el estado de revocación de los certificados.<br /><br />input - certificate object<br /><br />Devuelve `true` si la validación es correcta; `false` si hay un error.|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

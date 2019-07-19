@@ -6,32 +6,34 @@ ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1e486a302b440d819e15ef86f8d76ea5e50d201
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c8761d82c8a735ac9c4bff2e5ac0107b2a57fe0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888423"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537543"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Uso de Graph con particiones en Azure Cosmos DB
 
-Una de las características clave de la API de Gremlin de Azure Cosmos DB es la posibilidad de tratar grafos a gran escala con escalado horizontal. El escalado horizontal se logra a través de las [funcionalidades de partición de Azure Cosmos DB](partition-data.md). Los contenedores pueden escalarse independientemente en términos de almacenamiento y rendimiento. Puede crear contenedores en Azure Cosmos DB que pueden escalarse automáticamente para almacenar los datos de un grafo. Los datos se equilibrarán automáticamente según la **clave de partición** especificada.
+Una de las características clave de la API de Gremlin de Azure Cosmos DB es la posibilidad de tratar grafos a gran escala con escalado horizontal. Los contenedores pueden escalarse independientemente en términos de almacenamiento y rendimiento. Puede crear contenedores en Azure Cosmos DB que pueden escalarse automáticamente para almacenar los datos de un grafo. Los datos se equilibrarán automáticamente según la **clave de partición** especificada.
 
-En este documento se describirán los detalles sobre cómo se crean particiones en las bases de datos de grafos junto con sus implicaciones para ambos vértices (o nodos) y bordes.
+**Se requiere la creación de particiones** si se espera que el contenedor almacene más de 10 GB de tamaño o se quieren asignar más de 10 000 unidades de solicitud por segundo (RU). Se aplican los mismos principios generales del [mecanismo para crear particiones de Azure Cosmos DB](partition-data.md) con algunas optimizaciones específicas de Grafo que se describen a continuación.
 
-## <a name="requirements-for-partitioned-graph"></a>Requisitos para el grafo con particiones
+![Creación de particiones de Graph.](./media/graph-partitioning/graph-partitioning.png)
 
-Estos son los detalles que es necesario comprender para crear un contenedor de grafos con particiones:
+## <a name="graph-partitioning-mechanism"></a>Mecanismo de creación de particiones de Graph
 
-- **Se requiere la creación de particiones** si se espera que el contenedor almacene más de 10 GB de tamaño o se quieren asignar más de 10 000 unidades de solicitud por segundo (RU).
+Las instrucciones siguientes describen cómo funciona la estrategia de creación de particiones de Azure Cosmos DB:
 
 - **Los vértices y los bordes se almacenan como documentos JSON**.
 
-- Los **vértices requieren una clave de partición**. Esta clave determinará en qué partición se almacenará el vértice a través de un algoritmo hash. El nombre de esta clave de partición es una cadena de una sola palabra sin espacios ni caracteres especiales. La clave de partición se define al crear otro contenedor y tiene el siguiente formato: `/partitioning-key-name`.
+- Los **vértices requieren una clave de partición**. Esta clave determinará en qué partición se almacenará el vértice a través de un algoritmo hash. El nombre de la propiedad de clave de partición se define al crear otro contenedor y tiene el siguiente formato: `/partitioning-key-name`.
 
-- Los **bordes se almacenarán con sus vértices de origen**. En otras palabras, para cada vértice, su clave de partición define dónde se almacena junto con sus bordes salientes. Esto se hace para evitar consultas entre particiones cuando se usa la cardinalidad `out()` en las consultas de grafo.
+- Los **bordes se almacenarán con sus vértices de origen**. En otras palabras, para cada vértice, su clave de partición define dónde se almacena junto con sus bordes salientes. Esta optimización se hace para evitar consultas entre particiones cuando se usa la cardinalidad `out()` en las consultas de grafo.
+
+- **Los bordes contienen referencias a los vértices a los que apuntan**. Todos los bordes se almacenan con las claves de partición y los identificadores de los vértices a los que apuntan. Este cálculo hace que todas las consultas de dirección `out()` sean siempre una consulta con particiones con ámbito y no una consulta ciega entre particiones. 
 
 - Las **consultas de grafo tienen que especificar una clave de partición**. Para aprovechar al máximo la partición horizontal en Azure Cosmos DB, la clave de partición debe especificarse al seleccionar un solo vértice, siempre que sea posible. Estas son las consultas para seleccionar uno o varios vértices en un grafo con particiones:
 
@@ -40,35 +42,41 @@ Estos son los detalles que es necesario comprender para crear un contenedor de g
 
     - Selección de un vértice por el identificador, **use el paso `.has()` para especificar la propiedad de clave de partición**: 
     
-        ```
+        ```java
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
     
     - Selección de un vértice, **especifique una tupla con valor de clave de partición e identificador**: 
     
-        ```
+        ```java
         g.V(['partitionKey_value', 'vertex_id'])
         ```
         
     - Especificación de una **matriz de tuplas de identificadores y valores de clave de partición**:
     
-        ```
+        ```java
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
         
-    - Selección de un conjunto de vértices y **especificación de una lista de valores de clave de partición**: 
+    - Selección de un conjunto de vértices con sus identificadores y **especificación de una lista de valores de clave de partición**: 
     
-        ```
+        ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
+        ```
+
+    - Mediante la **estrategia de partición** al inicio de una consulta y la especificación de una partición para el ámbito del resto de la consulta de Gremlin: 
+    
+        ```java
+        g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
         ```
 
 ## <a name="best-practices-when-using-a-partitioned-graph"></a>Procedimientos recomendados con un grafo con particiones
 
 Para garantizar la escalabilidad y el rendimiento al usar grafos con particiones con contenedores ilimitados, siga estas directrices:
 
-- **Especifique siempre el valor de la clave de partición al consultar un vértice**. Obtener un vértice de una partición conocida es una forma de conseguir rendimiento.
+- **Especifique siempre el valor de la clave de partición al consultar un vértice**. Obtener un vértice de una partición conocida es una forma de conseguir rendimiento. Todas las operaciones de adyacencia subsiguientes se limitarán siempre a una partición, porque los bordes contienen los identificadores de referencia y las claves de partición de sus vértices de destino.
 
-- **Use la dirección saliente al consultar los bordes siempre que sea posible**. Tal y como se mencionó anteriormente, los bordes se almacenan con sus vértices de origen en la dirección saliente. Por lo que se minimizan las posibilidades de recurrir a las consultas entre particiones cuando los datos y las consultas están diseñados con este patrón en mente.
+- **Use la dirección saliente al consultar los bordes siempre que sea posible**. Tal y como se mencionó anteriormente, los bordes se almacenan con sus vértices de origen en la dirección saliente. Por lo que se minimizan las posibilidades de recurrir a las consultas entre particiones cuando los datos y las consultas están diseñados con este patrón en mente. Por el contrario, la consulta `in()` siempre será una consulta de distribución ramificada costosa.
 
 - **Elija una clave de partición que distribuya los datos uniformemente por las particiones**. Esta decisión depende mucho el modelo de datos de la solución. Más información sobre la creación de una clave de partición apropiada en [Partición y escalado en Azure Cosmos DB](partition-data.md).
 

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427117"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514464"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 
@@ -46,9 +46,9 @@ Figura 1: Parejas regionales de Azure
 | Norteamérica |Este de EE. UU. 2 |Centro de EE. UU. |
 | Norteamérica |Centro-Norte de EE. UU |Centro-Sur de EE. UU |
 | Norteamérica |Oeste de EE. UU. 2 |Centro occidental de EE.UU. 
-| Sudáfrica | Sudáfrica septentrional | Sudáfrica occidental
+| Sudáfrica | Norte de Sudáfrica | Oeste de Sudáfrica
 | Reino Unido |Oeste de Reino Unido |Sur de Reino Unido 2 |
-| Emiratos Árabes Unidos | Norte de EAU | Centro de EAU
+| Emiratos Árabes Unidos | Norte de Emiratos Árabes Unidos | Centro de Emiratos Árabes Unidos
 | Departamento de Defensa de Estados Unidos |Departamento de Defensa de EE. UU. Este |Departamento de Defensa de EE. UU. Centro |
 | Gobierno de Estados Unidos |Gobierno de EE. UU.: Arizona |Gobierno de EE. UU.: Texas |
 | Gobierno de Estados Unidos |US Gov Iowa |Gobierno de EE. UU. - Virginia |
@@ -57,10 +57,10 @@ Figura 1: Parejas regionales de Azure
 Tabla 1: Asignación de las parejas regionales de Azure
 
 - Oeste de la India se empareja en una sola dirección. La región secundaria del Oeste de la India es Sur de la India, pero la región secundaria esta última es India Central.
-- Sur de Brasil es un caso único porque se empareja con una región fuera de su propia ubicación geográfica. La región secundaria del sur de Brasil es sur de EE. UU. UU región secundaria no es el sur de Brasil.
-- Región secundaria de Iowa gob. EE. UU. es Virginia gob. EE.
-- La región secundaria de Virginia gob. EE. UU. es Texas gob.
-- La región secundaria de Texas gob. EE. UU. es US Gov de Arizona.
+- Sur de Brasil es un caso único porque se empareja con una región fuera de su propia ubicación geográfica. La región secundaria de Sur de Brasil es Centro-sur de EE. UU. La región secundaria de Centro-sur de EE. UU. no es Sur de Brasil.
+- La región secundaria de US Gov Iowa es US Gov Virginia.
+- La región secundaria de US Gov Virginia es US Gov Texas.
+- La región secundaria de US Gov Texas es US Gov Arizona.
 
 
 Se recomienda que configure la continuidad empresarial y recuperación ante desastres entre las parejas regionales para beneficiarse de las directivas de aislamiento y disponibilidad de Azure. Para aplicaciones que admiten varias regiones activas, recomendamos utilizar, siempre que sea posible, ambas regiones en un par de regiones. Esto asegurará una disponibilidad óptima para las aplicaciones y minimizará el tiempo de recuperación en caso de desastre. 
@@ -77,7 +77,7 @@ Como se indica en la ilustración 2.
 
 ![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (Iaas)** : debe aprovisionar recursos de procesos adicionales de antemano para asegurarse de que haya recursos disponibles en otra región durante un desastre. Para obtener más información, consulte [Guía técnica sobre resistencia en Azure](resiliency/resiliency-technical-guidance.md).
 
-![Storage](./media/best-practices-availability-paired-regions/2Green.png)**Azure Storage**: el almacenamiento con redundancia geográfica (GRS) se configura de manera predeterminada cuando se crea una cuenta de Azure Storage. Con GRS, los datos se replican automáticamente tres veces dentro de la región primaria y tres veces en la región emparejada. Para obtener más información, consulte [Opciones de redundancia de Azure Storage](storage/common/storage-redundancy.md).
+![Storage](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage**: si utiliza discos administrados, obtenga información sobre las [copias de seguridad entre regiones](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) con Azure Backup y la [replicación de máquinas virtuales](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) de una región a otra con Azure Site Recovery. Si está usando cuentas de almacenamiento, el almacenamiento con redundancia geográfica (GRS) se configura de manera predeterminada cuando se crea una cuenta de Azure Storage. Con GRS, los datos se replican automáticamente tres veces dentro de la región primaria y tres veces en la región emparejada. Para obtener más información, consulte [Opciones de redundancia de Azure Storage](storage/common/storage-redundancy.md).
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database**: con la replicación geográfica de SQL Database, puede configurar la replicación asincrónica de las transacciones en cualquier región del mundo; sin embargo, se recomienda implementar estos recursos en una región emparejada para la mayoría de los escenarios de recuperación ante desastres. Para más información, consulte [Replicación geográfica en Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 

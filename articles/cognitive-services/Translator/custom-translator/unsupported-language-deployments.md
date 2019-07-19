@@ -1,58 +1,58 @@
 ---
-title: 'Implementaciones de idioma no admitido: traductor personalizado'
+title: 'Implementaciones de idiomas no compatibles: Traductor personalizado'
 titleSuffix: Azure Cognitive Services
-description: Cómo implementar pares de idioma no admitido en convertidor personalizado.
+description: Cómo implementar pares de idiomas no compatibles en Traductor personalizado.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
-ms.author: v-pawal
-ms.openlocfilehash: 0938ba2e839be603c557cc2a87dd0c5aa1dfe1e3
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 284a7e98c088edb73a2c770a4c14bb0a479a6621
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390588"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436068"
 ---
 # <a name="unsupported-language-deployments"></a>Implementaciones en lenguajes no compatibles
 
 <!--Custom Translator provides the highest-quality translations possible using the latest techniques in neural machine learning. While Microsoft intends to make neural training available in all languages, there are some limitations that prevent us from being able to offer neural machine translation in all language pairs.-->  
 
-Con la próxima retirada del concentrador del traductor de Microsoft, Microsoft se puede anular la implementación de todos los modelos implementados actualmente a través del concentrador. Muchos de ustedes tienen los modelos implementados en el concentrador cuyos pares de idiomas no se admiten en convertidor personalizado.  No se desea que los usuarios en esta situación no recurrir para convertir su contenido.
+Con la próxima retirada de Microsoft Translator Hub, Microsoft anulará la implementación de todos los modelos implementados actualmente a través de la instancia de Hub. Muchos de ustedes tienen modelos implementados en la instancia de Hub cuyos pares de idiomas no se admiten en Traductor personalizado.  No queremos que los usuarios en esta situación carezcan de recursos para traducir su contenido.
 
-Ahora tenemos un proceso que le permite implementar los modelos no compatibles a través del traductor personalizado.  Este proceso le permite continuar traducir el contenido mediante la API de V3 más recientes.  Estos modelos se hospedará hasta que decide anular la implementación de ellas o que el par de idiomas esté disponible en convertidor personalizado.  En este artículo se explica el proceso para implementar modelos con pares de idioma no admitido.
+Ahora tenemos un proceso que le permite implementar sus modelos no compatibles a través de Traductor personalizado.  Este proceso le permite continuar traduciendo contenido mediante la API V3 más reciente.  Estos modelos se hospedarán hasta que decida anular su implementación o el par de idiomas esté disponible en Traductor personalizado.  En este artículo se explica el proceso de implementación de modelos con pares de idiomas no compatibles.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para los modelos para ser candidatos para la implementación, debe cumplir los siguientes criterios:
-* El proyecto que contiene el modelo debe se han migrado desde el concentrador al traductor personalizado mediante la herramienta de migración.  Puede encontrar el proceso de migración de proyectos y áreas de trabajo [aquí](how-to-migrate.md).
-* El modelo debe estar en estado implementado cuando se produce la migración.  
-* El par de idioma del modelo debe ser un par de idioma no admitido en el traductor personalizado.  Los pares de idiomas en el que se admite un lenguaje desde o hacia el inglés, pero el par de sí mismo no incluye a inglés, son candidatos para las implementaciones de idioma no admitido.  Por ejemplo, un modelo de concentrador para francés al par de idioma alemán se considera un par de idioma compatible aunque francés para inglés y en alemán son incluso par de idioma no admitido.
+Para que sus modelos sean candidatos para la implementación, deben cumplir los siguientes criterios:
+* El proyecto que incluye el modelo debe haber migrado de la instancia de Hub a Traductor personalizado mediante la herramienta de migración.  [Aquí](how-to-migrate.md) encontrará el proceso de migración de proyectos y áreas de trabajo.
+* El modelo debe tener el estado Implementado al producirse la migración.  
+* El par de idiomas del modelo debe ser un par de idiomas no compatible en Traductor personalizado.  Los pares de idiomas en los que se admite un idioma, hacia o desde el inglés, pero el par en sí no incluye el inglés, son candidatos para las implementaciones de idiomas no compatibles.  Por ejemplo, un modelo de Hub para un par de idiomas de francés a alemán se considera un par de idiomas no compatible, aunque francés a inglés e inglés a alemán son pares de idiomas compatibles.
 
-## <a name="process"></a>Process
-Una vez que se han migrado los modelos del concentrador que son candidatos para la implementación, se puede encontrar yendo a la **configuración** página para el área de trabajo y el desplazamiento hasta el final de la página donde podrá ver una **no compatible Traductor concentrador aprendizajes** sección.  En esta sección solo aparece si tiene proyectos que cumplen los requisitos previos mencionados anteriormente.
+## <a name="process"></a>Proceso
+Una vez que haya migrado los modelos de la instancia de Hub que sean candidatos para la implementación, los encontrará yendo a la página **Configuración** para su área de trabajo y desplazamiento al final de la página donde verá la sección sobre **entrenamientos de Translator Hub no admitidos**.  Solo aparecerá esta sección si tiene proyectos que cumplen los requisitos previos mencionados anteriormente.
 
 ![Migración desde Microsoft Translator Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
-Dentro de la **aprendizajes de concentrador no compatible de traductor** página de selección, el **no solicitado aprendizajes** pestaña contiene los modelos que sean aptos para la implementación.  Seleccione los modelos que desea implementar y enviar una solicitud.   Antes de la fecha límite de implementación del 30 de abril, puede seleccionar tantos modelos como desee para la implementación.
+En la página de selección de **entrenamientos de Translator Hub no admitidos**, la pestaña **Unrequested trainings** (Entrenamientos no solicitados) incluye modelos que cumplen los requisitos para la implementación.  Seleccione los modelos que desea implementar y envíe una solicitud.   Antes del 30 de abril, fecha límite de la implementación, podrá seleccionar tantos modelos como desee para la implementación.
  
 ![Migración desde Microsoft Translator Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
-Una vez enviado, el modelo ya no estará disponible en el **no solicitado aprendizajes** pestaña y aparecerá en su lugar en el **solicitado aprendizajes** ficha.  Puede ver los aprendizajes solicitadas en cualquier momento.
+Después del envío, el modelo dejará de estar disponible en la pestaña **Unrequested trainings** (Entrenamientos no solicitados) y aparecerá, en su lugar, en la pestaña **Requested trainings** (Entrenamientos solicitados).  Podrá ver sus entrenamientos solicitados en cualquier momento.
 
 ![Migración desde Microsoft Translator Hub](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 
 ## <a name="whats-next"></a>Pasos siguientes
 
-Una vez que se retira el concentrador y todos los modelos se anula, se guardan los modelos que seleccionó para la implementación.  Tiene hasta el 24 de mayo para enviar solicitudes para la implementación de modelos no admitidos.  Implementaremos estos modelos 15 de junio, momento en que sean accesibles a través de la API del traductor V3.  Además, estarán disponibles a través de la API V2 hasta el 1 de julio.  
+Los modelos que seleccionó para la implementación se guardarán una vez que se retire la instancia de Hub y se anule la implementación de todos los modelos.  Hasta el 24 de mayo podrá enviar solicitudes de implementación de modelos no compatibles.  Implementaremos dichos modelos el 15 de junio, momento en el que se podrá tener acceso a ellos a través de la API de Translator V3.  Además, estarán disponibles a través de la API V2 hasta el 1 de julio.  
 
-Para obtener más información sobre las fechas importantes en la degradación de la comprobación de concentrador [aquí](https://www.microsoft.com/translator/business/hub/).
-Una vez que se aplicarán los cargos de hospedaje implementados y normales.  Consulte [precios](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) para obtener más información.  
+Para obtener información adicional sobre fechas importantes relativas al desuso de la instancia de Hub, consulte [aquí](https://www.microsoft.com/translator/business/hub/).
+Una vez realizada la implementación, se aplicarán cargos de hospedaje normales.  Consulte [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) para obtener detalles.  
 
-A diferencia de los modelos estándar personalizado traductor, modelos de centro solo estará disponibles en una sola región, por lo que no se aplicarán cargos de hospedaje de varias regiones.  Una vez implementado, podrá anular la implementación del modelo de concentrador en cualquier momento a través del proyecto migrado de traductor personalizado.
+A diferencia de los modelos de Traductor personalizado estándar, los modelos de Hub solo estarán disponibles en una sola región, por lo que no se aplicarán cargos de hospedaje en varias regiones.  Una vez realizada la implementación, podrá anular la implementación del modelo de Hub en cualquier momento a través del proyecto de Traductor personalizado migrado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

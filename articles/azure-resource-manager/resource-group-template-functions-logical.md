@@ -1,23 +1,17 @@
 ---
 title: Funciones lógicas de la plantilla de Azure Resource Manager | Microsoft Docs
 description: Describe las funciones que se pueden usar en una plantilla de Azure Resource Manager para determinar valores lógicos.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405665"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447968"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funciones lógicas para las plantillas de Azure Resource Manager
 
@@ -29,7 +23,7 @@ Resource Manager proporciona varias funciones para realizar comparaciones en las
 * [not](#not)
 * [or](#or)
 
-## <a name="and"></a>y el
+## <a name="and"></a>y
 
 `and(arg1, arg2, ...)`
 
@@ -37,11 +31,11 @@ Comprueba si todos los valores de parámetros son verdaderos.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
 | arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
-| argumentos adicionales |No |boolean |Argumentos adicionales para comprobar si son verdaderos. |
+| argumentos adicionales |Sin |boolean |Argumentos adicionales para comprobar si son verdaderos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -78,7 +72,7 @@ El resultado del ejemplo anterior es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True  |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
 ## <a name="bool"></a>booleano
@@ -89,7 +83,7 @@ Convierte el parámetro en un booleano.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o entero |El valor para convertir en booleano. |
 
@@ -130,9 +124,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| trueString | Bool | True  |
+| trueString | Bool | True |
 | falseString | Bool | False |
-| trueInt | Bool | True  |
+| trueInt | Bool | True |
 | falseInt | Bool | False |
 
 ## <a name="if"></a>if
@@ -143,9 +137,9 @@ Devuelve un valor dependiendo de si una condición es verdadera o falsa.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| condición |Sí |boolean |El valor que se comprobará si es true o false. |
+| condition |Sí |boolean |El valor que se va a comprobar si es true o false. |
 | trueValue |Sí | cadena, int, objeto o matriz |Valor que se devuelve cuando la condición es verdadera. |
 | falseValue |Sí | cadena, int, objeto o matriz |Valor que se devuelve cuando la condición es falsa. |
 
@@ -155,7 +149,7 @@ Devuelve el segundo parámetro si el primer parámetro es **True**; en caso cont
 
 ### <a name="remarks"></a>Comentarios
 
-Cuando la condición es **True**, se evalúa solo el valor true. Cuando la condición es **False**, se evalúa solo el valor false. Con el **si** función, puede incluir las expresiones que solo son válidas condicionalmente. Por ejemplo, puede hacer referencia a un recurso que se encuentre en una condición, pero no en la otra condición. En la sección siguiente se muestra un ejemplo de evaluación de expresiones condicionalmente.
+Si la condición es **True**, solo se evalúa el valor true. Si la condición es **False**, solo se evalúa el valor false. Con la función **if**, puede incluir expresiones que solo son válidas con ciertas condiciones. Por ejemplo, puede hacer referencia a un recurso que existe bajo una condición, pero no bajo la otra. En la sección siguiente se muestra un ejemplo de las expresiones de evaluación con ciertas condiciones.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -188,11 +182,11 @@ El resultado del ejemplo anterior es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| yesOutput | String | sí |
-| noOutput | string | no |
+| yesOutput | Cadena | Sí |
+| noOutput | Cadena | no |
 | objectOutput | Object | { "test": "value1" } |
 
-La siguiente [plantilla de ejemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) se muestra cómo usar esta función con expresiones que solo son válidas condicionalmente.
+En la [plantilla de ejemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) siguiente se muestra cómo usar esta función con expresiones que solo son válidas bajo ciertas condiciones.
 
 ```json
 {
@@ -248,7 +242,7 @@ Convierte el valor booleano en su valor opuesto.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Valor que se va a convertir. |
 
@@ -287,7 +281,7 @@ El resultado del ejemplo anterior es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True  |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) siguiente se usa **not** con [equals](resource-group-template-functions-comparison.md#equals).
@@ -310,7 +304,7 @@ El resultado del ejemplo anterior es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True  |
+| checkNotEquals | Bool | True |
 
 ## <a name="or"></a>o
 
@@ -320,11 +314,11 @@ Comprueba si algún valor de parámetro es verdadero.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
 | arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
-| argumentos adicionales |No |boolean |Argumentos adicionales para comprobar si son verdaderos. |
+| argumentos adicionales |Sin |boolean |Argumentos adicionales para comprobar si son verdaderos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -361,7 +355,7 @@ El resultado del ejemplo anterior es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True  |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -4,17 +4,17 @@ description: Las programaciones de Automation se usan para programar runbooks en
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 348c54abadef8b7c289501e21a2d314764c9e99c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128811"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476014"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Programación de un runbook en Azure Automation
 
@@ -25,7 +25,7 @@ Para programar un runbook en Azure Automation para que se inicie en un momento d
 
 ## <a name="powershell-cmdlets"></a>Cmdlets de PowerShell
 
-Los cmdlets en la tabla siguiente se utilizan para crear y administrar programaciones con PowerShell en Azure Automation. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview).
+Los cmdlets de la siguiente tabla se usan para crear y administrar programaciones con PowerShell en Azure Automation. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview).
 
 | Cmdlets | DESCRIPCIÓN |
 |:--- |:--- |
@@ -39,7 +39,7 @@ Los cmdlets en la tabla siguiente se utilizan para crear y administrar programac
 
 ## <a name="creating-a-schedule"></a>Creación de una programación
 
-Puede crear una nueva programación para runbooks en Azure portal o con PowerShell.
+Puede crear una programación para runbooks en Azure Portal o con PowerShell.
 
 > [!NOTE]
 > Azure Automation utiliza los módulos más recientes en su cuenta de Automation al ejecutar un nuevo trabajo programado.  Para evitar afectar a los runbooks y a los procesos que automatizan, primero debe probar los runbooks que tengan programaciones vinculadas con una cuenta de Automation dedicada para realizar pruebas.  De este modo valida que los runbooks programados sigan funcionando correctamente y, si no es así, puede seguir investigando para solucionar el problema y aplicar los cambios necesarios antes de migrar la versión actualizada del runbook al entorno de producción.
@@ -51,32 +51,32 @@ Puede crear una nueva programación para runbooks en Azure portal o con PowerShe
 2. Haga clic en **Agregar una programación** en la parte superior de la página.
 3. En el panel **Nueva programación**, escriba un valor en **Nombre** y, opcionalmente, en **Descripción**, para la nueva programación.
 4. Seleccione si la programación se ejecuta una vez o de forma periódica seleccionando **Una vez** o **Periódico**. Si selecciona **Una vez**, especifique una hora en **Hora de inicio** y haga clic en **Crear**. Si selecciona **Periódico**, especifique un valor en **Hora de inicio** y, en **Repetir cada**, seleccione la frecuencia con la que quiere que se repita el runbook: cada **hora**, **día**, **semana** o **mes**.
-    1. Si selecciona **semana**, les proporciona una lista de los días de la semana para elegir. Seleccione tantos días como quiera. La primera ejecución de la programación se realizará en el primer día seleccionado después de la hora de inicio. Por ejemplo, para elegir una programación de fin de semana, elija **el sábado** y **el domingo**.
+    1. Si selecciona **semana**, se le proporcionará una lista de los días de la semana entre los que puede elegir. Seleccione tantos días como quiera. La primera ejecución de la programación se realizará en el primer día seleccionado después de la hora de inicio. Por ejemplo, para elegir una programación durante el fin de semana, elija **Sábado** y **Domingo**.
 
-       ![Programación periódica del fin de semana de configuración](../media/schedules/week-end-weekly-recurrence.png)
+       ![Establecimiento de la programación recurrente durante el fin de semana](../media/schedules/week-end-weekly-recurrence.png)
 
-    2. Si selecciona **mes**, se le asigna diferentes opciones. Para el **las repeticiones mensuales** opción, seleccione **días del mes** o **días de la semana**. Si elige **días del mes**, se muestra un calendario que le permite elegir tantos días como desee. Si elige una fecha como el día 31 que no se producen en el mes actual, no se ejecutará la programación. Si quiere que la programación se ejecute en el último día, elija **Sí** en **Ejecutar en el último día del mes**. Si elige **Días de la semana**, se mostrará la opción **Repetir cada**. Elija **Primero**, **Segundo**, **Tercero**, **Cuarto** o **Último**. Por último, elija un día en el que realizar la repetición.
+    2. Si selecciona **mes**, tendrá diferentes opciones. Para la opción **Repeticiones mensuales**, seleccione **Días del mes** o **Días de la semana**. Si elige **Días del mes**, se muestra un calendario que le permite elegir tantos días como quiera. Si elige una fecha como el día 31 que no existe en el mes actual, no se ejecutará la programación. Si quiere que la programación se ejecute en el último día, elija **Sí** en **Ejecutar en el último día del mes**. Si elige **Días de la semana**, se mostrará la opción **Repetir cada**. Elija **Primero**, **Segundo**, **Tercero**, **Cuarto** o **Último**. Por último, elija un día en el que realizar la repetición.
 
-       ![Programación mensual decimoquinto, primero y último día del mes](../media/schedules/monthly-first-fifteenth-last.png)
+       ![Programación mensual el primer día, el decimoquinto día y el último día del mes](../media/schedules/monthly-first-fifteenth-last.png)
 
 5. Cuando termine, haga clic en **Crear**.
 
 ### <a name="to-create-a-new-schedule-with-powershell"></a>Para crear una nueva programación con PowerShell
 
-Use el cmdlet [AzureRmAutomationSchedule New](/powershell/module/azurerm.automation/new-azurermautomationschedule) para crear programaciones. Especifique la hora de inicio de la programación y la frecuencia con que se debe ejecutar. Los ejemplos siguientes muestran cómo crear muchos escenarios de programación diferente.
+Use el cmdlet [AzureRmAutomationSchedule New](/powershell/module/azurerm.automation/new-azurermautomationschedule) para crear programaciones. Especifique la hora de inicio de la programación y la frecuencia con que se debe ejecutar. En los ejemplos siguientes se muestra cómo crear muchos escenarios de programación distintos.
 
-#### <a name="create-a-one-time-schedule"></a>Crear una programación de tiempo
+#### <a name="create-a-one-time-schedule"></a>Creación de una programación única
 
-Los siguientes comandos de ejemplo crean una programación de tiempo.
+Los comandos de ejemplo siguientes crean una programación única.
 
 ```azurepowershell-interactive
 $TimeZone = ([System.TimeZoneInfo]::Local).Id
 New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Schedule01" -StartTime "23:00" -OneTime -ResourceGroupName "ResourceGroup01" -TimeZone $TimeZone
 ```
 
-#### <a name="create-a-recurring-schedule"></a>Crear una programación periódica
+#### <a name="create-a-recurring-schedule"></a>Creación de una programación recurrente
 
-Los comandos de ejemplo siguientes muestran cómo crear una programación periódica que se ejecuta cada día a las 13:00 durante un año.
+Los comandos de ejemplo siguientes muestran cómo crear una programación recurrente que se ejecuta cada día a la 1:00 p.m. durante un año.
 
 ```azurepowershell-interactive
 $StartTime = Get-Date "13:00:00"
@@ -84,9 +84,9 @@ $EndTime = $StartTime.AddYears(1)
 New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Schedule02" -StartTime $StartTime -ExpiryTime $EndTime -DayInterval 1 -ResourceGroupName "ResourceGroup01"
 ```
 
-#### <a name="create-a-weekly-recurring-schedule"></a>Crear una programación periódica semanal
+#### <a name="create-a-weekly-recurring-schedule"></a>Creación de una programación semanal recurrente
 
-Los comandos de ejemplo siguientes muestran cómo crear una programación semanal que se ejecuta en los días laborables únicamente.
+Los comandos de ejemplo siguientes muestran cómo crear una programación semanal que se ejecuta solo en días laborables.
 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "13:00:00").AddDays(1)
@@ -94,7 +94,7 @@ $StartTime = (Get-Date "13:00:00").AddDays(1)
 New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Schedule03" -StartTime $StartTime -WeekInterval 1 -DaysOfWeek $WeekDays -ResourceGroupName "ResourceGroup01"
 ```
 
-#### <a name="create-a-weekly-recurring-schedule-for-weekends"></a>Crear una programación periódica semanal para los fines de semana
+#### <a name="create-a-weekly-recurring-schedule-for-weekends"></a>Creación de una programación semanal recurrente para los fines de semana
 
 Los comandos de ejemplo siguientes muestran cómo crear una programación semanal que se ejecuta solo los fines de semana.
 
@@ -104,9 +104,9 @@ $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Weekends 6PM" -StartTime $StartTime -WeekInterval 1 -DaysOfWeek $WeekendDays -ResourceGroupName "ResourceGroup01"
 ```
 
-#### <a name="create-a-recurring-schedule-for-first-15th-and-last-days-of-the-month"></a>Crear una programación periódica para la primera, 15 y el último día del mes
+#### <a name="create-a-recurring-schedule-for-first-15th-and-last-days-of-the-month"></a>Creación de una programación recurrente para el primer día, el decimoquinto día y el último día del mes
 
-Los comandos de ejemplo siguientes muestran cómo crear una programación periódica que se ejecuta en el día 1, 15 y último del mes.
+Los comandos de ejemplo siguientes muestran cómo crear una programación recurrente que se ejecuta el primer día, el decimoquinto día y el último día de un mes.
 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
@@ -121,8 +121,8 @@ Un runbook puede vincularse a varias programaciones y una programación puede te
 
 1. En Azure Portal, desde su cuenta de Automation, seleccione **Runbooks** en la sección **Automatización de procesos** de la izquierda.
 2. Haga clic en el nombre del runbook que se va a programar.
-3. Si el runbook no está vinculado actualmente a una programación, a continuación, le ofrece la opción para crear una nueva programación o un vínculo a una programación existente.
-4. Si el runbook tiene parámetros, puede seleccionar la opción **modificar la configuración de ejecución (predeterminada: Azure)** y **parámetros** se presenta panel donde puede especificar la información.
+3. Si el runbook no está vinculado actualmente a una programación, se le ofrecerá la opción de crear una o de vincularlo a una existente.
+4. Si el runbook tiene parámetros, puede seleccionar la opción **Modificar la configuración de ejecución (Predeterminada: Azure)** ; aparece el panel **Parámetros**, donde puede especificar la información.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-powershell"></a>Para vincular una programación a un runbook con PowerShell
 
@@ -149,7 +149,7 @@ El intervalo de mayor frecuencia con que se puede configurar una programación e
 
 ## <a name="disabling-a-schedule"></a>Deshabilitación de una programación
 
-Cuando se deshabilita una programación, los runbooks vinculados a ella ya no se ejecutan en ella. Puede deshabilitar una programación manualmente o establecer una fecha de expiración para las programaciones con frecuencia al crearlas. Una vez que se alcanza la fecha de expiración, la programación está deshabilitada.
+Cuando se deshabilita una programación, los runbooks vinculados a ella ya no se ejecutan en ella. Puede deshabilitar una programación manualmente o establecer una fecha de expiración para las programaciones con frecuencia al crearlas. Una vez que se alcanza la fecha de expiración, la programación se deshabilita.
 
 ### <a name="to-disable-a-schedule-from-the-azure-portal"></a>Para deshabilitar una programación desde el Portal de Azure
 
@@ -158,7 +158,7 @@ Cuando se deshabilita una programación, los runbooks vinculados a ella ya no se
 3. Cambie **Habilitado** a **No**.
 
 > [!NOTE]
-> Si desea deshabilitar una programación que tiene una hora de inicio en el pasado, debe cambiar la fecha de inicio a un momento en el futuro antes de guardarlo.
+> Si quiere deshabilitar una programación con una hora de inicio en el pasado, debe cambiar la fecha de inicio a un momento en el futuro antes de guardarla.
 
 ### <a name="to-disable-a-schedule-with-powershell"></a>Para deshabilitar una programación con PowerShell
 

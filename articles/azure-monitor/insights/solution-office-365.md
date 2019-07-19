@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.openlocfilehash: 34c7ecbf235bed838af9ed2f848ca492916583f6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357577"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514215"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -25,11 +25,11 @@ ms.locfileid: "66357577"
 
 
 > [!NOTE]
-> El método recomendado para instalar y configurar la solución de Office 365 está habilitando el [conector de Office 365](../../sentinel/connect-office-365.md) en [Sentinel Azure](../../sentinel/overview.md) en lugar de usar los pasos de este artículo. Se trata de una versión actualizada de la solución de Office 365 con una experiencia mejorada de configuración. Para conectarse a los registros de Azure AD, use el [conector de Azure AD de Azure centinela](../../sentinel/connect-azure-active-directory.md), que proporciona los datos de registro más completos que los registros de administración de Office 365. 
+> El método recomendado para instalar y configurar la solución Office 365 es habilitar el [conector de Office 365](../../sentinel/connect-office-365.md) en [Azure Sentinel](../../sentinel/overview.md) en lugar de seguir los pasos de este artículo. Esta es una versión actualizada de la solución Office 365 con una experiencia de configuración mejorada. Para conectar los registros de Azure AD, puede usar el [conector de Azure AD de Azure Sentinel](../../sentinel/connect-azure-active-directory.md) o [configure las opciones de diagnóstico de Azure AD](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), que proporciona los datos de registro más completos que los registros de administración de Office 365. 
 >
-> Cuando se [incorporar Azure Sentinel](../../sentinel/quickstart-onboard.md), especifique el área de trabajo de Log Analytics que desea que la instalada en la solución de Office 365. Una vez que habilite el conector, la solución estará disponible en el área de trabajo y usa exactamente el mismo como cualquier otra solución de supervisión que ha instalado.
+> Cuando se [incorpora a Azure Sentinel](../../sentinel/quickstart-onboard.md), especifique el área de trabajo de Log Analytics que desea que la instalada en la solución de Office 365. Una vez habilitado el conector, la solución estará disponible en el área de trabajo y se utilizará exactamente igual que cualquier otra solución de supervisión que haya instalado.
 >
-> Los usuarios de la nube de Azure government deben instalar Office 365 siguiendo los pasos de este artículo, ya que Azure Sentinel aún no está disponible en la nube de government.
+> Los usuarios de la nube de Azure Government deben instalar Office 365 siguiendo los pasos de este artículo, ya que Azure Sentinel aún no está disponible en la nube de Government.
 
 La solución de administración de Office 365 permite supervisar el entorno de Office 365 en Azure Monitor.
 
@@ -86,7 +86,7 @@ El primer paso es crear una aplicación en Azure Active Directory que la soluci�
 1. Haga clic en **Nuevo registro de aplicaciones**.
 
     ![Adición de un registro de aplicaciones](media/solution-office-365/add-app-registration.png)
-1. Escriba valores de **Nombre** y **Dirección URL de inicio de sesión** de la aplicación.  El nombre debe ser descriptivo.  Use `http://localhost` para la dirección URL y mantener _aplicación Web / API_ para el **tipo de aplicación**
+1. Escriba valores de **Nombre** y **Dirección URL de inicio de sesión** de la aplicación.  El nombre debe ser descriptivo.  Use `http://localhost` para la URL y deje _Aplicación web o API_ en **Tipo de aplicación**.
     
     ![Creación de la aplicación](media/solution-office-365/create-application.png)
 1. Haga clic en **Crear** y valide la información de la aplicación.
@@ -539,9 +539,9 @@ El valor de **Tipo** es **OfficeActivity** para todos los registros creados en e
 
 Las siguientes propiedades son comunes a todos los registros de Office 365.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| type | *OfficeActivity* |
 | ClientIP | La dirección IP del dispositivo que se usó cuando se registró la actividad. La dirección IP se muestra en formato de dirección IPv4 o IPv6. |
 | OfficeWorkload | Servicio de Office 365 al que hace referencia el registro.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Operación | El nombre de la actividad de usuario o administrador.  |
@@ -550,7 +550,7 @@ Las siguientes propiedades son comunes a todos los registros de Office 365.
 | ResultStatus | Indica si la acción (especificada en la propiedad Operation) se realizó correctamente o no. Los valores posibles son Succeeded (correcta), PartiallySucceeded (parcialmente correcta) o Failed (con errores). Para la actividad de administración de Exchange, el valor es True o False. |
 | UserId | El UPN (nombre principal de usuario) del usuario que realizó la acción que generó el registro, por ejemplo, my_name@my_domain_name. Tenga en cuenta que también se incluyen los registros de actividad realizada por cuentas del sistema (como SHAREPOINT\system o NTAUTHORITY\SYSTEM). | 
 | UserKey | Un identificador alternativo para el usuario identificado en la propiedad UserId.  Por ejemplo, esta propiedad se rellena con el identificador único de Passport (PUID) para los eventos producidos por los usuarios de SharePoint, OneDrive para la empresa y Exchange. Esta propiedad también puede especificar el mismo valor que la propiedad UserID para los eventos que se producen en otros servicios y los eventos producidos por las cuentas del sistema|
-| UserType | El tipo de usuario que realizó la operación.<br><br>Administración<br>Application<br>DcAdmin<br>Regular<br>Reserved<br>ServicePrincipal<br>Sistema |
+| UserType | El tipo de usuario que realizó la operación.<br><br>Administración<br>Application<br>DcAdmin<br>Normal<br>Reserved<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory

@@ -1,23 +1,21 @@
 ---
-title: 'Pago por adelantado de planes de software: Azure Reservations | Microsoft Docs'
+title: 'Pago por adelantado de planes de software: Azure Reservations'
 description: Descubra cómo puede pagar por adelantado planes de software y ahorrar dinero en los costos de pago por uso.
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e9d07bf01536d7865bd79f667a937037d96837
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771250"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67489877"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pago por adelantado de planes de software de Azure
 
@@ -25,7 +23,7 @@ Cuando paga por adelantado por el uso de software SUSE y RedHat en Azure, puede 
 
 Puede comprar planes de software SUSE y RedHat en Azure Portal. Para comprar un plan:
 
-- Debe tener el rol de propietario al menos en una suscripción Enterprise o de Pago por uso.
+- Debe tener el rol de propietario al menos en una suscripción Enterprise o individual con precios de pago por uso.
 - En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). Si ese valor está deshabilitado, debe ser un administrador de EA para la suscripción.
 - En el caso del programa del Proveedor de soluciones en la nube (CSP), solo los agentes de administración o de ventas pueden comprar planes de software.
 
@@ -35,12 +33,12 @@ Puede comprar planes de software SUSE y RedHat en Azure Portal. Para comprar un 
 2. Haga clic en **agregar** y, después, seleccione el plan de software que desee comprar.
 Rellene todos los campos obligatorios. Cualquier máquina virtual de SUSE Linux o de RedHat que coincida con los atributos de lo que compra obtiene el descuento. El número real de implementaciones que obtienen el descuento depende del ámbito y la cantidad seleccionada.
 3. Seleccione una suscripción. Se utiliza para pagar el plan.
-Los costos anticipados de la reserva se cargan al método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
+Los costos anticipados de la reserva se cargan al método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
     - Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite.
-    - en una suscripción de Pago por uso, los costos se cargan a la tarjeta de crédito o al método de pago de la factura de la suscripción.
+    - Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
 4. Seleccione un ámbito. El ámbito puede cubrir una o varias suscripciones (ámbito compartido).
     - Suscripción única: el descuento del plan se aplica al uso correspondiente en la suscripción.
-    - Compartido: el descuento del plan se aplica a las instancias correspondientes en cualquier suscripción del contexto de facturación. Para los clientes de Enterprise, el contexto de facturación es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el contexto de facturación incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.
+    - Compartido: el descuento del plan se aplica a las instancias correspondientes en cualquier suscripción del contexto de facturación. Para los clientes de Enterprise, el contexto de facturación es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de planes individuales con precios de pago por uso, el contexto de facturación son todas las suscripciones de planes individuales con precios de pago por uso creadas por el administrador de cuenta.
 5. Seleccione un producto para elegir el tamaño de máquina virtual y el tipo de imagen. El descuento se aplica solo al tamaño de máquina virtual seleccionado.
 6. Seleccione un plazo de un año o tres años.
 7. Elija una cantidad, que es el número de instancias de máquina virtual de prepago a las que se aplica el descuento de facturación.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358147"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483320"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 
@@ -41,7 +41,9 @@ El bloqueo inteligente puede integrarse con implementaciones híbridas mediante 
 Cuando se usa la [autenticación de paso a través](../hybrid/how-to-connect-pta.md), debe asegurarse de lo siguiente:
 
 * El umbral de bloqueo de Azure AD sea **inferior** al umbral de bloqueo de cuenta de Active Directory. Establezca los valores de modo que el umbral de bloqueo de cuenta de Active Directory sea al menos dos o tres veces mayor que el umbral de bloqueo de Azure AD. 
-* La duración del bloqueo de Azure AD **en segundos** es **mayor** que la del contador de restablecimiento de bloqueo de cuenta de Active Directory **en minutos**.
+* La duración del bloqueo de Azure AD debe ser mayor que la del contador de restablecimiento del bloqueo de a cuenta de Azure Directory después de la duración. Tenga en cuenta que la duración de Azure AD está establecido en segundos, mientras que la duración de AD se establece en minutos. 
+
+Por ejemplo, si quiere que el contador de Azure AD sea mayor que AD, el contador de Azure AD sería de 120 segundos (2 minutos), mientras que el contador de AD local está establecido en 1 minuto (60 segundos).
 
 > [!IMPORTANT]
 > Actualmente, un administrador no puede desbloquear cuentas en la nube de los usuarios si estos han sido bloqueados por la funcionalidad de bloqueo inteligente. El administrador deberá esperar a que expire la duración del bloqueo.

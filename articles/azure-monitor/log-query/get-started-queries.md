@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b03109ee5cdb76247bf3be6fda97e0cf6e434f17
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519011"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296089"
 ---
-# <a name="get-started-with-azure-monitor-log-queries"></a>Introducción a las consultas de registro en Azure Monitor
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor
 
 
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "65519011"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-En este tutorial aprenderá a escribir consultas de registro de Azure Monitor. Le mostrará cómo:
+En este tutorial aprenderá a escribir consultas de registro en Azure Monitor. Le mostrará cómo:
 
 - Comprender la estructura de las consultas
 - Ordenar los resultados de la consulta
@@ -38,6 +38,8 @@ En este tutorial aprenderá a escribir consultas de registro de Azure Monitor. L
 - Definir y usar campos personalizados
 - Agregar y agrupar los resultados
 
+Para obtener un tutorial sobre el uso de Log Analytics en Azure Portal, consulte [Introducción a Log Analytics de Azure Monitor](get-started-portal.md).<br>
+Para más información sobre las consultas de registro en Azure Monitor, consulte [Introducción a las consultas de registro en Azure Monitor](log-query-overview.md).
 
 ## <a name="writing-a-new-query"></a>Escribir una nueva consulta
 Las consultas pueden comenzar por un nombre de tabla o el comando *search*. Debe empezar por un nombre de tabla, ya que define un ámbito claro para la consulta y mejora el rendimiento de las consultas y la pertinencia de los resultados.
@@ -71,8 +73,8 @@ search in (SecurityEvent) "Cryptographic"
 
 Esta consulta busca en la tabla *SecurityEvent* los registros que contienen la expresión "Cryptographic". De esos registros, se devuelven y se muestran 10. Si se omite la parte `in (SecurityEvent)` y solo se ejecuta `search "Cryptographic"`, la búsqueda recorrerá *todas* las tablas, lo que podría tardar más tiempo y ser menos eficiente.
 
-> [!NOTE]
-> De forma predeterminada, se establece como intervalo de tiempo las _últimas 24 horas_. Con el selector de hora (junto al botón *Go*[Ir]) puede elegir un intervalo distinto. Como alternativa, agregue un filtro de intervalo de tiempo a la consulta.
+> [!WARNING]
+> Las consultas de búsqueda son normalmente más lentas que las consultas basadas en tablas porque tienen que procesar más datos. 
 
 ## <a name="sort-and-top"></a>sort y top
 Mientras que **take** resulta útil para obtener algunos registros, los resultados no se seleccionan ni se muestran en un orden concreto. Para obtener una vista ordenada a partir de la columna preferida, use **sort**:

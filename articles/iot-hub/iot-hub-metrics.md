@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 8eac70db0c563f102dfa0e3fcece9d4604582cce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6afebfe9a5db713e31fed0acd2e8ad7244f30037
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595645"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274926"
 ---
 # <a name="understand-iot-hub-metrics"></a>Comprender las métricas de IoT Hub
 
@@ -60,14 +60,14 @@ IoT Hub proporciona varias métricas para ofrecerle una visión general del esta
 |d2c<br>.endpoints<br>.latency<br>.serviceBusQueues|Enrutamiento: latencia de mensajes de la cola de Service Bus|Milisegundos|Media|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes de telemetría a un punto de conexión de la cola de Service Bus.|Sin dimensiones|
 |d2c<br>.endpoints<br>.egress<br>.serviceBusTopics|Enrutamiento: mensajes entregados al tema de Service Bus|Recuento|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión del tema de Service Bus.|Sin dimensiones|
 |d2c<br>.endpoints<br>.latency<br>.serviceBusTopics|Enrutamiento: latencia de mensajes del tema de Service Bus|Milisegundos|Media|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes de telemetría a un punto de conexión del tema de Service Bus.|Sin dimensiones|
-|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|Enrutamiento: mensajes entregados a mensajes/eventos|Recuento|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente al punto de conexión integrado (mensajes/eventos).|Sin dimensiones|
-|d2c<br>.endpoints<br>.latency<br>.builtIn.events|Enrutamiento: latencia de mensajes para mensajes/eventos|Milisegundos|Media|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes de telemetría al punto de conexión integrado (mensajes/eventos).|Sin dimensiones|
+|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|Enrutamiento: mensajes entregados a mensajes/eventos|Recuento|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente al punto de conexión integrado (mensajes/eventos). Esta métrica solo comienza a funcionar cuando se habilita el enrutamiento (https://aka.ms/iotrouting) para el centro de IoT.|Sin dimensiones|
+|d2c<br>.endpoints<br>.latency<br>.builtIn.events|Enrutamiento: latencia de mensajes para mensajes/eventos|Milisegundos|Media|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes de telemetría al punto de conexión integrado (mensajes/eventos). Esta métrica solo comienza a funcionar cuando se habilita el enrutamiento (https://aka.ms/iotrouting) para el centro de IoT.|Sin dimensiones|
 |d2c<br>.endpoints<br>.egress<br>.storage|Enrutamiento: mensajes entregados al almacenamiento|Recuento|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión de almacenamiento.|Sin dimensiones|
 |d2c<br>.endpoints<br>.latency<br>.storage|Enrutamiento: latencia de mensajes para almacenamiento|Milisegundos|Media|Latencia media (milisegundos) entre la entrada de mensajes a IoT Hub y la entrada de mensajes de telemetría a un punto de conexión de almacenamiento.|Sin dimensiones|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|Enrutamiento: datos entregados al almacenamiento|Bytes|Total|Cantidad de datos (bytes) que el enrutamiento de IoT Hub ha entregado a los punto de conexión de almacenamiento.|Sin dimensiones|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|Enrutamiento: blobs entregados al almacenamiento|Recuento|Total|Número de veces que el enrutamiento de IoT Hub ha entregado blobs a los puntos de conexión de almacenamiento.|Sin dimensiones|
-|EventGridDeliveries|Entregas de Event Grid (versión preliminar)|Recuento|Total|El número de solicitudes para que IoT Hub emita eventos a Event Grid. Este número incluye las solicitudes correctas y con error. Use la dimensión Result para el número de tipos de respuesta diferentes. Para ver de dónde proceden las solicitudes, use la dimensión EventType.|Result, EventType|
-|EventGridLatency|Latencia de Event Grid (versión preliminar)|Milisegundos|Media|Latencia media (milisegundos) entre la entrada de eventos a IoT Hub y la entrada de eventos a Event Grid. Este número es un promedio entre todos los tipos de evento. Use la dimensión EventType para ver la latencia de un tipo específico de evento.|EventType|
+|EventGridDeliveries|Entregas de Event Grid (versión preliminar)|Recuento|Total|El número de eventos de IoT Hub publicados en Event Grid. Use la dimensión de resultado para ver el número de solicitudes correctas e incorrectas. La dimensión EventType muestra el tipo de evento (https://aka.ms/ioteventgrid). Para ver de dónde proceden las solicitudes, use la dimensión EventType.|Result, EventType|
+|EventGridLatency|Latencia de Event Grid (versión preliminar)|Milisegundos|Media|La latencia media (milisegundos) desde el momento en que se generó el evento de IoT Hub hasta el momento en que se publicó el evento en Event Grid. Este número es un promedio entre todos los tipos de evento. Use la dimensión EventType para ver la latencia de un tipo específico de evento.|EventType|
 |d2c<br>.twin<br>.read<br>.success|Lecturas gemelas correctas de los dispositivos|Recuento|Total|El recuento de todas las lecturas gemelas correctas iniciadas por el dispositivo.|Sin dimensiones|
 |d2c<br>.twin<br>.read<br>.failure|Lecturas gemelas con error de los dispositivos|Recuento|Total|El recuento de todas las lecturas gemelas con error iniciadas por el dispositivo.|Sin dimensiones|
 |d2c<br>.twin<br>.read<br>.size|Tamaño de la respuesta de las lecturas gemelas de dispositivos|Bytes|Media|El valor medio, mínimo y máximo de todas las lecturas gemelas correctas iniciadas por el dispositivo.|Sin dimensiones|

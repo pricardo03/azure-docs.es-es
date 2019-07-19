@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65237813"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481138"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Hacer una copia de seguridad de una base de datos de SAP HANA
 
@@ -22,15 +22,13 @@ ms.locfileid: "65237813"
 > [!NOTE]
 > Esta característica actualmente está en su versión preliminar pública. Actualmente no está lista para producción y no tiene un contrato de nivel de servicio garantizado. 
 
-
 ## <a name="scenario-support"></a>Compatibilidad con los escenarios
 
 **Soporte técnico** | **Detalles**
 --- | ---
 **Zonas geográficas admitidas** | Sudeste de Australia y Australia Oriental <br> Sur de Brasil <br> Centro de Canadá y Este de Canadá <br> Sudeste Asiático y Asia Oriental <br> Este de EE. UU., Este de EE. UU. 2, Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-norte de EE. UU., Centro de EE. UU. y Centro-sur de EE. UU.<br> India central e India meridional <br> Este de Japón, Oeste de Japón<br> Corea Central, Corea del Sur <br> Norte de Europa y Oeste de Europa <br> Sur de Reino Unido y Oeste de Reino Unido
 **Sistemas operativos de máquina virtual admitidos** | SLES 12 con SP2 o SP3.
-**Versiones de HANA admitidas** | SSDC en HANA 1.x, MDC en HANA 2.x < = SPS03
-
+**Versiones de HANA admitidas** | SDC en HANA 1.x, MDC en HANA 2.x < = SPS03
 
 ### <a name="current-limitations"></a>Limitaciones actuales
 
@@ -39,12 +37,9 @@ ms.locfileid: "65237813"
 - Solo puede hacer copias de seguridad de bases de datos en modo de escalado vertical.
 - Puede hacer una copia de seguridad de los registros de la base de datos cada 15 minutos. Las copias de seguridad de los registros comienzan el flujo solo después de que se haya realizado correctamente una copia de seguridad completa de la base de datos.
 - Puede hacer copias de seguridad completas y diferenciales. Las copias de seguridad incrementales no se admiten en la actualidad.
-- No puede modificar la directiva de copia de seguridad una vez que la ha aplicado para las copias de seguridad de SAP HANA. Si desea hacer copias de seguridad con una configuración diferente, cree una nueva directiva o asigne una directiva diferente. 
-    - Para crear una nueva directiva, en el almacén, haga clic en **Directivas** > **Directivas de copia de seguridad** >  **+Agregar** > **SAP HANA en Máquina virtual de Azure** y especifique la configuración de la directiva.
-    - Para asignar una directiva diferente, en las propiedades de la máquina virtual que ejecuta la base de datos, haga clic en el nombre de la directiva actual. A continuación, en la página **Directiva de copia de seguridad**, puede seleccionar una directiva diferente que se usará para la copia de seguridad.
-
-
-
+- No puede modificar la directiva de copia de seguridad una vez que la ha aplicado para las copias de seguridad de SAP HANA. Si desea hacer copias de seguridad con una configuración diferente, cree una nueva directiva o asigne una directiva diferente.
+  - Para crear una nueva directiva, en el almacén, haga clic en **Directivas** > **Directivas de copia de seguridad** >  **+Agregar** > **SAP HANA en Máquina virtual de Azure** y especifique la configuración de la directiva.
+  - Para asignar una directiva diferente, en las propiedades de la máquina virtual que ejecuta la base de datos, haga clic en el nombre de la directiva actual. A continuación, en la página **Directiva de copia de seguridad**, puede seleccionar una directiva diferente que se usará para la copia de seguridad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -57,14 +52,16 @@ Asegúrese de seguir estos pasos antes de configurar copias de seguridad:
 
         ![Opción de instalación del paquete](./media/backup-azure-sap-hana-database/hana-package.png)
 
-2.  En la máquina virtual, instale y habilite paquetes de controlador ODBC desde el paquete/soporte físico SLES oficial mediante Zypper, como sigue:
+2. En la máquina virtual, instale y habilite paquetes de controlador ODBC desde el paquete/soporte físico SLES oficial mediante Zypper, como sigue:
 
-    ``` 
+    ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
-4.  Permita la conectividad desde la máquina virtual a Internet para que pueda acceder a Azure, tal y como se describe en el procedimiento siguiente.
 
+3. Permita la conectividad desde la máquina virtual a Internet para que pueda acceder a Azure, tal y como se describe en el procedimiento [siguiente](#set-up-network-connectivity).
+
+4. Ejecute el script de registro previo en la máquina virtual donde está instalado HANA como usuario raíz. El script se proporciona [en el portal](#discover-the-databases) del flujo y es necesario para configurar los [permisos correctos](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
 
 ### <a name="set-up-network-connectivity"></a>Configurar la conectividad de red
 
@@ -80,7 +77,7 @@ Incorpórese a la versión preliminar pública de la siguiente manera:
 - En el portal, registre el identificador de suscripción en el proveedor de servicios de Recovery Services [siguiendo este artículo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal). 
 - Para PowerShell, ejecute este cmdlet. Debería completarse como "Registrado".
 
-    ```
+    ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
@@ -89,7 +86,6 @@ Incorpórese a la versión preliminar pública de la siguiente manera:
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Detección de bases de datos
-
 
 1. En el almacén, en **Introducción**, haga clic en **Copia de seguridad**. En **¿Dónde se ejecuta su carga de trabajo?** , seleccione **SAP HANA en máquina virtual de Azure**.
 2. Haga clic en **Iniciar detección**. Se iniciará la detección de máquinas virtuales de Linux no protegidas en la región del almacén.
@@ -104,7 +100,7 @@ Incorpórese a la versión preliminar pública de la siguiente manera:
 6. Azure Backup detecta todas las bases de datos de SAP HANA en la máquina virtual. Durante la detección, Azure Backup registra la máquina virtual con el almacén e instala una extensión en la máquina virtual. No se instala ningún agente en la base de datos.
 
     ![Detectar bases de datos de SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
-    
+
 ## <a name="configure-backup"></a>Configuración de la copia de seguridad  
 
 Ahora habilite la copia de seguridad.
@@ -116,6 +112,7 @@ Ahora habilite la copia de seguridad.
 5. Realice el seguimiento del progreso de la configuración de copias de seguridad en el área de  **notificaciones** del portal.
 
 ### <a name="create-a-backup-policy"></a>Creación de una directiva de copia de seguridad
+
 Una directiva de copia de seguridad define cuándo se realizan las copias de seguridad y cuánto tiempo se conservan.
 
 - Una directiva se crea en el nivel de almacén.
@@ -189,6 +186,5 @@ Si desea hacer una copia de seguridad local (mediante HANA Studio) de una base d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+[Más información](backup-azure-sap-hana-database-troubleshoot.md) sobre cómo solucionar los errores habituales al usar la copia de seguridad de SAP HANA en máquinas virtuales de Azure.
 [Más información sobre](backup-azure-arm-vms-prepare.md) cómo hacer copias de seguridad de máquinas virtuales de Azure.
-
-

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 9979cb97ec578a59ba8263f2eb1fe53d41db862f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.openlocfilehash: 36c109e083873e9c4ec63ebe34f5c5c0cfb6eeb1
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399460"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491822"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Preguntas comunes: recuperación ante desastres de Hyper-V a Azure
 
@@ -26,6 +26,10 @@ Consulte los detalles de los [precios de Azure Site Recovery](https://azure.micr
 
 ### <a name="how-do-i-pay-for-azure-vms"></a>¿Cómo se pagan las máquinas virtuales de Azure?
 Durante la replicación, los datos se replican en Azure Storage y no se paga ningún cambio en las máquinas virtuales. Cuando se ejecuta una conmutación por error en Azure, Site Recovery crea automáticamente máquinas virtuales IaaS de Azure. Después de eso, se le facturan los recursos de proceso que consume en Azure.
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>¿Existe alguna diferencia de coste cuando se replica en la cuenta de almacenamiento de uso general v2?
+
+Normalmente, verá un aumento en el coste de las transacciones en que se incurre al usar cuentas de almacenamiento de GPv2, ya que las transacciones en Azure Site Recovery son muy frecuentes. [Más información](../storage/common/storage-account-upgrade.md#pricing-and-billing) para calcular el cambio.
 
 ## <a name="azure"></a>Azure
 
@@ -100,7 +104,7 @@ Sí, Site Recovery admite los hosts de Hyper-V en clústeres. Observe lo siguien
 - Todos los nodos del clúster deben estar registrados en el mismo almacén.
 - Si no usa VMM, todos los hosts de Hyper-V del clúster se deben agregar al mismo sitio de Hyper-V.
 - Instale el proveedor de Azure Site Recovery y el agente de Recovery Services en cada host de Hyper-V del clúster y agregue cada host a un sitio de Hyper-V.
-- No hay pasos específicos tienen que realizarse en el clúster.
+- No es necesario realizar pasos específicos en el clúster.
 - Si ejecuta la herramienta Deployment Planner para Hyper-V, la herramienta recopila los datos de perfil del nodo que está en ejecución y en el que también se ejecuta la máquina virtual. La herramienta no puede recopilar los datos de un nodo que está desactivado, pero realizará el seguimiento de ese nodo. Una vez que el nodo está en funcionamiento, la herramienta empieza a recopilar de él los datos de perfil de la máquina virtual (si la máquina virtual forma parte de la lista de máquinas virtuales de perfil y está en ejecución en el nodo).
 - Si una máquina virtual en un host de Hyper-V de un almacén de Site Recovery se migra a un host de Hyper-V distinto en el mismo clúster, o bien a un host independiente, la replicación de la máquina virtual no resulta afectada. El host de Hyper-V debe cumplir los [requisitos previos](hyper-v-azure-support-matrix.md#on-premises-servers) y estar configurado en un almacén de Site Recovery. 
 
@@ -152,7 +156,7 @@ Sí, puede usar ExpressRoute para replicar máquinas virtuales en Azure. Site Re
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>¿Por qué no puedo replicar a través de VPN?
 
-Cuando se replica en Azure, el tráfico de replicación alcanza los extremos públicos de una cuenta de almacenamiento de Azure. Por lo tanto solo puede replicar a través de internet con ExpressRoute (emparejamiento público) y VPN no funciona. 
+Cuando se replica en Azure, el tráfico de replicación alcanza los puntos de conexión públicos de una cuenta de Azure Storage. Por lo tanto, solo puede replicar a través de una conexión a Internet pública con ExpressRoute (emparejamiento público), ya que la conexión mediante VPN no funciona. 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>¿Cuáles son los requisitos de las máquinas virtuales replicadas?
 
@@ -212,7 +216,7 @@ Después de la conmutación por error, puede tener acceso a las máquinas virtua
 Azure está diseñado para la resistencia. Site Recovery está diseñado para la conmutación por error en un centro de datos de Azure secundario según el Acuerdo de Nivel de Servicio de Azure. Cuando se produce una conmutación por error, nos aseguramos de que los metadatos y los almacenes permanecen en la misma región geográfica que eligió para el almacén.
 
 ### <a name="is-failover-automatic"></a>¿La conmutación por error es automática?
-La [conmutación por error](site-recovery-failover.md) no es automática. Puede iniciar las conmutaciones por error con solo un clic en el portal, o puede usar [PowerShell](/powershell/module/az.recoveryservices) para desencadenar una conmutación por error.
+La [conmutación por error](site-recovery-failover.md) no es automática. Puede iniciar las conmutaciones por error con solo un clic en el portal o bien puede usar [PowerShell](/powershell/module/az.recoveryservices) para desencadenar una conmutación por error.
 
 ### <a name="how-do-i-fail-back"></a>¿Cómo puedo realizar una conmutación por recuperación?
 
@@ -224,7 +228,7 @@ Una vez que la infraestructura local está activa y ejecutándose, puede conmuta
     - Descarga completa: con esta opción, los datos se sincronizan durante la conmutación por error. Esta opción descarga todo el disco. Es más rápido porque no se calculan las sumas de comprobación, pero hay más tiempo de inactividad. Utilice esta opción si ha ejecutado la réplica de máquinas virtuales de Azure durante algún tiempo, o si se ha eliminado la máquina virtual local.
 
 2. Puede seleccionar conmutar por recuperación en la misma máquina virtual o en otra alternativa. Puede especificar que Site Recovery deba crear la máquina virtual si aún no existe.
-3. Una vez finalizada la sincronización inicial, seleccione esta opción para completar la conmutación por error. Cuando finalice, puede iniciar sesión la máquina virtual local para comprobar que todo funciona según lo previsto. En Azure Portal, puede ver que las máquinas virtuales de Azure se han detenido.
+3. Una vez finalizada la sincronización inicial, seleccione esta opción para completar la conmutación por error. Una vez que se completa, puede iniciar sesión en la máquina virtual local para comprobar que todo funciona según lo previsto. En Azure Portal, puede ver que las máquinas virtuales de Azure se han detenido.
 4. Confirme la conmutación por error para terminar y comience a acceder de nuevo a la carga de trabajo desde la máquina virtual local.
 5. Una vez que las cargas de trabajo han conmutado por recuperación, habilite la replicación inversa, para que las máquinas virtuales locales se repliquen en Azure de nuevo.
 

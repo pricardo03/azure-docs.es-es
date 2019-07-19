@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.custom: hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 0dbd5a886e2369d29a568eca47dda5558f43c8cd
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: fceea6273f00fdf16d8934533f08bc3494795bc4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479143"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433280"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Apache Hadoop en HDInsight
 
-Azure HDInsight ofrece un sistema de archivos distribuido de Hadoop (HDFS) completo a través de Azure Storage y Azure Data Lake Storage (Gen1 y Gen2). Azure Storage y Data Lake Storage Gen1 y Gen2 están diseñados como una extensión de HDFS a fin de ofrecer una experiencia sin problemas para los clientes. Habilitan el conjunto completo de componentes en el ecosistema de Hadoop para que opere directamente en los datos que administra. Azure Storage y Data Lake Storage Gen1 y Gen2 son sistemas de archivos diferentes que se han optimizado para el almacenamiento de datos y el cálculo en ellos. Para obtener información acerca de las ventajas de usar el almacenamiento de Azure, consulte [uso de Azure Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md), [Use Data Lake Storage Gen1 con HDInsight](hdinsight-hadoop-use-data-lake-store.md), y [Use Data Lake Storage Gen2 con HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Azure HDInsight ofrece un sistema de archivos distribuido de Hadoop (HDFS) completo a través de Azure Storage y Azure Data Lake Storage (Gen1 y Gen2). Azure Storage y Data Lake Storage Gen1 y Gen2 están diseñados como una extensión de HDFS a fin de ofrecer una experiencia sin problemas para los clientes. Habilitan el conjunto completo de componentes en el ecosistema de Hadoop para que opere directamente en los datos que administra. Azure Storage y Data Lake Storage Gen1 y Gen2 son sistemas de archivos diferentes que se han optimizado para el almacenamiento de datos y el cálculo en ellos. Para más información sobre las ventajas del uso de Azure Storage, consulte [Uso de Azure Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md), [Uso de Data Lake Storage Gen1 con HDInsight](hdinsight-hadoop-use-data-lake-store.md) y [Uso de Data Lake Storage Gen2 con HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Tenga en cuenta los siguientes requisitos antes de empezar:
 
-* Un clúster de HDInsight de Azure. Para obtener instrucciones, consulte [empezar a trabajar con Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) o [de clústeres de HDInsight crear](hdinsight-hadoop-provision-linux-clusters.md).
+* Un clúster de HDInsight de Azure. Para obtener instrucciones, consulte [Introducción a Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) o [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Conocimientos de los artículos siguientes:
 
     - [Uso de Azure Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md)
@@ -59,7 +59,7 @@ Una vez conectado, puede utilizar la siguiente sintaxis para cargar un archivo a
 hadoop -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-Por ejemplo, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+Por ejemplo: `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Como el sistema de archivos predeterminado de HDInsight está en Azure Storage, /example/data.txt está en realidad en Azure Storage. También puede referirse al archivo como:
 
@@ -82,7 +82,7 @@ También hay varias aplicaciones que proporcionan una interfaz gráfica para tra
 | [Microsoft Visual Studio Tools para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Explorador de Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
 | [Cerulea](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
-| [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
+| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [Explorador de CloudBerry para Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
@@ -103,7 +103,7 @@ El servicio Azure Data Factory es un servicio completamente administrado para cr
 ### <a id="sqoop"></a>Apache Sqoop
 Sqoop es una herramienta diseñada para transferir datos entre Hadoop y las bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS), como SQL Server, MySQL u Oracle en el sistema de archivos distribuidos de Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Hive y, a continuación, exportar los datos en un RDBMS.
 
-Para obtener más información, consulte [uso de Sqoop con HDInsight](hadoop/hdinsight-use-sqoop.md).
+Para más información, consulte [Uso de Sqoop con HDInsight](hadoop/hdinsight-use-sqoop.md).
 
 ### <a name="development-sdks"></a>SDK de desarrollo
 También se puede acceder a Azure Storage mediante un SDK de Azure desde los siguientes lenguajes de programación:
@@ -151,7 +151,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 También puede aumentar el valor de `fs.azure.write.request.size` globalmente mediante Apache Ambari. Los siguientes pasos se pueden usar para cambiar el valor en la IU web de Ambari:
 
-1. En el explorador, vaya a la IU web de Ambari para el clúster. Se trata de `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster.
+1. En el explorador, vaya a la IU web de Ambari para el clúster. Es `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster.
 
     Cuando se le solicite, escriba el nombre de usuario y la contraseña de administrador para el clúster.
 2. En el lado izquierdo de la pantalla, seleccione **HDFS** y luego seleccione la pestaña **Configs** (Configuraciones).

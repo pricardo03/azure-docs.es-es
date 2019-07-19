@@ -1,61 +1,92 @@
 ---
-title: Registrar las extensiones de enlace de Azure Functions
-description: Aprenda a registrar una extensión de enlace de Azure Functions en función de su entorno.
+title: Registro de las extensiones de enlace de Azure Functions
+description: Aprenda a registrar una extensión de enlace de Azure Functions basada en su entorno.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 53eb5fc9389d913ecacec3729a06e47a1c2bf56b
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.openlocfilehash: 88ffd6ec24ed19dd3b1e57277884c8759cdac1f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864544"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480333"
 ---
-# <a name="register-azure-functions-binding-extensions"></a>Registrar las extensiones de enlace de Azure Functions
+# <a name="register-azure-functions-binding-extensions"></a>Registro de las extensiones de enlace de Azure Functions
 
-En la versión de Azure Functions 2.x, [enlaces](./functions-triggers-bindings.md) están disponibles como paquetes independientes del tiempo de ejecución de funciones. Mientras que las funciones de .NET tener acceso a los enlaces a través de paquetes de NuGet, paquetes de extensión permiten el acceso de otras funciones a todos los enlaces a través de un valor de configuración.
+En la versión de Azure Functions 2.x, los [enlaces](./functions-triggers-bindings.md) están disponibles como paquetes independientes de Functions Runtime. Aunque las funciones de .NET acceden a los enlaces a través de paquetes NuGet, los grupos de extensiones permiten a otras funciones acceder a todos los enlaces mediante una opción de configuración.
 
-Tenga en cuenta los siguientes elementos relacionados con extensiones de enlace:
+Tenga en cuenta los siguientes elementos relacionados con las extensiones de enlaces:
 
-- Las extensiones de enlace explícitamente no están registradas en Functions 1.x, excepto cuando [creando un C# biblioteca de clases mediante Visual Studio de 2019](#local-csharp).
+- Las extensiones de enlaces no están registradas explícitamente en Functions 1.x, excepto cuando [se crea una biblioteca de clases en C# mediante Visual Studio](#local-csharp).
 
-- Los desencadenadores HTTP y el temporizador se admiten de forma predeterminada y no requieren una extensión.
+- De forma predeterminada, se admiten los desencadenadores de HTTP y de temporizador y no requieren una extensión.
 
-En la tabla siguiente indica cómo y cuándo registrar los enlaces.
+En la tabla siguiente se indica cuándo y cómo registrar los enlaces.
 
 | Entorno de desarrollo |Registro<br/> en Functions 1.x  |Registro<br/> en Functions 2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure Portal|Automático|Automático|
-|Lenguajes que no sean de. NET o desarrollo de herramientas de Azure Core local|Automático|[Use Azure Functions Core Tools y agrupaciones de extensión](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
-|C#biblioteca de clases mediante Visual Studio de 2019|[Uso de herramientas NuGet](#c-class-library-with-visual-studio-2019)|[Uso de herramientas NuGet](#c-class-library-with-visual-studio-2019)|
+|Portal de Azure|Automático|Automático|
+|Desarrollo en lenguajes que no son .NET o en Azure Functions Core Tools local|Automático|[Uso de Azure Functions Core Tools y agrupaciones de extensiones](#extension-bundles)|
+|Biblioteca de clases de C# con Visual Studio 2019|[Uso de herramientas NuGet](#c-class-library-with-visual-studio-2019)|[Uso de herramientas NuGet](#c-class-library-with-visual-studio-2019)|
 |Biblioteca de clases de C# con Visual Studio Code|N/D|[Uso de la CLI de .NET Core](#c-class-library-with-visual-studio-code)|
 
-## <a name="local-development-with-azure-functions-core-tools-and-extension-bundles"></a>Desarrollo local con Azure Functions Core Tools y agrupaciones de extensión
+## <a name="extension-bundles"></a>Agrupaciones de extensiones para el desarrollo local
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+Las agrupaciones de extensiones son una tecnología de desarrollo de la versión 2.x del runtime que le permite agregar un conjunto compatible de extensiones de enlaces de Functions al proyecto de aplicación de funciones. Estos paquetes de extensiones se incluyen en el paquete de implementación al implementar en Azure. Las agrupaciones hacen que todos los enlaces publicados por Microsoft estén disponibles mediante un valor del archivo *host.json*. Los paquetes de extensiones definidos en una agrupación son compatibles entre sí, lo cual le ayuda a evitar conflictos entre ellos. Cuando desarrolle localmente, asegúrese de que está utilizando la versión más reciente de [Azure Functions Core Tools](functions-run-local.md#v2).
+
+Use agrupaciones de extensiones para todo el desarrollo local con Azure Functions Core Tools o Visual Studio Code.
+
+Si no usa agrupaciones de extensiones, deberá instalar el SDK de .NET Core 2.x en el equipo local antes de instalar las extensiones de enlaces. Las agrupaciones permiten eliminar este requisito para el desarrollo local. 
+
+Para usar agrupaciones de extensiones, actualice el archivo *host.json* para que incluya la siguiente entrada para `extensionBundle`:
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    }
+}
+```
+
+Las siguientes propiedades están disponibles en `extensionBundle`:
+
+| Propiedad | DESCRIPCIÓN |
+| -------- | ----------- |
+| **`id`** | Espacio de nombres de las agrupaciones de extensiones de Microsoft Azure Functions. |
+| **`version`** | Versión de la agrupación que va a instalar. Functions Runtime siempre elige la máxima versión permitida definida por el rango o intervalo de versiones. El valor de versión anterior permite todas las versiones de agrupaciones desde la 1.0.0 en adelante pero sin incluir la 2.0.0. Para más información, consulte la [notación de intervalo para especificar intervalos de versiones](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). |
+
+Las versiones de las agrupaciones aumentan a medida que cambian los paquetes de la agrupación. Los cambios de versión principal se producen cuando los paquetes de la agrupación aumentan debido a una versión principal, lo cual normalmente coincide con un cambio en la versión principal de Functions Runtime.  
+
+El conjunto actual de extensiones instaladas mediante la agrupación predeterminada se enumera en este [archivo extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
 
 <a name="local-csharp"></a>
-## <a name="c-class-library-with-visual-studio-2019"></a>C#biblioteca de clases con Visual Studio de 2019
 
-En **2019 de Visual Studio**, puede instalar paquetes desde la consola de administrador de paquetes con el [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) de comandos, tal como se muestra en el ejemplo siguiente:
+## <a name="c-class-library-with-visual-studio-2019"></a>Biblioteca de clases de C\# con Visual Studio 2019
+
+En **Visual Studio 2019**, puede instalar paquetes desde la consola del Administrador de paquetes mediante el comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), tal como se muestra en el ejemplo siguiente:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
 ```
 
-Se proporciona el nombre del paquete que se usa para un enlace determinado en el artículo de referencia para ese objeto binding. Para obtener un ejemplo, consulte la [sección de paquetes del artículo de referencia de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
+El nombre del paquete que se usa para un enlace determinado se proporciona en el artículo de referencia de ese enlace. Para obtener un ejemplo, consulte la [sección de paquetes del artículo de referencia de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
 
 Reemplace `<TARGET_VERSION>` en el ejemplo con una versión específica del paquete, como `3.0.0-beta5`. Las versiones válidas se enumeran en las páginas individuales del paquete en [NuGet.org](https://nuget.org). Las versiones principales que corresponden al tiempo de ejecución de Functions 1.x o 2.x se especifican en el artículo de referencia del enlace.
 
 ## <a name="c-class-library-with-visual-studio-code"></a>Biblioteca de clases de C# con Visual Studio Code
 
-En **Visual Studio Code**, puede instalar paquetes desde el símbolo de sistema mediante el comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) de la CLI de .NET Core, tal como se muestra en el ejemplo siguiente:
+> [!NOTE]
+> Se recomienda usar [agrupaciones de extensiones](#extension-bundles) para que Functions instale automáticamente un conjunto compatible de paquetes de extensiones de enlace.
+
+En **Visual Studio Code**, instale paquetes para un proyecto de biblioteca de clases de C# desde el símbolo del sistema mediante el comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) de la CLI de .NET Core, tal como se muestra en el ejemplo siguiente:
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <TARGET_VERSION>
@@ -69,5 +100,5 @@ Reemplace `<TARGET_VERSION>` en el ejemplo con una versión específica del paqu
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Ejemplo de desencadenador y enlace de Azure (función)](./functions-bindings-example.md)
+> [Ejemplo de desencadenador y enlace de Azure Functions](./functions-bindings-example.md)
 

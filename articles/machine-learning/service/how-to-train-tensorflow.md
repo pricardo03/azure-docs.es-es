@@ -1,44 +1,54 @@
 ---
-title: Entrenar y registre los modelos de TensorFlow
+title: Entrenamiento y registro de modelos de TensorFlow
 titleSuffix: Azure Machine Learning service
-description: Este artículo muestra cómo entrenar y registrar un modelo de TensorFlow con el servicio Azure Machine Learning.
+description: En este artículo se muestra cómo entrenar y registrar un modelo de TensorFlow mediante Azure Machine Learning Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
-ms.date: 05/28/2019
+ms.author: maxluk
+author: maxluk
+ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4a6f9734a7b2b59035efcbb0f4e2d75f47e053be
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: 67263df319063cdf21dadea257dcab05ba0d5f7b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515593"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839993"
 ---
-# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Entrenar y registrar TensorFlow modelos a escala con el servicio Azure Machine Learning
+# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Entrenamiento y registro de modelos de TensorFlow a escala con Azure Machine Learning Service
 
-Este artículo muestra cómo entrenar y registrar un modelo de TensorFlow con el servicio Azure Machine Learning. Vamos a usar el popular [conjunto de datos MNIST](http://yann.lecun.com/exdb/mnist/) para clasificar los dígitos escritos a mano mediante una red neuronal profunda compilada con la [biblioteca de TensorFlow Python](https://www.tensorflow.org/overview).
+En este artículo se muestra cómo entrenar y registrar un modelo de TensorFlow mediante Azure Machine Learning Service. Se usa el popular [conjunto de datos MNIST](http://yann.lecun.com/exdb/mnist/) para clasificar dígitos escritos a mano mediante una red neuronal profunda creada con la [biblioteca TensorFlow de Python](https://www.tensorflow.org/overview).
 
-Con el servicio de Azure Machine Learning, podrá escalar rápidamente sus trabajos de aprendizaje de código abierto con los recursos de proceso en la nube elástica. También podrá realizar un seguimiento de sus ejecuciones de entrenamiento, modelos de la versión, implementar los modelos y mucho más.
+TensorFlow es un marco de proceso de código abierto utilizado habitualmente para crear redes neuronales profundas (DNN). Con Azure Machine Learning Service, puede escalar horizontalmente con rapidez trabajos de entrenamiento de código abierto mediante recursos de proceso elásticos en la nube. También puede realizar un seguimiento de las ejecuciones de entrenamientos, los modelos de versión, los modelos de implementación y mucho más.
 
-Si va a desarrollar un modelo de TensorFlow desde el principio o lleva un modelo existente a la nube, puede crear modelos para entornos de producción con el servicio de Azure Machine Learning.
+Con independencia de que desarrolle un modelo de TensorFlow desde el principio o lleve un [modelo existente](how-to-deploy-existing-model.md) a la nube, Azure Machine Learning Service le puede ayudar a crear modelos para entornos de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Instalar el [de Azure Machine Learning SDK para Python](setup-create-workspace.md#sdk). Opcional: crear un `config.json` archivo de configuración.
-- Descargue el [archivos de script de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` y `utils.py`
+Ejecute este código en uno de estos entornos:
 
-También puede encontrar un completado [versión Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) de esta guía en nuestra página de ejemplos de Github. El Bloc de notas incluye expandidas secciones que abarcan el ajuste de hiperparámetros inteligentes e implementación de modelo.
+ - Máquina virtual de cuadernos de Azure Machine Learning: no se necesitan descargas ni instalación
 
-## <a name="set-up-the-experiment"></a>Configure el experimento
+     - Complete el [inicio rápido de cuadernos basados en la nube](quickstart-run-cloud-notebook.md) para crear un servidor de cuadernos dedicado en el que se habrán cargado previamente el SDK y el repositorio de ejemplos.
+    - En la carpeta de ejemplos en el servidor de cuadernos, vaya a este directorio: carpeta **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-tensorflow**, para encontrar un cuaderno completado y expandido. 
+ 
+ - Su propio servidor de Jupyter Notebook
 
-Esta sección configura el experimento de entrenamiento, cargar los paquetes de python necesarios, inicializando un área de trabajo, creación de un experimento y cargar los datos de entrenamiento y scripts de entrenamiento mediante el SDK de Python.
+     - [Instalación del SDK de Azure Machine Learning para Python](setup-create-workspace.md#sdk)
+    - [Creación de un archivo de configuración del área de trabajo](setup-create-workspace.md#write-a-configuration-file)
+    - [Descarga de los archivos de script de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` y `utils.py`
+     
+    También puede encontrar una [versión de Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) completada de esta guía en la página de ejemplos de GitHub. El cuaderno incluye secciones expandidas que abarcan el ajuste de hiperparámetros inteligente, la implementación de modelos y los widgets del cuaderno.
+
+## <a name="set-up-the-experiment"></a>Configuración del experimento
+
+En esta sección, para configurar el experimento de entrenamiento, se cargan los paquetes de Python necesarios, se inicializa un área de trabajo, se crea un experimento y se cargan los datos y scripts de entrenamiento.
 
 ### <a name="import-packages"></a>Importación de paquetes
 
-En primer lugar, se deberá importar las bibliotecas de Python necesarias.
+En primer lugar, importe las bibliotecas de Python necesarias.
 
 ```Python
 import os
@@ -53,30 +63,19 @@ from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
 ```
 
-### <a name="initialize-a-workspace"></a>Inicializar un área de trabajo
+### <a name="initialize-a-workspace"></a>Inicialización de un área de trabajo
 
-El [área de trabajo de servicio de Azure Machine Learning](concept-workspace.md) es el recurso de nivel superior para el servicio. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree. En el SDK de Python, puede acceder a los artefactos de área de trabajo mediante la creación de un [ `workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) objeto.
+El [área de trabajo de Azure Machine Learning Service](concept-workspace.md) es el recurso de nivel superior del servicio. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree. En el SDK de Python, puede acceder a los artefactos del área de trabajo mediante la creación de un objeto [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py).
 
-Si ha completado el paso opcional en el [sección Requisitos previos](#prerequisites), puede usar `Workspace.from_config()` para crear rápidamente un objeto de área de trabajo de los detalles que se almacenan en el archivo de configuración.
+Cree un objeto del área de trabajo a partir del archivo `config.json` creado en la [sección de requisitos previos](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
 ```
 
-También puede crear un área de trabajo de forma explícita:
-
-```Python
-ws = Workspace.create(name='<workspace-name>',
-                      subscription_id='<azure-subscription-id>',
-                      resource_group='<choose-a-resource-group>',
-                      create_resource_group=True,
-                      location='<select-location>' # For example: 'eastus2'
-                      )
-```
-
 ### <a name="create-an-experiment"></a>Creación de un experimento
 
-Crear un experimento y una carpeta para almacenar los scripts de entrenamiento. En este ejemplo, cree un experimento denominado "tf-mnist".
+Cree un experimento y una carpeta para almacenar los scripts de entrenamiento. En este ejemplo, cree un experimento llamado "tf-mnist".
 
 ```Python
 script_folder = './tf-mnist'
@@ -85,11 +84,11 @@ os.makedirs(script_folder, exist_ok=True)
 exp = Experiment(workspace=ws, name='tf-mnist')
 ```
 
-### <a name="upload-dataset-and-scripts"></a>Cargar conjunto de datos y las secuencias de comandos
+### <a name="upload-dataset-and-scripts"></a>Carga del conjunto de datos y los scripts
 
-El [datastore](how-to-access-data.md) es un lugar donde se pueden almacenar datos y acceso de montaje o copiar los datos en el destino de proceso. Cada área de trabajo proporciona un almacén de datos de forma predeterminada. Se cargará nuestros datos y scripts de entrenamiento para que sean fácilmente accesibles durante el entrenamiento.
+El [almacén de datos](how-to-access-data.md) es un lugar donde se pueden almacenar datos y acceder a ellos mediante el montaje o la copia de los datos en el destino de proceso. Cada área de trabajo proporciona un almacén de datos predeterminado. Cargue los datos y scripts de entrenamiento al almacén de datos para que sean fácilmente accesibles durante el entrenamiento.
 
-1. Descargue el conjunto de datos MNIST localmente.
+1. Descargue el conjunto de datos de MNIST al entorno local.
 
     ```Python
     os.makedirs('./data/mnist', exist_ok=True)
@@ -100,14 +99,14 @@ El [datastore](how-to-access-data.md) es un lugar donde se pueden almacenar dato
     urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename = './data/mnist/test-labels.gz')
     ```
 
-1. Cargue el conjunto de datos MNIST en el almacén de datos de forma predeterminada.
+1. Cargue el conjunto de datos de MNIST al almacén de datos predeterminado.
 
     ```Python
     ds = ws.get_default_datastore()
     ds.upload(src_dir='./data/mnist', target_path='mnist', overwrite=True, show_progress=True)
     ```
 
-1. Cargar el script de aprendizaje de TensorFlow `tf_mnist.py`y el archivo auxiliar, `utils.py`.
+1. Cargue el script de entrenamiento de TensorFlow `tf_mnist.py` y el archivo auxiliar, `utils.py`.
 
     ```Python
     shutil.copy('./tf_mnist.py', script_folder)
@@ -116,7 +115,7 @@ El [datastore](how-to-access-data.md) es un lugar donde se pueden almacenar dato
 
 ## <a name="create-a-compute-target"></a>Creación de un destino de proceso
 
-Crear un destino de proceso para que se ejecute su trabajo de TensorFlow. En este ejemplo, crearemos un clúster de proceso basados en GPU de Azure Machine Learning. Para obtener una lista de aprendizaje disponibles, los destinos de proceso, consulte [en este artículo](how-to-set-up-training-targets.md#compute-targets-for-training)
+Cree un destino de proceso en el que ejecutar el trabajo de TensorFlow. En este ejemplo, cree un clúster de proceso de Azure Machine Learning habilitado para GPU.
 
 ```Python
 cluster_name = "gpucluster"
@@ -134,13 +133,15 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-## <a name="create-a-tensorflow-estimator"></a>Crear un Estimador de TensorFlow
+Para más información sobre los destinos de proceso, consulte el artículo [¿Qué es un destino de proceso?](concept-compute-target.md)
 
-El [TensorFlow Estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) proporciona una manera sencilla de iniciar un trabajo de aprendizaje de TensorFlow en un destino de proceso. Creará una imagen de docker que tiene instalado de TensorFlow.
+## <a name="create-a-tensorflow-estimator"></a>Creación de un estimador de TensorFlow
 
-El Estimador de TensorFlow se implementa mediante el modelo genérico [ `estimator` ](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) (clase), que se puede usar para admitir cualquier marco de trabajo. Para obtener más información sobre cómo entrenar modelos con el Estimador de genérico, vea [entrenar modelos con Azure Machine Learning con Estimador](how-to-train-ml-models.md)
+El [estimador de TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) proporciona una manera sencilla de iniciar un trabajo de entrenamiento de TensorFlow en un destino de proceso.
 
-Si su script de entrenamiento debe adicional pip o conda paquetes para ejecutarlos, puede hacer que los paquetes instalados en la imagen de docker resultante pasando sus nombres mediante el `pip_packages` y `conda_packages` argumentos.
+El estimador de TensorFlow se implementa a través de la clase genérica [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), que se puede usar para admitir cualquier marco de trabajo. Para más información sobre cómo entrenar modelos con el estimador genérico, consulte [Entrenamiento de modelos con Azure Machine Learning mediante un estimador](how-to-train-ml-models.md).
+
+Si el script de entrenamiento necesita paquetes adicionales pip o conda para ejecutarse, puede hacer que los paquetes se instalen en la imagen de Docker resultante. Para ello, pase sus nombres mediante los argumentos `pip_packages` y `conda_packages`.
 
 ```Python
 script_params = {
@@ -158,34 +159,34 @@ est = TensorFlow(source_directory=script_folder,
                  use_gpu=True)
 ```
 
-## <a name="submit-a-run"></a>Envía una ejecución
+## <a name="submit-a-run"></a>Envío de una ejecución
 
-El [ejecutar objeto](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) proporciona la interfaz para el historial de ejecución mientras se ejecuta el trabajo y cuando se ha completado.
+El [objeto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) proporciona la interfaz para el historial de ejecución mientras se ejecuta el trabajo y cuando se ha completado.
 
 ```Python
 run = exp.submit(est)
 run.wait_for_completion(show_output=True)
 ```
 
-Que se ejecute la ejecución, pasará a través de las siguientes fases:
+Durante la ejecución de Run, pasa por las fases siguientes:
 
-- **Preparando**: Se crea una imagen de docker según el Estimador de TensorFlow. La imagen se carga en container registry del área de trabajo y se almacena en caché para las ejecuciones posteriores. Los registros también se transmiten en el historial de ejecución y se pueden consultar para supervisar el progreso.
+- **Preparación**: se crea una imagen de Docker según el estimador de TensorFlow. La imagen se carga en el registro de contenedor del área de trabajo y se almacena en memoria caché para ejecuciones posteriores. Los registros también se transmiten al historial de ejecución y se pueden consultar para supervisar el progreso.
 
-- **Escalado**: El clúster intentará escalar verticalmente si el clúster de Batch AI requiere más nodos para realizar la ejecución que se encuentran disponibles.
+- **Escalado**: el clúster intenta escalar verticalmente si el clúster de Batch AI requiere más nodos para realizar la ejecución de los que se encuentran disponibles actualmente.
 
-- **Running**: Todos los scripts en la carpeta de scripts se cargan en el destino de proceso, se monta los almacenes de datos o se copian y se ejecuta el entry_script. Genera una salida en stdout y. / carpeta de registros se transmiten en el historial de ejecución y puede usarse para supervisar la ejecución.
+- **Running**: todos los scripts de la carpeta de scripts se cargan en el destino de proceso, se montan o se copian los almacenes de datos y se ejecuta entry_script. Las salidas de stdout y la carpeta ./logs se transmiten al historial de ejecución y se pueden usar para supervisar la ejecución.
 
-- **Posprocesamiento**: El. / salidas de carpeta de la ejecución se copia en el historial de ejecución.
+- **Posprocesamiento**: la carpeta ./outputs de la ejecución se copia en el historial de ejecución.
 
-## <a name="register-or-download-a-model"></a>Registrar o descargar un modelo
+## <a name="register-or-download-a-model"></a>Registro o descarga de un modelo
 
-Una vez que haya entrenado el modelo, puede registrarlo en el área de trabajo. Registro del modelo le permite tienda y la versión de los modelos en el área de trabajo para simplificar [administración e implementación de modelo](concept-model-management-and-deployment.md).
+Una vez que haya entrenado el modelo, puede registrarlo en el área de trabajo. El registro del modelo permite almacenar los modelos y crear versiones de ellos en el área de trabajo para simplificar la [administración e implementación de modelos](concept-model-management-and-deployment.md).
 
 ```Python
 model = run.register_model(model_name='tf-dnn-mnist', model_path='outputs/model')
 ```
 
-También puede descargar una copia local del modelo utilizando el objeto de ejecución. En el script de entrenamiento `mnist-tf.py`, un objeto de protector de TensorFlow persista el modelo en una carpeta local (local para el destino de proceso). Podemos usar para descargar una copia del objeto de ejecución.
+También puede descargar una copia local del modelo mediante el uso del objeto Run. En el script de entrenamiento, `mnist-tf.py`, un objeto de protector de TensorFlow guarda el modelo en una carpeta local (local para el destino de proceso). Puede usar el objeto Run para descargar una copia.
 
 ```Python
 # Create a model folder in the current directory
@@ -200,18 +201,18 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Entrenamiento distribuido
 
-El [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) Estimador también admite el aprendizaje distribuido a través de clústeres de CPU y GPU. Puede ejecutar fácilmente los trabajos de TensorFlow distribuidos y va a administrar la orquestación para el servicio de Azure Machine Learning.
+El estimador [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) también admite el entrenamiento distribuido en clústeres de CPU y GPU. Puede ejecutar fácilmente los trabajos distribuidos de TensorFlow y Azure Machine Learning Service se ocupará de administrar la orquestación.
 
-Servicio Azure Machine Learning admite dos métodos de aprendizaje distribuido en TensorFlow:
+Azure Machine Learning Service admite dos métodos de entrenamiento distribuido en TensorFlow:
 
-- [En función de MPI](https://www.open-mpi.org/) distribuidas entrenamiento mediante la [Horovod](https://github.com/uber/horovod) framework
-- Nativo [distribuidas TensorFlow](https://www.tensorflow.org/deploy/distributed) mediante el parámetro del método de servidor
+- Entrenamiento distribuido [basado en MPI](https://www.open-mpi.org/) mediante el marco [Horovod](https://github.com/uber/horovod)
+- [TensorFlow distribuido](https://www.tensorflow.org/deploy/distributed) nativo mediante el método de servidor de parámetros
 
 ### <a name="horovod"></a>Horovod
 
-[Horovod](https://github.com/uber/horovod) es un marco de código abierto para el aprendizaje distribuido desarrolladas por Uber. Ofrece una ruta de acceso fácil a los trabajos de GPU TensorFlow distribuidos.
+[Horovod](https://github.com/uber/horovod) es un marco de código abierto para el entrenamiento distribuido desarrollado por Uber. Ofrece una ruta de acceso fácil a los trabajos de GPU distribuidos de TensorFlow.
 
-Para usar Horovod, especifique `mpi` para el `distributed_training` parámetro del constructor del estimador de TensorFlow. Horovod se instalará para que su uso en el script de entrenamiento.
+Para usar Horovod, especifique un objeto [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) para el parámetro `distributed_training` en el constructor de TensorFlow. Este parámetro garantiza que se instala la biblioteca de Horovod para su uso en el script de entrenamiento.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -232,7 +233,7 @@ estimator= TensorFlow(source_directory=project_folder,
 
 También puede ejecutar [TensorFlow distribuido nativo](https://www.tensorflow.org/deploy/distributed), que utiliza el modelo de servidor del parámetro. En este método, entrena a través de un clúster de servidores de parámetro y los trabajadores. Los trabajadores calculan los degradados durante el entrenamiento, mientras que los servidores de parámetro agregan los degradados.
 
-Para usar el parámetro del método de servidor, especifique `ps` para el `distributed_training` parámetro del constructor del estimador de TensorFlow.
+Para usar el método del servidor de parámetros, especifique un objeto [`TensorflowConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) para el parámetro `distributed_training` en el constructor de TensorFlow.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -247,16 +248,16 @@ estimator= TensorFlow(source_directory=project_folder,
                       entry_script='script.py',
                       node_count=2,
                       process_count_per_node=1,
-                      distributed_backend=distributed_training,
+                      distributed_training=distributed_training,
                       use_gpu=True)
 
 # submit the TensorFlow job
 run = exp.submit(tf_est)
 ```
 
-#### <a name="define-cluster-specifications-in-tfconfig"></a>Definir las especificaciones del clúster en 'TF_CONFIG'
+#### <a name="define-cluster-specifications-in-tfconfig"></a>Definición de las especificaciones del clúster en "TF_CONFIG"
 
-También necesitará las direcciones de red y puertos del clúster para el [ `tf.train.ClusterSpec` ](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), por lo que Azure Machine Learning establece el `TF_CONFIG` variable de entorno para usted.
+También necesitará las direcciones de red y los puertos del clúster para [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), por lo que Azure Machine Learning establece la variable de entorno `TF_CONFIG` por usted.
 
 La variable de entorno `TF_CONFIG` es una cadena JSON. Este es un ejemplo de la variable para un servidor de parámetro:
 
@@ -271,9 +272,9 @@ TF_CONFIG='{
 }'
 ```
 
-Nivel del TensorFlow más alto [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow se analizarán esto `TF_CONFIG` variable y el clúster de la compilación de especificaciones para usted.
+Para la API [`tf.estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator) de alto nivel de TensorFlow, TensorFlow analizará la variable `TF_CONFIG` y creará la especificación del clúster automáticamente.
 
-Para el núcleo de nivel inferior de TensorFlow API para el entrenamiento, analizar el `TF_CONFIG` variable y compilación el `tf.train.ClusterSpec` en el código de entrenamiento.
+Para la API básica de nivel inferior de TensorFlow para el entrenamiento, analice la variable `TF_CONFIG` y cree `tf.train.ClusterSpec` en el código de entrenamiento.
 
 ```Python
 import os, json
@@ -289,7 +290,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, entrenar y registrar un modelo de TensorFlow en el servicio Azure Machine Learning. Para obtener información sobre cómo implementar un modelo, continúe con nuestro artículo de la implementación de modelo.
+En este artículo, ha entrenado y registrado un modelo de TensorFlow. Para obtener información sobre cómo implementar un modelo en un clúster habilitado para GPU, continúe con nuestro artículo de implementación del modelo GPU.
 
-> [!div class="nextstepaction"]
-> [Cómo y dónde implementar los modelos](how-to-deploy-and-where.md)
+[Cómo implementar para la inferencia con GPU](how-to-deploy-inferencing-gpus.md)
+[Cómo supervisar con Tensorboard](how-to-monitor-tensorboard.md)

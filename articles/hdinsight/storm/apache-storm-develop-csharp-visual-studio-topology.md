@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 14aa45808f44f7ca6fe34b70ef282a99f230bf0d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 9d459f88cd252303384acb4a72d0af0cce6ee226
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687750"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428464"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desarrollo de topologías de C# para Apache Storm con Herramientas de Azure Data Lake para Visual Studio
 
@@ -432,7 +432,7 @@ Las topologías transaccionales implementan lo siguiente para que admitan la rep
 
 * **Almacenamiento en caché de metadatos**: el spout debe almacenar metadatos sobre los datos emitidos para que los datos puedan recuperarse y volver a emitirse si se produce un error. Dado que los datos que emite la muestra son pequeños, los datos sin procesar de cada tupla se almacenan en un diccionario para la reproducción.
 
-* **Ack**: cada bolt de la topología puede llamar a `this.ctx.Ack(tuple)` para confirmar que ha procesado una tupla correctamente. Cuando todos los bolts han confirmado la tupla, el `Ack` se invoca el método del spout. El método `Ack` permite al spout quitar los datos que se almacenaron en caché para la reproducción.
+* **Ack**: cada bolt de la topología puede llamar a `this.ctx.Ack(tuple)` para confirmar que ha procesado una tupla correctamente. Una vez que todos los bolts han confirmado la tupla, se llama al método `Ack` del spout. El método `Ack` permite al spout quitar los datos que se almacenaron en caché para la reproducción.
 
 * **Fail**: cada bolt puede llamar a `this.ctx.Fail(tuple)` para indicar que se produjo un error al procesar una tupla. El error se propaga al método `Fail` del spout, donde la tupla puede reproducirse mediante metadatos almacenados en caché.
 
@@ -450,7 +450,7 @@ También puede usar Herramientas de Data Lake para Visual Studio para crear topo
 
 Para ver un ejemplo de una topología híbrida, cree un proyecto y seleccione **Muestra híbrida de Storm**. Este tipo de ejemplo ilustra los conceptos siguientes:
 
-* **Spout de Java** y **bolt de C#**: definidos en **HybridTopology_javaSpout_csharpBolt**.
+* **Spout de Java** y **bolt de C#** : definidos en **HybridTopology_javaSpout_csharpBolt**.
 
     * Una versión transaccional se define en **HybridTopologyTx_javaSpout_csharpBolt**.
 
@@ -559,7 +559,7 @@ En el caso de los clústeres de HDInsight basados en Linux, debe asegurarse de q
 
 ### <a name="test-a-topology-locally"></a>Prueba de una topología localmente
 
-Aunque es fácil implementar una topología en un clúster, en algunos casos puede que deba probar localmente una topología. Siga los pasos que se muestran a continuación para ejecutar y probar localmente la topología de ejemplo de este tutorial en su entorno de desarrollo.
+Aunque es fácil implementar una topología en un clúster, en algunos casos puede que deba probar localmente una topología. Siga los pasos que se muestran a continuación para ejecutar y probar localmente la topología de ejemplo de este artículo en su entorno de desarrollo.
 
 > [!WARNING]  
 > Las pruebas locales solo funcionan para topologías básicas de C#. No se pueden usar pruebas locales para las topologías híbridas o para las topologías que usan varias secuencias.

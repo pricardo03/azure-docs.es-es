@@ -3,7 +3,7 @@ title: Enlace mediante LDAP seguro (LDAPS) a un dominio administrado de Azure AD
 description: Enlace a un dominio administrado de Azure AD Domain Services con LDAP seguro (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: df0b3d27eec478280a33be831a2431eccdf05a74
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234855"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483380"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Enlace a un dominio administrado de Azure AD Domain Services con LDAP seguro (LDAPS)
 
@@ -35,6 +35,11 @@ En primer lugar, abra LDP y conéctese al dominio administrado. Haga clic en **C
 
 Después, enlace al dominio administrado. Haga clic en **Conexión** y haga clic en **Enlazar...**  en el menú. Proporcione las credenciales de una cuenta de usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD".
 
+> [!IMPORTANT]
+> Los usuarios (y las cuentas de servicio) no pueden realizar enlaces LDAP simples si ha desactivado la sincronización de hash de contraseñas NTLM en la instancia de Azure AD Domain Services.  Para más información acerca de cómo deshabilitar la sincronización de hash de contraseñas NTLM, lea [Protección de un dominio administrado con Azure AD Domain Services](secure-your-domain.md).
+>
+>
+
 Seleccione **Ver** y, después, seleccione **Árbol** en el menú. Deje en blanco el campo DN Base y haga clic en Aceptar. Vaya al contenedor en el que desea buscar, haga clic con el botón derecho en el contenedor y seleccione Buscar.
 
 > [!TIP]
@@ -43,7 +48,7 @@ Seleccione **Ver** y, después, seleccione **Árbol** en el menú. Deje en blanc
 >
 >
 
-Más información: [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx) (Conceptos básicos de las consultas LDAP)
+Más información: [LDAP query basics](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter) (Conceptos básicos de las consultas LDAP)
 
 
 ## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Tarea 6: bloqueo del acceso LDAP seguro al dominio administrado a través de Internet
@@ -65,9 +70,9 @@ El NSG de ejemplo de la tabla siguiente bloquea el acceso LDAP seguro sobre Inte
 
 ## <a name="related-content"></a>Contenido relacionado
 * [Introducción a Azure AD Domain Services](create-instance.md)
-* [Administrar un dominio de Azure AD Domain Services](manage-domain.md)
-* [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx) (Conceptos básicos de las consultas LDAP)
-* [Administrar directivas de grupo para Azure AD Domain Services](manage-group-policy.md)
+* [Administrar un dominio de Azure AD Domain Services](manage-domain.md)
+* [LDAP query basics](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter) (Conceptos básicos de las consultas LDAP)
+* [Administración de la directiva de grupo para Azure AD Domain Services](manage-group-policy.md)
 * [Grupos de seguridad de red](../virtual-network/security-overview.md)
 * [Creación de un grupo de seguridad de red](../virtual-network/tutorial-filter-network-traffic.md)
 

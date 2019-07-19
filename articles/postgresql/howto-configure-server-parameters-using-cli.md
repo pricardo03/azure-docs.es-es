@@ -1,20 +1,20 @@
 ---
-title: 'Configurar los parámetros del servicio en Azure Database for PostgreSQL: servidor único'
-description: 'En este artículo se describe cómo configurar los parámetros del servicio en Azure Database for PostgreSQL: servidor único con la línea de comandos de CLI de Azure.'
+title: 'Configuración de los parámetros de servicio de Azure Database for PostgreSQL: Single Server'
+description: 'En este artículo se describe cómo configurar los parámetros de servicio de Azure Database for PostgreSQL: Single Server mediante la línea de comandos de la CLI de Azure.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 9a9312d347f896047a5f8606b2518b63830c4d76
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.date: 06/19/2019
+ms.openlocfilehash: f276247076438a03973148b5cf65ddbeb409b024
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65067172"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274775"
 ---
-# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Personalizar los parámetros de configuración del servidor de Azure Database for PostgreSQL: solo servidor mediante la CLI de Azure
+# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Personalización de los parámetros de configuración del servidor de Azure Database for PostgreSQL: Single Server mediante la CLI de Azure
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor Azure PostgreSQL con la interfaz de la línea de comandos (CLI de Azure). Sin embargo, en el nivel del servidor, solo se expone y se puede modificar un subconjunto de las opciones de configuración del motor. 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -50,4 +50,5 @@ az postgres server configuration set --name log_min_messages --resource-group my
 La configuración de **log\_min\_messages** se restablecerá al valor predeterminado **WARNING**. Para obtener más información sobre la configuración del servidor y los valores permitidos, consulte la documentación de PostgreSQL en [Server Configuration](https://www.postgresql.org/docs/9.6/static/runtime-config.html) (Configuración del servidor).
 
 ## <a name="next-steps"></a>Pasos siguientes
+- [Aprenda a reiniciar un servidor](howto-restart-server-cli.md)
 - Para configurar y obtener acceso a los registros del servidor, consulte [Registros del servidor en Azure Database for PostgreSQL](concepts-server-logs.md).

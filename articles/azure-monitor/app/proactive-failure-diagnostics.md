@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46944603fdf45a2a7a14641086959bf61b3f773e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61299106"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465880"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detección inteligente: anomalías de error
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) le notifica automáticamente casi en tiempo real si la aplicación web sufre un aumento anómalo en la frecuencia de solicitudes erróneas. Asimismo, detecta un aumento inusual de la tasa de solicitudes HTTP o llamadas de dependencia notificadas como errores. En el caso de las solicitudes, las solicitudes con error suelen ser aquellas con códigos de respuesta de 400 o superiores. Para ayudarle a evaluar las prioridades y a diagnosticar el problema, en la notificación se proporciona un análisis de las características de los errores y la telemetría relacionada. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.
 
-Esta característica funciona para aplicaciones web ASP.NET y de Java, hospedadas en la nube o en sus propios servidores. También funciona para cualquier aplicación que genere telemetría de solicitudes o de dependencia, por ejemplo, si tiene un rol de trabajo que llama a [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) o a [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Esta característica funciona para cualquier aplicación web, hospedada en la nube o en sus propios servidores, que genera telemetría de dependencia o de solicitud, por ejemplo, si tiene un rol de trabajo que llama a [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) o a [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 Después de configurar [Application Insights para su proyecto](../../azure-monitor/app/app-insights-overview.md) y siempre que la aplicación genere una cantidad mínima determinada de datos de telemetría, la detección inteligente de anomalías de errores tarda 24 horas en aprender el comportamiento normal de la aplicación antes de que se active y se puedan enviar alertas.
 
@@ -43,6 +43,26 @@ Observe que le indica:
 * Un patrón característico relacionado con los errores. En este ejemplo encontrará un código de respuesta, un nombre de solicitud (operación) y una versión de aplicación concretos. Esto le indica inmediatamente por dónde empezar a buscar en el código. Otras posibilidades pueden ser un sistema operativo cliente o explorador específicos.
 * Las excepciones, seguimientos de registros y errores de dependencias (bases de datos u otros componentes externos) que parecen estar asociados con los errores caracterizados.
 * Los vínculos directos a búsquedas significativas en los datos de telemetría en Application Insights.
+
+## <a name="failure-anomalies-v2"></a>Anomalías en los errores v2
+Ya está disponible una versión nueva de la regla de alertas Anomalías en los errores. Esta versión nueva se ejecuta en la nueva plataforma de alertas de Azure y presenta una variedad de mejoras respecto de la versión existente.
+
+### <a name="whats-new-in-this-version"></a>Novedades de esta versión
+- Detección de problemas más rápida
+- Un conjunto más completo de acciones: la regla de alertas está creada con un [grupo de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) asociado denominado "Detección inteligente de Application Insights" que contiene acciones de correo electrónico y webhook y se puede extender para desencadenar acciones adicionales cuando se activa la alerta.
+- Notificaciones más centradas: las notificaciones por correo electrónico que se envían desde esta regla de alertas ahora se envían de manera predeterminada a los usuarios asociados con los roles Lector de supervisión y Colaborador de supervisión de la suscripción. Encontrará más información sobre esto [aquí](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
+- Configuración más sencilla a través de las plantillas de Resource Manager, consulte un ejemplo [aquí](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
+- Compatibilidad con el esquema de alertas comunes: las notificaciones enviadas desde esta regla de alertas siguen el [esquema de alertas comunes](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+- Plantilla unificada de correo electrónico: las notificaciones por correo electrónico desde esta regla de alertas tienen un aspecto coherente con el de otros tipos de alertas. Con este cambio, ya no está disponible la opción de recibir alertas de Anomalías en los errores con información de diagnóstico detallada.
+
+### <a name="how-do-i-get-the-new-version"></a>¿Cómo puedo obtener la versión nueva?
+- Los recursos de Application Insights recién creados ahora están aprovisionados con la versión nueva de la regla de alertas Anomalías en los errores.
+- Los recursos existentes de Application Insights con la versión clásica de la regla de alertas Anomalías en los errores recibirán la versión nueva una vez que la suscripción de hospedaje se migre a la plataforma de alertas nueva como parte del [proceso de retiro de las alertas clásicas](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
+
+> [!NOTE]
+> La versión nueva de la regla de alertas Anomalías en los errores sigue siendo gratuita. Además, las acciones de correo electrónico y webhook desencadenadas por el grupo de acción "Detección inteligente de Application Insights" asociado también son gratis.
+> 
+> 
 
 ## <a name="benefits-of-smart-detection"></a>Ventajas de la detección inteligente
 Las [alertas de métricas](../../azure-monitor/app/alerts.md) normales le comunican que puede haber un problema. Pero la detección inteligente inicia el trabajo de diagnóstico y realiza muchos de los análisis que, de otra forma, tendría que hacer usted mismo. Los resultados se le presentan claramente organizados, lo que le ayuda a llegar rápidamente a la raíz del problema.

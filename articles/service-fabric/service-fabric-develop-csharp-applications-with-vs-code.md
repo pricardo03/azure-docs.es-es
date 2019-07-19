@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393800"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537781"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desarrollo de aplicaciones C# de Service Fabric con Visual Studio Code
 
@@ -77,6 +77,17 @@ Después de haber compilado la aplicación, se puede implementar en el clúster 
 4. Después de haber comprobado que la aplicación se está ejecutando, inicie un explorador y abra esta página: http:\//localhost:31002. Se trata del front-end web de la aplicación. Actualice la página para ver el valor actual del contador a medida que aumenta.
 
    ![Aplicación CounterService en el explorador](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Publicación de una aplicación en un clúster de Azure Service Fabric
+Además de implementar la aplicación en el clúster local, también puede publicar la aplicación en un clúster remoto de Azure Service Fabric. 
+
+1. Asegúrese de haber compilado la aplicación según las instrucciones anteriores. Actualice el archivo de configuración generado `Cloud.json` con los detalles del clúster remoto en el que desea realizar la publicación.
+
+2. En la **paleta de comandos**, seleccione el comando **Service Fabric: Publicación de aplicación**. La salida del proceso de instalación se envía al terminal integrado.
+
+   ![Comando Publicar aplicación en VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+
+3. Una vez completada la implementación, inicie un explorador y abra Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. Debería ver que la aplicación se está ejecutando. Esto puede tardar algún tiempo, tenga paciencia. 
 
 ## <a name="debug-the-application"></a>Depuración de la aplicación
 Al depurar aplicaciones en VS Code, debe ejecutar la aplicación en un clúster local. A continuación, se pueden agregar puntos de interrupción en el código.

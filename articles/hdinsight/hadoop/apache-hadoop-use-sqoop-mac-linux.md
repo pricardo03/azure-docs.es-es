@@ -9,50 +9,50 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 6dcb6853daf34fede590011d165c0ba9001cbac6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 02b4eb6c367510e8994aa7723fe3fdd3e43af0e6
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721639"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462173"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Usar Apache Sqoop para importar y exportar datos entre Apache Hadoop en HDInsight y SQL Database
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Aprenda a usar Apache Sqoop para realizar importaciones y exportaciones entre un clúster de Apache Hadoop en Azure HDInsight y Azure SQL Database o la base de datos de Microsoft SQL Server. En los pasos descritos en este documento se usa el comando `sqoop` directamente desde el nodo principal del clúster de Hadoop. Usaremos SSH para conectarnos al nodo principal y ejecutar los comandos de este documento. En este artículo es una continuación de [Use Apache Sqoop con Hadoop en HDInsight](./hdinsight-use-sqoop.md).
+Aprenda a usar Apache Sqoop para realizar importaciones y exportaciones entre un clúster de Apache Hadoop en Azure HDInsight y Azure SQL Database o la base de datos de Microsoft SQL Server. En los pasos descritos en este documento se usa el comando `sqoop` directamente desde el nodo principal del clúster de Hadoop. Usaremos SSH para conectarnos al nodo principal y ejecutar los comandos de este documento. Este artículo es una continuación de [Uso de Apache Sqoop con Hadoop en HDInsight](./hdinsight-use-sqoop.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Finalización de [configurar el entorno de prueba](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) desde [Use Apache Sqoop con Hadoop en HDInsight](./hdinsight-use-sqoop.md).
+* Finalización de la [configuración de un entorno de prueba](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) de [Uso de Apache Sqoop con Hadoop en HDInsight](./hdinsight-use-sqoop.md).
 
-* Un cliente para consultar la base de datos SQL de Azure. Considere el uso de [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md) o [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md).
+* Un cliente para consultar la base de datos de Azure SQL. Considere el uso de [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md) o [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md).
 
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="sqoop-export"></a>Exportación de Sqoop
 
-Desde Hive a SQL Server.
+De Hive a SQL Server.
 
-1. Use SSH para conectarse al clúster de HDInsight. Reemplace `CLUSTERNAME` con el nombre del clúster, a continuación, escriba el comando:
+1. Use SSH para conectarse al clúster de HDInsight. Reemplace `CLUSTERNAME` por el nombre del clúster y, luego, escriba el comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Reemplace `MYSQLSERVER` con el nombre de SQL Server. Para comprobar que Sqoop puede ver la base de datos de SQL, escriba el comando siguiente en la conexión SSH abierta. Escriba la contraseña para el inicio de sesión de SQL Server cuando se le solicite. Este comando devuelve una lista de bases de datos.
+2. Reemplace `MYSQLSERVER` por el nombre de la instancia de SQL Server. Para comprobar que Sqoop puede ver la base de datos SQL, escriba el comando siguiente en la conexión SSH abierta. Escriba la contraseña del inicio de sesión de SQL Server cuando se le pida. Este comando devuelve una lista de las bases de datos.
 
     ```bash
     sqoop list-databases --connect jdbc:sqlserver://MYSQLSERVER.database.windows.net:1433 --username sqluser -P
     ```
 
-3. Reemplace `MYSQLSERVER` con el nombre de SQL Server, y `MYDATABASE` con el nombre de la base de datos SQL. Para exportar datos desde el subárbol `hivesampletable` la tabla a la `mobiledata` de tabla de base de datos de SQL, escriba el comando siguiente en la conexión SSH abierta. Escriba la contraseña para el inicio de sesión de SQL Server cuando se le pida
+3. Reemplace `MYSQLSERVER` por el nombre de la instancia de SQL Server y `MYDATABASE` por el nombre de la base de datos SQL. Para exportar datos de la tabla `hivesampletable` de Hive a la tabla `mobiledata` en SQL Database, escriba el comando siguiente en la conexión SSH abierta. Escriba la contraseña del inicio de sesión de SQL Server cuando se le pida.
 
     ```bash
     sqoop export --connect 'jdbc:sqlserver://MYSQLSERVER.database.windows.net:1433;database=MYDATABASE' --username sqluser -P -table 'mobiledata' --hcatalog-table hivesampletable
     ```
 
-4. Para comprobar que se exportan los datos, use las siguientes consultas en el cliente SQL para ver los datos exportados:
+4. Para comprobar que los datos se han exportado, use las siguientes consultas en el cliente SQL para ver los datos exportados:
 
     ```sql
     SELECT COUNT(*) FROM [dbo].[mobiledata] WITH (NOLOCK);
@@ -61,15 +61,15 @@ Desde Hive a SQL Server.
 
 ## <a name="sqoop-import"></a>Importación de Sqoop
 
-Desde SQL Server en Azure storage.
+De SQL Server a Azure Storage.
 
-1. Reemplace `MYSQLSERVER` con el nombre de SQL Server, y `MYDATABASE` con el nombre de la base de datos SQL. Escriba el comando siguiente en la conexión de SSH abierta al importar datos desde el `mobiledata` a la tabla de base de datos SQL, el `wasb:///tutorials/usesqoop/importeddata` directorio en HDInsight. Escriba la contraseña para el inicio de sesión de SQL Server cuando se le solicite. Los campos de los datos se separan mediante un carácter de tabulación y las líneas terminan con un carácter de nueva línea.
+1. Reemplace `MYSQLSERVER` por el nombre de la instancia de SQL Server y `MYDATABASE` por el nombre de la base de datos SQL. Escriba el comando siguiente en la conexión SSH abierta para importar datos desde la tabla `mobiledata` en SQL Database al directorio `wasb:///tutorials/usesqoop/importeddata` en HDInsight. Escriba la contraseña del inicio de sesión de SQL Server cuando se le pida. Los campos de los datos se separan mediante un carácter de tabulación y las líneas terminan con un carácter de nueva línea.
 
     ```bash
     sqoop import --connect 'jdbc:sqlserver://MYSQLSERVER.database.windows.net:1433;database=MYDATABASE' --username sqluser -P --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
-2. Una vez completada la importación, escriba el siguiente comando en la conexión SSH abierta a la lista de los datos en el nuevo directorio:
+2. Una vez que se complete la importación, escriba el comando siguiente en la conexión SSH abierta para mostrar los datos del directorio nuevo:
 
     ```bash
     hdfs dfs -text /tutorials/usesqoop/importeddata/part-m-00000
@@ -98,5 +98,5 @@ Desde SQL Server en Azure storage.
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 * [Uso de Apache Oozie con HDInsight](../hdinsight-use-oozie-linux-mac.md): use la acción Sqoop en un flujo de trabajo de Oozie.
-* [Análisis de la información de retraso de vuelos con HDInsight](../hdinsight-analyze-flight-delay-data-linux.md): use Apache Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos de Azure SQL.
+* [Análisis de la información de retraso de vuelos con HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md): use Interactive Query para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos de Azure SQL.
 * [Carga de datos en HDInsight](../hdinsight-upload-data.md): busque otros métodos para cargar datos en HDInsight o Azure Blob Storage.

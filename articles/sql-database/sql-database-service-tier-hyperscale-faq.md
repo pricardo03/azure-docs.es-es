@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49d1e171d4d4b2210a98c59332f4842e23a2f2b9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791426"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537845"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Preguntas más frecuentes sobre las bases de datos de hiperescala de Azure SQL
 
@@ -53,7 +53,7 @@ Los niveles de servicio basados en núcleos virtuales se diferencian principalme
 | **Tipo de almacenamiento** | Todo |Almacenamiento remoto Premium (por instancia) | Almacenamiento desacoplado con caché de SSD local (por instancia) | Almacenamiento SSD local extremadamente rápido (por instancia) |
 | **Tamaño de almacenamiento** | Base de datos única / grupo elástico | 5 GB – 4 TB | Hasta 100 TB | 5 GB – 4 TB |
 | | Instancia administrada  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
-| **Rendimiento de E/S** | Base de datos única** | 500 IOPS por núcleo virtual con 7000 IOPS como máximo | Desconocido todavía | 5000 IOPS hasta un máximo de 200 000 IOPS|
+| **Rendimiento de E/S** | Base de datos única** | 500 IOPS por núcleo virtual con 7000 IOPS como máximo | Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo. | 5000 IOPS hasta un máximo de 200 000 IOPS|
 | | Instancia administrada | Depende del tamaño del archivo | N/D | Instancia administrada: Depende del tamaño del archivo|
 |**Disponibilidad**|Todo|1 réplica, sin escalado de lectura, sin caché local | Varias réplicas, hasta el 15 escalados de lectura, caché local parcial | 3 replicas, 1 escalado de lectura, alta disponibilidad con redundancia de zona, caché local completa |
 |**Copias de seguridad**|Todo|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)| RA-GRS, de 7 a 35 días (7 días de forma predeterminada), recuperación a un momento dado (PITR) en un tiempo constante | RA-GRS, de 7 a 35 días (7 días de forma predeterminada) |
@@ -79,7 +79,7 @@ El nivel de hiperescala de Azure SQL Database está disponible actualmente en la
 
 Sí. Para más información y para conocer los límites en el número de bases de datos de hiperescala por servidor lógico, consulte [Límites de recursos de SQL Database para bases de datos individuales y agrupadas en un servidor lógico](sql-database-resource-limits-logical-server.md).
 
-### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>¿Cuáles son las características de rendimiento de una base de datos de hiperescala?
+### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>¿Cuáles son las características de rendimiento de una base de datos de Hiperescala?
 
 La arquitectura de Hiperescala de SQL Database proporciona un alto rendimiento al tiempo que admite tamaños de bases de datos grandes. 
 
@@ -94,7 +94,7 @@ Hiperescala de SQL Database proporciona una rápida escalabilidad según la dema
 
   Con Hiperescala también tiene la posibilidad de aprovisionar uno o varios nodos de proceso adicionales que puede usar para atender las solicitudes de lectura. Esto significa que puede usar estos nodos de proceso adicionales como nodos de solo lectura para descargar la carga de trabajo de lectura del proceso principal. Además de solo lectura, estos nodos también pueden funcionar como nodos de espera activa en caso de una conmutación por error del nodo principal.
 
-  El aprovisionamiento de cada uno de estos nodos de proceso adicionales se puede realizar en tiempo constante y se trata de una operación en línea. Puede conectarse a estos nodos de proceso adicionales de solo lectura estableciendo el argumento `ApplicationIntent` de la cadena de conexión en `read_only`. Todas las conexiones marcadas con `read-only` se enrutan automáticamente a uno de los nodos de proceso adicionales de solo lectura.
+  El aprovisionamiento de cada uno de estos nodos de proceso adicionales se puede realizar en tiempo constante y se trata de una operación en línea. Puede conectarse a estos nodos de proceso adicionales de solo lectura estableciendo el argumento `ApplicationIntent` de la cadena de conexión en `readonly`. Todas las conexiones marcadas con `readonly` se enrutan automáticamente a uno de los nodos de proceso adicionales de solo lectura.
 
 ## <a name="deep-dive-questions"></a>Preguntas de profundización
 
@@ -120,7 +120,7 @@ Hiperescala de SQL Database es compatible con todas las cargas de trabajo de SQL
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-sql-database-hyperscale"></a>¿Cómo puedo elegir entre Azure SQL Data Warehouse e Hiperescala de SQL Database?
 
-Si actualmente está ejecutando consultas de análisis interactivas mediante SQL Server como almacenamiento de datos, Hiperescala de SQL Database es una magnífica opción ya que puede hospedar almacenamientos de datos relativamente pequeños (desde unos pocos TB hasta 10 TB) a un costo reducido y puede migrar la carga de trabajo del almacenamiento de datos a Hiperescala de SQL Database sin cambios en el código T-SQL.
+Si actualmente está ejecutando consultas de análisis interactivas mediante SQL Server como almacenamiento de datos, Hiperescala de SQL Database es una magnífica opción ya que puede hospedar almacenamientos de datos relativamente pequeños (desde unos pocos TB hasta 10 TB) a un costo reducido y puede migrar la carga de trabajo del almacenamiento de datos a Hiperescala de SQL Database sin cambios en el código T-SQL.
 
 Si va a ejecutar análisis de datos a gran escala con consultas complejas y mediante almacenamiento de datos paralelos (PDW), Teradata o cualquier otro almacenamiento de datos con procesador paralelo masivo (MPP), SQL Data Warehouse puede ser la mejor opción.
   
@@ -140,7 +140,7 @@ No.
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>¿Cuántas réplicas de escalado de lectura se admiten?
 
-De forma predeterminada, las bases de datos de hiperescala se crean con una réplica de escalado de lectura (dos réplicas en total). Puede escalar el número de réplicas de solo lectura entre 0 y 4 mediante [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
+De forma predeterminada, las bases de datos de hiperescala se crean con una réplica de escalado de lectura (dos réplicas en total). Puede escalar el número de réplicas de solo lectura entre 0 y 4 mediante [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>¿Tengo que aprovisionar nodos de proceso adicionales para lograr una alta disponibilidad?
 
@@ -349,7 +349,7 @@ Por el usuario final. No es una operación automática.
 
 Sí. Temp db se escalará verticalmente de forma automática a medida que crezca el proceso.  
 
-### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>¿Puedo aprovisionar varios procesos principales como un sistema multimaestro en los que los nodos principales pueden impulsar un mayor nivel de simultaneidad?
+### <a name="can-i-provision-multiple-primary-compute-nodes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>¿Puedo aprovisionar varios nodos de ejecución principales como un sistema de arquitectura multimaestro en los que los nodos principales pueden impulsar un mayor nivel de simultaneidad?
 
 No. Solo el nodo de proceso principal acepta solicitudes de lectura y escritura. Los nodos de proceso secundarios aceptan únicamente solicitudes de solo lectura.
 
@@ -361,7 +361,7 @@ Se crean de forma predeterminada dos réplicas para bases de datos de hiperescal
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>¿Cómo me conecto a estos nodos de proceso secundarios?
 
-Puede conectarse a estos nodos de proceso adicionales de solo lectura estableciendo el argumento `ApplicationIntent` de la cadena de conexión en `read_only`. Todas las conexiones marcadas con `read-only` se enrutan automáticamente a uno de los nodos de proceso adicionales de solo lectura.  
+Puede conectarse a estos nodos de proceso adicionales de solo lectura estableciendo el argumento `ApplicationIntent` de la cadena de conexión en `readonly`. Todas las conexiones marcadas con `readonly` se enrutan automáticamente a uno de los nodos de proceso adicionales de solo lectura.  
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>¿Puedo crear un punto de conexión dedicado para la réplica de escalado de lectura?
 

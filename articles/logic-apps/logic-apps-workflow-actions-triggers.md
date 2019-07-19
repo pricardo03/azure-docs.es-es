@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 05/13/2019
-ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: 490131d1743b366b5ac51a5a0fdac4b89ffe08f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596948"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274181"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referencia sobre los tipos de desencadenador y acción del lenguaje de definición de flujo de trabajo para Azure Logic Apps
 
@@ -50,7 +50,7 @@ Los desencadenadores tienen estos elementos de nivel superior, aunque algunos so
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*trigger-name*> | Cadena | El nombre del desencadenador | 
 | <*trigger-type*> | Cadena | El tipo de desencadenador como, por ejemplo, "Http" o "ApiConnection" | 
@@ -61,9 +61,9 @@ Los desencadenadores tienen estos elementos de nivel superior, aunque algunos so
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | Matriz | Una matriz que contiene una o más [condiciones](#trigger-conditions) que determinan si ejecutar o no el flujo de trabajo. Disponible solo para desencadenadores. | 
+| <*array-with-conditions*> | Array | Una matriz que contiene una o más [condiciones](#trigger-conditions) que determinan si ejecutar o no el flujo de trabajo. Disponible solo para desencadenadores. | 
 | <*runtime-config-options*> | Objeto JSON | Puede cambiar el comportamiento del entorno en tiempo de ejecución del desencadenador estableciendo propiedades `runtimeConfiguration`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options). | 
 | <*splitOn-expression*> | Cadena | Para los desencadenadores que devuelven una matriz, puede especificar una expresión que [divide o *desagrupa*](#split-on-debatch) los elementos de matriz en varias instancias de flujo de trabajo para su procesamiento. | 
 | <*operation-option*> | Cadena | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
@@ -130,7 +130,7 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | Cadena | El nombre del desencadenador | 
 | <*connection-name*> | Cadena | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
@@ -142,7 +142,7 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API. Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. | 
@@ -154,7 +154,7 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 
 *Outputs*
  
-| Elemento | Type | DESCRIPCIÓN |
+| Elemento | type | DESCRIPCIÓN |
 |---------|------|-------------|
 | headers | Objeto JSON | Encabezados de la respuesta |
 | body | Objeto JSON | Cuerpo de la respuesta |
@@ -224,7 +224,7 @@ Este desencadenador envía una solicitud de suscripción a un punto de conexión
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*connection-name*> | Cadena | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje para enviar como carga a la API administrada | 
@@ -232,7 +232,7 @@ Este desencadenador envía una solicitud de suscripción a un punto de conexión
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. | 
@@ -303,7 +303,7 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*method-type*> | Cadena | El método HTTP que se usará para sondear el punto de conexión especificado: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*endpoint-URL*> | Cadena | La dirección URL HTTP o HTTPS que va a sondear el punto de conexión <p>Tamaño máximo de la cadena: 2 KB | 
@@ -313,7 +313,7 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*header-content*> | Objeto JSON | Los encabezados que se envían con la solicitud <p>Por ejemplo, para establecer el idioma y el tipo de una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Cadena | El contenido del mensaje que se va a enviar como carga con la solicitud | 
@@ -327,7 +327,7 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 
 *Outputs*
 
-| Elemento | Type | DESCRIPCIÓN |
+| Elemento | type | DESCRIPCIÓN |
 |---------|------|-------------| 
 | headers | Objeto JSON | Encabezados de la respuesta | 
 | body | Objeto JSON | Cuerpo de la respuesta | 
@@ -400,7 +400,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*method-type*> | Cadena | El método HTTP que se usará para la solicitud de suscripción: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
 | <*endpoint-subscribe-URL*> | Cadena | Dirección URL del punto de conexión a donde enviar la solicitud de suscripción | 
@@ -408,7 +408,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*method-type*> | Cadena | El método HTTP que se usará para la solicitud de cancelación: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | Cadena | Dirección URL del punto de conexión a donde enviar la solicitud de cancelación | 
@@ -422,7 +422,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Outputs* 
 
-| Elemento | Type | DESCRIPCIÓN |
+| Elemento | type | DESCRIPCIÓN |
 |---------|------|-------------| 
 | headers | Objeto JSON | Encabezados de la respuesta | 
 | body | Objeto JSON | Cuerpo de la respuesta | 
@@ -494,7 +494,7 @@ Este desencadenador se ejecuta según la programación de periodicidad especific
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*time-unit*> | Cadena | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
@@ -502,7 +502,7 @@ Este desencadenador se ejecuta según la programación de periodicidad especific
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Cadena | La fecha y hora de inicio en este formato: <p>AAAA-MM-DDThh:mm:ss si especifica una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no especifica una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p.m., especifique entonces "2017-09-18T14:00:00" y especifique una zona horaria como "Hora estándar del Pacífico", o bien especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se especifica una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. Para más información sobre las fechas y horas de inicio, consulte [Introducción al desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). | 
 | <*time-zone*> | Cadena | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique la zona horaria que desea aplicar. | 
@@ -603,7 +603,7 @@ Para llamar a este desencadenador, debe usar la `listCallbackUrl`API que se desc
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*property-name*> | Cadena | El nombre de una propiedad en el esquema JSON que describe la carga | 
 | <*property-type*> | Cadena | El tipo de propiedad | 
@@ -611,11 +611,11 @@ Para llamar a este desencadenador, debe usar la `listCallbackUrl`API que se desc
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*method-type*> | Cadena | El método que las solicitudes entrantes deben usar para llamar a la aplicación lógica: "GET", "PUT", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | Cadena | La ruta de acceso relativa del parámetro que la dirección URL del punto de conexión puede aceptar | 
-| <*required-properties*> | Matriz | Una o más propiedades que requieren valores | 
+| <*required-properties*> | Array | Una o más propiedades que requieren valores | 
 | <*max-runs*> | Entero | De forma predeterminada, todas las instancias del flujo se ejecutan al mismo tiempo, o bien en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entero | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
 | <*operation-option*> | Cadena | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
@@ -776,7 +776,7 @@ Las acciones tienen estos elementos de alto nivel, aunque algunos son opcionales
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------|
 | <*action-name*> | Cadena | El nombre de la acción | 
 | <*action-type*> | Cadena | El tipo de acción, por ejemplo, "Http" o "ApiConnection"| 
@@ -787,7 +787,7 @@ Las acciones tienen estos elementos de alto nivel, aunque algunos son opcionales
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------|
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para obtener más información, consulte Directivas de reintentos. | 
 | <*runtime-config-options*> | Objeto JSON | Para algunas acciones, puede cambiar el comportamiento de la acción en el tiempo de ejecución estableciendo propiedades `runtimeConfiguration`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options). | 
@@ -892,7 +892,7 @@ Esta acción envía una solicitud HTTP a una [API administrada por Microsoft](..
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*action-name*> | Cadena | El nombre de la acción proporcionada por el conector | 
 | <*api-name*> | Cadena | El nombre de la API administrada por Microsoft que se usa para la conexión | 
@@ -902,7 +902,7 @@ Esta acción envía una solicitud HTTP a una [API administrada por Microsoft](..
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*other-action-specific-input-properties*> | Objeto JSON | Cualquier otra propiedad de entrada que sea aplicable a esta acción específica | 
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
@@ -972,7 +972,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*action-name*> | Cadena | El nombre de la acción proporcionada por el conector | 
 | <*method-type*> | Cadena | El método HTTP que se usará para suscribirse o cancelar la suscripción desde un punto de conexión: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
@@ -981,7 +981,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*api-unsubscribe-URL*> | Cadena | El identificador URI que se utiliza para cancelar la suscripción desde la API | 
 | <*header-content*> | Objeto JSON | Todos los encabezados que se vayan a enviar en la solicitud <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
@@ -1012,7 +1012,7 @@ Posteriormente, puede usar la salida de la acción en otras acciones.
 
 *Obligatorio* 
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*inputs-to-compose*> | Cualquiera | Las entradas para la creación de una única salida | 
 |||| 
@@ -1073,7 +1073,7 @@ Esta acción ejecuta un fragmento de código de JavaScript y devuelve los result
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN |
+| Valor | type | DESCRIPCIÓN |
 |-------|------|-------------|
 | <*Fragmento de código de JavaScript*> | Varía | El código JavaScript que se va a ejecutar. Para obtener los requisitos de código y más información, vea [Adición y ejecución de fragmentos de código con código en línea](../logic-apps/logic-apps-add-run-inline-code.md). <p>En el atributo `code`, el fragmento de código puede usar el objeto `workflowContext` de solo lectura como entrada. Este objeto tiene subpropiedades que proporcionan al código acceso a los resultados de los desencadenadores y acciones anteriores en el flujo de trabajo. Para más información sobre el objeto `workflowContext`, vea [Referencia a los resultados de desencadenadores y acciones en el código](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
 ||||
@@ -1084,7 +1084,7 @@ El atributo `explicitDependencies` especifica que quiere incluir de forma explí
 
 Para el atributo `includeTrigger`, puede especificar valores `true` o `false`.
 
-| Valor | Type | DESCRIPCIÓN |
+| Valor | type | DESCRIPCIÓN |
 |-------|------|-------------|
 | <*acciones_anteriores*> | Matriz de cadena | Una matriz con los nombres de acción especificados. Use los nombres de acción que aparecen en la definición del flujo de trabajo donde los nombres de acción usan caracteres de subrayado (_), no espacios (" "). |
 ||||
@@ -1150,7 +1150,7 @@ Esta acción llama a una [función de Azure](../azure-functions/functions-create
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------|  
 | <*Azure-function-ID*> | Cadena | El identificador de recurso de la función de Azure que quiere llamar. Este es el formato de este valor:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
 | <*method-type*> | Cadena | El método HTTP que se usará para llamar a la función: "GET", "PUT", "POST", "PATCH" o "DELETE" <p>Si no se especifica, "POST" es el método predeterminado. | 
@@ -1158,7 +1158,7 @@ Esta acción llama a una [función de Azure](../azure-functions/functions-create
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------|  
 | <*header-content*> | Objeto JSON | Todos los encabezados que se vayan a enviar con la llamada <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje que se vaya a enviar en la solicitud | 
@@ -1221,7 +1221,7 @@ Esta acción envía una solicitud al punto de conexión especificado y comprueba
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*method-type*> | Cadena | El método que se usará para enviar la solicitud: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | Cadena | El punto de conexión HTTP o HTTPS al que se llama. Tamaño máximo de la cadena: 2 KB | 
@@ -1229,7 +1229,7 @@ Esta acción envía una solicitud al punto de conexión especificado y comprueba
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*header-content*> | Objeto JSON | Cualquier encabezado que se vaya a enviar con la solicitud <p>Por ejemplo, para establecer el idioma y el tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje que se vaya a enviar en la solicitud | 
@@ -1272,9 +1272,9 @@ Esta acción crea una cadena con todos los elementos de una matriz y los separa 
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*array*> | Matriz | La matriz o expresión que proporciona los elementos de origen. Si especifica una expresión, incluya esa expresión entre comillas dobles. | 
+| <*array*> | Array | La matriz o expresión que proporciona los elementos de origen. Si especifica una expresión, incluya esa expresión entre comillas dobles. | 
 | <*delimitador*> | Cadena de un único carácter | El carácter que separa cada elemento de la cadena | 
 |||| 
 
@@ -1316,7 +1316,7 @@ Esta acción crea campos o *tokens* fáciles de usar a partir de las propiedades
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*JSON-source*> | Objeto JSON | El contenido JSON que desea analizar | 
 | <*JSON-schema*> | Objeto JSON | El esquema JSON que describe el contenido JSON subyacente, que la acción utiliza para analizar el contenido JSON de origen. <p>**Sugerencia**: En el diseñador de Logic Apps, puede proporcionar el esquema, o bien una carga de ejemplo para que la acción pueda generar el esquema. | 
@@ -1418,9 +1418,9 @@ Esta acción crea una matriz a partir de elementos de otra matriz basándose en 
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*array*> | Matriz | La matriz o expresión que proporciona los elementos de origen. Si especifica una expresión, incluya esa expresión entre comillas dobles. |
+| <*array*> | Array | La matriz o expresión que proporciona los elementos de origen. Si especifica una expresión, incluya esa expresión entre comillas dobles. |
 | <*condition-or-filter*> | Cadena | La condición usada para filtrar elementos en la matriz de origen <p>**Nota**: Si ningún valor satisface la condición, la acción crea una matriz vacía. |
 |||| 
 
@@ -1459,14 +1459,14 @@ Esta acción crea la carga de la respuesta a una solicitud HTTP.
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*response-status-code*> | Entero | El código de estado HTTP que se envía a la solicitud entrante. El código predeterminado es "200 OK", pero el código puede ser cualquier código de estado válido que comience por 2xx, 4xx o 5xx, pero no por 3xxx. | 
 |||| 
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*response-headers*> | Objeto JSON | Uno o más encabezados que se incluyen con la respuesta | 
 | <*response-body*> | Varios | El cuerpo de respuesta, que puede ser una cadena, un objeto JSON o incluso contenido binario de una acción anterior | 
@@ -1534,9 +1534,9 @@ Esta acción crea una matriz con objetos JSON mediante la transformación de los
 
 *Obligatorio* 
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*array*> | Matriz | La matriz o expresión que proporciona los elementos de origen. Asegúrese de que incluye una expresión entre comillas dobles. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una matriz vacía. | 
+| <*array*> | Array | La matriz o expresión que proporciona los elementos de origen. Asegúrese de que incluye una expresión entre comillas dobles. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una matriz vacía. | 
 | <*key-name*> | Cadena | El nombre de la propiedad asignado al resultado de <*expression*> <p>Para agregar una nueva propiedad en todos los objetos de la matriz de salida, proporcione un <*nombre de clave*> para esa propiedad y una <*expresión*> para el valor de propiedad. <p>Para quitar una propiedad de todos los objetos de la matriz, omita el <*nombre de clave*> para esa propiedad. | 
 | <*expresión*> | Cadena | La expresión que transforma el elemento de la matriz de origen y asigna el resultado al <*nombre de clave*> | 
 |||| 
@@ -1632,17 +1632,17 @@ Esta acción crea una tabla CSV o HTML a partir de una matriz. Para las matrices
 
 *Obligatorio* 
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <CSV *or* HTML>| Cadena | El formato de la tabla que desea crear | 
-| <*array*> | Matriz | La matriz o expresión que proporciona los elementos de origen de la tabla. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una tabla vacía. | 
+| <*array*> | Array | La matriz o expresión que proporciona los elementos de origen de la tabla. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una tabla vacía. | 
 |||| 
 
 *Opcional*
 
 Para especificar o personalizar los encabezados y los valores de columna, use la matriz `columns`. Cuando los pares `header-value` tienen el mismo nombre de encabezado, sus valores se mostrarán en la misma columna bajo ese nombre de encabezado. En caso contrario, cada encabezado único define una columna única.
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*column-name*> | Cadena | El nombre del encabezado de una columna | 
 | <*column-value*> | Cualquiera | El valor de esa columna | 
@@ -1692,7 +1692,7 @@ Esta definición de acción crea una tabla HTML a partir de la variable "myItemA
 
 Esta es la tabla HTML que esta acción crea: 
 
-<table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples (Manzanas)</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
+<table><thead><tr><th>id</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples (Manzanas)</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
 
 *Ejemplo 3*
 
@@ -1745,7 +1745,7 @@ Esta acción detiene la ejecución de una instancia del flujo de trabajo, cancel
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*status*> | Cadena | El estado que se devolverá para la ejecución: "Erróneo", "Cancelado" o "Correcto" |
 |||| 
@@ -1754,7 +1754,7 @@ Esta acción detiene la ejecución de una instancia del flujo de trabajo, cancel
 
 Las propiedades del objeto "runStatus" se aplican solo cuando se establece la propiedad "runStatus" en estado "Erróneo".
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*error-code-or-name*> | Cadena | El código o nombre del error |
 | <*error-message*> | Cadena | El mensaje o el texto que describe el error y las acciones que el usuario de la aplicación puede realizar | 
@@ -1815,7 +1815,7 @@ Esta acción detiene la ejecución del flujo de trabajo durante el intervalo esp
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*number-of-units*> | Entero | Para la acción **Delay** es el número de unidades que debe esperar | 
 | <*intervalo*> | Cadena | Para la acción de **retraso**, el intervalo que se esperará: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
@@ -1888,7 +1888,7 @@ El motor de Logic Apps comprueba el acceso al desencadenador que desea llamar, a
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*nested-logic-app-name*> | Cadena | El nombre de la aplicación lógica a la que desea llamar | 
 | <*trigger-name*> | Cadena | El nombre del desencadenador de la aplicación lógica anidada a la que desea llamar | 
@@ -1899,7 +1899,7 @@ El motor de Logic Apps comprueba el acceso al desencadenador que desea llamar, a
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------|  
 | <*header-content*> | Objeto JSON | Todos los encabezados que se vayan a enviar con la llamada | 
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje que se vaya a enviar con la llamada | 
@@ -1965,7 +1965,7 @@ Esta acción de bucle recorre en iteración una matriz y realiza acciones en cad
 
 *Obligatorio* 
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*action-1...n*> | Cadena | Los nombres de las acciones que se ejecutan en cada elemento de la matriz | 
 | <*action-definition-1...n*> | Objeto JSON | Las definiciones de las acciones que se ejecutan | 
@@ -1974,7 +1974,7 @@ Esta acción de bucle recorre en iteración una matriz y realiza acciones en cad
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*recuento*> | Entero | De forma predeterminada, las iteraciones de bucles "for each" se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio de la simultaneidad del bucle "for each"](#change-for-each-concurrency). | 
 | <*operation-option*> | Cadena | Para ejecutar un bucle "for each" secuencialmente, en lugar de en paralelo, establezca <*operation-option*> en `Sequential` o <*count*> en `1`, pero no ambas opciones a la vez. Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each). | 
@@ -2038,7 +2038,7 @@ Esta acción, que es una *instrucción condicional*, evalúa una expresión que 
 }
 ```
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*condition*> | Objeto JSON | La condición que se va a evaluar, que puede ser una expresión | 
 | <*action-1*> | Objeto JSON | La acción que se ejecutará si <*condition*> se evalúa como true | 
@@ -2128,7 +2128,7 @@ Esta acción agrupa lógicamente las acciones en *ámbitos*, que obtienen su pro
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------|  
 | <*inner-action-1...n*> | Objeto JSON | Una o varias acciones que se ejecutan dentro del ámbito |
 | <*action-inputs*> | Objeto JSON | Las entradas de cada acción |
@@ -2169,7 +2169,7 @@ Esta acción, también conocida como *instrucción switch*, organiza otras accio
 
 *Obligatorio*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Varía | La expresión, objeto JSON o token que se va a evaluar | 
 | <*action-name*> | Cadena | El nombre de la acción que se va a ejecutar para el caso coincidente | 
@@ -2179,7 +2179,7 @@ Esta acción, también conocida como *instrucción switch*, organiza otras accio
 
 *Opcional*
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*default-action-name*> | Cadena | El nombre de la acción predeterminada que se va a ejecutar si no hay ningún caso coincidente | 
 | <*default-action-definition*> | Objeto JSON | La definición de la acción que se va a ejecutar si no hay ningún caso coincidente | 
@@ -2295,7 +2295,7 @@ Esta acción de bucle contiene acciones que se ejecutan hasta que la condición 
 }
 ```
 
-| Valor | Type | DESCRIPCIÓN | 
+| Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*action-name*> | Cadena | El nombre de la acción que desea ejecutar dentro del bucle | 
 | <*action-type*> | Cadena | El tipo de acción que desea ejecutar | 
@@ -2389,7 +2389,7 @@ Puede cambiar el comportamiento predeterminado del runtime para los desencadenad
 
 Puede cambiar el comportamiento predeterminado de los desencadenadores y acciones con la propiedad `operationOptions` de la definición de desencadenador o de acción.
 
-| Opción de operación | Type | DESCRIPCIÓN | Desencadenador o acción | 
+| Opción de operación | type | DESCRIPCIÓN | Desencadenador o acción | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | Cadena | Ejecuta acciones basadas en HTTP sincrónicamente en lugar de hacerlo de forma asincrónica. <p><p>Para establecer esta opción, consulte [Ejecutar acciones sincrónicamente](#asynchronous-patterns). | Acciones: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Respuesta](#response-action) | 
 | `OptimizedForHighThroughput` | Cadena | Cambia el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) del número de ejecuciones de acciones por cada 5 minutos al [límite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para establecer esta opción, consulte [Ejecutar en modo de alto rendimiento](#run-high-throughput-mode). | Todas las acciones | 
@@ -2624,7 +2624,7 @@ No obstante, las solicitudes tienen un límite de tiempo de espera, por lo que p
 
 ### <a name="run-in-high-throughput-mode"></a>Ejecutar en modo de alto rendimiento
 
-Para una única ejecución de aplicación lógica, el número de acciones que se ejecutan cada 5 minutos tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar este límite al [máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) posible, establezca la propiedad `operationOptions` en `OptimizedForHighThroughput`. Esta opción pone a la aplicación lógica en modo de "alto rendimiento". 
+Para una única definición de aplicación lógica, el número de acciones que se ejecutan cada cinco minutos tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar este límite al [máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) posible, establezca la propiedad `operationOptions` en `OptimizedForHighThroughput`. Esta opción pone a la aplicación lógica en modo de "alto rendimiento". 
 
 > [!NOTE]
 > El modo de alto rendimiento se encuentra en versión preliminar. También puede distribuir una carga de trabajo entre varias aplicaciones lógicas, según sea necesario.

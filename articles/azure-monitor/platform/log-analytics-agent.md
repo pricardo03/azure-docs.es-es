@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 583845b2ea63efd42f382c9c150de650f34bafed
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751986"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514106"
 ---
-# <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recopilación de datos de registro con el agente de Azure Log Analytics
+# <a name="collect-log-data-with-the-log-analytics-agent"></a>Recopilación de datos de registro con el agente de Log Analytics
 
 El agente de Azure Log Analytics, anteriormente conocido como Microsoft Monitoring Agent (MMA) o agente Linux de OMS, se desarrolló para lograr una administración completa en las máquinas locales, en los equipos que supervisaba [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) y en las máquinas virtuales de cualquier nube. Los agentes de Windows y Linux se asocian a Azure Monitor y almacenan los datos de registro recopilados de diferentes orígenes en el área de trabajo de Log Analytics, así como cualquier registro o métrica únicos, tal como se define en una solución de supervisión. 
 
@@ -34,11 +34,11 @@ Antes de analizar datos recopilados y actuar sobre ellos, deberá instalar y con
 
 El agente para Linux y Windows se comunica con el servicio Azure Monitor en el puerto TCP 443. Si la máquina se conecta mediante un servidor proxy o firewall para comunicarse a través de Internet, consulte los requisitos siguientes para comprender qué configuración de red debe aplicarse. Si las directivas de seguridad de TI no permiten que los equipos de la red se conecten a Internet, puede configurar una [puerta de enlace de Log Analytics](gateway.md) y, luego, configurar el agente para conectarse a registros de Azure Monitor a través de la puerta de enlace. El agente, a continuación, puede recibir información de configuración y enviar los datos recopilados según qué reglas de recopilación de datos y soluciones de supervisión haya habilitado en el área de trabajo. 
 
-Si va a supervisar el equipo con System Center Operations Manager 2012 R2 o posterior, puede tener hosts múltiples con el servicio Azure Monitor para recopilar datos y reenviarlos al servicio, sin que [Operations Manager](../../azure-monitor/platform/om-agents.md) deje de supervisarlos. En el caso de los equipos Linux, el agente no incluye un componente de servicio de mantenimiento, como el agente de Windows, y la información se recopila y se procesa a través de un servidor de administración en su nombre. Dado que los equipos Linux se supervisan de manera diferente con Operations Manager, no reciben la configuración ni recopilan los datos directamente, y realizan el reenvío a través del grupo de administración, tal como haría un sistema administrado por un agente de Windows. Como resultado, este escenario no es compatible con equipos Linux que dependan de Operations Manager.  
+Si va a supervisar el equipo con System Center Operations Manager 2012 R2 o posterior, puede tener hosts múltiples con el servicio Azure Monitor para recopilar datos y reenviarlos al servicio, sin que [Operations Manager](../../azure-monitor/platform/om-agents.md) deje de supervisarlos. En el caso de los equipos Linux, el agente no incluye un componente de servicio de mantenimiento, como el agente de Windows, y la información se recopila y se procesa a través de un servidor de administración en su nombre. Dado que los equipos Linux se supervisan de manera diferente con Operations Manager, no reciben la configuración ni recopilan los datos directamente, y realizan el reenvío a través del grupo de administración, tal como haría un sistema administrado por un agente de Windows. Como resultado, este escenario no es compatible con los equipos Linux que informan al Operations Manager y necesita configurar el equipo Linux para [informar a un grupo de administración del Operations Manager](../platform/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) y a un área de trabajo de Log Analytics en dos pasos.
 
 El agente de Windows puede informar acerca de hasta cuatro áreas de trabajo de Log Analytics, mientras que el agente de Linux solo puede informar acerca de una sola área de trabajo.  
 
-El agente para Windows y Linux no es solo para conectarse a Azure Monitor, sino que también admite Azure Automation para hospedar el rol de trabajo Hybrid Runbook Worker y otros servicios como [Change Tracking](../../automation/change-tracking.md) y [Update Management](../../automation/automation-update-management.md). Para obtener más información acerca de la función Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
+El agente para Windows y Linux no es solo para conectarse a Azure Monitor, sino que también admite Azure Automation para hospedar el rol de trabajo Hybrid Runbook Worker y otros servicios como [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/automation-update-management.md) y [Azure Security Center](../../security-center/security-center-intro.md). Para obtener más información acerca de la función Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operativos Windows compatibles
 Las siguientes versiones del sistema operativo Windows son compatibles oficialmente con el agente de Windows:
@@ -68,7 +68,7 @@ A partir de las versiones publicadas después de agosto de 2018, hemos realizado
 * Red Hat Enterprise Linux Server 6 (x86/x64) y 7 (x64)
 * Debian GNU/Linux 8 y 9 (x86/x64)
 * Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64) y 18.04 LTS (x64)
-* SUSE Linux Enterprise Server 12 (x64)
+* SUSE Linux Enterprise Server 12 (x64) y 15 (x64)
 
 >[!NOTE]
 >OpenSSL 1.1.0 solo se admite en las plataformas x86_x64 (64 bits) y OpenSSL anterior a 1.x no se admite en ninguna plataforma.

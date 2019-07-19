@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cb0fe056ff7ff4794667d6b28782daad100609f
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
-ms.translationtype: MT
+ms.openlocfilehash: 206e501860691cccc0578a0df4eec2b161b99b4c
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921037"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341364"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?
 En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [asignaciones de roles](active-directory-users-assign-role-azure-portal.md) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados. Los permisos de usuario predeterminados solo se pueden cambiar en la configuración de usuario de Azure AD.
@@ -49,25 +49,84 @@ Los permisos predeterminados de los usuarios miembros se pueden restringir de la
 
 Permiso | Explicación del valor
 ---------- | ------------
-Los usuarios pueden registrar la aplicación | Si esta opción No impide que los usuarios crear registros de aplicación. La capacidad, a continuación, se puede conceder a usuarios específicos agregándolos a la función de programador de aplicaciones.
-Permitir a los usuarios conectar su cuenta profesional o educativa con LinkedIn | Si esta opción No impide que los usuarios conectarse a su cuenta profesional o educativa con su cuenta de LinkedIn.  Consulte [consentimiento y uso compartido de datos de las conexiones de cuentas de LinkedIn](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent) para obtener más información.
-Capacidad para crear grupos de seguridad | Si se selecciona No en esta opción, se impide que los usuarios creen grupos de seguridad. Los administradores globales y usuario todavía puede crear grupos de seguridad. Para aprender a hacerlo, consulte [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../users-groups-roles/groups-settings-cmdlets.md).
-Capacidad para crear grupos de Office 365 | Si se selecciona No en esta opción, se impide que los usuarios creen grupos de Office 365. Si se selecciona algunos en esta opción, se permite que un conjunto de usuarios creen grupos de Office 365. Los administradores globales y usuario aún podrá crear grupos de Office 365. Para aprender a hacerlo, consulte [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../users-groups-roles/groups-settings-cmdlets.md).
-Restringir el acceso al portal de administración de Azure AD | Al establecer esta opción en Sí, impide que los usuarios acceso a Azure Active Directory a través de Azure portal solo.
-Capacidad para leer otros usuarios | Esta configuración solo está disponible en PowerShell. Si establece esta configuración en $false, se impide que quienes no son administradores lean la información de los usuarios desde el directorio. Esto no impide que puedan leer la información de los usuarios en otros servicios de Microsoft, como Exchange Online. Esta configuración está pensada para circunstancias especiales y no se recomienda establecerla en $false.
+Los usuarios pueden registrar aplicaciones | Si se selecciona No en esta opción, se impide que los usuarios creen registros de aplicaciones. La capacidad puede ser devuelta a individuos específicos agregándolos al rol Desarrollador de aplicaciones.
+Permitir a los usuarios conectar su cuenta profesional o educativa con LinkedIn | Si se selecciona No en esta opción, se impide que los usuarios conecten su cuenta profesional o educativa con su cuenta de LinkedIn. Para más información, consulte [Consentimiento y uso compartido de datos de conexiones de cuentas de LinkedIn](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent).
+Capacidad para crear grupos de seguridad | Si se selecciona No en esta opción, se impide que los usuarios creen grupos de seguridad. Tanto los administradores globales como los administradores de tipo usuario pueden seguir creando grupos de seguridad. Para aprender a hacerlo, consulte [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../users-groups-roles/groups-settings-cmdlets.md).
+Capacidad para crear grupos de Office 365 | Si se selecciona No en esta opción, se impide que los usuarios creen grupos de Office 365. Si se selecciona algunos en esta opción, se permite que un conjunto de usuarios creen grupos de Office 365. Tanto los administradores globales como los administradores de tipo usuario pueden seguir creando grupos de Office 365. Para aprender a hacerlo, consulte [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../users-groups-roles/groups-settings-cmdlets.md).
+Restringir el acceso al portal de administración de Azure AD | Si se selecciona Sí en esta opción, se impide que los usuarios accedan a Azure Active Directory solo a través de Azure Portal.
+Capacidad para leer otros usuarios | Esta configuración solo está disponible en PowerShell. Si establece esta marca en $false, se impide que quienes no son administradores lean la información de los usuarios desde el directorio. Esta marca no impide que puedan leer la información de los usuarios en otros servicios de Microsoft, como Exchange Online. Esta configuración está pensada para circunstancias especiales y no se recomienda establecer esta marca en $false.
 
 ## <a name="object-ownership"></a>Propiedad del objeto
 
 ### <a name="application-registration-owner-permissions"></a>Permisos de propietario del registro de una aplicación
 Cuando un usuario registra una aplicación, se agrega automáticamente como propietario de la misma. Como propietario, puede administrar los metadatos de la aplicación, como el nombre y los permisos que solicita la aplicación. También pueden administrar la configuración específica del inquilino de la aplicación, como la configuración de SSO y las asignaciones de usuarios. Un propietario también puede agregar o quitar otros propietarios. A diferencia de los administradores globales, los propietarios solo pueden administrar las aplicaciones que poseen.
 
-<!-- ### Enterprise application owner permissions
-
-When a user adds a new enterprise application, they are automatically added as an owner for the tenant-specific configuration of the application. As an owner, they can manage the tenant-specific configuration of the application, such as the SSO configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the applications they own. <!--To assign an enterprise application owner, see *Assigning Owners for an Application*.-->
+### <a name="enterprise-application-owner-permissions"></a>Permisos de propietario de las aplicaciones empresariales
+Cuando un usuario agrega una aplicación empresarial, se agrega automáticamente como propietario. Como propietario, también puede administrar la configuración específica del inquilino de la aplicación, como la configuración de SSO, el aprovisionamiento y las asignaciones de usuarios. Un propietario también puede agregar o quitar otros propietarios. A diferencia de los administradores globales, los propietarios solo pueden administrar las aplicaciones que poseen.
 
 ### <a name="group-owner-permissions"></a>Permisos de propietario de grupo
+Cuando un usuario crea un grupo, se agrega automáticamente como propietario de dicho grupo. Como propietario, puede administrar las propiedades del grupo, como el nombre, así como administrar la pertenencia al grupo. Un propietario también puede agregar o quitar otros propietarios. A diferencia de los administradores globales y los administradores de tipo usuario, los propietarios solo pueden administrar los grupos que poseen. Para asignar un propietario de grupo, consulte [Administración de propietarios de un grupo](active-directory-accessmanagement-managing-group-owners.md).
 
-Cuando un usuario crea un grupo, se agrega automáticamente como propietario de dicho grupo. Como propietario, puede administrar las propiedades del grupo, como el nombre, así como administrar la pertenencia al grupo. Un propietario también puede agregar o quitar otros propietarios. A diferencia de los administradores globales y usuario, los propietarios solo pueden administrar los grupos que poseen. Para asignar un propietario de grupo, consulte [Administración de propietarios de un grupo](active-directory-accessmanagement-managing-group-owners.md).
+### <a name="ownership-permissions"></a>Permisos de propiedad
+En las tablas siguientes se describen los permisos específicos de Azure Active Directory que los usuarios miembro tienen sobre los objetivos que poseen. El usuario solamente tiene estos permisos en objetos que posee.
+
+#### <a name="owned-application-registrations"></a>Registros de aplicación que se poseen
+Los usuarios pueden realizar las siguientes acciones en los registros de aplicación que poseen.
+
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.directory/applications/audience/update | Actualiza la propiedad applications.audience en Azure Active Directory. |
+| microsoft.directory/applications/authentication/update | Actualiza la propiedad applications.authentication en Azure Active Directory. |
+| microsoft.directory/applications/basic/update | Actualiza las propiedades básicas de las aplicaciones en Azure Active Directory. |
+| microsoft.directory/applications/credentials/update | Actualiza la propiedad applications.credentials en Azure Active Directory. |
+| microsoft.directory/applications/delete | Elimina aplicaciones en Azure Active Directory. |
+| microsoft.directory/applications/owners/update | Actualiza la propiedad applications.owners en Azure Active Directory. |
+| microsoft.directory/applications/permissions/update | Actualiza la propiedad applications.permissions en Azure Active Directory. |
+| microsoft.directory/applications/policies/update | Actualiza la propiedad applications.policies en Azure Active Directory. |
+| microsoft.directory/applications/restore | Restaura aplicaciones en Azure Active Directory. |
+
+#### <a name="owned-enterprise-applications"></a>Aplicaciones empresariales que se poseen
+Los usuarios pueden realizar las siguientes acciones en las aplicaciones empresariales que poseen. Una aplicación empresarial se compone de la entidad de servicio, una o varias directivas de aplicación y, a veces, un objeto de aplicación en el mismo inquilino que la entidad de servicio.
+
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.directory/auditLogs/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en auditLogs en Azure Active Directory. |
+| microsoft.directory/policies/basic/update | Actualiza las propiedades básicas en las directivas de Azure Active Directory. |
+| microsoft.directory/policies/delete | Elimina directivas en Azure Active Directory. |
+| microsoft.directory/policies/owners/update | Actualiza la propiedad policies.owners en Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Actualiza la propiedad servicePrincipals.appRoleAssignedTo en Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Actualiza la propiedad users.appRoleAssignments en Azure Active Directory. |
+| microsoft.directory/servicePrincipals/audience/update | Actualiza la propiedad servicePrincipals.audience en Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Actualiza la propiedad servicePrincipals.authentication en Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Actualiza las propiedades básicas de servicePrincipals en Azure Active Directory. |
+| microsoft.directory/servicePrincipals/credentials/update | Actualiza la propiedad servicePrincipals.credentials en Azure Active Directory. |
+| microsoft.directory/servicePrincipals/delete | Elimina servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Actualiza la propiedad servicePrincipals.owners en Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Actualiza la propiedad servicePrincipals.permissions en Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Actualiza la propiedad servicePrincipals.policies en Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en signInReports en Azure Active Directory. |
+
+#### <a name="owned-devices"></a>Dispositivos que se poseen
+Los usuarios pueden realizar las siguientes acciones en los dispositivos que poseen.
+
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | Lee la propiedad devices.bitLockerRecoveryKeys en Azure Active Directory. |
+| microsoft.directory/devices/disable | Deshabilita dispositivos en Azure Active Directory. |
+
+#### <a name="owned-groups"></a>Grupos que se poseen
+Los usuarios pueden realizar las siguientes acciones en los grupos que poseen.
+
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.directory/groups/appRoleAssignments/update | Actualiza la propiedad groups.appRoleAssignments en Azure Active Directory. |
+| microsoft.directory/groups/basic/update | Actualiza las propiedades básicas de los grupos en Azure Active Directory. |
+| microsoft.directory/groups/delete | Elimina grupos en Azure Active Directory. |
+| microsoft.directory/groups/dynamicMembershipRule/update | Actualiza la propiedad groups.dynamicMembershipRule en Azure Active Directory. |
+| microsoft.directory/groups/members/update | Actualiza la propiedad groups.members en Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Actualiza la propiedad groups.owners en Azure Active Directory. |
+| microsoft.directory/groups/restore | Restaura grupos en Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Actualiza la propiedad groups.settings en Azure Active Directory. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

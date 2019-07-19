@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add2c72535b5be0edcbc00c077dfe20a6deaa3e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61219290"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434173"
 ---
 # <a name="manage-azure-vm-backups"></a>Administración de copias de seguridad de máquinas virtuales de Azure
 
@@ -103,25 +103,36 @@ Para realizar un seguimiento del progreso del trabajo, en el panel del almacén,
 
 Hay dos formas de detener la protección de una máquina virtual:
 
-- Detener todos los trabajos futuros de copia de seguridad y eliminar todos los puntos de recuperación. En este caso, no podrá restaurar la máquina virtual.
-- Detenga todos los trabajos futuros de copia de seguridad y mantenga los puntos de recuperación. Aunque deberá pagar para mantener los puntos de recuperación en el almacén, podrá restaurar la máquina virtual si es necesario. Para más información, consulte [Precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+* **Detener la protección y conservar los datos de copia de seguridad**. Esta opción hará que todos los trabajos de copia de seguridad futuros dejen de proteger la máquina virtual; sin embargo, el servicio Azure Backup conservará los puntos de recuperación de los que se ha hecho una copia de seguridad.  Deberá pagar para mantener los puntos de recuperación en el almacén (consulte [Precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/) para obtener detalles). Podrá restaurar la máquina virtual si es necesario. Si decide reanudar la protección de máquina virtual, podrá usar la opción *Reanudar copia de seguridad*.
+* **Detener la protección y eliminar los datos de copia de seguridad**. Esta opción hará que todos los trabajos de copia de seguridad futuros dejen de proteger la máquina virtual y eliminará todos los puntos de recuperación. No podrá restaurar la máquina virtual ni usar la opción *Reanudar copia de seguridad*.
 
 >[!NOTE]
 >Si elimina un origen de datos sin detener las copias de seguridad, las nuevas copias de seguridad producirán errores. Los puntos de recuperación anteriores expirarán según la directiva, pero siempre se mantendrá el último punto de recuperación hasta que detenga la copia de seguridad y elimine los datos.
 >
 
-Para detener la protección de una máquina virtual:
+### <a name="stop-protection-and-retain-backup-data"></a>Detener la protección y conservar los datos de copia de seguridad
+
+Para detener la protección y conservar los datos de una máquina virtual:
 
 1. En el [panel del elemento del almacén](#view-vms-on-the-dashboard), seleccione **Detener copia de seguridad**.
-2. Elija si quiere conservar o eliminar los datos de copia de seguridad y confirme la selección cuando sea necesario. Agregue un comentario si lo desea. Si no está seguro del nombre del elemento, mantenga el mouse sobre el signo de exclamación para verlo.
+2. Elija **Retener datos de copia de seguridad** y confirme su selección según sea necesario. Agregue un comentario si lo desea. Si no está seguro del nombre del elemento, mantenga el mouse sobre el signo de exclamación para verlo.
 
-    ![Detener protección](./media/backup-azure-manage-vms/retain-or-delete-option.png)
+    ![Retener datos de copia de seguridad](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-     Una notificación le confirma que se han detenido los trabajos de copia de seguridad.
+Una notificación le confirma que se han detenido los trabajos de copia de seguridad.
+
+### <a name="stop-protection-and-delete-backup-data"></a>Detener la protección y eliminar los datos de copia de seguridad
+
+Para detener la protección y eliminar los datos de una máquina virtual:
+
+1. En el [panel del elemento del almacén](#view-vms-on-the-dashboard), seleccione **Detener copia de seguridad**.
+2. Elija **Eliminar datos de la copia de seguridad** y confirme su selección según sea necesario. Escriba el nombre del elemento de copia de seguridad y agregue un comentario si lo desea.
+
+    ![Eliminación de datos de copia de seguridad](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## <a name="resume-protection-of-a-vm"></a>Reanudación de la protección de una máquina virtual
 
-Si mantiene los datos de copia de seguridad cuando se detiene la máquina virtual, puede reanudar la protección más tarde. Si elimina los datos de copia de seguridad, no se puede reanudar la protección.
+Si hubiera elegido la opción de [detención de la protección y conservación de los datos de copia de seguridad](#stop-protection-and-retain-backup-data) durante la detención de la protección de la máquina virtual, podría usar **Reanudar copia de seguridad**. Esta opción no está disponible si elige la opción de [detención de la protección y eliminación de los datos de copia de seguridad](#stop-protection-and-delete-backup-data) o [Eliminar datos de la copia de seguridad](#delete-backup-data).
 
 Para reanudar la protección para una máquina virtual:
 
@@ -134,23 +145,25 @@ Para reanudar la protección para una máquina virtual:
 
 ## <a name="delete-backup-data"></a>Eliminación de datos de copia de seguridad
 
-Puede eliminar los datos de copia de seguridad de la máquina virtual durante el trabajo **Detener copia de seguridad** o una vez finalizado el trabajo de copia de seguridad. Antes de eliminar los datos de copia de seguridad, tenga en cuenta estos detalles:
+Hay dos formas de eliminar los datos de copia de seguridad de una máquina virtual:
 
-- Podría ser conveniente esperar días o semanas antes de eliminar los puntos de recuperación.
-- A diferencia del proceso de restauración de puntos de recuperación, cuando se eliminan datos de copia de seguridad, no se pueden elegir los puntos de recuperación específicos que se van a eliminar. Si elimina los datos de copia de seguridad, se eliminarán todos los puntos de recuperación asociados.
+- En el panel de un elemento del almacén, seleccione Detener copia de seguridad y siga las instrucciones para la opción de [detención de la protección y eliminación de los datos de copia de seguridad](#stop-protection-and-delete-backup-data).
 
-Después de detener o deshabilitar el trabajo de copia de seguridad de la máquina virtual, puede eliminar los datos de copia de seguridad:
+  ![Seleccionar Detener copia de seguridad](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
+- En el panel del elemento del almacén, seleccione Eliminar datos de la copia de seguridad. Esta opción estaría habilitada si hubiera elegido la opción de [detención de la protección y conservación de los datos de copia de seguridad](#stop-protection-and-retain-backup-data) durante la detención de la protección de la máquina virtual.
 
-1. En el [panel del elemento del almacén](#view-vms-on-the-dashboard), seleccione **Eliminar copia de seguridad**.
+  ![Selección de Eliminar copia de seguridad](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![Selección de Eliminar copia de seguridad](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  - En el [panel del elemento del almacén](#view-vms-on-the-dashboard), seleccione **Eliminar copia de seguridad**.
+  - Escriba el nombre del elemento de copia de seguridad para confirmar que desea eliminar los puntos de recuperación.
 
-1. Escriba el nombre del elemento de copia de seguridad para confirmar que desea eliminar los puntos de recuperación.
+    ![Eliminación de datos de copia de seguridad](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-    ![Confirme que desea eliminar los puntos de recuperación.](./media/backup-azure-manage-vms/item-verification-box.png)
+  - Para eliminar los datos de copia de seguridad para el elemento, seleccione **Eliminar**. Un mensaje de notificación le confirma que se han eliminado los datos de copia de seguridad.
 
-1. Para eliminar los datos de copia de seguridad para el elemento, seleccione **Eliminar**. Un mensaje de notificación le confirma que se han eliminado los datos de copia de seguridad.
+  > [!NOTE]
+  > Si elimina los datos de copia de seguridad, se eliminarán todos los puntos de recuperación asociados. No puede elegir puntos de recuperación específicos para su eliminación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información sobre cómo [crear la copia de seguridad de máquinas virtuales de Azure desde la configuración de la máquina virtual](backup-azure-vms-first-look-arm.md).

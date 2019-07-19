@@ -1,7 +1,7 @@
 ---
-title: Administrar roles en un área de trabajo de Azure Machine Learning
+title: Administración de roles en un área de trabajo de Azure Machine Learning
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo obtener acceso a un área de trabajo del servicio de Azure Machine Learning mediante el control de acceso basado en roles (RBAC).
+description: Obtenga información sobre cómo acceder a un área de trabajo de Azure Machine Learning Service mediante el control de acceso basado en rol (RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,63 +11,63 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 02/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2410787c3307136f827ea7fc34df9a545a59cbf4
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.openlocfilehash: e062fd73f2baeb4948430b13e0caa1f5c0b3f066
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65850904"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341111"
 ---
-# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Administrar el acceso a un área de trabajo de Azure Machine Learning
+# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Administración del acceso a un área de trabajo de Azure Machine Learning
 
-En este artículo, aprenderá a administrar el acceso a un área de trabajo de Azure Machine Learning. [Control de acceso basado en roles (RBAC)](/azure/role-based-access-control/overview) se usa para administrar el acceso a recursos de Azure. Los usuarios de Azure Active Directory se asignan roles específicos, que conceden acceso a los recursos. Azure proporciona roles integrados y la capacidad para crear roles personalizados.
+En este artículo, obtendrá información sobre cómo administrar el acceso a un área de trabajo de Azure Machine Learning. El [control de acceso basado en rol (RBAC)](/azure/role-based-access-control/overview) se utiliza para administrar el acceso a los recursos de Azure. Se asignan roles específicos a los usuarios de Azure Active Directory que les conceden acceso a los recursos. Azure proporciona tanto roles integrados como la capacidad de crear roles personalizados.
 
 ## <a name="default-roles"></a>Roles predeterminados
 
-Un área de trabajo de Azure Machine Learning es un recurso de Azure. Al igual que otros recursos de Azure, cuando se crea una nueva área de trabajo de Azure Machine Learning, viene con tres roles predeterminados. Puede agregar usuarios al área de trabajo y asignarlas a uno de estos roles integrados.
+Un área de trabajo de Azure Machine Learning es un recurso de Azure. Al igual que otros recursos de Azure, cuando se crea un área de trabajo de Azure Machine Learning nueva, viene con tres roles predeterminados. Puede agregar usuarios al área de trabajo y asignarlos a uno de estos roles integrados.
 
-| Rol | Nivel de acceso |
+| Role | Nivel de acceso |
 | --- | --- |
-| **Lector** | Acciones de solo lectura en el área de trabajo. Los lectores pueden enumerar y ver los recursos en un área de trabajo, pero no se puede crear o actualizar estos recursos. |
-| **Colaborador** | Ver, crear, editar o eliminar (si procede) activos en un área de trabajo. Por ejemplo, colaboradores pueden crear un experimento, crear o adjuntar un clúster de cálculo, envía una ejecución e implementar un servicio web. |
-| **Propietario** | Acceso al área de trabajo, incluida la capacidad de ver, crear, editar o eliminar (si procede) completo activos en un área de trabajo. Además, puede cambiar las asignaciones de roles. |
+| **Lector** | Acciones de solo lectura en el área de trabajo. Los lectores pueden enumerar y ver los recursos de un área de trabajo, pero no pueden crear ni actualizar estos recursos. |
+| **Colaborador** | Ver, crear, editar o eliminar (si procede) los recursos de un área de trabajo. Por ejemplo, los colaboradores pueden crear un experimento, crear o conectar un clúster de proceso, enviar una ejecución e implementar un servicio web. |
+| **Propietario** | Acceso total al área de trabajo, incluida la posibilidad de ver, crear, editar o eliminar (si procede) los recursos de un área de trabajo. Además, puede cambiar las asignaciones de roles. |
 
 > [!IMPORTANT]
-> Rol de acceso puede ampliarse a varios niveles en Azure. Por ejemplo, no un usuario con acceso de propietario a un área de trabajo puede tener acceso de propietario para el grupo de recursos que contiene el área de trabajo. Para obtener más información, consulte [cómo RBAC funciona](/azure/role-based-access-control/overview#how-rbac-works).
+> El acceso de los roles puede tener un ámbito de varios niveles en Azure. Por ejemplo, un usuario con acceso de propietario a un área de trabajo podría no tener acceso de propietario al grupo de recursos que contiene el área de trabajo. Para más información, consulte [Cómo funciona RBAC](/azure/role-based-access-control/overview#how-rbac-works).
 
-Para obtener más información sobre los roles integrados específicos, consulte [roles integrados para Azure](/azure/role-based-access-control/built-in-roles).
+Para más información sobre roles integrados específicos, consulte [Roles integrados de Azure](/azure/role-based-access-control/built-in-roles).
 
-## <a name="manage-workspace-access"></a>Administrar el acceso de área de trabajo
+## <a name="manage-workspace-access"></a>Administración del acceso al área de trabajo
 
-Si es propietario de un área de trabajo, puede agregar y quitar funciones del área de trabajo. También puede asignar roles a los usuarios. Use los siguientes vínculos para descubrir cómo administrar el acceso:
-- [Interfaz de usuario de Azure portal](/azure/role-based-access-control/role-assignments-portal)
+Si es propietario de un área de trabajo, puede agregar y eliminar roles del área de trabajo. También puede asignar roles a los usuarios. Use los siguientes vínculos para descubrir cómo administrar el acceso:
+- [Interfaz de usuario de Azure Portal](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [CLI de Azure](/azure/role-based-access-control/role-assignments-cli)
 - [API DE REST](/azure/role-based-access-control/role-assignments-rest)
 - [Plantillas del Administrador de recursos de Azure](/azure/role-based-access-control/role-assignments-template)
 
-Si ha instalado el [CLI de Azure Machine Learning](reference-azure-machine-learning-cli.md), también puede usar un comando CLI para asignar roles a los usuarios.
+Si ha instalado la [CLI de Azure Machine Learning](reference-azure-machine-learning-cli.md), también puede usar un comando de la CLI para asignar roles a los usuarios.
 
 ```azurecli-interactive 
-az ml workspace share -n <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
+az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-El `user` campo es la dirección de correo electrónico de un usuario existente en la instancia de Azure Active Directory donde se encuentra la suscripción de área de trabajo principal. Este es un ejemplo de cómo utilizar este comando:
+El campo `user` es la dirección de correo electrónico de un usuario existente en la instancia de Azure Active Directory donde se encuentra la suscripción principal del área de trabajo. Este es un ejemplo de cómo utilizar este comando:
 
 ```azurecli-interactive 
-az ml workspace share -n my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
+az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
 
-## <a name="create-custom-role"></a>Crear un rol personalizado
+## <a name="create-custom-role"></a>Creación de un rol personalizado
 
-Si los roles integrados no son suficientes, puede crear roles personalizados. Podrían tener roles personalizados leer, escribir, eliminar y permisos de recursos en esa área de trabajo de proceso. Puede realizar el rol disponible en un nivel de área de trabajo específica, un nivel de grupo de recursos específico o un nivel de suscripción específica.
+Si los roles integrados no son suficientes, puede crear roles personalizados. Los roles personalizados pueden tener permisos para leer, escribir, eliminar y procesar recursos de ese área de trabajo. Puede hacer que el rol esté disponible en un nivel de área de trabajo específica, un nivel de grupo de recursos específico o un nivel de suscripción específica.
 
 > [!NOTE]
-> Debe ser un propietario del recurso en ese nivel para crear roles personalizados dentro de ese recurso.
+> Debe ser un propietario del recurso en ese nivel para crear roles personalizados en ese recurso.
 
-Para crear un rol personalizado, primero construya un archivo JSON de definición de rol que especifica el permiso y el ámbito para el rol. El ejemplo siguiente define un rol personalizado denominado "Científico de datos" con ámbito en un nivel de área de trabajo específica:
+Para crear un rol personalizado, primero debe construir un archivo JSON de definición de rol que especifica el permiso y el ámbito del rol. El ejemplo siguiente define un rol personalizado llamado "Data Scientist" (Científico de datos) con ámbito en un nivel de área de trabajo específica:
 
-`data_scientist_role.json` :
+`data_scientist_role.json`:
 ```json
 {
     "Name": "Data Scientist",
@@ -86,32 +86,32 @@ Para crear un rol personalizado, primero construya un archivo JSON de definició
 }
 ```
 
-Puede cambiar el `AssignableScopes` campo para establecer el ámbito de este rol personalizado en el nivel de suscripción, el nivel de grupo de recursos o un nivel de área de trabajo específica.
+Puede cambiar el campo `AssignableScopes` para establecer el ámbito de este rol personalizado en el nivel de suscripción, el nivel de grupo de recursos o un nivel de área de trabajo específica.
 
-Este rol personalizado puede hacer lo mismo en el área de trabajo, excepto las siguientes acciones:
+Este rol personalizado puede hacer todo en el área de trabajo, excepto las siguientes acciones:
 
-- No se puede crear o actualizar un recurso de proceso.
+- No puede crear o actualizar un recurso de proceso.
 - No puede eliminar un recurso de proceso.
-- No se puede agregar, eliminar o modificar las asignaciones de roles.
+- No puede agregar, eliminar o modificar asignaciones de roles.
 - No puede eliminar el área de trabajo.
 
-Para implementar este rol personalizado, use el siguiente comando de CLI de Azure:
+Para implementar este rol personalizado, use el siguiente comando de la CLI de Azure:
 
 ```azurecli-interactive 
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Después de la implementación, este rol está disponible en el área de trabajo especificada. Ahora puede agregar y asignar este rol en el portal de Azure. O bien, puede asignar este rol a un usuario mediante el `az ml workspace share` comando de CLI:
+Después de la implementación, este rol está disponible en el área de trabajo especificada. Ahora puede agregar y asignar este rol en Azure Portal. O bien, puede asignar este rol a un usuario mediante el comando de la CLI `az ml workspace share`:
 
 ```azurecli-interactive
 az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
 
-Para obtener más información, consulte [roles personalizados para recursos de Azure](/azure/role-based-access-control/custom-roles).
+Para más información, consulte [Roles personalizados para recursos de Azure](/azure/role-based-access-control/custom-roles).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a la seguridad empresarial](concept-enterprise-security.md)
-- [Ejecutar de forma segura experimentos e inferencia/puntuación dentro de una red virtual](how-to-enable-virtual-network.md)
+- [Introducción a la seguridad en la empresa](concept-enterprise-security.md)
+- [Ejecución de experimentos y realización de inferencias/puntuaciones de forma segura en una red virtual](how-to-enable-virtual-network.md)
 - [Tutorial: Entrenamiento de modelos](tutorial-train-models-with-aml.md)

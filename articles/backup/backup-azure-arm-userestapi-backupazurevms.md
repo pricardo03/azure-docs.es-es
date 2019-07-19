@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 295c4fed9ab674f0c9e812c02f6b82ee53ef1b91
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646782"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274854"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Copia de seguridad de una máquina virtual de Azure mediante Azure Backup a través de la API REST
 
@@ -47,7 +47,7 @@ La operación 'refresh' es una [operación asincrónica](https://docs.microsoft.
 
 Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra operación y, a continuación, 200 (OK) cuando se completa dicha operación.
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |204 No Content     |         |  Correcto y no se devolvió contenido      |
 |202 - Aceptado     |         |     Accepted    |
@@ -108,13 +108,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 El identificador URI de *GET* tiene todos los parámetros necesarios. No se necesita ningún cuerpo de solicitud adicional.
 
-#### <a name="responses"></a>Respuestas
+##### <a name="responses-1"></a>Respuestas
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-##### <a name="example-responses"></a>Respuestas de ejemplo
+##### <a name="example-responses-1"></a>Respuestas de ejemplo
 
 Una vez que se emite la solicitud *GET*, se devuelve una respuesta 200 (OK).
 
@@ -186,7 +186,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Para crear un elemento protegido, los siguientes son los componentes del cuerpo de la solicitud.
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Propiedades del recurso ProtectedItem         |
 
@@ -214,7 +214,7 @@ La creación de un elemento protegido es una [operación asincrónica](https://d
 
 Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra operación y, a continuación, 200 (OK) cuando se completa dicha operación.
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 - Aceptado     |         |     Accepted    |
@@ -300,7 +300,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Para desencadenar una copia de seguridad a petición, los siguientes son los componentes del cuerpo de la solicitud.
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propiedades de BackupRequestResource         |
 
@@ -325,11 +325,11 @@ Desencadenar una copia de seguridad a petición es una [operación asincrónica]
 
 Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra operación y, a continuación, 200 (OK) cuando se completa dicha operación.
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |202 - Aceptado     |         |     Accepted    |
 
-#### <a name="example-responses"></a>Respuestas de ejemplo
+##### <a name="example-responses-3"></a>Respuestas de ejemplo
 
 Una vez enviada la solicitud *POST* para una copia de seguridad a petición, la respuesta inicial es 202 (Accepted) con un encabezado de ubicación o Azure-async-header.
 
@@ -439,13 +439,13 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>Respuestas
+### <a name="responses-2"></a>Respuestas
 
 La protección *DELETE* es una [operación asincrónica](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa que esta operación crea otra que tiene que ser seguida por separado.
 
 Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra operación y, a continuación, 204 (NoContent) (sin contenido) cuando se completa dicha operación.
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 - Aceptado     |         |     Accepted    |

@@ -1,34 +1,30 @@
 ---
-title: 'Descripción de los términos de la hoja de precios para un contrato de cliente de Microsoft: Azure | Microsoft Docs'
-description: Aprenda a leer y entender el uso y la factura de la suscripción de Azure
-services: ''
-documentationcenter: ''
-author: jureid
+title: Descripción de los términos de la hoja de precios para un contrato de cliente de Microsoft en Azure
+description: Aprenda a leer y entender el uso y la factura de un contrato de cliente de Microsoft.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371366"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490666"
 ---
-# <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Descripción de los términos de la hoja de precios para un contrato de cliente de Microsoft
+# <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Términos de la hoja de precios del contrato de cliente de Microsoft
 
-Este artículo se aplica a una cuenta de facturación para un contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artículo se aplica a una cuenta de facturación de Azure de un contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 Si es el propietario, colaborador, lector o administrador de facturación de un perfil de facturación, puede descargar la hoja de precios de la organización desde Azure Portal. Consulte [Visualización y descarga de los precios de la organización](billing-ea-pricing.md).
 
-## <a name="detailed-terms-and-descriptions-in-your-microsoft-customer-agreement-price-sheet"></a>Términos y descripciones detallados de la hoja de precios del contrato de cliente de Microsoft
+## <a name="terms-and-descriptions-in-your-price-sheet"></a>Términos y descripciones de la hoja de precios
 
 En la siguiente sección se describen los términos importantes que aparecen en la hoja de precios del contrato de cliente de Microsoft.
 

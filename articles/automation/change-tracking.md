@@ -4,18 +4,18 @@ description: La solución Change Tracking ayuda a identificar los cambios en el 
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f917c45030ad70a2ab76fed877bd822d1902f82
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.openlocfilehash: 109c2817b95f535acfb3d6987a7dad57135ee7a0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927288"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478621"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -24,7 +24,7 @@ Este artículo le ayuda a usar la solución Change Tracking para identificar fá
 Los cambios en los demonios de Linux, en el registro y los archivos de Windows, en los servicios de Windows y en el software instalado en los servidores supervisados se envían al servicio de Azure Monitor en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
 
 > [!NOTE]
-> Seguimiento de cambios de Azure Automation realiza un seguimiento de cambios en máquinas virtuales. Para realizar el seguimiento de cambios de propiedad de Azure Resource Manager, consulte Azure recursos Graph [historial de cambios](../governance/resource-graph/how-to/get-resource-changes.md).
+> Azure Automation Change Tracking hace el seguimiento de los cambios en las máquinas virtuales. Para hacer el seguimiento de los cambios en la propiedad de Azure Resource Manager, consulte [Historial de cambios](../governance/resource-graph/how-to/get-resource-changes.md) de Azure Resource Graph.
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operativos Windows compatibles
 
@@ -79,7 +79,7 @@ Use los pasos siguientes para configurar el seguimiento de archivos en equipos L
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|Enabled     | Determina si se aplica la configuración.        |
+|habilitado     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
 |Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo. Por ejemplo: "/etc/*.conf"       |
@@ -102,7 +102,7 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|Enabled     | Determina si se aplica la configuración.        |
+|habilitado     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
 |Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\\\*.txt"<br>También puede usar variables de entorno, como "%winDir%\System32\\\*. *"       |
@@ -134,7 +134,7 @@ Use los pasos siguientes para configurar las claves del registro para realizar u
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|Enabled     | Determina si se aplica la configuración.        |
+|habilitado     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo de la clave del Registro cuyo seguimiento se va a realizar.        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente las claves del Registro.        |
 |Clave del registro de Windows   | La ruta de acceso para buscar la clave del Registro. Por ejemplo:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
@@ -158,7 +158,7 @@ Otras limitaciones:
 Actualmente, la solución Change Tracking tiene los siguientes problemas:
 
 * Las actualizaciones de revisiones no se recopilan en máquinas Windows Server 2016 Core RS3.
-* Los demonios de Linux puede mostrar un cambio de estado, aunque se ha producido ningún cambio. Esto es debido a cómo el `SvcRunLevels` se captura el campo.
+* Los demonios de Linux pueden mostrar un estado modificado incluso si no ha habido cambios. Esto se debe a cómo se captura el campo `SvcRunLevels`.
 
 ## <a name="change-tracking-data-collection-details"></a>Detalles de la recopilación de datos de seguimiento de cambios
 
@@ -246,16 +246,16 @@ Las direcciones siguientes se requieren específicamente para Change Tracking. L
 
 |Azure Public  |Azure Government  |
 |---------|---------|
-|* .ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
-|* .oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|* .blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|* .azure-automation.net|*.azure-automation.us|
+|\* .ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|\* .oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|\* .blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|\* .azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>Uso de seguimiento de cambios
 
 Después de habilitar la solución, puede ver el resumen de los cambios en los equipos supervisados seleccionando **Change Tracking** en **ADMINISTRACIÓN DE CONFIGURACIÓN** en la cuenta de Automation.
 
-Puede ver los cambios en los equipos y, a continuación, profundizar en los detalles de cada evento. Hay disponibles listas desplegables en la parte superior del gráfico para limitar el gráfico y la información detallada en función del tipo de cambio y los intervalos de tiempo. También puede hacer clic y arrastrar en el gráfico para seleccionar un intervalo de tiempo personalizado. **Cambiar tipo** será uno de los siguientes valores **eventos**, **demonios**, **archivos**, **registro**,  **Software**, **Windows Services**. Muestra el tipo de cambio de categoría y puede ser **Added**, **Modified**, o **quitado**.
+Puede ver los cambios en los equipos y, a continuación, profundizar en los detalles de cada evento. Hay disponibles listas desplegables en la parte superior del gráfico para limitar el gráfico y la información detallada en función del tipo de cambio y los intervalos de tiempo. También puede hacer clic y arrastrar en el gráfico para seleccionar un intervalo de tiempo personalizado. El **tipo de cambio** será uno de estos valores: **Eventos**, **Demonios**, **Archivos**, **Registro**, **Software**, **Servicios de Windows**. En la categoría se muestra el tipo de cambio y se pueden **Agregar**, **Modificar** o **Quitar**.
 
 ![imagen del panel de seguimiento de cambios](./media/change-tracking/change-tracking-dash01.png)
 
@@ -265,7 +265,7 @@ Al hacer clic en un cambio o un evento, se abrirá la información detallada sob
 
 ## <a name="search-logs"></a>Búsqueda de registros
 
-Además de los detalles que se proporcionan en el portal, se puede buscar en los registros. Con el **Change Tracking** página abierta, haga clic en **Log Analytics**, se abrirá el **registros** página.
+Además de los detalles que se proporcionan en el portal, se puede buscar en los registros. Con la página **Change Tracking** abierta, haga clic en **Log Analytics** y se abrirá la página **Registros**.
 
 ### <a name="sample-queries"></a>Consultas de ejemplo
 
@@ -318,4 +318,4 @@ Consulte el tutorial de Change Tracking para más información acerca del uso de
 > [!div class="nextstepaction"]
 > [Solución de problemas de cambios en el entorno](automation-tutorial-troubleshoot-changes.md)
 
-* Use [búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver los datos de seguimiento de cambios detallado.
+* Consulte [Búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre el seguimiento de cambios.

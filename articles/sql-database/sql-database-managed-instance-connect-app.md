@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297090"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274003"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL Database
 
@@ -45,7 +45,7 @@ Para conectar redes virtuales hay dos opciones:
 La opción de emparejamiento es la preferida, porque se usa la red troncal de Microsoft y, por lo tanto, desde la perspectiva de la conectividad, no hay diferencias notables de latencia entre máquinas virtuales de la red virtual emparejada y la propia. El emparejamiento de VNet está restringido a las redes de la misma región.  
 
 > [!IMPORTANT]
-> El escenario de emparejamiento de VNet de la instancia administrada está restringido a las redes de la misma región debido a las [restricciones de emparejamiento de redes virtuales globales](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> El escenario de emparejamiento de VNet de la instancia administrada está restringido a las redes de la misma región debido a las [restricciones de emparejamiento de redes virtuales globales](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obtener más información. 
 
 ## <a name="connect-an-on-premises-application"></a>Conexión de una aplicación local
 
@@ -56,7 +56,7 @@ Hay dos opciones de conexión local a una red virtual de Azure:
 - Conexión VPN de sitio a sitio ([Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [CLI de Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Conexión de [ExpressRoute](../expressroute/expressroute-introduction.md)  
 
-Si se ha establecido correctamente de local a la conexión de Azure y no se puede establecer conexión con instancia administrada, compruebe si el firewall tiene abierta la conexión saliente en el puerto 1433 de SQL, así como intervalo de 11000 a 11999 de puertos para la redirección.
+Si ha establecido la conexión local a Azure correctamente y no puede establecer la conexión con Instancia administrada, compruebe si el firewall tiene abierta la conexión saliente en el puerto 1433 de SQL, así como los puertos 11000-11999 para el redireccionamiento.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Conexión de una aplicación en el cuadro de desarrollo
 
@@ -96,7 +96,7 @@ Este escenario se ilustra en el diagrama siguiente:
 
 Para solucionar problemas de conectividad, consulte la siguiente información:
 
-- Si no puede conectarse a instancia administrada desde una máquina virtual de Azure dentro de la misma red virtual pero una subred diferente, compruebe si tiene un grupo de seguridad de red establecido en la subred de VM que podría estar bloqueando el acceso. Además tenga en cuenta que deberá abrir una conexión saliente en el puerto 1433 de SQL, así como los puertos en el intervalo de 11000 a 11999 puesto que los que se necesitan para conectarse mediante un redireccionamiento dentro del límite de Azure.
+- Si no puede conectarse a la Instancia administrada desde una máquina virtual de Azure dentro de la misma red virtual, pero desde una subred diferente, compruebe si tiene un grupo de seguridad de red establecido en la subred de la máquina virtual que podría estar bloqueando el acceso. Además, tenga en cuenta que deberá abrir una conexión saliente en el puerto 1433 de SQL, así como los puertos en el intervalo 11000-11999, ya que son necesarios para establecer conexión a través de un redireccionamiento dentro del límite de Azure.
 - Asegúrese de que la propagación de BGP está establecida en **Habilitado** para la tabla de rutas asociada a la red virtual.
 - Si utiliza VPN de P2S, compruebe la configuración en Azure Portal para ver si detecta números de **entrada/salida**. Los números distintos de cero indican que Azure enruta el tráfico hacia y desde un entorno local.
 
@@ -138,7 +138,7 @@ Para solucionar problemas de conectividad, consulte la siguiente información:
 
 Si desea conectarse a Instancia administrada, se recomiendan las siguientes versiones mínimas de las herramientas y los controladores:
 
-| Controlador/Herramienta | Version |
+| Controlador/Herramienta | Versión |
 | --- | --- |
 |.NET Framework | 4.6.1 o .NET Core |
 |Controlador ODBC| v17 |
@@ -146,7 +146,7 @@ Si desea conectarse a Instancia administrada, se recomiendan las siguientes vers
 |Controlador JDBC| 6.4.0 |
 |Controlador de Node.js| 2.1.1 |
 |Controlador de OLEDB| 18.0.2.0 |
-|SSMS| 18,0 o [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|SSMS| 18.0 o [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 |[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) o superior |
 
 ## <a name="next-steps"></a>Pasos siguientes

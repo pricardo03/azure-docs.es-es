@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 06/26/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bb89eec0b4905e101bed87d3d3fc617dec589e0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61461568"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477860"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Administración de reglas de detección inteligente de Application Insights con plantillas de Azure Resource Manager
 
@@ -29,12 +29,14 @@ Este método puede usarse al implementar nuevos recursos de Application Insights
 
 Puede configurar los siguientes valores en una regla de detección inteligente:
 - Si la regla se habilita (el valor predeterminado es **true**).
-- Si deben enviarse correos electrónicos a los lectores, colaboradores y propietarios de la suscripción cuando se encuentra una detección (el valor predeterminado es **true**).
+- Si no se deben enviar correos electrónicos a los usuarios asociados con los roles [Lector de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) y [Colaborador de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) cuando se encuentra una detección (el valor predeterminado es **true**).
 - Los destinatarios de correo electrónico adicionales que deben recibir una notificación cuando se encuentra una detección.
-- * La configuración de correo electrónico no está disponible para las reglas de detección inteligente marcadas como _Versión preliminar_.
+    -  La configuración de correo electrónico no está disponible para las reglas de detección inteligente marcadas como _versión preliminar_.
 
 Para permitir la configuración de los valores de regla a través de Azure Resource Manager, la configuración de reglas de detección inteligente ahora está disponible como recurso interno en el recurso de Application Insights denominado **ProactiveDetectionConfigs**.
 Para obtener la máxima flexibilidad, cada regla de detección inteligente puede configurarse con valores de notificación únicos.
+
+## 
 
 ## <a name="examples"></a>Ejemplos
 
@@ -136,12 +138,46 @@ Asegúrese de reemplazar el nombre de recurso de Application Insights y de espec
 
 ```
 
+### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Regla de alertas Anomalías en los errores v2 (no clásicas)
+
+Esta plantilla de Azure Resource Manager muestra la configuración de una regla de alertas de Anomalías en los errores v2 con una gravedad de 2. Esta versión nueva de la regla de alertas de Anomalías en los errores es parte de la nueva plataforma de alertas de Azure y reemplaza la versión clásica que se retira como parte del [proceso de retirada de alertas clásicas](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "microsoft.alertsmanagement/smartdetectoralertrules",
+            "apiVersion": "2019-03-01",
+            "name": "Failure Anomalies - my-app",
+            "properties": {
+                  "description": "Detects a spike in the failure rate of requests or dependencies",
+                  "state": "Enabled",
+                  "severity": "2",
+                  "frequency": "PT1M",
+                  "detector": {
+                  "id": "FailureAnomaliesDetector"
+                  },
+                  "scope": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/microsoft.insights/components/my-app"],
+                  "actionGroups": {
+                        "groupIds": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/MyResourceGroup/providers/microsoft.insights/actiongroups/MyActionGroup"]
+                  }
+            }
+        }
+    ]
+}
+```
+
+> [!NOTE]
+> Esta plantilla de Azure Resource Manager es única para la regla de alertas de Anomalías en los errores v2 y es distinta de las otras reglas clásicas de detección inteligente que se describen en este artículo.   
+
 ## <a name="smart-detection-rule-names"></a>Nombres de regla de detección inteligente
 
 Seguidamente se muestra una tabla de nombres de reglas de detección inteligente tal y como aparecen en el portal, así como sus nombres internos, que deben utilizarse en la plantilla de Azure Resource Manager.
 
 > [!NOTE]
-> Las reglas de detección inteligente marcadas como de versión preliminar no admiten notificaciones por correo electrónico. Por lo tanto, solo se puede establecer la propiedad habilitada para estas reglas. 
+> Las reglas de detección inteligente marcadas como de _versión preliminar_ no admiten notificaciones por correo electrónico. Por lo tanto, solo se puede establecer la propiedad _habilitada_ para estas reglas. 
 
 | Nombre de regla de Azure Portal | Nombre interno
 |:---|:---|
@@ -154,18 +190,7 @@ Seguidamente se muestra una tabla de nombres de reglas de detección inteligente
 | Aumento anormal del volumen de excepciones (versión preliminar) | extension_exceptionchangeextension |
 | Detección de una posible fuga de memoria (versión preliminar) | extension_memoryleakextension |
 | Detección de un posible problema de seguridad (versión preliminar) | extension_securityextensionspackage |
-| Detección de un posible problema de uso de recursos (versión preliminar) | extension_resourceutilizationextensionspackage |
-
-## <a name="who-receives-the-classic-alert-notifications"></a>¿Quién recibe las notificaciones de alerta (clásicas)?
-
-Esta sección solo se aplica a las alertas clásicas de detección inteligente y le ayudará a optimizar las notificaciones de alerta para asegurarse de que solo reciban las notificaciones los destinatarios que elija. Para más información sobre la diferencia entre [alertas clásicas](../platform/alerts-classic.overview.md) y la nueva experiencia de alertas, consulte el [artículo de información general de alertas](../platform/alerts-overview.md). En este momento, las alertas de detección inteligente admiten únicamente la experiencia de alertas clásicas. La única excepción son [las alertas de detección inteligente en Azure Cloud Services](./proactive-cloud-services.md). Use los [grupos de acciones](../platform/action-groups.md) para controlar las notificaciones para alertas de detección inteligente en Azure Cloud Services.
-
-* Se recomienda el uso de destinatarios específicos para las notificaciones de alerta clásicas o de detección inteligente.
-
-* Si está habilitada la opción de casilla de verificación **masiva o grupo**, las alertas de detección inteligente se envían a los usuarios con roles de propietario, colaborador o lector de la suscripción. De hecho, _todos_ los usuarios con acceso a la suscripción del recurso de Application Insights están dentro del ámbito y recibirán notificaciones. 
-
-> [!NOTE]
-> Si actualmente usa la opción de casilla de verificación **masiva o grupo** y la deshabilita, no podrá revertir el cambio.
+| Aumento anómalo del volumen de datos diario (versión preliminar) | extension_billingdatavolumedailyspikeextension |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

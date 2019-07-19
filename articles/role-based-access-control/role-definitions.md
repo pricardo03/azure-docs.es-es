@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/06/2019
+ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.openlocfilehash: 9f5f9b3595074c26c80c824052727e962b01162a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754895"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275046"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Descripción de definiciones de roles para los recursos de Azure
 
@@ -52,7 +52,8 @@ La parte `{action}` de una cadena de la operación especifica el tipo de operaci
 | ------------------- | ------------------- |
 | `*` | El carácter comodín concede acceso a todas las operaciones que coinciden con la cadena. |
 | `read` | Permite operaciones de lectura (GET). |
-| `write` | Permite operaciones de escritura (PUT, POST y PATCH). |
+| `write` | Permite operaciones de escritura (PUT o PATCH). |
+| `action` | Permite operaciones personalizadas, como reiniciar máquinas virtuales (POST). |
 | `delete` | Permite operaciones de eliminación (DELETE). |
 
 Esta es la definición de roles [Colaborador](built-in-roles.md#contributor) en formato JSON. La operación de carácter comodín (`*`) en `Actions` indica que la entidad de seguridad asignada a este rol puede realizar todas las acciones o, en otras palabras, administrar todo el contenido. Esto incluye las acciones definidas en el futuro, a medida que Azure agregue nuevos tipos de recursos. Las operaciones en `NotActions` se restan de `Actions`. En el caso del rol [Colaborador](built-in-roles.md#contributor), `NotActions` le quita la capacidad para administrar y asignar el acceso a los recursos.
@@ -79,7 +80,7 @@ Esta es la definición de roles [Colaborador](built-in-roles.md#contributor) en 
 }
 ```
 
-## <a name="management-and-data-operations-preview"></a>Administración y operaciones de datos (versión preliminar)
+## <a name="management-and-data-operations"></a>Administración y operaciones de datos
 
 El control de acceso basado en rol para las operaciones de administración se especifica en las propiedades `Actions` y `NotActions` de una definición de roles. A continuación, se incluyen algunos ejemplos de operaciones de administración de Azure:
 
@@ -89,7 +90,7 @@ El control de acceso basado en rol para las operaciones de administración se es
 
 El acceso a la administración no se hereda con los datos. Esta separación impide que los roles con caracteres comodín (`*`) tengan acceso no restringido a los datos. Por ejemplo, si un usuario tiene el rol [Lector](built-in-roles.md#reader) en una suscripción, podrá ver la cuenta de almacenamiento, pero, de forma predeterminada, no podrá ver los datos subyacentes.
 
-Anteriormente, el control de acceso basado en rol no se usaba para operaciones de datos. La autorización para las operaciones de datos variaba entre proveedores de recursos. El mismo modelo de autorización de control de acceso basado en rol que se utiliza para las operaciones de administración se ha ampliado a las operaciones de datos (actualmente en versión preliminar).
+Anteriormente, el control de acceso basado en rol no se usaba para operaciones de datos. La autorización para las operaciones de datos variaba entre proveedores de recursos. El mismo modelo de autorización de control de acceso basado en rol que se usa para las operaciones de administración se ha ampliado a las operaciones de datos.
 
 Para admitir las operaciones de datos, se agregaron nuevas propiedades de datos a la estructura de la definición de roles. Las operaciones de datos se especifican en las propiedades `DataActions` y `NotDataActions`. Al agregar estas propiedades de datos, se mantiene la separación entre la administración y los datos. Esto impide que las asignaciones de roles actuales con caracteres comodín (`*`) de repente tengan acceso a los datos. Estas son algunas operaciones de datos que se pueden especificar en `DataActions` y `NotDataActions`:
 
@@ -97,7 +98,7 @@ Para admitir las operaciones de datos, se agregaron nuevas propiedades de datos 
 - Escribir un blob de almacenamiento en un contenedor
 - Eliminar un mensaje de una cola
 
-Este es el [lector de datos de Blob de almacenamiento](built-in-roles.md#storage-blob-data-reader) definición de roles, que incluye las operaciones en ambos el `Actions` y `DataActions` propiedades. Esta función permite leer el contenedor de blobs y también los datos de blob subyacentes.
+Esta es la definición del rol [Lector de datos de blobs de almacenamiento](built-in-roles.md#storage-blob-data-reader), que incluye operaciones en las propiedades `Actions` y `DataActions`. Esta función permite leer el contenedor de blobs y también los datos de blob subyacentes.
 
 ```json
 {
@@ -125,18 +126,18 @@ Azure Resource Manager controla la autorización de todas las llamadas API de op
 
 ### <a name="data-operations-example"></a>Ejemplo de operaciones de datos
 
-Para comprender mejor cómo funcionan las operaciones de datos y de administración, veamos un ejemplo concreto. A Alice se le ha asignado el rol [Propietario](built-in-roles.md#owner) en el ámbito de la suscripción. Bob se ha asignado la [colaborador de datos de almacenamiento Blob](built-in-roles.md#storage-blob-data-contributor) rol en un ámbito de la cuenta de almacenamiento. En el siguiente diagrama se muestra este ejemplo.
+Para comprender mejor cómo funcionan las operaciones de datos y de administración, veamos un ejemplo concreto. A Alice se le ha asignado el rol [Propietario](built-in-roles.md#owner) en el ámbito de la suscripción. A Bob se le ha asignado el rol [Colaborador de datos de blobs de almacenamiento](built-in-roles.md#storage-blob-data-contributor) en un ámbito de la cuenta de almacenamiento. En el siguiente diagrama se muestra este ejemplo.
 
 ![El control de acceso basado en rol se ha ampliado para admitir operaciones de datos y de administración](./media/role-definitions/rbac-management-data.png)
 
-El [propietario](built-in-roles.md#owner) rol para Alice y [colaborador de datos de almacenamiento Blob](built-in-roles.md#storage-blob-data-contributor) rol para Bob tiene las siguientes acciones:
+El rol [Propietario](built-in-roles.md#owner) de Alice y el rol [Colaborador de datos de blobs de almacenamiento](built-in-roles.md#storage-blob-data-contributor) de Bob tienen las siguientes acciones:
 
 Propietario
 
 &nbsp;&nbsp;&nbsp;&nbsp;Acciones<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Colaborador de datos de Blob de almacenamiento
+Colaborador de datos de blobs de almacenamiento
 
 &nbsp;&nbsp;&nbsp;&nbsp;Acciones<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -147,9 +148,9 @@ Colaborador de datos de Blob de almacenamiento
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Puesto que Alice tiene un carácter comodín (`*`) la acción en un ámbito de suscripción, sus permisos se heredan para que puedan realizar todas las acciones de administración. Alice puede leer, escribir y eliminar contenedores. Sin embargo, Alice no puede realizar operaciones de datos sin pasos adicionales. Por ejemplo, de forma predeterminada, Alice no puede leer los blobs de un contenedor. Para leer los blobs, Alice tendría que recuperar las claves de acceso de almacenamiento y usarlas para acceder a los blobs.
+Puesto que Alice tiene una acción de carácter comodín (`*`) en un ámbito de suscripción, sus permisos se heredan para poder realizar todas las acciones de administración. Alice puede leer, escribir y eliminar contenedores. Sin embargo, Alice no puede realizar operaciones de datos sin pasos adicionales. Por ejemplo, de forma predeterminada, Alice no puede leer los blobs de un contenedor. Para leer los blobs, Alice tendría que recuperar las claves de acceso de almacenamiento y usarlas para acceder a los blobs.
 
-Permisos de Bob están restringidos a solamente el `Actions` y `DataActions` especificado en el [colaborador de datos de almacenamiento Blob](built-in-roles.md#storage-blob-data-contributor) rol. Según el rol, Bob puede realizar operaciones de datos y de administración. Por ejemplo, Bob puede leer, escribir y eliminar contenedores de la cuenta de almacenamiento especificada y puede también leer, escribir y eliminar los blobs.
+Los permisos de Bob se limitan a solo los valores de `Actions` y `DataActions` especificados en el rol [Colaborador de datos de blobs de almacenamiento](built-in-roles.md#storage-blob-data-contributor). Según el rol, Bob puede realizar operaciones de datos y de administración. Por ejemplo, Bob puede leer, escribir y eliminar contenedores de la cuenta de almacenamiento especificada y también puede leer, escribir y eliminar los blobs.
 
 Para más información acerca de la administración y la seguridad en el plano de datos, consulte la [guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md).
 
@@ -157,7 +158,7 @@ Para más información acerca de la administración y la seguridad en el plano d
 
 Para visualizar y trabajar con operaciones de datos, debe tener las versiones correctas de las herramientas o SDK:
 
-| Herramienta  | Version  |
+| Herramienta  | Versión  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 o posterior |
 | [CLI de Azure](/cli/azure/install-azure-cli) | 2.0.30 o posterior |
@@ -169,11 +170,7 @@ Para visualizar y trabajar con operaciones de datos, debe tener las versiones co
 
 Para ver y usar las operaciones de datos en la API REST, el valor del parámetro **api-version** debe ser la siguiente versión o las versiones posteriores:
 
-- 2018-01-01-preview
-
-Azure Portal también permite que los usuarios examinen y administren los contenidos de las colas y contenedores de Blob a través de la experiencia de versión preliminar de Azure AD. Para ver y administrar el contenido de una cola o contenedor de Blob, haga clic en **Explore data using Azure AD preview** (Explorar datos con la versión preliminar de Azure AD) en la información general de la cuenta de almacenamiento.
-
-![Explorar colas y contenedores de Blob con la versión preliminar de Azure AD](./media/role-definitions/rbac-dataactions-browsing.png)
+- 2018-07-01
 
 ## <a name="actions"></a>Acciones
 
@@ -195,7 +192,7 @@ El permiso `NotActions` especifica las operaciones de administración que se exc
 > Si un usuario tiene asignado un rol que excluye una operación en `NotActions` y se le asigna un segundo rol que sí que concede acceso a esa operación, el usuario puede realizar dicha operación. `NotActions` no es una regla de denegación, es simplemente una manera cómoda de crear un conjunto de operaciones permitidas cuando es necesario excluir operaciones específicas.
 >
 
-## <a name="dataactions-preview"></a>DataActions (versión preliminar)
+## <a name="dataactions"></a>DataActions
 
 El permiso `DataActions` especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. Por ejemplo, si un usuario tiene acceso para leer datos de blobs de una cuenta de almacenamiento, puede leer los blobs en esa cuenta de almacenamiento. A continuación, se incluyen algunos ejemplos de operaciones de datos que se pueden usar en `DataActions`.
 
@@ -206,7 +203,7 @@ El permiso `DataActions` especifica las operaciones de datos que el rol permite 
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Devuelve un mensaje. |
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Devuelve un mensaje o el resultado de la escritura o eliminación de un mensaje. |
 
-## <a name="notdataactions-preview"></a>NotDataActions (versión preliminar)
+## <a name="notdataactions"></a>NotDataActions
 
 El permiso `NotDataActions` especifica las operaciones de datos que se excluyen de los valores `DataActions` permitidos. El acceso concedido por un rol (permisos vigentes) se calcula restando las operaciones de `NotDataActions` de las de `DataActions`. Cada proveedor de recursos proporciona su conjunto respectivo de API para completar las operaciones de datos.
 
@@ -216,7 +213,7 @@ El permiso `NotDataActions` especifica las operaciones de datos que se excluyen 
 
 ## <a name="assignablescopes"></a>Ámbitos asignables
 
-El `AssignableScopes` propiedad especifica los ámbitos (suscripciones, grupos de recursos o recursos) que tienen esta definición de rol disponible. Puede realizar la función disponibles para la asignación de solo las suscripciones o grupos de recursos que lo requieran y sin necesidad de abarrotar la experiencia del usuario para el resto de las suscripciones o grupos de recursos. Tiene que utilizar al menos una suscripción, grupo de recursos o identificador de recurso.
+La propiedad `AssignableScopes` especifica los ámbitos (suscripciones, grupos de recursos o recursos) en los que la definición de rol está disponible. Puede permitir que el rol esté disponible para su asignación solamente en las suscripciones o los grupos de recursos que lo requieran, sin necesidad de abarrotar la experiencia de usuario con el resto de las suscripciones o grupos de recursos. Tiene que utilizar al menos una suscripción, grupo de recursos o identificador de recurso.
 
 Los roles integrados tienen `AssignableScopes` establecido en el ámbito raíz (`"/"`). El ámbito raíz indica que el rol está disponible para la asignación en todos los ámbitos. Ejemplos de ámbitos asignables válidos son:
 
@@ -225,7 +222,7 @@ Los roles integrados tienen `AssignableScopes` establecido en el ámbito raíz (
 | El rol está disponible para la asignación en una única suscripción. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
 | El rol está disponible para la asignación en dos suscripciones. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
 | El rol está disponible para la asignación solo en el grupo de recursos de red. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| El rol está disponible para la asignación en todos los ámbitos. | `"/"` |
+| El rol está disponible para la asignación en todos los ámbitos (se aplica solo a roles integrados) | `"/"` |
 
 Para obtener información acerca de `AssignableScopes` para roles personalizados, consulte [Roles personalizados en los recursos de Azure](custom-roles.md).
 

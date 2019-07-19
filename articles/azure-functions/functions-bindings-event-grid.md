@@ -4,19 +4,19 @@ description: Comprenda cómo se pueden controlar eventos de Event Grid en Azure 
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f48eced2ebcc4ad92c5124194ed2e2df92f64f11
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438757"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480658"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Desencadenador de Event Grid para Azure Functions
 
@@ -214,6 +214,7 @@ Este es el código de Python:
 import logging
 import azure.functions as func
 
+
 def main(event: func.EventGridEvent):
     logging.info("Python Event Grid function processed a request.")
     logging.info("  Subject: %s", event.subject)
@@ -384,7 +385,7 @@ El tipo `EventGridEvent` define solo las propiedades de nivel superior; la propi
 
 Para empezar a recibir solicitudes HTTP de Event Grid, cree una suscripción a Event Grid que especifique la dirección URL de punto de conexión que invoca la función.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Para las funciones que desarrolle en Azure Portal con el desencadenador de Event Grid, seleccione **Agregar suscripción a Event Grid**.
 
@@ -396,7 +397,7 @@ Al seleccionar este vínculo, el portal abre la página **Crear suscripción de 
 
 Para obtener más información sobre cómo crear suscripciones mediante el Azure Portal, consulte [Creación de eventos personalizados: Azure Portal](../event-grid/custom-event-quickstart-portal.md) en la documentación de Event Grid.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 Para crear una suscripción mediante el uso de la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilice el comando [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
 
@@ -528,14 +529,14 @@ Use una herramienta como [Postman](https://www.getpostman.com/) o [curl](https:/
 * Establezca un encabezado `Content-Type: application/json`.
 * Establezca un encabezado `aeg-event-type: Notification`.
 * Pegue los datos de RequestBin en el cuerpo de la solicitud.
-* Envíe la dirección URL de la función de desencadenador de Event Grid.
-  * Para 2.x, use el siguiente patrón:
+* Envíe la dirección URL de la función del desencadenador de Event Grid.
+  * Para 2.x, use el patrón siguiente:
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * Para su uso 1.x:
+  * Para 1.x, use:
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
@@ -555,7 +556,7 @@ La función de desencadenador de Event Grid ejecuta y muestra registros similare
 
 ## <a name="local-testing-with-ngrok"></a>Pruebas locales con ngrok
 
-Otra forma de probar un desencadenador de Event Grid localmente consiste en automatizar la conexión HTTP entre Internet y su equipo de desarrollo. Puede hacerlo con una herramienta de código abierto denominada [ngrok](https://ngrok.com/):
+Otra forma de probar un desencadenador de Event Grid localmente consiste en automatizar la conexión HTTP entre Internet y su equipo de desarrollo. Puede hacerlo con una herramienta como [ngrok](https://ngrok.com/):
 
 1. [Cree un punto de conexión de ngrok](#create-an-ngrok-endpoint).
 1. [Ejecute la función de desencadenador de Event Grid](#run-the-event-grid-trigger-function).

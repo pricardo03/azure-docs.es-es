@@ -3,44 +3,48 @@ title: 'Límites de solicitudes: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En este artículo se enumeran los límites de solicitudes de Translator Text API. Los cargos se generan en función del número de caracteres, y no por la frecuencia de solicitud, con un límite de 5000 caracteres por solicitud. Los límites de caracteres se basan en la suscripción, con F0 limitado a 2 millones de caracteres por hora.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: a7621cc80a38d9a07872a94d8e5221dc04023b86
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514655"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435026"
 ---
 # <a name="request-limits-for-translator-text"></a>Límites de solicitudes de Translator Text
 
 En este artículo se proporcionan los valores de limitación de Translator Text API. Los servicios incluyen traducción, transliteración, detección de la longitud de oraciones, detección de idiomas y traducciones alternativas.
 
-## <a name="character-and-array-limits-per-request"></a>Límites de carácter y la matriz por solicitud
+## <a name="character-and-array-limits-per-request"></a>Límites de caracteres y matriz por solicitud
 
-Cada solicitud de traducción está limitada a 5000 caracteres. Se le cobrará por cada carácter, no por el número de solicitudes. Se recomienda para enviar solicitudes más cortas.
+Cada solicitud Translate está limitada a 5000 caracteres. Se le cobrará por cada carácter, no por el número de solicitudes. Se recomienda enviar solicitudes más cortas.
 
-La siguiente tabla se enumeran elemento y el carácter límites de la matriz para cada operación de Translator Text API.
+En la siguiente tabla se muestran los límites de caracteres y elementos de matriz correspondientes a cada una de las operaciones de Translator Text API.
 
-| Operación | Tamaño máximo del elemento de matriz |   Número máximo de elementos de matriz |  Tamaño máximo de solicitud (caracteres) |
+| Operación | Tamaño máximo del elemento de matriz |   Número máximo de elementos de matriz |  Tamaño máximo de la solicitud (caracteres) |
 |:----|:----|:----|:----|
-| Translate | 5.000 | 100   | 5.000 |
-| Transliterar | 5.000 | 10    | 5.000 |
-| Detect | 10 000 | 100 |   50,000 |
-| BreakSentence | 10 000    | 100 | 5,0000 |
+| Translate | 5\.000 | 100   | 5\.000 |
+| Transliterar | 5\.000 | 10    | 5\.000 |
+| Detect | 10 000 | 100 |   50.000 |
+| BreakSentence | 10 000    | 100 | 50 000 |
 | Búsqueda en diccionario| 100 |  10  | 1000 |
-| Ejemplos de diccionario | 100 para texto y 100 para la traducción (total de 200)| 10|   2.000 |
+| Ejemplos de diccionario | 100 para texto y 100 para traducción (200 en total)| 10|   2\.000 |
 
 ## <a name="character-limits-per-hour"></a>Límites de caracteres por hora
 
-El límite de caracteres por hora se basa en el nivel de suscripción de Translator Text. La cuota por hora se debe consumir uniformemente a lo largo de la hora. Si alcanzar o superar estos límites o enviar demasiado grande de una parte de la cuota en un breve período de tiempo, probablemente recibirá una salida de respuesta de la cuota.
+El límite de caracteres por hora se basa en el nivel de suscripción de Translator Text. 
 
-| Nivel: | Límite de caracteres |
+La cuota por hora debe consumirse de forma uniforme a lo largo de la hora. Por ejemplo, en el límite del nivel F0 de 2 millones de caracteres por hora, los caracteres deben consumirse a una velocidad no superior a unos 33 300 caracteres por ventana deslizante de un minuto (2 millones de caracteres divididos por 60 minutos).
+
+Si alcanza o sobrepasa estos límites, o bien envía una parte demasiado grande de la cuota en un breve período de tiempo, es probable que reciba una respuesta de superación de cuota. No hay ningún límite en las solicitudes simultáneas.
+
+| Nivel | Límite de caracteres |
 |------|-----------------|
 | F0 | 2 millones de caracteres por hora |
 | S1 | 40 millones de caracteres por hora |
@@ -48,19 +52,19 @@ El límite de caracteres por hora se basa en el nivel de suscripción de Transla
 | S3 / C3 | 120 millones de caracteres por hora |
 | S4 / C4 | 200 millones de caracteres por hora |
 
-Límites para [suscripciones múltiples servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) son los mismos que el nivel S1.
+Los límites de las [suscripciones a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) son los mismos que los del nivel S1.
 
-Estos límites están restringidos a los modelos estándar traducción de Microsoft. Los modelos de traducción personalizada que utilice Translator personalizado se limitan a caracteres 1.800 por segundo.
+Estos límites están restringidos a modelos de traducción estándar de Microsoft. Los modelos de traducción personalizada que usan Traductor personalizado están limitados a 1800 caracteres por segundo.
 
 ## <a name="latency"></a>Latencia
 
-Translator Text API tiene una latencia máxima de 15 segundos con los modelos estándar. Conversión mediante modelos personalizados tiene una latencia máxima de 25 segundos. Llegados a este punto, habrá recibido un resultado o una respuesta de tiempo de espera agotado. Normalmente, las respuestas tardan entre 150 milisegundos y 300 milisegundos en devolverse. Tiempos de respuesta variará en función del tamaño del par de solicitud y de idioma. Si no recibe una traducción o un [respuesta de error](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) en ese período de tiempo, debe comprobar la conexión de red y vuelva a intentar.
+Translator Text API tiene una latencia máxima de 15 segundos con los modelos estándar. La traducción con modelos personalizados tiene una latencia máxima de 25 segundos. Llegados a este punto, habrá recibido un resultado o una respuesta de tiempo de espera agotado. Normalmente, las respuestas tardan entre 150 milisegundos y 300 milisegundos en devolverse. Los tiempos de respuesta variarán según el tamaño de la solicitud y el par de idiomas. Si no recibe una traducción o una [respuesta de error](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) en ese período de tiempo, debe comprobar su conexión de red y volver a intentarlo.
 
 ## <a name="sentence-length-limits"></a>Límites de longitud de oraciones
 
 Cuando se usa la función [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), la longitud de la oración se limita a 275 caracteres. Existen excepciones para estos idiomas:
 
-| Lenguaje | Código | Límite de caracteres |
+| Idioma | Código | Límite de caracteres |
 |----------|------|-----------------|
 | Chino | zh | 132 |
 | Alemán | de | 290 |

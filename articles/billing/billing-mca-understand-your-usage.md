@@ -1,42 +1,38 @@
 ---
-title: Descripción de los términos en el archivo CSV de cargos y de uso de Azure para un contrato de cliente de Microsoft | Microsoft Docs
-description: Aprenda a leer y entender las secciones del archivo de cargos y de uso de Azure para el perfil de facturación
-services: ''
-documentationcenter: ''
+title: Términos en el archivo de uso y cargos de Azure para un contrato de cliente de Microsoft
+description: Aprenda a leer y entender las secciones del archivo de cargos y de uso de Azure para el perfil de facturación.
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: jureid
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d11e31366ea5aa15cf7a790eaee800fa2ea6dabe
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371315"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490621"
 ---
-# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Descripción de los términos en el archivo CSV de cargos y de uso de Azure para un contrato de cliente de Microsoft
+# <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Términos en el archivo de uso y cargos de Azure para un contrato de cliente de Microsoft
 
 Este artículo se aplica a una cuenta de facturación para un contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-El archivo CSV de cargos y de uso de Azure contiene los cargos por uso diario y por medidor del periodo de facturación actual.
+El archivo .csv de cargos y de uso de Azure contiene los cargos por uso diario y por medidor del período de facturación actual.
 
-Para obtener el archivo de cargos y de uso de Azure, consulte [Visualización y descarga de cargos y de uso de Azure del contrato de cliente de Microsoft](billing-download-azure-daily-usage.md).
-Está disponible en un formato de archivo de valores separados por comas (.csv) que se puede abrir en una aplicación de hoja de cálculo.
+Para obtener el archivo de cargos y de uso de Azure, consulte [Visualización y descarga de cargos y de uso de Azure del contrato de cliente de Microsoft](billing-download-azure-daily-usage.md). Está disponible en un formato de archivo de valores separados por comas (.csv) que se puede abrir en una aplicación de hoja de cálculo.
 
 Los cargos de uso son los cargos **mensuales** totales de una suscripción. Los cargos de uso no tienen en cuenta los créditos o descuentos.
 
-## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>Cambios en el CSV de cargos y de uso de Azure para el Contrato Enterprise
+## <a name="changes-from-azure-ea-usage-and-charges"></a>Cambios en el uso y los cargos de Azure EA
 
-Si era cliente de Contrato Enterprise, observará que los términos del archivo CSV de uso de Azure del perfil de facturación son diferentes de los términos del archivo CSV de uso de Azure para Contrato Enterprise. A continuación se muestra una asignación de los términos de uso del Contrato Enterprise a los términos de uso del perfil de facturación:
+Si era cliente de EA, verá que los términos del archivo .csv de uso del perfil de facturación de Azure son distintos de los términos del archivo .csv de uso de Azure EA. A continuación se muestra una asignación de los términos de uso del Contrato Enterprise a los términos de uso del perfil de facturación:
 
-| CSV de uso de Azure para Contrato Enterprise | CSV de cargos y de uso de Azure para el contrato de cliente de Microsoft |
+| Archivo .csv de uso de Azure EA | CSV de cargos y de uso de Azure para el contrato de cliente de Microsoft |
 | --- | --- |
 | Date | date |
 | Mes| date |
@@ -49,7 +45,7 @@ Si era cliente de Contrato Enterprise, observará que los términos del archivo 
 | MeterRegion | meterRegion |
 | MeterName | meterName |
 | ConsumedQuantity | quantity |
-| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ResourceRate | effectivePrice |
 | ExtendedCost | cost |
 | ResourceLocation | resourceLocation |
 | ConsumedService | consumedService |
@@ -59,17 +55,15 @@ Si era cliente de Contrato Enterprise, observará que los términos del archivo 
 | AdditionalInfo | additionalInfo |
 | Etiquetas | etiquetas |
 | StoreServiceIdentifier | N/D |
-| DepartmentName | invoiceSection | <!-- this was highlighted -->
+| DepartmentName | invoiceSection |
 | CostCenter | costCenter |
 | UnitOfMeasure | unitofMeasure |
 | ResourceGroup | resourceGroup |
-| ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
+| ChargesBilledSeparately | isAzureCreditEligible |
 
-<!-- TO DO: Marketplace CSV? -->
+## <a name="detailed-terms-and-descriptions"></a>Detalle de términos y descripciones
 
-## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>Términos y descripciones detallados del archivo de cargos y de uso de Azure
-
-En la sección siguiente se describen los términos importantes que se muestran en el archivo de cargos y de uso de Azure.
+Los términos siguientes se muestran en el archivo de uso y cargos de Azure.
 
 Término | DESCRIPCIÓN
 --- | ---
@@ -120,9 +114,9 @@ serviceInfo2 | Campo heredado que captura los metadatos específicos del servici
 additionalInfo | Metadatos adicionales específicos del servicio.
 etiquetas | Etiqueta asignada al recurso
 
-### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>¿Cómo puedo asegurarme de que los cargos de mi archivo de cargos y de uso son correctos?
+### <a name="make-sure-that-charges-are-correct"></a>Asegúrese de que los cargos sean correctos
 
-Si hay un cargo en el archivo de uso detallado del que quiera tener más detalles, consulte [Descripción de los cargos en la factura del perfil de facturación.](billing-mca-understand-your-bill.md)
+Si quiere asegurarse de que los cargos del archivo de uso detallado son correctos, puede comprobarlos. Consulte [Descripción de los cargos en la factura del perfil de facturación](billing-mca-understand-your-bill.md).
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

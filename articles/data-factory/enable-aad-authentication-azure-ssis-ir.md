@@ -12,12 +12,12 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3d0aaee624bdba169f13313bb57a3ebe8075592
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65593799"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490068"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Habilitar la autenticación de Azure Active Directory para Azure-SSIS Integration Runtime
 
@@ -146,17 +146,7 @@ La instancia administrada de Azure SQL Database admite la creación de una base 
 
 ### <a name="configure-azure-ad-authentication-for-azure-sql-database-managed-instance"></a>Configurar la autenticación de Azure AD para la instancia administrada de Azure SQL Database
 
-1.   En Azure Portal, seleccione **Todos los servicios** -> **Servidores SQL** en el panel de navegación izquierdo.
-
-2.   Seleccione la instancia administrada que quiera configurar con la autenticación de Azure AD.
-
-3.   En la sección **Configuración** de la hoja, haga clic en **Administrador de Active Directory**.
-
-4.   En la barra de comandos, seleccione **Establecer administrador**.
-
-5.   Seleccione una cuenta de usuario de Azure AD para que sea el administrador del servidor y, después, seleccione **Seleccionar**.
-
-6.   En la barra de comandos, seleccione **Guardar**.
+Siga los pasos que aparecen en [Aprovisionamiento de un administrador de Azure Active Directory para su instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>Agregar la identidad administrada para ADF como usuario en la instancia administrada de Azure SQL Database
 
@@ -164,7 +154,7 @@ En el paso siguiente, necesita  [Microsoft SQL Server Management Studio](https:
 
 1.  Inicie SSMS.
 
-2.  Conéctese a la instancia administrada con su cuenta de administrador de SQL o Active Directory.
+2.  Conéctese a la instancia administrada con una cuenta de SQL Server que sea **sysadmin**. Esta es una limitación temporal que se quitará una vez que las entidades de seguridad (inicios de sesión) del servidor de Azure AD de Instancia administrada de Azure SQL Database está disponible con carácter general. Si intenta usar una cuenta de administrador de Azure AD para crear el inicio de sesión, verá el siguiente error: Mens. 15247, nivel 16, estado 1, línea 1 El usuario no tiene permiso para realizar esta acción.
 
 3.  En el **Explorador de objetos**, expanda la carpeta **Bases de datos** -> **Bases de datos del sistema**.
 

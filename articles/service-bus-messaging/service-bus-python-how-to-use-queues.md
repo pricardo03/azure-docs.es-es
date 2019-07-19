@@ -14,38 +14,38 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6d95e4a0a7aeedef2fc7e635d2e49ea68c3ba0ca
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: b74238ee49fe0d96d218f1800a33a9d60badc6d5
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992049"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341707"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Uso de colas de Service Bus con Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-En este tutorial, aprenderá a crear aplicaciones de Python para enviar y recibir mensajes de una cola de Service Bus. 
+En este tutorial, obtendrá información sobre cómo crear aplicaciones de Python para enviar mensajes a una cola Service Bus y recibir mensajes de una cola de Service Bus. 
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar su [ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener un [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga los pasos de la [uso de Azure portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) artículo.
-    1. Leer el breve **Introducción** de Service Bus **colas**. 
-    2. Creación de un Bus de servicio **espacio de nombres**. 
-    3. Obtener el **cadena de conexión**. 
+1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga los pasos del artículo [Uso de Azure Portal para crear una cola de Service Bus](service-bus-quickstart-portal.md).
+    1. Lea la **introducción** rápida de las **colas** de Service Bus. 
+    2. Cree un **espacio de nombres** de Service Bus. 
+    3. Obtenga la **cadena de conexión**. 
 
         > [!NOTE]
-        > Creará un **cola** en el espacio de nombres de Service Bus con Python en este tutorial. 
-1. Instalar Python o el [paquete Python Azure Service Bus][Python Azure Service Bus package], consulte el [Guía de instalación de Python](../python-how-to-install.md). Consulte la documentación completa del SDK de Python de Bus de servicio [aquí](/python/api/overview/azure/servicebus?view=azure-python).
+        > Creará una **cola** en el espacio de nombres de Service Bus con Python en este tutorial. 
+1. Para instalar Python o el [paquete de Azure Service Bus para Python][Python Azure Service Bus package], consulte la [Guía de instalación de Python](../python-how-to-install.md). Consulte la documentación completa del SDK de Python de Service Bus [aquí](/python/api/overview/azure/servicebus?view=azure-python).
 
-## <a name="create-a-queue"></a>Crear una cola
-El **ServiceBusClient** objeto le permite trabajar con colas. Agregue el siguiente código cerca de la parte superior de todo archivo Python en el que desee obtener acceso a Service Bus mediante programación:
+## <a name="create-a-queue"></a>Creación de una cola
+El objeto **ServiceBusService** le permite trabajar con colas. Agregue el siguiente código cerca de la parte superior de todo archivo Python en el que desee obtener acceso a Service Bus mediante programación:
 
 ```python
 from azure.servicebus import ServiceBusClient
 ```
 
-El código siguiente crea un **ServiceBusClient** objeto. Reemplace `mynamespace`, `sharedaccesskeyname` y `sharedaccesskey` por el espacio de nombres, el valor y el nombre de clave de la firma de acceso compartido (SAS).
+El siguiente código crea un objeto **ServiceBusService**. Reemplace `<CONNECTION STRING>` por la cadena de conexión de Service Bus.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
@@ -63,10 +63,10 @@ El método `create_queue` también admite opciones adicionales, que le permiten 
 sb_client.create_queue("taskqueue", max_size_in_megabytes=5120, default_message_time_to_live=datetime.timedelta(minutes=1))
 ```
 
-Para obtener más información, consulte [documentación de Python de Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
+Para más información, consulte la [documentación de Python para Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="send-messages-to-a-queue"></a>mensajes a una cola
-Para enviar un mensaje a una cola de Service Bus, su aplicación llama el `send` método en el `ServiceBusClient` objeto.
+Para enviar un mensaje a una cola de Service Bus, su aplicación llama al método `send` en el objeto `ServiceBusClient`.
 
 En el ejemplo siguiente se muestra cómo enviar un mensaje de prueba a la cola `taskqueue` mediante `send_queue_message`:
 
@@ -81,12 +81,12 @@ msg = Message(b'Test Message')
 queue_client.send(msg)
 ```
 
-El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, vea [Cuotas de Service Bus][Service Bus quotas].
+El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, consulte [Cuotas de Service Bus][Service Bus quotas].
 
-Para obtener más información, consulte [documentación de Python de Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
+Para más información, consulte la [documentación de Python para Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="receive-messages-from-a-queue"></a>mensajes de una cola
-Los mensajes se reciben de una cola utilizando el `get_receiver` método en el `ServiceBusService` objeto:
+Los mensajes se reciben de una cola utilizando el método `get_receiver` del objeto `ServiceBusService`:
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -102,7 +102,7 @@ with queue_client.get_receiver() as queue_receiver:
         message.complete()
 ```
 
-Para obtener más información, consulte [documentación de Python de Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
+Para más información, consulte la [documentación de Python para Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
 
 
 Los mensajes se eliminan de la cola a medida que se leen cuando el parámetro `peek_lock` está establecido en **False**. Puede leer y bloquear los mensajes sin eliminarlos de la cola si establece el parámetro opcional `peek_lock` en **True**.
@@ -120,10 +120,10 @@ Service Bus proporciona una funcionalidad que le ayuda a superar sin problemas l
 
 También hay un tiempo de espera asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación sufre un error), entonces Service Bus desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **delete**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esto se suele denominar **procesar al menos una vez**, es decir, cada mensaje se procesará al menos una vez, aunque en determinadas situaciones entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **MessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
+En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **delete**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez, aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **MessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 > [!NOTE]
-> Puede administrar los recursos de Service Bus con [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta ofrece características avanzadas, como la funcionalidad de importación/exportación o la capacidad de probar el tema, colas, suscripciones, servicios de retransmisión, notification hubs y los centros de eventos. 
+> Puede administrar los recursos de Service Bus con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar el tema, las colas, las suscripciones, los servicios de retransmisión, los centros de notificaciones y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que conoce los fundamentos de las colas de Service Bus, consulte estos vínculos para obtener más información.

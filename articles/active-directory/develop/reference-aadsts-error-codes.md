@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 287e4ee53a108d1e2b83d4a8b11a98a2c7727721
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.openlocfilehash: 3d6ed5c80d5c3241a9a328a2427ed8b920790635
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545586"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482484"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización
 
@@ -31,7 +31,7 @@ ms.locfileid: "65545586"
 > [!NOTE]
 > Esta información es preliminar y está sujeta a cambios. ¿Tiene preguntas y no encuentra lo que busca? Abra una incidencia en GitHub o consulte [Opciones de ayuda y soporte técnico para desarrolladores](active-directory-develop-help-support.md) para ver otras maneras de obtener ayuda y soporte técnico.
 >
-> Esta documentación se proporciona para desarrolladores e instrucciones de administración, pero nunca debe utilizarse con el propio cliente. Códigos de error están sujetos a cambios en cualquier momento con el fin de proporcionar mensajes de error más específicos que están diseñados para ayudar al programador durante la compilación de su aplicación. Las aplicaciones que toman una dependencia en los números de código de error o de texto, se interrumpirá en el tiempo.  
+> Esta documentación se proporciona como una guía para desarrolladores y administradores, pero nunca la debe usar el cliente por sí solo. Los códigos de error están sujetos a cambio en cualquier momento con el fin de proporcionar mensajes de error más pormenorizados diseñados para ayudar al desarrollador mientras compila su aplicación. Las aplicaciones que tienen dependencia de números de código de error o texto se interrumpirán en el tiempo.  
 
 ## <a name="aadsts-error-codes"></a>Códigos de error AADSTS
 
@@ -58,7 +58,7 @@ ms.locfileid: "65545586"
 | AADSTS50007 | PartnerEncryptionCertificateMissing: no se encontró el certificado de cifrado de asociado para esta aplicación. [Abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) en Microsoft para solucionar este problema. |
 | AADSTS50008 | InvalidSamlToken: la aserción SAML falta o está mal configurada en el token. Póngase en contacto con el proveedor de federación. |
 | AADSTS50010 | AudienceUriValidationFailed: se ha producido un error en la validación del identificador URI de audiencia de la aplicación debido a que no se configuraron audiencias de token. |
-| AADSTS50011 | InvalidReplyTo: la dirección de respuesta falta, está mal configurada o no coincide con las direcciones de respuesta configuradas para la aplicación.  Asegúrese de agregar esta dirección de respuesta que faltan a la aplicación de Azure Active Directory o pedir a alguien con los permisos para administrar la aplicación en Active Directory hace esto como una resolución.|
+| AADSTS50011 | InvalidReplyTo: la dirección de respuesta falta, está mal configurada o no coincide con las direcciones de respuesta configuradas para la aplicación.  Como resolución, asegúrese de agregar esta dirección de respuesta omitida a la aplicación de Azure Active Directory o hacer que alguien que cuenta con los permisos para administrar la aplicación en Active Directory lo haga por usted.|
 | AADSTS50012 | AuthenticationFailed: se ha producido un error de autenticación por uno de los motivos siguientes:<ul><li>El nombre del titular del certificado de firma no está autorizado.</li><li>No se encontró la directiva de autoridad de confianza correspondiente al nombre del titular autorizado.</li><li>La cadena de certificados no es válida.</li><li>El certificado de firma no es válido.</li><li>La directiva no está configurada en el inquilino.</li><li>La huella digital del certificado de firma no está autorizada.</li><li>La aserción de cliente contiene una firma no válida.</li></ul> |
 | AADSTS50013 | InvalidAssertion: la aserción no es válida debido a varias razones: el emisor del token no coincide con la versión de la API en su intervalo de tiempo válido, la aserción ha expirado o tiene un formato incorrecto, o el token de actualización de la aserción no es un token de actualización principal. |
 | AADSTS50014 | GuestUserInPendingState: el estado de la amortización del usuario es pendiente. La creación de la cuenta de usuario invitado aún no ha finalizado. |
@@ -70,7 +70,7 @@ ms.locfileid: "65545586"
 | AADSTS50032 | WeakRsaKey: indica un intento erróneo del usuario para usar una clave RSA débil. |
 | AADSTS50033 | RetryableError: indica un error transitorio no relacionado con las operaciones de base de datos. |
 | AADSTS50034 | UserAccountNotFound: para iniciar sesión en esta aplicación, la cuenta debe agregarse al directorio. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - la sal necesaria para generar un identificador en pares falta en principio. Póngase en contacto con el administrador del inquilino. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt: falta la sal necesaria para generar un identificador en pares en la entidad de seguridad. Póngase en contacto con el administrador del inquilino. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer: el asunto no coincide con la notificación del emisor en la aserción de cliente. Póngase en contacto con el administrador del inquilino. |
 | AADSTS50049 | NoSuchInstanceForDiscovery: instancia desconocida o no válida. |
@@ -92,7 +92,7 @@ ms.locfileid: "65545586"
 | AADSTS50079 | UserStrongAuthEnrollmentRequired: debido a un cambio de configuración realizado por el administrador, o porque el usuario se ha trasladado a una nueva ubicación, el usuario debe usar la autenticación multifactor. |
 | AADSTS50085 | El token de actualización necesita un inicio de sesión de IDP social. Haga que el usuario intente iniciar sesión de nuevo con el nombre de usuario y la contraseña |
 | AADSTS50086 | SasNonRetryableError |
-| AADSTS50087 | SasRetryableError: el servicio no está disponible temporalmente. Vuelva a intentarlo. |
+| AADSTS50087 | SasRetryableError: el servicio no está disponible temporalmente. Inténtelo de nuevo. |
 | AADSTS50089 | El token de flujo ha expirado: error de autenticación. Haga que el usuario intente iniciar sesión de nuevo con el nombre de usuario y la contraseña. |
 | AADSTS50097 | DeviceAuthenticationRequired: la autenticación de dispositivo es obligatoria. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized: la firma JWT no es válida. |
@@ -153,7 +153,7 @@ ms.locfileid: "65545586"
 | AADSTS70007 | UnsupportedResponseMode: la aplicación ha devuelto un valor no admitido de `response_mode` al solicitar un token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant: el token de actualización ha expirado debido por inactividad. El token se emitió en XXX y estuvo inactivo durante un período de tiempo. |
 | AADSTS70011 | InvalidScope: el ámbito solicitado por la aplicación no es válido. |
-| AADSTS70012 | MsaServerError: se ha producido un error de servidor al autenticar un usuario (consumidor) de MSA. Vuelva a intentarlo. Si el error persiste, [abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError: se ha producido un error de servidor al autenticar un usuario (consumidor) de MSA. Inténtelo de nuevo. Si el error persiste, [abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending: error de flujo de dispositivo de OAuth 2.0. La autorización está pendiente. El dispositivo volverá a intentar sondear la solicitud. |
 | AADSTS70018 | BadVerificationCode: el código de verificación no es válido porque el usuario ha escrito un código de usuario incorrecto en el flujo de códigos del dispositivo. No se ha aprobado la autorización. |
 | AADSTS70019 | CodeExpired: el código de verificación ha expirado. Pida al usuario que vuelva a iniciar sesión. |
@@ -194,7 +194,7 @@ ms.locfileid: "65545586"
 | AADSTS90019 | MissingTenantRealm: Azure AD no pudo determinar el identificador de inquilino en la solicitud. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat: el formato de nombre de la entidad de seguridad no es válido o no cumple con el formato `name[/host][@realm]` esperado. El nombre de la entidad de seguridad es obligatorio; el host y el dominio Kerberos son opcionales y se pueden establecer en NULL. |
 | AADSTS90023 | InvalidRequest - la solicitud de servicio de autenticación no es válida. |
-| AADSTS90024 | RequestBudgetExceededError: se ha producido un error transitorio. Vuelva a intentarlo. |
+| AADSTS90024 | RequestBudgetExceededError: se ha producido un error transitorio. Inténtelo de nuevo. |
 | AADSTS90033 | MsodsServiceUnavailable: Microsoft Online Directory Service (MSODS) no está disponible. |
 | AADSTS90036 | MsodsServiceUnretryableFailure: se ha producido un error inesperado y que no permite el reintento desde el servicio WCF hospedado por MSODS. [Abra un vale de soporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para más información sobre el error. |
 | AADSTS90038 | NationalCloudTenantRedirection: el inquilino "Y" especificado pertenece a la nube nacional "X". La instancia de nube actual "Z" no está federada con "X". Se devuelve un error de redireccionamiento de nube. |
@@ -215,6 +215,7 @@ ms.locfileid: "65545586"
 | AADSTS90093 | GraphUserUnauthorized: Graph devolvió un código de error de prohibido para la solicitud. |
 | AADSTS90094 | AdminConsentRequired: es necesario el consentimiento del administrador. |
 | AADSTS90100 | InvalidRequestParameter: el parámetro está vacío o no es válido. |
+| AADSTS901002 | AADSTS901002: No se admite el parámetro de solicitud "resource". |
 | AADSTS90101 | InvalidEmailAddress: los datos proporcionados no son una dirección de correo electrónico válida. El formato de la dirección de correo electrónico debe ser `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter: el valor debe ser un URI absoluto válido. |
 | AADSTS90107 | InvalidXml: la solicitud no es válida. Asegúrese de que sus datos no tienen caracteres no válidos.|
@@ -257,7 +258,7 @@ ms.locfileid: "65545586"
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource: el recurso no está configurado para aceptar tokens solo de dispositivo. |
 | AADSTS240001 | BulkAADJTokenUnauthorized: el usuario no tiene autorización para registrar dispositivos en Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing: el token de identificador no se puede usar como concesión `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
-| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy: el Administrador de inquilinos ha configurado una directiva de seguridad que impide esta solicitud. Compruebe las directivas de seguridad que se definen en el nivel del inquilino para determinar si la solicitud cumple los requisitos de directiva. |
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy: el administrador del inquilino tiene configurada una directiva de seguridad que bloquea esta solicitud. Compruebe las directivas de seguridad que están definidas en el nivel de inquilino para determinar si la solicitud cumple con los requisitos de las directivas. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest: no se encontró la aplicación en el directorio o inquilino. Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Puede que haya configurado de forma incorrecta el valor del identificador de la aplicación o que haya enviado la solicitud de autenticación al inquilino incorrecto. |
 | AADSTS700020 | InteractionRequired: la concesión de acceso requiere interacción. |
 | AADSTS700022 | InvalidMultipleResourcesScope: el valor proporcionado para el ámbito de parámetro de entrada no es válido porque contiene más de un recurso. |

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 03f7f050e158ba30d2f89e79ffcc9e8723eb5268
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.openlocfilehash: 7af43d24b03a4c548925bdca4189fd0524c701a4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298684"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341638"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -44,22 +44,22 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 ## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
-* Se corrigió el error en PartitionKey para la versión 2 de Hash.
+* Se ha corregido un error en PartitionKey para Hash V2.
 
 ### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
-* Se agregó compatibilidad para los índices compuestos.
-* Se corrigió el error en el Administrador de punto de conexión global para forzar la actualización.
-* Se corrigió el error para upserts con las condiciones previas en modo directo.
+* Compatibilidad agregada para índices compuestos.
+* Se ha corregido un error en el administrador de puntos de conexión global para exigir la actualización.
+* Se ha corregido un error para upserts con las condiciones previas en modo directo.
 
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
-* Se corrigió el error en la caché de la dirección de puerta de enlace.
+* Se ha corregido un error en la memoria caché de la dirección de puerta de enlace.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Se ha agregado compatibilidad de la escritura en varias regiones con el modo directo.
 * Se agregó compatibilidad para controlar excepciones de E/S producidas como excepciones ServiceUnavailable desde un proxy.
 * Se ha corregido un error en la directiva de reintentos de detección de puntos de conexión.
 * Se ha corregido un error para asegurarse que no se producen excepciones de puntero nulo en BaseDatabaseAccountConfigurationProvider.
-* Se ha corregido un error para garantizar que queryiterator no devuelven valores NULL.
+* Se ha corregido un error para garantizar que QueryIterator no devuelve valores NULL.
 * Se ha corregido un error para asegurarse de que se permite un valor de PartitionKey grande
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -123,11 +123,11 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 * Se han corregido algunos errores en el contenedor de sesiones que pueden provocar una excepción "Recurso de propietario no encontrado" para las solicitudes inmediatamente después de la creación de la colección.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG). Consulte [Compatibilidad con agregación](how-to-sql-query.md#Aggregates).
+* Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG). Consulte [Compatibilidad con agregación](sql-query-aggregates.md).
 * Compatibilidad agregada para cambiar la fuente.
 * Compatibilidad agregada para la recopilación de la información de cuota mediante RequestOptions.setPopulateQuotaInfo.
 * Compatibilidad agregada para el registro de scripts de procedimiento almacenados mediante RequestOptions.setScriptLoggingEnabled.
-* Se ha corregido un error donde la consulta en modo DirectHttps puede dejar de responder cuando se producen errores de limitación.
+* Se ha corregido un error en el que una consulta en modo DirectHttps puede dejar de responder cuando se producen errores de limitación.
 * Se ha corregido un error en modo de sesión de coherencia.
 * Se ha corregido un error que puede causar una excepción NullReferenceException en HttpContext cuando la tasa de solicitudes es alta.
 * Rendimiento mejorado del modo DirectHttps.
@@ -215,7 +215,7 @@ Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK a
 El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK retirado.
 
 > [!WARNING]
-> Todas las versiones **1.x** de SQL SDK para Java se retirará en **el 30 de mayo de 2020**.
+> Todas las versiones **1.x** del SDK de SQL para Java se retirarán el **30 de mayo de 2020**.
 > 
 >
 

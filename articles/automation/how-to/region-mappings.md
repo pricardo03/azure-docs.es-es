@@ -1,24 +1,24 @@
 ---
-title: Asignaciones de área de trabajo Azure Automation y Log Analytics
-description: En este artículo se describe las correspondencias permitidas entre una cuenta de Automation y un área de trabajo de Log Analytics para admitir la solución
+title: Asignaciones de áreas de trabajo de Log Analytics y Azure Automation
+description: En este artículo se describen las asignaciones permitidas entre una cuenta de Automation y un área de trabajo de Log Analytics para admitir una solución.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8afe8fed8912dd365071f1c4c5560c9f5578dcd8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 9faa261f4b6293d778c5da685f630a21fd88f600
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66133100"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478577"
 ---
-# <a name="workspace-mappings"></a>Asignaciones del área de trabajo
+# <a name="workspace-mappings"></a>Asignaciones de áreas de trabajo
 
-Al habilitar las soluciones como Update Management, Change Tracking e inventario o la Start/Stop VMs During OFF-hours, solo en determinadas regiones se admiten para vincular un área de trabajo de Log Analytics y una cuenta de Automation. Esta asignación se aplica solo a la cuenta de Automation y el área de trabajo de Log Analytics. Los recursos que el área de trabajo de la cuenta de Automation o Log Analytics pueden residir en otras regiones.
+Cuando se habilitan soluciones como Update Management, Change Tracking e Inventario o la solución Start/Stop VMs during off-hours, solo ciertas regiones pueden vincular un área de trabajo de Log Analytics y una cuenta de Automation. Esta asignación solo se aplica a la cuenta de Automation y al área de trabajo de Log Analytics. Los recursos que dependen de la cuenta de Automation o del área de trabajo de Log Analytics pueden residir en otras regiones.
 
 ## <a name="supported-mappings"></a>Asignaciones admitidas
 
@@ -40,16 +40,16 @@ En la tabla siguiente se muestran las asignaciones admitidas:
 |**Europa**||
 |UKSouth|UKSouth|
 |WestEurope|WestEurope|
-|**US Gov**||
+|**Gov (US)**||
 |USGovVirginia|USGovVirginia|
 
-<sup>1</sup> EastUS asignación de áreas de trabajo de Log Analytics para las cuentas de Automation no es una asignación exacta de una región a otra, pero es la asignación correcta.
+<sup>1</sup> La asignación EastUS de áreas de trabajo de Log Analytics a cuentas de Automation no es una asignación exacta de región a región, pero es la asignación correcta.
 
-<sup>2</sup> debido a restricciones de capacidad la región no están disponible al crear nuevos recursos. Esto incluye las cuentas de Automation y Log Analytics de áreas de trabajo. Sin embargo, recursos vinculados que ya existían en la región deben continuar funcionando.
+<sup>2</sup> Debido a restricciones de capacidad, la región no está disponible cuando se crean recursos nuevos. Esto incluye cuentas de Automation y áreas de trabajo de Log Analytics. Sin embargo, los recursos vinculados preexistentes en la región deberían seguir funcionando.
 
 ## <a name="unlink-workspace"></a>Unlink workspace (Desvincular área de trabajo)
 
-Si decide que ya no desea integrar su cuenta de Automation con un área de trabajo de Log Analytics, puede desvincular la cuenta directamente desde el portal de Azure. Antes de continuar, primero deberá quitar la administración de actualizaciones, seguimiento de cambios e inventario o las máquinas virtuales de inicios y paradas durante las soluciones de las horas de trabajo si está usando. Si no se quita, este proceso se impedirá continuar. Revise el artículo de la solución concreta que ha importado para conocer los pasos necesarios para quitarla.
+Si decide que ya no quiere integrar su cuenta de Automation con un área de trabajo de Log Analytics, puede desvincular la cuenta directamente desde Azure Portal. Antes de continuar, debe quitar las soluciones Update Management, Change Tracking e Inventario o Start/Stop VMs during off-hours si las está usando. Si no las quita, se impedirá que siga este proceso. Revise el artículo de la solución concreta que ha importado para conocer los pasos necesarios para quitarla.
 
 Después de quitar estas soluciones, puede realizar los pasos siguientes para desvincular la cuenta de Automation.
 
@@ -58,7 +58,7 @@ Después de quitar estas soluciones, puede realizar los pasos siguientes para de
 
 1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Área de trabajo vinculada** en la sección **Recursos relacionados** de la izquierda.
 
-2. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**. Recibirá un aviso para comprobar que desea continuar.
+2. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**. Aparecerá un aviso para comprobar que desea continuar.
 
 3. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
 
@@ -74,19 +74,19 @@ Si ha usado la solución de inicio y detención de máquinas virtuales durante l
 * Runbooks de inicio y detención de máquinas virtuales
 * variables
 
-Como alternativa, también puede desvincular el área de trabajo desde su cuenta de Automation desde el área de trabajo de Log Analytics. En el área de trabajo, seleccione **cuenta de Automation** en **recursos relacionados**. En la página cuenta de Automation, seleccione **desvincular la cuenta**.
+También puede desvincular el área de trabajo de la cuenta de Automation del área de trabajo de Log Analytics. En el área de trabajo, seleccione **Cuenta de Automation** en **Recursos relacionados**. En la página Cuenta de Automation, seleccione **Desvincular cuenta**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo incorporar las siguientes soluciones:
+Sepa cómo incorporar las soluciones siguientes:
 
-Administración de actualizaciones y seguimiento de cambios e inventario:
+Update Management y Change Tracking e Inventario:
 
-* Desde un [máquina virtual](../automation-onboard-solutions-from-vm.md)
-* Desde su [cuenta de Automation](../automation-onboard-solutions-from-automation-account.md)
-* Cuando [examinar varias máquinas](../automation-onboard-solutions-from-browse.md)
+* Desde una [máquina virtual](../automation-onboard-solutions-from-vm.md)
+* Desde la [cuenta de Automation](../automation-onboard-solutions-from-automation-account.md)
+* Al [examinar varias máquinas](../automation-onboard-solutions-from-browse.md)
 * Desde un [runbook](../automation-onboard-solutions.md)
 
 Inicio y detención de máquinas virtuales durante las horas de trabajo
 
-* [Implementar Start/Stop VMs during OFF-](../automation-solution-vm-management.md)
+* [Implementación de Start/Stop VMs during off-hours](../automation-solution-vm-management.md)

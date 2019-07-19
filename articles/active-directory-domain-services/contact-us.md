@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Información de contacto | Micro
 description: Póngase en contacto con el equipo de productos de Servicios de dominio de Azure AD
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
@@ -13,27 +13,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: mstephen
-ms.openlocfilehash: 26bce79e2be19d83612f95d8be245323f77ae7f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: 83d1011d28eb13ed2e45587df8d385ebf19abbd1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246365"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483334"
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD Domain Services: contacto
-## <a name="contact-the-product-team"></a>Póngase en contacto con el equipo de productos
-Si tiene problemas con su dominio administrado, compruebe si los pasos descritos en la [Guía de solución de problemas](troubleshoot.md) resuelven el problema. Si sigue teniendo problemas, no dude en ponerse en contacto con nosotros.
 
-Puede enviarnos un correo electrónico a: [Comentarios de Azure AD Domain Services](mailto:aaddsfb@microsoft.com).
+## <a name="feedback"></a>Comentarios
+Si tiene comentarios sobre nuestro servicio o preguntas no técnicas, puede compartir la solicitud con el grupo de productos de Azure AD Domain Services si nos envía un correo electrónico a: [Comentarios de Azure AD Domain Services](mailto:aaddsfb@microsoft.com). Los correos electrónicos enviados a esta dirección se revisan. Los miembros del grupo de productos **podrían** responder para solicitar más información. Las solicitudes de soporte técnico que se envíen a esta dirección de correo electrónico no se responderán.
 
-Asegúrese de incluir lo siguiente para que podamos investigar el problema.
+## <a name="technical-assistance"></a>Asistencia técnica
+Si tiene problemas con su dominio administrado, compruebe si los pasos descritos en la [Guía de solución de problemas](troubleshoot.md) resuelven el problema. Si sigue con problemas, inicie sesión en Azure Portal. Abra la página principal **Azure AD Domain Services** y seleccione **Nueva solicitud de soporte técnico** en el panel de acciones bajo **Soporte y solución de problemas**.
 
-* El **identificador de inquilino o directorio** de su directorio de Azure AD. El identificador de inquilino es el GUID que se ve en el campo del identificador de directorio en la [página de propiedades del directorio](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
-* El **nombre de dominio DNS** que ha configurado para el dominio administrado de Servicios de dominio de AAD.
+![Nueva solicitud de soporte técnico](./media/contact-us/supportRequest.png) 
 
-## <a name="provide-feedback"></a>Envío de comentarios
-Le agradecemos que nos haga llegar sus comentarios acerca de Azure AD Domain Services a través del **[canal UserVoice de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/)** .
+Rellene cada sección de la solicitud de soporte técnico con la mayor precisión posible. Cuando elija un servicio, asegúrese de seleccionar **Azure Active Directory Domain Services (VM: controladores de dominio)** para enrutar la solicitud al profesional de soporte técnico correspondiente.
 
-Asegúrese de anteponer **"AADDS"** a su pregunta o sus comentarios para que nos lleguen.
+> [!IMPORTANT]
+> Seleccione **Azure Active Directory Directories, Domains, and Objects** (Directorios, dominios y objetos de Azure Active Directory) en las listas de servicios para obtener ayuda con la validación de un dominio con Azure Active Directory.
+>
+> 
+
+## <a name="feature-requests"></a>Solicitudes de características
+¿Tiene alguna idea sobre cómo podemos mejorar Azure Active Directory Domain Services? Nos gustaría que nos cuente. Vaya a los foros de comentarios sobre Azure, vaya a la categoría [Servicios de dominio](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593) y comparta su idea. Los miembros del grupo de productos revisan estas solicitudes.
+

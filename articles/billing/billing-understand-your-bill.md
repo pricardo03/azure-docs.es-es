@@ -1,33 +1,29 @@
 ---
-title: Descripción de la factura de Azure | Microsoft Docs
-description: Aprenda a leer y entender el uso y la factura de la suscripción de Azure
-services: ''
-documentationcenter: ''
-author: tonguyen10
+title: Entienda la factura de Azure
+description: Aprenda a leer y entender el uso y la factura de la suscripción de Azure.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 4303b79a7ee69d029504bf6ca2359f6e6070e5b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c8b0d6febbffb80cb4e8bcbf62febb51d059282c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370191"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490315"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Descripción de la factura de Microsoft Azure
 Para entender la factura de Azure, compare la factura con el archivo de uso diario detallado y los informes de administración de costos en Azure Portal.
 
 Este artículo no es aplicable para clientes de Azure con un Contrato Enterprise. Si es un cliente de Contrato Enterprise, consulte [Descripción de la factura de los clientes de Azure con un Contrato Enterprise](billing-understand-your-bill-ea.md).
 
-Este artículo no se aplica a los clientes de Azure con un contrato de cliente de Microsoft. Si tiene una cuenta de facturación para un contrato de cliente de Microsoft, consulte [Descripción de los cargos de Azure en la factura del contrato de cliente de Microsoft](billing-mca-understand-your-bill.md).
+Este artículo no se aplica a los clientes de Azure con un [contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement). Si tiene un contrato de cliente de Microsoft, consulte [Descripción de los cargos de Azure en la factura del contrato de cliente de Microsoft](billing-mca-understand-your-bill.md).
 
 Para obtener una explicación sobre cómo funciona la facturación en el programa Proveedor de soluciones en la nube de Azure (CSP de Azure), incluido el uso, los precios y el ciclo de facturación, consulta [Información general acerca de la funcionalidad de facturación de CSP de Azure](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
@@ -39,7 +35,7 @@ Si hay algún cargo en su factura sobre el que desea conocer más información, 
 
 ### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>Opción 1: Comparar el uso y los costos con el archivo de uso
 
-El archivo CSV de uso detallado proporciona los cargos por período de facturación y el uso diario. Para obtener el archivo, consulte [Obtención de los datos de uso diario y la factura de Azure](billing-download-azure-invoice-daily-usage-date.md).
+El archivo CSV de uso detallado proporciona los cargos por período de facturación y el uso diario. Para descargar o ver el archivo, consulte [Obtención de los datos de uso diario y la factura de Azure](billing-download-azure-invoice-daily-usage-date.md).
 
 Los cargos de uso se muestran en el nivel de medidor. Los siguientes términos significan lo mismo en la factura y en el archivo de uso detallado. Por ejemplo, el ciclo de facturación en la factura es equivalente al período de facturación que se muestra en el archivo de uso detallado.
 
@@ -47,14 +43,14 @@ Los cargos de uso se muestran en el nivel de medidor. Los siguientes términos s
  | --- | --- |
 |Ciclo de facturación | Período de facturación |
  |NOMBRE |Categoría de medidor |
- |Type |Subcategoría de medidor |
+ |type |Subcategoría de medidor |
  |Recurso |Nombre de medidor |
  |Region |Medidor de la región |
  |Consumida |Cantidad consumida |
  |Se incluye |Cantidad incluida |
  |Facturable |Cantidad de superávit |
 
-La sección de **cargos de uso** de la factura tiene el valor total de cada medidor que se consumió durante el período de facturación. Por ejemplo, la captura de pantalla siguiente muestra un cargo de uso para el servicio del programador de Azure.
+La sección de **cargos de uso** de la factura muestra el valor total de cada medidor que se consumió durante el período de facturación. Por ejemplo, la imagen siguiente muestra un cargo de uso para el servicio del programador de Azure.
 
 ![Cargos de uso de la factura](./media/billing-understand-your-bill/1.png)
 
@@ -62,7 +58,7 @@ Se muestra el mismo cargo en la sección de **resumen de cuenta** del archivo CS
 
 ![Cargos de uso del archivo CSV](./media/billing-understand-your-bill/2.png)
 
-Para ver un desglose de este cargo a diario, vaya a la sección **Uso diario** del archivo CSV. Filtre por *Scheduler* en *Categoría de medición*. Puede ver qué días se usó el medidor y cómo lo usó. La información de *recursos* y de *grupo de recursos* también se incluye para poder realizar una comparación. Los valores *consumidos* deben corresponderse con los que aparecen en la factura.
+Para ver un desglose diario del cargo, vaya a la sección **Uso diario** del archivo .csv. Filtre por *Scheduler* en *Categoría de medición*. Puede ver qué días se usó el medidor y cómo lo usó. La información de *recursos* y de *grupo de recursos* también se muestra para poder realizar una comparación. Los valores *consumidos* deben sumarse y corresponder a los que aparecen en la factura.
 
 ![Sección de uso diario en el archivo CSV](./media/billing-understand-your-bill/3.png)
 
@@ -84,7 +80,7 @@ Azure Portal también puede ayudarle a comprobar los cargos. Para obtener una in
 
    ![Vista de análisis de costos en Azure Portal](./media/billing-understand-your-bill/4.png)
 
-1. Seleccione esa fila para ver el desglose de costos diario.
+1. Seleccione la fila que muestra la carga para ver el desglose de los costos diarios.
 
    ![Visualización del historial de costos en Azure Portal](./media/billing-understand-your-bill/5.png)
 
@@ -135,6 +131,9 @@ Si [paga mediante factura](billing-how-to-pay-by-invoice.md), envíe el pago a l
   - [Calculadora del costo total de propiedad](https://aka.ms/azure-tco-calculator)
   - [Información detallada de precios de cada servicio](https://azure.microsoft.com/pricing/)
 - [Revise el uso y los costos con regularidad en Azure Portal](billing-getting-started.md#costs).
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

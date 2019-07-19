@@ -1,26 +1,23 @@
 ---
-title: Visualización y descarga de los datos de uso y los cargos de Azure | Microsoft Docs
+title: Visualización y descarga de los datos de uso y los cargos de Azure
 description: En este artículo se describe cómo descargar o ver los datos de uso y los cargos diarios de Azure.
 keywords: utilización de facturación, cargos de utilización, descarga de utilización, visualización de utilización, factura de Azure, utilización de Azure
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d2d7be562eaaa7dd21e63735f5697ffe5a62f8a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60919008"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491438"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visualización y descarga de los datos de uso y los cargos de Azure
 
@@ -77,11 +74,11 @@ Si tiene un contrato de cliente de Microsoft, puede descargar los datos de uso y
 ### <a name="download-usage-for-billed-charges"></a>Descarga del uso para los cargos facturados
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Busque en **Administración de costos + facturación**.
+2. Busque *Administración de costos + facturación*.
 3. Seleccione un perfil de facturación. En función de su acceso, es posible que tenga que seleccionar primero una cuenta de facturación.
 4. Seleccione **Facturas**.
 5. En la cuadrícula de la factura, busque la fila de la factura correspondiente a los datos de uso que quiere descargar.
-6. Haga clic en los puntos suspensivos (`...`) al final de la fila.
+6. Haga clic en el botón de puntos suspensivos (`...`) al final de la fila.
 
     ![Captura de pantalla que muestra los puntos suspensivos al final de la fila.](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
 
@@ -94,9 +91,9 @@ Si tiene un contrato de cliente de Microsoft, puede descargar los datos de uso y
 También se pueden descargar los datos de uso del mes hasta la fecha para el período de facturación actual. Estos cargos de utilización que todavía no se han facturado.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Busque en **Administración de costos + facturación**.
+2. Busque *Administración de costos + facturación*.
 3. Seleccione un perfil de facturación. En función de su acceso, es posible que tenga que seleccionar primero una cuenta de facturación.
-4. En la hoja **Información general**, busque los vínculos de descarga debajo de los cargos del mes hasta la fecha.
+4. En el área **Información general**, busque los vínculos de descarga debajo de los cargos del mes hasta la fecha.
 5. Seleccione **Uso y cargos de Azure**.
 
     ![Captura de pantalla que muestra la descarga de la hoja Información general](./media/billing-download-azure-usage/open-usage.png)
@@ -104,7 +101,7 @@ También se pueden descargar los datos de uso del mes hasta la fecha para el per
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 

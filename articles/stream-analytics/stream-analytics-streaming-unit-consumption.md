@@ -8,17 +8,17 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.date: 06/21/2019
+ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65916044"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329339"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
-Las unidades de streaming (SU) representan los recursos informáticos que se asignan para ejecutar un trabajo. Cuanto mayor sea el número de unidades de streaming, más recursos de CPU y memoria se asignarán al trabajo. Esta función le permite centrarse en la lógica de consulta y abstrae la necesidad de administrar el hardware para ejecutar el trabajo de Stream Analytics de manera oportuna.
+Las unidades de streaming (SU) representan los recursos informáticos que se asignan para ejecutar un trabajo de Stream Analytics. Cuanto mayor sea el número de unidades de streaming, más recursos de CPU y memoria se asignarán al trabajo. Esta función le permite centrarse en la lógica de consulta y abstrae la necesidad de administrar el hardware para ejecutar el trabajo de Stream Analytics de manera oportuna.
 
 Para lograr un procesamiento de streaming de latencia baja, los trabajos de Azure Stream Analytics realizan todo el procesamiento en memoria. El trabajo de streaming presenta un error cuando se queda sin memoria. Como resultado, en el caso de un trabajo de producción, resulta importante supervisar el uso de recursos de un trabajo de streaming, y debe asegurarse de que hay recursos asignados suficientes para mantener los trabajos en ejecución de manera ininterrumpida.
 
@@ -51,7 +51,7 @@ En general, el procedimiento recomendado es comenzar con 6 SU para consultas que
 Para más información sobre la elección del número correcto de unidades de streaming, consulte esta página: [Escalar los trabajos de Azure Stream Analytics para incrementar el rendimiento](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> La elección del número de unidades de streaming que se necesitan para un trabajo en concreto depende de la configuración de particiones para las entradas y de la consulta definida para el trabajo. Puede seleccionar como máximo su cuota en unidades de streaming para un trabajo. De forma predeterminada, cada suscripción de Azure tiene una cuota de hasta 500 unidades de streaming en todos los trabajos de análisis en una región específica. Para aumentar las unidades de streaming de sus suscripciones, contacte con [Soporte técnico de Microsoft](https://support.microsoft.com). Los valores válidos para unidades de streaming por trabajo son 1, 3, 6 y más en incrementos de 6.
+> La elección del número de unidades de streaming que se necesitan para un trabajo en concreto depende de la configuración de particiones para las entradas y de la consulta definida para el trabajo. Puede seleccionar como máximo su cuota en unidades de streaming para un trabajo. De manera predeterminada, cada suscripción de Azure tiene una cuota máxima de 500 SU en todos los trabajos de análisis de una región específica. Para aumentar las unidades de streaming de sus suscripciones, contacte con [Soporte técnico de Microsoft](https://support.microsoft.com). Los valores válidos para unidades de streaming por trabajo son 1, 3, 6 y más en incrementos de 6.
 
 ## <a name="factors-that-increase-su-utilization"></a>Factores que aumentar el uso de porcentaje de SU 
 
@@ -59,7 +59,7 @@ Los elementos de consulta temporal (orientados al tiempo) son el conjunto básic
 
 Tenga en cuenta que un trabajo con lógica de consulta compleja podría tener un alto porcentaje de utilización de unidades de streaming, incluso cuando no está recibiendo continuamente eventos de entrada. Esto puede suceder después de un repentino aumento de los eventos de entrada y salida. El trabajo puede continuar manteniendo el estado en memoria si la consulta es compleja.
 
-El porcentaje de utilización de unidades de streaming podría caer repentinamente a 0 durante un breve período antes de volver a los niveles esperados. Esto sucede debido a errores transitorios o a actualizaciones del sistema que se hayan iniciado.
+El porcentaje de utilización de unidades de streaming podría caer repentinamente a 0 durante un breve período antes de volver a los niveles esperados. Esto sucede debido a errores transitorios o a actualizaciones del sistema que se hayan iniciado. Aumentar el número de unidades de streaming para un trabajo podría no reducir el porcentaje de utilización de SU si la consulta no es [totalmente paralela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta con estado en elementos temporales
 Una funcionalidad única de un trabajo de Azure Stream Analytics es realizar procesamiento con estado, como funciones de análisis temporal, combinaciones temporales y agregados en ventanas. Cada uno de estos operadores conserva información de estado. El tamaño máximo de la ventana para estos elementos de consulta es siete días. 
@@ -85,7 +85,7 @@ Por ejemplo, en la consulta siguiente, el número asociado con `clusterid` es la
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Con el fin de mejorar los problemas causados por la cardinalidad alta en la consulta anterior, puede enviar eventos a Event Hub particionados por `clusterid` y escalar horizontalmente la consulta permitiendo que el sistema procese de manera independiente cada partición de entrada con **PARTITION BY**, como se muestra en el ejemplo siguiente:
+Con el fin de mitigar los problemas causados por la cardinalidad alta en la consulta anterior, puede enviar eventos a Event Hub particionados por `clusterid` y escalar horizontalmente la consulta permitiendo que el sistema procese de manera independiente cada partición de entrada con **PARTITION BY**, como se muestra en el ejemplo siguiente:
 
    ```sql
    SELECT count(*) 

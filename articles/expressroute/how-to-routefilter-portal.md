@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55b5207e4c05712b4d96d4272f9ae193cc4c1720
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839325"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508607"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: Portal de Azure
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Si necesita conectividad con todos los servicios, se anuncia un gran número de 
 
 Cuando se configura el emparejamiento de Microsoft en el circuito ExpressRoute, los enrutadores perimetrales de Microsoft establecen un par de sesiones BGP con los enrutadores perimetrales suyos o del proveedor de conectividad. No se anuncia ningún enrutador en la red. Para habilitar los anuncios de rutas en la red, debe asociar un filtro de ruta.
 
-Un filtro de ruta permite identificar los servicios que desea consumir mediante el emparejamiento de Microsoft del circuito ExpressRoute. Se trata básicamente de una lista de todos los valores permitidos de la comunidad de BGP. Una vez que se define un recurso de filtro de ruta y se asocia a un circuito ExpressRoute, todos los prefijos que se asignan a valores de la comunidad de BGP se anuncian en la red.
+Un filtro de ruta permite identificar los servicios que desea consumir mediante el emparejamiento de Microsoft del circuito ExpressRoute. Se trata básicamente de una lista de todos los valores de la comunidad de BGP que desea permitir. Una vez que se define un recurso de filtro de ruta y se asocia a un circuito ExpressRoute, todos los prefijos que se asignan a valores de la comunidad de BGP se anuncian en la red.
 
 Para poder asociar filtros de ruta con servicios de Office 365 en ellos, debe tener autorización para consumir servicios de Office 365 mediante ExpressRoute. Si no está autorizado para consumir servicios de Office 365 mediante ExpressRoute, la operación para asociar filtros de ruta de produce un error. Para más información sobre el proceso de autorización, consulte [Azure ExpressRoute para Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd). La conectividad con servicios de Dynamics 365 NO requiere una autorización previa.
 
@@ -79,7 +79,7 @@ Los valores de la comunidad de BGP asociados con los servicios accesibles a trav
 
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Creación de una lista de los valores que quiera usar
 
-Cree una lista de valores de la comunidad de BGP que quiera usar en el filtro de ruta. Por ejemplo, el valor de la comunidad de BGP para servicios de Dynamics 365 es 12076:5040.
+Cree una lista de [valores de la comunidad de BGP](expressroute-routing.md#bgp) que quiera usar en el filtro de ruta. 
 
 ## <a name="filter"></a>Paso 2: Creación de un filtro de ruta y una regla de filtro
 
@@ -150,4 +150,6 @@ Para eliminar un filtro de ruta, seleccione el botón Eliminar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
+* Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
+
+* Para más información acerca de los ejemplos de configuración del enrutador, consulte [Ejemplos de configuración de enrutadores para configurar y administrar enrutamiento](expressroute-config-samples-routing.md). 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 8a5a66c720c0a591fe9d6c9864286d80f68ba599
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d72b47d375b8e50cde43e263261551d3010ba013
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449348"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704717"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar y ejecutar contenedores de Reconocer texto
 
@@ -36,7 +36,6 @@ Debe cumplir los siguientes requisitos previos para poder usar el contenedor de 
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
 |Recurso de Azure `Cognitive Services` |Para poder usar el contenedor, debe tener:<br><br>Un recurso de Azure _Cognitive Services_ y la clave de facturación asociada del URI del punto de conexión de facturación. Ambos valores están disponibles en las páginas de introducción y claves del recurso y son necesarios para iniciar el contenedor. Deberá agregar el enrutamiento `vision/v2.0` al URI del punto de conexión, tal como se muestra en el siguiente ejemplo de BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
-
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitud de acceso al registro de contenedor privado
 
 [!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
@@ -50,7 +49,7 @@ Debe cumplir los siguientes requisitos previos para poder usar el contenedor de 
 
 En la tabla siguiente se describen los núcleos de CPU y memoria mínimos y recomendados para asignar cada contenedor de Reconocer texto.
 
-| Contenedor | Mínima | Recomendado |TPS<br>(Mínimo, Máximo)|
+| Contenedor | Mínima | Recomendado |TPS<br>(mínimo, máximo)|
 |-----------|---------|-------------|--|
 |Reconocer texto|1 núcleo, 8 GB de memoria, 0,5 TPS|2 núcleos, 8 GB de memoria, 1 TPS|0,5, 1|
 

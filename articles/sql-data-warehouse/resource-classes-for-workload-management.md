@@ -1,29 +1,29 @@
 ---
-title: Las clases de recursos para la administración de cargas de trabajo en Azure SQL Data Warehouse | Microsoft Docs
+title: Clases de recursos para la administración de cargas de trabajo en Azure SQL Data Warehouse | Microsoft Docs
 description: Instrucciones para usar las clases de recursos para administrar la simultaneidad y calcular los recursos de las consultas en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
-ms.date: 05/22/2019
+ms.subservice: workload-management
+ms.date: 06/20/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c15778eb2ce38efb65e777578008b61e7066d67
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 548271e888344eeb0d111c074153ef7492af5b33
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244518"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595535"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Administración de carga de trabajo con clases de recursos en Azure SQL Data Warehouse
 
 Instrucciones para usar las clases de recursos para administrar la memoria y la simultaneidad para las consultas en Azure SQL Data Warehouse.  
 
-## <a name="what-is-workload-management"></a>¿Qué es la administración de cargas de trabajo
+## <a name="what-is-workload-management"></a>¿Qué es la administración de cargas de trabajo?
 
-Administración de cargas de trabajo proporciona la capacidad de optimizar el rendimiento general de todas las consultas. Una carga de trabajo bien ajustado ejecuta consultas y operaciones de carga de forma eficaz, ya sean intensivas de E/S o de proceso intensivo. SQL Data Warehouse le proporciona funcionalidades de administración de cargas de trabajo para entornos de varios usuarios. Tenga en cuenta que el almacenamiento de datos no está diseñado para cargas de trabajo que tengan varios inquilinos.
+La administración de cargas de trabajo proporciona la capacidad para optimizar el rendimiento general de todas las consultas. Si las cargas de trabajo están bien ajustadas, ejecutan consultas y operaciones de carga de manera eficiente, independientemente de si tienen muchos procesos o E/S. SQL Data Warehouse le proporciona funcionalidades de administración de cargas de trabajo para entornos de varios usuarios. Tenga en cuenta que el almacenamiento de datos no está diseñado para cargas de trabajo que tengan varios inquilinos.
 
 La capacidad de rendimiento de un almacén de datos viene determinada por las [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md).
 
@@ -32,17 +32,17 @@ La capacidad de rendimiento de un almacén de datos viene determinada por las [u
 
 La capacidad de rendimiento de una consulta viene determinada por la clase de recursos de la consulta. En el resto de este artículo se explica qué son las clases de recursos y cómo ajustarlas.
 
-## <a name="what-are-resource-classes"></a>¿Cuáles son las clases de recursos
+## <a name="what-are-resource-classes"></a>¿Qué son las clases de recursos?
 
-La capacidad de rendimiento de una consulta viene determinada por la clase de recursos del usuario.  Las clases de recursos son límites de recursos predeterminados en Azure SQL Data Warehouse que rigen los recursos de proceso y la simultaneidad para la ejecución de las consultas. Las clases de recursos pueden ayudarle a administrar la carga de trabajo mediante el establecimiento de límites en el número de consultas que se ejecutan simultáneamente y en los recursos de proceso asignados a cada consulta.  Hay un equilibrio entre memoria y simultaneidad.
+La capacidad de rendimiento de una consulta viene determinada por la clase de recursos del usuario.  Las clases de recursos son límites de recursos predeterminados en Azure SQL Data Warehouse que rigen los recursos de proceso y la simultaneidad para la ejecución de las consultas. Las clases de recursos pueden ayudarlo a administrar la carga de trabajo mediante el establecimiento de límites en el número de consultas que se ejecutan simultáneamente y en los recursos de proceso que se asignan a cada consulta.  Gracias a esto, la memoria y la simultaneidad se compensan.
 
 - Las clases de recursos más pequeñas reducen la memoria máxima por cada consulta, pero aumentan la simultaneidad.
-- Clases de recursos mayores aumentar la memoria máxima por consulta, pero reducen la simultaneidad.
+- Las clases de recursos más grandes aumentan la memoria máxima por cada consulta, pero reducen la simultaneidad.
 
 Existen dos tipos de clases de recursos:
 
 - Las clases de recursos estáticos, que son adecuadas para obtener una mayor simultaneidad en el tamaño de conjunto de datos que se ha fijado.
-- Clases de recursos dinámicos, que se adaptan perfectamente para conjuntos de datos que crecen en tamaño y necesita un mayor rendimiento, como el nivel de servicio se escala verticalmente.
+- Las clases de recursos dinámicos, que son adecuadas para conjuntos de datos cuyo tamaño está en constante crecimiento y necesitan mayor rendimiento a medida que aumenta el nivel de servicio.
 
 Las clases de recursos utilizan espacios de simultaneidad para medir el consumo de recursos.  Los [espacios de simultaneidad](#concurrency-slots) se explican posteriormente en este artículo.
 
@@ -82,9 +82,9 @@ Al profundizar en los detalles de las clases de recursos dinámicos en Gen1, hay
 **En Gen1**
 - La clase de recursos smallrc funciona con un modelo de memoria fija, parecido a una clase de recurso estático.  Las consultas Smallrc no obtienen dinámicamente más memoria a medida que aumenta el nivel de servicio. 
 - A medida que los niveles de servicio cambian, la simultaneidad de la consulta disponible puede subir o bajar.
-- Escalado de niveles de servicio no proporciona un cambio proporcional a la memoria asignada a las mismas clases de recursos.
+- Los niveles de servicio de escalado no proporcionan un cambio proporcional en la memoria asignada a las mismas clases de recursos.
 
-**En Gen2**, clases de recursos dinámicos son verdaderamente dinámicas dirige a los puntos mencionados anteriormente.  La nueva regla es 3-10-22-70 para las asignaciones de porcentaje de memoria de clases de recursos pequeñas, medianas, grandes y extra grandes, **independientemente del nivel de servicio**.  En la siguiente tabla encontrará los detalles consolidados de los porcentajes de asignación de memoria y el número mínimo de consultas simultáneas que se ejecutan, independientemente del nivel de servicio.
+**En Gen2**, las clases de recursos dinámicos son verdaderamente dinámicas, ya que abordan los puntos mencionados anteriormente.  La nueva regla es 3-10-22-70 para las asignaciones de porcentaje de memoria de clases de recursos pequeñas, medianas, grandes y extra grandes, **independientemente del nivel de servicio**.  En la siguiente tabla encontrará los detalles consolidados de los porcentajes de asignación de memoria y el número mínimo de consultas simultáneas que se ejecutan, independientemente del nivel de servicio.
 
 | Clase de recursos | Porcentaje de memoria | Mínimo de consultas simultáneas |
 |:--------------:|:-----------------:|:----------------------:|
@@ -161,7 +161,7 @@ Los espacios de simultaneidad son una manera cómoda de realizar un seguimiento 
 - Una consulta que se ejecute con 10 espacios de simultaneidad puede tener acceso a 5 veces más recursos de proceso que una consulta que se ejecute con 2 espacios de simultaneidad.
 - Si cada consulta requiere 10 espacios de simultaneidad y hay 40, solo se pueden ejecutar 4 consultas simultáneamente.
 
-Solo las consultas regidas por recursos consumen espacios de simultaneidad. Las consultas del sistema y algunas consultas triviales no consumen ningún espacio. El número exacto de espacios de simultaneidad consumidos viene determinada por la clase de recursos de la consulta.
+Solo las consultas regidas por recursos consumen espacios de simultaneidad. Las consultas del sistema y algunas consultas sencillas no consumen ningún espacio. El número exacto de espacios de simultaneidad que se usa está determinado por la clase de recurso de la consulta.
 
 ## <a name="view-the-resource-classes"></a>Visualización de las clases de recursos
 
@@ -175,15 +175,15 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 ## <a name="change-a-users-resource-class"></a>Cambio de una clase de recursos de usuario
 
-Para implementar clases de recursos, debe asignar usuarios a los roles de base de datos. Cuando un usuario ejecuta una consulta, la consulta se ejecuta con la clase de recurso del usuario. Por ejemplo, si un usuario es miembro del rol de base de datos staticrc10, las consultas se ejecutan con pequeñas cantidades de memoria. Si un usuario de base de datos es un miembro de los roles de base de datos "xlargerc" o staticrc80, las consultas se ejecutan con grandes cantidades de memoria.
+Para implementar clases de recursos, debe asignar usuarios a los roles de base de datos. Cuando un usuario ejecuta una consulta, la consulta se ejecuta con la clase de recurso del usuario. Por ejemplo, si un usuario es miembro del rol de base de datos "staticrc10", las consultas se ejecutan con pequeñas cantidades de memoria. Si un usuario de base de datos es miembro del rol de base de datos "xlargerc" o "staticrc80", las consultas se ejecutan con grandes cantidades de memoria.
 
-Para aumentar la clase de recursos de un usuario, use [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) para agregar el usuario a un rol de base de datos de una clase de recursos grande.  El siguiente código agrega un usuario al rol de base de datos largerc.  Cada solicitud obtiene 22% de la memoria del sistema.
+Para aumentar la clase de recursos de un usuario, use [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) para agregar el usuario a un rol de base de datos de una clase de recursos grande.  El siguiente código agrega un usuario al rol de base de datos "largerc".  Cada solicitud obtiene un 22 % de la memoria del sistema.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-Para reducir la clase de recursos, use [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  Si 'loaduser' no es un miembro o cualquier otra clase de recurso, entran en la clase de recurso smallrc predeterminada con una concesión de memoria de % 3.  
+Para reducir la clase de recursos, use [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  Si "loaduser" no es un miembro o cualquier otra clase de recurso, entran en la clase de recursos "smallrc" predeterminada con una concesión de memoria del 3 %.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -198,47 +198,47 @@ Los usuarios pueden ser miembros de varias clases de recursos. Cuando un usuario
 
 ## <a name="recommendations"></a>Recomendaciones
 
-Se recomienda la creación de un usuario que se dedica a ejecutar un tipo específico de la consulta u operación de carga. Conceda a ese usuario de una clase de recursos permanente en lugar de cambiar la clase de recursos con frecuencia. Clases de recursos estáticos permiten general un mayor control sobre la carga de trabajo, por lo que se recomienda usar clases de recursos estáticos antes de considerar las clases de recursos dinámicos.
+Se recomienda crear un usuario que se dedique a ejecutar un tipo específico de consulta u operación de carga. Conceda a ese usuario una clase de recursos permanente en lugar de cambiar la clase de recursos con frecuencia. Las clases de recursos estáticas, en general, proporcionan un mayor control sobre la carga de trabajo, por lo que le recomendamos que use dichas clases antes de plantearse usar las clases de recursos dinámicas.
 
 ### <a name="resource-classes-for-load-users"></a>Clases de recursos para los usuarios de carga
 
-`CREATE TABLE` usa índices de almacén de columnas en clúster de manera predeterminada. Comprimir datos en un índice de almacén de columnas es una operación que utiliza mucha memoria y, debido a ello, la presión en la memoria puede reducir la calidad del índice. Presión de memoria puede conducir a la necesidad de una clase de recurso superior al cargar los datos. Para asegurarse de que las cargas tienen suficiente memoria, puede crear un usuario designado para ejecutar cargas y asignarlo a una clase de recursos más alta.
+`CREATE TABLE` usa índices de almacén de columnas en clúster de manera predeterminada. Comprimir datos en un índice de almacén de columnas es una operación que utiliza mucha memoria y, debido a ello, la presión en la memoria puede reducir la calidad del índice. La presión de memoria puede conducir a la necesidad de una clase de recursos superior al cargar los datos. Para asegurarse de que las cargas tienen suficiente memoria, puede crear un usuario designado para ejecutar cargas y asignarlo a una clase de recursos más alta.
 
 La memoria necesaria para procesar las cargas eficazmente depende de la naturaleza de la tabla cargada y del tamaño de los datos. Para obtener más información sobre los requisitos de memoria, consulte [Maximizing rowgroup quality (Maximizar la calidad de un grupo de filas)](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 Una vez que haya determinado los requisitos de la memoria, elija si quiere asignar el usuario de carga a una clase de recursos estática o dinámica.
 
 - Use una clase de recursos estática cuando los requisitos de memoria de la tabla se encuentren dentro de un intervalo específico. Las cargas se deben ejecutar con la memoria adecuada. Asimismo, al escalar el almacenamiento de datos, las cargas no necesitan más memoria. Mediante el uso de una clase de recursos estática, las asignaciones de memoria permanecen constantes. Esta coherencia ahorra memoria y permite que se ejecuten más consultas simultáneamente. Le recomendamos que use las clases de recursos estáticas con las nuevas soluciones, ya que estas proporcionan un mayor control.
-- Puede usar una clase de recursos dinámica si los requisitos de memoria de tabla varían considerablemente. Es posible que las cargas necesiten más memoria que la que proporciona el nivel DWU o cDWU actual. Escalar el almacenamiento de datos agrega más memoria a las operaciones de carga, lo que permite la carga realizar más rápido.
+- Puede usar una clase de recursos dinámica si los requisitos de memoria de tabla varían considerablemente. Es posible que las cargas necesiten más memoria que la que proporciona el nivel DWU o cDWU actual. El escalado del almacenamiento de datos agrega más memoria a las operaciones de carga, lo que permite agilizar los procesos de carga.
 
 ### <a name="resource-classes-for-queries"></a>Clases de recursos para consultas
 
-Algunas consultas son procesos intensivos y otros no.  
+Algunas consultas son procesos intensivos y otras no.  
 
-- Seleccione una clase de recurso dinámico cuando las consultas sean complejas, pero no es necesario alta simultaneidad.  Por ejemplo, el proceso de generar informes diarios o semanales es una necesidad ocasional de recursos. Si los informes procesan grandes cantidades de datos, al escalar el almacenamiento de datos se proporcionará más memoria a la clase de recursos existente del usuario.
+- Seleccione una clase de recursos dinámica cuando las consultas sean complejas, pero que no necesiten una simultaneidad alta.  Por ejemplo, el proceso de generar informes diarios o semanales es una necesidad ocasional de recursos. Si los informes procesan grandes cantidades de datos, al escalar el almacenamiento de datos se proporcionará más memoria a la clase de recursos existente del usuario.
 - Seleccione una clase de recursos estática cuando varíen las expectativas de recursos a lo largo del día. Por ejemplo, una clase de recursos estática funciona bien cuando varios usuarios consultan el almacenamiento de datos. Al escalar el almacenamiento de datos, no cambia la cantidad de memoria asignada al usuario. Por lo tanto, se pueden ejecutar más consultas en paralelo en el sistema.
 
-Concesiones de memoria adecuada dependen de muchos factores, como la cantidad de datos consultados, la naturaleza de los esquemas de tabla y seleccione varias combinaciones y predicados de grupo. Desde un punto de vista general, si asigna más memoria permitirá que las consultas se completen más rápido, pero podría reducir la simultaneidad global. Si la simultaneidad no es un problema, asignar una cantidad de memoria mayor de la necesaria no resulta perjudicial para el rendimiento.
+Las concesiones de memoria adecuadas dependen de varios factores como, por ejemplo, la cantidad de datos consultados, la naturaleza de los esquemas de tabla y los diversos predicados de grupo, selección y combinación. Desde un punto de vista general, si asigna más memoria permitirá que las consultas se completen más rápido, pero podría reducir la simultaneidad global. Si la simultaneidad no es un problema, asignar una cantidad de memoria mayor de la necesaria no resulta perjudicial para el rendimiento.
 
 Para optimizar el rendimiento, utilice las diferentes clases de recursos. En la siguiente sección se proporciona un procedimiento almacenado que le ayudará a averiguar cuál es la mejor clase de recursos.
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>Código de ejemplo para encontrar la mejor clase de recursos
 
-Puede usar el siguiente procedimiento almacenado especificado para [Gen1](#stored-procedure-definition-for-gen1) o [Gen2](#stored-procedure-definition-for-gen2)-averiguar simultaneidad y concesión de memoria por clase de recurso en un SLO determinado y la mejor clase de recursos de memoria intensiva CCI operaciones en la tabla CCI sin particiones en una clase de recurso determinado:
+Puede usar el siguiente procedimiento almacenado especificado para [Gen1](#stored-procedure-definition-for-gen1) o [Gen2](#stored-procedure-definition-for-gen2) para averiguar la concesión de memoria y simultaneidad por clase de recurso en un SLO determinado, y la clase de recurso más apropiada para realizar operaciones de CCI que usen mucha memoria en la tabla CCI sin particiones en una clase de recurso determinado:
 
 Este es el propósito de este procedimiento almacenado:
 
 1. Para ver la simultaneidad y la concesión de memoria por clase de recursos en un SLO determinado. El usuario tiene que proporcionar un valor NULL tanto para el esquema como para el nombre de tabla, tal como se muestra en este ejemplo.  
-2. Para ver la mejor clase de recursos para las operaciones de CCI gran cantidad de memoria (carga, tabla de copia, regeneración de índice, etc.) en la tabla CCI sin particiones en una clase de recurso determinado. En este caso, el procedimiento almacenado usa el esquema de tabla para averiguar la concesión de memoria necesaria.
+2. Para ver cuál es la clase de recursos más adecuada para las operaciones de CCI que usan mucha memoria (carga, tabla de copia, regeneración de índices, etc.) en la tabla CCI sin particiones con una clase de recursos determinada. En este caso, el procedimiento almacenado usa el esquema de tabla para averiguar la concesión de memoria necesaria.
 
 ### <a name="dependencies--restrictions"></a>Dependencias y restricciones
 
-- Este procedimiento almacenado no está diseñado para calcular los requisitos de memoria para una tabla cci con particiones.
-- Este procedimiento almacenado no tiene requisitos de memoria en cuenta la parte SELECT de CTAS/INSERT-SELECT y se considera que es una instrucción SELECT.
+- Este procedimiento almacenado no está diseñado para calcular los requisitos de memoria de una tabla CCI con particiones.
+- Este procedimiento almacenado no tiene en cuenta los requisitos de memoria de la parte SELECT de CTAS/INSERT-SELECT y se da por supuesto que es una instrucción SELECT.
 - Este procedimiento almacenado utiliza una tabla temporal que está disponible en la sesión donde el procedimiento almacenado se creó.
-- Este procedimiento almacenado depende de las ofertas actuales (por ejemplo, configuración de hardware, configuración DMS) y, si cualquiera de los cambia, a continuación, este procedimiento almacenado no funcionará correctamente.  
-- Este procedimiento almacenado depende de las ofertas existentes de límite de simultaneidad y si estos cambian, a continuación, este procedimiento almacenado no funcionará correctamente.  
-- Este procedimiento almacenado depende de las ofertas de clase de recursos existente y si estos cambian, a continuación, este procedimiento almacenado no funcionará correctamente.  
+- Este procedimiento almacenado depende de las ofertas actuales (por ejemplo, configuración de hardware, configuración DMS) y, si algo cambiara, no funcionará correctamente.  
+- Este procedimiento almacenado depende de las ofertas del límite de simultaneidad existentes y, si estas cambian, dicho procedimiento no funcioná correctamente.  
+- Este procedimiento almacenado depende de las ofertas de la clase de recursos existentes y, si estas cambian, dicho procedimiento no funcioná correctamente.  
 
 >[!NOTE]  
 >Si no se obtienen resultados después de ejecutar el procedimiento almacenado con los parámetros proporcionados, podrían darse dos circunstancias.
@@ -275,7 +275,7 @@ La siguiente instrucción crea la tabla "Table1" que se usa en los ejemplos ante
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
 -------------------------------------------------------------------------------
-IF EXISTS (SELECT -FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
 DROP PROCEDURE dbo.prc_workload_management_by_DWU
 GO
 
@@ -932,7 +932,7 @@ GO
 
 ## <a name="next-step"></a>Paso siguiente
 
-Para obtener más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Proteger una base de datos en SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para obtener más información sobre la manera en que las clases de recursos más grandes pueden mejorar la calidad de los índices de almacén de columnas en clúster, consulte [Memory optimizations for columnstore compression (Optimizaciones de memoria para la compresión del almacén de columnas)](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Proteger una base de datos en SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para obtener más información sobre la manera en que las clases de recursos más grandes pueden mejorar la calidad de los índices de almacén de columnas en clúster, consulte [Memory optimizations for columnstore compression (Optimizaciones de memoria para la compresión del almacén de columnas)](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 <!--Image references-->
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea048c6adbb4e00ae8543810f1dc571376038c62
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550225"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436243"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creación de un grupo de Azure Batch en una red virtual
 
@@ -56,7 +56,7 @@ Es posible que en su organización se requiera redirigir (forzar) el tráfico vi
 
 Para asegurarse de que sus nodos de proceso del grupo de Azure Batch funcionan en una red virtual que tiene habilitada la tunelización forzada, debe agregar las siguientes [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md) a esa subred:
 
-* El servicio Batch debe comunicarse con los nodos de proceso de grupo para programar tareas. Para permitir esta comunicación, agregue una ruta definida por el usuario para cada dirección IP utilizada por el servicio Batch en la región donde existe su cuenta de Batch. Para obtener la lista de direcciones IP del servicio de Batch, póngase en contacto con el soporte técnico de Azure.
+* El servicio Batch debe comunicarse con los nodos de proceso de grupo para programar tareas. Para permitir esta comunicación, agregue una ruta definida por el usuario para cada dirección IP utilizada por el servicio Batch en la región donde existe su cuenta de Batch. Para obtener información sobre cómo obtener la lista de direcciones IP del servicio Batch, consulte [Etiquetas de servicio en un entorno local](../virtual-network/security-overview.md#service-tags-in-on-premises)
 
 * Asegúrese de que el tráfico saliente hacia Azure Storage (en concreto, las direcciones URL del formulario `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, y `<account>.blob.core.windows.net`) no está bloqueado mediante el dispositivo de red local.
 

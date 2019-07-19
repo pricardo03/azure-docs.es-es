@@ -4,17 +4,17 @@ description: En este artículo se describe cómo administrar actualizaciones par
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 0a4990673479c913777a5a7c410460d3d3b31264
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61300134"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478329"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -69,9 +69,9 @@ Una vez que se completa la incorporación, Update Management está habilitado pa
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Habilitación de Update Management en equipos y máquinas virtuales que no son de Azure
 
-Para obtener información sobre cómo habilitar la administración de actualizaciones para equipos y máquinas virtuales de Windows que no son de Azure, consulte [equipos de Windows conectarse al servicio Azure Monitor en Azure](../log-analytics/log-analytics-windows-agent.md).
+Para saber cómo habilitar Update Management en equipos y máquinas virtuales Windows que no sean de Azure, consulte [Conexión de equipos Windows al servicio Azure Monitor](../log-analytics/log-analytics-windows-agent.md).
 
-Para obtener información sobre cómo habilitar la administración de actualizaciones para equipos y máquinas virtuales de Linux que no sean de Azure, consulte [conectar equipos Linux a registros de Azure Monitor](../log-analytics/log-analytics-agent-linux.md).
+Para saber cómo habilitar Update Management en equipos y máquinas virtuales Linux que no sean de Azure, consulte [Conexión de equipos con Linux a registros de Azure Monitor](../log-analytics/log-analytics-agent-linux.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Visualización de equipos conectados a la cuenta de Automation
 
@@ -85,7 +85,7 @@ Es posible que los equipos que no se hayan habilitado recientemente para Update 
 
 - **No compatible**: equipos que no tienen al menos una actualización crítica o de seguridad pendiente.
 
-- **No evaluado**: los datos de valoración de las actualizaciones no se han recibido del equipo en el período esperado. En equipos Linux, el período de tiempo esperado está en las 3 últimas horas. En equipos Windows, el período de tiempo esperado está en las 12 últimas horas.
+- **No evaluado**: los datos de valoración de las actualizaciones no se han recibido del equipo en el período esperado. En equipos Linux, el período de tiempo esperado está en la última hora. En equipos Windows, el período de tiempo esperado está en las 12 últimas horas.
 
 Para ver el estado del agente, seleccione el vínculo de la columna **Preparación de actualizaciones del agente**. Al seleccionar esta opción se abre el panel **Hybrid Worker**, que muestra el estado de Hybrid Worker. En la siguiente imagen se muestra un ejemplo de un agente que no se ha conectado a Update Management durante un período de tiempo prolongado:
 
@@ -108,15 +108,15 @@ En la tabla siguiente se describen los orígenes conectados compatibles con esta
 | Agentes de Windows |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Windows e inicia la instalación de las actualizaciones necesarias. |
 | Agentes de Linux |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Linux e inicia la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
 | Grupo de administración de Operations Manager |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de un grupo de administración conectado. |
-| Cuenta de Azure Storage |Sin  |Azure Storage no incluye información sobre las actualizaciones del sistema. |
+| Cuenta de Azure Storage |Sin |Azure Storage no incluye información sobre las actualizaciones del sistema. |
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
 
-Después de un equipo realiza un examen de cumplimiento de las actualizaciones, el agente reenvía la información de forma masiva a los registros de Azure Monitor. En un equipo Windows, el examen de cumplimiento se ejecuta cada 12 horas de forma predeterminada.
+Después de que un equipo completa un examen de cumplimiento de las actualizaciones, el agente reenvía la información de forma masiva a los registros de Azure Monitor. En un equipo Windows, el examen de cumplimiento se ejecuta cada 12 horas de forma predeterminada.
 
 Además del examen programado, el examen de cumplimiento de las actualizaciones se inicia a los 15 minutos del reinicio de MMA, así como antes y después de la instalación de actualizaciones.
 
-En un equipo Linux, el examen de cumplimiento se realiza cada 3 horas de forma predeterminada. Si se reinicia el agente MMA, se inicia un examen de cumplimiento al cabo de 15 minutos.
+En un equipo Linux, el examen de cumplimiento se realiza cada hora de manera predeterminada. Si se reinicia el agente MMA, se inicia un examen de cumplimiento al cabo de 15 minutos.
 
 Puede que transcurran entre 30 minutos y 6 horas antes de que se muestren los datos actualizados de los equipos administrados.
 
@@ -130,7 +130,7 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
 
 - **Nombre**: proporcione un nombre único para identificar la implementación de actualizaciones.
 - **Sistema operativo**: seleccione **Windows** o **Linux**.
-- **Grupos que se deben actualizar (versión preliminar)**: Defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de VM de Azure e incluirlo en la implementación. Para obtener más información, consulte [Dynamic Groups](automation-update-management.md#using-dynamic-groups) (Grupos dinámicos).
+- **Grupos que se deben actualizar (versión preliminar)** : Defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de VM de Azure e incluirlo en la implementación. Para obtener más información, consulte [Dynamic Groups](automation-update-management.md#using-dynamic-groups) (Grupos dinámicos).
 - **Máquinas para actualizar**: seleccione una Búsqueda guardada, Grupo importado o Máquinas para elegir las máquinas que desea actualizar. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Puede ver el estado de mantenimiento de la máquina antes de programar la implementación de actualizaciones. Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
   ![Panel Nueva implementación de actualización](./media/manage-update-multi/update-select-computers.png)
@@ -154,7 +154,7 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
    ![Cuadro de diálogo Configuración de programación](./media/manage-update-multi/update-set-schedule.png)
 
 - **Scripts previos + scripts posteriores**: seleccione los scripts que se ejecutarán antes y después de la implementación. Para obtener más información, consulte [Administración de scripts previos y posteriores](pre-post-scripts.md).
-- **Ventana de mantenimiento (minutos)**: especifique el período de tiempo en el que desea que se produzca la implementación de actualizaciones. Esta configuración ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
+- **Ventana de mantenimiento (minutos)** : especifique el período de tiempo en el que desea que se produzca la implementación de actualizaciones. Esta configuración ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
 
 - **Reboot control**: esta configuración determina cómo se controlan los reinicios para la implementación de actualizaciones.
 

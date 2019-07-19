@@ -1,23 +1,21 @@
 ---
-title: Administrar Azure Reservations | Microsoft Docs
+title: Administración de reservas de Azure
 description: Aprenda a cambiar el ámbito de la suscripción y a administrar el acceso a Azure Reservations.
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127134"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491193"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
@@ -54,7 +52,7 @@ Para cambiar el ámbito de una reserva:
 
 Si cambia el ámbito para que pase de ser compartido a único, solo podrá seleccionar suscripciones de las que sea el propietario. Únicamente se pueden seleccionar las suscripciones que pertenezcan al mismo contexto de facturación que la reserva.
 
-El ámbito solo se aplica a la oferta Pago por uso MS-AZR-0003P o MS-AZR-0023P, la oferta Enterprise MS-AZR-0017P o MS-AZR-0148P o los tipos de suscripción CSP.
+El ámbito solo se aplica a suscripciones individuales con tarifas de pago por uso (ofertas MS-AZR-0003P o MS-AZR-0023P), la oferta Enterprise MS-AZR-0017P o MS-AZR-0148P o los tipos de suscripción CSP.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Agregar o cambiar los usuarios que pueden administrar una reserva
 

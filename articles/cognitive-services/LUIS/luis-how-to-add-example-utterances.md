@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072852"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442575"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Incorporación de una entidad a expresiones de ejemplo 
 
 Las expresiones de ejemplo son ejemplos de texto de preguntas de los usuarios o de comandos. Para entrenar el servicio Language Understanding (LUIS), debe agregar [expresiones de ejemplo](luis-concept-utterance.md) a una [intención](luis-concept-intent.md).
 
-En general, primero se agrega una expresión de ejemplo a una intención y luego se crean expresiones de etiquetas y entidades en la página de intención. Si prefiere crear primero las entidades, consulte [Agregar entidades](luis-how-to-add-entities.md).
+En general, primero se agrega una expresión de ejemplo a una intención y luego se crean expresiones de etiquetas y entidades en la página **Intenciones**. Si prefiere crear primero las entidades, consulte [Agregar entidades](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Marcado de entidades en expresiones de ejemplo
 
@@ -32,7 +32,7 @@ En la expresión de ejemplo no se pueden etiquetar determinados tipos de entidad
 
 ## <a name="add-a-simple-entity"></a>Incorporación de una entidad sencilla
 
-En el siguiente procedimiento se crea y se etiqueta una entidad personalizada dentro de la siguiente expresión en la página de la intención:
+En el siguiente procedimiento se crea y se etiqueta una entidad personalizada dentro de la siguiente expresión de la página **Intenciones**:
 
 ```text
 Are there any SQL server jobs?
@@ -65,9 +65,9 @@ Para la lista de departamento de una empresa, puede tener valores normalizados: 
 
     Puede agregar más elementos de lista o más sinónimos de los elementos al etiquetar otras expresiones o al editar la entidad en **Entities** (Entidades) en el panel de navegación izquierdo. La [edición](luis-how-to-add-entities.md#add-list-entities) de las entidades proporciona la opción de escribir elementos adicionales con los sinónimos correspondientes o de importar una lista. 
 
-## <a name="add-composite-entity"></a>Incorporación de entidad compuesta
+## <a name="add-a-composite-entity"></a>Incorporación de una entidad compuesta
 
-Las entidades compuestas se crean a partir **entidades** existentes en una entidad primaria. 
+Las entidades compuestas se crean a partir de **entidades** existentes para formar una entidad primaria. 
 
 Con la expresión `Does John Smith work in Seattle?`, una expresión compuesta puede devolver información de la entidad del nombre del empleado `John Smith` y la ubicación `Seattle` en una entidad compuesta. Las entidades secundarias ya deben existir en la aplicación y se marcan en la expresión de ejemplo antes de crear la entidad compuesta.
 
@@ -131,15 +131,15 @@ Puede realizar acciones en las expresiones de ejemplo como grupo selecto o como 
 
 ### <a name="remove-entity-labels-from-utterances"></a>Eliminación de etiquetas de entidad de las expresiones
 
-Puede quitar las etiquetas de entidad de aprendizaje automático de una expresión en la página de intención. Si la entidad no procede del aprendizaje automático, no se puede quitar de una expresión. Si tiene que quitar una entidad que no es de aprendizaje automático de la expresión, debe eliminar la entidad de toda la aplicación. 
+Puede quitar las etiquetas de entidad de aprendizaje automático de una expresión en la página Intenciones. Si la entidad no procede del aprendizaje automático, no se puede quitar de una expresión. Si tiene que quitar una entidad que no es de aprendizaje automático de la expresión, debe eliminar la entidad de toda la aplicación. 
 
 Para quitar una etiqueta de entidad de una expresión de aprendizaje automático, seleccione la entidad en la expresión. A continuación, seleccione **Quitar etiqueta** en el cuadro desplegable de la entidad que aparece.
 
-### <a name="add-prebuilt-entity-label"></a>Adición de etiqueta de entidad precompilada
+### <a name="add-a-prebuilt-entity-label"></a>Incorporación de una etiqueta de entidad precompilada
 
 Al agregar las entidades precompiladas a la aplicación de LUIS, no necesitará etiquetar expresiones con estas entidades. Para obtener más información sobre entidades precompiladas y cómo agregarlas, consulte la sección [Add entities](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app) (Agregar entidades).
 
-### <a name="add-regular-expression-entity-label"></a>Adición de la etiqueta de la entidad de expresiones regulares
+### <a name="add-a-regular-expression-entity-label"></a>Incorporación de una etiqueta de la entidad de expresiones regulares
 
 Al agregar las entidades de expresiones regulares a la aplicación de LUIS, no necesitará etiquetar expresiones con estas entidades. Para obtener más información sobre entidades de expresiones regulares y cómo agregarlas, consulte la sección [Add entities](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts) (Agregar entidades).
 
@@ -149,7 +149,7 @@ Al agregar las entidades de expresiones regulares a la aplicación de LUIS, no n
 Consulte [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page) (Adición de un patrón a partir de una de expresión existente en la página de intención o entidad).
 
 
-### <a name="add-patternany-entity"></a>Incorporación de la entidad pattern.any
+### <a name="add-a-patternany-entity"></a>Incorporación de una entidad pattern.any
 
 Si agrega las entidades pattern.any a su aplicación de LUIS, no puede etiquetar expresiones con estas entidades. Solo son válidas en los patrones. Para obtener más información sobre las entidades pattern-any y cómo agregarlas, consulte la sección [Agregar entidades](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -159,4 +159,4 @@ Después de agregar, editar o quitar expresiones, [entrene](luis-how-to-train.md
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de etiquetar expresiones en sus intenciones, puede crear una [entidad compuesta](luis-how-to-add-entities.md).
+Después de etiquetar expresiones en sus **intenciones**, puede crear una [entidad compuesta](luis-how-to-add-entities.md).

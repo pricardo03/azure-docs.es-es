@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 905901c2a21c59bab9f48bf4229333663bc39131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0de536f687272283b816e6724e41eb61e3a22cd0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938629"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442328"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparación de AppSource y Azure Marketplace
 Los escaparates de [Azure Marketplace](https://azuremarketplace.microsoft.com) y [Microsoft AppSource](https://appsource.microsoft.com) atienden los requisitos únicos de los clientes. Utilice los escaparates para dirigirse a los clientes por rol. Puede ofrecer la solución o el servicio correctos en función del cliente.
@@ -29,8 +29,8 @@ En las tablas siguientes se describen las ventajas del uso de un escaparate:
 
 | Ventajas | AppSource | Azure Marketplace |
 |:--- |:--- | :--- |
-| **Flexibilidad de facturación** | Aprovisiona una experiencia de evaluación. Actualmente no se ofrece una opción de publicación habilitada para comercio. Puede usar la infraestructura actual de pedidos y facturación sin inversiones o cambios adicionales. | En Virtual Machines, las opciones de facturación de pago por uso emplean modelos de venta directa web y contratos Enterprise (EA) de Microsoft. Las opciones de precios incluyen una suscripción de nivel gratuito, en la que una oferta es gratis de forma permanente. Las opciones de precios también incluyen una suscripción Pruébelo ahora. Una suscripción Pruébelo ahora es gratis como promoción durante un período limitado. Cuando termine el período, la máquina virtual se convierte en una suscripción de pago. La activación de Traiga su propia licencia (BYOL) también es una opción que puede utilizar para los clientes.<br /><br/>Tanto para las opciones de facturación como para las siguientes ofertas de VM, todos los recursos aprovisionados de Azure se facturan directamente al cliente:<ul> <li>Aplicaciones de Azure: aplicación administrada</li> <li>Aplicaciones de Azure: Plantilla de solución</li> </ul> |
-| **Conexiones con otros partners** | Se pueden vincular fabricantes de software independiente, integradores de sistemas y proveedores de servicios administrados a escenarios de implementación concretos. Puede vender de forma colaborativa a nuevos clientes. | En este momento no puede vincular partners de entrega ni proveedores de servicio a su oferta. | 
+| **Flexibilidad de facturación** | AppSource admite los siguientes tipos de oferta: gratuita, de prueba, BYOL y que permite transacciones. Las ofertas que permiten transacciones son productos que se pueden facturar mensual o anualmente en una tarifa plana o por puesto.| Azure Marketplace admite los siguientes tipos de oferta: gratuita, de prueba, BYOL y que permite transacciones. Las ofertas que permiten transacciones se basan en el consumo o en la suscripción. Las ofertas basadas en el consumo se facturan por uso por hora y pueden proporcionar un período gratuito inicial. Los servicios basados en la suscripción se facturan mensual o anualmente en una tarifa plana o por puesto.|
+|**Conexiones con otros partners** | Se pueden vincular fabricantes de software independiente, integradores de sistemas y proveedores de servicios administrados a escenarios de implementación concretos. Puede vender de forma colaborativa a nuevos clientes. | En este momento no puede vincular partners de entrega ni proveedores de servicio a su oferta. | 
 | **Automation** | Se pueden vincular fabricantes de software independiente, integradores de sistemas y proveedores de servicios administrados a escenarios de implementación concretos. Puede vender de forma colaborativa a nuevos clientes. | En este momento no puede vincular partners de entrega ni proveedores de servicio a su oferta. Aproveche las ventajas de Software como servicio (SaaS) automatizado con aprovisionamiento de complementos. Utilice las aplicaciones de Azure: opción de publicación de plantillas de soluciones para automatizar escenarios de implementación y recopilación de datos basados en SaaS. |
 | **Varios tipos de nube** | En este momento, no es compatible con Azure Stack, Azure Government o nubes regionales. | Publique soluciones para la nube pública y el entorno local con los siguientes tipos:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Nubes regionales, incluidas China y Alemania</li></ul> |
 | **Presentación en contexto a los clientes** | Llegue a más clientes gracias a la experiencia en aplicación de productos de Microsoft como Dynamics 365, Power BI y Office 365. | Permita que su solución esté disponible en la experiencia en el portal de Azure para la búsqueda contextual. Utilice las aplicaciones de máquinas virtuales y Azure: opciones de publicación de plantillas de solución. |

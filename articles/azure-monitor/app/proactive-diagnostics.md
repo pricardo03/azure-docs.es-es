@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: edbd7000001ae6927078e2f1bb9e348cc78f9efa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ee2dea364253d871d5624242d15d8a81ab6f08f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61299675"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465892"
 ---
 # <a name="smart-detection-in-application-insights"></a>Detección inteligente en Application Insights
- La detección inteligente avisa automáticamente de posibles problemas de rendimiento en su aplicación web. Realiza un análisis proactivo de la telemetría que su aplicación envía a [Application Insights](../../azure-monitor/app/app-insights-overview.md). Si hay un aumento repentino de las tasas de error o patrones de rendimiento anormales en el cliente o el servidor, recibirá una alerta. Esta característica no necesita ninguna configuración. Funciona si la aplicación envía suficiente telemetría.
+ La detección inteligente avisa automáticamente de posibles problemas de rendimiento y anomalías en los errores en su aplicación web. Realiza un análisis proactivo de la telemetría que su aplicación envía a [Application Insights](../../azure-monitor/app/app-insights-overview.md). Si hay un aumento repentino de las tasas de error o patrones de rendimiento anormales en el cliente o el servidor, recibirá una alerta. Esta característica no necesita ninguna configuración. Funciona si la aplicación envía suficiente telemetría.
 
-Puede acceder a las alertas de detección inteligente desde los correos electrónicos que recibe y desde la hoja de detección inteligente.
+Puede acceder a las detecciones emitidas por la detección inteligente tanto desde los correos electrónicos que recibe, como desde la hoja de detección inteligente.
 
 ## <a name="review-your-smart-detections"></a>Revisión de las detecciones inteligentes
 Puede detectar las detecciones de dos maneras:
@@ -32,24 +32,24 @@ Puede detectar las detecciones de dos maneras:
     ![Alerta de correo electrónico](./media/proactive-diagnostics/03.png)
   
     Haga clic en el botón grande para abrir más detalles en el portal.
-* **El icono de detección inteligente** en la hoja de información general de la aplicación muestra un recuento de las alertas recientes. Haga clic en el icono para ver una lista de las alertas recientes.
+* **La hoja Detección inteligente** en Application Insights. Seleccione **Detección inteligente** en el menú **Investigar** para ver una lista de las detecciones recientes.
 
 ![Visualización de detecciones recientes](./media/proactive-diagnostics/04.png)
 
-Seleccione una alerta para ver sus detalles.
+Seleccione una detección para ver sus detalles.
 
 ## <a name="what-problems-are-detected"></a>¿Qué problemas se detectan?
-Hay tres tipos de detección:
+La Detección inteligente detecta y notifica una variedad de problemas, como:
 
 * [Detección inteligente: anomalías de errores](../../azure-monitor/app/proactive-failure-diagnostics.md). Usamos el aprendizaje automático para establecer la tasa esperada de solicitudes con error para su aplicación, correlacionando la carga y otros factores. Si la tasa de error queda fuera del rango esperado, se enviará una alerta.
 * [Detección inteligente: anomalías de rendimiento](../../azure-monitor/app/proactive-performance-diagnostics.md). Recibe notificaciones si la duración del tiempo de respuesta de operación o dependencia se ralentiza en comparación con la línea de base histórica, o si se identifica un patrón anómalo en el tiempo de respuesta o en el tiempo de carga de página.   
-* [Detección inteligente: problemas del servicio en la nube de Azure](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Recibe alertas si la aplicación se hospeda en Azure Cloud Services y una instancia de rol tiene errores de inicio, repetición de ciclos frecuentes o bloqueos en tiempo de ejecución.
+* Problemas y degradaciones generales, como [Degradación de seguimiento](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [Fuga de memoria](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), [Aumento anómalo del volumen de excepciones](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) y [Antipatrones de seguridad](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
 
 (Los vínculos a la Ayuda de cada notificación llevan a los artículos pertinentes).
 
 ## <a name="smart-detection-email-notifications"></a>Notificaciones por correo electrónico de detección inteligente
 
-Todas las reglas de detección inteligente, excepto las reglas marcadas como versión preliminar, se configuran de forma predeterminada para enviar notificaciones por correo electrónico cuando se encuentran las detecciones.
+Todas las reglas de detección inteligente, excepto las reglas marcadas como _versión preliminar_, se configuran de forma predeterminada para enviar notificaciones por correo electrónico cuando se encuentran las detecciones.
 
 La configuración de las notificaciones por correo electrónico para una regla de detección inteligente específica puede hacerse abriendo hoja **Configuración** de detección inteligente y seleccionando la regla, lo que abrirá la hoja **Editar regla**.
 

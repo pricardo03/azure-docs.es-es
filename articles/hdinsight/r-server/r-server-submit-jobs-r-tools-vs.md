@@ -2,22 +2,22 @@
 title: Envío de trabajos desde Herramientas de R para Visual Studio en Azure HDInsight
 description: Envío de trabajos de R desde la máquina local de Visual Studio hasta un clúster de HDInsight.
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 8f1ed582b7abf43afd38ca5c358aa7e179bfecb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: d977d5a25db0cbe641179bce860e9f67c60f29ab
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702272"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340800"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Envío de trabajos desde Herramientas de R para Visual Studio
 
-[Herramientas de R para Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) es una extensión gratuita de código abierto de las ediciones Community (gratuita), Professional y Enterprise de [Visual Studio 2017](https://www.visualstudio.com/downloads/) y [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) o superior.
+[Herramientas de R para Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) es una extensión gratuita de código abierto de las ediciones Community (gratuita), Professional y Enterprise de [Visual Studio 2017](https://www.visualstudio.com/downloads/) y [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) o superior. RTVS no está disponible para [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
 
 RTVS mejora el flujo de trabajo de R al ofrecer herramientas como la [ventana R interactivo](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), IntelliSense (finalización de código), [visualización de trazados](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) mediante bibliotecas de R como ggplot2 y ggviz, [depuración de código de R](https://docs.microsoft.com/visualstudio/rtvs/debugging) y muchas más.
 
@@ -48,7 +48,7 @@ RTVS mejora el flujo de trabajo de R al ofrecer herramientas como la [ventana R 
 
 ## <a name="execute-local-r-methods"></a>Ejecución de métodos de R locales
 
-1. Cree su [clúster de HDInsight ML Services](r-server-get-started.md).
+1. Cree el clúster de ML Services de HDInsight.
 2. Instale la [extensión RTVS](https://docs.microsoft.com/visualstudio/rtvs/installation).
 3. Descargue el [archivo ZIP de ejemplos](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
 4. Abra `examples/Examples.sln` para iniciar la solución en Visual Studio.
@@ -65,15 +65,9 @@ RTVS mejora el flujo de trabajo de R al ofrecer herramientas como la [ventana R 
 
 Mediante una instancia de Microsoft ML Server/Microsoft R Client desde un equipo Windows equipado con PuTTY, puede crear un contexto de proceso que ejecute funciones `RevoScaleR` distribuidas desde el cliente local hasta el clúster de HDInsight. Use `RxSpark` para crear el contexto de proceso y especifique el nombre de usuario, el nodo perimetral del clúster de Apache Hadoop, los modificadores de SSH, etc.
 
-1. Para encontrar el nombre de host del nodo perimetral, abra el panel del clúster de HDInsight ML Services en Azure y seleccione **Secure Shell (SSH)** en el menú superior del panel de información general.
+1. La dirección del nodo perimetral de ML Services en HDInsight `CLUSTERNAME-ed-ssh.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster de ML Services.
 
-    ![Secure Shell (SSH)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
-
-2. Copie el valor de **Nombre de host del nodo perimetral**.
-
-    ![Nombre de host del nodo perimetral](./media/r-server-submit-jobs-r-tools-vs/edge-node.png)
-
-3. Pegue el código siguiente en la ventana de R interactivo en Visual Studio y modifique los valores de las variables de configuración para que coincidan con el entorno.
+1. Pegue el código siguiente en la ventana de R interactivo en Visual Studio y modifique los valores de las variables de configuración para que coincidan con el entorno.
 
     ```R
     # Setup variables that connect the compute context to your HDInsight cluster
@@ -103,7 +97,7 @@ Mediante una instancia de Microsoft ML Server/Microsoft R Client desde un equipo
     
     ![Configuración del contexto de Spark](./media/r-server-submit-jobs-r-tools-vs/spark-context.png)
 
-4. Ejecute los siguientes comandos en la ventana de R interactivo:
+1. Ejecute los siguientes comandos en la ventana de R interactivo:
 
     ```R
     rxHadoopCommand("version") # should return version information
@@ -115,7 +109,7 @@ Mediante una instancia de Microsoft ML Server/Microsoft R Client desde un equipo
 
     ![Ejecución correcta de comandos de rx](./media/r-server-submit-jobs-r-tools-vs/rx-commands.png)
 
-5. Compruebe que el comando `rxHadoopCopy` copió correctamente el archivo `people.json` de la carpeta de datos de ejemplo en la carpeta `/user/RevoShare/newUser` recién creada:
+1. Compruebe que el comando `rxHadoopCopy` copió correctamente el archivo `people.json` de la carpeta de datos de ejemplo en la carpeta `/user/RevoShare/newUser` recién creada:
 
     1. En el panel del clúster de HDInsight ML Services en Azure, seleccione **Cuentas de almacenamiento** en el menú izquierdo.
 
@@ -131,7 +125,7 @@ Mediante una instancia de Microsoft ML Server/Microsoft R Client desde un equipo
 
         ![Archivo copiado](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
 
-6. Cuando haya terminado de usar el contexto de Apache Spark actual, debe detenerlo. No puede ejecutar varios contextos a la vez.
+1. Cuando haya terminado de usar el contexto de Apache Spark actual, debe detenerlo. No puede ejecutar varios contextos a la vez.
 
     ```R
     rxStopEngine(mySparkCluster)
@@ -141,4 +135,4 @@ Mediante una instancia de Microsoft ML Server/Microsoft R Client desde un equipo
 
 * [Opciones de contexto de proceso para de ML Services en HDInsight](r-server-compute-contexts.md)
 * La [combinación de ScaleR y SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) proporciona un ejemplo de predicciones de retrasos en los vuelos.
-<!-- * You can also submit R jobs with the [R Studio Server](hdinsight-submit-jobs-from-r-studio-server.md) -->
+

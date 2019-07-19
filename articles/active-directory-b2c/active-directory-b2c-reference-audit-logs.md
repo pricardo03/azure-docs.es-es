@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509648"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205360"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acceso a los registros de auditoría de Azure AD B2C
 
@@ -24,12 +25,15 @@ Azure Active Directory B2C (Azure AD B2C) emite registros de auditoría que cont
 > [!IMPORTANT]
 > Los registros de auditoría solo se conservan durante siete días. Si necesita un periodo de retención mayor, planee la descarga y el almacenamiento de los registros mediante alguno de los métodos que se muestran a continuación.
 
+> [!NOTE]
+> No puede ver inicios de sesión de usuario para aplicaciones individuales de Azure AD B2C en la sección **Usuarios** de la hoja **Azure Active Directory** o **Azure AD B2C**. Los inicios de sesión mostrarán la actividad del usuario, pero no pueden correlacionarse de nuevo con la aplicación B2C en que el usuario inició sesión. Debe usar los registros de auditoría para ello, como se explica en este artículo.
+
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Información general sobre las actividades disponibles en la categoría B2C de los registros de auditoría
 La categoría **B2C** de los registros de auditoría contiene los siguientes tipos de actividades:
 
 |Tipo de actividad |DESCRIPCIÓN  |
 |---------|---------|
-|Autorización |Actividades relacionadas con la autorización de un usuario para acceder a los recursos de B2C (por ejemplo, un administrador que accede a una lista de directivas de B2C)         |
+|Authorization |Actividades relacionadas con la autorización de un usuario para acceder a los recursos de B2C (por ejemplo, un administrador que accede a una lista de directivas de B2C)         |
 |Directorio |Actividades relacionadas con los atributos de directorio que se recuperan cuando un administrador inicia sesión con Azure Portal |
 |Application | Operaciones CRUD en aplicaciones B2C |
 |Clave |Operaciones CRUD en claves almacenadas en el contenedor de claves B2C |
@@ -41,6 +45,18 @@ La categoría **B2C** de los registros de auditoría contiene los siguientes tip
 
 ## <a name="example-activity"></a>Actividad de ejemplo
 En el ejemplo siguiente se muestran los datos capturados cuando un usuario inicia sesión con un proveedor de identidades externo: ![Registros de auditoría: ejemplo](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+
+El panel de detalles de actividad contiene la siguiente información pertinente:
+
+|Sección|Campo|DESCRIPCIÓN|
+|-------|-----|-----------|
+| Actividad | NOMBRE | Qué actividad tuvo lugar. Por ejemplo, "Emitir un valor de id_token a la aplicación" (que finaliza el inicio de sesión efectivo del usuario). |
+| Iniciado por (actor) | ObjectId | El **identificador de objeto** de la aplicación B2C en que el usuario está iniciando sesión (este identificador no es visible en Azure Portal, pero es accesible a través de Graph API, por ejemplo). |
+| Iniciado por (actor) | Spn | El **identificador de aplicación** de la aplicación B2C en que el usuario está iniciando sesión. |
+| Destinos | ObjectId | El **identificador de objeto** del usuario que está iniciando sesión. |
+| Detalles adicionales | TenantId | El **identificador de inquilino** del inquilino de Azure AD B2C. |
+| Detalles adicionales | PolicyId | El **identificador de directiva** del flujo de usuario (directiva) que se usa para iniciar la sesión del usuario. |
+| Detalles adicionales | ApplicationId | El **identificador de aplicación** de la aplicación B2C en que el usuario está iniciando sesión. |
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Acceso a los registros de auditoría a través de Azure Portal
 1. Vaya a [Azure Portal](https://portal.azure.com). Asegúrese de que se encuentra en el directorio B2C.
@@ -62,6 +78,9 @@ Se ve una lista de actividades registradas durante los últimos siete días.
 - Use la lista desplegable **Intervalo de fechas** para filtrar el intervalo de fechas de las actividades mostradas
 - Si hace clic en una fila determinada de la lista, un cuadro contextual a la derecha muestra los atributos adicionales asociados a la actividad
 - Haga clic en **Descargar** para descargar las actividades como un archivo csv
+
+> [!NOTE]
+> También puede ver los registros de auditoría; para ello, vaya a **Azure AD B2C** en lugar de a **Azure Active Directory** en la barra de favoritos a la izquierda. En **Actividades**, haga clic en **Registros de auditoría**, donde encontrará los mismos registros con capacidades de filtrado similares.
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Acceso a los registros de auditoría a través de la API de informes de Azure AD
 Los registros de auditoría se publican en la misma canalización que otras actividades de Azure Active Directory, por lo que son accesibles a través de la [API de informes de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).

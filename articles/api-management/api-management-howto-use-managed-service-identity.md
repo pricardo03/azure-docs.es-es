@@ -1,6 +1,6 @@
 ---
-title: Usar identidades administradas en Azure API Management | Microsoft Docs
-description: Aprenda a usar las identidades administradas de API Management
+title: Uso de identidades administradas en Azure API Management | Microsoft Docs
+description: Aprenda a usar las identidades administradas en API Management.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -11,25 +11,25 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 75a02abb6cce332daad12e1feb25fb425f89f7f4
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.openlocfilehash: 49576b805e6c6d01340e663bfb5d8e9013917625
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393382"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461601"
 ---
-# <a name="use-managed-identities-in-azure-api-management"></a>Usar identidades administradas en Azure API Management
+# <a name="use-managed-identities-in-azure-api-management"></a>Uso de identidades administradas en Azure API Management
 
-Este artículo muestra cómo crear una identidad administrada para una instancia del servicio API Management y cómo tener acceso a otros recursos. Una identidad administrada generada por Azure Active Directory (Azure AD) permite a la instancia de API Management a sencilla y segura a otros recursos protegidos por AD Azure, como Azure Key Vault. Esta identidad está administrada por Azure y no requiere que aprovisione o rote los secretos. Para obtener más información acerca de las identidades administradas, vea [What ' s identidades administradas para los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
+En este artículo se muestra cómo crear una identidad administrada para una instancia de servicio de API Management y cómo acceder a otros recursos. Una identidad administrada generada por Azure Active Directory (Azure AD) permite a la instancia de API Management acceder de forma fácil y segura a otros recursos protegidos de Azure AD, como Azure Key Vault. Esta identidad está administrada por Azure y no requiere que aprovisione o rote los secretos. Para más información sobre las identidades administradas, consulte el artículo sobre [qué son las identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Cree una identidad administrada para una instancia de API Management
+## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Creación de una identidad administrada para una instancia de API Management
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
-Para configurar una identidad administrada en el portal, creará primero una instancia de API Management como normal y, a continuación, habilitar la característica.
+Para configurar una identidad administrada en el portal, primero tendrá que crear una instancia de API Management como lo hace normalmente y, a continuación, habilitar la característica.
 
 1. Cree una instancia de API Management en el portal como lo haría normalmente. Navegue hasta el portal.
-2. Seleccione **identidades de servicio administradas**.
+2. Seleccione **Identidades de servicio administradas**.
 3. Cambie Registrar en Azure Active Directory a Activado. Haga clic en Guardar.
 
 ![Habilitación de MSI](./media/api-management-msi/enable-msi.png)
@@ -51,34 +51,31 @@ Por ejemplo, una plantilla de Azure Resource Manager completa podría tener el a
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "0.9.0.0"
-    },
-    "resources": [
-        {
-            "apiVersion": "2017-03-01",
-            "name": "contoso",
-            "type": "Microsoft.ApiManagement/service",
-            "location": "[resourceGroup().location]",
-            "tags": {},
-            "sku": {
-                "name": "Developer",
-                "capacity": "1"
-            },
-            "properties": {
-                "publisherEmail": "admin@contoso.com",
-                "publisherName": "Contoso"
-            },
-            "identity": {
-                "type": "systemAssigned"
-            }
+    "contentVersion": "0.9.0.0",
+    "resources": [{
+        "apiVersion": "2017-03-01",
+        "name": "contoso",
+        "type": "Microsoft.ApiManagement/service",
+        "location": "[resourceGroup().location]",
+        "tags": {},
+        "sku": {
+            "name": "Developer",
+            "capacity": "1"
+        },
+        "properties": {
+            "publisherEmail": "admin@contoso.com",
+            "publisherName": "Contoso"
+        },
+        "identity": {
+            "type": "systemAssigned"
         }
-    ]
+    }]
 }
 ```
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Uso de la identidad de servicio administrada para acceder a otros recursos
 
 > [!NOTE]
-> Actualmente, las identidades administradas pueden utilizarse para obtener certificados de Azure Key Vault para los nombres de dominio personalizado de administración de API. Pronto se admitirán más escenarios.
+> Actualmente, las identidades administradas se pueden utilizar para obtener certificados de Azure Key Vault para los nombres de dominio personalizados de API Management. Pronto se admitirán más escenarios.
 >
 >
 
@@ -108,7 +105,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 En el ejemplo siguiente se muestra una plantilla de Azure Resource Manager que contiene los siguientes pasos:
 
-1. Cree una instancia de API Management con una identidad administrada.
+1. Creación de una instancia de API Management con una identidad administrada.
 2. Actualización de las directivas de acceso de una instancia de Azure Key Vault y permiso para que la instancia de API Management obtenga secretos de ella.
 3. Actualización de la instancia de API Management estableciendo un nombre de dominio personalizado mediante un certificado de la instancia de Key Vault.
 
@@ -236,8 +233,8 @@ En el ejemplo siguiente se muestra una plantilla de Azure Resource Manager que c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre las identidades administradas para los recursos de Azure:
+Obtenga más información sobre las identidades administradas para recursos de Azure:
 
-* [¿Qué es identidades administradas para los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md)
+* [¿Qué son las identidades administradas de recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 * [Plantillas del Administrador de recursos de Azure](https://github.com/Azure/azure-quickstart-templates)
-* [Autenticar con una identidad administrada en una directiva](./api-management-authentication-policies.md#ManagedIdentity)
+* [Autenticación con una identidad administrada en una directiva](./api-management-authentication-policies.md#ManagedIdentity)

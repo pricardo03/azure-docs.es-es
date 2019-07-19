@@ -1,24 +1,24 @@
 ---
 title: Ingesta de blobs de Azure en Azure Data Explorer
-description: En este artículo, obtendrá información sobre cómo enviar datos de la cuenta de almacenamiento al explorador de datos de Azure con una suscripción de Event Grid.
+description: En este artículo, aprenderá a enviar datos de la cuenta de almacenamiento a Azure Data Explorer mediante una suscripción de Event Grid.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494743"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490131"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingesta de blobs en Azure Data Explorer mediante la suscripción a las notificaciones de Event Grid
 
 Azure Data Explorer es un servicio de exploración de datos escalable y rápido para datos de telemetría y registro. Ofrece una ingesta continua (carga de datos) a partir de blobs escritos en contenedores de blobs. 
 
-En este artículo, obtendrá información sobre cómo establecer un [Azure Event Grid](/azure/event-grid/overview) suscripción y enrutar eventos al explorador de datos de Azure a través de un centro de eventos. Para empezar, debe tener una cuenta de almacenamiento con una suscripción de Event Grid que envíe notificaciones a Azure Event Hubs. Después, podrá crear una conexión de datos de Event Grid y ver el flujo de datos por el sistema.
+En este artículo, obtendrá información sobre cómo configurar una suscripción a [Azure Event Grid](/azure/event-grid/overview) para enrutar eventos a Azure Data Explorer mediante un centro de eventos. Para empezar, debe tener una cuenta de almacenamiento con una suscripción de Event Grid que envíe notificaciones a Azure Event Hubs. Después, podrá crear una conexión de datos de Event Grid y ver el flujo de datos por el sistema.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,7 +38,7 @@ En este artículo, obtendrá información sobre cómo establecer un [Azure Event
 
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Name | *test-grid-connection* | Nombre de la instancia de Event Grid que desea crear.|
+    | NOMBRE | *test-grid-connection* | Nombre de la instancia de Event Grid que desea crear.|
     | Esquema de eventos | *Esquema de Event Grid* | Esquema que se debe usar para la instancia de Event Grid. |
     | Tipo de tema | *Cuenta de almacenamiento* | Tipo de tema de la cuadrícula de eventos. |
     | Recurso de tema | *gridteststorage* | El nombre de la cuenta de almacenamiento. |
@@ -112,10 +112,10 @@ Ahora, conéctese a la instancia de Event Grid desde Azure Data Explorer, para q
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
     | Tabla | *TestTable* | La tabla que creó en **TestDatabase**. |
-    | Formato de datos | *JSON* | Los formatos admitidos son Avro, CSV, JSON, JSON de varias líneas, PSV, SOH, SCSV, TSV y TXT. |
+    | Formato de datos | *JSON* | Los formatos admitidos son Avro, CSV, JSON, JSON de varias líneas, PSV, SOH, SCSV, TSV y TXT. Opciones de compresión admitidas: ZIP y GZIP |
     | Asignación de columnas | *TestMapping* | La asignación que creó en **TestDatabase**, que asigna los datos JSON entrantes a los nombres de columnas y tipos de datos de **TestTable**.|
     | | |
-
+    
 ## <a name="generate-sample-data"></a>Generación de datos de ejemplo
 
 Ahora que Azure Data Explorer y la cuenta de almacenamiento están conectados, puede crear datos de ejemplo y cargarlos en Blob Storage.
@@ -196,4 +196,4 @@ Si no piensa volver a usar la cuadrícula de eventos, limpie **test-hub-rg** par
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Consultar los datos en el Explorador de datos de Azure](web-query-data.md)
+* [Consulta de datos en Azure Data Explorer](web-query-data.md)

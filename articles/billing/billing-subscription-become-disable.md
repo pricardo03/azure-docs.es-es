@@ -1,42 +1,38 @@
 ---
-title: Reactivación de la suscripción a Azure deshabilitada | Microsoft Docs
+title: Reactivación de una suscripción deshabilitada de Azure
 description: Describe cuándo podría tener una suscripción a Azure deshabilitada y cómo volver a activarla.
 keywords: suscripción a azure deshabilitada
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+author: bandersmsft
+manager: amberb
 tags: billing
-ms.assetid: 4529d685-3a87-49d9-8d7a-49baad552d76
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 2da6a5c93d4bf4fcf8763be47b9eb629b930e3b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfe11a8cbb6dd2de77bbac9d14c294c3f93438f3
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370787"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490420"
 ---
-# <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>¿Por qué está deshabilitada mi suscripción a Azure y cómo reactivarla?
+# <a name="reactivate-a-disabled-azure-subscription"></a>Reactivación de una suscripción deshabilitada de Azure
 
-Es posible que su suscripción de Azure esté deshabilitada porque caducó su crédito, alcanzó el límite de gasto, tiene una factura vencida, alcanzó su límite de tarjeta de crédito, o bien porque el administrador de la cuenta canceló la suscripción. Vea qué problema le afecta y siga los pasos de este artículo para reactivar su suscripción.
+Es posible que la suscripción de Azure se deshabilite porque expiró su crédito, alcanzó el límite de gasto, tiene una factura vencida, alcanzó su límite de tarjeta de crédito, o bien porque el administrador de la cuenta canceló la suscripción. Vea qué problema le afecta y siga los pasos de este artículo para reactivar su suscripción.
 
 ## <a name="your-credit-is-expired"></a>El crédito caducó
 
-Al registrarse para obtener una cuenta gratuita de Azure, obtiene una suscripción de evaluación gratuita, que le proporciona 200 dólares en créditos de Azure para 30 días y 12 meses de servicios gratuitos. Al terminar los 30 días, Azure deshabilita la suscripción. La suscripción se deshabilita para protegerle de cargos accidentales por el uso que supere los servicios con crédito y gratuitos que se incluyen con esta. Para continuar usando los servicios de Azure, debe [actualizar la suscripción a una suscripción de pago por uso](billing-upgrade-azure-subscription.md). Después de actualizar, la suscripción tendrá acceso a servicios gratuitos durante 12 meses. Solo se le cobrará el uso que supere las cantidades y servicios gratuitos.
+Al registrarse para obtener una cuenta gratuita de Azure, obtiene una suscripción de evaluación gratuita, que le proporciona 200 dólares en créditos de Azure para 30 días y 12 meses de servicios gratuitos. Al terminar los 30 días, Azure deshabilita la suscripción. La suscripción se deshabilita para protegerle de cargos accidentales por el uso que supere los servicios con crédito y gratuitos que se incluyen con esta. Para seguir usando los servicios de Azure, debe [actualizar la suscripción](billing-upgrade-azure-subscription.md). Después de actualizar, la suscripción tendrá acceso a servicios gratuitos durante 12 meses. Solo se le cobrará el uso que supere las cantidades y servicios gratuitos.
 
 ## <a name="you-reached-your-spending-limit"></a>Alcanzó el límite de gasto
 
 Las suscripciones de Azure con crédito como la evaluación gratuita y Visual Studio Enterprise tienen límites de gasto. Esto significa que solo puede usar los servicios hasta el crédito incluido. Cuando el uso alcanza el límite de gasto, Azure deshabilita la suscripción para el resto de ese período de facturación. La suscripción se deshabilita para protegerle de cargos accidentales por el uso que supere el crédito que se incluye con esta. Para quitar el límite de gasto, consulte [Eliminación del límite de gasto en el Centro de cuentas](billing-spending-limit.md#remove).
 
-> [!NOTE] 
-> Si tiene una suscripción de evaluación gratuita y quita los límites de gasto, la suscripción se convierte en pago por uso al final de dicha evaluación. El crédito restante se conserva durante los 30 días posteriores a la creación de la suscripción. También tendrá acceso a servicios gratuitos durante 12 meses.
+> [!NOTE]
+> Si tiene una suscripción de evaluación gratuita y quita el límite de gasto, la suscripción se convierte en una suscripción individual con tarifas de pago por uso al final de dicha evaluación. El crédito restante se conserva durante los 30 días posteriores a la creación de la suscripción. También tendrá acceso a servicios gratuitos durante 12 meses.
 
 Para supervisar y administrar la actividad de facturación de Azure, vea [Prevención de cargos inesperados con la administración de costos y facturación de Azure](billing-getting-started.md).
 
@@ -49,9 +45,9 @@ Para resolver el saldo de la suscripción vencido, consulte [Resolución del sal
 
 Para resolver este problema, [cambie a otra tarjeta de crédito](billing-how-to-change-credit-card.md). O bien, si representa a una empresa, puede [cambiar a pago mediante factura](billing-how-to-pay-by-invoice.md).
 
-## <a name="the-subscription-was-accidentally-canceled-and-you-want-to-reactivate"></a>La suscripción se ha cancelado por accidente y desea reactivarla
+## <a name="the-subscription-was-accidentally-canceled"></a>La suscripción se canceló accidentalmente
 
-Si es el administrador de la cuenta y accidentalmente cancela una suscripción de pago por uso, puede reactivarla en el Centro de cuentas.
+Si es el administrador de cuenta y canceló por accidente una suscripción individual con tarifas de pago por uso, puede reactivarla en el Centro de cuentas.
 
 1. Inicie sesión en el [Centro de cuentas](https://account.windowsazure.com/Subscriptions).
 1. Seleccione la suscripción cancelada.
@@ -64,3 +60,6 @@ Para otros tipos de suscripción, [póngase en contacto con soporte técnico](ht
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+# <a name="next-steps"></a>Pasos siguientes
+- Obtenga información sobre cómo [supervisar y administrar la actividad de facturación de Azure](billing-getting-started.md).

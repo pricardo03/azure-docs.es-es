@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6cc530d2680c0410081ad3ad3e573cd59d5583d6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60539067"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341960"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -69,7 +69,7 @@ Si ha adaptado e implementado un modelo con la línea de base V1.0, esa implemen
 
 **R.** : Se puede escalar verticalmente el modelo en incrementos de 20 solicitudes simultáneas.
 
-Póngase en contacto con nosotros si necesita una escala mayor.
+Póngase en contacto con el [servicio de soporte técnico de Speech](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) si requiere una escala mayor.
 
 **P: ¿Puedo descargar mi modelo y ejecutarlo localmente?**
 

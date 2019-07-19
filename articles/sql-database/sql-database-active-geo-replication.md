@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/26/2019
-ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/18/2019
+ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387458"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341430"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creación y uso de la replicación geográfica activa
 
@@ -100,9 +100,6 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
   Cada base de datos secundaria puede participar por separado en un grupo elástico o no estar en ningún grupo elástico. La opción de grupo de cada base de datos secundaria es independiente y no depende de la configuración de ninguna otra base de datos secundaria (ya sea principal o secundaria). Cada grupo elástico se encuentra dentro de una única región; por lo tanto, varias bases de datos secundarias de la misma topología nunca pueden compartir un grupo elástico.
 
-- **Tamaño de proceso configurable de la base de datos secundaria**
-
-  Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda que la base de datos secundaria se cree con el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Una base de datos secundaria con un tamaño de proceso inferior corre el riesgo de sufrir mayor retraso en la replicación o posible no disponibilidad y, por consiguiente, corre el riesgo de pérdida de datos considerable después de una conmutación por error. Como resultado, el RPO publicado de 5 s no se puede garantizar. El otro riesgo es que después de la conmutación por error, el rendimiento de la aplicación se verá afectado debido a una falta de capacidad de proceso de la nueva base de datos principal hasta que se actualice a un tamaño de proceso superior. El tiempo de la actualización depende del tamaño de la base de datos. Además, actualmente, dicha actualización requiere que tanto la base de datos principal como la secundaria estén en línea y, por lo tanto, no se puede completar hasta que se reduzca la interrupción. Si decide crear la base de datos secundaria con un tamaño de proceso más bajo, el gráfico de porcentaje de E/S de registro en Azure Portal proporciona un buen método para estimar el tamaño de proceso mínimo de la base de datos secundaria que es necesario para mantener la carga de replicación. Por ejemplo, si la base de datos principal es P6 (1000 DTU) y su porcentaje de E/S de registro es 50 %, la base de datos secundaria debe ser al menos P4 (500 DTU). También puede recuperar los datos de E/S de registro mediante las vistas de base de datos [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Para más información sobre los tamaños de proceso de SQL Database, consulte [¿Qué son los niveles de servicio de SQL Database?](sql-database-purchase-models.md)
 
 - **Conmutación por error y conmutación por recuperación controladas por el usuario**
 
@@ -112,7 +109,19 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 Se recomienda usar [reglas de firewall de direcciones IP de nivel de base de datos](sql-database-firewall-configure.md) para las bases de datos con replicación geográfica. Así, estas reglas se pueden replicar con la base de datos para garantizar que todas las bases de datos secundarias tengan las mismas reglas de firewall que la principal. Este enfoque elimina la necesidad de que los clientes configuren y mantengan manualmente las reglas de firewall en los servidores que hospedan tanto la base de datos principal como las secundarias. Igualmente, la utilización de [usuarios de base de datos independiente](sql-database-manage-logins.md) para el acceso a los datos garantiza que la base de datos principal y las secundarias tengan siempre las mismas credenciales de usuario. Por tanto, durante una conmutación por error, no hay interrupciones debidas a discrepancias en los inicios de sesión y las contraseñas. Con la adición de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), los clientes pueden administrar el acceso de usuarios a la base de datos principal y a las secundarias, por lo que ya no es necesario administrar credenciales en las bases de datos.
 
-## <a name="upgrading-or-downgrading-a-primary-database"></a>Actualización o degradación de una base de datos principal
+## <a name="configuring-secondary-database"></a>Configuración de una base de datos secundaria
+
+Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda que la base de datos secundaria se cree con el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Si la base de datos principal está experimentando una carga de trabajo de escritura intensiva, es posible que una base de datos secundaria con un tamaño de proceso menor no pueda mantenerse al día. Esto causará un retardo de fase de puesta al día en la base de datos secundaria, indisponibilidad potencial y, por consiguiente, el riesgo de una pérdida de datos considerable después de una conmutación por error. Como resultado, el RPO publicado de 5 s no se puede garantizar. También se podrían producir errores o estancamiento de otras cargas de trabajo en la base de datos principal. 
+
+La otra consecuencia de una configuración de base de datos secundaria no equilibrada es que después de la conmutación por error, el rendimiento de la aplicación se verá afectado debido a una capacidad de proceso insuficiente de la nueva base de datos principal. Será necesario actualizar a un proceso superior al nivel necesario, que no será posible hasta que se mitigue la interrupción. 
+
+> [!NOTE]
+> Actualmente, la actualización de la base de datos principal no es posible si la base de datos secundaria está sin conexión. 
+
+
+Si decide crear la base de datos secundaria con un tamaño de proceso más bajo, el gráfico de porcentaje de E/S de registro en Azure Portal proporciona un buen método para estimar el tamaño de proceso mínimo de la base de datos secundaria que es necesario para mantener la carga de replicación. Por ejemplo, si la base de datos principal es P6 (1000 DTU) y su porcentaje de E/S de registro es 50 %, la base de datos secundaria debe ser al menos P4 (500 DTU). También puede recuperar los datos de E/S de registro mediante las vistas de base de datos [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Para más información sobre los tamaños de proceso de SQL Database, consulte [¿Qué son los niveles de servicio de SQL Database?](sql-database-purchase-models.md)
+
+## <a name="upgrading-or-downgrading-primary-database"></a>Actualización o degradación de una base de datos principal
 
 Puede actualizar o degradar una base de datos principal a un tamaño de proceso diferente (en el mismo nivel de servicio, no entre De uso general y Crítico para la empresa) sin desconectar las bases de datos secundarias. Al actualizar, se recomienda que actualice la base de datos secundaria en primer lugar y, a continuación, la principal. Al degradar, invierta el orden: degrade primero la base de datos principal y, después, la secundaria. Cuando actualiza la base de datos a un nivel de servicio diferente, o la cambia a una versión anterior, se aplica esta recomendación.
 
@@ -166,7 +175,7 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |

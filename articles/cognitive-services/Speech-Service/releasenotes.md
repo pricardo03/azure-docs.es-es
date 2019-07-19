@@ -8,17 +8,48 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606355"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490186"
 ---
 # <a name="release-notes"></a>Notas de la versión
+
+## <a name="speech-sdk-160-2019-june-release"></a>SDK de Voz 1.6.0: versión de junio de 2019
+
+**Muestras**
+*   Ejemplos de inicio rápido para Texto a voz en UWP y Unity
+*   Ejemplo de inicio rápido para Swift en iOS
+*   Ejemplos de Unity para Traducción y Reconocimiento de la intención comunicativa y Voz
+*   Ejemplos de inicio rápido actualizados para DialogServiceConnector
+
+**Mejoras y cambios**
+* Espacio de nombres de cuadro de diálogo:
+    * El nombre de SpeechBotConnector se cambió a DialogServiceConnector
+    * El nombre de BotConfig se cambió a DialogServiceConfig
+    * BotConfig::FromChannelSecret() se reasignó a DialogServiceConfig::FromBotSecret()
+    * Todos los clientes de Voz de Direct Line existentes siguen siendo compatibles después del cambio de nombre
+* Actualización del adaptador REST de TTS para admitir una conexión persistente de proxy
+* Un mejor mensaje de error cuando se pasa una región no válida
+* Swift/Objective-C:
+    * Mejores informes de errores: los métodos que pueden generar un error ahora se encuentran en dos versiones: una que expone un objeto `NSError` para el control de errores y una que genera una excepción. La primera se expone a Swift. Este cambio requiere adaptaciones en el código Swift existente.
+    * Mejor control de eventos
+
+**Correcciones de errores**
+*   Corrección de TTS: donde el futuro de SpeakTextAsync se devolvió sin esperar hasta que haya terminado la representación del audio
+*   Corrección para la serialización de las cadenas en C# para permitir la compatibilidad total con idiomas
+*   Corrección del problema de las aplicaciones centrales de .NET para cargar la biblioteca principal con un marco de destino net461 en ejemplos
+*   Corrección de problemas ocasionales para implementar bibliotecas nativas en la carpeta de salida en los ejemplos
+*   Corrección para cerrar el socket web de manera confiable
+*   Corrección de un posible bloqueo al abrir una conexión con una carga muy elevada en Linux
+*   Corrección de metadatos faltantes en el paquete de marcos para macOS
+*   Corrección de problemas con `pip install --user` en Windows
+
 
 ## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
 

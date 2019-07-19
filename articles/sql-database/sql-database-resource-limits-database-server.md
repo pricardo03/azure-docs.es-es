@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 06e61d30f0d4e598c48f190572b8b4343f351043
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 4e4c0a6cd25587b33c06526b57e6acdbebb69c8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762783"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445642"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Límites de recursos de SQL Database para un servidor de Azure SQL Database
 
@@ -45,6 +45,9 @@ En este artículo se proporciona información general acerca de los límites de 
 > - Aumento de la latencia de las consultas en ejecución en la base de datos maestra.  Incluye vistas de las estadísticas del uso de los recursos como sys.resource_stats.
 > - Aumento de la latencia en las operaciones de administración y presentación de las perspectivas del portal que implican enumerar las bases de datos del servidor.
 
+### <a name="storage-size"></a>Tamaño de almacenamiento
+- Respecto a los recursos de bases de datos únicas, consulte [Límites de los recursos basados en DTU](sql-database-dtu-resource-limits-single-databases.md) o [Límites de los recursos basados en núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md) para conocer los límites del tamaño de almacenamiento por plan de tarifa.
+
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>¿Qué ocurre cuando se alcanzan los límites de recursos de base de datos?
 
 ### <a name="compute-dtus-and-edtus--vcores"></a>Proceso (DTU y eDTU o núcleos virtuales)
@@ -55,7 +58,7 @@ Al encontrar un uso de proceso elevado, las opciones de mitigación incluyen:
 - Aumentar el tamaño de proceso de la base de datos o del grupo elástico para proporcionar a la base de datos más recursos de proceso. Consulte [Scale single database resources](sql-database-single-database-scale.md) (Escala de recursos de bases de datos únicas) y [Scale elastic pool resources](sql-database-elastic-pool-scale.md) (Escala de recursos de grupos elásticos).
 - Optimizar las consultas para reducir el uso de recursos de cada consulta. Para más información, consulte [Optimización y sugerencias de consultas](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Almacenamiento
+### <a name="storage"></a>Storage
 
 Cuando el espacio de la base de datos alcanza el límite de tamaño máximo, las inserciones y actualizaciones de la base de datos que aumentan el tamaño de los datos producen un error y los clientes reciben un [mensaje de error](sql-database-develop-error-messages.md). Las selecciones y eliminaciones de la base de datos continúan.
 
@@ -74,33 +77,33 @@ Al encontrar un uso elevado de sesión o de trabajo, las opciones de mitigación
 - Aumentar el nivel de servicio o el tamaño de proceso de la base de datos o del grupo elástico. Consulte [Scale single database resources](sql-database-single-database-scale.md) (Escala de recursos de bases de datos únicas) y [Scale elastic pool resources](sql-database-elastic-pool-scale.md) (Escala de recursos de grupos elásticos).
 - Optimizar las consultas para reducir el uso de recursos de cada consulta si la causa del mayor uso de trabajo es debida a la contención de los recursos de proceso. Para más información, consulte [Optimización y sugerencias de consultas](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="transaction-log-rate-governance"></a>Gobierno de tasa de registro de transacciones 
-Gobierno de tasa de registro de transacciones es un proceso en Azure SQL Database utiliza para limitar las tasas de ingesta alto para cargas de trabajo, como bulk insert, SELECT INTO, y las compilaciones de índice. Estos límites se realiza un seguimiento y se aplican en el nivel de fracciones de segundo para la velocidad de generación de registros de log, rendimiento de limitación, independientemente de cuántas IOs se puede emitir en los archivos de datos.  Las tasas de generación de registro de transacciones actualmente se escalan linealmente hasta un punto que es depende del hardware, con el registro de la máxima velocidad permitida que se va a 96 MB/s con el modelo de compra de núcleos virtuales. 
+## <a name="transaction-log-rate-governance"></a>Gobernanza de las tasas de registros de transacciones 
+La gobernanza de las tasas de registros de transacciones es un proceso en Azure SQL Database que se usa para limitar las altas tasas de ingesta de cargas de trabajo como la inserción masiva, SELECT INTO y compilaciones de índice. Se realiza un seguimiento de estos límites y se aplican en el nivel de fracciones de segundo a la tasa de generación de registros, lo que limita el rendimiento sin importar cuántas E/S se pueden emitir respecto de los archivos de datos.  Actualmente, las tasas de generación de registros de transacciones se escalan de manera lineal hasta un punto que depende del hardware, con una tasa de registro máxima permitida de 96 MB/s con el modelo de compra de núcleos virtuales. 
 
 > [!NOTE]
-> No se rige las E/s físicas reales para los archivos de registro de transacciones o que estén limitadas. 
+> No se controlan ni limitan las E/S físicas reales para los archivos de registro de transacciones. 
 
-Se establecen las tasas de registro que se pueden lograr y sostenidos en una variedad de escenarios, mientras que el sistema global puede mantener su funcionalidad con menor impacto para la carga de usuarios. Gobierno de la tasa de registro garantiza que las copias de seguridad permanezcan dentro de la capacidad de recuperación SLA publicado del registro de transacciones.  Esta regulación también impide que un trabajo pendiente excesivo en las réplicas secundarias.
+Las tasas de registro se establecen de manera que se puedan alcanzar y sostener en diversos escenarios, mientras que el sistema global puede mantener su funcionalidad con un mínimo de impacto en la carga del usuario. La gobernanza de las tasas de registro garantiza que las copias de seguridad del registro de transacciones se mantendrán dentro de los contratos de nivel de servicio de la capacidad de recuperación publicados.  Esta gobernanza también evita un trabajo pendiente excesivo en las réplicas secundarias.
 
-Como se generan registros, cada operación se evalúa y se evalúa si debe retrasarse con el fin de mantener una tasa de registro deseado máximo (MB/s por segundo). No se agregan los retrasos cuando las entradas del registro se vacían en el almacenamiento, en su lugar gobierno de la tasa de registro se aplica durante la generación de la tasa de registro propia.
+A medida que se generan los registros, se evalúa cada operación para ver si se debe retrasar a fin de mantener una tasa máxima de registro deseada (MB/s por segundo). No se agregan retrasos cuando los registros se vacían en el almacenamiento. En lugar de eso, la gobernanza de tasas de registro se aplica durante la generación de registros misma.
 
-La generación de registro real tasas de impuestos en tiempo de ejecución también verán influenciadas por mecanismos de comentarios, reducir temporalmente las tasas de registro permitido por lo que puede estabilizar el sistema. Administración del espacio de archivo de registro, evitando quedando en condiciones de espacio de registro y grupo de disponibilidad mecanismos de replicación temporalmente puede disminuir los límites del sistema general. 
+Las tasas reales de generación de registros impuestas en tiempo de ejecución también podrían verse influenciadas por los mecanismos de comentarios, lo que reducirá de manera temporal las tasas de registros permitidas para que el sistema se pueda estabilizar. La administración del espacio de los archivos de registro, para evitar la falta de espacio para registros, y los mecanismos de replicación del grupo de disponibilidad pueden disminuir temporalmente los límites del sistema global. 
 
-Tráfico trazado de regulador de velocidad de registro se expone mediante los siguientes tipos de espera (expuesto en el [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+El modelado de tráfico del regulador de la tasas de registros se expone a través de los siguientes tipos de espera (expuesto en la DMV [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)):
 
 | Tipo de espera | Notas |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | Limitación de la base de datos |
-| POOL_LOG_RATE_GOVERNOR | Limitación de grupo |
-| INSTANCE_LOG_RATE_GOVERNOR | Limitación de nivel de instancia |  
-| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Control de comentarios, replicación física del grupo de disponibilidad en Premium o crítico para la empresa no mantenerse al día |  
-| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Control de comentarios, limitar las tasas de evitar un fuera de la condición de espacio de registro |
+| POOL_LOG_RATE_GOVERNOR | Limitación del grupo |
+| INSTANCE_LOG_RATE_GOVERNOR | Limitación del nivel de instancia |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Control de comentarios, la replicación física del grupo de disponibilidad en el nivel de servicio Crítico para la empresa/Premium no está al día |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Control de comentarios, limitación de las tasas para evitar quedarse sin espacio para registros |
 |||
 
-Al encontrar un límite de tasa de registro que se que dificultan la escalabilidad deseada, tenga en cuenta las siguientes opciones:
-- Escalar verticalmente a un nivel mayor con el fin de obtener la máxima velocidad de 96 MB/s registro. 
-- Si se cargan datos están transitorios, es decir, almacenamiento provisional de datos en un proceso ETL, se puede cargar en tempdb (que se registra al mínimo). 
-- Para escenarios de análisis, cargar en una tabla de almacén de columnas agrupados cubierto. Esto reduce la velocidad de registros obligatoria debido a la compresión. Esta técnica aumentar la utilización de CPU y solo es aplicable a conjuntos de datos que se benefician de los índices de almacén de columnas agrupado. 
+Cuando encuentre un límite para las tasas de registros que dificulte la alcanzar la escalabilidad deseada, considere estas opciones:
+- Escale verticalmente a un nivel mayor con el fin de obtener la tasa de registro máxima de 96 MB/s. 
+- Si los datos que se cargan son transitorios, como los datos de ensayo de un proceso de ETL, se pueden cargar en tempdb (que genera un mínimo de registros). 
+- En los escenarios de análisis, cárguelos en una tabla cubierta de almacén de columnas en clúster. Esto disminuye la tasa de registros necesario debido a la compresión. Esta técnica sí aumenta la utilización de la CPU y solo se aplica a los conjuntos de datos que se benefician de los índices de almacén de columnas en clúster. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

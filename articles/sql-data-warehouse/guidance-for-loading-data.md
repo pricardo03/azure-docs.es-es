@@ -11,12 +11,12 @@ ms.date: 05/31/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 1b5af710feb743a30ac4a2af94b6e7e8b6c56595
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 3387f6df36e9f5d98606e33b60a7584ff591efd6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479883"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340119"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Procedimientos recomendados para la carga de datos en Azure SQL Data Warehouse
 
@@ -58,7 +58,7 @@ Conéctese al almacenamiento de datos y cree un usuario. El código siguiente da
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-Para ejecutar una carga con recursos para las clases de recursos staticRC20, inicie sesión como LoaderRC20 y ejecute la carga.
+Para ejecutar una carga con recursos de las clases de recursos staticRC20, inicie sesión como LoaderRC20 y ejecute la carga.
 
 Ejecute cargas en clases de recursos estáticas en lugar de dinámicas. El uso de clases de recursos estáticas garantiza los mismos recursos independientemente de las [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md). Si utiliza una clase de recursos dinámica, los recursos varían según el nivel de servicio. Para las clases dinámicas, un nivel de servicio inferior significa que probablemente necesita usar una clase de recursos más grande para el usuario de carga.
 
@@ -102,9 +102,9 @@ Si se tienen miles de inserciones simples a lo largo del día, agrúpelas por lo
 
 ## <a name="creating-statistics-after-the-load"></a>Creación de estadísticas después de la carga
 
-Para mejorar el rendimiento de las consultas, es importante crear estadísticas de todas las columnas de todas las tablas después de la primera carga, o bien después de que se realicen cambios importantes en los datos.  Esto puede realizarse manualmente o bien puede habilitar [creación automática de statustics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
+Para mejorar el rendimiento de las consultas, es importante crear estadísticas de todas las columnas de todas las tablas después de la primera carga, o bien después de que se realicen cambios importantes en los datos.  Esto se puede realizar manualmente o bien puede habilitar la [creación automática de estadísticas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
 
-Para ver una explicación detallada de las estadísticas, consulte [Estadísticas](sql-data-warehouse-tables-statistics.md). El ejemplo siguiente muestra cómo crear manualmente las estadísticas de cinco columnas de la tabla Customer_Speed.
+Para ver una explicación detallada de las estadísticas, consulte [Estadísticas](sql-data-warehouse-tables-statistics.md). En el ejemplo siguiente se muestra cómo crear manualmente las estadísticas de cinco columnas de la tabla Customer_Speed.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

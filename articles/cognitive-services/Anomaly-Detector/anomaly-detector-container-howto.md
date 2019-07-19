@@ -1,47 +1,47 @@
 ---
-title: 'Instalar y ejecutar contenedores: detector de anomalías'
+title: 'Instalación y ejecución de contenedores: Anomaly Detector'
 titleSuffix: Azure Cognitive Services
-description: Use algoritmos avanzados de la API Detector de anomalías para identificar anomalías en datos de series temporales.
+description: Use algoritmos avanzados de Anomaly Detector API para identificar anomalías en datos de serie temporal.
 services: cognitive-services
-author: aahill
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: aahi
-ms.openlocfilehash: ec32d5de9e3af14abbf14f79f37ab00f3346b1c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
+ms.openlocfilehash: 704ea3ecbc309c2328e120d5b6776e659944d254
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306975"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275030"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Instalar y ejecutar contenedores de Detector de anomalías
+# <a name="install-and-run-anomaly-detector-containers"></a>Instalación y ejecución de contenedores de Anomaly Detector
 
-El Detector de anomalías tiene el siguiente contenedor: 
+Anomaly Detector tiene el siguiente contenedor: 
 
 |Función|Características|
 |-|-|
-|Anomaly Detector| <li> Detecta anomalías cuando se producen en tiempo real. <li> Detecta anomalías en todo el conjunto de datos como un lote. <li> Deduce el intervalo normal esperado de los datos. <li> Ajuste de sensibilidad de detección admite anomalías mejor ajustar los datos. |
+|Anomaly Detector| <li> Detecta las anomalías que se producen en tiempo real. <li> Detecta las anomalías en todo el conjunto de datos como un lote. <li> Deduce el intervalo normal esperado de los datos. <li> Permite el ajuste de la sensibilidad de la detección de anomalías para adaptarse mejor a los datos. |
 
-Para obtener información detallada acerca de las API, consulte:
-* [Más información sobre el servicio de API del Detector de anomalías](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
+Para más información sobre las API, consulte:
+* [Más información sobre el servicio de API Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe cumplir los siguientes requisitos previos antes de utilizar contenedores Detector de anomalías:
+Debe cumplir los siguientes requisitos previos para poder usar los contenedores de Anomaly Detector:
 
 |Obligatorio|Propósito|
 |--|--|
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
-|Recursos del Detector de anomalías |Para usar estos contenedores, debe tener:<br><br>Un _Detector de anomalías_ recursos de Azure para obtener la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en las páginas de información general sobre el Detector de anomalías y las claves del portal de Azure y es necesario para iniciar el contenedor.<br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus2.api.cognitive.microsoft.com`|
+|Recurso de Anomaly Detector |Para usar estos contenedores, debe tener:<br><br>Un recurso de Azure _Anomaly Detector_ para obtener la clave de facturación y el URI de punto de conexión de facturación asociados. Ambos valores están disponibles en las páginas de claves y de información general de Anomaly Detector en Azure Portal y son necesarios para iniciar el contenedor.<br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus2.api.cognitive.microsoft.com`|
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
-Primero debe completar y enviar la [formulario de solicitud de contenedor del Detector de anomalías](https://aka.ms/adcontainer) para solicitar acceso al contenedor.
+Primero debe completar y enviar el [formulario de solicitud de contenedores de Anomaly Detector](https://aka.ms/adcontainer) para solicitar acceso al contenedor.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -55,12 +55,12 @@ Primero debe completar y enviar la [formulario de solicitud de contenedor del De
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 
-La tabla siguiente describen los núcleos de CPU y memoria para asignar el contenedor del Detector de anomalías mínimos y recomendados.
+En la tabla siguiente se describen los núcleos de CPU y los valores de memoria mínimos y recomendados para asignar a cada contenedor de Anomaly Detector.
 
-| Consultas por segundo (consultas por segundo) | Mínimo | Recomendada |
+| QPS (Consultas por segundo) | Mínima | Recomendado |
 |-----------|---------|-------------|
-| 10 QPS | 4 núcleos, 1GB de memoria | 2GB de memoria de 8 núcleos |
-| 20 QPS | 8 núcleos, 2GB de memoria | 4GB de memoria de 16 núcleos |
+| 10 QPS | 4 núcleos, 1 GB de memoria | 8 núcleos, 2 GB de memoria |
+| 20 QPS | 8 núcleos, 2 GB de memoria | 16 núcleos, 4 Gb de memoria |
 
 Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
 
@@ -80,7 +80,7 @@ For a full description of available tags, such as `latest` used in the preceding
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
-### <a name="docker-pull-for-the-anomaly-detector-container"></a>Extracción de docker para el contenedor del Detector de anomalías
+### <a name="docker-pull-for-the-anomaly-detector-container"></a>docker pull del contenedor de Anomaly Detector
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest
@@ -99,8 +99,8 @@ Utilice el comando [docker run](https://docs.docker.com/engine/reference/command
 
 | Marcador de posición | Valor |
 |-------------|-------|
-|{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en página de las claves del Detector de anomalías Azure portal en la.  |
-|{BILLING_ENDPOINT_URI} | El valor del identificador URI del punto de conexión facturación está disponible en la página de información general sobre el Detector de anomalías del portal de Azure.|
+|{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en la página de claves de Anomaly Detector de Azure Portal.  |
+|{BILLING_ENDPOINT_URI} | El valor del URI de punto de conexión de facturación está disponible en la página de información general de Anomaly Detector de Azure Portal.|
 
 Reemplace estos parámetros con sus propios valores en el siguiente comando `docker run` de ejemplo.
 
@@ -114,7 +114,7 @@ ApiKey={BILLING_KEY}
 
 Este comando:
 
-* Se ejecuta un contenedor del Detector de anomalías de la imagen de contenedor
+* Ejecuta un contenedor de Anomaly Detector desde la imagen de contenedor.
 * Asigna un núcleo de CPU y 4 gigabytes (GB) de memoria.
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host. 
@@ -126,7 +126,7 @@ Este comando:
 
 Si tiene pensado ejecutar varios contenedores con puertos expuestos, asegúrese de ejecutar cada contenedor con un puerto diferente. Por ejemplo, ejecute el primer contenedor en el puerto 5000 y el segundo en el puerto 5001.
 
-Reemplace `<container-registry>` y `<container-name>` por los valores de los contenedores que utilice. Estos contenedores pueden ser diferentes. Puede hacer que el contenedor del Detector de anomalías y el contenedor de LUIS que se ejecutan en el HOST juntos o puede tener varios contenedores de Detector de anomalías que se ejecutan. 
+Reemplace `<container-registry>` y `<container-name>` por los valores de los contenedores que utilice. Estos contenedores pueden ser diferentes. Puede hacer que el contenedor de Anomaly Detector y el contenedor de LUIS se ejecuten juntos en el HOST, o puede hacer que se ejecuten varios contenedores de Anomaly Detector. 
 
 Ejecute el primer contenedor en el puerto 5000. 
 
@@ -171,7 +171,7 @@ Si ejecuta el contenedor con un [montaje](anomaly-detector-container-configurati
 
 ## <a name="billing"></a>Facturación
 
-El envío de los contenedores del Detector de anomalías información de facturación para Azure, mediante un _Detector de anomalías_ recursos en su cuenta de Azure. 
+Los contenedores de Anomaly Detector envían información de facturación a Azure mediante un recurso de _Anomaly Detector_ de la cuenta de Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -183,18 +183,18 @@ Para obtener más información acerca de estas opciones, consulte [Configure con
 
 ## <a name="summary"></a>Resumen
 
-En este artículo, ha aprendido los conceptos y flujo de trabajo para descargar, instalar y ejecutar contenedores de Detector de anomalías. En resumen:
+En este artículo, ha aprendido los conceptos y el flujo de trabajo de la descarga, la instalación y la ejecución de contenedores de Anomaly Detector. En resumen:
 
-* Detector de anomalías proporciona un contenedor Linux docker, que encapsula la detección de anomalías con transmisión por secuencias, inferencia de intervalo esperado y el ajuste de sensibilidad de vs de batch.
-* Imágenes de contenedor se descargan desde un registro de contenedor de Azure privada dedicada para la versión preliminar de contenedores.
+* Anomaly Detector proporciona un contenedor Linux para Docker, que encapsula la detección de anomalías con lotes frente a transmisión por secuencias, inferencia de intervalo esperado y ajuste de sensibilidad.
+* Las imágenes de contenedor se descargan de una instancia privada de Azure Container Registry dedicada para la vista previa de contenedores.
 * Las imágenes de contenedor se ejecutan en Docker.
-* Puede usar la API de REST o SDK para llamar a operaciones en los contenedores del Detector de anomalías especificando el URI del contenedor del host.
+* Puede usar la API REST o el SDK para llamar a operaciones de contenedores de Anomaly Detector mediante la especificación del URI del host del contenedor.
 * Debe especificar la información de facturación al crear una instancia de un contenedor.
 
 > [!IMPORTANT]
-> Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de servicios cognitivos no envían datos de cliente (por ejemplo, el tiempo datos de series que se está analizando) a Microsoft.
+> Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían datos de los clientes (por ejemplo, los datos de serie temporal que se analizan) a Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Revise [Configure containers](anomaly-detector-container-configuration.md) (Configuración de contenedores) para ver las opciones de configuración.
-* [Más información sobre el servicio de API del Detector de anomalías](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
+* [Más información sobre el servicio de API Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

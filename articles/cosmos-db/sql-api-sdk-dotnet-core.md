@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14350125f88c315a813eb64e3ce2b88dbec2aa24
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510638"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340194"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core de Azure Cosmos DB para API de SQL: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -49,6 +49,10 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 * Nuevo modelo de objetos, con CosmosClient de nivel superior y métodos divididos entre las clases CosmosDatabases, CosmosContainers y CosmosItems adecuadas.
 * Compatibilidad con secuencias.
 * Actualización de CosmosResponseMessage desde el servidor para devolver el código de estado y solo iniciar la excepción cuando no se devuelve ninguna respuesta.
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+
+* Se corrige la condición de carrera de seguimiento para las consultas que causaron páginas vacías.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
@@ -228,7 +232,7 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
-* Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG). Consulte [Compatibilidad con agregación](how-to-sql-query.md#Aggregates).
+* Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG). Consulte [Compatibilidad con agregación](sql-query-aggregates.md).
 * Reducción del procesamiento mínimo en las colecciones particionadas de 10 100 RU/s a 2500 RU/s.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -251,6 +255,7 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en [StackOverflow](ht
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |20 de junio de 2019 |--- |
 | [2.4.0](#2.4.0) |5 de mayo de 2019 |--- |
 | [2.3.0](#2.3.0) |4 de abril de 2019 |--- |
 | [2.2.3](#2.2.3) |11 de marzo de 2019 |--- |

@@ -4,546 +4,546 @@ description: Muestra los tipos de recursos de Azure que admiten etiquetas. Propo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/10/2019
+ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7ef37323fb8150e3a6b52800bfafa2585ae328c2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.openlocfilehash: 4f1bc1415fbb875120d7b64128cae69e1e3f442c
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523235"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339839"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
-En este artículo se describe si un tipo de recurso admite [etiquetas](resource-group-using-tags.md). La columna con la etiqueta **admite etiquetas** indica si el tipo de recurso tiene una propiedad de la etiqueta. La columna con la etiqueta **etiqueta en el informe de costo** indica si ese tipo de recurso pasa a la etiqueta para el informe de costo.
+En este artículo se describe si un tipo de recurso admite [etiquetas](resource-group-using-tags.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos.
 
 Para obtener los mismos datos como un archivo de valores separados por comas, descargue [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | DomainServices | Sí | Sí |
-| DomainServices/oucontainer | No | No |
+| DomainServices/oucontainer | Sin | Sin |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| diagnosticSettings | No |  No |
-| diagnosticSettingsCategories | No |  No |
+| diagnosticSettings | Sin |  Sin |
+| diagnosticSettingsCategories | Sin |  Sin |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| supportProviders | No |  No |
+| supportProviders | Sin |  Sin |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| aadsupportcases | No |  No |
-| addsservices | No |  No |
-| agents | No |  No |
-| anonymousapiusers | No |  No |
-| configuración | No |  No |
-| registros | No |  No |
-| Informes | No |  No |
-| services | No |  No |
+| aadsupportcases | Sin |  Sin |
+| addsservices | Sin |  Sin |
+| agents | Sin |  Sin |
+| anonymousapiusers | Sin |  Sin |
+| configuración | Sin |  Sin |
+| logs | Sin |  Sin |
+| reports | Sin |  Sin |
+| services | Sin |  Sin |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| configuraciones | No |  No |
-| generateRecommendations | No |  No |
-| recomendaciones | No |  No |
-| suppressions | No |  No |
+| configuraciones | Sin |  Sin |
+| generateRecommendations | Sin |  Sin |
+| de películas | Sin |  Sin |
+| suppressions | Sin |  Sin |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| actionRules | No |  No |
-| alertas | No |  No |
-| alertsList | No |  No |
-| alertsSummary | No |  No |
-| alertsSummaryList | No |  No |
-| smartDetectorAlertRules | No |  No |
-| smartDetectorRuntimeEnvironments | No |  No |
-| smartGroups | No |  No |
+| actionRules | Sin |  Sin |
+| alerts | Sin |  Sin |
+| alertsList | Sin |  Sin |
+| alertsSummary | Sin |  Sin |
+| alertsSummaryList | Sin |  Sin |
+| smartDetectorAlertRules | Sin |  Sin |
+| smartDetectorRuntimeEnvironments | Sin |  Sin |
+| smartGroups | Sin |  Sin |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| servidores | Sí | Sí |
+| servers | Sí | Sí |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| reportFeedback | No |  No |
-| servicio | SÍ | Sí |
-| validateServiceName | No |  No |
+| reportFeedback | Sin |  Sin |
+| service | SÍ | Sí |
+| validateServiceName | Sin |  Sin |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| attestationProviders | No |  No |
+| attestationProviders | Sin |  Sin |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| classicAdministrators | No |  No |
-| denyAssignments | No |  No |
-| elevateAccess | No |  No |
-| locks | No |  No |
-| permisos | No |  No |
-| policyAssignments | No |  No |
-| policyDefinitions | No |  No |
-| policySetDefinitions | No |  No |
-| providerOperations | No |  No |
-| roleAssignments | No |  No |
-| roleDefinitions | No |  No |
+| classicAdministrators | Sin |  Sin |
+| denyAssignments | Sin |  Sin |
+| elevateAccess | Sin |  Sin |
+| locks | Sin |  Sin |
+| permisos | Sin |  Sin |
+| policyAssignments | Sin |  Sin |
+| policyDefinitions | Sin |  Sin |
+| policySetDefinitions | Sin |  Sin |
+| providerOperations | Sin |  Sin |
+| roleAssignments | Sin |  Sin |
+| roleDefinitions | Sin |  Sin |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | automationAccounts | Sí | Sí |
 | automationAccounts/configurations | Sí | Sí |
-| automationAccounts/jobs | No |  No |
+| automationAccounts/jobs | Sin |  Sin |
 | automationAccounts/runbooks | Sí | Sí |
-| automationAccounts/softwareUpdateConfigurations | No | No |
-| automationAccounts/webhooks | No |  No |
+| automationAccounts/softwareUpdateConfigurations | Sin | Sin |
+| automationAccounts/webhooks | Sin |  Sin |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| environments | No |  No |
-| environments/accounts | No |  No |
-| environments/accounts/namespaces | No |  No |
-| environments/accounts/namespaces/configurations | No |  No |
+| environments | Sin |  Sin |
+| environments/accounts | Sin |  Sin |
+| environments/accounts/namespaces | Sin |  Sin |
+| environments/accounts/namespaces/configurations | Sin |  Sin |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| b2cDirectories | Sí | No |
+| b2cDirectories | Sí | Sin |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | registrations | Sí | Sí |
-| registrations/customerSubscriptions | No |  No |
-| registrations/products | No |  No |
+| registrations/customerSubscriptions | Sin |  Sin |
+| registrations/products | Sin |  Sin |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | batchAccounts | Sí | Sí |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| billingAccounts | No |  No |
-| billingAccounts/billingProfiles | No |  No |
-| billingAccounts/billingProfiles/billingSubscriptions | No |  No |
-| billingAccounts/billingProfiles/invoices | No |  No |
-| billingAccounts/billingProfiles/invoices/pricesheet | No |  No |
-| billingAccounts/billingProfiles/operationStatus | No |  No |
-| billingAccounts/billingProfiles/paymentMethods | No |  No |
-| billingAccounts/billingProfiles/policies | No |  No |
-| billingAccounts/billingProfiles/pricesheet | No |  No |
-| billingAccounts/billingProfiles/products | No |  No |
-| billingAccounts/billingProfiles/transactions | No |  No |
-| billingAccounts/billingSubscriptions | No |  No |
-| billingAccounts/departments | No |  No |
-| billingAccounts/eligibleOffers | No |  No |
-| billingAccounts/enrollmentAccounts | No |  No |
-| billingAccounts/invoices | No |  No |
-| billingAccounts/invoiceSections | No |  No |
-| billingAccounts/invoiceSections/billingSubscriptions | No |  No |
-| billingAccounts/invoiceSections/billingSubscriptions/transfer | No |  No |
-| billingAccounts/invoiceSections/importRequests | No |  No |
-| billingAccounts/invoiceSections/initiateImportRequest | No |  No |
-| billingAccounts/invoiceSections/initiateTransfer | No |  No |
-| billingAccounts/invoiceSections/operationStatus | No |  No |
-| billingAccounts/invoiceSections/products | No |  No |
-| billingAccounts/invoiceSections/transfers | No |  No |
-| billingAccounts/products | No |  No |
-| billingAccounts/projects | No |  No |
-| billingAccounts/projects/billingSubscriptions | No |  No |
-| billingAccounts/projects/importRequests | No |  No |
-| billingAccounts/projects/initiateImportRequest | No |  No |
-| billingAccounts/projects/operationStatus | No |  No |
-| billingAccounts/projects/products | No |  No |
-| billingAccounts/transactions | No |  No |
-| billingPeriods | No |  No |
-| BillingPermissions | No |  No |
-| billingProperty | No |  No |
-| BillingRoleAssignments | No |  No |
-| BillingRoleDefinitions | No |  No |
-| CreateBillingRoleAssignment | No |  No |
-| departments | No |  No |
-| enrollmentAccounts | No |  No |
-| importRequests | No |  No |
-| importRequests/acceptImportRequest | No |  No |
-| importRequests/declineImportRequest | No |  No |
-| invoices | No |  No |
-| transfers | No |  No |
-| transfers/acceptTransfer | No |  No |
-| transfers/declineTransfer | No |  No |
-| transfers/operationStatus | No |  No |
-| usagePlans | No |  No |
+| billingAccounts | Sin |  Sin |
+| billingAccounts/billingProfiles | Sin |  Sin |
+| billingAccounts/billingProfiles/billingSubscriptions | Sin |  Sin |
+| billingAccounts/billingProfiles/invoices | Sin |  Sin |
+| billingAccounts/billingProfiles/invoices/pricesheet | Sin |  Sin |
+| billingAccounts/billingProfiles/operationStatus | Sin |  Sin |
+| billingAccounts/billingProfiles/paymentMethods | Sin |  Sin |
+| billingAccounts/billingProfiles/policies | Sin |  Sin |
+| billingAccounts/billingProfiles/pricesheet | Sin |  Sin |
+| billingAccounts/billingProfiles/products | Sin |  Sin |
+| billingAccounts/billingProfiles/transactions | Sin |  Sin |
+| billingAccounts/billingSubscriptions | Sin |  Sin |
+| billingAccounts/departments | Sin |  Sin |
+| billingAccounts/eligibleOffers | Sin |  Sin |
+| billingAccounts/enrollmentAccounts | Sin |  Sin |
+| billingAccounts/invoices | Sin |  Sin |
+| billingAccounts/invoiceSections | Sin |  Sin |
+| billingAccounts/invoiceSections/billingSubscriptions | Sin |  Sin |
+| billingAccounts/invoiceSections/billingSubscriptions/transfer | Sin |  Sin |
+| billingAccounts/invoiceSections/importRequests | Sin |  Sin |
+| billingAccounts/invoiceSections/initiateImportRequest | Sin |  Sin |
+| billingAccounts/invoiceSections/initiateTransfer | Sin |  Sin |
+| billingAccounts/invoiceSections/operationStatus | Sin |  Sin |
+| billingAccounts/invoiceSections/products | Sin |  Sin |
+| billingAccounts/invoiceSections/transfers | Sin |  Sin |
+| billingAccounts/products | Sin |  Sin |
+| billingAccounts/projects | Sin |  Sin |
+| billingAccounts/projects/billingSubscriptions | Sin |  Sin |
+| billingAccounts/projects/importRequests | Sin |  Sin |
+| billingAccounts/projects/initiateImportRequest | Sin |  Sin |
+| billingAccounts/projects/operationStatus | Sin |  Sin |
+| billingAccounts/projects/products | Sin |  Sin |
+| billingAccounts/transactions | Sin |  Sin |
+| billingPeriods | Sin |  Sin |
+| BillingPermissions | Sin |  Sin |
+| billingProperty | Sin |  Sin |
+| BillingRoleAssignments | Sin |  Sin |
+| BillingRoleDefinitions | Sin |  Sin |
+| CreateBillingRoleAssignment | Sin |  Sin |
+| departments | Sin |  Sin |
+| enrollmentAccounts | Sin |  Sin |
+| importRequests | Sin |  Sin |
+| importRequests/acceptImportRequest | Sin |  Sin |
+| importRequests/declineImportRequest | Sin |  Sin |
+| invoices | Sin |  Sin |
+| transfers | Sin |  Sin |
+| transfers/acceptTransfer | Sin |  Sin |
+| transfers/declineTransfer | Sin |  Sin |
+| transfers/operationStatus | Sin |  Sin |
+| usagePlans | Sin |  Sin |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | mapApis | Sí | Sí |
-| updateCommunicationPreference | No |  No |
+| updateCommunicationPreference | Sin |  Sin |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | BizTalk | Sí | Sí |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| blueprintAssignments | No |  No |
-| blueprintAssignments/assignmentOperations | No |  No |
-| blueprintAssignments/operations | No |  No |
-| blueprints | No |  No |
-| blueprints/artifacts | No |  No |
-| blueprints/versions | No |  No |
-| blueprints/versions/artifacts | No |  No |
+| blueprintAssignments | Sin |  Sin |
+| blueprintAssignments/assignmentOperations | Sin |  Sin |
+| blueprintAssignments/operations | Sin |  Sin |
+| blueprints | Sin |  Sin |
+| blueprints/artifacts | Sin |  Sin |
+| blueprints/versions | Sin |  Sin |
+| blueprints/versions/artifacts | Sin |  Sin |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | botServices | Sí | Sí |
-| botServices/channels | No |  No |
-| botServices/connections | No |  No |
+| botServices/channels | Sin |  Sin |
+| botServices/connections | Sin |  Sin |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | Redis | Sí | Sí |
-| RedisConfigDefinition | No |  No |
+| RedisConfigDefinition | Sin |  Sin |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| appliedReservations | No |  No |
-| calculatePrice | No |  No |
-| catalogs | No |  No |
-| commercialReservationOrders | No |  No |
-| reservationOrders | No |  No |
-| reservationOrders/calculateRefund | No |  No |
-| reservationOrders/merge | No |  No |
-| reservationOrders/reservations | No |  No |
-| reservationOrders/reservations/revisions | No |  No |
-| reservationOrders/return | No |  No |
-| reservationOrders/split | No |  No |
-| reservationOrders/swap | No |  No |
-| reservations | No |  No |
-| recursos | No |  No |
-| validateReservationOrder | No |  No |
+| appliedReservations | Sin |  Sin |
+| calculatePrice | Sin |  Sin |
+| catalogs | Sin |  Sin |
+| commercialReservationOrders | Sin |  Sin |
+| reservationOrders | Sin |  Sin |
+| reservationOrders/calculateRefund | Sin |  Sin |
+| reservationOrders/merge | Sin |  Sin |
+| reservationOrders/reservations | Sin |  Sin |
+| reservationOrders/reservations/revisions | Sin |  Sin |
+| reservationOrders/return | Sin |  Sin |
+| reservationOrders/split | Sin |  Sin |
+| reservationOrders/swap | Sin |  Sin |
+| reservations | Sin |  Sin |
+| resources | Sin |  Sin |
+| validateReservationOrder | Sin |  Sin |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| edgenodes | No |  No |
+| edgenodes | Sin |  Sin |
 | perfiles | Sí | Sí |
 | profiles/endpoints | Sí | Sí |
-| profiles/endpoints/customdomains | No |  No |
-| profiles/endpoints/origins | No |  No |
-| validateProbe | No |  No |
+| profiles/endpoints/customdomains | Sin |  Sin |
+| profiles/endpoints/origins | Sin |  Sin |
+| validateProbe | Sin |  Sin |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | certificateOrders | Sí | Sí |
-| certificateOrders/certificates | No |  No |
-| validateCertificateRegistrationInformation | No |  No |
+| certificateOrders/certificates | Sin |  Sin |
+| validateCertificateRegistrationInformation | Sin |  Sin |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| capabilities | No |  No |
-| domainNames | No |  No |
-| domainNames/capabilities | No |  No |
-| domainNames/internalLoadBalancers | No |  No |
-| domainNames/serviceCertificates | No |  No |
-| domainNames/slots | No |  No |
-| domainNames/slots/roles | No |  No |
-| moveSubscriptionResources | No |  No |
-| operatingSystemFamilies | No |  No |
-| operatingSystems | No |  No |
-| quotas | No |  No |
-| resourceTypes | No |  No |
-| validateSubscriptionMoveAvailability | No |  No |
-| virtualMachines | No |  No |
-| virtualMachines/diagnosticSettings | No |  No |
+| capabilities | Sin |  Sin |
+| domainNames | Sin |  Sin |
+| domainNames/capabilities | Sin |  Sin |
+| domainNames/internalLoadBalancers | Sin |  Sin |
+| domainNames/serviceCertificates | Sin |  Sin |
+| domainNames/slots | Sin |  Sin |
+| domainNames/slots/roles | Sin |  Sin |
+| moveSubscriptionResources | Sin |  Sin |
+| operatingSystemFamilies | Sin |  Sin |
+| operatingSystems | Sin |  Sin |
+| quotas | Sin |  Sin |
+| resourceTypes | Sin |  Sin |
+| validateSubscriptionMoveAvailability | Sin |  Sin |
+| virtualMachines | Sin |  Sin |
+| virtualMachines/diagnosticSettings | Sin |  Sin |
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| classicInfrastructureResources | No |  No |
+| classicInfrastructureResources | Sin |  Sin |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| capabilities | No |  No |
-| expressRouteCrossConnections | No |  No |
-| expressRouteCrossConnections/peerings | No |  No |
-| gatewaySupportedDevices | No |  No |
-| networkSecurityGroups | No |  No |
-| quotas | No |  No |
-| reservedIps | No |  No |
-| virtualNetworks | No |  No |
-| virtualNetworks/remoteVirtualNetworkPeeringProxies | No |  No |
-| virtualNetworks/virtualNetworkPeerings | No |  No |
+| capabilities | Sin |  Sin |
+| expressRouteCrossConnections | Sin |  Sin |
+| expressRouteCrossConnections/peerings | Sin |  Sin |
+| gatewaySupportedDevices | Sin |  Sin |
+| networkSecurityGroups | Sin |  Sin |
+| quotas | Sin |  Sin |
+| reservedIps | Sin |  Sin |
+| virtualNetworks | Sin |  Sin |
+| virtualNetworks/remoteVirtualNetworkPeeringProxies | Sin |  Sin |
+| virtualNetworks/virtualNetworkPeerings | Sin |  Sin |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| capabilities | No |  No |
-| Discos | No |  No |
-| imágenes | No |  No |
-| osImages | No |  No |
-| osPlatformImages | No |  No |
-| publicImages | No |  No |
-| quotas | No |  No |
-| storageAccounts | No |  No |
-| storageAccounts/services | No |  No |
-| storageAccounts/services/diagnosticSettings | No |  No |
-| storageAccounts/vmImages | No |  No |
-| vmImages | No |  No |
+| capabilities | Sin |  Sin |
+| disks | Sin |  Sin |
+| images | Sin |  Sin |
+| osImages | Sin |  Sin |
+| osPlatformImages | Sin |  Sin |
+| publicImages | Sin |  Sin |
+| quotas | Sin |  Sin |
+| storageAccounts | Sin |  Sin |
+| storageAccounts/services | Sin |  Sin |
+| storageAccounts/services/diagnosticSettings | Sin |  Sin |
+| storageAccounts/vmImages | Sin |  Sin |
+| vmImages | Sin |  Sin |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| cuentas | Sí | Sí |
+| accounts | Sí | Sí |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| RateCard | No |  No |
-| UsageAggregates | No |  No |
+| RateCard | Sin |  Sin |
+| UsageAggregates | Sin |  Sin |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | availabilitySets | Sí | Sí |
-| Discos | Sí | Sí |
-| imágenes | Sí | Sí |
+| disks | Sí | Sí |
+| images | Sí | Sí |
 | restorePointCollections | Sí | Sí |
-| restorePointCollections/restorePoints | No |  No |
+| restorePointCollections/restorePoints | Sin |  Sin |
 | sharedVMImages | Sí | Sí |
 | sharedVMImages/versions | Sí | Sí |
-| instantáneas | Sí | Sí |
+| snapshots | Sí | Sí |
 | virtualMachines | Sí | Sí |
-| virtualMachines/diagnosticSettings | No |  No |
+| virtualMachines/diagnosticSettings | Sin |  Sin |
 | virtualMachines/extensions | Sí | Sí |
 | virtualMachineScaleSets | Sí | Sí |
-| virtualMachineScaleSets/extensions | No |  No |
-| virtualMachineScaleSets/networkInterfaces | No |  No |
-| virtualMachineScaleSets/publicIPAddresses | No |  No |
-| virtualMachineScaleSets/virtualMachines | No |  No |
-| virtualMachineScaleSets/virtualMachines/networkInterfaces | No |  No |
+| virtualMachineScaleSets/extensions | Sin |  Sin |
+| virtualMachineScaleSets/networkInterfaces | Sin |  Sin |
+| virtualMachineScaleSets/publicIPAddresses | Sin |  Sin |
+| virtualMachineScaleSets/virtualMachines | Sin |  Sin |
+| virtualMachineScaleSets/virtualMachines/networkInterfaces | Sin |  Sin |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| AggregatedCost | No |  No |
-| Saldos | No |  No |
-| Presupuestos | No |  No |
-| Charges | No |  No |
-| CostTags | No |  No |
-| credits | No |  No |
-| events | No |  No |
-| Previsiones | No |  No |
-| lots | No |  No |
-| Catálogos de soluciones | No |  No |
-| Pricesheets | No |  No |
-| products | No |  No |
-| ReservationDetails | No |  No |
-| ReservationRecommendations | No |  No |
-| ReservationSummaries | No |  No |
-| ReservationTransactions | No |  No |
-| `Tags` | No |  No |
-| Términos | No |  No |
-| UsageDetails | No |  No |
+| AggregatedCost | Sin |  Sin |
+| Saldos | Sin |  Sin |
+| Presupuestos | Sin |  Sin |
+| Charges | Sin |  Sin |
+| CostTags | Sin |  Sin |
+| credits | Sin |  Sin |
+| events | Sin |  Sin |
+| Previsiones | Sin |  Sin |
+| lots | Sin |  Sin |
+| Catálogos de soluciones | Sin |  Sin |
+| Pricesheets | Sin |  Sin |
+| products | Sin |  Sin |
+| ReservationDetails | Sin |  Sin |
+| ReservationRecommendations | Sin |  Sin |
+| ReservationSummaries | Sin |  Sin |
+| ReservationTransactions | Sin |  Sin |
+| Etiquetas | Sin |  Sin |
+| Términos | Sin |  Sin |
+| UsageDetails | Sin |  Sin |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | containerGroups | Sí | Sí |
-| serviceAssociationLinks | No |  No |
+| serviceAssociationLinks | Sin |  Sin |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | registries | Sí | Sí |
-| registries/builds | No |  No |
-| registries/builds/cancel | No |  No |
-| registries/builds/getLogLink | No |  No |
+| registries/builds | Sin |  Sin |
+| registries/builds/cancel | Sin |  Sin |
+| registries/builds/getLogLink | Sin |  Sin |
 | registries/buildTasks | Sí | Sí |
-| registries/buildTasks/steps | No |  No |
-| registries/eventGridFilters | No |  No |
-| registries/getBuildSourceUploadUrl | No |  No |
-| registries/GetCredentials | No |  No |
-| registries/importImage | No |  No |
-| registries/queueBuild | No |  No |
-| registries/regenerateCredential | No |  No |
-| registries/regenerateCredentials | No |  No |
+| registries/buildTasks/steps | Sin |  Sin |
+| registries/eventGridFilters | Sin |  Sin |
+| registries/getBuildSourceUploadUrl | Sin |  Sin |
+| registries/GetCredentials | Sin |  Sin |
+| registries/importImage | Sin |  Sin |
+| registries/queueBuild | Sin |  Sin |
+| registries/regenerateCredential | Sin |  Sin |
+| registries/regenerateCredentials | Sin |  Sin |
 | registries/replications | Sí | Sí |
-| registries/runs | No |  No |
-| registries/runs/cancel | No |  No |
-| registries/scheduleRun | No |  No |
+| registries/runs | Sin |  Sin |
+| registries/runs/cancel | Sin |  Sin |
+| registries/scheduleRun | Sin |  Sin |
 | registries/tasks | Sí | Sí |
-| registries/updatePolicies | No |  No |
+| registries/updatePolicies | Sin |  Sin |
 | registries/webhooks | Sí | Sí |
-| registries/webhooks/getCallbackConfig | No |  No |
-| registries/webhooks/ping | No |  No |
+| registries/webhooks/getCallbackConfig | Sin |  Sin |
+| registries/webhooks/ping | Sin |  Sin |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | containerServices | Sí | Sí |
 | managedClusters | Sí | Sí |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| aplicaciones | Sí | Sí |
-| updateCommunicationPreference | No |  No |
+| applications | Sí | Sí |
+| updateCommunicationPreference | Sin |  Sin |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| cuentas | Sí | Sí |
+| accounts | Sí | Sí |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| Alertas | No |  No |
-| BillingAccounts | No |  No |
+| Alertas | Sin |  Sin |
+| BillingAccounts | Sin |  Sin |
 | Conectores | Sí | Sí |
-| Departments | No |  No |
-| Dimensiones | No |  No |
-| EnrollmentAccounts | No |  No |
-| Consultar | No |  No |
-| registro | No |  No |
-| Reportconfigs | No |  No |
-| Informes | No |  No |
+| Departments | Sin |  Sin |
+| Dimensiones | Sin |  Sin |
+| EnrollmentAccounts | Sin |  Sin |
+| Consultar | Sin |  Sin |
+| registro | Sin |  Sin |
+| Reportconfigs | Sin |  Sin |
+| Informes | Sin |  Sin |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | hubs | Sí | Sí |
-| hubs/authorizationPolicies | No |  No |
-| hubs/connectors | No |  No |
-| hubs/connectors/mappings | No |  No |
-| hubs/interactions | No |  No |
-| hubs/kpi | No |  No |
-| hubs/links | No |  No |
-| hubs/profiles | No |  No |
-| hubs/roleAssignments | No |  No |
-| hubs/roles | No |  No |
-| hubs/suggestTypeSchema | No |  No |
-| hubs/views | No |  No |
-| hubs/widgetTypes | No |  No |
+| hubs/authorizationPolicies | Sin |  Sin |
+| hubs/connectors | Sin |  Sin |
+| hubs/connectors/mappings | Sin |  Sin |
+| hubs/interactions | Sin |  Sin |
+| hubs/kpi | Sin |  Sin |
+| hubs/links | Sin |  Sin |
+| hubs/profiles | Sin |  Sin |
+| hubs/roleAssignments | Sin |  Sin |
+| hubs/roles | Sin |  Sin |
+| hubs/suggestTypeSchema | Sin |  Sin |
+| hubs/views | Sin |  Sin |
+| hubs/widgetTypes | Sin |  Sin |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| trabajos | Sí | Sí |
+| jobs | Sí | Sí |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | DataBoxEdgeDevices | Sí | Sí |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| workspaces | Sí | No |
-| workspaces/virtualNetworkPeerings | No |  No |
+| workspaces | Sí | Sin |
+| workspaces/virtualNetworkPeerings | Sin |  Sin |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | catalogs | Sí | Sí |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | connectionManagers | Sí | Sí |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| dataFactories | Sí | No |
-| dataFactories/diagnosticSettings | No |  No |
-| dataFactorySchema | No |  No |
-| factories | Sí | No |
-| factories/integrationRuntimes | No |  No |
+| dataFactories | Sí | Sin |
+| dataFactories/diagnosticSettings | Sin |  Sin |
+| dataFactorySchema | Sin |  Sin |
+| factories | Sí | Sin |
+| factories/integrationRuntimes | Sin |  Sin |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| cuentas | Sí | Sí |
-| accounts/dataLakeStoreAccounts | No |  No |
-| accounts/storageAccounts | No |  No |
-| accounts/storageAccounts/containers | No |  No |
+| accounts | Sí | Sí |
+| accounts/dataLakeStoreAccounts | Sin |  Sin |
+| accounts/storageAccounts | Sin |  Sin |
+| accounts/storageAccounts/containers | Sin |  Sin |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| cuentas | Sí | Sí |
-| accounts/eventGridFilters | No |  No |
-| accounts/firewallRules | No |  No |
+| accounts | Sí | Sí |
+| accounts/eventGridFilters | Sin |  Sin |
+| accounts/firewallRules | Sin |  Sin |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | services | Sí | Sí |
 | services/projects | Sí | Sí |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| servidores | Sí | Sí |
-| servers/recoverableServers | No |  No |
-| servers/virtualNetworkRules | No |  No |
+| servers | Sí | Sí |
+| servers/recoverableServers | Sin |  Sin |
+| servers/virtualNetworkRules | Sin |  Sin |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| servidores | Sí | Sí |
-| servers/recoverableServers | No |  No |
-| servers/virtualNetworkRules | No |  No |
+| servers | Sí | Sí |
+| servers/recoverableServers | Sin |  Sin |
+| servers/virtualNetworkRules | Sin |  Sin |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| servidores | Sí | Sí |
-| servers/advisors | No |  No |
-| servers/queryTexts | No |  No |
-| servers/recoverableServers | No |  No |
-| servers/topQueryStatistics | No |  No |
-| servers/virtualNetworkRules | No |  No |
-| servers/waitStatistics | No |  No |
+| servers | Sí | Sí |
+| servers/advisors | Sin |  Sin |
+| servers/queryTexts | Sin |  Sin |
+| servers/recoverableServers | Sin |  Sin |
+| servers/topQueryStatistics | Sin |  Sin |
+| servers/virtualNetworkRules | Sin |  Sin |
+| servers/waitStatistics | Sin |  Sin |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | IotHubs | Sí | Sí |
-| IotHubs/eventGridFilters | No |  No |
+| IotHubs/eventGridFilters | Sin |  Sin |
 | ProvisioningServices | Sí | Sí |
-| usages | No |  No |
+| usages | Sin |  Sin |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | controllers | Sí | Sí |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | labs | Sí | Sí |
 | labs/serviceRunners | Sí | Sí |
@@ -551,203 +551,203 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | schedules | Sí | Sí |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| databaseAccountNames | No |  No |
+| databaseAccountNames | Sin |  Sin |
 | databaseAccounts | Sí | Sí |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | domains | Sí | Sí |
-| domains/domainOwnershipIdentifiers | No |  No |
-| generateSsoRequest | No |  No |
-| topLevelDomains | No |  No |
-| validateDomainRegistrationInformation | No |  No |
+| domains/domainOwnershipIdentifiers | Sin |  Sin |
+| generateSsoRequest | Sin |  Sin |
+| topLevelDomains | Sin |  Sin |
+| validateDomainRegistrationInformation | Sin |  Sin |
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| lcsprojects | No |  No |
-| lcsprojects/clouddeployments | No |  No |
-| lcsprojects/connectors | No |  No |
+| lcsprojects | Sin |  Sin |
+| lcsprojects/clouddeployments | Sin |  Sin |
+| lcsprojects/connectors | Sin |  Sin |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| domains | Sí | No |
-| domains/topics | No |  No |
-| eventSubscriptions | No |  No |
-| extensionTopics | No |  No |
-| topics | Sí | No |
-| topicTypes | No |  No |
+| domains | Sí | Sin |
+| domains/topics | Sin |  Sin |
+| eventSubscriptions | Sin |  Sin |
+| extensionTopics | Sin |  Sin |
+| topics | Sí | Sin |
+| topicTypes | Sin |  Sin |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| clusters | Sí | No |
-| namespaces | Sí | No |
-| namespaces/authorizationrules | No |  No |
-| namespaces/disasterrecoveryconfigs | No |  No |
-| namespaces/eventhubs | No |  No |
-| namespaces/eventhubs/authorizationrules | No |  No |
-| namespaces/eventhubs/consumergroups | No |  No |
+| clusters | Sí | Sin |
+| namespaces | Sí | Sin |
+| namespaces/authorizationrules | Sin |  Sin |
+| namespaces/disasterrecoveryconfigs | Sin |  Sin |
+| namespaces/eventhubs | Sin |  Sin |
+| namespaces/eventhubs/authorizationrules | Sin |  Sin |
+| namespaces/eventhubs/consumergroups | Sin |  Sin |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| features | No |  No |
-| providers | No |  No |
+| features | Sin |  Sin |
+| providers | Sin |  Sin |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| enroll | No |  No |
-| galleryitems | No |  No |
-| generateartifactaccessuri | No |  No |
-| myareas | No |  No |
-| myareas/areas | No |  No |
-| myareas/areas/areas | No |  No |
-| myareas/areas/areas/galleryitems | No |  No |
-| myareas/areas/galleryitems | No |  No |
-| myareas/galleryitems | No |  No |
-| registro | No |  No |
-| recursos | No |  No |
-| retrieveresourcesbyid | No |  No |
+| enroll | Sin |  Sin |
+| galleryitems | Sin |  Sin |
+| generateartifactaccessuri | Sin |  Sin |
+| myareas | Sin |  Sin |
+| myareas/areas | Sin |  Sin |
+| myareas/areas/areas | Sin |  Sin |
+| myareas/areas/areas/galleryitems | Sin |  Sin |
+| myareas/areas/galleryitems | Sin |  Sin |
+| myareas/galleryitems | Sin |  Sin |
+| registro | Sin |  Sin |
+| resources | Sin |  Sin |
+| retrieveresourcesbyid | Sin |  Sin |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| guestConfigurationAssignments | No |  No |
-| software | No |  No |
+| guestConfigurationAssignments | Sin |  Sin |
+| software | Sin |  Sin |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | hanaInstances | Sí |  Sí |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | clusters | Sí | Sí |
-| clusters/applications | No |  No |
+| clusters/applications | Sin |  Sin |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| trabajos | Sí | Sí |
+| jobs | Sí | Sí |
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| labelGroups | No |  No |
-| labelGroups/labels | No |  No |
-| labelGroups/labels/conditions | No |  No |
-| labelGroups/labels/subLabels | No |  No |
-| labelGroups/labels/subLabels/conditions | No |  No |
+| labelGroups | Sin |  Sin |
+| labelGroups/labels | Sin |  Sin |
+| labelGroups/labels/conditions | Sin |  Sin |
+| labelGroups/labels/subLabels | Sin |  Sin |
+| labelGroups/labels/subLabels/conditions | Sin |  Sin |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | actiongroups | Sí | Sí |
 | activityLogAlerts | Sí | Sí |
 | alertrules | Sí | Sí |
-| automatedExportSettings | No |  No |
+| automatedExportSettings | Sin |  Sin |
 | autoscalesettings | Sí | Sí |
-| baseline | No |  No |
-| calculatebaseline | No |  No |
+| baseline | Sin |  Sin |
+| calculatebaseline | Sin |  Sin |
 | components | Sí | Sí |
-| components/events | No |  No |
-| components/pricingPlans | No |  No |
-| components/query | No |  No |
-| diagnosticSettings | No |  No |
-| diagnosticSettingsCategories | No |  No |
-| eventCategories | No |  No |
-| eventtypes | No |  No |
-| extendedDiagnosticSettings | No |  No |
-| logDefinitions | No |  No |
-| logprofiles | No |  No |
-| registros | No |  No |
+| components/events | Sin |  Sin |
+| components/pricingPlans | Sin |  Sin |
+| components/query | Sin |  Sin |
+| diagnosticSettings | Sin |  Sin |
+| diagnosticSettingsCategories | Sin |  Sin |
+| eventCategories | Sin |  Sin |
+| eventtypes | Sin |  Sin |
+| extendedDiagnosticSettings | Sin |  Sin |
+| logDefinitions | Sin |  Sin |
+| logprofiles | Sin |  Sin |
+| logs | Sin |  Sin |
 | metricAlerts | Sí | Sí |
-| migrateToNewPricingModel | No |  No |
-| myWorkbooks | No |  No |
-| Consultas | No |  No |
-| rollbackToLegacyPricingModel | No |  No |
+| migrateToNewPricingModel | Sin |  Sin |
+| myWorkbooks | Sin |  Sin |
+| Consultas | Sin |  Sin |
+| rollbackToLegacyPricingModel | Sin |  Sin |
 | scheduledqueryrules | Sí | Sí |
-| vmInsightsOnboardingStatuses | No |  No |
+| vmInsightsOnboardingStatuses | Sin |  Sin |
 | webtests | Sí | Sí |
-| libros | Sí | Sí |
+| workbooks | Sí | Sí |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| diagnosticSettings | No |  No |
-| diagnosticSettingsCategories | No |  No |
+| diagnosticSettings | Sin |  Sin |
+| diagnosticSettingsCategories | Sin |  Sin |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | IoTApps | Sí | Sí |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| Gráfico | Sí | Sí |
+| Grafo | Sí | Sí |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| deletedVaults | No |  No |
+| deletedVaults | Sin |  Sin |
 | vaults | Sí | Sí |
-| vaults/accessPolicies | No |  No |
-| vaults/secrets | No |  No |
+| vaults/accessPolicies | Sin |  Sin |
+| vaults/secrets | Sin |  Sin |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | clusters | Sí | Sí |
-| clusters/databases | No |  No |
-| clusters/databases/dataconnections | No |  No |
-| clusters/databases/eventhubconnections | No |  No |
+| clusters/databases | Sin |  Sin |
+| clusters/databases/dataconnections | Sin |  Sin |
+| clusters/databases/eventhubconnections | Sin |  Sin |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | labaccounts | Sí | Sí |
-| Usuarios | No |  No |
+| users | Sin |  Sin |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| cuentas | Sí | Sí |
+| accounts | Sí | Sí |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| cuentas | Sí | Sí |
+| accounts | Sí | Sí |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| registros | No |  No |
+| logs | Sin |  Sin |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | integrationAccounts | Sí | Sí |
 | workflows | Sí | Sí |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | commitmentPlans | Sí | Sí |
 | webServices | Sí | Sí |
 | Áreas de trabajo | Sí | Sí |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| cuentas | Sí | Sí |
+| accounts | Sí | Sí |
 | accounts/workspaces | Sí | Sí |
 | accounts/workspaces/projects | Sí | Sí |
 | teamAccounts | Sí | Sí |
@@ -755,529 +755,533 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | teamAccounts/workspaces/projects | Sí | Sí |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| cuentas | Sí | Sí |
+| accounts | Sí | Sí |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | workspaces | Sí | Sí |
-| workspaces/computes | No |  No |
+| workspaces/computes | Sin |  Sin |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| Identidades | No |  No |
+| Identities | Sin |  Sin |
 | userAssignedIdentities | Sí | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| getEntities | No |  No |
-| managementGroups | No |  No |
-| recursos | No |  No |
-| startTenantBackfill | No |  No |
-| tenantBackfillStatus | No |  No |
+| getEntities | Sin |  Sin |
+| managementGroups | Sin |  Sin |
+| resources | Sin |  Sin |
+| startTenantBackfill | Sin |  Sin |
+| tenantBackfillStatus | Sin |  Sin |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| cuentas | Sí | Sí |
-| accounts/eventGridFilters | No |  No |
+| accounts | Sí | Sí |
+| accounts/eventGridFilters | Sin |  Sin |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| offers | No |  No |
-| offerTypes | No |  No |
-| offerTypes/publishers | No |  No |
-| offerTypes/publishers/offers | No |  No |
-| offerTypes/publishers/offers/plans | No |  No |
-| offerTypes/publishers/offers/plans/agreements | No |  No |
-| offerTypes/publishers/offers/plans/configs | No |  No |
-| offerTypes/publishers/offers/plans/configs/importImage | No |  No |
-| privategalleryitems | No |  No |
-| products | No |  No |
+| offers | Sin |  Sin |
+| offerTypes | Sin |  Sin |
+| offerTypes/publishers | Sin |  Sin |
+| offerTypes/publishers/offers | Sin |  Sin |
+| offerTypes/publishers/offers/plans | Sin |  Sin |
+| offerTypes/publishers/offers/plans/agreements | Sin |  Sin |
+| offerTypes/publishers/offers/plans/configs | Sin |  Sin |
+| offerTypes/publishers/offers/plans/configs/importImage | Sin |  Sin |
+| privategalleryitems | Sin |  Sin |
+| products | Sin |  Sin |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | classicDevServices | Sí | Sí |
-| updateCommunicationPreference | No |  No |
+| updateCommunicationPreference | Sin |  Sin |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| agreements | No |  No |
-| offertypes | No |  No |
+| agreements | Sin |  Sin |
+| offertypes | Sin |  Sin |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | mediaservices | Sí | Sí |
-| mediaservices/accountFilters | No |  No |
-| mediaservices/assets | No |  No |
-| mediaservices/assets/assetFilters | No |  No |
-| mediaservices/contentKeyPolicies | No |  No |
-| mediaservices/eventGridFilters | No |  No |
-| mediaservices/liveEventOperations | No |  No |
+| mediaservices/accountFilters | Sin |  Sin |
+| mediaservices/assets | Sin |  Sin |
+| mediaservices/assets/assetFilters | Sin |  Sin |
+| mediaservices/contentKeyPolicies | Sin |  Sin |
+| mediaservices/eventGridFilters | Sin |  Sin |
+| mediaservices/liveEventOperations | Sin |  Sin |
 | mediaservices/liveEvents | Sí | Sí |
-| mediaservices/liveEvents/liveOutputs | No |  No |
-| mediaservices/liveOutputOperations | No |  No |
-| mediaservices/streamingEndpointOperations | No |  No |
+| mediaservices/liveEvents/liveOutputs | Sin |  Sin |
+| mediaservices/liveOutputOperations | Sin |  Sin |
+| mediaservices/streamingEndpointOperations | Sin |  Sin |
 | mediaservices/streamingEndpoints | Sí | Sí |
-| mediaservices/streamingLocators | No |  No |
-| mediaservices/streamingPolicies | No |  No |
-| mediaservices/transforms | No |  No |
-| mediaservices/transforms/jobs | No |  No |
+| mediaservices/streamingLocators | Sin |  Sin |
+| mediaservices/streamingPolicies | Sin |  Sin |
+| mediaservices/transforms | Sin |  Sin |
+| mediaservices/transforms/jobs | Sin |  Sin |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | projects | Sí | Sí |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| applicationGateways | Sí | No |
+| applicationGateways | Sí | Sin |
 | applicationSecurityGroups | Sí | Sí |
-| azureFirewallFqdnTags | No |  No |
-| azureFirewalls | Sí | No |
-| bgpServiceCommunities | No |  No |
-| conexiones | Sí | Sí |
+| azureFirewallFqdnTags | Sin |  Sin |
+| azureFirewalls | Sí | Sin |
+| bgpServiceCommunities | Sin |  Sin |
+| connections | Sí | Sí |
 | ddosCustomPolicies | Sí | Sí |
 | ddosProtectionPlans | Sí | Sí |
-| dnsOperationStatuses | No |  No |
+| dnsOperationStatuses | Sin |  Sin |
 | dnszones | Sí | Sí |
-| dnszones/A | No |  No |
-| dnszones/AAAA | No |  No |
-| dnszones/all | No |  No |
-| dnszones/CAA | No |  No |
-| dnszones/CNAME | No |  No |
-| dnszones/MX | No |  No |
-| dnszones/NS | No |  No |
-| dnszones/PTR | No |  No |
-| dnszones/recordsets | No |  No |
-| dnszones/SOA | No |  No |
-| dnszones/SRV | No |  No |
-| dnszones/TXT | No |  No |
-| expressRouteCircuits | Sí  | No |
-| expressRouteServiceProviders | No |  No |
-| puertas principales | Sí | Sí |
-| frontdoorWebApplicationFirewallPolicies | Sí | Sí |
-| getDnsResourceReference | No |  No |
+| dnszones/A | Sin |  Sin |
+| dnszones/AAAA | Sin |  Sin |
+| dnszones/all | Sin |  Sin |
+| dnszones/CAA | Sin |  Sin |
+| dnszones/CNAME | Sin |  Sin |
+| dnszones/MX | Sin |  Sin |
+| dnszones/NS | Sin |  Sin |
+| dnszones/PTR | Sin |  Sin |
+| dnszones/recordsets | Sin |  Sin |
+| dnszones/SOA | Sin |  Sin |
+| dnszones/SRV | Sin |  Sin |
+| dnszones/TXT | Sin |  Sin |
+| expressRouteCircuits | Sí  | Sin |
+| expressRouteServiceProviders | Sin |  Sin |
+| frontdoors | Sí, pero con límites (consulte la [nota siguiente](#frontdoor)) | Sí |
+| frontdoorWebApplicationFirewallPolicies | Sí, pero con límites (consulte la [nota siguiente](#frontdoor)) | Sí |
+| getDnsResourceReference | Sin |  Sin |
 | interfaceEndpoints | Sí | Sí |
-| internalNotify | No |  No |
-| loadBalancers | Sí | No |
+| internalNotify | Sin |  Sin |
+| loadBalancers | Sí | Sin |
 | localNetworkGateways | Sí | Sí |
 | natGateways | Sí | Sí |
 | networkIntentPolicies | Sí | Sí |
 | networkInterfaces | Sí | Sí |
 | networkProfiles | Sí | Sí |
 | networkSecurityGroups | Sí | Sí |
-| networkWatchers | Sí | No |
-| networkWatchers/connectionMonitors | Sí | No |
-| networkWatchers/lenses | Sí | No |
-| networkWatchers/pingMeshes | Sí | No |
+| networkWatchers | Sí | Sin |
+| networkWatchers/connectionMonitors | Sí | Sin |
+| networkWatchers/lenses | Sí | Sin |
+| networkWatchers/pingMeshes | Sí | Sin |
 | privateLinkServices | Sí | Sí |
 | publicIPAddresses | Sí | Sí |
 | publicIPPrefixes | Sí | Sí |
 | routeFilters | Sí | Sí |
 | routeTables | Sí | Sí |
 | serviceEndpointPolicies | Sí | Sí |
-| trafficManagerGeographicHierarchies | No |  No |
+| trafficManagerGeographicHierarchies | Sin |  Sin |
 | trafficmanagerprofiles | Sí | Sí |
-| trafficmanagerprofiles/heatMaps | No |  No |
+| trafficmanagerprofiles/heatMaps | Sin |  Sin |
 | virtualHubs | Sí | Sí |
-| virtualNetworkGateways | Sí | No |
+| virtualNetworkGateways | Sí | Sin |
 | virtualNetworks | Sí | Sí |
-| virtualNetworks/subnets | No |  No |
+| virtualNetworks/subnets | Sin |  Sin |
 | virtualNetworkTaps | Sí | Sí |
 | virtualWans | Sí | Sí |
-| vpnGateways | Sí | No |
+| vpnGateways | Sí | Sin |
 | vpnSites | Sí | Sí |
 | webApplicationFirewallPolicies | Sí | Sí |
 
+<a id="frontdoor" />
+
+Para Azure Front Door Service, puede aplicar etiquetas al crear el recurso, pero no se admite actualmente la actualización o la adición de etiquetas.
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| namespaces | Sí | No |
-| namespaces/notificationHubs | Sí | No |
+| namespaces | Sí | Sin |
+| namespaces/notificationHubs | Sí | Sin |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| dispositivos | No |  No |
-| linkTargets | No |  No |
-| storageInsightConfigs | No |  No |
+| devices | Sin |  Sin |
+| linkTargets | Sin |  Sin |
+| storageInsightConfigs | Sin |  Sin |
 | workspaces | Sí | Sí |
-| workspaces/dataSources | No |  No |
-| workspaces/linkedServices | No |  No |
-| workspaces/query | No |  No |
+| workspaces/dataSources | Sin |  Sin |
+| workspaces/linkedServices | Sin |  Sin |
+| workspaces/query | Sin |  Sin |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| managementassociations | No |  No |
+| managementassociations | Sin |  Sin |
 | managementconfigurations | Sí | Sí |
 | solutions | Sí | SÍ |
 | views | SÍ | Sí |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| policyEvents | No |  No |
-| policyStates | No |  No |
-| policyTrackedResources | No |  No |
-| remediations | No |  No |
+| policyEvents | Sin |  Sin |
+| policyStates | Sin |  Sin |
+| policyTrackedResources | Sin |  Sin |
+| remediations | Sin |  Sin |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| consoles | No |  No |
+| consoles | Sin |  Sin |
 | dashboards | Sí | Sí |
-| userSettings | No |  No |
+| userSettings | Sin |  Sin |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | workspaceCollections | Sí | Sí |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | capacities | Sí | Sí |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| cuentas | Sí | Sí |
+| accounts | Sí | Sí |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| backupProtectedItems | No |  No |
+| backupProtectedItems | Sin |  Sin |
 | vaults | Sí | Sí |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | namespaces | Sí | Sí |
-| namespaces/authorizationrules | No |  No |
-| namespaces/hybridconnections | No |  No |
-| namespaces/hybridconnections/authorizationrules | No |  No |
-| namespaces/wcfrelays | No |  No |
-| namespaces/wcfrelays/authorizationrules | No |  No |
+| namespaces/authorizationrules | Sin |  Sin |
+| namespaces/hybridconnections | Sin |  Sin |
+| namespaces/hybridconnections/authorizationrules | Sin |  Sin |
+| namespaces/wcfrelays | Sin |  Sin |
+| namespaces/wcfrelays/authorizationrules | Sin |  Sin |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| recursos | No |  No |
-| subscriptionsStatus | No |  No |
+| resources | Sin |  Sin |
+| subscriptionsStatus | Sin |  Sin |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| availabilityStatuses | No |  No |
-| childAvailabilityStatuses | No |  No |
-| childResources | No |  No |
-| events | No |  No |
-| impactedResources | No |  No |
-| notificaciones | No |  No |
+| availabilityStatuses | Sin |  Sin |
+| childAvailabilityStatuses | Sin |  Sin |
+| childResources | Sin |  Sin |
+| events | Sin |  Sin |
+| impactedResources | Sin |  Sin |
+| Notificaciones | Sin |  Sin |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| implementaciones | No |  No |
-| deployments/operations | No |  No |
-| links | No |  No |
-| notifyResourceJobs | No |  No |
-| providers | No |  No |
-| resourceGroups | No |  No |
-| recursos | No |  No |
-| suscripciones | No |  No |
-| subscriptions/providers | No |  No |
-| subscriptions/resourceGroups | No |  No |
-| subscriptions/resourcegroups/resources | No |  No |
-| subscriptions/resources | No |  No |
-| subscriptions/tagnames | No |  No |
-| subscriptions/tagNames/tagValues | No |  No |
-| tenants | No |  No |
+| deployments | Sin |  Sin |
+| deployments/operations | Sin |  Sin |
+| links | Sin |  Sin |
+| notifyResourceJobs | Sin |  Sin |
+| providers | Sin |  Sin |
+| resourceGroups | Sin |  Sin |
+| resources | Sin |  Sin |
+| subscriptions | Sin |  Sin |
+| subscriptions/providers | Sin |  Sin |
+| subscriptions/resourceGroups | Sin |  Sin |
+| subscriptions/resourcegroups/resources | Sin |  Sin |
+| subscriptions/resources | Sin |  Sin |
+| subscriptions/tagnames | Sin |  Sin |
+| subscriptions/tagNames/tagValues | Sin |  Sin |
+| tenants | Sin |  Sin |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| aplicaciones | Sí | Sí |
-| saasresources | No |  No |
+| applications | Sí | Sí |
+| saasresources | Sin |  Sin |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| flujos | Sí | Sí |
+| flows | Sí | Sí |
 | jobcollections | Sí | Sí |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| resourceHealthMetadata | No |  No |
+| resourceHealthMetadata | Sin |  Sin |
 | searchServices | Sí | Sí |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| advancedThreatProtectionSettings | No |  No |
-| alertas | No |  No |
-| allowedConnections | No |  No |
-| appliances | No |  No |
-| applicationWhitelistings | No |  No |
-| AutoProvisioningSettings | No |  No |
-| Compliances | No |  No |
-| dataCollectionAgents | No |  No |
-| discoveredSecuritySolutions | No |  No |
-| externalSecuritySolutions | No |  No |
-| InformationProtectionPolicies | No |  No |
-| jitNetworkAccessPolicies | No |  No |
-| monitoring | No |  No |
-| monitoring/antimalware | No |  No |
-| monitoring/baseline | No |  No |
-| monitoring/patch | No |  No |
-| directivas | No |  No |
-| pricings | No |  No |
-| securityContacts | No |  No |
-| securitySolutions | No |  No |
-| securitySolutionsReferenceData | No |  No |
-| securityStatus | No |  No |
-| securityStatus/endpoints | No |  No |
-| securityStatus/subnets | No |  No |
-| securityStatus/virtualMachines | No |  No |
-| securityStatuses | No |  No |
-| securityStatusesSummaries | No |  No |
-| configuración | No |  No |
-| tareas | No |  No |
-| topologies | No |  No |
-| workspaceSettings | No |  No |
+| advancedThreatProtectionSettings | Sin |  Sin |
+| alerts | Sin |  Sin |
+| allowedConnections | Sin |  Sin |
+| appliances | Sin |  Sin |
+| applicationWhitelistings | Sin |  Sin |
+| AutoProvisioningSettings | Sin |  Sin |
+| Compliances | Sin |  Sin |
+| dataCollectionAgents | Sin |  Sin |
+| discoveredSecuritySolutions | Sin |  Sin |
+| externalSecuritySolutions | Sin |  Sin |
+| InformationProtectionPolicies | Sin |  Sin |
+| jitNetworkAccessPolicies | Sin |  Sin |
+| monitoring | Sin |  Sin |
+| monitoring/antimalware | Sin |  Sin |
+| monitoring/baseline | Sin |  Sin |
+| monitoring/patch | Sin |  Sin |
+| directivas | Sin |  Sin |
+| pricings | Sin |  Sin |
+| securityContacts | Sin |  Sin |
+| securitySolutions | Sin |  Sin |
+| securitySolutionsReferenceData | Sin |  Sin |
+| securityStatus | Sin |  Sin |
+| securityStatus/endpoints | Sin |  Sin |
+| securityStatus/subnets | Sin |  Sin |
+| securityStatus/virtualMachines | Sin |  Sin |
+| securityStatuses | Sin |  Sin |
+| securityStatusesSummaries | Sin |  Sin |
+| configuración | Sin |  Sin |
+| tareas | Sin |  Sin |
+| topologies | Sin |  Sin |
+| workspaceSettings | Sin |  Sin |
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| diagnosticSettings | No |  No |
-| diagnosticSettingsCategories | No |  No |
+| diagnosticSettings | Sin |  Sin |
+| diagnosticSettingsCategories | Sin |  Sin |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| namespaces | Sí | No |
-| namespaces/authorizationrules | No |  No |
-| namespaces/disasterrecoveryconfigs | No |  No |
-| namespaces/eventgridfilters | No |  No |
-| namespaces/queues | No |  No |
-| namespaces/queues/authorizationrules | No |  No |
-| namespaces/topics | No |  No |
-| namespaces/topics/authorizationrules | No |  No |
-| namespaces/topics/subscriptions | No |  No |
-| namespaces/topics/subscriptions/rules | No |  No |
-| premiumMessagingRegions | No |  No |
+| namespaces | Sí | Sin |
+| namespaces/authorizationrules | Sin |  Sin |
+| namespaces/disasterrecoveryconfigs | Sin |  Sin |
+| namespaces/eventgridfilters | Sin |  Sin |
+| namespaces/queues | Sin |  Sin |
+| namespaces/queues/authorizationrules | Sin |  Sin |
+| namespaces/topics | Sin |  Sin |
+| namespaces/topics/authorizationrules | Sin |  Sin |
+| namespaces/topics/subscriptions | Sin |  Sin |
+| namespaces/topics/subscriptions/rules | Sin |  Sin |
+| premiumMessagingRegions | Sin |  Sin |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | clusters | Sí | Sí |
-| clusters/applications | No |  No |
+| clusters/applications | Sin |  Sin |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| aplicaciones | Sí | Sí |
+| applications | Sí | Sí |
 | gateways | Sí | Sí |
-| Redes | Sí | Sí |
-| secretos | Sí | Sí |
-| volúmenes | Sí | Sí |
+| networks | Sí | Sí |
+| secrets | Sí | Sí |
+| volumes | Sí | Sí |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | SignalR | Sí | Sí |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | applianceDefinitions | Sí | Sí |
 | appliances | Sí | Sí |
 | applicationDefinitions | Sí | Sí |
-| aplicaciones | Sí | Sí |
+| applications | Sí | Sí |
 | jitRequests | Sí | Sí |
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | managedInstances | Sí | Sí |
 | managedInstances/databases | Sí (vea la nota siguiente) | Sí |
-| managedInstances/databases/backupShortTermRetentionPolicies | No | No |
-| managedInstances/databases/schemas/tables/columns/sensitivityLabels | No | No |
-| managedInstances/databases/vulnerabilityAssessments | No | No |
-| managedInstances/databases/vulnerabilityAssessments/rules/baselines | No | No |
-| managedInstances/encryptionProtector | No | No |
-| managedInstances/keys | No | No |
-| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No | No |
-| managedInstances/vulnerabilityAssessments | No | No |
-| servidores | Sí | Sí |
-| servers/administrators | No |  No |
-| servers/communicationLinks | No |  No |
+| managedInstances/databases/backupShortTermRetentionPolicies | Sin | Sin |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | Sin | Sin |
+| managedInstances/databases/vulnerabilityAssessments | Sin | Sin |
+| managedInstances/databases/vulnerabilityAssessments/rules/baselines | Sin | Sin |
+| managedInstances/encryptionProtector | Sin | Sin |
+| managedInstances/keys | Sin | Sin |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Sin | Sin |
+| managedInstances/vulnerabilityAssessments | Sin | Sin |
+| servers | Sí | Sí |
+| servers/administrators | Sin |  Sin |
+| servers/communicationLinks | Sin |  Sin |
 | servers/databases | Sí (vea la nota siguiente) | Sí |
-| servers/encryptionProtector | No |  No |
-| servers/firewallRules | No |  No |
-| servers/keys | No |  No |
-| servers/restorableDroppedDatabases | No |  No |
-| servers/serviceobjectives | No |  No |
-| servers/tdeCertificates | No |  No |
+| servers/encryptionProtector | Sin |  Sin |
+| servers/firewallRules | Sin |  Sin |
+| servers/keys | Sin |  Sin |
+| servers/restorableDroppedDatabases | Sin |  Sin |
+| servers/serviceobjectives | Sin |  Sin |
+| servers/tdeCertificates | Sin |  Sin |
 
 > [!NOTE]
 > La base de datos maestra no admite etiquetas, pero otras bases de datos, como las de Azure SQL Data Warehouse, sí lo hacen. Las bases de datos de Azure SQL Data Warehouse deben estar en estado activo (no en pausa).
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | SqlVirtualMachineGroups | Sí | Sí |
-| SqlVirtualMachineGroups/AvailabilityGroupListeners | No |  No |
+| SqlVirtualMachineGroups/AvailabilityGroupListeners | Sin |  Sin |
 | SqlVirtualMachines | Sí | Sí |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | storageAccounts | Sí | Sí |
-| storageAccounts/blobServices | No |  No |
-| storageAccounts/fileServices | No |  No |
-| storageAccounts/queueServices | No |  No |
-| storageAccounts/services | No |  No |
-| storageAccounts/tableServices | No |  No |
-| usages | No |  No |
+| storageAccounts/blobServices | Sin |  Sin |
+| storageAccounts/fileServices | Sin |  Sin |
+| storageAccounts/queueServices | Sin |  Sin |
+| storageAccounts/services | Sin |  Sin |
+| storageAccounts/tableServices | Sin |  Sin |
+| usages | Sin |  Sin |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | storageSyncServices | Sí | Sí |
-| storageSyncServices/registeredServers | No |  No |
-| storageSyncServices/syncGroups | No |  No |
-| storageSyncServices/syncGroups/cloudEndpoints | No |  No |
-| storageSyncServices/syncGroups/serverEndpoints | No |  No |
-| storageSyncServices/workflows | No |  No |
+| storageSyncServices/registeredServers | Sin |  Sin |
+| storageSyncServices/syncGroups | Sin |  Sin |
+| storageSyncServices/syncGroups/cloudEndpoints | Sin |  Sin |
+| storageSyncServices/syncGroups/serverEndpoints | Sin |  Sin |
+| storageSyncServices/workflows | Sin |  Sin |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | managers | Sí | Sí |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | streamingjobs | Sí (vea la nota siguiente) | Sí |
-| streamingjobs/diagnosticSettings | No |  No |
+| streamingjobs/diagnosticSettings | Sin |  Sin |
 
 > [!NOTE]
 > No se pueden agregar etiquetas cuando hay instancias de streamingjobs en ejecución. Detenga el recurso si desea agregar una etiqueta.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| CreateSubscription | No |  No |
-| SubscriptionDefinitions | No |  No |
-| SubscriptionOperations | No |  No |
+| CreateSubscription | Sin |  Sin |
+| SubscriptionDefinitions | Sin |  Sin |
+| SubscriptionOperations | Sin |  Sin |
 
 ## <a name="microsoftsupport"></a>microsoft.support
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| supporttickets | No |  No |
+| supporttickets | Sin |  Sin |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | providerRegistrations | Sí | Sí |
-| recursos | Sí | Sí |
+| resources | Sí | Sí |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| environments | Sí | No |
-| environments/accessPolicies | No |  No |
-| environments/eventsources | Sí | No |
-| environments/referenceDataSets | Sí | No |
+| environments | Sí | Sin |
+| environments/accessPolicies | Sin |  Sin |
+| environments/eventsources | Sí | Sin |
+| environments/referenceDataSets | Sí | Sin |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| cuenta | SÍ | Sí |
+| account | SÍ | Sí |
 | account/extension | Sí | Sí |
 | account/project | Sí | Sí |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| apiManagementAccounts | No |  No |
-| apiManagementAccounts/apiAcls | No |  No |
-| apiManagementAccounts/apis | No |  No |
-| apiManagementAccounts/apis/apiAcls | No |  No |
-| apiManagementAccounts/apis/connectionAcls | No |  No |
-| apiManagementAccounts/apis/connections | No |  No |
-| apiManagementAccounts/apis/connections/connectionAcls | No |  No |
-| apiManagementAccounts/apis/localizedDefinitions | No |  No |
-| apiManagementAccounts/connectionAcls | No |  No |
-| apiManagementAccounts/connections | No |  No |
-| billingMeters | No |  No |
-| certificados | Sí | Sí |
+| apiManagementAccounts | Sin |  Sin |
+| apiManagementAccounts/apiAcls | Sin |  Sin |
+| apiManagementAccounts/apis | Sin |  Sin |
+| apiManagementAccounts/apis/apiAcls | Sin |  Sin |
+| apiManagementAccounts/apis/connectionAcls | Sin |  Sin |
+| apiManagementAccounts/apis/connections | Sin |  Sin |
+| apiManagementAccounts/apis/connections/connectionAcls | Sin |  Sin |
+| apiManagementAccounts/apis/localizedDefinitions | Sin |  Sin |
+| apiManagementAccounts/connectionAcls | Sin |  Sin |
+| apiManagementAccounts/connections | Sin |  Sin |
+| billingMeters | Sin |  Sin |
+| certificates | Sí | Sí |
 | connectionGateways | Sí | Sí |
-| conexiones | Sí | Sí |
+| connections | Sí | Sí |
 | customApis | Sí | Sí |
-| deletedSites | No |  No |
-| funciones | No |  No |
-| hostingEnvironments | Sí | No |
-| hostingEnvironments/multiRolePools | No |  No |
-| hostingEnvironments/multiRolePools/instances | No |  No |
-| hostingEnvironments/workerPools | No |  No |
-| hostingEnvironments/workerPools/instances | No |  No |
-| publishingUsers | No |  No |
-| recomendaciones | No |  No |
-| resourceHealthMetadata | No |  No |
-| runtimes | No |  No |
+| deletedSites | Sin |  Sin |
+| functions | Sin |  Sin |
+| hostingEnvironments | Sí | Sí |
+| hostingEnvironments/multiRolePools | Sin |  Sin |
+| hostingEnvironments/multiRolePools/instances | Sin |  Sin |
+| hostingEnvironments/workerPools | Sin |  Sin |
+| hostingEnvironments/workerPools/instances | Sin |  Sin |
+| publishingUsers | Sin |  Sin |
+| de películas | Sin |  Sin |
+| resourceHealthMetadata | Sin |  Sin |
+| runtimes | Sin |  Sin |
 | serverFarms | Sí | Sí |
-| serverFarms/workers | No |  No |
-| sitios | Sí | Sí |
-| sites/domainOwnershipIdentifiers | No |  No |
-| sites/hostNameBindings | No |  No |
-| sites/instances | No |  No |
-| sites/instances/extensions | No |  No |
+| serverFarms/workers | Sin |  Sin |
+| sites | Sí | Sí |
+| sites/domainOwnershipIdentifiers | Sin |  Sin |
+| sites/hostNameBindings | Sin |  Sin |
+| sites/instances | Sin |  Sin |
+| sites/instances/extensions | Sin |  Sin |
 | sites/premieraddons | Sí | Sí |
-| sites/recommendations | No |  No |
-| sites/resourceHealthMetadata | No |  No |
+| sites/recommendations | Sin |  Sin |
+| sites/resourceHealthMetadata | Sin |  Sin |
 | sites/slots | Sí | Sí |
-| sites/slots/hostNameBindings | No |  No |
-| sites/slots/instances | No |  No |
-| sites/slots/instances/extensions | No |  No |
-| sourceControls | No |  No |
-| validate | No |  No |
-| verifyHostingEnvironmentVnet | No |  No |
+| sites/slots/hostNameBindings | Sin |  Sin |
+| sites/slots/instances | Sin |  Sin |
+| sites/slots/instances/extensions | Sin |  Sin |
+| sourceControls | Sin |  Sin |
+| validate | Sin |  Sin |
+| verifyHostingEnvironmentVnet | Sin |  Sin |
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| diagnosticSettings | No |  No |
-| diagnosticSettingsCategories | No |  No |
+| diagnosticSettings | Sin |  Sin |
+| diagnosticSettingsCategories | Sin |  Sin |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | DeviceServices | Sí | Sí |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
-| Tipo de recurso | Compatible con las etiquetas | En el informe de costo de etiquetas |
+| Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
-| components | No |  No |
-| componentsSummary | No |  No |
-| monitorInstances | No |  No |
-| monitorInstancesSummary | No |  No |
-| monitors | No |  No |
-| notificationSettings | No |  No |
+| components | Sin |  Sin |
+| componentsSummary | Sin |  Sin |
+| monitorInstances | Sin |  Sin |
+| monitorInstancesSummary | Sin |  Sin |
+| monitors | Sin |  Sin |
+| notificationSettings | Sin |  Sin |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información sobre cómo aplicar etiquetas a recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).

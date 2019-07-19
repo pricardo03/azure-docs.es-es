@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620283"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275182"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Listas de exclusión y límites de tamaño de solicitud del firewall de aplicaciones web
 
@@ -35,16 +35,16 @@ El WAF también ofrece un botón configurable para activar o desactivar la inspe
 
 Las listas de exclusión del WAF le permiten omitir determinados atributos de solicitud de una evaluación del WAF. Un ejemplo común son los tokens insertados de Active Directory que se usan para campos de contraseña o autenticación. Estos atributos suelen contener caracteres especiales que podrían desencadenar un falso positivo de las reglas de WAF. Una vez que se agrega un atributo a la lista de exclusión del WAF, ninguna regla de WAF configurada y activa lo toma en consideración. Las listas de exclusión tienen un ámbito global.
 
-Los siguientes atributos se pueden agregar a las listas de exclusión:
+Los siguientes atributos se pueden agregar a las listas de exclusión: Los valores del campo elegido no se evalúan según las reglas de WAF. Las listas de exclusión quitan la inspección del valor del campo.
 
 * Encabezados de solicitud
 * Cookies de solicitud
-* Nombre del atributo de solicitud (argumentos)
+* Se puede agregar el nombre de atributo de la solicitud (args) como un elemento de exclusión, por ejemplo:
 
-   * Datos de varias partes del formulario
-   * XML
-   * JSON
-   * Argumentos de la consulta URL
+   * Nombre del campo de formulario
+   * Entidad XML
+   * Entidad JSON
+   * Argumentos de cadena de consulta de URL
 
 Puede especificar una coincidencia exacta con un atributo de cadena de consulta, una cookie, el cuerpo o el encabezado de una solicitud.  Si lo desea, también puede especificar coincidencias parciales. La exclusión siempre se aplica al campo del encabezado; nunca a su valor. Las reglas de exclusión tienen un ámbito global y se aplican a todas las páginas y todas las reglas.
 

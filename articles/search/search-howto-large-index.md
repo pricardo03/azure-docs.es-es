@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 8c067b6e238fab2970e5e40f0660a5c7555a8f2e
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949829"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302225"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Cómo indexar grandes conjuntos de datos en Azure Search
 
@@ -54,7 +54,7 @@ La programación de indizadores es un mecanismo importante para procesar conjunt
 
 De manera predeterminada, la indexación programada se inicia en intervalos específicos, habitualmente con un trabajo que se completa antes de reanudar en el intervalo programado siguiente. Sin embargo, si el procesamiento no se completa dentro del intervalo, el indexador se detiene (porque se agotó el tiempo). En el intervalo siguiente, el procesamiento se reanuda donde quedó, porque el sistema lleva un registro de dónde sucedió eso. 
 
-En la práctica, para cargas de índice que abarcan varios días, puede poner el indexador en una programación de 24 horas. Cuando la indexación se reanuda para el próximo ciclo de 24 horas, se reinicia en el último documento correcto conocido. De este modo, un indexador puede abrirse camino a través del trabajo pendiente de un documento en una serie de días hasta procesar todos los documentos no procesados. Para obtener más información sobre este enfoque, consulte la sección sobre la [indexación de conjuntos de datos de gran tamaño en Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Para obtener más información acerca de cómo configurar las programaciones en general, consulte la [API REST para crear indizadores](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax).
+En la práctica, para cargas de índice que abarcan varios días, puede poner el indexador en una programación de 24 horas. Cuando la indexación se reanuda para el próximo ciclo de 24 horas, se reinicia en el último documento correcto conocido. De este modo, un indexador puede abrirse camino a través del trabajo pendiente de un documento en una serie de días hasta procesar todos los documentos no procesados. Para obtener más información sobre este enfoque, consulte la sección sobre la [indexación de conjuntos de datos de gran tamaño en Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Para más información sobre cómo configurar las programaciones en general, consulte la [API REST para crear indexadores](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) o [Programación de indexadores para Azure Search](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 
@@ -67,7 +67,7 @@ Para los requisitos de indexación que no son de rutina ni de cálculo intensivo
 El procesamiento paralelo tiene los siguientes elementos:
 
 + Subdivida los datos de origen entre varios contenedores o varias carpetas virtuales dentro del mismo contenedor. 
-+ Asignar cada mini conjunto de datos a su propio [origen de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source), emparejado a su propio [indizador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Asigne cada pequeño conjunto de datos a su propio [origen de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source), emparejado con su propio [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + En el caso de Cognitive Search, haga referencia al mismo [conjunto de datos](https://docs.microsoft.com/rest/api/searchservice/create-skillset) en cada definición de indexador.
 + Escriba en el mismo índice de búsqueda de destino. 
 + Programe todos los indexadores para que se ejecuten al mismo tiempo.
@@ -98,7 +98,7 @@ A la hora programada, todos los indexadores empezarán a ejecutarse, cargarán l
 > [!Note]
 > Cuando aumente las réplicas, considere aumentar el número de particiones si se espera que el tamaño del índice aumente de manera considerable. Las particiones almacenan segmentos del contenido indexado: cuantas más particiones tenga, más pequeño será el segmento que cada una debe almacenar.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Información general del indexador](search-indexer-overview.md)
 + [Indexing in the portal](search-import-data-portal.md) (Indexación en el portal)

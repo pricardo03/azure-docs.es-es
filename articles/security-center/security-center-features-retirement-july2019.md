@@ -1,6 +1,6 @@
 ---
-title: Retirada del centro de seguridad de las características (julio de 2019) | Microsoft Docs
-description: En este artículo se describe las características en el centro de seguridad que se retirará el 31 de julio de 2019.
+title: Retirada de características de Security Center (julio de 2019) | Microsoft Docs
+description: En este artículo se describen las características de Security Center que se retirarán el 31 de julio de 2019.
 services: security-center
 author: yoavfrancis
 ms.service: security-center
@@ -8,184 +8,186 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 1d364da9506124a35c724209c68ff72db4243e80
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65952137"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341571"
 ---
-# <a name="retirement-of-security-center-features-july-2019"></a>Retirada de las características de Security Center (julio de 2019)
+# <a name="retirement-of-security-center-features-july-2019"></a>Retirada de características de Security Center (julio de 2019)
 
-Hemos realizado varias [mejoras](https://azure.microsoft.com/updates/?product=security-center) a Azure Security Center durante los últimos seis meses.
-Con estas capacidades mejoradas, nos estamos quitando algunas características redundantes y las API relacionadas desde el centro de seguridad en el 31 de julio de 2019.  
+Hemos realizado varias [mejoras](https://azure.microsoft.com/updates/?product=security-center) en Azure Security Center durante los últimos seis meses.
+Con estas funcionalidades mejoradas, vamos a quitar algunas características redundantes y las API relacionadas de Security Center el 31 de julio de 2019.  
 
-La mayoría de estas características de retirada puede reemplazarse con nueva funcionalidad en Azure Security Center o Azure Log Analytics. Otras características se pueden implementar mediante [Centinela de Azure (versión preliminar)](https://azure.microsoft.com/services/azure-sentinel/).
+La mayoría de estas características que se retiran se pueden reemplazar por nuevas funcionalidades en Azure Security Center o Azure Log Analytics. Se pueden implementar otras características mediante [Azure Sentinel (versión preliminar)](https://azure.microsoft.com/services/azure-sentinel/).
 
-Las características de Security Center se retirarán incluyen:
+Las características de Security Center que se retirarán incluyen:
 
-- [Panel eventos](#menu_events)
+- [Panel de eventos](#menu_events)
 - [Entrada de menú de búsqueda](#menu_search)
-- [Vínculos clásico de identidad y acceso de vista sobre la identidad y acceso (versión preliminar)](#menu_classicidentity)
-- [Botón en el mapa de las alertas de seguridad (versión preliminar) asignan los eventos de seguridad](#menu_securityeventsmap)
+- [Vínculo Ver versión clásica de Identidad y acceso en Identidad y acceso (versión preliminar)](#menu_classicidentity)
+- [Botón de mapa de eventos de seguridad de Mapa de alertas de seguridad (versión preliminar)](#menu_securityeventsmap)
 - [Reglas de alerta personalizadas (versión preliminar)](#menu_customalerts)
-- [Investigar el botón en las alertas de seguridad de protección contra amenazas](#menu_investigate)
-- [Un subconjunto de las soluciones de seguridad](#menu_solutions)
-- [Editar configuraciones de seguridad para las directivas de seguridad](#menu_securityconfigurations)
-- [Panel seguridad y auditoría (usado originalmente en el portal de OMS) para las áreas de trabajo de Log Analytics](#menu_securityomsdashboard)
+- [Botón de investigación de las alertas de seguridad de protección contra amenazas](#menu_investigate)
+- [Un subconjunto de soluciones de seguridad](#menu_solutions)
+- [Edición de las opciones de configuración de seguridad para directivas de seguridad](#menu_securityconfigurations)
+- [Panel Seguridad y auditoría (usado originalmente en el portal de OMS) para las áreas de trabajo de Log Analytics](#menu_securityomsdashboard)
 
-En este artículo se proporciona información detallada para cada característica retirada y los pasos que puede seguir para implementar funciones de reemplazo.
+En este artículo se proporciona información detallada para cada característica retirada y los pasos que puede seguir para implementar características de reemplazo.
 
-## Panel eventos<a name="menu_events"></a>
+## Panel de eventos<a name="menu_events"></a>
 
-Security Center usa a Microsoft Monitoring Agent para recopilar distintas configuraciones relacionadas con la seguridad y los eventos de las máquinas. Estos eventos almacena en las áreas de trabajo. El [panel eventos](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) le permite ver los datos y le ofrece un punto de entrada a Log Analytics.
+Security Center usa Microsoft Monitoring Agent para recopilar de los equipos distintos eventos y configuraciones relacionados con la seguridad. Almacena estos eventos en las áreas de trabajo. El [panel de eventos](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) le permite ver los datos y le ofrece un punto de entrada a Log Analytics.
 
-Estamos retirando el panel de eventos que aparece al seleccionar un área de trabajo:
+Vamos a retirar el panel de eventos que aparece al seleccionar un área de trabajo:
 
-![Panel Eventos][2]
+![Panel de eventos][2]
 
-### <a name="events-dashboard---the-new-experience"></a>Panel de eventos - la nueva experiencia
+### <a name="events-dashboard---the-new-experience"></a>Panel de eventos: la nueva experiencia
 
-Se recomienda usar las capacidades nativas de Azure Log Analytics para ver los eventos importantes en las áreas de trabajo.
+Se recomienda usar las funcionalidades nativas de Azure Log Analytics para ver los eventos importantes en las áreas de trabajo.
 
-Si ha creado los eventos importantes personalizados en Security Center, que sean accesibles. En Log Analytics, vaya a **seleccionar área de trabajo** > **búsquedas guardadas**. No se pierde o modifica los datos. Eventos importantes nativos también están disponibles en la misma pantalla de Log Analytics.
+Si ha creado los eventos importantes personalizados en Security Center, se podrá acceder a ellos. En Log Analytics, vaya a **Seleccionar área de trabajo** > **Búsquedas guardadas**. Los datos no se perderán o modificarán. Los eventos importantes nativos también están disponibles en la misma pantalla de Log Analytics.
 
-![Las búsquedas guarda del área de trabajo][3]
+![Búsquedas guardadas de área de trabajo][3]
 
 ## Entrada de menú de búsqueda<a name="menu_search"></a>
 
-Azure Security Center usa actualmente la búsqueda de registros de Azure Monitor para recuperar y analizar los datos de seguridad. Esta pantalla sirve como una ventana de la página de búsqueda de Log Analytics y permite a los usuarios ejecutar consultas de búsqueda en su área de trabajo seleccionada. Para obtener más información, consulte [búsqueda de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-search). Estamos retirando esta ventana de búsqueda:
+Azure Security Center actualmente usa la búsqueda de registros de Azure Monitor para recuperar y analizar los datos de seguridad. Esta pantalla sirve como una ventana de la página de búsqueda de Log Analytics y permite a los usuarios ejecutar consultas de búsqueda en sus áreas de trabajo seleccionadas. Para más información, consulte [Búsqueda de registros en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-search). Vamos a retirar esta ventana de búsqueda:
 
 ![Página de búsqueda][4]
 
 ### <a name="search-menu-entry---the-new-experience"></a>Entrada de menú de búsqueda: la nueva experiencia
 
-Le animamos a usar las capacidades nativas de Azure Log Analytics para realizar consultas de búsqueda en las áreas de trabajo. Vaya a Azure Log Analytics y seleccione **registros**.
+Le animamos a usar las funcionalidades nativas de Azure Log Analytics para realizar consultas de búsqueda en las áreas de trabajo. Vaya a Azure Log Analytics y seleccione **Registros**.
 
-![Página de registros de log Analytics][5]
+![Página de registros de Log Analytics][5]
 
-## Clásico identidad y acceso (versión preliminar)<a name="menu_classicidentity"></a>
+## Versión clásica de Identidad y acceso (versión preliminar)<a name="menu_classicidentity"></a>
 
-Actualmente, la experiencia clásica de identidad y acceso en Security Center muestra un panel de información de identidad y acceso en Log Analytics. Para ver este panel:
+Actualmente, la experiencia Versión clásica de Identidad y acceso de Security Center muestra un panel de información de identidad y acceso en Log Analytics. Para ver este panel:
 
-1. Seleccione **vista clásica identidad y acceso**.
+1. Seleccione **Ver versión clásica de Identidad y acceso**.
 
    ![Página de identidad][6]
 
-1. Ver el **panel identidad y acceso**.
+1. Vea **Panel Identidad y acceso**.
 
     ![Página de identidad: selección del área de trabajo][7]
 
-1. Seleccione un área de trabajo para abrir el **identidad y acceso** panel en Log Analytics para ver la identidad y acceso a la información en el área de trabajo.
+1. Seleccione un área de trabajo que desee abrir en el panel **Identidad y acceso** en Log Analytics para ver la información de identidad y acceso sobre el área de trabajo.
 
    ![Página de identidad: panel][8]
 
-Estamos retirando todas las tres pantallas que se muestra en los pasos anteriores. Los datos seguirán estando disponibles en la solución de seguridad de Log Analytics y no puede modificar ni quitar.
+Vamos a retirar las tres pantallas que se muestra en los pasos anteriores. Los datos seguirán estando disponibles en la solución de seguridad de Log Analytics y no se modificarán ni quitarán.
 
-### <a name="classic-identity--access-preview---the-new-experience"></a>Clásica identidad y acceso (versión preliminar): la nueva experiencia
+### <a name="classic-identity--access-preview---the-new-experience"></a>Versión clásica de Identidad y acceso (versión preliminar): la nueva experiencia
 
-El panel de Log Analytics ha demostrado insights en un área de trabajo. Sin embargo, las capacidades nativas de Security Center proporcionan visibilidad en todas las suscripciones y todas las áreas de trabajo asociados con ellos. Puede tener acceso a una forma sencilla de-para usar la vista que le permite centrarse en lo que es importante con las recomendaciones se clasifican según su puntuación segura.
+El panel de Log Analytics ha mostrado información sobre un área de trabajo. Sin embargo, las funcionalidades nativas de Security Center proporcionan visibilidad en todas las suscripciones y todas las áreas de trabajo asociadas con ellas. Puede acceder a una vista fácil de usar que le permite centrarse en lo que es importante con recomendaciones clasificadas conforme a su puntuación segura.
 
-Todas las características de la **identidad y acceso** panel de Log Analytics puede ponerse seleccionando **identidad y acceso (versión preliminar)** dentro de Security Center.
+Se puede acceder a todas las características del panel **Identidad y acceso** de Log Analytics seleccionando **Identidad y acceso (versión preliminar)** dentro de Security Center.
 
-![Retirada de la experiencia de página identidad - clásico][9]
+![Página de identidad: retirada de la experiencia clásica][9]
 
 ## Mapa de eventos de seguridad<a name="menu_securityeventsmap"></a>
 
-Security Center proporciona un [mapa de las alertas de seguridad](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) para ayudar a identificar las amenazas de seguridad. El **ir al mapa de eventos de seguridad** botón en el que se asignan abre un panel que le permite ver los eventos de seguridad sin procesar en el área de trabajo seleccionada.
+Security Center proporciona un [mapa de las alertas de seguridad](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) para ayudar a identificar las amenazas de seguridad. El botón **Ir al mapa de eventos de seguridad** de ese mapa abre un panel que le permite ver los eventos de seguridad sin procesar en el área de trabajo seleccionada.
 
-Nos estamos quitando el **ir al mapa de eventos de seguridad** botón y el panel por área de trabajo.
+Vamos a quitar el botón **Ir al mapa de eventos de seguridad** y el panel por área de trabajo.
 
-![Botón de mapa: las alertas de seguridad][10]
+![Mapa de alertas de seguridad: botón][10]
 
-Cuando se selecciona el **ir al mapa de eventos de seguridad** botón, abra el panel de inteligencia de amenazas. Estamos retirando el panel de inteligencia de amenazas.  
+Cuando selecciona el botón **Ir al mapa de eventos de seguridad**, se abre el panel de inteligencia de amenazas. Vamos a retirar el panel de inteligencia de amenazas.  
 
-![Panel Inteligencia de amenazas][11]
+![Panel Inteligencia sobre amenazas][11]
 
-Al elegir un área de trabajo para ver su panel de inteligencia de amenazas, abra la pantalla de mapa (versión preliminar) de las alertas de seguridad de registros en Log Analytics. Estamos retirando esta pantalla.
+Cuando elige un área de trabajo para ver su panel de inteligencia de amenazas, se abre la pantalla de mapa de alertas de seguridad (versión preliminar) en Log Analytics. Vamos a retirar esta pantalla.
 
-![Mapa de las alertas de seguridad en Log Analytics][12]
+![Mapa de alertas de seguridad en Log Analytics][12]
 
-Los datos existentes seguirán estando disponibles en la solución de seguridad de Log Analytics y no se pueden modificar ni quitar.
+Los datos existentes seguirán estando disponibles en la solución de seguridad de Log Analytics y no se modificarán ni quitarán.
 
 ### <a name="security-events-map---the-new-experience"></a>Mapa de eventos de seguridad: la nueva experiencia
 
-Le recomendamos que use la funcionalidad de asignación de las alertas integrada en el centro de seguridad: **Mapa de las alertas de seguridad (versión preliminar)**. Esta funcionalidad proporciona una experiencia optimizada y funciona en todas las suscripciones y áreas de trabajo asociados. Proporciona una visión general en todo el entorno y no se centra en un área de trabajo.
+Le animamos a que use la funcionalidad de mapa de las alertas integrada en Security Center: **Mapa de alertas de seguridad (versión preliminar)** . Esta funcionalidad proporciona una experiencia optimizada y funciona en todas las suscripciones y áreas de trabajo asociadas. Ofrece una vista de alto nivel en el entorno y no se centra en una única área de trabajo.
 
 ## Reglas de alerta personalizadas (versión preliminar)<a name="menu_customalerts"></a>
 
-Estamos [retirar personalizado experiencia de alertas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) el 30 de junio de 2019 porque se eliminará su infraestructura subyacente. Hasta entonces, puede editar reglas de alerta personalizadas existentes, pero no puede agregar otros nuevos. Se recomienda que habilite [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) automáticamente migrar las alertas existentes y crear otros nuevos. Como alternativa, puede crear las alertas con alertas de registro de Azure Monitor.
+El 30 de junio de 2019[retiramos la experiencia de alertas personalizadas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) porque se retirará su infraestructura subyacente. Hasta entonces, puede editar las reglas de alerta personalizadas existentes, pero no puede agregar otras nuevas. Tras la fecha de retirada, las alertas personalizadas definidas no surtirán efecto y no se generarán alertas de seguridad basadas en estas reglas.
+Se recomienda que habilite [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) y vuelva a crear las alertas personalizadas allí. Como alternativa, puede crear las alertas con alertas de registro de Azure Monitor.
 
-Para mantener las alertas existentes y migrarlas a Azure centinela:
+Para mantener las alertas existentes y crearlas con Azure Sentinel:
 
-1. Abra Azure Sentinel y seleccione el área de trabajo donde se almacenan las alertas personalizadas.
-1. Seleccione **Analytics** en el menú para migrar automáticamente las alertas.
+1. [Abra Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview) y seleccione el área de trabajo donde se almacenan las alertas personalizadas.
+1. Seleccione **Analytics**en el menú.
+1. Siga las instrucciones del siguiente [tutorial](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) sobre cómo crear alertas personalizadas en Azure Sentinel.
+
+Si no le interesa usar Azure Sentinel, puede crear las alertas con alertas de registro de Azure Monitor. Para instrucciones, consulte  [Creación, visualización y administración de alertas de registro mediante Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) y [Alertas de registro en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ![Alertas personalizadas][13]
 
-Si no está interesado en realizar la transición a Azure Sentinel, le recomendamos que cree las alertas con alertas de registro de Azure Monitor. Para obtener instrucciones, consulte [crear, ver y administrar las alertas del registro mediante el uso de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) y [alertas de registro en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
-
-Para obtener más información sobre la retirada de alertas personalizadas, vea [reglas de alerta personalizadas en Azure Security Center (versión preliminar)](https://docs.microsoft.com/azure/security-center/security-center-custom-alert).
+Para más información sobre la retirada de alertas personalizadas, vea [Reglas de alerta personalizadas en Azure Security Center (versión preliminar)](https://docs.microsoft.com/azure/security-center/security-center-custom-alert).
 
 ## Investigación de alertas de seguridad<a name="menu_investigate"></a>
 
-[La característica de investigación](https://docs.microsoft.com/azure/security-center/security-center-investigation) en Security Center ayuda a evaluar las prioridades un incidente de seguridad potenciales. La característica permite entender el ámbito de un incidente y localizar la causa raíz. Lo que estamos quita esta característica desde el centro de seguridad ya que se ha reemplazado por una experiencia mejorada en [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
+[La característica Investigación](https://docs.microsoft.com/azure/security-center/security-center-investigation) de Security Center ayuda a evaluar un posible incidente de seguridad. La característica permite entender el ámbito de un incidente y localizar su causa raíz. Vamos a quitar esta característica de Security Center porque se ha reemplazado por una experiencia mejorada en [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
 
 ![Incidente de seguridad][14]
 
-Cuando se selecciona el **investigar** botón desde un **incidente de seguridad** pantalla, abra el panel de investigación (versión preliminar) en Log Analytics. Estamos retirando el panel de investigación.  
+Cuando se selecciona el botón **Investigar** desde una pantalla **Incidente de seguridad**, se abre el Panel de investigación (versión preliminar) en Log Analytics. Vamos a retirar el Panel de investigación.  
 
-Los datos existentes seguirán estando disponibles en la solución de seguridad de Log Analytics y no se pueden modificar ni quitar.
+Los datos existentes seguirán estando disponibles en la solución de seguridad de Log Analytics y no se modificarán ni quitarán.
 
 ![Panel de investigación en Log Analytics][15]
 
 ### <a name="investigation---the-new-experience"></a>Investigación: la nueva experiencia
 
-Le recomendamos que pase al [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) para una experiencia enriquecida de investigación. Sentinel Azure proporciona eficaces herramientas de búsqueda y consulta buscando amenazas de seguridad a través de orígenes de datos de su organización.  
+Le recomendamos que realice la transición a [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) para una experiencia de investigación enriquecida. Azure Sentinel proporciona eficaces herramientas de búsqueda y consulta para buscar amenazas de seguridad en los orígenes de datos de la organización.  
 
-## Subconjunto de las soluciones de seguridad<a name="menu_solutions"></a>
+## Subconjunto de soluciones de seguridad<a name="menu_solutions"></a>
 
-Puede habilitar Security Center [soluciones de seguridad de Azure integradas](https://docs.microsoft.com/azure/security-center/security-center-partner-integration). Estamos retirando las siguientes soluciones de asociados desde Security Center. Estas soluciones están habilitadas en [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) junto con un número de orígenes de datos adicionales.
+Security Center puede habilitar [soluciones de seguridad integradas en Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration). Vamos a retirar las siguientes soluciones de asociados de Security Center. Estas soluciones están habilitadas en [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) junto con una serie de orígenes de datos adicionales.
 
-- [Próxima generación web y firewall de aplicación las soluciones de firewall](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
-- [Integración de soluciones de seguridad que admite Common Event Format (CEF)](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
+- [Firewall y soluciones de firewall de aplicaciones web de la siguiente generación](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
+- [Integración de soluciones de seguridad que admiten Common Event Format (CEF)](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
 - [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-Después de la retirada, no podrá agregar o modificar cualquiera de los tipos de soluciones mencionados en la lista anterior, ya sea desde la interfaz de usuario o la API.
+Después de la retirada, no podrá agregar o modificar ninguno de los tipos de soluciones mencionados en la lista anterior, ya sea desde la interfaz de usuario o desde la API.
 
-Si tiene soluciones conectadas existentes, le animamos a mover a Azure Sentinel.
+Si tiene soluciones conectadas existentes, le animamos a que realice la transición a Azure Sentinel.
 
 ![Soluciones de centros de seguridad][16]
 
-## Editar configuraciones de seguridad para las directivas de seguridad<a name="menu_securityconfigurations"></a>
+## Edición de las opciones de configuración de seguridad para directivas de seguridad<a name="menu_securityconfigurations"></a>
 
-Azure Security Center supervisa las configuraciones de seguridad mediante la aplicación de un conjunto de [más de 150 reglas recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). para proteger el sistema operativo. Estas reglas se aplican a los firewalls, auditoría, las directivas de contraseñas y mucho más. Si se detecta que la configuración de una maquina es vulnerable, Security Center genera una recomendación de seguridad. El [pantalla de configuración de seguridad de edición](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permite a los clientes personalizar la configuración de seguridad predeterminada del sistema operativo en Security Center.
+Azure Security Center supervisa las configuraciones de seguridad mediante un conjunto de [más de 150 reglas recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Esto protege el sistema operativo. Estas reglas pertenecen a firewalls, auditoría, directivas de contraseñas, etc. Si se detecta que la configuración de una maquina es vulnerable, Security Center genera una recomendación de seguridad. La [pantalla Edición de las opciones de configuración de seguridad](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permite a los clientes personalizar la configuración de seguridad predeterminada del sistema operativo en Security Center.
 
-Estamos retirando esta característica de vista previa. Si, después de la fecha de retirada, que le gustaría restablecer las configuraciones de seguridad en sus valores predeterminados, puede hacerlo a través de API o Powershell mediante el [siguiendo las instrucciones](https://aka.ms/ascresetsecurityconfigurations)
+Vamos a retirar esta característica de vista previa (GB). Si, después de la fecha de retirada, desea restablecer los valores predeterminados de las configuraciones de seguridad, puede hacerlo a través de API o Powershell mediante las [siguientes instrucciones](https://aka.ms/ascresetsecurityconfigurations).
 
 ![Edición de las opciones de configuración de seguridad][17]
 
-### <a name="edit-security-configurations---the-new-experience"></a>Editar configuraciones de seguridad: la nueva experiencia
+### <a name="edit-security-configurations---the-new-experience"></a>Edición de las opciones de configuración de seguridad: la nueva experiencia
 
-Tenemos previsto habilitar Security Center admitir la [agente de configuración de invitado](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration). Dicha actualización permitirá que un conjunto de características mucho más completo, incluida la compatibilidad con varios sistemas operativos y la integración de las directivas de invitado de Azure para las configuraciones de invitado. Después de que estos cambios están habilitados, también tendrá la capacidad de controlar las configuraciones de escalado y aplicar automáticamente a los nuevos recursos.
+Tenemos previsto habilitar Security Center para admitir el [agente de configuración de invitados](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration). Dicha actualización permitirá que un conjunto de características mucho más completo, incluida la compatibilidad con más sistemas operativos y la integración de las directivas en invitado de Azure para las configuraciones de invitado. Después de que estos cambios estén habilitados, también tendrá la posibilidad de controlar las configuraciones a escala y aplicarlas automáticamente a los nuevos recursos.
 
-## Panel seguridad y auditoría para las áreas de trabajo de Log Analytics<a name="menu_securityomsdashboard"></a>
+## Panel Seguridad y auditoría para áreas de trabajo de Log Analytics<a name="menu_securityomsdashboard"></a>
 
-El panel security and audit se utilizó originalmente en el portal de OMS. En Log Analytics, el panel proporciona una introducción al área de trabajo de eventos de seguridad importantes y las amenazas, un mapa de inteligencia sobre amenazas y una evaluación de identidad y acceso de eventos de seguridad que se guardan en el área de trabajo. Nos estamos quitando el panel. Como ya se han recomendado en el panel de interfaz de usuario, le recomendamos que, para realizar la transición a Azure Security Center.
+El panel Seguridad y auditoría se utilizaba originalmente en el portal de OMS. En Log Analytics, el panel proporciona una introducción por área de trabajo de amenazas y eventos de seguridad importantes, un mapa de inteligencia de amenazas y una evaluación de identidad y acceso de eventos de seguridad que se guardan en el área de trabajo. Vamos a quitar el panel. Como ya hemos recomendado en la interfaz de usuario del panel, le recomendamos que realice la transición a Azure Security Center.
 
 ![Panel de seguridad de log Analytics][18]
 
-### <a name="security-and-audit-dashboard---the-new-experience"></a>Panel de Security and audit - la nueva experiencia
+### <a name="security-and-audit-dashboard---the-new-experience"></a>Panel Seguridad y auditoría: la nueva experiencia
 
-Le recomendamos que cambie a Azure Security Center. Proporciona la misma información general de seguridad en varias suscripciones y las áreas de trabajo asociados a ellos, además de establece una característica más completa.
+Le recomendamos que cambie a Azure Security Center. Proporciona la misma información general de seguridad en varias suscripciones y las áreas de trabajo asociadas a ellas, además de un completo conjunto de características.
 
-Puede obtener las consultas de Log Analytics originales que rellenan el panel seguridad y auditoría en el [repositorio de GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards) de Security Center.
+Puede obtener las consultas originales de Log Analytics que rellenan el panel Seguridad y auditoría en el [repositorio de GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards) de Security Center.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre [Azure Security Center](https://docs.microsoft.com/azure/security-center/)
-- Obtenga más información sobre [Azure Sentinel](https://docs.microsoft.com/azure/sentinel).
+- Más información sobre [Azure Sentinel](https://docs.microsoft.com/azure/sentinel).
 
 <!--Image references - events-->
 [1]: ./media/security-center-features-retirement-july2019/asc_events_dashboard.png

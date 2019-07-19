@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8c23e429966cf9a1e93ac46ea3ecd11744761872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1c6f8074dab19b18f695763b160e4aeffe3ac44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148617"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204833"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminación temporal de blobs de Azure Storage
 Azure Storage ofrece la posibilidad de eliminar temporalmente objetos de blob, con el fin de que pueda recuperar más fácilmente los datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan modificado o eliminado por error.
@@ -205,7 +205,7 @@ Para buscar la directiva de retención de eliminación temporal actual, use el s
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-### <a name="azure-cli"></a>Azure CLI 
+### <a name="azure-cli"></a>CLI de Azure 
 Para habilitar la eliminación temporal, actualice las propiedades del servicio del cliente del blob:
 
 ```azurecli-interactive
@@ -274,13 +274,10 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="should-i-use-soft-delete"></a>¿Debo usar la eliminación temporal?
-Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de almacenamiento modifiquen o borren sus datos, es aconsejable activar la eliminación temporal. La eliminación temporal forma parte de una estrategia de protección de datos y puede ayudarle a evitar la pérdida accidental de datos.
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>¿Hay ninguna consideración especial para usar la eliminación temporal?
+Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de almacenamiento modifiquen o borren sus datos, es aconsejable activar la eliminación temporal. Habilitar eliminación temporal para datos sobrescritos con frecuencia puede generar mayores cargos por capacidad de almacenamiento y una mayor latencia al enumerar los blobs. Esto se puede mitigar almacenando los datos sobrescritos con frecuencia en una cuenta de almacenamiento independiente con la eliminación temporal deshabilitada. 
 
 ## <a name="faq"></a>Preguntas más frecuentes
-**¿Hay ninguna consideración especial para usar la eliminación temporal?**  
-Habilitar eliminación temporal para datos sobrescritos con frecuencia puede generar mayores cargos por capacidad de almacenamiento y una mayor latencia al enumerar los blobs. Esto se puede mitigar almacenando los datos sobrescritos con frecuencia en una cuenta de almacenamiento independiente con la eliminación temporal deshabilitada. 
-
 **¿Para qué tipos de almacenamiento se puede usar la eliminación temporal?**  
 Actualmente, la eliminación temporal sólo está disponible para el almacenamiento de blobs (objeto).
 

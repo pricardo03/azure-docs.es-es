@@ -1,6 +1,6 @@
 ---
-title: 'Aplicación de escritorio que llama a web API (información general): la plataforma de identidad de Microsoft'
-description: Aprenda a crear una aplicación de escritorio que llama a web API (información general)
+title: 'Aplicación de escritorio que llama a las API web (información general): Plataforma de identidad de Microsoft'
+description: Obtenga información sobre cómo compilar una aplicación de escritorio que llame a API web (información general)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,16 +15,16 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44d31011ca70bbebaf994b5fb80a45eee8dbde40
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 204e230f7ff0897d2ba97213ebc836aff9d0324b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076951"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204646"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Escenario: Aplicación de escritorio que llama a las API web
 
-Aprenda todo lo que necesita para compilar una aplicación de escritorio que llama a las API web
+Aprenda a crear una aplicación de escritorio que llame a las API web
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,36 +32,36 @@ Aprenda todo lo que necesita para compilar una aplicación de escritorio que lla
 
 ## <a name="getting-started"></a>Introducción
 
-Si no lo ha hecho ya, cree su primera aplicación siguiendo la Guía de inicio rápido de escritorio de .NET o la Guía de inicio rápido UWP:
+Si aún no lo ha hecho, cree su primera aplicación siguiendo el inicio rápido del escritorio de .NET o el inicio rápido de UWP:
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Adquirir un token y llamar a Microsoft Graph API desde una aplicación de escritorio de Windows](./quickstart-v2-windows-desktop.md)
+> [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows](./quickstart-v2-windows-desktop.md)
 
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Adquirir un token y llamar a Microsoft Graph API desde una aplicación para UWP](./quickstart-v2-uwp.md)
+> [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de UWP](./quickstart-v2-uwp.md)
 
 ## <a name="overview"></a>Información general
 
-Escribir una aplicación de escritorio, y desea iniciar sesión en su aplicación a los usuarios y llamar a web API como Microsoft Graph, otros APIs Microsoft o su propia API web. Tiene varias posibilidades:
+Escribe una aplicación de escritorio y desea que los usuarios inicien sesión en la aplicación y llama a las API web como Microsoft Graph, otras API de Microsoft o su propia API web. Tiene varias posibilidades:
 
-- Si su aplicación de escritorio es compatible con los controles de gráficos, por ejemplo si es una aplicación Windows.Form o una aplicación de WPF, puede usar la adquisición de tokens interactiva.
-- Para las aplicaciones de Windows hospedado, también es posible que las aplicaciones que se ejecutan en los equipos unidos a un dominio de Windows o unido AAD para adquirir un token en modo silencioso utilizando la autenticación integrada de Windows.
-- Por último, y aunque no se recomienda, puede usar el nombre de usuario y contraseña en las aplicaciones de cliente público. Sigue siendo necesario en algunos escenarios (como DevOps), pero tenga en cuenta que usarlo se imponen restricciones en la aplicación. Por ejemplo, no puede iniciar sesión en los usuarios que necesiten para realizar la autenticación multifactor (acceso condicional). También la aplicación no se beneficiará de inicio de sesión único (SSO).
+- Si su aplicación de escritorio admite controles gráficos, por ejemplo si es una aplicación Windows.Form o una aplicación WPF, puede utilizar la adquisición interactiva de tokens.
+- En el caso de las aplicaciones hospedadas en Windows, también es posible que las aplicaciones que se ejecutan en equipos unidos a un dominio de Windows o unidos a AAD adquieran un token de forma silenciosa mediante el uso de la autenticación integrada de Windows.
+- Por último, y aunque no es recomendable, puede usar el nombre de usuario y la contraseña en las aplicaciones clientes públicas. Todavía es necesario en algunos escenarios (como DevOps), pero tenga en cuenta que su uso impondrá restricciones a la aplicación. Por ejemplo, no puede iniciar sesión si el usuario necesita realizar la autenticación multifactor (acceso condicional). Además, la aplicación no se beneficiará del inicio de sesión único (SSO).
 
-  Es también contra los principios de la autenticación moderna y solo se proporciona por motivos de herencia.
+  También va en contra de los principios de la autenticación moderna y solo se proporciona por motivos de herencia.
 
   ![Aplicación de escritorio](media/scenarios/desktop-app.svg)
 
-- Si está escribiendo una herramienta de línea de comandos portable - probablemente una aplicación .NET Core que se ejecutan en Linux o Mac, no podrá usar la autenticación interactiva de ningún (como .NET Core no proporciona un [explorador Web](https://aka.ms/msal-net-uses-web-browser)), ni integrado Autenticación de Windows. En ese caso, la mejor opción es utilizar el flujo de código de dispositivo. Este flujo también se usa para las aplicaciones sin un explorador, como las aplicaciones de iOT
+- Si está escribiendo una herramienta de línea de comandos portátil (probablemente una aplicación .NET Core que se ejecuta en Linux o Mac) no podrá usar ni la autenticación interactiva (ya que .NET Core no proporciona un [explorador](https://aka.ms/msal-net-uses-web-browser)), ni la autenticación integrada de Windows. En ese caso, la mejor opción es utilizar el flujo de código de dispositivo. Este flujo también se utiliza para las aplicaciones sin un explorador, como las aplicaciones de IoT.
 
-  ![Aplicación browserless](media/scenarios/device-code-flow-app.svg)
+  ![Aplicación sin explorador](media/scenarios/device-code-flow-app.svg)
 
 ## <a name="specifics"></a>Características específicas
 
-Las aplicaciones de escritorio tienen un número de particularidades, que depende principalmente de si la aplicación utiliza la autenticación interactiva o no.
+Las aplicaciones de escritorio tienen una serie de particularidades, que dependen principalmente de si la aplicación utiliza la autenticación interactiva o no.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aplicación de escritorio - registro de aplicación](scenario-desktop-app-registration.md)
+> [Aplicación de escritorio: registro de aplicaciones](scenario-desktop-app-registration.md)

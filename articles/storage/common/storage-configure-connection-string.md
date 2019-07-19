@@ -1,48 +1,57 @@
 ---
-title: Configuración de una cadena de conexión para Azure Storage | Microsoft Docs
-description: Configure una cadena de conexión para una cuenta de Azure Storage. Una cadena de conexión contiene la información necesaria para autorizar el acceso a una cuenta de almacenamiento desde una aplicación en tiempo de ejecución.
+title: Configuración de una cadena de conexión para Azure Storage
+description: Configure una cadena de conexión para una cuenta de Azure Storage. Una cadena de conexión contiene la información necesaria para autorizar el acceso a una cuenta de almacenamiento desde una aplicación en tiempo de ejecución mediante la autorización de clave compartida.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ef01cf194ea7a0afea033d2888df946208073e41
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.openlocfilehash: 7c83b382f8aca3d8fda1c0de4785c51f3f3b1fc5
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65874116"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302520"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuración de las cadenas de conexión de Azure Storage
 
-Una cadena de conexión incluye la información de autenticación que requiere una aplicación para acceder a los datos de una cuenta de Azure Storage en tiempo de ejecución. Las cadenas de conexión se pueden configurar para:
+Una cadena de conexión incluye la información de autenticación que requiere una aplicación para acceder a los datos de una cuenta de Azure Storage en tiempo de ejecución mediante la autorización de clave compartida. Las cadenas de conexión se pueden configurar para:
 
 * Conectarse al emulador de Azure Storage.
 * Acceder a la cuenta de Azure Storage.
 * Acceder a recursos especificados en Azure a través de una firma de acceso compartido (SAS).
 
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
+
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-## <a name="storing-your-connection-string"></a>Almacenamiento de la cadena de conexión
+## <a name="view-and-copy-a-connection-string"></a>Visualización y copia de una cadena de conexión
+
+[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
+
+## <a name="store-a-connection-string"></a>Almacenamiento de una cadena de conexión
+
 La aplicación necesita acceder a la cadena de conexión en tiempo de ejecución para autorizar las solicitudes realizadas a Azure Storage. Tiene varias opciones para almacenar una cadena de conexión:
 
+* Puede almacenar la cadena de conexión en una variable de entorno.
 * Una aplicación que se ejecuta en el escritorio o en un dispositivo puede almacenar la cadena de conexión en un archivo **app.config** o **web.config**. Agregue la cadena de conexión a la sección **AppSettings** en estos archivos.
 * Una aplicación que se ejecuta en un servicio en la nube de Azure puede almacenar la cadena de conexión en el [archivo de esquema de configuración de servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Agregue la cadena de conexión a la sección **ConfigurationSettings** del archivo de configuración del servicio.
-* La cadena de conexión se puede usar directamente en el código. Sin embargo, es aconsejable que en la mayoría de los escenarios se recomienda almacenar la cadena de configuración en un archivo de configuración.
 
 El almacenamiento de la cadena de conexión en un archivo de configuración facilita la actualización de la cadena de conexión para que alterne entre el emulador de Storage y una cuenta de Azure Storage en la nube. Solo necesitará editar la cadena de conexión para apuntar al entorno de destino.
 
 Puede usar el [Administrador de configuración de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) para acceder a la cadena de conexión en tiempo de ejecución independientemente de dónde se ejecute la aplicación.
 
-## <a name="create-a-connection-string-for-the-storage-emulator"></a>Creación de una cadena de conexión para el emulador de Storage
+## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Configuración de una cadena de conexión para el emulador de almacenamiento
+
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Para más información acerca del emulador de Storage, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](storage-use-emulator.md).
 
-## <a name="create-a-connection-string-for-an-azure-storage-account"></a>Creación de una cadena de conexión para una cuenta de Azure Storage
+## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Configuración de una cadena de conexión para una cuenta de Azure Storage
+
 Para crear una cadena de conexión para una cuenta de Azure Storage, use el siguiente formato. Indique si desea conectarse a la cuenta de almacenamiento a través de HTTPS (recomendado) o HTTP, reemplace `myAccountName` por el nombre de la cuenta de almacenamiento y reemplace `myAccountKey` por la clave de acceso a la cuenta:
 
 `DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey`
@@ -58,9 +67,11 @@ Aunque Azure Storage admite HTTP y HTTPS en una cadena de conexión, *se recomie
 >
 
 ## <a name="create-a-connection-string-using-a-shared-access-signature"></a>Creación de una cadena de conexión con una firma de acceso compartido
+
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ## <a name="create-a-connection-string-for-an-explicit-storage-endpoint"></a>Creación de una cadena de conexión para un punto de conexión de Storage explícito
+
 En una cadena de conexión se pueden especificar puntos de conexión de servicio explícitos, en lugar de usar los predeterminados. Para crear una cadena de conexión que especifique un punto de conexión explícito, especifique el punto de conexión de servicio completo para cada servicio, incluida la especificación de protocolo (HTTPS (recomendado) o HTTP) con el formato siguiente:
 
 ```
@@ -107,7 +118,8 @@ Si ha asignado un punto de conexión de Storage a un dominio personalizado y omi
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Creación de una cadena de conexión con el sufijo de un punto de conexión
-Para crear una cadena de conexión para un servicio de almacenamiento en regiones o instancias con sufijos de punto de conexión diferente, como para Azure China 21Vianet o Azure Government, use el siguiente formato de cadena de conexión. Indique si desea conectarse a la cuenta de almacenamiento a través de HTTP (recomendado) o HTTPS, reemplace `myAccountName` por el nombre de la cuenta de almacenamiento, reemplace `myAccountKey` por la clave de acceso a la cuenta y reemplace `mySuffix` por el sufijo del identificador URI:
+
+Para crear una cadena de conexión para un servicio de Storage en regiones o instancias con sufijos de punto de conexión diferentes, como Azure China 21Vianet o Azure Government, utilice el siguiente formato de cadena de conexión. Indique si desea conectarse a la cuenta de almacenamiento a través de HTTP (recomendado) o HTTPS, reemplace `myAccountName` por el nombre de la cuenta de almacenamiento, reemplace `myAccountKey` por la clave de acceso a la cuenta y reemplace `mySuffix` por el sufijo del identificador URI:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -116,7 +128,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Este es un ejemplo de cadena de conexión de servicios de almacenamiento de Azure China 21Vianet:
+Este es un ejemplo de cadena de conexión para los servicios de Storage en Azure China 21Vianet:
 
 ```
 DefaultEndpointsProtocol=https;
@@ -126,10 +138,12 @@ EndpointSuffix=core.chinacloudapi.cn;
 ```
 
 ## <a name="parsing-a-connection-string"></a>Análisis de una cadena de conexión
+
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Uso del emulador de Azure Storage para desarrollo y pruebas](storage-use-emulator.md)
 * [Exploradores de Azure Storage](storage-explorers.md)
-* [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md)
+* [Uso de Firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 

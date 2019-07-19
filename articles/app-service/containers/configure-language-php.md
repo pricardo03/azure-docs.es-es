@@ -1,6 +1,6 @@
 ---
-title: 'Configurar aplicaciones PHP: Azure App Service | Microsoft Docs'
-description: Obtenga información sobre cómo configurar aplicaciones PHP para que funcione en Azure App Service
+title: 'Configuración de aplicaciones de PHP: Azure App Service | Microsoft Docs'
+description: Obtenga información sobre cómo configurar las aplicaciones de PHP para que funcionen en Azure App Service.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -13,28 +13,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 637feb855c7816dfb26229c5a65a069260a58cd3
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.openlocfilehash: 279660d903b3b0e893c3ccddb89da7c6dc42fa09
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003093"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205074"
 ---
-# <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurar una aplicación PHP de Linux para Azure App Service
+# <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configuración de una aplicación de PHP en Linux para Azure App Service
 
-Esta guía muestra cómo configurar el tiempo de ejecución PHP integrado para aplicaciones web, back-ends móviles y aplicaciones de API en Azure App Service.
+En esta guía, se explica cómo se configura el tiempo de ejecución de PHP integrado con aplicaciones web, back-ends para dispositivos móviles y aplicaciones de API de Azure App Service.
 
-Esta guía proporciona los conceptos clave e instrucciones para desarrolladores PHP que usa un contenedor de Linux integrado en App Service. Si nunca ha usado Azure App Service, siga el [inicio rápido PHP](quickstart-php.md) y [PHP con MySQL tutorial](tutorial-php-mysql-app.md) primero.
+En esta guía se incluyen conceptos clave e instrucciones para los desarrolladores de PHP que usan un contenedor Linux integrado en App Service. Si nunca ha usado Azure App Service, siga primero la [guía de inicio rápido de PHP](quickstart-php.md) y el [tutorial de PHP con MySQL](tutorial-php-mysql-app.md).
 
-## <a name="show-php-version"></a>Mostrar la versión PHP
+## <a name="show-php-version"></a>Visualización de la versión de PHP
 
-Para mostrar la versión actual de PHP, ejecute el siguiente comando el [Cloud Shell](https://shell.azure.com):
+Para mostrar la versión actual de PHP, ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-Para mostrar todas las versiones de PHP, ejecute el siguiente comando el [Cloud Shell](https://shell.azure.com):
+Para mostrar todas las versiones compatibles de PHP, ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep PHP
@@ -42,17 +42,17 @@ az webapp list-runtimes --linux | grep PHP
 
 ## <a name="set-php-version"></a>Establecer la versión de PHP
 
-Ejecute el siguiente comando el [Cloud Shell](https://shell.azure.com) para establecer la versión de PHP en 7.2:
+Ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com) para establecer la versión 7.2 de PHP:
 
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
 ```
 
-## <a name="run-composer"></a>Ejecute el Compositor de reglas
+## <a name="run-composer"></a>Ejecución de Composer
 
-De forma predeterminada, no se ejecuta Kudu [Composer](https://getcomposer.org/). Para habilitar la automatización de Composer durante la implementación de Kudu, deberá suministrar un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+De forma predeterminada, Kudu no ejecuta [Composer](https://getcomposer.org/). Para habilitar la automatización de Composer durante la implementación de Kudu, debe proporcionar un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
-Desde una ventana del terminal local, cambie el directorio a la raíz del repositorio. Siga el [pasos de instalación de línea de comandos](https://getcomposer.org/download/) descargar *composer.phar*.
+Desde una ventana del terminal local, cambie el directorio a la raíz del repositorio. Siga los [pasos de instalación mediante la línea de comandos](https://getcomposer.org/download/) para descargar *composer.phar*.
 
 Ejecute los comandos siguientes:
 
@@ -61,9 +61,9 @@ npm install kuduscript -g
 kuduscript --php --scriptType bash --suppressPrompt
 ```
 
-La raíz del repositorio tiene ahora dos nuevos archivos además *composer.phar*: *.deployment* y *deploy.sh*. Estos archivos funcionan tanto para las versiones de Windows y Linux de App Service.
+La raíz del repositorio tiene ahora dos nuevos archivos además de *composer.phar*: *.deployment* y *deploy.sh*. Estos archivos funcionan tanto para las versiones de Windows y Linux de App Service.
 
-Abra *deploy.sh* y busque el `Deployment` sección. Reemplace toda la sección con el código siguiente:
+Abra *deploy.sh* y busque la sección `Deployment`. Reemplace toda la sección por el código siguiente:
 
 ```bash
 ##################################################################################################################################
@@ -93,11 +93,11 @@ fi
 ##################################################################################################################################
 ```
 
-Confirme todos los cambios e implemente el código nuevo. Compositor de reglas ahora se ejecutará como parte de la automatización de la implementación.
+Confirme todos los cambios e implemente el código de nuevo. Composer ahora debería estar funcionando como parte de la automatización de la implementación.
 
 ## <a name="customize-start-up"></a>Personalización del inicio
 
-De forma predeterminada, el contenedor PHP integrado, ejecute el servidor Apache. En el inicio, se ejecuta `apache2ctl -D FOREGROUND"`. Si lo desea, puede ejecutar un comando diferente en el inicio, ejecutando el siguiente comando en el [Cloud Shell](https://shell.azure.com):
+De forma predeterminada, el contenedor PHP integrado, ejecute el servidor Apache. Al iniciarse, ejecuta `apache2ctl -D FOREGROUND"`. Si lo desea, puede ejecutar otro comando al inicio si ejecuta lo siguiente en [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -105,17 +105,17 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Acceso a variables de entorno
 
-En App Service, puede [establecer la configuración de la aplicación](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) fuera del código de la aplicación. Puede tener acceso a ellos mediante el estándar [getenv()](https://secure.php.net/manual/function.getenv.php) patrón. Por ejemplo, para acceder a una configuración de una aplicación denominada `DB_HOST`, use el código siguiente:
+En App Service, puede [establecer la configuración de la aplicación](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) fuera del código de la aplicación. Luego podrá acceder a ellas mediante el patrón estándar de [getenv()](https://secure.php.net/manual/function.getenv.php). Por ejemplo, para acceder a una configuración de una aplicación denominada `DB_HOST`, use el código siguiente:
 
 ```php
 getenv("DB_HOST")
 ```
 
-## <a name="change-site-root"></a>Raíz del sitio de cambio
+## <a name="change-site-root"></a>Cambio de la raíz del sitio
 
-El marco web de su elección puede usar un subdirectorio como la raíz del sitio. Por ejemplo, [Laravel](https://laravel.com/), usa el `public/` subdirectorio como la raíz del sitio.
+La plataforma web que prefiera puede usar un subdirectorio como la raíz del sitio. Por ejemplo, [Laravel](https://laravel.com/) usa el subdirectorio `public/` como la raíz del sitio.
 
-La imagen PHP predeterminada para App Service utiliza Apache y no le permite personalizar la raíz del sitio para la aplicación. Para solucionar esta limitación, agregue un *.htaccess* archivo a la raíz del repositorio con el siguiente contenido:
+La imagen de PHP predeterminada para App Service utiliza Apache y no le permite personalizar la raíz del sitio para la aplicación. Para solucionar esta limitación, agregue un archivo *.htaccess* a la raíz del repositorio con el siguiente contenido:
 
 ```
 <IfModule mod_rewrite.c>
@@ -139,19 +139,19 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 
 Los marcos web más usados le permiten acceder a la información de `X-Forwarded-*` en el patrón de aplicación estándar. En [CodeIgniter](https://codeigniter.com/), [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) comprueba el valor de `X_FORWARDED_PROTO` de forma predeterminada.
 
-## <a name="customize-phpini-settings"></a>Personalizar la configuración de php.ini
+## <a name="customize-phpini-settings"></a>Personalización de la configuración de php.ini
 
-Si necesita realizar cambios en la instalación de PHP, puede cambiar cualquiera de los [directivas de php.ini](https://www.php.net/manual/ini.list.php) siguiendo estos pasos.
+Si necesita hacer cambios en su instalación de PHP, puede cambiar cualquiera de las [directivas php.ini](https://www.php.net/manual/ini.list.php) siguiendo estos pasos.
 
 > [!NOTE]
-> La mejor forma de ver la versión de PHP y la actual *php.ini* configuración consiste en llamar a [phpinfo()](https://php.net/manual/function.phpinfo.php) en la aplicación.
+> La mejor forma de ver la versión de PHP y la configuración de *php.ini* actual consiste en llamar a [phpinfo()](https://php.net/manual/function.phpinfo.php) en la aplicación.
 >
 
-### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalizar-no-PHP_INI_SYSTEM directivas
+### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalización de las directivas que no son de PHP_INI_SYSTEM
 
-Personalizar directivas PHP_INI_USER, PHP_INI_PERDIR y PHP_INI_ALL (consulte [directivas de php.ini](https://www.php.net/manual/ini.list.php)), agregue un *.htaccess* archivo al directorio raíz de la aplicación.
+Para personalizar las directivas PHP_INI_USER, PHP_INI_PERDIR y PHP_INI_ALL (consulte las [directivas de php.ini](https://www.php.net/manual/ini.list.php)), agregue un archivo *.htaccess* al directorio raíz de la aplicación.
 
-En el *.htaccess* , agregue las directivas mediante el `php_value <directive-name> <value>` sintaxis. Por ejemplo:
+En el archivo *.htaccess*, agregue las directivas mediante la sintaxis `php_value <directive-name> <value>`. Por ejemplo:
 
 ```
 php_value upload_max_filesize 1000M
@@ -163,31 +163,31 @@ php_value display_errors On
 php_value upload_max_filesize 10M
 ```
 
-Volver a implementar la aplicación con los cambios y reiniciarlo. Si implementa con Kudu (por ejemplo, mediante [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)), se reinicia automáticamente después de la implementación.
+Vuelva a implementar la aplicación con los cambios y reiníciela. Si la implementa con Kudu (por ejemplo, mediante [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)), se reinicia automáticamente después de la implementación.
 
-Como alternativa al uso de *.htaccess*, puede usar [ini_set ()](https://www.php.net/manual/function.ini-set.php) en la aplicación para personalizar estas directivas no PHP_INI_SYSTEM.
+Como alternativa al uso de *.htaccess*, puede usar [ini_set()](https://www.php.net/manual/function.ini-set.php) en la aplicación para personalizar estas directivas que no son de PHP_INI_SYSTEM.
 
-### <a name="customize-phpinisystem-directives"></a>Personalizar directivas PHP_INI_SYSTEM
+### <a name="customize-php_ini_system-directives"></a>Personalización de las directivas de PHP_INI_SYSTEM
 
-Para personalizar las directivas PHP_INI_SYSTEM (consulte [directivas de php.ini](https://www.php.net/manual/ini.list.php)), no puede usar el *.htaccess* enfoque. App Service proporciona un mecanismo diferente utilizando el `PHP_INI_SCAN_DIR` configuración de la aplicación.
+Para personalizar las directivas de PHP_INI_SYSTEM (consulte [directivas de php.ini](https://www.php.net/manual/ini.list.php)), no puede usar el enfoque *.htaccess*. App Service proporciona un mecanismo diferente mediante la configuración de la aplicación `PHP_INI_SCAN_DIR`.
 
-En primer lugar, ejecute el siguiente comando el [Cloud Shell](https://shell.azure.com) para agregar una aplicación llamada `PHP_INI_SCAN_DIR`:
+En primer lugar, ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com) para agregar una configuración de aplicación llamada `PHP_INI_SCAN_DIR`:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d` es el directorio predeterminado donde *php.ini* existe. `/home/site/ini` es el directorio personalizado en el que va a agregar un personalizado *.ini* archivo. Separe los valores con un `:`.
+`/usr/local/etc/php/conf.d` es el directorio predeterminado donde se encuentra *php.ini*. `/home/site/ini` es el directorio personalizado en el que agregará un archivo personalizado *.ini*. Separe los valores con un `:`.
 
-Vaya a la sesión SSH web con el contenedor de Linux (`https://cephalin-container.scm.azurewebsites.net/webssh/host`).
+Vaya a la sesión SSH web con el contenedor Linux (`https://cephalin-container.scm.azurewebsites.net/webssh/host`).
 
-Cree un directorio en `/home/site` llamado `ini`, a continuación, cree un *.ini* de archivos en el `/home/site/ini` directorio (por ejemplo, *settings.ini)* con las directivas que desea personalizar. Utilice la misma sintaxis que usaría en un *php.ini* archivo. 
+Cree un directorio en `/home/site` llamado `ini`, después cree un archivo *.ini* en el directorio `/home/site/ini` (por ejemplo, *settings.ini)* con las directivas que quiera personalizar. Utilice la misma sintaxis que usaría en un archivo *php.ini*. 
 
 > [!TIP]
-> En los contenedores de Linux integrados en App Service, */home* se usa como almacenamiento compartido persistente. 
+> En los contenedores Linux incorporados en App Service, */home* se utiliza como almacenamiento compartido persistente. 
 >
 
-Por ejemplo, para cambiar el valor de [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) ejecute los siguientes comandos:
+Por ejemplo, para cambiar el valor de [expose_php](https://php.net/manual/ini.core.php#ini.expose-php), ejecute los siguientes comandos:
 
 ```bash
 cd /home/site
@@ -195,30 +195,30 @@ mkdir ini
 echo "expose_php = Off" >> ini/setting.ini
 ```
 
-Para que surtan efecto los cambios, reinicie la aplicación.
+Para que los cambios surtan efecto, reinicie la aplicación.
 
-## <a name="enable-php-extensions"></a>Habilitar extensiones PHP
+## <a name="enable-php-extensions"></a>Habilitación de las extensiones de PHP
 
-Las instalaciones de PHP integradas contienen las extensiones más usadas. Puede habilitar extensiones adicionales en la misma forma que [personalizar directivas de php.ini](#customize-php_ini_system-directives).
+Las instalaciones de PHP integradas contienen las extensiones más usadas. Puede habilitar extensiones adicionales en la misma forma que [personaliza las directivas de php.ini](#customize-php_ini_system-directives).
 
 > [!NOTE]
-> La mejor forma de ver la versión de PHP y la actual *php.ini* configuración consiste en llamar a [phpinfo()](https://php.net/manual/function.phpinfo.php) en la aplicación.
+> La mejor forma de ver la versión de PHP y la configuración de *php.ini* actual consiste en llamar a [phpinfo()](https://php.net/manual/function.phpinfo.php) en la aplicación.
 >
 
 Para habilitar extensiones adicionales, siga los pasos que se detallan a continuación:
 
-Agregar un `bin` directorio al directorio raíz de la aplicación y put el `.so` archivos de extensión en ella (por ejemplo, *mongodb.so*). Asegúrese de que las extensiones son compatibles con la versión de PHP en Azure y son VC9 y no-seguras para subprocesos (nts).
+Agregue un directorio `bin` al directorio raíz de la aplicación y coloque los archivos de extensión `.so` en él (por ejemplo, *mongodb.so*). Asegúrese de que las extensiones sean compatibles con la versión de PHP en Azure y que sean compatibles con VC9 y no seguras para subprocesos (nts).
 
-Implementar los cambios.
+Implemente los cambios
 
-Siga los pasos de [directivas personalizar PHP_INI_SYSTEM](#customize-php_ini_system-directives), agregar las extensiones en personalizado *.ini* de archivos con la [extensión](https://www.php.net/manual/ini.core.php#ini.extension) o [zend_extension ](https://www.php.net/manual/ini.core.php#ini.zend-extension) directivas.
+Siga los pasos que se indican en [Personalización de las directivas de PHP_INI_SYSTEM](#customize-php_ini_system-directives), agregue las extensiones al archivo *custom.ini* con las directivas [extension](https://www.php.net/manual/ini.core.php#ini.extension) o [zend_extension](https://www.php.net/manual/ini.core.php#ini.zend-extension).
 
 ```ini
 extension=/home/site/wwwroot/bin/mongodb.so
 zend_extension=/home/site/wwwroot/bin/xdebug.so
 ```
 
-Para que surtan efecto los cambios, reinicie la aplicación.
+Para que los cambios surtan efecto, reinicie la aplicación.
 
 ## <a name="access-diagnostic-logs"></a>Acceso a los registros de diagnóstico
 
@@ -230,14 +230,14 @@ Para que surtan efecto los cambios, reinicie la aplicación.
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-Cuando una aplicación PHP en funcionamiento se comporta de manera diferente en App Service o tiene errores, intente lo siguiente:
+Cuando una aplicación de PHP en funcionamiento se comporta de manera diferente en App Service o genera errores, intente lo siguiente:
 
 - [Acceso a la secuencia de registros](#access-diagnostic-logs).
-- Probar la aplicación localmente en el modo de producción. App Service se ejecuta las aplicaciones de Node.js en el modo de producción, por lo que deberá asegurarse de que el proyecto funciona según lo previsto en modo de producción localmente. Por ejemplo:
-    - En función de su *composer.json*, distintos paquetes pueden instalarse para el modo de producción (`require` frente a `require-dev`).
-    - Algunos marcos web pueden implementar los archivos estáticos de forma diferente en modo de producción.
-    - Algunos marcos web pueden usar scripts de inicio personalizada cuando se ejecuta en modo de producción.
-- Ejecute la aplicación en App Service en modo de depuración. Por ejemplo, en [Laravel](https://meanjs.org/), puede configurar la aplicación para generar mensajes de depuración en producción por [configuración la `APP_DEBUG` configuración de aplicación para `true` ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
+- Pruebe la aplicación localmente en modo de producción. App Service ejecuta las aplicaciones de Node.js en el modo de producción, por lo que deberá asegurarse de que el proyecto funciona según lo previsto en modo de producción localmente. Por ejemplo:
+    - En función de su archivo *composer.json*, pueden instalarse distintos paquetes para el modo de producción (`require` frente a `require-dev`).
+    - Algunas plataformas web pueden implementar archivos estáticos de forma diferente en modo de producción.
+    - Algunas plataformas web pueden usar scripts de inicio personalizados cuando se ejecutan en modo de producción.
+- Ejecute la aplicación en App Service en el modo de depuración. Por ejemplo, en [Laravel](https://meanjs.org/), puede configurar la aplicación para que genere mensajes de depuración en producción al [configurar el ajuste de la aplicación `APP_DEBUG` en `true`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ### <a name="robots933456"></a>robots933456
 
@@ -247,7 +247,7 @@ Puede ver el mensaje siguiente en los registros del contenedor:
 2019-04-08T14:07:56.641002476Z "-" - - [08/Apr/2019:14:07:56 +0000] "GET /robots933456.txt HTTP/1.1" 404 415 "-" "-"
 ```
 
-Puede ignorar este mensaje. `/robots933456.txt` es una ruta de acceso de dirección URL ficticia que App Service se usa para comprobar si el contenedor es capaz de atender las solicitudes. Una respuesta 404 simplemente indica que la ruta de acceso no existe, pero permite saber que el contenedor está en buen estado y listo para responder a las solicitudes de App Service.
+Puede omitir este mensaje sin problemas. `/robots933456.txt` es una ruta de acceso de la dirección URL ficticia que utiliza App Service para comprobar si el contenedor es capaz de atender las solicitudes. Una respuesta 404 simplemente indica que la ruta de acceso no existe, pero permite a App Service saber que el contenedor está en buen estado y listo para responder a las solicitudes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

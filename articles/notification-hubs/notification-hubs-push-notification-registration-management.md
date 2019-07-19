@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: fffa6784702f239e0af0e9e88a4b9937d20b86ed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685386"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488627"
 ---
 # <a name="registration-management"></a>Administración de registros
 
@@ -45,7 +45,7 @@ Una Instalación es un registro mejorado que incluye un conjunto de propiedades 
 Las siguientes son algunas ventajas clave de usar las instalaciones:
 
 - Crear o actualizar una instalación es completamente idempotente. Por lo tanto, puede volver a intentarla sin preocuparse de obtener registros duplicados.
-- El modelo de instalación es compatible con un formato de etiqueta especial (`$InstallationId:{INSTALLATION_ID}`) que permite enviar una notificación directamente en el dispositivo específico. Por ejemplo, si el código de la aplicación establece un identificador de instalación de `joe93developer` para este dispositivo concreto, un desarrollador puede tener como destino este dispositivo al enviar una notificación a la `$InstallationId:{joe93developer}` etiqueta. Esto le permite tener como destino un dispositivo específico sin tener que realizar ninguna codificación adicional.
+- El modelo de instalación admite un formato de etiqueta especial (`$InstallationId:{INSTALLATION_ID}`) que permite enviar una notificación directamente al dispositivo específico. Por ejemplo, si el código de la aplicación establece un identificador de instalación de `joe93developer` para este dispositivo determinado, un desarrollador puede apuntar a este dispositivo al enviar una notificación a la etiqueta `$InstallationId:{joe93developer}`. Esto le permite dirigirse a un dispositivo específico sin tener que realizar ninguna codificación adicional.
 - El uso de las instalaciones también le permite realizar actualizaciones parciales de registros. La actualización parcial de una instalación se solicita con un método PATCH a través del [estándar JSON-Patch](https://tools.ietf.org/html/rfc6902). Esto resulta útil cuando desea actualizar las etiquetas del registro. No es necesario desplegar todo el registro y reenviar todas las etiquetas anteriores.
 
 Una instalación puede contener las siguientes propiedades. Para una lista completa de las propiedades de instalación, consulte los artículos de [creación o sobreescritura de una instalación con la API REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) o de [propiedades de instalación](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation).
@@ -90,6 +90,9 @@ Una instalación puede contener las siguientes propiedades. Para una lista compl
 > De forma predeterminada, los registros y las instalaciones no expiran.
 
 Los registros y las instalaciones deben contener un controlador PNS válido para cada dispositivo o canal. Debido a que los identificadores de PNS solo se pueden obtener en una aplicación cliente del dispositivo, un patrón es registrarse directamente en ese dispositivo con la aplicación cliente. Por otro lado, las consideraciones de seguridad y la lógica de negocios relacionadas con las etiquetas pueden requerir que administre el registro de dispositivos en el back-end de la aplicación.
+
+> [!NOTE]
+> La API Installations no admite el servicio de Baidu (si bien la API Registrations sí lo hace). 
 
 ### <a name="templates"></a>Plantillas
 
@@ -314,7 +317,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Ejemplo de código para el registro en un centro de notificaciones desde un dispositivo con un identificador de registro
 
-Desde el back-end de la aplicación, puede ejecutar operaciones de tipo CRUD en los registros. Por ejemplo: 
+Desde el back-end de la aplicación, puede ejecutar operaciones de tipo CRUD en los registros. Por ejemplo:
 
 ```
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");

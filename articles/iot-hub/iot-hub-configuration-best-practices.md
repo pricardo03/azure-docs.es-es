@@ -3,16 +3,16 @@ title: Procedimientos recomendados de configuración de dispositivos para Azure 
 description: Procedimientos recomendados para configurar dispositivos IoT a escala
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c97395981ea3af90c7b0c590cb049fccc7392304
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734837"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485806"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Procedimientos recomendados para la configuración de dispositivos en una solución de IoT
 
@@ -64,9 +64,11 @@ Estos son los procedimientos recomendados para los desarrolladores de soluciones
 
 * **Organizar los dispositivos mediante etiquetas de dispositivo gemelo:** la solución debe permitir que el operador defina anillos de calidad u otros conjuntos de dispositivos basados en diversas estrategias de implementación, como valores controlados. La organización de los dispositivos se puede implementar dentro de la solución mediante etiquetas de dispositivo gemelo y [consultas](iot-hub-devguide-query-language.md). La organización de los dispositivos es necesaria para permitir implementaciones de configuraciones con precisión y seguridad.
 
-* **Implementar [configuraciones automáticas de dispositivos](iot-hub-auto-device-config.md):** las configuraciones automáticas de dispositivos implementan y supervisan cambios de configuración en grandes conjuntos de dispositivos IoT mediante dispositivos gemelos. Las configuraciones automáticas de dispositivos están dirigidas a conjuntos de dispositivos gemelos mediante la **condición de destino**, que es una consulta basada en etiquetas de dispositivo gemelo o propiedades notificadas. El **contenido de destino** es el conjunto de propiedades deseadas que se establecerán en los dispositivo gemelos dirigidos. El contenido de destino se debe alinear con la estructura de dispositivo gemelo definida por el fabricante o integrador de hardware de IoT.
+* **Implementar [configuraciones automáticas de dispositivos](iot-hub-auto-device-config.md):** las configuraciones automáticas de dispositivos implementan y supervisan cambios de configuración en grandes conjuntos de dispositivos IoT mediante dispositivos gemelos.
 
-   Las **métricas** son consultas basadas en las propiedades notificadas del dispositivo gemelo, y se deben alinear también con la estructura de dispositivo gemelo definida por el fabricante o integrador de hardware de IoT. Las configuraciones automáticas de dispositivos también tienen la ventaja de que IoT Hub realiza operaciones de dispositivo gemelo a una velocidad que nunca supera los [límites](iot-hub-devguide-quotas-throttling.md) de lecturas y actualizaciones de dispositivos gemelos.
+   Las configuraciones automáticas de dispositivos están dirigidas a conjuntos de dispositivos gemelos mediante la **condición de destino**, que es una consulta basada en etiquetas de dispositivo gemelo o propiedades notificadas. El **contenido de destino** es el conjunto de propiedades deseadas que se establecerán en los dispositivo gemelos dirigidos. El contenido de destino se debe alinear con la estructura de dispositivo gemelo definida por el fabricante o integrador de hardware de IoT. Las **métricas** son consultas basadas en las propiedades notificadas del dispositivo gemelo, y se deben alinear también con la estructura de dispositivo gemelo definida por el fabricante o integrador de hardware de IoT.
+
+   Las configuraciones automáticas de dispositivos se ejecutan por primera vez poco después de crear la configuración y, a continuación, en intervalos de cinco minutos. También se benefician de que IoT Hub realiza operaciones de dispositivo gemelo a una velocidad que nunca supera los [límites](iot-hub-devguide-quotas-throttling.md) de lecturas y actualizaciones de dispositivos gemelos.
 
 * **Usar el servicio[de aprovisionamiento de dispositivos](../iot-dps/how-to-manage-enrollments.md):** los desarrolladores de soluciones deben usar el servicio de aprovisionamiento de dispositivos para asignar etiquetas de dispositivo gemelo a nuevos dispositivos, de forma que se configurarán automáticamente mediante **configuraciones automáticas de dispositivos** dirigidas a dispositivos gemelos con esa etiqueta. 
 

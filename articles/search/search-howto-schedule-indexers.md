@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 764fca8d3cb4cd9c40d7880043637f89ef1a8578
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bf931b19b7490a94f30afde49038cdc7573fab3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755386"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302247"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Programación de indexadores para Azure Search
 Los indexadores normalmente se ejecutan una vez, inmediatamente después de que se crean. Se pueden ejecutar a petición mediante el portal, la API REST o el SDK de .NET. También se puede configurar un indexador para que se ejecute periódicamente según una programación.
@@ -43,6 +43,9 @@ Veamos un ejemplo entenderlo concretamente. Supongamos que se configura una prog
 * La primera ejecución del indexador se inicia el 1 de marzo de 2019 a las 8:00 A. M. Suponga que esta ejecución tarda 20 minutos (o un período inferior a 1 hora).
 * La segunda ejecución se inicia el 1 de junio de 2019 a las 9:00 A. M UTC. Suponga que esta ejecución tarda 70 minutos (más de una hora) y no se completará hasta 10:10 A. M. UTC.
 * La tercera ejecución está programada para empezar a 10:00 A. M. UTC, pero en ese momento todavía se está ejecutando la ejecución anterior. Luego esta ejecución programada se omite. La siguiente ejecución del indexador no se iniciará hasta las 11:00 A. M. UTC.
+
+> [!NOTE]
+> Si un indexador se establece en una programación determinada pero se produce repetidamente un error en el mismo documento una y otra vez cada vez se ejecuta, el indexador comenzará a ejecutarse en un intervalo menos frecuente (hasta un máximo de al menos una vez cada 24 horas) hasta que vuelva a avanzar correctamente.  Si cree que solucionó el problema que hacía que el indexador se bloqueara en un punto determinado, puede realizar una ejecución a petición del indexador y, si avanza correctamente, el indexador volverá a su intervalo de programación establecido.
 
 <a name="portal"></a>
 

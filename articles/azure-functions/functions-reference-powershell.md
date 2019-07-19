@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
-ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: tyleonha
+ms.reviewer: glenga
+ms.openlocfilehash: a75bdaf0e26193a5b2792b52923c085eff89b83f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442179"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706397"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de PowerShell para Azure Functions
 
@@ -242,7 +243,7 @@ El inicio de sesión en las funciones de PowerShell funciona como el inicio de s
 | ------------- | -------------- |
 | Error | **`Write-Error`** |
 | Advertencia | **`Write-Warning`**  | 
-| Información | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Información | Escribe en nivel _Información_ de registro. |
+| Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Information | Escribe en nivel _Información_ de registro. |
 | Depurar | **`Write-Debug`** |
 | Seguimiento | **`Write-Progress`** <br /> **`Write-Verbose`** |
 

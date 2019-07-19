@@ -7,31 +7,31 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 892a79f898e2448096ad4b252a18e0713bb32e52
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539266"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485306"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Selección de un plan de tarifa de Azure Search
 
-Al crear un servicio Azure Search, [se crea un recurso](search-create-service-portal.md) en el plan de tarifa o SKU que se ha fijado para el período de vigencia del servicio. Los niveles incluyen Gratis, Básico, Estándar y Almacenamiento optimizado. Estándar y Almacenamiento optimizado están disponibles con varias configuraciones y capacidades.
+Al crear un servicio Azure Search, [se crea un recurso](search-create-service-portal.md) en el plan de tarifa (o SKU) que se ha fijado para el período de vigencia del servicio. Los niveles incluyen Gratis, Básico, Estándar y Almacenamiento optimizado. Estándar y Almacenamiento optimizado están disponibles con varias configuraciones y capacidades.
 
-La mayoría de los clientes empiezan con el nivel Gratis para poder evaluar el servicio. Después actualizan a uno de los niveles superiores para las implementaciones de desarrollo y producción. Si usa el nivel Gratis, puede completar todos los inicios rápidos y tutoriales, incluidos los de búsqueda cognitiva que consumen gran cantidad de recursos.
+La mayoría de los clientes empiezan con el nivel Gratis para poder evaluar el servicio. Después de la evaluación, es habitual crear un segundo servicio en uno de los niveles más altos para las implementaciones de desarrollo y producción. Si usa el nivel Gratis, puede completar todos los inicios rápidos y tutoriales, incluidos los de búsqueda cognitiva que consumen gran cantidad de recursos.
 
 > [!NOTE]
-> Actualmente, Microsoft proporciona el nivel Almacenamiento optimizado en una vista previa a un precio con descuento para pruebas y experimentación, con el fin de recabar comentarios de los usuarios. Los precios finales se anunciarán más adelante, cuando estos niveles estén disponibles con carácter general. Aconsejamos que no se usen estos niveles para aplicaciones de producción.
+> A partir del 1 de julio, todos los niveles tendrán disponibilidad general, incluido el nivel optimizado para almacenamiento. Puede encontrar más información en la [página de precios](https://azure.microsoft.com/pricing/details/search/).
 
 Los niveles reflejan las características del hardware que hospeda el servicio (en lugar de las características) y se diferencian por:
 
 + el número de índices que se pueden crear;
 + el tamaño y velocidad de particiones (almacenamiento físico).
 
-Aunque todos los niveles, incluido el nivel Gratis, suelen ofrecer paridad de características, es posible que las cargas de trabajo más grandes necesiten niveles más altos. Por ejemplo, la [indexación de IA con Cognitive Services](cognitive-search-concept-intro.md) tiene funciones de ejecución prolongada que agotan el tiempo de espera en un servicio gratuito, a menos que el conjunto de datos sea pequeño.
+Aunque todos los niveles, incluido el nivel Gratis, suelen ofrecer paridad de características, es posible que las cargas de trabajo más grandes necesiten niveles más altos. Por ejemplo, el [enriquecimiento de IA con Cognitive Services](cognitive-search-concept-intro.md) tiene funciones de ejecución prolongada que agotan el tiempo de espera en un servicio gratuito, a menos que el conjunto de datos sea pequeño.
 
 > [!NOTE] 
 > La excepción a la paridad de características reside en los [indizadores](search-indexer-overview.md), que no están disponibles en S3 HD.
@@ -60,7 +60,11 @@ En esta tabla se muestran los niveles que hay disponibles. Encontrará más info
 
 ## <a name="how-billing-works"></a>Cómo funciona la facturación
 
-Hay tres maneras de incurrir en costos en Azure Search y existen componentes fijos y variables. En esta sección se describen los tres componentes de facturación: costos de servicio principal, cargos por salida de datos e indexación enriquecida con inteligencia artificial.
+Hay tres maneras de incurrir en gastos en Azure Search. En esta sección se describen los tres componentes de facturación: 
+
++ Costo de servicio principal
++ Cargos (o ancho de banda) por salida de datos
++ Enriquecimientos de inteligencia artificial
 
 ### <a name="core-service-costs-fixed-and-variable"></a>Costos de servicio principal (fijos y variables)
 
@@ -98,9 +102,9 @@ El uso de [indexadores de Azure Search](search-indexer-overview.md) podría afec
 
 Si hay servicios en regiones diferentes, se aplican cargos por los datos de salida. Estos cargos realmente no forman parte de la factura de Azure Search. Se mencionan aquí porque si usa datos o indexadores enriquecidos con inteligencia artificial para extraer datos de distintas regiones, verá los costos reflejados en su factura general.
 
-### <a name="ai-enriched-indexing-with-cognitive-services"></a>Indexación enriquecida con inteligencia artificial con Cognitive Services
+### <a name="ai-enrichments-with-cognitive-services"></a>Enriquecimientos de inteligencia artificial con Cognitive Services
 
-Para la [indexación de inteligencia artificial con Cognitive Services](cognitive-search-concept-intro.md), debe planear asociar un recurso de Azure Cognitive Services facturable, en la misma región que Azure Search, en el plan de tarifa S0 para el procesamiento de pago por uso. No hay ningún costo fijo por asociar Cognitive Services. Solo se paga por el procesamiento que necesita.
+Para el [enriquecimiento de inteligencia artificial con Cognitive Services](cognitive-search-concept-intro.md), debe planear asociar un recurso de Azure Cognitive Services facturable, en la misma región que Azure Search, en el plan de tarifa S0 para el procesamiento de pago por uso. No hay ningún costo fijo por asociar Cognitive Services. Solo se paga por el procesamiento que necesita.
 
 La extracción de imágenes durante el descifrado de documentos es un cargo de Azure Search. Se factura según el número de imágenes que se extraen de los documentos. La extracción de texto es actualmente gratuita.
 

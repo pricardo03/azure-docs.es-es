@@ -1,26 +1,23 @@
 ---
-title: Visualización y descarga de la factura de Microsoft Azure | Microsoft Docs
+title: Visualización y descarga de la factura de Microsoft Azure
 description: Describe cómo ver y descargar su factura de Microsoft Azure.
 keywords: factura, facturación, descarga de factura, factura de Azure, uso de Azure
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 052232f922abf16a2690dcbe64c1b59999aedeab
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617963"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491367"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualización y descarga de la factura de Microsoft Azure
 
@@ -32,7 +29,7 @@ Si tiene un [contrato de cliente de Microsoft](#check-your-access-to-a-microsoft
 
 ## <a name="download-your-azure-invoices-pdf"></a>Descarga de las facturas de Azure (.pdf)
 
-En la mayoría de las suscripciones, puede descargar la factura desde Azure Portal. Si tiene un contrato de cliente de Microsoft, consulte cómo descargar facturas para un perfil de facturación.
+En la mayoría de las suscripciones, puede descargar la factura desde Azure Portal. Si tiene un contrato de cliente de Microsoft, consulte [Descarga de facturas para un contrato de cliente de Microsoft](#download-invoices-for-a-microsoft-customer-agreement).
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Descarga de facturas para una suscripción individual
 
@@ -52,14 +49,14 @@ Para más información sobre la factura, consulte [Comprender la factura de Micr
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Descarga de facturas para un contrato de cliente de Microsoft
 
-Las facturas se generan para cada [perfil de facturación](billing-mca-overview.md#understand-billing-profiles) en el contrato de cliente de Microsoft. Debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación para descargar facturas desde Azure Portal.
+Las facturas se generan para cada [perfil de facturación](billing-mca-overview.md#billing-profiles) en el contrato de cliente de Microsoft. Debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación para descargar facturas desde Azure Portal.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-1. Busque en **Administración de costos + facturación**.
+1. Busque *Administración de costos + facturación*.
 1. Seleccione un perfil de facturación. En función de su acceso, es posible que tenga que seleccionar primero una cuenta de facturación.
 1. Seleccione **Facturas**.
 1. En la cuadrícula de la factura, busque la fila de la factura que desea descargar.
-1. Haga clic en los puntos suspensivos (`...`) al final de la fila.
+1. Haga clic en el botón de puntos suspensivos (`...`) al final de la fila.
     ![Captura de pantalla que muestra los puntos suspensivos al final de la fila](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
 1. En el menú contextual de descarga, seleccione **Factura**.
 
@@ -69,7 +66,7 @@ Si no ve una factura del último período de facturación, consulte [¿Por qué 
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Obtención de la factura por correo electrónico (.pdf)
 
-Puede optar a destinatarios adicionales y configurarlos para recibir la factura de Azure en un correo electrónico. Esta característica puede no estar disponible para determinadas suscripciones, como ofertas de soporte técnico, contratos Enterprise o Azure bajo licencia Open. Si tiene un contrato de cliente de Microsoft, consulte cómo obtener las facturas del perfil de facturación por correo electrónico.
+Puede optar a destinatarios adicionales y configurarlos para recibir la factura de Azure en un correo electrónico. Esta característica puede no estar disponible para determinadas suscripciones, como ofertas de soporte técnico, contratos Enterprise o Azure bajo licencia Open. Si tiene un contrato de cliente de Microsoft, consulte la siguiente sección cómo [obtener las facturas del perfil de facturación por correo electrónico](#get-your-subscriptions-invoices-in-email).
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Obtención de las facturas de su suscripción por correo electrónico
 
@@ -80,7 +77,7 @@ Puede optar a destinatarios adicionales y configurarlos para recibir la factura 
 2. Haga clic en **Recibir notificaciones** y acepte los términos.
 
     ![Captura de pantalla que muestra el paso 2 del flujo de participación](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
+
 3. Una vez que ha aceptado el contrato, puede configurar destinatarios adicionales. Cuando se quita un destinatario, ya no se almacena la dirección de correo electrónico. Si cambia de opinión, deberá volver a agregarlos.
 
     ![Captura de pantalla que muestra el paso 3 del flujo de participación](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
@@ -89,16 +86,16 @@ Si no recibe un correo electrónico después de seguir los pasos, asegúrese de 
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Opción de no recibir las facturas de su suscripción por correo electrónico
 
-Puede optar por dejar de recibir la factura por correo electrónico; para ello, siga los pasos anteriores y haga clic en **Deshabilitar el envío de facturas por correo electrónico**. Esta opción eliminará todas las direcciones de correo electrónico configuradas para recibir las facturas por correo electrónico. Si cambia de opinión, tendrá que volver a configurar los destinatarios.
+Puede optar por no recibir la factura por correo electrónico; para ello, siga los pasos anteriores y haga clic en **Deshabilitar el envío de facturas por correo electrónico**. Esta opción eliminará todas las direcciones de correo electrónico configuradas para recibir las facturas por correo electrónico. Si cambia de opinión, tendrá que volver a configurar los destinatarios.
 
- ![Captura de pantalla que muestra el flujo para deshabilitar](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
+ ![Captura de pantalla que muestra el flujo para optar por no recibir](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Obtención de las facturas del contrato de cliente de Microsoft por correo electrónico
 
 Si tiene un contrato de cliente de Microsoft, puede optar por recibir la factura por correo electrónico. La factura se envía por correo electrónico a los propietarios del perfil de facturación, colaboradores, lectores y administradores de facturación. Los lectores no pueden actualizar la preferencia de factura por correo electrónico.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-1. Busque en **Administración de costos + facturación**.
+1. Busque **Administración de costos + facturación**.
 1. Seleccione un perfil de facturación. En función de su acceso, es posible que tenga que seleccionar primero una cuenta de facturación.
 1. En **Configuración**, seleccione **Propiedades**.
 1. En **Enviar factura por correo electrónico**, seleccione **Actualizar la preferencia de factura por correo electrónico**.
@@ -110,7 +107,7 @@ Si tiene un contrato de cliente de Microsoft, puede optar por recibir la factura
 
 ### <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Dejar de recibir las facturas del contrato de cliente de Microsoft por correo electrónico
 
-Puede optar por dejar de recibir la factura por correo electrónico; para ello, siga los pasos anteriores y haga clic en **Deshabilitar envío**. Todos los propietarios, colaboradores, lectores y administradores de facturación dejarán también de recibir la factura por correo electrónico. Si es lector, no puede cambiar la preferencia de factura por correo electrónico.
+Puede optar por no recibir la factura por correo electrónico; para ello, siga los pasos anteriores y haga clic en **No participar**. Todos los propietarios, colaboradores, lectores y administradores de facturación dejarán también de recibir la factura por correo electrónico. Si es lector, no puede cambiar la preferencia de factura por correo electrónico.
 
 ### <a name="noinvoice"></a> ¿Por qué no veo una factura para el último período de facturación?
 
@@ -127,7 +124,7 @@ Pueden existir varias razones por las que no ve una factura:
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 

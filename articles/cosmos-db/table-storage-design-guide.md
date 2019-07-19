@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966099"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447296"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Storage: Diseño de tablas escalables y eficaces
 
@@ -47,8 +47,8 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>Nombre</th>
+<th>Apellidos</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -67,8 +67,8 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>Nombre</th>
+<th>Apellidos</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -82,7 +82,7 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 </tr>
 <tr>
 <td>Marketing</td>
-<td>Departamento</td>
+<td>department</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -104,8 +104,8 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>Nombre</th>
+<th>Apellidos</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -162,18 +162,18 @@ En estas listas se resumen algunas de las instrucciones claves que debe tener en
 
 Diseñe una solución de Table service cuya *lectura* sea eficaz:
 
-* ***Diseño para realizar consultas en aplicaciones con muchas lecturas.***  Al diseñar las tablas, piense en las consultas (especialmente las sensibles a la latencia) que ejecutará antes de pensar cómo actualizará las entidades. Normalmente esto produce una solución eficiente y de rendimiento.  
+* ***Diseño para realizar consultas en aplicaciones con muchas lecturas.*** Al diseñar las tablas, piense en las consultas (especialmente las sensibles a la latencia) que ejecutará antes de pensar cómo actualizará las entidades. Normalmente esto produce una solución eficiente y de rendimiento.  
 * ***Especificar tanto PartitionKey como RowKey en sus consultas.*** *consultas puntuales* como estas son las consultas más eficaces de servicio de tabla.  
 * ***Tenga en cuenta la posibilidad de almacenar copias duplicadas de las entidades.*** El almacenamiento en tablas es barato por lo que puede almacenar la misma entidad varias veces (con claves diferentes) para permitir que se realicen consultas más eficaces.  
 * ***Considere la posibilidad de desnormalizar sus datos.*** El almacenamiento en tablas es barato, por tanto, piense en desnormalizar sus datos. Por ejemplo, almacene entidades de resumen para que las consultas para datos agregados solo necesiten acceder a una única entidad.  
 * ***Use valores de clave compuestos.*** Las únicas claves de las que dispone son **PartitionKey** y **RowKey**. Por ejemplo, s los valores de clave compuestos para habilitar rutas de acceso con clave alternativas a las entidades.  
-* ***Use la proyección de consultas.***  Puede reducir la cantidad de datos que se transfieren a través de la red mediante el uso de consultas que seleccionen solo los campos que necesite.  
+* ***Use la proyección de consultas.*** Puede reducir la cantidad de datos que se transfieren a través de la red mediante el uso de consultas que seleccionen solo los campos que necesite.  
 
 Diseñe su solución de Table service cuya *escritura* sea eficaz:  
 
-* ***No cree particiones activas.***  Elija claves que le permitan distribuir las solicitudes en varias particiones en cualquier momento.  
-* ***Evite picos de tráfico.***  Equilibre el tráfico en un período de tiempo razonable y evite picos de tráfico.
-* ***No es preciso crear necesariamente una tabla independiente para cada tipo de entidad.***  Cuando necesite transacciones atómicas en los tipos de entidad, puede almacenar estos distintos tipos de entidad en la misma partición de la misma tabla.
+* ***No cree particiones activas.*** Elija claves que le permitan distribuir las solicitudes en varias particiones en cualquier momento.  
+* ***Evite picos de tráfico.*** Equilibre el tráfico en un período de tiempo razonable y evite picos de tráfico.
+* ***No es preciso crear necesariamente una tabla independiente para cada tipo de entidad.*** Cuando necesite transacciones atómicas en los tipos de entidad, puede almacenar estos distintos tipos de entidad en la misma partición de la misma tabla.
 * ***Tenga en cuenta el rendimiento máximo que debe alcanzar.*** Debe tener en cuenta los objetivos de escalabilidad de Table service y asegurarse de que su diseño no los superará.  
 
 A medida que lea esta guía, verá ejemplos en los que se ponen en práctica todos estos principios.  
@@ -200,12 +200,12 @@ Los ejemplos siguientes asumen que Table service almacena las entidades employee
 
 | *Nombre de la columna* | *Tipo de datos* |
 | --- | --- |
-| **PartitionKey** (nombre de departamento) |String |
-| **RowKey** (Identificación de empleado) |String |
-| **Nombre** |String |
-| **Apellidos** |String |
-| **Edad** |Integer |
-| **EmailAddress** |String |
+| **PartitionKey** (nombre de departamento) |Cadena |
+| **RowKey** (Identificación de empleado) |Cadena |
+| **Nombre** |Cadena |
+| **Apellidos** |Cadena |
+| **Edad** |Entero |
+| **EmailAddress** |Cadena |
 
 En la sección anterior Descripción general de Table service se describen algunas de las características clave de Azure Table service que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. La sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -213,7 +213,7 @@ En la sección anterior Descripción general de Table service se describen algun
 * La segunda opción más eficaz es una ***Consulta por rango*** que use **PartitionKey** y filtre un rango de valores **RowKey** para devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores **RowKey** identifican un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales”, RowKey ge 'S' y RowKey lt 'T'  
 * En tercer lugar, tiene un ***Examen de partición*** que usa **PartitionKey** y filtra otra propiedad no clave y que puede devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores de propiedad seleccionan un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales' y LastName eq 'Smith'  
 * Un ***Examen de tabla*** no incluye la **PartitionKey** y es ineficaz, ya que busca en todas las particiones que componen la tabla todas las entidades coincidentes. Realizará un recorrido de tabla independientemente de si su filtro usa **RowKey**. Por ejemplo: $filter=LastName eq 'Jones'  
-* Las consultas de Azure Table Storage que devuelven varias entidades las devuelven ordenadas según los campos **PartitionKey** y **RowKey**. Para evitar reordenar las entidades del cliente, seleccione un **RowKey** que defina el criterio de ordenación más común. Resultados de la consulta devueltos por Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila o de clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* Las consultas de Azure Table Storage que devuelven varias entidades las devuelven ordenadas según los campos **PartitionKey** y **RowKey**. Para evitar reordenar las entidades del cliente, seleccione un **RowKey** que defina el criterio de ordenación más común. Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Al usar "**or**" para especificar un filtro basado en valores **RowKey**, se generará un examen de partición y no se tratará como una consulta de intervalo. Por lo tanto, debe evitar las consultas que usan filtros como: $filter=PartitionKey eq 'Sales' y (RowKey eq '121' o RowKey eq '322')  
 
@@ -255,7 +255,7 @@ Muchos diseños deben cumplir los requisitos para habilitar la búsqueda de enti
 Los resultados de consulta devueltos por Table service se encuentran en orden ascendente según el campo **PartitionKey** y, a continuación, según **RowKey**.
 
 > [!NOTE]
-> Resultados de la consulta devueltos por Table API de Azure en Azure DB no se ordenan por clave de fila o de clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Las claves en la tabla de Azure Storage son valores de cadena y para asegurarse de que los valores numéricos se ordenen correctamente, debe convertirlos a una longitud fija y rellenarlos con ceros. Por ejemplo, si el valor de identificador de empleado que utiliza como **RowKey** es un valor entero, debe convertir el identificador de empleado **123** en **00000123**. 
 
@@ -723,7 +723,7 @@ Los patrones y las directrices siguientes también pueden ser importantes a la h
 Recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.  
 
 > [!NOTE]
-> Resultados de la consulta devueltos por Table API de Azure en Azure DB no se ordenan por clave de fila o de clave de partición. Por lo tanto, este patrón es adecuado para Azure Table Storage, pero no para Azure Cosmos DB. Para ver una lista detallada de las diferencias de las características, consulte las [diferencias de Table API en Azure Cosmos DB y Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Por lo tanto, este patrón es adecuado para Azure Table Storage, pero no para Azure Cosmos DB. Para ver una lista detallada de las diferencias de las características, consulte las [diferencias de Table API en Azure Cosmos DB y Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Contexto y problema
 Un requisito común es poder recuperar las entidades creadas más recientemente, por ejemplo, las últimas diez reclamaciones de gastos enviadas por un empleado. Las consultas de tabla admiten una operación de consulta **$top** para devolver las primeras entidades *n* de un conjunto: no hay ninguna operación de consulta equivalente para devolver las últimas entidades n en un conjunto.  
@@ -951,7 +951,7 @@ En esta sección se describen algunas de las consideraciones a tener en cuenta a
 ### <a name="retrieving-entities"></a>Recuperación de entidades
 Como se describe en la sección [Diseño para consultas](#design-for-querying), la consulta más eficaz es una puntual. Sin embargo, en algunos casos puede que necesite recuperar varias entidades. En esta sección se describen algunos enfoques comunes para recuperar entidades mediante la biblioteca de clientes de Storage.  
 
-#### <a name="executing-a-point-query-using-the-storage-client-library"></a>Ejecutar una consulta de punto mediante la biblioteca de clientes de Storage 
+#### <a name="executing-a-point-query-using-the-storage-client-library"></a>Ejecutar una consulta de punto mediante la biblioteca de clientes de Storage
 La manera más sencilla de ejecutar una consulta puntual es usar la operación de tabla **Retrieve**, como se muestra en el siguiente fragmento de código de C# que recupera una entidad con el valor **PartitionKey** "Sales" y el valor **RowKey** "212":  
 
 ```csharp
@@ -1123,7 +1123,7 @@ Table service es un almacenamiento de tablas *sin esquema*, lo que significa que
 <table>
 <tr>
 <th>Nombre</th>
-<th>LastName</th>
+<th>Apellidos</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -1143,7 +1143,7 @@ Table service es un almacenamiento de tablas *sin esquema*, lo que significa que
 <table>
 <tr>
 <th>Nombre</th>
-<th>LastName</th>
+<th>Apellidos</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -1180,7 +1180,7 @@ Table service es un almacenamiento de tablas *sin esquema*, lo que significa que
 <table>
 <tr>
 <th>Nombre</th>
-<th>LastName</th>
+<th>Apellidos</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -1216,7 +1216,7 @@ Cada entidad aún debe tener valores **PartitionKey**, **RowKey** y **Timestamp*
 <tr>
 <th>EntityType</th>
 <th>Nombre</th>
-<th>LastName</th>
+<th>Apellidos</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -1238,7 +1238,7 @@ Cada entidad aún debe tener valores **PartitionKey**, **RowKey** y **Timestamp*
 <tr>
 <th>EntityType</th>
 <th>Nombre</th>
-<th>LastName</th>
+<th>Apellidos</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -1279,7 +1279,7 @@ Cada entidad aún debe tener valores **PartitionKey**, **RowKey** y **Timestamp*
 <tr>
 <th>EntityType</th>
 <th>Nombre</th>
-<th>LastName</th>
+<th>Apellidos</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>

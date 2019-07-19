@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b93f26080229e980b680c157f59db4edf33e7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bccaa28d34ebff47c7de73a4d9b3d8296ae9fef
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545482"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476121"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Cumplimentación de campos específicos en una aplicación personalizada
 
@@ -42,23 +42,37 @@ Este artículo contiene una breve descripción de todos los campos disponibles e
 | Campo            | DESCRIPCIÓN                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | NOMBRE             | Nombre de la aplicación. Debe tener un mínimo de cuatro caracteres.                |
-| Tipo de aplicación | **Aplicación web / API web**: una aplicación que represente una aplicación web, una API web o ambas cosas 
-| |**Nativa**: aplicación que puede instalarse en el dispositivo o equipo de un usuario           |
-| URL de inicio de sesión      | Dirección URL donde los usuarios pueden iniciar sesión para utilizar la aplicación                                  |
+| Tipos de cuenta admitidos| Seleccione las cuentas que quiere que admita la aplicación: cuentas solo en este directorio de la organización, cuentas en cualquier directorio de la organización o cuentas en cualquier directorio de la organización y cuentas personales de Microsoft.  |
+| URI de redireccionamiento (opcional) | Seleccione el tipo de aplicación que se va a compilar, **Web** o **Cliente público (móvil y escritorio)** y, a continuación, escriba el identificador URI de redireccionamiento (o la dirección URL de respuesta) para la aplicación. Para aplicaciones web, proporcione la dirección URL base de la aplicación. Por ejemplo, http://localhost:31544 podría ser la dirección URL de una aplicación web que se ejecuta en la máquina local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web. Para aplicaciones cliente públicas, proporcione el identificador URI que utiliza Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, como myapp://auth. Si desea ejemplos específicos de aplicaciones web o aplicaciones nativa, visite nuestras [guías de inicio rápido](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).|
 
-Cuando haya rellenado los campos anteriores, la aplicación se registrará en Azure Portal y se le redirigirá a la página de la aplicación. El botón **Configuración** del panel de la aplicación abre la página Configuración, que contiene otros campos que le permiten personalizar la aplicación. En la tabla siguiente se describen todos los campos de la página Configuración. Tenga en cuenta que, en función de si ha creado una aplicación web o una aplicación nativa, es posible que solo aparezca un subconjunto de estos campos.
+Cuando haya rellenado los campos anteriores, la aplicación se registrará en Azure Portal y se le redirigirá a la página de información general de la aplicación. Las páginas de configuración en el panel de la izquierda en **Administrar** tiene más campos para poder personalizar la aplicación. Las tablas siguientes describen todos los campos. En función de si ha creado una aplicación web o una aplicación cliente pública, es posible que solo aparezca un subconjunto de estos campos.
 
-| Campo           | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                     |
+### <a name="overview"></a>Información general
+| Campo           | DESCRIPCIÓN        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Identificador de aplicación  | Cuando registra una aplicación, Azure AD le asigna un identificador de aplicación. Este identificador puede usarse para identificar la aplicación en las solicitudes de autenticación que se envían a Azure AD, así como para acceder a ciertos recursos, como Graph API.                                                          |
 | URI del identificador de la aplicación      | Debe ser un URI único. Normalmente, tendrá el formato **https://&lt;inquilino\_nombre&gt;/&lt;aplicación\_nombre&gt;.** Se utiliza durante el flujo de concesión de autorizaciones como identificador único a fin de especificar el recurso para el que se debe emitir el token. También se convierte en la notificación "aud" del token de acceso emitido. |
-| Cargar nuevo logotipo | Puede usar este campo para cargar un logotipo en la aplicación. El logotipo debe tener el formato .bmp, .jpg o .png y el tamaño del archivo debe ser inferior a 100 KB. Las dimensiones de la imagen deben ser 215 x 215 píxeles y las de la imagen central, 94 x 94 píxeles.                                                       |
-| URL de página principal   | Se trata de la dirección URL de inicio de sesión especificada durante el registro de la aplicación.                                                                                                                                                                                                                                              |
-| URL de cierre de sesión      | Es la dirección URL de cierre de sesión único. Azure AD envía una solicitud de cierre de sesión a esta dirección URL cuando el usuario termina la sesión en Azure AD con cualquier otra aplicación registrada.                                                                                                                                       |
-| Multiinquilino  | Este parámetro especifica si la aplicación pueden utilizarla varios inquilinos. Normalmente, esto significa que las organizaciones externas pueden usar la aplicación si la registran en su inquilino y conceden acceso a los datos de la organización.                                                                   |
-| URL de respuesta      | Las direcciones URL de respuesta son puntos de conexión en los que Azure AD devuelve los tokens que solicita la aplicación.                                                                                                                                                                                                          |
-| URI de redirección   | En el caso de las aplicaciones nativas, aquí es donde se envía al usuario después de una autorización correcta. Azure AD comprueba que el URI de redirección que proporciona la aplicación en la solicitud de OAuth 2.0 coincide con uno de los valores registrados en el portal.                                                            |
-| Claves            | Puede crear claves para acceder mediante programación a las API web protegidas por Azure AD sin interacción del usuario. En la página \*\*Claves\*\*, escriba la descripción de la clave y la fecha de vencimiento. A continuación, haga clic en Guardar para generar la clave. No olvide guardar la clave en un lugar seguro, ya que no podrá acceder a ella más adelante.             |
+
+### <a name="branding"></a>Personalización de marca
+
+| Campo           | DESCRIPCIÓN        |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cargar nuevo logotipo | Puede usar este campo para cargar un logotipo en la aplicación. El logotipo debe tener el formato .bmp, .jpg o .png y el tamaño del archivo debe ser inferior a 100 KB. Las dimensiones de la imagen deben ser 215 x 215 píxeles y las de la imagen central, 94 x 94 píxeles.|
+| URL de página principal   | Se trata de la dirección URL de inicio de sesión especificada durante el registro de la aplicación.|
+
+### <a name="authentication"></a>Authentication
+
+| Campo           | DESCRIPCIÓN        |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| URL de cierre de sesión      | Es la dirección URL de cierre de sesión único. Azure AD envía una solicitud de cierre de sesión a esta dirección URL cuando el usuario termina la sesión en Azure AD con cualquier otra aplicación registrada.|
+| Tipos de cuenta admitidos  | Este parámetro especifica si la aplicación pueden utilizarla varios inquilinos. Normalmente, esto significa que las organizaciones externas pueden usar la aplicación si la registran en su inquilino y conceden acceso a los datos de la organización.|
+| URL de redireccionamiento      | Las direcciones URL de redireccionamiento o respuesta son puntos de conexión en los que Azure AD devuelve los tokens que solicita la aplicación. En el caso de las aplicaciones nativas, aquí es donde se envía al usuario después de una autorización correcta. Azure°AD comprueba que el URI de redireccionamiento que proporciona la aplicación en la solicitud de OAuth 2.0 coincide con uno de los valores registrados en el portal.|
+
+### <a name="certificates-and-secrets"></a>Certificados y secretos
+
+| Campo           | DESCRIPCIÓN        |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Secretos de cliente            | Puede crear secretos de cliente, o claves, para acceder mediante programación a las API web protegidas por Azure AD sin interacción del usuario. En la página **Nuevo secreto de cliente**, escriba la descripción de la clave y la fecha de vencimiento. A continuación, haga clic en Guardar para generar la clave. No olvide guardar la clave en un lugar seguro, ya que no podrá acceder a ella más adelante.             |
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Administración de aplicaciones con Azure Active Directory](../manage-apps/what-is-application-management.md)

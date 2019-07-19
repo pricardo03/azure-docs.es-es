@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 801516ae2cfad891098c16f8cd6e9a4c7f157a93
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61234980"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342009"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 
@@ -47,10 +47,10 @@ Esta tabla proporciona detalles acerca de los campos relacionados con la alerta.
 | SchemaVersion_s |Texto |Versión actual del esquema, por ejemplo **V2**. |
 | State_s |Texto |Estado actual del objeto de la alerta por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto |Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece esta alerta |
-| nombreOperación |Texto |Nombre de la operación actual, por ejemplo, Alerta |
+| OperationName |Texto |Nombre de la operación actual, por ejemplo, Alerta |
 | Categoría |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
 | Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
-| ProtectedServerUniqueId_s |Texto |Identificador único del servidor protegido asociado a la alerta |
+| ProtectedContainerUniqueId_s |Texto |Identificador único del servidor protegido asociado a la alerta (fue ProtectedServerUniqueId_s en V1)|
 | VaultUniqueId_s |Texto |Identificador único del almacén protegido asociado a la alerta |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
 | ResourceId |Texto |Identificador único para el recurso sobre el que se recopilan los datos. Por ejemplo, el id. del recurso del almacén de Recovery Services |
@@ -67,17 +67,19 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el element
 | --- | --- | --- |
 | EventName_s |Texto |Nombre del evento. Siempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Texto |Identificador único del elemento de copia de seguridad |
-| BackupItemId_s |Texto |Identificador del elemento de copia de seguridad |
+| BackupItemId_s |Texto |Identificador del elemento de copia de seguridad (este campo solo es para el esquema v1) |
 | BackupItemName_s |Texto |Nombre de elemento de copia de seguridad |
 | BackupItemFriendlyName_s |Texto |Nombre descriptivo del elemento de copia de seguridad |
 | BackupItemType_s |Texto |Tipo de elemento de copia de seguridad, por ejemplo, VM o FileFolder |
+| BackupItemProtectionState_s |Texto |Estado de protección del elemento de copia de seguridad |
+| BackupItemAppVersion_s |Texto |Versión de la aplicación del elemento de copia de seguridad |
 | ProtectionState_s |Texto |Estado actual de protección del elemento copia de seguridad, por ejemplo, Protected o ProtectionStopped |
 | ProtectionGroupName_s |Texto | Nombre del grupo de protección en el que está protegido el elemento de copia de seguridad, para SC DPM y MABS, si procede.|
 | SecondaryBackupProtectionState_s |Texto |Si está habilitada la protección secundaria para el elemento de copia de seguridad.|
 | SchemaVersion_s |Texto |Versión del esquema, por ejemplo, **V2**. |
 | State_s |Texto |Estado del objeto del elemento de copia de seguridad, por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto |Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece este elemento de copia de seguridad |
-| nombreOperación |Texto |Nombre de la operación, por ejemplo, BackupItem |
+| OperationName |Texto |Nombre de la operación, por ejemplo, BackupItem |
 | Categoría |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
 | Recurso |Texto |Recurso para el que se recopilan datos, por ejemplo, nombre de almacén de Recovery Services |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
@@ -101,10 +103,9 @@ Esta tabla proporciona detalles acerca de las asociaciones de elementos de copia
 | BackupItemSourceSize_s |Texto | Tamaño de front-end del elemento de copia de seguridad. |
 | BackupManagementServerUniqueId_s |Texto | Campo para identificar de forma única el servidor de administración de copia de seguridad mediante el que se protege el elemento de copia de seguridad, si procede. |
 | Categoría |Texto |Este campo representa la categoría de datos de diagnóstico insertada en Log Analytics; es AzureBackupReport |
-| nombreOperación |Texto |Este campo representa el nombre de la operación actual: BackupItemAssociation |
+| OperationName |Texto |Este campo representa el nombre de la operación actual: BackupItemAssociation |
 | Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
-| PolicyUniqueId_g |Texto |Identificador único para la política asociada al elemento de copia de seguridad. |
-| ProtectedServerUniqueId_s |Texto |Identificador único del servidor protegido asociado al elemento de copia de seguridad. |
+| ProtectedContainerUniqueId_s |Texto |Identificador único del servidor protegido asociado al elemento de copia de seguridad (fue ProtectedServerUniqueId_s en V1) |
 | VaultUniqueId_s |Texto |Identificador único del almacén que contiene el elemento de copia de seguridad. |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
 | ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el id. del recurso del almacén de Recovery Services. |
@@ -143,7 +144,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con los trabaj
 | SchemaVersion_s |Texto |Versión del esquema, por ejemplo, **V2**. |
 | State_s |Texto |Estado actual del objeto del trabajo, por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto |Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
-| nombreOperación |Texto |Este campo representa el nombre de la operación actual: Job |
+| OperationName |Texto |Este campo representa el nombre de la operación actual: Job |
 | Categoría |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
 | Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedServerUniqueId_s |Texto |Identificador único del servidor protegido asociado al trabajo. |
@@ -178,7 +179,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con las direct
 | SchemaVersion_s |Texto ||Este campo indica la versión actual del esquema; es **V2**. |
 | State_s |Texto ||Estado actual del objeto de la directiva, por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto ||Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
-| nombreOperación |Texto ||Este campo representa el nombre de la operación actual: Policy |
+| OperationName |Texto ||Este campo representa el nombre de la operación actual: Policy |
 | Categoría |Texto ||Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
 | Recurso |Texto ||Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | PolicyUniqueId_g |Texto ||Identificador único que identifica la directiva |
@@ -226,7 +227,7 @@ Esta tabla proporciona detalles acerca de las asociaciones de directivas con var
 | SchemaVersion_s |Texto ||Este campo indica la versión actual del esquema; es **V2**. |
 | State_s |Texto ||Estado actual del objeto de la directiva, por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto ||Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
-| nombreOperación |Texto ||Este campo representa el nombre de la operación actual: PolicyAssociation |
+| OperationName |Texto ||Este campo representa el nombre de la operación actual: PolicyAssociation |
 | Categoría |Texto ||Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
 | Recurso |Texto ||Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | PolicyUniqueId_g |Texto ||Identificador único que identifica la directiva |
@@ -249,13 +250,14 @@ En esta tabla se proporcionan campos básicos sobre los contenedores protegidos.
 | ProtectedContainerOSType_s |Texto |Tipo de sistema operativo del contenedor protegido. |
 | ProtectedContainerOSVersion_s |Texto |Versión del sistema operativo del contenedor protegido. |
 | AgentVersion_s |Texto |Número de versión del agente de copia de seguridad o del agente de protección (en el caso de SC DPM y MABS). |
-| BackupManagementType_s |Texto |Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder |
-| EntityState_s |Texto |Estado actual del objeto de servidor protegido, por ejemplo, Active o Deleted |
+| BackupManagementType_s |Texto |Tipo de proveedor para realizar una copia de seguridad. Por ejemplo, IaaSVM o FileFolder |
+| EntityState_s |Texto |Estado actual del objeto de servidor protegido. Por ejemplo, Activo o Eliminado |
 | ProtectedContainerFriendlyName_s |Texto |Nombre descriptivo del servidor protegido |
 | ProtectedContainerName_s |Texto |Nombre del contenedor protegido. |
-| ProtectedContainerWorkloadType_s |Texto |Tipo del contenedor protegido de copia de seguridad, por ejemplo, IaaSVMContainer. |
+| ProtectedContainerWorkloadType_s |Texto |Tipo de la copia de seguridad del contenedor protegido. Por ejemplo, IaaSVMContainer |
 | ProtectedContainerLocation_s |Texto |Si el contenedor protegido está ubicado en el entorno local o en Azure. |
 | ProtectedContainerType_s |Texto |Si el contenedor protegido es un servidor o un contenedor. |
+| ProtectedContainerProtectionState_s’  |Texto |Estado de protección del contenedor protegido |
 
 ### <a name="storage"></a>Storage
 
@@ -263,13 +265,13 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacen
 
 | Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
-| CloudStorageInBytes_s |Número decimal |Almacenamiento de copia de seguridad en la nube utilizado por las copias de seguridad, calculados basándose en el último valor |
+| CloudStorageInBytes_s |Número decimal |Almacenamiento de copia de seguridad en la nube utilizado por las copias de seguridad, calculados basándose en el último valor (este campo solo es para el esquema v1)|
 | ProtectedInstances_s |Número decimal |Número de instancias protegidas que se utilizan para calcular el almacenamiento de front-end en la facturación; se calcula en función del valor más reciente |
 | EventName_s |Texto |Este campo representa el nombre de este evento; es siempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo indica la versión actual del esquema; es **V2**. |
 | State_s |Texto |Estado actual del objeto de almacenamiento, por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto |Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
-| nombreOperación |Texto |Este campo representa el nombre de la operación actual: Storage |
+| OperationName |Texto |Este campo representa el nombre de la operación actual: Storage |
 | Categoría |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
 | Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedServerUniqueId_s |Texto |Id. exclusivo del servidor protegido para el que se calcula el almacenamiento |
@@ -280,6 +282,10 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacen
 | ResourceGroup |Texto |Grupo de recursos del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceProvider |Texto |Proveedor de recursos para el que se recopilan los datos. Por ejemplo, Microsoft.RecoveryServices. |
 | ResourceType |Texto |Tipo de recurso para el que se recopilan los datos. Por ejemplo: almacenes |
+| StorageUniqueId_s |Texto |Identificador único de la entidad de almacenamiento. |
+| StorageType_s |Texto |Tipo de almacenamiento, por ejemplo, Nube, Volumen o Disco |
+| StorageName_s |Texto |Nombre de la entidad de almacenamiento, por ejemplo, E:\ |
+| StorageTotalSizeInGBs_s |Texto |Tamaño total de almacenamiento, en GB, consumido por la entidad de almacenamiento|
 
 ### <a name="storageassociation"></a>StorageAssociation
 
@@ -304,7 +310,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacé
 | EventName_s |Texto |Este campo representa el nombre de este evento; es siempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo indica la versión actual del esquema; es **V2**. |
 | State_s |Texto |Estado actual del objeto del almacén por ejemplo, Active o Deleted |
-| nombreOperación |Texto |Este campo representa el nombre de la operación actual: Vault |
+| OperationName |Texto |Este campo representa el nombre de la operación actual: Vault |
 | Categoría |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
 | Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | VaultUniqueId_s |Texto |Id. exclusivo del almacén |

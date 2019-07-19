@@ -1,25 +1,25 @@
 ---
 title: Ejemplo de desencadenador y enlace de Azure Functions
-description: Aprenda a configurar los enlaces de función de Azure
+description: Aprenda a configurar los enlaces de Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 8372becd614e35bead9e98e405e2694f3f16db4a
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: bced6dc71063b6be68d739ef67fb5ec46c3d1be6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472336"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480434"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Ejemplo de desencadenador y enlace de Azure Functions
 
-En este artículo se muestra cómo configurar un [desencadenador y enlaces](./functions-triggers-bindings.md) en una función de Azure.
+En este artículo se muestra cómo configurar un [desencadenador y enlaces](./functions-triggers-bindings.md) en una instancia de Azure Functions.
 
 Supongamos que quiere escribir una fila nueva en Azure Table Storage cada vez que aparezca un nuevo mensaje en Azure Queue Storage. Este escenario puede implementarse mediante un desencadenador de Azure Queue Storage y un enlace de salida de Azure Table Storage. 
 
@@ -87,7 +87,7 @@ public class Person
 
 ## <a name="javascript-example"></a>Ejemplo de JavaScript
 
-El mismo *function.json* archivo puede utilizarse con una función de JavaScript:
+El mismo archivo *function.json* puede utilizarse con una función de JavaScript:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -105,9 +105,9 @@ function generateRandomId() {
 }
 ```
 
-## <a name="class-library-example"></a>Ejemplo de la biblioteca de clase
+## <a name="class-library-example"></a>Ejemplo de biblioteca de clases
 
-En una biblioteca de clases, los atributos proporcionan la misma información &mdash; de desencadenador y enlace (nombres de tabla y cola, cuentas de almacenamiento, parámetros de función de entrada y salida &mdash;), en lugar de un archivo function.json. Por ejemplo:
+En una biblioteca de clases, los atributos proporcionan la misma información &mdash; de desencadenador y enlace (nombres de tabla y cola, cuentas de almacenamiento, parámetros de función de entrada y salida &mdash;), en lugar de un archivo function.json. Este es un ejemplo:
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -135,9 +135,9 @@ public class Person
 }
 ```
 
-Ahora tiene una función de trabajo que se desencadena mediante una cola de Azure y envía los datos en Azure Table storage.
+Ahora tiene una función en uso que se desencadena mediante Azure Queue y envía los datos a Azure Table Storage.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Los patrones de expresiones de enlace de Azure Functions](./functions-bindings-expressions-patterns.md)
+> [Patrones de expresiones de enlace de Azure Functions](./functions-bindings-expressions-patterns.md)

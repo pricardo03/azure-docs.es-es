@@ -7,16 +7,18 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d04f46dbc60a7242e44d76915e15281cc6248d20
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137855"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786532"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Uso de grandes conjuntos de datos de recursos de Azure
 
 Azure Resource Graph está diseñado para trabajar con el entorno de Azure y obtener información sobre los recursos que contiene. Resource Graph permite obtener estos datos de manera más rápida, incluso cuando se consultan miles de registros. Resource Graph presenta varias opciones de funcionamiento con estos grandes conjuntos de datos.
+
+Para instrucciones sobre cómo trabajar con consultas con mucha frecuencia, consulte [Guía para solicitudes limitadas](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Tamaño de resultados del conjunto de datos
 
@@ -80,10 +82,10 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 > [!IMPORTANT]
 > La consulta debe **proyectar** el campo **id** para que la paginación funcione. Si no aparece en la consulta, la respuesta no incluirá **$skipToken**.
 
-Para ver un ejemplo, consulte [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query) (Consulta de página siguiente) en la documentación de la API REST.
+Para ver un ejemplo, consulte [Next page query](/rest/api/azureresourcegraph/resources/resources#next-page-query) (Consulta de página siguiente) en la documentación de la API REST.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Ver el lenguaje en uso en el artículo de[consultas básicas](../samples/starter.md)
-- Consultar usos avanzados en el artículo de [consultas avanzadas](../samples/advanced.md)
-- Aprender a [explorar recursos](explore-resources.md)
+- Consulte el lenguaje en uso en[Consultas básicas](../samples/starter.md).
+- Consulte los usos avanzados en [Consultas avanzadas](../samples/advanced.md).
+- Más información sobre la [exploración de recursos](explore-resources.md).

@@ -1,7 +1,7 @@
 ---
-title: 'Novedades: comprensión del lenguaje'
+title: Novedades de Language Understanding
 titleSuffix: Azure Cognitive Services
-description: En este artículo contiene noticias sobre comprensión del lenguaje.
+description: Este artículo contiene las últimas novedades sobre Language Understanding.
 author: diberry
 manager: nitinme
 ms.custom: experiment-luis-0519
@@ -9,29 +9,33 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 515b40c9976ba901787182c249228f98f1938078
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
-ms.translationtype: MT
+ms.openlocfilehash: 2efc48df906117a8d01ea8c309f001d2f623444f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431126"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485086"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novedades de Language Understanding
 
-Obtenga información sobre cuáles son las novedades en el servicio. Estos elementos pueden release notes, vídeos, blogs y otros tipos de información. Marcar esta página para mantenerse actualizado con el servicio.  
+Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.  
 
 ## <a name="release-notes"></a>Notas de la versión 
 
-### <a name="may-6-2019---build-conference"></a>6 de mayo de 2019 - conferencia de //Build
+### <a name="june-24-2019"></a>24 de junio de 2019
 
-Las siguientes características publicadas en la conferencia de Build 2019:
+* [Entidad creada previamente OrdinalV2](luis-reference-prebuilt-ordinal-v2.md) para permitir la ordenación, como siguiente, anterior y último. Referencia cultural inglesa únicamente.
 
-* [Vista previa de la Guía de migración de la API de V3](luis-migration-api-v3.md)
+### <a name="may-6-2019---build-conference"></a>6 de mayo de 2019: conferencia Build
+
+Las siguientes características se presentaron en el congreso Build 2019:
+
+* [Versión preliminar de la guía de migración de la API v3](luis-migration-api-v3.md)
 * [Panel de análisis mejorado](luis-how-to-use-dashboard.md)
 * [Dominios creados previamente mejorados](luis-reference-prebuilt-domains.md) 
-* [Entidades de la lista dinámica](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [Entidades de lista dinámica](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 ## <a name="blogs"></a>Blogs
@@ -40,10 +44,10 @@ Las siguientes características publicadas en la conferencia de Build 2019:
 
 ## <a name="videos"></a>Vídeos
 
-### <a name="2019-build-videos"></a>Vídeos de build 2019
+### <a name="2019-build-videos"></a>Vídeos de Build 2019
 
-[Cómo usar inteligencia artificial conversacional de Azure para escalar su negocio para la próxima generación](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+[How to use Azure Conversational AI to scale your business for the next generation](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be) (Cómo usar la inteligencia artificial de Azure Conversational para llevar su negocio a la próxima generación)
 
 ## <a name="service-updates"></a>Actualizaciones del servicio
 
-[Anuncios de actualización de Azure de Cognitive Services.](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Anuncios de actualización de Azure para Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)

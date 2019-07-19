@@ -1,34 +1,26 @@
 ---
-title: Creación de una instancia de Azure Application Gateway mediante plantillas | Microsoft Docs
-description: En esta página se ofrecen instrucciones para crear una instancia de Azure Application Gateway con la plantilla de Azure Resource Manager
-documentationcenter: na
+title: 'Creación de una instancia de Azure Application Gateway: plantillas'
+description: En este artículo se ofrecen instrucciones para crear una instancia de Azure Application Gateway con la plantilla de Azure Resource Manager
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 6/26/2019
 ms.author: victorh
-ms.openlocfilehash: 7ff6db5acb150207f975931155386a308c48888b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a762e8c9ed1981173f3729837456ac2cfea081b8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66134103"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449532"
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Creación de una instancia de Application Gateway con la plantilla de Azure Resource Manager
+# <a name="create-an-application-gateway-using-the-azure-resource-manager-template"></a>Creación de una instancia de Application Gateway con la plantilla de Azure Resource Manager
 
-Azure Application Gateway es un equilibrador de carga de nivel 7. Proporciona solicitudes HTTP de enrutamiento del rendimiento y conmutación por error y entre distintos servidores, independientemente de que se encuentren en la nube o en el entorno local. Application Gateway proporciona numerosas características del controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, y muchas más. Para encontrar una lista completa de las características admitidas, visite [Introducción a Application Gateway](overview.md).
+Azure Application Gateway es un equilibrador de carga de nivel 7. Proporciona solicitudes HTTP de enrutamiento del rendimiento y conmutación por error y entre distintos servidores, independientemente de que se encuentren en la nube o en el entorno local. Application Gateway proporciona numerosas características del controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, y muchas más. Para encontrar una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md).
 
-Este artículo le guiará por los procesos de descarga y modificación de una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) desde GitHub, así como la implementación desde GitHub, PowerShell y la CLI de Azure.
+Este artículo le guiará por los procesos de descarga y modificación de una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) desde GitHub, así como su implementación desde GitHub, Azure PowerShell y la CLI de Azure.
 
-Si solo va a implementar la plantilla directamente desde GitHub sin realizar ningún cambio, vaya a la implementación de una plantilla desde GitHub.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Si solo va a implementar la plantilla directamente desde GitHub sin realizar ningún cambio, vaya directamente a la implementación de una plantilla desde GitHub.
 
 ## <a name="scenario"></a>Escenario
 
@@ -42,7 +34,7 @@ En este escenario:
 > [!NOTE]
 > Esos son los parámetros para esta plantilla. Para personalizar la plantilla, puede cambiar las reglas, el agente de escucha, la SSL y otras opciones del archivo azuredeploy.json.
 
-![Escenario](./media/create-vmss-template/scenario.png)
+![Escenario](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
 ## <a name="download-and-understand-the-azure-resource-manager-template"></a>Descarga e información sobre la plantilla de Azure Resource Manager
 
@@ -52,8 +44,8 @@ Puede descargar la plantilla de Azure Resource Manager existente para crear una 
 1. Haga clic en **azuredeploy.json** y luego en **RAW**.
 1. Guarde el archivo en un una carpeta local del equipo.
 1. Si está familiarizado con las plantillas de Azure Resource Manager, vaya directamente al paso 7.
-1. Abra el archivo que guardó y vea el contenido de **parameters** en la línea
-1. Los parámetros de la plantilla de Azure Resource Manager proporcionan un marcador de posición para los valores que se pueden rellenar durante la implementación.
+2. Abra el archivo que guardó y vea el contenido de **parameters** en la línea
+3. Los parámetros de la plantilla de Azure Resource Manager proporcionan un marcador de posición para los valores que se pueden rellenar durante la implementación.
 
    | Parámetro | DESCRIPCIÓN |
    | --- | --- |
@@ -70,7 +62,7 @@ Puede descargar la plantilla de Azure Resource Manager existente para crear una 
 
    * **type**. Tipo de recurso que creó la plantilla. En este caso, el tipo es `Microsoft.Network/applicationGateways`, que representa una puerta de enlace de aplicaciones.
    * **nombre**. Nombre del recurso. Observe el uso de `[parameters('applicationGatewayName')]`, que significa que el nombre lo proporciona el usuario o un archivo de parámetros durante la implementación.
-   * **properties**. Lista de propiedades para el recurso. Esta plantilla usa la red virtual y la dirección IP pública durante la creación de la instancia de Application Gateway. Para la sintaxis y las propiedades de JSON de una puerta de enlace de aplicaciones en la plantilla, consulte [Microsoft.Network/applicationgateways](/azure/templates/microsoft.network/applicationgateways).
+   * **properties**. Lista de propiedades para el recurso. Esta plantilla usa la red virtual y la dirección IP pública durante la creación de la instancia de Application Gateway.
 
 1. Vuelva a [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Haga clic en **azuredeploy-paremeters.json** y luego en **Sin formato**.
@@ -118,19 +110,21 @@ Puede descargar la plantilla de Azure Resource Manager existente para crear una 
 
 1. Guarde el archivo. Puede probar la plantilla de JSON y la plantilla de parámetros mediante las herramientas en línea de validación de JSON como [JSlint.com](https://www.jslint.com/).
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Implementación de la plantilla de Azure Resource Manager mediante PowerShell
+## <a name="deploy-the-azure-resource-manager-template-using-azure-powershell"></a>Implementación de una plantilla de Azure Resource Manager mediante Azure PowerShell
 
-Si es la primera vez que usa Azure PowerShell, visite: [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) y siga las instrucciones para iniciar sesión en Azure y seleccionar su suscripción.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Inicio de sesión en PowerShell
+Si es la primera vez que usa Azure PowerShell, consulte: [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) y siga las instrucciones para iniciar sesión en Azure y seleccionar su suscripción.
 
-    ```powershell
-    Login-AzAccount
+1. Conexión a Azure
+
+    ```azurepowershell
+    Connect-AzAccount
     ```
 
 1. Compruebe las suscripciones para la cuenta.
 
-    ```powershell
+    ```azurepowershell
     Get-AzSubscription
     ```
 
@@ -138,24 +132,24 @@ Si es la primera vez que usa Azure PowerShell, visite: [Instalación y configura
 
 1. Elección de la suscripción de Azure que se va a usar.
 
-    ```powershell
+    ```azurepowershell
     Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Si es necesario, cree un grupo de recursos mediante el cmdlet **New-AzureResourceGroup**. En el ejemplo siguiente, se crea un grupo de recursos denominado AppgatewayRG en la ubicación Este de EE. UU.
 
-    ```powershell
+    ```azurepowershell
     New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
 1. Ejecute el cmdlet **New-AzResourceGroupDeployment** para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó anteriormente.
     
-    ```powershell
+    ```azurepowershell
     New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>Implementación de la plantilla de Azure Resource Manager mediante la CLI de Azure
+## <a name="deploy-the-azure-resource-manager-template-using-the-azure-cli"></a>Implementación de la plantilla de Azure Resource Manager mediante la CLI de Azure
 
 Para implementar la plantilla de Azure Resource Manager descargada mediante la CLI de Azure, siga estos pasos:
 
@@ -177,7 +171,7 @@ Para implementar la plantilla de Azure Resource Manager descargada mediante la C
     az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
     ```
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>Implementación de la plantilla de Azure Resource Manager con el método de hacer clic para implementar
+## <a name="deploy-the-azure-resource-manager-template-using-click-to-deploy"></a>Implementación de la plantilla de Azure Resource Manager con el método de hacer clic para implementar
 
 Clic para implementar es otra forma de usar las plantillas de Azure Resource Manager. Se trata de una manera fácil de usar plantillas con Azure Portal.
 
@@ -185,11 +179,11 @@ Clic para implementar es otra forma de usar las plantillas de Azure Resource Man
 
 1. Haga clic en **Implementar en Azure**.
 
-    ![Implementar en Azure](./media/create-vmss-template/deploytoazure.png)
+    ![Implementar en Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
     
 1. Rellene los parámetros de la plantilla de implementación en el portal y haga clic en **Aceptar**.
 
-    ![parameters](./media/create-vmss-template/ibiza1.png)
+    ![parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
     
 1. Seleccione **Acepto los términos y condiciones indicados anteriormente** y haga clic en **Comprar**.
 
@@ -200,6 +194,7 @@ Clic para implementar es otra forma de usar las plantillas de Azure Resource Man
 Cuando se usa SSL con una plantilla, el certificado debe proporcionarse en una cadena en base 64 en lugar de cargarse. Para convertir un archivo .pfx o .cer a una cadena en base 64, use alguno de los siguientes comandos. Los siguientes comandos convierten el certificado a una cadena en base 64 que se puede proporcionar a la plantilla. El resultado esperado es una cadena que se puede almacenar en una variable y pegarse en la plantilla.
 
 ### <a name="macos"></a>macOS
+
 ```bash
 cert=$( base64 <certificate path and name>.pfx )
 echo $cert
@@ -214,13 +209,13 @@ echo $cert
 
 Para eliminar todos los recursos creados en este artículo, complete uno de los pasos siguientes:
 
-### <a name="powershell"></a>PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
-```powershell
+```azurepowershell
 Remove-AzResourceGroup -Name appgatewayRG
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 ```azurecli
 az group delete --name appgatewayRG
@@ -228,12 +223,11 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea configurar la descarga SSL, visite: [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica](tutorial-ssl-cli.md).
+Si desea configurar la descarga SSL, consulte: [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica](application-gateway-ssl.md).
 
-Si desea configurar una puerta de enlace de aplicaciones para usarla con un equilibrador de carga interno, consulte: [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](redirect-internal-site-cli.md).
+Si desea configurar una puerta de enlace de aplicaciones para usarla con un equilibrador de carga interno, consulte: [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
-Si desea más información acerca de las opciones de equilibrio de carga en general, visite:
+Si desea obtener más información acerca de opciones de equilibrio de carga en general, vea:
 
 * [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

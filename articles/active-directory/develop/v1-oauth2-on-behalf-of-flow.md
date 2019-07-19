@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f4ab484b76bb536dd4e9d3c4fff2c85d93e4a41
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 51fd5c8f406ea54c7fc8e81c674e41b30d7ad406
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235205"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482410"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios que usan la identidad de usuarios delegada en el flujo de On-Behalf-Of
 
@@ -38,7 +38,7 @@ El flujo de On-Behalf-Of (OBO) de OAuth 2.0 permite que una aplicación que invo
 
 El flujo de OBO se inicia una vez que el usuario se ha autenticado en una aplicación que usa el [flujo de concesión del código de autorización de OAuth 2.0](v1-protocols-oauth-code.md). En ese momento, la aplicación envía un token de acceso (token A) a la API web de nivel intermedio (API A) que contiene las solicitudes y consentimientos del usuario para acceder a la API A. A continuación, la API A realiza una solicitud autenticada a la API web de bajada (API B).
 
-Estos pasos constituyen el flujo de On-Behalf-Of: ![flujo de On-Behalf-Of de OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Estos pasos constituyen el flujo de On-Behalf-Of: ![Muestra los pasos del flujo con derechos delegados de OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. La aplicación cliente realiza una solicitud a la API A con el token A.
 1. La API A se autentica en el punto de conexión de emisión de tokens de Azure AD y solicita un token para obtener acceso a la API B.
@@ -58,32 +58,32 @@ Registre el servicio de nivel intermedio y la aplicación cliente en Azure AD.
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. En la barra superior, seleccione su cuenta y, en la lista **Directorio**, seleccione un inquilino de Active Directory para la aplicación.
 1. Haga clic en **Más servicios** en el panel izquierdo y elija **Azure Active Directory**.
-1. Seleccione **registros de aplicaciones** y, a continuación, **nuevo registro**.
+1. Seleccione **Registros de aplicaciones** y, luego, **Nuevo registro**.
 1. Escriba un nombre descriptivo para la aplicación y seleccione el tipo de aplicación.
 1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
-1. Establece el URI de redireccionamiento en la dirección URL base.
+1. Establezca el URI de redireccionamiento en la URL base.
 1. Seleccione **Registrar** para crear la aplicación.
 1. Genere un secreto de cliente antes de salir de Azure Portal.
-1. En el portal de Azure, elija la aplicación y seleccione **certificados y secretos**.
-1. Seleccione **nuevo secreto de cliente** y agregue un secreto con una duración de un año o dos años.
-1. Al guardar esta página, el portal de Azure muestra el valor del secreto. Copie y guarde el valor del secreto en una ubicación segura.
+1. En Azure Portal, elija la aplicación y seleccione **Certificados y secretos**.
+1. Seleccione **Nuevo secreto de cliente** y agregue un secreto con una duración de uno o dos años.
+1. Al guardar esta página, Azure Portal muestra el valor del secreto. Copie y guarde el valor del secreto en una ubicación segura.
 
 > [!IMPORTANT]
-> Necesita el secreto para configurar las opciones de la aplicación en su implementación. Este valor secreto no se volverá a mostrar, y no es recuperable por otros medios. Regístrelo en cuanto esté visible en Azure Portal.
+> Necesitará el secreto para configurar las opciones de la aplicación en la implementación. Este valor de secreto no se volverá a mostrar y no se puede recuperar de ninguna otra manera. Regístrelo en cuanto esté visible en Azure Portal.
 
 ### <a name="register-the-client-application"></a>Registro del tipo de aplicación cliente
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. En la barra superior, seleccione su cuenta y, en la lista **Directorio**, seleccione un inquilino de Active Directory para la aplicación.
 1. Haga clic en **Más servicios** en el panel izquierdo y elija **Azure Active Directory**.
-1. Seleccione **registros de aplicaciones** y, a continuación, **nuevo registro**.
+1. Seleccione **Registros de aplicaciones** y, luego, **Nuevo registro**.
 1. Escriba un nombre descriptivo para la aplicación y seleccione el tipo de aplicación.
 1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
-1. Establece el URI de redireccionamiento en la dirección URL base.
+1. Establezca el URI de redireccionamiento en la URL base.
 1. Seleccione **Registrar** para crear la aplicación.
-1. Configure permisos para la aplicación. En **permisos de API**, seleccione **agregar un permiso** y, a continuación, **Mis API**.
+1. Configure permisos para la aplicación. En **Permisos de API**, seleccione **Agregar un permiso** y, luego **Mis API**.
 1. Escriba el nombre del servicio de nivel intermedio en el campo de texto.
-1. Elija **seleccionar permisos** y, a continuación, seleccione **acceso <service name>** .
+1. Elija **Seleccionar permisos** y, después, seleccione **Acceder a <service name>** .
 
 ### <a name="configure-known-client-applications"></a>Configuración de aplicaciones cliente conocidas
 
@@ -213,7 +213,7 @@ En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un 
 
 ### <a name="error-response-example"></a>Ejemplo de respuesta de error
 
-El punto de conexión del token de Azure AD devuelve una respuesta de error cuando intenta adquirir un token de acceso para una API de bajada que se establece con una directiva de acceso condicional (por ejemplo, la autenticación multifactor). El servicio de nivel intermedio debe exponer el error a la aplicación cliente para que esta pueda proporcionar la interacción del usuario necesaria para cumplir la directiva de acceso condicional.
+El punto de conexión del token de Azure AD devuelve una respuesta de error cuando intenta adquirir un token de acceso para una API de bajada que se establece con una directiva de acceso condicional (por ejemplo, la autenticación multifactor). El servicio de nivel intermedio debe exponer el error a la aplicación cliente para que esta pueda proporcionar la interacción del usuario necesaria para cumplir la directiva de acceso condicional.
 
 ```
 {

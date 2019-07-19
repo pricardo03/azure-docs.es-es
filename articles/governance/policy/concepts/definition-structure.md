@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979548"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428761"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -24,7 +24,7 @@ El esquema utilizado por Azure Policy puede encontrarse aquí: [https://schema.m
 
 Para crear una definición de directiva se utiliza JSON. La definición de directiva contiene elementos para:
 
-- mode
+- modo
 - parameters
 - nombre para mostrar
 - description
@@ -66,11 +66,15 @@ Por ejemplo, el siguiente JSON muestra una directiva que limita las ubicaciones 
 }
 ```
 
-Todos los ejemplos de Azure Policy están en [ejemplos de Azure Policy](../samples/index.md).
+Todos los ejemplos de Azure Policy se encuentran en [Ejemplos de Azure Policy](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="mode"></a>Mode
+
+El **Modo** se configura en función de si la directiva tiene como destino una propiedad de Azure Resource Manager o una propiedad del proveedor de recursos.
+
+### <a name="resource-manager-modes"></a>Modos de Resource Manager
 
 El **modo** determina qué tipos de recurso se evaluarán para una directiva. Los modos admitidos son:
 
@@ -79,7 +83,14 @@ El **modo** determina qué tipos de recurso se evaluarán para una directiva. Lo
 
 Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no incluye un valor de **modo**, el valor predeterminado es `all` en Azure PowerShell y `null` en la CLI de Azure. Un modo `null` es lo mismo que usar `indexed` para la compatibilidad con versiones anteriores.
 
-`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md). Para obtener una lista de recursos que admiten etiquetas, consulte [compatibilidad para los recursos de Azure de etiquetas](../../../azure-resource-manager/tag-support.md).
+`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md). Para obtener una lista de los recursos que admiten etiquetas, consulte [Compatibilidad con etiquetas de los recursos de Azure](../../../azure-resource-manager/tag-support.md).
+
+### <a name="resource-provider-modes"></a>Modos del proveedor de recursos
+
+Es el único modo del proveedor de recursos admitido actualmente es `Microsoft.ContainerService.Data` para administrar las reglas del controlador de admisión en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy para Kubernetes](rego-for-aks.md) está en versión preliminar pública y solo admite definiciones de directivas integradas.
 
 ## <a name="parameters"></a>Parámetros
 
@@ -99,10 +110,10 @@ Un parámetro tiene las siguientes propiedades que se usan en la definición de 
   - `description`: La explicación de para qué se usa el parámetro. Puede utilizarse para proporcionar ejemplos de valores aceptables.
   - `displayName`: El nombre descriptivo que se muestra en el portal para el parámetro.
   - `strongType`: (Opcional) Se usa al asignar la definición de directiva mediante el portal. Proporciona una lista que tiene en cuenta el contexto. Para más información, consulte [strongType](#strongtype).
-  - `assignPermissions`: (Opcional) Establecer como _true_ para que Azure portal cree asignaciones de roles durante la asignación de directiva. Esta propiedad es útil en caso de que desea asignar permisos fuera del ámbito de asignación. Hay una asignación de roles por cada definición de rol en la directiva (o por la definición de roles en todas las directivas en la iniciativa). El valor del parámetro debe ser un recurso válido o un ámbito.
+  - `assignPermissions`: (Opcional) Establecer como _true_ para que Azure Portal cree asignaciones de roles durante la asignación de directivas. Esta propiedad es útil en caso de que desee asignar permisos fuera del ámbito de asignación. Hay una asignación de roles por cada definición de roles de la directiva (o por cada definición de roles de todas las directivas de la iniciativa). El valor del parámetro debe ser un recurso o un ámbito válidos.
 - `defaultValue`: (Opcional) Establece el valor del parámetro en una asignación, si no se especifica ningún valor.
   Requerido cuando se actualiza una definición de directiva existente que está asignada.
-- `allowedValues`: (Opcional) Proporciona una matriz de valores que acepta el parámetro durante la asignación.
+- `allowedValues`: (Opcional) Proporciona una matriz de los valores que acepta el parámetro durante la asignación.
 
 Por ejemplo, podría definir una definición de directiva para limitar las ubicaciones en las que se pueden implementar los recursos. Un parámetro para esa definición de directiva podría ser **allowedLocations**. Este parámetro podría utilizarse por cada asignación de la definición de directiva para limitar los valores aceptados. El uso de **strongType** proporciona una experiencia mejorada al completar la asignación mediante el portal:
 
@@ -167,7 +178,7 @@ Si la ubicación de la definición es:
 
 Use los valores **displayName** y **description** para identificar la definición de directiva y proporcionar el contexto para su uso. **displayName** tiene una longitud máxima de _128_ caracteres y **description** tiene una longitud máxima de _512_ caracteres.
 
-## <a name="policy-rule"></a>Regla de directivas
+## <a name="policy-rule"></a>Regla de directiva
 
 La regla de directiva se compone de los bloques **If** y **Then**. En el bloque **If**, defina una o varias condiciones que especifican cuándo se aplica la directiva. Puede aplicar operadores lógicos a estas condiciones para definir con precisión el escenario de una directiva.
 
@@ -239,7 +250,7 @@ Una condición evalúa si un **campo** o el descriptor de acceso **value** cumpl
 Cuando se usan las condiciones **like** y **notLike**, incluya un carácter comodín (`*`) en el valor.
 El valor no debe contener más de un carácter comodín `*`.
 
-Cuando se usa el **coincide con** y **notMatch** proporcionar condiciones, `#` para que coincida con un dígito, `?` por una letra, `.` para que coincida con cualquier carácter y cualquier otro carácter para que coincida con ese carácter en Sí.
+Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincida cualquier carácter y cualquier otro carácter para que coincida ese carácter en sí.
 **match** y **notMatch** distinguen mayúsculas de minúsculas. Las alternativas de distinción entre mayúsculas y minúsculas están disponibles en **matchInsensitively** y **notMatchInsensitively**. Por ejemplo, consulte [Permitir varios patrones de nombre](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fields
@@ -299,7 +310,7 @@ Las condiciones también se pueden formar mediante el uso de **value**. **value*
 **value** se empareja con cualquier [condición](#conditions) admitida.
 
 > [!WARNING]
-> Si el resultado de una _función de plantilla_ es un error, produce un error de evaluación de directiva. Una evaluación con errores es implícita **denegar**. Para obtener más información, consulte [evitar los errores de plantilla](#avoiding-template-failures).
+> Si el resultado de una _función de plantilla_ es un error, no se pude realizar la evaluación de directivas. Una evaluación con errores es una **denegación** implícita. Para más información, consulte cómo [evitar los errores de plantilla](#avoiding-template-failures).
 
 #### <a name="value-examples"></a>Ejemplos de value
 
@@ -343,7 +354,7 @@ En este ejemplo de regla de directiva se utiliza **value** para comprobar si el 
 
 #### <a name="avoiding-template-failures"></a>Evitar los errores de plantilla
 
-El uso de _funciones de plantilla_ en **valor** permite muchas funciones anidadas complejas. Si el resultado de una _función de plantilla_ es un error, produce un error de evaluación de directiva. Una evaluación con errores es implícita **denegar**. Un ejemplo de un **valor** se produce un error en ciertos escenarios:
+El uso de _funciones de plantilla_ en el **valor** permite muchas funciones anidadas complejas. Si el resultado de una _función de plantilla_ es un error, no se pude realizar la evaluación de directivas. Una evaluación con errores es una **denegación** implícita. Un ejemplo de un **valor** que produce un error en ciertos escenarios:
 
 ```json
 {
@@ -359,9 +370,9 @@ El uso de _funciones de plantilla_ en **valor** permite muchas funciones anidada
 }
 ```
 
-La regla de directiva del ejemplo anterior usa [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar los tres primeros caracteres de **nombre** a **abc**. Si **nombre** tenga menos de tres caracteres, el `substring()` función produce un error. Este error hace que la directiva para convertirse en un **denegar** efecto.
+La regla de directiva del ejemplo anterior usa [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar los tres primeros caracteres del **nombre** con **abc**. Si el **nombre** tiene menos de tres caracteres, la función `substring()` produce un error. Este error hace que la directiva tenga el efecto de **denegar**.
 
-En su lugar, use el [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) función para comprobar si los tres primeros caracteres de **nombre** igual **abc** sin permitir que un **nombre** menor que tres caracteres para producir un error:
+En su lugar, use la función [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) para comprobar si los tres primeros caracteres del **nombre** son igual a **abc** sin permitir que un **nombre** menor de tres caracteres produzca un error:
 
 ```json
 {
@@ -377,11 +388,11 @@ En su lugar, use el [if()](../../../azure-resource-manager/resource-group-templa
 }
 ```
 
-Con la regla de directiva revisada `if()` comprueba la longitud del **nombre** antes de intentar obtener un `substring()` en un valor con menos de tres caracteres. Si **nombre** es demasiado corto, se devuelve en su lugar y en comparación con el valor "no se inicia con abc" **abc**. Un recurso con un nombre corto que no comienza por **abc** sigue sin funcionar la regla de directivas, pero ya no se produce un error durante la evaluación.
+Con la regla de directivas revisada, `if()` comprueba la longitud del **nombre** antes de intentar obtener un elemento `substring()` de un valor con menos de tres caracteres. Si el **nombre** es demasiado corto, se devuelve en su lugar el valor "no comienza por abc" en lugar de compararlo con **abc**. Un recurso con un nombre corto que no comienza por **abc** sigue produciendo un error en la regla de directivas, pero ya no se produce un error durante la evaluación.
 
 ### <a name="effect"></a>Efecto
 
-Directiva de Azure admite los siguientes tipos de efecto:
+Azure Policy admite los siguientes tipos de efecto:
 
 - **Deny**: genera un evento en el registro de actividad y genera un error en la solicitud.
 - **Audit**: genera un evento de advertencia en el registro de actividad pero no genera un error en la solicitud.
@@ -389,6 +400,7 @@ Directiva de Azure admite los siguientes tipos de efecto:
 - **AuditIfNotExists**: habilita la auditoría si un recurso no existe.
 - **DeployIfNotExists**: implementa un recurso si todavía no existe.
 - **Disabled**: no se evalúa el cumplimiento de la regla de directivas en los recursos.
+- **EnforceRegoPolicy**: configura el controlador de admisiones Open Policy Agent en Azure Kubernetes Service (versión preliminar)
 
 En el caso de **append**, debe proporcionar los detalles tal y como se muestra a continuación:
 
@@ -416,11 +428,11 @@ El efecto de **DeployIfNotExists** requiere la propiedad **roleDefinitionId** en
 }
 ```
 
-Para obtener información detallada sobre cada efecto, el orden de evaluación, propiedades y ejemplos, vea [Understanding Azure directiva efectos](effects.md).
+Para obtener información detallada sobre cada efecto, el orden de evaluación, las propiedades y algunos ejemplos, consulte [Descripción de los efectos de Azure Policy](effects.md).
 
 ### <a name="policy-functions"></a>Funciones de directiva
 
-Todos los [funciones de plantilla de Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) están disponibles para su uso dentro de una regla de directiva, excepto las siguientes funciones y las funciones definidas por el usuario:
+Se pueden usar todas las [funciones de plantilla de Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) dentro de una regla de directivas, excepto las siguientes funciones y funciones definidas por el usuario:
 
 - copyIndex()
 - deployment()
@@ -432,13 +444,13 @@ Todos los [funciones de plantilla de Resource Manager](../../../azure-resource-m
 - resourceId()
 - variables()
 
-Las siguientes funciones están disponibles para usar en una regla de directiva, pero difieren de uso en una plantilla de Azure Resource Manager:
+Las siguientes funciones están disponibles para su uso en una regla de directivas, pero difieren del uso en una plantilla de Azure Resource Manager:
 
 - addDays(dateTime, numberOfDaysToAdd)
-  - **fecha y hora**: cadena [obligatorio] - cadena con el formato de fecha y hora de Universal ISO 8601 "aaaa-MM-ddTHH:mm:ss.fffffffZ'
-  - **numberOfDaysToAdd**: integer [obligatorio] - número de días que desea agregar
-- utcNow() - a diferencia de un administrador de recursos de plantilla, se puede usar fuera defaultValue.
-  - Devuelve una cadena que se establece en la fecha y hora actuales en formato de fecha y hora de Universal ISO 8601 "aaaa-MM-ddTHH:mm:ss.fffffffZ'
+  - **dateTime** (fecha y hora): [Obligatorio] cadena: cadena con el formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.fffffffZ"
+  - **numberOfDaysToAdd** (número de días para agregar): [Obligatorio] entero: número de días que se desea agregar
+- utcNow(): a diferencia de una plantilla de Resource Manager, se puede usar con otro valor distinto del predeterminado.
+  - Devuelve una cadena que se establece en la fecha y hora actuales en formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.fffffffZ"
 
 Además, la función `field` está disponible para las reglas de directiva. `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 
@@ -478,7 +490,7 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
   Get-AzPolicyAlias -NamespaceMatch 'automation'
   ```
 
-- Azure CLI
+- CLI de Azure
 
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell
@@ -498,14 +510,14 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
 
 ### <a name="understanding-the--alias"></a>Descripción del alias [*]
 
-Algunos de los alias disponibles tienen una versión que aparece como un nombre "normal" y otra que tiene agregado **[\*]**. Por ejemplo:
+Algunos de los alias disponibles tienen una versión que aparece como un nombre "normal" y otra que tiene agregado **[\*]** . Por ejemplo:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-El alias 'normal' representa el campo como un valor único. Este campo es para escenarios de comparación de coincidencia exacta cuando todo el conjunto de valores debe ser exactamente como se define, nada más y nada menos.
+El alias "normal" representa el campo como un valor único. Este campo se utiliza en escenarios de comparación de coincidencia exacta, cuando todo el conjunto de valores debe ser exactamente como se define, nada más y nada menos.
 
-El **[\*]** alias hace posible que se compara con el valor de cada elemento de la matriz y propiedades específicas de cada elemento. Este enfoque permite comparar propiedades de elemento de 'Si ninguno de', 'Si cualquiera de', o ' si todos los de ' escenarios. Mediante **ipRules [\*]**, un ejemplo sería validar que cada _acción_ es _Deny_, pero no preocuparse por qué la dirección IP ocuántasreglasexisten_valor_ es. Esta regla de ejemplo busca las coincidencias de **ipRules [\*] .value** a **10.0.4.1** y aplica la **effectType** solo si no encuentra al menos una coincidencia:
+El alias **[\*]** hace posible comparar con el valor de cada elemento de la matriz y las propiedades específicas de cada elemento. Este enfoque permite comparar propiedades de elementos para escenarios del tipo "si ninguno de", "si alguno de" o "si todos los de". Con **ipRules[\*]** , un ejemplo sería validar que cada _acción_ es _Denegar_, pero no preocuparse por cuántas reglas existen o cuál es el _valor_ de la dirección IP. Esta regla de ejemplo busca las coincidencias de **ipRules[\*].value** con **10.0.4.1** y aplica el tipo de efecto **effectType** solo si no encuentra al menos una coincidencia:
 
 ```json
 "policyRule": {
@@ -527,7 +539,7 @@ El **[\*]** alias hace posible que se compara con el valor de cada elemento de l
 }
 ```
 
-Para obtener más información, consulte [evaluar el [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Para más información, consulte [Evaluación del alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Iniciativas
 
@@ -609,9 +621,9 @@ En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise los ejemplos en [ejemplos de Azure Policy](../samples/index.md).
+- Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md).
 - Vea la [Descripción de los efectos de directivas](effects.md).
-- Comprender cómo [crear mediante programación las directivas](../how-to/programmatically-create.md).
+- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md).
 - Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md).
 - Obtenga información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md).
-- Compruebe que un grupo de administración con [organizar los recursos con grupos de administración de Azure](../../management-groups/overview.md).
+- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

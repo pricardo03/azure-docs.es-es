@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ad4a67d7737733e4c910d3495be29860769f27e
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692196"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477807"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedimientos recomendados para usar Anomaly Detector API
 
@@ -51,7 +51,7 @@ Este es el mismo conjunto de datos pero con la detección de anomalías por lote
 
 ## <a name="data-preparation"></a>Preparación de los datos
 
-Anomaly Detector API acepta datos de serie temporal con formato de un objeto de solicitud JSON. Una serie temporal puede ser cualquier dato numérico registrado con el tiempo en orden secuencial. Puede enviar ventanas de los datos de serie temporal al punto de conexión de Anomaly Detector API para mejorar el rendimiento de las API. El número mínimo de puntos de datos que puede enviar es 12, y el máximo es 8640 puntos. 
+Anomaly Detector API acepta datos de serie temporal con formato de un objeto de solicitud JSON. Una serie temporal puede ser cualquier dato numérico registrado con el tiempo en orden secuencial. Puede enviar ventanas de los datos de serie temporal al punto de conexión de Anomaly Detector API para mejorar el rendimiento de las API. El número mínimo de puntos de datos que puede enviar es 12, y el máximo es 8640 puntos. [Granularidad](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) se define como la velocidad a la que se muestrean los datos. 
 
 Los puntos de datos enviados a Anomaly Detector API deben tener una marca de tiempo válida en Hora universal coordinada (UTC) y un valor numérico. 
 
@@ -68,6 +68,15 @@ Los puntos de datos enviados a Anomaly Detector API deben tener una marca de tie
         "value": 29615278
       },
     ]
+}
+```
+
+Si los datos se muestrean en un intervalo de tiempo no estándar, puede especificarlo agregando el atributo `customInterval` en la solicitud. Por ejemplo, si la serie se muestrea cada 5 minutos, puede agregar lo siguiente a su solicitud JSON:
+
+```json
+{
+    "granularity" : "minutely", 
+    "customInterval" : 5
 }
 ```
 
