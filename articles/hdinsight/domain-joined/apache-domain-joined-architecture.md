@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 168a73ced039b9bced9a6aae6a138468b345b19d
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.date: 06/24/2019
+ms.openlocfilehash: c227abce5adcefd16a41c5590e3ff490d138c424
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391680"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441451"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso de Enterprise Security Package en HDInsight
 
@@ -63,32 +63,50 @@ El uso de una instancia de Active Directory local o de Active Directory solo en 
 
 Si se está usando la federación y los hash de contraseña se sincronizan correctamente, pero recibe errores de autenticación, compruebe si está habilitada la autenticación de contraseña en la nube para la entidad de servicio de PowerShell. De lo contrario, debe establecer una [directiva para la Detección del dominio principal (HRD)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) en el inquilino de Azure AD. Para comprobar y establecer la directiva de HRD:
 
-1. Instale el módulo de PowerShell de Azure AD.
+1. Instale la versión preliminar del [módulo de PowerShell de Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
-   ```
-   Install-Module AzureADPreview
+   ```powershell
+   Install-Module AzureAD
    ```
 
-2. Escriba `Connect-AzureAD` usando las credenciales de un administrador global (administrador de inquilinos).
+2. Conéctese con las credenciales de un administrador global (administrador de inquilinos).
+   
+   ```powershell
+   Connect-AzureAD
+   ```
 
 3. Compruebe si ya se ha creado la entidad de servicio "Microsoft Azure PowerShell".
 
-   ```
-   $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+   ```powershell
+   Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
    ```
 
-4. Si no existe (es decir, si `($powershellSPN -eq $null)`), cree la entidad de servicio.
+4. Si no existe, cree la entidad de servicio.
 
-   ```
+   ```powershell
    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
    ```
 
 5. Cree y asocie la directiva a la entidad de servicio.
 
-   ```
-   $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+   ```powershell
+    # Determine whether policy exists
+    Get-AzureADPolicy | Where {$_.DisplayName -eq "EnableDirectAuth"}
 
-   Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+    # Create if not exists
+    $policy = New-AzureADPolicy `
+        -Definition @('{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}') `
+        -DisplayName "EnableDirectAuth" `
+        -Type "HomeRealmDiscoveryPolicy"
+
+    # Determine whether a policy for the service principal exist
+    Get-AzureADServicePrincipalPolicy `
+        -Id $powershellSPN.ObjectId
+    
+    # Add a service principal policy if not exist
+    Add-AzureADServicePrincipalPolicy `
+        -Id $powershellSPN.ObjectId `
+        -refObjectID $policy.ID
    ```
 
 ## <a name="next-steps"></a>Pasos siguientes

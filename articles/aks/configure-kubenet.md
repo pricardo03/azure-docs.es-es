@@ -5,21 +5,21 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/26/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 94a6ce87cf313fe283631e594a63f210c775c7a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 269dd670ed82234b77e06c389ae1c9a5c294010c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808579"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441951"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
-De forma predeterminada, los clústeres de AKS usan [kubenet][kubenet], y una red virtual de Azure y una subred se crean automáticamente. Con *kubenet*, los nodos obtienen una dirección IP de una subred de la red virtual de Azure. Los pods reciben una dirección IP de un espacio de direcciones lógicamente distinto a la subred de red virtual de Azure de los nodos. A continuación, se configura la traducción de direcciones de red (NAT) para que los pods puedan acceder a los recursos en la red virtual de Azure. La dirección IP de origen del tráfico se somete a un proceso NAT hacia la dirección IP primaria del nodo. Este enfoque reduce enormemente el número de direcciones IP que se deben reservar en el espacio de red para su uso por parte de los pods.
+De forma predeterminada, los clústeres de AKS usan [kubenet][kubenet], y una red virtual de Azure y una subred se crean automáticamente. Con *kubenet*, los nodos obtienen una dirección IP de una subred de la red virtual de Azure. Los pods reciben una dirección IP de un espacio de direcciones lógicamente distinto a la subred de red virtual de Azure de los nodos. A continuación, se configura la traducción de direcciones de red (NAT) para que los pods puedan acceder a los recursos en la red virtual de Azure. La dirección IP de origen del tráfico se somete a un proceso NAT hacia la dirección IP primaria del nodo. Este enfoque reduce enormemente el número de direcciones IP que se deben reservar en el espacio de red para que los pods las usen.
 
-Con [Azure Container Networking Interface (CNI)][cni-networking], cada pod obtiene una dirección IP de la subred, y se puede acceder directamente. Estas direcciones IP deben ser únicas en el espacio de red y deben planearse de antemano. Cada nodo tiene un parámetro de configuración para el número máximo de pods que admite. Luego, el número equivalente de direcciones IP por nodo se reserva por adelantado para ese nodo. Este enfoque requiere más planificación y a menudo lleva al agotamiento de direcciones IP o a la necesidad de volver a generar los clústeres en una subred mayor, a medida que crecen las exigencias de la aplicación.
+Con [Azure Container Networking Interface (CNI)][cni-networking], cada pod obtiene una dirección IP de la subred, y se puede acceder a él directamente. Estas direcciones IP deben ser únicas en el espacio de red y deben planearse de antemano. Cada nodo tiene un parámetro de configuración para el número máximo de pods que admite. Luego, el número equivalente de direcciones IP por nodo se reserva por adelantado para ese nodo. Este enfoque requiere más planificación y a menudo lleva al agotamiento de direcciones IP o a la necesidad de volver a generar los clústeres en una subred mayor, a medida que crecen las exigencias de la aplicación.
 
 En este artículo se muestra cómo usar las redes *kubenet* para crear y usar la subred de una red virtual con un clúster de AKS. Para más información sobre las opciones y consideraciones de red, consulte el artículo sobre los [conceptos de red para Kubernetes y AKS][aks-network-concepts].
 
@@ -28,7 +28,7 @@ En este artículo se muestra cómo usar las redes *kubenet* para crear y usar la
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Es preciso que esté instalada y configurada la versión 2.0.65 de la CLI de Azure, o cualquier otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+Es preciso que esté instalada y configurada la versión 2.0.65 de la CLI de Azure, o cualquier otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Información general sobre redes kubenet con una subred propia
 
@@ -48,7 +48,7 @@ Con *Azure CNI*, un problema común es que el intervalo de direcciones IP asigna
 
 Como compromiso, puede crear un clúster de AKS que use *kubenet* y conectarse a una subred de red virtual existente. Este enfoque permite que los nodos reciban direcciones IP definidas, sin necesidad de reservar un gran número de direcciones IP por adelantado para todos los pods posibles que se podrían ejecutar en el clúster.
 
-Con *kubenet*, puede usar un intervalo de direcciones IP mucho más pequeño y tener la capacidad de satisfacer una elevada demanda de los clústeres y la aplicación. Por ejemplo, incluso con un intervalo de direcciones IP de */27*, podría ejecutar un clúster de 20-25 nodos con espacio suficiente para escalar o actualizar. Este tamaño de clúster admitiría hasta *2200-2750* pods (con una capacidad máxima predeterminada de 110 pods por nodo). El número máximo de pods por nodo que se pueden configurar con *kubenet* en AKS es 250.
+Con *kubenet*, puede usar un intervalo de direcciones IP mucho más pequeño y tener la capacidad de satisfacer una elevada demanda de los clústeres y la aplicación. Por ejemplo, incluso con un intervalo de direcciones IP de */27*, podría ejecutar un clúster de 20-25 nodos con espacio suficiente para escalar o actualizar. Este tamaño de clúster admitiría hasta *2200-2750* pods (con una capacidad máxima predeterminada de 110 pods por nodo). El número máximo de pods por nodo que se puede configurar con *kubenet* en AKS es 110.
 
 Los cálculos básicos siguientes comparan la diferencia entre los modelos de red:
 
@@ -62,7 +62,7 @@ Los cálculos básicos siguientes comparan la diferencia entre los modelos de re
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Emparejamiento de redes virtuales y conexiones de ExpressRoute
 
-Para proporcionar conectividad local, los dos enfoques de red *kubenet* y *Azure-CNI* pueden usar el [emparejamiento de redes virtuales de Azure][vnet-peering] o las [conexiones ExpressRoute][express-route]. Planee los intervalos de direcciones IP detenidamente para evitar la superposición y un enrutamiento de tráfico incorrecto. Por ejemplo, muchas redes locales usan un intervalo de direcciones *10.0.0.0/8* que se anuncia a través de la conexión ExpressRoute. Es aconsejable crear los clústeres de AKS en las subredes de la red virtual de Azure fuera de este rango de direcciones, como *172.16.0.0/16*.
+Para proporcionar conectividad local, los dos enfoques de red *kubenet* y *Azure-CNI* pueden usar el [emparejamiento de redes virtuales de Azure][vnet-peering] or [ExpressRoute connections][express-route]. Planee los intervalos de direcciones IP detenidamente para evitar la superposición y un enrutamiento de tráfico incorrecto. Por ejemplo, muchas redes locales usan un intervalo de direcciones *10.0.0.0/8* que se anuncia a través de la conexión ExpressRoute. Es aconsejable crear los clústeres de AKS en las subredes de la red virtual de Azure fuera de este rango de direcciones, como *172.16.0.0/16*.
 
 ### <a name="choose-a-network-model-to-use"></a>Selección de un modelo de red para usarlo
 
@@ -80,6 +80,8 @@ Use *Azure CNI* cuando:
 - La mayor parte de la comunicación de los pods se realice con recursos fuera del clúster.
 - No desee administrar los UDR.
 - Necesite características avanzadas como los nodos virtuales o la directiva de red.
+
+Para más información que le ayude a decidir qué modelo de red usar, consulte la [Comparación de modelos de red y su ámbito de soporte][network-comparisons].
 
 > [!NOTE]
 > Kuberouter permite habilitar una directiva de red cuando se usa kubenet y se puede instalar como un daemonset en un clúster de AKS. Tenga en cuenta que kube-router está aún en versión beta y que Microsoft no ofrece soporte técnico para el proyecto.
@@ -125,7 +127,7 @@ $ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-Para asignar las delegaciones correctas en los pasos restantes, use los comandos [az network vnet show][az-network-vnet-show] y [az network vnet subnet show][az-network-vnet-subnet-show] para obtener los identificadores de recursos necesarios. Estos identificadores de recursos se almacenan como variables y se hace referencia a ellos en los pasos restantes:
+Para asignar las delegaciones correctas en los pasos restantes, use los comandos [az network vnet show][az-network-vnet-show] and [az network vnet subnet show][az-network-vnet-subnet-show] para obtener los identificadores de recurso necesarios. Estos identificadores de recursos se almacenan como variables y se hace referencia a ellos en los pasos restantes:
 
 ```azurecli-interactive
 VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet --query id -o tsv)
@@ -174,7 +176,7 @@ Al crear un clúster de AKS, también se crean un grupo de seguridad de red y un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Con un clúster de AKS implementado en la subred de red virtual existente, ahora puede usar el clúster de forma habitual. Empiece a [crear aplicaciones con Azure Dev Spaces][dev-spaces] o a [utilizar Draft][use-draft] o [implemente aplicaciones con Helm][use-helm].
+Con un clúster de AKS implementado en la subred de red virtual existente, ahora puede usar el clúster de forma habitual. Empiece a [compilar aplicaciones con Azure Dev Spaces][dev-spaces] or [using Draft][use-draft] o a [implementar aplicaciones con Helm][use-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
@@ -196,3 +198,4 @@ Con un clúster de AKS implementado en la subred de red virtual existente, ahora
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
+[network-comparisons]: concepts-network.md#compare-network-models

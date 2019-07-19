@@ -1,6 +1,6 @@
 ---
-title: 'Usar revisiones de acceso para administrar usuarios excluidos de directivas de acceso condicional: Azure Active Directory | Microsoft Docs'
-description: Obtenga información sobre cómo usar las revisiones de acceso de Azure Active Directory (Azure AD) para administrar los usuarios que se han excluido de las directivas de acceso condicional
+title: 'Uso de revisiones de acceso para administrar los usuarios excluidos de las directivas de acceso condicional: Azure Active Directory | Microsoft Docs'
+description: Aprenda a usar revisiones de acceso de Azure Active Directory (Azure AD) para administrar los usuarios a los que se les ha excluido de las directivas de acceso condicional.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 880593773ca7801da2874dc2a09a4bddf910a503
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571363"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471852"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Revisiones de acceso de uso de Azure AD para administrar los usuarios que se excluyen de las directivas de acceso condicional
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Uso de revisiones de acceso de Azure AD para administrar los usuarios a los que se les ha excluido de las directivas de acceso condicional
 
 En un mundo ideal, todos los usuarios deberían seguir las directivas de acceso para proteger el acceso a los recursos de la organización. A veces, sin embargo, hay casos empresariales en los que hay que hacer excepciones. En este artículo se describen algunos ejemplos en los que las exclusiones son necesarias y le explica cómo usted, como administrador de TI, puede administrar esta tarea, evitar la omisión de las excepciones de directivas y proporcionar a los auditores pruebas de que tales excepciones se revisan con regularidad mediante las revisiones de acceso de Azure Active Directory (Azure AD).
 
@@ -32,27 +32,27 @@ En un mundo ideal, todos los usuarios deberían seguir las directivas de acceso 
 
 ## <a name="why-would-you-exclude-users-from-policies"></a>¿En qué casos hay que excluir a usuarios de las directivas?
 
-Como administrador de TI, puede usar el [acceso condicional de Azure AD](../conditional-access/overview.md) para hacer que los usuarios se autentiquen mediante la autenticación multifactor (MFA) o que inicien sesión desde una red o dispositivo de confianza. Durante la planeación de la implementación, se da cuenta de que no todos los usuarios pueden cumplir estos requisitos. Por ejemplo, hay usuarios que trabajan desde una oficina remota que no forma parte de la red interna o hay un ejecutivo que usa un teléfono antiguo que no es compatible. La empresa necesita que estos usuarios puedan iniciar sesión y realizar su trabajo, por lo que se les excluye de las directivas de acceso condicional.
+Como administrador de TI, puede usar el [acceso condicional de Azure AD](../conditional-access/overview.md) para exigir que los usuarios se autentiquen mediante la autenticación multifactor (MFA) o que inicien sesión desde una red o un dispositivo de confianza. Durante la planeación de la implementación, se da cuenta de que no todos los usuarios pueden cumplir estos requisitos. Por ejemplo, hay usuarios que trabajan desde una oficina remota que no forma parte de la red interna o hay un ejecutivo que usa un teléfono antiguo que no es compatible. La empresa necesita que estos usuarios puedan iniciar sesión y realizar su trabajo, por lo que se les excluye de las directivas de acceso condicional.
 
 En otro ejemplo, podría usar [ubicaciones con nombre](../conditional-access/location-condition.md) en el acceso condicional para configurar un conjunto de países y regiones desde los que no desea permitir que los usuarios accedan a su inquilino.
 
-![Ubicaciones con nombre](./media/conditional-access-exclusion/named-locations.png)
+![Ubicaciones con nombre en el acceso condicional](./media/conditional-access-exclusion/named-locations.png)
 
-Sin embargo, en algunos casos, los usuarios es posible que tenga un motivo legítimo para iniciar sesión desde estos países o regiones bloqueados. Por ejemplo, es posible que los usuarios estén de viaje por motivos personales o laborales. En este ejemplo, la directiva de acceso condicional para bloquear estos países o regiones podría tener un grupo de seguridad en la nube dedicados para los usuarios que se excluyen de la directiva. Los usuarios que necesiten acceder mientras viajan, pueden agregarse a sí mismos al grupo mediante la [administración de grupos de autoservicio de Azure AD](../users-groups-roles/groups-self-service-management.md).
+Sin embargo, en algunos casos, puede que los usuarios tengan un motivo legítimo para iniciar sesión desde estos países o regiones bloqueados. Por ejemplo, es posible que los usuarios estén de viaje por motivos personales o laborales. En este caso, la directiva de acceso condicional para bloquear estos países o regiones podría tener un grupo de seguridad en la nube dedicado para los usuarios excluidos de la directiva. Los usuarios que necesiten acceder mientras viajan, pueden agregarse a sí mismos al grupo mediante la [administración de grupos de autoservicio de Azure AD](../users-groups-roles/groups-self-service-management.md).
 
 Otro caso podría ser el de una directiva de acceso condicional que [bloquea la autenticación heredada para la mayoría de los usuarios](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft recomienda encarecidamente que bloquee el uso de protocolos heredados en el inquilino para mejorar su seguridad. No obstante, si algunos usuarios tienen que usar forzosamente métodos de autenticación heredada para acceder a los recursos a través de Office 2010 o de clientes basados en IMAP/SMTP/POP, puede excluir a estos usuarios de la directiva que bloquea estos métodos de autenticación.
 
 ## <a name="why-are-exclusions-challenging"></a>¿Por qué constituyen un reto las exclusiones?
 
-En Azure AD, puede definir el ámbito de una directiva de acceso condicional para un conjunto de usuarios. También puede excluir algunos de estos usuarios mediante la selección de roles, usuarios individuales o los invitados de usuarios de Azure AD. Es importante recordar que cuando estas exclusiones están configuradas, la intención de la directiva no se puede aplicar para esos usuarios. Si estas exclusiones se configuraron como una lista de usuarios individuales o a través de un grupo de seguridad local heredado, esto limita la visibilidad de esta lista de exclusión (los usuarios pueden no conocer su existencia) y el control del administrador de TI sobre ella (los usuarios pueden unirse al grupo de seguridad a fin de eludir la directiva). Además, los usuarios que eran aptos para una exclusión en un momento dado, pueden no necesitarla ya más o dejar de ser aptos para ella.
+En Azure AD, puede definir el ámbito de una directiva de acceso condicional para un conjunto de usuarios. También puede excluir algunos de estos usuarios mediante la selección de roles, usuarios individuales o invitados de usuarios de Azure AD. Es importante recordar que cuando estas exclusiones están configuradas, la intención de la directiva no se puede aplicar para esos usuarios. Si estas exclusiones se configuraron como una lista de usuarios individuales o a través de un grupo de seguridad local heredado, esto limita la visibilidad de esta lista de exclusión (los usuarios pueden no conocer su existencia) y el control del administrador de TI sobre ella (los usuarios pueden unirse al grupo de seguridad a fin de eludir la directiva). Además, los usuarios que eran aptos para una exclusión en un momento dado, pueden no necesitarla ya más o dejar de ser aptos para ella.
 
 Al principio de una exclusión, hay una breve lista de los usuarios que pueden eludir la directiva. Con el tiempo, se excluyen cada vez más usuarios y aumenta la lista. En algún momento habrá necesidad de revisar la lista y confirmar que cada uno de estos usuarios debe seguir excluido. La administración de la lista desde un punto de vista técnico puede ser relativamente sencilla, pero ¿quién toma las decisiones empresariales y cómo puede asegurarse de que todo es auditable?
 
-Sin embargo, si configura la exclusión a la directiva de acceso condicional mediante un grupo de Azure AD, puede usar las revisiones de acceso como un control de compensación para aumentar la visibilidad y reducir el número de usuarios que tienen una excepción.
+Sin embargo, si configura la exclusión a la directiva de acceso condicional mediante un grupo de Azure AD, puede usar las revisiones de acceso como un control de compensación para aumentar la visibilidad y reducir el número de usuarios que tienen una excepción.
 
 ## <a name="how-to-create-an-exclusion-group-in-a-conditional-access-policy"></a>Creación de un grupo de exclusión en una directiva de acceso condicional
 
-Siga estos pasos para crear un nuevo grupo de Azure AD y una directiva de acceso condicional que no se aplique a ese grupo.
+Siga estos pasos para crear un grupo de Azure AD y una directiva de acceso condicional que no se aplique a ese grupo.
 
 ### <a name="create-an-exclusion-group"></a>Creación de un grupo de exclusión
 
@@ -68,13 +68,13 @@ Siga estos pasos para crear un nuevo grupo de Azure AD y una directiva de acceso
 
 1. Seleccione los usuarios que deben formar parte de este grupo de exclusión y, a continuación, haga clic en **Crear**.
 
-    ![Nuevo panel del grupo](./media/conditional-access-exclusion/new-group.png)
+    ![Panel de nuevo grupo en Azure Active Directory](./media/conditional-access-exclusion/new-group.png)
 
 ### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>Creación de una directiva de acceso condicional que excluye al grupo
 
 Ahora puede crear una directiva de acceso condicional que use este grupo de exclusión.
 
-1. En el panel de navegación izquierdo, haga clic en **Azure Active Directory** y, a continuación, haga clic en **Acceso condicional** para abrir la hoja **Directivas**.
+1. En el panel de navegación izquierdo, haga clic en **Azure Active Directory** y, luego, en **Acceso condicional** para abrir la hoja **Directivas**.
 
 1. Haga clic en **Nueva directiva** para que se abra el panel **Nuevo**.
 
@@ -93,16 +93,16 @@ Ahora puede crear una directiva de acceso condicional que use este grupo de excl
 
 1. Continúe con la configuración de la directiva de acceso condicional basada en los requisitos de su organización.
 
-    ![Seleccionar usuarios excluidos](./media/conditional-access-exclusion/select-excluded-users.png)
+    ![Selección del panel de usuarios excluidos del acceso condicional](./media/conditional-access-exclusion/select-excluded-users.png)
 
 Vamos a ver dos ejemplos en los que puede usar las revisiones de acceso para administrar exclusiones en las directivas de acceso condicional.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Ejemplo 1: Revisión de acceso para usuarios que tienen acceso desde países o regiones bloqueadas
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Ejemplo 1: Revisión de acceso para usuarios que acceden desde países o regiones bloqueados
 
 Supongamos que tiene una directiva de acceso condicional que bloquea el acceso desde determinados países o regiones. Incluye un grupo que está excluido de la directiva. Esta es una revisión de acceso recomendada en la que se revisan los miembros del grupo.
 
 > [!NOTE]
-> Se requiere un administrador Global o un rol de usuario administrador para crear las revisiones de acceso.
+> Se necesita un rol de administrador de empresa o administrador de usuarios para crear revisiones de acceso.
 
 1. La revisión se repetirá cada semana.
 
@@ -110,13 +110,13 @@ Supongamos que tiene una directiva de acceso condicional que bloquea el acceso d
 
 3. Todos los miembros de este grupo estarán en el ámbito de la revisión.
 
-4. Cada usuario tendrá automáticamente afirme que aun así deberá tener acceso desde estos países o regiones bloqueados, por lo tanto, es preciso ser miembro del grupo.
+4. Cada usuario tendrá que dar fe de que aún necesita tener acceso desde estos países o regiones bloqueados, por lo que necesitará seguir siendo miembro del grupo.
 
-5. Si el usuario no responde a la solicitud de revisión, se quitará automáticamente del grupo y por lo tanto, ya no puede acceder al inquilino mientras viaja a estos países o regiones.
+5. Si el usuario no responde a la solicitud de revisión, se le quitará automáticamente del grupo y, por tanto, ya no podrá acceder al inquilino mientras esté de viaje por esos países o regiones.
 
 6. Habilite las notificaciones de correo electrónico para que los usuarios reciban notificaciones sobre el inicio y finalización de la revisión de acceso.
 
-    ![Creación de una revisión de acceso](./media/conditional-access-exclusion/create-access-review-1.png)
+    ![Creación de un panel de revisión de acceso para el ejemplo 1](./media/conditional-access-exclusion/create-access-review-1.png)
 
 ## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Ejemplo 2: Revisión de acceso para aquellos usuarios que acceden con autenticación heredada
 
@@ -134,7 +134,7 @@ Supongamos que tiene una directiva de acceso condicional que bloquea el acceso a
 
 6. Habilite las notificaciones de correo electrónico para que los usuarios reciban notificaciones sobre el inicio y finalización de la revisión de acceso.
 
-    ![Creación de una revisión de acceso](./media/conditional-access-exclusion/create-access-review-2.png)
+    ![Creación de un panel de revisión de acceso para el ejemplo 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
 **Sugerencias profesional**: si tiene muchos grupos de exclusión y, por consiguiente, necesita crear varias revisiones de acceso, existe ahora una API en el punto de conexión beta de Microsoft Graph que le permite crear y administrar los grupos mediante programación. Para empezar, puede consultar la [referencia sobre la API de revisiones de acceso de Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) y el [ejemplo de recuperación de revisiones de acceso de Azure AD mediante Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
@@ -148,15 +148,15 @@ Ahora que ya tiene todo en marcha, el grupo, la directiva de acceso condicional 
 
 1. Haga clic en **Resultados** para ver a quién se le autorizó a permanecer en la lista y quién se ha quitado.
 
-    ![Resultados de las revisiones de acceso](./media/conditional-access-exclusion/access-reviews-results.png)
+    ![Los resultados de las revisiones de acceso muestran quién ha recibido aprobación](./media/conditional-access-exclusion/access-reviews-results.png)
 
 1. A continuación, haga clic en **Registros de auditoría** para ver las acciones que se realizaron durante esta revisión.
 
-    ![Registros de auditoría de las revisiones de acceso](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
+    ![Registros de auditoría de revisiones de acceso que muestran acciones](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 
 Como administrador de TI, sabrá que la administración de grupos de exclusión de las directivas a veces es inevitable. Sin embargo, el mantenimiento de los grupos, la revisión regular de estos por parte del propietario de la empresa o de los propios usuarios, y la auditoría de estos cambios se puede realizar más fácilmente con las revisiones de acceso de Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de una revisión de acceso de grupos o aplicaciones](create-access-review.md)
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+- [¿Qué es el acceso condicional de Azure Active Directory?](../conditional-access/overview.md)

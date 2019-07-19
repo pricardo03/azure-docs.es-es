@@ -9,18 +9,51 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0a6b48dbba232c06945b00d5107581d8d0c017b0
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 97f737c8d1228bd03baf59f2ebe830f715241299
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472419"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449837"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solución de problemas de Azure File en Linux
 
 En este artículo se enumeran los problemas habituales relacionados con Azure Files cuando se conecta desde clientes Linux. También se proporcionan posibles causas de estos problemas y sus resoluciones. 
 
 Además de los pasos de solución de problemas de este artículo, también puede usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) para asegurarse de que el cliente de Linux cumple los requisitos previos. AzFileDiagnostics automatiza la detección de la mayoría de los síntomas que se mencionan en este artículo. Le ayuda a configurar su entorno para obtener un rendimiento óptimo. También puede encontrar esta información en el [solucionador de problemas de recursos compartidos de Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). El solucionador de problemas proporciona pasos para ayudarle con problemas de conexión, asignación y montaje de recursos compartidos de Azure Files.
+
+## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>No se puede conectar a un recurso compartido de archivos de Azure ni montarlo
+
+### <a name="cause"></a>Causa
+
+Las causas comunes de este problema son las siguientes:
+
+- Está usando un cliente de distribución de Linux incompatible. Se recomienda usar las siguientes distribuciones de Linux para conectarse al recurso compartido de archivos de Azure:
+
+|   | SMB 2.1 <br>(Se monta en máquinas virtuales dentro de la misma región de Azure) | SMB 3.0 <br>(Puede montar desde el nivel local a entre regiones) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04 (o posterior) |
+| RHEL | 7 (o posterior) | 7.5 (o posterior) |
+| CentOS | 7 (o posterior) |  7.5 (o posterior) |
+| Debian | 8 (o posterior) |   |
+| openSUSE | 13.2 (o posterior) | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3 (o posterior) |
+
+- Las utilidades de CIFS (cfs-utils) no están instaladas en el cliente.
+- La versión 2.1 mínima de SMB/CIFS no está instalada en el cliente.
+- No se admite el cifrado SMB 3.0 en el cliente. La tabla anterior proporciona una lista de las distribuciones de Linux que admiten el montaje en el entorno local y entre regiones mediante el cifrado. Otras distribuciones requieren kernel 4.11 y versiones posteriores.
+- Está intentando conectarse a una cuenta de almacenamiento a través del puerto TCP 445 que no es compatible.
+- Está intentando conectarse al recurso compartido de archivos de Azure desde una máquina virtual de Azure y la máquina virtual no se encuentra en la misma región que la cuenta de almacenamiento.
+- Si la opción [Se requiere transferencia segura]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está habilitada para la cuenta de almacenamiento, Azure Files solo permitirá las conexiones que usen SMB 3.0 con cifrado.
+
+### <a name="solution"></a>Solución
+
+Para resolver el problema, use la [herramienta de solución de problemas para los errores de montaje de Azure Files en Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Esta herramienta:
+
+* Le ayuda a validar el cliente que ejecuta el entorno.
+* Detecta la configuración de cliente incompatible que podría provocar un error de acceso para Azure Files.
+* Ofrece instrucciones prescriptivas para la corrección automática.
+* Recopila los seguimientos de diagnóstico.
 
 <a id="mounterror13"></a>
 ## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>"Error de montaje(13): Permiso denegado" al montar un recurso compartido de archivos de Azure
@@ -49,15 +82,17 @@ Compruebe que las reglas de firewall y de red virtual están configuradas correc
 
 En Linux, recibe un mensaje de error similar al siguiente:
 
-**\<nombre de archivo > superada la cuota de disco [permiso denegado]**
+**\<nombre de archivo> [permiso denegado] Cuota de disco superada**
 
 ### <a name="cause"></a>Causa
 
 Se ha alcanzado el límite superior de identificadores abiertos simultáneos permitidos para un archivo.
 
+Hay una cuota de 2000 identificadores abiertos en un único archivo. Si tiene 2000 identificadores abiertos, se muestra un mensaje de error que indica que se ha alcanzado la cuota.
+
 ### <a name="solution"></a>Solución
 
-Reduzca el número de identificadores abiertos simultáneos cerrando algunos de ellos y, después, vuelva a realizar la operación. Para más información, consulte [Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Reduzca el número de identificadores abiertos simultáneos cerrando algunos de ellos y, después, vuelva a realizar la operación.
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Copia de archivos lenta en y desde Azure Files en Linux
@@ -66,36 +101,12 @@ Reduzca el número de identificadores abiertos simultáneos cerrando algunos de 
 - Si conoce el tamaño final de un archivo que amplía mediante operaciones de escritura y el software no presenta problemas de compatibilidad cuando una cola no escrita del archivo contiene ceros, establezca el tamaño de archivo con antelación en lugar de hacer que cada escritura sea una escritura de ampliación.
 - Utilice el método de copia correcto:
     - Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para todas las transferencias entre dos recursos compartidos de archivos.
-    - Utilice [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre recursos compartidos de archivos y un equipo local.
-
-<a id="error112"></a>
-## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>"Error de montaje(112): El host está apagado" debido a un tiempo de espera de reconexión
-
-Se produce un error de montaje "112" en el cliente de Linux cuando este lleva inactivo mucho tiempo. Después del tiempo de inactividad extendido, el cliente se desconecta y se agota el tiempo de espera de la conexión.  
-
-### <a name="cause"></a>Causa
-
-La conexión puede estar inactiva por las razones siguientes:
-
--   Errores de comunicación de la red que impiden el restablecimiento de una conexión TCP con el servidor cuando se usa la opción de montaje predeterminada "flexible"
--   Correcciones de reconexión recientes que no están presentes en los kernels anteriores
-
-### <a name="solution"></a>Solución
-
-Este problema de reconexión en el kernel de Linux se ha corregido como parte de los siguientes cambios:
-
-- [Fix reconnect to not defer smb3 session reconnect long after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93) (Corregir la reconexión para que no aplace la reconexión de la sesión de smb3 mucho después de la reconexión del socket)
-- [Call echo service immediately after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7) (Llamar al servicio de eco inmediatamente después de volver a conectar el socket)
-- [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: Corregir un posible daño de memoria durante la reconexión)
-- [CIFS: Fix a possible double locking of mutex during reconnect (or kernel v4.9 and later)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Corregir un posible bloqueo doble de exclusión mutua durante la reconexión: para el kernel v4.9 y versiones posteriores)
-
-Pero es posible que estos cambios todavía no se migren a todas las distribuciones de Linux. Esta corrección y otras correcciones de reconexión se realizan en los siguientes kernels de Linux conocidos: 4.4.40, 4.8.16 y 4.9.1. Puede obtener esta corrección actualizando a una de estas versiones de kernel recomendadas.
-
-### <a name="workaround"></a>Solución alternativa
-
-Una solución alternativa para este problema es especificar un montaje forzado. Un montaje forzado obliga al cliente a esperar hasta que se establece una conexión o hasta que se interrumpe explícitamente. Puede usarlo para evitar errores provocados por los tiempos de espera de la red. Sin embargo, esta solución alternativa puede provocar esperas indefinidas. Esté preparado para detener las conexiones según sea necesario.
-
-Si no puede actualizar a las versiones más recientes del kernel, puede solucionar este problema manteniendo un archivo en el recurso compartido de archivos de Azure en el que se escribe cada 30 segundos o menos. Esta debe ser una operación de escritura, como volver a escribir la fecha de creación o modificación en el archivo. De lo contrario, podría obtener resultados almacenados en caché y la operación podría no desencadenar la reconexión.
+    - El uso de cp con paralelo podría mejorar la velocidad de copia, el número de subprocesos depende de la carga de trabajo y el caso de uso. En este ejemplo se usan seis: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - Herramientas de terceros de código abierto como:
+        - [GNU Parallel](https://www.gnu.org/software/parallel/).
+        - [Fpart](https://github.com/martymac/fpart): ordena los archivos y los empaqueta en particiones.
+        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync): usa Fpart y una herramienta de copia para generar varias instancias para migrar datos desde src_dir a dst_url.
+        - [Mutil](https://github.com/pkolano/mutil): herramientas cp y md5sum multiproceso basadas en GNU coreutils.
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Error de montaje(115): Operación en curso" cuando monta Azure Files mediante SMB 3.0
@@ -106,12 +117,12 @@ Algunas distribuciones de Linux aún no admiten características de cifrado de S
 
 ### <a name="solution"></a>Solución
 
-La característica de cifrado de SMB 3.0 para Linux se introdujo en el kernel 4.11. Esta característica permite montar un recurso compartido de archivos de Azure desde el entorno local o una región distinta de Azure. En el momento de la publicación, esta funcionalidad se ha usado en Ubuntu 17.04 y Ubuntu 16.10. 
+La característica de cifrado de SMB 3.0 para Linux se introdujo en el kernel 4.11. Esta característica permite montar un recurso compartido de archivos de Azure desde el entorno local o una región distinta de Azure. Esta funcionalidad se incluye en las distribuciones de Linux enumeradas en [Versiones mínimas recomendadas con funcionalidades de montaje correspondientes (SMB versión 2.1 frente a SMB versión 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Otras distribuciones requieren kernel 4.11 y versiones posteriores.
 
 Si el cliente de SMB de Linux no admite el cifrado, monte Azure Files con SMB 2.1 desde una máquina virtual Linux de Azure que se encuentre en el mismo centro de datos que el recurso de archivos. Compruebe que el ajuste [Se requiere transferencia segura]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) esté deshabilitado en la cuenta de almacenamiento. 
 
 <a id="authorizationfailureportal"></a>
-## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Error "Error de autorización" al ir a un recurso compartido de archivos de Azure en el portal
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>"Error de autorización" al ir a un recurso compartido de Azure en el portal
 
 Cuando examine un recurso compartido de archivos de Azure en el portal, puede recibir el siguiente error:
 
@@ -133,17 +144,17 @@ Compruebe que las reglas de firewall y de red virtual están configuradas correc
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Rendimiento lento en un recurso compartido de archivos de Azure montado en una VM de Linux
 
-### <a name="cause"></a>Causa
+### <a name="cause-1-caching"></a>Causa 1: Almacenamiento en caché
 
-Una posible causa de un rendimiento lento es que el almacenamiento en caché está deshabilitado.
+Una posible causa de un rendimiento lento es que el almacenamiento en caché está deshabilitado. El almacenamiento en caché puede ser útil si tiene que obtener acceso repetidamente a un archivo, de lo contrario, puede ser una sobrecarga. Compruebe si está usando la memoria caché antes de deshabilitarla.
 
-### <a name="solution"></a>Solución
+### <a name="solution-for-cause-1"></a>Solución para la causa 1
 
-Para comprobar si el almacenamiento en caché está deshabilitado, busque la entrada **cache=** . 
+Para comprobar si el almacenamiento en caché está deshabilitado, busque la entrada **cache=** .
 
 **Cache=none** indica que el almacenamiento en caché está deshabilitado. Vuelva a montar el recurso compartido mediante el comando de montaje predeterminado o agregando explícitamente la opción **cache=strict** al comando de montaje con el fin de asegurarse de que el almacenamiento en caché predeterminado o el modo de almacenamiento en caché "strict" esté habilitado.
 
-En algunos escenarios, la opción de montaje **serverino** puede hacer que el comando **ls** se ejecute en cada entrada de directorio. Este comportamiento da como resultado una degradación del rendimiento cuando se muestra un listado de un directorio grande. Puede comprobar las opciones de montaje en la entrada **/etc/fstab**:
+En algunos escenarios, la opción de montaje **serverino** puede hacer que el comando **ls** se ejecute en cada entrada de directorio. Este comportamiento produce una degradación del rendimiento cuando se muestra un listado de un directorio grande. Puede comprobar las opciones de montaje en la entrada **/etc/fstab**:
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
@@ -154,6 +165,14 @@ También puede comprobar si se usan las opciones correctas ejecutando el comando
 ```
 
 Si no está presente la opción **cache=strict** o **serverino**, desmonte y vuelva a montar Azure Files ejecutando el comando de montaje desde la [documentación](../storage-how-to-use-files-linux.md). A continuación, vuelva a comprobar que la entrada **/etc/fstab** tiene las opciones correctas.
+
+### <a name="cause-2-throttling"></a>Causa 2: Limitaciones
+
+Es posible que experimente limitaciones y que las solicitudes se envíen a una cola. Puede comprobarlo aprovechando las [métricas de Azure Storage en Azure Monitor](../common/storage-metrics-in-azure-monitor.md).
+
+### <a name="solution-for-cause-2"></a>Solución para la causa 2
+
+Asegúrese de que la aplicación está dentro de los [objetivos de escalabilidad de Azure Files](storage-files-scale-targets.md#azure-files-scale-targets).
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>Se perdieron las marcas de tiempo al copiar archivos de Windows a Linux
@@ -179,16 +198,15 @@ Utilice el usuario de la cuenta de almacenamiento para copiar los archivos:
 
 Las causas comunes de este problema son las siguientes:
 
-
 - Está usando un cliente de distribución de Linux incompatible. Se recomienda usar las siguientes distribuciones de Linux para conectarse al recurso compartido de archivos de Azure:
 
     |   | SMB 2.1 <br>(Se monta en máquinas virtuales dentro de la misma región de Azure) | SMB 3.0 <br>(Puede montar desde el nivel local a entre regiones) |
     | --- | :---: | :---: |
     | Ubuntu Server | 14.04+ | 16.04 (o posterior) |
-    | RHEL | 7 (o posterior) | 7.5+ |
-    | CentOS | 7 (o posterior) |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2 (o posterior) | 42.3 (o posterior) |
+    | RHEL | 7 (o posterior) | 7.5 (o posterior) |
+    | CentOS | 7 (o posterior) |  7.5 (o posterior) |
+    | Debian | 8 (o posterior) |   |
+    | openSUSE | 13.2 (o posterior) | 42.3+ |
     | SUSE Linux Enterprise Server | 12 | 12 SP3 (o posterior) |
 
 - Las utilidades de CIFS (cfs-utils) no están instaladas en el cliente.
@@ -206,6 +224,7 @@ Para resolver el problema, use la [herramienta de solución de problemas para lo
 * Detecta la configuración de cliente incompatible que podría provocar un error de acceso para Azure Files.
 * Ofrece instrucciones prescriptivas para la corrección automática.
 * Recopila los seguimientos de diagnóstico.
+
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>Es: No se puede acceder a '&lt;ruta de acceso&gt;': Error de entrada/salida
 
@@ -248,6 +267,35 @@ sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <
 A continuación, puede crear symlinks como se sugiere en la [wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
+
+<a id="error112"></a>
+## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>"Error de montaje(112): El host está apagado" debido a un tiempo de espera de reconexión
+
+Se produce un error de montaje "112" en el cliente de Linux cuando este lleva inactivo mucho tiempo. Después del tiempo de inactividad extendido, el cliente se desconecta y se agota el tiempo de espera de la conexión.  
+
+### <a name="cause"></a>Causa
+
+La conexión puede estar inactiva por las razones siguientes:
+
+-   Errores de comunicación de la red que impiden el restablecimiento de una conexión TCP con el servidor cuando se usa la opción de montaje predeterminada "flexible"
+-   Correcciones de reconexión recientes que no están presentes en los kernels anteriores
+
+### <a name="solution"></a>Solución
+
+Este problema de reconexión en el kernel de Linux se ha corregido como parte de los siguientes cambios:
+
+- [Fix reconnect to not defer smb3 session reconnect long after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93) (Corregir la reconexión para que no aplace la reconexión de la sesión de smb3 mucho después de la reconexión del socket)
+- [Call echo service immediately after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7) (Llamar al servicio de eco inmediatamente después de volver a conectar el socket)
+- [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: Corregir un posible daño de memoria durante la reconexión)
+- [CIFS: Fix a possible double locking of mutex during reconnect (or kernel v4.9 and later)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Corregir un posible bloqueo doble de exclusión mutua durante la reconexión: para el kernel v4.9 y versiones posteriores)
+
+Pero es posible que estos cambios todavía no se migren a todas las distribuciones de Linux. Encontrará esta corrección y otras correcciones de reconexión en la sección [Versiones mínimas recomendadas con funcionalidades de montaje correspondientes (SMB versión 2.1 frente a SMB versión 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) del artículo [Uso de Azure Files con Linux](storage-how-to-use-files-linux.md). Puede obtener esta corrección actualizando a una de estas versiones de kernel recomendadas.
+
+### <a name="workaround"></a>Solución alternativa
+
+Una solución alternativa para este problema es especificar un montaje forzado. Un montaje forzado obliga al cliente a esperar hasta que se establece una conexión o hasta que se interrumpe explícitamente. Puede usarlo para evitar errores provocados por los tiempos de espera de la red. Sin embargo, esta solución alternativa puede provocar esperas indefinidas. Esté preparado para detener las conexiones según sea necesario.
+
+Si no puede actualizar a las versiones más recientes del kernel, puede solucionar este problema manteniendo un archivo en el recurso compartido de archivos de Azure en el que se escribe cada 30 segundos o menos. Esta debe ser una operación de escritura, como volver a escribir la fecha de creación o modificación en el archivo. De lo contrario, podría obtener resultados almacenados en caché y la operación podría no desencadenar la reconexión.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 

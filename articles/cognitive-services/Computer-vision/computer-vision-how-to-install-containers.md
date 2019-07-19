@@ -3,20 +3,20 @@ title: 'Cómo instalar y ejecutar contenedores: Computer Vision'
 titlesuffix: Azure Cognitive Services
 description: Cómo descargar, instalar y ejecutar contenedores para Computer Vision en este tutorial paso a paso.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 10e5060c06e1ebc591c7245ae588b5352a3328ca
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: 8a5a66c720c0a591fe9d6c9864286d80f68ba599
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302811"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449348"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar y ejecutar contenedores de Reconocer texto
 
@@ -34,7 +34,7 @@ Debe cumplir los siguientes requisitos previos para poder usar el contenedor de 
 |--|--|
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
-|Azure `Cognitive Services` recursos |Para poder usar el contenedor, debe tener:<br><br>Un _Cognitive Services_ el URI del extremo de facturación de claves de recursos de Azure y la facturación asociada. Ambos valores están disponibles en las páginas de información general y las claves para el recurso y es necesario para iniciar el contenedor. Deberá agregar el `vision/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|Recurso de Azure `Cognitive Services` |Para poder usar el contenedor, debe tener:<br><br>Un recurso de Azure _Cognitive Services_ y la clave de facturación asociada del URI del punto de conexión de facturación. Ambos valores están disponibles en las páginas de introducción y claves del recurso y son necesarios para iniciar el contenedor. Deberá agregar el enrutamiento `vision/v2.0` al URI del punto de conexión, tal como se muestra en el siguiente ejemplo de BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
 
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitud de acceso al registro de contenedor privado
@@ -50,9 +50,9 @@ Debe cumplir los siguientes requisitos previos para poder usar el contenedor de 
 
 En la tabla siguiente se describen los núcleos de CPU y memoria mínimos y recomendados para asignar cada contenedor de Reconocer texto.
 
-| Contenedor | Mínimo | Recomendada |TPS<br>(Mínimo, máximo)|
+| Contenedor | Mínima | Recomendado |TPS<br>(Mínimo, Máximo)|
 |-----------|---------|-------------|--|
-|Reconocer texto|1 núcleo, 8 GB de memoria, 0,5 TPS|2 núcleos, 8 GB de memoria, 1 TPS|0.5, 1|
+|Reconocer texto|1 núcleo, 8 GB de memoria, 0,5 TPS|2 núcleos, 8 GB de memoria, 1 TPS|0,5, 1|
 
 * Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
 * TPS: transacciones por segundo
@@ -91,10 +91,10 @@ Utilice el comando [docker run](https://docs.docker.com/engine/reference/command
 
 | Marcador de posición | Valor |
 |-------------|-------|
-|{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en Azure `Cognitive Services` página claves.  |
-|{BILLING_ENDPOINT_URI} | Valor del identificador URI del punto de conexión de facturación. Ejemplo es: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en la página de claves de Azure `Cognitive Services`.  |
+|{BILLING_ENDPOINT_URI} | Valor del identificador URI del punto de conexión de facturación. Un ejemplo sería: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
-Deberá agregar el `vision/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI.
+Deberá agregar el enrutamiento `vision/v2.0` al URI del punto de conexión, tal como se muestra en el siguiente ejemplo de BILLING_ENDPOINT_URI.
 
 Reemplace estos parámetros con sus propios valores en el siguiente comando `docker run` de ejemplo.
 
@@ -125,7 +125,7 @@ Hay más [ejemplos](./computer-vision-resource-container-config.md#example-docke
 
 El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST. 
 
-Utilice el host, `https://localhost:5000`, con las API de contenedor.
+Utilice el host, `http://localhost:5000`, con las API de contenedor.
 
 ### <a name="asynchronous-text-recognition"></a>Reconocimiento de texto asincrónico
 

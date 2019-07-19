@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9231b3629c10043e72efad4231111e56fd54c626
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072645"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447157"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,6 @@ En la tabla siguiente se describen los tipos de almacenamiento disponibles y sus
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Configuración compartida       | Archivos de Azure   | Sí | Sí | Sí | Sí |
 | Datos de la aplicación estructurados        | Azure Disks   | Sí | No  | No  | Sí |
-| Datos de la aplicación, recursos compartidos de solo lectura | [Dysk (versión preliminar)][dysk] | Sí | Sí | No  | Sin |
 | Datos no estructurados, operaciones del sistema de archivos | [BlobFuse (versión preliminar)][blobfuse] | Sí | Sí | Sí | Sin |
 
 Los dos tipos principales de almacenamiento proporcionados para volúmenes en AKS están respaldados por Azure Disks o Azure Files. Para mejorar la seguridad, ambos tipos de almacenamiento usan Azure Storage Service Encryption (SSE) de manera predeterminada para cifrar los datos en reposo. Actualmente no se pueden cifrar los discos con Azure Disk Encryption en el nivel de nodo de AKS.
@@ -48,11 +47,11 @@ El servicio Azure Files está actualmente disponible en el nivel de rendimiento 
 - Los discos *premium* están respaldados por discos de estado sólido (SSD) de alto rendimiento. Los discos premium son aconsejables para cargas de trabajo de producción.
 - Los discos *estándar* están respaldados por discos giratorios normales (HDD) y son adecuados para archivar o guardar datos a los que se accede con poca frecuencia.
 
-Comprender las necesidades de rendimiento de la aplicación y los patrones de acceso para elegir el nivel de almacenamiento adecuado. Para más información sobre los tamaños y niveles de rendimiento de Managed Disks, consulte [Azure Managed Disks overview][managed-disks] (Introducción a Azure Managed Disks).
+Comprender las necesidades de rendimiento de la aplicación y los patrones de acceso para elegir el nivel de almacenamiento adecuado. Para más información sobre los tamaños y niveles de rendimiento de Managed Disks, consulte [Introducción a los discos administrados de Azure][managed-disks]
 
 ### <a name="create-and-use-storage-classes-to-define-application-needs"></a>Crear y utilizar clases de almacenamiento para definir las necesidades de la aplicación
 
-El tipo de almacenamiento que usa se define con las *clases de almacenamiento* de Kubernetes. A continuación, se hacer referencia a la clase de almacenamiento en la especificación de almacenamiento o en el pod. Estas definiciones funcionan conjuntamente para crear el almacenamiento adecuado y conectarlo a los pods. Para obtener más información, consulte [Clases de almacenamiento en AKS][aks-concepts-storage-classes].
+El tipo de almacenamiento que usa se define con las *clases de almacenamiento* de Kubernetes. A continuación, se hacer referencia a la clase de almacenamiento en la especificación de almacenamiento o en el pod. Estas definiciones funcionan conjuntamente para crear el almacenamiento adecuado y conectarlo a los pods. Para más información, consulte [Clases de almacenamiento en AKS][aks-concepts-storage-classes].
 
 ## <a name="size-the-nodes-for-storage-needs"></a>Cambiar el tamaño de los nodos según las necesidades de almacenamiento
 
@@ -69,7 +68,7 @@ Si las aplicaciones requieren la tecnología Azure Disks como su solución de al
 
 En este caso, *Standard_DS2_v2* permite duplicar el número de discos conectados y proporciona entre tres o cuatro veces la cantidad de IOPS y de rendimiento de disco. Si solo examinó los recursos de proceso principales y comparó los costos, es posible que elija el tamaño de VM *Standard_B2ms* y sufra limitaciones y un bajo rendimiento de almacenamiento. Trabaje con su equipo de desarrollo de aplicaciones para comprender sus necesidades de rendimiento y de capacidad de almacenamiento. Elija el tamaño de VM adecuado para los nodos de AKS para cumplir o superar las necesidades de rendimiento. Establezca regularmente las aplicaciones para ajustar el tamaño de VM según sea necesario.
 
-Para obtener más información sobre los tamaños de VM disponibles, vea [Tamaños de las máquinas virtuales Linux en Azure][vm-sizes].
+Para más información sobre los tamaños de máquina virtual disponibles, consulte [Tamaños de las máquinas virtuales Linux en Azure][vm-sizes].
 
 ## <a name="dynamically-provision-volumes"></a>Aprovisionar volúmenes dinámicamente
 
@@ -81,9 +80,9 @@ Cuando necesite conectar almacenamiento a los pods, use los volúmenes persisten
 
 Una notificación de volumen persistente (PVC) le permite crear almacenamiento dinámicamente según sea necesario. Los discos subyacentes de Azure se crean a medida que se solicitan los pods. En la definición del pod, se solicita un volumen para que se cree y se conecte a una ruta de acceso de montaje diseñada
 
-Para los conceptos sobre cómo crear y usar volúmenes dinámicamente, vea [Notificaciones de volúmenes persistentes][aks-concepts-storage-pvcs].
+Para los conceptos sobre cómo crear y usar volúmenes dinámicamente, consulte [Notificaciones de volúmenes persistentes][aks-concepts-storage-pvcs].
 
-Para ver los volúmenes en acción, vea cómo crear y usar dinámicamente un volumen persistente con [Azure Disks][dynamic-disks] o [Azure Files][dynamic-files].
+Para ver los volúmenes en acción, vea cómo crear y usar dinámicamente un volumen persistente con [Azure Disks][dynamic-disks] or [Azure Files][dynamic-files].
 
 Como parte de las definiciones de clase de almacenamiento, configure la directiva *reclaimPolicy* apropiada. Esta directiva reclaimPolicy controla el comportamiento del recurso de almacenamiento subyacente de Azure cuando se elimina el pod y el volumen persistente puede dejar de ser necesario. El recurso de almacenamiento subyacente se puede eliminar o conservar para su uso con un pod futuro. Puede establecer la directiva reclaimPolicy en *conservar* o *eliminar*. Comprenda las necesidades de su aplicación e implemente comprobaciones regulares para saber el almacenamiento que se conserva para minimizar la cantidad de espacio de almacenamiento no utilizado que se usa y se factura.
 
@@ -93,17 +92,16 @@ Para más información sobre las opciones de clase de almacenamiento, consulte l
 
 **Orientación con procedimientos recomendados**: realice una copia de seguridad de los datos con una herramienta apropiada para su tipo de almacenamiento, como Velero o Azure Site Recovery. Compruebe la integridad y seguridad de las copias de seguridad.
 
-Cuando las aplicaciones almacenan y consumen datos que persisten en los discos o en los archivos, es necesario realizar copias de seguridad o instantáneas periódicamente de esos datos. La tecnología Azure Disks puede usar la tecnología integrada de instantánea. Es posible que necesite un enlace para que las aplicaciones vacíen las escrituras en el disco antes de realizar la operación de instantánea. [Velero][velero] puede realizar copias de seguridad de volúmenes persistentes junto con recursos y configuraciones de clústeres adicionales. Si no puede [eliminar el estado de sus aplicaciones][remove-state], realice una copia de seguridad de los datos de los volúmenes persistentes y pruebe regularmente las operaciones de restauración para verificar la integridad de los datos y los procesos necesarios.
+Cuando las aplicaciones almacenan y consumen datos que persisten en los discos o en los archivos, es necesario realizar copias de seguridad o instantáneas periódicamente de esos datos. La tecnología Azure Disks puede usar la tecnología integrada de instantánea. Es posible que necesite un enlace para que las aplicaciones vacíen las escrituras en el disco antes de realizar la operación de instantánea. [Velero][velero] can back up persistent volumes along with additional cluster resources and configurations. If you can't [remove state from your applications][remove-state], realiza una copia de seguridad de los datos de los volúmenes persistentes y prueba regularmente las operaciones de restauración para comprobar la integridad de los datos y los procesos necesarios.
 
-Comprenda las limitaciones de los diferentes enfoques de las copias de seguridad de datos y si necesita dejar sus datos en reposo antes de la instantánea. Las copias de seguridad de datos no necesariamente le permiten restaurar el entorno de la aplicación de la implementación del clúster. Para obtener más información acerca de estos escenarios, vea [Best practices for business continuity and disaster recovery in AKS][best-practices-multi-region] (Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en AKS).
+Comprenda las limitaciones de los diferentes enfoques de las copias de seguridad de datos y si necesita dejar sus datos en reposo antes de la instantánea. Las copias de seguridad de datos no necesariamente le permiten restaurar el entorno de la aplicación de la implementación del clúster. Para más información acerca de estos escenarios, consulte [Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en AKS][best-practices-multi-region].
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este artículo se centra en el procedimiento recomendado de almacenamiento en AKS. Para obtener más información sobre los conceptos básicos de almacenamiento de Kubernetes, consulte [Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)][aks-concepts-storage].
+Este artículo se centra en el procedimiento recomendado de almacenamiento en AKS. Para más información sobre los conceptos básicos de almacenamiento en Kubernetes, consulte [Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)][aks-concepts-storage].
 
 <!-- LINKS - External -->
 [velero]: https://github.com/heptio/velero
-[dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 
 <!-- LINKS - Internal -->

@@ -9,18 +9,18 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 773d4dd28da3165261d75e4f800750c1f54377d0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702300"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449265"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory 
 
 Este artículo es el primero de una serie de artículos destinados a ayudar a las organizaciones a implementar una solución de identidad híbrida de Azure Active Directory (Azure AD) completa. Esta solución se puede considerar como el [marco de transformación digital de la identidad híbrida](https://aka.ms/aadframework). Asimismo, cubre los resultados comerciales y objetivos en los que las organizaciones pueden centrarse para implementar una solución de identidad híbrida sólida y segura. 
 
-Los primeros resultados empresariales del marco señalan los requisitos de las organizaciones de proteger el proceso de autenticación cuando los usuarios acceden a las aplicaciones en la nube. El primer objetivo empresarial del resultado empresarial de autenticación segura es la posibilidad de que los usuarios inicien sesión en las aplicaciones en la nube mediante sus nombres de usuario y contraseñas locales. Este proceso de inicio de sesión y autenticación permite todo el contenido en la nube.
+Los primeros resultados empresariales del marco señalan los requisitos de las organizaciones de proteger el proceso de autenticación cuando los usuarios acceden a las aplicaciones en la nube. El primer objetivo empresarial del resultado empresarial de autenticación segura es la posibilidad de que los usuarios inicien sesión en las aplicaciones en la nube mediante sus nombres de usuario y contraseñas locales. Este proceso de inicio de sesión y autenticación abre un mundo de posibilidades en la nube.
 
 La elección del método de autenticación correcto es la primera preocupación para las organizaciones que desean mover sus aplicaciones a la nube. Esta decisión no debe tomarse a la ligera por las razones siguientes:
 
@@ -49,7 +49,7 @@ Azure AD admite los siguientes métodos de autenticación en soluciones de ident
 ### <a name="cloud-authentication"></a>Autenticación en la nube
 Cuando se elige este método de autenticación, Azure AD administra el proceso de inicio de sesión de los usuarios. Junto con el inicio de sesión único (SSO) completo, los usuarios pueden iniciar sesión en las aplicaciones en la nube sin tener que volver a escribir sus credenciales. Con la autenticación en la nube puede elegir entre dos opciones: 
 
-**Sincronización de hash de contraseñas de Azure AD**. Es la manera más sencilla de habilitar la autenticación para los objetos de directorio local en Azure AD. Gracias a ella, los usuarios pueden usar el mismo nombre de usuario y contraseña que en el entorno local sin tener que implementar ninguna infraestructura adicional. Algunas características premium de Azure AD, como Identity Protection y [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), requieren la sincronización de hash de contraseña, con independencia de qué método de autenticación que elija.
+**Sincronización de hash de contraseñas de Azure AD**. Es la manera más sencilla de habilitar la autenticación para los objetos de directorio local en Azure AD. Gracias a ella, los usuarios pueden usar el mismo nombre de usuario y contraseña que en el entorno local sin tener que implementar ninguna infraestructura adicional. Algunas características premium de Azure AD, como Identity Protection y [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), requieren la sincronización de hash de contraseñas con independencia del método de autenticación seleccionado.
 
 > [!NOTE] 
 > Las contraseñas nunca se almacenan en texto no cifrado o cifradas con un algoritmo reversible en Azure AD. Para obtener más información sobre el proceso real de la sincronización de hash de contraseñas, consulte [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
@@ -81,7 +81,7 @@ Detalles sobre las preguntas de decisión:
    * Solución de autenticación local de varios sitios.
 5. Azure AD Identity Protection requiere la sincronización del hash de contraseña, independientemente de qué método de inicio de sesión elija, para proporcionar el informe *Usuarios con credenciales filtradas*. Las organizaciones pueden conmutar por error a la sincronización del hash de contraseña si se produce un error en su método principal de inicio de sesión y se ha configurado antes del evento de error.
 
->[!NOTE]
+> [!NOTE]
 > Azure AD Identity Protection requiere licencias de [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="detailed-considerations"></a>Consideraciones detalladas
@@ -92,16 +92,19 @@ Detalles sobre las preguntas de decisión:
 
 * **Experiencia del usuario**. Para mejorar la experiencia de inicio de sesión de los usuarios, puede implementar un SSO de conexión directa gracias a la sincronización de hash de contraseñas. El SSO de conexión directa elimina las solicitudes innecesarias cuando los usuarios inician sesión.
 
-* **Escenarios avanzados**. Si las organizaciones lo eligen, es posible usar información detallada de identidades con informes de Azure AD Identity Protection con Azure AD Premium P2. Por ejemplo, el informe de credenciales filtradas. Windows Hello para empresas tiene [requisitos específicos cuando se usa la sincronización de hash de contraseña](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) requieren sincronización de hash de contraseña para aprovisionar usuarios con sus credenciales corporativas en el dominio administrado.
+* **Escenarios avanzados**. Si las organizaciones lo eligen, es posible usar información detallada de identidades con informes de Azure AD Identity Protection con Azure AD Premium P2. Por ejemplo, el informe de credenciales filtradas. Windows Hello para empresas tiene [requisitos específicos cuando se usa la sincronización de hash de contraseñas](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) requiere sincronización de hash de contraseñas para aprovisionar a los usuarios con sus credenciales corporativas en el dominio administrado.
 
-    Las organizaciones que requieren una autenticación multifactor con sincronización de hash de contraseñas deben usar la autenticación multifactor de Azure AD. Esas organizaciones no pueden usar métodos de autenticación multifactor de terceros o locales.
+    Las organizaciones que requieren una autenticación multifactor con sincronización de hash de contraseñas tienen que usar la autenticación multifactor o los [controles personalizados de acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls) de Azure AD. Esas organizaciones no pueden usar métodos de autenticación multifactor de terceros o locales que se basen en la federación.
+
+> [!NOTE]
+> El acceso condicional de Azure AD requiere licencias de [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/).
 
 * **Continuidad del negocio**. La sincronización de hash de contraseñas tiene una alta disponibilidad como servicio en la nube que se puede escalar a todos los centros de datos de Microsoft. Para asegurarse de que la sincronización de hash de contraseñas no deja de funcionar durante períodos prolongados, implemente un segundo servidor de Azure AD Connect de modo provisional en una configuración en espera.
 
 * **Consideraciones**. Actualmente, la sincronización de hash de contraseñas no aplica inmediatamente los cambios en los estados de la cuenta local. En esta situación, un usuario tendrá acceso a las aplicaciones en la nube hasta que el estado de la cuenta del usuario se sincronice con Azure AD. Si las organizaciones quieren superar esta limitación, es recomendable ejecutar un nuevo ciclo de sincronización después de que los administradores realicen actualizaciones masivas en los estados de las cuentas de los usuarios locales. Por ejemplo, pueden deshabilitar las cuentas.
 
 > [!NOTE]
-> Los estados de contraseña expirada y cuenta bloqueada no se sincronizan actualmente con Azure AD mediante Azure AD Connect. 
+> Los estados de contraseña expirada y cuenta bloqueada no se sincronizan actualmente con Azure AD mediante Azure AD Connect. Al cambiar una contraseña de usuario y establecer la marca *el usuario debe cambiar la contraseña en el siguiente inicio de sesión*, el hash de contraseña no se sincronizará con Azure AD a través de Azure AD Connect hasta que el usuario cambie su contraseña.
 
 Para ver los pasos de implementación, consulte [Implementación de la sincronización de hash de contraseñas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization).
 
@@ -115,7 +118,7 @@ Para ver los pasos de implementación, consulte [Implementación de la sincroniz
 
 * **Escenarios avanzados**. La autenticación de paso a través aplica la directiva de cuenta local al iniciar sesión. Por ejemplo, se deniega el acceso cuando el estado de la cuenta de un usuario local indica que está deshabilitada, bloqueada, con la [contraseña expirada](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) o que se encuentra fuera de las horas de inicio de sesión del usuario. 
 
-    Las organizaciones que requieren una autenticación multifactor con una autenticación de paso a través deben usar Azure Multi-Factor Authentication (MFA). Esas organizaciones no pueden usar métodos de autenticación multifactor de terceros o locales. Las características avanzadas requieren que se implemente la sincronización de hash de contraseñas sin importar si elige o no la autenticación de paso a través. Por ejemplo, esto sucede con el informe de credenciales filtradas de Identity Protection.
+    Las organizaciones que requieren una autenticación multifactor con una autenticación de paso a través tienen que usar Azure Multi-Factor Authentication (MFA) o los [controles personalizados de acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Esas organizaciones no pueden usar métodos de autenticación multifactor de terceros o locales que se basen en la federación. Las características avanzadas requieren que se implemente la sincronización de hash de contraseñas sin importar si elige o no la autenticación de paso a través. Por ejemplo, esto sucede con el informe de credenciales filtradas de Identity Protection.
 
 * **Continuidad del negocio**. Es recomendable que implemente dos agentes de autenticación de paso a través adicionales. Estos extras son adicionales al primer agente en el servidor de Azure AD Connect. Esta implementación adicional garantiza una alta disponibilidad de solicitudes de autenticación. Cuando hay tres agentes implementados, un agente puede dejar de funcionar cuando otro agente está inactivo por mantenimiento. 
 
@@ -136,7 +139,7 @@ Para obtener información sobre los pasos de implementación, consulte [Implemen
 * **Escenarios avanzados**. Generalmente, se requiere una solución de autenticación federada cuando los clientes tienen un requisito de autenticación que Azure AD no admite de forma nativa. Puede consultar información detallada que le ayudará a [elegir la opción de inicio de sesión correcta](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Considere los siguientes requisitos comunes:
 
   * Un método de autenticación que requiere tarjetas inteligentes o certificados.
-  * Servidores MFA locales o proveedores de autenticación multifactor de terceros.
+  * Servidores MFA locales o proveedores de autenticación multifactor de terceros que requieren un proveedor de identidades federadas.
   * Un método de autenticación con una solución de autenticación de terceros. Consulte la [lista de compatibilidad de federación de AD Azure](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
   * Un inicio de sesión que requiera un elemento sAMAccountName, como DOMAIN\username, en lugar de usar el nombre principal de usuario (UPN); por ejemplo, user@domain.com.
 
@@ -161,7 +164,7 @@ En los siguientes diagramas se describen los componentes de arquitectura de alto
 
     ![Identidad híbrida de Azure AD con sincronización de hash de contraseñas](media/azure-ad/azure-ad-authn-image2.png)
 
-* Requisitos del agente de autenticación de paso a través, utilizando a dos agentes para redundancia:
+* Requisitos del agente para la autenticación de paso a través, con el uso de dos agentes para la redundancia:
 
     ![Identidad híbrida de Azure AD con autenticación de paso a través](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -176,7 +179,7 @@ En los siguientes diagramas se describen los componentes de arquitectura de alto
 |¿Dónde se realiza la autenticación?|En la nube|En la nube, después de un intercambio de comprobación de contraseña segura con el agente de autenticación local|Local|
 |¿Cuáles son los requisitos de servidor local más allá del sistema de aprovisionamiento (Azure AD Connect)?|None|Un servidor para cada agente de autenticación adicional|Dos o más servidores de AD FS<br><br>Dos o más servidores WAP en la red perimetral o DMZ|
 |¿Cuáles son los requisitos de redes e Internet locales más allá del sistema de aprovisionamiento?|None|[Acceso saliente a Internet](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) desde los servidores que ejecutan los agentes de autenticación|[Acceso entrante a Internet](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) para los servidores WAP del perímetro<br><br>Acceso entrante de red para los servidores de AD FS desde los servidores WAP del perímetro<br><br>Equilibrio de carga de red|
-|¿Hay algún requisito de certificado SSL?|Sin |No|Sí|
+|¿Hay algún requisito de certificado SSL?|Sin|No|Sí|
 |¿Hay alguna solución de supervisión de estado?|No se requiere|El estado del agente lo proporciona el [Centro de administración de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
 |¿Los usuarios realizan el inicio de sesión único en los recursos de nube desde dispositivos unidos a un dominio de la red de la empresa?|Sí, con [SSO de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Sí, con [SSO de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Sí|
 |¿Qué tipos de inicio de sesión se admiten?|UserPrincipalName + contraseña<br><br>Autenticación integrada de Windows con [SSO de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Identificador de inicio de sesión alternativo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + contraseña<br><br>Autenticación integrada de Windows con [SSO de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Identificador de inicio de sesión alternativo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + contraseña<br><br>sAMAccountName + contraseña<br><br>Autenticación integrada de Windows<br><br>[Autenticación de certificados y tarjetas inteligentes](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Identificador de inicio de sesión alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
@@ -204,7 +207,7 @@ Use o habilite la sincronización de hash de contraseñas con independencia del 
 
    * Las organizaciones que activaron previamente la sincronización de hash de contraseñas, cambiaron su método de autenticación para usar la sincronización de hash de contraseñas. Gracias a esto, volvieron a estar en línea en cuestión de horas. Al usar el acceso al correo electrónico a través de Office 365, pudieron trabajar para resolver los problemas y tener acceso a otras cargas de trabajo basadas en la nube.
 
-   * Las organizaciones que anteriormente no ha habilitado la sincronización de hash de contraseña tenían que recurrir a sistemas de correo electrónico de consumo externos que no se confía para las comunicaciones resolver los problemas. En esos casos, se tardaron ellos semanas para restaurar su infraestructura de identidad local, antes de que los usuarios podían iniciar sesión en aplicaciones basadas en la nube nuevo.
+   * Las organizaciones que no habilitaron previamente la sincronización de hash de contraseñas, tuvieron que recurrir a sistemas de correo electrónico de consumidor externos que no son de confianza para las comunicaciones, con el fin de resolver los problemas. En esos casos, tardaron semanas en restaurar su infraestructura de identidad local, antes de que los usuarios pudieran volver a iniciar sesión en aplicaciones basadas en la nube.
 
 3. **Identity Protection**. una de las mejores maneras de proteger a los usuarios de la nube es Azure AD Identity Protection con Azure AD Premium P2. Microsoft examina continuamente Internet en busca de listas de usuarios y contraseñas que los usuarios malintencionados venden y proporcionan en la Internet oscura. Azure AD puede usar esta información para comprobar si algunos de los nombres de usuario y contraseñas de su organización están en peligro. Por lo tanto, es fundamental habilitar la sincronización de hash de contraseñas, con independencia de qué método de autenticación se use, ya sea autenticación federada o de paso a través. Las credenciales filtradas se presentan como un informe. Use esta información para bloquear o exigir que los usuarios cambien sus contraseñas cuando intenten iniciar sesión con contraseñas filtradas.
 

@@ -4,17 +4,17 @@ description: En este artículo se ofrece información sobre la solución de prob
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: 53fef426c927c690a3b697055f467f6cd35c532c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514460"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477523"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solución de problemas de Desired State Configuration (DSC)
 
@@ -22,11 +22,11 @@ En este artículo se ofrece información sobre la solución de problemas con Des
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Errores comunes al trabajar con la Configuración de estado deseado (DSC)
 
-### <a name="unsupported-characters"></a>Escenario: No se puede eliminar una configuración con caracteres especiales en el portal
+### <a name="unsupported-characters"></a>Escenario: No se puede eliminar una configuración con caracteres especiales del portal
 
 #### <a name="issue"></a>Problema
 
-Cuando se intenta eliminar una configuración de DSC desde el portal, consulte el siguiente error:
+Al intentar eliminar una configuración de DSC del portal, ve el siguiente error:
 
 ```error
 An error occurred while deleting the DSC configuration '<name>'.  Error-details: The argument configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
@@ -34,19 +34,19 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 #### <a name="cause"></a>Causa
 
-Este error es un problema temporal que se prevé que se resuelva.
+Este error es un problema temporal que está previsto que se resuelva.
 
 #### <a name="resolution"></a>Resolución
 
-* Use el Cmdlet de Az "Remove-AzAutomationDscConfiguration" para eliminar la configuración.
-* Todavía no se ha actualizado la documentación de este cmdlet.  Hasta entonces, consulte la documentación del módulo de AzureRM.
+* Use el cmdlet de Az "Remove-AzAutomationDscConfiguration" para eliminar la configuración.
+* Todavía no se ha actualizado la documentación de este cmdlet.  Hasta entonces, consulte la documentación del módulo AzureRM.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Escenario: No se pudo registrar el agente de Dsc
+### <a name="failed-to-register-agent"></a>Escenario: No se pudo registrar el agente de DSC
 
 #### <a name="issue"></a>Problema
 
-Cuando se intenta ejecutar `Set-DscLocalConfigurationManager` u otro cmdlet DSC recibe el error:
+Al intentar ejecutar `Set-DscLocalConfigurationManager` u otro cmdlet de DSC, recibe el error:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -61,11 +61,11 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 #### <a name="cause"></a>Causa
 
-Este error se debe normalmente a un servidor de seguridad, la máquina está detrás de un servidor proxy, u otros errores de red.
+Este error se debe normalmente a un firewall, a la máquina que está detrás de un servidor proxy o a otros errores de red.
 
 #### <a name="resolution"></a>Resolución
 
-Compruebe que el equipo tiene acceso a los puntos de conexión adecuadas para DSC de automatización de Azure y vuelva a intentarlo. Para obtener una lista de puertos y direcciones necesarias, vea [planeamiento de red](../automation-dsc-overview.md#network-planning)
+Compruebe que la máquina tenga acceso a los puntos de conexión adecuadas para DSC de Automatización de Azure y vuelva a intentarlo. Para ver una lista de puertos y direcciones necesarios, consulte [Planeamiento de red](../automation-dsc-overview.md#network-planning).
 
 ### <a name="failed-not-found"></a>Escenario: el nodo se encuentra en estado de error con el error "No encontrado"
 
@@ -83,11 +83,11 @@ Este error suele ocurrir cuando se asigna al nodo un nombre de configuración (p
 
 #### <a name="resolution"></a>Resolución
 
-* Asegúrese de que se va a asignar el nodo con el "nombre de la configuración de nodo" y no el "nombre de configuración".
+* Asegúrese de estar asignando al nodo un "nombre de configuración de nodo" y no el "nombre de configuración".
 * Puede asignar una configuración de nodo a un nodo mediante el Portal de Azure o con un cmdlet de PowerShell.
 
-  * Para asignar una configuración de nodo a un nodo mediante Azure portal, abra el **nodos DSC** página, a continuación, seleccione un nodo y haga clic en **asignar configuración de nodo** botón.  
-  * Para asignar una configuración de nodo a un nodo mediante el cmdlet de PowerShell, use **AzureRmAutomationDscNode Set** cmdlet
+  * Para asignar una configuración de nodo a un nodo mediante Azure Portal, abra la página **Nodos DSC**, seleccione un nodo y haga clic en el botón **Asignar configuración de nodo**.  
+  * Para asignar una configuración de nodo a un nodo mediante un cmdlet de PowerShell, use el cmdlet **Set-AzureRmAutomationDscNode**.
 
 ### <a name="no-mof-files"></a>Escenario: no se produjeron configuraciones de nodo (archivos MOF) al compilarse una configuración
 
@@ -107,7 +107,7 @@ Cuando la expresión que aparece junto a la palabra clave **Node** en la configu
 
 Cualquiera de las siguientes soluciones resolverá el problema:
 
-* Asegúrese de que la expresión junto a la **nodo** palabra clave en la definición de configuración no se está evaluando como $null.
+* Asegúrese de que la expresión junto a la palabra clave **Node** en la definición de configuración no se está evaluando como $null.
 * Si se pasan datos de configuración al compilar la configuración, asegúrese de que se pasan los valores esperados que la configuración necesita de [ConfigurationData](../automation-dsc-compile.md#configurationdata).
 
 ### <a name="dsc-in-progress"></a>Escenario: el informe de nodo de DSC se queda bloqueado en el estado "en curso"
@@ -126,7 +126,7 @@ Ha actualizado la versión de WMF y ha dañado WMI.
 
 #### <a name="resolution"></a>Resolución
 
-Para corregir el problema, siga las instrucciones de la [problemas y limitaciones conocidos de DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) artículo.
+Para solucionar el problema, siga las instrucciones que se indican en el artículo [Problemas y limitaciones conocidos de DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc).
 
 ### <a name="issue-using-credential"></a>Escenario: no se puede usar una credencial en una configuración de DSC
 
@@ -140,17 +140,17 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### <a name="cause"></a>Causa
 
-Ha usado una credencial en una configuración, pero no proporcionó adecuado **ConfigurationData** establecer **PSDscAllowPlainTextPassword** en true para cada configuración de nodo.
+Ha usado una credencial en una configuración pero no ha proporcionado el valor adecuado de **ConfigurationData** para establecer **PSDscAllowPlainTextPassword** en true para cada configuración de nodo.
 
 #### <a name="resolution"></a>Resolución
 
-* Asegúrese de pasar el valor adecuado **ConfigurationData** establecer **PSDscAllowPlainTextPassword** como true para cada configuración de nodo que se menciona en la configuración. Para más información, consulte los [recursos en DSC de Azure Automation](../automation-dsc-compile.md#assets).
+* Asegúrese de pasar el valor adecuado de **ConfigurationData** para establecer **PSDAllowPlainTextPassword** como true para cada configuración de nodo mencionada en la configuración. Para más información, consulte los [recursos en DSC de Azure Automation](../automation-dsc-compile.md#assets).
 
-### <a name="failure-processing-extension"></a>Escenario: Incorporación de la extensión dsc, el error "Error de procesamiento de extensión"
+### <a name="failure-processing-extension"></a>Escenario: Se produce un error de procesamiento de la extensión al realizar la incorporación desde la extensión DSC
 
 #### <a name="issue"></a>Problema
 
-Cuando se produce de incorporación con la extensión DSC de un error que contiene el error:
+Al realizar la incorporación mediante la extensión DSC, se produce el error:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -158,12 +158,30 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 #### <a name="cause"></a>Causa
 
-Este error suele producirse cuando el nodo se asigna un nombre de configuración de nodo que no existe en el servicio.
+Este error suele producirse cuando se asigna al nodo un nombre de configuración que no existe en el servicio.
 
 #### <a name="resolution"></a>Resolución
 
-* Asegúrese de que se va a asignar el nodo con un nombre de configuración de nodo que coincida exactamente con el nombre del servicio.
-* Puede elegir no incluir el nombre de configuración de nodo, lo que dará lugar a incorporar el nodo, pero no asignar una configuración de nodo
+* Asegúrese de que asigna al nodo un nombre de configuración que coincida exactamente con el nombre del servicio.
+* Puede elegir no incluir el nombre de configuración del nodo, lo que dará lugar a la incorporación del nodo, pero no a la asignación de una configuración del nodo
+
+### <a name="failure-linux-temp-noexec"></a>Escenario: Al aplicar una configuración en Linux, se produce un error general
+
+#### <a name="issue"></a>Problema
+
+Al aplicar una configuración en Linux, se produce el error:
+
+```error
+This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
+```
+
+#### <a name="cause"></a>Causa
+
+Los clientes han identificado que si se establece la ubicación/tmp en noexec, la versión actual de DSC no podrá aplicar las configuraciones.
+
+#### <a name="resolution"></a>Resolución
+
+* Quite la opción noexec de la ubicación/tmp.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

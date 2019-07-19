@@ -2,18 +2,18 @@
 title: Configuración de la replicación en máquinas virtuales habilitadas para Azure Disk Encryption en Azure Site Recovery | Microsoft Docs
 description: En este artículo se describe cómo configurar la replicación de máquinas virtuales habilitadas para Azure Disk Encryption de una región de Azure a otra mediante Site Recovery.
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2e9bf7fbe7d5940b517d97dcc15d21c30835001
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60791020"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449213"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales habilitadas para Azure Disk Encryption en otra región de Azure
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo replicar máquinas virtuales habilitadas par
 >[!NOTE]
 >Actualmente, Azure Site Recovery solo admite máquinas virtuales de Azure que se ejecutan con un sistema operativo Windows y que están [habilitadas para el cifrado con Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
 
-## <a name="required-user-permissions"></a>Permisos de usuario necesarios
+## <a id="required-user-permissions"></a> Permisos de usuario necesarios
 Site Recovery requiere que el usuario tenga permisos para crear el almacén de claves en la región de destino y que copie las claves a esta región.
 
 Para habilitar la replicación de máquinas virtuales habilitadas para Azure Disk Encryption desde Azure Portal, el usuario necesita los permisos siguientes:
@@ -139,18 +139,25 @@ Se puede usar [un script](#copy-disk-encryption-keys-to-the-dr-region-by-using-t
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Solución de problemas de permisos del almacén de claves durante la replicación de máquinas virtuales de Azure a Azure
 
-**Causa 1:** puede que se haya seleccionado en la región de destino un almacén de claves ya creado que no tiene los permisos necesarios en lugar de permitir que Site Recovery cree uno. Asegúrese de que el almacén de claves tiene los permisos necesarios, tal como se ha descrito anteriormente.
+Azure Site Recovery requiere como mínimo permiso de lectura en el almacén de claves de la región de origen y permiso de escritura en el almacén de claves de la región de destino para poder leer el secreto y poder copiarlo en el almacén de claves de la región de destino. 
+
+**Causa 1:** No tiene el permiso "GET" en el **almacén de claves de región de origen** para leer las claves. </br>
+**Solución:** Independientemente de que sea o no un administrador de suscripciones, es importante que disponga del permiso get en el almacén de claves.
+
+1. Vaya al almacén de claves de la región de origen, que en este ejemplo es "ContososourceKeyvault" > **Directivas de acceso** 
+2. En **Seleccionar la entidad de seguridad** agregue su nombre de usuario por ejemplo: "dradmin@contoso.com"
+3. En **Permisos clave** seleccione GET 
+4. En **Permisos de secretos** seleccione GET 
+5. Guarde la directiva de acceso
+
+**Causa 2:** No tiene los permisos necesarios en el **almacén de claves de región de destino** para escribir las claves. </br>
 
 *Por ejemplo*: intenta replicar una máquina virtual, que tiene un almacén de claves *ContososourceKeyvault* en una región de origen.
 Dispone de todos los permisos en el almacén de claves de la región de origen. Pero, durante la protección, selecciona el almacén de claves ContosotargetKeyvault ya creado, que no tiene permisos. Se produce un error.
 
-**Solución:** vaya a **Inicio** > **Keyvaults** > **ContososourceKeyvault** > **Directivas de acceso** y agregue los permisos adecuados.
+Permiso necesario en el [almacén de claves de destino](#required-user-permissions)
 
-**Causa 2:** puede que se haya seleccionado en la región de destino un almacén de claves ya creado que no tiene los permisos de cifrado y descifrado en lugar de permitir que Site Recovery cree uno. Asegúrese de que tiene los permisos de cifrado y descifrado en caso de que también vaya a cifrar la clave en la región de origen.</br>
-
-*Por ejemplo*: intenta replicar una máquina virtual, que tiene un almacén de claves *ContososourceKeyvault* en la región de origen. Dispone de todos los permisos necesarios en el almacén de claves de la región de origen. Pero, durante la protección, selecciona el almacén de claves ContosotargetKeyvault ya creado, que no tiene permisos para cifrar y descifrar. Se produce un error.</br>
-
-**Solución:** vaya a **Inicio** > **Keyvaults** > **ContososourceKeyvault** > **Directivas de acceso**. Agregue permisos en **Permisos de clave** > **Operaciones criptográficas**.
+**Solución:** vaya a **Inicio** > **Keyvaults** > **ContosotargetKeyvault** > **Directivas de acceso** y agregue los permisos adecuados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,33 +6,32 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 05/27/2019
+ms.date: 06/18/2019
 ms.author: anuragm
-ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: 9ed30a35f30d1b6b9fdcd43110ed93618a10dbc3
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306966"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204191"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solución de problemas de copia de seguridad de SQL Server en Azure
 
-En este artículo se proporciona información para solucionar problemas para proteger las máquinas virtuales de SQL Server en Azure.
+En este artículo se proporciona información para la solución de problemas a fin de proteger las máquinas virtuales con SQL Server en Azure.
 
 ## <a name="feature-consideration-and-limitations"></a>Consideraciones y limitaciones de las características
 
-Para ver la consideración de característica, consulte el artículo de [copia de seguridad acerca de SQL Server en máquinas virtuales de Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
+Para ver las consideraciones de las características, consulte el artículo [Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Permisos de SQL Server
 
-Para configurar la protección de una base de datos de SQL Server en una máquina virtual, se debe instalar en ella la extensión **AzureBackupWindowsWorkload**. Si recibe el error **UserErrorSQLNoSysadminMembership**, significa que la instancia de SQL no tiene los permisos de copia de seguridad requeridos. Para corregir este error, siga los pasos que se describen en [Definición de permisos para máquinas virtuales SQL no incluidas en el catálogo de soluciones](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
-
+Para configurar la protección de una base de datos de SQL Server en una máquina virtual, se debe instalar en ella la extensión **AzureBackupWindowsWorkload**. Si recibe el error **UserErrorSQLNoSysadminMembership**, significa que la instancia de SQL no tiene los permisos de copia de seguridad requeridos. Para corregir este error, siga los pasos que se describen en [Definición de permisos para máquinas virtuales SQL no incluidas en el catálogo de soluciones](backup-azure-sql-database.md#set-vm-permissions).
 
 ## <a name="backup-type-unsupported"></a>Tipo de copia de seguridad no compatible
 
-| Severity | DESCRIPCIÓN | Causas posibles | Acción recomendada |
+| severity | DESCRIPCIÓN | Causas posibles | Acción recomendada |
 |---|---|---|---|
-| Advertencia | La configuración actual para esta base de datos no admiten un tipo determinado de tipos de copia de seguridad presentes en la directiva asociada. | <li>**Base de datos principal**: Se puede realizar solo una operación de copia de seguridad de base de datos completa en la base de datos maestra; ni **diferencial** copia de seguridad ni transacciones **registros** es posible la copia de seguridad. </li> <li>Ninguna base de datos del **modelo de recuperación simple** admite la realización de copias de seguridad de **registros** de transacciones.</li> | Modifique la configuración de la base de datos de tal forma que se admitan todos los tipos de copia de seguridad de la directiva. De forma alternativa, cambie la directiva actual para incluir solo los tipos de copia de seguridad compatibles. En caso contrario, se omitirán los tipos de copia de seguridad no admitidos durante la copia de seguridad programada o el trabajo de copia de seguridad se producirá un error de copia de seguridad ad hoc.
+| Advertencia | La configuración actual de esta base de datos no admite determinados tipos de copia de seguridad presentes en la directiva asociada. | <li>**Base de datos principal**: En la base de datos principal solo se puede realizar una operación de copia de seguridad completa de la base de datos; no se admiten la copia de seguridad **diferencial** ni la copia de seguridad de **registros** de transacciones. </li> <li>Ninguna base de datos del **modelo de recuperación simple** admite la realización de copias de seguridad de **registros** de transacciones.</li> | Modifique la configuración de la base de datos de tal forma que se admitan todos los tipos de copia de seguridad de la directiva. De forma alternativa, cambie la directiva actual para incluir solo los tipos de copia de seguridad compatibles. De lo contrario, se omitirán los tipos de copia de seguridad no compatibles durante la copia de seguridad programada o el trabajo de copia de seguridad generará errores en caso de que se trate de una copia de seguridad ad hoc.
 
 
 ## <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
@@ -52,19 +51,19 @@ Para configurar la protección de una base de datos de SQL Server en una máquin
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| La cadena de registros se ha interrumpido. | Se realiza una copia de seguridad de la base de datos o de la máquina virtual mediante otra solución de copia de seguridad, lo que trunca la cadena de registros.|<ul><li>Compruebe si hay otra solución de copia de seguridad o script en uso. En ese caso, detenga la otra solución de copia de seguridad. </li><li>Si la copia de seguridad era una copia de seguridad del registro de ad hoc, desencadene una copia de seguridad completa para iniciar una nueva cadena de registros. Para las copias de seguridad de registros, no es preciso realizar ninguna acción, ya que el servicio Azure Backup desencadenará automáticamente una copia de seguridad completa para corregir este problema.</li>|
+| La cadena de registros se ha interrumpido. | Se realiza una copia de seguridad de la base de datos o de la máquina virtual mediante otra solución de copia de seguridad, lo que trunca la cadena de registros.|<ul><li>Compruebe si hay otra solución de copia de seguridad o script en uso. En ese caso, detenga la otra solución de copia de seguridad. </li><li>Si la copia de seguridad fue una copia de seguridad de registros ad hoc, desencadene una copia de seguridad completa para iniciar una nueva cadena de registros. Para las copias de seguridad de registros, no es preciso realizar ninguna acción, ya que el servicio Azure Backup desencadenará automáticamente una copia de seguridad completa para corregir este problema.</li>|
 
 ## <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| Azure Backup no puede conectarse a la instancia de SQL. | Azure Backup no puede conectarse a la instancia de SQL. | Utilice los detalles adicionales del menú del error de Azure Portal para reducir las causas raíz. Para solucionar el error, consulte [Solución de problemas de copia de seguridad de SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine).<br/><ul><li>Si la configuración predeterminada de SQL no permite conexiones remotas, cámbiela. Consulte los siguientes artículos para obtener información acerca de cómo cambiar la configuración.<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Si hay problemas de inicio de sesión, consulte los vínculos de abajo para corregirlos:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup no puede conectarse a la instancia de SQL. | Azure Backup no puede conectarse a la instancia de SQL. | Utilice los detalles adicionales del menú del error de Azure Portal para reducir las causas raíz. Para solucionar el error, consulte [Solución de problemas de copia de seguridad de SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine).<br/><ul><li>Si la configuración predeterminada de SQL no permite conexiones remotas, cámbiela. Consulte los siguientes artículos para más información sobre cómo cambiar la configuración.<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Si hay problemas de inicio de sesión, consulte los vínculos de abajo para corregirlos:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ## <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| Falta la primera copia de seguridad completa de este origen de datos. | Falta la copia de seguridad completa de la base de datos. Las copias de seguridad diferenciales y de registros dependen de una copia de seguridad completa, por lo que deben realizarse copias de seguridad completas antes de desencadenar copias de seguridad diferenciales o de registros. | Desencadenar una copia de seguridad completa ad hoc.   |
+| Falta la primera copia de seguridad completa de este origen de datos. | Falta la copia de seguridad completa de la base de datos. Las copias de seguridad diferenciales y de registros dependen de una copia de seguridad completa, por lo que deben realizarse copias de seguridad completas antes de desencadenar copias de seguridad diferenciales o de registros. | Desencadene una copia de seguridad completa ad hoc.   |
 
 ## <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
@@ -94,7 +93,7 @@ Para configurar la protección de una base de datos de SQL Server en una máquin
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| La copia de seguridad de registro usado para la recuperación contiene cambios registrados de forma masiva. No se puede usar para detenerse en un punto arbitrario en el tiempo según las instrucciones SQL. | Cuando una base de datos está en modo de recuperación masiva, no se puede recuperar los datos entre una transacción de operaciones masivas y registro siguiente. | Elija un punto diferente en tiempo de recuperación. [Más información](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| La copia de seguridad de registros usada para la recuperación contiene cambios registrados de forma masiva. No se puede usar para detenerse en un punto arbitrario en el tiempo según las instrucciones de SQL. | Cuando una base de datos está en modo de recuperación de registro masivo, no se pueden recuperar los datos entre una transacción registrada de forma masiva y la siguiente transacción del registro. | Elija un punto diferente en el tiempo para la recuperación. [Más información](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
@@ -121,38 +120,38 @@ Para configurar la protección de una base de datos de SQL Server en una máquin
 |---|---|---|
 | La intención de la protección automática se ha quitado o ya no es válida. | Cuando se habilita la protección automática en una instancia de SQL, se ejecutan los trabajos **Configurar copia de seguridad** para todas las bases de datos de esa instancia. Si se deshabilita la protección automática mientras se ejecutan los trabajos, los trabajos **en curso** se cancelan con este código de error. | Habilite la protección automática una vez más proteger todas las bases de datos restantes. |
 
-## <a name="re-registration-failures"></a>Errores de nuevo registro
+## <a name="re-registration-failures"></a>Errores de repetición del registro
 
-Comprobación de uno o varios de los [síntomas](#symptoms) antes de desencadenar la operación de volver a registrar.
+Compruebe uno o varios de los [síntomas](#symptoms) antes de desencadenar la operación de repetición del registro.
 
 ### <a name="symptoms"></a>Síntomas
 
-* Todas las operaciones como copia de seguridad, restaurar y configurar la copia de seguridad se producen errores en la máquina virtual con uno de los códigos de error siguiente: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
-* El **estado de copia de seguridad** para la copia de seguridad se muestra el elemento **denegado**. Aunque debe descartar todos los otros motivos que pueden provocar también el mismo estado:
+* Se producen errores en todas las operaciones como copia de seguridad, restauración y configuración de copia de seguridad en la máquina virtual con uno de los códigos de error siguientes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* En **Estado de copia de seguridad** para el elemento de copia de seguridad se muestra **Not reachable** (No accesible). No obstante, debe descartar todos los demás motivos que puedan provocar también el mismo estado:
 
-  * Falta de permiso para realizar la copia de seguridad relacionados con las operaciones en la máquina virtual  
-  * Máquina virtual se ha cerrado debido a que las copias de seguridad no pueden tener lugar
+  * Falta de permiso para realizar operaciones relacionadas con la copia de seguridad en la máquina virtual  
+  * Se ha apagado la máquina virtual debido a que no se pueden realizar copias de seguridad
   * Problemas de red  
 
-    ![Volver a registrar la máquina virtual](./media/backup-azure-sql-database/re-register-vm.png)
+    ![Repetición del registro de la máquina virtual](./media/backup-azure-sql-database/re-register-vm.png)
 
-* En el caso de grupo de disponibilidad AlwaysOn, las copias de seguridad comienzan a generar errores después de cambiar la preferencia de copia de seguridad o cuando se ha producido una conmutación por error
+* En el caso de un grupo de disponibilidad AlwaysOn, las copias de seguridad comienzan a generar errores después de cambiar la preferencia de copia de seguridad o cuando se ha producido una conmutación por error.
 
 ### <a name="causes"></a>Causas
 Estos síntomas pueden surgir debido a uno o varios de los siguientes motivos:
 
-  * Se ha eliminado o se desinstala del portal de extensión 
-  * Se ha desinstalado la extensión de la **Panel de Control** de la máquina virtual en **desinstalar o cambiar un programa** la interfaz de usuario
-  * Máquina virtual se ha restaurado atrás en el tiempo mediante la restauración de discos en contexto
-  * Máquina virtual se cerró durante un largo período debido a que la configuración de la extensión en ella ha expirado
-  * Se ha eliminado la máquina virtual y otra máquina virtual se creó con el mismo nombre y en el mismo grupo de recursos que la máquina virtual eliminada
-  * Uno de los nodos de grupo de disponibilidad no recibió la configuración de copia de seguridad completa, esto puede ocurrir en el momento del registro del grupo de disponibilidad en el almacén o cuando se agrega un nuevo nodo  <br>
-    En los escenarios anteriores, se recomienda para desencadenar la operación de volver a registrar en la máquina virtual. Esta opción solo está disponible a través de PowerShell y pronto estará disponible en el portal de Azure.
+  * Se ha eliminado o desinstalado la extensión del portal. 
+  * Se ha desinstalado la extensión del **Panel de control** de la máquina virtual en **Uninstall or Change a Program** (Desinstalar o cambiar un programa).
+  * Se ha restaurado la máquina virtual retrocediendo en el tiempo mediante la restauración del disco o discos en contexto.
+  * Se ha apagado la máquina virtual durante un largo período debido a que la configuración de la extensión en ella ha caducado.
+  * Se ha eliminado la máquina virtual, y se ha creado otra con el mismo nombre y en el mismo grupo de recursos que la máquina virtual eliminada.
+  * Uno de los nodos del grupo de disponibilidad no ha recibido la configuración de copia de seguridad completa; esto puede ocurrir al registrar el grupo de disponibilidad en el almacén o al agregar un nuevo nodo.  <br>
+    En los escenarios anteriores, se recomienda desencadenar la operación de repetición del registro en la máquina virtual. Esta opción solo está disponible mediante PowerShell y pronto estará disponible en Azure Portal.
 
-## <a name="files-size-limit-beyond-which-restore-happens-to-default-path"></a>Límite de tamaño del archivo más allá de la restauración de qué sucede a la ruta de acceso predeterminada
+## <a name="files-size-limit-beyond-which-restore-happens-to-default-path"></a>Límite del tamaño del archivo más allá del cual la restauración sucede en la ruta de acceso predeterminada
 
-El tamaño de la cadena total de archivos no solo depende del número de archivos, sino también en sus nombres y rutas de acceso. Para cada uno de los archivos de base de datos, obtener el nombre de archivo lógico y la ruta de acceso física.
-Puede usar la consulta SQL que se indican a continuación:
+El tamaño total de la cadena de archivos no solo depende del número de archivos, sino también de sus nombres y rutas de acceso. Para cada uno de los archivos de base de datos, obtenga el nombre de archivo lógico y la ruta de acceso física.
+Puede usar la consulta SQL que se indica a continuación:
 
   ```
   SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
@@ -160,7 +159,7 @@ Puede usar la consulta SQL que se indican a continuación:
                  WHERE db.name = N'<Database Name>'"
  ```
 
-Ahora organizarlos en el formato que se indican a continuación:
+Ahora organícelos en el formato que se indica a continuación:
 
   ```[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
   ```
@@ -170,13 +169,13 @@ Ejemplo:
   ```[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
   ```
 
-Si el tamaño de la cadena del contenido proporcionado anteriormente es superior a 20 000 bytes, a continuación, los archivos de base de datos se almacenan de forma diferente y, durante la recuperación no será capaz de establecer la ruta de acceso del archivo de destino para la restauración. Los archivos se restaurarán en la ruta de acceso predeterminada de SQL de SQL Server.
+Si el tamaño de la cadena del contenido proporcionado anteriormente es superior a 20 000 bytes, los archivos de base de datos se almacenan de forma diferente y durante la recuperación no podrá establecer la ruta de acceso del archivo de destino para la restauración. Los archivos se restaurarán en la ruta de acceso predeterminada de SQL proporcionada por SQL Server.
 
-### <a name="override-the-default-target-restore-file-path"></a>Reemplazar la ruta de archivo de restauración de destino predeterminado
+### <a name="override-the-default-target-restore-file-path"></a>Reemplazo de la ruta de acceso predeterminada del archivo de restauración de destino
 
-Puede invalidar la ruta de acceso del archivo de restauración de destino durante la operación de restauración mediante la colocación de un archivo JSON que contiene la asignación del archivo de base de datos a la ruta de acceso de restauración de destino. Para crear un archivo `database_name.json` y colóquelo en la ubicación *C:\Program Files\Azure carga de trabajo Backup\bin\plugins\SQL*.
+Puede reemplazar la ruta de acceso del archivo de restauración de destino durante la operación de restauración mediante la colocación de un archivo JSON que contenga la asignación del archivo de base de datos a la ruta de acceso de restauración de destino. Para ello, cree un archivo `database_name.json` y colóquelo en la ubicación *C:\Archivos de programa\Azure Workload Backup\bin\plugins\SQL*.
 
-El contenido del archivo debe tener el formato que se indican a continuación:
+El contenido del archivo debe tener el formato que se indica a continuación:
   ```[
     {
       "Path": "<Restore_Path>",
@@ -208,7 +207,7 @@ Ejemplo:
   ```
 
  
-En el contenido anterior puede obtener el nombre lógico del archivo de base de datos mediante la consulta SQL que se indican a continuación:
+En el contenido anterior puede obtener el nombre lógico del archivo de base de datos mediante la consulta SQL que se indica a continuación:
 
 ```
 SELECT mf.name AS LogicalName FROM sys.master_files mf
@@ -217,7 +216,7 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
   ```
 
 
-Este archivo debe colocarse antes de desencadenar la operación de restauración.
+Este archivo se debe colocar antes de desencadenar la operación de restauración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

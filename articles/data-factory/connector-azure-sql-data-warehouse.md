@@ -12,26 +12,26 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427901"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449590"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
+> * [Versión 1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versión actual](connector-azure-sql-data-warehouse.md)
 
-En este artículo se describe cómo copiar datos hacia y desde Azure SQL Data Warehouse. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo se explica cómo copiar datos en y desde Azure SQL Data Warehouse. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Este conector de blobs de Azure es compatible con las siguientes actividades:
+Este conector de Azure Blob es compatible con las actividades siguientes:
 
-- [Actividad de copia](copy-activity-overview.md) con [admite la matriz de origen/receptor](copy-activity-overview.md) tabla
-- [Asignación de flujo de datos](concepts-data-flow-overview.md)
+- [Actividad de copia](copy-activity-overview.md) con tabla de [matriz de origen o receptor compatible](copy-activity-overview.md)
+- [Asignación de Data Flow](concepts-data-flow-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 
@@ -45,7 +45,7 @@ En concreto, este conector de Azure SQL Data Warehouse admite estas funciones:
 > Si copia los datos mediante Azure Data Factory Integration Runtime, configure un [firewall de Azure SQL Server ](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para que los servicios de Azure puedan acceder al servidor.
 > Si copia los datos mediante un IR autohospedado, configure el firewall del servidor de Azure SQL para permitir el intervalo IP apropiado. Dicho intervalo incluye la dirección IP del equipo que se utiliza para conectarse a Azure SQL Database.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 > [!TIP]
 > Para obtener el mejor rendimiento posible, use PolyBase para cargar datos en Azure SQL Data Warehouse. Consulte [Movimiento de datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información. Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](load-azure-sql-data-warehouse.md) (Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Azure Data Factory).
@@ -60,7 +60,7 @@ Las siguientes propiedades son compatibles con un servicio vinculado de Azure SQ
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en **AzureSqlDW**. | Sí |
+| Tipo | La propiedad type debe establecerse en **AzureSqlDW**. | Sí |
 | connectionString | Especifique la información necesaria para conectarse a la instancia de Azure SQL Data Warehouse para la propiedad **connectionString**. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña o clave de la entidad de servicio en Azure Key Vault y, en el caso de la autenticación de SQL, extraer la configuración `password` de la cadena de conexión. Vea el ejemplo de JSON debajo de la tabla y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
@@ -138,7 +138,7 @@ Para usar la autenticación de tokens de aplicaciones de Azure AD basada en una 
     - Clave de la aplicación
     - Id. de inquilino
 
-2. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho. El administrador de Azure AD puede ser un usuario de Azure AD o un grupo de Azure AD. Si se concede al grupo con un rol de administrador de identidad administrada, omita los pasos 3 y 4. El administrador tendrá acceso total a la base de datos.
+2. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho. El administrador de Azure AD puede ser un usuario de Azure AD o un grupo de Azure AD. Si concede al grupo con identidad administrada un rol de administrador, omita los pasos 3 y 4. El administrador tendrá acceso total a la base de datos.
 
 3. **[Cree usuarios de bases de datos independientes](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** para la entidad de servicio. Conéctese al almacenamiento de datos del que desea copiar datos (o en el que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el siguiente T-SQL:
   
@@ -146,7 +146,7 @@ Para usar la autenticación de tokens de aplicaciones de Azure AD basada en una 
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Conceda a la entidad de servicio los permisos necesarios**, tal como lo haría normalmente para los usuarios de SQL, u otros usuarios. Ejecute el siguiente código, o hacer referencia a más opciones [aquí](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Si desea usar PolyBase para cargar los datos, obtenga información sobre la [requiere permiso de base de datos](#required-database-permission).
+4. **Conceda a la entidad de servicio los permisos necesarios**, tal como lo haría normalmente para los usuarios de SQL, u otros usuarios. Ejecute el siguiente código, o consulte más opciones [aquí](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Si desea usar PolyBase para cargar los datos, infórmese sobre el [permiso de base de datos necesario](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your application name];
@@ -188,15 +188,15 @@ Una factoría de datos se puede asociar con una [identidad administrada para rec
 
 Para usar la autenticación de identidad administrada, siga estos pasos:
 
-1. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho. El administrador de Azure AD puede ser un usuario de Azure AD o un grupo de Azure AD. Si se concede al grupo con un rol de administrador de identidad administrada, omita los pasos 3 y 4. El administrador tendrá acceso total a la base de datos.
+1. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho. El administrador de Azure AD puede ser un usuario de Azure AD o un grupo de Azure AD. Si concede al grupo con identidad administrada un rol de administrador, omita los pasos 3 y 4. El administrador tendrá acceso total a la base de datos.
 
-2. **[Crear usuarios de base de datos independiente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  para la identidad administrada de Data Factory. Conéctese al almacenamiento de datos del que desea copiar datos (o en el que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el siguiente T-SQL. 
+2. **[Cree usuarios de bases de datos independientes](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** para la identidad administrada de Data Factory. Conéctese al almacenamiento de datos del que desea copiar datos (o en el que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el siguiente T-SQL. 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Conceder los permisos necesarios de la identidad administrada de Data Factory** como lo haría normalmente para los usuarios de SQL y otros. Ejecute el siguiente código, o hacer referencia a más opciones [aquí](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Si desea usar PolyBase para cargar los datos, obtenga información sobre la [requiere permiso de base de datos](#required-database-permission).
+3. **Conceda a la identidad administrada de Data Factory los permisos necesarios**, tal como lo haría normalmente para los usuarios de SQL y otros usuarios. Ejecute el siguiente código, o consulte más opciones [aquí](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Si desea usar PolyBase para cargar los datos, infórmese sobre el [permiso de base de datos necesario](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your Data Factory name];
@@ -229,11 +229,11 @@ Para usar la autenticación de identidad administrada, siga estos pasos:
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que el conjunto de datos de Azure SQL Data Warehouse admite.
 
-Para copiar datos desde o hacia Azure SQL Data Warehouse, se admiten las siguientes propiedades:
+Las siguientes propiedades son compatibles para copiar datos dese y a Azure SQL Data Warehouse:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlDWTable**. | Sí |
+| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlDWTable**. | Sí |
 | tableName | El nombre de la tabla o vista en la instancia de Azure SQL Data Warehouse a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
 
 #### <a name="dataset-properties-example"></a>Ejemplo de propiedades de un conjunto de datos
@@ -266,7 +266,7 @@ Para copiar datos desde Azure SQL Data Warehouse, establezca la propiedad **type
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad **type** del origen de la actividad de copia debe establecerse en **SqlDWSource**. | Sí |
+| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en **SqlDWSource**. | Sí |
 | sqlReaderQuery | Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. | Sin |
 | sqlReaderStoredProcedureName | Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. | Sin |
 | storedProcedureParameters | Parámetros del procedimiento almacenado.<br/>Los valores permitidos son pares de nombre o valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | Sin |
@@ -369,14 +369,14 @@ Para copiar datos en Azure SQL Data Warehouse, establezca el tipo de receptor de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad **type** del receptor de la actividad de copia debe establecerse en **SqlDWSink**. | Sí |
+| Tipo | La propiedad **type** del receptor de la actividad de copia debe establecerse en **SqlDWSink**. | Sí |
 | allowPolyBase | Indica si se usa PolyBase, si procede, en lugar del mecanismo BULKINSERT. <br/><br/> Se recomienda usar PolyBase para cargar datos en SQL Data Warehouse. Consulte la sección [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) (Uso de PolyBase para cargar datos en SQL Data Warehouse) para ver restricciones y más información.<br/><br/>Los valores válidos son **True** y **False** (valor predeterminado).  | Sin |
 | polyBaseSettings | Un grupo de propiedades que se pueden especificar si el valor de la propiedad **allowPolybase** está establecido en **true**. | Sin |
 | rejectValue | Especifica el número o porcentaje de filas que se pueden rechazar antes de que se produzca un error en la consulta.<br/><br/>Más información sobre las opciones de rechazo de PolyBase en la sección Argumentos de [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Los valores permitidos son 0 (valor predeterminado), 1, 2, etc. |Sin |
 | rejectType | Especifica si la opción **rejectValue** es un valor literal o un porcentaje.<br/><br/>Los valores permitidos son **Value** (valor predeterminado) y **Percentage**. | Sin |
 | rejectSampleValue | Determina el número de filas que se van a recuperar antes de que PolyBase vuelva a calcular el porcentaje de filas rechazadas.<br/><br/>Los valores permitidos son 1, 2, etc. | Sí, si el valor de **rejectType** es **percentage**. |
-| useTypeDefault | Especifica cómo administrar los valores que faltan en archivos de texto delimitados cuando PolyBase recupera datos del archivo de texto.<br/><br/>Más información sobre esta propiedad en la sección de argumentos de [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Los valores válidos son **True** y **False** (valor predeterminado).<br><br>**Consulte [sugerencias para solucionar problemas](#polybase-troubleshooting) relacionada con esta configuración.** | Sin |
-| writeBatchSize | Número de filas que se inserta en la tabla SQL **por lote**. Se aplica únicamente cuando no se usa PolyBase.<br/><br/>El valor que se permite es un **entero** (número de filas). De forma predeterminada, Data Factory determinar dinámicamente el tamaño del lote adecuado en función del tamaño de fila. | Sin |
+| useTypeDefault | Especifica cómo administrar los valores que faltan en archivos de texto delimitados cuando PolyBase recupera datos del archivo de texto.<br/><br/>Más información sobre esta propiedad en la sección de argumentos de [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Los valores válidos son **True** y **False** (valor predeterminado).<br><br>**Consulte [sugerencias para la solución de problemas](#polybase-troubleshooting) relacionadas con este valor.** | Sin |
+| writeBatchSize | Número de filas que se va a insertar en la tabla SQL **por lote**. Se aplica únicamente cuando no se usa PolyBase.<br/><br/>El valor que se permite es un **entero** (número de filas). De forma predeterminada, Data Factory determina dinámicamente el tamaño adecuado del lote en función del tamaño de fila. | Sin |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera. Se aplica únicamente cuando no se usa PolyBase.<br/><br/>El valor permitido es **intervalo de tiempo**. Ejemplo: "00:30:00" (30 minutos). | Sin |
 | preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure SQL Data Warehouse en cada ejecución. Esta propiedad se usa para limpiar los datos cargados previamente. | Sin |
 
@@ -402,40 +402,40 @@ En la siguiente sección obtendrá más información sobre cómo usar PolyBase p
 
 Usar [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) es una manera eficaz de cargar grandes cantidades de datos en Azure SQL Data Warehouse con un alto rendimiento. Verá una gran mejora en el rendimiento mediante el uso de PolyBase en lugar del mecanismo BULKINSERT predeterminado. Consulte [Performance reference](copy-activity-performance.md#performance-reference) (Referencia de rendimiento) para obtener una comparación detallada. Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse](v1/data-factory-load-sql-data-warehouse.md) (Carga de 1 TB en Azure SQL Data Warehouse).
 
-* Si los datos de origen están en **Azure Data Lake Storage Gen1, Gen2 de almacenamiento de Azure Data Lake o Azure Blob**y el **formato es compatible con PolyBase**, puede usar la actividad de copia para invocar directamente PolyBase para permitir que Azure SQL Data Warehouse extraer los datos de origen. Consulte **[Copia directa con PolyBase](#direct-copy-by-using-polybase)** para obtener detalles.
+* Si los datos de origen están en **Azure Blob, Azure Data Lake Storage Gen1 o Azure Data Lake Storage Gen2** y el **formato es compatible con PolyBase**, puede usar la actividad de copia para invocar directamente PolyBase para permitir que Azure SQL Data Warehouse extraiga los datos del origen. Consulte **[Copia directa con PolyBase](#direct-copy-by-using-polybase)** para obtener detalles.
 * Si el formato y el almacenamiento de datos de origen no es compatible originalmente con PolyBase, use en su lugar la característica **[Copia almacenada provisionalmente con PolyBase](#staged-copy-by-using-polybase)** . La característica de copia almacenada provisionalmente también proporciona un mejor rendimiento. Convierte automáticamente los datos a formato compatible con PolyBase. Y almacena los datos en Azure Blob Storage. Luego los carga en SQL Data Warehouse.
 
 >[!TIP]
->Obtenga más información en [procedimientos recomendados para el uso de PolyBase](#best-practices-for-using-polybase).
+>Más información en [Prácticas recomendadas para usar PolyBase](#best-practices-for-using-polybase).
 
 ### <a name="direct-copy-by-using-polybase"></a>Copia directa con PolyBase
 
-PolyBase en SQL Data Warehouse admite directamente Azure Blob, Azure Data Lake Storage Gen1 y Gen2 de almacenamiento de Azure Data Lake. Si los datos de origen cumplen los criterios descritos en esta sección, use PolyBase para copiar directamente desde el almacén de datos de origen a Azure SQL Data Warehouse. De lo contrario, use [Copia almacenada provisionalmente con PolyBase](#staged-copy-by-using-polybase).
+PolyBase de SQL Data Warehouse admite directamente Azure Blob, Azure Data Lake Storage Gen1 y Azure Data Lake Storage Gen2. Si los datos de origen cumplen los criterios descritos en esta sección, use PolyBase para copiar directamente desde el almacén de datos de origen en Azure SQL Data Warehouse. De lo contrario, use [Copia almacenada provisionalmente con PolyBase](#staged-copy-by-using-polybase).
 
 > [!TIP]
-> Para copiar datos de forma eficaz en SQL Data Warehouse, obtenga más información en [Azure Data Factory hace incluso más fácil y cómodo el descubrimiento de conocimiento a partir de datos cuando se usa Data Lake Store con SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
+> Para copiar datos de forma eficaz en SQL Data Warehouse, obtenga más información en [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/) (Azure Data Factory hace incluso más fácil y cómodo el descubrimiento de información de datos cuando se usa Data Lake Store con SQL Data Warehouse).
 
 Si no se cumplen los requisitos, Azure Data Factory comprobará la configuración y volverá automáticamente al mecanismo BULKINSERT para realizar el movimiento de datos.
 
-1. El **servicio vinculado de origen** es con los siguientes tipos y métodos de autenticación:
+1. El **servicio vinculado de origen** tiene los siguientes tipos y métodos de autenticación:
 
-    | Tipo de almacén de datos de origen compatible | Admite el tipo de autenticación de origen |
+    | Tipo de almacén de datos de origen admitido | Tipo de autenticación de origen admitido |
     |:--- |:--- |
     | [Azure Blob](connector-azure-blob-storage.md) | Autenticación de clave de cuenta y autenticación de identidad administrada |
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Autenticación de entidad de servicio |
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Autenticación de clave de cuenta y autenticación de identidad administrada |
 
     >[!IMPORTANT]
-    >Si el almacenamiento de Azure está configurado con el punto de conexión de servicio de red virtual, debe utilizar la autenticación de identidad administrada. Consulte [impacto del uso de puntos de conexión de servicio de red virtual con almacenamiento de Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Obtenga información sobre las configuraciones necesarias en Data Factory en las secciones [Azure Blob: autenticación de identidad administrada](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2: autenticación de identidad administrada](connector-azure-data-lake-storage.md#managed-identity) respectivamente.
 
 2. El **formato de datos de origen** es de **Parquet**, **ORC**, o **texto delimitado**, con las siguientes configuraciones:
 
-   1. Ruta de acceso de carpeta no contienen el filtro de comodín.
+   1. La ruta de acceso de la carpeta no contiene el filtro de comodín.
    2. Nombre de archivo señala a un único archivo o es `*` o `*.*`.
    3. `rowDelimiter` debe ser **\n**.
    4. `nullValue` se establece en **cadena vacía** ("") o se deja como valor predeterminado, y `treatEmptyAsNull` se deja como valor predeterminado o se establece en true.
    5. `encodingName` se establece en **utf-8**, que es el valor predeterminado.
-   6. `quoteChar`, `escapeChar`, y `skipLineCount` no se especifican. Fila de encabezado de omisión de compatibilidad de PolyBase que se puede configurar como `firstRowAsHeader` en ADF.
+   6. `quoteChar`, `escapeChar` y `skipLineCount` no están especificados. Fila de encabezado de omisión de compatibilidad de PolyBase que se puede configurar como `firstRowAsHeader` en ADF.
    7. `compression` puede ser **no compression**, **GZip** o **Deflate**.
 
 ```json
@@ -472,7 +472,10 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
 
 Si los datos de origen no cumplen los criterios de la sección anterior, habilite la copia de datos a través de una instancia de Azure Blob Storage de almacenamiento provisional interino. No puede ser Azure Premium Storage. En este caso, Azure Data Factory ejecuta automáticamente transformaciones de datos para satisfacer los requisitos del formato de datos de PolyBase. A continuación, se usa PolyBase para cargar datos en SQL Data Warehouse. Por último, limpia los datos temporales del almacenamiento de blobs. Consulte [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy) para más información sobre la copia de datos por medio de una instancia de Azure Blob Storage de almacenamiento provisional.
 
-Para utilizar esta característica, cree un [servicio vinculado de Azure Storage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la cuenta de Azure Storage con el almacenamiento de blobs interino. Luego especifique las propiedades `enableStaging` y `stagingSettings` para la actividad de copia, tal como se muestra en el código siguiente:
+Para utilizar esta característica, cree un [servicio vinculado de Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la cuenta de Azure Storage con el almacenamiento de blobs interino. Luego especifique las propiedades `enableStaging` y `stagingSettings` para la actividad de copia, tal como se muestra en el código siguiente.
+
+>[!IMPORTANT]
+>Si el almacenamiento provisional de Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Obtenga información sobre las configuraciones necesarias en Data Factory en [Azure Blob: autenticación de identidad administrada](connector-azure-blob-storage.md#managed-identity).
 
 ```json
 "activities":[
@@ -521,28 +524,28 @@ Para usar PolyBase, el usuario que carga los datos en SQL Data Warehouse debe te
 
 ### <a name="row-size-and-data-type-limits"></a>Límites del tipo de datos y del tamaño de fila
 
-Las cargas de PolyBase están limitadas a filas más pequeñas que 1 MB. No se puede usar para cargar en varchr, nvarchar (max) o varbinary (max). Para más información, consulte [Límites de capacidad de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+Las cargas de PolyBase están limitadas a filas más pequeñas que 1 MB. No se puede usar para cargar en VARCHR(MAX), NVARCHAR(MAX) ni VARBINARY(MAX). Para más información, consulte [Límites de capacidad de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
 Cuando los datos de origen tienen filas mayores de 1 MB, es aconsejable dividir verticalmente las tablas de origen en otras más pequeñas. Asegúrese de que el tamaño mayor de cada fila no excede el límite. Las tablas más pequeñas se pueden cargar con PolyBase y combinar en Azure SQL Data Warehouse.
 
-Como alternativa, para los datos con estas columnas anchas, puede usar no PolyBase para cargar los datos de uso de ADF, si se desactiva "Permitir PolyBase" configuración.
+Como alternativa, para los datos con estas columnas anchas, puede usar no PolyBase para cargar los datos de uso de ADF, para ello desactive el valor "Permitir PolyBase".
 
 ### <a name="polybase-troubleshooting"></a>Solución de problemas de PolyBase
 
-**Carga a una columna Decimal**
+**Carga en una columna decimal**
 
-Si los datos de origen están en texto, formato u otro compatible no PolyBase almacena (mediante la copia almacenada provisionalmente y PolyBase), y contiene un valor vacío para cargarse en una columna Decimal de SQL Data Warehouse, puede alcanzar el siguiente error:
+Si los datos de origen están en formato de texto, u otro almacén compatible no PolyBase (con copias almacenadas provisionalmente y PolyBase), y contienen un valor vacío para cargarse en una columna Decimal de SQL Data Warehouse, puede encontrarse con el siguiente error:
 
 ```
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-La solución consiste en anular la selección de "**predeterminado del tipo de uso**" opción (como false) en el receptor de la actividad de copia -> configuración de PolyBase. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-)" es una configuración nativa de PolyBase que especifica cómo controlar los valores que faltan en archivos de texto delimitado cuando PolyBase recupera datos del archivo de texto. 
+La solución consiste en anular la selección de la opción "**Use type default**" (Usar tipo predeterminado) (como falsa) en el receptor de la actividad de copia -> configuración de PolyBase. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+)" es una configuración nativa PolyBase que especifica cómo administrar los valores que faltan en archivos de texto delimitados cuando PolyBase recupera datos del archivo de texto. 
 
 **Otros**
 
-Para más knonw problemas de PolyBase, consulte [carga de solución de problemas de Azure SQL Data Warehouse PolyBase](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
+Para más problemas conocidos de PolyBase consulte la [Solución de problemas de la carga de PolyBase de Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### <a name="sql-data-warehouse-resource-class"></a>Clase de recursos de SQL Data Warehouse
 
@@ -575,16 +578,16 @@ All columns of the table must be specified in the INSERT BULK statement.
 
 El valor NULL es una forma especial del valor predeterminado. Si la columna acepta valores nulos, los datos de entrada del blob para esa columna pueden estar vacíos. Pero no puede faltar del conjunto de datos de entrada. PolyBase insertará valores NULL para los valores que falten en Azure SQL Data Warehouse.
 
-## <a name="mapping-data-flow-properties"></a>Propiedades de flujo de datos de asignación
+## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
-Obtenga información detallada de [transformación del origen](data-flow-source.md) y [receptor transformación](data-flow-sink.md) en asignación de flujo de datos.
+Obtenga información detallada de la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en Asignación de instancias de Data Flow.
 
 ## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>Asignación de tipos de datos para Azure SQL Data Warehouse
 
 Al copiar datos de una instancia de Azure SQL Data Warehouse o en ella, se utilizan las siguientes asignaciones de tipos de datos de Azure SQL Data Warehouse en los tipos de datos provisionales de Azure Data Factory. Para obtener información acerca de la forma en que la actividad de copia asigna el esquema de origen y el tipo de datos al receptor, consulte [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md).
 
 >[!TIP]
->Hacer referencia a [tabla de tipos de datos en Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) artículo sobre SQL Data Warehouse admite los tipos de datos y las soluciones alternativas para no los admite.
+>Acuda al artículo [Tipos de datos de tabla en Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) sobre los tipos de datos admitidos en SQL Data Warehouse y las soluciones alternativas para los no admitidos.
 
 | Tipo de datos de Azure SQL Data Warehouse | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
@@ -592,9 +595,9 @@ Al copiar datos de una instancia de Azure SQL Data Warehouse o en ella, se utili
 | binary | Byte[] |
 | bit | Boolean |
 | char | String, Char[] |
-| date | DateTime |
-| DateTime | DateTime |
-| datetime2 | DateTime |
+| date | Datetime |
+| Datetime | Datetime |
+| datetime2 | Datetime |
 | Datetimeoffset | DateTimeOffset |
 | Decimal | Decimal |
 | FILESTREAM attribute (varbinary(max)) | Byte[] |
@@ -607,7 +610,7 @@ Al copiar datos de una instancia de Azure SQL Data Warehouse o en ella, se utili
 | nvarchar | String, Char[] |
 | real | Single |
 | rowversion | Byte[] |
-| smalldatetime | DateTime |
+| smalldatetime | Datetime |
 | smallint | Int16 |
 | smallmoney | Decimal |
 | time | TimeSpan |

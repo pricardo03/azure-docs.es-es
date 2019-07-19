@@ -3,7 +3,7 @@ title: Incorporación de notificaciones push a una aplicación Xamarin Android |
 description: Más información sobre cómo usar Azure App Service y Azure Notification Hubs para enviar notificaciones push a la aplicación de Xamarin Android
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 6f7e8517-e532-4559-9b07-874115f4c65b
@@ -12,18 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
-ms.author: crdun
-ms.openlocfilehash: f2c58d64a662a6e2be355c1f672c01e5a679b3f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: cff0845b555f25fce438f3389e1f97cda0450bc3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127945"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447124"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Agregar notificaciones push a la aplicación de Xamarin.Android
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+
+> [!NOTE]
+> Visual Studio App Center está invirtiendo en servicios nuevos e integrados fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube. Consulte [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-push) hoy mismo.
+>
 
 ## <a name="overview"></a>Información general
 

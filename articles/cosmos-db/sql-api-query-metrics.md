@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 61bb102e17d9980d991fdf423174d7110cd5433d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: d61d3d00de5b46f7dad44625509eabe6836ca7cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237868"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447254"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
 
@@ -216,7 +216,7 @@ La sección sobre métricas de ejecución de consultas explica cómo recuperar e
 ### <a name="indexing-policy"></a>Directiva de indexación
 Para información sobre las rutas de indexación, las clases y los modos y cómo afectan a la ejecución de consultas, consulte [Configuración de la directiva de indexación](index-policy.md). De forma predeterminada, la directiva de indexación usa la indexación de valores hash para las cadenas, que resulta eficaz para las consultas de igualdad, aunque no así para las consultas de intervalo y las consultas ORDER BY. Si tiene consultas de intervalo para las cadenas, se recomienda especificar el tipo de índice de intervalo para todas las cadenas. 
 
-De forma predeterminada, Azure Cosmos DB se aplicará la indexación automática a todos los datos. Para un alto rendimiento insertar escenarios, considere la posibilidad de excluir rutas de acceso como esto reducirá el costo de RU para cada operación de inserción. 
+De forma predeterminada, Azure Cosmos DB aplicará la indexación automática a todos los datos. Para escenarios de inserción de alto rendimiento, considere la posibilidad de excluir rutas de acceso ya que esto reducirá el costo de RU para cada operación de inserción. 
 
 ## <a name="query-execution-metrics"></a>Métricas de ejecución de consultas
 Para obtener métrica detalladas sobre la ejecución de consultas, pase el encabezado opcional `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` en el SDK de .NET). El valor devuelto en `x-ms-documentdb-query-metrics` tiene los siguientes pares de clave-valor pensados para la solución avanzada de problemas de la ejecución de consultas. 
@@ -272,7 +272,7 @@ Estos son algunos ejemplos de consultas y cómo interpretar algunas de las métr
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para conocer los operadores de consulta y palabras clave SQL admitidos, consulte [Consultas SQL](how-to-sql-query.md). 
+* Para conocer los operadores de consulta y palabras clave SQL admitidos, consulte [Consultas SQL](sql-query-getting-started.md). 
 * Para aprender más sobre las unidades de solicitud, consulte [Unidades de solicitud](request-units.md).
 * Para aprender más sobre la directiva de indexación, consulte [Directiva de indexación](index-policy.md) 
 

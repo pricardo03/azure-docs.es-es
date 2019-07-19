@@ -2,23 +2,22 @@
 title: Estructura y sintaxis de las plantillas de Azure Resource Manager | Microsoft Docs
 description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager mediante la sintaxis declarativa de JSON.
 author: tfitzmac
-ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: e3b8b6b969568fc15558002c268cdc4a16c2fadd
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
-ms.translationtype: MT
+ms.openlocfilehash: ab8e4f5f6506f80b62c112298f73f95bc7fedeaf
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431228"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204359"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
 En este artículo se describe la estructura de una plantilla de Azure Resource Manager. Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
 
-En este artículo está destinado a usuarios que estén familiarizados con las plantillas de Resource Manager. Proporciona información detallada sobre la estructura y sintaxis de la plantilla. Si desea una introducción a la creación de una plantilla, consulte [crear la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).
+Este artículo está destinado a los usuarios que ya estén familiarizados con las plantillas de Resource Manager. Proporciona información detallada sobre la estructura y la sintaxis de la plantilla. Si desea ver una presentación sobre cómo crear una plantilla, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Formato de plantilla
 
@@ -41,9 +40,9 @@ En la estructura más simple, una plantilla tiene los siguientes elementos:
 |:--- |:--- |:--- |
 | $schema |Sí |Ubicación del archivo de esquema JSON que describe la versión del idioma de la plantilla.<br><br> Para las implementaciones de grupos de recursos, use: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`.<br><br>Para las implementaciones de suscripciones, use: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`. |
 | contentVersion |Sí |Versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Use este valor para documentar los cambios importantes de la plantilla. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta. |
-| apiProfile |No | Una versión de API que actúa como una colección de versiones de API para los tipos de recursos. Use este valor para evitar tener que especificar las versiones de API para cada recurso en la plantilla. Al especificar una versión de perfil de API y no se especifica una versión de API para el tipo de recurso, Resource Manager usa la versión de API para ese tipo de recurso que se define en el perfil.<br><br>La propiedad de perfil de API es especialmente útil al implementar una plantilla en diferentes entornos, como Azure Stack y Azure global. Use la versión del perfil de API para asegurarse de que la plantilla utiliza automáticamente las versiones que se admiten en ambos entornos. Para obtener una lista de las versiones actuales de perfil de API y los recursos definidos en el perfil de versiones de API, consulte [API perfil](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Para obtener más información, consulte [realizar un seguimiento de versiones mediante perfiles de la API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| apiProfile |Sin | Una versión de API que actúa como una colección de versiones de API para los tipos de recursos. Use este valor para evitar tener que especificar las versiones de API para cada recurso de la plantilla. Si especifica una versión del perfil de API y no especifica una versión de API para el tipo de recurso, Resource Manager usa la versión de API para el tipo de recurso que está definido en el perfil.<br><br>La propiedad del perfil de API es especialmente útil al implementar una plantilla en diferentes entornos, como Azure Stack y Azure global. Use la versión del perfil de API para asegurarse de que la plantilla utilice automáticamente las versiones que se admiten en ambos entornos. Para obtener una lista de las versiones del perfil de API actuales y de las versiones de API de recursos definidas en el perfil, consulte [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile) (Perfil de API).<br><br>Para más información, consulte [Seguimiento de versiones mediante perfiles de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Sin |Valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos. |
-| [variables](#variables) |No |Valores que se usan como fragmentos JSON en la plantilla para simplificar expresiones de idioma de la plantilla. |
+| [variables](#variables) |Sin |Valores que se usan como fragmentos JSON en la plantilla para simplificar expresiones de idioma de la plantilla. |
 | [functions](#functions) |Sin |Funciones definidas por el usuario que están disponibles dentro de la plantilla. |
 | [resources](#resources) |Sí |Tipos de servicios que se implementan o actualizan en un grupo de recursos o suscripción. |
 | [outputs](#outputs) |Sin |Valores que se devuelven después de la implementación. |
@@ -52,7 +51,7 @@ Cada elemento tiene propiedades que puede configurar. En este artículo se descr
 
 ## <a name="syntax"></a>Sintaxis
 
-La sintaxis básica de la plantilla es JSON. Sin embargo, puede usar expresiones para ampliar los valores JSON disponibles dentro de la plantilla.  Las expresiones empezar y terminar por corchetes: `[` y `]`, respectivamente. El valor de la expresión se evalúa cuando se implementa la plantilla. Una expresión puede devolver una cadena, entero, booleano, matriz u objeto. El ejemplo siguiente muestra una expresión en el valor predeterminado de un parámetro:
+La sintaxis básica de la plantilla es JSON. Sin embargo, puede utilizar expresiones para ampliar los valores JSON disponibles en la plantilla.  Las expresiones empiezan y terminan con corchetes: `[` y `]`, respectivamente. El valor de la expresión se evalúa cuando se implementa la plantilla. Una expresión puede devolver una cadena, un entero, un booleano, una matriz o un objeto. En el ejemplo siguiente se muestra una expresión en el valor predeterminado de un parámetro:
 
 ```json
 "parameters": {
@@ -63,11 +62,11 @@ La sintaxis básica de la plantilla es JSON. Sin embargo, puede usar expresiones
 },
 ```
 
-Dentro de la expresión, la sintaxis `resourceGroup()` llama a una de las funciones que proporciona el Administrador de recursos para su uso dentro de una plantilla. Al igual que en JavaScript, las llamadas de función tienen el formato `functionName(arg1,arg2,arg3)`. La sintaxis `.location` recupera una propiedad del objeto devuelto por la función.
+En de la expresión, la sintaxis `resourceGroup()` llama a una de las funciones que Resource Manager proporciona para utilizarla dentro de una plantilla. Al igual que en JavaScript, las llamadas de función tienen el formato `functionName(arg1,arg2,arg3)`. La sintaxis `.location` recupera una propiedad del objeto devuelto por esta función.
 
 Las funciones de plantilla y sus parámetros no distinguen mayúsculas de minúsculas. Por ejemplo, Resource Manager resuelve **variables('var1')** y **VARIABLES('VAR1')** de la misma manera. Cuando se evalúa, a menos que la función modifique expresamente las mayúsculas (como toUpper o toLower), la función conserva las mayúsculas. Es posible que determinados tipos de recursos tengan requisitos de mayúsculas independientemente de cómo se evalúen las funciones.
 
-Para tener una cadena literal empiece con un corchete izquierdo `[` y terminan con un corchete de cierre `]`, pero no se interpreta como una expresión, agregue un corchete más para iniciar la cadena con `[[`. Por ejemplo, la variable:
+Para que una cadena literal empiece con un corchete izquierdo `[` y termine con un corchete derecho `]`, pero no se interprete como una expresión, agregue otro corchete para que la cadena comience con `[[`. Por ejemplo, la variable:
 
 ```json
 "demoVar1": "[[test value]"
@@ -75,7 +74,7 @@ Para tener una cadena literal empiece con un corchete izquierdo `[` y terminan c
 
 Se resuelve como `[test value]`.
 
-Sin embargo, si la cadena literal no termina con un corchete de cierre, no de escape del primer corchete. Por ejemplo, la variable:
+Sin embargo, si la cadena literal no termina con un corchete de cierre, no utilice un carácter de escape en el primer corchete. Por ejemplo, la variable:
 
 ```json
 "demoVar2": "[test] value"
@@ -83,13 +82,13 @@ Sin embargo, si la cadena literal no termina con un corchete de cierre, no de es
 
 Se resuelve como `[test] value`.
 
-Para pasar un valor de cadena como un parámetro a una función, use comillas simples.
+Para pasar un valor de cadena como parámetro a una función, use comillas simples.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-Para salir de las comillas dobles en una expresión, como la adición de un objeto JSON en la plantilla, use la barra diagonal inversa.
+Para utilizar un carácter de escape en las comillas dobles en una expresión, como, por ejemplo, al agregar un objeto JSON a la plantilla, use la barra diagonal inversa.
 
 ```json
 "tags": {
@@ -97,7 +96,7 @@ Para salir de las comillas dobles en una expresión, como la adición de un obje
 },
 ```
 
-Una expresión de plantilla no puede superar los 24 576 caracteres.
+Las expresiones de plantilla no pueden superar los 24 576 caracteres.
 
 Para obtener la lista completa de las funciones de plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md). 
 
@@ -131,7 +130,7 @@ Las propiedades disponibles para un parámetro son:
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | parameterName |Sí |Nombre del parámetro. Debe ser un identificador válido de JavaScript. |
-| type |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
+| Tipo |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
 | defaultValue |Sin |Valor predeterminado del parámetro, si no se proporciona ningún valor. |
 | allowedValues |Sin |Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto. |
 | minValue |Sin |El valor mínimo de parámetros de tipo int, este valor es inclusivo. |
@@ -270,7 +269,7 @@ Después, haga referencia a las subpropiedades del parámetro con el operador pu
 ]
 ```
 
-### <a name="parameter-example-templates"></a>Plantillas de ejemplo de parámetro
+### <a name="parameter-example-templates"></a>Plantillas de ejemplo de parámetros
 
 Estas plantillas de ejemplo muestran algunos escenarios para usar los parámetros. Impleméntelos para probar cómo se controlan los parámetros en diferentes escenarios.
 
@@ -285,7 +284,7 @@ En la sección de variables, se crean valores que pueden usarse en toda la plant
 
 ### <a name="available-definitions"></a>Definiciones disponibles
 
-El ejemplo siguiente muestra las opciones disponibles para definir una variable:
+En el ejemplo siguiente se muestran las opciones disponibles para definir una variable:
 
 ```json
 "variables": {
@@ -312,11 +311,11 @@ El ejemplo siguiente muestra las opciones disponibles para definir una variable:
 }
 ```
 
-Para obtener información sobre el uso de `copy` para crear varios valores para una variable, consulte [iteración Variable](resource-group-create-multiple.md#variable-iteration).
+Si desea información sobre el uso de `copy` para crear varios valores para una variable, consulte [Iteración de variables](resource-group-create-multiple.md#variable-iteration).
 
 ### <a name="define-and-use-a-variable"></a>Definición y uso de una variable
 
-El ejemplo siguiente muestra una variable de definición. Crea un valor de cadena para un nombre de cuenta de almacenamiento. Se usan varias funciones de plantilla para obtener un valor de parámetro y se concatena a una cadena única.
+El ejemplo siguiente muestra una variable de definición. Crea un valor de cadena para un nombre de cuenta de almacenamiento. Usa varias funciones de plantilla para obtener un valor de parámetro y lo concatena a una cadena única.
 
 ```json
 "variables": {
@@ -373,7 +372,7 @@ Puede recuperar la configuración actual con:
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-### <a name="variable-example-templates"></a>Plantillas de ejemplo de variable
+### <a name="variable-example-templates"></a>Plantillas de ejemplo de variables
 
 Estas plantillas de ejemplo muestran algunos escenarios para usar las variables. Impleméntelos para probar cómo se controlan las variables en diferentes escenarios. 
 
@@ -391,7 +390,7 @@ Dentro de la plantilla, puede crear sus propias funciones. Estas funciones está
 Al definir una función de usuario, hay algunas restricciones:
 
 * La función no puede acceder a las variables.
-* La función solo puede usar los parámetros que se definen en la función. Cuando se usa el [función parámetros](resource-group-template-functions-deployment.md#parameters) dentro de una función definida por el usuario, están restringidas a los parámetros para esa función.
+* La función solo puede usar los parámetros que se definen en la función. Cuando usa la función [parameters](resource-group-template-functions-deployment.md#parameters) dentro de una función definida por el usuario, los parámetros de esa función serán los que limiten sus acciones.
 * La función no puede llamar a otras funciones definidas por el usuario.
 * La función no puede usar la [función de referencia](resource-group-template-functions-resource.md#reference).
 * Los parámetros de la función no pueden tener valores predeterminados.
@@ -502,24 +501,24 @@ Defina recursos con la siguiente estructura:
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
-| condición | Sin | Valor booleano que indica si el recurso se aprovisionará durante esta implementación. Si es `true`, el recurso se crea durante la implementación. Si es `false`, el recurso se omite para esta implementación. Consulte [condición](#condition). |
-| apiVersion |Sí |Versión de la API de REST que debe usar para crear el recurso. Para determinar los valores disponibles, vea [referencia de plantilla](/azure/templates/). |
-| Tipo |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar los valores disponibles, vea [referencia de plantilla](/azure/templates/). Para un recurso secundario, el formato del tipo depende de si ha anidado dentro del recurso primario o definido fuera del recurso primario. Consulte [recursos secundarios](#child-resources). |
-| Nombre |Sí |Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Además, los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. Para un recurso secundario, el formato del nombre depende de si ha anidado dentro del recurso primario o definido fuera del recurso primario. Consulte [recursos secundarios](#child-resources). |
+| condition | Sin | Valor booleano que indica si el recurso se aprovisionará durante esta implementación. Si es `true`, el recurso se crea durante la implementación. Si es `false`, el recurso se omite para esta implementación. Consulte [condition](#condition). |
+| apiVersion |Sí |Versión de la API de REST que debe usar para crear el recurso. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |
+| Tipo |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). Para un recurso secundario, el formato del tipo depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte los [recursos secundarios](#child-resources). |
+| Nombre |Sí |Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Además, los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. Para un recurso secundario, el formato del nombre depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte los [recursos secundarios](#child-resources). |
 | location |Varía |Ubicaciones geográficas compatibles del recurso proporcionado. Puede seleccionar cualquiera de las ubicaciones disponibles, pero normalmente tiene sentido elegir aquella que esté más cerca de los usuarios. Normalmente, también tiene sentido colocar los recursos que interactúan entre sí en la misma región. La mayoría de los tipos de recursos requieren una ubicación, pero algunos (por ejemplo, una asignación de roles) no la necesitan. |
-| tags |Sin |Etiquetas asociadas al recurso. Aplique etiquetas para organizar de forma lógica los recursos en su suscripción. |
+| etiquetas |Sin |Etiquetas asociadas al recurso. Aplique etiquetas para organizar de forma lógica los recursos en su suscripción. |
 | comentarios |Sin |Notas para documentar los recursos de la plantilla. Para más información, consulte [Comentarios en plantillas](resource-group-authoring-templates.md#comments). |
 | copia |Sin |Si se necesita más de una instancia, el número de recursos que se crearán. El modo predeterminado es paralelo. Si no desea que todos los recursos se implementen al mismo tiempo, especifique el modo serie. Para obtener más información, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Sin |Recursos que se deben implementar antes de implementar este. Resource Manager evalúa las dependencias entre recursos y los implementa en su orden correcto. Cuando no hay recursos dependientes entre sí, se implementan en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos. Solo los recursos de lista que se implementan en esta plantilla. Deben existir los recursos que no estén definidos en esta plantilla. Evite agregar dependencias innecesarias, ya que pueden ralentizar la implementación y crear dependencias circulares. Para obtener instrucciones sobre la configuración de dependencias, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md). |
-| properties |Sin |Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. También puede especificar una matriz de copia para crear varias instancias de una propiedad. Para determinar los valores disponibles, vea [referencia de plantilla](/azure/templates/). |
-| sku | No | Algunos recursos permiten valores que definen la SKU que se va a implementar. Por ejemplo, puede especificar el tipo de redundancia para una cuenta de almacenamiento. |
+| properties |Sin |Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. También puede especificar una matriz de copia para crear varias instancias de una propiedad. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |
+| sku | Sin | Algunos recursos permiten valores que definen la SKU que se va a implementar. Por ejemplo, puede especificar el tipo de redundancia para una cuenta de almacenamiento. |
 | kind | Sin | Algunos recursos permiten un valor que define el tipo de recurso que va a implementar. Por ejemplo, puede especificar el tipo de instancia de Cosmos DB que va a crear. |
 | plan | Sin | Algunos recursos permiten valores que definen el plan que se va a implementar. Por ejemplo, puede especificar la imagen de Marketplace para una máquina virtual. | 
-| resources |Sin |Recursos secundarios que dependen del recurso que se está definiendo. Proporcione solo tipos de recursos que permita el esquema del recurso principal. La dependencia del recurso principal no está implícita. Debe definirla explícitamente. Consulte [recursos secundarios](#child-resources). |
+| resources |Sin |Recursos secundarios que dependen del recurso que se está definiendo. Proporcione solo tipos de recursos que permita el esquema del recurso principal. La dependencia del recurso principal no está implícita. Debe definirla explícitamente. Consulte los [recursos secundarios](#child-resources). |
 
 ### <a name="condition"></a>Condición
 
-Cuando debe decidir durante la implementación si se debe crear un recurso, use el `condition` elemento. El valor de este elemento se resuelve como true o false. Cuando el valor es true, el recurso se crea. Cuando el valor es false, el recurso no se crea. El valor solo se puede aplicar a todo el recurso.
+Si debe decidir durante la implementación si debe crear un recurso, use el elemento `condition`. El valor de este elemento se resuelve como true o false. Cuando el valor es true, el recurso se crea. Cuando el valor es false, el recurso no se crea. El valor solo se puede aplicar a todo el recurso.
 
 Por lo general, este valor se usa cuando desea crear un nuevo recurso o usar uno existente. Por ejemplo, para especificar si se implementa una nueva cuenta de almacenamiento o se usa una cuenta de almacenamiento existente, use:
 
@@ -540,7 +539,7 @@ Por lo general, este valor se usa cuando desea crear un nuevo recurso o usar uno
 
 Para una plantilla de ejemplo completo que usa el elemento `condition`, consulte [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) (Máquina virtual con una red virtual nueva o existente, almacenamiento y dirección IP pública).
 
-Si usa un [referencia](resource-group-template-functions-resource.md#reference) o [lista](resource-group-template-functions-resource.md#list) se puede evaluar la función con un recurso que se implementa de forma condicional, la función incluso si el recurso no está implementado. Obtiene un error si la función hace referencia a un recurso que no existe. Use la [si](resource-group-template-functions-logical.md#if) función para asegurarse de que la función se evalúa solo para las condiciones cuando se implementa el recurso. Consulte la [si función](resource-group-template-functions-logical.md#if) para una plantilla de ejemplo que usa si y la referencia con un recurso implementado de forma condicional.
+Si usa una función [reference](resource-group-template-functions-resource.md#reference) o [list](resource-group-template-functions-resource.md#list) con un recurso que se implementa de forma condicional, se puede evaluar la función incluso si el recurso no está implementado. Se genera un error si la función hace referencia a un recurso que no existe. Use la función [if](resource-group-template-functions-logical.md#if) para asegurarse de que la función se evalúa solo para las condiciones en las que se implementa el recurso. Consulte la función [if](resource-group-template-functions-logical.md#if) para una plantilla de ejemplo que use if y haga referencia con un recurso implementado de forma condicional.
 
 ### <a name="resource-names"></a>Nombres de recurso
 
@@ -550,7 +549,7 @@ Por lo general, trabaja con tres tipos de nombres de recursos en Resource Manage
 * Nombres de recurso que no tienen que ser únicos, pero decide proporcionarles un nombre que pueda ayudarle a identificarlos.
 * Nombres de recurso que pueden ser genéricos.
 
-Proporcione un **nombre de recurso único** para cualquier tipo de recurso que tiene un punto de conexión de acceso de datos. Entre los tipos de recursos comunes que requieren un nombre único se incluyen los siguientes:
+Asigne un **nombre de recurso único** para cualquier tipo de recurso que tenga un punto de conexión de acceso a datos. Entre los tipos de recursos comunes que requieren un nombre único se incluyen los siguientes:
 
 * Azure Storage<sup>1</sup> 
 * Característica Web Apps de Azure App Service
@@ -572,7 +571,7 @@ Al establecer el nombre, puede crear un nombre único de forma manual o usar la 
 }
 ```
 
-Para algunos tipos de recursos, es posible que desee proporcionar un **nombre para la identificación**, pero el nombre no tiene que ser único. Para estos tipos de recursos, proporcione un nombre que lo describe las características o uso.
+Para algunos tipos de recursos, es posible que desee proporcionar un **nombre de identificación**, aunque el nombre no tiene que ser único. Para estos tipos de recursos, proporcione un nombre que describa su uso o características.
 
 ```json
 "parameters": {
@@ -586,7 +585,7 @@ Para algunos tipos de recursos, es posible que desee proporcionar un **nombre pa
 }
 ```
 
-Para tipos de recursos que principalmente acceso a través de un recurso diferente, se puede usar un **nombre genérico** que está codificado de forma rígida en la plantilla. Por ejemplo, puede establecer un nombre genérico estándar para reglas de firewall en un servidor SQL:
+En los tipos de recursos a los que tiene acceso mayoritariamente por medio de otro recurso, puede usar un **nombre genérico** que esté codificado de forma rígida en la plantilla. Por ejemplo, puede establecer un nombre genérico estándar para reglas de firewall en un servidor SQL:
 
 ```json
 {
@@ -695,23 +694,23 @@ Sin embargo, no es necesario definir la base de datos en el servidor. Puede defi
 }
 ```
 
-Los valores proporcionados para el tipo y nombre varían en función de si se ha definido el recurso secundario dentro del recurso primario o fuera del recurso primario.
+Los valores proporcionados para el tipo y el nombre varían en función de si se ha definido el recurso secundario dentro del recurso primario o fuera de él.
 
-Cuando están anidados en el recurso primario, use:
+Si está anidado en el recurso primario, utilice:
 
 ```json
 "type": "{child-resource-type}",
 "name": "{child-resource-name}",
 ```
 
-Cuando se definen fuera del recurso primario, use:
+Si está definido fuera del recurso primario, use:
 
 ```json
 "type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
 "name": "{parent-resource-name}/{child-resource-name}",
 ```
 
-Cuando están anidados, el tipo se establece en `databases` pero su tipo de recurso completo sigue siendo `Microsoft.Sql/servers/databases`. No se proporciona `Microsoft.Sql/servers/` porque se supone que viene del tipo de recurso primario. El nombre del recurso secundario se establece en `exampledatabase`, pero el nombre completo incluye el primario. No se proporciona `exampleserver` porque se supone que viene del recurso primario.
+Si está anidado, el tipo se establece en `databases`, pero el tipo de recurso completo sigue siendo `Microsoft.Sql/servers/databases`. No se proporciona `Microsoft.Sql/servers/` porque se supone que viene del tipo de recurso primario. El nombre del recurso secundario se establece en `exampledatabase`, pero el nombre completo incluye el primario. No se proporciona `exampleserver` porque se supone que viene del recurso primario.
 
 Al construir una referencia completa a un recurso, el orden para combinar los segmentos a partir del tipo y el nombre no es simplemente una concatenación de los dos. En su lugar, después del espacio de nombres, use una secuencia de pares *tipo/nombre* de menos a más específico:
 
@@ -725,7 +724,7 @@ Por ejemplo:
 
 ## <a name="outputs"></a>Salidas
 
-En la sección de salidas, especifique valores que se devuelven de la implementación. Normalmente, se devuelven valores de los recursos que se implementaron.
+En la sección de salidas, especifique valores que se devuelven de la implementación. Normalmente, devuelve valores de los recursos implementados.
 
 ### <a name="available-properties"></a>Propiedades disponibles
 
@@ -744,8 +743,8 @@ En el ejemplo siguiente se muestra la estructura de una definición de salida:
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | outputName |Sí |Nombre del valor de salida. Debe ser un identificador válido de JavaScript. |
-| condición |Sin | Valor booleano que indica si se va a devolver este valor de salida. Si es `true`, el valor se incluye en la salida de la implementación. Si es `false`, el recurso se omite en esta implementación. Si no se especifica, el valor predeterminado es `true`. |
-| Tipo |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. Si especifica **securestring** para el tipo de salida, el valor no se muestra en el historial de implementación y no se puede recuperar desde otra plantilla. Para usar un valor del secreto en más de una plantilla, almacenar el secreto en un almacén de claves y hace referencia al secreto en el archivo de parámetros. Para obtener más información, consulte [Use Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](resource-manager-keyvault-parameter.md). |
+| condition |Sin | Valor booleano que indica si se va a devolver este valor de salida. Si es `true`, el valor se incluye en la salida de la implementación. Si es `false`, el recurso se omite en esta implementación. Si no se especifica, el valor predeterminado es `true`. |
+| Tipo |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. Si especifica **securestring** para el tipo de salida, el valor no se muestra en el historial de implementación y no se puede recuperar desde otra plantilla. Para usar un valor de secreto en más de una plantilla, almacene el secreto en un almacén de claves y haga referencia al secreto en el archivo de parámetros. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](resource-manager-keyvault-parameter.md). |
 | value |Sí |Expresión de lenguaje de plantilla que se evaluará y devolverá como valor de salida. |
 
 ### <a name="define-and-use-output-values"></a>Definición y uso de valores de salida
@@ -773,7 +772,7 @@ En el ejemplo siguiente, se muestra cómo se devuelve condicionalmente el identi
 }
 ```
 
-Para obtener un ejemplo sencillo de salida condicional, consulte [plantilla salida condicional](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
+Para obtener un ejemplo sencillo de salida condicional, consulte la [plantilla de salida condicional](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
 
 Después de la implementación, puede recuperar el valor con el script. Para PowerShell, use:
 
@@ -791,7 +790,7 @@ Puede recuperar el valor de salida de una plantilla vinculada mediante la funci�
 
 Al obtener una propiedad de salida a partir de una plantilla vinculada, el nombre de propiedad no puede incluir un guión.
 
-El ejemplo siguiente muestra cómo establecer la dirección IP en un equilibrador de carga mediante la recuperación de un valor de una plantilla vinculada.
+En el ejemplo siguiente, se muestra cómo establecer la dirección IP en un equilibrador de carga mediante la recuperación de un valor desde una plantilla vinculada.
 
 ```json
 "publicIPAddress": {
@@ -801,7 +800,7 @@ El ejemplo siguiente muestra cómo establecer la dirección IP en un equilibrado
 
 No se puede usar la función `reference` en la sección de salidas de una [plantilla anidada](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver los valores de un recurso implementado en una plantilla anidada, convierta la plantilla anidada en una plantilla vinculada.
 
-### <a name="output-example-templates"></a>Plantillas de ejemplo de salida
+### <a name="output-example-templates"></a>Plantillas de ejemplo de salidas
 
 |Plantilla  |DESCRIPCIÓN  |
 |---------|---------|

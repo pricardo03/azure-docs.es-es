@@ -3,7 +3,7 @@ title: Introducción a Azure Mobile Apps para aplicaciones Xamarin.Android
 description: Siga este tutorial para empezar a usar Azure Mobile Apps para el desarrollo de Xamarin Android.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.author: crdun
-ms.openlocfilehash: f3e8ca4f9736dffe4928fc8920b0890dff87367b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: eed900ee54f62056eceeb35a43a4ba6526b049ca
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236037"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447086"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Creación de una aplicación Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+
+> [!NOTE]
+> Visual Studio App Center está invirtiendo en servicios nuevos e integrados fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube. Consulte [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started) hoy mismo.
+>
 
 ## <a name="overview"></a>Información general
 En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube a una aplicación Xamarin.Android. Para obtener más información, consulte [¿Qué es Mobile Apps?](app-service-mobile-value-prop.md)
@@ -46,17 +50,17 @@ Siga estos pasos para crear un back-end de Mobile App.
 
 Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usarse por las aplicaciones del cliente móvil. Después, descargue un proyecto de servidor para un back-end de "lista de tareas" sencillo y publíquelo en Azure.
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Crear una conexión de base de datos y configurar el proyecto de cliente y servidor
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Creación de una conexión de base de datos y configuración del proyecto de cliente y servidor
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinandroid-app"></a>Ejecute la aplicación de Xamarin.Android
+## <a name="run-the-xamarinandroid-app"></a>Ejecución de la aplicación Xamarin.Android
 1. Abra el proyecto de Xamarin.Android.
 
-2. Vaya a la [portal Azure](https://portal.azure.com/) y vaya a la aplicación móvil que ha creado. En el `Overview` hoja, busque la dirección URL que es el punto de conexión público para la aplicación móvil. Por ejemplo, será el nombre del sitio para el nombre de mi aplicación "test123" https://test123.azurewebsites.net.
+2. Vaya a [Azure Portal](https://portal.azure.com/) y diríjase a la aplicación móvil que ha creado. En la hoja `Overview`, busque la dirección URL que es el punto de conexión público de la aplicación móvil. Por ejemplo, el nombre de sitio para el nombre de mi aplicación "test123" será https://test123.azurewebsites.net.
 
-3. Abra el archivo `ToDoActivity.cs` en esta carpeta - xamarin.android/ZUMOAPPNAME/ToDoActivity.cs. Es el nombre de la aplicación `ZUMOAPPNAME`.
+3. Abra el archivo `ToDoActivity.cs` en esta carpeta - xamarin.android/ZUMOAPPNAME/ToDoActivity.cs. El nombre de la aplicación es `ZUMOAPPNAME`.
 
-4. En `ToDoActivity` class, reemplace `ZUMOAPPURL` variable con el punto de conexión público anterior.
+4. En la clase `ToDoActivity`, reemplace la variable `ZUMOAPPURL` con el punto de conexión público anterior.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 

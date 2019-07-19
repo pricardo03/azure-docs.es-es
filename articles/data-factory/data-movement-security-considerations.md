@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dab2da2d54efe73b7b782800b190ea8aac2b5cd
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153305"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460687"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -119,7 +119,7 @@ Las credenciales de los almacenes de datos locales se almacenan y se cifran siem
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Puertos utilizados durante el cifrado del servicio vinculado en Integration Runtime autohospedado
-De forma predeterminada, PowerShell usa el puerto 8050 en la máquina con el entorno de ejecución de integración autohospedado para una comunicación segura. Si es necesario, se puede cambiar este puerto.  
+De forma predeterminada, PowerShell usa el puerto 8060 en la máquina con el entorno de ejecución de integración autohospedado para una comunicación segura. Si es necesario, se puede cambiar este puerto.  
 
 ![Puerto HTTPS para la puerta de enlace](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -197,7 +197,7 @@ Sí. Más detalles [aquí](https://azure.microsoft.com/blog/sharing-a-self-hoste
 
 **¿Cuáles son los requisitos de puerto para que el entorno de ejecución de integración autohospedado funcione?**
 
-Integration Runtime autohospedado establece conexiones basadas en HTTP para acceder a Internet. El puerto de salida 443 debe estar abierto para que el entorno de ejecución de integración autohospedado establezca la conexión. Abra el puerto de entrada 8050 solo en la máquina (no en el nivel del firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure SQL Data Warehouse como origen o destino, tendrá que abrir también el puerto 1433. Para más información, consulte la sección [Configuraciones de firewall y lista de direcciones IP permitidas](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
+Integration Runtime autohospedado establece conexiones basadas en HTTP para acceder a Internet. El puerto de salida 443 debe estar abierto para que el entorno de ejecución de integración autohospedado establezca la conexión. Abra el puerto de entrada 8060 solo en la máquina (no en el firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure SQL Data Warehouse como origen o destino, tendrá que abrir también el puerto 1433. Para más información, consulte la sección [Configuraciones de firewall y lista de direcciones IP permitidas](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

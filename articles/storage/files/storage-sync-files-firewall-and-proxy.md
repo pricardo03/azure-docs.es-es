@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d9b7296a116ebd06542a53087afbd083dbd3a7eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: fdbbea2d32762d2d4030ec3a10826595dadd371c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696746"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449828"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
@@ -93,13 +93,13 @@ Como se mencionó en una sección anterior, el puerto 443 tiene que abrirse al t
 
 En la tabla siguiente se describen los dominios necesarios para la comunicación:
 
-| Servicio | Punto de conexión de nube pública | Punto de conexión de Azure Government | Uso |
+| Servicio | Punto de conexión de la nube pública | Punto de conexión de Azure Government | Uso |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Todas las llamadas de usuario (como PowerShell) van a esta URL, incluida la llamada de registro inicial del servidor. |
 | **Azure Active Directory** | https://login.windows.net | https://login.microsoftonline.us | Las llamadas de Azure Resource Manager deben realizarlas usuarios autenticados. Para que el proceso se complete correcta, esta URL se utiliza para la autenticación de usuarios. |
 | **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Como parte de la implementación de Azure File Sync, se crea una entidad de servicio en la instancia de Azure Active Directory de la suscripción. Esta URL se utiliza con ese fin. Esta entidad de seguridad se usa para delegar un conjunto mínimo de derechos en el servicio Azure File Sync. El usuario que realiza la configuración inicial de Azure File Sync debe ser un usuario autenticado con privilegios de propietario en la suscripción. |
 | **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Cuando el servidor descarga un archivo, realiza el movimiento de datos de forma más eficaz al comunicarse directamente con el recurso compartido de archivos de Azure en la cuenta de almacenamiento. El servidor tiene una clave SAS que solo se permite el acceso al recurso compartido de archivos de destino. |
-| **Azure File Sync** | &ast;.one.microsoft.com | &ast;.afs.azure.us | Después del registro inicial del servidor, el servidor recibe una URL regional para la instancia de servicio de Azure File Sync en dicha región. El servidor puede utilizar la URL para comunicarse de forma directa y eficaz con la instancia que controla la sincronización. |
+| **Azure File Sync** | &ast;.one.microsoft.com | &ast;. afs.azure.us | Después del registro inicial del servidor, el servidor recibe una URL regional para la instancia de servicio de Azure File Sync en dicha región. El servidor puede utilizar la URL para comunicarse de forma directa y eficaz con la instancia que controla la sincronización. |
 | **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | Una vez instalado el agente Azure File Sync, la dirección URL de PKI se utiliza para descargar los certificados intermedios necesarios para comunicarse con el servicio Azure File Sync y el recurso compartido de archivos de Azure. La dirección URL de OCSP se utiliza para comprobar el estado de un certificado. |
 
 > [!Important]
@@ -111,20 +111,31 @@ Por razones de continuidad empresarial y recuperación ante desastres (BCDR), es
 
 | Nube  | Region | Dirección URL del punto de conexión principal | Región emparejada | Dirección URL de detección |
 |--------|--------|----------------------|---------------|---------------|
-| Público |Este de Australia | https://kailani-aue.one.microsoft.com | Sudeste de Australia | https://kailani-aue.one.microsoft.com |
+| Público |Este de Australia | https://kailani-aue.one.microsoft.com | Sudeste de Australia | https://tm-kailani-aue.one.microsoft.com |
 | Público |Sudeste de Australia | https://kailani-aus.one.microsoft.com | Este de Australia | https://tm-kailani-aus.one.microsoft.com |
+| Público | Sur de Brasil | https://brazilsouth01.afs.azure.net | Centro-Sur de EE. UU | https://tm-brazilsouth01.afs.azure.net |
 | Público | Centro de Canadá | https://kailani-cac.one.microsoft.com | Este de Canadá | https://tm-kailani-cac.one.microsoft.com |
 | Público | Este de Canadá | https://kailani-cae.one.microsoft.com | Centro de Canadá | https://tm-kailani.cae.one.microsoft.com |
+| Público | India Central | https://kailani-cin.one.microsoft.com | Sur de la India | https://tm-kailani-cin.one.microsoft.com |
 | Público | Centro de EE. UU. | https://kailani-cus.one.microsoft.com | Este de EE. UU. 2 | https://tm-kailani-cus.one.microsoft.com |
 | Público | Asia oriental | https://kailani11.one.microsoft.com | Sudeste asiático | https://tm-kailani11.one.microsoft.com |
 | Público | Este de EE. UU | https://kailani1.one.microsoft.com | Oeste de EE. UU. | https://tm-kailani1.one.microsoft.com |
 | Público | Este de EE. UU. 2 | https://kailani-ess.one.microsoft.com | Centro de EE. UU. | https://tm-kailani-ess.one.microsoft.com |
+| Público | Este de Japón | https://japaneast01.afs.azure.net | Oeste de Japón | https://tm-japaneast01.afs.azure.net |
+| Público | Oeste de Japón | https://japanwest01.afs.azure.net | Este de Japón | https://tm-japanwest01.afs.azure.net |
+| Público | Corea Central | https://koreacentral01.afs.azure.net/ | Corea del Sur | https://tm-koreacentral01.afs.azure.net/ |
+| Público | Corea del Sur | https://koreasouth01.afs.azure.net/ | Corea Central | https://tm-koreasouth01.afs.azure.net/ |
+| Público | Centro-Norte de EE. UU | https://northcentralus01.afs.azure.net | Centro-Sur de EE. UU | https://tm-northcentralus01.afs.azure.net |
 | Público | Europa del Norte | https://kailani7.one.microsoft.com | Europa occidental | https://tm-kailani7.one.microsoft.com |
+| Público | Centro-Sur de EE. UU | https://southcentralus01.afs.azure.net | Centro-Norte de EE. UU | https://tm-southcentralus01.afs.azure.net |
+| Público | Sur de la India | https://kailani-sin.one.microsoft.com | India Central | https://tm-kailani-sin.one.microsoft.com |
 | Público | Sudeste asiático | https://kailani10.one.microsoft.com | Asia oriental | https://tm-kailani10.one.microsoft.com |
 | Público | Sur de Reino Unido 2 | https://kailani-uks.one.microsoft.com | Oeste de Reino Unido | https://tm-kailani-uks.one.microsoft.com |
 | Público | Oeste de Reino Unido | https://kailani-ukw.one.microsoft.com | Sur de Reino Unido 2 | https://tm-kailani-ukw.one.microsoft.com |
+| Público | Centro occidental de EE.UU. | https://westcentralus01.afs.azure.net | Oeste de EE. UU. 2 | https://tm-westcentralus01.afs.azure.net |
 | Público | Europa occidental | https://kailani6.one.microsoft.com | Europa del Norte | https://tm-kailani6.one.microsoft.com |
 | Público | Oeste de EE. UU. | https://kailani.one.microsoft.com | Este de EE. UU | https://tm-kailani.one.microsoft.com |
+| Público | Oeste de EE. UU. 2 | https://westus201.afs.azure.net | Centro occidental de EE.UU. | https://tm-westus201.afs.azure.net |
 | Government | Gobierno de EE. UU.: Arizona | https://usgovarizona01.afs.azure.us | Gobierno de EE. UU.: Texas | https://tm-usgovarizona01.afs.azure.us |
 | Government | Gobierno de EE. UU.: Texas | https://usgovtexas01.afs.azure.us | Gobierno de EE. UU.: Arizona | https://tm-usgovtexas01.afs.azure.us |
 

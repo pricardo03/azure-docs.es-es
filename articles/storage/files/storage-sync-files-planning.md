@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597081"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449867"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -170,10 +170,25 @@ La característica de clústeres de conmutación por error de Windows es compati
 
 ### <a name="data-deduplication"></a>Desduplicación de datos
 **Versión del agente 5.0.2.0**   
-La desduplicación de datos ahora es compatible en volúmenes con la nube por niveles habilitada en Windows Server 2016 y Windows Server 2019. Habilitar la desduplicación en un volumen con la nube por niveles habilitada, le permite almacenar en caché más archivos en el entorno local sin necesidad de aprovisionar más almacenamiento.
+La desduplicación de datos ahora es compatible en volúmenes con la nube por niveles habilitada en Windows Server 2016 y Windows Server 2019. Habilitar la desduplicación en un volumen con la nube por niveles habilitada, le permite almacenar en caché más archivos en el entorno local sin necesidad de aprovisionar más almacenamiento. Tenga en cuenta que este ahorro por volumen solo se aplica de forma local; la desduplicación no afectará a sus datos en Azure Files. 
 
 **Windows Server 2012 R2 o versiones anteriores del agente**  
 En el caso de volúmenes que no tengan habilitada la característica de niveles de nube, Azure File Sync admite la habilitación de la desduplicación de datos de Windows Server en el volumen.
+
+**Notas**
+- Si la desduplicación de datos está instalada antes de instalar el agente de Azure File Sync, es necesario reiniciar para que se admita en el mismo volumen la desduplicación de datos y la nube por niveles.
+- Si habilita la desduplicación de datos en un volumen después de haber habilitado la nube por niveles, el trabajo inicial de optimización por desduplicación optimiza los archivos del volumen que no están aún en niveles, y tendrá la siguiente repercusión en la nube por niveles:
+    - La directiva de espacio disponible seguirá colocando los archivos en niveles según el espacio libre en el volumen mediante el uso del mapa térmico.
+    - La directiva de fecha omitirá la organización en niveles de los archivos, que podrían haber sido en otra situación aptos para niveles, ya que el trabajo de optimización por desduplicación tiene acceso a los archivos.
+- Para los trabajos de optimización por desduplicación en curso, el valor de desduplicación de datos [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps), retrasará la nube por niveles con directiva de fecha, si el archivo no está colocado ya en un nivel. 
+    - Ejemplo: Si el valor MinimumFileAgeDays es 7 días y la directiva de fecha de nube por niveles es de 30 días, la directiva de fecha colocará los archivos en niveles pasados 37 días.
+    - Nota: Una vez que Azure File Sync haya colocado un archivo en un nivel, el trabajo de optimización por desduplicación omitirá el archivo.
+- Si un servidor que ejecuta Windows Server 2012 R2 y que tiene instalado el agente de Azure File Sync se actualiza a Windows Server 2016 o Windows Server 2019, es necesario realizar los pasos siguientes para que se pueda admitir en el mismo volumen la desduplicación de datos y la nube por niveles:  
+    - Desinstalar al agente de Azure File Sync para Windows Server 2012 R2 y reiniciar el servidor.
+    - Descargar al agente de Azure File Sync para la versión del sistema operativo del nuevo servidor (Windows Server 2016 o Windows Server 2019).
+    - Instalar el agente de Azure File Sync y reiniciar el servidor.  
+    
+    Nota: Los valores de configuración de Azure File Sync en el servidor se conservan cuando el agente se desinstala y reinstala.
 
 ### <a name="distributed-file-system-dfs"></a>Sistema de archivos distribuido (DFS)
 Azure File Sync admite la interoperabilidad con espacios de nombres DFS (DFS-N) y la replicación DFS (DFS-R).
@@ -200,9 +215,12 @@ No se admite el uso de sysprep en un servidor que tenga instalado el agente de A
 Si en un punto de conexión de un servidor están habilitados los niveles en la nube, Windows Search omite y no indexa los archivos que están en capas. Los archivos que no están en capas se indexan correctamente.
 
 ### <a name="antivirus-solutions"></a>Soluciones antivirus
-Dado que un antivirus funciona examinando los archivos en busca de código malintencionado conocido, puede provocar la recuperación de archivos con niveles. En las versiones 4.0 y posteriores del agente de Azure File Sync, los archivos en niveles tienen establecido el atributo seguro de Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Se recomienda consultar con el proveedor de software cómo configurar su solución para omitir la lectura de archivos que tengan establecido este atributo (muchas realizan la omisión automáticamente).
+Dado que un antivirus funciona examinando los archivos en busca de código malintencionado conocido, puede provocar la recuperación de archivos con niveles. En las versiones 4.0 y posteriores del agente de Azure File Sync, los archivos en niveles tienen establecido el atributo seguro de Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Se recomienda consultar con el proveedor de software cómo configurar su solución para omitir la lectura de archivos que tengan establecido este atributo (muchas realizan la omisión automáticamente). 
 
 Las soluciones de antivirus internas de Microsoft, Windows Defender y System Center Endpoint Protection (SCEP), omiten de forma automática la lectura de archivos que tienen establecido dicho atributo. Hemos probado ambas soluciones e identificamos un problema menor: al agregar un servidor a un grupo de sincronización existente, se recuperan (descargan) los archivos de menos de 800 bytes en el nuevo servidor. Estos archivos permanecerán en el nuevo servidor y no se organizarán en niveles ya que no cumplen con el requisito de tamaño de niveles (>64 kb).
+
+> [!Note]  
+> Los proveedores de software antivirus pueden comprobar la compatibilidad entre sus productos y Azure File Sync con [Azure File Sync Antivirus Compatibility Test Suite] (https://www.microsoft.com/download/details.aspx?id=58322), que está disponible para su descarga en el Centro de descarga de Microsoft.
 
 ### <a name="backup-solutions"></a>Soluciones de copia de seguridad
 Al igual que sucede con las soluciones antivirus, las soluciones de backup pueden provocar la recuperación de archivos con niveles. Se recomienda usar una solución de backup en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure en lugar de usar un producto de backup local.
@@ -256,18 +274,15 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Sudeste asiático | Singapur |
 | Sur de Reino Unido 2 | Londres |
 | Oeste de Reino Unido | Cardiff |
-| US Gov Arizona (versión preliminar) | Arizona |
-| US Gov Texas (versión preliminar) | Texas |
-| US Gov Virginia (versión preliminar) | Virginia |
+| Gobierno de EE. UU.: Arizona | Arizona |
+| Gobierno de EE. UU.: Texas | Texas |
+| Gobierno de EE. UU. - Virginia | Virginia |
 | Europa occidental | Países Bajos |
 | Centro occidental de EE.UU. | Wyoming |
 | Oeste de EE. UU. | California |
 | Oeste de EE. UU. 2 | Washington |
 
 Azure File Sync solo se admite la sincronización con recursos compartidos de archivos de Azure de la misma región que el servicio de sincronización de almacenamiento.
-
-> [!Note]  
-> Actualmente, Azure File Sync solo está disponible en versión preliminar privada para las regiones de gobierno. Eche un vistazo a nuestras [notas de la versión](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) para obtener instrucciones sobre la inscripción en el programa de versión preliminar.
 
 ### <a name="azure-disaster-recovery"></a>Azure Disaster Recovery
 Para protegerse contra la pérdida de una región de Azure, Azure File Sync se integra con la opción de [almacenamiento con redundancia geográfica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). El almacenamiento GRS utiliza la replicación asincrónica de bloques entre el almacenamiento en la región primaria, con la que normalmente se interactúa, y el almacenamiento en la región secundaria emparejada. En caso de desastre que haga que una región de Azure se desconecte temporalmente o permanentemente, Microsoft conmutará por error el almacenamiento a la región emparejada. 
@@ -302,7 +317,7 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 | Oeste de Reino Unido             | Sur de Reino Unido 2           |
 | Gobierno de EE. UU.: Arizona      | Gobierno de EE. UU.: Texas       |
 | US Gov Iowa         | Gobierno de EE. UU. - Virginia    |
-| US Gov Virgini      | Gobierno de EE. UU.: Texas       |
+| Gobierno de EE. UU. - Virginia      | Gobierno de EE. UU.: Texas       |
 | Europa occidental         | Europa del Norte       |
 | Centro occidental de EE.UU.     | Oeste de EE. UU. 2          |
 | Oeste de EE. UU.             | Este de EE. UU            |

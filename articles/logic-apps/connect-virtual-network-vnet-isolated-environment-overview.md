@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 1ef8c8eec3865f2a6e363e7da1dbda9504b81c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f981452b06ec06f2be1b8fe0319cd49a678ccfe0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546431"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441577"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
@@ -35,7 +35,7 @@ Ahora, la aplicación lógica puede acceder directamente a los sistemas que est�
 En esta introducción se describen más detalles sobre cómo un ISE proporciona a las aplicaciones lógicas y las cuentas de integración acceso directo a la red de Azure Virtual Network y se comparan las diferencias entre un ISE y el servicio Logic Apps global.
 
 > [!NOTE]
-> Las aplicaciones lógicas, los desencadenadores integrados, las acciones integradas y los conectores que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo. Para obtener más información, consulte [Precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
+> Las aplicaciones lógicas, los desencadenadores integrados, las acciones integradas y los conectores que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo. Para obtener más información, consulte [Precios de Logic Apps](../logic-apps/logic-apps-pricing.md). El ISE también ha aumentado los límites de duración de ejecución, retención de almacenamiento, rendimiento, solicitud HTTP y tiempos de espera de respuesta, tamaños de mensaje y solicitudes del conector personalizado. Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](logic-apps-limits-and-config.md).
 
 <a name="difference"></a>
 
@@ -61,14 +61,14 @@ La diferencia entre los conectores de ISE y de otro tipo radica en las ubicacion
 
   ![Selección de los conectores de ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
+Un ISE también proporciona mayores límites de duración de ejecución, retención de almacenamiento, rendimiento, solicitud HTTP y tiempos de espera de respuesta, tamaños de mensaje y solicitudes del conector personalizado. Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](logic-apps-limits-and-config.md).
+
 ### <a name="access-to-on-premises-data-sources"></a>Acceso a orígenes de datos locales
 
 En lo que respecta a los sistemas locales conectados a una red de Azure Virtual Network, inserte un ISE en esa red para que las aplicaciones lógicas puedan acceder directamente a esos sistemas mediante cualquiera de estos elementos:
 
 * Conector con versión ISE para ese sistema (por ejemplo, SQL Server)
-  
 * Acción HTTP
-  
 * Conector personalizado
 
   * Si tiene conectores personalizados que requieren la puerta de enlace de datos local y los ha creado fuera de un ISE, las aplicaciones lógicas en un ISE también pueden usar esos conectores.

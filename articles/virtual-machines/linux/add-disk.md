@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 6f4bd125847aa789f6f3ed06e808b40738e12260
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: 1c8d4d2b26b356c524523d73d53fd641eef5f3cb
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304103"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465839"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adición de un disco a una máquina virtual de Linux
 En este artículo se muestra cómo conectar un disco persistente a la máquina virtual para que se puedan conservar los datos, incluso si la máquina virtual se vuelve a aprovisionar por mantenimiento o cambio de tamaño.
@@ -73,6 +73,9 @@ La salida es similar a la del ejemplo siguiente:
 [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
+
+> [!NOTE]
+> Se recomienda usar las versiones más recientes de fdisk o parted que estén disponibles para su distribución.
 
 En este caso, *sdc* es el disco que queremos. Cree una partición del disco con `parted`. Si el tamaño del disco es de 2 tebibytes (TiB) u otro mayor, deberá usar la creación de particiones de GPT. Si es menor, podrá usar la de MBR o la de GPT. Si usa particiones MBR, puede usar `fdisk`. Conviértalo en un disco principal en la partición 1 y acepte los demás valores predeterminados. En el ejemplo siguiente se inicia el proceso `fdisk` en */dev/sdc*:
 
@@ -205,7 +208,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 >
 > La opción *nofail* garantiza que la máquina virtual se inicia incluso si el sistema de archivos está dañado o el disco no existe en tiempo de arranque. Sin esta opción, puede encontrarse con el comportamiento que se describe en [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (No se puede conectar mediante SSH a una máquina virtual Linux debido a errores de FSTAB).
 >
-> La consola de serie de máquina virtual de Azure puede usarse para el acceso a la consola a la máquina virtual si modificar fstab ha producido un error de arranque. Encontrará más detalles en el [documentación de la consola serie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+> La consola serie de máquina virtual de Azure puede usarse para el acceso de consola a la máquina virtual si al modificar fstab se ha producido un error de arranque. Puede encontrar más información en la [documentación de la consola serie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Compatibilidad de TRIM/UNMAP con Linux en Azure
 Algunos kernels de Linux admiten operaciones TRIM/UNMAP para descartar bloques no usados del disco. Esta característica es especialmente útil en el almacenamiento estándar para informar a Azure de que las páginas eliminadas ya no son válidas y se pueden descartar. Además, le permitirá ahorrar dinero si crea archivos de gran tamaño y luego los elimina.

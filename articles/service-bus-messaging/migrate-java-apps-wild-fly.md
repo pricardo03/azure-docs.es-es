@@ -1,6 +1,6 @@
 ---
-title: Migración de Java Enterprise Edition de aplicaciones en Azure | Microsoft Docs
-description: Obtenga información sobre una de las maneras en que puede migrar las aplicaciones de Java Enterprise Edition (EE) a Azure
+title: Migración de aplicaciones de Java Enterprise Edition a Azure | Microsoft Docs
+description: Aprenda sobre una de las maneras en que puede migrar las aplicaciones de Java Enterprise Edition (EE) a Azure
 services: service-bus-messaging
 documentationcenter: ''
 author: selvasingh
@@ -13,73 +13,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: 60f4e410c7c4e3854235029acade550c9279c981
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: f09f6ac1cb4442657694937e7dd5e5eb109bad05
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158707"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444156"
 ---
-# <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>Migrar aplicaciones de Java enterprise edition (EE) a Azure
-Este artículo le guiará a través del proceso de migrar las cargas de trabajo de Java EE existentes a Azure:
+# <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>Migración de aplicaciones de Java Enterprise Edition (EE) a Azure
+Este artículo le guiará por el proceso de migrar las cargas de trabajo de Java EE existentes a Azure:
  
-- Aplicaciones de Java enterprise (frijoles empresarial controlado por mensaje) a [Azure App Service en Linux](../app-service/containers/app-service-linux-intro.md)
+- Aplicaciones de Java Enterprise (bean empresarial controlado por mensajes) a [Azure App Service en Linux](../app-service/containers/app-service-linux-intro.md)
 - Subsistema de mensajería de la aplicación a Azure Service Bus
-- Usar Sockets Web para cargas de trabajo interactivas de Java 
+- Uso de Web Sockets para cargas de trabajo interactivas de Java 
 
 ## <a name="in-this-article"></a>En este artículo
 
-* [¿Qué va a migrar a la nube](#what-you-will-migrate-to-cloud)
+* [Qué va a migrar a la nube](#what-you-will-migrate-to-cloud)
 * [Requisitos previos](#prerequisites)
 * [Primeros pasos](#get-started)
-    * [Clonar el repositorio de Git y preparación.](#clone-and-prepare-the-git-repository)
-* [Compilar el archivo de ejemplo](#build-the-sample-archive)
-* [Crear aplicación de consola: enviar y recibir mensajes a Service Bus con Java Message Service (JMS)](#build-and-run-console-app-to-send-and-receive-messages)
-    * [Crear y configurar Azure Service Bus](#create-and-configure-azure-service-bus)
-    * [Compilar y ejecutar la aplicación de consola](#build-and-run-the-console-app)
-* [Migrar un bean enterprise controladas por mensajes a Azure](#migrate-a-message-driven-enterprise-bean-to-azure)
-    * [Preparar el entorno](#prepare-environment)
-    * [Implementar una aplicación en App Service Linux](#deploy-an-app-to-app-service-linux)
-    * [Configurar el adaptador de recursos JMS (JMS RA)](#configure-the-jms-resource-adapter-jms-ra)
-    * [Aprender a configurar WildFly](#understand-how-to-configure-wildfly)
-    * [Cargar los artefactos de inicio y binario para la aplicación a través de FTP](#upload-startup-and-binary-artifacts-to-app-through-ftp)
-        * [Obtener credenciales de implementación de FTP](#get-ftp-deployment-credentials)
-        * [Cargar los artefactos de inicio y binario para la aplicación a través de FTP](#upload-startup-and-binary-artifacts-to-app-through-ftp)
-    * [Probar el script de inicio JBoss/WildFly y comandos CLI para configurar la RA de JMS](#test-the-jbosswildfly-startup-script-and-cli-commands-to-configure-jms-ra)
-        * [Probar la secuencia de comandos startup.sh](#test-the-startupsh-script)
-    * [Reinicie el servidor de aplicación WildFly remoto](#restart-the-remote-wildfly-app-server)
-    * [Stream JBoss/WildFly registros en un equipo de desarrollo](#stream-wildflyjboss-logs-to-a-dev-machine)
-    * [Abra el bean controladas por mensajes enterprise en Azure](#open-the-message-driven-enterprise-bean-on-azure)
+    * [Clonación y preparación del repositorio de Git](#clone-and-prepare-the-git-repository)
+* [Compilación del archivo de ejemplo](#build-the-sample-archive)
+* [Compilación de la aplicación de consola: envío y recepción de mensajes en Service Bus con Java Message Service (JMS)](#build-and-run-console-app-to-send-and-receive-messages)
+    * [Creación y configuración de Azure Service Bus](#create-and-configure-azure-service-bus)
+    * [Compilación y ejecución de la aplicación de consola](#build-and-run-the-console-app)
+* [Migración de un bean empresarial controlado por mensajes a Azure](#migrate-a-message-driven-enterprise-bean-to-azure)
+    * [Preparación del entorno](#prepare-environment)
+    * [Implementación de una aplicación en App Service en Linux](#deploy-an-app-to-app-service-linux)
+    * [Configuración del adaptador de recursos JMS (JMS RA)](#configure-the-jms-resource-adapter-jms-ra)
+    * [Configuración de WildFly](#understand-how-to-configure-wildfly)
+    * [Carga de los artefactos de inicio y binario para la aplicación mediante FTP](#upload-startup-and-binary-artifacts-to-app-through-ftp)
+        * [Obtención de las credenciales de implementación para FTP](#get-ftp-deployment-credentials)
+        * [Carga de los artefactos de inicio y binario para la aplicación mediante FTP](#upload-startup-and-binary-artifacts-to-app-through-ftp)
+    * [Prueba de los comandos del script de inicio de JBoss/WildFly y de la CLI para configurar JMS RA](#test-the-jbosswildfly-startup-script-and-cli-commands-to-configure-jms-ra)
+        * [Prueba del script startup.sh](#test-the-startupsh-script)
+    * [Reinicio del servidor de aplicación WildFly remoto](#restart-the-remote-wildfly-app-server)
+    * [Transmisión de registros de JBoss/WildFly a una máquina de desarrollo](#stream-wildflyjboss-logs-to-a-dev-machine)
+    * [Apertura del bean empresarial controlado por mensajes en Azure](#open-the-message-driven-enterprise-bean-on-azure)
     * [Información adicional](#additional-information)
-* [Migrar la aplicación empresarial de Java que usa WebSockets](#migrate-java-ee-app-that-uses-websockets)
-    * [Implementar una aplicación en App Service Linux](#deploy-an-app-to-app-service-linux)
-    * [Abra la aplicación migrada en App Service Linux](#open-the-migrated-app-on-app-service-linux)
+* [Migración de una aplicación empresarial de Java que usa Web Sockets](#migrate-java-ee-app-that-uses-websockets)
+    * [Implementación de una aplicación en App Service en Linux](#deploy-an-app-to-app-service-linux)
+    * [Apertura de la aplicación migrada en App Service en Linux](#open-the-migrated-app-on-app-service-linux)
 * [Pasos siguientes](#next-steps)
 
-## <a name="what-you-will-migrate-to-cloud"></a>¿Qué va a migrar a la nube
-Aplicaciones de ejemplo JBoss/WildFly, debe migrar a Azure. Usan estas aplicaciones:
+## <a name="what-you-will-migrate-to-cloud"></a>Qué va a migrar a la nube
+Migrará aplicaciones de ejemplo de JBoss/WildFly a Azure. Estas aplicaciones usan:
 
-- Edición estándar de Java (SE) 8
+- Java Standard Edition (SE) 8
 - Java Enterprise Edition (EE) 7
 - [Solicitud de especificación de Java (JSR) 343 Java Messaging Service (JMS) 2.0](https://jcp.org/en/jsr/detail?id=343)
-- [API de Java 356 Java especificación (JSR) de la solicitud websocket](https://jcp.org/en/jsr/detail?id=356)
+- [Solicitud de especificación de Java (JSR) 356 Java API para Web Socket](https://jcp.org/en/jsr/detail?id=356)
 
-Tras la migración, podrá ejecutar las aplicaciones mediante Azure Service Bus.
+Tras la migración, ejecutará las aplicaciones mediante Azure Service Bus.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para implementar una aplicación web de Java en Azure, necesita una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
-Además, necesitará los siguientes requisitos previos:
+Además, tendrá que cumplir los siguientes requisitos previos:
 
 - [CLI de Azure](/cli/azure/get-started-with-azure-cli) 
 - [Java 8](https://www.azul.com/downloads/azure-only/zulu/) 
-- [Maven 3](http://maven.apache.org/) 
+- [Maven 3](https://maven.apache.org/) 
 - [Git](https://github.com/)
 
-## <a name="get-started"></a>Introducción
-Puede empezar desde cero y completar cada paso, o puede omitir los pasos de configuración básica que ya está familiarizado. En cualquier caso, terminará con código de trabajo.
+## <a name="get-started"></a>Primeros pasos
+Puede empezar desde cero y completar cada paso, o bien, puede omitir los pasos de configuración básicos con los que ya esté familiarizado. En cualquier caso, terminará con código de trabajo.
 
-### <a name="clone-and-prepare-the-git-repository"></a>Clonar y preparar el repositorio de Git 
+### <a name="clone-and-prepare-the-git-repository"></a>Clonación y preparación del repositorio de Git 
 
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/migrate-java-ee-app-to-azure-2
@@ -87,8 +87,8 @@ cd migrate-Java-EE-app-to-azure-2
 yes | cp -rf .prep/* .
 ```
 
-## <a name="build-the-sample-archive"></a>Compilar el archivo de ejemplo
-Compile el archivo de ejemplo mediante Maven. Este paso tardará unos minutos.
+## <a name="build-the-sample-archive"></a>Compilación del archivo de ejemplo
+Compile el archivo de ejemplo con Maven. Este paso tardará unos minutos.
 
 ```bash
 cd quickstart
@@ -269,28 +269,28 @@ Este es la salida de ejemplo:
 
 ```
 
-## <a name="build-and-run-console-app-to-send-and-receive-messages"></a>Compilar y ejecutar la aplicación de consola para enviar y recibir mensajes
+## <a name="build-and-run-console-app-to-send-and-receive-messages"></a>Compilación y ejecución de la aplicación de consola para enviar y recibir mensajes
 
-### <a name="create-and-configure-azure-service-bus"></a>Crear y configurar Azure Service Bus
+### <a name="create-and-configure-azure-service-bus"></a>Creación y configuración de Azure Service Bus
 
-1. Inicie sesión en Azure mediante la CLI.
+1. Inicie sesión en Azure usando la CLI.
 
     ```bash
     az login
     ```
-2. Establecer variables de entorno para enlazar los secretos en tiempo de ejecución, especialmente el nombre del grupo de recursos de Azure e información de Azure Service Bus. Puede exportarlos a su entorno local, por ejemplo mediante la plantilla de secuencia de comandos de shell de Bash suministrada.
+2. Establezca las variables de entorno para los secretos de enlace en tiempo de ejecución, en especial, el nombre del grupo de recursos de Azure y la información de Azure Service Bus. Puede exportarlos a su entorno local, por ejemplo mediante la plantilla de script del shell de Bash suministrada.
 
     ```bash
     cd helloworld-jms
     mkdir .scripts
     cp set-env-variables-template.sh .scripts/set-env-variables.sh
     ```
-3. Modificar `.scripts/set-env-variables.sh` y establezca el nombre de grupo de recursos de Azure y la información de Azure Service Bus. A continuación, establezca las variables de entorno:
+3. Modifique `.scripts/set-env-variables.sh` y establezca el nombre del grupo de recursos de Azure y la información de Azure Service Bus. Después, establezca las variables de entorno:
  
     ```bash
     source .scripts/set-env-variables.sh
     ```
-4. Crear Azure Service Bus:
+4. Creación de Azure Service Bus:
 
     ```bash
     az group create --name ${RESOURCEGROUP_NAME} \
@@ -320,16 +320,16 @@ Este es la salida de ejemplo:
                                                 
     ```
 
-    De los valores mostrados para las claves, agarre el <b>clave principal</b> valor. Abra el archivo.scripts/set-env-variables.sh y establecer primaryKey SB_SAS_KEY variable como valor.
-5. Exportar las variables de entorno:
+    De los valores mostrados para las claves, elija el valor de la <b>clave principal</b>. Abra el archivo .scripts/set-env-variables.sh y establezca primaryKey como valor para la variable SB_SAS_KEY.
+5. Exporte las variables de entorno:
 
     ```bash
     source .scripts/set-env-variables.sh
     ```
 
-### <a name="build-and-run-the-console-app"></a>Compilar y ejecutar la aplicación de consola
+### <a name="build-and-run-the-console-app"></a>Compilación y ejecución de la aplicación de consola
 
-Uso de Maven para compilar la aplicación de consola y, a continuación, ejecútelo.
+Use Maven para compilar la aplicación de consola y ejecútela.
 
 ```bash
 mvn clean compile exec:java -Dexec.cleanupDaemonThreads=false
@@ -344,7 +344,7 @@ mvn clean compile exec:java -Dexec.cleanupDaemonThreads=false
 [INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ helloworld-jms ---
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 Feb 10, 2019 9:28:31 AM org.jboss.as.quickstarts.jms.HelloWorldJMSClient main
 INFO: Attempting to acquire connection factory "SBCF"
 Feb 10, 2019 9:28:31 AM org.jboss.as.quickstarts.jms.HelloWorldJMSClient main
@@ -365,30 +365,30 @@ INFO: Received message with content Hello, World!
 [INFO] Final Memory: 33M/401M
 [INFO] ------------------------------------------------------------------------
 ```
-## <a name="migrate-a-message-driven-enterprise-bean-to-azure"></a>Migrar un bean enterprise controladas por mensajes a Azure
+## <a name="migrate-a-message-driven-enterprise-bean-to-azure"></a>Migración de un bean empresarial controlado por mensajes a Azure
 
-### <a name="prepare-environment"></a>Preparar el entorno
+### <a name="prepare-environment"></a>Preparación del entorno
 
 1. Cambie el directorio a MDB:
 
     ```bash
     cd ../helloworld-mdb
     ```
-2. Establecer variables de entorno para enlazar los secretos en tiempo de ejecución, especialmente el nombre del grupo de recursos de Azure e información de Azure Service Bus. Puede exportarlos a su entorno local, por ejemplo mediante la plantilla de secuencia de comandos de shell de Bash suministrada.
+2. Establezca las variables de entorno para los secretos de enlace en tiempo de ejecución, en especial, el nombre del grupo de recursos de Azure y la información de Azure Service Bus. Puede exportarlos a su entorno local, por ejemplo mediante la plantilla de script del shell de Bash suministrada.
 
     ```bash
     cp set-env-variables-template.sh .scripts/set-env-variables.sh
     ```
-3. Modificar `.scripts/set-env-variables.sh` y establezca el nombre del grupo de recursos de Azure, la información de Azure Service Bus y la información de App Service Linux. Puede copiar la mayoría de estos valores de la secuencia de comandos del ejercicio anterior `../helloworld-jms/.scripts/set-env-variables.sh` y agregar información de App Service Linux. 
+3. Modifique `.scripts/set-env-variables.sh` y establezca el nombre del grupo de recursos de Azure, la información de Azure Service Bus y la información de App Service en Linux. Puede copiar la mayoría de estos valores del script del ejercicio anterior `../helloworld-jms/.scripts/set-env-variables.sh` y agregar la información de App Service en Linux. 
 4. Ahora, establezca las variables de entorno:
  
     ```bash
     source .scripts/set-env-variables.sh
     ```
 
-### <a name="deploy-an-app-to-azure-app-service-on-linux"></a>Implementar una aplicación en Azure App Service en Linux
+### <a name="deploy-an-app-to-azure-app-service-on-linux"></a>Implementación de una aplicación en Azure App Service en Linux
 
-1. Agregar [complemento Maven de Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) configuración a POM.xml e implementar bean controladas por mensajes a WildFly en App Service en Linux:
+1. Agregue la configuración del [complemento de Maven para Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) a POM.xml e implemente el bean controlado por mensajes en WildFly de App Service en Linux:
 
     ```xml    
     <plugins> 
@@ -439,7 +439,7 @@ INFO: Received message with content Hello, World!
         ...
     </plugins>
     ```
-2. Compilar el bean controladas por mensajes:
+2. Compile el bean controlado por mensajes:
 
     ```bash
     mvn package
@@ -469,7 +469,7 @@ INFO: Received message with content Hello, World!
     [INFO] Final Memory: 34M/413M
     [INFO] ------------------------------------------------------------------------
     ```
-3. Implementar el bean controladas por mensajes en App Service en Linux
+3. Implementación del bean controlado por mensajes en App Service en Linux
     
     ```bash
     mvn azure-webapp:deploy
@@ -500,14 +500,14 @@ INFO: Received message with content Hello, World!
 
     ```
 
-### <a name="configure-the-jms-resource-adapter-jms-ra"></a>Configurar el adaptador de recursos JMS (JMS RA)
-Hay unos pocos pasos para configurar una RA JMS que le permitirán EJB de Java configurar una cola y un generador de conexión remota de JMS. Este programa de instalación remota apuntará a Azure Service Bus, utilizando el [proveedor JMS de Apache Qpid](https://qpid.apache.org/components/jms/index.html) para el protocolo AMQP. 
+### <a name="configure-the-jms-resource-adapter-jms-ra"></a>Configuración del adaptador de recursos JMS (JMS RA)
+La configuración de JMS RA que habilitará los EJB de Java para configurar una factoría y una cola de conexión con JMS consta de varios pasos. Este programa de instalación remota apuntará a Azure Service Bus y usará el [proveedor JMS de Apache Qpid](https://qpid.apache.org/components/jms/index.html) para el protocolo AMQP. 
 
-#### <a name="understand-how-to-configure-wildfly"></a>Aprender a configurar WildFly
+#### <a name="understand-how-to-configure-wildfly"></a>Configuración de WildFly
 
-En App Service, cada instancia de un servidor de aplicaciones es sin estado. Por lo tanto, cada instancia debe estar configurada en el inicio para admitir una configuración Wildfly necesaria para la aplicación. Puede configurar en el inicio si se suministra un script de Bash que se llama al inicio [comandos de CLI JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) para configurar orígenes de datos, los proveedores de mensajes y cualquier otra dependencia. Creará una secuencia de comandos startup.sh y colóquelo en el `/home` directorio de la aplicación Web. El script hará lo siguiente:
+En App Service, los servidores de aplicaciones son sin estado. Por lo tanto, cada instancia debe configurarse al inicio y soportar la configuración de Wildfly que necesite la aplicación. Puede realizar la configuración al inicio si suministra un script de Bash que llame a los [comandos de la CLI de JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) para configurar orígenes de datos, los proveedores de mensajes y cualquier otra dependencia. Creará un script startup.sh que deberá colocar en el directorio `/home` de la aplicación web. Este script le permitirá hacer lo siguiente:
  
-1. Instalar un módulo de proveedor de JMS genérico WildFly y configurar el RA. JMS Un `module.xml` describe el módulo de proveedor genérico de JMS:
+1. Instalar un módulo de proveedor de JMS genérico de WildFly y configurar el JMS RA. Un `module.xml` describe el módulo de proveedor genérico de JMS:
 
     ```xml
     <module xmlns="urn:jboss:module:1.1" name="org.jboss.genericjms.provider"> 
@@ -536,7 +536,7 @@ En App Service, cada instancia de un servidor de aplicaciones es sin estado. Por
       </dependencies> 
     </module>
     ```
-2. Generar un `jndi.properties` archivo:
+2. Genere un archivo `jndi.properties`:
 
     ```bash
     echo "Generating jndi.properties file in /home/site/deployments/tools directory"
@@ -546,7 +546,7 @@ En App Service, cada instancia de un servidor de aplicaciones es sin estado. Por
     cat /home/site/deployments/tools/jndi.properties
     echo "====== EOF /home/site/deployments/tools/jndi.properties ======"
     ```
-3. Copie todos los archivos JAR binario, el archivo de módulo y jndi.properties generado a la ubicación de la configuración de WildFly:
+3. Copie todos los archivos JAR binarios, el archivo del módulo y el jndi.properties generado en la ubicación de la configuración de WildFly:
 
     ```bash
     mkdir /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider
@@ -555,7 +555,7 @@ En App Service, cada instancia de un servidor de aplicaciones es sin estado. Por
     cp /home/site/deployments/tools/module.xml /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider/main/
     cp /home/site/deployments/tools/jndi.properties /opt/jboss/wildfly/standalone/configuration/
     ```
-4. Agregar un módulo de proveedor JMS genérico:
+4. Agregue un módulo de proveedor genérico de JMS:
 
     ```bash
     /subsystem=ee:list-add(name=global-modules, value={"name" => "org.jboss.genericjms.provider", "slot" =>"main"}
@@ -567,20 +567,20 @@ En App Service, cada instancia de un servidor de aplicaciones es sin estado. Por
     /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:write-attribute(name=security-application,value=true)
     /subsystem=ejb3:write-attribute(name=default-resource-adapter-name, value=generic-ra)
     ```
-5. Volver a cargar en el servidor puede ser necesario para que los cambios surtan efecto:
+5. Puede ser necesario recargar el servidor para que los cambios surtan efecto:
 
     ```bash
     reload --use-current-server-config=true
     ```
 
-Estos comandos JBoss CLI, la descripción del módulo de proveedor de JMS genérico JBoss/WildFly (`module.xml`), y está disponible en archivos JAR [quickstart/helloworld-mdb/.scripts](https://github.com/Azure-Samples/migrate-Java-EE-app-to-azure-2/tree/master/quickstart/helloworldmdb/.scripts) 
+Estos comandos de la CLI de JBoss, la descripción del módulo del proveedor genérico de JMS para JBoss/WildFly (`module.xml`) y los archivos JAR están disponibles en [quickstart/helloworld-mdb/.scripts](https://github.com/Azure-Samples/migrate-Java-EE-app-to-azure-2/tree/master/quickstart/helloworldmdb/.scripts) 
 
-Además, puede descargar directamente `Qpid` y `Proton-j` bibliotecas desde [proveedor JMS de Apache Qpid](https://qpid.apache.org/components/jms/index.html) para el protocolo AMQP.
+Además, puede descargar directamente las bibliotecas `Qpid` y `Proton-j` desde el [proveedor JMS de Apache Qpid](https://qpid.apache.org/components/jms/index.html) para el protocolo AMQP.
 
-#### <a name="upload-startup-and-binary-artifacts-to-app-through-ftp"></a>Cargar los artefactos de inicio y binario para la aplicación a través de FTP
+#### <a name="upload-startup-and-binary-artifacts-to-app-through-ftp"></a>Carga de los artefactos de inicio y binario para la aplicación mediante FTP
 
 ##### <a name="get-ftp-deployment-credentials"></a>Obtención de credenciales de implementación de FTP
-Use la CLI de Azure para obtener las credenciales de implementación de FTP:
+Use la CLI de Azure para obtener las credenciales de implementación para FTP:
 
 ```bash
 az webapp deployment list-publishing-profiles -g ${RESOURCEGROUP_NAME} -n ${WEBAPP_NAME}
@@ -601,18 +601,18 @@ Here is the sample output:
    
 ```
 
-Store nombre de host FTP, por ejemplo `<FTP host name>.ftp.azurewebsites.windows.net`, nombre de usuario y contraseña de usuario en `.scripts/set-env-variables.sh` archivo.
+Guarde el nombre de host de GTP, como `<FTP host name>.ftp.azurewebsites.windows.net`, el nombre de usuario y la contraseña en el archivo `.scripts/set-env-variables.sh`.
 
-##### <a name="upload-artifacts-to-app-through-ftp"></a>Cargar artefactos en la aplicación a través de FTP
+##### <a name="upload-artifacts-to-app-through-ftp"></a>Carga de artefactos en la aplicación mediante FTP
 
 Abra una conexión FTP en App Service en Linux para cargar artefactos:
 
-1. Cambie a la `.scripts` carpeta. 
+1. Cambie a la carpeta `.scripts`. 
 
     ```bash
     cd .scripts
     ```
-2. Abrir la conexión de FTP
+2. Apertura de la conexión FTP
     
     ```bash
     ftp
@@ -630,7 +630,7 @@ Abra una conexión FTP en App Service en Linux para cargar artefactos:
     ftp> passive
     Passive mode: off; fallback to active mode: off.
     ```
-2. Cargar startup.sh. 
+2. Cargue startup.sh. 
 
     ```bash
     ftp> put startup.sh
@@ -665,7 +665,7 @@ Abra una conexión FTP en App Service en Linux para cargar artefactos:
     226 Transfer complete.
     1280 bytes sent in 00:00 (33.16 KiB/s)
     ```
-5. Cargar archivos JAR.
+5. Cargue los archivos JAR.
 
     ```bash
     ftp> binary
@@ -769,11 +769,11 @@ Abra una conexión FTP en App Service en Linux para cargar artefactos:
     12244 bytes sent in 00:00 (169.29 KiB/s)
     ```
 
-#### <a name="test-the-jbosswildfly-startup-script-and-cli-commands-to-configure-jms-ra"></a>Probar el script de inicio JBoss/WildFly y comandos CLI para configurar la RA de JMS
+#### <a name="test-the-jbosswildfly-startup-script-and-cli-commands-to-configure-jms-ra"></a>Prueba de los comandos del script de inicio de JBoss/WildFly y de la CLI para configurar JMS RA
 
-Puede probar el script de Bash para configurar el origen de datos mediante su ejecución en App Service Linux por [abriendo una conexión SSH desde el equipo de desarrollo](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell):
+Puede probar el script de Bash para configurar el origen de datos mediante su ejecución en App Service en Linux; para ello, [abra una conexión SSH desde la máquina de desarrollo](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell):
 
-1. En la primera ventana de terminal, ejecute el siguiente comando para crear una conexión remota:
+1. En la primera ventana del terminal, ejecute el siguiente comando para crear una conexión remota:
 
     ```bash
     az webapp remote-connection create --resource-group ${RESOURCEGROUP_NAME} --name ${WEBAPP_NAME} &
@@ -784,7 +784,7 @@ Puede probar el script de Bash para configurar el origen de datos mediante su ej
     Websocket tracing disabled, use --verbose flag to enable
     Successfully connected to local server..
     ```
-2. En la segunda ventana de terminal, ejecute el siguiente comando: 
+2. En la segunda ventana del terminal, ejecute el siguiente comando: 
 
     ```bash
     ssh root@localhost -p 65428
@@ -801,7 +801,7 @@ Puede probar el script de Bash para configurar el origen de datos mediante su ej
             \/      \/                  \/ 
     A P P   S E R V I C E   O N   L I N U X
     
-    Documentation: http://aka.ms/webapp-linux
+    Documentation: https://aka.ms/webapp-linux
     
     54cfe2dfa970:/home# ls -al
     total 12
@@ -814,13 +814,13 @@ Puede probar el script de Bash para configurar el origen de datos mediante su ej
     -rwxrwxrwx    1 nobody   nobody        1291 Feb 11 17:46 startup.sh
     54cfe2dfa970:/home# 
     ```
-3. Abra una ventana VI para editar startup.sh
+3. Apertura de una ventana VI para editar startup.sh
 
     ```bash
     c315a18b39d2:/home# vi startup.sh    
     ```
     
-    Este es el resultado de ejemplo en la ventana vi: 
+    Esta es la salida de ejemplo de la ventana VI: 
 
     ```bash
     echo "Generating jndi.properties file in /home/site/deployments/tools directory"^M
@@ -836,11 +836,11 @@ Puede probar el script de Bash para configurar el origen de datos mediante su ej
     cp /home/site/deployments/tools/jndi.properties /opt/jboss/wildfly/standalone/configuration/^M
     /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/home/site/deployments/tools/commands.cli^M
     ```
-    Quitar aquellos ' ^ M' final de caracteres de línea y guarde el archivo. Existen formas alternativas para quitar los caracteres de fin de línea. Consulte ([en este artículo](http://marcelog.github.io/articles/mac_newline_to_unix_eol.html)).
+    Quite los caracteres de fin de línea"^M" y guarde el archivo. Existen formas alternativas de quitar los caracteres de fin de línea. Consulte [este artículo](https://marcelog.github.io/articles/mac_newline_to_unix_eol.html).
 
-##### <a name="test-the-startupsh-script"></a>Probar la secuencia de comandos startup.sh
+##### <a name="test-the-startupsh-script"></a>Prueba del script startup.sh
 
-En la ventana SSH, ejecute `startup.sh`:
+En la ventana de SSH, ejecute `startup.sh`:
 
 ```bash
 54cfe2dfa970:/home# source startup.sh
@@ -868,41 +868,41 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
     "response-headers" => {"process-state" => "reload-required"}
 }
 ```
-#### <a name="restart-the-remote-wildfly-app-server"></a>Reinicie el servidor de aplicación WildFly remoto
+#### <a name="restart-the-remote-wildfly-app-server"></a>Reinicio del servidor de aplicación WildFly remoto
      
- Usar la CLI de Azure para reiniciar el servidor de aplicación WildFly remoto:
+ Use la CLI de Azure para reiniciar el servidor de aplicación WildFly remoto:
     
  ```bash
  az webapp stop -g ${RESOURCEGROUP_NAME} -n ${WEBAPP_NAME}
  az webapp start -g ${RESOURCEGROUP_NAME} -n ${WEBAPP_NAME}
  ```
 
-#### <a name="stream-wildflyjboss-logs-to-a-dev-machine"></a>Stream JBoss/WildFly registros en un equipo de desarrollo
+#### <a name="stream-wildflyjboss-logs-to-a-dev-machine"></a>Transmisión de registros de JBoss/WildFly a una máquina de desarrollo
 
-1. Configurar registros de la aplicación Web de Java implementada en App Service Linux:
+1. Configure el registro de la aplicación web de Java implementada en App Service en Linux:
 
     ```bash
     az webapp log config --name ${WEBAPP_NAME} \
      --resource-group ${RESOURCEGROUP_NAME} \
       --web-server-logging filesystem
     ```
-2. Abrir secuencia de registro remoto de aplicación Web de Java desde un equipo local:
+2. Abra la secuencia de registro remoto de la aplicación web de Java desde un equipo local:
 
     ```bash
     az webapp log tail --name ${WEBAPP_NAME} \
      --resource-group ${RESOURCEGROUP_NAME}
     ```
 
-### <a name="open-the-message-driven-enterprise-bean-on-azure"></a>Abra el bean controladas por mensajes enterprise en Azure
+### <a name="open-the-message-driven-enterprise-bean-on-azure"></a>Apertura del bean empresarial controlado por mensajes en Azure
 
-1. Abra la aplicación Web en App Service Linux:
+1. Abra la aplicación web migrada en App Service en Linux:
 
     ```bash
     https://helloworld-mdb.azurewebsites.net
     ```
 
-    ![Imagen de Hello World MDB](./media/migrate-java-apps-wild-fly/helloworld-mdb.png)
-2. En la secuencia de registro de App Service Linux, verá:
+    ![Imagen de Hola mundo de MDB](./media/migrate-java-apps-wild-fly/helloworld-mdb.png)
+2. En la secuencia de registro de App Service en Linux verá:
 
     ```bash
     2019-02-13T03:05:53,821 INFO  [org.apache.qpid.jms.sasl.SaslMechanismFinder] (AmqpProvider :(2):[amqps://jmsservice.servicebus.windows.net:-1]) Best match for SASL auth was: SASL-PLAIN
@@ -917,7 +917,7 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
     2019-02-13T03:05:53.995098869Z 03:05:53,994 INFO  [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (default-threads - 17) Received Message from queue: This is message 4
     2019-02-13T03:05:54.014198793Z 03:05:54,013 INFO  [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (default-threads - 18) Received Message from queue: This is message 5
     ```
-3. Puede comprobar la configuración de JMS abriendo una conexión SSH a la aplicación en App Service Linux y ejecute los comandos siguientes:
+3. Abra una conexión SSH a la aplicación en App Service en Linux y ejecute los comandos siguientes para comprobar la configuración de JMS:
 
     ```bash
     0cb1ce311a79:/home# /opt/jboss/wildfly/bin/jboss-cli.sh -c
@@ -926,7 +926,7 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
     [standalone@localhost:9990 /] quit
     ```
 
-4. Comprobar la presencia de la configuración de SBF
+4. Comprobación de la presencia de la configuración de SBF
 
     ```bash
     0cb1ce311a79:/home# cat config.xml | grep "SBF"
@@ -934,34 +934,34 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
     ```
 ### <a name="additional-information"></a>Información adicional
 
-Para obtener más información, consulte: 
+Para más información, consulte: 
  
- - [Implementación del adaptador de RA de JMS genérico en JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
- - [Guía de la CLI JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
- - [Inicie sesión de SSH desde el equipo de desarrollo a App Service Linux](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)
+ - [Implementación del adaptador genérico de JMS RA en JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+ - [Guía de la CLI de JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
+ - [Inicio de sesión de SSH desde la máquina de desarrollo en App Service en Linux](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)
 
-## <a name="migrate-java-ee-app-that-uses-websockets"></a>Migrar la aplicación de Java EE que usa WebSockets
+## <a name="migrate-java-ee-app-that-uses-websockets"></a>Migración de una aplicación EE de Java que usa Web Sockets
 
-1. Cambie el directorio en el directorio de aplicación de WebSocket:
+1. Cambie el directorio al directorio de la aplicación de Web Socket:
 
     ```bash
     cd ../websocket-hello
     ```
-2. Establecer variables de entorno para enlazar los secretos en tiempo de ejecución, especialmente el nombre del grupo de recursos de Azure e información de App Service Linux. Puede exportarlos a su entorno local, por ejemplo mediante la plantilla de secuencia de comandos de shell de Bash suministrada.
+2. Establezca las variables de entorno para los secretos de enlace en tiempo de ejecución, en especial, el nombre del grupo de recursos de Azure y la información de App Service en Linux. Puede exportarlos a su entorno local, por ejemplo mediante la plantilla de script del shell de Bash suministrada.
 
     ```bash
     mkdir .scripts
     cp set-env-variables-template.sh .scripts/set-env-variables.sh
     ```
-3. Modificar `.scripts/set-env-variables.sh` y establezca el nombre del grupo de recursos de Azure e información de App Service Linux. A continuación, establezca las variables de entorno:
+3. Modifique `.scripts/set-env-variables.sh` y establezca el nombre del grupo de recursos de Azure y la información de App Service en Linux. Después, establezca las variables de entorno:
  
     ```bash
     source .scripts/set-env-variables.sh
     ```
 
-### <a name="deploy-an-app-to-app-service-linux"></a>Implementar una aplicación en App Service Linux
+### <a name="deploy-an-app-to-app-service-linux"></a>Implementación de una aplicación en App Service en Linux
 
-1. Agregar [complemento Maven de Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) configuración a POM.xml e implementar Bean Message-Driven en WildFly en App Service Linux:
+1. Agregue la configuración de [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) (Complemento de Maven para Azure App Service) a POM.xml e implemente el bean controlado por mensajes en WildFly de App Service en Linux:
 
     ```xml    
     <plugins> 
@@ -990,7 +990,7 @@ Para obtener más información, consulte:
         ...
     </plugins>
     ```
-2. Compilar e implementar Message-Driven Bean en App Service Linux:
+2. Compilación e implementación del bean controlado por mensajes en App Service en Linux:
 
     ```bash
     mvn package
@@ -1020,13 +1020,13 @@ Para obtener más información, consulte:
     [INFO] Final Memory: 27M/318M
     [INFO] ------------------------------------------------------------------------
     ```
-3. Implemente el bean controladas por mensajes en App Service en Linux: 
+3. Implemente el bean controlado por mensajes en App Service en Linux: 
 
     ```bash
     mvn azure-webapp:deploy
     ```
 
-    Este es el resultado de ejemplo: 
+    Esta es la salida de ejemplo: 
 
     ```bash
     [INFO] Scanning for projects...
@@ -1054,24 +1054,24 @@ Para obtener más información, consulte:
     
     ```
 
-### <a name="open-the-migrated-app-on-app-service-linux"></a>Abra la aplicación migrada en App Service Linux
+### <a name="open-the-migrated-app-on-app-service-linux"></a>Apertura de la aplicación migrada en App Service en Linux
 
 ```bash
 open https://websocket-hello-app.azurewebsites.net
 ```
 
-![Imagen Websocket Hello ](./media/migrate-java-apps-wild-fly/websocket-hello.png)
+![Imagen Hola de Web Socket ](./media/migrate-java-apps-wild-fly/websocket-hello.png)
 
 
-Felicidades. Migrar cargas de trabajo de empresa de Java existentes a Azure: aplicación App Service Linux y aplicaciones de mensajería de sistema de Azure Service Bus.
+Felicidades. Ha migrado las cargas de trabajo empresariales de Java existentes a Azure: la aplicación a App Service en Linux y el sistema de mensajes de la aplicación a Azure Service Bus.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes: 
 
-- [Guía de Enterprise Java para App Service en Linux](../app-service/containers/app-service-java-enterprise.md)
-- [Complemento de maven para Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable)
-- [Implementación del adaptador de RA de JMS genérico en JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
-- [Configuración de mensajería JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Messaging+configuration)
-- [Guía de la CLI JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
-- [Abrir una conexión SSH desde el equipo de desarrollo](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)
+- [Guía de Java Enterprise para App Service en Linux](../app-service/containers/app-service-java-enterprise.md)
+- [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) (Complemento de Maven para Azure App Service)
+- [Implementación del adaptador genérico de JMS RA en JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+- [Configuración de la mensajería de JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Messaging+configuration)
+- [Guía de la CLI de JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
+- [Apertura de una conexión SSH desde la máquina de desarrollo](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)
 - [Azure para desarrolladores de Java](/java/azure/)

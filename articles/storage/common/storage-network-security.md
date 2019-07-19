@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 56a25c95d9bc01078b3eff3729a8a693ee3cf510
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6422bf2ccc42c12d8f2d20a5a7ece8d37e8b48e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65520254"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449725"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -23,6 +23,8 @@ Azure Storage proporciona un modelo de seguridad por capas. Este modelo le permi
 Una aplicación que accede a una cuenta de almacenamiento cuando las reglas de red están en vigor requiere la autorización adecuada en la solicitud. La autorización es compatible con las credenciales de Azure Active Directory (Azure AD) (para blobs y colas), con una clave de acceso de cuenta válida o un token de SAS.
 
 > [!IMPORTANT]
+> Azure File Sync aún no admite firewalls ni redes virtuales. Si está usando Azure File Sync en la cuenta de almacenamiento y habilita estas, Azure File Sync no se sincronizará.
+>
 > La activación de las reglas de firewall para la cuenta de almacenamiento bloquea las solicitudes entrantes para los datos de forma predeterminada, a menos que las solicitudes procedan de un servicio que funcione en una red virtual (VNet) de Azure. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc.
 >
 > Puede conceder acceso a los servicios de Azure que funcionan desde una VNet al permitir la subred de la instancia de servicio. Habilite un número limitado de escenarios mediante el mecanismo [Excepciones](#exceptions) que se describe en la sección siguiente. Para acceder a Azure Portal, deberá estar en una máquina situada dentro del límite de confianza (IP o red virtual) que haya configurado.

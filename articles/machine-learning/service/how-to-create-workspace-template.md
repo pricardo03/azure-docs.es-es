@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: abe497ed96515e8194fb2ddefd8e7f4cb9908758
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e0af3b395ec640fd037a1e76365408c10613340
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205121"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477012"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning Service
 
@@ -99,10 +99,23 @@ az group deployment create \
   --name exampledeployment \
   --resource-group examplegroup \
   --template-file azuredeploy.json \
-  --parameters workspaceName=exampleworkspace
+  --parameters workspaceName=exampleworkspace location=eastus
 ```
 
 Para más información, vea [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md) e [Implementar la plantilla de Resource Manager privada con el token de SAS y la CLI de Azure](../../azure-resource-manager/resource-manager-cli-sas-token.md).
+
+## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Directiva de acceso de Azure Key Vault y plantillas de Azure Resource Manager
+
+Una plantilla de Azure Resource Manager se usa para crear el área de trabajo y los recursos asociados (incluido Azure Key Vault) varias veces. Por ejemplo, se puede usar la plantilla varias veces con los mismos parámetros como parte de una canalización de implementación e integración continuas.
+
+La mayoría las operaciones de creación de recursos mediante plantillas son idempotentes, pero Key Vault borra las directivas de acceso cada vez que se usa la plantilla. Al borrar las directivas de acceso, se interrumpe el acceso al almacén de claves para las áreas de trabajo existentes que lo estén usando. Por ejemplo, las funcionalidades de detección y creación de Azure Notebooks pueden producir un error.  
+
+Para evitar este problema, se recomienda uno de los siguientes enfoques:
+
+*  No implemente la plantilla de más de una vez con los mismos parámetros. O bien, elimine los recursos existentes antes de usar la plantilla para volver a crearlos.
+  
+* Examine las directivas de acceso de Key Vault y, luego, use estas directivas para establecer la propiedad accessPolicies de la plantilla.
+* Compruebe si ya existe el recurso de Key Vault. Si es así, no lo vuelva a crear con la plantilla. Por ejemplo, agregue un parámetro que le permita deshabilitar la creación del recurso de Key Vault si ya existe.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,19 +1,19 @@
 ---
 title: Procedimiento para ver el uso de la API de Azure Maps | Microsoft Docs
 description: Aprenda a ver las métricas de las llamadas de la API de Azure Maps en el portal.
-author: dsk-2015
-ms.author: dkshir
+author: walsehgal
+ms.author: v-musehg
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 31522436de97062432af2afe101f85d376243a38
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 716f9fbc02905a8981771c2fd9dd2be0baeb8196
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957258"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460189"
 ---
 # <a name="view-azure-maps-api-usage"></a>Vista del uso de la API de Azure Maps
 
@@ -60,10 +60,10 @@ Si necesita personalizar estos gráficos para su análisis en particular, contin
 
 Más información sobre las API de Azure Maps de las que quiere realizar un seguimiento de uso:
 > [!div class="nextstepaction"] 
-> [Procedimientos SDK Web de Azure Maps](how-to-use-map-control.md)
+> [Uso del Control de mapa de Azure Maps](how-to-use-map-control.md)
 
 > [!div class="nextstepaction"] 
-> [Procedimientos de Android SDK de Azure Maps](how-to-use-android-map-control-library.md)
+> [Introducción al SDK de Android de Azure Maps](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
 > [Documentación de la API REST de Azure Maps](https://docs.microsoft.com/rest/api/maps)

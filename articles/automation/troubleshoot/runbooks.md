@@ -2,18 +2,18 @@
 title: Solución de problemas relativos a errores con runbooks de Azure Automation
 description: Aprenda sobre la solución de problemas relacionados con los runbooks de Azure Automation.
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.openlocfilehash: 5a9bd554ec3b7ae4f84d6a0a4726af7ffea89e89
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66397135"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477472"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -137,7 +137,7 @@ Para usar un certificado con los cmdlets del modelo de implementación clásica 
 
 #### <a name="issue"></a>Problema
 
-Recibe el siguiente error al invocar un runbook secundario con el `-Wait` conmutador y el flujo de salida contiene y de objeto:
+Recibe el siguiente error al invocar un runbook secundario con el modificador `-Wait` y el flujo de salida contiene el objeto:
 
 ```error
 Object reference not set to an instance of an object
@@ -303,9 +303,9 @@ Este error se produce debido a uno de los siguientes problemas:
 
 3. Módulo incompatible. Este error puede ocurrir si las dependencias del módulo no son correctas. Si no lo son, el runbook normalmente devuelve un mensaje similar a "Comando no encontrado" o "No se puede enlazar el parámetro".
 
-4. El runbook se intentó llamar a un archivo ejecutable o subproceso en un runbook que se ejecuta en un espacio aislado de Azure. Este escenario no se admite en espacios aislados de Azure.
+4. El runbook intentó llamar a un archivo ejecutable o a un subproceso de un runbook que se ejecuta en un espacio aislado de Azure. Este escenario no se admite en espacios aislados de Azure.
 
-5. El runbook que se ha intentado escribir demasiados datos de excepción en el flujo de salida.
+5. El runbook intentó escribir demasiados datos de excepción en el flujo de salida.
 
 #### <a name="resolution"></a>Resolución
 
@@ -319,7 +319,7 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 
 * Si necesita llamar a un proceso (por ejemplo, .exe o subprocess.call) en un runbook, deberá ejecutar el runbook en una instancia de [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-* Hay un límite de 1MB en el flujo de salida del trabajo. Asegúrese de que incluir llamadas a un archivo ejecutable o un subproceso en un bloque try/catch. Si produce una excepción, puede escribir el mensaje de esa excepción en una variable de Automation. Esto evitará se escriban en la secuencia de salida del trabajo.
+* Hay un límite de 1 MB en el flujo de salida del trabajo. Asegúrese de incluir las llamadas a un archivo ejecutable o a un subproceso en un bloque try/catch. Si producen una excepción, escriba el mensaje de esa excepción en una variable de Automation. De esta forma, impedirá que se escriban en el flujo de salida del trabajo.
 
 ### <a name="fails-deserialized-object"></a>Escenario: Error en runbook debido a un objeto deserializado
 
@@ -488,11 +488,11 @@ Hay dos maneras de resolver este error:
 * Edite el runbook y reduzca el número de flujos de trabajo que emite.
 * Reduzca el número de flujos para recuperar cuando se ejecuta el cmdlet. Para seguir este comportamiento, puede especificar el parámetro `-Stream Output` para el cmdlet `Get-AzureRmAutomationJobOutput` a fin de recuperar solo los flujos de salida. 
 
-### <a name="cannot-invoke-method"></a>Escenario: Se produce un error en el trabajo de PowerShell con error: No se puede invocar método
+### <a name="cannot-invoke-method"></a>Escenario: El trabajo de PowerShell no se puede realizar y se muestra el error: Cannot invoke method (No se puede invocar el método)
 
 #### <a name="issue"></a>Problema
 
-Recibirá el siguiente mensaje de error al iniciar un PowerShell Job en un runbook que se ejecuta en Azure:
+Al iniciar un trabajo de PowerShell en un runbook que se ejecuta en Azure, recibe el siguiente mensaje de error:
 
 ```error
 Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
@@ -500,16 +500,16 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 #### <a name="cause"></a>Causa
 
-Este error puede producirse cuando se inicia un PowerShell se ejecutó el trabajo en un runbook en Azure. Este comportamiento puede producirse porque los runbooks se ejecutó en Azure espacio aislado no se puede ejecutar en el [modo de lenguaje completo](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+Este error puede producirse cuando se inicia un trabajo de PowerShell en un runbook que se ejecutó en Azure. Este comportamiento puede producirse porque los runbooks ejecutados en un espacio aislado de Azure no se pueden ejecutar en [modo de lenguaje completo](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
 
 #### <a name="resolution"></a>Resolución
 
 Hay dos maneras de resolver este error:
 
-* En lugar de usar `Start-Job`, utilice `Start-AzureRmAutomationRunbook` para iniciar un runbook
-* Si el runbook tiene este mensaje de error, se ejecutan en Hybrid Runbook Worker
+* En lugar de usar `Start-Job`, utilice `Start-AzureRmAutomationRunbook` para iniciar un runbook.
+* Si el runbook tiene este mensaje de error, ejecútelo en una instancia de Hybrid Runbook Worker.
 
-Para obtener más información sobre este comportamiento y otros comportamientos de Runbooks de Azure Automation, consulte [Runbook comportamiento](../automation-runbook-execution.md#runbook-behavior).
+Para más información sobre este comportamiento y otros comportamientos de los runbooks de Azure Automation, consulte [Comportamiento del runbook](../automation-runbook-execution.md#runbook-behavior).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

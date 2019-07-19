@@ -1,5 +1,5 @@
 ---
-title: Personalización de clústeres de HDInsight de Azure mediante el uso de las acciones de script
+title: Personalización de los clústeres de Azure HDInsight mediante acciones de script en Azure
 description: Agregue componentes personalizados a clústeres de HDInsight basados en Linux mediante acciones de script. Las acciones de script son scripts de Bash que se pueden usar para personalizar la configuración del clúster o para agregar servicios adicionales y utilidades como Hue, Solr o R.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 41a57d1ad5d216797fc60ea13acff346734fdef8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479465"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433646"
 ---
-# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de clústeres de HDInsight de Azure mediante el uso de las acciones de script
+# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de los clústeres de Azure HDInsight mediante acciones de script en Azure
 
 Azure HDInsight proporciona un método de configuración llamado **acciones de script**, que invoca scripts personalizados para personalizar el clúster. Estos scripts se usan para instalar componentes adicionales y para cambiar los valores de configuración. Las acciones de script pueden usarse durante la creación del clúster o después.
 
@@ -46,19 +46,22 @@ Una acción de script es un script de Bash que se ejecuta en los nodos de un cl�
 
 * Deben almacenarse en un URI accesible desde el clúster de HDInsight. A continuación, se proponen varias ubicaciones de almacenamiento posibles:
     
-    * Para los clústeres regulares:
+    * Para los clústeres normales:
     
-      * Gen1 ADLS: La entidad de servicio que HDInsight usa para acceder a Data Lake Storage debe tener acceso de lectura al script. El formato del identificador URI para scripts almacenados en Data Lake Storage Gen1 es `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      * ADLS Gen1: La entidad de servicio que HDInsight usa para acceder a Data Lake Storage debe tener acceso de lectura al script. El formato del identificador URI para scripts almacenados en Data Lake Storage Gen1 es `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
       
       * Un blob de una cuenta de Azure Storage que sea la cuenta de almacenamiento principal o adicional del clúster de HDInsight. Durante la creación del clúster se concede acceso a HDInsight a estos dos tipos de cuentas de almacenamiento.
 
-      * Un uso compartido de archivos servicio público accesible a través de las rutas de acceso de http://. Algunos ejemplos son Azure Blob, GitHub, OneDrive.
+        > [!IMPORTANT]  
+        > No cambie la clave de almacenamiento de esta cuenta de Azure Storage, ya que causará errores en las acciones de script subsecuentes de los scripts allí almacenados.
+
+      * Existe un servicio de uso compartido de archivos al que se accede mediante rutas de acceso http://. Algunos ejemplos son Azure Blob, GitHub y OneDrive.
 
         Para obtener URI de ejemplo, consulte [Ejemplo de scripts de acción de script](#example-script-action-scripts).
 
-     * Para clústeres con ESP:
+     * Para los clústeres con ESP:
          
-         * El wasb: / / o wasbs: / / o http [s] :// se admiten los URI.
+         * Se admiten los URI wasb://, wasbs:// o http[s]://.
             
 * Pueden restringirse para ejecutarse solo en determinados tipos de nodos. Algunos ejemplos son los nodos principales o nodos de trabajo.
 
@@ -147,7 +150,6 @@ HDInsight proporciona scripts para instalar los siguientes componentes en clúst
 | --- | --- |
 | Adición de una cuenta de Azure Storage |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Consulte [Adición de más cuentas de almacenamiento a HDInsight](hdinsight-hadoop-add-storage.md). |
 | Instalación de Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Consulte [Instalación y uso de Hue en clústeres de Hadoop para HDInsight](hdinsight-hadoop-hue-linux.md). |
-| Instalación de Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Consulte [Instalación y uso de Presto en clústeres de Hadoop para HDInsight](hdinsight-hadoop-install-presto.md). |
 | Instalación de Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Consulte [Instalación de Apache Giraph en clústeres de Hadoop en HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
 | Carga previa de las bibliotecas de Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Consulte [Incorporación de bibliotecas personalizadas de Apache Hive al crear el clúster de HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
@@ -176,7 +178,7 @@ En esta sección se explican las distintas maneras de usar acciones de script al
     | Seleccione un script | Para utilizar su propio script, seleccione __Custom__ (Personalizado). En caso contrario, seleccione uno de los que se proporcionan. |
     | NOMBRE |Especifique un nombre para la acción de script. |
     | URI de script de Bash |Especifique el URI del script. |
-    | Head, Worker o ZooKeeper |Especifique los nodos en los que se ejecuta el script: **Head**, **Worker** o **ZooKeeper**. |
+    | Principal, Trabajo o Zookeeper |Especifique los nodos en los que se ejecuta el script: **Principal**, **Trabajo** o **ZooKeeper**. |
     | Parámetros |Especifique los parámetros, si lo requiere el script. |
 
     Use la entrada __Continuar con esta acción de script__ para asegurarse de que el script se aplica durante las operaciones de escalado.
@@ -213,7 +215,7 @@ Obtenga más información sobre cómo implementar una plantilla:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Uso de una acción de script durante la creación de un clúster desde Azure PowerShell
 
-En esta sección, usará el [agregar AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet para invocar scripts para personalizar un clúster. Antes de empezar, asegúrese de instalar y configurar Azure PowerShell. Para usar estos comandos de PowerShell, necesitará el [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+En esta sección, se usa el cmdlet [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) para invocar scripts con el fin de personalizar un clúster. Antes de empezar, asegúrese de instalar y configurar Azure PowerShell. Para usar estos comandos de PowerShell, necesitará el [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

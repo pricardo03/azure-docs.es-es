@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752183"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441918"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Limitar el tráfico de salida en los nodos de clúster y controlar el acceso a los puertos y servicios necesarios en Azure Kubernetes Service (AKS), versión preliminar
 
@@ -21,16 +21,19 @@ De forma predeterminada, los clústeres de AKS tienen acceso de salida a Interne
 En este artículo se detallan los puertos de red y los nombres de dominio completo (FQDN) obligatorios y opcionales al restringir el tráfico de salida de un clúster de AKS.  Esta funcionalidad actualmente está en su versión preliminar.
 
 > [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Se proporcionan para recopilar comentarios y errores de nuestra comunidad. En la versión preliminar, estas características no están diseñadas para su uso en producción. Las características en versión preliminar pública se incluyen en el soporte técnico de “mejor esfuerzo”. Los equipos de soporte técnico de AKS ofrecen asistencia solo durante el horario laboral en la zona horaria del Pacífico (PST). Para más información, vea los siguientes artículos de soporte:
+> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Se proporcionan para recopilar comentarios y errores de nuestra comunidad. En la versión preliminar, estas características no están diseñadas para su uso en producción. Las características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Los equipos de soporte técnico de AKS ofrecen asistencia solo durante el horario laboral en la zona horaria del Pacífico (PST). Para más información, consulte los siguientes artículos de soporte:
 >
-> * [Directivas de soporte técnico para Azure Kubernetes Service][aks-support-policies]
-> * [Preguntas más frecuentes sobre Azure Kubernetes Service][aks-faq]
+> * [Directivas de soporte técnico para AKS][aks-support-policies]
+> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Es necesario tener instalada y configurada la versión 2.0.66 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][install-azure-cli].
+Es necesario tener instalada y configurada la versión 2.0.66 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 Para crear un clúster de AKS que pueda limitar el tráfico de salida, habilite primero una marca de características en su suscripción. Este registro de características configura cualquier clúster de AKS que cree para usar imágenes de contenedor del sistema base de MCR o ACR. Para registrar la marca de característica *AKSLockingDownEgressPreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el ejemplo siguiente:
+
+> [!CAUTION]
+> Actualmente, al registrar una característica en una suscripción, no se puede anular el proceso. Después de habilitar algunas características en vista previa, pueden usarse los valores predeterminados en todos los clústeres de AKS y, luego, crearse en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
@@ -107,7 +110,7 @@ Se recomiendan las siguientes reglas de aplicación / FQDN para que los clúster
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido qué puertos y direcciones hay que permitir si restringe el tráfico de salida para el clúster. También puede definir cómo se pueden comunicar los pods y qué restricciones tienen en el clúster. Para más información, vea [Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)][network-policy].
+En este artículo, ha aprendido qué puertos y direcciones hay que permitir si restringe el tráfico de salida para el clúster. También puede definir cómo se pueden comunicar los pods y qué restricciones tienen en el clúster. Para más información, consulte [Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)][network-policy].
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

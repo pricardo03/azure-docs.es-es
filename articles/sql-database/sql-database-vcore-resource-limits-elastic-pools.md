@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/23/2019
-ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.date: 06/26/2019
+ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240357"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447181"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual
 
@@ -31,11 +31,14 @@ Para información sobre los límites del modelo de compra basado en DTU, consult
 Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento mediante [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), la [CLI de Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) o la [API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!IMPORTANT]
-> Para escalar de instrucciones y otras consideraciones, consulte [escalar un grupo elástico](sql-database-elastic-pool-scale.md)
+> Para obtener información sobre la guía y otras consideraciones del escalado, consulte [Escalar un grupo elástico](sql-database-elastic-pool-scale.md).
 > [!NOTE]
 > Los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que los de las bases de datos únicas fuera de los grupos que tienen el mismo tamaño de proceso. Por ejemplo, el número máximo de trabajos simultáneos en una base de datos GP_Gen4_1 es 200 trabajos. Por lo tanto, el número máximo de trabajos simultáneos en una base de datos de un grupo GP_Gen4_1 también es 200 trabajos. Tenga en cuenta que el número total de trabajos simultáneos en el grupo GP_Gen4_1 es 210.
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio Uso general: tamaños de almacenamiento y tamaños de proceso
+
+> [!IMPORTANT]
+> Las nuevas bases de datos de Gen4 ya no se admiten en la región AustraliaEast.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Nivel de servicio Uso general: Plataforma de procesos de generación 4 (parte 1)
 
@@ -52,10 +55,10 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|32|64|96|128|160|192|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|IOPS de destino (64 KB)|500|1000|1.500|2000|2.500|3000|
-|Registro de los límites de frecuencia (MBps)|4.6875|9.375|14.0625|18.75|23.4375|28.125|
+|IOPS de destino (64 KB)|500|1000|1\.500|2000|2\.500|3000|
+|Límites de velocidad de los registros (MBps)|4,6875|9,375|14,0625|18,75|23,4375|28,125|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)* |210|420|630|840|1050|1260|
-|Inicios de sesión simultáneos máximo por grupo * |210|420|630|840|1050|1260|
+|Cantidad máxima de inicios de sesión simultáneos por grupo * |210|420|630|840|1050|1260|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Número de réplicas|1|1|1|1|1|1|
@@ -81,9 +84,9 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |IOPS de destino (64 KB)|3500|4000|4500|5000|7000|7000|
-|Registro de los límites de frecuencia (MBps)|32.8125|37.5|37.5|37.5|37.5|37.5|
+|Límites de velocidad de los registros (MBps)|32,8125|37,5|37,5|37,5|37,5|37,5|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1470|1680|1890|2100|3360|5040|
-|Máximo de grupo de inicios de sesión simultáneos (solicitudes) *|1470|1680|1890|2100|3360|5040|
+|Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|1470|1680|1890|2100|3360|5040|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Número de réplicas|1|1|1|1|1|1|
@@ -109,9 +112,9 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |IOPS de destino (64 KB)|1000|2000|3000|4000|5000|6000|7000|
-|Registro de los límites de frecuencia (MBps)|4.6875|9.375|14.0625|18.75|23.4375|28.125|32.8125|
+|Límites de velocidad de los registros (MBps)|4,6875|9,375|14,0625|18,75|23,4375|28,125|32,8125|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|210|420|630|840|1050|1260|1470|
-|Inicios de sesión simultáneos máximo por grupo (solicitudes) *|210|420|630|840|1050|1260|1470|
+|Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|210|420|630|840|1050|1260|1470|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -137,9 +140,9 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |IOPS de destino (64 KB)|7000|7000|7000|7000|7000|7000|7000|
-|Registro de los límites de frecuencia (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
+|Límites de velocidad de los registros (MBps)|37,5|37,5|37,5|37,5|37,5|37,5|37,5|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1680|1890|2100|2520|33600|4200|8400|
-|Inicios de sesión simultáneos máximo por grupo (solicitudes) *|1680|1890|2100|2520|33600|4200|8400|
+|Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|1680|1890|2100|2520|33600|4200|8400|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -149,6 +152,9 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 \* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio Crítico para la empresa: tamaños de almacenamiento y tamaños de proceso
+
+> [!IMPORTANT]
+> Las nuevas bases de datos de Gen4 ya no se admiten en la región AustraliaEast.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Nivel de servicio Crítico para la empresa: Plataforma de procesos de generación 4 (parte 1)
 
@@ -166,9 +172,9 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|32|64|96|128|160|192|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|5000|10000|15000|20000|25000|30000|
-|Registro de los límites de frecuencia (MBps)|10|20|30|40|50|60|
+|Límites de velocidad de los registros (MBps)|10|20|30|40|50|60|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|210|420|630|840|1050|1260|
-|Inicios de sesión simultáneos máximo por grupo (solicitudes) *|210|420|630|840|1050|1260|
+|Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|210|420|630|840|1050|1260|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|N/D|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Número de réplicas|4|4|4|4|4|4|
@@ -194,9 +200,9 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|224|256|288|320|384|384|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|35000|40000|45000|50000|80000|120000|
-|Registro de los límites de frecuencia (MBps)|70|80|80|80|80|80|
+|Límites de velocidad de los registros (MBps)|70|80|80|80|80|80|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1470|1680|1890|2100|3360|5040|
-|Inicios de sesión simultáneos máximo por grupo (solicitudes) *|1470|1680|1890|2100|3360|5040|
+|Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|1470|1680|1890|2100|3360|5040|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Número de réplicas|4|4|4|4|4|4|
@@ -222,9 +228,9 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Registro de los límites de frecuencia (MBps)|15|30|45|60|75|90|105|
+|Límites de velocidad de los registros (MBps)|15|30|45|60|75|90|105|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|210|420|630|840|1050|1260|1470|
-|Inicios de sesión simultáneos máximo por grupo (solicitudes) *|210|420|630|840|1050|1260|1470|
+|Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|210|420|630|840|1050|1260|1470|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|N/D|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Número de réplicas|4|4|4|4|4|4|4|
@@ -250,9 +256,9 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Registro de los límites de frecuencia (MBps)|120|120|120|120|120|120|120|
+|Límites de velocidad de los registros (MBps)|120|120|120|120|120|120|120|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1680|1890|2100|2520|3360|4200|8400|
-|Inicios de sesión simultáneos máximo por grupo (solicitudes) *|1680|1890|2100|2520|3360|4200|8400|
+|Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|1680|1890|2100|2520|3360|4200|8400|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Número de réplicas|4|4|4|4|4|4|4|

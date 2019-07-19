@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505584"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444649"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Habilitación o deshabilitación de una regla de firewall en el SO invitado de una máquina virtual de Azure
 
@@ -99,7 +99,7 @@ Si la máquina virtual está en línea y se puede acceder desde otra máquina vi
 
 1.  En la máquina virtual donde está solucionando el problema, inicie el editor del Registro (regedit.exe) y, a continuación, vaya a **Archivo** > **Conectar al Registro de red**.
 
-2.  Abra la rama  *MÁQUINA DE DESTINO*\SYSTEM y especifique los valores siguientes:
+2.  Abra la rama *MÁQUINA DE DESTINO*\SYSTEM y especifique los valores siguientes:
 
     * Para habilitar una regla, abra el valor del Registro siguiente:
     
@@ -123,26 +123,26 @@ Si la máquina virtual está en línea y se puede acceder desde otra máquina vi
 
 Si no se puede acceder a la máquina virtual mediante ningún método, se producirá un error en el uso de Custom Script Extension y tendrá que trabajar en modo sin conexión directamente con el disco del sistema.
 
-Antes de seguir estos pasos, tome una instantánea del disco del sistema de la máquina virtual afectada como copia de seguridad. Para más información, consulte  [Crear una instantánea](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estos pasos, tome una instantánea del disco del sistema de la máquina virtual afectada como copia de seguridad. Para obtener más información, consulte [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md).
 
 1.  [Conecte el disco del sistema a una máquina virtual de recuperación](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
 
-3.  Asegúrese de que el disco aparece marcado como  **En línea**  en la consola de administración de discos. Anote la letra de unidad asignada al disco del sistema conectado.
+3.  Asegúrese de que el disco aparece marcado como **En línea** en la consola de Administración de discos. Anote la letra de unidad asignada al disco del sistema conectado.
 
 4.  Antes de hacer cambios, cree una copia de la carpeta \Windows\system32\config, por si necesita una reversión de los cambios.
 
 5.  En la máquina virtual donde está solucionando el problema, inicie el editor del Registro (regedit.exe).
 
-6.  Seleccione la clave **HKEY_LOCAL_MACHINE**  y, a continuación, seleccione  **Archivo** > **Cargar subárbol**  en el menú.
+6.  Seleccione la clave **HKEY_LOCAL_MACHINE** y **Archivo** > **Load Hive** (Cargar subárbol) en el menú.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  Busque y abra el archivo \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Se le pedirá un nombre. Escriba  **BROKENSYSTEM** y, a continuación, expanda  **HKEY_LOCAL_MACHINE**. Ahora verá una clave adicional que se denomina  **BROKENSYSTEM**. Para esta solución de problemas, estamos montando estos subárboles de problema como  **BROKENSYSTEM**.
+    > Se le pedirá un nombre. Escriba **BROKENSYSTEM**y expanda **HKEY_LOCAL_MACHINE**. Ahora verá una clave adicional que se denomina **BROKENSYSTEM**. Para esta solución de problemas, estamos montando estos subárboles de problema como **BROKENSYSTEM**.
 
 8.  Realice los cambios siguientes en la rama BROKENSYSTEM:
 
@@ -164,7 +164,7 @@ Antes de seguir estos pasos, tome una instantánea del disco del sistema de la m
         
         **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
-9.  Seleccione  **BROKENSYSTEM** y, a continuación, seleccione  **Archivo** > **Descargar subárbol**  en el menú.
+9.  Resalte **BROKENSYSTEM** y seleccione **Archivo** > **Unload Hive** (Descargar subárbol) en el menú.
 
 10. [Desconecte el disco del sistema y vuelva a crear la máquina virtual](troubleshoot-recovery-disks-portal-windows.md).
 

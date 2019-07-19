@@ -3,7 +3,7 @@ title: Creación de una aplicación de iOS en Azure App Service Mobile Apps | Mi
 description: Siga este tutorial para aprender a usar back-ends de la aplicación móvil de Azure para el desarrollo de iOS en Objective-C o Swift.
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
@@ -12,18 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: crdun
-ms.openlocfilehash: 60190e0f8441d52b3d753e1dc79c67f480434dbb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 9140de50e23447f53fd1fa204a2a67c324672397
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240285"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449143"
 ---
 # <a name="create-an-ios-app"></a>Creación de una aplicación iOS
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+
+> [!NOTE]
+> Visual Studio App Center está invirtiendo en servicios nuevos e integrados fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube. Consulte [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started) hoy mismo.
+>
 
 ## <a name="overview"></a>Información general
 
@@ -35,10 +39,10 @@ Para completar este tutorial, es preciso tener un Mac y una [cuenta de Azure](ht
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Crear una conexión de base de datos y configurar el proyecto de cliente y servidor
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Creación de una conexión de base de datos y configuración del proyecto de cliente y servidor
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-ios-app"></a>Ejecutar la aplicación iOS
+## <a name="run-the-ios-app"></a>Ejecución de la aplicación iOS
 
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 

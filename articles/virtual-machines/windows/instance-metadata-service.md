@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 160d494eea4bd597725a4e7c21ad9b763502bee6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96c1223cf15f1022e9e0a27180bd9cdeebcf8505
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792091"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449788"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -37,11 +37,11 @@ El punto de conexión está disponible en una dirección IP no enrutable conocid
 
 El servicio está disponible con carácter general en las regiones de Azure. Puede que no todas las versiones de API estén disponibles en todas las regiones de Azure.
 
-Regiones                                        | ¿Disponibilidad?                                 | Versiones compatibles
+Regions                                        | ¿Disponibilidad?                                 | Versiones compatibles
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure en China](https://www.azure.cn/)                                                     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure en China](https://azure.microsoft.com/global-infrastructure/china)                                                     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Centro-oeste de EE. UU. público](https://azure.microsoft.com/regions/)                           | Disponibilidad general | 02-04-2017, 01-08-2017, 01-12-2017, 01-02-2018, 02-04-2018, 01-10-2018, 01-02-2019
 
@@ -205,7 +205,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "westus",
     "name": "jubilee",
     "offer": "Windows-10",
@@ -283,7 +283,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "westus",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
@@ -537,8 +537,17 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 
 **Respuesta**
 ```bash
-AZUREPUBLICCLOUD
+AzurePublicCloud
 ```
+
+Aquí se muestran las regiones y los valores del entorno de Azure.
+
+ Regions | Entorno de Azure
+---------|-----------------
+[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure en China](https://azure.microsoft.com/global-infrastructure/china)                   | AzureChinaCloud
+[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>Obtención de las etiquetas para la máquina virtual
 
@@ -619,11 +628,11 @@ Una vez que obtenga la firma anterior, podrá comprobar que esta es de Microsoft
 > [!NOTE]
 > El certificado para la nube pública y la nube soberana serán diferentes.
 
- Regiones | Certificate
+ Nube | Certificate
 ---------|-----------------
 [Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure en China](https://www.azure.cn/)                                                           | metadata.azure.cn
+[Azure en China](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
 [Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -654,7 +663,7 @@ Para determinados escenarios, al consultar Instance Metadata Service con los cl�
 route print
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > La siguiente salida de ejemplo de una máquina virtual de Windows Server con un clúster de conmutación por error habilitado contiene solo la tabla de rutas IPv4 por motivos de simplicidad.
 
 ```bat

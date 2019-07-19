@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Administración de directivas de
 description: Administración de directiva de grupo en dominios administrados de Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: mstephen
-ms.openlocfilehash: db5fd06bc4d9a923279095ab187d867a6624480a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.author: iainfou
+ms.openlocfilehash: 3776ec6fd60ad888102cbc4992572516386fede2
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245855"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473101"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administración de directiva de grupo en un dominio administrado de Azure AD Domain Services
 Azure Active Directory Domain Services incluye objetos de directiva de grupo (GPO) integrados para los contenedores "Usuarios del controlador de dominio de AAD" Y "Equipos del controlador de dominio de AAD". Puede personalizar estos GPO integrados para configurar la directiva de grupo en el dominio administrado. Además, los miembros del grupo "Administradores de DC de AAD" pueden crear sus propias unidades organizativas personalizadas en el dominio administrado. También pueden crear GPO personalizados y vincularlos a estas unidades organizativas personalizadas. A los usuarios que pertenecen al grupo "Administradores del controlador de dominio de AAD" se les conceden privilegios de administración de directiva de grupo en el dominio administrado.
@@ -128,5 +128,5 @@ Hay más información sobre el uso de la [Consola de administración de directiv
 ## <a name="related-content"></a>Contenido relacionado
 * [Introducción a Azure AD Domain Services](create-instance.md)
 * [Unión de una máquina virtual de Windows Server a un dominio administrado](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Administrar un dominio de Azure AD Domain Services](manage-domain.md)
+* [Administrar un dominio de Azure AD Domain Services](manage-domain.md)
 * [Consola de administración de directivas de grupo](https://technet.microsoft.com/library/cc753298.aspx)

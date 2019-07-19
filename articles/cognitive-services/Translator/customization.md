@@ -3,19 +3,19 @@ title: Personalización de la traducción con Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Use Microsoft Translator Hub para crear su propio sistema de traducción automática con su terminología y estilo preferidos.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: cb15ae375f412a66b9d7939b6a580ebb95f2f7a8
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 87c47fc970ccb96419818e3b3e39c939201708f0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515104"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447335"
 ---
 # <a name="customize-your-text-translations"></a>Personalización de las traducciones de texto
 
@@ -43,7 +43,7 @@ Puede encontrar más detalles acerca de los diferentes niveles de personalizaci�
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
 > [!NOTE]
-> Microsoft Translator Hub heredados se retirará de 17 de mayo de 2019. [Ver las fechas y la información de migración importante](https://www.microsoft.com/translator/business/hub/).  
+> Microsoft Translator Hub (heredado) se retirará el 17 de mayo de 2019. [Ver información importante y fechas de migración](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator frente a Hub
 

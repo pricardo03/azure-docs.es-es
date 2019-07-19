@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/16/2019
-ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.date: 06/26/2019
+ms.openlocfilehash: b03f546b992bd9de6092dc0da8ef72aa69aa1da2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098539"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447782"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Uso de Advanced Data Security en SQL Database con redes virtuales y casi un 100 % de compatibilidad
 
@@ -50,7 +50,7 @@ Una instancia administrada combina las mejores características que están dispo
 |Entorno aislado ([integración con red virtual](sql-database-managed-instance-connectivity-architecture.md), servicio de inquilino único y procesos y almacenamiento dedicados) <br>[Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticación de Azure AD](sql-database-aad-authentication.md), compatibilidad con el inicio de sesión único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de seguridad (inicios de sesión) de un servidor de Azure AD</a> (**versión preliminar pública**) <br>Se adhiere a las mismas normas de cumplimiento estándar que Azure SQL Database <br>[Auditoría de SQL](sql-database-managed-instance-auditing.md) <br>[Detección de amenazas](sql-database-managed-instance-threat-detection.md) |API de Azure Resource Manager para automatizar el aprovisionamiento y escalado del servicio <br>Funcionalidad de Azure Portal para el aprovisionamiento y escalado manuales del servicio <br>Data Migration Service
 
 > [!IMPORTANT]
-> Azure SQL Database (todas las opciones de implementación), ha sido certificada con una serie de estándares de cumplimiento. Para obtener más información, consulte el [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) donde puede encontrar la lista más actualizada de certificaciones de cumplimiento de la base de datos SQL.
+> Azure SQL Database (todas las opciones de implementación) ha obtenido la certificación de diversas normas de cumplimiento. Para obtener más información, consulte el [Centro de confianza de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Database.
 
 Las características principales de las instancias administradas se muestran en la tabla siguiente:
 
@@ -64,7 +64,7 @@ Las características principales de las instancias administradas se muestran en 
 | Número de archivos de datos (ROWS) por base de datos | Múltiple |
 | Número de archivos de registro (LOG) por base de datos | 1 |
 | Redes virtuales: implementación de Azure Resource Manager | Sí |
-| Redes virtuales: modelo de implementación clásica de Azure | Sin  |
+| Redes virtuales: modelo de implementación clásica de Azure | Sin |
 | Soporte técnico del portal | Sí|
 | Integration Service (SSIS) integrado | No: SSIS es una parte de [PaaS de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Service (SSAS) integrado | No: SSAS es un servicio [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) independiente. |
@@ -78,9 +78,12 @@ El [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore
 En el modelo de núcleos virtuales, puede elegir entre distintas generaciones de hardware.
 
 - Las CPU lógicas **Gen4** se basan en procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz, SSD conectado, núcleos físicos, 7 GB de RAM por núcleo y tamaños de proceso de entre 8 y 24 núcleos virtuales.
-- Las CPU lógicas **Gen5** se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz, SSD NVMe rápido, núcleo lógico con Hyper-Threading y tamaños de proceso de entre 8 y 80 núcleos.
+- Las CPU lógicas **Gen5** se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz, SSD NVMe rápido, núcleo lógico con Hyper-Threading y tamaños de proceso de entre 4 y 80 núcleos.
 
 Encuentre más información sobre la diferencia entre las generaciones de hardware en el artículo sobre [límites de recursos de instancia administrada](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+
+> [!IMPORTANT]
+> Las nuevas bases de datos de Gen4 ya no se admiten en la región AustraliaEast.
 
 ## <a name="managed-instance-service-tiers"></a>Niveles de servicio de Instancia administrada
 
@@ -126,7 +129,7 @@ La opción de implementación de instancia administrada combina características
 Un instancia administrada proporciona un aislamiento de seguridad adicional a partir de otros inquilinos en la nube de Azure. El aislamiento de seguridad incluye:
 
 - [Implementación nativa de redes virtuales](sql-database-managed-instance-connectivity-architecture.md) y conectividad al entorno local mediante Azure ExpressRoute o VPN Gateway.
-- En una implementación predeterminada, el punto de conexión SQL se expone solo a través de una dirección IP privada, lo que permite conexiones seguras de Azure privada o redes híbridas.
+- En una implementación predeterminada, el punto de conexión de SQL se expone solo mediante una dirección IP privada, lo que permite una conectividad segura desde una nube privada de Azure o desde redes híbridas.
 - Inquilino único con infraestructura subyacente dedicada (proceso, almacenamiento).
 
 El diagrama siguiente describe distintas opciones de conectividad para las aplicaciones:
@@ -149,7 +152,7 @@ Azure SQL Database proporciona un conjunto de características de seguridad avan
 - La [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security) le permite controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (por ejemplo, la pertenencia a un grupo o el contexto de ejecución). La seguridad de nivel de fila (RLS) simplifica el diseño y la codificación de la seguridad de la aplicación. RLS permite implementar restricciones de acceso a filas de datos. Por ejemplo, garantiza que los empleados únicamente puedan acceder a aquellas filas de datos necesarios para su departamento o restringe el acceso solo a los datos relevantes.
 - [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) cifra los archivos de datos de instancias administradas, lo que se conoce como cifrado de datos en reposo. TDE realiza el cifrado y descifrado de E/S en tiempo real de los archivos de datos y de registro. El cifrado usa una clave de cifrado de base de datos (DEK), que se almacena en el registro de arranque de la base de datos de disponibilidad durante la recuperación. Puede proteger todas las bases de datos en una instancia administrada con cifrado de datos transparente. TDE es la probada tecnología de cifrado en reposo de SQL Server que requieren muchos estándares de cumplimiento normativo para proteger contra el robo de soportes de almacenamiento.
 
-Se admite la migración de una base de datos cifrada a una instancia administrada mediante Azure Database Migration Service (DMS) o la restauración nativa. Si va a migrar una base de datos mediante la restauración nativa, migración del TDE certificado existente desde el servidor de SQL o SQL Server local en una máquina virtual en una instancia administrada es un paso necesario. Para más información sobre las opciones de migración, vea [Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database](sql-database-managed-instance-migrate.md).
+Se admite la migración de una base de datos cifrada a una instancia administrada mediante Azure Database Migration Service (DMS) o la restauración nativa. Si va a migrar una base de datos cifrada mediante la restauración nativa, la migración del certificado TDE existente desde SQL Server local o SQL Server en una máquina virtual a una instancia administrada es un paso necesario. Para más información sobre las opciones de migración, vea [Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database](sql-database-managed-instance-migrate.md).
 
 ## <a name="azure-active-directory-integration"></a>Integración de Azure Active Directory
 
@@ -172,7 +175,7 @@ La autenticación de la instancia administrada le indica la forma en que los usu
 
   Este método de autenticación usa las identidades administradas por Azure Active Directory y es compatible con dominios administrados e integrados. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
 
-### <a name="authorization"></a>Autorización
+### <a name="authorization"></a>Authorization
 
 La autorización indica las acciones que pueden llevar a cabo los usuarios en una base de datos de Azure SQL, algo que controlan los permisos de nivel de objeto y las pertenencias a roles de bases de datos de la cuenta de usuario. Una instancia administrada tiene las mismas funcionalidades de autorización que SQL Server 2017.
 
@@ -240,5 +243,5 @@ En la tabla siguiente se muestran varias propiedades, accesibles mediante Transa
 - Para más información sobre la configuración de redes virtuales, vea [Configuración de una red virtual de instancia administrada](sql-database-managed-instance-connectivity-architecture.md).
 - Para ver una guía de inicio rápido en la que se crea una instancia administrada y se restaura una base de datos desde un archivo de copia de seguridad, vea [Creación de una instancia administrada](sql-database-managed-instance-get-started.md).
 - Para consultar un tutorial con Azure Database Migration Service (DMS) para la migración, vea [Migración a Instancia administrada con DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Para una supervisión avanzada del rendimiento de la base de datos de Instancia administrada con inteligencia de solución de problemas integrada, vea [Supervisión de instancias de Azure SQL Database con Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
+- Para una supervisión avanzada del rendimiento de una base de datos de instancia administrada con inteligencia de solución de problemas integrada, consulte [Supervisión de instancias de Azure SQL Database con Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
 - Para obtener información de precios, vea [Precios de Instancia administrada de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).

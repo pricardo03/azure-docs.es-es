@@ -7,28 +7,28 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 692e0ec575904ff0a70b8c73268d2df62e776bb6
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.openlocfilehash: 0b32665b09eb02c337a12ac3cfc2b474fa82711a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978788"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447241"
 ---
-# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Período de vida (TTL) en Azure Cosmos DB 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Período de vida (TTL) en Azure Cosmos DB 
 
-Con **período de vida** o TTL, Azure Cosmos DB proporciona la capacidad de eliminar automáticamente elementos de un contenedor después de un determinado período de tiempo. De forma predeterminada, puede establecer el período de vida en el nivel de contenedor e invalidar el valor en cada elemento. Después de establecer el TTL en el nivel de contenedor o de elemento, Azure Cosmos DB eliminará automáticamente estos elementos cuando haya pasado el período de tiempo seleccionado tras la hora de la última modificación. El valor del período de vida se configura en segundos. Cuando se configura el TTL, el sistema eliminará automáticamente los elementos expirados en función del valor TTL, sin necesidad de una operación de eliminación explícitamente emitido por la aplicación cliente.
+Mediante el **período de vida** o TTL, Azure Cosmos DB proporciona la capacidad de eliminar automáticamente elementos de un contenedor después de un determinado período de tiempo. De forma predeterminada, puede establecer el período de vida en el nivel de contenedor e invalidar el valor en cada elemento. Después de establecer el TTL en el nivel de contenedor o de elemento, Azure Cosmos DB eliminará automáticamente estos elementos cuando haya pasado el período de tiempo seleccionado tras la hora de la última modificación. El valor del período de vida se configura en segundos. Cuando se configura el TTL, el sistema elimina automáticamente los elementos expirados en función del valor de TTL, sin necesidad de una operación de eliminación que se emita explícitamente desde la aplicación cliente.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Período de vida para contenedores y elementos
 
-El tiempo de vida se establece en segundos, y se interpreta como una diferencia desde el momento en que se modificó por última vez un elemento. Puede establecer el período de vida en un contenedor o en un elemento dentro del contenedor:
+El valor de período de vida se establece en segundos, y se interpreta como una delta desde el momento en que se modificó por última vez un elemento. Puede establecer el período de vida en un contenedor o en un elemento dentro del contenedor:
 
 1. **Período de vida en un contenedor** (se establece mediante `DefaultTimeToLive`):
 
    - Si no existe (o está establecido en NULL), los elementos no expiran automáticamente.
 
-   - Si existe y el valor se establece en "-1", equivale a infinito y elementos no caducan de forma predeterminada.
+   - Si existe y el valor se ha establecido en "-1", es igual a infinito y los documentos no expiran de forma predeterminada.
 
-   - Si existe y el valor se establece en un número *"n"* : los elementos expirarán *"n"* segundos después de su última hora de modificación.
+   - Si existe y el valor se ha establecido en un número *"n"* , los elementos expiran *"n"* segundos después de la última modificación.
 
 2. **Período de vida en un elemento** (se establece mediante `ttl`):
 
@@ -38,7 +38,7 @@ El tiempo de vida se establece en segundos, y se interpreta como una diferencia 
 
 ## <a name="time-to-live-configurations"></a>Configuraciones de período de vida
 
-* Si se establece el TTL *"n"* en un contenedor, a continuación, los elementos de ese contenedor expirará después *n* segundos.  Si hay elementos en el mismo contenedor que tienen su propio tiempo de live, se establece en -1 (lo que indica que no caduquen) o si el período de vida de configuración con un número diferente invalidar algunos elementos, estos elementos expiran según su propio valor TTL configurado. 
+* Si el TTL se establece en *"n"* en un contenedor, los elementos de ese contenedor expirarán después de *n* segundos.  Si hay elementos en el mismo contenedor que tengan su propio período de vida establecido en -1 (lo que indica que no expiran), o si algunos elementos han invalidado la configuración del período de vida con un número distinto, estos elementos expirarán según su propio valor de TTL configurado. 
 
 * Si no se establece el TTL en un contenedor, el período de vida en un elemento de este contenedor no tiene ningún efecto. 
 
@@ -46,8 +46,44 @@ El tiempo de vida se establece en segundos, y se interpreta como una diferencia 
 
 La eliminación de elementos en función del TTL es gratuita. No hay ningún costo adicional (es decir, no se consume ninguna RU adicional) cuando se elimina el elemento como resultado de la expiración de TTL.
 
+## <a name="examples"></a>Ejemplos
+
+En esta sección se muestra algunos ejemplos con distintos valores de período de vida asignados a los contenedores y los elementos:
+
+### <a name="example-1"></a>Ejemplo 1
+
+TTL de contenedor se establece en null (DefaultTimeToLive = null)
+
+|TTL de elemento| Resultado|
+|---|---|
+|TTL = null|    TTL se deshabilita. El elemento nunca expirará (valor predeterminado).|
+|TTL = -1   |TTL se deshabilita. El elemento nunca expirará.|
+|TTL = 2000 |TTL se deshabilita. El elemento nunca expirará.|
+
+
+### <a name="example-2"></a>Ejemplo 2
+
+TTL de contenedor se establece en -1 (DefaultTimeToLive = -1)
+
+|TTL de elemento| Resultado|
+|---|---|
+|TTL = null |TTL está habilitado. El elemento nunca expirará (valor predeterminado).|
+|TTL = -1   |TTL está habilitado. El elemento nunca expirará.|
+|TTL = 2000 |TTL está habilitado. El elemento expirará transcurridos 2000 segundos.|
+
+
+### <a name="example-3"></a>Ejemplo 3
+
+TTL de contenedor se establece en -1000 (DefaultTimeToLive = -1000)
+
+|TTL de elemento| Resultado|
+|---|---|
+|TTL = null|    TTL está habilitado. El elemento expirará transcurridos 1000 segundos (valor predeterminado).|
+|TTL = -1   |TTL está habilitado. El elemento nunca expirará.|
+|TTL = 2000 |TTL está habilitado. El elemento expirará transcurridos 2000 segundos.|
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo configurar el período de vida en los siguientes artículos:
+Aprenda a configurar el período de vida con los siguientes artículos:
 
 * [Cómo configurar el período de vida](how-to-time-to-live.md)

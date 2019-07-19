@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: geg
-ms.openlocfilehash: 19b249a76a339ce870609fbcdceaf70bf79a6ea2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.openlocfilehash: 62e10f382882e70d488f9814cb00c2b86b8b9691
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906496"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460229"
 ---
 # <a name="restore-azure-vms"></a>Restauración de máquinas virtuales de Azure
 
@@ -28,9 +28,9 @@ En Azure Backup, se puede restaurar una máquina virtual de varias formas.
 
 **Opción de restauración** | **Detalles**
 --- | ---
-**Crear una máquina virtual** | Crea y pone en funcionamiento rápidamente una máquina virtual básica a partir de un punto de restauración.<br/><br/> Puede especificar un nombre para la máquina virtual, seleccione el grupo de recursos y la red virtual (VNet) en el que se van a colocar y especificar una cuenta de almacenamiento para la máquina virtual restaurada.
-**Restaurar disco** | Restaura un disco de máquina virtual que se puede usar después para crear una máquina virtual.<br/><br/> Azure Backup proporciona una plantilla para ayudar a personalizar y crear una máquina virtual. <br/><br> El trabajo de restauración genera una plantilla que puede descargar y usar para especificar la configuración de una máquina virtual personalizada y crear una máquina virtual.<br/><br/> Los discos se copian en la cuenta de almacenamiento que especifique.<br/><br/> Como alternativa, puede conectar el disco a una máquina virtual existente o crear una máquina virtual mediante PowerShell.<br/><br/> Esta opción es útil si desea personalizar la máquina virtual, agregar la configuración que no existía en el momento de la copia de seguridad o agregar valores que deben configurarse mediante la plantilla o PowerShell.
-**Reemplazar el existente** | Puede restaurar un disco y usarlo para reemplazar un disco en la máquina virtual existente.<br/><br/> La máquina virtual actual debe existir. Si se ha eliminado, no se puede usar esta opción.<br/><br/> Azure Backup toma una instantánea de la máquina virtual existente antes de reemplazar el disco y lo almacena en la ubicación de almacenamiento provisional que especifique. Conectado a la máquina virtual de discos existentes se reemplazan por el punto de restauración seleccionado.<br/><br/> La instantánea se copia en el almacén y conservan de acuerdo con la directiva de retención. <br/><br/> Esta opción es compatible con máquinas virtuales administradas no cifradas. No se admite para discos no administrados, [máquinas virtuales generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) o para máquinas virtuales [creadas con imágenes personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Si el punto de restauración tiene más o menos discos que la máquina virtual actual, el número de discos del punto de restauración solo reflejará la configuración de la máquina virtual.<br/><br/>
+**Crear una máquina virtual** | Crea y pone en funcionamiento rápidamente una máquina virtual básica a partir de un punto de restauración.<br/><br/> Puede especificar un nombre para la máquina virtual, seleccionar el grupo de recursos y la red virtual (VNet) en que se va a colocar y especificar una cuenta de almacenamiento para la máquina virtual restaurada.
+**Restaurar disco** | Restaura un disco de máquina virtual que se puede usar después para crear una máquina virtual.<br/><br/> Azure Backup proporciona una plantilla para ayudar a personalizar y crear una máquina virtual. <br/><br> El trabajo de restauración genera una plantilla que puede descargar y usar para especificar la configuración de una máquina virtual personalizada y crear una máquina virtual.<br/><br/> Los discos se copian en la cuenta de almacenamiento especificada.<br/><br/> Como alternativa, puede conectar el disco a una máquina virtual existente o crear una máquina virtual mediante PowerShell.<br/><br/> Esta opción es útil si desea personalizar la máquina virtual, agregar la configuración que no existía en el momento de la copia de seguridad o agregar valores que deben configurarse mediante la plantilla o PowerShell.
+**Reemplazar el existente** | Puede restaurar un disco y usarlo para reemplazar un disco en la máquina virtual existente.<br/><br/> La máquina virtual actual debe existir. Si se ha eliminado, no se puede usar esta opción.<br/><br/> Azure Backup toma una instantánea de la máquina virtual existente antes de reemplazar el disco, y la almacena en la ubicación de almacenamiento provisional especificada. Los discos existentes conectados a la máquina virtual se reemplazan por el punto de restauración seleccionado.<br/><br/> La instantánea se copia en el almacén y se conserva de acuerdo con la directiva de retención. <br/><br/> Esta opción es compatible con máquinas virtuales administradas no cifradas. No se admite para discos no administrados, [máquinas virtuales generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) o para máquinas virtuales [creadas con imágenes personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Si el punto de restauración tiene más o menos discos que la máquina virtual actual, el número de discos del punto de restauración solo reflejará la configuración de la máquina virtual.<br/><br/>
 
 
 > [!NOTE]
@@ -42,22 +42,22 @@ En Azure Backup, se puede restaurar una máquina virtual de varias formas.
 
 Algunos detalles sobre las cuentas de almacenamiento:
 
-- **Create VM** (Crear VM): Cuando se crea una nueva máquina virtual, la máquina virtual se colocará en la cuenta de almacenamiento que especifique.
-- **Restaurar disco**: Al restaurar un disco, el disco se copia en la cuenta de almacenamiento que especifique. El trabajo de restauración genera una plantilla que puede descargar y usar para especificar la configuración de máquina virtual personalizada. Esta plantilla se coloca en la cuenta de almacenamiento especificada.
-- **Reemplace el disco**: Al reemplazar un disco en una máquina virtual existente, Azure Backup toma una instantánea de la máquina virtual existente antes de reemplazar el disco. La instantánea se almacena en la ubicación de almacenamiento provisional (cuenta de almacenamiento) que especifique. Esta cuenta de almacenamiento se usa para almacenar temporalmente la instantánea durante el proceso de restauración, y le recomendamos que cree una nueva cuenta para ello, se puede quitar fácilmente más adelante.
-- **Ubicación de la cuenta de almacenamiento** : La cuenta de almacenamiento debe estar en la misma región que el almacén. Se muestran solo estas cuentas. Si no hay ninguna cuenta de almacenamiento en la ubicación, deberá crear uno.
-- **Tipo de almacenamiento** : No se admite el almacenamiento de blobs.
-- **Redundancia de almacenamiento**: No se admite almacenamiento con redundancia de zona (ZRS). La información de replicación y redundancia para la cuenta se muestra entre paréntesis después del nombre de cuenta. 
-- **Almacenamiento Premium**:
-    - Al restaurar las máquinas virtuales que no sean premium, no se admiten cuentas de almacenamiento premium.
+- **Create VM** (Crear VM): cuando se crea una máquina virtual, se coloca en la cuenta de almacenamiento especificada.
+- **Restaurar disco**: al restaurar un disco, se copia en la cuenta de almacenamiento especificada. El trabajo de restauración genera una plantilla que puede descargar y usar para especificar la configuración personalizada de la máquina virtual. Esta plantilla se coloca en la cuenta de almacenamiento especificada.
+- **Reemplazar disco**: al reemplazar un disco de una máquina virtual existente, Azure Backup toma una instantánea de esta máquina virtual antes de reemplazarlo. La instantánea se almacena en la ubicación de almacenamiento provisional (cuenta de almacenamiento) especificada. Esta cuenta de almacenamiento se usa para almacenar temporalmente la instantánea durante el proceso de restauración, y se recomienda crear una cuenta para ello, que después se puede quitar fácilmente.
+- **Ubicación de la cuenta de almacenamiento**: la cuenta de almacenamiento debe estar en la misma región que el almacén. Solo se muestran estas cuentas. Si no hay ninguna cuenta de almacenamiento en la ubicación, debe crear una.
+- **Tipo de almacenamiento**: no se admite Blob Storage.
+- **Redundancia de almacenamiento**: No se admite almacenamiento con redundancia de zona (ZRS). La información de replicación y redundancia de la cuenta se muestra entre paréntesis después del nombre de la cuenta. 
+- **Almacenamiento premium**:
+    - al restaurar máquinas virtuales que no sean premium, no se admiten cuentas de almacenamiento premium.
     - Al restaurar máquinas virtuales administradas, no se admiten cuentas de almacenamiento premium configuradas con reglas de red.
 
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Para restaurar una máquina virtual (crear una nueva máquina virtual) asegúrese de que tiene el control de acceso correcto basado en roles (RBAC) [permisos](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) para la operación de restaurar una máquina virtual.
+Para restaurar una máquina virtual (crear una máquina virtual), asegúrese de tener los [permisos](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) de control de acceso basado en rol (RBAC) correctos para la operación de restauración de la máquina virtual.
 
-Si no tiene permisos, puede [restaurar un disco](#restore-disks), y, a continuación, después de restaura el disco, puede [usar la plantilla](#use-templates-to-customize-a-restored-vm) que se generó como parte de la operación de restauración para crear una nueva máquina virtual.
+Si no tiene permisos, puede [restaurar un disco](#restore-disks) y, luego, [usar la plantilla](#use-templates-to-customize-a-restored-vm) que se generó como parte de la operación de restauración para crear una máquina virtual.
 
 
 
@@ -89,7 +89,7 @@ Como una de las [opciones de restauración](#restore-options), puede crear una m
 2. En **Nombre de la máquina virtual**, especifique una máquina virtual que no exista en la suscripción.
 3. En **Grupo de recursos**, seleccione un grupo de recursos existente para la nueva máquina virtual, o cree uno con un nombre único global. Si asigna un nombre que ya existe, Azure asigna al grupo el mismo nombre que la máquina virtual.
 4. En **Red virtual**, seleccione la red virtual en el que se colocará la máquina virtual. Se muestran todas las redes virtuales asociadas con la suscripción. Seleccione la subred. De forma predeterminada se selecciona la primera subred.
-5. En **ubicación de almacenamiento**, especifique la cuenta de almacenamiento para la máquina virtual. [Más información](#storage-accounts).
+5. En **Ubicación de almacenamiento**, especifique la cuenta de almacenamiento de la máquina virtual. [Más información](#storage-accounts).
 
     ![Asistente para configuración de restauración](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
@@ -102,7 +102,7 @@ Como una de las [opciones de restauración](#restore-options), puede crear un di
 
 - Use la plantilla que se generó durante la operación de restauración para personalizar la configuración y desencadene la implementación de la máquina virtual. Editará la configuración de plantilla predeterminada y enviará la plantilla para la implementación de la máquina virtual.
 - [Conecte los discos restaurados](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) a una máquina virtual existente.
-- [Crear una nueva máquina virtual](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) desde los discos restaurados mediante PowerShell.
+- [Cree una máquina virtual](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) a partir de los discos restaurados mediante PowerShell.
 
 1. En **Restaurar configuración** > **Crear nuevo** > **Tipo de restauración**, seleccione **Restaurar discos**.
 2. En **Grupo de recursos**, seleccione un grupo de recursos existente para los discos restaurados o cree uno con un nombre único global.
@@ -112,7 +112,7 @@ Como una de las [opciones de restauración](#restore-options), puede crear un di
 
 4. En **Restaurar configuración**, seleccione **Aceptar**. En **Restaurar**, haga clic en **Restaurar** para desencadenar la operación de restauración.
 
-Durante la restauración de máquinas virtuales, Azure Backup no usa la cuenta de almacenamiento. Pero en caso de **restaurar discos** y **la restauración instantánea**, cuenta de almacenamiento se usa para almacenar la plantilla.
+Durante la restauración de la máquina virtual, Azure Backup no usa la cuenta de almacenamiento. Pero, para **restaurar discos** y realizar una **restauración instantánea**, se usa la cuenta de almacenamiento para almacenar la plantilla.
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>Uso de plantillas para personalizar una máquina virtual restaurada
 
@@ -141,12 +141,12 @@ Como una de las [opciones de restauración](#restore-options), puede reemplazar 
 
 1. En **Restaurar configuración**, haga clic en **Reemplazar el existente**.
 2. En **Tipo de restauración**, seleccione **Reemplazar discos**. Este es el punto de restauración que se utilizará para reemplazar discos de máquina virtual existentes.
-3. En **ubicación de almacenamiento provisional**, especifique dónde se deben guardar las instantáneas de los discos administrados actuales durante el proceso de restauración. [Más información](#storage-accounts).
+3. En **Ubicación de ensayo**, especifique dónde se deben guardar las instantáneas de los discos administrados actuales durante el proceso de restauración. [Más información](#storage-accounts).
 
    ![Opción Reemplazar el existente del asistente para configuración de restauración](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
 
-## <a name="restore-vms-with-special-configurations"></a>Restauración de máquinas virtuales con configuraciones especiales
+## <a name="restore-vms-with-special-configurations"></a>Restauración de una máquina virtual con configuraciones especiales
 
 Hay una serie de escenarios comunes en los que es posible que deba restaurar las máquinas virtuales.
 
@@ -154,13 +154,13 @@ Hay una serie de escenarios comunes en los que es posible que deba restaurar las
 --- | ---
 **Restauración de máquinas virtuales con la ventaja de uso híbrido** | Si una máquina virtual Windows usa [licencias de la ventaja de uso híbrido (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaure los discos y cree una máquina virtual mediante la plantilla proporcionada (con **Tipo de licencia** establecido en **Windows_Server**) o con PowerShell.  Esta configuración también se puede aplicar después de crear la máquina virtual.
 **Restauración de máquinas virtuales durante un desastre del centro de datos de Azure** | Si el almacén usa el almacenamiento con redundancia geográfica (GRS) y el centro de datos principal para la máquina virtual deja de funcionar, Azure Backup admite la restauración de máquinas virtuales de copia de seguridad en el centro de datos emparejado. Seleccione una cuenta de almacenamiento en el centro de datos emparejado y realice la restauración de la forma habitual. Azure Backup usa el servicio de proceso en la ubicación emparejada para crear la máquina virtual restaurada. [Obtenga más información](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) sobre la resistencia del centro de datos.
-**Restauración de una máquina virtual de un controlador de dominio único en un dominio único** | Restaure la máquina virtual como cualquier otra. Observe lo siguiente:<br/><br/> Desde una perspectiva de Active Directory, la máquina virtual de Azure es como cualquier otra máquina virtual.<br/><br/> El modo de restauración de servicios de directorio (DSRM) también está disponible, de modo que todos los escenarios de recuperación de Active Directory son viables. [Obtenga más información](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sobre las consideraciones de copia de seguridad y restauración para controladores de dominio virtualizados.
-**Restauración de una máquina virtual de un controlador de varios dominios en un dominio único** | Si otros controladores de dominio en el mismo dominio pueden tener acceso a través de la red, se puede restaurar el controlador de dominio como cualquier máquina virtual. Si se trata del último controlador de dominio que queda en el dominio o bien se lleva a cabo una recuperación en una red aislada, use una [recuperación de bosques](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+**Restauración de una máquina virtual de un controlador de dominio único en un dominio único** | Restaure la máquina virtual como cualquier otra. Observe lo siguiente:<br/><br/> Desde la perspectiva de Active Directory, una máquina virtual de Azure es como cualquier otra.<br/><br/> El modo de restauración de servicios de directorio (DSRM) también está disponible, de modo que todos los escenarios de recuperación de Active Directory son viables. [Obtenga más información](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sobre las consideraciones de copia de seguridad y restauración para controladores de dominio virtualizados.
+**Restauración de una máquina virtual de un controlador de varios dominios en un dominio único** | Cuando se pueda acceder a otros controladores de dominio del mismo dominio a través de la red, el controlador de dominio se podrá restaurar como cualquier máquina virtual. Si se trata del último controlador de dominio que queda en el dominio o bien se lleva a cabo una recuperación en una red aislada, use una [recuperación de bosques](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restauración de varios dominios en un solo bosque** | Se recomienda una [recuperación de bosques](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restauración con reconstrucción completa** | La principal diferencia entre las máquinas virtuales de Azure y los hipervisores locales es que no hay ninguna consola de máquina virtual disponible en Azure. Se necesita una consola para determinados escenarios, como para la recuperación mediante una copia de seguridad de reconstrucción completa (BMR). Sin embargo, la restauración de una VM desde el almacén es una sustitución completa para una BMR.
-**Restauración de máquinas virtuales con configuraciones de red especiales** | Las configuraciones de red especiales incluyen máquinas virtuales que usan equilibrio de carga interno o externo, varias NIC o varias direcciones IP reservadas. Restaure estas máquinas virtuales con la [opción Restaurar disco](#restore-disks). Esta opción realiza una copia de los discos duros virtuales en la cuenta de almacenamiento especificada y, a continuación, puede crear una máquina virtual con un [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) o [externo](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) equilibrador de carga, [varias NIC](../virtual-machines/windows/multiple-nics.md), o [varias direcciones IP reservadas](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), según la configuración.
-**Grupo de seguridad de red (NSG) en NIC o subred** | Azure backup para máquinas virtuales es compatible con la información de copia de seguridad y restauración de NSG en la red virtual, subred y nivel de NIC.
-**Zona anclado máquinas virtuales** | Azure Backup admite copias de seguridad y restauración de máquinas virtuales ancladas zonas. [Más información](https://azure.microsoft.com/global-infrastructure/availability-zones/)
+**Restauración de máquinas virtuales con configuraciones de red especiales** | Las configuraciones de red especiales incluyen máquinas virtuales que usan equilibrio de carga interno o externo, varias NIC o varias direcciones IP reservadas. Restaure estas máquinas virtuales con la [opción Restaurar disco](#restore-disks). Esta opción realiza una copia de los discos duros virtuales en la cuenta de almacenamiento especificada y, luego, crea una máquina virtual con un equilibrador de carga [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) o [externo](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/), [varias NIC](../virtual-machines/windows/multiple-nics.md) o [varias direcciones IP reservadas](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), según la configuración.
+**Grupo de seguridad de red (NSG) en la NIC o la subred** | La copia de seguridad de máquinas virtuales de Azure admite la copia de seguridad y la restauración de información de NSG en el nivel de red virtual, subred y NIC.
+**Máquinas virtuales ancladas por zona** | Azure Backup admite la copia de seguridad y la restauración de máquinas virtuales ancladas por zona. [Más información](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>Seguimiento de la operación de restauración
 Una vez que se desencadene la operación de restauración, el servicio de copia de seguridad crea un trabajo para realizar su seguimiento. Azure Backup muestra las notificaciones sobre el trabajo en el portal. Si no aparecen, haga clic en el símbolo de **notificaciones** para verlas.
@@ -185,7 +185,7 @@ Se deben tener en cuenta varios aspectos después de restaurar una máquina virt
 
 - Las extensiones existentes durante la configuración de copia de seguridad están instaladas, pero no habilitadas. Si ve un problema, vuelva a instalar las extensiones.
 - Si la máquina virtual de copia de seguridad tenía una dirección IP estática, la máquina virtual restaurada tendrá una dirección IP dinámica para evitar conflictos. Puede [agregar una dirección IP estática a la máquina virtual restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
-- Una máquina virtual restaurada no tiene un conjunto de disponibilidad. Si usa la opción de restauración de disco, puede [especificar un conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) al crear una máquina virtual desde el disco con la plantilla proporcionada o mediante PowerShell.
+- Una máquina virtual restaurada no tiene un conjunto de disponibilidad. Si usa la opción del disco de restauración, puede [especificar un conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) al crear una máquina virtual desde el disco con la plantilla proporcionada o mediante PowerShell.
 - Si usa una distribución de Linux basada en cloud-init, como Ubuntu, la contraseña se bloquea después de la restauración por motivos de seguridad. Use la extensión VMAccess en la máquina virtual restaurada para [restablecer la contraseña](../virtual-machines/linux/reset-password.md). Se recomienda usar claves SSH en estas distribuciones, por lo que no es necesario restablecer la contraseña después de la restauración.
 
 

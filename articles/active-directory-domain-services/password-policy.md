@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Directiva de contraseñas | Micr
 description: Descripción de las directivas de contraseña en dominios administrados.
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
-ms.author: mstephen
-ms.openlocfilehash: 71511fd83f9c00f768f5f7bedb3516fef8599e70
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.author: iainfou
+ms.openlocfilehash: ecf38543b2c4e5187aa5c6593c3bccf6668b8a8a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66246845"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472760"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Directivas de bloqueo de cuenta y contraseña en dominios administrados
 En este artículo se describen las directivas de contraseña predeterminadas en un dominio administrado. También se describe cómo puede configurar estas directivas.
@@ -80,7 +80,7 @@ Puede configurar una directiva FGPP personalizada por los siguientes motivos:
 * Para configurar un valor de duración de contraseña predeterminado para el dominio administrado
 
 Para crear una directiva FGPP personalizada en el dominio administrado:
-1. Inicie sesión en la máquina virtual Windows que use para administrar el dominio administrado. Si no tiene uno, siga las instrucciones para [administrar un dominio de Azure AD Domain Services](manage-domain.md).
+1. Inicie sesión en la máquina virtual Windows que use para administrar el dominio administrado. Si no tiene uno, siga las instrucciones para [administrar un dominio de Azure AD Domain Services](manage-domain.md).
 2. Inicie el **Centro de administración de Active Directory** en la máquina virtual.
 3. Haga clic en el nombre de dominio (por ejemplo, "contoso100.com").
 4. Haga doble clic en **System** (Sistema) para abrir el contenedor del sistema.

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: sincronización con ámbito | Mi
 description: Configuración de la sincronización con ámbito entre Azure AD y un dominio administrado
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: 332c0bc43a269734e0dc4db37228006a78e460e2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.author: iainfou
+ms.openlocfilehash: bb96e7ccbc38a71d24178c31f8eb9a077c06b8f0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66246815"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472520"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configuración de la sincronización con ámbito entre Azure AD y un dominio administrado
 En este artículo se muestra cómo configurar solo cuentas de usuario específicas para sincronizarlas entre el directorio de Azure AD y el dominio administrado de Azure AD Domain Services.
@@ -58,7 +58,7 @@ Lleva a cabo los pasos siguientes para configurar la sincronización de ámbito 
 1. Realice las siguientes tareas:
    * [Tarea 1: Instalación de los módulos de PowerShell necesarios](powershell-create-instance.md#task-1-install-the-required-powershell-modules).
    * [Tarea 2: Creación de la entidad de servicio necesaria en el directorio de Azure AD](powershell-create-instance.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-   * [Tarea 3: Cree y configure el "AAD DC Administrators' group]powershell-create-instance.md#task-3-create-and-configure-the-aad-dc-administrators-group).
+   * Tarea 3: Cree y configure el grupo "Administradores de controlador de dominio de AAD" group]powershell-create-instance.md#task-3-create-and-configure-the-aad-dc-administrators-group).
    * [Tarea 4: Registro del proveedor de recursos de Azure AD Domain Services](powershell-create-instance.md#task-4-register-the-azure-ad-domain-services-resource-provider).
    * [Tarea 5: Creación de un grupo de recursos](powershell-create-instance.md#task-5-create-a-resource-group).
    * [Tarea 6: Creación y configuración de la red virtual](powershell-create-instance.md#task-6-create-and-configure-the-virtual-network).

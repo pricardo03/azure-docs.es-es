@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596118"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444703"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Actualización del almacenamiento de datos a Gen2
 
@@ -67,7 +67,7 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 
 ## <a name="automatic-upgrade-process"></a>Proceso de actualización automática
 
-En función del gráfico de disponibilidad anterior, programaremos actualizaciones automatizadas para las instancias de Gen1. Con el fin de evitar interrupciones inesperadas de la disponibilidad del almacenamiento de datos, se programarán las actualizaciones automatizadas durante la programación de mantenimiento. La capacidad de crear una instancia de Gen1 se deshabilitará en las regiones en las que se está llevando a cabo la actualización automática a Gen2. Para obtener más información sobre las programaciones, consulte [Vista de una programación de mantenimiento](viewing-maintenance-schedule.md).
+En función del gráfico de disponibilidad anterior, programaremos actualizaciones automatizadas para las instancias de Gen1. Con el fin de evitar interrupciones inesperadas de la disponibilidad del almacenamiento de datos, se programarán las actualizaciones automatizadas durante la programación de mantenimiento. La capacidad de crear una instancia de Gen1 se deshabilitará en las regiones en las que se está llevando a cabo la actualización automática a Gen2. Gen1 dejará de utilizarse una vez que se hayan completado las actualizaciones automáticas. Para obtener más información sobre las programaciones, consulte [Vista de una programación de mantenimiento](viewing-maintenance-schedule.md).
 
 El proceso de actualización implicará una breve desconexión de aproximadamente 5 minutos, ya que tenemos que reiniciar el almacenamiento de datos.  Una vez que se ha reiniciado el almacenamiento de datos, estará totalmente disponible para usarse. Aun así, puede experimentar una degradación del rendimiento mientras continúa el proceso de actualización de los archivos de datos en segundo plano. El tiempo total de esta degradación del rendimiento variará en función del tamaño de los archivos de datos.
 

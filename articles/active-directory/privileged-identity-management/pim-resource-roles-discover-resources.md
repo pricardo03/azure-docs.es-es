@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786b5ed99cce29c7217bfa42446821848ca8e05f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b9ca4862f129b2da23a1d1ad8bb0b1bd0a5078f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288192"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476288"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Detección de recursos de Azure que se administran en PIM
 
@@ -37,15 +37,15 @@ La primera vez que se configura PIM para recursos de Azure, hay que detectar y s
 
     Si es la primera vez que usa PIM para recursos de Azure, aparecerá el panel Detectar recursos.
 
-    ![Detectar recursos: primera vez](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
+    ![Panel de detección de recursos sin recursos mostrados para la experiencia inicial](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
     Si otro administrador de directorios o recursos de la organización ya administra recursos de Azure en PIM, verá una lista de los recursos que se están administrando actualmente.
 
-    ![Panel Detectar recursos](./media/pim-resource-roles-discover-resources/discover-resources.png)
+    ![Panel de detección de recursos con los recursos que se administran actualmente](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
 1. Haga clic en **Detectar recursos** para iniciar la experiencia de detección.
 
-    ![Panel de detección](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![Panel de detección con los recursos que se pueden administrar, como suscripciones y grupos de administración](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
 1. En el panel de detección, use **Filtro de estado de recurso** y **Seleccionar tipo de recurso** para filtrar los grupos de administración o suscripciones para las que tiene permiso de escritura. Empezar con **Todo** es, probablemente, más fácil.
 
@@ -58,11 +58,11 @@ La primera vez que se configura PIM para recursos de Azure, hay que detectar y s
     > [!NOTE]
     > Una vez definido un grupo de administración o suscripción como administrado, no puede ser no administrado. Esto impide que otro administrador de recursos pueda quitar la configuración de PIM.
 
-    ![Detección: administrar recursos](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
+    ![Panel de detección con un recurso seleccionado y la opción Administrar recurso resaltada](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
 1. Si ve un mensaje para confirmar la incorporación del recurso seleccionado para la administración, haga clic en **Sí**.
 
-    ![Mensaje Detección: administrar recurso](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
+    ![Mensaje que confirma la incorporación de los recursos seleccionados para la administración](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

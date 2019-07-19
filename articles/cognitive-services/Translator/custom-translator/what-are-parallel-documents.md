@@ -2,19 +2,19 @@
 title: ¿Qué son los documentos paralelos? Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Los documentos paralelos son pares de documentos en los que uno es la traducción del otro. Un documento en el par contiene frases en el idioma de origen y el otro documento contiene estas mismas frases traducidas al idioma de destino.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e644a4df99669e7ad69e08090418c2a3cffc7e9d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: 3b7997adfa38fa24bdf41f22c99f06e9a0ba1bf0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389818"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447388"
 ---
 # <a name="what-are-parallel-documents"></a>¿Qué son los documentos paralelos?
 
@@ -23,7 +23,7 @@ No importa qué idioma está marcado como "origen" y qué idioma como "destino":
 
 ## <a name="requirements"></a>Requisitos
 
-Necesitará un mínimo de 10 000 frases paralelo únicos para entrenar un sistema. Como procedimiento recomendado, es aconsejable agregar continuamente más contenido paralelo y entrenar el sistema de nuevo para mejorar la calidad de la traducción.
+Necesita un mínimo de 10 000 frases paralelas para entrenar a un sistema. Como procedimiento recomendado, es aconsejable agregar continuamente más contenido paralelo y entrenar el sistema de nuevo para mejorar la calidad de la traducción.
 
 Microsoft requiere que los documentos cargados en Custom Translator no infrinjan los derechos de propiedad intelectual o de copyright de terceros. Para más información, consulte los [términos de uso](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Cargar un documento mediante el portal no modifica la propiedad intelectual del documento en sí.

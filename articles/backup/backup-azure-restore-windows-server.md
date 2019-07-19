@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c2f8ce0dfb866826de549946bc3ee1acc2b677f
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238486"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460255"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restauración de archivos en Windows con el modelo de implementación de Azure Resource Manager
 
@@ -97,7 +97,7 @@ Estos pasos incluyen la siguiente terminología:
 * *Almacén de ejemplo*: el almacén de Recovery Services en el que se registran la máquina de origen y la máquina de destino. <br/>
 
 > [!NOTE]
-> Las copias de seguridad no se pueden restaurar en una máquina de destino en la que se ejecuta una versión anterior del sistema operativo. Por ejemplo, una copia de seguridad perteneciente a un equipo con Windows 7 se puede restaurar en un equipo con Windows 8 o posterior. Una copia de seguridad realizada en un equipo con Windows 8 no se puede restaurar en un equipo con Windows 7.
+> Las copias de seguridad no se pueden restaurar en una máquina de destino en la que se ejecuta una versión anterior del sistema operativo. Por ejemplo, una copia de seguridad perteneciente a un equipo con Windows 7 se puede restaurar en un equipo con Windows 7 o posterior. Una copia de seguridad realizada en un equipo con Windows 8 no se puede restaurar en un equipo con Windows 7.
 >
 >
 
