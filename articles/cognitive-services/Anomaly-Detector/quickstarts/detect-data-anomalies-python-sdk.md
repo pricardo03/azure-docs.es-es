@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Detección de anomalías de datos mediante la biblioteca de Anomaly Detector y Python | Microsoft Docs'
+title: 'Inicio rápido: Detección de anomalías de datos mediante la biblioteca de Anomaly Detector y Python'
 titleSuffix: Azure Cognitive Services
 description: Use la API Anomaly Detector para detectar anomalías en la serie de datos como un lote o en la transmisión de datos.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1d89ed8f40547142d41af9c587fc8fc000fa4dd9
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 9176ab84dd3f493604bd655e0498f5ad476776d0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503665"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721515"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Anomaly Detector para Python
 
