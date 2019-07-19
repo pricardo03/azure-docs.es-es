@@ -11,11 +11,11 @@ ms.date: 07/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120186"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206214"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Realización de operaciones de datos en Azure Logic Apps
 
@@ -82,7 +82,7 @@ y crea esta salida:
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-Para probar un ejemplo, siga estos pasos con el Diseñador de aplicación lógica. O bien, si prefiere trabajar en el editor de la vista de código, puede copiar el ejemplo **Compose** y **inicializar variable** las definiciones de acción de este artículo en su propia aplicación lógica subyacente del flujo de trabajo definición: [Ejemplos de código de operación de datos - redactar](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+Para probar un ejemplo, siga estos pasos con el Diseñador de aplicación lógica. O bien, si prefiere trabajar en el editor de vista de código, puede copiar las definiciones de acción de ejemplo **Redactar** e **Inicializar variable** de este artículo en su propia definición de flujo de trabajo subyacente de la aplicación lógica: [Ejemplos de código de operación de datos: Redactar](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a> o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. 
 
@@ -142,7 +142,7 @@ Para confirmar si la acción **Redactar** crea los resultados esperados, envíes
 
 Para crear una tabla de valores separados por comas (CSV) que tenga las propiedades y los valores de objetos de notación de objetos JavaScript (JSON) en una matriz, use la acción **Operaciones de datos: Crear tabla CSV**. Luego puede usar la tabla resultante en las acciones que siguen a la acción **Crear tabla CSV**. 
 
-Si prefiere trabajar en el editor de la vista de código, puede copiar el ejemplo **crear tabla CSV** y **inicializar variable** las definiciones de acción de este artículo en su propia aplicación lógica subyacente del flujo de trabajo definición: [Ejemplos de código de operación de datos - crear tabla CSV](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
+Si prefiere trabajar en el editor de vista de código, puede copiar las definiciones de acción de ejemplo **Crear tabla CSV** e **Inicializar variable** de este artículo en su propia definición de flujo de trabajo subyacente de la aplicación lógica: [Ejemplos de código de operación de datos: Crear tabla CSV](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
 
 1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a> o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. 
 
@@ -211,7 +211,7 @@ Para confirmar si la acción **Crear tabla CSV** crea los resultados esperados, 
 
 Para crear una tabla HTML que tenga las propiedades y los valores de objetos de notación de objetos JavaScript (JSON) en una matriz, use la acción **Operaciones de datos: Crear tabla HTML**. Luego puede usar la tabla resultante en las acciones que siguen a la acción **Crear tabla HTML**.
 
-Si prefiere trabajar en el editor de la vista de código, puede copiar el ejemplo **crear tabla HTML** y **inicializar variable** las definiciones de acción de este artículo en su propia aplicación lógica subyacente del flujo de trabajo definición: [Ejemplos de código de operación de datos - crear tabla HTML](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+Si prefiere trabajar en el editor de vista de código, puede copiar las definiciones de acción de ejemplo **Crear tabla HTML** e **Inicializar variable** de este artículo en su propia definición de flujo de trabajo subyacente de la aplicación lógica: [Ejemplos de código de operación de datos: Crear tabla HTML](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a> o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. 
 
@@ -288,7 +288,7 @@ Para crear una matriz más pequeña que contenga elementos que satisfagan determ
 > 
 > Para que las acciones usen la salida de matriz de la acción **Filtrar matriz**, esas acciones deben aceptar matrices como entrada, o puede que tenga que transformar la matriz de salida en otro formato compatible. 
 
-Si prefiere trabajar en el editor de la vista de código, puede copiar el ejemplo **filtrar matriz** y **inicializar variable** las definiciones de acción de este artículo en su propia aplicación lógica subyacente del flujo de trabajo definición: [Ejemplos de código de operación de datos - filtrar matriz](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
+Si prefiere trabajar en el editor de vista de código, puede copiar las definiciones de acción de ejemplo **Filtrar matriz** e **Inicializar variable** de este artículo en su propia definición de flujo de trabajo subyacente de la aplicación lógica: [Ejemplos de código de operación de datos: Filtrar matriz](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
 
 1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a> o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. 
 
@@ -357,7 +357,7 @@ Para confirmar si la acción **Filtrar matriz** crea los resultados esperados, e
 
 Para crear una cadena que contenga todos los elementos de una matriz y separe esos elementos con un carácter delimitador específico, use la acción **Operaciones de datos: Combinar**. Luego puede usar la cadena en las acciones que siguen a la acción **Combinar**.
 
-Si prefiere trabajar en el editor de la vista de código, puede copiar el ejemplo **unir** y **inicializar variable** subyacente de las definiciones de acción de este artículo en su propia aplicación de lógica de la definición de flujo de trabajo: [Ejemplos de código de operación de datos - Join](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
+Si prefiere trabajar en el editor de vista de código, puede copiar las definiciones de acción de ejemplo **Unir** e **Inicializar variable** de este artículo en su propia definición de flujo de trabajo subyacente de la aplicación lógica: [Ejemplos de código de operación de datos: Unir](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
 
 1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a> o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. 
 
@@ -421,7 +421,7 @@ Para confirmar si la acción **Combinar** crea los resultados esperados, envíes
 Para hacer referencia o acceder a las propiedades en contenido de notación de objetos JavaScript (JSON), puede crear campos o tokens fáciles de usar para esas propiedades mediante la acción **Operaciones de datos: Análisis del archivo JSON**.
 De este modo, puede seleccionar esas propiedades de la lista de contenido dinámico al especificar entradas para la aplicación lógica. Para esta acción, puede proporcionar un esquema JSON o generar uno a partir de la carga o el contenido JSON de ejemplo.
 
-Si prefiere trabajar en el editor de la vista de código, puede copiar el ejemplo **analizar JSON** y **inicializar variable** subyacente de las definiciones de acción de este artículo en su propia aplicación de lógica de la definición de flujo de trabajo : [Ejemplos de código de operación de datos - analizar JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
+Si prefiere trabajar en el editor de vista de código, puede copiar las definiciones de acción de ejemplo **Analizar JSON** e **Inicializar variable** de este artículo en su propia definición de flujo de trabajo subyacente de la aplicación lógica: [Ejemplos de código de operación de datos: Analizar JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
 
 1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a> o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. 
 
@@ -499,7 +499,7 @@ Para crear una matriz que contenga objetos JSON generados a partir de valores de
 > [!NOTE]
 > Para que las acciones usen la salida de matriz de la acción **Seleccionar**, esas acciones deben aceptar matrices como entrada, o puede que tenga que transformar la matriz de salida en otro formato compatible. 
 
-Si prefiere trabajar en el editor de la vista de código, puede copiar el ejemplo **seleccione** y **inicializar variable** subyacente de las definiciones de acción de este artículo en su propia aplicación de lógica de la definición de flujo de trabajo: [Ejemplos de código de operación de datos - seleccionar](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+Si prefiere trabajar en el editor de vista de código, puede copiar las definiciones de acción de ejemplo **Seleccionar** e **Inicializar variable** de este artículo en su propia definición de flujo de trabajo subyacente de la aplicación lógica: [Ejemplos de código de operación de datos: Seleccionar](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a> o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. 
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4f1bc1415fbb875120d7b64128cae69e1e3f442c
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 72bb11cd064c90c2bbe1e9e6452dcbf07fe37817
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339839"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304870"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](resource-group-using-tags.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos.
@@ -246,7 +246,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 | ------------- | ----------- | ----------- |
 | edgenodes | Sin |  Sin |
-| perfiles | Sí | Sí |
+| profiles | Sí | Sí |
 | profiles/endpoints | Sí | Sí |
 | profiles/endpoints/customdomains | Sin |  Sin |
 | profiles/endpoints/origins | Sin |  Sin |
@@ -890,7 +890,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | trafficmanagerprofiles | Sí | Sí |
 | trafficmanagerprofiles/heatMaps | Sin |  Sin |
 | virtualHubs | Sí | Sí |
-| virtualNetworkGateways | Sí | Sin |
+| virtualNetworkGateways | Sí | Sí |
 | virtualNetworks | Sí | Sí |
 | virtualNetworks/subnets | Sin |  Sin |
 | virtualNetworkTaps | Sí | Sí |

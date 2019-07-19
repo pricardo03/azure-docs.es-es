@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56ddc2738305600c611cab1e09d654164f78b3d6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509439"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655498"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Instrucciones: Planeamiento de la implementación del acceso condicional en Azure Active Directory
 
@@ -162,7 +162,7 @@ El plan de pruebas es importante para tener una comparación entre los resultado
 |---|---|---|---|
 |[Exigir la autenticación multifactor desde fuera de la oficina](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|El usuario autorizado inicia sesión en la *aplicación* desde la oficina / una ubicación de confianza|Al usuario no se le solicita autenticación multifactor| |
 |[Exigir la autenticación multifactor desde fuera de la oficina](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|El usuario autorizado inicia sesión en la *aplicación* desde otro lugar distinto a la oficina / una ubicación de confianza|Al usuario se le solicita autenticación multifactor para iniciar sesión| |
-|[Exigir autenticación multifactor (para administradores)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|El administrador global inicia sesión en la *aplicación*|Al administrador se le solicita autenticación multifactor| |
+|[Exigir autenticación multifactor (para administradores)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|El administrador global inicia sesión en la *aplicación*|Al administrador se le solicita autenticación multifactor| |
 |[Inicios de sesión no seguros](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|El usuario inicia sesión en la *aplicación* mediante el [explorador Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Al administrador se le solicita autenticación multifactor| |
 |[Administración de dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|El usuario autorizado intenta iniciar sesión desde un dispositivo autorizado|El acceso se le concede| |
 |[Administración de dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|El usuario autorizado intenta iniciar sesión desde un dispositivo no autorizado|El acceso se le bloquea| |

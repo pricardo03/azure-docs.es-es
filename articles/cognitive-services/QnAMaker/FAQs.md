@@ -1,32 +1,32 @@
 ---
 title: 'Preguntas más frecuentes: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: La lista exclusiva de las preguntas más frecuentes sobre el servicio QnA Maker le ayudará a adoptar el servicio con más rapidez y obtener mejores resultados.
+description: La lista de las preguntas frecuentes seleccionadas sobre QnA Maker le ayudará a adoptar este servicio de forma más rápida y a obtener mejores resultados.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/11/2019
-ms.author: tulasim
+ms.date: 06/11/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 8104497a1808aa4e92d62f45e37525dba2f47742
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d96c5829dfaa57e66b4afec203c27110b8627ac1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233863"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447561"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>Preguntas más frecuentes sobre QnA Maker
 
-La lista exclusiva de las preguntas más frecuentes sobre el servicio QnA Maker le ayudará a adoptar el servicio con más rapidez y obtener mejores resultados.
+La lista de las preguntas frecuentes seleccionadas sobre QnA Maker le ayudará a adoptar este servicio de forma más rápida y a obtener mejores resultados.
 
-## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Utilice el bot de ayuda en el portal de QnA Maker
+## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Uso del bot de ayuda en el portal de QnA Maker
 
-QnA Maker proporciona un **ayuda** bot en el portal de QnA Maker para ayudarle. El bot de ayuda está disponible en todas las páginas web. El bot QnA Maker se utiliza para proporcionar respuestas y proporciona el [ C# proyecto de código de Bot Framework](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot) al bot para que pueda hacerse rápidamente en marcha con su propio bot de respuesta. 
+QnA Maker proporciona un bot de **ayuda** dentro del portal de QnA Maker para ayudarlo. El bot de ayuda está disponible en cada página web. El bot usa QnA Maker para brindar respuestas y proporciona el [proyecto de código de Bot Framework de C#](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot) al bot, para que el usuario pueda implementar y ejecutar rápidamente su propio bot de respuestas. 
 
-![! [QnA Maker proporciona un ** ayuda ** bot en el portal de QnA Maker que le ayudarán a.] (. / media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
+![![QnA Maker proporciona un bot de **ayuda** dentro del portal de QnA Maker para ayudarlo.](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## <a name="manage-the-knowledge-base"></a>Administrar la base de conocimiento
 
@@ -104,7 +104,7 @@ Actualice las claves de punto de conexión si sospecha que han sido objeto de al
 
 ### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>¿Se puede usar el mismo recurso de Azure Search para bases de conocimiento que emplean varios idiomas?
 
-Para usar varios idiomas y varias bases de conocimiento, el usuario tiene que crear un recurso de QnA Maker para cada idioma. Esto creará un servicio de búsqueda de Azure independiente por cada idioma. La combinación de bases de datos de distintos idiomas en un único servicio de Azure Search dará lugar a una importancia degradada de los resultados.
+Para usar varios idiomas y varias bases de conocimiento, el usuario tiene que crear un recurso de QnA Maker para cada idioma. De esta manera, se creará un servicio de Azure Search independiente por idioma. La combinación de bases de datos de distintos idiomas en un único servicio de Azure Search dará lugar a una importancia degradada de los resultados.
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>¿Cómo se puede cambiar el nombre del recurso de Azure Search usado por QnA Maker?
 
@@ -114,7 +114,7 @@ El nombre del recurso de Azure Search es el nombre del recurso de QnA Maker con 
 
 ### <a name="do-i-need-to-use-bot-framework-in-order-to-use-qna-maker"></a>¿Es necesario utilizar Bot Framework para usar QnA Maker?
 
-No, no es necesario usar Bot Framework con QnA Maker. Sin embargo, QnA Maker se ofrece como una de las diversas plantillas de Azure Bot Service. Bot Service permite el desarrollo rápido de bots inteligentes mediante Microsoft Bot Framework y se ejecuta en un entorno sin servidor.
+No, no es necesario usar [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) con QnA Maker. Sin embargo, QnA Maker se ofrece como una de las diversas plantillas de  [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service permite el desarrollo rápido de bots inteligentes mediante Microsoft Bot Framework y se ejecuta en un entorno sin servidor.
 
 ### <a name="how-can-i-create-a-bot-with-qna-maker"></a>¿Cómo se puede crear un bot con QnA Maker?
 

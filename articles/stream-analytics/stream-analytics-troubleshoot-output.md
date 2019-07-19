@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7dbb04a9d002fdcff49d28f69ee0975500bb7ed0
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340782"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620787"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solución de problemas en las salidas de Azure Stream Analytics
 
@@ -79,7 +79,7 @@ Para ver los detalles, en Azure Portal, seleccione el trabajo de streaming y sel
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Advertencia de infracción clave con salida de Azure SQL Database
 
-Al configurar Azure SQL Database como salida para un trabajo de Stream Analytics, inserta registros en bloque en la tabla de destino. En general, Azure Stream Analytics garantiza [al menos una entrega]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics) al receptor de salida, aún se puede [lograr exactamente una entrega]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) a la salida de SQL cuando la tabla SQL tiene una restricción única definida. 
+Al configurar Azure SQL Database como salida para un trabajo de Stream Analytics, inserta registros en bloque en la tabla de destino. En general, Azure Stream Analytics garantiza [al menos una entrega](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) al receptor de salida, aún se puede [lograr exactamente una entrega]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) a la salida de SQL cuando la tabla SQL tiene una restricción única definida. 
 
 Una vez configuradas las restricciones de clave únicas en la tabla SQL, si existen registros duplicados que se insertan en la tabla SQL, Azure Stream Analytics quita el registro duplicado. Divide los datos en lotes e inserta los lotes de forma recursiva hasta que se encuentra un único registro duplicado. Si el trabajo de streaming tiene un gran número de filas duplicadas, este proceso de división e inserción tiene que pasar por alto los duplicados uno por uno, lo cual es menos eficaz y consume muchos recursos. Si ve varios mensajes de advertencia de infracción de clave en el registro de actividad en la última hora, es probable que la salida de SQL esté ralentizando todo el trabajo. 
 
@@ -104,5 +104,5 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](ht
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

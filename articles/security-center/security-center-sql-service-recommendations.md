@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
-ms.author: monhaber
-ms.openlocfilehash: 2ac0e4ebaafb8b0c9c79e885cecbefc5a65c1823
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.author: v-mohabe
+ms.openlocfilehash: 9e48114d0d4159d40006710f9c8194dea0d775f8
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275335"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295630"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Protección de los servicios de datos y almacenamiento de Azure en Azure Security Center
 En este tema se muestra cómo ver e implementar recomendaciones de seguridad para los recursos de datos y almacenamiento. Azure Security Center encontró estas recomendaciones al analizar el estado de seguridad de los recursos de Azure.

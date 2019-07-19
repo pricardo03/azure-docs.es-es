@@ -2,18 +2,18 @@
 title: Solución de problemas de errores al incorporar Update Management, Change Tracking e Inventory
 description: Aprenda a solucionar los errores de incorporación de las soluciones Update Management, Change Tracking e Inventory
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.openlocfilehash: 3687a2fdcba9c2078bbbd9344089b5a22467682c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399770"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477480"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Solución de problemas de errores al incorporar soluciones
 
@@ -25,7 +25,7 @@ Al incorporar soluciones como Update Management, Change Tracking o Inventory, pu
 
 #### <a name="issue"></a>Problema
 
-Recibirá uno de los mensajes siguientes cuando se intenta incorporar una máquina virtual a una solución:
+Al intentar incorporar una máquina virtual a una solución, recibe uno de los siguientes mensajes:
 
 ```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
@@ -37,13 +37,13 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 #### <a name="cause"></a>Causa
 
-Este error se debe a permisos incorrectos o que faltan en la máquina virtual, el área de trabajo, o para el usuario.
+Este error se produce porque faltan permisos en la máquina virtual, el área de trabajo o para el usuario, o dichos permisos son incorrectos.
 
 #### <a name="resolution"></a>Resolución
 
-Asegúrese de tener los permisos correctos para incorporar la máquina virtual. Revise los [permisos necesarios para incorporar máquinas](../automation-role-based-access-control.md#onboarding) y vuelva a intentar incorporar la solución. Si recibe el error `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, asegúrese de que tiene el `Microsoft.OperationalInsights/workspaces/read` permiso para encontrará si la máquina virtual esté incorporada a un área de trabajo.
+Asegúrese de tener los permisos correctos para incorporar la máquina virtual. Revise los [permisos necesarios para incorporar máquinas](../automation-role-based-access-control.md#onboarding) y vuelva a intentar incorporar la solución. Si recibe el error `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, asegúrese de tener el permiso `Microsoft.OperationalInsights/workspaces/read` para averiguar si la máquina virtual está incorporada a un área de trabajo.
 
-### <a name="diagnostic-logging"></a>Escenario: Se produce un error en la incorporación con el mensaje: no se pudo configurar la cuenta de Automation para el registro de diagnóstico
+### <a name="diagnostic-logging"></a>Escenario: Se produce un error en la incorporación con el mensaje: "No se pudo configurar la cuenta de Automation para el registro de diagnóstico"
 
 #### <a name="issue"></a>Problema
 
@@ -55,11 +55,11 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Este error puede deberse a si el plan de tarifa no coincide con el modelo de facturación de la suscripción. Para obtener más información, consulte [supervisión del uso y costos estimados en Azure Monitor](http://aka.ms/PricingTierWarning).
+Este error puede producirse si el plan de tarifa no coincide con el modelo de facturación de la suscripción. Para más información, consulte [Supervisión del uso y costos estimados en Azure Monitor](https://aka.ms/PricingTierWarning).
 
 #### <a name="resolution"></a>Resolución
 
-Crear manualmente el área de trabajo de Log Analytics y repita el proceso de incorporación para seleccionar el área de trabajo creada.
+Cree manualmente el área de trabajo de Log Analytics y repita el proceso de incorporación para seleccionar el área de trabajo creada.
 
 ### <a name="computer-group-query-format-error"></a>Escenario: ComputerGroupQueryFormatError
 
@@ -95,13 +95,13 @@ Para implementar correctamente la solución, debe considerar modificar la direct
   * Cambiar el destino de la directiva por un recurso concreto (por ejemplo, por una cuenta de Automation específica).
   * Revisar el conjunto de recursos para los que se configuró en la directiva denegar el acceso.
 
-Compruebe las notificaciones en la esquina superior derecha de Azure portal o navegue hasta el grupo de recursos que contiene la cuenta de automation y seleccione **implementaciones** en **configuración** para ver el error despliegue. Para obtener más información sobre Azure Policy, visite: [Introducción a Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Compruebe las notificaciones en la esquina superior derecha de Azure Portal o desplácese hasta el grupo de recursos que contiene la cuenta de Automation y seleccione **Implementaciones** en **Configuración** para ver la implementación con errores. Para obtener más información sobre Azure Policy, visite: [Introducción a Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ### <a name="unlink"></a>Escenario: Error al intentar desvincular un área de trabajo
 
 #### <a name="issue"></a>Problema
 
-Recibirá el siguiente error al intentar desvincular un área de trabajo:
+Recibe el siguiente error al intentar desvincular un área de trabajo:
 
 ```error
 The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
@@ -109,33 +109,33 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>Causa
 
-Este error se produce cuando todavía dispone de soluciones activas en el área de trabajo de Log Analytics que dependen de su cuenta de Automation y Log Analytics del área de trabajo que se están vinculando.
+Este error se produce cuando todavía dispone de soluciones activas en el área de trabajo de Log Analytics que dependen de su cuenta de Automation y del área de trabajo de Log Analytics que se vincula.
 
 ### <a name="resolution"></a>Resolución
 
-Para resolver este problema deberá quitar las siguientes soluciones del área de trabajo si está usando:
+Para resolver este problema, deberá quitar las siguientes soluciones del área de trabajo si las está usando:
 
 * Administración de actualizaciones
 * Seguimiento de cambios
 * Inicio y detención de máquinas virtuales durante las horas de trabajo
 
-Una vez que quite las soluciones puede desvincular el área de trabajo. Es importante limpiar los artefactos de esas soluciones desde el área de trabajo y la cuenta de Automation existentes.  
+Una vez que quite las soluciones, puede desvincular el área de trabajo. Es importante limpiar los artefactos existentes en esas soluciones del área de trabajo y también de la cuenta de Automation.  
 
 * Administración de actualizaciones
-  * Quitar las implementaciones de actualizaciones (programaciones) de la cuenta de Automation
+  * Eliminación de implementaciones de actualizaciones (programaciones) de la cuenta de Automation
 * Inicio y detención de máquinas virtuales durante las horas de trabajo
-  * Quitar los bloqueos de componentes de la solución en la cuenta de Automation en **configuración** > **bloqueos**.
-  * Para conocer pasos adicionales quitar el Start/Stop VMs During OFF-hours ver, [quitar la máquina virtual de inicios y paradas During OFF-hours](../automation-solution-vm-management.md##remove-the-solution).
+  * Quite los bloqueos sobre los componentes de soluciones de la cuenta de Automation en **Configuración** > **Bloqueos**.
+  * Para conocer otros pasos para quitar la solución Start/Stop VMs during off-hours, consulte, [Eliminación de la solución Start/Stop VM during off-hours](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>Errores de extensión MMA
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Al implementar una solución, se implementan varios recursos relacionados. Uno de esos recursos es la extensión Microsoft Monitoring Agent o el Agente de Log Analytics para Linux. Estos son extensiones de máquina Virtual instalado por el agente de invitado de la máquina virtual que es responsable de comunicarse con el área de trabajo configurada de Log Analytics, con el fin de coordinación posterior de la descarga de archivos binarios y otros archivos que el solución le dependen de incorporación una vez que comienza la ejecución.
+Al implementar una solución, se implementan varios recursos relacionados. Uno de esos recursos es la extensión Microsoft Monitoring Agent o el Agente de Log Analytics para Linux. Estas son extensiones de máquina virtual que instala el agente invitado de la máquina virtual que es responsable de comunicarse con el área de trabajo de Log Analytics, con la finalidad de coordinar posteriormente la descarga de archivos binarios y de otro tipo de los que depende la solución que se va a incorporar una vez que comienza la ejecución.
 Lo normal es que primero sepa de los errores de instalación de MMA o del Agente de Log Analytics para Linux por una notificación que aparece en el centro de notificaciones. Al hacer clic en esa notificación se proporciona más información sobre el error en concreto. Al navegar al recurso Grupos de recursos y luego al elemento Implementaciones que contiene, también se proporcionan detalles sobre los errores de implementación que se han producido.
 La instalación de MMA o del Agente de Log Analytics para Linux puede generar errores por varias razones, y los pasos para solucionar estos errores varían en función del problema. Siga los pasos específicos de solución de problemas.
 
-La siguiente sección describe varios problemas que puede encontrarse cuando incorporación que se puede producir un error en la implementación de la extensión de MMA.
+En la siguiente sección se describen diversos problemas con los que se puede encontrar al incorporar soluciones que pueden ocasionar errores en la implementación de la extensión MMA.
 
 ### <a name="webclient-exception"></a>Escenario: Excepción durante una solicitud WebClient
 
@@ -157,7 +157,7 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 Algunas de las posibles causas de este error son:
 
-* Hay un proxy configurado en la máquina virtual, que sólo admite puertos específicos.
+* Hay un servidor proxy configurado en la máquina virtual que solo admite puertos específicos.
 
 * Una configuración de firewall ha bloqueado el acceso a los puertos y las direcciones necesarios.
 
@@ -165,9 +165,9 @@ Algunas de las posibles causas de este error son:
 
 Asegúrese de que los puertos y las direcciones adecuados están abiertos para la comunicación. Para obtener una lista de direcciones y puertos, consulte [Planeamiento de la red](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Escenario: No se pudo instalar debido a problemas de un entorno transitorio
+### <a name="transient-environment-issue"></a>Escenario: No se pudo realizar la instalación debido a problemas transitorios en el entorno
 
-Error en la instalación de la extensión Microsoft Monitoring Agent durante la implementación debido a otra instalación o la acción de bloqueo de la instalación
+La instalación de la extensión Microsoft Monitoring Agent no se pudo realizar durante la implementación debido a que hay otra instalación o acción que la bloquea.
 
 #### <a name="issue"></a>Problema
 
@@ -190,7 +190,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 Algunas de las posibles causas de este error son:
 
 * Hay otra instalación en curso.
-* Se desencadena el sistema para reiniciar durante la implementación de plantilla
+* El sistema se desencadenó para reiniciarse durante la implementación de plantillas.
 
 #### <a name="resolution"></a>Resolución
 
@@ -198,11 +198,11 @@ Este es un error transitorio por naturaleza. Vuelva a intentar la implementació
 
 ### <a name="installation-timeout"></a>Escenario: Tiempo de expiración de la instalación
 
-No se completó la instalación de la extensión de MMA debido a un tiempo de espera.
+No se completó la instalación de la extensión de MMA debido a que se agotó el tiempo de espera.
 
 #### <a name="issue"></a>Problema
 
-El ejemplo siguiente es de un mensaje de error que puede devolver:
+El siguiente es un ejemplo de un mensaje de error que se puede devolver:
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -210,7 +210,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>Causa
 
-Este error se produce porque la máquina virtual está sometido a una carga elevada durante la instalación.
+Este error se debe a que la máquina virtual está bajo una carga pesada durante la instalación.
 
 ### <a name="resolution"></a>Resolución
 

@@ -2,17 +2,17 @@
 title: Conexión SSH con los nodos de un clúster de Azure Kubernetes Service (AKS)
 description: Aprenda a crear una conexión SSH con los nodos de clúster de Azure Kubernetes Service (AKS) para la solución de problemas y tareas de mantenimiento.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: iainfou
-ms.openlocfilehash: 34f2d11cf4e1fb8e03d037be221e7b18ed4c5ad0
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.author: mlearned
+ms.openlocfilehash: 6ddd1b160110e7a751f54f89b387a62d94e9308e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303344"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614475"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conexión con SSH a los nodos de clúster de Azure Kubernetes Service (AKS) para mantenimiento o solución de problemas
 
@@ -35,7 +35,7 @@ De forma predeterminada, las claves SSH se obtienen, o generan, y luego se agreg
 
 Los pasos para obtener la dirección IP privada de los nodos AKS son diferentes según el tipo de clúster de AKS que ejecute:
 
-* Para la mayoría de los clústeres de AKS, siga los pasos para [obtener la dirección IP para los clústeres de AKS regulares ](#add-ssh-keys-to-regular-aks-clusters).
+* Para la mayoría de los clústeres de AKS, siga los pasos para [obtener la dirección IP para los clústeres de AKS normales](#add-ssh-keys-to-regular-aks-clusters).
 * Si usa cualquier característica en vista previa (GB) en AKS que use conjuntos de escalado de máquinas virtuales, como varios grupos de nodos o compatibilidad con contenedores de Windows Server, [siga los pasos para los clústeres de AKS basados en conjuntos de escalado de máquinas virtuales](#add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters).
 
 ### <a name="add-ssh-keys-to-regular-aks-clusters"></a>Incorporación de claves SSH a los clústeres de AKS normales

@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.openlocfilehash: 21c832235eeb86dcea94e70f34abaf4ec3489c3c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427370"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509608"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de protección de Azure Backup Server
 
@@ -22,7 +22,7 @@ En este artículo se indican los diferentes servidores y cargas de trabajo que p
 
 ## <a name="protection-support-matrix"></a>Matriz de compatibilidad de protección
 
-|Carga de trabajo|Version|Servidor de Azure Backup</br> installation|Azure Backup</br> Servidor V3|Azure Backup</br> Servidor V2|Protección y recuperación|
+|Carga de trabajo|Versión|Servidor de Azure Backup</br> installation|Azure Backup</br> Servidor V3|Azure Backup</br> Servidor V2|Protección y recuperación|
 |------------|-----------|---------------|--------------|---------------|-----------------|
 |Equipos cliente (64 bits y 32 bits)|Windows 10|Servidor físico<br /><br />Máquina virtual de Hyper-V<br /><br />Máquina virtual de VMware|Y|Y|Volumen, recurso compartido, carpeta, archivos, volúmenes desduplicados<br /><br />Los volúmenes protegidos deben ser NTFS. No se admiten FAT ni FAT32.<br /><br />Los volúmenes deben ser de al menos 1 GB. DPM usa Volume Shadow Copy Service (VSS) para tomar la instantánea de datos y esta solo funciona si el volumen es de al menos 1 GB.|
 |Equipos cliente (64 bits y 32 bits)|Windows 8.1|Servidor físico<br /><br />Máquina virtual de Hyper-V|Y|Y|Archivos<br /><br />Los volúmenes protegidos deben ser NTFS. No se admiten FAT ni FAT32.<br /><br />Los volúmenes deben ser de al menos 1 GB. DPM usa Volume Shadow Copy Service (VSS) para tomar la instantánea de datos y esta solo funciona si el volumen es de al menos 1 GB.|
@@ -79,18 +79,18 @@ En este artículo se indican los diferentes servidores y cargas de trabajo que p
 |Host de Hyper-V: agente de protección DPM en servidor host de Hyper-V, clúster o máquina virtual|Windows Server 2012: Datacenter y Standard|Servidor físico<br /><br />Máquina virtual local de Hyper-V|Y|Y|Protección: equipos Hyper-V y volúmenes compartidos de clúster (CSV)<br /><br />Recuperación: máquina virtual, recuperación a nivel de elemento de archivos y carpetas, volúmenes y discos duros virtuales|
 |Host de Hyper-V: agente de protección DPM en servidor host de Hyper-V, clúster o máquina virtual|Windows Server 2008 R2 SP1: Enterprise y Standard|Servidor físico<br /><br />Máquina virtual local de Hyper-V|Y|Y|Protección: equipos Hyper-V y volúmenes compartidos de clúster (CSV)<br /><br />Recuperación: máquina virtual, recuperación a nivel de elemento de archivos y carpetas, volúmenes y discos duros virtuales|
 |Host de Hyper-V: agente de protección DPM en servidor host de Hyper-V, clúster o máquina virtual|Windows Server 2008 SP2|Servidor físico<br /><br />Máquina virtual local de Hyper-V|N|N|Protección: equipos Hyper-V y volúmenes compartidos de clúster (CSV)<br /><br />Recuperación: máquina virtual, recuperación a nivel de elemento de archivos y carpetas, volúmenes y discos duros virtuales|
-|Máquinas virtuales de VMware|Versión con licencia de VMware vCenter/vSphere ESX/ESXi 5.5/6.0/6.5 |Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMWare|Y|Y|Máquinas virtuales de VMware en volúmenes compartidos de clúster (CSV), NFS y almacenamiento de SAN<br /> La recuperación de archivos y carpetas en el nivel de elemento solo está disponible para máquinas virtuales Windows, VMware vApps no está admitido.|
-|Máquinas virtuales de VMware|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMWare|Y|N|Máquinas virtuales de VMware en volúmenes compartidos de clúster (CSV), NFS y almacenamiento de SAN<br /> La recuperación de archivos y carpetas en el nivel de elemento solo está disponible para máquinas virtuales Windows, VMware vApps no está admitido.|
+|Máquinas virtuales de VMware|Versión con licencia de VMware vCenter/vSphere ESX/ESXi 5.5/6.0/6.5 |Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMWare|Y|Y|Máquinas virtuales de VMware en volúmenes compartidos de clúster (CSV), NFS y almacenamiento de SAN<br /> La recuperación de archivos y carpetas en el nivel de elemento solo está disponible para máquinas virtuales Windows, VMware vApps no está admitido.|
+|Máquinas virtuales de VMware|[Versión con licencia de VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMWare|Y|N|Máquinas virtuales de VMware en volúmenes compartidos de clúster (CSV), NFS y almacenamiento de SAN<br /> La recuperación de archivos y carpetas en el nivel de elemento solo está disponible para máquinas virtuales Windows, VMware vApps no está admitido.|
 |Linux|Linux ejecutado como invitado de Hyper-V o VMware|Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMWare|Y|Y|Hyper-V debe ejecutarse en Windows Server 2012 R2 o Windows Server 2016. Protección: máquina virtual completa<br /><br />Recuperación: máquina virtual completa <br/><br/> Para obtener una lista completa de las distribuciones y las versiones de Linux compatibles, vea el artículo [Linux en distribuciones aprobadas por Azure](../virtual-machines/linux/endorsed-distros.md).|
 
-## <a name="azure-expressroute-support"></a>Soporte técnico de Azure ExpressRoute
+## <a name="azure-expressroute-support"></a>Compatibilidad con Azure ExpressRoute
 
-Si se configura Azure ExpressRoute con emparejamiento de Microsoft o privada, no se puede usar para realizar una copia de seguridad de los datos en Azure.
+Si Azure ExpressRoute se configura con emparejamiento de Microsoft o privado, no se puede usar para realizar una copia de seguridad de los datos en Azure.
 
-Si se configura Azure ExpressRoute con emparejamiento público, puede usar para realizar una copia de seguridad de los datos en Azure.
+Si Azure ExpressRoute se configura con emparejamiento público, no se puede usar para realizar una copia de seguridad de los datos en Azure.
 
 >[!NOTE]
->Emparejamiento público está en desuso para los circuitos nuevo.
+>El emparejamiento público está en desuso para circuitos nuevos.
 
 ## <a name="cluster-support"></a>Compatibilidad con clústeres
 Azure Backup Server puede proteger datos en las siguientes aplicaciones agrupadas en clúster:

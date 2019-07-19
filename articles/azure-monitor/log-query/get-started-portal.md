@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2e2d13e6923535a8993a6477cbbfb921f6092d66
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296512"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565602"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introducción a los análisis de registros de Azure Monitor
 
@@ -55,7 +55,7 @@ Event | search "error"
 
 Esta consulta busca en la tabla _Event_ los registros que contienen el término _error_ en cualquier propiedad.
 
-Las consultas pueden comenzar por un nombre de tabla o un comando [search](/kusto/query/searchoperator). El ejemplo anterior comienza con el nombre de tabla _Event_, que recupera todos los registros de la tabla de eventos. El carácter de barra vertical (|) separa los comandos,de manera que la salida del primero sea la entrada del siguiente. A una consulta se puede agregar cualquier cantidad de comandos.
+Las consultas pueden comenzar por un nombre de tabla o un comando [search](/azure/kusto/query/searchoperator). El ejemplo anterior comienza con el nombre de tabla _Event_, que recupera todos los registros de la tabla de eventos. El carácter de barra vertical (|) separa los comandos,de manera que la salida del primero sea la entrada del siguiente. A una consulta se puede agregar cualquier cantidad de comandos.
 
 Otra forma de escribir la misma consulta sería:
 

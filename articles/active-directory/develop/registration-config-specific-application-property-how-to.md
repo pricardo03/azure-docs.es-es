@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bccaa28d34ebff47c7de73a4d9b3d8296ae9fef
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b01ff1e2d0c9bc926d54bd54716e0579ef395ec0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476121"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655989"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Cumplimentación de campos específicos en una aplicación personalizada
 
@@ -43,7 +43,7 @@ Este artículo contiene una breve descripción de todos los campos disponibles e
 |------------------|------------------------------------------------------------------------------------------|
 | NOMBRE             | Nombre de la aplicación. Debe tener un mínimo de cuatro caracteres.                |
 | Tipos de cuenta admitidos| Seleccione las cuentas que quiere que admita la aplicación: cuentas solo en este directorio de la organización, cuentas en cualquier directorio de la organización o cuentas en cualquier directorio de la organización y cuentas personales de Microsoft.  |
-| URI de redireccionamiento (opcional) | Seleccione el tipo de aplicación que se va a compilar, **Web** o **Cliente público (móvil y escritorio)** y, a continuación, escriba el identificador URI de redireccionamiento (o la dirección URL de respuesta) para la aplicación. Para aplicaciones web, proporcione la dirección URL base de la aplicación. Por ejemplo, http://localhost:31544 podría ser la dirección URL de una aplicación web que se ejecuta en la máquina local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web. Para aplicaciones cliente públicas, proporcione el identificador URI que utiliza Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, como myapp://auth. Si desea ejemplos específicos de aplicaciones web o aplicaciones nativa, visite nuestras [guías de inicio rápido](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).|
+| URI de redireccionamiento (opcional) | Seleccione el tipo de aplicación que se va a compilar, **Web** o **Cliente público (móvil y escritorio)** y, a continuación, escriba el identificador URI de redireccionamiento (o la dirección URL de respuesta) para la aplicación. Para aplicaciones web, proporcione la dirección URL base de la aplicación. Por ejemplo, http://localhost:31544 podría ser la dirección URL de una aplicación web que se ejecuta en la máquina local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web. Para aplicaciones cliente públicas, proporcione el identificador URI que utiliza Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, como myapp://auth. Si desea ejemplos específicos de aplicaciones web o aplicaciones nativa, visite nuestras [guías de inicio rápido](https://docs.microsoft.com/azure/active-directory/develop).|
 
 Cuando haya rellenado los campos anteriores, la aplicación se registrará en Azure Portal y se le redirigirá a la página de información general de la aplicación. Las páginas de configuración en el panel de la izquierda en **Administrar** tiene más campos para poder personalizar la aplicación. Las tablas siguientes describen todos los campos. En función de si ha creado una aplicación web o una aplicación cliente pública, es posible que solo aparezca un subconjunto de estos campos.
 

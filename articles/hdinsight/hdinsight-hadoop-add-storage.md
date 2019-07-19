@@ -7,28 +7,28 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6b9577bcf8b527abb0cb7b8720ed83ec8321655b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 8a844465f7ba2222acd7efaf100c7b682c15adb2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724468"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433510"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
-Obtenga información sobre cómo usar acciones de script para agregar almacenamiento de Azure adicionales *cuentas* a HDInsight. Los pasos descritos en este documento agregan un almacenamiento *cuenta* a un clúster de HDInsight basado en Linux existente. En este artículo se aplica al almacenamiento *cuentas* (no el clúster cuenta de almacenamiento predeterminada) y el almacenamiento adicional no como [Gen1 de almacenamiento de Azure Data Lake](hdinsight-hadoop-use-data-lake-store.md) y [Azure Data Lake Storage Gen2 ](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Aprenda a usar acciones de script para agregar *cuentas* de Azure Storage adicionales a HDInsight. Los pasos descritos en este documento agregan una *cuenta* de almacenamiento a un clúster de HDInsight existente basado en Linux. Este artículo es aplicable a las *cuentas* de almacenamiento (no la cuenta de almacenamiento predeterminada del clúster) y tampoco al almacenamiento adicional, como [Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) y [Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
-> La información de este documento trata sobre cómo agregar almacenamiento adicional a un clúster después de que se ha creado. Para información sobre cómo agregar cuentas de almacenamiento durante la creación de clústeres, consulte [Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
+> La información de este documento trata sobre cómo agregar almacenamiento adicional a un clúster después de que se ha creado. Para información sobre cómo agregar cuentas de almacenamiento durante la creación de clústeres, consulte [Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un clúster de Hadoop en HDInsight. Consulte [empezar a trabajar con HDInsight en Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
-* Nombre de la cuenta de almacenamiento y la clave. Consulte [Administrar configuración de la cuenta de almacenamiento en Azure portal](../storage/common/storage-account-manage.md).
-* [Nombre del clúster de mayúsculas y minúsculas correctamente](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
-* Si usa PowerShell, necesitará el módulo de AZ.  Consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
-* Si no ha instalado la CLI de Azure, consulte [interfaz de línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-* Si usa bash o un símbolo del sistema de windows, también necesitará **jq**, un procesador JSON de línea de comandos.  Consulte [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/). Para bash en Ubuntu en Windows 10, consulte [subsistema de Windows para la Guía de instalación de Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
+* Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Nombre y clave de la cuenta de almacenamiento. Consulte [Administración de la configuración de cuentas de almacenamiento en Azure Portal](../storage/common/storage-account-manage.md).
+* [Nombre del clúster con las mayúsculas y minúsculas correctas](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
+* Si usa PowerShell, necesitará el módulo AZ.  Consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Si no tiene instalada la CLI de Azure, consulte [Interfaz de la línea de comandos de Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* Si usa bash o un símbolo del sistema de Windows, también necesitará **jq**, un procesador JSON de la línea de comandos.  Consulte [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/). Consulte la [Guía de instalación del subsistema de Windows para Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para bash en Ubuntu en Windows 10.
 
 ## <a name="how-it-works"></a>Cómo funciona
 
@@ -63,11 +63,11 @@ __Requisitos__:  El script se debe aplicar en los __nodos principales__. No es n
 
 ## <a name="to-use-the-script"></a>Para usar el script
 
-Este script puede usarse desde el portal de Azure, CLI de Azure o Azure PowerShell.
+Este script se puede utilizar desde Azure PowerShell, la CLI de Azure o Azure Portal.
 
 ### <a name="powershell"></a>PowerShell
 
-Uso de [AzHDInsightScriptAction enviar](https://docs.microsoft.com/powershell/module/az.hdinsight/submit-azhdinsightscriptaction). Reemplace `CLUSTERNAME`, `ACCOUNTNAME`, y `ACCOUNTKEY` con los valores adecuados.
+Con [Submit-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/submit-azhdinsightscriptaction). Reemplace `CLUSTERNAME`, `ACCOUNTNAME` y `ACCOUNTKEY` por los valores adecuados.
 
 ```powershell
 # Update these parameters
@@ -86,9 +86,9 @@ Submit-AzHDInsightScriptAction `
     -Parameters $parameters
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
-Uso de [ejecutar la acción de script de hdinsight az](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).  Reemplace `CLUSTERNAME`, `RESOURCEGROUP`, `ACCOUNTNAME`, y `ACCOUNTKEY` con los valores adecuados.
+Con [az hdinsight script-action execute](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).  Reemplace `CLUSTERNAME`, `RESOURCEGROUP`, `ACCOUNTNAME` y `ACCOUNTKEY` por los valores adecuados.
 
 ```cli
 az hdinsight script-action execute ^
@@ -100,15 +100,15 @@ az hdinsight script-action execute ^
     --script-parameters "ACCOUNTNAME ACCOUNTKEY"
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
-Consulte [aplicar una acción de script a un clúster en ejecución](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
+Consulte [Aplicar una acción de script a un clúster en ejecución](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
 ## <a name="known-issues"></a>Problemas conocidos
 
 ### <a name="storage-firewall"></a>Firewall de almacenamiento
 
-Si decide proteger la cuenta de almacenamiento con el **Firewalls y redes virtuales** restricciones en **redes seleccionadas**, asegúrese de habilitar la excepción **permitir confianza de Microsoft servicios...**  para que HDInsight puede acceder a su cuenta de almacenamiento.
+Si decide proteger la cuenta de almacenamiento con las restricciones de **firewalls y redes virtuales** en **redes seleccionadas**, asegúrese de habilitar la excepción **Permitir servicios de Microsoft de confianza...** para que HDInsight pueda acceder a su cuenta de almacenamiento.
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Cuentas de almacenamiento que no se muestran en Azure Portal o las herramientas
 
@@ -120,7 +120,7 @@ Para ver información de la cuenta de almacenamiento agregada al clúster median
 
 ### <a name="powershell"></a>PowerShell
 
-Reemplace `CLUSTERNAME` con el nombre del clúster de mayúsculas y minúsculas correctamente. En primer lugar identifique la versión de configuración de servicio usa escribiendo el comando siguiente:
+Reemplace `CLUSTERNAME` por el nombre del clúster con las mayúsculas y minúsculas correctas. En primer lugar, identifique la versión de configuración del servicio en uso con el comando siguiente:
 
 ```powershell
 # getting service_config_version
@@ -132,7 +132,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.desired_service_config_versions.HDFS.service_config_version
 ```
 
-Reemplace `ACCOUNTNAME` con los nombres reales. A continuación, reemplace `4` con los datos reales versión de configuración de servicio y escriba el comando. Cuando se le solicite, escriba la contraseña de inicio de sesión del clúster.
+Reemplace `ACCOUNTNAME` por los nombres reales. A continuación, reemplace `4` por la versión de configuración del servicio real y escriba el comando. Cuando se le solicite, escriba la contraseña de inicio de sesión del clúster.
 
 ```powershell
 # Update values
@@ -147,7 +147,7 @@ $respObj.items.configurations.properties."fs.azure.account.key.$accountName.blob
 ```
 
 ### <a name="bash"></a>Bash
-Reemplace `myCluster` con el nombre del clúster de mayúsculas y minúsculas correctamente.
+Reemplace `myCluster` por el nombre del clúster con las mayúsculas y minúsculas correctas.
 
 ```bash
 export CLUSTERNAME='myCluster'
@@ -156,7 +156,7 @@ curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/cluste
 | jq ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
 ```
 
-Reemplace `myAccount` con el nombre de cuenta de almacenamiento real. A continuación, reemplace `4` con los datos reales versión de configuración de servicio y escriba el comando:
+Reemplace `myAccount` por el nombre de la cuenta de almacenamiento real. A continuación, reemplace `4` por la versión de configuración del servicio real y escriba el comando:
 
 ```bash
 export ACCOUNTNAME='"fs.azure.account.key.myAccount.blob.core.windows.net"'
@@ -168,14 +168,14 @@ curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/cluste
 
 ### <a name="cmd"></a>cmd
 
-Reemplace `CLUSTERNAME` con el nombre del clúster de mayúsculas y minúsculas correctamente en ambas secuencias de comandos. En primer lugar identifique la versión de configuración de servicio usa escribiendo el comando siguiente:
+Reemplace `CLUSTERNAME` por el nombre del clúster con las mayúsculas y minúsculas correctas en ambos scripts. En primer lugar, identifique la versión de configuración del servicio en uso con el comando siguiente:
 
 ```cmd
 curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" | ^
 jq-win64 ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
 ```
 
-Reemplace `ACCOUNTNAME` con el nombre de cuenta de almacenamiento real. A continuación, reemplace `4` con los datos reales versión de configuración de servicio y escriba el comando:
+Reemplace `ACCOUNTNAME` por el nombre de la cuenta de almacenamiento real. A continuación, reemplace `4` por la versión de configuración del servicio real y escriba el comando:
 
 ```cmd
 curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=4" | ^
@@ -196,6 +196,9 @@ Si cambia la clave de una cuenta de almacenamiento, HDInsight ya no podrá acced
 La ejecución nuevamente de la acción de script __no__ actualizará la clave, ya que el script comprueba si ya existe una entrada para la cuenta de almacenamiento. Si ya existe una entrada, no realice ningún cambio.
 
 Para solucionar este problema, debe quitar la entrada existente para la cuenta de almacenamiento. Realice los siguientes pasos para quitar la entrada:
+
+> [!IMPORTANT]  
+> No se admite la rotación de la clave de almacenamiento de la cuenta de almacenamiento principal asociada a un clúster.
 
 1. Abra un explorador web y abra la interfaz de usuario web de Ambari de su clúster de HDInsight. El URI es `https://CLUSTERNAME.azurehdinsight.net`. Reemplace `CLUSTERNAME` por el nombre del clúster.
 

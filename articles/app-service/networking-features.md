@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 362f0b32ea99d0b888ea9f1efa0cd4ea74eb2fa1
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: db29d0761084e32d601dc9c6d94082cd09bc5d18
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67338496"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655460"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -223,7 +223,7 @@ Una aplicación de varios niveles es una aplicación en la que solo se puede acc
 Puede hacer que varias aplicaciones de front-end usen la misma aplicación de API mediante la Integración con red virtual de las otras aplicaciones de front-end y puntos de conexión de servicio de la aplicación de API con sus subredes.  
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#bind-your-ssl-certificate
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl
 [iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 17b9d11b75e2677e22fa2e38c21a69f018a4bee8
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 8e3b6d0fbefb8e3d3437fd5e24f929e453c573df
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508347"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621005"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics en IoT Edge
  
@@ -81,7 +81,7 @@ Se requiere un contenedor de almacenamiento es necesario para exportar la consul
 4. Establezca la información del contenedor de almacenamiento en el menú **Configuración de IoT Edge**.
 
 5. Establecimiento de valores opcionales
-    1. **Ordenación de eventos**. Puede configurar la directiva de fuera de servicio en el portal. La documentación está disponible [aquí](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
+    1. **Ordenación de eventos**. Puede configurar la directiva de fuera de servicio en el portal. La documentación está disponible [aquí](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
     2. **Configuración regional**. Defina el formato de internalización.
 
 
