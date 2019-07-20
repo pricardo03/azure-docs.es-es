@@ -553,10 +553,6 @@
           href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Guías de inicio rápido
       items:
-        - name: Creación de una cuenta de Storage
-          href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Administración de datos con el Explorador de Storage
-          href: ../blobs/data-lake-storage-explorer.md
         - name: Análisis de datos con Databricks
           href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Tutoriales
@@ -601,6 +597,16 @@
           href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Procedimientos
       items:
+        - name: Crear y administrar cuentas de almacenamiento
+          items:
+            - name: Creación de una cuenta de almacenamiento de uso general
+              href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Administración de una cuenta de almacenamiento
+              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Administración de datos con el Explorador de Storage
+              href: ../blobs/data-lake-storage-explorer.md
+            - name: Actualización de una cuenta de almacenamiento
+              href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Introducción de datos
           items:
             - name: AzCopy
