@@ -311,7 +311,7 @@ Los clientes deben confirmar el final de un turno enviando un mensaje `telemetry
 | Path | `telemetry` |
 | X-Timestamp | Marca de tiempo del reloj de cliente UTC en formato ISO 8601 |
 | Content-Type | `application/json` |
-| Cuerpo | Una estructura JSON que contiene información del cliente sobre el turno |
+| Body | Una estructura JSON que contiene información del cliente sobre el turno |
 
 El esquema para el cuerpo del mensaje `telemetry` se define en la sección [Esquema de telemetría](#telemetry-schema).
 
