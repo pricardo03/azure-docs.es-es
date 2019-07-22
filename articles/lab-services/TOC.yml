@@ -56,8 +56,6 @@
           href: best-practices-distributive-collaborative-development-environment.md
         - name: Integración con Azure DevOps
           href: devtest-lab-dev-ops.md
-        - name: Uso de funcionalidades de notificación
-          href: devtest-lab-use-claim-capabilities.md
         - name: Escenarios
           items:
             - name: Escenarios conocidos de uso de DevTest Labs
@@ -68,6 +66,8 @@
               href: devtest-lab-test-env.md
             - name: Uso de laboratorios para aprendizaje
               href: devtest-lab-training-lab.md
+            - name: Escenarios de uso de VM reclamables
+              href: devtest-lab-use-claim-capabilities.md
 - name: Guías de procedimientos
   items:
     - name: Laboratorios educativos
@@ -158,11 +158,11 @@
           items:
             - name: 'Creación de una máquina virtual: Azure Portal'
               href: devtest-lab-add-vm.md
-            - name: Creación de una máquina virtual con Azure PowerShell
+            - name: 'Creación de una máquina virtual: Azure PowerShell'
               href: devtest-lab-vm-powershell.md
-            - name: Creación y administración de máquinas virtuales mediante la CLI de Azure
+            - name: 'Creación de una máquina virtual: CLI de Azure'
               href: devtest-lab-vmcli.md
-            - name: Creación de una máquina virtual a partir de una plantilla de Resource Manager
+            - name: 'Creación de una máquina virtual: Plantilla de Resource Manager'
               href: devtest-lab-use-resource-manager-template.md
             - name: Inicio o detención de una máquina virtual mediante PowerShell o la CLI
               href: use-command-line-start-stop-virtual-machines.md
@@ -172,6 +172,8 @@
               href: devtest-lab-resize-vm.md
             - name: Reimplementación de una máquina virtual
               href: devtest-lab-redeploy-vm.md
+            - name: Configuración del apagado automático de una máquina virtual
+              href: devtest-lab-auto-shutdown-vm.md
             - name: Creación y administración de máquinas virtuales reclamables
               href: devtest-lab-add-claimable-vm.md
             - name: Configuración de secretos
@@ -210,9 +212,9 @@
               items:
                 - name: Creación de una imagen personalizada a partir de una máquina virtual
                   href: devtest-lab-create-custom-image-from-vm-using-portal.md
-                - name: Creación de una imagen personalizada desde un VHD mediante Azure Portal
+                - name: 'Creación de una imagen personalizada desde un disco duro virtual: Azure Portal'
                   href: devtest-lab-create-template.md
-                - name: Creación de una imagen personalizada desde un VHD mediante PowerShell
+                - name: 'Creación de una imagen personalizada desde un disco duro virtual: PowerShell'
                   href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
                 - name: Carga del archivo VHD mediante AzCopy
                   href: devtest-lab-upload-vhd-using-azcopy.md

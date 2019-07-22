@@ -41,6 +41,8 @@
           href: logic-apps-create-logic-apps-from-templates.md
         - name: Migración desde BizTalk Services
           href: logic-apps-move-from-mabs.md
+        - name: Exportación de flujos desde Microsoft Flow e implementación en Azure Logic Apps
+          href: export-from-microsoft-flow-logic-app-template.md
         - name: Control de la ejecución del flujo de trabajo
           items:
             - name: Instrucciones condicionales
@@ -77,7 +79,7 @@
           href: logic-apps-exception-handling.md
         - name: Control de mensajes grandes
           href: logic-apps-handle-large-messages.md
-        - name: Protección
+        - name: Seguridad
           items:
             - name: Protección de las aplicaciones lógicas
               href: logic-apps-securing-a-logic-app.md
