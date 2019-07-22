@@ -65,7 +65,7 @@ En primer lugar, cree una función desencadenada por HTTP que inicie una orquest
 
     ![Elección de la plantilla de inicio de HTTP](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Deje el nombre predeterminado como `DurableFunctionsHttpStart`, presione ****ENTRAT** y, luego, seleccione la autenticación **Anónima**.
+3. Deje el nombre predeterminado como `DurableFunctionsHttpStart`, presione ** **ENTRAT** y, luego, seleccione la autenticación **Anónima**.
 
     ![Elegir autenticación anónima](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 

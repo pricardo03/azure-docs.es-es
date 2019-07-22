@@ -212,7 +212,7 @@
       items:
         - name: ILB con una instancia de App Service Environment
           href: create-gateway-internal-load-balancer-app-service-environment.md
-        - name: Redireccionamiento a la dirección URL de App Service
+        - name: Problemas de App Service
           href: troubleshoot-app-service-redirection-app-service-url.md
         - name: Problemas de afinidad de sesión
           href: how-to-troubleshoot-application-gateway-session-affinity-issues.md

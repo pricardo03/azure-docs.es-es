@@ -49,7 +49,7 @@ Cree una nueva máquina virtual Linux:
 
 1. En la página  **Configuración** de  **Red** > **Grupo de seguridad de red** > **Seleccionar puertos de entrada públicos**, selecccione  **HTTP**  y  **SSH (22)** . Deje el resto de valores predeterminados y seleccione  **Aceptar**. 
 
-1. En la página de resumen, seleccione  **Crear ** para iniciar la implementación de la máquina virtual. 
+1. En la página de resumen, seleccione  **Crear**  para iniciar la implementación de la máquina virtual. 
 
 1. La máquina virtual se ancla al panel de Azure Portal. Una vez completada la implementación, se abrirá automáticamente el resumen de la máquina virtual. 
 

@@ -175,7 +175,7 @@ Los clientes *deben* enviar un mensaje `speech.config` inmediatamente después d
 | Campo | DESCRIPCIÓN |
 |----|----|
 | Codificación de mensajes de WebSocket | Texto |
-| Cuerpo | La carga como estructura JSON |
+| Body | La carga como estructura JSON |
 
 #### <a name="required-message-headers"></a>Encabezados de mensaje obligatorios
 
@@ -244,7 +244,7 @@ Servicio de voz utiliza el primer mensaje `audio` que contiene un identificador 
 | Campo | DESCRIPCIÓN |
 |-------------|----------------|
 | Codificación de mensajes de WebSocket | Binary |
-| Cuerpo | Los datos binarios para el fragmento de audio. El tamaño máximo es de 8192 bytes. |
+| Body | Los datos binarios para el fragmento de audio. El tamaño máximo es de 8192 bytes. |
 
 #### <a name="required-message-headers"></a>Encabezados de mensaje obligatorios
 
@@ -332,7 +332,7 @@ El mensaje `speech.startDetected` indica que Servicio de voz ha detectado voz en
 | Codificación de mensajes de WebSocket | Texto |
 | Path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
-| Cuerpo | La estructura JSON que contiene información sobre las condiciones cuando se detectó el inicio de la voz. El campo *Offset* de esta estructura especifica el desfase (en unidades de 100 nanosegundos) cuando se detecta la voz en la secuencia de audio, en relación con el inicio de la secuencia. |
+| Body | La estructura JSON que contiene información sobre las condiciones cuando se detectó el inicio de la voz. El campo *Offset* de esta estructura especifica el desfase (en unidades de 100 nanosegundos) cuando se detecta la voz en la secuencia de audio, en relación con el inicio de la secuencia. |
 
 #### <a name="sample-message"></a>Mensaje de ejemplo
 
@@ -358,7 +358,7 @@ Durante el reconocimiento de voz, Servicio de voz genera periódicamente hipóte
 | Path | `speech.hypothesis` |
 | X-RequestId | UUID en formato "no-dash" |
 | Content-Type | application/json |
-| Cuerpo | La estructura JSON de la hipótesis de voz |
+| Body | La estructura JSON de la hipótesis de voz |
 
 #### <a name="sample-message"></a>Mensaje de ejemplo
 
@@ -389,7 +389,7 @@ Cuando Servicio de voz determina que tiene suficiente información para generar 
 | Codificación de mensajes de WebSocket | Texto |
 | Path | `speech.phrase` |
 | Content-Type | application/json |
-| Cuerpo | La estructura JSON de la frase de voz |
+| Body | La estructura JSON de la frase de voz |
 
 El esquema JSON de la frase de voz incluye los siguientes campos: `RecognitionStatus`, `DisplayText`, `Offset` y `Duration`. Para obtener más información sobre estos campos, consulte [Transcription responses](../concepts.md#transcription-responses) (Respuestas de transcripción).
 
@@ -416,7 +416,7 @@ El mensaje `speech.endDetected` especifica que la aplicación cliente debe deten
 | ------------- | ---------------- |
 | Codificación de mensajes de WebSocket | Texto |
 | Path | `speech.endDetected` |
-| Cuerpo | La estructura JSON que contiene el desfase cuando se ha detectado el final del habla. El desfase se representa en el unidades de 100 nanosegundos desde el principio del audio que se usó para el reconocimiento. |
+| Body | La estructura JSON que contiene el desfase cuando se ha detectado el final del habla. El desfase se representa en el unidades de 100 nanosegundos desde el principio del audio que se usó para el reconocimiento. |
 | Content-Type | application/json; charset=utf-8 |
 
 #### <a name="sample-message"></a>Mensaje de ejemplo
@@ -442,7 +442,7 @@ El elemento *Offset* especifica el desfase (en unidades de 100 nanosegundos) cua
 | Codificación de mensajes de WebSocket | Texto |
 | Path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
-| Cuerpo | Estructura JSON |
+| Body | Estructura JSON |
 
 #### <a name="sample-message"></a>Mensaje de ejemplo
 
@@ -468,7 +468,7 @@ El cuerpo del mensaje `turn.start` es una estructura JSON que contiene el contex
 | ------------- | ---------------- |
 | Codificación de mensajes de WebSocket | Texto |
 | Path | `turn.end` |
-| Cuerpo | None |
+| Body | None |
 
 #### <a name="sample-message"></a>Mensaje de ejemplo
 

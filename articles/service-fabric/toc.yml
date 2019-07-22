@@ -274,7 +274,7 @@
           items:
             - name: Introducción a los clústeres de Azure
               href: service-fabric-azure-clusters-overview.md
-            - name: Tipos de nodos y conjuntos de escalado de máquinas virtuales
+            - name: Tipos de nodo y conjuntos de escalado de máquinas virtuales
               href: service-fabric-cluster-nodetypes.md
             - name: Actualización de clústeres en Azure
               href: service-fabric-cluster-upgrade.md
@@ -547,8 +547,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Procedimientos recomendados
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
-        - name: Refactorización de una aplicación migrada
-          href: /azure/architecture/service-fabric/refactor-migrated-app
+        - name: Modernización de la aplicación
+          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
     - name: Administración del ciclo de vida de las aplicaciones
       items:
         - name: Empaquetar una aplicación

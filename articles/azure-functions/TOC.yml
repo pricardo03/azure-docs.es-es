@@ -53,6 +53,8 @@
       href: functions-twitter-email.md
     - name: Creación de una API sin servidor
       href: functions-create-serverless-api.md
+    - name: "Desarrollo de funciones de Python con VS\_Code"
+      href: tutorial-vs-code-serverless-python.md
     - name: Creación de una definición de OpenAPI
       href: functions-openapi-definition.md
     - name: Conexión a una red virtual
@@ -194,7 +196,7 @@
           href: disable-function.md
     - name: Supervisión
       href: functions-monitoring.md
-    - name: Protección
+    - name: Seguridad
       items:
         - name: Compra de un certificado SSL
           href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
