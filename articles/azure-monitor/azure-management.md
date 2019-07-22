@@ -46,7 +46,7 @@ La gobernanza proporciona mecanismos y procesos para mantener el control de las 
 La administración de la seguridad de las aplicaciones, recursos y datos conlleva la combinación de la evaluación de las amenazas, la recopilación y el análisis de los datos de seguridad, y la garantía de que tanto las aplicaciones como los recursos están diseñados y configurados de forma segura.  La supervisión de la seguridad y el análisis de amenazas los proporciona [Azure Security Center](../security-center/security-center-intro.md), que incluye una administración unificada de la seguridad y una protección avanzada contra amenazas para cargas de trabajo en la nube híbrida.  También debe consultar [Introducción a la seguridad de Azure](../security/azure-security.md), donde encontrará información completa acerca la seguridad en Azure e instrucciones para configurar de forma segura los recursos de Azure.
 
 
-## <a name="protect"></a>Seguridad
+## <a name="protect"></a>Protección
 Por protección se entiende garantizar que las aplicaciones y los datos estén siempre disponibles, incluso en el caso de interrupciones fuera de su control.  En Azure, la protección se proporciona mediante dos servicios.  [Azure Backup](../backup/backup-introduction-to-azure-backup.md) proporciona copias de seguridad y recuperación de los datos, tanto los de la nube como los de un entorno local.    [Azure Site Recovery](../site-recovery/site-recovery-overview.md) garantiza un alta disponibilidad de cualquier aplicación, ya que proporciona continuidad empresarial y recuperación inmediata en caso de desastre.
 
 ## <a name="migrate"></a>Migrar 
