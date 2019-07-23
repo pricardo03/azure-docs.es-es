@@ -1,5 +1,5 @@
 ---
-title: Soporte para un módulo de Azure IoT Edge | Azure Marketplace
+title: Soporte técnico para un módulo Azure IoT Edge | Azure Marketplace
 description: Opciones de soporte técnico de un módulo IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: fba5ac7669f7e2b1cfd3320e813891b5f99551d4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943171"
 ---
 # <a name="iot-edge-module-support-tab"></a>Pestaña Soporte técnico de los módulos IoT Edge
 
-Use la pestaña **Soporte técnico** de la página **Nueva oferta** para proporcionar recursos técnicos y de soporte técnico a los usuarios en relación con la oferta.  Se proporcionan las siguientes áreas de entrada en el formulario de soporte técnico: **Contacto de ingeniería**, **soporte al cliente**, y **admite direcciones URL**. Un asterisco (*) junto al nombre del campo indica que es obligatorio.
+Use la pestaña **Soporte técnico** de la página **Nueva oferta** para proporcionar recursos técnicos y de soporte técnico a los usuarios en relación con la oferta.  Las siguientes áreas de entrada se proporcionan en el formulario de soporte técnico: **Contacto de ingeniería**, **Asistencia al cliente** y **Direcciones URL de soporte técnico**. Un asterisco (*) junto al nombre del campo indica que es obligatorio.
 
 ![Pestaña Soporte técnico en el formulario Nueva oferta de Módulos IoT Edge](./media/iot-edge-module-support-tab.png)
 

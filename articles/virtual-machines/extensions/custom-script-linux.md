@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9bc3ef0cf5dd54802d32058afb904800c364c19
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869884"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64725233"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 2 con máquinas virtuales Linux
 La extensión de script personalizado versión 2 descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage u otra ubicación de Internet accesible, o se pueden proporcionar al tiempo de ejecución de la extensión. 
@@ -114,7 +114,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 | type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (p. ej.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (p. ej.) | python MyPythonScript.py <my-param1> | string |
+| commandToExecute (p. ej.) | python MyPythonScript.py \<mi-parámetro1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (p. ej.) | false | boolean |
 | timestamp (p. ej.) | 123456789 | Entero de 32 bits |
@@ -364,7 +364,7 @@ La extensión de script de Azure genera un registro, que se encuentra aquí:
 /var/log/azure/custom-script/handler.log
 ```
 
-Debe buscar la ejecución individual, tendrá un aspecto algo como:
+Debe buscar la ejecución individual, que tendrá un aspecto parecido al siguiente:
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check

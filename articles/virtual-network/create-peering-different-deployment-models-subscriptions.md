@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud;anavin
 ms.openlocfilehash: 2cdf136a01678f7fb2e594b325cd78e8e0240c70
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683417"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Crear un emparejamiento de redes virtuales de Azure: diferentes modelos de implementación y suscripciones
@@ -71,7 +71,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
     - **Ubicación**: *Este de EE. UU.*
 
 14. En el cuadro **Buscar recursos** en la parte superior del portal, escriba *myVnetB*. Haga clic en **myVnetB** cuando aparezca en los resultados de la búsqueda. Aparece una hoja para la red virtual **myVnetB**.
-15. En la hoja **myVnetB** que aparece, haga clic en **Propiedades** en la lista vertical de opciones que aparece a la izquierda de la hoja. Copie el **ID. DE RECURSO**, ya que se usará en un paso posterior. El identificador de recurso es similar al ejemplo siguiente: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
+15. En la hoja **myVnetB** que aparece, haga clic en **Propiedades** en la lista vertical de opciones que aparece a la izquierda de la hoja. Copie el **ID. DE RECURSO**, ya que se usará en un paso posterior. El id. de recurso es similar al del siguiente ejemplo: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. Complete los pasos 5 a 9 para myVnetB y escriba **UserA** en el paso 8.
 17. Cierre sesión en el portal como UserB e inicie sesión como UserA.
 18. En el cuadro **Buscar recursos** en la parte superior del portal, escriba *myVnetA*. Haga clic en **myVnetA** cuando aparezca en los resultados de la búsqueda. Aparece una hoja para la red virtual **myVnet**.
@@ -180,7 +180,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
 
 En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones, puede usar la misma cuenta para todos los pasos, omitir los pasos para cerrar sesión en Azure y quitar las líneas del script que crean las asignaciones de roles de usuario. Reemplace UserA@azure.com y UserB@azure.com en todos los scripts siguientes por los nombres de usuario que está usando para UserA y UserB. 
 
-1. Instale la versión más reciente de PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) y [Az](https://www.powershellgallery.com/packages/Az) módulos. Si no está familiarizado con Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Instale la versión más reciente de los módulos [Azure](https://www.powershellgallery.com/packages/Azure) y [Az](https://www.powershellgallery.com/packages/Az) de PowerShell. Si no está familiarizado con Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie una sesión de PowerShell.
 3. En PowerShell, inicie sesión en la suscripción de UserB como UserB escribiendo el comando `Add-AzureAccount`. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#permissions).
 4. Para crear una red virtual (clásica) con PowerShell, debe crear o modificar un archivo de configuración de red existente. Obtenga información sobre cómo [exportar, actualizar e importar archivos de configuración de red](virtual-networks-using-network-configuration-file.md). El archivo debe incluir el siguiente elemento **VirtualNetworkSite** para la red virtual que se usa en este tutorial:

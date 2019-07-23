@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler
 ms.openlocfilehash: 35a5a4c4cfdbfa26ea00f0f4d76f91f9f76a1ca5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935376"
 ---
 # <a name="get-support-for-cloud-partner-portal"></a>Obtención de soporte técnico en Cloud Partner Portal
@@ -19,13 +19,13 @@ ms.locfileid: "64935376"
 Microsoft ofrece soporte para una amplia variedad de productos y servicios.
 Es importante garantizar que la consulta encuentra el equipo de soporte técnico correcto para garantizar una respuesta oportuna y adecuada. Considere los siguientes escenarios que le ayudarán a dirigir su consulta al equipo adecuado:
 
--   Si es un publicador y tiene una pregunta de un cliente, pregunte a su cliente para solicitar soporte técnico mediante los vínculos de soporte técnico en [Portal de Azure](https://portal.azure.com/)
+-   Si es anunciante y tiene una pregunta de un cliente, indíquele que solicite soporte técnico a través de los vínculos de soporte técnico de  [Azure Portal](https://portal.azure.com/).
 
 -   Si es anunciante y tiene una pregunta relacionada con la aplicación o el servicio, revise los siguientes pasos para abrir una incidencia de soporte técnico.
 
 ## <a name="to-open-a-support-ticket"></a>Apertura de una incidencia de soporte técnico
 
-1. Vaya a [Cloud Partner Portal](https://cloudpartner.azure.com/) e inicie sesión con su cuenta profesional o educativa.
+1. Vaya a  [Cloud Partner Portal](https://cloudpartner.azure.com/) e inicie sesión con su cuenta profesional o educativa.
 
 2. En el menú superior del lado derecho de la página, seleccione el icono **Ayuda** y, a continuación, seleccione **Soporte técnico**.
 

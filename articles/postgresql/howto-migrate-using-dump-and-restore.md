@@ -1,16 +1,16 @@
 ---
-title: 'Volcado y restauración en Azure Database for PostgreSQL: servidor único'
-description: 'Describe cómo extraer una base de datos PostgreSQL en un archivo de volcado y restaurar desde un archivo creado por pg_dump en Azure Database for PostgreSQL: servidor único.'
+title: Volcado y restauración en Azure Database for PostgreSQL con un único servidor
+description: Describe cómo extraer una base de datos de PostgreSQL en un archivo de volcado y cómo restaurar desde un archivo creado por pg_dump en Azure Database for PostgreSQL con un único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: aa9485ec8fcabdc0276e0598bd3e19f04d70dfa1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65066984"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migración de una base de datos de PostgreSQL mediante volcado y restauración
@@ -61,7 +61,7 @@ Una manera de migrar la base de datos de PostgreSQL existente al servicio Azure 
 >
 
 ### <a name="for-the-backup"></a>Para la copia de seguridad
-- Realice la copia de seguridad con el modificador -Fc para poder realizar la restauración en paralelo a fin de acelerar. Por ejemplo: 
+- Realice la copia de seguridad con el modificador -Fc para poder realizar la restauración en paralelo a fin de acelerar. Por ejemplo:
 
     ```
     pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
@@ -72,7 +72,7 @@ Una manera de migrar la base de datos de PostgreSQL existente al servicio Azure 
 
 - Ya debería estar así de forma predeterminada, pero abra el archivo de volcado para comprobar que las instrucciones de creación de índice están después de la inserción de los datos. Si no es así, mueva las instrucciones de creación de índice una vez insertados los datos.
 
-- Restaure con los modificadores -Fc y -j *#* a fin de ejecutar la restauración en paralelo. *#* es el número de núcleos en el servidor de destino. También puede probar con *#* establecido en dos veces el número de núcleos del servidor de destino para ver el impacto. Por ejemplo: 
+- Restaure con los modificadores -Fc y -j *#* a fin de ejecutar la restauración en paralelo. *#* es el número de núcleos en el servidor de destino. También puede probar con *#* establecido en dos veces el número de núcleos del servidor de destino para ver el impacto. Por ejemplo:
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump

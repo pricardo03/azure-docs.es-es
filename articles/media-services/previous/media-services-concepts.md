@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 2b28dde812dcce120c951730c27809f7f024e122
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681555"
 ---
 # <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 En este tema se proporciona información general sobre los conceptos más importantes de Media Services.
 
@@ -180,7 +180,7 @@ De forma predeterminada, puede disponer de hasta 2 canales en streaming en su cu
 Solo se le cobrará cuando StreamingEndpoint esté en estado en ejecución.
 
 ### <a name="asset-delivery-policy"></a>Directiva de entrega de recursos
-Uno de los pasos del flujo de trabajo de entrega de contenido de Media Services consiste en configurar [directivas de entrega de activos](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que desea transmitir. La directiva de entrega de recursos indica a los Media Services cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
+Uno de los pasos del flujo de trabajo de entrega de contenido de Media Services consiste en configurar [directivas de entrega para los recursos ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que quiere transmitir. La directiva de entrega de recursos indica a los Media Services cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
 
 Si tiene un recurso cifrado de almacenamiento, antes de poder transmitir el recurso, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada. Por ejemplo, para entregar el recurso cifrado con clave de cifrado del estándar de cifrado avanzado (AES), defina el tipo de directiva en DynamicEnvelopeEncryption. Para quitar el cifrado de almacenamiento y transmitir el recurso sin cifrar, establezca el tipo de directiva en NoDynamicEncryption.
 
@@ -190,7 +190,7 @@ La descarga progresiva le permite comenzar a reproducir archivos multimedia ante
 >[!NOTE]
 >Debe descifrar los recursos cifrados si desea que estén disponibles para la descarga progresiva.
 
-Para proporcionar direcciones URL de descarga progresiva a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador le brinda la ruta de acceso de base al recurso. Luego debe anexar el nombre del archivo MP4. Por ejemplo: 
+Para proporcionar direcciones URL de descarga progresiva a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador le brinda la ruta de acceso de base al recurso. Luego debe anexar el nombre del archivo MP4. Por ejemplo:
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 

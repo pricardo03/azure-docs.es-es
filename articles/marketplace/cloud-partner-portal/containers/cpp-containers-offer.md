@@ -1,5 +1,5 @@
 ---
-title: Oferta de imagen de contenedores de Azure | Azure Marketplace
+title: Oferta de imágenes de contenedor de Azure | Azure Marketplace
 description: Información general del proceso de publicación de una oferta de contenedor en Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: pabutler
 ms.openlocfilehash: 9617380822f5814d1cbd2bd2b69eac72722fe813
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942749"
 ---
 # <a name="containers"></a>Contenedores

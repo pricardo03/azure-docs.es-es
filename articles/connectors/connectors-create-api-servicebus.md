@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105587"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Intercambio de mensajes en la nube con Azure Service Bus y Azure Logic Apps
@@ -74,12 +74,12 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
 1. Para agregar un *desencadenador* a una aplicación lógica en blanco, en el cuadro de búsqueda, escriba "Azure Service Bus" como filtro. En la lista de desencadenadores, seleccione el que desee. 
 
-   Por ejemplo, para desencadenar la aplicación lógica cuando se envía un nuevo elemento a una cola de Service Bus, seleccione este desencadenador: **Cuando se recibe un mensaje en una cola (Autocompletar)**
+   Por ejemplo, para desencadenar la aplicación lógica cuando un nuevo elemento se envía a una cola de Service Bus, seleccione este desencadenador: **Cuando se recibe un mensaje en una cola (autocompletar)**
 
    ![Selección de un desencadenador de Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
    > [!NOTE]
-   > Algunos desencadenadores devuelven uno o varios mensajes, como **Cuando llegan uno o más mensajes a una cola (autocompletar)**. Cuando se activan estos desencadenadores, devuelven un valor comprendido entre 1 y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
+   > Algunos desencadenadores devuelven uno o varios mensajes, como **Cuando llegan uno o más mensajes a una cola (autocompletar)** . Cuando se activan estos desencadenadores, devuelven un valor comprendido entre 1 y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
 
    *Todos los desencadenadores de Service Bus son de sondeo largo*, lo que significa que, cuando se activa un desencadenador, este procesa todos los mensajes y espera 30 segundos a que aparezcan más en la suscripción al tema o la cola. 
    Si no es el caso, se omite la ejecución del desencadenador. 
@@ -90,7 +90,7 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
    1. En el último paso para agregar una acción, elija **Nuevo paso**. 
 
       Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
-      Elija el signo más (**+**) que aparece y seleccione **Agregar una acción**.
+      Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
 
    1. En el cuadro de búsqueda, escriba "Azure Service Bus" como filtro. 
    En la lista de acciones, seleccione la que desee. 
@@ -118,14 +118,14 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
 1. Proporcione la información necesaria para el desencadenador o la acción. En este ejemplo, siga los pasos pertinentes para el desencadenador o la acción: 
 
-   * **Para el desencadenador de ejemplo**: Establecer el intervalo de sondeo y la frecuencia de comprobación de la cola.
+   * **Para el desencadenador de ejemplo**: establezca el intervalo de sondeo y la frecuencia de comprobación de la cola.
 
      ![Configuración del intervalo de sondeo](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
      Cuando haya terminado, continúe la creación del flujo de trabajo de la aplicación lógica mediante la incorporación de las acciones que desee. Por ejemplo, puede agregar una acción que envíe un correo electrónico cuando llegue un mensaje nuevo.
      Cuando el desencadenador comprueba la cola y encuentra un nuevo mensaje, la aplicación lógica ejecuta las acciones seleccionadas para él.
 
-   * **Para la acción de ejemplo**: Escriba el contenido del mensaje y otros detalles. 
+   * **Para la acción de ejemplo**: escriba el contenido del mensaje y otros detalles. 
 
      ![Indicación del contenido del mensaje y los detalles](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 

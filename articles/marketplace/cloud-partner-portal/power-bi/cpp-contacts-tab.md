@@ -1,5 +1,5 @@
 ---
-title: Información de contactos de una oferta de aplicación de Power BI | Azure Marketplace
+title: Información de contactos para una oferta de aplicación de Power BI | Azure Marketplace
 description: Configure los campos de Contactos para una oferta de la aplicación Power BI para Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: f659ad2f75f9dad390c37f0e1736af5991a32dfc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943241"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Pestaña Contactos de la aplicación de Power BI
@@ -23,7 +23,7 @@ Use la pestaña **Contactos** de la página **Nueva oferta** para proporcionar r
 
 ## <a name="contacts-fields"></a>Campos de Contactos 
 
-En la tabla siguiente describe el propósito de cada campo.  Los campos obligatorios se indican con un asterisco (*). 
+En la siguiente tabla se describe la finalidad de cada campo.  Los campos obligatorios se indican con un asterisco (*). 
 
 |   Campo               |   DESCRIPCIÓN                                                            |
 |-----------------------|--------------------------------------------------------------------------|

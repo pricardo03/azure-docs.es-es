@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Solución de problemas de delimitador de origen durante la instalación | Microsoft Docs'
-description: En este tema se proporciona los pasos para solucionar problemas relacionados con el delimitador de origen durante la instalación.
+title: 'Azure AD Connect: Solución de problemas del delimitador de origen durante la instalación | Microsoft Docs'
+description: En este tema se proporcionan los pasos para solucionar problemas relacionados con el delimitador de origen durante la instalación.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,38 +11,38 @@ ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: fac33a01afc2efc1ab06c4783c11f7a089bb6208
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62114163"
 ---
-# <a name="troubleshooting-source-anchor-issues-during-installation"></a>Solución de problemas de delimitador de origen durante la instalación
-En este artículo se explica los diferentes problemas que pueden producirse durante la instalación y ofrece formas de resolver estos problemas relacionados con el delimitador de origen.
+# <a name="troubleshooting-source-anchor-issues-during-installation"></a>Solución de problemas del delimitador de origen durante la instalación
+En este artículo se explican los diferentes problemas relacionados con el delimitador de origen que pueden producirse durante la instalación y se ofrecen métodos para resolverlos.
 
 ## <a name="invalid-source-anchor-in-azure-active-directory"></a>Delimitador de origen no válido en Azure Active Directory
 
 ### <a name="custom-installation"></a>Instalación personalizada
 
-Durante la instalación personalizada, Azure AD Connect lee la directiva de delimitador de origen de Azure Active Directory. Si la directiva no existe en Azure Active Directory, Azure AD Connect aplica la misma directiva a menos que se haya reemplazado por el cliente. El asistente indica qué atributo se ha leído. Además, el Asistente advierte si al intentar invalidar la directiva de delimitador de origen.
+Durante la instalación personalizada, Azure AD Connect lee la directiva del delimitador de origen desde Azure Active Directory. Si la directiva existe en Azure Active Directory, Azure AD Connect aplica la misma directiva, a menos que el cliente la haya invalidado. El asistente indica qué atributo se ha leído. Además, el asistente le advierte si intenta invalidar la directiva del delimitador de origen.
 
-Durante esta operación de lectura, es posible que se esperaba la directiva de delimitador de origen en Azure Active Directory. En este caso, Azure AD Connect no sabe qué el delimitador de origen para usar y necesita la invalidación de forma manual.</br>
-![unexpected](media/tshoot-connect-source-anchor/source1.png)
+Durante esta operación de lectura, es posible que la directiva del delimitador de origen en Azure Active Directory sea inesperada. En este caso, Azure AD Connect no sabe qué delimitador de origen debe usar y necesita usar la invalidación manual.</br>
+![Inesperado](media/tshoot-connect-source-anchor/source1.png)
 
-Para resolver este problema, puede invalidar manualmente el delimitador de origen seleccionando un atributo determinado. Continuar con esta opción solo si está seguro de qué atributo que seleccione. Si no está seguro, póngase en contacto con [soporte técnico de Microsoft](https://support.microsoft.com/contactus/) para obtener instrucciones. Si cambia la directiva de delimitador de origen, puede interrumpir la asociación entre los usuarios locales y sus recursos de Azure asociados.</br>
-![unexpected](media/tshoot-connect-source-anchor/source2.png)
+Para resolver este problema, puede invalidar manualmente el delimitador de origen mediante la selección de un atributo específico. Continúe con esta opción solo si está seguro de qué atributo debe seleccionar. Si no está seguro, póngase en contacto con el [soporte técnico de Microsoft](https://support.microsoft.com/contactus/) para obtener instrucciones. Si cambia la directiva del delimitador de origen, puede interrumpir la asociación entre los usuarios locales y sus recursos de Azure asociados.</br>
+![Inesperado](media/tshoot-connect-source-anchor/source2.png)
 
 ### <a name="express-installation"></a>Instalación rápida
-Durante la instalación rápida, Azure AD Connect lee la directiva de delimitador de origen de Azure Active Directory. Si la directiva no existe en Azure Active Directory, Azure AD Connect aplica la misma directiva. No hay ninguna opción para realizar la invalidación de forma manual.
+Durante la instalación rápida, Azure AD Connect lee la directiva del delimitador de origen desde Azure Active Directory. Si la directiva existe en Azure Active Directory, Azure AD Connect aplica la misma directiva. No existe ninguna opción para realizar la invalidación de forma manual.
 
-Durante esta operación de lectura, es posible que se esperaba la directiva de delimitador de origen en Azure Active Directory. En este caso, Azure AD Connect no sabe cuál debe ser el delimitador de origen.</br>
-![unexpected](media/tshoot-connect-source-anchor/source3.png)
+Durante esta operación de lectura, es posible que la directiva del delimitador de origen en Azure Active Directory sea inesperada. En este caso, Azure AD Connect no sabe qué delimitador de origen debe usar.</br>
+![Inesperado](media/tshoot-connect-source-anchor/source3.png)
 
-Para resolver este problema, deberá volver a instalar con el modo personalizado e invalidar manualmente el delimitador de origen seleccionando un atributo determinado. Continuar con esta opción solo si está seguro de qué atributo que seleccione. Si no está seguro, póngase en contacto con [soporte técnico de Microsoft](https://support.microsoft.com/contactus/) para obtener instrucciones. Si cambia la directiva de delimitador de origen, puede interrumpir la asociación entre los usuarios locales y sus recursos de Azure asociados.
+Para resolver este problema, debe volver a realizar la instalación con el modo personalizado e invalidar manualmente el delimitador de origen mediante la selección de un atributo específico. Continúe con esta opción solo si está seguro de qué atributo debe seleccionar. Si no está seguro, póngase en contacto con el [soporte técnico de Microsoft](https://support.microsoft.com/contactus/) para obtener instrucciones. Si cambia la directiva del delimitador de origen, puede interrumpir la asociación entre los usuarios locales y sus recursos de Azure asociados.
 
 ### <a name="invalid-source-anchor-in-sync-engine"></a>Delimitador de origen no válido en el motor de sincronización
-Durante la instalación, es posible Azure AD Connect intenta configurar el motor de sincronización mediante un delimitador de origen no válido. Esta operación es muy probable que un problema del producto y se producirá un error en la instalación de Azure AD Connect. Póngase en contacto con [soporte técnico de Microsoft](https://support.microsoft.com/contactus/) si se ejecuta en este problema.</br>
-![unexpected](media/tshoot-connect-source-anchor/source4.png)
+Durante la instalación, es posible Azure AD Connect intente configurar el motor de sincronización mediante un delimitador de origen no válido. Esta operación es con toda probabilidad un problema del producto que dará lugar a un error de instalación de Azure AD Connect. Póngase en contacto con el [soporte técnico de Microsoft](https://support.microsoft.com/contactus/) si experimenta este problema.</br>
+![Inesperado](media/tshoot-connect-source-anchor/source4.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: c3e483a33d986eff767b3529e30208319ad90b23
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935003"
 ---
 <a name="get-customer-leads"></a>Obtención de clientes potenciales
@@ -65,7 +65,7 @@ Todos los clientes potenciales que recibe durante el proceso de adquisición de 
 
 El formato del origen de un cliente potencial es **Origen**-**Acción** |  **Oferta**
 
-**Orígenes**: "AzureMarketplace", "AzurePortal", "Versión de prueba" y "AppSource (SPZA)"
+**Orígenes**: "AzureMarketplace", "AzurePortal", "TestDrive" y "AppSource (SPZA)"
 
 **Acciones**:
 - "INS": instalación. Esta acción se encuentra en Azure Marketplace o AppSource cuando un cliente adquiere su producto.
@@ -76,18 +76,18 @@ El formato del origen de un cliente potencial es **Origen**-**Acción** |  **Ofe
 
 **Ofertas**
 
-Los ejemplos siguientes muestran los identificadores únicos que se asignan a un publicador y una oferta específica: checkpoint.check punto r77 10sg byol, bitnami.openedxcypress y 56-91e6-3ed0b622145a docusign.3701c77e 1cfa - 4 núcleos.
+En los ejemplos siguientes se muestran los identificadores únicos que se asignan a un publicador y una oferta específica: checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress y docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
 
 
 ### <a name="customer-info"></a>Información del cliente
 
 Los campos del ejemplo siguiente muestran la información del cliente que se encuentra en un cliente potencial.
-- FirstName: John
+- Nombre: John
 - Apellidos: Smith
 - Correo electrónico: jsmith\@microsoft.com
 - Teléfono: 1234567890
 - País: US
-- Empresa: Microsoft
+- Compañía: Microsoft
 - Título: CTO
 
 >[!Note]

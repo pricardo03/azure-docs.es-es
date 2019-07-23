@@ -1,6 +1,6 @@
 ---
-title: Seguridad física de los centros de datos - Microsoft Azure | Microsoft Docs
-description: El artículo describe lo que hace Microsoft para proteger los centros de datos Azure, incluidas las ofertas de infraestructura, seguridad y cumplimiento físicas.
+title: 'Seguridad física para centros de datos de Azure: Microsoft Azure | Microsoft Docs'
+description: En el artículo se describe lo que hace Microsoft para proteger los centros de datos de Azure, incluida la infraestructura física, la seguridad y las ofertas de cumplimiento.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: d1b95695de809668987ebb6ef6720a3751205171
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939845"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Instalaciones de Azure, entornos locales y seguridad física
 En este artículo se describe lo que hace Microsoft para proteger la infraestructura de Azure.
 
-## <a name="datacenter-infrastructure"></a>Infraestructura de centro de datos
+## <a name="datacenter-infrastructure"></a>Infraestructura de centros de datos
 Azure está formada por una [infraestructura de centros de datos distribuida globalmente](https://azure.microsoft.com/global-infrastructure/) que da soporte a miles de servicios en línea y abarca más de 100 instalaciones de alta seguridad en todo el mundo.
 
 La infraestructura está diseñada para acercar las aplicaciones a usuarios de todo el mundo. De este modo, mantiene la residencia de los datos y ofrece a los clientes opciones muy completas de cumplimiento normativo y resistencia. Azure tiene 52 regiones en todo el mundo y está disponible en 140 países o regiones.
@@ -70,7 +70,7 @@ Microsoft usa los procedimientos recomendados y una solución de borrado que [cu
 Al final del ciclo de vida de un sistema, el personal operativo de Microsoft sigue unos rigurosos procedimientos de control de los datos y de eliminación del hardware que garantizan que ningún elemento del hardware que contenga sus datos estará disponible para terceros que no son de confianza. Se usa un enfoque de borrado seguro con las unidades de disco duro que lo admitan. En el caso de unidades de disco duro que no se pueden borrar, se usa un proceso de destrucción que las destruye y hace que sea imposible recuperar la información. Este proceso de destrucción puede ser desintegración, triturado, pulverización o incineración. Los métodos de eliminación se determinan en función del tipo de recurso. Se conservan registros de la destrucción. Todos los servicios de Azure usan servicios aprobados de almacenamiento de elementos multimedia y administración de desechos.
 
 ## <a name="compliance"></a>Cumplimiento normativo
-La infraestructura de Azure está diseñada y se administra para satisfacer un amplio conjunto de normas internacionales y específicas del sector, tales como ISO 27001, HIPAA, FedRAMP, SOC 1 y SOC 2. También se cumplen los estándares específico del país o región, incluidos IRAP en Australia, G-Cloud de Reino Unido y MTCs en Singapur. Auditorías de terceros rigurosas, como las del Instituto Británico de Normalización, confirman la observancia de los estrictos controles de seguridad que estos estándares exigen.
+La infraestructura de Azure está diseñada y se administra para satisfacer un amplio conjunto de normas internacionales y específicas del sector, tales como ISO 27001, HIPAA, FedRAMP, SOC 1 y SOC 2. También se cumplen los estándares específicos del país o la región, incluidos IRAP en Australia, G-Cloud en Reino Unido y MTCS en Singapur. Auditorías de terceros rigurosas, como las del Instituto Británico de Normalización, confirman la observancia de los estrictos controles de seguridad que estos estándares exigen.
 
 Para ver una lista completa de normas de cumplimiento que observa Azure, consulte las [ofertas de cumplimiento](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
@@ -81,7 +81,7 @@ Para más información sobre lo que Microsoft hace para ayudar a proteger la inf
 - [Componentes y límites del sistema de información de Azure](azure-infrastructure-components.md)
 - [Arquitectura de red de Azure](azure-infrastructure-network.md)
 - [Red de producción de Azure](azure-production-network.md)
-- [Características de seguridad de Azure SQL Database](azure-infrastructure-sql.md)
+- [Características de seguridad de Azure SQL Database](azure-infrastructure-sql.md)
 - [Operaciones de producción y administración de Azure](azure-infrastructure-operations.md)
 - [Supervisión de la infraestructura de Azure](azure-infrastructure-monitoring.md)
 - [Integridad de la infraestructura de Azure](azure-infrastructure-integrity.md)

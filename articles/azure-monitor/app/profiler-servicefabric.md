@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 5c01c2721a29bf142ee0ba53c9bc29ec66a7278f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727913"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Generación de perfiles de aplicaciones de Azure Service Fabric en vivo con Application Insights
@@ -32,7 +32,7 @@ Application Insights Profiler se incluye con Azure Diagnostics. Puede instalar l
 
 Para configurar su entorno, realice las siguientes acciones:
 
-1. Profiler es compatible con .NET Framework y.Net Core. Si usa .NET Framework, asegúrese de que usa [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o una versión posterior. Es suficiente con confirmar que el sistema operativo implementado es `Windows Server 2012 R2` o posterior. Profiler es compatible con .NET Core 2.1 y las aplicaciones más recientes.
+1. Profiler admite .NET Framework y .NET Core. Si usa .NET Framework, asegúrese de que usa [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o una versión posterior. Basta con confirmar que el sistema operativo implementado es `Windows Server 2012 R2` o posterior. Profiler admite .NET Core 2.1 y aplicaciones más recientes.
 
 1. Busque la extensión de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) en el archivo de plantilla de implementación.
 
@@ -55,7 +55,7 @@ Para configurar su entorno, realice las siguientes acciones:
   Si la configuración es correcta, Application Insights Profiler se instala y se habilita cuando está instalada la extensión de Azure Diagnostics. 
 
 1. Agregue Application Insights a la aplicación de Service Fabric.  
-  De Profiler recopilar los perfiles para las solicitudes, la aplicación debe realizar el seguimiento las operaciones con Application Insights. Para la API sin estado, puede hacer referencia a las instrucciones para [seguimiento de solicitudes para la generación de perfiles](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Para obtener más información sobre el seguimiento de las operaciones personalizadas en otros tipos de aplicaciones, consulte [realizar un seguimiento de las operaciones personalizadas con .NET SDK de Application Insights](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
+  Para que Profiler pueda recopilar los perfiles de las solicitudes, la aplicación debe supervisar las operaciones con Application Insights. Para las API sin estado, puede consultar las instrucciones para el [seguimiento de las solicitudes para la generación de perfiles](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Para obtener más información sobre la supervisión de operaciones personalizadas en otros tipos de aplicaciones, consulte [Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
 
 1. Vuelva a implementar la aplicación.
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 3fdb0f566789382a1606b19e4fac179f9ecf40cd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122964"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Ver y modificar los nombres de host
@@ -40,9 +40,9 @@ Una vez haya habilitado el Escritorio remoto (Windows), la comunicación remota 
 ### <a name="azure-service-management-rest-api"></a>API de REST de Administración de servicios de Azure
 Desde un cliente REST, siga estas instrucciones:
 
-1. Asegúrese de que tiene un certificado de cliente para conectarse al Portal de Azure. Para obtener un certificado de cliente, siga los pasos que aparecen en [Cómo: Descarga e importación de configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Asegúrese de que tiene un certificado de cliente para conectarse al Portal de Azure. Para obtener un certificado de cliente, siga los pasos que aparecen en el artículo sobre [cómo descargar e importar la configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Establezca una entrada de encabezado denominada x-ms-version con un valor de 2013-11-01.
-3. Envíe una solicitud con el siguiente formato: https:\//management.core.windows.net/\<Subscription-id\>/services/hostedservices/\<nombre-servicio\>? embed-detail = true
+3. Envíe una solicitud con el siguiente formato: https:\//management.core.windows.net/\<id-suscripción\>/services/hostedservices/\<nombre-de-servicio\>?embed-detail=true
 4. Busque el elemento **HostName** de cada elemento **RoleInstance**.
 
 > [!WARNING]

@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: 1b86085a76f5ff87147db9dbd0a584784f5e4a2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308487"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64686497"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Prueba de las consultas de Stream Analytics localmente con Visual Studio
 
@@ -75,6 +75,6 @@ Puede ver el progreso en la ventana **Salida**.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Uso de Visual Studio para ver trabajos de Azure Stream Analytics](stream-analytics-vs-tools.md)
-* [Inicio rápido: Crear un trabajo de Stream Analytics mediante Visual Studio](stream-analytics-quick-create-vs.md)
-* [Tutorial: Implementar un trabajo de Azure Stream Analytics con CI/CD con Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Inicio rápido: creación de un trabajo de Stream Analytics con Visual Studio](stream-analytics-quick-create-vs.md)
+* [Tutorial: Implementación de un trabajo de Azure Stream Analytics con CI/CD mediante Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Integración y desarrollo continuos con las herramientas de Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

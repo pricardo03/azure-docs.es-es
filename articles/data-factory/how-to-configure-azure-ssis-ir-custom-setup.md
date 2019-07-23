@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711557"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure
@@ -48,7 +48,7 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
 -   [Suscripción de Azure](https://azure.microsoft.com/)
 
--   [Una instancia de Azure SQL Database o servidor de Instancia administrada](https://ms.portal.azure.com/#create/Microsoft.SQLServer)
+-   [Una base de datos de Azure SQL o servidor de Instancia administrada](https://ms.portal.azure.com/#create/Microsoft.SQLServer)
 
 -   [Aprovisionamiento del entorno de ejecución de integración de Azure-SSIS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)
 
@@ -82,7 +82,7 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
       ![Creación de un contenedor de blobs](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. Seleccione el nuevo contenedor y cargue el script de instalación personalizado y sus archivos asociados. Asegúrese de cargar `main.cmd` en el nivel superior del contenedor, no en cualquier carpeta. Asegúrese también de que el contenedor incluye solo los archivos necesarios de la configuración personalizada, para que descargarlos posteriormente en Azure-SSIS Integration Runtime no lleve demasiado tiempo. El período máximo para la instalación personalizada está establecido actualmente en 45 minutos antes de que se agota el tiempo y esto incluye el tiempo para descargar todos los archivos del contenedor e instalarlos en Azure-SSIS IR. Si es necesario un período más largo, genere una incidencia de soporte técnico.
+   1. Seleccione el nuevo contenedor y cargue el script de instalación personalizado y sus archivos asociados. Asegúrese de cargar `main.cmd` en el nivel superior del contenedor, no en cualquier carpeta. Asegúrese también de que el contenedor incluye solo los archivos necesarios de la configuración personalizada, para que descargarlos posteriormente en Azure-SSIS Integration Runtime no lleve demasiado tiempo. El período máximo para la instalación personalizada está establecido actualmente en 45 minutos antes de que se agote el tiempo, y este incluye el tiempo necesario para descargar todos los archivos del contenedor e instalarlos en Azure-SSIS IR. Si es necesario un período más largo, genere una incidencia de soporte técnico.
 
       ![Carga de archivos en el contenedor de blobs](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -105,7 +105,7 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
       ![Especificar la firma de acceso compartido](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-      Al aprovisionar o volver a configurar el entorno de ejecución de integración de Azure-SSIS con PowerShell, antes de iniciar el entorno de ejecución de integración de Azure-SSIS, ejecute el cmdlet `Set-AzDataFactoryV2IntegrationRuntime` con el URI de SAS del contenedor como el valor para el nuevo parámetro `SetupScriptContainerSasUri`. Por ejemplo: 
+      Al aprovisionar o volver a configurar el entorno de ejecución de integración de Azure-SSIS con PowerShell, antes de iniciar el entorno de ejecución de integración de Azure-SSIS, ejecute el cmdlet `Set-AzDataFactoryV2IntegrationRuntime` con el URI de SAS del contenedor como el valor para el nuevo parámetro `SetupScriptContainerSasUri`. Por ejemplo:
 
       ```powershell
       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -122,7 +122,7 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
 1. Para ver otros ejemplos de instalación personalizada, conéctese al contenedor de vista preliminar pública con el Explorador de Azure Storage.
 
-    a.  En **(Local and Attached)** (Local y asociada), haga clic con el botón derecho en **Cuentas de almacenamiento**, seleccione **Conectar a Azure Storage**, luego **Use a connection string or a shared access signature URI** (Use una cadena de conexión o un URI de firma de acceso compartido) y finalmente **Siguiente**.
+   a.  En **(Local and Attached)** (Local y asociada), haga clic con el botón derecho en **Cuentas de almacenamiento**, seleccione **Conectar a Azure Storage**, luego **Use a connection string or a shared access signature URI** (Use una cadena de conexión o un URI de firma de acceso compartido) y finalmente **Siguiente**.
 
       ![Conexión a Azure Storage con la firma de acceso compartido](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: f5597773b3127852481d5e14844bed889c4d6f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61435323"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Procedimiento para configurar el escalado automático para un servicio en la nube en el Portal
@@ -48,7 +48,7 @@ Debe considerar la siguiente información antes de configurar el escalado para s
 Después de seleccionar el servicio en la nube, debe tener visible la hoja del servicio en la nube.
 
 1. En la hoja del servicio en la nube, seleccione el nombre del servicio en la nube en el icono de **Roles e instancias** .   
-   **IMPORTANTE**: Asegúrese de hacer clic en el rol de servicio en la nube, no la instancia de rol que se encuentra debajo de la función.
+   **IMPORTANTE**: No se olvide de hacer clic en el rol del servicio en la nube, no en la instancia de rol que está debajo de dicho rol.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Seleccione el icono de **escala** .

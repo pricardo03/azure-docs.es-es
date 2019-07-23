@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
 ms.openlocfilehash: 564c121aa90746498a94022fd0fb8d8529142c91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698395"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Usar Windows PowerShell para StorSimple para administrar su dispositivos
@@ -147,11 +147,11 @@ En la siguiente tabla se muestra un resumen de todas las tareas comunes de admin
 | Si desea hacer esto... | Utilice este procedimiento. |
 | --- | --- |
 | Registrar el dispositivo |[Configurar y registrar el dispositivo con Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
-| Configurar el proxy web </br>Ver la configuración de proxy web |[Configurar el proxy web para el dispositivo StorSimple](storsimple-8000-configure-web-proxy.md) |
+| Configurar el proxy web</br>Ver la configuración de proxy web |[Configurar el proxy web para el dispositivo StorSimple](storsimple-8000-configure-web-proxy.md) |
 | Modificar la configuración de interfaz de red de DATA 0 en el dispositivo |[Modificar la configuración de interfaz de red de DATA 0 en el dispositivo](storsimple-8000-modify-data-0.md) |
-| Detener un controlador  </br> Reiniciar o apagar un solo controlador </br> Apagar un dispositivo</br>Restablecer el dispositivo a los valores predeterminados de fábrica. |[Administrar controladores de dispositivo](storsimple-8000-manage-device-controller.md) |
+| Detener un controlador </br> Reiniciar o apagar un solo controlador </br> Apagar un dispositivo</br>Restablecer el dispositivo a los valores predeterminados de fábrica. |[Administrar controladores de dispositivo](storsimple-8000-manage-device-controller.md) |
 | Instalar revisiones y actualizaciones de modo de mantenimiento |[Actualizar su dispositivo](storsimple-update-device.md) |
-| Acceder al modo de mantenimiento  </br>Salir del modo de mantenimiento |[Modos del dispositivo StorSimple](storsimple-8000-device-modes.md) |
+| Acceder al modo de mantenimiento </br>Salir del modo de mantenimiento |[Modos del dispositivo StorSimple](storsimple-8000-device-modes.md) |
 | Crear un paquete de soporte</br>Descifrar y editar un paquete de soporte |[Crear y administrar paquetes de soporte técnico](storsimple-8000-create-manage-support-package.md) |
 | Iniciar una sesión de soporte</br> |[Iniciar una sesión de soporte en Windows PowerShell para StorSimple](storsimple-8000-create-manage-support-package.md#create-a-support-package) |
 

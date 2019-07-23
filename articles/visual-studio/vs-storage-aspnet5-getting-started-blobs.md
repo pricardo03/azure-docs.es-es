@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
 ms.openlocfilehash: 388c4d5f28e87f5cfe26336771d30fa44c6f9ef0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123015"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET Core) (ASP.NET Core)
@@ -27,7 +27,7 @@ En este artículo se describe cómo empezar a usar Azure Blob Storage en Visual 
 
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos. En este artículo se describe cómo empezar a usar Blob Storage después de crear una cuenta de Azure Storage mediante **Servicios conectados** de Visual Studio en un proyecto de ASP.NET Core.
 
-Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un blob, puede crear en él uno o varios contenedores. Por ejemplo, en un blob llamado "Scrapbook", puede crear un contenedor llamado "images" para almacenar imágenes, y otro llamado "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos individuales a ellos. Consulte [Quickstart: Carga, descarga y enumeración de blobs mediante .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) para obtener más información sobre la manipulación mediante programación los blobs.
+Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un blob, puede crear en él uno o varios contenedores. Por ejemplo, en un blob llamado "Scrapbook", puede crear un contenedor llamado "images" para almacenar imágenes, y otro llamado "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos individuales a ellos. Consulte [Quickstart: Carga, descarga y enumeración de blobs mediante .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) para obtener más información sobre la manipulación de blobs mediante programación.
 
 Algunas de las API de Azure Storage son asincrónicas, y el código de este artículo asume que se usan métodos asincrónicos. Vea [Programación asincrónica](https://docs.microsoft.com/dotnet/csharp/async) para más información.
 

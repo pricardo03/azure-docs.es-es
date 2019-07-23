@@ -10,10 +10,10 @@ ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: f1b3c08cce2cb33feab899ea082fc6fb40225182
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61458288"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(EN DESUSO) Lanzamiento controlado de microservicios con Vamp en un clúster de DC/OS de Azure Container Service
@@ -44,7 +44,7 @@ El [lanzamiento controlado](https://martinfowler.com/bliki/CanaryRelease.html) e
 
 ## <a name="set-up-vamp"></a>Configuración de Vamp
 
-Ahora que tiene un clúster DC/OS en ejecución, puede instalar Vamp desde la interfaz de usuario de DC/OS (http:\//localhost:80). 
+Ahora que tiene un clúster de DC/OS en ejecución, puede instalar Vamp desde la interfaz de usuario de DC/OS (http:\//localhost:80). 
 
 ![Interfaz de usuario de DC/OS](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 

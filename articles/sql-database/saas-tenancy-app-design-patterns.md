@@ -13,15 +13,15 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484478"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 
-En este artículo se describe los distintos modelos de arrendamiento disponibles para una aplicación de SaaS de varios inquilinos.
+En este artículo se describen los distintos modelos de arrendamiento disponibles para una aplicación SaaS multiinquilino.
 
 Al diseñar una aplicación SaaS multiinquilino, debe elegir cuidadosamente el modelo de inquilinato que mejor se adapte a las necesidades de su aplicación.  Un modelo de inquilinato determina cómo se asignan los datos de cada inquilino al almacenamiento.  La elección del modelo de inquilinato afecta a la administración y el diseño de la aplicación.  A veces es costoso cambiar más adelante a un modelo diferente.
 
@@ -33,8 +33,8 @@ A cambio de ese alquiler, cada inquilino recibe acceso a los componentes de su a
 
 El término *modelo de arrendamiento* hace referencia a la forma en que organizan los datos almacenados de los inquilinos:
 
-- *Inquilino único:*&nbsp; cada base de datos almacena los datos de un solo inquilino.
-- *Multiinquilino:*&nbsp; cada base de datos almacena los datos de varios inquilinos independientes (con mecanismos para proteger la privacidad de los datos).
+- *Inquilino único:* &nbsp; cada base de datos almacena los datos de un solo inquilino.
+- *Multiinquilino:* &nbsp; cada base de datos almacena los datos de varios inquilinos independientes (con mecanismos para proteger la privacidad de los datos).
 - También hay disponibles modelos de arrendamiento híbrido.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Cómo elegir el modelo adecuado de inquilinato
@@ -47,9 +47,9 @@ En general, el modelo de inquilinato no afecta a la función de una aplicación,
     - Almacenamiento de forma agregada.
     - Carga de trabajo.
 
-- **Aislamiento de inquilinos:**&nbsp; aislamiento de los datos y rendimiento (si la carga de trabajo de un inquilino afecta a otros).
+- **Aislamiento de inquilinos:** &nbsp; aislamiento de los datos y rendimiento (si la carga de trabajo de un inquilino afecta a otros).
 
-- **Costo por inquilino:**&nbsp; costos de la base de datos.
+- **Costo por inquilino:** &nbsp; costos de la base de datos.
 
 - **Complejidad de desarrollo:**
     - Cambios en el esquema.
@@ -61,7 +61,7 @@ En general, el modelo de inquilinato no afecta a la función de una aplicación,
     - Restauración de un inquilino.
     - Recuperación ante desastres
 
-- **Capacidad de personalización:**&nbsp; facilidad para admitir las personalizaciones del esquema que son específicas del inquilino o específicas de la clase de inquilino.
+- **Capacidad de personalización:** &nbsp; facilidad para admitir las personalizaciones del esquema que son específicas del inquilino o específicas de la clase de inquilino.
 
 El análisis de inquilinos se centra en la capa de *datos*.  Pero tenga en cuenta durante un momento la capa de *aplicación*.  La capa de aplicación se trata como una entidad monolítica.  Si se divide la aplicación en muchos componentes pequeños, podría cambiar su elección de modelo de inquilinato.  Puede tratar algunos componentes de forma diferente a otros tanto con respecto al inquilinato como a la tecnología de almacenamiento o plataforma utilizada.
 
@@ -99,7 +99,7 @@ Cuando las bases de datos se implementan en el mismo grupo de recursos, se puede
 
 ![Diseño de aplicación multiinquilino con una base de datos por inquilino mediante un grupo elástico.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database proporciona las herramientas necesarias para configurar, supervisar y administrar el uso compartido.  Existen métricas de rendimiento de nivel de grupo y el nivel de base de datos están disponibles en el portal de Azure y, a través de los registros de Azure Monitor.  Las métricas pueden dar detalles sobre el rendimiento agregado y específico del inquilino.  Las bases de datos individuales se pueden mover entre grupos para proporcionar recursos reservados para un inquilino específico.  Estas herramientas permiten garantizar un buen rendimiento en forma rentable.
+Azure SQL Database proporciona las herramientas necesarias para configurar, supervisar y administrar el uso compartido.  Las métricas de rendimiento en el nivel de grupo y en el nivel de base de datos están disponibles en Azure Portal y a través de los registros de Azure Monitor.  Las métricas pueden dar detalles sobre el rendimiento agregado y específico del inquilino.  Las bases de datos individuales se pueden mover entre grupos para proporcionar recursos reservados para un inquilino específico.  Estas herramientas permiten garantizar un buen rendimiento en forma rentable.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Escala de operaciones para una base de datos por inquilino
 
@@ -126,9 +126,9 @@ Otro patrón disponible consiste en almacenar a muchos inquilinos en una base de
 
 #### <a name="tenant-isolation-is-sacrificed"></a>Se sacrifica el aislamiento de inquilinos
 
-*Datos:*&nbsp; una base de datos multiinquilino necesariamente sacrifica el aislamiento de inquilinos.  Los datos de varios inquilinos se almacenan juntos en una base de datos.  Durante el desarrollo, asegúrese de que las consultas no exponen nunca los datos de más de un inquilino.  SQL Database admite [seguridad en el nivel de fila][docu-sql-svr-db-row-level-security-947w], que puede exigir que los datos devueltos por una consulta estén en el ámbito de un solo inquilino.
+*Datos:* &nbsp; una base de datos multiinquilino necesariamente sacrifica el aislamiento de inquilinos.  Los datos de varios inquilinos se almacenan juntos en una base de datos.  Durante el desarrollo, asegúrese de que las consultas no exponen nunca los datos de más de un inquilino.  SQL Database admite [seguridad en el nivel de fila][docu-sql-svr-db-row-level-security-947w], que puede exigir que los datos devueltos por una consulta estén en el ámbito de un solo inquilino.
 
-*Procesamiento:*&nbsp; una base de datos multiinquilino comparte recursos de proceso y almacenamiento entre todos sus inquilinos.  La base de datos como un todo puede supervisarse para asegurarse de que está teniendo un rendimiento aceptable.  Sin embargo, el sistema de Azure no tiene ningún medio integrado para supervisar o administrar el uso de estos recursos por un inquilino individual.  Por lo tanto, la base de datos multiinquilino implica un mayor riesgo de que se produzcan molestias entre vecinos, donde la carga de trabajo de un inquilino muy activo afecta al rendimiento de los demás inquilinos en la misma base de datos.  La supervisión adicional en el nivel de aplicación puede supervisar el rendimiento en el nivel del inquilino.
+*Procesamiento:* &nbsp; una base de datos multiinquilino comparte recursos de proceso y almacenamiento entre todos sus inquilinos.  La base de datos como un todo puede supervisarse para asegurarse de que está teniendo un rendimiento aceptable.  Sin embargo, el sistema de Azure no tiene ningún medio integrado para supervisar o administrar el uso de estos recursos por un inquilino individual.  Por lo tanto, la base de datos multiinquilino implica un mayor riesgo de que se produzcan molestias entre vecinos, donde la carga de trabajo de un inquilino muy activo afecta al rendimiento de los demás inquilinos en la misma base de datos.  La supervisión adicional en el nivel de aplicación puede supervisar el rendimiento en el nivel del inquilino.
 
 #### <a name="lower-cost"></a>Menor costo
 
@@ -196,9 +196,9 @@ En la tabla siguiente se resumen las diferencias entre los principales modelos d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Implementación y exploración de una aplicación Wingtip multiinquilino que usa el modelo SaaS de una base de datos por inquilino con Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
+- [Implementación y exploración de la aplicación Wingtip multiinquilino que usa el modelo SaaS de una base de datos por inquilino con Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 
-- [Bienvenido al ejemplo de vales de Wingtip de aplicación Saas de inquilino en Azure SQL Database][docu-saas-tenancy-welcome-wingtip-tickets-app-384w]
+- [Bienvenido a la aplicación SaaS de ejemplo Wingtip Tickets de Azure SQL Database][docu-saas-tenancy-welcome-wingtip-tickets-app-384w]
 
 
 <!--  Article link references.  -->

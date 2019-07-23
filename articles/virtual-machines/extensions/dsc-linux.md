@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 4b0cd88cbb3729a3e81aeb5d6f43f417c8cb2f17
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64682766"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensión DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -34,7 +34,7 @@ Microsoft publica y admite la extensión DSCForLinux. La extensión instala los 
 - Instalación de módulos personalizados de DSC en la VM de Linux (Install ExtensionAction)
 - Eliminación de módulos personalizados de DSC en la VM de Linux (Remove ExtensionAction)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -67,7 +67,7 @@ Estos son todos los parámetros de configuración pública admitidos:
 * `ConfigurationModeFrequencyMins`: (opcional, entero) especifica la frecuencia (en minutos) en que DSC garantiza que la configuración esté en el estado deseado.
 
 > [!NOTE]
-> Si usa una versión anterior a la 2.3, el parámetro de modo es igual que ExtensionAction. Modo parece ser un término sobrecargado. Por lo tanto, para evitar confusiones, ExtensionAction se utiliza a partir de la versión 2.3. Para ofrecer compatibilidad con versiones anteriores, la extensión admite tanto el modo como ExtensionAction. 
+> Si usa una versión anterior a la 2.3, el parámetro de modo es igual que ExtensionAction. El modo parece ser un término sobrecargado. Por lo tanto, para evitar confusiones, ExtensionAction se utiliza a partir de la versión 2.3. Para ofrecer compatibilidad con versiones anteriores, la extensión admite tanto el modo como ExtensionAction. 
 >
 
 ### <a name="12-protected-configuration"></a>1.2. Configuración protegida
@@ -403,7 +403,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
+## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

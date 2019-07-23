@@ -9,15 +9,15 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719766"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
-La creación de entornos coherentes a escala solo es realmente valiosa si existe un mecanismo que mantenga la coherencia. En este artículo se explica cómo funciona el bloqueo de recursos en planos técnicos de Azure Blueprint. Para ver un ejemplo de bloqueo de recursos y las aplicaciones de _denegar asignaciones_, consulte el [protección de recursos nuevo](../tutorials/protect-new-resources.md) tutorial.
+La creación de entornos coherentes a escala solo es realmente valiosa si existe un mecanismo que mantenga la coherencia. En este artículo se explica cómo funciona el bloqueo de recursos en planos técnicos de Azure Blueprint. Para ver un ejemplo del bloqueo de recursos y la aplicación de _asignaciones de denegación_, consulte el tutorial [protección de nuevos recursos](../tutorials/protect-new-resources.md).
 
 ## <a name="locking-modes-and-states"></a>Estados y modos de bloqueos
 
@@ -52,22 +52,22 @@ Cuando se quita la asignación, se quitan los bloqueos creados por los planos t�
 
 Una acción denegación [denegar asignaciones](../../../role-based-access-control/deny-assignments.md) de RBAC se aplica a los recursos de artefactos durante la asignación de un plano técnico si la asignación ha seleccionado la opción **Solo lectura** o **No eliminar**. La identidad administrada de la asignación del plano técnico agrega la acción de denegación, y solo la misma identidad administrada puede eliminar los recursos del artefacto. Esta medida de seguridad refuerza el mecanismo de bloqueo y evita que se quite el bloqueo del plano técnico fuera de Blueprint.
 
-![Instancia de blueprint denegar la asignación en el grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
+![Asignación de denegación de plano técnico en un grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
 
-El [denegar propiedades de la asignación](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo son los siguientes:
+Las [propiedades de asignación de denegación](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo son las siguientes:
 
 |Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Solo lectura |**\*** |**\*/read** |SystemDefined (todos) |asignación del plano y definido por el usuario en **excludedPrincipals** |Grupo de recursos - _true_; Recurso: _false_ |
-|No eliminar |**\*/delete** | |SystemDefined (todos) |asignación del plano y definido por el usuario en **excludedPrincipals** |Grupo de recursos - _true_; Recurso: _false_ |
+|Solo lectura |**\*** |**\*/read** |SystemDefined (Todos) |asignación de plano técnico y definición del usuario en **excludedPrincipals** |Grupo de recursos: _true_; Recurso: _false_ |
+|No eliminar |**\*/delete** | |SystemDefined (Todos) |asignación de plano técnico y definición del usuario en **excludedPrincipals** |Grupo de recursos: _true_; Recurso: _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager almacena en caché los detalles de asignación de roles durante un máximo de 30 minutos. Como resultado, la acción de denegación denegar asignaciones puede que no funcione completamente en los recursos de plano técnico. Durante este período de tiempo es posible eliminar un recurso diseñado para estar protegido por bloqueos de plano técnico.
 
-## <a name="exclude-a-principal-from-a-deny-assignment"></a>Excluir una entidad de seguridad de una asignación de denegación
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclusión de una entidad de seguridad en una asignación de denegación
 
-En algunos escenarios de diseño y la seguridad, puede ser necesario excluir una entidad de seguridad de la [denegar asignación](../../../role-based-access-control/deny-assignments.md) crea la asignación del plano técnico. Esto se hace en la API de REST mediante la adición de hasta cinco valores para el **excludedPrincipals** de matriz en la **bloqueos** propiedad cuando [crea la asignación de](/rest/api/blueprints/assignments/createorupdate).
-Este es un ejemplo de un cuerpo de solicitud que incluye **excludedPrincipals**:
+En algunos escenarios de diseño y seguridad, puede que necesite excluir una entidad de seguridad de la [asignación de denegación](../../../role-based-access-control/deny-assignments.md) que creó la asignación del plano técnico. Esto se hace en la API REST mediante la adición de hasta cinco valores en la matriz **excludedPrincipals** de la propiedad **locks** propiedad cuando [se crea la asignación](/rest/api/blueprints/assignments/createorupdate).
+Este es un ejemplo de un cuerpo de la solicitud que incluye **excludedPrincipals**:
 
 ```json
 {
@@ -111,7 +111,7 @@ Este es un ejemplo de un cuerpo de solicitud que incluye **excludedPrincipals**:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Siga el [proteger nuevos recursos](../tutorials/protect-new-resources.md) tutorial.
+- Siga el tutorial sobre la [protección de los nuevos recursos](../tutorials/protect-new-resources.md).
 - Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).

@@ -1,5 +1,5 @@
 ---
-title: Comprobación automática de cliente para validar previamente una máquina virtual | Azure Marketplace
+title: Cliente de prueba automática para la validación previa de una máquina virtual | Azure Marketplace
 description: Creación de un cliente de prueba automática para la validación previa de una imagen de máquina virtual para Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pabutler
 ms.openlocfilehash: 117249feea04381b34f8fc1d95f77c2c1a567dba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938718"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creación de un cliente de prueba automática para la validación previa de una imagen de máquina virtual de Azure
@@ -247,7 +247,7 @@ Para registrar la aplicación cliente, realice los pasos siguientes.
 
    - **Nombre**: escriba un nombre descriptivo para la aplicación. Por ejemplo, "SelfTestClient".
    - En **Tipo de aplicación**, seleccione **Aplicación web o API**.
-   - **Dirección URL de inicio de sesión** : tipo de "https:\//isvapp.azurewebsites.net/selftest-vm"
+   - **URL de inicio de sesión**: Escriba "https:\//isvapp.azurewebsites.net/selftest-vm"
 
 4. Seleccione **Crear**.
 5. En **Registros de aplicaciones** o **Aplicación registrada**, copia el **Id. de la aplicación**.
@@ -264,7 +264,7 @@ Para registrar la aplicación cliente, realice los pasos siguientes.
     ![Configuración de la compatibilidad multiinquilino para la aplicación](./media/stclient-select-api.png)
 
 12. En **Agregar acceso de API**, haga clic en **Seleccionar permisos**.
-13. Seleccione **Acceder a "Windows Azure Service Management API"**.
+13. Seleccione **Acceder a "Windows Azure Service Management API"** .
 
     ![Habilitar acceso a la API para la aplicación](./media/stclient-enable-api-access.png)
 
@@ -350,7 +350,7 @@ La captura de pantalla siguiente muestra un ejemplo de uso del comando curl para
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>Creación y obtención de un token con C#
 
-Para solicitar tokens para las aplicaciones autorizadas Auth0, realizar una operación POST al https:\//soamtenant.auth0.com/oauth/token punto de conexión con una carga en el formato siguiente:
+Para solicitar tokens a Auth0 para todas las aplicaciones autorizadas, realice una operación POST en el punto de conexión \//soamtenant.auth0.com/oauth/token con una carga en el formato siguiente:
 
 ```csharp
 string clientId = "Your Application Id";
@@ -373,7 +373,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>Creación y obtención de un token con PowerShell
 
-Para solicitar tokens para las aplicaciones autorizadas Auth0, realizar una operación POST al https:\//soamtenant.auth0.com/oauth/token punto de conexión con una carga en el formato siguiente:
+Para solicitar tokens a Auth0 para todas las aplicaciones autorizadas, realice una operación POST en el punto de conexión \//soamtenant.auth0.com/oauth/token con una carga en el formato siguiente:
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

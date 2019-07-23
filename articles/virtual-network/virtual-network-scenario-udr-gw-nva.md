@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575585"
 ---
 # <a name="virtual-appliance-scenario"></a>Escenario de aplicación virtual
@@ -30,23 +30,23 @@ Un escenario común entre los clientes de Azure de mayor tamaño es la necesidad
 * Todo el tráfico que vaya al servidor de aplicaciones debe pasar por una aplicación virtual de firewall. Esta aplicación virtual se usará para tener acceso al servidor back-end y el acceso entrante provendrá de la red local a través de VPN Gateway.
 * Los administradores deberán poder administrar las aplicaciones virtuales de firewall desde los equipos locales con una tercera aplicación virtual de firewall que se usará exclusivamente para la administración.
 
-Se trata de un escenario de red (también conocen como DMZ) perimetral estándar con una red Perimetral y una red protegida. Estos escenarios se pueden construir en Azure con NSG, aplicaciones virtuales de firewall o una combinación de ambos. La tabla a continuación muestra algunas de las ventajas y desventajas entre los NSG y las aplicaciones virtuales de firewall.
+Este es un escenario de red perimetral estándar con una red perimetral y una red protegida. Dicho escenario se puede construir en Azure con NSG, aplicaciones virtuales de firewall o una combinación de ambos elementos. La tabla a continuación muestra algunas de las ventajas y desventajas entre los NSG y las aplicaciones virtuales de firewall.
 
 |  | Ventajas | Desventajas |
 | --- | --- | --- |
 | Grupo de seguridad de red |No tienen costo. <br/>Están integrados en Azure RBAC. <br/>Las reglas se pueden crear en plantillas de Azure Resource Manager. |La complejidad podría variar en entornos de mayor tamaño. |
 | Firewall |Control total sobre el plano de datos. <br/>Administración central a través de la consola de firewall. |El costo de la aplicación de firewall. <br/>No está integrado con Azure RBAC. |
 
-La solución siguiente usa aplicaciones virtuales de firewall para implementar una red perimetral (DMZ) / protegido el escenario de red.
+La solución siguiente usa aplicaciones virtuales de firewall para implementar un escenario de red protegida o red perimetral.
 
 ## <a name="considerations"></a>Consideraciones
 Puede implementar el entorno que se explicó anteriormente en Azure con distintas características que actualmente están disponibles, como se indica a continuación.
 
 * **Red virtual**. Una red virtual de Azure actúa de manera similar a una red local y se puede segmentar en una o más subredes para ofrecer el aislamiento del tráfico y la separación de proceso.
 * **Aplicación virtual**. Varios socios proporcionan aplicaciones virtuales en Azure Marketplace que se pueden usar para los tres firewalls anteriormente descritos. 
-* **Rutas definidas por el usuario (UDR)**. Las tablas de ruta pueden contener UDR que las redes de Azure usan para controlar el flujo de paquetes dentro de una red virtual. Estas tablas de ruta se pueden aplicar a las subredes. Una de las características más nuevas de Azure es la capacidad de aplicar una tabla de ruta a la subred GatewaySubnet, lo que ofrece la posibilidad de reenviar todo el tráfico entrante a la red virtual de Azure desde una conexión híbrida a una aplicación virtual.
+* **Rutas definidas por el usuario (UDR)** . Las tablas de ruta pueden contener UDR que las redes de Azure usan para controlar el flujo de paquetes dentro de una red virtual. Estas tablas de ruta se pueden aplicar a las subredes. Una de las características más nuevas de Azure es la capacidad de aplicar una tabla de ruta a la subred GatewaySubnet, lo que ofrece la posibilidad de reenviar todo el tráfico entrante a la red virtual de Azure desde una conexión híbrida a una aplicación virtual.
 * **Reenvío IP**. De manera predeterminada, el motor de redes de Azure reenvía paquetes a las tarjetas de interfaz de red (NIC) virtuales solo si la dirección IP de destino del paquete coincide con la dirección IP de la NIC. Por lo tanto, si una UDR define que un paquete se debe enviar a una aplicación virtual determinada, el motor de redes de Azure descartaría ese paquete. Para asegurarse de que el paquete se entregue a una máquina virtual (en este caso, una aplicación virtual) que no es el destino real del paquete, debe habilitar Reenvío IP para la aplicación virtual.
-* **Grupos de seguridad de red (NSG)**. El siguiente ejemplo no usa los NSG, pero puede usarlos en las subredes o las tarjetas NIC de esta solución para filtrar adicionalmente el tráfico que entra y sale de esas subredes y NIC.
+* **Grupos de seguridad de red (NSG)** . El siguiente ejemplo no usa los NSG, pero puede usarlos en las subredes o las tarjetas NIC de esta solución para filtrar adicionalmente el tráfico que entra y sale de esas subredes y NIC.
 
 ![Conectividad de IPv6](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 
@@ -134,19 +134,19 @@ Como se describió anteriormente, Reenvío IP solo asegura que los paquetes se e
 ### <a name="opfw"></a>OPFW
 OPFW representa un dispositivo local que contiene las siguientes reglas:
 
-* **ruta**: Todo el tráfico a 10.0.0.0/16 (**azurevnet**) se deben enviar a través de túnel **ONPREMAZURE**.
-* **Directiva**: Permitir todo el tráfico bidireccional entre **port2** y **ONPREMAZURE**.
+* **Ruta**: todo el tráfico a 10.0.0.0/16 (**azurevnet**) se debe enviar a través del túnel **ONPREMAZURE**.
+* **Directiva**: permita todo el tráfico bidireccional entre **port2** y **ONPREMAZURE**.
 
 ### <a name="azf1"></a>AZF1
 AZF1 representa una aplicación virtual de Azure que incluye las siguientes reglas:
 
-* **Directiva**: Permitir todo el tráfico bidireccional entre **port1** y **port2**.
+* **Directiva**: permita todo el tráfico bidireccional entre **port1** y **port2**.
 
 ### <a name="azf2"></a>AZF2
 AZF2 representa una aplicación de Azure que contiene las siguientes reglas:
 
-* **ruta**: Todo el tráfico a 10.0.0.0/16 (**onpremvnet**) se deben enviar a la puerta de enlace Azure dirección IP (es decir, 10.0.0.1) a través de **port1**.
-* **Directiva**: Permitir todo el tráfico bidireccional entre **port1** y **port2**.
+* **Ruta**: todo el tráfico a 10.0.0.0/16 (**onpremvnet**) se debe enviar a la dirección IP de la puerta de enlace de Azure (es decir, 10.0.0.1) a través de **port1**.
+* **Directiva**: permita todo el tráfico bidireccional entre **port1** y **port2**.
 
 ## <a name="network-security-groups-nsgs"></a>Grupos de seguridad de red (NSG)
 En este escenario, no se usan los NSG. Sin embargo, podría aplicar los NSG a cada subred para restringir el tráfico entrante y saliente. Por ejemplo, podría aplicar las siguientes reglas de NSG a la subred de firewall externo.
@@ -167,5 +167,5 @@ Para implementar este escenario, siga estos pasos de alto nivel.
 2. Si desea implementar una red virtual que simule la red local, aprovisione los recursos que son parte de **ONPREMRG**.
 3. Aprovisione los recursos que son parte de **AZURERG**.
 4. Aprovisione el túnel de **onpremvnet** a **azurevnet**.
-5. Una vez que todos los recursos se aprovisionan, inicie sesión en **onpremvm2** y haga ping a 10.0.3.101 para probar la conectividad entre **onpremsn2** y **azsn3**.
+5. Una vez que se aprovisionen todos los recursos, inicie sesión en **onpremvm2** y haga ping a 10.0.3.101 para probar la conectividad entre **onpremsn2** y **azsn3**.
 

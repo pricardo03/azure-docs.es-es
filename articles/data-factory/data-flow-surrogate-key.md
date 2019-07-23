@@ -1,6 +1,6 @@
 ---
 title: Transformación Clave suplente de Azure Data Factory Mapping Data Flow
-description: Cómo usar asignación de flujo de suplente clave transformación de Azure Data Factory de datos para generar valores de clave secuenciales
+description: Uso de la transformación Clave suplente de Azure Data Factory Mapping Data Flow para generar valores de claves secuenciales
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.openlocfilehash: eaa1c577f7e208400d3430222b006e0dbbd7956a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61350618"
 ---
-# <a name="mapping-data-flow-surrogate-key-transformation"></a>Transformación de clave de suplente de flujo de datos de asignación
+# <a name="mapping-data-flow-surrogate-key-transformation"></a>Transformación Clave suplente de Mapping Data Flow
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -26,30 +26,30 @@ Para agregar un valor de clave incremental arbitrario no empresarial al conjunto
 
 "Valor inicial" es el punto de partida del valor incremental.
 
-## <a name="increment-keys-from-existing-sources"></a>Claves de incremento de orígenes existentes
+## <a name="increment-keys-from-existing-sources"></a>Incrementar claves a partir de orígenes existentes
 
-Si desea iniciar la secuencia de un valor que existe en un origen, puede utilizar una transformación columna derivada inmediatamente después de la transformación de la clave suplente y sumar los dos valores:
+Si quiere iniciar la secuencia desde un valor que existe en un origen, puede utilizar una transformación Columna derivada inmediatamente después de la transformación Clave suplente y agregar los dos valores juntos:
 
-![SK agregar Max](media/data-flow/sk006.png "suplente clave transformación Agregar máx.")
+![Agregar máximo de Clave suplente](media/data-flow/sk006.png "Agregar máximo de transformación de Clave suplente")
 
-Para inicializar el valor de clave con el número máximo de anterior, hay dos técnicas que puede usar:
+Para inicializar el valor de clave con el máximo anterior, puede usar dos técnicas:
 
 ### <a name="database-sources"></a>Orígenes de base de datos
 
-Use la opción de "Consulta" para seleccionar MAX() desde el origen de la transformación de origen:
+Use la opción "Consulta" para seleccionar MAX() desde el origen mediante la transformación Origen:
 
-![Suplentes consulta clave](media/data-flow/sk002.png "suplentes de la consulta de transformación de clave")
+![Consulta de Clave suplente](media/data-flow/sk002.png "Consulta de transformación de Clave suplente")
 
 ### <a name="file-sources"></a>Orígenes de archivo
 
-Si el valor máximo anterior está en un archivo, puede usar la transformación de origen junto con una transformación agregado y use la función MAX() de expresión para obtener el máximo valor anterior:
+Si el valor máximo anterior está en un archivo, puede usar la transformación Origen junto con una transformación Agregar y usar la función de expresión MAX() para obtener el valor máximo anterior:
 
-![Archivo de clave de suplentes](media/data-flow/sk008.png "sustituta de archivo de clave")
+![Archivo de clave de suplente](media/data-flow/sk008.png "Archivo de clave suplente")
 
-En ambos casos, debe unir los datos entrantes del nuevo junto con el origen que contiene el valor máximo anterior:
+En ambos casos, debe unir los nuevos datos entrantes junto con el origen que contiene el valor máximo anterior:
 
-![Combinación de claves de suplentes](media/data-flow/sk004.png "suplentes de la combinación de claves")
+![Combinación de clave suplente](media/data-flow/sk004.png "Combinación de clave suplente")
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Estos ejemplos se usa el [unir](data-flow-join.md) y [columna derivada](data-flow-derived-column.md) transformaciones.
+En estos ejemplos se usan las transformaciones [Combinación](data-flow-join.md) y [Columna derivada](data-flow-derived-column.md).

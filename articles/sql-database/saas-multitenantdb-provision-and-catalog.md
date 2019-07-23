@@ -13,10 +13,10 @@ ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61486007"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionamiento y catalogación de nuevos inquilinos en una aplicación SaaS con una base de datos de Azure SQL multiinquilino con particiones
@@ -201,7 +201,7 @@ Ahora, recorra el proceso de script al crear un inquilino en su propia base de d
    - **$VenueType** = **soccer**, uno de los tipos de ubicación predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minúsculas, sin espacio).
    - **$DemoScenario** = **2** para aprovisionar un inquilino en su propia base de datos.
 
-2. Agregue un punto de interrupción nuevo colocando el cursor en cualquier lugar de la línea 57, que dice: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `*, y presione **F9**.
+2. Agregue un punto de interrupción nuevo colocando el cursor en cualquier lugar de la línea 57, que dice: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* , y presione **F9**.
 
    ![punto de interrupción](media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
@@ -237,7 +237,7 @@ La lista completa de inquilinos y su base de datos correspondiente están dispon
 - El nombre del inquilino se almacena en la tabla de inquilinos.
 - El nombre de la base de datos se almacena en las tablas de administración de particiones.
 
-1. En SQL Server Management Studio (SSMS), conéctese al servidor de inquilinos en **catalog-MT.\<usuario\>. database.windows.net**, con inicio de sesión = **developer**y la contraseña =  **P\@ssword1**
+1. En SQL Server Management Studio (SSMS), conéctese al servidor de inquilinos en **catalog-mt.\<USER\>.database.windows.net**, con el inicio de sesión = **developer**, y la contraseña = **P\@ssword1**.
 
     ![Cuadro de diálogo de conexión SSMS](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

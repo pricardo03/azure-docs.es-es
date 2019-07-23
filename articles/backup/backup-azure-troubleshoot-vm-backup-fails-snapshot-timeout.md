@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
 ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64914946"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
@@ -30,9 +30,9 @@ En este artículo se proporcionan los pasos de solución de problemas que pueden
 **Mensaje de error**: El agente de máquina virtual no se puede comunicar con Azure Backup<br>
 
 Después de registrar y programar una máquina virtual para el servicio Backup, dicho servicio inicia el trabajo comunicándose con el agente de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Cuando una instantánea no se desencadena, se puede producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:<br>
-**Causa 1: [el agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 1: [el agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Causa 2: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [no se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**Causa 3: [no se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
 **Causa 4: [no se puede actualizar ni cargar la extensión de copia de seguridad](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 5: [la máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
 
@@ -51,7 +51,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Código de error**: UserErrorRpCollectionLimitReached <br>
 **Mensaje de error**: se ha alcanzado el límite máximo de colecciones del punto de restauración. <br>
 * Este problema puede ocurrir si hay un bloqueo en el grupo de recursos del punto de recuperación que impida la limpieza automática del punto de recuperación.
-* Este problema también puede ocurrir si se desencadenan varias copias de seguridad al día. Actualmente, se recomienda solo una copia de seguridad al día que se conservan los puntos de restauración instantánea para 1-5 días según el período de retención de instantáneas configurado y solo 18 RPs instantánea puede asociarse con una máquina virtual en un momento dado. <br>
+* Este problema también puede ocurrir si se desencadenan varias copias de seguridad al día. Actualmente recomendamos solo una copia de seguridad por día, ya que los puntos de restauración instantáneos se retienen durante 1 a 5 días según la retención de instantáneas configurada y solo se pueden asociar 18 puntos de restauración instantáneos con una máquina virtual en cualquier momento dado. <br>
 
 Acción recomendada:<br>
 Para resolver este problema, elimine el bloqueo en el grupo de recursos de la máquina virtual y vuelva a intentar la operación para desencadenar la limpieza.
@@ -66,7 +66,7 @@ Para resolver este problema, elimine el bloqueo en el grupo de recursos de la m�
 **Código de error**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Mensaje de error**: Backup no tiene suficientes permisos para el almacén de claves y no se puede realizar la copia de seguridad de las máquinas virtuales cifradas. <br>
 
-Para que la operación de copia de seguridad se complete correctamente en las VM cifradas, debe tener permisos para acceder al almacén de claves. Esto puede hacerse mediante el [portal Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) o a través [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
+Para que la operación de copia de seguridad se complete correctamente en las VM cifradas, debe tener permisos para acceder al almacén de claves. Esto puede hacerse mediante [Azure Portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) o [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork: Error de la operación de instantánea debido a que no hay conectividad de red en la máquina virtual
 
@@ -102,12 +102,12 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Causa 5: el servicio Backup no tiene permiso para eliminar los puntos de restauración antiguos debido a un bloqueo del grupo de recursos** <br>
 **Causa 6: [la máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - actualmente Azure Backup no admite discos cuyo tamaño supere 4095GB
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize: Azure Backup no admite actualmente tamaños de disco mayores que 4095 GB
 
 **Código de error**: UserErrorUnsupportedDiskSize <br>
-**Mensaje de error**: Actualmente Azure Backup no admite discos cuyo tamaño supere 4095GB <br>
+**Mensaje de error**: Azure Backup no admite actualmente tamaños de disco mayores que 4095 GB <br>
 
-La operación de copia de seguridad podría generar un error cuando la copia de seguridad de máquina virtual con un tamaño de disco superior a 4095GB. Compatibilidad con discos de gran tamaño disponible próximamente.  
+La operación de copia de seguridad podría generar un error cuando se realiza una copia de seguridad de máquina virtual con un tamaño de disco superior a 4095 GB. La compatibilidad con discos de mayor tamaño estará disponible próximamente.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: no se puede iniciar la copia de seguridad, porque hay otra operación de copia de seguridad en curso actualmente
 
@@ -193,7 +193,7 @@ Las siguientes condiciones podrían hacer que la tarea de instantáneas no se re
 | Causa | Solución |
 | --- | --- |
 | El estado de la máquina virtual no se notifica correctamente porque la máquina virtual está apagada en el Protocolo de escritorio remoto (RDP). | Si ha apagado la máquina virtual en RDP, compruebe el portal para determinar si ese estado de la máquina virtual es correcto. Si no es así, apague la máquina virtual en el portal mediante la opción **Apagar** en el panel de la máquina virtual. |
-| La máquina virtual no puede obtener la dirección de host o de tejido de DHCP. | DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de la máquina virtual de IaaS funcione. Si la máquina virtual no puede obtener la dirección de host o de tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarlo mediante el **portal Azure** o **PowerShell** y asegúrese de que está habilitada la opción DHCP dentro de la máquina virtual. [Obtenga más información](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) acerca de cómo configurar una dirección IP estática con PowerShell.
+| La máquina virtual no puede obtener la dirección de host o de tejido de DHCP. | DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de la máquina virtual de IaaS funcione. Si la máquina virtual no puede obtener la dirección de host o de tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarla a través de **Azure Portal** o **PowerShell** y asegurarse de que está habilitada la opción DHCP dentro de la máquina virtual. [Obtenga más información](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) acerca de cómo configurar una dirección IP estática con PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>No se puede actualizar ni cargar la extensión de copia de seguridad
 Si no se pueden cargar las extensiones, no se puede realizar la copia de seguridad porque no se puede realizar una instantánea.
@@ -224,14 +224,14 @@ La realización de estos pasos hace que se vuelva a instalar la extensión duran
 
 ### <a name="clean_up_restore_point_collection"></a> Eliminación de la colección de puntos de restauración
 Después de quitar el bloqueo, los puntos de restauración deben limpiarse. Para limpiar los puntos de restauración, siga cualquiera de los métodos siguientes:<br>
-* [Restauración de limpieza colección de puntos mediante la ejecución de copia de seguridad ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Limpieza de la colección de puntos de restauración mediante la ejecución de la copia de seguridad ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Eliminación de la colección de puntos de restauración desde Azure Portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Restauración de limpieza colección de puntos mediante la ejecución de copia de seguridad ad hoc
-Después de quitar el bloqueo, desencadenar una copia de seguridad de ad hoc o manuales. Esto garantizará que los puntos de restauración se limpian automáticamente. Espera que esta operación ad hoc o manuales producirá un error en la primera vez. Sin embargo, asegurará la limpieza automática en lugar de la eliminación manual de puntos de restauración. Después de la limpieza, debería realizarse correctamente la siguiente copia de seguridad programada.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Limpieza de la colección de puntos de restauración mediante la ejecución de la copia de seguridad ad hoc
+Después de quitar el bloqueo, desencadene una copia de seguridad ad hoc o manual. Esto garantizará que los puntos de restauración se limpian automáticamente. Esta operación ad oc o manual probablemente produzca un error la primera vez; sin embargo, así se garantizará la limpieza automática en lugar de la eliminación manual de los puntos de restauración. Después de la limpieza, debería realizarse correctamente la siguiente copia de seguridad programada.
 
 > [!NOTE]
-> Se realizará la limpieza automática después de algunas horas de desencadenar la copia de seguridad de ad hoc o manuales. Si la copia de seguridad programada sigue produciendo un error, pruebe a eliminar manualmente la colección de puntos de restauración mediante los pasos indicados [aquí](#clean-up-restore-point-collection-from-azure-portal).
+> Se realizará la limpieza automática unas horas después de desencadenar la copia de seguridad ad hoc o manual. Si la copia de seguridad programada sigue produciendo un error, pruebe a eliminar manualmente la colección de puntos de restauración mediante los pasos indicados [aquí](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Eliminación de la colección de puntos de restauración desde Azure Portal <br>
 

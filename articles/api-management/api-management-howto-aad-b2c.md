@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
 ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696743"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory B2C en Azure API Management
@@ -38,7 +38,7 @@ Azure Active Directory B2C es una solución de administración de identidades en
    > [!NOTE]
    > Si todavía no ha creado una instancia del servicio API Management, consulte [Creación de una instancia del servicio API Management][Create an API Management service instance] en el [tutorial Introducción a Azure API Management][Get started with Azure API Management].
 
-2. En **identidades**. Haga clic en **+ Agregar** en la parte superior.
+2. En **Identidades**. Haga clic en **+ Agregar** en la parte superior.
 
    Aparece el panel **Agregar proveedor de identidades** a la derecha. Elija **Azure Active Directory B2C**.
     
@@ -76,9 +76,9 @@ Azure Active Directory B2C es una solución de administración de identidades en
 
 11. Vuelva al panel **Agregar proveedor de identidades** de API Management y pegue la clave en el cuadro de texto **Secreto de cliente**.
     
-12. Especifique el nombre de dominio del inquilino de Azure Active Directory B2C en **Signin inquilino**.
+12. Especifique el nombre de dominio del inquilino de Azure Active Directory B2C en **Inquilino de inicio de sesión**.
 
-13. El **autoridad** campo permite controlar la dirección URL de inicio de sesión de Azure AD B2C para usar. Establezca el valor en **< your_b2c_tenant_name >. b2clogin.com**.
+13. El campo **Autoridad** le permite controlar la dirección URL de inicio de sesión de Azure AD B2C que se usará. Establezca el valor en **<nombre_de_su_inquilino_de_b2c>. b2clogin.com**.
 
 14. Especifique la **directiva de registro** y la **directiva de inicio de sesión** en las directivas del inquilino de B2C. Si lo desea, también puede proporcionar la **directiva de edición de perfil** y la **directiva de restablecimiento de contraseña**.
 

@@ -1,5 +1,5 @@
 ---
-title: KickStart sus experimentos de ejemplos
+title: Puesta en marcha de los experimentos a partir de ejemplos
 titleSuffix: Azure Machine Learning Studio
 description: Aprenda a usar experimentos de aprendizaje automático de ejemplo para crear nuevos experimentos con Azure AI Gallery y Azure Machine Learning Studio.
 services: machine-learning
@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
 ms.openlocfilehash: f88323069ed23f4a038ffa4a030b1c4d4541ec42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61460384"
 ---
 # <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Crear experimentos de Azure Machine Learning Studio a partir de ejemplos de trabajo en Azure AI Gallery
@@ -41,7 +41,7 @@ Para examinar todos los experimentos:
 3. Puede encontrar los experimentos que cumplan con sus requisitos de las siguientes maneras:
    * **Seleccione los filtros de la izquierda.** Por ejemplo, para examinar experimentos que usan un algoritmo de detección de anomalías basado en PCA: en **Categories** (Categorías), haga clic en **Experiment** (Experimento). A continuación, en **Algorithms Used** (Algoritmos utilizados), haga clic en **Show all** (Mostrar todos) y en el cuadro de diálogo, elija **PCA-Based Anomaly Detection** (Detección de anomalías basada en PCA). Es posible que tenga que desplazarse para verlo.<br></br>
      ![Selección de filtros](./media/sample-experiments/choose-an-algorithm.png)
-   * **Utilice el cuadro de búsqueda.**  Por ejemplo, para buscar experimentos aportados por Microsoft relacionados con el reconocimiento de dígitos que usen un algoritmo de máquina de vectores de soporte de dos clases, escriba "digit recognition" (reconocimiento de dígitos) en el cuadro de búsqueda. A continuación, seleccione los filtros **Experiment** (Experimento), **Microsoft content only** (Solo contenido de Microsoft) y **Two-Class Support Vector Machine** (Máquina de vectores de soporte de dos clases):<br></br>
+   * **Utilice el cuadro de búsqueda.** Por ejemplo, para buscar experimentos aportados por Microsoft relacionados con el reconocimiento de dígitos que usen un algoritmo de máquina de vectores de soporte de dos clases, escriba "digit recognition" (reconocimiento de dígitos) en el cuadro de búsqueda. A continuación, seleccione los filtros **Experiment** (Experimento), **Microsoft content only** (Solo contenido de Microsoft) y **Two-Class Support Vector Machine** (Máquina de vectores de soporte de dos clases):<br></br>
      ![Uso del cuadro de búsqueda](./media/sample-experiments/search-for-experiments.png)
 4. Haga clic en un experimento para obtener más información.
 5. Para ejecutar o modificar el experimento, haga clic en **Open in Studio** (Abrir en Estudio) en la página del experimento. <br></br>

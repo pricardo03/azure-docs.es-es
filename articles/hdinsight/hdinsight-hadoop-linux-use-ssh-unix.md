@@ -10,17 +10,17 @@ ms.date: 04/03/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.openlocfilehash: cc60a8ca0e0b04a5fcec5300fbeb1a0f34d1c7b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686378"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Conexión a HDInsight (Apache Hadoop) mediante SSH
 
-Aprenda a usar [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) para conectarse de forma segura a Apache Hadoop en Azure HDInsight. Para obtener información acerca de cómo conectarse a través de una red virtual, consulte [arquitectura de red virtual de Azure HDInsight](./hdinsight-virtual-network-architecture.md) y [extender Azure HDInsight con Azure Virtual Network](./hdinsight-extend-hadoop-virtual-network.md).
+Aprenda a usar [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) para conectarse de forma segura a Apache Hadoop en Azure HDInsight. Para obtener información acerca de cómo conectarse a través de una red virtual, consulte [Arquitectura de red virtual de Azure HDInsight](./hdinsight-virtual-network-architecture.md) y el tema sobre la [extensión de Azure HDInsight mediante Azure Virtual Network](./hdinsight-extend-hadoop-virtual-network.md).
 
-En la tabla siguiente contiene la información de dirección y el puerto es necesaria para conectarse a HDInsight mediante un cliente SSH:
+La tabla siguiente contiene la información de dirección y puerto necesaria para conectarse a HDInsight a través de un cliente SSH:
 
 | Dirección | Port | Se conecta a... |
 | ----- | ----- | ----- |
@@ -44,7 +44,7 @@ Los sistemas Linux, Unix y macOS proporcionan los comandos `ssh` y `scp`. El cli
 
 Microsoft Windows no instala clientes SSH de forma predeterminada. Los clientes `ssh` y `scp` están disponibles para Windows a través de los siguientes paquetes:
 
-* [Cliente OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). se trata de una característica opcional que se introdujo en Windows 10 Fall Creators Update.
+* [Cliente OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse): se trata de una característica opcional que se introdujo en Windows 10 Fall Creators Update.
 
 * [Bash en Ubuntu en Windows 10](https://docs.microsoft.com/windows/wsl/about).
 
@@ -88,9 +88,9 @@ Se le pedirá información durante el proceso de creación de claves. Por ejempl
 
 | Método de creación | Cómo usar la clave pública |
 | ------- | ------- |
-| Azure Portal | Desactive la opción __Utilizar la misma contraseña que en el inicio de sesión del clúster__y, a continuación, seleccione __Clave pública__ como el tipo de autenticación de SSH. Por último, seleccione el archivo de clave pública o pegue el contenido de texto del archivo en el campo __Clave pública SSH__.</br>![Cuadro de diálogo de clave pública SSH en la creación de clústeres de HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| Azure PowerShell | Use la `-SshPublicKey` parámetro de la [New AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet y pase el contenido de la clave pública como una cadena.|
-| Azure CLI | Use la `--sshPublicKey` parámetro de la [az hdinsight crear](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) comando y pase el contenido de la clave pública como una cadena. |
+| Portal de Azure | Desactive la opción __Utilizar la misma contraseña que en el inicio de sesión del clúster__y, a continuación, seleccione __Clave pública__ como el tipo de autenticación de SSH. Por último, seleccione el archivo de clave pública o pegue el contenido de texto del archivo en el campo __Clave pública SSH__.</br>![Cuadro de diálogo de clave pública SSH en la creación de clústeres de HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| Azure PowerShell | Use el parámetro `-SshPublicKey` del cmdlet [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) y pase el contenido de la clave pública como una cadena.|
+| Azure CLI | Use el parámetro `--sshPublicKey` del comando [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) y pase el contenido de la clave pública como una cadena. |
 | Plantilla de Resource Manager | Para obtener un ejemplo del uso de claves SSH con una plantilla, consulte la [implementación de HDInsight en Linux con una clave SSH](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). El elemento `publicKeys` en el archivo [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) se usa para pasar las claves a Azure al crear el clúster. |
 
 ## <a id="sshpassword"></a>Autenticación: Contraseña
@@ -107,9 +107,9 @@ Las cuentas SSH se pueden proteger mediante una contraseña. Cuando se conecta a
 
 | Método de creación | Cómo especificar la contraseña |
 | --------------- | ---------------- |
-| Azure Portal | De forma predeterminada, la cuenta de usuario SSH tiene la misma contraseña que la cuenta de inicio de sesión de clúster. Para usar una contraseña diferente, desactive la opción __Utilizar la misma contraseña que en el inicio de sesión del clúster__y, a continuación, escriba la contraseña en el campo __Contraseña SSH__.</br>![Cuadro de diálogo de contraseña SSH en la creación de clústeres de HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| Azure PowerShell | Use la `--SshCredential` parámetro de la [New AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet y pasar un `PSCredential` objeto que contiene el nombre de cuenta de usuario SSH y la contraseña. |
-| Azure CLI | Use la `--sshPassword` parámetro de la [az hdinsight crear](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) comando y proporcione el valor de contraseña. |
+| Portal de Azure | De forma predeterminada, la cuenta de usuario SSH tiene la misma contraseña que la cuenta de inicio de sesión de clúster. Para usar una contraseña diferente, desactive la opción __Utilizar la misma contraseña que en el inicio de sesión del clúster__y, a continuación, escriba la contraseña en el campo __Contraseña SSH__.</br>![Cuadro de diálogo de contraseña SSH en la creación de clústeres de HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| Azure PowerShell | Use el parámetro `--SshCredential` del cmdlet [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) y pase un objeto `PSCredential` que contenga el nombre de cuenta de usuario SSH y la contraseña. |
+| Azure CLI | Use el parámetro `--sshPassword` del comando [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) y proporcione el valor de contraseña. |
 | Plantilla de Resource Manager | Para obtener un ejemplo del uso de contraseña con una plantilla, consulte la [implementación de HDInsight en Linux con una contraseña SSH](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). El elemento `linuxOperatingSystemProfile` en el archivo [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) se usa para pasar el nombre de cuenta de SSH y la contraseña a Azure al crear el clúster.|
 
 ### <a name="change-the-ssh-password"></a>Cambio de contraseña de SSH
@@ -120,7 +120,7 @@ Para información acerca de cómo cambiar la contraseña de cuenta de usuario SS
 
 Si está usando un __clúster de HDInsight unido a un dominio__, tiene que utilizar el comando `kinit` después de conectarse con el usuario local de SSH. Este comando le pide un usuario de dominio y una contraseña y autentica la sesión con el dominio de Azure Active Directory asociado con el clúster.
 
-También puede habilitar la autenticación Kerberos en cada nodo de dominio unido (por ejemplo, el nodo principal, el nodo perimetral) para ssh con la cuenta de dominio. Para ello, edite el archivo de configuración de sshd:
+También puede habilitar la autenticación Kerberos en cada nodo unido a un dominio (por ejemplo, nodo principal, nodo perimetral) para realizar un ssh mediante la cuenta de dominio. Para ello, edite el archivo de configuración de sshd:
 ```bash
 sudo vi /etc/ssh/sshd_config
 ```

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.openlocfilehash: b932ad3148bb1f5ddd229c2674f8a20bbfe1afa8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61458565"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Creación y administración de reglas y puntos de conexión de servicio de red virtual de Azure Database for MySQL mediante Azure Portal
@@ -24,10 +24,10 @@ Las reglas y los puntos de conexión de servicios de red virtual (VNet) amplían
 
 1. En la página del servidor de MySQL, en el encabezado Configuración, haga clic en **Seguridad de conexión** para abrir la página de seguridad de conexión de Azure Database for MySQL. 
 
-2. Asegúrese de que permitir el acceso al control de servicios de Azure está establecido en **OFF**.
+2. Asegúrese de que el control Permitir el acceso a los servicios de Azure está configurado en**Desactivado**.
 
 > [!Important]
-> Si deja el control establecido en ON, el servidor Azure MySQL Database aceptará la comunicación desde cualquier subred. Si deja el control establecido en Activado, el número de accesos podría ser excesivo desde un punto de vista de seguridad. La característica de punto de conexión de servicio de Microsoft Azure Virtual Network, en coordinación con la característica de la regla de red virtual de Azure Database for MySQL, puede reducir el área expuesta de seguridad.
+> Si deja el control establecido en Activado, el servidor de Azure MySQL Database aceptará la comunicación desde cualquier subred. Si deja el control establecido en Activado, el número de accesos podría ser excesivo desde un punto de vista de seguridad. La característica de punto de conexión del servicio Microsoft Azure Virtual Network, junto con la característica de la regla de red virtual de Azure Database for MySQL, pueden reducir el área expuesta de seguridad.
 
 3. A continuación, haga clic en **+ Agregar una red virtual existente**. Si no tiene ninguna red virtual, puede hacer clic en **+ Crear nueva red virtual** para crear una. Consulte [Quickstart: Creación de una red virtual mediante Azure Portal](../virtual-network/quick-create-portal.md)
 

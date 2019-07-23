@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61481621"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Ampliación de los grupos de disponibilidad AlwaysOn locales a Azure
@@ -42,13 +42,13 @@ En esta sección se muestra cómo usar el **Asistente para agregar una réplica 
 > [!IMPORTANT]
 > El **Asistente para agregar réplicas de Azure** solo es compatible con las máquinas virtuales creadas con el modelo de implementación clásica. Las nuevas implementaciones de máquinas virtuales deben utilizar el último modelo de Resource Manager. Si está usando máquinas virtuales con Resource Manager, debe agregar manualmente la réplica secundaria de Azure mediante comandos de Transact-SQL (algo que no se muestra aquí). Este Asistente no funcionará en el escenario de Resource Manager.
 
-1. En SQL Server Management Studio, expanda **Alta disponibilidad AlwaysOn** > **Grupos de disponibilidad** > **[Nombre del grupo de disponibilidad]**.
+1. En SQL Server Management Studio, expanda **Alta disponibilidad AlwaysOn** > **Grupos de disponibilidad** >  **[Nombre del grupo de disponibilidad]** .
 2. Haga clic con el botón derecho en **Réplicas de disponibilidad** y luego en **Agregar réplica**.
 3. De forma predeterminada, aparece el **Asistente para agregar réplica al grupo de disponibilidad** . Haga clic en **Next**.  Si ha seleccionado la opción **No volver a mostrar esta página** en la parte inferior de la página durante un inicio anterior de este asistente, esta pantalla no aparecerá.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
-4. Deberá conectarse a todas las réplicas secundarias existentes. Puede hacer clic en **Conectar...** junto a cada réplica o puede hacer clic en **Conectar todo...**  en la parte inferior de la pantalla. Después de la autenticación, haga clic en **Siguiente** para pasar a la siguiente pantalla.
-5. En el **especificar réplicas** página, aparecen varias pestañas en la parte superior: **Réplicas**, **extremos**, **preferencias de copia de seguridad**, y **escucha**. En la ficha **Réplicas**, haga clic en **Agregar réplica de Azure...**  para iniciar el Asistente para agregar una réplica de Azure.
+4. Deberá conectarse a todas las réplicas secundarias existentes. Puede hacer clic en **Conectar...** junto a cada réplica o puede hacer clic en **Conectar todo...** en la parte inferior de la pantalla. Después de la autenticación, haga clic en **Siguiente** para pasar a la siguiente pantalla.
+5. En la página **Especificar réplicas**, aparecen varias pestañas en la parte superior: **Réplicas**, **Puntos de conexión**, **Preferencias de copia de seguridad** y **Agente de escucha**. En la ficha **Réplicas**, haga clic en **Agregar réplica de Azure...** para iniciar el Asistente para agregar una réplica de Azure.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742863.png)
 6. Seleccione un certificado de administración de Azure existente en el almacén de certificados local de Windows si ha instalado uno antes. Seleccione o escriba el identificador de una suscripción de Azure si ha usado uno antes. Puede hacer clic en Descargar para descargar e instalar un certificado de administración de Azure y descargar la lista de suscripciones con una cuenta de Azure.

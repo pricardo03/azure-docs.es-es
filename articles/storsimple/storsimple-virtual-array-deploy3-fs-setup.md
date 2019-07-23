@@ -16,10 +16,10 @@ ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61415237"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar un servidor de archivos mediante Azure Portal
@@ -42,7 +42,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
 
 ## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Paso 1: Completar la configuración de la interfaz de usuario web local y registrar el dispositivo
 #### <a name="to-complete-the-setup-and-register-the-device"></a>Para completar la instalación y registrar el dispositivo
-1. Abra una ventana del explorador y conéctese a la interfaz de usuario web local. Escriba: 
+1. Abra una ventana del explorador y conéctese a la interfaz de usuario web local. Escriba:
    
    `https://<ip-address of network interface>`
    
@@ -182,7 +182,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para crear un recu
    3. El **tipo** de recurso compartido. Dicho tipo puede ser **En capas** o **Anclado localmente**. La primera opción es la predeterminada. Para las cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione un recurso compartido **Anclado localmente** . Para todos los demás datos, seleccione un recurso compartido **En capas** .
       Un recurso compartido anclado localmente se aprovisiona de forma intensa y garantiza que los datos principales del recurso compartido continúen siendo locales en el dispositivo y que no se traspasan a la nube. Por otro lado, un recurso compartido en capas tiene aprovisionamiento reducido. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas.
    
-   4. En el campo **Set default full permissions to** (Establecer permisos totales predeterminados en), asigne los permisos al usuario o al grupo que va a acceder a este recurso compartido. Especifique el nombre del usuario o el grupo de usuarios en *john\@contoso.com* formato. Se recomienda que utilice un grupo de usuarios (en lugar de un único usuario) para otorgar los privilegios de administrador para tener acceso a estos recursos compartidos. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
+   4. En el campo **Set default full permissions to** (Establecer permisos totales predeterminados en), asigne los permisos al usuario o al grupo que va a acceder a este recurso compartido. Especifique el nombre del usuario o del grupo de usuarios en el formato *john\@contoso.com*. Se recomienda que utilice un grupo de usuarios (en lugar de un único usuario) para otorgar los privilegios de administrador para tener acceso a estos recursos compartidos. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
    
    5. Haga clic en **Agregar** para crear el recurso compartido. 
     

@@ -1,6 +1,6 @@
 ---
-title: 'Variables de entorno en tiempo de ejecución: Azure Batch de tareas | Microsoft Docs'
-description: Orientación variable de entorno de tiempo de ejecución de tareas y referencia de Azure Batch Analytics.
+title: 'Variables de entorno de tiempo de ejecución de tareas: Azure Batch | Microsoft Docs'
+description: Instrucciones y referencia de las variable de entorno de tiempo de ejecución de tareas para Azure Batch Analytics.
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -13,13 +13,13 @@ ms.workload: big-compute
 ms.date: 04/23/2019
 ms.author: lahugh
 ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575588"
 ---
-# <a name="azure-batch-runtime-environment-variables"></a>Variables de entorno en tiempo de ejecución de Azure Batch
+# <a name="azure-batch-runtime-environment-variables"></a>Variables de entorno de tiempo de ejecución de Azure Batch
 
 El [servicio Azure Batch](https://azure.microsoft.com/services/batch/) establece las siguientes variables del entorno en nodos de proceso. Puede hacer referencia a estas variables del entorno en líneas de comandos de la tarea y en los programas y secuencias de comandos que ejecutan las líneas de comandos.
 
@@ -29,7 +29,7 @@ Para obtener más información sobre el uso de variables del entorno con Batch, 
 
 Estas variables del entorno solo son visibles en el contexto de la **tarea del usuario**, es decir, la cuenta de usuario en el nodo donde se ejecuta una tarea. *No* las verá si [se conecta de forma remota](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) a un nodo de ejecución a través del protocolo de escritorio remoto (RDP) o de Secure Shell (SSH) y muestra la lista de variables del entorno. Esto se debe a que la cuenta de usuario que se usa para la conexión remota no es la misma que la cuenta que utiliza la tarea.
 
-Para obtener el valor actual de una variable de entorno, inicie `cmd.exe` nodo de proceso en un Windows o `/bin/sh` en un nodo de Linux:
+Para obtener el valor actual de una variable de entorno, inicie `cmd.exe` en un nodo de proceso de Windows o `/bin/sh` en un nodo de Linux:
 
 `cmd /c set <ENV_VARIABLE_NAME>`
 

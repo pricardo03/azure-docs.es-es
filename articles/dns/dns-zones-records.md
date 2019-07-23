@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712226"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
@@ -28,7 +28,7 @@ En esta página se explican los conceptos básicos sobre dominios, zonas DNS y r
 
 ## <a name="domain-names"></a>Nombres de dominio
 
-El sistema de nombres de dominio es una jerarquía de dominios. La jerarquía empieza por el dominio "raíz", cuyo nombre es sencillamente "**.**".  Después de él, se encuentran los dominios de primer nivel, a saber, “com”, “net”, “org”, “uk” o “jp”.  A continuación, se colocan los dominios de segundo nivel, como “org.uk” o “co.jp”. Los dominios están distribuidos globalmente, hospedados por servidores de nombres DNS de todo el mundo.
+El sistema de nombres de dominio es una jerarquía de dominios. La jerarquía empieza por el dominio "raíz", cuyo nombre es sencillamente " **.** ".  Después de él, se encuentran los dominios de primer nivel, a saber, “com”, “net”, “org”, “uk” o “jp”.  A continuación, se colocan los dominios de segundo nivel, como “org.uk” o “co.jp”. Los dominios están distribuidos globalmente, hospedados por servidores de nombres DNS de todo el mundo.
 
 Un registrador de nombres de dominio es una organización que le permite adquirir un nombre de dominio, como "contoso.com".  Comprar un nombre de dominio le concede el derecho a controlar la jerarquía DNS bajo ese nombre, por ejemplo, permitiéndole dirigir el nombre "www.contoso.com" al sitio web de empresa. El propio registrador puede hospedar el dominio del usuario en los servidores de nombres de este último, o bien el usuario puede especificar servidores de nombres alternativos.
 
@@ -59,7 +59,7 @@ Para crear un conjunto de registros comodín, utilice el nombre de conjunto de r
 ### <a name="caa-records"></a>Registros CAA
 
 Los registros CAA permiten a los propietarios especificar qué entidades de certificación (CA) están autorizadas para emitir certificados para su dominio. Esto permite a las entidades de certificación evitar certificados no emitidos en algunas circunstancias. Los registros CAA tienen tres propiedades:
-* **Marcas**: Se trata de un número entero entre 0 y 255, que se utiliza para representar la marca crítica que tiene un significado especial según el [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Marcas**: se trata de un número entero entre 0 y 255, que se utiliza para representar la marca crítica que tiene un significado especial según el [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Etiqueta**: una cadena ASCII que puede ser una de las siguientes:
     * **issue**: utilice esta etiqueta si desea especificar entidades de certificación a las que se les permite emitir certificados (todos los tipos).
     * **issuewild**: utilice esta etiqueta si desea especificar entidades de certificación a las que se les permite emitir certificados (solo certificados comodín)
@@ -134,7 +134,7 @@ En el nivel de la API de REST de DNS de Azure, los valores de Etag se especifica
 | Encabezado | Comportamiento |
 | --- | --- |
 | None |PUT siempre se realiza correctamente (sin comprobaciones de ETag) |
-| If-match <etag> |PUT solo se realiza correctamente si el recurso existe y ETag coincide |
+| \<ETag> If-match |PUT solo se realiza correctamente si el recurso existe y ETag coincide |
 | If-match * |PUT solo se realiza correctamente si el recurso existe |
 | If-none-match * |PUT solo se realiza correctamente si el recurso no existe |
 

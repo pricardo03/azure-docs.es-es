@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 404335ce0cd05085c79cbeea29ad95f79008289c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681950"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
@@ -112,7 +112,7 @@ Si abre el contenedor predeterminado del clúster de Hadoop mediante herramienta
 ![Explorador de Azure Storage mostrando la salida de la consulta de Hive](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Enviar consultas de Hive con el Editor de Hive
-También puede usar la consola de consultas (Editor de Hive) escribiendo una dirección URL del formulario *https:\//\<el nombre del clúster de Hadoop >.azurehdinsight.net/Home/HiveEditor* en un explorador web. Debe haber iniciado sesión para ver esta consola; así pues, tiene que escribir sus credenciales de Hadoop aquí.
+También puede utilizar la consola de consultas (Editor de Hive). Para ello, escriba una dirección URL con el formato *https:\//\<nombre del clúster de Hadoop>.azurehdinsight.net/Home/HiveEditor* en un explorador web. Debe haber iniciado sesión para ver esta consola; así pues, tiene que escribir sus credenciales de Hadoop aquí.
 
 ### <a name="ps"></a> 3. Enviar consultas de Hive con los comandos de Azure PowerShell
 Los usuarios pueden también usar PowerShell para enviar consultas de Hive. Para obtener instrucciones, consulte [Envío de trabajos de Hive mediante PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -137,19 +137,19 @@ Esta es la consulta de subárbol que crea una tabla de subárbol.
 
 Estas son las descripciones de los campos que los usuarios necesitan para conectar y otras configuraciones:
 
-* **\<nombre de base de datos\>**: nombre de la base de datos que los usuarios desean crear. Si los usuarios solo desean usar la base de datos predeterminada, se puede omitir la consulta *crear base de datos...*
-* **\<nombre de tabla\>**: nombre de la tabla que los usuarios quieren crear en la base de datos especificada. Si los usuarios desean usar la base de datos predeterminada, puede hacer referencia directamente a la tabla *\<nombre de tabla\>* sin \<nombre de base de datos\>.
-* **\<separador de campos\>**: separador que delimita los campos del archivo de datos que se cargará en la tabla de Hive.
-* **\<separador de líneas\>**: separador que delimita las líneas del archivo de datos.
-* **\<ubicación de almacenamiento\>**: la ubicación de Azure Storage para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION \<ubicación de almacenamiento\>*, la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, esta debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster con el formato *'wasb:///<directorio 1>/'* o *'wasb:///<directorio 1>/<directorio 2>/'*, etc. Después de ejecutar la consulta, se crean los directorios relativos dentro del contenedor predeterminado.
-* **TBLPROPERTIES("skip.header.line.count"="1")**: si el archivo de datos tiene una línea de encabezado, los usuarios deben agregar esta propiedad **al final** de la consulta *create table*. De lo contrario, se carga la línea de encabezado como registro en la tabla. Si el archivo de datos no tiene una línea de encabezado, se puede omitir esta configuración en la consulta.
+* **\<nombre de base de datos\>** : nombre de la base de datos que los usuarios desean crear. Si los usuarios solo desean usar la base de datos predeterminada, se puede omitir la consulta *crear base de datos...*
+* **\<nombre de tabla\>** : nombre de la tabla que los usuarios quieren crear en la base de datos especificada. Si los usuarios desean usar la base de datos predeterminada, puede hacer referencia directamente a la tabla *\<nombre de tabla\>* sin \<nombre de base de datos\>.
+* **\<separador de campos\>** : separador que delimita los campos del archivo de datos que se cargará en la tabla de Hive.
+* **\<separador de líneas\>** : separador que delimita las líneas del archivo de datos.
+* **\<ubicación de almacenamiento\>** : la ubicación de Azure Storage para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION \<ubicación de almacenamiento\>* , la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, esta debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster con el formato *'wasb:///<directorio 1>/'* o *'wasb:///<directorio 1>/<directorio 2>/'* , etc. Después de ejecutar la consulta, se crean los directorios relativos dentro del contenedor predeterminado.
+* **TBLPROPERTIES("skip.header.line.count"="1")** : si el archivo de datos tiene una línea de encabezado, los usuarios deben agregar esta propiedad **al final** de la consulta *create table*. De lo contrario, se carga la línea de encabezado como registro en la tabla. Si el archivo de datos no tiene una línea de encabezado, se puede omitir esta configuración en la consulta.
 
 ## <a name="load-data"></a>Carga de datos en tablas de Hive
 Esta es la consulta de subárbol que carga datos en una tabla de subárbol.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<ruta a los datos de blob\>**: Si el archivo de blob que se cargará en la tabla de Hive se encuentra en el contenedor predeterminado del clúster de HDInsight Hadoop, el *\<ruta de acceso a datos blob\>* debe tener el formato *' wasb: / /\< directorio en este contenedor > /\<nombre de archivo de blob >'*. El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *\<ruta de acceso a datos blob\>* debe tener el formato *' wasb: / /\<nombre del contenedor >\<nombredecuentadealmacenamiento >.blob.core.windows.net/\<nombre de archivo de blob >'*.
+* **\<ruta a los datos de blob\>** : si el archivo de blob que se va a cargar en la tabla de Hive se encuentra en el contenedor predeterminado del clúster de Hadoop de HDInsight, *\<ruta de acceso a datos de blob\>* debe tener el formato *"wasb://\<directorio de este contenedor>/\<nombre del archivo de blob>* . El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *\<ruta de acceso a datos de blob\>* debería tener el formato *"wasb://\<nombre del contenedor>\<nombre de la cuenta de almacenamiento>.blob.core.windows.net/\<nombre de archivo de blob>"* .
 
   > [!NOTE]
   > Los datos blob que se van a cargar en la tabla de subárbol tienen que estar en el contenedor adicional o predeterminado de la cuenta de almacenamiento para el clúster de Hadoop. De lo contrario, la consulta *LOAD DATA* genera un error indicando que no puede obtener acceso a los datos.
@@ -216,7 +216,7 @@ Seleccionar datos desde la tabla externa del paso 1 e insertarlos en la tabla de
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Si la tabla TEXTFILE *\<nombre de base de datos\>.\<nombre de la tabla de archivo de texto externo\>* tiene particiones, en el PASO 3, el comando `SELECT * FROM <database name>.<external textfile table name>` selecciona la variable de partición como un campo en el conjunto de datos devuelto. Si se inserta en *\<nombre de base de datos\>.\<nombre de la tabla ORC\>*, se producirá un error porque *\<nombre de base de datos\>.\<nombre de la tabla ORC\>* no tiene la variable de partición como un campo en el esquema de tabla. En este caso, los usuarios deben seleccionar específicamente los campos que se van a insertar en *\<nombre de base de datos\>.\<nombre de la tabla ORC\>* de la manera siguiente:
+> Si la tabla TEXTFILE *\<nombre de base de datos\>.\<nombre de la tabla de archivo de texto externo\>* tiene particiones, en el PASO 3, el comando `SELECT * FROM <database name>.<external textfile table name>` selecciona la variable de partición como un campo en el conjunto de datos devuelto. Si se inserta en *\<nombre de base de datos\>.\<nombre de la tabla ORC\>* , se producirá un error porque *\<nombre de base de datos\>.\<nombre de la tabla ORC\>* no tiene la variable de partición como un campo en el esquema de tabla. En este caso, los usuarios deben seleccionar específicamente los campos que se van a insertar en *\<nombre de base de datos\>.\<nombre de la tabla ORC\>* de la manera siguiente:
 >
 >
 
@@ -225,7 +225,7 @@ Seleccionar datos desde la tabla externa del paso 1 e insertarlos en la tabla de
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Es seguro quitar *\<nombre de la tabla de archivo de texto externo\>* cuando use la consulta siguiente una vez insertados todos los datos en *\<nombre de base de datos\>.\<nombre de la tabla ORC\>*:
+Es seguro quitar *\<nombre de la tabla de archivo de texto externo\>* cuando use la consulta siguiente una vez insertados todos los datos en *\<nombre de base de datos\>.\<nombre de la tabla ORC\>* :
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

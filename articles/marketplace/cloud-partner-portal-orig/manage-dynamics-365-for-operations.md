@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: a9ada25641e2a56beb9083b145a507c8fd41a46f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935104"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Cómo crear una oferta de Dynamics 365 for Operations a través de Cloud Partner Portal
@@ -45,7 +45,7 @@ El formulario de configuración de oferta es un formulario básico en el que se 
 
 Se trata de un identificador único de la oferta en un perfil del publicador. Este identificador será visible en las direcciones URL de producto. Puede contener solo caracteres alfanuméricos en minúscula o guiones (-). El identificador, que tendrá 50 caracteres como máximo, no puede terminar con un guion. Este campo queda bloqueado en cuanto se lanza una oferta.
 
-Por ejemplo, si un publicador de contoso publisher crea una oferta con Id. de oferta *dynamics365 de ejemplo para las operaciones*, se mostrará en AppSource como `https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics365 for operations*?tab=Overview\`.
+Por ejemplo, si un publicador contoso crea una oferta con el identificador de oferta *sample-dynamics365 for operations*, se mostrará en AppSource como `https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics365 for operations*?tab=Overview\`.
 
 ### <a name="publisher-id"></a>Id. de publicador
 
@@ -132,7 +132,7 @@ Solo sus usuarios verán la dirección URL de soporte técnico en el portal.
 
 ### <a name="leads-management"></a>Administración de clientes potenciales
 
-Seleccione un sistema de CRM donde se guardará el cliente potencial. Seleccione \"Azure Table\" aquí si tiene uno de los siguientes sistemas CRM: Salesforce, Marketo o Microsoft Dynamics CRM. El sistema de CRM que seleccione aquí es donde escribiremos los detalles de los usuarios finales que prueben su aplicación en AppSource (clientes potenciales). En función del sistema de CRM que seleccione, haga clic en la dirección URL correspondiente para obtener información sobre cómo completar el siguiente conjunto de campos.
+Seleccione un sistema de CRM donde se guardará el cliente potencial. Seleccione \"Tabla de Azure\" si tiene uno de los siguientes sistemas de CRM: Salesforce, Marketo o Microsoft Dynamics CRM. El sistema de CRM que seleccione aquí es donde escribiremos los detalles de los usuarios finales que prueben su aplicación en AppSource (clientes potenciales). En función del sistema de CRM que seleccione, haga clic en la dirección URL correspondiente para obtener información sobre cómo completar el siguiente conjunto de campos.
 
 ![Detalles de administración de clientes potenciales](./media/publish_d365_new_offer/leads.png)
 

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64692378"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Descripción del control del tiempo en Azure Stream Analytics
@@ -26,7 +26,7 @@ Para contextualizar la discusión, vamos a definir algunos conceptos de fondo:
 
 - **Tiempo de procesamiento**: el tiempo que transcurre desde que el evento llega al sistema de procesamiento y se observa. Por ejemplo, cuando un sensor de la cabina de peaje detecta el automóvil y el sistema informático tarda unos instantes en procesar los datos.
 
-- **Marca de agua**: Un marcador de tiempo del evento que indica hasta qué punto los eventos se han midió al procesador de transmisión por secuencias. Las marcas de agua permiten al sistema indicar el progreso claro sobre la ingesta de eventos. Por la naturaleza de las transmisiones, los datos de evento entrantes nunca se detienen, por lo que las marcas de agua indican el progreso a un determinado punto en la transmisión.
+- **Marca de agua**: marcador de hora del evento que indica qué eventos puntuales se han introducido en el procesador de streaming. Las marcas de agua permiten al sistema indicar el progreso claro sobre la ingesta de eventos. Por la naturaleza de las transmisiones, los datos de evento entrantes nunca se detienen, por lo que las marcas de agua indican el progreso a un determinado punto en la transmisión.
 
    El concepto de marca de agua es importante. Las marcas de agua permiten a Stream Analytics determinar cuándo el sistema puede producir resultados completos, correctos y repetibles que no necesitan retirarse. El procesamiento puede realizarse de una forma garantizada, que es predecible y repetible. Por ejemplo, si es necesario realizar un recuento para alguna condición de control de errores, las marcas de agua son puntos de inicio y finalización seguros.
 
@@ -163,7 +163,7 @@ Azure Stream Analytics usa el progreso de la marca de agua como el único desenc
 
 Cuando se usan [agregados en ventanas](stream-analytics-window-functions.md), el servicio solo genera salidas al final de las ventanas. En algunos casos, los usuarios puede que deseen ver agregados parciales generados desde las ventanas. Actualmente no se admiten agregados parciales en Azure Stream Analytics.
 
-En otras soluciones de transmisión, los eventos de salida se podrían materializar en varios puntos de desencadenador, dependiendo de circunstancias externas. Es posible que en algunas soluciones que los eventos de salida para un período de tiempo determinado podrían generarse varias veces. A medida que se refinan los valores de entrada, los resultados de agregados se vuelven más precisos. Al principio, se podría especular con los eventos, que podrían revisarse con el tiempo. Por ejemplo, cuando un determinado dispositivo está desconectado de la red, un sistema podría usar un valor estimado. Más adelante, el mismo dispositivo pasa a estar conectado a la red. Es entonces cuando los datos del evento real podrían incluirse en la transmisión de entrada. Los resultados de salida del procesamiento de ese período de tiempo genera un resultado más preciso.
+En otras soluciones de transmisión, los eventos de salida se podrían materializar en varios puntos de desencadenador, dependiendo de circunstancias externas. En algunas soluciones, es posible que los eventos de salida de un períodos de tiempo dado se generen varias veces. A medida que se refinan los valores de entrada, los resultados de agregados se vuelven más precisos. Al principio, se podría especular con los eventos, que podrían revisarse con el tiempo. Por ejemplo, cuando un determinado dispositivo está desconectado de la red, un sistema podría usar un valor estimado. Más adelante, el mismo dispositivo pasa a estar conectado a la red. Es entonces cuando los datos del evento real podrían incluirse en la transmisión de entrada. Los resultados de salida del procesamiento de ese período de tiempo genera un resultado más preciso.
 
 ## <a name="illustrated-example-of-watermarks"></a>Ejemplo ilustrado de marcas de agua
 

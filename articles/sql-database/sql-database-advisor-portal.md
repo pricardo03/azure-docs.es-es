@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61420378"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
@@ -111,11 +111,11 @@ Puede establecer que Azure SQL Database implemente las recomendaciones de forma 
 
 Cuando haya seleccionado la configuración que desee, haga clic en Aplicar.
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>Aplicar las recomendaciones a través de Transact-SQL manualmente
+### <a name="manually-apply-recommendations-through-t-sql"></a>Aplicación manual de recomendaciones a través de T-SQL
 
 Seleccione cualquier recomendación y haga clic en **Ver script**. Ejecute este script en la base de datos para aplicar la recomendación manualmente.
 
-*El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento* , por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen mejoras en el rendimiento y, en caso necesario, ajustarlos o eliminarlos. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Además, recomendaciones manualmente aplicadas permanecerá activo y se muestra en la lista de recomendaciones de 24 a 48 horas. antes de que el sistema retira automáticamente ellos. Si desea quitar una recomendación antes, puede descartar manualmente.
+*El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento* , por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen mejoras en el rendimiento y, en caso necesario, ajustarlos o eliminarlos. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Además, las recomendaciones aplicadas manualmente permanecerán activas y se mostrarán en la lista de recomendaciones durante un período de 24 a 48 horas antes de que el sistema las retire automáticamente. Si quiere quitar una recomendación antes, puede descartarla manualmente.
 
 ### <a name="canceling-recommendations"></a>Cancelación de recomendaciones
 

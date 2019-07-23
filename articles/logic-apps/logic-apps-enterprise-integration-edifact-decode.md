@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
 ms.openlocfilehash: ccad6eab68fff0891ba287a076692f9437495a4c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696190"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificación de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
@@ -59,7 +59,7 @@ Esto es lo que necesita:
 
     ![creación de la conexión de la cuenta de integración](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-    Por ejemplo: 
+    Por ejemplo:
 
     ![Selección del mensaje de archivo plano EDIFACT para descodificar](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
@@ -81,13 +81,13 @@ El conector de descodificación EDIFACT lleva a cabo estas tareas:
   * Comprueba el número de control del grupo en relación con otros números de control de grupo en el intercambio. 
   * Comprueba el número de control del conjunto de transacciones con otros números de control del conjunto de transacciones de dicho grupo.
 * Divide el intercambio en conjuntos de transacciones o conserva todo el intercambio:
-  * Dividir intercambio como conjuntos de transacciones: suspender conjuntos de transacciones en caso de error: Divide el intercambio en la transacción se establece y analiza cada conjunto de transacciones. 
+  * Dividir intercambio como conjuntos de transacciones: suspender conjuntos de transacciones en caso de error. Divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
   La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
-  * Dividir intercambio como conjuntos de transacciones: suspender intercambio en caso de error: Divide el intercambio en la transacción se establece y analiza cada conjunto de transacciones. 
+  * Dividir intercambio como conjuntos de transacciones: suspender intercambio en caso de error. Divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
   Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`.
-  * Conservar intercambio: suspender conjuntos de transacciones en caso de error: Conservar el intercambio y procesa todo el intercambio por lotes. 
+  * Conservar intercambio: suspender conjuntos de transacciones en caso de error. Conserva el intercambio y procesa todo el intercambio por lotes. 
   La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
-  * Conservar intercambio: suspender intercambio en caso de error: Conservar el intercambio y procesa todo el intercambio por lotes. 
+  * Conservar intercambio: suspender intercambio en caso de error. Conserva el intercambio y procesa todo el intercambio por lotes. 
   Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`.
 * Genera una confirmación técnica (control) o funcional (si esta opción está configurada).
   * Una confirmación técnica o ACK CONTRL informa de los resultados de una comprobación sintáctica de todo el intercambio recibido.

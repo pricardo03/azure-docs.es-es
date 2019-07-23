@@ -9,10 +9,10 @@ ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 3f27e10c47b84b6f037c0d9422e9fba40e0315f7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717037"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute mediante la CLI
@@ -324,7 +324,7 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración de emparejamiento público de Azure para un circuito ExpressRoute.
 
 > [!Note]
-> Emparejamiento público de Azure está en desuso para los circuitos nuevo. Para obtener más información, consulte [emparejamiento de ExpressRoute](expressroute-circuit-peerings.md).
+> El emparejamiento público de Azure está en desuso para circuitos nuevos. Para obtener más información, consulte el artículo sobre [emparejamiento de ExpressRoute](expressroute-circuit-peerings.md).
 >
 
 ### <a name="to-create-azure-public-peering"></a>Creación de un emparejamiento público de Azure

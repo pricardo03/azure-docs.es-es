@@ -1,5 +1,5 @@
 ---
-title: Recuperar ofrece una API | Azure Marketplace
+title: API Recuperación de ofertas| Azure Marketplace
 description: La API recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935341"
 ---
 <a name="retrieve-offers"></a>Recuperación de ofertas
@@ -27,7 +27,7 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 
 | **Nombre**         |  **Descripción**                         |  **Tipo de datos** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificador del publicador, por ejemplo `contoso`. |   string    |
+|  publisherId     | Identificador del publicador, por ejemplo `contoso`. |   Cadena    |
 |  api-version     | Última versión de la API.                    |    Date        |
 |  |  |
 

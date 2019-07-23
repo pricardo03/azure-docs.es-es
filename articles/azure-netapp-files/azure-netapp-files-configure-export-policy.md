@@ -1,6 +1,6 @@
 ---
-title: Configurar la directiva de exportación para un volumen NFS con Azure Files de NetApp | Microsoft Docs
-description: Describe cómo configurar la directiva de exportación para controlar el acceso a un volumen NFS con Azure Files de NetApp
+title: Configuración de la directiva de exportación para un volumen NFS con Azure NetApp Files | Microsoft Docs
+description: Describe cómo configurar la directiva de exportación para controlar el acceso a un volumen NFS mediante Azure NetApp Files
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: b-juche
 ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61086170"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configuración de la directiva de exportación para un volumen NFS
 
-Si lo desea, puede configurar la directiva de exportación para controlar el acceso a un volumen de Azure NetApp Files. Directiva de exportación es compatible sólo con volúmenes NFS. 
+Si lo desea, puede configurar la directiva de exportación para controlar el acceso a un volumen de Azure NetApp Files. La directiva de exportación solo es compatible con volúmenes NFS. 
 
 ## <a name="steps"></a>Pasos 
 
@@ -47,7 +47,7 @@ Si lo desea, puede configurar la directiva de exportación para controlar el acc
 
     * **Protocolos**   
         Especifique el protocolo que se usará para la directiva de exportación.   
-        Actualmente, la directiva de exportación de archivos de NetApp Azure admite solo NFSv3.
+        Actualmente, la directiva de exportación de Azure NetApp Files solo es compatible con NFSv3.
 
     ![Directiva de exportación](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

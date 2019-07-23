@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129855"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperación ante desastres para una aplicación SaaS multiinquilino mediante la replicación geográfica de las bases de datos
@@ -90,9 +90,9 @@ Más adelante, en un paso de repatriación diferente, se conmutarán por error e
 ## <a name="review-the-healthy-state-of-the-application"></a>Revisión del estado de mantenimiento de la aplicación
 
 Antes de comenzar el proceso de recuperación, revise el estado de mantenimiento normal de la aplicación.
-1. En el explorador web, abra el centro de eventos de Wingtip Tickets (http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net; sustituya &lt;usuario&gt; por el valor del usuario de la implementación).
+1. En el explorador web, abra el centro de eventos de Wingtip Tickets (http://events.wingtip-dpt.&lt ;usuario&gt;.trafficmanager.net; sustituya &lt; usuario&gt; por el valor del usuario de la implementación).
     * Desplácese hasta la parte inferior de la página y observe el nombre y la ubicación del servidor del catálogo en el pie de página. La ubicación es la región en la que se implementó la aplicación.
-    *SUGERENCIA: Mantenga el mouse sobre la ubicación para aumentar el tamaño de la pantalla.*
+    *SUGERENCIA: Mantenga el mouse sobre la ubicación para aumentar el tamaño de la pantalla.* 
     ![Estado correcto del centro de eventos en la región original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Haga clic en el inquilino Contoso Concert Hall y abra su página de eventos.
@@ -106,7 +106,7 @@ Antes de comenzar el proceso de recuperación, revise el estado de mantenimiento
 En esta tarea, se inicia un proceso para sincronizar la configuración de los servidores, los grupos elásticos y las bases de datos en el catálogo de inquilinos. El proceso mantiene esta información actualizada en el catálogo.  El proceso trabaja con el catálogo activo, ya sea en la región original o en la región de recuperación. La información de configuración se usa como parte del proceso de recuperación para garantizar que el entorno de recuperación sea coherente con el entorno original y, después durante la repatriación, para asegurarse de que la región original sea coherente con los cambios realizados en el entorno de recuperación. El catálogo también se usa para realizar un seguimiento del estado de recuperación de los recursos de inquilino
 
 > [!IMPORTANT]
-> Por motivos de simplicidad, el proceso de sincronización y otros procesos de recuperación y repatriación de larga ejecución se implementan en estos tutoriales como trabajos locales de PowerShell o sesiones que se ejecutan en el inicio de sesión de usuario del cliente. Los token de autenticación que se emiten al iniciar sesión expirarán después de varias horas y luego se producirá un error de los trabajos. En un escenario de producción, los procesos de ejecución prolongada se deben implementar como servicios confiables de Azure de algún tipo, que se ejecutan como una entidad de servicio. Consulte [Uso de Azure PowerShell para crear una entidad de servicio con un certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Para simplificar, el proceso de sincronización y otros procesos de recuperación y repatriación de larga duración se implementan en estos tutoriales como trabajos locales de PowerShell o sesiones que se ejecutan en el inicio de sesión de usuario de cliente. Los token de autenticación que se emiten al iniciar sesión expirarán después de varias horas y luego se producirá un error de los trabajos. En un escenario de producción, los procesos de ejecución prolongada se deben implementar como servicios confiables de Azure de algún tipo, que se ejecutan como una entidad de servicio. Consulte [Uso de Azure PowerShell para crear una entidad de servicio con un certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. En _PowerShell ISE_, abra el archivo ...\Learning Modules\UserConfig.psm1. Reemplace `<resourcegroup>` y `<user>` en las líneas 10 y 11 por el valor usado al implementar la aplicación.  Guarde el archivo.
 
@@ -207,7 +207,7 @@ Mientras que el punto de conexión de la aplicación esté deshabilitado en Traf
  
      ![Centro de eventos sin conexión](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * Si abre directamente la página de eventos de un inquilino sin conexión, se muestra una notificación "inquilino sin conexión". Por ejemplo, si Contoso Concert Hall está sin conexión, intente abrir http://events.wingtip-dpt.&lt.usuario&gt;.trafficmanager.net/contosoconcerthall ![Página de Contoso sin conexión](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Si abre directamente la página de eventos de un inquilino sin conexión, se muestra una notificación "inquilino sin conexión". Por ejemplo, si Contoso Concert Hall está sin conexión, intente abrir http://events.wingtip-dpt.&lt.usuario&gt;.trafficmanager.net/contosoconcerthall ![ Página de Contoso sin conexión](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Aprovisionamiento de un nuevo inquilino en la región de recuperación
 Incluso antes de que todas las bases de datos de inquilino existentes hayan realizado la conmutación por error, puede aprovisionar nuevos inquilinos en la región de recuperación.  
@@ -256,7 +256,7 @@ En esta tarea, va a actualizar una de las bases de datos de inquilino.
 2. En *PowerShell ISE*, en el script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1, establezca el siguiente valor:
     * **$DemoScenario = 5**, eliminar un evento de un inquilino en la región de recuperación
 3. Presione **F5** para ejecutar el script
-4. Actualice la página de eventos de Contoso Concert Hall (http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/contosoconcerthall; sustituya &lt;usuario&gt; por el valor del usuario en la implementación) y observe que el último evento se ha eliminado.
+4. Actualice la página de eventos de Contoso Concert Hall (http://events.wingtip-dpt.&lt ;usuario&gt;.trafficmanager.net/contosoconcerthall; sustituya &lt; usuario&gt; por el valor del usuario en la implementación) y observe que el último evento se ha eliminado.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>Repatriación de la aplicación a su región de producción original
 
@@ -289,7 +289,7 @@ Ahora imaginemos que la interrupción se resuelve y ejecuta el script de repatri
     * Presione **F5** para ejecutar el script de recuperación en una nueva ventana de PowerShell.  La repatriación tardará varios minutos y se puede supervisar en la ventana de PowerShell.
     ![Proceso de repatriación](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. Mientras se ejecuta el script, actualice la página del centro de eventos (http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net).
+4. Mientras se ejecuta el script, actualice la página del centro de eventos (http://events.wingtip-dpt.&lt ;usuario&gt;.trafficmanager.net).
     * Observe que todos los inquilinos están en línea y son accesibles durante este proceso.
 
 5. Después de finalizar la repatriación, actualice el centro de eventos y abra la página de eventos de Hawthorn Hall. Observe que esta base de datos se ha repatriado a la región original.

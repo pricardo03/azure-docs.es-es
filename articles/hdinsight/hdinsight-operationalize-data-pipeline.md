@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.openlocfilehash: 524386c046534b0ef0050e15d326118b84822822
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718047"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Uso de una canalización de análisis de datos
@@ -175,7 +175,7 @@ Puede copiar el archivo mediante SCP en la sesión del shell `bash`.
 
 Los datos de ejemplo ahora están disponibles. Sin embargo, la canalización requiere dos tablas de Hive para el procesamiento, una para los datos entrantes (`rawFlights`) y otra para los datos resumidos (`flights`). Cree estas tablas en Ambari como se indica a continuación.
 
-1. Inicie sesión en Ambari, vaya a http:\//headnodehost:8080.
+1. Para iniciar sesión en Ambari, vaya a http:\//headnodehost:8080.
 2. En la lista de servicios, seleccione **Hive**.
 
     ![Selección de Hive en Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

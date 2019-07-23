@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ae0e87fddabee9f42cbb5506dce4cd7a5f4f082
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64918851"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Traslado de la base de datos de Azure AD Connect desde SQL Server Express a SQL Server 
@@ -42,11 +42,11 @@ Use los pasos siguientes para trasladar la base de datos de Azure AD Connect a u
 8. Una vez adjuntada la base de datos, vuelva al servidor de Azure AD Connect e instale Azure AD Connect.
 9. Una vez finalizada la instalación del MSI, se inicia el asistente de Azure AD Connect con la configuración del modo rápido. Cierre la pantalla haciendo clic en el icono de salida.
    ![Pantalla de bienvenida](./media/how-to-connect-install-move-db/db1.png)
-10. Inicie un nuevo símbolo del sistema o sesión de PowerShell. Vaya a la carpeta \<unidad > \program files\Microsoft Azure AD Connect. Ejecute el comando .\AzureADConnect.exe /useexistingdatabase para iniciar el asistente de Azure AD Connect en el modo de configuración "Usar base de datos existente".
+10. Inicie un nuevo símbolo del sistema o sesión de PowerShell. Vaya a la carpeta \<unidad>\archivos de programa\Microsoft Azure AD Connect. Ejecute el comando .\AzureADConnect.exe /useexistingdatabase para iniciar el asistente de Azure AD Connect en el modo de configuración "Usar base de datos existente".
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Aparece la pantalla de bienvenida a Azure AD Connect. Una vez que acepte los términos de licencia y el aviso de privacidad, haga clic en **Continuar**.
     ![Pantalla de bienvenida](./media/how-to-connect-install-move-db/db3.png)
-12. En la pantalla **Instalar componentes necesarios**, está habilitada la opción **Usar un SQL Server existente**. Especifique el nombre del servidor de SQL Server que hospeda la base de datos de ADSync. Si la instancia del motor SQL utilizada para hospedar la base de datos de ADSync no es la instancia predeterminada del servidor de SQL Server, deberá especificar el nombre de la instancia del motor SQL. Además, si no está habilitada la exploración de SQL, también deberá especificar el número de puerto de la instancia del motor SQL. Por ejemplo:          
+12. En la pantalla **Instalar componentes necesarios**, está habilitada la opción **Usar un SQL Server existente**. Especifique el nombre del servidor de SQL Server que hospeda la base de datos de ADSync. Si la instancia del motor SQL utilizada para hospedar la base de datos de ADSync no es la instancia predeterminada del servidor de SQL Server, deberá especificar el nombre de la instancia del motor SQL. Además, si no está habilitada la exploración de SQL, también deberá especificar el número de puerto de la instancia del motor SQL. Por ejemplo:         
     ![Pantalla de bienvenida](./media/how-to-connect-install-move-db/db4.png)           
 
 13. En la pantalla **Conectar con Azure AD**, debe proporcionar las credenciales de un administrador global de su directorio de Azure AD. Se recomienda utilizar una cuenta en el dominio predeterminado onmicrosoft.com. Esta cuenta solo se usa para crear una cuenta de servicio en Azure AD y no se utiliza una vez completado el asistente.

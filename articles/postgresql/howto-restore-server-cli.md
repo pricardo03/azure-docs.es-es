@@ -1,6 +1,6 @@
 ---
-title: 'Cómo las copias de seguridad y restauración de un servidor en Azure Database for PostgreSQL: servidor único'
-description: 'Obtenga información sobre cómo las copias de seguridad y restauración de un servidor en Azure Database for PostgreSQL: servidor único con la CLI de Azure.'
+title: Copia de seguridad y restauración de un servidor de Azure Database for PostgreSQL con un único servidor
+description: Aprenda a realizar la copia de seguridad y la restauración de un servidor de Azure Database for PostgreSQL con un único servidor mediante la CLI de Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 85fb00ad221ae982e4d3ddc9d2d5d20dd4f2793d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65069092"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Cómo realizar copias de seguridad y restauración de un servidor en Azure Database for PostgreSQL: servidor único con la CLI de Azure
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor de Azure Database for PostgreSQL con un único servidor mediante la CLI de Azure
 
 ## <a name="backup-happens-automatically"></a>Las copias de seguridad se realizan automáticamente
 Periódicamente, se realizan copias de seguridad de los servidores de Azure Database for PostgreSQL para habilitar las características de restauración. Con esta característica, puede restaurar el servidor y todas sus bases de datos en un servidor nuevo a un momento dado anterior.
@@ -72,7 +72,7 @@ El comando `az postgres server restore` requiere los siguientes parámetros:
 | Configuración | Valor sugerido | DESCRIPCIÓN  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupo de recursos donde existe el servidor de origen.  |
-| name | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
+| Nombre | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Seleccione un momento dado anterior para restaurar. Esta fecha y hora debe estar dentro del período de retención de copia de seguridad del servidor de origen. Use el formato de fecha y hora ISO8601. Por ejemplo, puede usar su propia zona horaria, como `2018-03-13T05:59:00-08:00`. También puede utilizar el formato de hora Zulú UTC, por ejemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Nombre o identificador del servidor de origen desde el que se va a restaurar. |
 
@@ -112,7 +112,7 @@ El comando `az postgres server georestore` requiere los siguientes parámetros:
 | Configuración | Valor sugerido | DESCRIPCIÓN  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nombre del grupo de recursos al que pertenece el nuevo servidor.|
-|name | mydemoserver-georestored | Nombre del nuevo servidor. |
+|Nombre | mydemoserver-georestored | Nombre del nuevo servidor. |
 |source-server | mydemoserver | Nombre del servidor existente cuyas copias de seguridad con redundancia geográfica se usan. |
 |location | estado | Ubicación del nuevo servidor. |
 |sku-name| GP_Gen4_8 | Este parámetro establece el plan de tarifa, la generación del proceso y el número de núcleos virtuales del nuevo servidor. GP_Gen4_8 se asigna a un servidor Gen 4 de uso general con ocho núcleos virtuales.|

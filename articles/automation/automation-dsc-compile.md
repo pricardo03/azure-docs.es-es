@@ -10,10 +10,10 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919797"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration
@@ -41,7 +41,7 @@ Una vez que haya elegido un método de compilación, siga estos procedimientos p
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Compilación de una configuración de DSC con el Portal de Azure
 
-1. En su cuenta de Automation, haga clic en **State Configuration (DSC)**.
+1. En su cuenta de Automation, haga clic en **State Configuration (DSC)** .
 1. Haga clic en la pestaña **Configuraciones** y, a continuación, haga clic en el nombre de la configuración que se va a compilar.
 1. Haga clic en **Compilar**.
 1. Si la configuración no tiene parámetros, se le pedirá que confirme si desea compilarla. Si la configuración tiene parámetros, se abrirá la hoja **Compilar configuración** para que pueda proporcionar valores de parámetro. Consulte más abajo la sección [**Parámetros básicos**](#basic-parameters) para más información acerca de los parámetros.
@@ -287,11 +287,11 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ## <a name="partial-configuration"></a>Configuración parcial
 
-Configuración de estado de automatización de Azure admite el uso de [configuraciones parciales](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
-En este escenario, DSC está configurado para administrar varias configuraciones de forma independiente, y cada configuración es retreieved desde Azure Automation.
-Sin embargo, solo una configuración puede asignarse a un nodo por cuenta de automation.
-Esto significa que si usa dos configuraciones para un nodo requerirá dos cuentas de automation.
-Para obtener más información acerca de cómo los equipos pueden trabajar con configuración como código vea juntos para administrar servidores de forma colaborativa [rol de DSC descripción en una canalización de CI/CD](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
+State Configuration de Azure Automation admite el uso de [configuraciones parciales](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
+En este escenario, DSC está configurado para administrar varias configuraciones de forma independiente, y cada configuración se recupera desde Azure Automation.
+Sin embargo, solo se puede asignar una configuración a un nodo por cuenta de Automation.
+Esto significa que si usa dos configuraciones para un nodo, requerirá dos cuentas de Automation.
+Para obtener más información acerca de cómo los equipos pueden trabajar juntos para administrar de forma colaborativa los servidores con la configuración como código, consulte [Descripción del rol de DSC en una canalización de CI/CD](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Importación de configuraciones de nodo
 
@@ -308,7 +308,7 @@ Para más información sobre cómo firmar configuraciones de nodo, consulte [Imp
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Importación de una configuración de nodo en Azure Portal
 
 1. En la cuenta de Automation, haga clic en **State Configuration (DSC)** en **Administración de configuración**.
-1. En la página **State Configuration (DSC)**, haga clic en la pestaña **Configuraciones** y, después, haga clic en **+ Agregar**.
+1. En la página **State Configuration (DSC)** , haga clic en la pestaña **Configuraciones** y, después, haga clic en **+ Agregar**.
 1. En la página **Importar**, haga clic en el icono de carpeta situado junto al cuadro de texto **Archivo de configuración de nodo** para buscar un archivo de configuración de nodo (MOF) en el equipo local.
 
    ![Buscar archivo local](./media/automation-dsc-compile/import-browse.png)

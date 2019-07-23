@@ -1,6 +1,6 @@
 ---
-title: Publicar la oferta de aplicación de Power BI | Azure Marketplace
-description: Publicar una oferta de aplicación de Power BI en el marketplace de Microsoft AppSource.
+title: Publicación de una oferta de aplicación de Power BI | Azure Marketplace
+description: Publique una oferta de aplicación de Power BI en Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
@@ -8,52 +8,52 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pabutler
 ms.openlocfilehash: aae23feaf1cc5887de061414af985ef16070546b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943196"
 ---
-# <a name="publish-a-power-bi-app-offer"></a>Publicar una oferta de aplicación de Power BI
+# <a name="publish-a-power-bi-app-offer"></a>Publicación de una oferta de aplicación de Power BI
 
-Para enviar la oferta para la publicación es el último paso, después de que ha creado los recursos técnicos asociados y define una oferta en Cloud Partner Portal. Para iniciar este proceso, en el panel izquierdo de la **nueva oferta** ventana, seleccione **publicar**. Para más información, consulte [Publicación de ofertas de Azure Marketplace y AppSource](../manage-offers/cpp-publish-offer.md).
+El último paso, después de haber definido la oferta en Cloud Partner Portal y creado los recursos técnicos asociados, consiste en enviar la oferta para la publicación. Para iniciar este proceso, en el panel izquierdo de la ventana **Nueva oferta**, seleccione **Publicar**. Para más información, consulte [Publicación de ofertas de Azure Marketplace y AppSource](../manage-offers/cpp-publish-offer.md).
 
 
 ## <a name="publishing-steps"></a>Pasos para la publicación
 
 Estos son los pasos principales del proceso de publicación:
 
-![Ofrecen pasos del proceso de publicación para la aplicación de Power BI](./media/publishing-process-steps.png)
+![Pasos del proceso de publicación para la oferta de aplicación de Power BI](./media/publishing-process-steps.png)
 
-Esta tabla describe cada paso y proporciona su tiempo de finalización estimado:
+En esta tabla se describe cada paso y se proporciona su tiempo de finalización estimado:
 
-|   Paso de publicación            |   Time     |   DESCRIPCIÓN                                                                  |
+|   Paso de publicación            |   Hora     |   DESCRIPCIÓN                                                                  |
 | --------------------         |------------| ----------------                                                               |
 | Validar requisitos previos       | 15 minutos     | Se validan la información y la configuración de la oferta.                            |
-| Certificación                | 1-7 días   | El equipo de certificación de Power BI analiza su oferta. El equipo ejecuta la aplicación de Power BI a través de una prueba de comprobación manual mediante la instalación de la aplicación a través de la dirección URL de instalación proporcionado. Validaciones principales se realizan como parte del proceso de certificación de aplicaciones (descrito más adelante en este documento).         |
-| Packaging                    | \< 1 hora  | Recursos técnicos de la oferta se empaquetan para uso del cliente.                        |
-| Registro de la generación de oportunidades | \< 1 hora  | Los sistemas de clientes potenciales se configuran e implementan.                                      |
-| Aprobación del publicador            | \-         | Completar una revisión final y la confirmación antes de la oferta esté activa. También ahora tendrá un vínculo para obtener una vista previa de la oferta. Una vez que esté satisfecho con el aspecto de la versión preliminar, seleccione **Go Live** en el **estado** ficha. Esto envía una solicitud para el equipo de incorporación para mostrar su aplicación en AppSource.    |
-| En vivo                         | \< 3 horas | La oferta pública aparece ahora ("vivo") en AppSource, y los clientes pueden ver la aplicación e implementarlo en sus suscripciones de Power BI. También recibirá un correo electrónico de confirmación. En la columna derecha en la **todas las ofertas** ficha, puede ver el estado de todas las ofertas. En el **estado** ficha, puede ver el estado del flujo de publicación detallados para su oferta. |
+| Certificación                | 1-7 días   | El equipo de certificación de Power BI analiza su oferta. El equipo ejecuta la aplicación de Power BI a través de una prueba de verificación manual al instalar la aplicación a través de la dirección URL de instalación proporcionada. Las validaciones principales se realizan como parte del proceso de certificación de la aplicación (que se describe más adelante en este documento).         |
+| Packaging                    | \< 1 hora  | Los recursos técnicos de la oferta se empaquetan para uso del cliente.                        |
+| Registro de la generación de clientes potenciales | \< 1 hora  | Los sistemas de clientes potenciales se configuran e implementan.                                      |
+| Aprobación del publicador            | \-         | Completa una revisión final y la confirmación antes del lanzamiento de la oferta. Ahora también tendrá un vínculo para obtener una versión preliminar de la oferta. Una vez que esté satisfecho con el aspecto de la versión preliminar, seleccione **Transmitir** en la pestaña **Estado**. Con esto, se envía una solicitud al equipo de incorporación para que muestre su aplicación en AppSource.    |
+| En vivo                         | \< 3 horas | La oferta ya se ha publicado ("en vivo") en AppSource, y los clientes pueden verla e implementarla en sus suscripciones a Power BI. También recibirá un correo electrónico de confirmación. En la columna derecha de la pestaña **Todas las ofertas**, puede ver el estado de todas las ofertas. En la pestaña **Estado**, puede ver el estado detallado del flujo de publicación para su oferta. |
 |   |   |
 
-Permitir hasta ocho días para completar el proceso. Después de completar estos pasos de publicación, la oferta de aplicación de Power BI aparecerán en el [AppSource](https://appsource.microsoft.com/marketplace/apps?product=power-bi%20) sección aplicaciones de Power BI.
+Espere hasta ocho días a que este proceso se complete. Después de completar estos pasos de publicación, la oferta de aplicación de Power BI se mostrará en la sección de aplicaciones de Power BI de [AppSource](https://appsource.microsoft.com/marketplace/apps?product=power-bi%20).
 
 
 ### <a name="app-certification-process"></a>Proceso de certificación de aplicaciones
 
-El equipo de incorporación de Microsoft usa este proceso para validar el envío de la oferta de aplicación de Power BI:
+El equipo de incorporación de Microsoft usa este proceso para validar el envío de la oferta de aplicaciones de Power BI:
 
-1. Revise los vínculos de ayuda y documentos legales.
-2. Validar la información de contacto de soporte técnico.
-3. Use la dirección URL del instalador para comprobar la correcta instalación.
-4. Examinar la aplicación de malware y otro contenido malintencionado.
-5. Compruebe que el contenido mostrado coincide con la descripción de la aplicación.
-6. Compruebe que las operaciones relacionadas con la aplicación funcionen según lo previsto en Power BI. El equipo abre paneles e informes con datos de ejemplo, se conecta a orígenes de datos personalizados, actualiza los datos y así sucesivamente.
+1. Se revisan los vínculos de ayuda y los documentos legales.
+2. Se valida la información de contacto del soporte técnico.
+3. Se usa la dirección URL del instalador para verificar la correcta instalación.
+4. Se analiza la aplicación en busca de malware y otro contenido malintencionado.
+5. Se verifica que el contenido mostrado coincida con la descripción de la aplicación.
+6. Se verifica que las operaciones relacionadas con la aplicación funcionen según lo previsto en Power BI. El equipo abre paneles e informes con datos de ejemplo, se conecta a orígenes de datos personalizados, actualiza los datos, etc.
 
-El equipo de certificación proporciona comentarios si encuentra algún problema.  Para obtener más información sobre los requisitos de aplicaciones de Power BI, consulte el [documentación de la aplicación de Power BI](https://go.microsoft.com/fwlink/?linkid=2028636).
+El equipo de certificación proporciona comentarios si encuentra algún problema.  Para más información sobre los requisitos de las aplicaciones de Power BI, consulte la [documentación de las aplicaciones de Power BI](https://go.microsoft.com/fwlink/?linkid=2028636).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Le recomendamos que supervise regularmente la aplicación en el [AppSource marketplace](https://appsource.microsoft.com).  También se debe utilizar el [Seller Insights](../../cloud-partner-portal-orig/si-getting-started.md) característica de la [Cloud Partner Portal](https://cloudpartner.azure.com/#insights) para obtener información acerca de los clientes de marketplace y el uso de la aplicación. Por último, puede [actualizar su oferta](./cpp-update-existing-offer.md).
+Le recomendamos supervisar periódicamente la aplicación en [AppSource Marketplace](https://appsource.microsoft.com).  Además, debe usar la característica [Seller Insights](../../cloud-partner-portal-orig/si-getting-started.md) (Conclusiones sobre los vendedores) de [Cloud Partner Portal](https://cloudpartner.azure.com/#insights) para obtener perspectivas sobre los clientes y el uso de las aplicaciones en Marketplace. Por último, puede [actualizar su oferta](./cpp-update-existing-offer.md).

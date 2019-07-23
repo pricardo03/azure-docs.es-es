@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
 ms.openlocfilehash: ca69424ecbddc068fdaf8bb5839a647701ee27fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686592"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizaje automático en HDInsight
@@ -49,7 +49,7 @@ El [aprendizaje profundo](https://www.microsoft.com/en-us/research/group/dltc/) 
 
 Con el fin de realizar avances en su trabajo de aprendizaje profundo, Microsoft ha desarrollado el kit de herramientas [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) de código abierto, gratuito y fácil de usar. Actualmente, el kit de herramientas lo usa una amplia variedad de productos de Microsoft, compañías de todo el mundo con necesidad de implementar el aprendizaje profundo a escala y estudiantes interesados en los algoritmos y las técnicas más recientes.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 ### <a name="scenarios"></a>Escenarios
 
@@ -62,6 +62,6 @@ Con el fin de realizar avances en su trabajo de aprendizaje profundo, Microsoft 
 
 ### <a name="deep-learning-resources"></a>Recursos de aprendizaje profundo
 
-* [Usar Microsoft Cognitive Toolkit modelo con un clúster HDInsight Spark de Azure de aprendizaje profundo](spark/apache-spark-microsoft-cognitive-toolkit.md)
+* [Uso del modelo de aprendizaje profundo de Microsoft Cognitive Toolkit con un clúster de Azure HDInsight Spark](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [Uso de Caffe en Azure HDInsight Spark para el aprendizaje profundo distribuido](spark/apache-spark-deep-learning-caffe.md)
-* [Marcos de aprendizaje profundo e inteligencia artificial en la máquina Virtual de ciencia de datos (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [Marcos de aprendizaje profundo e inteligencia artificial en Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)

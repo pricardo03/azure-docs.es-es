@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686130"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Encadenamiento de entidades de Service Bus con reenvío automático
@@ -49,7 +49,7 @@ Si Alice se va de vacaciones, se llena su cola personal, en lugar del tema de ER
 
 > [!NOTE]
 > Cuando el reenvío automático está configurado, el valor de AutoDeleteOnIdle en el destino se establece automáticamente en el valor máximo del tipo de datos.
-> Esto se hace para garantizar que siempre hay un destino para reenviar el mensaje.
+> Esto se hace para garantizar que siempre haya un destino al que reenviar el mensaje.
 
 ## <a name="autoforwarding-considerations"></a>Consideraciones del reenvío automático
 

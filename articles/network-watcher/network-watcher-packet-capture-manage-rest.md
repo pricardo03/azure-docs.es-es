@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: d2e87ac1b425e92a624cc2f664a6673a05fbfb44
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727677"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Administración de capturas de paquetes con Azure Network Watcher mediante la API de REST de Azure
@@ -63,7 +63,7 @@ Ejecute el siguiente script para devolver una máquina virtual. Esta informació
 
 El siguiente código necesita variables:
 
-- **subscriptionId** -también se puede recuperar el identificador de suscripción con el **Get AzSubscription** cmdlet.
+- **subscriptionId**: el identificador de la suscripción también puede recuperarse con el cmdlet **Get-AzSubscription**.
 - **resourceGroupName**: el nombre de un grupo de recursos que contiene máquinas virtuales.
 
 ```powershell

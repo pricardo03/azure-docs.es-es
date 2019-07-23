@@ -1,6 +1,6 @@
 ---
 title: Optimización del entorno de SQL Server con Azure Monitor | Microsoft Docs
-description: Con Azure Monitor, puede usar la solución SQL Health Check para evaluar el riesgo y el estado de los entornos de manera periódica.
+description: Con Azure Monitor, puede usar periódicamente la solución SQL Health Check para evaluar el riesgo y el estado de los entornos.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: magoedte
 ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120654"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Azure Monitor
@@ -49,15 +49,15 @@ Después de haber agregado la solución y completar una evaluación, se muestra 
   >
   >
 
-Para llevar a cabo la comprobación de estado en los servidores de SQL Server, necesitan un agente y conectividad a Azure Monitor mediante uno de los siguientes métodos admitidos:
+Para llevar a cabo la comprobación de estado en los servidores de SQL Server, necesitan un agente y conectividad a Azure Monitor mediante alguno de los siguientes métodos admitidos:
 
 1. Instale [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) si el servidor no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
-2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2 y el grupo de administración no está integrado con Azure Monitor, el servidor puede tener hosts múltiples con Log Analytics para recopilar datos y reenviarlos al servicio y seguir siendo supervisado por Operations Manager.  
+2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con el servicio Azure Monitor, el servidor se puede hospedar en varios hosts junto con Log Analytics para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
 3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) una vez que habilite la solución en el área de trabajo.  
 
-El agente en el servidor de SQL que envía informes a un grupo de administración de Operations Manager, recopila los datos, reenvía a su servidor de administración asignado y, a continuación, se envía directamente desde un servidor de administración a Azure Monitor.  Los datos no se escriben en las bases de datos de Operations Manager.  
+El agente de su instancia de SQL Server que envía informes a un grupo de administración de Operations Manager, recopila datos, los reenvía a su servidor de administración asignado y, a continuación, los envía directamente desde un servidor de administración a Azure Monitor.  Los datos no se escriben en las bases de datos de Operations Manager.  
 
-Si Operations Manager supervisa SQL Server, deberá configurar una cuenta de ejecución de Operations Manager. Consulte [cuentas de ejecución de Operations Manager para Azure Monitor](#operations-manager-run-as-accounts-for-log-analytics) a continuación para obtener más información.
+Si Operations Manager supervisa SQL Server, deberá configurar una cuenta de ejecución de Operations Manager. Para más información, consulte [Cuentas de ejecución de Operations Manager para Azure Monitor](#operations-manager-run-as-accounts-for-log-analytics) más adelante.
 
 ## <a name="sql-health-check-data-collection-details"></a>Detalles de la recopilación de datos de SQL Health Check
 SQL Health Check recopila datos de los siguientes orígenes mediante el agente habilitado:
@@ -157,14 +157,14 @@ No necesariamente. Las recomendaciones se basan en los conocimientos y las exper
 Cada recomendación incluye pautas que indican por qué es importante. Debe utilizar estas directrices para evaluar si es adecuado o no para usted implementar la recomendación, en función de la naturaleza de los servicios de TI y las necesidades empresariales de su organización.
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Uso de las recomendaciones del área centradas en la comprobación de estado
-Para poder usar una solución de evaluación en Azure Monitor, debe tener instalada la solución.  Después de instalarlo, puede ver el resumen de recomendaciones mediante el icono de SQL Health Check en la **Introducción** página de Azure Monitor en el portal de Azure.
+Antes de que pueda usar una solución de evaluación en Azure Monitor, debe tener instalada la solución.  Una vez instalada, puede ver el resumen de las recomendaciones mediante el icono de SQL Health Check en la página **Información general** de Azure Monitor en Azure Portal.
 
 Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura y, a continuación, profundice las recomendaciones.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visualización de las recomendaciones para un área de enfoque y adopción de las medidas correctivas
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Monitor**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Monitor**.
-3. En el **Insights** sección del menú, seleccione **más**.  
+3. En la sección **Conclusiones** del menú, seleccione **Más**.  
 4. En la página **Información general**, haga clic en el icono de **SQL Health Check**.
 5. En la página **Comprobación de estado**, revise la información de resumen de una de las hojas de las áreas de enfoque y, a continuación, haga clic en una de ellas para ver las recomendaciones para esa área de enfoque.
 6. En cualquiera de las páginas de área de enfoque, puede ver las recomendaciones priorizadas que se han efectuado para su entorno. Haga clic en una recomendación en **Objetos afectados** para ver los detalles sobre por qué se realiza la recomendación.<br><br> ![imagen de las recomendaciones de SQL Health Check](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
@@ -174,7 +174,7 @@ Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura 
 Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Azure Monitor usará para evitar que aparezcan las recomendaciones en los resultados de la evaluación.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar las recomendaciones que omitirá
-1. En el menú de Azure Monitor, haga clic en **registros**.
+1. En el menú de Azure Monitor, haga clic en **Registros**.
 2. Use la siguiente consulta para mostrar las recomendaciones para los equipos que presentan errores en el entorno.
 
     ```
@@ -251,4 +251,4 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Azu
 * Sí, consulte la sección [Omisión de las recomendaciones](#ignore-recommendations) anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Registrar consultas](../log-query/log-query-overview.md) para aprender a analizar recomendaciones y datos de SQL Health Check.
+* [Registre consultas](../log-query/log-query-overview.md) para aprender a analizar recomendaciones y datos de SQL Health Check.

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/16/2019
 ms.author: kgremban
 ms.openlocfilehash: c15db0766da3b4c18c306106ffdd5fc75a9143aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569302"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Programación y difusión de trabajos (Python)
 
@@ -30,9 +30,9 @@ Conceptualmente, un trabajo contiene una de estas acciones y realiza un seguimie
 
 Más información sobre estas funcionalidades en estos artículos:
 
-* Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-python-twin-getstarted.md) y [Tutorial: Cómo usar las propiedades del dispositivo gemelo](tutorial-device-twins.md)
+* Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-python-twin-getstarted.md) y [Tutorial: Uso de propiedades de dispositivos gemelos](tutorial-device-twins.md)
 
-* Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: métodos directos](quickstart-control-device-python.md)
+* Métodos directos: [Guía para desarrolladores de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: Métodos directos](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -319,12 +319,12 @@ Ahora está preparado para ejecutar las aplicaciones.
 
 3. Verá las respuestas del dispositivo al método directo y la actualización de los dispositivos gemelos en la consola.
 
-    ![Ejemplo 1: salida del dispositivo de IoT Hub Job](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
+    ![Ejemplo de trabajo de IoT Hub 1: salida del dispositivo](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![Salida de dispositivo de IoT Hub Job ejemplo 2:](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
+    ![Ejemplo de trabajo de IoT Hub 2: salida del dispositivo](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha utilizado un trabajo para programar un método directo para un dispositivo y la actualización de las propiedades del dispositivo gemelo.
 
-Para continuar la introducción a IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, consulte [cómo realizar una actualización de firmware](tutorial-firmware-update.md).
+Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos como remotos a través de la actualización de firmware de aire, vea [Realización de una actualización de firmware](tutorial-firmware-update.md).

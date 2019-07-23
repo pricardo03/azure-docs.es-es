@@ -9,17 +9,17 @@ ms.date: 06/29/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 965d1ace2afdad21a069193b508fc2b10fdf4700
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697227"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos compatibles para las alertas de métricas de Azure Monitor
 
 Azure Monitor ahora admite un [nuevo tipo de alerta de métrica](../../azure-monitor/platform/alerts-overview.md) que tiene ventajas considerables sobre las anteriores [alertas de métrica clásicas](../../azure-monitor/platform/alerts-classic.overview.md). Las métricas están disponibles para una [amplia lista de servicios de Azure](../../azure-monitor/platform/metrics-supported.md). Las nuevas alertas admiten un subconjunto (creciente) de los tipos de recurso. En este artículo se muestra ese subconjunto.
 
-También puede usar nuevas alertas de métricas en los datos de registro populares almacenados en un área de trabajo de Log Analytics extraído como métricas. Para obtener más información, consulte [Alertas de métricas para registros](../../azure-monitor/platform/alerts-metric-logs.md).
+También puede utilizar las nuevas alertas de métricas en los datos de registros populares almacenados en un área de trabajo de Log Analytics extraídos como métricas. Para obtener más información, consulte [Alertas de métricas para registros](../../azure-monitor/platform/alerts-metric-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST support
 Actualmente, solo puede crear alertas de métricas nuevas en Azure Portal, la [API de REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/) o [plantillas de Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md). La compatibilidad con la configuración de nuevas alertas mediante las versiones 2.0 de PowerShell y la CLI de Azure estará disponible próximamente.
@@ -45,9 +45,9 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.DBforMySQL/servers     |   N/D      |[DB para MySQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/D     | [DB para PostgreSQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.Devices/IotHubs    | N/D     |[Métricas de IoT Hub](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)
-|Microsoft.Devices/provisioningServices    | Sí     |[Métricas DPS](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)
+|Microsoft.Devices/provisioningServices    | Sí     |[Métricas de DPS](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)
 |Microsoft.EventHub/namespaces     |  Sí      |[Event Hubs](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
-|Microsoft.KeyVault/vaults| Sin  | [Almacenes](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
+|Microsoft.KeyVault/vaults| Sin | [Almacenes](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/D    |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/D     | [Puertas de enlace de aplicaciones](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/dnsZones | N/D| [Zonas DNS](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
@@ -70,7 +70,7 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 ## <a name="payload-schema"></a>Esquema de carga
 
 > [!NOTE]
-> También puede usar el [esquema común de alerta](https://aka.ms/commonAlertSchemaDocs), que proporciona la ventaja de tener una sola extensible y carga de alertas unificada a través de la alerta de todos los servicios en Azure Monitor, de sus integraciones de webhook. [Obtenga información sobre las definiciones de alerta de esquema comunes.](https://aka.ms/commonAlertSchemaDefinitions)
+> También puede usar el [esquema de alerta común](https://aka.ms/commonAlertSchemaDocs), que le ofrece la ventaja de tener una carga útil de alerta única y extensible en todos los servicios de alerta Azure Monitor, para las integraciones de su webhook. [Obtenga más información sobre las definiciones de esquemas de alertas comunes.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 La operación POST contiene el esquema y la carga útil de JSON siguientes para todas las nuevas métricas cuando se usa un [grupo de acciones](../../azure-monitor/platform/action-groups.md) configurado correctamente:

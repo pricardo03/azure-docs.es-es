@@ -16,10 +16,10 @@ ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
 ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130116"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementación de la aplicación en Azure App Service mediante FTP/S
@@ -45,17 +45,17 @@ En el panel FTP, haga clic en **Copiar** para copiar las credenciales de aplicac
 Se recomienda usar las **Credenciales de la aplicación** para implementar en su aplicación, porque son exclusivas de cada aplicación. Sin embargo, si hace clic en **Credenciales de usuario**, puede definir credenciales a nivel de usuario que puede usar para el inicio de sesión FTP/S en todas las aplicaciones de App Service de la suscripción.
 
 > [!NOTE]
-> Autenticación en un punto de conexión FTP o FTPS con un nombre de usuario de requirers las credenciales de nivel de usuario en el formato siguiente: 
+> La autenticación en un punto de conexión FTP o FTPS con credenciales de nivel de usuario requiere un nombre de usuario con el formato siguiente: 
 >
 >`<app-name>\<user-name>`
 >
-> Puesto que las credenciales de nivel de usuario están vinculadas al usuario y no un recurso específico, el nombre de usuario debe tener este formato para dirigir la acción de inicio de sesión para el punto de conexión de la aplicación adecuada.
+> Puesto que las credenciales de nivel de usuario están vinculadas al usuario y no a un recurso específico, el nombre de usuario debe tener este formato para dirigir la acción de inicio de sesión al punto de conexión de la aplicación adecuada.
 >
 
 ## <a name="deploy-files-to-azure"></a>Implementación de archivos en Azure
 
 1. Desde el cliente de FTP (por ejemplo, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/) o [WinSCP](https://winscp.net/index.php)), use la información de conexión recopilada para conectarse a la aplicación.
-2. Copie los archivos y la estructura de directorio correspondiente al directorio [**/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure)en Azure (o el directorio **/site/wwwroot/App_Data/Jobs/** para WebJobs).
+2. Copie los archivos y la estructura de directorio correspondiente al directorio [ **/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure)en Azure (o el directorio **/site/wwwroot/App_Data/Jobs/** para WebJobs).
 3. Vaya a la dirección URL de la aplicación para comprobar que la aplicación se está ejecutando correctamente. 
 
 > [!NOTE] 

@@ -1,6 +1,6 @@
 ---
 title: Iniciar máquinas mediante runbooks de Automation en Azure DevTest Labs | Microsoft Docs
-description: Obtenga información sobre cómo iniciar las máquinas virtuales en un laboratorio en Azure DevTest Labs mediante runbooks de Azure Automation.
+description: Aprenda a iniciar máquinas virtuales en un laboratorio en Azure DevTest Labs mediante runbooks de Azure Automation.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,26 +13,26 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: 8d3885ba25e479316f97ecbb0681a1680650fc09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61083628"
 ---
-# <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Iniciar máquinas virtuales en un laboratorio de pedido mediante el uso de runbooks de Azure Automation
-El [autostart](devtest-lab-set-lab-policy.md#set-autostart) característica de DevTest Labs le permite configurar las máquinas virtuales para iniciarse automáticamente en un momento determinado. Sin embargo, esta característica no es compatible con máquinas se inicien en un orden específico. Hay varios escenarios donde sería útil este tipo de automatización.  Un escenario es donde un Jumpbox VM dentro de un laboratorio debe iniciarse en primer lugar, antes de las máquinas virtuales, como el Jumpbox se utiliza como el punto de acceso a las otras máquinas virtuales.  Este artículo muestra cómo configurar una cuenta de Azure Automation con un runbook de PowerShell que se ejecuta una secuencia de comandos. La secuencia de comandos utiliza etiquetas en las máquinas virtuales en el laboratorio para permitirle controlar el orden de inicio sin tener que cambiar la secuencia de comandos.
+# <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Iniciar máquinas virtuales en un laboratorio en orden mediante runbooks de Azure Automation
+La característica de [inicio automático](devtest-lab-set-lab-policy.md#set-autostart) de DevTest Labs le permite configurar las VM para que se inicien automáticamente a una hora determinada. Sin embargo, esta característica no es compatible con máquinas que se inician en un orden específico. Existen varios escenarios donde sería útil este tipo de automatización.  Un escenario es donde una VM de Jumpbox en un laboratorio debe iniciarse en primer lugar, antes que las otras VM, ya que Jumpbox se utiliza como punto de acceso a las otras VM.  En este artículo se muestra cómo configurar una cuenta de Azure Automation con un runbook de PowerShell que ejecuta un script. El script utiliza etiquetas en las VM del laboratorio para permitirle controlar el orden de inicio sin tener que cambiar el script.
 
 ## <a name="setup"></a>Configuración
-En este ejemplo, las máquinas virtuales en el laboratorio deben tener la etiqueta **StartupOrder** agregado con el valor apropiado (0,1,2, etcetera.). Designó ninguna máquina que no es necesario iniciar como -1.
+En este ejemplo, las VM del laboratorio deben tener la etiqueta **StartupOrder** agregada con el valor apropiado (0, 1, 2, etcetera.). Designe cualquier máquina que no tenga que iniciarse como -1.
 
 ## <a name="create-an-azure-automation-account"></a>Creación de una cuenta de Azure Automation
-Crear una cuenta de Azure Automation siguiendo las instrucciones de [en este artículo](../automation/automation-create-standalone-account.md). Elija la **cuentas de ejecución** opción al crear la cuenta. Una vez creada la cuenta de automation, abra el **módulos** página y seleccione **actualizar módulos de Azure** en la barra de menús. Los módulos predeterminados son que varias versiones antiguas y sin la actualización de la secuencia de comandos no funcionen.
+Cree una cuenta de Azure Automation con las instrucciones que aparecen en [este artículo](../automation/automation-create-standalone-account.md). Elija la opción **Cuentas de ejecución** al crear la cuenta. Una vez creada la cuenta de automation, abra la página **Módulos** y seleccione **Actualizar módulos de Azure** en la barra de menús. Los módulos predeterminados son de varias versiones anteriores y, sin la actualización del script, es posible que no funcionen.
 
 ## <a name="add-a-runbook"></a>Agregar un runbook
-Ahora, para agregar un runbook a la cuenta de automation, seleccione **Runbooks** en el menú izquierdo. Seleccione **agregar un runbook** en el menú y siga las instrucciones para [crear un runbook de PowerShell](../automation/automation-first-runbook-textual-powershell.md).
+Ahora, para agregar un runbook a la cuenta de automation, seleccione **Runbooks** en el menú de la izquierda. Seleccione **Agregar un runbook** en el menú y siga las instrucciones para [crear un runbook de PowerShell](../automation/automation-first-runbook-textual-powershell.md).
 
 ## <a name="powershell-script"></a>Script de PowerShell
-El script siguiente toma el nombre de la suscripción, el nombre de laboratorio como parámetros. Es el flujo de la secuencia de comandos obtener todas las máquinas virtuales en el laboratorio y, a continuación, analizar la información de etiqueta para crear una lista de los nombres de máquina virtual y su orden de inicio. El script le guía a través de las máquinas virtuales en orden e inicia a las máquinas virtuales. Si hay varias máquinas virtuales en un número de pedido específico, se inician de forma asincrónica con trabajos de PowerShell. Para esas máquinas virtuales que no tienen una etiqueta, establecer el valor de inicio en el último (10), iniciará últimos, de forma predeterminada.  Si no desea que el laboratorio de la máquina virtual se inicia automáticamente, establezca el valor de etiqueta en 11 y se omitirá.
+El script siguiente toma el nombre de la suscripción y el nombre del laboratorio como parámetros. El flujo de script es obtener todas las VM del laboratorio y, a continuación, analizar la información de etiquetas para crear una lista de los nombres de VM y su orden de inicio. El script recorre las VM en orden y las inicia. Si existen varias VM en un número de orden específico, se inician de forma asincrónica mediante trabajos de PowerShell. Para esas VM que no tienen una etiqueta, establezca el valor de inicio en el último (10) y se iniciarán las últimas de forma predeterminada.  Si el laboratorio no quiere que la VM se inicie automáticamente, establezca el valor de la etiqueta en 11 y se omitirá.
 
 ```powershell
 #Requires -Version 3.0
@@ -133,9 +133,9 @@ While ($current -le 10) {
 ```
 
 ## <a name="create-a-schedule"></a>Crear una programación
-Para hacer que esta secuencia de comandos se ejecuten diariamente, [crear una programación](../automation/shared-resources/schedules.md#creating-a-schedule) en la cuenta de automation. Una vez que se creó la programación, [vincularlo al runbook](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
+Para que este script se ejecute diariamente, [cree una programación](../automation/shared-resources/schedules.md#creating-a-schedule) en la cuenta de automation. Una vez creada la programación, [vincúlela al runbook](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
 
-En una situación a gran escala donde hay varias suscripciones con varios laboratorios, almacenar la información de parámetros en un archivo para distintos laboratorios y pase el archivo a la secuencia de comandos en lugar de los parámetros individuales. El script deberá modificarse, pero la ejecución en el núcleo sería el mismo. Aunque este ejemplo utiliza la automatización de Azure para ejecutar el script de PowerShell, existen otras opciones, como el uso de una tarea en una canalización de compilación o versión.
+En una situación a gran escala donde hay varias suscripciones con varios laboratorios, almacene la información de parámetros en un archivo para distintos laboratorios y pase el archivo al script en lugar de parámetros individuales. El script deberá modificarse, pero la ejecución principal será la misma. Aunque este ejemplo Azure Automation para ejecutar el script de PowerShell, existen otras opciones, como usar una tarea en una canalización de compilación o versión.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el siguiente artículo para obtener más información sobre Azure Automation: [Una introducción a Azure Automation](../automation/automation-intro.md).
+Para más información acerca de Azure Automation, consulte el siguiente artículo: [Introducción a Azure Automation](../automation/automation-intro.md).

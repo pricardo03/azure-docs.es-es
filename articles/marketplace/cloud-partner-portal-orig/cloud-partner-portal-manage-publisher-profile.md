@@ -1,6 +1,6 @@
 ---
-title: Administrar perfil de anunciante de Azure Marketplace y AppSource
-description: Administrar perfil de anunciante de Azure Marketplace y AppSource
+title: Administración del perfil de publicador de Azure Marketplace y AppSource
+description: Administración del perfil de publicador de Azure Marketplace y AppSource
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pabutler
 ms.openlocfilehash: a72259e1deb97ca0256de5bfd3b2f6c78d92e3c8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935359"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Administración del perfil de anunciante de "Azure Marketplace" y "AppSource"

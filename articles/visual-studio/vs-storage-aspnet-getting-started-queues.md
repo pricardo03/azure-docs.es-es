@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ms.openlocfilehash: 3f3a649308449a8ba4e1dbaebd4db4afbf731c5b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110492"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET)
@@ -278,7 +278,7 @@ En esta sección se muestra cómo inspeccionar un mensaje en cola (leer el prime
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. Actualice **ViewBag** con dos valores: el nombre de la cola y el mensaje que se ha leído. El **CloudQueueMessage** objeto expone dos propiedades para obtener el valor del objeto: **CloudQueueMessage.AsBytes** y **CloudQueueMessage.AsString**. **AsString** (que se usa en este ejemplo) devuelve una cadena, mientras que **AsBytes** devuelve una matriz de bytes.
+1. Actualice **ViewBag** con dos valores: el nombre de la cola y el mensaje que se ha leído. El objeto **CloudQueueMessage** expone dos propiedades para obtener el valor del objeto: **CloudQueueMessage.AsBytes** y **CloudQueueMessage.AsString**. **AsString** (que se usa en este ejemplo) devuelve una cadena, mientras que **AsBytes** devuelve una matriz de bytes.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
@@ -403,7 +403,7 @@ En esta sección, aprenderá a leer y eliminar un mensaje de una cola.
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **leer/eliminar mensaje** para ver resultados similares a la siguiente captura de pantalla:
+1. Ejecute la aplicación y seleccione **Read/Delete message** (Leer/eliminar mensaje) para ver resultados similares a la siguiente captura de pantalla:
   
     ![Leer y eliminar mensaje](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -490,7 +490,7 @@ En esta sección se muestra cómo obtener la longitud de cola (número de mensaj
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **obtener la longitud de cola** para ver resultados similares a la siguiente captura de pantalla:
+1. Ejecute la aplicación y seleccione **Get queue length** (Obtener la longitud de cola) para ver resultados similares a la siguiente captura de pantalla:
   
     ![longitud de la cola](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -570,7 +570,7 @@ En esta sección se muestra cómo eliminar una cola.
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **obtener la longitud de cola** para ver resultados similares a la siguiente captura de pantalla:
+1. Ejecute la aplicación y seleccione **Get queue length** (Obtener la longitud de cola) para ver resultados similares a la siguiente captura de pantalla:
   
     ![Eliminar cola](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

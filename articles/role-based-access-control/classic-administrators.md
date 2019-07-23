@@ -15,10 +15,10 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924651"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
@@ -38,7 +38,7 @@ En este artículo se describe cómo agregar o cambiar los roles de coadministrad
 
     Solo se pueden asignar coadministradores en el ámbito de la suscripción.
 
-1. Haga clic en **Control de acceso (IAM)**.
+1. Haga clic en **Control de acceso (IAM)** .
 
 1. Haga clic en la pestaña **Administradores clásicos**.
 
@@ -71,7 +71,7 @@ Tenga en cuenta que los [roles integrados en los recursos de Azure](../role-base
 
 1. Abra [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) y seleccione una suscripción.
 
-1. Haga clic en **Control de acceso (IAM)**.
+1. Haga clic en **Control de acceso (IAM)** .
 
 1. Haga clic en la pestaña **Administradores clásicos**.
 
@@ -89,9 +89,9 @@ Solo el administrador de cuenta puede cambiar el administrador de servicios de u
 
 Hay dos formas de cambiar el administrador de servicios. Puede cambiarlo en **Azure Portal** o en el **Centro de cuentas**.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
-1. Asegúrese de que el escenario sea compatible mediante la comprobación de las limitaciones para cambiar los administradores de servicio.
+1. Asegúrese de que el escenario sea compatible mediante la comprobación de las limitaciones para cambiar de administradores de servicios.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta.
 
@@ -109,7 +109,7 @@ Hay dos formas de cambiar el administrador de servicios. Puede cambiarlo en **Az
 
 ### <a name="account-center"></a>Centro de cuentas
 
-1. Asegúrese de que el escenario sea compatible mediante la comprobación de las limitaciones para cambiar los administradores de servicio.
+1. Asegúrese de que el escenario sea compatible mediante la comprobación de las limitaciones para cambiar de administradores de servicios.
 
 1. Inicie sesión en el [Centro de cuentas](https://account.windowsazure.com/subscriptions) como administrador de cuenta.
 
@@ -133,8 +133,8 @@ Si inició sesión con una cuenta profesional o educativa, puede agregar otras c
 
   | Método de inicio de sesión | ¿Agregar un usuario de cuenta Microsoft como administrador de servicios? | ¿Agregar una cuenta profesional o educativa de la misma organización como administrador de servicios? | ¿Agregar una cuenta profesional o educativa de otra organización como administrador de servicios? |
   | --- | --- | --- | --- |
-  |  Cuenta Microsoft |Sí |No |Sin  |
-  |  Cuenta profesional o educativa |Sí |Sí |Sin  |
+  |  Cuenta Microsoft |Sí |No |Sin |
+  |  Cuenta profesional o educativa |Sí |Sí |Sin |
 
 ## <a name="view-the-account-administrator"></a>Visualización del administrador de cuenta
 

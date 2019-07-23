@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c83eb1f6525c54bc44386f84498789b50bf19043
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721138"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Características y extensiones de las máquinas virtuales para Linux
 
@@ -57,7 +57,7 @@ Para brindar la mejor experiencia posible, se requieren versiones mínimas del a
 El agente Linux se ejecuta en varios sistemas operativos, pero el marco de las extensiones tiene un límite para los sistemas operativos de esas extensiones. Para obtener más información, consulte [este artículo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Algunas extensiones no son compatibles con todos los sistemas operativos y puede aparecer el *código de error 51, "Sistema operativo no compatible"*. Revise la documentación de cada una de las extensiones para información sobre la compatibilidad.
+Algunas extensiones no son compatibles con todos los sistemas operativos y puede aparecer el *código de error 51, "Sistema operativo no compatible"* . Revise la documentación de cada una de las extensiones para información sobre la compatibilidad.
 
 #### <a name="network-access"></a>Acceso de red
 
@@ -106,7 +106,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Las extensiones de máquina virtual se pueden aplicar a una máquina virtual existente a través de Azure Portal. Seleccione la máquina virtual en el portal, elija **Extensiones** y, luego, **Agregar**. Elija la extensión que quiera en la lista de extensiones disponibles y siga las instrucciones del asistente.
 
@@ -264,7 +264,7 @@ Se recomienda que siempre tenga activada la actualización automática del agent
 
 #### <a name="extension-updates"></a>Actualizaciones de extensiones
 
-Cuando hay disponible una actualización de extensión, el agente Linux la descarga y actualiza. Las actualizaciones de extensiones automáticas son *secundarias* o *revisiones*. Puede decidir si desea recibir o no las actualizaciones *secundarias* de las extensiones cuando aprovisiona la extensión. En el ejemplo siguiente se muestra cómo actualizar automáticamente las versiones secundarias en una plantilla de Resource Manager con *autoUpgradeMinorVersion": true,'*:
+Cuando hay disponible una actualización de extensión, el agente Linux la descarga y actualiza. Las actualizaciones de extensiones automáticas son *secundarias* o *revisiones*. Puede decidir si desea recibir o no las actualizaciones *secundarias* de las extensiones cuando aprovisiona la extensión. En el ejemplo siguiente se muestra cómo actualizar automáticamente las versiones secundarias en una plantilla de Resource Manager con *autoUpgradeMinorVersion": true,'* :
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -337,7 +337,7 @@ Los pasos de solución de problemas siguientes se aplican a todas las extensione
 
 1. Para comprobar el registro del agente Linux, examine la actividad cuando la extensión se aprovisionó en */var/log/waagent.log*.
 
-2. Revise los registros reales de la extensión para ver más detalles en */var/log/azure/<extensionName>*.
+2. Revise los registros reales de la extensión para ver más detalles en */var/log/azure/\<nombreDeExtensión>* .
 
 3. Revise las secciones de solución de problemas de la documentación específica de la extensión para ver los códigos de errores, los problemas conocidos, etc.
 

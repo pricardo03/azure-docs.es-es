@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
 ms.openlocfilehash: 69ae1bd05b64912b3d53ca88b468a72a90ff5a74
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718316"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorización de usuarios para Apache Ambari Views
 
 Los [clústeres de HDInsight habilitados con Enterprise Security Package (ESP)](./domain-joined/apache-domain-joined-introduction.md) proporcionan funcionalidades empresariales, incluida la autenticación basada en Azure Active Directory. Puede [sincronizar los usuarios nuevos](hdinsight-sync-aad-users-to-cluster.md) agregados a los grupos de Azure AD a los que se ha proporcionado acceso al clúster y permitir que esos usuarios específicos realicen determinadas acciones. El trabajo con usuarios, grupos y permisos en [Apache Ambari](https://ambari.apache.org/) es compatible tanto con clústeres de HDInsight ESP como con clústeres de HDInsight estándar.
 
-Usuarios de Active Directory pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticar las interacciones del clúster con otros puntos de conexión aprobados como [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell y las API REST.
+Los usuarios de Active Directory pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticar las interacciones del clúster con otros puntos de conexión aprobados como [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell y las API REST.
 
 > [!WARNING]  
 > No cambie la contraseña del guardián Ambari (hdinsightwatchdog) en el clúster de HDInsight basado en Linux. El cambio de la contraseña impide usar acciones de script o realizar operaciones de escalado con el clúster.
@@ -28,7 +28,7 @@ Si no lo ha hecho aún, siga [estas instrucciones](./domain-joined/apache-domain
 
 ## <a name="access-the-ambari-management-page"></a>Acceso a la página de administración de Ambari
 
-Para llegar a la **página de administración de Ambari** en la [interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md), vaya a **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Escriba el nombre de usuario y la contraseña del administrador del clúster que definió cuando creó el clúster. A continuación, en el panel de Ambari, seleccione **Manage Ambari** (Administrar Ambari) en el menú **admin** (Administrador):
+Para llegar a la **página de administración de Ambari** en la [interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md), vaya a **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Escriba el nombre de usuario y la contraseña del administrador del clúster que definió cuando creó el clúster. A continuación, en el panel de Ambari, seleccione **Manage Ambari** (Administrar Ambari) en el menú **admin** (Administrador):
 
 ![Administración de Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 

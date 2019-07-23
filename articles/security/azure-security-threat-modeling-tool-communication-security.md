@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 8534f30c17208e77adfa47ea41506a3a61d3548d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121330"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Marco de seguridad: seguridad en las comunicaciones | Mitigaciones 
@@ -26,7 +26,7 @@ ms.locfileid: "62121330"
 | --------------- | ------- |
 | **Centro de eventos de Azure** | <ul><li>[Protección de las comunicaciones con el centro de eventos mediante SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Comprobación de los privilegios de cuenta de servicio y de que las páginas de ASP.NET o los servicios personalizados respetan la seguridad de CRM](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[Utilizar Data management gateway durante la conexión en SQL Server local a Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Uso de Data Management Gateway durante la conexión del servidor SQL Server local a Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Comprobación de que todo el tráfico a Identity Server se transmite a través de una conexión HTTPS](#identity-https)</li></ul> |
 | **Aplicación web** | <ul><li>[Comprobación de certificados X.509 utilizados para autenticar las conexiones SSL, TLS y DTLS](#x509-ssltls)</li><li>[Configuración de un certificado SSL para un dominio personalizado en Azure App Service](#ssl-appservice)</li><li>[Direccionamiento forzoso de todo el tráfico a Azure App Service a través de una conexión HTTPS](#appservice-https)</li><li>[Habilitación de seguridad de transporte estricto HTTP (HSTS)](#http-hsts)</li></ul> |
 | **Base de datos** | <ul><li>[Comprobación de cifrado de la conexión de SQL Server y validación de certificados](#sqlserver-validation)</li><li>[Aplicación forzosa de comunicación cifrada a SQL Server](#encrypted-sqlserver)</li></ul> |
@@ -60,15 +60,15 @@ ms.locfileid: "62121330"
 | **Referencias**              | N/D  |
 | **Pasos** | Compruebe los privilegios de cuenta de servicio y que las páginas de ASP.NET o los servicios personalizados respetan la seguridad de CRM. |
 
-## <a id="sqlserver-factory"></a>Utilizar Data management gateway durante la conexión en SQL Server local a Azure Data Factory
+## <a id="sqlserver-factory"></a>Uso de Data Management Gateway durante la conexión del servidor SQL Server local a Azure Data Factory
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure Data Factory | 
 | **Fase de SDL**               | Implementación |  
 | **Tecnologías aplicables** | Genérico |
-| **Atributos**              | Tipos de servicios vinculados: Azure y locales |
-| **Referencias**              |[Mover datos entre local y Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [puerta de enlace de administración de datos](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **Atributos**              | Tipos de servicios vinculados: Azure y local |
+| **Referencias**              |[Movimiento de datos entre el entorno local y Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Data Management Gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Pasos** | <p>La herramienta Data Management Gateway (DMG) es necesaria para conectarse a orígenes de datos que están protegidos en una red corporativa o mediante firewall.</p><ol><li>Al bloquearse la máquina, se aísla la herramienta DMG, lo que impide que los programas que funcionan incorrectamente dañen o accedan a la máquina del origen de datos (por ejemplo, deben instalarse las actualizaciones más recientes, habilitar los puertos mínimos necesarios, aprovisionar cuentas controladas, habilitar la auditoría, habilitar el cifrado de disco, etc.).</li><li>La clave de puerta de enlace de datos se debe alternar a intervalos frecuentes o siempre que se renueva la contraseña de cuenta del servicio DMG.</li><li>El tránsito de datos a través del servicio de vínculos debe cifrarse.</li></ol> |
 
 ## <a id="identity-https"></a>Comprobación de que todo el tráfico a Identity Server se transmite a través de una conexión HTTPS

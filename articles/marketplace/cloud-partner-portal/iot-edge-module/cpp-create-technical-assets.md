@@ -1,5 +1,5 @@
 ---
-title: Crear módulo de Azure IoT Edge activos técnicos | Azure Marketplace
+title: Crear los recursos técnicos de un módulo Azure IoT Edge | Azure Marketplace
 description: Cree los recursos técnicos de un módulo IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
 ms.openlocfilehash: 9f40e2272388e6f467b8c3d0b01a6639bf652e80
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942382"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparar los recursos técnicos del módulo IoT Edge
@@ -122,7 +122,7 @@ El SDK de módulo IoT es necesario para obtener datos de telemetría sobre la ca
 ## <a name="recertification-process"></a>Proceso de recertificación
 
 <!-- Add legal time windows-->
-Obtendrá una notificación asociados siempre que haya un cambio importante que afecta a sus módulos, como:
+Los asociados reciben una notificación siempre que hay un cambio importante que afecta a sus módulos, como:
 
 - Matriz de compatibilidad de sistema operativo o arquitectura de nivel 1 compatible con IoT Edge
 - SDK de módulo IoT

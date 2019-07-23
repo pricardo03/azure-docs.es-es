@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
 ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459694"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creación de flujos de trabajo de aplicaciones lógicas a partir de plantillas precompiladas
@@ -52,7 +52,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
    | **Suscripción** | *your-Azure-subscription-name* | Seleccione la suscripción de Azure que quiera usar. | 
    | **Grupos de recursos** | *your-Azure-resource-group-name* | Cree o seleccione un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) para esta aplicación lógica y organice todos los recursos asociados a esta aplicación. | 
    | **Ubicación** | *your-Azure-datacenter-region* | Seleccione la región del centro de datos para implementar la aplicación lógica, por ejemplo, Oeste de EE.UU. | 
-   | **Log Analytics** | **Off** (Desactivar) (valor predeterminado) o **On** (Activar) | Activar [el registro de diagnóstico](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) para la aplicación lógica mediante [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Es necesario que ya tenga un área de trabajo de Log Analytics. | 
+   | **Log Analytics** | **Off** (Desactivar) (valor predeterminado) o **On** (Activar) | Activar el [registro de diagnóstico](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) para la aplicación lógica a través de los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Es necesario que ya tenga un área de trabajo de Log Analytics. | 
    |||| 
 
 4. Cuando esté listo, elija **Anclar al panel**. De este modo, la aplicación lógica aparecerá automáticamente en el panel de Azure y se abrirá después de la implementación. Seleccione **Create**.
@@ -63,7 +63,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
    Una vez que Azure ha implementado la aplicación lógica, el Diseñador de Logic Apps se abre y muestra una página con un vídeo de introducción. 
    Bajo el vídeo encontrará plantillas de los patrones de aplicación lógica más comunes. 
 
-5. Pase el vídeo de introducción y los desencadenadores comunes hasta **Plantillas**. Elija una plantilla precompilada. Por ejemplo: 
+5. Pase el vídeo de introducción y los desencadenadores comunes hasta **Plantillas**. Elija una plantilla precompilada. Por ejemplo:
 
    ![Elegir una plantilla de aplicación lógica](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -71,7 +71,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
    > Para crear la aplicación lógica desde cero, elija **Aplicación lógica en blanco**.
 
    Cuando se selecciona una plantilla precompilada, puede ver más información acerca de dicha plantilla. 
-   Por ejemplo: 
+   Por ejemplo:
 
    ![Elegir una plantilla precompilada](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -85,7 +85,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
 
    * Si ya configuró estas conexiones, elija **Continuar**.
 
-   Por ejemplo: 
+   Por ejemplo:
 
    ![Crear conexiones](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -103,16 +103,16 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
 
 1. En [Azure Portal](https://portal.azure.com "Azure Portal"), busque y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
-2. En la barra de herramientas del diseñador, haga clic en **Plantillas**. Esta acción descarta los cambios no guardados, por lo que aparece un mensaje de advertencia para confirmar que quiere continuar. Para confirmar, elija **Aceptar**. Por ejemplo: 
+2. En la barra de herramientas del diseñador, haga clic en **Plantillas**. Esta acción descarta los cambios no guardados, por lo que aparece un mensaje de advertencia para confirmar que quiere continuar. Para confirmar, elija **Aceptar**. Por ejemplo:
 
    ![Elegir "Plantillas"](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Pase el vídeo de introducción y los desencadenadores comunes hasta **Plantillas**. Elija una plantilla precompilada. Por ejemplo: 
+3. Pase el vídeo de introducción y los desencadenadores comunes hasta **Plantillas**. Elija una plantilla precompilada. Por ejemplo:
 
    ![Elegir una plantilla de aplicación lógica](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    Cuando se selecciona una plantilla precompilada, puede ver más información acerca de dicha plantilla. 
-   Por ejemplo: 
+   Por ejemplo:
 
    ![Elegir una plantilla precompilada](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 

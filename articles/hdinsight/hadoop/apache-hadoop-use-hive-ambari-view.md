@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
 ms.openlocfilehash: 55f8f453faf35d52c5c292e6b309194443980466
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719570"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Uso de Apache Ambari Hive View con Apache Hadoop en HDInsight
@@ -23,14 +23,14 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un clúster de Hadoop en HDInsight. Consulte [empezar a trabajar con HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Un explorador web
 
 ## <a name="run-a-hive-query"></a>Ejecución de una consulta de Hive
 
-1. Desde el [portal Azure](https://portal.azure.com/), seleccione el clúster.  Consulte [lista y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. El clúster se abre en una nueva hoja del portal.
+1. En [Azure Portal](https://portal.azure.com/), seleccione su clúster.  Consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. El clúster se abre en una nueva hoja del portal.
 
-2. Desde **paneles de clúster**, seleccione **vistas de Ambari**. Cuando se le solicite autenticarse, use el nombre de cuenta y la contraseña de inicio de sesión del clúster (el valor predeterminado es `admin`) que proporcionó al crear el clúster.
+2. Desde **Paneles de clúster**, seleccione **Vistas de Ambari**. Cuando se le solicite autenticarse, use el nombre de cuenta y la contraseña de inicio de sesión del clúster (el valor predeterminado es `admin`) que proporcionó al crear el clúster.
 
 3. En la lista de vistas, seleccione __Vista de Hive__.
 
@@ -75,17 +75,17 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
    > [!IMPORTANT]  
    > Deje la selección de __base de datos__ en el __valor predeterminado__. Los ejemplos de este documento usan la base de datos predeterminada que se incluye en HDInsight.
 
-5. Para iniciar la consulta, seleccione **Execute** debajo de la hoja de cálculo. El botón se vuelve de color naranja y el texto cambia a **Detener**.
+5. Para iniciar la consulta, seleccione **Ejecutar** debajo de la hoja de cálculo. El botón se vuelve de color naranja y el texto cambia a **Detener**.
 
 6. Cuando finalice la consulta, los resultados de la operación aparecerán en la pestaña **Resultados**. El texto siguiente es el resultado de la consulta:
 
         loglevel       count
         [ERROR]        3
 
-    Puede usar el **registro** pestaña para ver la información de registro que crea el trabajo.
+    Puede utilizar la pestaña **Registro** para ver la información de registro creada por el trabajo.
 
    > [!TIP]  
-   > Descargar o guardar los resultados de la **acciones** cuadro de diálogo desplegable bajo el **resultados** ficha.
+   > Descargue o guarde los resultados del cuadro de diálogo desplegable **Acciones** en la pestaña **Resultados**.
 
 ### <a name="visual-explain"></a>Explicación visual
 
@@ -95,7 +95,7 @@ La vista de **explicación visual** de la consulta puede ser útil para comprend
 
 ### <a name="tez-ui"></a>Interfaz de usuario de Tez
 
-Para mostrar la UI de Tez para la consulta, seleccione el **UI de Tez** ficha debajo de la hoja de cálculo.
+Para mostrar la interfaz de usuario de Tez, seleccione la pestaña **Tez UI** que se encuentra debajo de la hoja de cálculo.
 
 > [!IMPORTANT]  
 > Tez no se usa para resolver todas las consultas. No es necesario usar Tez para resolver muchas consultas. 

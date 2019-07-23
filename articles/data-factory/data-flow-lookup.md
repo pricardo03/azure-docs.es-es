@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
 ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868120"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformación Búsqueda de Azure Data Factory Mapping Data Flow
@@ -26,24 +26,24 @@ Seleccione los campos de clave por los que desea buscar coincidencias entre los 
 
 Cuando se encuentran coincidencias, las filas y columnas resultantes del origen de referencia se agregarán al flujo de datos. Puede elegir qué campos de interés desea incluir en el receptor al final de su flujo de datos.
 
-## <a name="match--no-match"></a>Coincide con o sin coincidencia
+## <a name="match--no-match"></a>Coincidente o no coincidente
 
-Después de la transformación búsqueda, puede usar las transformaciones posteriores para inspeccionar los resultados de cada fila de la coincidencia con la función de la expresión `isMatch()` tomar más decisiones en su lógica en función de si la búsqueda dieron lugar a una coincidencia de fila o no.
+Después de la transformación Búsqueda, puede usar las transformaciones posteriores para inspeccionar los resultados de cada fila coincidente mediante la función de expresión `isMatch()` para tomar más decisiones sobre la lógica en función de si la búsqueda dio como resultado una coincidencia o no.
 
 ## <a name="optimizations"></a>Optimizaciones
 
-En Data Factory, flujos de datos se ejecute en entornos de Spark de escalado horizontal. Si el conjunto de datos puede caber en el espacio de memoria de nodo de trabajo, podemos optimizar el rendimiento de la búsqueda.
+En Data Factory, Data Flow se ejecuta en entornos de Spark de escalabilidad horizontal. Si el conjunto de datos puede caber en el espacio de memoria de un nodo de trabajo, podemos optimizar el rendimiento de Búsqueda.
 
-![Combinación de difusión](media/data-flow/broadcast.png "combinación de difusión")
+![Unión de difusión](media/data-flow/broadcast.png " de difusión")
 
-### <a name="broadcast-join"></a>Combinación de difusión
+### <a name="broadcast-join"></a>Unión de difusión
 
-Seleccionar izquierda o derecha difundir combinación para solicitar el ADF para insertar todo el conjunto de datos de ambos lados de la relación de búsqueda en memoria.
+Seleccione la unión de difusión del lado izquierdo o derecho para solicitar a ADF que inserte todo el conjunto de datos de cualquiera de los dos lados de la relación de Búsqueda en la memoria.
 
 ### <a name="data-partitioning"></a>Creación de particiones de datos
 
-También puede especificar la creación de particiones de los datos mediante la selección de "Particiones del conjunto de" en la pestaña de la optimización de la transformación búsqueda para crear conjuntos de datos que pueden adaptarse mejor a la memoria por trabajo.
+También puede especificar la creación de particiones de los datos si selecciona "Set Partitioning" (establecer particiones) en la pestaña Optimizar de la transformación Búsqueda para crear conjuntos de datos que pueden adaptarse mejor a la memoria por trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Únase a](data-flow-join.md) y [Exists](data-flow-exists.md) transformaciones realizan tareas similares en flujos de datos de asignación de ADF. Eche un vistazo a esas transformaciones siguiente.
+Las transformaciones [Unión](data-flow-join.md) y [Existe](data-flow-exists.md) realizan tareas similares en los flujos de datos de asignación de ADF. A continuación, eche un vistazo a esas transformaciones.

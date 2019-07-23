@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62116873"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para administrar recursos compartidos en StorSimple Virtual Array
@@ -33,8 +33,8 @@ El servicio StorSimple Device Manager es una extensión de Azure Portal que perm
 
 Los recursos compartidos de StorSimple pueden ser de uno de los siguientes tipos:
 
-* **Anclado localmente**: Datos de estos recursos compartidos se mantienen en la matriz en todo momento y no se vuelcan en la nube.
-* **En niveles**: Datos de estos recursos compartidos pueden volcarse en la nube. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un recurso compartido de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube al apilar los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se podrá aprovisionar un recurso compartido en capas (porque el 10 % necesario de la capa local no estará disponible).
+* **Anclado localmente**: los datos de estos recursos compartidos se mantienen en la matriz en todo momento y no se vuelcan en la nube.
+* **En capas**: los datos de estos recursos compartidos pueden volcarse en la nube. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un recurso compartido de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube al apilar los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se podrá aprovisionar un recurso compartido en capas (porque el 10 % necesario de la capa local no estará disponible).
 
 ### <a name="provisioned-capacity"></a>Capacidad aprovisionada
 
@@ -88,7 +88,7 @@ Siga las instrucciones de este tutorial para realizar las siguientes tareas:
 
    4. En el campo **Capacidad** especifique el tamaño del recurso compartido. Un recurso compartido en capas debe tener entre 500 GB y 20 TB, y uno anclado localmente debe tener entre 50 GB y 2 TB.
 
-   5. En el campo **Set default full permissions to** (Establecer permisos totales predeterminados en), asigne los permisos al usuario o al grupo que va a acceder a este recurso compartido. Especifique el nombre del usuario o del grupo de usuarios en formato _john@contoso.com_. Se recomienda que utilice un grupo de usuarios (en lugar de un único usuario) para otorgar los privilegios de administrador para tener acceso a estos recursos compartidos. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
+   5. En el campo **Set default full permissions to** (Establecer permisos totales predeterminados en), asigne los permisos al usuario o al grupo que va a acceder a este recurso compartido. Especifique el nombre del usuario o del grupo de usuarios en formato _john@contoso.com_ . Se recomienda que utilice un grupo de usuarios (en lugar de un único usuario) para otorgar los privilegios de administrador para tener acceso a estos recursos compartidos. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
 3. Cuando haya terminado de configurar el recurso compartido, haga clic en **Crear**. Se creará un recurso compartido con la configuración especificada y verá una notificación. De forma predeterminada, se habilitará la copia de seguridad para el recurso compartido.
 4. Para confirmar que el recurso compartido se creó correctamente, vaya a la hoja **Recursos compartidos**. Debería ver el recurso compartido en la lista.
    

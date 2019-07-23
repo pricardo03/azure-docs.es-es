@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
 ms.openlocfilehash: 8cd665ffd82547c4f554eb4a515a8da7dc5b3f5f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868984"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Escalado automático con métricas de invitado en una plantilla de conjunto de escalado de Linux
 
-Hay dos tipos generales de las métricas en Azure que se recopilan desde máquinas virtuales y conjuntos de escalado: Las métricas de host y las métricas de invitado. En un nivel alto, si desea usar estándar CPU, disco y las métricas de red, las métricas de host son una buena opción. Sin embargo, se necesita una mayor variedad de métricas, se deberían en las métricas de invitado.
+Hay dos tipos generales de métricas en Azure que se recopilan desde máquinas virtuales y conjuntos de escalado: las métricas de host y las métricas de invitado. A nivel general, si quiere usar métricas estándar de CPU, disco y red, las métricas de host resultan adecuadas. Sin embargo, si necesita una selección de métricas más grande, debería considerar las métricas de invitado.
 
-Las métricas de host no requieren configuración adicional porque las recopila la máquina virtual host, mientras que las métricas de invitado requieren que instale el [extensión de diagnósticos de Windows Azure](../virtual-machines/windows/extensions-diagnostics-template.md) o [Azure Diagnostics para Linux ](../virtual-machines/linux/diagnostic-extension.md) en la máquina virtual invitada. Un motivo habitual para usar las métricas de invitado en lugar de las métricas de host es que las métricas de invitado proporcionan una mayor variedad de métricas que las de host. Un ejemplo es las métricas de consumo de memoria, que solo están disponibles mediante las métricas de invitado. La lista de las métricas de host admitidas se encuentran [aquí](../azure-monitor/platform/metrics-supported.md), y las métricas de invitado de uso frecuente se encuentran [aquí](../azure-monitor/platform/autoscale-common-metrics.md). En este artículo se muestra cómo modificar el [plantilla de conjunto de escalado de viabilidad básica](virtual-machine-scale-sets-mvss-start.md) usar reglas de escalado automático basadas en métricas de invitado para conjuntos de escalado de Linux.
+Las métricas de host no requieren configuración adicional porque las recopila la máquina virtual host, mientras que las métricas de invitado requieren la instalación de la [extensión Azure Diagnostics para Windows](../virtual-machines/windows/extensions-diagnostics-template.md) o [Azure Diagnostics para Linux](../virtual-machines/linux/diagnostic-extension.md) en la máquina virtual invitada. Un motivo habitual para usar las métricas de invitado en lugar de las métricas de host es que las métricas de invitado proporcionan una mayor variedad de métricas que las de host. Un ejemplo es las métricas de consumo de memoria, que solo están disponibles mediante las métricas de invitado. La lista de las métricas de host admitidas se encuentran [aquí](../azure-monitor/platform/metrics-supported.md), y las métricas de invitado de uso frecuente se encuentran [aquí](../azure-monitor/platform/autoscale-common-metrics.md). En este artículo se muestra cómo modificar la [plantilla de conjunto de escalado viable básico](virtual-machine-scale-sets-mvss-start.md) para usar reglas de escalado automático en función de las métricas de invitado para conjuntos de escalado de Linux.
 
 ## <a name="change-the-template-definition"></a>Cambio de la definición de la plantilla
 
-En un [artículo anterior](virtual-machine-scale-sets-mvss-start.md) hemos creado una plantilla de conjunto de escalado básico. Ahora utilice esa plantilla anterior y modificarlo para crear una plantilla que implementa un conjunto de escalado Linux con escalado automático de basado en métricas de invitado.
+En un [artículo anterior](virtual-machine-scale-sets-mvss-start.md) creamos una plantilla de conjunto de escalado básico. Ahora usaremos esa plantilla anterior y la modificaremos para crear una plantilla que implementa un conjunto de escalado de Linux con escalabilidad automática basada en métricas de invitado.
 
 Primero, se van a agregar parámetros para `storageAccountName` y `storageAccountSasToken`. El agente de Diagnostics almacena los datos de las métricas en una [tabla](../cosmos-db/table-storage-how-to-use-dotnet.md), en esta cuenta de almacenamiento. A partir de la versión 3.0 del agente de Diagnostics para Linux ya no admite el uso de una clave de acceso de almacenamiento. En su lugar, use un [token de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

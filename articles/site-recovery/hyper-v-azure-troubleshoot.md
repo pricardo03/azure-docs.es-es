@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
 ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719828"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
@@ -30,7 +30,7 @@ Si experimenta problemas al habilitar la protección para VM de Hyper-V, consult
 5. En la máquina virtual invitada, compruebe que WMI esté habilitado y accesible.
    - [Información acerca de](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) pruebas básicas de WMI.
    - [Solución de problemas](https://aka.ms/WMiTshooting) de WMI.
-   - [Solución de problemas de](https://technet.microsoft.com/library/ff406382.aspx#H22) problemas con los scripts WMI y servicios.
+   - [Solución de problemas](https://technet.microsoft.com/library/ff406382.aspx#H22) con los scripts y servicios de WMI.
 6. En la máquina virtual invitada, asegúrese de que se está ejecutando la versión más reciente de Integration Services.
     - [Compruebe](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) que dispone de la versión más reciente.
     - [Mantenga](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services actualizado.
@@ -129,7 +129,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 
 2. Para generar instantáneas VSS para la máquina virtual, compruebe que los servicios de integración de Hyper-V están instalados en la máquina virtual y que está habilitado el servicio de integración de copia de seguridad (VSS).
     - Asegúrese de que los servicios/demonios de VSS de Integration Services se ejecutan en el invitado y se encuentran en un estado **Aceptar**.
-    - Esto se puede comprobar desde una sesión de PowerShell con privilegios elevados en el host de Hyper-V con el comando **et-VMIntegrationService - VMName\<VMName >-nombre VSS** también puede obtener esta información, inicie sesión en la máquina virtual invitada. [Más información](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Esto se puede comprobar desde una sesión de PowerShell con privilegios elevados en el host de Hyper-V con el comando **et-VMIntegrationService -VMName\<NombredeVM>-Name VSS**. También puede obtener esta información si inicia sesión en la máquina virtual invitada. [Más información](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Asegúrese de que los servicios de integración de VSS/copia de seguridad en la máquina virtual se están ejecutando y se encuentran en buen estado. Si no es así, reinicie estos servicios y el servicio de solicitante de instantáneas de volumen de Hyper-V en el servidor host de Hyper-V.
 
 ### <a name="common-errors"></a>Errores comunes

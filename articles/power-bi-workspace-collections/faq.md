@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.openlocfilehash: e3c28cc28261e65e945887d7ad9bfa5fd3984605
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701579"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Preguntas más frecuentes sobre las colecciones de áreas de trabajo de Power BI
@@ -30,7 +30,7 @@ Las colecciones de áreas de trabajo de Power BI están pensadas para los desarr
 
 ## <a name="how-does-power-bi-workspace-collections-relate-to-the-power-bi-service"></a>¿Cómo se relacionan las colecciones de áreas de trabajo de Power BI con el servicio Power BI?
 
-Las colecciones de áreas de trabajo de Power BI y el servicio Power BI son ofertas diferentes. Las colecciones de áreas de trabajo de Power BI se caracterizan por un modelo de facturación basado en el consumo, se implementa mediante Azure Portal y está diseñado para permitir a los ISV insertar visualizaciones de datos en las aplicaciones para su uso por parte de los clientes. El servicio Power BI se factura e implementa a través del centro de administración de Microsoft 365, y es una oferta de BI de propósito general independiente destinada principalmente a uso interno empresarial. Para más información sobre el servicio Power BI, consulte [www.powerbi.com](https://powerbi.microsoft.com).
+Las colecciones de áreas de trabajo de Power BI y el servicio Power BI son ofertas diferentes. Las colecciones de áreas de trabajo de Power BI se caracterizan por un modelo de facturación basado en el consumo, se implementa mediante Azure Portal y está diseñado para permitir a los ISV insertar visualizaciones de datos en las aplicaciones para su uso por parte de los clientes. El servicio Power BI se factura e implementa mediante el centro de administración de Microsoft 365 y es una oferta de inteligencia empresarial independiente y de uso general destinada principalmente al uso empresarial interno. Para más información sobre el servicio Power BI, consulte [www.powerbi.com](https://powerbi.microsoft.com).
 
 ## <a name="how-does-power-bi-workspace-collections-improve-my-app"></a>¿Cómo mejoran mi aplicación las colecciones de área de trabajo de Power BI?
 
@@ -98,7 +98,7 @@ Puede visitar la [página de documentación de las colecciones de áreas de trab
 
 ¡Puede empezar ahora de forma gratuita! Si tiene una suscripción a Azure, ahora puede aprovisionar las colecciones de áreas de trabajo de Power BI directamente desde Azure Portal. También puede crear una [cuenta de Azure gratis](https://azure.microsoft.com/free/). Después de aprovisionar el servicio Colección de áreas de trabajo de Power BI, puede usar fácilmente las API de REST de Power BI directamente, o bien usar el SDK para desarrolladores disponible en [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). Se proporcionan ejemplos de cómo aprovechar el SDK para desarrolladores.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [¿Qué es Colección de áreas de trabajo de Power BI](what-are-power-bi-workspace-collections.md)
 [Introducción a las colecciones de áreas de trabajo de Microsoft Power BI](get-started.md)

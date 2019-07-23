@@ -15,10 +15,10 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123576"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuración de alta disponibilidad en SUSE mediante STONITH
@@ -258,7 +258,7 @@ Ejecute el comando *crm_mon* para asegurarse de que **ambos** nodos están en l�
 ```
 crm_mon
 ```
-![CRM-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) también puede iniciar sesión en hawk para comprobar el estado del clúster *https://\<nodo IP >: 7630*. El usuario predeterminado es hacluster y la contraseña es linux. Si fuese necesario, puede cambiar la contraseña mediante el comando *passwd*.
+![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) También puede iniciar sesión en Hawk para comprobar el estado del clúster *https://\<node IP>:7630*. El usuario predeterminado es hacluster y la contraseña es linux. Si fuese necesario, puede cambiar la contraseña mediante el comando *passwd*.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Configuración de propiedades del clúster y recursos 
 Esta sección describe los pasos para configurar los recursos del clúster.
@@ -323,7 +323,7 @@ crm configure load update crm-vip.txt
 Cuando ejecute el comando *crm_mon*, podrá ver los dos recursos ahí.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Además, puede ver el estado en *https://\<dirección IP del nodo >: 7630/cib/live/state*
+Además, puede ver el estado en *https://\<node IP address>:7630/cib/live/state*.
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 

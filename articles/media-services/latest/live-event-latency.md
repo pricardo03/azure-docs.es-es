@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
 ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702787"
 ---
 # <a name="live-event-latency-in-media-services"></a>Latencia de objeto LiveEvent en Media Services
@@ -27,7 +27,7 @@ En este artículo se muestra cómo establecer una latencia baja en un objeto [Li
 Para usar la nueva característica **LowLatency**, puede establecer **StreamOptionsFlag** en **LowLatency** en **LiveEvent**. Al crear [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) para la reproducción de HLS, establezca [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) en 1. Una vez que la transmisión esté en funcionamiento, puede usar la página de demostración de [Azure Media Player](https://ampdemo.azureedge.net/) (AMP) y establecer las opciones de reproducción para usar "Low Latency Heuristics Profile" (Perfil de heurística de baja latencia).
 
 > [!NOTE]
-> Actualmente, el LowLatency HeuristicProfile en Azure Media Player está diseñado para reproducir secuencias de protocolo de MPEG-DASH, con formato CSF o CMAF (por ejemplo, `format=mdp-time-csf` o `format=mdp-time-cmaf`). 
+> Actualmente, LowLatency HeuristicProfile en Azure Media Player está diseñado para reproducir secuencias en protocolo MPEG-DASH con formato CSF o CMAF (por ejemplo, `format=mdp-time-csf` o `format=mdp-time-cmaf`). 
 
 El siguiente ejemplo de .NET muestra cómo establecer **LowLatency** en **LiveEvent**:
 

@@ -18,16 +18,16 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64918790"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Plan para mejorar la seguridad de los datos mediante una solución de identidad sólida
 El primer paso para proteger los datos es identificar quién puede acceder a esos datos. Además, debe tener una solución de identidad que se puede integrar con el sistema para proporcionar funcionalidades de autenticación y autorización. Con frecuencia la autenticación y la autorización se confunden y no se comprende bien su función. En realidad, son diferentes, tal como se muestra en la ilustración siguiente:
 
-![ciclo de vida de dispositivo móvil](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![Ciclo de vida de dispositivos móviles](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Fases del ciclo de vida de administración de dispositivos móviles**
 
@@ -87,6 +87,6 @@ Las normas, las leyes y los requisitos de cumplimiento normativo variarán segú
 ## <a name="next-steps"></a>Pasos siguientes
  [Determinación de los requisitos de administración de contenido](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 465d44ea823c99afbb4f25541d64770c114ba7e2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730496"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnóstico de problemas de enrutamiento en una máquina virtual
@@ -56,9 +56,9 @@ Aunque las rutas eficaces se vieron mediante la máquina virtual en los pasos an
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo Azure PowerShell, versión 1.0.0 o versiones posteriores. Ejecute `Get-Module -ListAvailable Az` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Connect-AzAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
+Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo Azure PowerShell versión 1.0.0 o posterior. Ejecute `Get-Module -ListAvailable Az` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Connect-AzAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
-Obtener las rutas efectivas para una interfaz de red con [Get AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). En el ejemplo siguiente se obtienen las rutas eficaces de una interfaz de red llamada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
+Obtenga rutas eficaces para una interfaz de red con [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). En el ejemplo siguiente se obtienen las rutas eficaces de una interfaz de red llamada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `

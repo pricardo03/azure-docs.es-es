@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 36201bad64e5516375afe1ec9ce141c3fd311d48
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574355"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Mapa de alertas de seguridad e información sobre amenazas
 En este artículo obtendrá ayuda para usar el mapa de alertas de seguridad y el mapa de inteligencia sobre amenazas basada en eventos de seguridad de Azure Security Center para solucionar problemas relacionados con la seguridad.
+
+> [!NOTE]
+> El botón de asignación de *eventos* de seguridad se retirará el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+
 
 ## <a name="how-the-security-alerts-map-works"></a>Cómo funciona el mapa de alertas de seguridad
 Security Center le proporciona un mapa que le ayuda a identificar las amenazas de seguridad en el entorno. Por ejemplo, pueden identificar si un determinado equipo forma parte de una red de robots (botnet) y de dónde proviene la amenaza. Los equipos pueden convertirse en nodos en una de estas redes cuando los atacantes instalan de forma ilegal malware que interactúa en secreto con comandos y controles que administran la red de robots. 
@@ -62,7 +66,7 @@ Para ver el mapa de inteligencia de amenazas basadas en eventos de seguridad sin
 4. En la parte superior del mapa, seleccione **Ver inteligencia de amenazas clásica**. Se abre el panel **Inteligencia sobre amenazas**.
 
    > [!NOTE]
-   > Si en la columna de la derecha se muestra **UPGRADE PLAN** (ACTUALIZAR PLAN), esta área de trabajo está usando la suscripción gratuita. Para usar esta característica, actualice a la versión Estándar. Si la columna derecha muestra **requiere actualizar**, actualizar [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esta característica. Para más información sobre el plan de precios, consulte Precios de Azure Security Center.
+   > Si en la columna de la derecha se muestra **UPGRADE PLAN** (ACTUALIZAR PLAN), esta área de trabajo está usando la suscripción gratuita. Para usar esta característica, actualice a la versión Estándar. Si en la columna de la derecha se muestra **REQUIRES UPDATE** (ES NECESARIO ACTUALIZAR), actualice los [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esta característica. Para más información sobre el plan de precios, consulte Precios de Azure Security Center.
    >
 5. Si tiene más de un área de trabajo para investigar, priorice la investigación de acuerdo con la columna **Direcciones IP malintencionadas**. Muestra el número actual de direcciones IP malintencionadas en esta área de trabajo. Seleccione el área de trabajo que desea usar, y aparecerá el panel **Información sobre amenazas**.
 
@@ -70,7 +74,7 @@ Para ver el mapa de inteligencia de amenazas basadas en eventos de seguridad sin
 
 6. Este panel se divide en cuatro iconos:
 
-     a.  **Tipos de amenaza**. Resume el tipo de amenaza detectada en el área de trabajo seleccionada.
+    a.  **Tipos de amenaza**. Resume el tipo de amenaza detectada en el área de trabajo seleccionada.
 
     b.  **País de origen**. Agrega la cantidad de tráfico en función de su ubicación de origen.
 
@@ -98,7 +102,7 @@ En las máquinas virtuales de Azure, solo aparecen en el panel **Inteligencia so
 - Eventos de DNS (Tipo = DnsEvents)
 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 En este artículo, ha aprendido a utilizar la inteligencia sobre amenazas de Security Center para ayudarle a identificar cualquier actividad sospechosa. Para más información sobre Security Center, consulte los siguientes artículos:
 
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Aprenda a administrar las alertas y a responder a incidentes de seguridad en Security Center.

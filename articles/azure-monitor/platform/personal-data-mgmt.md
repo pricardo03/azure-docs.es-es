@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
 ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61087286"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guía sobre datos personales almacenados en Log Analytics y Application Insights
@@ -88,7 +88,7 @@ Tal y como se mencionó en la sección sobre la [estrategia de tratamiento de da
 Para ver y exportar las solicitudes de datos, debe usarse la [API de consulta de Log Analytics](https://dev.loganalytics.io/) o la [API de consulta de Application Insights](https://dev.applicationinsights.io/quickstart). Tendrá que decidir qué lógica implementará para convertir la forma de los datos a uno adecuado para los usuarios. [Azure Functions](https://azure.microsoft.com/services/functions/) es un buen lugar para hospedar esta lógica.
 
 > [!IMPORTANT]
->  Aunque la mayoría de las operaciones de purga puede completarse mucho más rápido que el SLA, **formal SLA para la realización de operaciones de purga se establece en 30 días** debido a su impacto en la plataforma de datos usa pesado. Se trata de un proceso automatizado; No hay ninguna forma de solicitar una operación controlarse con mayor rapidez.
+>  Aunque la mayoría de las operaciones de purga pueden completarse mucho más rápido que lo establecido en el Acuerdo de Nivel de Servicio (SLA), **el SLA formal para la realización de operaciones de purga es de 30 días** debido a su gran impacto en la plataforma de datos utilizada. Se trata de un proceso automatizado; no hay ninguna forma de solicitar que una operación se controle con mayor rapidez.
 
 ### <a name="delete"></a>Eliminar
 
@@ -104,7 +104,7 @@ Una vez que se ha asignado el rol de Azure Resource Manager, habrá disponibles 
 #### <a name="log-data"></a>Datos de registro
 
 * [Purga POST](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge): toma un objeto que especifica los parámetros de datos que se van a eliminar y devuelve un GUID de referencia. 
-* GET purge status: la llamada POST purge devolverá un encabezado "x-ms-status-location" que incluye una dirección URL a la que se puede llamar para determinar el estado de la API de purga. Por ejemplo: 
+* GET purge status: la llamada POST purge devolverá un encabezado "x-ms-status-location" que incluye una dirección URL a la que se puede llamar para determinar el estado de la API de purga. Por ejemplo:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
@@ -116,7 +116,7 @@ Una vez que se ha asignado el rol de Azure Resource Manager, habrá disponibles 
 #### <a name="application-data"></a>Datos de aplicación
 
 * [Purga POST](https://docs.microsoft.com/rest/api/application-insights/components/purge): toma un objeto que especifica los parámetros de datos que se van a eliminar y devuelve un GUID de referencia.
-* GET purge status: la llamada POST purge devolverá un encabezado "x-ms-status-location" que incluye una dirección URL a la que se puede llamar para determinar el estado de la API de purga. Por ejemplo: 
+* GET purge status: la llamada POST purge devolverá un encabezado "x-ms-status-location" que incluye una dirección URL a la que se puede llamar para determinar el estado de la API de purga. Por ejemplo:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

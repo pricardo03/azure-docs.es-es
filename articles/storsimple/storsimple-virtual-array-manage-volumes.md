@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125804"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para administrar volúmenes en StorSimple Virtual Array
@@ -33,8 +33,8 @@ El servicio StorSimple Device Manager es una extensión de Azure Portal que perm
 
 Los volúmenes de StorSimple pueden ser:
 
-* **Anclado localmente**: Datos de estos volúmenes se mantienen en la matriz en todo momento y no se vuelcan en la nube.
-* **En niveles**: los datos de estos volúmenes pueden volcarse en la nube. Cuando se crea un volumen en capas, aproximadamente el 10 % del espacio se aprovisiona en la capa local y el 90 % restante en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se podrá aprovisionar un volumen en capas (porque el 10 % necesario de la capa local no estará disponible).
+* **Anclado localmente**: los datos de estos volúmenes se mantienen en la matriz en todo momento y no se vuelcan en la nube.
+* **En capas**: los datos de estos volúmenes pueden volcarse en la nube. Cuando se crea un volumen en capas, aproximadamente el 10 % del espacio se aprovisiona en la capa local y el 90 % restante en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se podrá aprovisionar un volumen en capas (porque el 10 % necesario de la capa local no estará disponible).
 
 ### <a name="provisioned-capacity"></a>Capacidad aprovisionada
 Para conocer la capacidad máxima aprovisionada de cada tipo de volumen, consulte la siguiente tabla.

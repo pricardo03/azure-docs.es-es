@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.openlocfilehash: 0fb884c46525c0d5d14deb1521f086451a969656
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64691703"
 ---
 # <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Índice de Apache Hadoop en artículos acerca de la solución de problemas de HDInsight
@@ -24,7 +24,7 @@ Los artículos se organizan por tipos de error.
 
 ## <a name="apache-hive-query-performance"></a>Rendimiento de las consultas de Apache Hive
 * [Optimización de consultas de Apache Hive para Apache Hadoop en HDInsight](hdinsight-hadoop-optimize-hive-query.md): En este artículo se tratan algunos de los métodos de optimización de rendimiento de Hive más comunes que se pueden aplicar a las consultas de Hive.
-* [Solucionar problemas de Apache Hive con HDInsight de Azure](hdinsight-troubleshoot-hive.md).
+* [Solución de problemas de Apache Hive mediante Azure HDInsight](hdinsight-troubleshoot-hive.md).
 
 ## <a name="more-troubleshooting-articles"></a>Más artículos de solución de problemas
 * [Información sobre el uso de HDInsight en Linux](hdinsight-hadoop-linux-information.md)

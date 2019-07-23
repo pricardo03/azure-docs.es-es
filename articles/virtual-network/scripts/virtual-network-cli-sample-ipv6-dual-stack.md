@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de script CLI de Azure: puntos de conexión de red virtual de configuración de IPv6 (versión preliminar)'
+title: 'Ejemplo de script de la CLI de Azure: configurar puntos de conexión de red virtual IPv6 (versión preliminar)'
 titlesuffix: Azure Virtual Network
 description: Habilitar puntos de conexión IPv6 mediante la CLI de Azure en Azure Virtual Network
 services: virtual-network
@@ -13,27 +13,27 @@ ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
 ms.openlocfilehash: a1c8f151a4c6459064d92ff2efb44fa8b74f8fc1
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "63761452"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurar puntos de conexión IPv6 en el ejemplo de script de la red virtual (versión preliminar)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurar puntos de conexión IPv6 en el de script de red virtual de ejemplo (versión preliminar)
 
-Este artículo muestra cómo implementar una aplicación de doble pila (IPv4 + IPv6) en Azure que incluya una red virtual de la pila dual con una subred de pila doble, con configuraciones de front-end dual (IPv4 + IPv6), las máquinas virtuales con NIC que tienen una configuración de IP dual, un equilibrador de carga reglas del grupo de seguridad de red dual y dos direcciones IP públicas.
+En este artículo, se explica cómo se implementa en Azure una aplicación de pila doble (IPv4 + IPv6) que contiene una red virtual de pila doble y una subred de pila doble, un equilibrador de carga con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual e IP públicas duales.
 
 Puede ejecutar el script desde Azure [Cloud Shell](https://shell.azure.com/bash) o desde una instalación de CLI de Azure local. Si usa la CLI localmente, este script requiere que ejecute la versión 2.0.28 o posterior. Ejecute `az --version` para ver cuál es la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta la CLI localmente, también debe ejecutar `az login` para crear una conexión con Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para usar IPv6 para la característica de red virtual de Azure, debe configurar su suscripción solo una vez como sigue:
+Para usar IPv6 para la característica Azure Virtual Network, debe configurar la suscripción solo una vez como se indica a continuación:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 ```
-Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar su estado de registro ejecutando el siguiente comando de CLI de Azure:
+Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar el estado del registro ejecutando el siguiente comando de la CLI de Azure:
 
 ```azurelci
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network

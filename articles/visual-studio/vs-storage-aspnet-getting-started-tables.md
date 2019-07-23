@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122989"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Table Storage y a Servicios conectados de Visual Studio (ASP.NET)
@@ -169,7 +169,7 @@ Los siguientes pasos muestran cómo crear una tabla:
     <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **crear tabla** para ver resultados similares a la siguiente captura de pantalla:
+1. Ejecute la aplicación y seleccione **Crear tabla** para ver resultados similares a la siguiente captura de pantalla:
   
     ![Crear tabla](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
@@ -391,7 +391,7 @@ Además de poder [agregar una entidad a una tabla de una en una](#add-an-entity-
     <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **agregar entidades** para ver resultados similares a la siguiente captura de pantalla:
+1. Ejecute la aplicación y seleccione **Agregar entidades** para ver resultados similares a la siguiente captura de pantalla:
   
     ![agregar entidades](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
@@ -493,7 +493,7 @@ En esta sección se muestra cómo obtener una sola entidad de una tabla mediante
     <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **GetSingle** para ver resultados similares a la siguiente captura de pantalla:
+1. Ejecute la aplicación y seleccione **Agregar entidades** para ver resultados similares a la siguiente captura de pantalla:
   
     ![GetSingle](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
@@ -537,7 +537,7 @@ Como se mencionó en la sección [Adición de una entidad a una tabla](#add-an-e
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Cree una instancia de un objeto **TableQuery** especificando la consulta en la cláusula **Where**. Mediante el **CustomerEntity** clase y los datos presentados en la sección [agregar un lote de entidades a una tabla](#add-a-batch-of-entities-to-a-table), el fragmento de código siguiente consulta la tabla para todas las entidades donde la **PartitionKey**  (apellido del cliente) tiene un valor de "Smith":
+1. Cree una instancia de un objeto **TableQuery** especificando la consulta en la cláusula **Where**. Mediante la clase **CustomerEntity** y los datos presentados en la sección [Incorporación de un lote de entidades a una tabla](#add-a-batch-of-entities-to-a-table), el fragmento de código siguiente consulta la tabla para todas las entidades donde **PartitionKey** (apellidos del cliente) tiene un valor de "Smith":
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -603,7 +603,7 @@ Como se mencionó en la sección [Adición de una entidad a una tabla](#add-an-e
     <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **Getpartition** para ver resultados similares a la siguiente captura de pantalla:
+1. Ejecute la aplicación y seleccione **Get partition** (Obtener partición) para ver resultados similares a la siguiente captura de pantalla:
   
     ![GetPartition](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
@@ -703,7 +703,7 @@ Esta sección muestra cómo eliminar una entidad de una tabla.
     <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **eliminar entidad** para ver resultados similares a la siguiente captura de pantalla:
+1. Ejecute la aplicación y seleccione **Eliminar entidad** para ver resultados similares a la siguiente captura de pantalla:
   
     ![GetSingle](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 

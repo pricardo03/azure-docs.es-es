@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
 ms.openlocfilehash: b42eb51b510423ffc0d15ee3a646bca3d4392f7f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686853"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
@@ -42,7 +42,7 @@ Los siguientes detalles del clúster son útiles para ayudar a recopilar informa
 * Estado del clúster, incluidos los detalles del último cambio de estado
 * Tipo y número de instancias de HDInsight especificados para los nodos maestro, principal y de tarea
 
-Puede obtener la mayor parte de esta información de nivel superior mediante Azure Portal.  Como alternativa, puede usar [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para obtener información acerca de los clústeres de HDInsight:
+Puede obtener la mayor parte de esta información de nivel superior mediante Azure Portal.  Como alternativa, puede utilizar la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para obtener información acerca de los clústeres de HDInsight:
 
 ```azurecli
     az hdinsight list --resource-group <ResourceGroup>
@@ -75,7 +75,7 @@ Un clúster típico de HDInsight utiliza varios servicios y paquetes de software
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ver las opciones de configuración del clúster con la UI de Ambari
 
-Apache Ambari simplifica la administración, la configuración y la supervisión de un clúster de HDInsight al proporcionar una API de REST y una interfaz de usuario web. Ambari se incluye en los clústeres de HDInsight basados en Linux. Seleccione el **panel del clúster** panel en la página de HDInsight de Azure portal para abrir el **paneles de clúster** página del vínculo.  A continuación, seleccione el **panel de clúster de HDInsight** para abrir la UI de Ambari.  Se le solicitarán las credenciales de inicio de sesión del clúster.
+Apache Ambari simplifica la administración, la configuración y la supervisión de un clúster de HDInsight al proporcionar una API de REST y una interfaz de usuario web. Ambari se incluye en los clústeres de HDInsight basados en Linux. Seleccione **Panel de clúster** en la página de HDInsight de Azure Portal para abrir la página del vínculo **Paneles de clúster**.  A continuación, seleccione el **panel de clúster de HDInsight** para abrir la UI de Ambari.  Se le solicitarán las credenciales de inicio de sesión del clúster.
 
 Para abrir una lista de vistas de servicio, seleccione el panel de **vistas de Ambari** en la página de Azure Portal para HDInsight.  Esta lista varía en función de qué bibliotecas haya instalado.  Por ejemplo, puede ver YARN Queue Manager, Hive View y Tez View.  Seleccione cualquier vínculo de servicio para ver información sobre la configuración y el servicio.  La página de **pila y la versión** de la UI de Ambari proporciona información sobre la configuración de los servicios de clúster y el historial de versiones del servicio. Para navegar a esta sección de la UI de Ambari, seleccione el menú **Administración** y, a continuación, **Stacks and Versions** (Pilas y versiones).  Seleccione la pestaña **Versiones** para ver la información de la versión del servicio.
 
@@ -97,7 +97,7 @@ El paso siguiente es revisar los archivos de registro de ejecución de trabajo d
 
 ### <a name="access-the-hadoop-log-files"></a>Acceso a los archivos de registro de Hadoop
 
-HDInsight almacena los archivos de registro en el sistema de archivos del clúster y en Azure Storage. Puede examinar los archivos de registro del clúster abriendo una [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) conexión para el clúster y examinar el sistema de archivos, o mediante el portal de estado de YARN de Hadoop en el servidor remoto del nodo principal. Puede examinar los archivos de registro en Azure Storage mediante cualquiera de las herramientas que pueden acceder a los datos de Azure Storage y descargarlos. Algunos ejemplos son [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)y el Explorador de servidores de Visual Studio. También puede usar las bibliotecas de cliente de Azure Storage y PowerShell, o bien los SDK de Azure .NET, para tener acceso a los datos de Azure Blob Storage.
+HDInsight almacena los archivos de registro en el sistema de archivos del clúster y en Azure Storage. Para examinar los archivos de registro del clúster, puede abrir una conexión [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) para el clúster y examinar el sistema de archivos, o bien usar el portal de estado de Hadoop YARN en el servidor remoto del nodo principal. Puede examinar los archivos de registro en Azure Storage mediante cualquiera de las herramientas que pueden acceder a los datos de Azure Storage y descargarlos. Algunos ejemplos son [AZCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) y el Explorador de servidores de Visual Studio. También puede usar las bibliotecas de cliente de Azure Storage y PowerShell, o bien los SDK de Azure .NET, para tener acceso a los datos de Azure Blob Storage.
 
 Hadoop ejecuta la labor de los trabajos como *intentos de tareas* en varios nodos del clúster. HDInsight puede iniciar intentos de tareas especulativas, lo que finaliza cualquier otro intento de tarea que no se complete primero. Esto genera una actividad significativa que se registra en el controlador, en stderr y en los archivos de registro de Syslog sobre la marcha. Además, varios intentos de tareas se ejecutan simultáneamente, pero un archivo de registro solo puede mostrar los resultados de forma lineal.
 
@@ -166,7 +166,7 @@ Para controlar el tamaño y el número de archivos de registro que se conservan,
 
 ### <a name="other-log-management-techniques"></a>Otras técnicas de administración de registros
 
-Para evitar quedarse sin espacio en disco, puede usar algunas herramientas del sistema operativo, como [logrotate](https://linux.die.net/man/8/logrotate) para administrar el control de archivos de registro. Puede configurar `logrotate` para que se ejecute a diario, y comprima los archivos de registro y quite los antiguos. El enfoque depende de los requisitos, como cuánto tiempo mantener los archivos de registro en los nodos locales.  
+Para evitar quedarse sin espacio en disco, puede usar algunas herramientas del sistema operativo, como [logrotate](https://linux.die.net/man/8/logrotate), para administrar el control de los archivos de registro. Puede configurar `logrotate` para que se ejecute a diario, y comprima los archivos de registro y quite los antiguos. El enfoque depende de los requisitos, como cuánto tiempo mantener los archivos de registro en los nodos locales.  
 
 También puede comprobar si el registro de depuración está habilitado para uno o varios servicios, lo que aumenta en gran medida el tamaño del registro de salida.  
 
@@ -175,5 +175,5 @@ Para recopilar los registros de todos los nodos en una ubicación central, puede
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Práctica de supervisión y registro para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Registros de aplicación de Apache Hadoop YARN de acceso en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Acceso a registros de aplicación de YARN de Apache Hadoop en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [How to control size of log files for various Apache Hadoop components](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html) (Cómo controlar el tamaño de los archivos de registro para diversos componentes de Apache Hadoop)

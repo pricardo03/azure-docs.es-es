@@ -3,9 +3,8 @@ title: Conectarse a Office 365 Outlook - Azure Logic Apps | Microsoft Docs
 description: Administrar el correo electrónico, los contactos y los calendarios con las API REST de Office 365 y Azure Logic Apps
 author: ecfan
 manager: jeconnoc
-ms.author: v-yiso
-origin.date: 10/18/2016
-ms.date: 09/03/2018
+ms.author: estfan
+ms.date: 10/18/2016
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
@@ -13,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105061"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Introducción al conector de Office 365 Outlook
@@ -69,7 +68,7 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
 ## <a name="use-an-action"></a>Uso de una acción
 Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Seleccione el signo más. Aparecen varias opciones: **Agregar una acción**, **agregar una condición**, o uno de los **más** opciones.
+1. Seleccione el signo más. Aparecen varias opciones: **Agregar una acción**, **Agregar una condición** o una de las opciones de **Más**.
    
     ![](./media/connectors-create-api-office365-outlook/add-action.png)
 2. Elija **Add an action**(Agregar una acción).

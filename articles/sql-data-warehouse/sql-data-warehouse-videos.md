@@ -11,17 +11,17 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.openlocfilehash: 15893b023e629a9739c7af3a414f35a7761b55d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61474935"
 ---
 # <a name="azure-sql-data-warehouse---videos"></a>Azure SQL Data Warehouse: vídeos
 
-Vea los vídeos más recientes de Azure SQL Data Warehouse para obtener información sobre las nuevas capacidades y mejoras de rendimiento. 
+Vea los vídeos más recientes de Azure SQL Data Warehouse para obtener información sobre las nuevas funcionalidades y mejoras de rendimiento. 
 
-Para empezar, seleccione el vídeo de información general siguiente para obtener información acerca de las nuevas actualizaciones para Azure SQL Data Warehouse. Además, obtenga información sobre cómo se pueden usar patrones de almacenamiento de datos moderno para abordar escenarios del mundo real, como cybercrime.
+Para empezar, seleccione el vídeo de información general a continuación para obtener información acerca de las nuevas actualizaciones para Azure SQL Data Warehouse. Además, obtenga información sobre cómo se pueden usar los patrones de Data Warehouse modernos para abordar escenarios reales, como los ciberdelitos.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">
@@ -31,7 +31,7 @@ Para empezar, seleccione el vídeo de información general siguiente para obtene
 </a>
 
 Otros vídeos que describen las funcionalidades concretas pueden verse en: 
-- [YouTube: Análisis avanzado con Azure](https://www.youtube.com/playlist?list=PLLasX02E8BPClOvjNV9bXk3LUuf3nQiS2)
-- [Azure Videos](https://azure.microsoft.com/resources/videos/index/?services=sql-data-warehouse)
+- [YouTube: Advanced Analytics with Azure](https://www.youtube.com/playlist?list=PLLasX02E8BPClOvjNV9bXk3LUuf3nQiS2) (Análisis avanzado con Azure)
+- [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?services=sql-data-warehouse)
 
 

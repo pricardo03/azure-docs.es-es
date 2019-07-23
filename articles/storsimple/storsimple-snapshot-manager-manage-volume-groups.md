@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303149"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699707"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Uso de Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes
 ## <a name="overview"></a>Información general
@@ -33,7 +33,7 @@ Los grupos de volúmenes son grupos de volúmenes relacionados que se usan para 
 
 ![Nodo Grupos de volúmenes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Figura 1: Nodo grupos de volúmenes de StorSimple Snapshot Manager** 
+**Figura 1: Nodo de grupos de volúmenes de Snapshot Manager de StorSimple** 
 
 Este tutorial explica cómo puede usar Administrador de instantáneas StorSimple para:
 
@@ -50,7 +50,7 @@ Si hace clic en el nodo **Grupos de volúmenes**, el panel **Resultados** muestr
 
 | Columna Resultados | DESCRIPCIÓN |
 |:--- |:--- |
-| Name |La columna **Nombre** contiene el nombre del grupo de volúmenes. |
+| NOMBRE |La columna **Nombre** contiene el nombre del grupo de volúmenes. |
 | Application |La columna **Aplicaciones** muestra el número de los escritores VSS actualmente instalados y en ejecución en el host de Windows. |
 | Seleccionado |La columna **Seleccionados** muestra el número de volúmenes que se encuentran en el grupo de volúmenes. Un cero (0) indica que ninguna aplicación está asociada con los volúmenes en el grupo de volúmenes. |
 | Importado |La columna **Importados** muestra el número de volúmenes importados. Cuando se establece en **True**, esta columna indica que un grupo de volúmenes se importó desde Azure Portal y que no se creó en StorSimple Snapshot Manager. |

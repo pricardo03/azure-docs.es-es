@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61349965"
 ---
-# <a name="azure-data-factory-window-transformation"></a>Transformación de ventana de factoría de datos de Azure
+# <a name="azure-data-factory-window-transformation"></a>Transformación Ventana de Azure Data Factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -39,7 +39,7 @@ El control deslizante de la ventana puede establecer dos valores: valores antes 
 
 ![Opciones de Ventana](media/data-flow/windows6.png "windows 6")
 
-## <a name="window-columns"></a>Columnas de la ventana
+## <a name="window-columns"></a>Columnas de Ventana
 Por último, use el Generador de expresiones para definir las agregaciones que desea utilizar con las ventanas de datos, por ejemplo, RANK, COUNT, MIN, MAX, DENSE RANK, LEAD, LAG, etc.
 
 ![Opciones de Ventana](media/data-flow/windows7.png "windows 7")
@@ -48,4 +48,4 @@ Para ver la lista completa de las funciones de agregación y análisis disponibl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea obtener una agregación group-by simple, use la [transformación agregado](data-flow-aggregate.md)
+Si busca una agregación de agrupación simple, use la [Transformación Agregar](data-flow-aggregate.md).

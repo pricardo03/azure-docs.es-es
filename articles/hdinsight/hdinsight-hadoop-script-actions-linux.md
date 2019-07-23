@@ -1,6 +1,6 @@
 ---
-title: Desarrollo acciones de script para personalizar clústeres de HDInsight de Azure
-description: Obtenga información sobre cómo usar scripts de Bash para personalizar clústeres de HDInsight. Las acciones de script permiten ejecutar scripts durante o después de la creación del clúster para cambiar la configuración de clúster o instalar software adicional.
+title: Desarrollo de acciones de script para personalizar clústeres de Azure HDInsight
+description: Obtenga información sobre cómo usar scripts de Bash para personalizar clústeres de HDInsight. Las acciones de script le permiten ejecutar scripts durante o después de la creación del clúster para cambiar la configuración del clúster o instalar software adicional.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687445"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desarrollo de la acción de script con HDInsight
@@ -73,7 +73,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="bps10"></a> La versión del sistema operativo de destino
+### <a name="bps10"></a> Seleccionar la versión del sistema operativo
 
 HDInsight basado en Linux utiliza como cimientos la distribución de Ubuntu Linux. Las distintas versiones de HDInsight se basan en diferentes versiones de Ubuntu, que podrían cambiar el funcionamiento del script. Por ejemplo, HDInsight 3.4 y versiones anteriores se basan en versiones de Ubuntu que emplean Upstart. La versión 3.5 y superiores se basan en Ubuntu 16.04, que utiliza Systemd. Systemd y Upstart se basan en comandos diferentes, por lo que debe escribirse el script para usar los dos.
 
@@ -146,7 +146,7 @@ Los clústeres de HDInsight basados en Linux proporcionan dos nodos principales 
 
 Los componentes que instaló en el clúster podrían tener una configuración predeterminada que usa el almacenamiento Sistema de archivos distribuido de Apache Hadoop (HDFS). HDInsight usa Azure Storage o Data Lake Storage como almacén predeterminado. Ambas soluciones proporcionan un sistema de archivos compatible con HDFS que conserva los datos incluso si se elimina el clúster. Podría tener que configurar los componentes instalados para que usen WASB o ADL en lugar de HDFS.
 
-En la mayoría de las operaciones, no es necesario especificar el sistema de archivos. Por ejemplo, la siguiente copia el archivo hadoop common.jar desde el sistema de archivos local al almacenamiento de clúster:
+En la mayoría de las operaciones, no es necesario especificar el sistema de archivos. Por ejemplo, lo siguiente copia el archivo hadoop-common.jar del sistema de archivos local a un almacenamiento de clúster:
 
 ```bash
 hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
@@ -161,13 +161,13 @@ HDInsight registra el resultado del script que se escribe en STDOUT y STDERR. Pu
 > [!NOTE]  
 > Apache Ambari solo estará disponible si el clúster se ha creado correctamente. Si usa una acción de script durante la creación del clúster y se produce un error, consulte la sección de solución de problemas [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) para conocer otras formas de acceder a la información registrada.
 
-La mayoría de las utilidades y paquetes de instalación escriben información en STDOUT y STDERR, pero puede que desee agregar un registro adicional. Para enviar texto a STDOUT, use `echo`. Por ejemplo: 
+La mayoría de las utilidades y paquetes de instalación escriben información en STDOUT y STDERR, pero puede que desee agregar un registro adicional. Para enviar texto a STDOUT, use `echo`. Por ejemplo:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-De forma predeterminada, `echo` enviará la cadena a STDOUT. Para dirigirla a STDERR, agregue `>&2` antes de `echo`. Por ejemplo: 
+De forma predeterminada, `echo` enviará la cadena a STDOUT. Para dirigirla a STDERR, agregue `>&2` antes de `echo`. Por ejemplo:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -313,7 +313,7 @@ Estos son los pasos que se llevan a cabo al prepararse para implementar un scrip
 
 Puede usar acciones de script para personalizar los clústeres de HDInsight con los métodos siguientes:
 
-* Azure Portal
+* Portal de Azure
 * Azure PowerShell
 * Plantillas del Administrador de recursos de Azure
 * El SDK de .NET para HDInsight.

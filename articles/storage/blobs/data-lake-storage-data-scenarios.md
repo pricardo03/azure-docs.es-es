@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
 ms.openlocfilehash: c5b6287757f6b71cfd60687f463673f142db04d9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939290"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Uso de Azure Data Lake Storage Gen2 para requisitos de macrodatos
@@ -142,7 +142,7 @@ Esta es una lista de herramientas que puede usar para ingerir datos asociados co
 |---|--|
 |Apache DistCp | [Uso de DistCp para copiar datos entre Azure Storage Blob y Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |Herramienta AzCopy | [Transferencia de datos con AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure Data Factory | [Copiar datos desde o hacia Azure Data Lake Storage Gen2 mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
+|Azure Data Factory | [Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Datos almacenados en clústeres locales o de IaaS de Hadoop
 

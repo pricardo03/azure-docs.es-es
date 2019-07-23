@@ -1,6 +1,6 @@
 ---
-title: Agregar una capa de símbolos para Android se asigna en Azure Maps | Microsoft Docs
-description: Cómo agregar símbolos a un mapa mediante el SDK de Android de Azure Maps
+title: Adición de una capa de símbolo a mapas de Android en Azure Maps | Microsoft Docs
+description: Cómo agregar símbolos a un mapa mediante el Android SDK de Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: add6e23d023753e217c102dc946837a71a64c781
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64871083"
 ---
-# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Agregar una capa de símbolo a un mapa mediante el SDK de Android de Azure Maps
+# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adición de una capa de símbolo a un mapa mediante Android SDK de Azure Maps
 
-Este artículo muestra cómo representar el punto de datos desde un origen de datos como una capa de símbolos en un mapa mediante el SDK de Android de Azure Maps.
+En este artículo se explica cómo representar datos de punto de un origen de datos como una capa de símbolos en un mapa mediante el Android SDK de Azure Maps.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para seguir completamente los pasos descritos en este artículo, necesitará instalar [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para cargar un mapa.
+Para seguir todos los pasos en este artículo, debe instalar [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para cargar un mapa.
 
 ## <a name="add-a-symbol-layer"></a>Adición de una capa de símbolo
 
 Para agregar un marcador en un mapa mediante la capa de símbolos, siga estos pasos:
 
-1. Editar **res** > **diseño** > **activity_main.xml** para que aparezca el siguiente código XML:
+1. Edite **res** > **layout** > **activity_main.xml** para que su aspecto sea similar al del siguiente XML:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +50,7 @@ Para agregar un marcador en un mapa mediante la capa de símbolos, siga estos pa
     </FrameLayout>
     ```
 
-2. Copie el siguiente fragmento de código en el **onCreate()** método de su `MainActivity.java` clase.
+2. Copie el siguiente fragmento de código en el método **onCreate()** de la clase `MainActivity.java`.
 
     ```Java
     mapControl.onReady(map -> {
@@ -72,9 +72,9 @@ Para agregar un marcador en un mapa mediante la capa de símbolos, siga estos pa
     
     ```
     
-    En primer lugar, el fragmento de código anterior obtiene un Azure Maps map control de instancias utilizando el **onReady()** método de devolución de llamada. A continuación, crea un objeto de origen de datos mediante el **DataSource** clase y lo agrega al mapa. A continuación, agrega un **característica** que contiene un objeto geometry de punto a él. A continuación, se establece una imagen de marcador rojo como icono para el símbolo. Un **capa símbolo** usa texto o iconos para representar encapsulados en el origen de datos como símbolos en el mapa de datos basada en punto. A continuación, se crea una capa de símbolo y el origen de datos se pasa a la que se va a representar y, a continuación, se agrega a las capas del mapa.
+    En primer lugar, el fragmento de código anterior obtiene una instancia de control de mapas de Azure Maps mediante el método de devolución de llamada **onReady()** . A continuación, se crea un objeto de origen de datos mediante la clase **DataSource** y se agrega al mapa. Después, le agrega un elemento **Feature** que contiene una geometría de Point. A continuación, se coloca una imagen de marcador rojo como icono para el símbolo. Una **capa de símbolos** usa texto o iconos para representar los datos basados en puntos encapsulados en el origen de datos como símbolos en el mapa. A continuación, se crea una capa de símbolos y recibe el origen de datos para representarlo. Después, dicha capa se agrega a las capas del mapa.
     
-    Después de agregar el fragmento de código anterior, su `MainActivity.java` debería ser similar a lo siguiente:
+    Después de agregar el fragmento de código anterior, su `MainActivity.java` debería tener un aspecto similar al siguiente:
     
     ```Java
     package com.example.myapplication;
@@ -166,16 +166,16 @@ Para agregar un marcador en un mapa mediante la capa de símbolos, siga estos pa
     }
     ```
     
-En este momento, si ejecuta la aplicación debería ver un marcador en el mapa, como se muestra aquí:
+En este momento, si ejecuta la aplicación debería ver un marcador en el mapa como se muestra a continuación:
 
 <center>
 
-![Anclado de mapa de Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
+![Marcador en el mapa Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para agregar más material a la asignación, consulte:
+Para agregar más material al mapa, consulte:
 
 > [!div class="nextstepaction"]
-> [Agregar formas a un mapa de Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Adición de formas a un mapa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)

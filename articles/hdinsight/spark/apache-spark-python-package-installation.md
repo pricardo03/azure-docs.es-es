@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574648"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Uso de acción de script para instalar paquetes externos de Python para cuadernos de Jupyter en clústeres de Apache Spark en HDInsight
@@ -19,7 +19,7 @@ ms.locfileid: "64574648"
 > * [Uso de magic cell](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Uso de acciones de script](apache-spark-python-package-installation.md)
 
-Obtenga información sobre cómo usar acciones de Script para configurar un [Apache Spark](https://spark.apache.org/) clúster en HDInsight para usar externo, proporcionado por la Comunidad **python** paquetes que no están incluyen de fábrica en el clúster.
+Aprenda a usar acciones de script para configurar un clúster de [Apache Spark](https://spark.apache.org/) en HDInsight para el uso de paquetes de **Python** externos aportados por la comunidad que no están incluidos de serie en el clúster.
 
 > [!NOTE]  
 > También puede configurar un cuaderno de Jupyter mediante `%%configure` para usar paquetes externos. Para obtener instrucciones, consulte [Uso de paquetes externos con cuadernos de Jupyter en clústeres de Apache Spark en HDInsight Linux](apache-spark-jupyter-notebook-use-external-packages.md).
@@ -54,13 +54,13 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Uso de paquetes externos con cuadernos de Jupyter Notebook
 
-1. Desde el [portal Azure](https://portal.azure.com/), vaya a su clúster.  
+1. Desde [Azure Portal](https://portal.azure.com/), vaya al clúster.  
 
-2. Con el clúster seleccionado, en el panel izquierdo, en **configuración**, seleccione **acciones de Script**.
+2. Con el clúster seleccionado, en el panel izquierdo, en **Configuración**, seleccione **Acciones de script**.
 
 3. Seleccione **+ Enviar nuevo**.
 
-4. Escriba los siguientes valores para el **enviar acción de script** ventana:  
+4. Escriba los valores siguientes en la ventana **Enviar acción de script**:  
 
 
     |Parámetro | Valor |
@@ -68,9 +68,9 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
     |Tipo de script | Seleccione **- Personalizado** en la lista desplegable.|
     |NOMBRE |Escriba `tensorflow` en el cuadro de texto.|
     |URI de script de Bash |Escriba `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh` en el cuadro de texto. |
-    |Tipos de nodos | Seleccione el **Head**, y **trabajo** casillas de verificación. |
+    |Tipos de nodo | Seleccione las casillas **Encabezado** y **Trabajo**. |
 
-    `tensorflowinstall.sh` contiene los siguientes comandos:
+    `tensorflowinstall.sh` contiene los comandos siguientes:
 
     ```bash
     #!/usr/bin/env bash
@@ -79,9 +79,9 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 
 5. Seleccione **Crear**.  Consulte la documentación sobre [cómo usar acciones de script personalizadas](../hdinsight-hadoop-customize-cluster-linux.md).
 
-6. Espere a que la secuencia de comandos completar.  El **acciones de Script** panel indicará **nuevas acciones de script pueden enviarse una vez finalizada la operación de clúster** mientras se está ejecutando la secuencia de comandos.  Una barra de progreso puede verse en la UI de Ambari **operaciones en segundo plano** ventana.
+6. Espere a que se complete el script.  El panel **Acciones de script** indicará **Cuando finalice la operación de clúster, podrán enviarse acciones de script nuevas** mientras se ejecuta el script.  Se puede ver una barra de progreso en la ventana **Operaciones en segundo plano** de la interfaz de usuario de Ambari.
 
-7. Abrir un cuaderno de Jupyter de PySpark.  Consulte [crear un cuaderno de Jupyter notebook en Spark HDInsight](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight) para conocer los pasos.
+7. Abra un cuaderno de Jupyter de PySpark.  Consulte [Creación de un cuaderno de Jupyter Notebook en clústeres Spark de HDInsight](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight).
 
     ![Crear un nuevo cuaderno de Jupyter](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "Crear un nuevo cuaderno de Jupyter")
 

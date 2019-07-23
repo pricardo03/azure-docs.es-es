@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485584"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de una base de datos de Azure SQL multiinquilino y con particiones en una aplicación SaaS multiinquilino
@@ -52,7 +52,7 @@ La administración del rendimiento de la base de datos consiste en compilar y an
 
 [Azure Portal](https://portal.azure.com) proporciona supervisión y alertas integradas en la mayoría de recursos. Para SQL Database, la supervisión y las alertas están disponibles para las bases de datos. La supervisión y las alertas integradas son específicas de los recursos, por lo que es conveniente usarlas con un número reducido de recursos, pero no cuando se trabaja con muchos recursos.
 
-Para escenarios de gran volumen, donde se trabaja con muchos recursos, [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) se puede usar. Se trata de un servicio de Azure independiente que proporciona análisis de los registros de diagnóstico emitidos y telemetría recopilados en un área de trabajo de Log Analytics. Registros de Azure Monitor pueden recopilar la telemetría de muchos servicios y se usa para consultar y establecer alertas.
+Para escenarios de gran volumen, donde se trabaja con muchos recursos, se puede usar los [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/). Se trata de un servicio de Azure independiente que proporciona análisis de los registros de diagnóstico emitidos y de telemetría recopilados en un área de trabajo de Log Analytics. Los registros de Azure Monitor pueden recopilar la telemetría de muchos servicios y sirve para consultar y establecer alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtención del código fuente y los scripts de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets
 
@@ -78,10 +78,10 @@ Se proporciona el script *Demo-PerformanceMonitoringAndManagement.ps1* que simul
 
 | Demostración | Escenario |
 |:--|:--|
-| 2 | Generar una carga de intensidad normal (aproximadamente 30 DTU) |
+| 2 | Generación de una carga de intensidad normal (aproximadamente 30 DTU) |
 | 3 | Generación de una carga con más ráfagas por inquilino|
-| 4 | Generar una carga con mayores ráfagas DTU por inquilino (aproximadamente 70 DTU)|
-| 5 | Generar una alta intensidad (aproximadamente 90 DTU) en un solo inquilino y una carga de intensidad normal en todos los demás |
+| 4 | Generación de una carga con mayores ráfagas de DTU por inquilino (aproximadamente 70 DTU)|
+| 5 | Generación de una carga de alta intensidad (aproximadamente 90 DTU) en un solo inquilino y de una carga de intensidad normal en todos los demás |
 
 El generador de carga se aplica una carga *sintética* exclusiva de CPU para cada base de datos de inquilinos. El generador de inicia un trabajo para cada base de datos de inquilinos, que llama a un procedimiento almacenado periódicamente que genera la carga. Los niveles de carga (en DTU), la duración y los intervalos varían en todas las bases de datos, lo cual simula una actividad de inquilinos imprevisible.
 
@@ -98,7 +98,7 @@ La aplicación SaaS de base de datos multiinquilino Wingtip Tickets es una aplic
 
 Para supervisar el uso de los recursos derivado de la carga que se aplica, abra el portal por la base de datos multiinquilino, **tenants1**, que contiene los inquilinos:
 
-1. Abra [Azure Portal](https://portal.azure.com) y vaya al servidor *tenants1-mt-&lt;USER&gt;*.
+1. Abra [Azure Portal](https://portal.azure.com) y vaya al servidor *tenants1-mt-&lt;USER&gt;* .
 1. Desplácese hacia abajo y busque las bases de datos y haga clic en **tenants1**. Esta base de datos multiinquilino con particiones contiene todos los inquilinos creados hasta ahora.
 
 ![gráfico de base de datos](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
@@ -109,7 +109,7 @@ Observe el gráfico de **DTU**.
 
 Establezca una alerta en la base de datos que se desencadene cuando el uso sea de \>75 % como sigue:
 
-1. Abra la base de datos *tenants1* (en el servidor *tenants1-mt-&lt;USER&gt;*) de [Azure Portal](https://portal.azure.com).
+1. Abra la base de datos *tenants1* (en el servidor *tenants1-mt-&lt;USER&gt;* ) de [Azure Portal](https://portal.azure.com).
 1. Haga clic en **Reglas de alerta** y en **+ Agregar alerta**:
 
    ![agregar alerta](media/saas-multitenantdb-performance-monitoring/add-alert.png)
@@ -155,7 +155,7 @@ El modelo multiinquilino con particiones le permite elegir entre aprovisionar un
 Si ya ha aprovisionado un nuevo inquilino en su propia base de datos, omita los pasos siguientes.
 
 1. En **PowerShell ISE**, abra...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*. 
-1. Modifique **$TenantName = "Salix Salsa"** y **$VenueType  = "dance"**.
+1. Modifique **$TenantName = "Salix Salsa"** y **$VenueType  = "dance"** .
 1. Establezca **$Scenario** = **2**, _Aprovisionamiento de un inquilino en una nueva base de datos de un solo inquilino_
 1. Presione **F5** para ejecutar el script.
 
@@ -168,7 +168,7 @@ Si un único inquilino de una base de datos multiinquilino experimenta una gran 
 En este ejercicio se simula el efecto de una carga elevada en Salix Salsa cuando se venden entradas para un evento popular.
 
 1. Abra el script …\\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Establecer **$DemoScenario = 5**, _generar una carga normal y una carga elevada en un solo inquilino (aproximadamente 90 DTU)._
+1. Establezca **$DemoScenario = 5 _,_ genere una carga normal y una carga elevada en un solo inquilino (aproximadamente 90 DTU).**
 1. Establezca **$SingleTenantName = Salix Salsa**
 1. Ejecute el script con **F5**.
 

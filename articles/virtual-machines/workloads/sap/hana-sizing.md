@@ -15,11 +15,11 @@ ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7d403c284eefc1351aabb632977832f2bf11757a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60477129"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715831"
 ---
 # <a name="sizing"></a>Ajuste de tamaño
 
@@ -27,7 +27,7 @@ El ajuste de tamaño para HANA (instancias grandes) es igual que para HANA en ge
 
 - [SAP Note #1793345 - Sizing for SAP Suite on HANA](https://launchpad.support.sap.com/#/notes/1793345) (Nota de SAP 1793345: Ajuste de tamaño para SAP Suite en HANA)
 - [SAP Note #1872170 - Suite on HANA and S/4 HANA sizing report](https://launchpad.support.sap.com/#/notes/1872170) (Nota de SAP 1872170: Informe de ajuste de tamaño de Suite en HANA y S/4 HANA)
-- [Nota de SAP #2121330 - preguntas más frecuentes: SAP BW en HANA informe de ajuste de tamaño](https://launchpad.support.sap.com/#/notes/2121330)
+- [Nota de SAP 2121330 - FAQ: SAP BW on HANA Sizing Report](https://launchpad.support.sap.com/#/notes/2121330) (Preguntas más frecuentes: informe de ajuste de tamaño de SAP BW en HANA)
 - [SAP Note #1736976 - Sizing Report for BW on HANA](https://launchpad.support.sap.com/#/notes/1736976) (Nota de SAP 1736976: Informe de ajuste de tamaño para BW en HANA)
 - [SAP Note #2296290 - New Sizing Report for BW on HANA](https://launchpad.support.sap.com/#/notes/2296290) (Nota de SAP 2296290: Nuevo informe de ajuste de tamaño para BW en HANA)
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64704586"
 ---
 # <a name="use-firewall-rules"></a>Uso de las reglas de firewall
@@ -60,7 +60,7 @@ Las reglas de filtro IP se aplican en orden y la primera regla que coincida con 
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Creación de una regla de red virtual y firewall con plantillas de Azure Resource Manager
 
 > [!IMPORTANT]
-> Firewalls y redes virtuales solo se admiten en el **premium** nivel de Service Bus.
+> Solo se admiten firewalls y redes virtuales en el nivel **premium** de Service Bus.
 
 La siguiente plantilla de Resource Manager permite agregar una regla de red virtual a un espacio de nombres de Service Bus.
 
@@ -69,7 +69,7 @@ Parámetros de plantilla:
 - **ipMask** es una única dirección IPv4 o un bloque de direcciones IP en la notación CIDR. Por ejemplo, en notación CIDR 70.37.104.0/24 representa las 256 direcciones IPv4 de 70.37.104.0 a 70.37.104.255, donde 24 indica el número de bits de prefijo significativos para el intervalo.
 
 > [!NOTE]
-> Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"**, que no restringe las conexiones.
+> Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"** , que no restringe las conexiones.
 > Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor ***"defaultAction"***
 > 
 > De

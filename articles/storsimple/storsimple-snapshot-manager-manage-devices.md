@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 51632b8b68640814fc113a94925b6d6deaca4c5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64682483"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple
 ## <a name="overview"></a>Información general
@@ -33,9 +33,9 @@ Dependiendo de su selección de **Vista**, el panel **Resultados** muestra la si
 
 | Columna Resultados | DESCRIPCIÓN |
 |:--- |:--- |
-| Name |El nombre del dispositivo tal como está configurado en el Portal de Azure clásico |
+| NOMBRE |El nombre del dispositivo tal como está configurado en el Portal de Azure clásico |
 | Modelo |El número de modelo del dispositivo |
-| Version |La versión del software instalado en el dispositivo |
+| Versión |La versión del software instalado en el dispositivo |
 | Status |Si el dispositivo está disponible |
 | Última sincronización |Fecha y hora cuando el dispositivo se sincronizó por última vez |
 | Nº de serie |El número de serie del dispositivo |
@@ -182,7 +182,7 @@ Para autenticar a un dispositivo de StorSimple con Administrador de instantánea
 Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (conmutación por error), siga estos pasos para conectar con el nuevo dispositivo y ver las copias de seguridad asociadas.
 
 #### <a name="to-connect-to-a-new-device-after-failover"></a>Para conectarse a un nuevo dispositivo después de la conmutación por error
-1. Volver a configurar la conexión iSCSI al nuevo dispositivo. Para obtener instrucciones, vaya a "paso 7: Montar, inicializar y formatear un volumen"en [implementar el dispositivo de StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
+1. Volver a configurar la conexión iSCSI al nuevo dispositivo. Para obtener instrucciones, consulte "Paso 7: Montar, inicializar y formatear un volumen" en [Implementar el dispositivo de StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 
 > [!NOTE]
 > Si el nuevo dispositivo de StorSimple tiene la misma dirección IP que el antiguo, puede conectarse con la configuración anterior.
@@ -204,7 +204,7 @@ Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (
    2. En la ventana **Servicios**, seleccione **Microsoft StorSimple Management Service**.
    3. En el panel derecho, en **Microsoft StorSimple Management Service**, haga clic en **Reiniciar el servicio**.
 4. Inicie Administrador de instantáneas StorSimple.
-5. Para configurar el nuevo dispositivo de StorSimple, complete los pasos en el paso 2: Conectar un dispositivo de StorSimple en [implementar StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+5. Para configurar el nuevo dispositivo de StorSimple, complete el procedimiento del paso 2: Conecte un dispositivo de StorSimple en [Implementar StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 6. Haga clic con el botón derecho en el nodo de nivel superior en el panel **Ámbito** (StorSimple Snapshot Manager en el ejemplo) y, luego, haga clic en **Alternar vista de importaciones**. 
 7. Aparece un mensaje cuando los grupos de volúmenes importados y las copias de seguridad son visibles en Administrador de instantáneas StorSimple. Haga clic en **OK**.
 

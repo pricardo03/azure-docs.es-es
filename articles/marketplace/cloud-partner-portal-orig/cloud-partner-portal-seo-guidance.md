@@ -1,5 +1,5 @@
 ---
-title: Guía de SEO de Marketplace de Azure
+title: Guía de SEO de Azure Marketplace
 description: Se proporcionan instrucciones para maximizar la optimización de motor de búsqueda (SEO).
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: pabutler
 ms.openlocfilehash: f5b956ed1197e3898c9536bda3a93a41e8ee35c0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935149"
 ---
-# <a name="azure-marketplace-seo-guidance"></a>Guía de SEO de Marketplace de Azure
+# <a name="azure-marketplace-seo-guidance"></a>Guía de SEO de Azure Marketplace
 
-Este artículo explica cómo puede maximizar la detectabilidad de su oferta a través de la funcionalidad de búsqueda en el [Azure Marketplace](https://azuremarketplace.microsoft.com) y [AppSource](https://appsource.microsoft.com). 
+En este artículo se explica cómo maximizar la detectabilidad de su oferta a través de la funcionalidad de búsqueda en [Azure Marketplace](https://azuremarketplace.microsoft.com) y [AppSource](https://appsource.microsoft.com). 
 
 
 ## <a name="general-explanation-of-algorithm"></a>Explicación general del algoritmo
 
-Catálogos de Microsoft usan Azure Search para potenciar las capacidades de búsqueda de la carpeta del sitio. El algoritmo se basa en la frecuencia de términos o frecuencia inversa de documento ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Se utiliza el [analizador de Lucene](https://lucene.apache.org/core/) estándar.
+Microsoft Marketplace usa Azure Search para potenciar las funcionalidades de búsqueda del sitio. El algoritmo se basa en la frecuencia de términos o frecuencia inversa de documento ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Se utiliza el [analizador de Lucene](https://lucene.apache.org/core/) estándar.
 
 En general, todos los campos de texto, categorías y sectores se incluyen en la ponderación de la relevancia. Los términos especializados que usan con poca frecuencia las aplicaciones, pero que se usan con frecuencia en su aplicación, generarán una puntuación de coincidencia superior con la búsqueda. Por tanto, incluir términos como “VM” ofrecería pocas ventajas, mientras que “Azure Search” sería mucho más especializado.
 A continuación se muestran los campos más importantes que deben tenerse en cuenta.

@@ -1,6 +1,6 @@
 ---
 title: Preguntas más frecuentes (FAQ) sobre Azure Service Bus | Microsoft Docs
-description: Responde a algunas preguntas frecuentes sobre Azure Service Bus.
+description: Respuestas a algunas preguntas frecuentes acerca de Azure Service Bus.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707145"
 ---
 # <a name="service-bus-faq"></a>Preguntas más frecuentes sobre Service Bus
@@ -49,23 +49,23 @@ Puede usar los siguientes protocolos con Azure Service Bus para enviar y recibir
 - Protocolo de mensajería de Service Bus (SBMP)
 - HTTP
 
-Consulte la siguiente tabla para los puertos de salida que se debe abrir para usar estos protocolos para comunicarse con Azure Event Hubs. 
+Consulte en la siguiente tabla los puertos de salida que se deben abrir para usar estos protocolos para comunicarse con Azure Event Hubs. 
 
-| Protocol | Puertos | Detalles | 
+| Protocolo | Puertos | Detalles | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 y 5672 | Consulte [Guía del protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 a 9354 | Consulte [modo de conectividad](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| AMQP | 5671 y 5672 | Consulte la [guía del protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350 a 9354 | Consulte [Modo de conectividad](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>¿Qué direcciones IP es necesario en la lista blanca?
-Para buscar las direcciones IP correctas a la lista blanca para las conexiones, siga estos pasos:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>¿Qué direcciones IP debo incluir en la lista de permitidas?
+Para buscar las direcciones IP correctas para incluirlas en la lista de direcciones permitidas para las conexiones, siga estos pasos:
 
-1. Ejecute el siguiente comando desde un símbolo del sistema: 
+1. Ejecute el siguiente comando desde el símbolo del sistema: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote la dirección IP devuelta en `Non-authoritative answer`. Esta dirección IP es estática. El único punto en el tiempo que se vayan a cambiar es si restaurar el espacio de nombres en un clúster distinto.
+2. Anote la dirección IP devuelta en `Non-authoritative answer`. Esta dirección IP es estática. El único momento en que cambiaría es si restaurara el espacio de nombres en un clúster distinto.
 
 Si usa la redundancia de zona para el espacio de nombres, deberá realizar algunos pasos adicionales: 
 
@@ -74,14 +74,14 @@ Si usa la redundancia de zona para el espacio de nombres, deberá realizar algun
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Anote el nombre de la **respuesta no autoritativa** sección, que se encuentra en uno de los siguientes formatos: 
+2. Anote el nombre de la sección **respuesta no autoritativa**, que se encuentra en uno de los siguientes formatos: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Ejecute nslookup para cada uno con sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad 
+3. Ejecute nslookup para cada uno con los sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad. 
 
 
 ## <a name="best-practices"></a>Procedimientos recomendados

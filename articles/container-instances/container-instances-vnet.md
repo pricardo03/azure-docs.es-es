@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 25f9d4e02bcb354acf1c771157622f07c5f4bcc1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712807"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementación de instancias de contenedor en una red virtual de Azure
 
-[Red Virtual de Azure](../virtual-network/virtual-networks-overview.md) proporciona redes, privada y segura para los de Azure y los recursos locales. Al implementar grupos de contenedores en una red virtual de Azure, los contenedores pueden comunicarse de forma segura con otros recursos de la red virtual.
+[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) proporciona acceso de red seguro y privado a los recursos locales y de Azure. Al implementar grupos de contenedores en una red virtual de Azure, los contenedores pueden comunicarse de forma segura con otros recursos de la red virtual.
 
 Los grupos de contenedores implementados en una red virtual de Azure permiten escenarios como:
 
@@ -39,20 +39,20 @@ Se aplican ciertas limitaciones al implementar grupos de contenedores en una red
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-Aunque esta característica está en versión preliminar, las siguientes limitaciones se aplican al implementar grupos de contenedores en una red virtual. 
+Aunque esta característica está en versión preliminar, las siguientes limitaciones se aplican al implementar grupos de contenedor en una red virtual. 
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 Los límites de recursos del contenedor pueden diferir de los límites de las instancias de contenedor que no están en red en estas regiones. Actualmente solo se admiten contenedores de Linux para esta característica. Está prevista la compatibilidad con Windows.
 
-### <a name="unsupported-networking-scenarios"></a>Escenarios de redes no admitidos 
+### <a name="unsupported-networking-scenarios"></a>Escenarios de red avanzados no admitidos 
 
-* **Azure Load Balancer** -no se admite la colocación de un equilibrador de carga de Azure frente a las instancias de contenedor en un grupo de contenedores en red
-* **Emparejamiento de redes virtuales** -no se pueden emparejar una red virtual que contiene una subred delegada en Azure Container Instances a otra red virtual
-* **Tablas de rutas** -no se puede configurar las rutas definidas por el usuario en una subred delegada en Azure Container Instances
-* **Grupos de seguridad de red** : actualmente no se aplican las reglas de seguridad de salida en el NSG que se aplican a una subred delegada en Azure Container Instances 
-* **Etiqueta de dirección IP o DNS pública** -grupos de contenedores implementados en una red virtual no son compatibles actualmente con contenedores exponer directamente a internet con una dirección IP pública o un nombre de dominio completo
-* **Resolución de nombres interna** -no se admite la resolución de nombres para los recursos de Azure en la red virtual mediante el DNS interno de Azure
+* **Azure Load Balancer**: no se admite la colocación de Azure Load Balancer al principio de las instancias de contenedor en un grupo de contenedores en red
+* **Emparejamiento de redes virtuales**: no se puede emparejar una red virtual que contiene una subred delegada en Azure Container Instances con otra red virtual.
+* **Tablas de ruta**: las rutas definidas por el usuario no se pueden configurar en una subred delegada en Azure Container Instances.
+* **Grupos de seguridad de red**: actualmente no se aplican las reglas de seguridad salientes en grupos de seguridad de red aplicados a una subred delegada a Azure Container Instances. 
+* **Etiqueta de dirección IP o DNS pública**: los grupos de contenedores implementados en una red virtual no son compatibles actualmente con la exposición directa en Internet de contenedores con una dirección IP pública o un nombre de dominio completo.
+* **Resolución de nombres interna**: no se admite la resolución de nombres para los recursos de Azure en la red virtual mediante la instancia interna de Azure DNS.
 
 **La eliminación de recursos de red** requiere [pasos adicionales](#delete-network-resources) cuando se han implementado grupos de contenedores en la red virtual.
 
@@ -117,7 +117,7 @@ Las secciones siguientes describen cómo implementar grupos de contenedores en u
 
 En primer lugar, implemente un grupo de contenedores y especifique los parámetros para una nueva red virtual y subred. Cuando especifique estos parámetros, Azure crea la red virtual y la subred, delega la subred en Azure Container Instances y también crea un perfil de red. Una vez creados estos recursos, el grupo de contenedores se implementa en la subred.
 
-Ejecute el siguiente comando [az container create][az-container-create] que especifica valores para una nueva red virtual y subred. Deberá proporcionar el nombre de un grupo de recursos que se creara en una región que [admita](#preview-limitations) grupos de contenedores en una red virtual. Este comando implementa Microsoft pública [aci-helloworld] [ aci-helloworld] contenedor que ejecuta un pequeño servidor Web de Node.js que actúa una página web estática. En la siguiente sección, implementará un segundo grupo de contenedores en la misma subred y probará la comunicación entre las dos instancias de contenedor.
+Ejecute el siguiente comando [az container create][az-container-create] que especifica valores para una nueva red virtual y subred. Deberá proporcionar el nombre de un grupo de recursos que se creara en una región que [admita](#preview-limitations) grupos de contenedores en una red virtual. Este comando implementa el contenedor [aci-helloworld][aci-helloworld] público de Microsoft que ejecuta un pequeño servidor web de Node.js que sirve una página web estática. En la siguiente sección, implementará un segundo grupo de contenedores en la misma subred y probará la comunicación entre las dos instancias de contenedor.
 
 ```azurecli
 az container create \
@@ -265,7 +265,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 La versión preliminar inicial de esta característica requiere varios comandos adicionales para eliminar los recursos de red que creó anteriormente. Si ha usado los comandos de ejemplo en las secciones anteriores de este artículo para crear la red virtual y la subred, puede usar el siguiente script para eliminar esos recursos de red.
 
-Antes de ejecutar el script, establezca la variable `RES_GROUP` en el nombre del grupo de recursos que contenga la red virtual y la subred que se deben eliminar. Actualizar los nombres de la red virtual y subred si no ha usado el `aci-vnet` y `aci-subnet` nombres sugieren anteriormente. El script tiene el formato adecuado para el shell de Bash. Si prefiere otro shell como PowerShell o el símbolo del sistema, deberá ajustar los descriptores de acceso y la asignación de variables según corresponda.
+Antes de ejecutar el script, establezca la variable `RES_GROUP` en el nombre del grupo de recursos que contenga la red virtual y la subred que se deben eliminar. Actualice los nombres de la red virtual y subred si no ha usado los nombres `aci-vnet` y `aci-subnet` sugeridos anteriormente. El script tiene el formato adecuado para el shell de Bash. Si prefiere otro shell como PowerShell o el símbolo del sistema, deberá ajustar los descriptores de acceso y la asignación de variables según corresponda.
 
 > [!WARNING]
 > Este script elimina los recursos. Elimina la red virtual y todas las subredes que contiene. Asegúrese de que ya no necesita *ninguno* de los recursos en la red virtual, incluidas las subredes que contiene, antes de ejecutar este script. Una vez eliminado, **estos recursos son irrecuperables**.

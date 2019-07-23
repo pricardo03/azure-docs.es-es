@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
 ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442626"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569250"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introducción a los dispositivos gemelos (Python)
 
@@ -38,7 +38,7 @@ Para completar este tutorial, necesitará lo siguiente:
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
 > [!NOTE]
-> Los paquetes *pip* de `azure-iothub-service-client` y `azure-iothub-device-client` actualmente solo están disponibles para el sistema operativo Windows. Para Linux o Mac OS, consulte las secciones específicas de Mac OS y Linux en el [preparar el entorno de desarrollo para Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) registrar.
+> Los paquetes *pip* de `azure-iothub-service-client` y `azure-iothub-device-client` actualmente solo están disponibles para el sistema operativo Windows. Para Linux o Mac OS, consulte las secciones específicas de Mac OS y Linux en la publicación [Preparar el entorno de desarrollo para Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md).
 >
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
@@ -55,7 +55,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## <a name="create-the-service-app"></a>Creación de la aplicación de servicio
 
-En esta sección, creará una aplicación de consola de Python que agrega metadatos de ubicación al dispositivo gemelo asociado con su **{Device ID}**. Después, consulta los dispositivos gemelos almacenados en la instancia de IoT Hub mediante la selección de los dispositivos ubicados en Redmond (EE. UU.) y, después, los que informan de una conexión de red de telefonía móvil.
+En esta sección, creará una aplicación de consola de Python que agrega metadatos de ubicación al dispositivo gemelo asociado con **{Device ID}** . Después, consulta los dispositivos gemelos almacenados en la instancia de IoT Hub mediante la selección de los dispositivos ubicados en Redmond (EE. UU.) y, después, los que informan de una conexión de red de telefonía móvil.
 
 1. Abra un símbolo del sistema e instale el **SDK del servicio Azure IoT Hub para Python**. Cierre el símbolo del sistema después de instalar el SDK.
 
@@ -74,7 +74,7 @@ En esta sección, creará una aplicación de consola de Python que agrega metada
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. Agregue el código siguiente, reemplazando el marcador de posición para `[IoTHub Connection String]` y `[Device Id]` con la cadena de conexión para el centro de IoT y el identificador de dispositivo que creó en las secciones anteriores.
+4. Agregue el código siguiente; para ello, sustituya el marcador de posición de `[IoTHub Connection String]` y `[Device Id]` por la cadena de conexión del centro de IoT y el id. de dispositivo que creó en las secciones anteriores.
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -151,13 +151,13 @@ En esta sección, creará una aplicación de consola de Python que agrega metada
 
     Debería ver un dispositivo en los resultados de la consulta que pregunta por todos los dispositivos que se encuentran en **Redmond43** y ninguno para la consulta que restringe los resultados a los dispositivos que utilizan una red de telefonía móvil.
 
-    ![primera consulta mostrará todos los dispositivos en Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
+    ![primera consulta que muestra todos los dispositivos de Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
 
 En la siguiente sección, creará una aplicación de dispositivo que notifica la información de conectividad y cambia el resultado de la consulta en la sección anterior.
 
 ## <a name="create-the-device-app"></a>Creación de la aplicación del dispositivo
 
-En esta sección, creará una aplicación de consola de Python que se conecta al centro como su **{Device ID}** y, a continuación, las actualizaciones de su dispositivo gemelo propiedades notificadas para contener la información que está conectado mediante una red de telefonía móvil.
+En esta sección, creará una aplicación de consola de Python que se conecta al centro como su **{Device ID}** y, luego, actualiza las propiedades notificadas de su dispositivo gemelo para que contenga la información conectada mediante una red de telefonía móvil.
 
 1. Abra un símbolo del sistema e instale el **SDK del servicio Azure IoT Hub para Python**. Cierre el símbolo del sistema después de instalar el SDK.
 
@@ -264,7 +264,7 @@ En esta sección, creará una aplicación de consola de Python que se conecta al
     python AddTagsAndQuery.py
     ```
 
-    Esta vez la **{Device ID}** debe aparecer en los resultados de la consulta.
+    Esta vez **{Device Id}** debe aparecer en los resultados de ambas consultas.
 
     ![segunda consulta](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
 
@@ -276,6 +276,6 @@ Use los siguientes recursos para obtener información sobre cómo:
 
 * Enviar telemetría desde dispositivos con el tutorial [Introducción a IoT Hub](quickstart-send-telemetry-python.md).
 
-* Configurar dispositivos mediante las propiedades deseadas del dispositivo gemelo con el [Use las propiedades deseadas para configurar dispositivos](tutorial-device-twins.md) tutorial.
+* Configurar dispositivos mediante las propiedades deseadas del dispositivo gemelo con el tutorial [Uso de las propiedades deseadas para configurar dispositivos](tutorial-device-twins.md).
 
-* Controlar los dispositivos de forma interactiva (por ejemplo, encender un ventilador desde una aplicación controlada por el usuario), con el [usar métodos directos](quickstart-control-device-python.md) tutorial.
+* Controlar los dispositivos de forma interactiva (por ejemplo, encender un ventilador desde una aplicación controlada por el usuario), con el tutorial [Uso de métodos directos](quickstart-control-device-python.md).

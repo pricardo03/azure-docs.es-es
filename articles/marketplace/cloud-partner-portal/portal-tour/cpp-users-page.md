@@ -1,6 +1,6 @@
 ---
-title: Página de usuarios de Azure Marketplace
-description: Información general de la página de usuarios en Cloud Partner Portal para Azure Marketplace.
+title: Página Usuarios para Azure Marketplace
+description: Información general de la página Usuarios en Cloud Partner Portal para Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 1c420a275efa4bb45ba952a04faafe25e30d64ef
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943421"
 ---
 # <a name="users-page"></a>Página Usuarios

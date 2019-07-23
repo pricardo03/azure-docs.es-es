@@ -1,6 +1,6 @@
 ---
-title: Configurar un servidor de procesos de escalado horizontal durante la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos con Azure Site Recovery | Microsoft Docs
-description: En este artículo se describe cómo configurar el servidor de procesos de escalabilidad horizontal durante la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos.
+title: Configuración de un servidor de procesos de escalabilidad horizontal durante la recuperación ante desastres de VM de VMware y servidores físicos con Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe cómo configurar un servidor de procesos de escalabilidad horizontal durante la recuperación ante desastres de VM de VMware y servidores físicos.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925490"
 ---
-# <a name="scale-with-additional-process-servers"></a>Escalado con servidores de procesos adicionales
+# <a name="scale-with-additional-process-servers"></a>Escalado de servidores de procesos adicionales
 
-De forma predeterminada, al replicar servidores físicos o máquinas virtuales de VMware en Azure con [Site Recovery](site-recovery-overview.md), un servidor de procesos se instala en la máquina del servidor de configuración y se usa para coordinar la transferencia de datos entre Site Recovery y la infraestructura local. Para aumentar la capacidad y el escalado horizontal de la implementación de replicación, puede agregar servidores de procesos independientes adicionales. En este artículo se describe cómo configurar un servidor de procesos de escalado horizontal.
+De forma predeterminada, al replicar servidores físicos o máquinas virtuales de VMware en Azure con [Site Recovery](site-recovery-overview.md), un servidor de procesos se instala en la máquina del servidor de configuración y se usa para coordinar la transferencia de datos entre Site Recovery y la infraestructura local. Para aumentar la capacidad y el escalado horizontal de la implementación de replicación, puede agregar servidores de procesos independientes adicionales. En este artículo se describe cómo configurar un servidor de procesos de escalabilidad horizontal.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -24,7 +24,7 @@ De forma predeterminada, al replicar servidores físicos o máquinas virtuales d
 
 Asegúrese de que ha realizado la [planeación de la capacidad](site-recovery-plan-capacity-vmware.md) para la replicación de VMware. Esto le ayudará a identificar cómo y cuándo debe implementar servidores de proceso adicionales.
 
-Desde la versión 9.24, se agrega una guía durante la selección del servidor de procesos para replicaciones de nuevo. Servidor de procesos se marcará correcto, advertencia y crítico según determinados criterios. Para comprender los distintos escenarios que pueden influir en el estado del servidor de procesos, revise el [procesar alertas del servidor](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
+Desde la versión 9.24, se agrega una guía durante la selección del servidor de procesos para nuevas replicaciones. El servidor de procesos se marcará como Correcto, Advertencia y Crítico según determinados criterios. Para comprender los distintos escenarios que pueden influir en el estado del servidor de procesos, revise las [alertas de servidor de procesos](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > No se admite el uso de componentes de Process Server clonados. Siga los pasos de este artículo para el escalado horizontal de Process Server.
@@ -51,7 +51,7 @@ En la tabla siguiente se resumen los requisitos previos para el servidor de proc
 
 Descargue el archivo de instalación del servidor de procesos de la manera siguiente:
 
-1. Inicie sesión en Azure portal y vaya a su almacén de Recovery Services.
+1. Inicie sesión en Azure Portal y busque el almacén de Recovery Services.
 2. Abra **Site Recovery Infrastructure** (Infraestructura de Site Recovery)  > **VMWare and Physical Machines** (Máquinas físicas y VMware)  > **Servidores de configuración** (en For VMware & Physical Machines [Para máquinas físicas y VMware]).
 3. Seleccione el servidor de configuración para explorar en profundidad su página de detalles. Luego haga clic en **Servidor de procesos**.
 4. En **Agregar servidor de procesos** >  **Elegir dónde quiere implementar el servidor de procesos**, seleccione **Implementar un servidor de procesos de escalado horizontal local**.
@@ -81,7 +81,7 @@ Los parámetros de la línea de comandos son los siguientes:
 
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
-Por ejemplo: 
+Por ejemplo:
 
 ```
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted

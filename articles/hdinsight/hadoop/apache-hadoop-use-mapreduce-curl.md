@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: e4968310459097fc6a00f7c453846fe61726c3d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64716120"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Ejecución de trabajos de MapReduce con Apache Hadoop en HDInsight con REST
 
-Obtenga información sobre cómo usar la API de REST de Apache Hive WebHCat para ejecutar trabajos de MapReduce en un Hadoop de Apache en clúster de HDInsight. Curl se usa para demostrar cómo puede interactuar con HDInsight mediante solicitudes HTTP sin formato para ejecutar trabajos de MapReduce.
+Aprenda a usar la API REST de Apache Hive WebHCat para ejecutar trabajos de MapReduce en un clúster de Apache Hadoop en HDInsight. Curl se usa para demostrar cómo puede interactuar con HDInsight mediante solicitudes HTTP sin formato para ejecutar trabajos de MapReduce.
 
 > [!NOTE]  
 > Si ya está familiarizado con el uso de servidores de Hadoop basado en Linux, pero no conoce HDInsight, consulte el documento [Lo que necesita saber acerca de Apache Hadoop en HDInsight basado en Linux](../hdinsight-hadoop-linux-information.md).
@@ -77,7 +77,7 @@ Obtenga información sobre cómo usar la API de REST de Apache Hive WebHCat para
    * **-u**: el nombre de usuario y la contraseña que se utilizan para autenticar la solicitud.
    * **-G**: indica que esta operación es una solicitud GET.
 
-   El principio de la dirección URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, es el mismo para todas las solicitudes.
+   El principio de la dirección URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** , es el mismo para todas las solicitudes.
 
 4. Para enviar un trabajo de MapReduce, utilice lo siguiente:
 

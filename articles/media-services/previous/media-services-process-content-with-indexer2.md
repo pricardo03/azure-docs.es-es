@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: adsolank;juliako;
 ms.openlocfilehash: 304ecda320e1fdd9573bc961fde74efe03400aa3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712959"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indización de archivos multimedia con Azure Media Indexer 2 Preview
@@ -87,7 +87,7 @@ Azure Media Indexer 2 Preview admite características de texto a voz en los sigu
 * Japonés [JaJp]
 * Ruso [RuRu]
 * Inglés británico [EnGb]
-* Español (México) [México EsMx] 
+* Español (México) [EsMx] 
 
 ## <a name="supported-file-types"></a>Tipos de archivo admitidos
 

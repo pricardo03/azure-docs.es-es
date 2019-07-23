@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 43d27f832d5eb456de60e86257e2be8575f94bf9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935193"
 ---
 # <a name="lcs-subscription"></a>Suscripción a LCS
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a crear una suscripción. Esta suscripción le prop
 
 **Suscripción**: una suscripción le proporciona un entorno en línea. Este entorno le permite experimentar Dynamics 365 para operaciones en la nube y también le permite ver cómo las personalizaciones que desarrolla pueden implementarse en la nube.
 
-**Microsoft Azure Active Directory** : el entorno de nube incluye Azure Active Directory (AD), que le ayuda a administrar usuarios, grupos, roles de seguridad y licencias para aplicaciones en línea, de forma similar a la manera que se administran en local entornos.
+**Microsoft Azure Active Directory**: El entorno de la nube incluye Azure Active Directory (AD), que le ayuda a administrar usuarios, grupos, roles de seguridad y licencias para aplicaciones en línea, de forma similar a la forma en que las administra para entornos locales.
 
 **Usuarios**: los usuarios de los servicios a los que su organización se ha suscrito se administran en Azure AD. Cualquier usuario de su inquilino puede agregarse y asignarse a roles de seguridad.
 

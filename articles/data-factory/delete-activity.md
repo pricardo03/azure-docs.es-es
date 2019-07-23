@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346350"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Actividad de eliminación en Azure Data Factory
 
-Puede usar la actividad eliminar en Azure Data Factory para eliminar archivos o carpetas de almacenamiento local almacena o almacenes de almacenamiento en la nube. Utilice esta actividad para limpiar o archivar los archivos cuando ya no se necesiten.
+Puede usar la actividad de eliminación en Azure Data Factory para eliminar archivos o carpetas de almacenes locales o almacenes en la nube. Utilice esta actividad para limpiar o archivar los archivos cuando ya no se necesiten.
 
 > [!WARNING]
 > No se pueden restaurar las carpetas ni los archivos eliminados. Tenga cuidado al usar la actividad de eliminación para eliminar archivos o carpetas.
@@ -37,7 +37,7 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 
 -   Asegúrese de que no está eliminando archivos que se escriben al mismo tiempo. 
 
--   Si desea eliminar los archivos o carpetas de un sistema local, asegúrese de que está utilizando un entorno integration runtime autohospedado con una versión superior a 3,14.
+-   Si quiere eliminar archivos o carpetas de un sistema local, asegúrese de que está utilizando un entorno de ejecución de integración autohospedado con una versión superior a 3.14.
 
 ## <a name="supported-data-stores"></a>Almacenes de datos compatibles
 
@@ -84,10 +84,10 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 | dataset | Proporciona la referencia del conjunto de datos para determinar qué archivos o carpetas se van a eliminar. | Sí |
 | recursive | Indica si los archivos se eliminan de forma recursiva de las subcarpetas o solo de la carpeta especificada.  | No. El valor predeterminado es `false`. |
 | maxConcurrentConnections | El número de conexiones para conectarse al almacén de almacenamiento al mismo tiempo para eliminar archivos o carpetas.   |  No. El valor predeterminado es `1`. |
-| enablelogging | Indica si es necesario registrar los nombres de carpeta o archivo que se han eliminado. Si es true, tiene que proporcionar una cuenta de almacenamiento para guardar el archivo de registro, por lo que puede realizar un seguimiento de los comportamientos de la actividad de eliminación leyendo el archivo de registro. | Sin  |
-| logStorageSettings | Solo se aplica cuando enablelogging = true.<br/><br/>Un grupo de propiedades de almacenamiento que se pueden especificar donde desea guardar el archivo de registro que contiene los nombres de carpeta o archivo que se han eliminado por la actividad de eliminación. | Sin  |
-| linkedServiceName | Solo se aplica cuando enablelogging = true.<br/><br/>El servicio vinculado de [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Gen1 de almacenamiento de Azure Data Lake](connector-azure-data-lake-store.md#linked-service-properties), o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para almacenar el archivo de registro que contiene la carpeta o los nombres de archivo se eliminaron por la actividad de eliminación. | Sin  |
-| path | Solo se aplica cuando enablelogging = true.<br/><br/>La ruta de acceso para guardar el archivo de registro en la cuenta de almacenamiento. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | Sin  |
+| enablelogging | Indica si es necesario registrar los nombres de carpeta o archivo que se han eliminado. Si es true, tiene que proporcionar una cuenta de almacenamiento para guardar el archivo de registro, por lo que puede realizar un seguimiento de los comportamientos de la actividad de eliminación leyendo el archivo de registro. | Sin |
+| logStorageSettings | Solo se aplica cuando enablelogging = true.<br/><br/>Un grupo de propiedades de almacenamiento que se pueden especificar donde desea guardar el archivo de registro que contiene los nombres de carpeta o archivo que se han eliminado por la actividad de eliminación. | Sin |
+| linkedServiceName | Solo se aplica cuando enablelogging = true.<br/><br/>El servicio vinculado de [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para almacenar el archivo de registro que contiene los nombres de carpeta o archivo que se han eliminado con la actividad de eliminación. | Sin |
+| path | Solo se aplica cuando enablelogging = true.<br/><br/>La ruta de acceso para guardar el archivo de registro en la cuenta de almacenamiento. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | Sin |
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -323,7 +323,7 @@ Puede crear una canalización para limpiar los archivos antiguos o expirados apr
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Movimiento de archivos encadenando la actividad de copia y la actividad de eliminación
 
-Puede mover un archivo mediante el uso de una actividad de copia para copiar un archivo y, a continuación, una actividad de eliminación para eliminar un archivo en una canalización.  Si desea mover varios archivos, puede usar la actividad GetMetadata + actividad de filtro + actividad Foreach + actividad de copia + actividad de eliminación como en el ejemplo siguiente:
+Puede mover un archivo mediante una actividad de copia para copiar un archivo y, a continuación, una actividad de eliminación para eliminar un archivo en una canalización.  Si desea mover varios archivos, puede usar la actividad GetMetadata + actividad de filtro + actividad Foreach + actividad de copia + actividad de eliminación como en el ejemplo siguiente:
 
 > [!NOTE]
 > Si desea mover toda la carpeta definiendo un conjunto de datos que contiene solo una ruta de carpeta y, a continuación, usando una actividad de copia y una actividad de eliminación para hacer referencia al mismo conjunto de datos que representa una carpeta, deberá tener mucho cuidado. El motivo es que tiene que asegurarse de que NO lleguen nuevos archivos a la carpeta entre la operación de copia y la operación de eliminación.  Si llegan archivos nuevos a la carpeta en el momento en que la actividad de copia acaba de completar el trabajo de copia pero la actividad de eliminación aún no ha empezado, es posible que la actividad de eliminación elimine este nuevo archivo entrante que NO se ha copiado aún en el destino mediante la eliminación de toda la carpeta. 
@@ -565,12 +565,12 @@ Conjunto de datos de destino de datos utilizado por la actividad de copia.
 ```
 ## <a name="known-limitation"></a>Limitación conocida
 
--   Eliminar actividad no se admite eliminar lista de carpetas descrito por el carácter comodín.
+-   La actividad de eliminación no admite la eliminación de la lista de carpetas descrita con el comodín.
 
--   Cuando se usa el filtro de atributo de archivo: modifiedDatetimeStart y modifiedDatetimeEnd para seleccionar los archivos que va a eliminar, asegúrese de establecer "fileName": "*" en el conjunto de datos.
+-   Cuando use el filtro de atributo de archivo: modifiedDatetimeStart y modifiedDatetimeEnd para seleccionar los archivos que van a eliminar, asegúrese de establecer "fileName": "*" en el conjunto de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca de cómo mover los archivos de Azure Data Factory.
+Obtener más información acerca de cómo mover archivos en Azure Data Factory.
 
 -   [Herramienta Copiar datos en Azure Data Factory](copy-data-tool.md)

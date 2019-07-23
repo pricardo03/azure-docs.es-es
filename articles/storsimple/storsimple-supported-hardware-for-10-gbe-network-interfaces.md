@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 8303195f0f3228ee145cbba9e322ea4e5e4c1264
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302541"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64726967"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple
 ## <a name="overview"></a>Información general
@@ -34,7 +34,7 @@ Microsoft ha probado los siguientes transceptores, cables y conmutadores acoplab
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>Cables
-| S.  No. | Asegúrese | Modelo |
+| S. No. | Asegúrese | Modelo |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -42,7 +42,7 @@ Microsoft ha probado los siguientes transceptores, cables y conmutadores acoplab
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Conmutadores
-| S.  No. | Asegúrese | Modelo |
+| S. No. | Asegúrese | Modelo |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -51,16 +51,16 @@ Microsoft ha probado los siguientes transceptores, cables y conmutadores acoplab
 ## <a name="list-of-devices-tested-in-the-field"></a>Lista de dispositivos probados sobre el terreno
 Esta sección contiene la lista de dispositivos que se implementaron correctamente en el terreno por los clientes de StorSimple. Microsoft no los ha probado pero probablemente funcionan con el dispositivo StorSimple.
 
-| Parámetro | Value |
+| Parámetro | Valor |
 | --- | --- |
 | Proveedor del conmutador |Juniper |
 | Modelo del conmutador |ex4550-32F |
 | Versión del sistema operativo del conmutador |JunOS 12.3R9.4 |
 | Modelo de blade |Puertos incorporados (PIC 0) |
 | Proveedor de transceptor |Juniper |
-| Modelo de transceptor |Número de pieza 740-021308  <br></br>  Número de pieza 740-030658 |
+| Modelo de transceptor |Número de pieza 740-021308 <br></br> Número de pieza 740-030658 |
 | Versión del firmware del transceptor |Rev 01 versión 0.0 (comunicado) |
-| Modelo de cable |Puente dúplex LC/LC 50/125µ, OM3, LSZH |
+| Modelo de cable |Puente dúplex LC/LC 50/125 µ, OM3, LSZH |
 | Modelo de StorSimple |8600 |
 | Versión del software de StorSimple |6.3.9600.17491 |
 
@@ -70,7 +70,7 @@ Mellanox ha probado los siguientes transceptores acoplables de factor de forma p
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Cables y módulos compatibles con Mellanox
 En la tabla siguiente se enumeran los cables y módulos compatibles con Mellanox. Microsoft no los ha probado pero probablemente funcionan con el dispositivo StorSimple.
 
-| S.  No. | Velocidad | Modelo | DESCRIPCIÓN | Asegúrese |
+| S. No. | Velocidad | Modelo | DESCRIPCIÓN | Asegúrese |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |cable de cobre pasivo SFP+ 10 Gb/s 1 m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2M |cable de cobre pasivo SFP+ 10 Gb/s 2 m |Arista |
@@ -111,7 +111,7 @@ En la tabla siguiente se enumeran los cables y módulos compatibles con Mellanox
 ### <a name="switches-supported-by-mellanox"></a>Lista de conmutadores compatibles con Mellanox
 En la tabla siguiente se enumeran los conmutadores y módulos compatibles con Mellanox. Microsoft no los ha probado pero probablemente funcionan con el dispositivo StorSimple.
 
-| S.  No. | Velocidad | Modelo | DESCRIPCIÓN | Asegúrese |
+| S. No. | Velocidad | Modelo | DESCRIPCIÓN | Asegúrese |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |516733-B21 |Conmutador Blade HP ProCurve 6120XG 10GbE Ethernet |HP |
 | 2. |10 GbE |538113-B21 |Módulo de paso a través HP 10GbE (PTM) |HP |

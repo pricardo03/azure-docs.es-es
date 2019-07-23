@@ -1,6 +1,6 @@
 ---
-title: 'Configuración de mensaje de AS2: Azure Logic Apps'
-description: Guía de referencia para AS2 enviar y recibir la configuración en Azure Logic Apps con Enterprise Integration Pack
+title: 'Configuración de mensajes AS2: Azure Logic Apps'
+description: Guía de referencia para la configuración de envío y recepción de AS2 en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,15 +10,15 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: ead92094b9af1dff56ff68e1ff58a3a4cdd9dca5
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "63769457"
 ---
-# <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Referencia de configuración del mensaje AS2 en Azure Logic Apps con Enterprise Integration Pack
+# <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Guía de referencia para la configuración de envío y recepción de AS2 en Azure Logic Apps con Enterprise Integration Pack
 
-Esta referencia describe las propiedades que se pueden establecer para especificar cómo un acuerdo AS2 controla los mensajes enviados y recibidos entre socios comerciales. Configure estas propiedades en función del contrato con el socio comercial que intercambia mensajes con usted.
+Esta referencia describe las propiedades que puede establecer para especificar cómo un contrato de AS2 controla los mensajes enviados y recibidos entre asociados comerciales. Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes.
 
 <a name="AS2-incoming-messages"></a>
 
@@ -28,15 +28,15 @@ Esta referencia describe las propiedades que se pueden establecer para especific
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 |----------|----------|-------------|
-| **Invalidar propiedades de mensajes** | Sin  | Reemplaza las propiedades en los mensajes entrantes con los valores de propiedad. |
-| **Debe firmarse el mensaje** | Sin  | Especifica si todos los mensajes entrantes deben estar firmados digitalmente. Si necesita iniciar sesión, desde el **certificado** lista, seleccione un existente socio certificado público del invitado para validar la firma de los mensajes. Si no tiene un certificado, obtenga más información sobre [agregar certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
-| **Debe cifrarse el mensaje** | Sin  | Especifica si se deben cifrar todos los mensajes entrantes. Los mensajes sin cifrado se rechazan. Si necesita el cifrado, desde el **certificado** lista, seleccione un host partner private certificado existente para descifrar los mensajes entrantes. Si no tiene un certificado, obtenga más información sobre [agregar certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
-| **Debe comprimirse el mensaje** | Sin  | Especifica si se deben comprimir todos los mensajes entrantes. Los mensajes sin comprimir se rechazan. |
-| **No permitir duplicados del Id. de mensaje** | Sin  | Especifica si se debe permitir que los mensajes con identificadores duplicados. Si prohíbe identificadores duplicados, seleccione el número de días entre comprobaciones. También puede elegir si se deben suspender los duplicados. |
-| **Texto de MDN** | Sin  | Especifica la predeterminada mensaje disposition notificación (MDN) que desea que se envía al remitente del mensaje. |
-| **Enviar MDN** | Sin  | Especifica si se debe enviar MDN sincrónicos para los mensajes recibidos.  |
-| **Enviar MDN firmado** | Sin  | Especifica si se debe enviar MDN firmadas para los mensajes recibidos. Si necesita iniciar sesión, desde el **algoritmo MIC** lista, seleccione el algoritmo que se usará para firmar los mensajes. |
-| **Enviar MDN asincrónico** | Sin  | Especifica si se debe enviar MDN de forma asincrónica. Si selecciona MDN asincrónica, en el **URL** cuadro, especifique la dirección URL donde se enviarán las MDN. |
+| **Reemplazar propiedades del mensaje** | Sin | Reemplaza las propiedades en los mensajes entrantes por los valores de sus propiedades. |
+| **Debe firmarse el mensaje** | Sin | Especifica si todos los mensajes entrantes deben estar firmados digitalmente. Si requiere una firma, en la lista **Certificado**, seleccione un certificado público del asociado invitado existente para validar la firma de los mensajes. Si no tiene un certificado, obtenga más información sobre la [adición de certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Debe cifrarse el mensaje** | Sin | Especifica si se deben cifrar todos los mensajes entrantes. Los mensajes sin cifrado se rechazan. Si requiere cifrado, desde la lista **Certificado**, seleccione un certificado privado del asociado del host existente para descifrar los mensajes entrantes. Si no tiene un certificado, obtenga más información sobre la [adición de certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Debe comprimirse el mensaje** | Sin | Especifica si se deben comprimir todos los mensajes entrantes. Los mensajes sin comprimir se rechazan. |
+| **No permitir los id. de mensajes duplicados** | Sin | Especifica si se deben permitir que los mensajes con identificadores duplicados. Si prohíbe los identificadores duplicados, seleccione el número de días entre comprobaciones. También puede elegir si se deben suspender los duplicados. |
+| **Texto de MDN** | Sin | Especifica la notificación de disposición del mensaje (MDN) predeterminada que quiere que se envíe al remitente del mensaje. |
+| **Enviar MDN** | Sin | Especifica si se deben enviar MDN sincrónicas para los mensajes recibidos.  |
+| **Enviar MDN firmado** | Sin | Especifica si se deben enviar MDN firmadas para los mensajes recibidos. Si requiere inicio de sesión, desde la lista **Algoritmo MIC**, seleccione el algoritmo que se usará para firmar los mensajes. |
+| **Enviar MDN asincrónico** | Sin | Especifica si se deben enviar MDN de forma asincrónica. Si selecciona enviar MDN asincrónicas, en el cuadro **URL**, especifique la dirección URL a la que se enviarán las MDN. |
 ||||
 
 <a name="AS2-outgoing-messages"></a>
@@ -47,16 +47,16 @@ Esta referencia describe las propiedades que se pueden establecer para especific
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 |----------|----------|-------------|
-| **Habilitar la firma del mensaje** | Sin  | Especifica si deben firmarse digitalmente todos los mensajes salientes. Si necesita iniciar sesión, seleccione estos valores: <p>-Desde el **algoritmo de firma** lista, seleccione el algoritmo que se usará para firmar los mensajes. <br>-Desde el **certificado** lista, seleccione un host partner private certificado existente para firmar los mensajes. Si no tiene un certificado, obtenga más información sobre [agregar certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
-| **Habilitar el cifrado de mensajes** | Sin  | Especifica si se deben cifrar todos los mensajes salientes. Si necesita el cifrado, seleccione estos valores: <p>-Desde el **algoritmo de cifrado** lista, seleccione el algoritmo de certificado público del asociado invitado que se usará para cifrar los mensajes. <br>-Desde el **certificado** lista, seleccione un existente invitado certificado privado del asociado para cifrar los mensajes salientes. Si no tiene un certificado, obtenga más información sobre [agregar certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
-| **Habilitar la compresión de mensajes** | Sin  | Especifica si se deben comprimir todos los mensajes salientes. |
-| **Expandir encabezados HTTP** | Sin  | Coloca el HTTP `content-type` encabezado en una sola línea. |
-| **Transmitir nombre de archivo en encabezado MIME** | Sin  | Especifica si se debe incluir el nombre de archivo en el encabezado MIME. |
-| **Solicitar MDN** | Sin  | Especifica si desea recibir notificaciones de disposición de mensaje (MDN) para todos los mensajes salientes. |
-| **Solicitar MDN firmado** | Sin  | Especifica si se debe recibir MDN firmadas para todos los mensajes salientes. Si necesita iniciar sesión, desde el **algoritmo MIC** lista, seleccione el algoritmo que se usará para firmar los mensajes. |
-| **Solicitar MDN asíncrono** | Sin  | Especifica si se recibe MDN de forma asincrónica. Si selecciona MDN asincrónica, en el **URL** cuadro, especifique la dirección URL donde se enviarán las MDN. |
-| **Habilitar NRR** | Sin  | Especifica si se requiere la recepción sin repudio (NRR). Este atributo de comunicación proporciona evidencia que se recibieron los datos según la dirección indicada. |
-| **Formato del algoritmo SHA2** | Sin  | Especifica el formato de algoritmo MIC que se usará para iniciar sesión en los encabezados de los mensajes AS2 salientes o MDN |
+| **Habilitar la firma de mensajes** | Sin | Especifica si todos los mensajes salientes deben estar firmados digitalmente. Si requiere inicio de sesión, seleccione estos valores: <p>- Desde la lista **Algoritmo de firma**, seleccione el algoritmo que se usará para firmar los mensajes. <br>- Desde la lista **Certificado**, seleccione un certificado privado del asociado del host existente para firmar los mensajes. Si no tiene un certificado, obtenga más información sobre la [adición de certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Habilitar el cifrado de mensajes** | Sin | Especifica si se deben cifrar todos los mensajes salientes. Si requiere cifrado, seleccione estos valores: <p>- Desde la lista **Algoritmo de cifrado**, seleccione el algoritmo del certificado público del asociado invitado que se usará para cifrar los mensajes. <br>- Desde la lista **Certificado**, seleccione un certificado privado del asociado del host existente para cifrar los mensajes salientes. Si no tiene un certificado, obtenga más información sobre la [adición de certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Habilitar la compresión de mensajes** | Sin | Especifica si se deben comprimir todos los mensajes salientes. |
+| **Expandir encabezados HTTP** | Sin | Coloca el encabezado HTTP `content-type` en una sola línea. |
+| **Transmitir el nombre de archivo en el encabezado MIME** | Sin | Especifica si se debe incluir el nombre de archivo en el encabezado MIME. |
+| **Solicitar MDN** | Sin | Especifica si se deben recibir notificaciones de disposición de mensaje (MDN) para todos los mensajes salientes. |
+| **Solicitar MDN firmada** | Sin | Especifica si se deben recibir MDN firmadas para todos los mensajes salientes. Si requiere inicio de sesión, desde la lista **Algoritmo MIC**, seleccione el algoritmo que se usará para firmar los mensajes. |
+| **Solicitar MDN asincrónica** | Sin | Especifica si se deben recibir MDN de forma asincrónica. Si selecciona enviar MDN asincrónicas, en el cuadro **URL**, especifique la dirección URL a la que se enviarán las MDN. |
+| **Habilitar NRR** | Sin | Especifica si se debe requerir la recepción sin rechazo (NRR). Este atributo de comunicación prueba que se recibieron los datos según la dirección indicada. |
+| **Formato del algoritmo SHA2** | Sin | Especifica el formato de algoritmo MIC que se usará para iniciar sesión en los encabezados de las MDN o los mensajes AS2 salientes. |
 ||||
 
 ## <a name="next-steps"></a>Pasos siguientes

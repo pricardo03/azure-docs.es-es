@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 608792d8389a87bad3521d3a48947b20dd036d67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121224"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Marco de seguridad: Criptografía | Mitigaciones 
@@ -108,7 +108,7 @@ ms.locfileid: "62121224"
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
-| **Pasos** | <p>Los productos deben utilizar la familia SHA-2 de algoritmos hash (SHA256, SHA384 y SHA512). Si se necesita un hash más corto, por ejemplo, una longitud de la salida de 128 bits para ajustar una estructura de datos diseñada pensando en el hash MD5 más corto, los equipos del producto pueden truncar uno de los valores de hash de SHA2 (normalmente SHA256). Tenga en cuenta que SHA384 es una versión truncada de SHA512. No se permite el truncamiento de los algoritmos hash criptográficos por debajo de los 128 bits por motivos de seguridad. El nuevo código no debe usar los algoritmos hash MD2, MD4, MD5, SHA-0, SHA-1 o RIPEMD. Las colisiones de hash son factibles desde el punto de vista computacional para estos algoritmos, lo que de forma efectiva supone su ruptura.</p><p>Algoritmos hash de .NET permitidos para criptografía personal administrada (en orden de preferencia):</p><ul><li>SHA512Cng (compatible con FIPS)</li><li>SHA384Cng (compatible con FIPS)</li><li>SHA256Cng (compatible con FIPS)</li><li>SHA512Managed (no-compatibles con FIPS) (use SHA512 como nombre del algoritmo en las llamadas a HashAlgorithm.Create o CryptoConfig.CreateFromName)</li><li>SHA384Managed (no-compatibles con FIPS) (use SHA384 como nombre del algoritmo en las llamadas a HashAlgorithm.Create o CryptoConfig.CreateFromName)</li><li>SHA256Managed (no-compatibles con FIPS) (use SHA256 como nombre del algoritmo en las llamadas a HashAlgorithm.Create o CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (compatible con FIPS)</li><li>SHA256CryptoServiceProvider (compatible con FIPS)</li><li>SHA384CryptoServiceProvider (compatible con FIPS)</li></ul>| 
+| **Pasos** | <p>Los productos deben utilizar la familia SHA-2 de algoritmos hash (SHA256, SHA384 y SHA512). Si se necesita un hash más corto, por ejemplo, una longitud de la salida de 128 bits para ajustar una estructura de datos diseñada pensando en el hash MD5 más corto, los equipos del producto pueden truncar uno de los valores de hash de SHA2 (normalmente SHA256). Tenga en cuenta que SHA384 es una versión truncada de SHA512. No se permite el truncamiento de los algoritmos hash criptográficos por debajo de los 128 bits por motivos de seguridad. El nuevo código no debe usar los algoritmos hash MD2, MD4, MD5, SHA-0, SHA-1 o RIPEMD. Las colisiones de hash son factibles desde el punto de vista computacional para estos algoritmos, lo que de forma efectiva supone su ruptura.</p><p>Algoritmos hash de .NET permitidos para criptografía personal administrada (en orden de preferencia):</p><ul><li>SHA512Cng (compatible con FIPS)</li><li>SHA384Cng (compatible con FIPS)</li><li>SHA256Cng (compatible con FIPS)</li><li>SHA512Managed (no compatible con FIPS) (use SHA512 como nombre de algoritmo en las llamadas a HashAlgorithm.Create o CryptoConfig.CreateFromName)</li><li>SHA384Managed (no compatible con FIPS) (use SHA384 como nombre de algoritmo en las llamadas a HashAlgorithm.Create o CryptoConfig.CreateFromName)</li><li>SHA256Managed (no compatible con FIPS) (use SHA256 como nombre de algoritmo en las llamadas a HashAlgorithm.Create o CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (compatible con FIPS)</li><li>SHA256CryptoServiceProvider (compatible con FIPS)</li><li>SHA384CryptoServiceProvider (compatible con FIPS)</li></ul>| 
 
 ## <a id="strong-db"></a>Use algoritmos de cifrado de alta seguridad para cifrar los datos de la base de datos
 
@@ -229,7 +229,7 @@ Como se puede ver, la clave principal de dispositivo no está presente en el có
 | **Fase de SDL**               | Implementación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Identity Server: claves, firmas y cifrado](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **Referencias**              | [Identity Server: claves, firmas y criptografía](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **Pasos** | Asegúrese de las claves de firma se sustituyen cuando se usa Identity Server. El vínculo en la sección de referencias explica cómo debe planearse esta acción sin causar interrupciones en las aplicaciones basadas en Identity Server. |
 
 ## <a id="client-server"></a>Asegúrese de que se usan un identificador de cliente y un secreto de cliente de alta seguridad criptográfica en Identity Server

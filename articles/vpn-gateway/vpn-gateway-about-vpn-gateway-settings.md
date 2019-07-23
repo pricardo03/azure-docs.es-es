@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: cherylmc
 ms.openlocfilehash: 4030c196d6a4de721b640f5da0b692f4d8157d12
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049870"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64859073"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 
@@ -55,7 +55,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Configuración de una SKU de puerta de enlace
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 Si usa Azure Portal para crear una puerta de enlace de red virtual de Resource Manager, puede seleccionar la SKU de la puerta de enlace con el menú desplegable. Las opciones que se presentan corresponden con el tipo de puerta de enlace y tipo de VPN que seleccione.
 
@@ -77,7 +77,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizechange"></a>Cambio de tamaño o de SKU
 
-Si tiene una puerta de enlace VPN y desea usar una SKU de puerta de enlace distinta, las opciones son o cambiar el tamaño de la SKU de puerta de enlace o cambiar a otra SKU. Al cambiar a otra SKU de puerta de enlace, se elimina completamente la puerta de enlace existente y se crea otra. Una puerta de enlace puede tardar hasta 45 minutos. En cambio, cuando cambia el tamaño de una puerta de enlace de SKU, no hay mucho tiempo de inactividad porque no tiene que eliminar y volver a la puerta de enlace. Si tiene la opción de cambiar el tamaño de la SKU de puerta de enlace, en lugar de cambiarla, aprovéchela. Sin embargo, hay reglas en relación con el cambio de tamaño:
+Si tiene una puerta de enlace VPN y desea usar una SKU de puerta de enlace distinta, las opciones son o cambiar el tamaño de la SKU de puerta de enlace o cambiar a otra SKU. Al cambiar a otra SKU de puerta de enlace, se elimina completamente la puerta de enlace existente y se crea otra. La creación de una puerta de enlace puede tardar hasta 45 minutos. En cambio, al cambiar el tamaño de la SKU de puerta de enlace, el tiempo de inactividad será corto, ya que no tiene que eliminar y volver crear la puerta de enlace. Si tiene la opción de cambiar el tamaño de la SKU de puerta de enlace, en lugar de cambiarla, aprovéchela. Sin embargo, hay reglas en relación con el cambio de tamaño:
 
 1. Puede cambiar el tamaño entre las SKU de VpnGw1, VpnGw2 y VpnGw3.
 2. Si trabaja con las SKU de puerta de enlace antiguas, puede cambiar el tamaño entre las SKU Básica, Estándar y HighPerformance.
@@ -132,7 +132,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="gwsub"></a>Subred de puerta de enlace
 
-Antes de crear una puerta de enlace de VPN, debe crear una subred de puerta de enlace. La subred de puerta de enlace contiene las direcciones IP que usan los servicios y las máquinas virtuales de la puerta de enlace de red virtual. Al crear la puerta de enlace de red virtual, las máquinas virtuales de puerta de enlace se implementan en la subred de puerta de enlace, y se configuran con las opciones de puerta de enlace de VPN necesarias. No implemente nunca nada más (por ejemplo, máquinas virtuales adicionales) a la subred de puerta de enlace. Para que la subred de puerta de enlace funcione correctamente, su nombre tiene que ser “GatewaySubnet2”. La asignación del nombre "GatewaySubnet" a la subred de puerta de enlace permite a Azure saber que se trata de la subred donde se implementarán las máquinas virtuales y los servicios de la puerta de enlace de red virtual.
+Antes de crear una puerta de enlace de VPN, debe crear una subred de puerta de enlace. La subred de puerta de enlace contiene las direcciones IP que usan los servicios y las máquinas virtuales de la puerta de enlace de red virtual. Al crear la puerta de enlace de red virtual, las máquinas virtuales de puerta de enlace se implementan en la subred de puerta de enlace, y se configuran con las opciones de puerta de enlace de VPN necesarias. Nunca implemente nada más (por ejemplo, máquinas virtuales adicionales) en la subred de puerta de enlace. Para que la subred de puerta de enlace funcione correctamente, su nombre tiene que ser “GatewaySubnet2”. La asignación del nombre "GatewaySubnet" a la subred de puerta de enlace permite a Azure saber que se trata de la subred donde se implementarán las máquinas virtuales y los servicios de la puerta de enlace de red virtual.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]

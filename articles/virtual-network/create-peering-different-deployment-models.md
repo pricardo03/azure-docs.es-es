@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud;anavin
 ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694712"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Creación de un emparejamiento de red virtual: distintos modelos de implementación, la misma suscripción
@@ -144,7 +144,7 @@ Complete los pasos siguientes mediante la CLI de Azure clásica y la CLI de Azur
 
 ## <a name="powershell"></a>Creación de emparejamiento: PowerShell
 
-1. Instale la versión más reciente de PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) y [Az](https://www.powershellgallery.com/packages/Az/) módulos. Si no está familiarizado con Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Instale la versión más reciente de los módulos [Azure](https://www.powershellgallery.com/packages/Azure) y [Az](https://www.powershellgallery.com/packages/Az/) de PowerShell. Si no está familiarizado con Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie una sesión de PowerShell.
 3. En PowerShell, inicie sesión en Azure especificando el comando `Add-AzureAccount`. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#requirements-and-constraints).
 4. Para crear una red virtual (clásica) con PowerShell, debe crear o modificar un archivo de configuración de red existente. Obtenga información sobre cómo [exportar, actualizar e importar archivos de configuración de red](virtual-networks-using-network-configuration-file.md). El archivo debe incluir el siguiente elemento **VirtualNetworkSite** para la red virtual que se usa en este tutorial:

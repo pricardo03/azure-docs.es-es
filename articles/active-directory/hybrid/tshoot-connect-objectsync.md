@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919121"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Solución de problemas de sincronización de objetos con Azure AD Connect Sync
@@ -37,13 +37,13 @@ Para ejecutar la tarea de solución de problemas en el asistente, realice los pa
 4.  Vaya a la página Additional Tasks (Tareas adicionales), seleccione Troubleshoot (Solucionar problemas) y haga clic en Next (Siguiente).
 5.  En la página de solución de problemas, haga clic en Iniciar para iniciar el menú de solución de problemas en PowerShell.
 6.  En el menú principal, seleccione Troubleshoot Object Synchronization (Solucionar problemas de sincronización de objetos).
-![Solución de problemas de sincronización de objetos](media/tshoot-connect-objectsync/objsynch11.png)
+![Solucionar problemas de sincronización de objetos](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Solución de problemas de parámetros de entrada
 Los siguientes parámetros de entrada son necesarios para la tarea de solución de problemas:
 1.  **Nombre distintivo del objeto**: es el nombre distintivo del objeto que necesita solución de problemas
 2.  **Nombre del conector de AD**: es el nombre del bosque de AD donde reside el objeto anterior.
-3.  Credenciales de administrador global de inquilino de Azure AD ![credenciales de administrador global](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Credenciales de administrador global del inquilino de Azure AD ![Credenciales de administrador global](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Descripción de los resultados de la tarea de solución de problemas
 La tarea de solución de problemas realiza las siguientes comprobaciones:
@@ -60,12 +60,12 @@ En el resto de esta sección se describen los resultados concretos que devuelve 
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>El sufijo de UPN no se comprueba con el inquilino de Azure AD
 Cuando el sufijo del identificador de inicio de sesión UserPrincipalName (UPN)/alternativo no se comprueba con el inquilino de Azure AD, Azure Active Directory reemplaza los sufijos de UPN por el nombre de dominio predeterminado "onmicrosoft.com".
 
-![Azure AD reemplaza UPN](media/tshoot-connect-objectsync/objsynch2.png)
+![Azure AD reemplaza a UPN](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Cambio del sufijo de UPN de un dominio federado a otro
 Azure Active Directory no permite la sincronización del cambio de sufijo del identificador de inicio de sesión UserPrincipalName (UPN)/alternativo de un dominio federado a otro. Esto se aplica a los dominios, que se comprueban con el inquilino de Azure AD y que tienen el tipo de autenticación como federada.
 
-![Sin sincronización UPN de un dominio federado a otro](media/tshoot-connect-objectsync/objsynch3.png) 
+![No hay sincronización UPN de un dominio federado a otro](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>La característica "SynchronizeUpnForManagedUsers" de DirSync del inquilino de Azure AD está deshabilitada
 Cuando la característica "SynchronizeUpnForManagedUsers" de DirSync del inquilino de Azure AD está deshabilitada, Azure Active Directory no permite actualizaciones de sincronización con el identificador de inicio de sesión UserPrincipalName/alternativo en las cuentas de usuario con licencia con autenticación administrada.
@@ -80,7 +80,7 @@ El objeto está fuera del ámbito porque el dominio no está configurado. En el 
 
 ### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>El dominio está configurado para sincronizarse, pero le faltan pasos y perfiles de ejecución
 El objeto está fuera del ámbito porque faltan pasos y perfiles de ejecución en el dominio. En el ejemplo siguiente, el objeto está fuera del ámbito de sincronización dado que el dominio al que pertenece carece de los pasos de ejecución para el perfil de ejecución de importación completa.
-![perfiles de ejecución que faltan](media/tshoot-connect-objectsync/objsynch6.png)
+![Perfiles de ejecución faltantes](media/tshoot-connect-objectsync/objsynch6.png)
 
 ## <a name="object-is-filtered-due-to-ou-filtering"></a>El objeto se filtra debido al filtrado de unidad organizativa
 El objeto está fuera del ámbito de sincronización debido a la configuración del filtrado de unidad organizativa. En el ejemplo siguiente, el objeto pertenece a OU=NoSync,DC=bvtadwbackdc,DC=com.  Esta unidad organizativa no está incluida en el ámbito de sincronización.</br>

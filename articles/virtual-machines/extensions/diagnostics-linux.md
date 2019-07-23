@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
 ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710409"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
@@ -146,7 +146,7 @@ Es posible construir el token de SAS necesario de forma muy sencilla mediante Az
 1. Cree las secciones pertinentes, conforme a lo descrito anteriormente.
 1. Haga clic en el botón "Generar SAS".
 
-![image](./media/diagnostics-linux/make_sas.png)
+![imagen](./media/diagnostics-linux/make_sas.png)
 
 Copie la SAS generada en el campo storageAccountSasToken. Elimine el signo de interrogación principal ("?").
 
@@ -502,7 +502,7 @@ TransfersPerSecond | Operaciones de lectura o escritura por segundo
 
 Los valores agregados de todos los archivos del sistema pueden obtenerse estableciendo `"condition": "IsAggregate=True"`. Los valores para un sistema de archivos montado específico, como "/mnt", pueden obtenerse estableciendo `"condition": 'Name="/mnt"'`. 
 
-**NOTA**: Si usa el Portal de Azure en lugar de JSON, el formato del campo de condición correcta es nombre = "/ mnt'
+**NOTA**: Si usa Azure Portal en lugar de JSON, el formato correcto para el campo de condición es Name="/mnt".
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>Métricas builtin para la clase Disk
 
@@ -688,7 +688,7 @@ El elemento `resourceId` de la configuración debe coincidir con el de la VM o e
 
 Use Azure Portal para consultar datos de rendimiento o establecer alertas:
 
-![image](./media/diagnostics-linux/graph_metrics.png)
+![imagen](./media/diagnostics-linux/graph_metrics.png)
 
 Los datos de `performanceCounters` se almacenan en una tabla de Azure Storage. Las API de Azure Storage están disponibles para múltiples lenguajes y plataformas.
 
@@ -701,7 +701,7 @@ Además, puede usar las siguientes herramientas de la interfaz de usuario para a
 
 Esta instantánea de una sesión del Explorador de Microsoft Azure Storage muestra las tablas y los contenedores de Azure Storage generados a partir de una extensión de LAD 3.0 configurada correctamente en una máquina virtual de prueba. La imagen no coincide exactamente con la [configuración de ejemplo de LAD 3.0](#an-example-lad-30-configuration).
 
-![image](./media/diagnostics-linux/stg_explorer.png)
+![imagen](./media/diagnostics-linux/stg_explorer.png)
 
 Consulte los [documentos de EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) pertinentes para obtener información sobre cómo consumir mensajes publicados en un punto de conexión de EventHubs.
 

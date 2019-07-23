@@ -1,5 +1,5 @@
 ---
-title: Realización de streaming en vivo con Azure Media Services para crear transmisiones de velocidad de bits múltiple con Azure portal | Microsoft Docs
+title: Streaming en vivo con Azure Media Services para crear transmisiones de velocidad de bits múltiple con Azure Portal | Microsoft Docs
 description: Este tutorial le guía por los pasos para crear un canal que reciba una transmisión en directo de una sola velocidad de bits y la codifique como transmisión de varias velocidades de bits mediante el portal de Azure.
 services: media-services
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: daab3c3b2a5b756686a4867350478faaa1142279
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726858"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Realización de streaming en vivo con Media Services para crear transmisiones de velocidad de bits múltiple con Azure portal  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple mediante Azure Portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -29,7 +29,7 @@ ms.locfileid: "64726858"
 > 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a la v3](../latest/migrate-from-v2-to-v3.md).
 
 Este tutorial le guía por los pasos para crear un **canal** que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits.
 
@@ -43,7 +43,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 1. Conecte una cámara de vídeo a un equipo. <br/>Para obtener ideas para la configuración, consulte [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT) (Equipo de vídeo para eventos sencillo y portátil).
 
-    Si no tiene acceso a una cámara, herramientas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) se puede usar generar una fuente directa de un archivo de vídeo.
+    Si no tiene acceso a una cámara, puede usar herramientas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para generar una fuente en directo de un archivo de vídeo.
 1. Inicie y configure un codificador local en directo que pueda generar una secuencia de velocidad de bits única en uno de los siguientes protocolos: RTMP o Smooth Streaming. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Vea también este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Producción de streaming en vivo con OBS).
 
     Este paso también puede realizarse después de crear el canal.
@@ -114,7 +114,7 @@ Para más información, consulte [Streaming en vivo mediante Azure Media Service
 ## <a name="get-ingest-urls"></a>Obtención de direcciones URL de introducción
 Una vez creado el canal, obtendrá direcciones URL de introducción que se proporcionarán al codificador en directo. El codificador usa estas direcciones URL para introducir una secuencia en vivo.
 
-![direcciones URL de ingesta](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![direcciones URL de introducción](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Creación y administración de eventos
 
@@ -149,7 +149,7 @@ Existen dos formas de iniciar un evento:
 
     Especifique lo siguiente: nombre de evento, nombre de recurso, ventana de archivo y opción de cifrado.
 
-    ![Crear programa](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![creación del programa](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     Si ha dejado activado **Publish this live event now** (Publicar este evento en directo ahora), se crearán las direcciones URL de publicación del evento.
 

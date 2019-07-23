@@ -1,5 +1,5 @@
 ---
-title: Configuración de Marketplace para una imagen de contenedores de Azure | Azure Marketplace
+title: Configuración de Marketplace para una imagen de contenedor de Azure | Azure Marketplace
 description: Configure Marketplace para un contenedor de Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: f2d735662fcd177f64d1ebc71a25b7d7629db3ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942652"
 ---
 # <a name="container-marketplace-tab"></a>Pestaña de Marketplace de contenedor
@@ -33,7 +33,7 @@ En la tabla siguiente se describen la finalidad y el contenido de estos campos. 
 | **Resumen largo\***          | Resumen más largo de la oferta (aunque podría ser igual que el **resumen**).  La longitud máxima es de 256 caracteres. |
 | **Descripción\***           | Descripción de la oferta.  La longitud máxima es de 3000 caracteres y admite el formato HTML simple.
 | **Identificador de marketing**  | Dirección URL única para asociar a esta oferta, que normalmente incluye la organización y el nombre de la solución. La longitud máxima es de 50 caracteres.   |
-| **Identificadores de suscripción de versión preliminar\*** | Agregue entre uno y 100 identificadores de suscripción de versión preliminar. Estas suscripciones permitidas tendrán acceso a la oferta una vez publicada, antes de su lanzamiento. |
+| **Id. de suscripción de versión preliminar\*** | Agregue entre uno y 100 identificadores de suscripción de versión preliminar. Estas suscripciones permitidas tendrán acceso a la oferta una vez publicada, antes de su lanzamiento. |
 |  |  |
 
 

@@ -1,16 +1,16 @@
 ---
 title: Reinicio de un servidor de Azure Database for MySQL mediante Azure Portal
-description: En este artículo se describe cómo puede reiniciar un servidor Azure Database for MySQL mediante Azure portal.
+description: En este artículo se describe cómo reiniciar un servidor de Azure Database for MySQL mediante Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.openlocfilehash: a20030a1dc6cd8b89064731c283f9b462d30ec8f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61422594"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Reinicio de un servidor de Azure Database for MySQL mediante Azure Portal
@@ -22,7 +22,7 @@ El tiempo necesario para completar un reinicio depende el proceso de recuperaci�
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar esta guía, necesita:
-- Un [-Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md)
+- Un [servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="perform-server-restart"></a>Realización del reinicio del servidor
 

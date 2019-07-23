@@ -4,7 +4,7 @@ description: Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que c
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 1f9512e4eabf76edecef594b6b6498782725c019
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327973"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671600"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Información para las distribuciones no aprobadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -74,7 +74,7 @@ El mecanismo para volver a generar la imagen initrd o initramfs puede variar dep
 ### <a name="resizing-vhds"></a>Cambio de tamaño de los discos duros virtuales
 Las imágenes VHD en Azure deben tener un tamaño virtual alineado con 1 MB.  Normalmente, los discos duros virtuales creados con Hyper-V se alinean correctamente.  Si el disco duro virtual no está alineado correctamente, recibirá un mensaje de error similar al siguiente cuando intente crear una imagen desde el disco duro virtual.
 
-* El disco duro virtual http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd tiene un tamaño virtual no admitido de 21475270656 bytes. El tamaño debe ser un número entero (en MB).
+* El disco duro virtual http:\//\<micuentadealmacenamiento>.blob.core.windows.net/vhds/MyLinuxVM.vhd tiene un tamaño virtual no admitido de 21 475 270 656 bytes. El tamaño debe ser un número entero (en MB).
 
 En este caso, puede cambiar el tamaño de la VM mediante la consola de administrador de Hyper-V o el del cmdlet de PowerShell [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx).  Si no está trabajando en un entorno de Windows, se recomienda usar `qemu-img` para convertir (si es necesario) y cambiar el tamaño del disco duro virtual.
 
@@ -144,10 +144,10 @@ Si se requiere un kernel personalizado, se recomienda usar una versión de kerne
 Las revisiones siguientes deben incluirse en el kernel. Esta lista no puede ser completa para todas las distribuciones.
 
 * [ata_piix: Aplazar discos a los controladores de Hyper-V de manera predeterminada](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc: Para los paquetes en tránsito en la ruta de acceso de restablecimiento de la cuenta](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc: cuenta para paquetes en tránsito en la ruta de RESET](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc: Evitar el uso de WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc: Deshabilita WRITE SAME para RAID y controladores de adaptador de host virtual](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
-* [storvsc: Corrección de desreferenciación del puntero NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+* [storvsc: deshabilita WRITE SAME para RAID y controladores del adaptador de host virtual](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc: corrección de desreferenciación del puntero nulo](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc: Los errores de búfer de anillo pueden dar lugar a una inmovilización de E/S](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs: Protección contra la ejecución doble de __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 

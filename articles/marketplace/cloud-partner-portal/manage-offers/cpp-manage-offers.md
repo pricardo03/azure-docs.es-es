@@ -1,5 +1,5 @@
 ---
-title: Administración de Azure y ofertas de AppSource Marketplace | Azure Marketplace
+title: Administración de las ofertas del Marketplace de Azure y AppSource | Azure Marketplace
 description: Administración de las ofertas del Marketplace de Azure y AppSource
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pabutler
 ms.openlocfilehash: 8a03ce94971d704aa38c1be5d7cfbb3c24bd2f82
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943357"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>Administración de las ofertas del Marketplace de Azure y AppSource

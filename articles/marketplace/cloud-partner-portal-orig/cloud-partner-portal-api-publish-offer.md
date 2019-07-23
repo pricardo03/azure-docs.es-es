@@ -1,5 +1,5 @@
 ---
-title: Publicar una oferta | Azure Marketplace
+title: Publicación de una oferta | Azure Marketplace
 description: API para publicar la oferta especificada.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 117a4e5e238e754524ff813ce25ebc1105e2153c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64934978"
 ---
 <a name="publish-an-offer"></a>Publicación de una oferta
@@ -26,8 +26,8 @@ Inicia el proceso de publicación de la oferta especificada. Esta llamada es una
 
 |  **Nombre**      |    **Descripción**                               |  **Tipo de datos** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificador del publicador, por ejemplo `contoso`.      |   string       |
-|  offerId       | Identificador de la oferta.                                 |   string       |
+|  publisherId   | Identificador del publicador, por ejemplo `contoso`.      |   Cadena       |
+|  offerId       | Identificador de la oferta.                                 |   Cadena       |
 |  api-version   | La versión más reciente de la API                        |   Date         |
 |  |  |
 

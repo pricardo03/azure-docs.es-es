@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303268"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64687275"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad
 ## <a name="overview"></a>Información general
@@ -67,7 +67,7 @@ Después de crear una directiva de copia de seguridad, aparece la siguiente info
 * **Grupo de volúmenes** : grupo de volúmenes asociado a la directiva.
 * **Retención** : número de instantáneas retenidas; el número máximo es 64.
 * **Creado** : fecha en que se creó esta directiva.
-* **Habilitado** : indica si la directiva está actualmente en vigor: **True** indica que está en vigor; **False** indica que no está en vigor.
+* **Habilitado** : indica si la directiva está actualmente en vigor. **True** indica que está en vigor; **False** indica que no está en vigor.
 
 ## <a name="edit-a-backup-policy"></a>Edición de una directiva de copia de seguridad
 Use el procedimiento siguiente para editar una directiva de copia de seguridad existente.

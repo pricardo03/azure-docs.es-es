@@ -18,17 +18,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919164"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Cuentas y permisos
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Cuentas utilizadas para Azure AD Connect
 
-![Introducción a las cuentas](media/reference-connect-accounts-permissions/account5.png)
+![información general sobre las cuentas](media/reference-connect-accounts-permissions/account5.png)
 
 Azure AD Connect usa 3 cuentas para sincronizar la información de un entorno local o de Windows Server Active Directory con Azure Active Directory.  Estas cuentas son:
 
@@ -46,7 +46,7 @@ Además de estas tres cuentas usadas para ejecutar Azure AD Connect, también ne
 
 - **Cuenta de administrador global de Azure AD**: utilizada para crear la cuenta del conector de Azure AD y configurar Azure AD.
 
-- **Cuenta de SA de SQL (opcional)**: usada para crear la base de datos ADSync cuando se usa la versión completa de SQL Server.  Este servidor SQL Server puede ser local o remoto a la instalación de Azure AD Connect.  Esta cuenta puede ser la misma cuenta que la del administrador de empresa.  El administrador de SQL puede realizar ahora el aprovisionamiento de la base de datos fuera de banda y luego el administrador de Azure AD Connect puede instalarla con derechos de propietario de la base de datos.  Para más información, consulte [Instalación de Azure AD Connect con permisos de administrador delegado de SQL](how-to-connect-install-sql-delegation.md)
+- **Cuenta de SA de SQL (opcional)** : usada para crear la base de datos ADSync cuando se usa la versión completa de SQL Server.  Este servidor SQL Server puede ser local o remoto a la instalación de Azure AD Connect.  Esta cuenta puede ser la misma cuenta que la del administrador de empresa.  El administrador de SQL puede realizar ahora el aprovisionamiento de la base de datos fuera de banda y luego el administrador de Azure AD Connect puede instalarla con derechos de propietario de la base de datos.  Para más información, consulte [Instalación de Azure AD Connect con permisos de administrador delegado de SQL](how-to-connect-install-sql-delegation.md)
 
 ## <a name="installing-azure-ad-connect"></a>Instalación de Azure AD Connect
 El asistente para instalación de Azure AD Connect ofrece dos itinerarios diferentes:
@@ -111,10 +111,10 @@ A continuación se ofrece un resumen de las páginas del asistente para instalac
 | Instalar servicios de sincronización, opción de cuenta de servicio |Credenciales de cuenta de usuario local o de AD |Usuario, el asistente para instalación concede los permisos |Si el administrador especifica una cuenta, esta se usa como cuenta de servicio para el servicio de sincronización. |
 | Conectarse a Azure |Credenciales de directorio de Azure AD |Rol de administrador global en Azure AD |<li>Habilitación de la sincronización en el directorio de Azure AD</li>  <li>Creación de la cuenta del conector de Azure AD que se usa para las operaciones de sincronización en curso en Azure AD.</li> |
 | Conectar sus directorios |Credenciales de Active Directory local para cada bosque que se conecta a Azure AD |Los permisos dependen de las características que se habiliten y se pueden encontrar en Creación de la cuenta del conector de AD DS |Esta cuenta se usa para leer y escribir información de directorio durante la sincronización. |
-| Servidores de AD FS |Para cada servidor en la lista, el asistente recopila credenciales cuando las credenciales de inicio de sesión del usuario que ejecuta al asistente son suficientes para conectarse |Administrador de dominio |Instalación y configuración del rol de servidor de AD FS. |
-| Servidores proxy de aplicación web |Para cada servidor en la lista, el asistente recopila credenciales cuando las credenciales de inicio de sesión del usuario que ejecuta al asistente son suficientes para conectarse |Administrador local en la máquina de destino |Instalación y configuración del rol de servidor de WAP. |
+| Servidores de AD FS |Para cada servidor de la lista, el asistente recopila credenciales cuando las credenciales de inicio de sesión del usuario que ejecuta el asistente no son suficientes para conectarse. |Administrador de dominio |Instalación y configuración del rol de servidor de AD FS. |
+| Servidores proxy de aplicación web |Para cada servidor de la lista, el asistente recopila credenciales cuando las credenciales de inicio de sesión del usuario que ejecuta el asistente no son suficientes para conectarse. |Administrador local en la máquina de destino |Instalación y configuración del rol de servidor de WAP. |
 | Credenciales de confianza del proxy |Credenciales de confianza del servicio de federación (las credenciales que el proxy usa para inscribirse para obtener un certificado de confianza de FS) |Cuenta de dominio que es un administrador local del servidor de AD FS |Inscripción inicial de certificados de confianza de FS WAP |
-| Página de cuenta de servicio de AD FS, "Usar una opción de cuenta de usuario de dominio" |Credenciales de cuenta de usuario de AD |Usuario de dominio |Se utiliza la cuenta de usuario de Azure AD cuyas credenciales se proporcionan como la cuenta de inicio de sesión del servicio AD FS. |
+| Página de cuenta de servicio de AD FS, "Usar una opción de cuenta de usuario de dominio" |Credenciales de cuenta de usuario de AD |Usuario de dominio |La cuenta de usuario de Azure AD cuyas credenciales se especifiquen se usa como cuenta de inicio de sesión del servicio AD FS. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Creación de la cuenta del conector de AD DS
 
@@ -154,7 +154,7 @@ Al actualizar desde una versión de Azure AD Connect a una nueva versión, neces
 
 ## <a name="more-about-the-created-accounts"></a>Más información acerca de las cuentas creadas
 ### <a name="ad-ds-connector-account"></a>Cuenta del conector de AD DS
-Si utiliza la configuración rápida, se crea una cuenta en Active Directory que se usa para sincronización. La cuenta creada se ubica en el dominio raíz del bosque en el contenedor Usuarios y su nombre tiene el prefijo **MSOL_**. La cuenta se crea con una contraseña larga compleja que no expira. Si tiene una directiva de contraseñas en el dominio, asegúrese de que se permitan contraseñas largas y complejas para esta cuenta.
+Si utiliza la configuración rápida, se crea una cuenta en Active Directory que se usa para sincronización. La cuenta creada se ubica en el dominio raíz del bosque en el contenedor Usuarios y su nombre tiene el prefijo **MSOL_** . La cuenta se crea con una contraseña larga compleja que no expira. Si tiene una directiva de contraseñas en el dominio, asegúrese de que se permitan contraseñas largas y complejas para esta cuenta.
 
 ![Cuenta de AD](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
@@ -241,9 +241,9 @@ Hay un límite de 20 cuentas de servicio de sincronización en Azure AD. Para ob
 Para quitar las cuentas de servicio de Azure AD sin usar, ejecute el siguiente cmdlet de Azure AD PowerShell: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Para poder usar los comandos de PowerShell anteriores deberá instalar el [Azure Active Directory PowerShell para el módulo de gráfico](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) y conectarse a la instancia de Azure AD mediante [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>Para poder usar los comandos de PowerShell anteriores deberá instalar el [módulo Azure Active Directory PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) y conectarse a la instancia de Azure AD mediante [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
 
-Para obtener más información sobre cómo administrar o restablecer la contraseña de la cuenta de Azure AD Connector, consulte [administrar la cuenta de Azure AD Connect](how-to-connect-azureadaccount.md)
+Para obtener más información sobre cómo administrar o restablecer la contraseña de la cuenta del conector de Azure AD, consulte [Administración de la cuenta de Azure AD Connect](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>documentación relacionada
 Si no leyó la documentación que se encuentra en [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md), en la tabla siguiente se proporcionan vínculos a temas relacionados.
@@ -254,7 +254,7 @@ Si no leyó la documentación que se encuentra en [Integración de las identidad
 |Instalación mediante configuración rápida | [Instalación rápida de Azure AD Connect](how-to-connect-install-express.md)|
 |Instalación mediante configuración personalizada | [Instalación personalizada de Azure AD Connect](./how-to-connect-install-custom.md)|
 |Actualización desde DirSync | [Actualización desde la herramienta de sincronización de Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md)|
-|Después de la instalación | [Comprobar la instalación y asignar licencias](how-to-connect-post-installation.md)|
+|Después de la instalación | [Comprobación de la instalación y asignación de licencias ](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

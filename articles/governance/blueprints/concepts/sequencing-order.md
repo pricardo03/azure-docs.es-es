@@ -1,6 +1,6 @@
 ---
 title: Orden de la secuencia de implementación
-description: Obtenga información sobre el ciclo de vida que atraviesa una definición del plano técnico y los detalles sobre cada fase.
+description: Información acerca del ciclo de vida de la definición de un plano técnico y detalles sobre cada fase.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/25/2019
@@ -9,15 +9,15 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: b05a7ce260e8cc1da4ac8a0c186694ae097a3b1e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721288"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Información sobre la secuencia de implementación en Azure Blueprint
 
-Azure usa planos un **orden secuenciación** para determinar el orden de creación de recursos al procesar la asignación de una definición del plano técnico. En este artículo se explican los conceptos siguientes:
+Azure Blueprints usa un **orden de secuenciación** para determinar el orden de creación de recursos al procesar la asignación de una definición de plano técnico. En este artículo se explican los conceptos siguientes:
 
 - El orden de secuenciación predeterminado que se usa
 - Cómo personalizar el orden
@@ -29,7 +29,7 @@ Hay variables en los ejemplos JSON que se deben reemplazar por los suyos propios
 
 ## <a name="default-sequencing-order"></a>Orden de secuenciación predeterminado
 
-Si la definición del plano técnico no contiene ninguna directiva para el pedido implementar los artefactos o la directiva es null, se utiliza el orden siguiente:
+Si la definición de plano técnico no contiene ninguna directiva para el orden en que se implementarán los artefactos o la directiva es null, se utiliza el orden siguiente:
 
 - Artefactos de **asignación de roles** de nivel de suscripción ordenados por nombre de artefacto
 - Artefactos de **asignación de directiva** de nivel de suscripción ordenados por nombre de artefacto
@@ -43,17 +43,17 @@ Dentro de cada artefacto de **grupo de recursos**, se usa el orden de secuencia 
 - Artefactos de **plantilla de Azure Resource Manager** secundarios de grupo de recursos ordenados por nombre de artefacto
 
 > [!NOTE]
-> El uso de [artifacts()](../reference/blueprint-functions.md#artifacts) crea una dependencia implícita en el artefacto que se hace referencia.
+> El uso de [artifacts()](../reference/blueprint-functions.md#artifacts) crea una dependencia implícita en el artefacto al que se hace referencia.
 
 ## <a name="customizing-the-sequencing-order"></a>Personalización del orden de secuenciación
 
-Al crear la definición del plano técnico grandes, puede ser necesario para los recursos que se creará en un orden específico. El patrón de uso más común de este escenario es cuando una definición de plano técnico incluye varias plantillas de Azure Resource Manager. Para que Blueprints controle este patrón, permite definir el orden de secuenciación.
+Cuando crea definiciones de planos técnicos de gran tamaño, puede ser necesario que los recursos se creen en un orden específico. El patrón de uso más común de este escenario se da cuando una definición de plano técnico incluye varias plantillas de Azure Resource Manager. Para que Blueprints controle este patrón, permite definir el orden de secuenciación.
 
-La ordenación se logra definiendo una propiedad `dependsOn` en JSON. La definición del plano técnico para grupos de recursos y objetos de artefacto admite esta propiedad. `dependsOn` es una matriz de cadenas de nombres de artefacto que el artefacto en particular debe crear antes de su propia creación.
+La ordenación se logra definiendo una propiedad `dependsOn` en JSON. La definición de plano técnico (para grupos de recursos) y los objetos de artefacto admiten esta propiedad. `dependsOn` es una matriz de cadenas de nombres de artefacto que el artefacto en particular debe crear antes de su propia creación.
 
-### <a name="example---ordered-resource-group"></a>Por ejemplo, ordenados de grupo de recursos
+### <a name="example---ordered-resource-group"></a>Ejemplo: grupo de recursos ordenado
 
-Esta definición de plano de ejemplo tiene un grupo de recursos que ha definido un orden personalizado de secuenciación declarando un valor para `dependsOn`, junto con un grupo de recursos estándar. En este caso, el artefacto denominado **assignPolicyTags** se procesará antes que el grupo de recursos **ordered-rg**.
+Esta definición de plano técnico de ejemplo tiene un grupo de recursos que ha definido un orden personalizado de secuenciación declarando un valor para `dependsOn`, junto con un grupo de recursos estándar. En este caso, el artefacto denominado **assignPolicyTags** se procesará antes que el grupo de recursos **ordered-rg**.
 **standard-rg** se procesará en el orden de secuenciación predeterminado.
 
 ```json
@@ -104,9 +104,9 @@ Este ejemplo es un artefacto de directiva que depende de una plantilla de Azure 
 }
 ```
 
-### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Por ejemplo, artefactos de plantilla de nivel de suscripción según un grupo de recursos
+### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Ejemplo: artefacto de plantilla en el nivel de la suscripción que depende de un grupo de recursos
 
-En este ejemplo es para una plantilla de Resource Manager implementada en el nivel de suscripción a depender de un grupo de recursos. De forma predeterminada en orden, se crearán los artefactos de nivel de suscripción antes de los grupos de recursos y los artefactos de secundarios de esos grupos de recursos. El grupo de recursos se define en la definición del plano técnico similar al siguiente:
+Este ejemplo es para una plantilla de Resource Manager implementada en el nivel de suscripción que depende de un grupo de recursos. En el orden predeterminado, los artefactos de nivel de suscripción se crean antes que los grupos de recursos y los artefactos secundarios de esos grupos de recursos. El grupo de recursos se define en la definición del plano técnico de la siguiente forma:
 
 ```json
 "resourceGroups": {
@@ -118,7 +118,7 @@ En este ejemplo es para una plantilla de Resource Manager implementada en el niv
 }
 ```
 
-El artefacto de la plantilla de nivel de suscripción en función de la **wait-para mi** se define el grupo de recursos similar al siguiente:
+El artefacto de plantilla de nivel de suscripción que depende del grupo de recursos **wait-for-me** se define de la siguiente forma:
 
 ```json
 {

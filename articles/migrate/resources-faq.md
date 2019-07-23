@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: snehaa
 ms.openlocfilehash: 17cead93325da903161d95b315435d6e7b106dbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61292990"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate: preguntas más frecuentes (P+F)
@@ -21,7 +21,7 @@ En este artículo se incluyen las preguntas más frecuentes sobre Azure Migrate.
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>¿Admite Azure Migrate la evaluación de cargas de trabajo solo de VMware?
 
-Sí, Azure Migrate solo admite actualmente la evaluación de cargas de trabajo de VMware. Soporte técnico para Hyper-V está en versión preliminar, regístrese [aquí](https://aka.ms/migratefuture) para obtener acceso a la versión preliminar. Compatibilidad con servidores físicos se habilitará en el futuro.
+Sí, Azure Migrate solo admite actualmente la evaluación de cargas de trabajo de VMware. La compatibilidad con Hyper-V está en versión preliminar; regístrese [aquí](https://aka.ms/migratefuture) para obtener acceso a la versión preliminar. La compatibilidad con los servidores físicos se habilitará en el futuro.
 
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>¿Azure Migrate necesita vCenter Server para detectar un entorno de VMware?
 
@@ -42,7 +42,7 @@ Azure Migrate es una herramienta de planeación de migración y Azure Site Recov
 
 **Migración de VMware a Azure**: Si piensa migrar las cargas de trabajo locales a Azure, use Azure Migrate para planear la migración. Azure Migrate evalúa las cargas de trabajo local y proporciona orientación, información y mecanismos que le ayudarán a realizar la migración a Azure. Cuando esté preparado para el plan de migración, puede usar servicios como Azure Site Recovery y Azure Database Migration Service para migrar las máquinas a Azure.
 
-**Migración de Hyper-V a Azure**: La versión disponible con carácter general de Azure Migrate actualmente admite la evaluación de máquinas virtuales de VMware para la migración a Azure. Soporte técnico para Hyper-V está actualmente en versión preliminar con el soporte técnico de producción. Si está interesado en probar la versión preliminar, regístrese [aquí](https://aka.ms/migratefuture).
+**Migración de Hyper-V a Azure**: La versión disponible con carácter general de Azure Migrate admite actualmente la evaluación de las máquinas virtuales de VMware para la migración a Azure. La compatibilidad con Hyper-V está actualmente en versión preliminar con soporte de producción. Si está interesado en probar la versión preliminar, regístrese [aquí](https://aka.ms/migratefuture).
 
 **Recuperación ante desastres de VMware o Hyper-V en Azure**: Si tiene previsto realizar la recuperación ante desastres (DR) en Azure con Azure Site Recovery (Site Recovery), use Site Recovery Deployment Planner para el plan de la recuperación. Site Recovery Deployment Planner realiza una evaluación profunda específica de ASR de su entorno local. Proporciona recomendaciones que Site Recovery necesita para realizar correctamente las operaciones de recuperación ante desastres, tales como la replicación y la conmutación por error de las máquinas virtuales.  
 
@@ -61,9 +61,9 @@ Estados Unidos | Centro-oeste de EE. UU. o Este de EE. UU.
 
 La conexión puede ser a través de Internet o usar ExpressRoute con emparejamiento público.
 
-### <a name="what-network-connectivity-requirements-are-needed-for-azure-migrate"></a>¿Qué requisitos de conectividad de red son necesarios para migrar de Azure?
+### <a name="what-network-connectivity-requirements-are-needed-for-azure-migrate"></a>¿Qué requisitos de conectividad de red son necesarios para Azure Migrate?
 
-Para que las direcciones URL y puertos necesarios para migrar de Azure para comunicarse con Azure, consulte [direcciones URL para la conectividad](https://docs.microsoft.com/azure/migrate/concepts-collector#urls-for-connectivity).
+Para que las direcciones URL y los puertos necesarios para Azure Migrate se comuniquen con Azure, consulte las [direcciones URL para la conectividad](https://docs.microsoft.com/azure/migrate/concepts-collector#urls-for-connectivity).
 
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>¿Puedo proteger la configuración de máquina virtual con la plantilla OVA?
 
@@ -108,11 +108,11 @@ La detección basada en el dispositivo recopila metadatos acerca de las máquina
   - Red interna
   - Red externa
 
-La detección basada en agente es una opción disponible sobre la detección basada en dispositivos y ayuda a los clientes [visualizar dependencias](how-to-create-group-machine-dependencies.md) de las instalaciones en las máquinas virtuales. Los agentes de dependencias recopilan detalles, como el FQDN, el sistema operativo, la dirección IP, la dirección MAC, los procesos que se ejecutan dentro de la máquina virtual y las conexiones TCP entrantes o salientes de la máquina virtual. La detección basada en el agente es opcional y puede elegir no instalar los agentes si no quiere ver las dependencias de las máquinas virtuales.
+La detección basada en el agente es una opción disponible además de la detección basada en el dispositivo, que ayuda a los clientes a [visualizar dependencias](how-to-create-group-machine-dependencies.md) de las VM locales. Los agentes de dependencias recopilan detalles, como el FQDN, el sistema operativo, la dirección IP, la dirección MAC, los procesos que se ejecutan dentro de la máquina virtual y las conexiones TCP entrantes o salientes de la máquina virtual. La detección basada en el agente es opcional y puede elegir no instalar los agentes si no quiere ver las dependencias de las máquinas virtuales.
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>¿Habría algún impacto en el rendimiento en el entorno del host de ESXi analizado?
 
-Con continua de generación de perfiles de datos de rendimiento, no hay ninguna necesidad de cambiar el nivel de estadísticas de servidor para ejecutar una evaluación según el rendimiento de vCenter. La aplicación del recopilador generará perfiles en las máquinas locales para medir los datos de rendimiento de las máquinas virtuales. Esto tendría un impacto prácticamente nulo en el rendimiento en los hosts de ESXi, así como en vCenter Server.
+Con los datos de rendimiento de la generación de perfiles continua, ya no es necesario cambiar el nivel de estadísticas de vCenter Server para ejecutar una evaluación basada en el rendimiento. La aplicación del recopilador generará perfiles de las máquinas locales para medir los datos de rendimiento de las máquinas virtuales. Esto tendría un impacto prácticamente nulo en el rendimiento en los hosts de ESXi, así como en vCenter Server.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>¿Dónde se almacenan los datos recopilados y durante cuánto tiempo?
 
@@ -178,7 +178,7 @@ Estas propiedades solo son aplicables para el ajuste de tamaño basado en el ren
 
 ### <a name="what-is-dependency-visualization"></a>¿Qué es la visualización de dependencias?
 
-La visualización de dependencias permite evaluar los grupos de máquinas virtuales para la migración con mayor confianza mediante la comprobación cruzada de dependencias de máquina antes de ejecutar una evaluación. La visualización de dependencias le ayuda a asegurarse de que nada se queda atrás, evitando interrupciones inesperadas al migrar a Azure. Azure Migrate aprovecha la solución Service Map en registros de Azure Monitor para habilitar la visualización de dependencias.
+La visualización de dependencias permite evaluar los grupos de máquinas virtuales para la migración con mayor confianza mediante la comprobación cruzada de dependencias de máquina antes de ejecutar una evaluación. La visualización de dependencias le ayuda a asegurarse de que nada se queda atrás, evitando interrupciones inesperadas al migrar a Azure. Azure Migrate aprovecha la solución Service Map de los registros de Azure Monitor para habilitar la visualización de dependencias.
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>¿Tengo que pagar por usar la característica de visualización de dependencias?
 

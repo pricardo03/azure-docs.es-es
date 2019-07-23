@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 167f697d4928d88114a30739a1d39a576c87ac84
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126662"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico con Durable Functions en Azure
@@ -327,7 +327,7 @@ Azure Functions admite la depuración directa de código de función y esa misma
 
 De forma predeterminada, Durable Functions almacena el estado en Azure Storage. Esto significa que puede inspeccionar el estado de las orquestaciones con herramientas como el [Explorador de Microsoft Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Captura de pantalla de Azure Storage Explorer](./media/durable-functions-diagnostics/storage-explorer.png)
+![Captura de pantalla del Explorador de Azure Storage](./media/durable-functions-diagnostics/storage-explorer.png)
 
 Esto es útil para la depuración, porque verá el estado concreto de las orquestaciones. También se pueden examinar los mensajes de las colas para conocer el trabajo pendiente (o bloqueado, en algunos casos).
 

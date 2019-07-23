@@ -1,5 +1,5 @@
 ---
-title: Creación de una oferta de contenedores de Azure | Azure Marketplace
+title: Creación de una oferta de contenedor de Azure | Azure Marketplace
 description: Publicación de una nueva oferta de contenedor para Marketplace
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
 ms.openlocfilehash: 1a0a2bd9132ba5d018bc5d45699c052d10c30162
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942674"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Creación de una oferta de contenedor con Cloud Partner Portal

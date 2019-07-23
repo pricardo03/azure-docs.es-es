@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2018
 ms.author: magoedte
 ms.openlocfilehash: 0e4268cb3a8d6ac62da12f689560338eee7e6935
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65071813"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores
@@ -26,7 +26,7 @@ Después de habilitar la supervisión del clúster de AKS, puede dejar de superv
 
 
 ## <a name="azure-cli"></a>Azure CLI
-Use el comando [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para deshabilitar Azure Monitor para contenedores. El comando quita el agente de los nodos del clúster, no elimina los datos ya recopilados y almacenados en el recurso de Azure Monitor o la solución.  
+Use el comando [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para deshabilitar Azure Monitor para contenedores. El comando quita el agente de los nodos del clúster, no la solución ni los datos ya recopilados y almacenados en el recurso de Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG

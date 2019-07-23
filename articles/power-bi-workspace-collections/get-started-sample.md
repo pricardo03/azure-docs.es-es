@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.openlocfilehash: 6cf78bf9c83df0a1255c14499bbd2036a2be5ed6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714509"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Introducción a un ejemplo de colecciones de áreas de trabajo de Power BI
@@ -26,7 +26,7 @@ Antes de seguir, deseará guardar los recursos siguientes: Ellos nos permitirán
 
 * [Aplicación web de área de trabajo de ejemplo](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Referencia de API de colecciones de áreas de trabajo de Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [.NET SDK de Power BI](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible a través de NuGet)
+* [SDK de .NET para Power BI](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible a través de NuGet)
 * [Ejemplo de inserción de informe de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -209,7 +209,7 @@ public ActionResult Reports()
 }
 ```
 
-Tarea\<ActionResult > informes (string reportId)
+Task\<ActionResult> Report(string reportId)
 
 ```csharp
 public async Task<ActionResult> Report(string reportId)
@@ -259,7 +259,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > [!NOTE]
 > {tableName/fieldName} no puede incluir espacios ni caracteres especiales. {fieldValue} acepta un único valor de categoría.  
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Escenarios comunes de Colección de áreas de trabajo de Microsoft Power BI](scenarios.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  

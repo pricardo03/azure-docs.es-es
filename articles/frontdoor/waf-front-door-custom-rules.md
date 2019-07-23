@@ -1,6 +1,6 @@
 ---
-title: Regla personalizada de Web application firewall para el acceso de principal de Azure
-description: Obtenga información sobre cómo utilizar reglas aplicaciones web (WAF) de firewall personalizadas proteger las aplicaciones web frente a ataques malintencionados.
+title: Regla personalizada del firewall de aplicaciones web para Azure Front Door
+description: Obtenga información sobre cómo utilizar las reglas personalizadas del firewall de aplicaciones web (WAF) que protegen sus aplicaciones web frente a ataques malintencionados.
 author: KumudD
 ms.service: frontdoor
 ms.devlang: na
@@ -10,73 +10,73 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459715"
 ---
-#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Reglas personalizadas para firewall de aplicaciones web con Azure puerta de entrada
-Firewall de aplicaciones web de Azure (WAF) con el servicio de puerta de entrada permite controlar el acceso a sus aplicaciones web en función de las condiciones que defina. Una regla de WAF personalizada consta de un número de prioridad, un tipo de regla, las condiciones de coincidencia y una acción. Hay dos tipos de reglas personalizadas: coincide con las reglas y reglas de limitación de velocidad. Una regla de coincidencia controla el acceso basado en condiciones de coincidencia, mientras que una regla de límite de velocidad controla el acceso basándose en la coincidencia de las condiciones y las tasas de solicitudes entrantes. Puede deshabilitar una regla personalizada para impedir que se está evaluando, pero mantener la configuración. En este artículo se describe las reglas de coincidencia que se basan en los parámetros http.
+#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Reglas personalizadas para el firewall de aplicaciones web con Azure Front Door
+El servicio del firewall de aplicaciones web (WAF) de Azure con Front Door le permite controlar el acceso a sus aplicaciones web en función de las condiciones que defina. Una regla WAF personalizada consta de un número de prioridad, un tipo de regla, condiciones de coincidencia y una acción. Existen dos tipos de reglas personalizadas: reglas de coincidencia y reglas de límite de frecuencia. Una regla de coincidencia controla el acceso en función de las condiciones de coincidencia, mientras que una regla de limitación de frecuencia controla el acceso en función de las condiciones de coincidencia y la frecuencia de las solicitudes entrantes. Puede deshabilitar una regla personalizada para impedir que se evalúe, pero mantener la configuración. En este artículo se describen las reglas de coincidencia que se basan en parámetros HTTP.
 
-## <a name="priority-match-conditions-and-action-types"></a>Tipos de acciones, condiciones de coincidencia y prioridad
-Puede controlar el acceso con una regla de WAf personalizada que define un número de prioridad, un tipo de regla, las condiciones de coincidencia y una acción. 
+## <a name="priority-match-conditions-and-action-types"></a>Prioridad, condiciones de coincidencia y tipos de acción
+Puede controlar el acceso con una regla WAF personalizada que defina un número de prioridad, un tipo de regla, condiciones de coincidencia y una acción. 
 
-- **Prioridad:** es un entero único que describe el orden de evaluación de reglas de WAF. Las reglas con los valores más bajos se evalúan antes que las reglas con los valores más altos
+- **Prioridad:** es un entero único que describe el orden de evaluación de las reglas WAF. Las reglas con valores más bajos se evalúan antes que las reglas con valores más altos.
 
-- **Acción:** define cómo enrutar una solicitud si coincide con una regla de WAF. Puede elegir una de las siguientes acciones para que se aplica cuando una solicitud coincide con una regla personalizada.
+- **Acción:** define cómo enrutar una solicitud si coincide con una regla WAF. Puede elegir una de las siguientes acciones para que se aplique cuando una solicitud coincida con una regla personalizada.
 
-    - *Permitir* -WAF reenvía la solicitud al back-end, registra una entrada en los registros de WAF y se cierra.
-    - *Bloque* -solicitud está bloqueada, WAF envía la respuesta al cliente sin reenviar la solicitud al back-end. WAF registra una entrada en los registros de WAF.
-    - *Registro* -registros de WAF una entrada de WAF se registra y se continúa evaluación la regla siguiente.
-    - *Redirigir* -WAF redirige la solicitud a un URI especificado, registra una entrada en los registros de WAF y se cierra.
+    - *Permitir*:WAF reenvía la solicitud al back-end, registra una entrada en los registros de WAF y se cierra.
+    - *Bloquear*: la solicitud está bloqueada y WAF envía una respuesta al cliente sin reenviar la solicitud al servidor back-end. WAF registra una entrada en los registros de WAF.
+    - *Registro*: WAF registra una entrada en los registros de WAF y continúa evaluando la regla siguiente.
+    - *Redirigir*: WAF redirige la solicitud a un URI especificado, registra una entrada en los registros de WAF y se cierra.
 
-- **Condición de coincidencia:** define una variable de coincidencia, un operador y que coinciden con el valor. Cada regla puede contener varias condiciones de coincidencia. Una condición de coincidencia puede basarse en la siguiente *coinciden con las variables*:
-    - DirRemota (IP de cliente)
-    - requestMethod
+- **Condición de coincidencia**: define una variable de coincidencia, un operador y un valor de coincidencia. Cada regla puede contener varias condiciones de coincidencia. Una condición de coincidencia puede basarse en las siguientes *variables de coincidencia*:
+    - RemoteAddr (IP de cliente)
+    - RequestMethod
     - QueryString
     - PostArgs
     - RequestUri
     - RequestHeader
     - RequestBody
 
-- **Operador:** lista incluye lo siguiente:
-    - Ninguno: a menudo se usa para definir la acción predeterminada si no hay reglas se cumplen. Cualquier es una coincidencia operador all.
-    - IPMatch: definir restricciones de IP para la variable DirRemota
-    - GeoMatch: definir geográfica filtrado para DirRemota variable
+- **Operador**: la lista incluye los elementos que se indican a continuación.
+    - Any: a menudo se usa para definir la acción predeterminada si ninguna regla coincide. Any es un operador de coincidencia de todo.
+    - IPMatch: defina una restricción de IP para la variable RemoteAddr.
+    - GeoMatch: defina un filtrado geográfico para la variable RemoteAddr.
     - Igual
     - Contains
-    - LessThan: restricción del tamaño
-    - GreaterThan: restricción del tamaño
-    - LessThanOrEqual: restricción del tamaño
-    - GreaterThanOrEqual: restricción del tamaño
+    - LessThan: restricción del tamaño.
+    - GreaterThan: restricción del tamaño.
+    - LessThanOrEqual: restricción del tamaño.
+    - GreaterThanOrEqual: restricción del tamaño.
     - BeginsWith
-     - endsWith
+     - EndsWith
 
-Puede establecer *negar* condición sea true si debe se niega el resultado de una condición.
+Puede establecer la condición *negate* para que sea true si el resultado de una condición debe negarse.
 
-*Coincide con el valor* define la lista de valores posibles de coincidencia.
-Admite el método de solicitud HTTP, los valores incluyen:
+El valor de coincidencia (*Match value*) define la lista de valores de coincidencia posibles.
+Los valores del método de solicitud HTTP admitidos incluyen:
 - GET
 - POST
 - PUT
 - HEAD
 - DELETE
-- BLOQUEO
-- DESBLOQUEAR
-- PERFIL
+- LOCK
+- UNLOCK
+- PROFILE
 - OPCIONES
 - PROPFIND
 - PROPPATCH
 - MKCOL
-- COPIA
-- MOVER
+- COPY
+- MOVE
 
 ## <a name="examples"></a>Ejemplos
 
-### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Ejemplo de reglas personalizadas de WAF en función de los parámetros de http
+### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Ejemplo de reglas WAF personalizadas basadas en parámetros HTTP
 
-Este es un ejemplo que muestra la configuración de una regla personalizada con dos condiciones de coincidencia. Las solicitudes proceden de un sitio especificado según se define en el origen de referencia y cadena de consulta no contiene "password".
+A continuación se incluye un ejemplo que muestra la configuración de una regla personalizada con dos condiciones de coincidencia. Las solicitudes provienen de un sitio especificado, según se define en el origen de referencia, y la cadena de consulta no contiene "password".
 
 ```
 # http rules example
@@ -108,7 +108,7 @@ Este es un ejemplo que muestra la configuración de una regla personalizada con 
 }
 
 ```
-Se muestra un ejemplo de configuración para bloquear el método "PUT" como sigue:
+A continuación se muestra un ejemplo de configuración para bloquear el método "PUT":
 
 ``` 
 # http Request Method custom rules
@@ -134,7 +134,7 @@ Se muestra un ejemplo de configuración para bloquear el método "PUT" como sigu
 
 ### <a name="size-constraint"></a>Restricción del tamaño
 
-Puede crear una regla personalizada que especifica la restricción de tamaño en la parte de una solicitud entrante. Por ejemplo, a continuación de la regla bloquea una dirección Url que tiene más de 100 caracteres.
+Puede crear una regla personalizada que especifique la restricción del tamaño en la parte de una solicitud entrante. Por ejemplo, la regla siguiente bloquea una URL que tienen más de 100 caracteres de longitud.
 
 ```
 # http parameters size constraint
@@ -159,6 +159,6 @@ Puede crear una regla personalizada que especifica la restricción de tamaño en
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga información sobre [firewall de aplicaciones web](waf-overview.md)
+- Obtener más información sobre el [firewall de aplicaciones web](waf-overview.md).
 - Aprenda a [crear una instancia de Front Door](quickstart-create-front-door.md).
 

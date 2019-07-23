@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61449060"
 ---
 # <a name="create-an-advanced-device-model"></a>Creación de un modelo de dispositivo avanzado
@@ -161,15 +161,15 @@ Los campos enumerados en el esquema pueden ser de los siguientes tipos:
 
 * Objeto: serializado mediante JSON
 * Binario: serializado mediante base64
-* Text
+* Texto
 * Boolean
 * Entero
 * Double
-* DateTime
+* Datetime
 
 ### <a name="supported-methods"></a>Métodos admitidos
 
-Los dispositivos simulados también pueden reaccionar a las llamadas a los métodos, en cuyo caso ejecutan alguna lógica y proporcionan una respuesta determinada. De forma similar a la simulación, la lógica del método se almacena en un archivo JavaScript y puede interactuar con el estado del dispositivo. Por ejemplo: 
+Los dispositivos simulados también pueden reaccionar a las llamadas a los métodos, en cuyo caso ejecutan alguna lógica y proporcionan una respuesta determinada. De forma similar a la simulación, la lógica del método se almacena en un archivo JavaScript y puede interactuar con el estado del dispositivo. Por ejemplo:
 
 ```json
 "CloudToDeviceMethods": {
@@ -259,7 +259,7 @@ Los archivos JavaScript deben tener una función **principal**, que acepta dos p
     * **deviceModel**. Por ejemplo, **Elevator**.
 * Un objeto **state** que es el valor devuelto por la función en la llamada anterior. El servicio de simulación mantiene este estado del dispositivo, que se usa para generar mensajes de telemetría.
 
-La función **main** devuelve el nuevo estado del dispositivo. Por ejemplo: 
+La función **main** devuelve el nuevo estado del dispositivo. Por ejemplo:
 
 ```JavaScript
 function main(context, state) {

@@ -10,21 +10,21 @@ ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65070866"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
-En este artículo se muestra cómo solucionar problemas habituales al administrar o implementar contenedores en Azure Container Instances. Vea también [preguntas más frecuentes](container-instances-faq.md).
+En este artículo se muestra cómo solucionar problemas habituales al administrar o implementar contenedores en Azure Container Instances. Consulte también las [preguntas más frecuentes](container-instances-faq.md).
 
 ## <a name="naming-conventions"></a>Convenciones de nomenclatura
 
 Al definir la especificación de contenedor, ciertos parámetros requieren tener en cuenta las restricciones de nomenclatura. A continuación se muestra una tabla con requisitos específicos para las propiedades del grupo de contenedores. Para más información sobre las convenciones de nomenclatura de Azure, consulte [Convenciones de nomenclatura][azure-name-restrictions] en el Centro de Arquitectura de Azure.
 
-| Scope | Length | Uso de mayúsculas y minúsculas | Caracteres válidos | Patrón sugerido | Ejemplo |
+| Ámbito | Length | Uso de mayúsculas y minúsculas | Caracteres válidos | Patrón sugerido | Ejemplo |
 | --- | --- | --- | --- | --- | --- |
 | Nombre del grupo de contenedores | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nombre del contenedor | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
@@ -46,7 +46,7 @@ Si se especifica una imagen que Azure Container Instances no admite, se devuelve
 }
 ```
 
-Este error se encuentra más a menudo al implementar imágenes de Windows que se basan en canal semianual versión 1709 o 1803, que no son compatibles. Para imágenes de Windows admitidas en Azure Container Instances, consulte [preguntas más frecuentes](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Este error se suele encontrar con más frecuencia al implementar imágenes de Windows basadas en una versión de canal semianual (SAC) 1709 o 1803, que no se admiten. Para obtener imágenes de Windows admitidas en Azure Container Instances, consulte las [preguntas más frecuentes](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## <a name="unable-to-pull-image"></a>No se puede extraer la imagen
 
@@ -89,7 +89,7 @@ Si no se puede extraer la imagen, se muestran eventos similares al siguiente en 
 
 Los grupos de contenedores tienen una [directiva de reinicio](container-instances-restart-policy.md) establecida en **Always** (Siempre) de forma predeterminada, por lo que los contenedores del grupo de contenedores siempre se reinician después de ejecutarse hasta su finalización. Es posible que deba cambiar este valor a **OnFailure** (En caso de error) o **Never** (Nunca) si va a ejecutar contenedores basados en tareas. Si especifica **OnFailure** y sigue observando reinicios continuos, podría haber un problema con la aplicación o el script que se ejecuta en el contenedor.
 
-Al ejecutar grupos de contenedores sin procesos de ejecución prolongada, es posible que vea cierres y reinicios repetidos con imágenes como Ubuntu o Alpine. La conexión mediante [EXEC](container-instances-exec.md) no funcionará porque el contenedor no tiene ningún proceso que lo mantenga activo. Para resolver este problema, incluya un comando de inicio similar al siguiente con la implementación de grupo de contenedores para mantener el contenedor en ejecución.
+Al ejecutar grupos de contenedores sin procesos de ejecución prolongada, es posible que vea cierres y reinicios repetidos con imágenes como Ubuntu o Alpine. La conexión mediante [EXEC](container-instances-exec.md) no funcionará porque el contenedor no tiene ningún proceso que lo mantenga activo. Para resolver este problema, incluya un comando de inicio similar al siguiente con la implementación del grupo de contenedores para mantener el contenedor en ejecución.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -172,12 +172,12 @@ La clave para mantener tamaños de imagen pequeños es asegurarse de que la imag
 
 Otra forma de reducir el impacto de la extracción de la imagen en el tiempo de inicio del contenedor es hospedar la imagen del contenedor con [Azure Container Registry](/azure/container-registry/) en la misma región en la que van a implementar las instancias de contenedor. Esto reduce la ruta de acceso de red que debe recorrer la imagen del contenedor, lo que reduce significativamente el tiempo de descarga.
 
-### <a name="cached-images"></a>Almacenado en caché de imágenes
+### <a name="cached-images"></a>Imágenes en caché
 
-Azure Container Instances usa un mecanismo de almacenamiento en caché para ayudar a acelerar el tiempo de inicio de contenedor para las imágenes creadas en común [imágenes de Windows base](container-instances-faq.md#what-windows-base-os-images-are-supported), incluidos `nanoserver:1809`, `servercore:ltsc2019`, y `servercore:1809`. Uso general como imágenes de Linux `ubuntu:1604` y `alpine:3.6` también se almacenan en caché. Para obtener una lista actualizada de imágenes almacenados en caché y etiquetas, utilice el [almacenado en caché de lista de imágenes] [ list-cached-images] API.
+Azure Container Instances usa un mecanismo de almacenamiento en caché para acelerar el tiempo de inicio del contenedor para las imágenes creadas con [imágenes de base de Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), incluidas `nanoserver:1809`, `servercore:ltsc2019` y `servercore:1809`. También se almacenan en caché las imágenes de Linux usadas comúnmente, como `ubuntu:1604` y `alpine:3.6`. Para obtener una lista actualizada de imágenes y etiquetas en caché, use la API [List Cached Images][list-cached-images].
 
 > [!NOTE]
-> Uso de imágenes basadas en Windows Server 2019 en Azure Container Instances está en versión preliminar.
+> El uso de imágenes basadas en Windows Server 2019 en Azure Container Instances está en versión preliminar.
 
 ### <a name="windows-containers-slow-network-readiness"></a>Preparación para la red lenta de contenedores de Windows
 

@@ -12,10 +12,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/31/2019
 ms.openlocfilehash: a078ac38cef5b395a19481188c474c7f908160d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61419619"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Advanced Data Security para Azure SQL Database
@@ -24,11 +24,11 @@ Advanced Data Security es un paquete unificado de funcionalidades avanzadas de s
 
 ## <a name="overview"></a>Información general
 
-Seguridad de datos avanzados (ADS) proporciona un conjunto de capacidades de seguridad SQL avanzadas, incluida la detección de datos y clasificación, evaluación de vulnerabilidades y protección contra amenazas avanzada.
+Advanced Data Security (ADS) proporciona un conjunto de funcionalidades avanzadas de seguridad de SQL, entre las que se incluyen Clasificación y detección de datos, Evaluación de vulnerabilidades y Advanced Threat Protection.
 
 - [Clasificación y detección de datos](sql-database-data-discovery-and-classification.md) (actualmente en versión preliminar) proporciona funcionalidades integradas en Azure SQL Database para detectar, clasificar, etiquetar y proteger la información confidencial de las bases de datos. Se puede utilizar para proporcionar visibilidad del estado de clasificación de una base de datos y para realizar un seguimiento del acceso a información confidencial dentro de la base de datos y más allá de sus límites.
 - [Evaluación de vulnerabilidades](sql-vulnerability-assessment.md) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y ayudarle a corregir posibles puntos vulnerables de una base de datos. Permite ver el estado de la seguridad e incluye los pasos necesarios para resolver problemas de seguridad y mejorar las defensas de cualquier base de datos.
-- [Protección contra amenazas avanzada](sql-database-threat-detection-overview.md) detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a la base de datos. Supervisa constantemente una base de datos para detectar actividades sospechosas y proporciona de forma inmediata alertas de seguridad de posibles puntos vulnerables, ataques por inyección de código SQL y patrones anómalos de acceso a las bases de datos. Advanced Threat Protection las alertas proporcionan los detalles de la actividad sospechosa y recomiendan acciones sobre cómo investigar y mitigar la amenaza.
+- [Advanced Threat Protection](sql-database-threat-detection-overview.md) permite detectar actividades anómalas que indica intentos poco habituales y posiblemente dañinos de acceder a sus bases de datos o aprovecharse de ellas. Supervisa constantemente una base de datos para detectar actividades sospechosas y proporciona de forma inmediata alertas de seguridad de posibles puntos vulnerables, ataques por inyección de código SQL y patrones anómalos de acceso a las bases de datos. Las alertas de Advanced Threat Protection proporcionan detalles de la actividad sospechosa y recomiendan acciones para investigar y mitigar la amenaza.
 
 Habilite ADS de SQL una vez para habilitar todas estas características incluidas. Con un solo clic, puede habilitar ADS para todas las bases de datos en el servidor de SQL Database o la instancia administrada. La habilitación o administración de la configuración de ADS requiere la pertenencia a uno de los siguientes roles: [administrador de seguridad SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager), administrador de base de datos SQL o administrador de SQL Server. 
 
@@ -43,7 +43,7 @@ Estos pasos le ayudarán a empezar a usar ADS.
 Para habilitar ADS, vaya a **Advanced Data Security** bajo el encabezado **Seguridad** para el servidor de SQL Database o la instancia administrada. Para habilitar ADS para todas las bases de datos en el servidor de bases de datos o la instancia administrada, haga clic en **Habilitar Advanced Data Security en el servidor**.
 
 > [!NOTE]
-> Una cuenta de almacenamiento automáticamente se crea y configura para almacenar su **evaluación de vulnerabilidad** resultados del análisis. Si ya ha habilitado los anuncios para otro servidor en el mismo grupo de recursos y región, se usa la cuenta de almacenamiento.
+> Una cuenta de almacenamiento se crea y se configura automáticamente para almacenar los resultados del examen de **evaluación de vulnerabilidades**. Si ya ha habilitado ADS para otro servidor en el mismo grupo de recursos y la misma región, se usa la cuenta de almacenamiento existente.
 
 ![Habilitación de ADS](./media/sql-advanced-protection/enable_ads.png) 
 
@@ -52,21 +52,21 @@ Para habilitar ADS, vaya a **Advanced Data Security** bajo el encabezado **Segur
 
 ## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. Comienzo de la clasificación de datos, el seguimiento de puntos vulnerables y la investigación de alertas de amenazas
 
-Haga clic en la tarjeta **Clasificación y detección de datos** para ver las columnas confidenciales que se recomienda clasificar y para clasificar los datos con etiquetas de confidencialidad persistentes. Haga clic en la tarjeta **Evaluación de vulnerabilidad** tarjeta no solo para ver y administrar informes y exámenes de vulnerabilidad, sino también realizar un seguimiento del estado de la seguridad. Si se han recibido alertas de seguridad, haga clic en el **protección contra amenazas avanzada** tarjeta para ver detalles de las alertas y ver un informe consolidado en todas las alertas en su suscripción de Azure a través de la página de alertas de seguridad de Azure Security Center .
+Haga clic en la tarjeta **Clasificación y detección de datos** para ver las columnas confidenciales que se recomienda clasificar y para clasificar los datos con etiquetas de confidencialidad persistentes. Haga clic en la tarjeta **Evaluación de vulnerabilidad** tarjeta no solo para ver y administrar informes y exámenes de vulnerabilidad, sino también realizar un seguimiento del estado de la seguridad. Si se han recibido alertas de seguridad, haga clic en la tarjeta **Advanced Threat Protection** para ver los detalles de las alertas y un informe consolidado de todas las alertas de su suscripción de Azure en la página de alertas de seguridad de Azure Security Center.
 
 ## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. Administración de la configuración de ADS en el servidor de SQL Database o la instancia administrada
 
-Para ver y administrar la configuración de ADS, vaya a **Advanced Data Security** bajo el encabezado **Seguridad** para el servidor de SQL Database o la instancia administrada. En esta página, puede habilitar o deshabilitar los anuncios y modificar una vulnerabilidad evaluación y la configuración de protección contra amenazas avanzada para el servidor completo de SQL Database o instancia administrada.
+Para ver y administrar la configuración de ADS, vaya a **Advanced Data Security** bajo el encabezado **Seguridad** para el servidor de SQL Database o la instancia administrada. En esta página, se puede habilitar o deshabilitar ADS, así como modificar la evaluación de vulnerabilidades y la configuración de Advanced Threat Protection para todo el servidor de SQL Database o la instancia administrada.
 
 ![Configuración del servidor](./media/sql-advanced-protection/server_settings.png) 
 
 ## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Administración de la configuración de ADS para una base de datos SQL
 
-Para reemplazar la configuración de ADS para una base de datos concreta, seleccione la casilla **Enable Advanced Data Security at the database level** (Habilitar Advanced Data Security en el nivel de base de datos). Use esta opción solo si tiene algún requisito concreto para recibir alertas de protección contra amenazas avanzada independientes o resultados de la evaluación de vulnerabilidad de la base de datos individual, en lugar de o además de las alertas y los resultados recibidos para todas las bases de datos en el servidor de base de datos o instancia administrada.
+Para reemplazar la configuración de ADS para una base de datos concreta, seleccione la casilla **Enable Advanced Data Security at the database level** (Habilitar Advanced Data Security en el nivel de base de datos). Use esta opción solo si tiene un requisito concreto para recibir las alertas de Advanced Threat Protection o resultados de la evaluación de vulnerabilidades independientes para la base de datos individual, en lugar o además de las alertas y los resultados que recibe de todas las bases de datos del servidor de bases de datos o la instancia administrada.
 
-Una vez que se selecciona la casilla de verificación, a continuación, puede configurar la configuración de esta base de datos correspondiente.
+Una vez activada la casilla de verificación, puede configurar las opciones pertinentes para esta base de datos.
  
-![Configuración de base de datos y protección contra amenazas avanzada](./media/sql-advanced-protection/database_threat_detection_settings.png) 
+![Configuración de bases de datos y Advanced Threat Protection](./media/sql-advanced-protection/database_threat_detection_settings.png) 
 
 También se puede acceder a la configuración de Advanced Data Security para el servidor de bases de datos o la instancia administrada desde el panel de bases de datos de ADS. Haga clic en **Configuración** en el panel principal de ADS y, después, haga clic en **Ver configuración de Advanced Data Security para el servidor**. 
 
@@ -76,5 +76,5 @@ También se puede acceder a la configuración de Advanced Data Security para el 
 
 - Más información sobre la [clasificación y detección de datos](sql-database-data-discovery-and-classification.md) 
 - Más información sobre la [evaluación de vulnerabilidades](sql-vulnerability-assessment.md) 
-- Obtenga más información sobre [protección contra amenazas avanzada](sql-database-threat-detection.md)
+- Más información sobre [Advanced Threat Protection](sql-database-threat-detection.md)
 - Más información sobre [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

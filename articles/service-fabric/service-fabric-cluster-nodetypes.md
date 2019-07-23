@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
 ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684688"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nodos y conjuntos de escalado de máquinas virtuales de Azure Service Fabric
-Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets) son un recurso de Azure Compute. Puede usarlos para implementar y administrar una colección de máquinas virtuales como conjunto. Cada tipo de nodo que defina en un clúster de Azure Service Fabric configura un escalado independiente.  El tiempo de ejecución de Service Fabric instalado en cada máquina virtual en el conjunto de escalado, la extensión de máquina Virtual de Microsoft.Azure.ServiceFabric. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente; puede cambiar la SKU del sistema operativo que se ejecuta en cada nodo de clúster, tener diferentes conjuntos de puertos abiertos y usar distintas métricas de capacidad.
+Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets) son un recurso de Azure Compute. Puede usarlos para implementar y administrar una colección de máquinas virtuales como conjunto. Cada tipo de nodo que defina en un clúster de Azure Service Fabric configura un escalado independiente.  El tiempo de ejecución de Service Fabric que la extensión de máquina virtual Microsoft.Azure.ServiceFabric instala en cada máquina virtual del conjunto de escalado. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente; puede cambiar la SKU del sistema operativo que se ejecuta en cada nodo de clúster, tener diferentes conjuntos de puertos abiertos y usar distintas métricas de capacidad.
 
 En la siguiente ilustración, se muestra un clúster que tiene dos tipos de nodos llamados front-end y back-end. A su vez, cada tipo de nodo tiene cinco nodos.
 
@@ -34,14 +34,14 @@ Como se muestra en la ilustración anterior, las instancias del conjunto de esca
 Al escalar verticalmente un conjunto de escalado, se crea una nueva instancia. El nuevo nombre de la instancia de conjunto de escalado será normalmente el nombre del conjunto de escalado seguido del número de instancia. En nuestro ejemplo, es BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Asignación de los equilibradores de carga del conjunto de escalado a los tipos de nodos y conjuntos de escalado
-Si ha implementado el clúster en Azure Portal o ha usado la plantilla de Azure Resource Manager de ejemplo, obtendrá una lista de todos los recursos en un grupo de recursos. Puede ver los equilibradores de carga de cada conjunto de escalado o tipo de nodo. El nombre del equilibrador de carga utiliza el formato siguiente: **LB -&lt;nombre de tipo de nodo&gt;**. Por ejemplo: LB-sfcluster4doc-0, tal y como se muestra en la ilustración siguiente:
+Si ha implementado el clúster en Azure Portal o ha usado la plantilla de Azure Resource Manager de ejemplo, obtendrá una lista de todos los recursos en un grupo de recursos. Puede ver los equilibradores de carga de cada conjunto de escalado o tipo de nodo. El nombre del equilibrador de carga usa el formato siguiente: **LB-&lt;nombre del tipo de nodo&gt;** . Por ejemplo: LB-sfcluster4doc-0, tal y como se muestra en la ilustración siguiente:
 
 ![Recursos][Resources]
 
-## <a name="service-fabric-virtual-machine-extension"></a>Extensión de máquina Virtual de Service Fabric
-Extensión de máquina Virtual de Service Fabric se utiliza para arrancar a Service Fabric en Azure Virtual Machines y configurar la seguridad de nodo.
+## <a name="service-fabric-virtual-machine-extension"></a>Extensión de máquina virtual de Service Fabric
+La extensión de máquina virtual de Service Fabric se utiliza para arrancar Service Fabric en Azure Virtual Machines y configurar la seguridad de nodo.
 
-Este es un fragmento de código de extensión de máquina Virtual de Service Fabric:
+A continuación se incluye un fragmento de código de la extensión de máquina virtual de Service Fabric:
 
 ```json
 "extensions": [
@@ -72,22 +72,22 @@ Este es un fragmento de código de extensión de máquina Virtual de Service Fab
    },
 ```
 
-Estas son las descripciones de propiedad:
+Estas son las descripciones de la propiedad:
 
 | **Nombre** | **Valores permitidos** | ** --- ** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 | name | string | --- | nombre único para la extensión |
-| type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode | --- | Identifica es de arranque del sistema operativo Service Fabric para |
-| autoUpgradeMinorVersion | true o false | --- | Habilitar la actualización automática de las versiones secundarias de SF en tiempo de ejecución |
-| publisher | Microsoft.Azure.ServiceFabric | --- | nombre del publicador de la extensión de Service Fabric |
-| clusterEndpont | string | --- | URI:Port al punto de conexión de administración |
-| nodeTypeRef | string | --- | nombre del tipo de nodo |
-| durabilityLevel | Bronce, plata, oro, platinum | --- | tiempo permitido para pausar la infraestructura inmutable de Azure |
-| enableParallelJobs | true o false | --- | Habilitar proceso ParallelJobs como quitar la máquina virtual y reinicie la máquina virtual del mismo conjunto de escalado en paralelo |
-| nicPrefixOverride | string | --- | Prefijo de subred, como "10.0.0.0/24" |
+| type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | --- | Identifica el sistema operativo donde arranca Service Fabric |
+| autoUpgradeMinorVersion | true o false | --- | Habilita la actualización automática de las versiones secundarias del tiempo de ejecución de SF |
+| publisher | Microsoft.Azure.ServiceFabric | --- | Nombre del editor de la extensión de Service Fabric |
+| clusterEndpont | string | --- | URI:PUERTO al punto de conexión de administración |
+| nodeTypeRef | string | --- | Nombre de nodeType |
+| durabilityLevel | bronze, silver, gold o platinum | --- | Tiempo permitido para pausar la infraestructura inmutable de Azure |
+| enableParallelJobs | true o false | --- | Habilita los trabajos paralelos del proceso, como quitar la VM y reiniciarla en el mismo conjunto de escalado en paralelo |
+| nicPrefixOverride | string | --- | Prefijo de la subred, como "10.0.0.0/24" |
 | commonNames | string[] | --- | Nombres comunes de los certificados de clúster instalados |
-| x509StoreName | string | --- | Nombre de Store donde se encuentra el certificado de clúster instalados |
-| typeHandlerVersion | 1.1 | --- | Versión de extensión. se recomienda actualizar a la versión 1.1 1.0 versión clásica de extensión |
+| X509StoreName | string | --- | Nombre del almacén donde se encuentra el certificado de clúster instalado |
+| typeHandlerVersion | 1.1 | --- | Versión de la extensión. Se recomienda actualizar la versión clásica 1.0 de la extensión a 1.1. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte [Descripción general de la característica "Deploy anywhere" y comparación con los clústeres administrados de Azure](service-fabric-deploy-anywhere.md).

@@ -1,6 +1,6 @@
 ---
-title: 'Llamada de la aplicación de demonio web API (adquisición de tokens para la aplicación): la plataforma de identidad de Microsoft'
-description: Obtenga información sobre cómo compilar una aplicación demonio que llama a web API (adquisición de tokens)
+title: 'Aplicación de demonio que llama a las API web (adquisición de tokens para la aplicación): Plataforma de identidad de Microsoft'
+description: Obtenga información sobre cómo compilar una aplicación de demonio que llame a las API web (adquisición de tokens)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,19 +17,19 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075376"
 ---
-# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de demonio que llama a web API: adquirir un token
+# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de demonio que llama a las API web: adquisición de un token
 
-Una vez que se construye la aplicación cliente confidencial, puede adquirir un token para la aplicación mediante una llamada a ``AcquireTokenForClient``, pasando el ámbito y forzar o no una actualización del token.
+Una vez que se ha construido la aplicación cliente confidencial, puede adquirir un token para la aplicación mediante una llamada a ``AcquireTokenForClient``, pasando el ámbito y forzando o no una actualización del token.
 
-## <a name="scopes-to-request"></a>Para solicitar los ámbitos
+## <a name="scopes-to-request"></a>Solicitud de ámbitos
 
-El ámbito de solicitud de un flujo de credenciales de cliente es el nombre del recurso seguido `/.default`. Esta notación indica a Azure AD para usar el **permisos de nivel de aplicación** declarado estáticamente durante el registro de aplicación. Además, tal como se muestra anteriormente, se deben conceder estos permisos de API por un administrador de inquilinos
+El ámbito que va a solicitar para un flujo de credenciales de cliente es el nombre del recurso seguido de `/.default`. Esta notación indica a Azure AD que use los **permisos de nivel de aplicación** declarados estáticamente durante el registro de la aplicación. Además, tal como se vio anteriormente, un administrador de inquilinos deben conceder estos permisos de API.
 
 ### <a name="net"></a>.NET
 
@@ -40,7 +40,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ### <a name="python"></a>Python
 
-En MSAL. Python, el archivo de configuración sería similar al siguiente fragmento de código:
+En MSAL.Python, el archivo de configuración sería similar al siguiente fragmento de código:
 
 ```Python
 {
@@ -59,15 +59,15 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 ### <a name="all"></a>Todo
 
-El ámbito usado para las credenciales del cliente siempre debe resourceId + "/ predeterminado"
+El ámbito usado para las credenciales del cliente siempre deben ser idRecurso+"/.default"
 
-### <a name="case-of-v10-resources"></a>Caso de los recursos de la versión 1.0
+### <a name="case-of-v10-resources"></a>El caso de los recursos v1.0
 
 > [!IMPORTANT]
-> Para MSAL (punto de conexión v2.0) al solicitar un token de acceso para un recurso que acepta un token de acceso de v1.0, Azure AD analiza la audiencia deseada desde el ámbito solicitado por tomar todo el contenido antes de la última barra y usarlo como el identificador de recurso.
-> Por lo tanto, if, como SQL Azure (**https://database.windows.net**) el recurso espera una audiencia termina con una barra diagonal (para SQL Azure: `https://database.windows.net/`), deberá solicitar un ámbito de `https://database.windows.net//.default` (tenga en cuenta la doble barra diagonal). Vea también MSAL.NET problema [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Se omite la barra diagonal final de la dirección url de recursos, que produjo el error de autenticación de sql.
+> Si MSAL (punto de conexión de la versión 2.0) pide un token de acceso para un recurso que acepta tokens de la versión 1.0, Azure AD analiza la audiencia deseada desde el ámbito solicitado tomando todo el contenido antes de la última barra diagonal y usándolo como el identificador del recurso.
+> Por lo tanto, si, al igual que SQL Azure ( **https://database.windows.net** ), el recurso espera una audiencia que termina con una barra diagonal (para SQL Azure: `https://database.windows.net/` ), deberá solicitar un ámbito de `https://database.windows.net//.default` (tenga en cuenta la doble barra diagonal). Consulte también el problema [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747) de MSAL.NET: falta la barra diagonal final de la dirección URL del recurso, lo que ha provocado un error de autenticación de SQL.
 
-## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
+## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 
 ### <a name="net"></a>.NET
 
@@ -100,7 +100,7 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 
 #### <a name="application-token-cache"></a>Caché de tokens de aplicación
 
-En MSAL.NET, `AcquireTokenForClient` usa el **caché de tokens de aplicación** (todos los demás métodos AcquireTokenXX utilizan la caché de tokens de usuario) no llame a `AcquireTokenSilent` antes de llamar a `AcquireTokenForClient` como `AcquireTokenSilent` usa el **usuario** memoria caché de tokens. `AcquireTokenForClient` comprueba la **aplicación** propia caché de token y lo actualiza.
+En MSAL.NET, `AcquireTokenForClient` usa la **caché de tokens de aplicación** (todos los demás métodos AcquireTokenXX usan la caché de tokens de usuario). No llame a `AcquireTokenSilent` antes de llamar a `AcquireTokenForClient`, ya que `AcquireTokenSilent` usa la caché de tokens de **usuario**. `AcquireTokenForClient` comprueba la propia caché de tokens de **aplicación** y la actualiza.
 
 ### <a name="python"></a>Python
 
@@ -128,9 +128,9 @@ CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
 AuthenticationResult result = future.get();
 ```
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>Protocolo
 
-Si no tiene todavía una biblioteca para el lenguaje elegido, es posible que desea usar el protocolo directamente:
+Si no tiene todavía una biblioteca para el lenguaje elegido, es posible que quiera usar el protocolo directamente:
 
 #### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primer caso: solicitud de token de acceso con un secreto compartido
 
@@ -161,18 +161,18 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 ### <a name="learn-more-about-the-protocol"></a>Más información sobre el protocolo
 
-Para obtener más información, consulte la documentación del protocolo: [Flujo de credenciales de Azure Active Directory v2.0 y el cliente de OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
+Para más información, consulte la documentación del protocolo: [Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-### <a name="did-you-use-the-resourcedefault-scope"></a>¿Ha utilizado el ámbito de recursos/predeterminado?
+### <a name="did-you-use-the-resourcedefault-scope"></a>¿Ha usado el ámbito de recurso/.default?
 
-Si recibe un mensaje de error que indica que ha usado un ámbito no válido, probablemente no ha utilizado el `resource/.default` ámbito.
+Si recibe un mensaje de error que indica que ha usado un ámbito no válido, probablemente no ha usado el ámbito `resource/.default`.
 
-### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>¿Olvidó proporcionar el consentimiento del administrador? ¡Aplicaciones de demonio necesitan!
+### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>¿Olvidó proporcionar el consentimiento del administrador? Las aplicaciones de demonio lo necesitan.
 
-Si se produce un error al llamar a la API de **no tiene privilegios suficientes para completar la operación**, el Administrador de inquilinos debe conceder permisos a la aplicación. Vea el paso 6 de registrar la aplicación de cliente anterior.
-Normalmente verá y error como la descripción del error siguiente:
+Si se produce un error **No tiene privilegios suficientes para completar la operación** al llamar a la API, el administrador de inquilinos debe conceder permisos a la aplicación. Consulte el paso 6 del registro de la aplicación de cliente anterior.
+Normalmente verá un error con una descripción de error como la siguiente:
 
 ```JSon
 Failed to call the web API: Forbidden
@@ -191,4 +191,4 @@ Content: {
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aplicación de demonio: llamar a una API web](scenario-daemon-call-api.md)
+> [Llamada de demonio: llamar a una API web](scenario-daemon-call-api.md)

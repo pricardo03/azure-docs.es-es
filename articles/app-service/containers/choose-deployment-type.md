@@ -17,10 +17,10 @@ ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: bba38bb69e5abaa94b01308924fe0c6bf07ca08e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919971"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>¿Imagen personalizada, varios contenedores o imagen de plataforma integrada?
@@ -28,7 +28,7 @@ ms.locfileid: "64919971"
 [App Service en Linux](app-service-linux-intro.md) ofrece tres formas diferentes de publicar su aplicación en la Web:
 
 - **Implementación de una imagen personalizada**: convierte la aplicación en una imagen de Docker que contiene todos los archivos y dependencias en un paquete listo para ejecutarse.
-- **Implementación de varios contenedores**: "Aplicar docker a" la aplicación en varios contenedores mediante un archivo de configuración de Docker Compose.
+- **Implementación de varios contenedores**: incluye la aplicación en varios contenedores Docker utilizando un archivo de configuración de Docker Compose.
 - **Implementación de aplicaciones con una imagen de plataforma integrada**: nuestras imágenes de plataforma integrada contienen entornos en tiempo de ejecución y dependencias de aplicaciones web comunes, como Node y PHP. Use cualquiera de los [métodos de implementación de Azure App Service](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para implementar la aplicación en el almacenamiento de la aplicación web y, luego, use una imagen de plataforma integrada para ejecutarla.
 
 ## <a name="which-method-is-right-for-your-app"></a>¿Qué método es adecuado para su aplicación? 
@@ -47,12 +47,12 @@ Los factores principales a tener en cuenta son:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Contenedor personalizado:
-* [Ejecutar un contenedor personalizado](quickstart-docker-go.md)
+* [Ejecución de un contenedor personalizado](quickstart-docker-go.md)
 
 Varios contenedores:
-* [Crear aplicación de varios contenedores](quickstart-multi-container.md)
+* [Creación de una aplicación de varios contenedores](quickstart-multi-container.md)
 
-Los siguientes artículos de ayudarán a comenzar con App Service en Linux con una imagen de plataforma integrada:
+Los siguientes artículos le ayudarán a comenzar a trabajar con App Service en Linux a partir de una imagen de plataforma integrada:
 
 * [.NET Core](quickstart-dotnetcore.md)
 * [PHP](quickstart-php.md)

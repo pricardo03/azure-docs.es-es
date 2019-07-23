@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 82a8eecb4fb211117000c94c51644ce1fd27916d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463918"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64709529"
 ---
 # <a name="encoding-error-codes"></a>Códigos de error de Encoding
 
@@ -30,7 +30,7 @@ En la tabla siguiente se indican los códigos de error que se podrían devolver 
 | Desconocido |Error desconocido al ejecutar la tarea |
 | ErrorDownloadingInputAssetMalformedContent |Categoría de errores en la que se incluyen errores en la descarga de recursos de entrada, como nombres de archivo no válidos, archivos de longitud cero, formatos incorrectos, etc. |
 | ErrorDownloadingInputAssetServiceFailure |Categoría de errores en la que se incluyen problemas en el servicio, por ejemplo, errores de red o de almacenamiento durante la descarga. |
-| ErrorParsingConfiguration |Categoría de errores en la que la tarea <see cref="MediaTask.PrivateData"/> (configuración) no es válida; por ejemplo, la configuración no es un valor preestablecido del sistema válido o contiene XML no válido. |
+| ErrorParsingConfiguration |Categoría de errores en la que la tarea \<see cref="MediaTask.PrivateData"/> (configuración) no es válida; por ejemplo, la configuración no es un valor preestablecido del sistema válido o contiene XML no válido. |
 | ErrorExecutingTaskMalformedContent |Categoría de errores durante la ejecución de la tarea en la que problemas en los archivos multimedia de entrada provocan errores. |
 | ErrorExecutingTaskUnsupportedFormat |Categoría de errores en la que el procesador de contenido multimedia no puede procesar los archivos proporcionados: formato de contenido multimedia no compatible o que no coincide con la configuración. Por ejemplo, intentar producir una salida de solo audio desde un activo que tenga solo vídeo. |
 | ErrorProcessingTask |Categoría de otros errores que detecta el procesador de contenido multimedia durante el procesamiento de la tarea y que no están relacionados con el contenido. |

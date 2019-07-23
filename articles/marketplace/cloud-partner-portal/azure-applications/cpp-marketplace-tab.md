@@ -1,5 +1,5 @@
 ---
-title: Pestaña de Marketplace de oferta de aplicación de Azure
+title: Pestaña de Marketplace de la oferta de aplicación de Azure
 description: Use la pestaña de Marketplace para identificar los recursos de marketing de una oferta de aplicación de Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 7ea6e6be0597a114b02fad8c41e37d21ce1f6028
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942966"
 ---
 # <a name="azure-application-marketplace-tab"></a>Pestaña de Marketplace de aplicación de Azure
@@ -24,7 +24,7 @@ El formulario Información general tiene los campos obligatorios y opcionales qu
 
 ![Formulario Información general](./media/azureapp-marketplace-overview.png)
 
-En la tabla siguiente se describe la configuración que se usará para la creación de un escaparate de la oferta.   Los campos que se anexa con un asterisco son obligatorios.
+En la tabla siguiente se describe la configuración que se usará para la creación de un escaparate de la oferta.   Los campos anexados con un asterisco son obligatorios.
 
 |      Campo         |    DESCRIPCIÓN    |
 |  ---------------   |  ---------------  |
@@ -33,9 +33,9 @@ En la tabla siguiente se describe la configuración que se usará para la creaci
 | **Resumen largo\*** | Resumen más largo de la oferta (aunque podría ser igual que el resumen). La longitud máxima es de 256 caracteres.           |
 | **Descripción\***  | Descripción de la oferta. La longitud máxima es de 3000 caracteres. Se permite HTML simple, incluidas las etiquetas &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; y header.  |
 | **Identificador de marketing\*** | Dirección URL única para asociar a esta oferta, normalmente incluye la organización y el nombre de la solución, longitud máxima de 50 caracteres. Elija un identificador de marketing corto y descriptivo para el servicio. Este se usará en las direcciones URL de Marketplace para esta oferta. Por ejemplo, si el identificador de anunciante es "contoso" y el identificador de marketing es "sampleApp", la dirección URL de su oferta en Azure Marketplace será https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp.  
-| **Identificadores de suscripción de versión preliminar\*** | Agregue entre uno y 100 identificadores de suscripción de versión preliminar. Estas suscripciones permitidas tendrán acceso a la oferta mientras está disponible en versión preliminar después de su publicación, antes de su lanzamiento.          |
-| **Vínculos útiles**    | Si lo desea, puede proporcionar vínculos a varios recursos para los usuarios de su oferta, por ejemplo, soporte técnico, documentación, foros, etcetera.  Se recomienda que agregue al menos un vínculo a la documentación.            |
-| **Sugiere categorías (máx. 5)\*** | Seleccione uno y cinco categorías. Las categorías seleccionadas se usan para asociar la oferta con las categorías de productos disponibles en Azure Marketplace y Azure Portal. Se muestran en páginas de navegación y en la página de detalles del producto. |
+| **Id. de suscripción de versión preliminar\*** | Agregue entre uno y 100 identificadores de suscripción de versión preliminar. Estas suscripciones permitidas tendrán acceso a la oferta mientras está disponible en versión preliminar después de su publicación, antes de su lanzamiento.          |
+| **Vínculos útiles**    | Como opción, puede proporcionar vínculos a varios recursos para los usuarios de su oferta, por ejemplo, soporte técnico, documentación, foros, etc.  Se recomienda agregar al menos un vínculo a la documentación.            |
+| **Categorías sugeridas (5 como máximo)\*** | Seleccione una de cinco categorías. Las categorías seleccionadas se usan para asociar la oferta con las categorías de productos disponibles en Azure Marketplace y Azure Portal. Se muestran en páginas de navegación y en la página de detalles del producto. |
 |  |  |
 
 
@@ -50,12 +50,12 @@ En la siguiente tabla se describen los artefactos de marketing:
 |      Campo         |    DESCRIPCIÓN    |
 |  ---------------   |  ---------------  |
 | **Pequeña\***        | Logotipo pequeño: 40 x 40 píxeles en formato PNG     |
-| **Mediana\***       | Logotipo mediano: 90 x 90 píxeles en formato PNG    |
-| **Grande\***        | Logotipo grande: 115 x 115 píxeles en formato PNG   |
-| **Wide\***         | Logotipo amplio: 255 x 115 píxeles en formato PNG    |
-| **Imagen prominente**           | Logotipo de imagen prominente opcional: 815 x 290 píxeles en formato PNG. **Nota:** Una vez cargado el icono de imagen prominente, no se puede eliminar. |
+| **Mediana\***       | Logotipo mediano: 90 x 90 píxeles en formato PNG    |
+| **Grande\***        | Logotipo grande: 115 x 115 píxeles en formato PNG   |
+| **Ancho\***         | Logotipo ancho: 255 x 115 píxeles en formato PNG    |
+| **Imagen prominente**           | Logotipo de imagen prominente opcional: 815 x 290 píxeles en formato PNG **Nota:** Una vez cargado el icono de imagen prominente, no se puede eliminar. |
 | **Capturas de pantalla (5 como máximo)** |        Las capturas de pantalla se muestran en la página de detalles del producto. Son una excelente forma de comunicar de manera visual lo que hace la aplicación y cómo funciona. Por ejemplo, puede mostrar diagramas de arquitectura o ilustraciones de casos de uso. Las capturas de pantalla son opcionales y están limitadas a 5 por SKU. Para agregar una captura de pantalla:<ul><li>Seleccione **+ Agregar captura de pantalla** para abrir la ventana Captura de pantalla.</li><li>**Nombre**: escriba un nombre o título (de 100 caracteres como máximo).</li><li>**Cargar**: cargue la imagen. Debe estar en formato PNG, con un tamaño de 533 × 324 píxeles.</li></ul>           |
-| **Agregar vídeo**      | Opcional, los vídeos se muestran en la página de detalles del producto. Son una excelente forma de comunicar de manera visual lo que hace la aplicación y cómo funciona. Para agregar un vídeo: <ul><li>Seleccione **+ Agregar vídeo** para abrir la ventana Vídeo.</li><li>**Nombre**: escriba un nombre o título (de 100 caracteres como máximo).</li><li>**Vínculo**: escriba la dirección URL del sitio que hospeda el vídeo (YouTube o Vimeo).</li><li>**Miniatura**: cargue una miniatura. Debe estar en formato PNG, con un tamaño de 533 × 324 píxeles.</li></ul>          |
+| **Agregar vídeo**      | Como opción, los vídeos se muestran en la página de detalles del producto. Son una excelente forma de comunicar de manera visual lo que hace la aplicación y cómo funciona. Para agregar un vídeo: <ul><li>Seleccione **+ Agregar vídeo** para abrir la ventana Vídeo.</li><li>**Nombre**: escriba un nombre o título (de 100 caracteres como máximo).</li><li>**Vínculo**: escriba la dirección URL del sitio que hospeda el vídeo (YouTube o Vimeo).</li><li>**Miniatura**: cargue una miniatura. Debe estar en formato PNG, con un tamaño de 533 × 324 píxeles.</li></ul>          |
 |  |  |
 
 
@@ -125,8 +125,8 @@ Use el formulario Información legal para proporcionar la documentación legal n
 
 Proporcione la siguiente información:
 
-- **URL de la política de privacidad\***  : especifique un vínculo a la directiva de privacidad de la aplicación.
-- **Términos de uso\***  : escriba los términos de uso de la aplicación. Los clientes deben aceptar estos términos antes de poder probar la aplicación.
+- **Dirección URL de la directiva de privacidad\*** : Escriba un vínculo a la directiva de privacidad de la aplicación.
+- **Términos de uso\*** : Escriba los términos de uso de la aplicación. Los clientes deben aceptar estos términos antes de poder probar la aplicación.
 
 ![Formulario Información legal](./media/azureapp-marketplace-legal.png)
 

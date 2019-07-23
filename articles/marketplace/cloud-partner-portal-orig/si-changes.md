@@ -1,5 +1,5 @@
 ---
-title: Notas de la versión seller Insights
+title: Notas de la versión de Seller Insights
 description: Proporciona información sobre los cambios realizados en la característica Seller Insights.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/3/2019
 ms.author: pabutler
 ms.openlocfilehash: c6e9e4fe672c7e171ed4b1cd60655f9e71a562e6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943123"
 ---
 # <a name="seller-insights-release-notes"></a>Notas de la versión de Seller Insights 
@@ -20,20 +20,20 @@ ms.locfileid: "64943123"
 
 En este artículo se proporciona información sobre los cambios realizados en la característica Seller Insights de [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
 
-## <a name="release-highlights-for-march-1-2019"></a>Información destacada de la versión para el 1 de marzo de 2019
+## <a name="release-highlights-for-march-1-2019"></a>Cambios destacados para el 1 de marzo de 2019
 
-* *Tendencia de cliente* agregado al resumen
-* *Principales cinco clientes* resumen reflejar todas las suscripciones de Azure tiene un cliente
-* *Normaliza la tendencia de uso y tendencias de pedidos activos* resumen movido *mensual de pedidos de un vistazo*
-* *Informe de conciliación de pagos* actualizado
-* *Principales cinco clientes* en pago reflejar todas las suscripciones de Azure tiene un cliente
-* *Informe de uso* actualizado con el Id. de cliente
-* *Antigüedad del cliente* en pedidos y uso refleja todas las suscripciones de Azure tiene un cliente
+* *Customer Trend* (Tendencia de clientes) se agregó al Resumen.
+* *Principales cinco clientes* en el Resumen reflejan todas las suscripciones a Azure que tiene un cliente.
+* *Normalized Usage Trend & Active Orders Trend* (Tendencia de uso normalizada y tendencia de pedidos activos) en el Resumen se movió *Pedidos mensuales de un vistazo*.
+* *Payout Reconciliation Report* (Informe de conciliación de pagos) se actualizó.
+* *Principales cinco clientes* en el Pago reflejan todas las suscripciones a Azure que tiene un cliente.
+* *Informe de uso* se actualizó con el Id. de cliente.
+* *Customer Tenure* (Antigüedad del cliente) en Orders & Usage (Pedidos y uso) refleja todas las suscripciones de Azure que tiene un cliente.
 
 
 (Fecha de lanzamiento: 28 de julio de 2018)
 
-## <a name="release-highlights-for-july-28-2018"></a>Información destacada de la versión para el 28 de julio de 2018
+## <a name="release-highlights-for-july-28-2018"></a>Cambios destacados para el 28 de julio de 2018
 
 
 -   *Precios estimados*: proporciona una vista de los gastos de cliente con implicaciones de conversión de moneda.

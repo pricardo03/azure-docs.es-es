@@ -1,6 +1,6 @@
 ---
-title: Configuración de directiva de firewall de aplicaciones web con Azure puerta de entrada
-description: Obtenga información sobre firewall de aplicaciones web (WAF).
+title: Configuración de directivas para el firewall de aplicaciones web con Azure Front Door
+description: Obtenga información sobre el firewall de aplicaciones web (WAF).
 services: frontdoor
 author: KumudD
 ms.service: frontdoor
@@ -11,48 +11,48 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: tyao;kumud
 ms.openlocfilehash: 4c2f070e9b3c972f063008df8880b196ddb069cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459375"
 ---
-# <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Configuración de directiva de firewall de aplicaciones web con Azure puerta de entrada
+# <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Configuración de directivas para el firewall de aplicaciones web con Azure Front Door
 
-Una directiva de Firewall de aplicaciones Web (WAF) permite controlar el acceso a sus aplicaciones web mediante un conjunto de reglas personalizadas y administradas. El nombre de la directiva de WAF debe ser único. Recibirá un error de validación si intenta utilizar un nombre existente. Hay varias opciones de nivel de directiva que se aplican a todas las reglas especificadas para esa directiva como se describe en este artículo.
+Una directiva de firewall de aplicaciones web (WAF) permite controlar el acceso a sus aplicaciones web mediante un conjunto de reglas personalizadas y administradas. El nombre de la directiva WAF debe ser único. Recibirá un error de validación si intenta utilizar un nombre existente. Hay varias opciones de configuración del nivel de directiva que se aplican a todas las reglas especificadas para esa directiva, como se describe en este artículo.
 
 ## <a name="waf-state"></a>Estado de WAF
 
-Una directiva de WAF para la puerta de entrada puede estar en uno de los dos estados siguientes:
-- **Habilitada:** Cuando se habilita una directiva, WAF está inspeccionando activamente las solicitudes entrantes y realiza las acciones correspondientes según las definiciones de reglas
-- **Deshabilitada:** : cuando una directiva está deshabilitada, inspección de WAF está en pausa. Las solicitudes entrantes omitirán WAF y se envían al back-end basado en ruta de acceso principal.
+Una directiva WAF para Front Door puede tener uno de los dos estados siguientes:
+- **Habilitada:** Cuando se habilita una directiva, WAF inspecciona activamente las solicitudes entrantes y realiza las acciones correspondientes según las definiciones de la regla.
+- **Deshabilitada:** : cuando una directiva está deshabilitada, la inspección de WAF está en pausa. Las solicitudes entrantes omiten WAF y se envían a los servidores back-end en función del enrutamiento de Front Door.
 
-## <a name="waf-mode"></a>Modo de WAF
+## <a name="waf-mode"></a>Modo WAF
 
-Directiva de WAF puede configurarse para ejecutarse en los dos modos siguientes:
+La directiva WAF se puede configurar para ejecutarse en los siguientes dos modos:
 
-- **Modo de detección** cuando se ejecuta en modo de detección, WAF no realizar cualquier acción distinta de supervisar y registrar la solicitud y las reglas de WAF coincidente en los registros de WAF. Activar el registro de diagnósticos para la puerta de entrada (al usar el portal, esto puede lograrse yendo a la **diagnósticos** sección en el portal de Azure).
+- **Modo de detección** Cuando se ejecuta en el modo de detección, WAF no realiza ninguna acción que no sea supervisar y registrar la solicitud y su regla WAF coincidente en los registros de WAF. Active el registro de diagnósticos de Front Door (para hacerlo desde el portal, vaya a la sección **Diagnósticos** de Azure Portal).
 
-- **Modo de prevención** cuando se configura para ejecutarse en modo de prevención, WAF toma la acción especificada, si una solicitud coincide con una regla. También se registran las solicitudes coincidentes en los registros de WAF.
+- **Modo de prevención** Cuando se configura para ejecutarse en el modo de prevención, WAF realiza la acción especificada si una solicitud coincide con una regla. Todas las solicitudes coincidentes también se registran en los registros de WAF.
 
 ## <a name="waf-response-for-blocked-requests"></a>Respuesta de WAF para las solicitudes bloqueadas
 
-De forma predeterminada, cuando el WAF bloquea una solicitud debido a una regla coincidente, devuelve un código de 403 estado- **se bloquea la solicitud** mensaje. También se devuelve una cadena de referencia para el registro.
+De forma predeterminada, cuando WAF bloquea una solicitud debido a una regla coincidente, devuelve un código de estado 403 con el mensaje **La solicitud está bloqueada**. También se devuelve una cadena de referencia para el registro.
 
-Puede definir un código de estado de respuesta personalizada y un mensaje de respuesta cuando se bloquea una solicitud con WAF. Se admiten los siguientes códigos de estado personalizado:
+Puede definir un mensaje de respuesta y código de estado de respuesta personalizado cuando WAF bloquea una solicitud. Se admiten los siguientes códigos de estado personalizados:
 
-- 200 ACEPTAR
-- 403    Forbidden
-- 405 método no permitido
-- 406 No aceptable
-- 429 demasiadas solicitudes
+- 200    Correcto
+- 403    Prohibido
+- 405    Método no permitido
+- 406    No aceptable
+- 429    Demasiadas solicitudes
 
-Mensaje de respuesta y el código de estado de respuesta personalizada es una configuración de nivel de directiva. Una vez configurado, todas las solicitudes bloqueadas obtención el mismo estado de respuesta personalizada y el mensaje de respuesta.
+El mensaje de respuesta y código de estado de respuesta personalizado es una configuración de nivel de directiva. Una vez configurado, todas las solicitudes bloqueadas obtienen el mismo mensaje de respuesta y estado de respuesta personalizado.
 
 ## <a name="uri-for-redirect-action"></a>URI de acción de redirección
 
-Es necesario definir un URI para redirigir las solicitudes como si el **REDIRIGIR** se selecciona la acción para cualquiera de las reglas contenidas en una directiva de WAF. Esta redirección URI debe ser un sitio válido de HTTP (S) y una vez configurado, todas las solicitudes se redirigirán las reglas de coincidencia con una acción de "REDIRIGIR" al sitio especificado.
+Es necesario definir un URI al que redirigir las solicitudes si la acción **REDIRIGIR** se selecciona para cualquiera de las reglas incluidas en una directiva WAF. Este URI de redirección debe ser un sitio HTTP(S) válido y, una vez configurado, todas las solicitudes que coincidan con las reglas con una acción "REDIRIGIR" se redirigirán al sitio especificado.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga información sobre cómo definir WAF [respuestas personalizadas](waf-front-door-configure-custom-response-code.md)
+- Obtener información sobre cómo definir [respuestas WAF personalizadas](waf-front-door-configure-custom-response-code.md)

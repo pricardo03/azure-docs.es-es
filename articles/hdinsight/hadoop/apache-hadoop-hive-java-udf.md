@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
 ms.openlocfilehash: 24c2e8b9600b3d622d3d6b42b3bc3615a87ff853
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686627"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utilización de una función definida por el usuario de Java con Apache Hive en HDInsight
@@ -21,10 +21,10 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un clúster de Hadoop en HDInsight. Consulte [empezar a trabajar con HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * [Kit de desarrolladores de Java (JDK), versión 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) correctamente [instalado](https://maven.apache.org/install.html) según Apache.  Maven es un sistema de compilación de proyectos de Java.
-* El [esquema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para el almacenamiento principal de clústeres. Esto sería wasb: / / para el almacenamiento de Azure, abfs: / / para Azure Data Lake Storage Gen2 o adl: / / para Azure Data Lake Storage Gen1. Si la transferencia segura está habilitada para Azure Storage o Data Lake Storage Gen2, el identificador URI sería wasbs: / / o abfss: / /, respectivamente, consulte [transferencia segura](../../storage/common/storage-require-secure-transfer.md).
+* El [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para el almacenamiento principal de clústeres. Sería wasb:// para Azure Storage, abfs:// para Azure Data Lake Storage Gen2 o adl:// para Azure Data Lake Storage Gen1. Si la transferencia segura está habilitada para Azure Storage o Data Lake Storage Gen2, el URI sería wasbs:// o abfss:// respectivamente. Vea también [Transferencia segura](../../storage/common/storage-require-secure-transfer.md).
 
 * Un editor de texto o IDE de Java
 
@@ -32,7 +32,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
     > Si crea los archivos de Python en un cliente Windows, debe usar un editor que emplee LF como final de línea. Si no está seguro de si el editor usa LF o CRLF, vea la sección [Solución de problemas](#troubleshooting) para conocer los pasos a seguir para quitar el carácter CR.
 
 ## <a name="test-environment"></a>Entorno de prueba
-El entorno usado en este artículo era un equipo que ejecuta Windows 10.  Los comandos se ejecutaron en un símbolo del sistema y se editaron los distintos archivos con el Bloc de notas. Modificar según corresponda para su entorno.
+El entorno usado en este artículo fue un equipo donde se ejecutaba Windows 10.  Los comandos se ejecutaron en un símbolo del sistema, y los distintos archivos se editaron con el Bloc de notas. Realice las modificaciones según corresponda en su entorno.
 
 Desde un símbolo del sistema, escriba los siguientes comandos para crear un entorno de trabajo:
 
@@ -43,7 +43,7 @@ cd C:\HDI
 
 ## <a name="create-an-example-java-udf"></a>Crear una función de Java definida por el usuario de ejemplo
 
-1. Cree un nuevo proyecto de Maven escribiendo el comando siguiente:
+1. Utilice el comando siguiente para crear un nuevo proyecto de Maven:
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -51,20 +51,20 @@ cd C:\HDI
 
     Este comando crea un directorio denominado `exampleudf`, que contiene el proyecto de Maven.
 
-2. Una vez creado el proyecto, elimine el `exampleudf/src/test` directorio que se creó como parte del proyecto, escriba el comando siguiente:
+2. Una vez creado el proyecto, elimine el directorio `exampleudf/src/test` que se creó como parte del proyecto. Para ello, escriba el siguiente comando:
 
     ```cmd
     cd ExampleUDF
     rmdir /S /Q "src/test"
     ```
 
-3. Abra `pom.xml` escribiendo el comando siguiente:
+3. Especifique el siguiente comando para abrir `pom.xml`:
 
     ```cmd
     notepad pom.xml
     ```
 
-    A continuación, reemplace la existente `<dependencies>` entrada con el siguiente código XML:
+    Reemplace la entrada `<dependencies>` existente por el siguiente código XML:
 
     ```xml
     <dependencies>
@@ -143,13 +143,13 @@ cd C:\HDI
 
     Guarde el archivo una vez hechos los cambios.
 
-4. Escriba el comando siguiente para crear y abrir un nuevo archivo `ExampleUDF.java`:
+4. Escriba el comando siguiente para crear un archivo `ExampleUDF.java` y abrirlo:
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
     ```
 
-    A continuación, copie y pegue el código java siguiente en el nuevo archivo. A continuación, cierre el archivo.
+    Luego, copie y pegue el código Java siguiente en el nuevo archivo. A continuación, cierre el archivo.
 
     ```java
     package com.microsoft.examples;
@@ -180,9 +180,9 @@ cd C:\HDI
 
 ## <a name="build-and-install-the-udf"></a>Compilación e instalación de la función definida por el usuario
 
-En los siguientes comandos, reemplace `sshuser` con el nombre de usuario real si es diferente. Reemplace `mycluster` con el nombre del clúster real.
+En los siguientes comandos, reemplace `sshuser` por el nombre de usuario real, si es distinto. Reemplace `mycluster` por el nombre de clúster real.
 
-1. Compilar y empaquetar la UDF escribiendo el comando siguiente:
+1. Escriba el siguiente comando para compilar y empaquetar la función definida por el usuario:
 
     ```cmd
     mvn compile package
@@ -190,19 +190,19 @@ En los siguientes comandos, reemplace `sshuser` con el nombre de usuario real si
 
     Este comando compila y empaqueta la función definida por el usuario en el archivo `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar`.
 
-2. Use el `scp` comando para copiar el archivo en el clúster de HDInsight escribiendo el comando siguiente:
+2. Use el comando `scp` para copiar el archivo en el clúster de HDInsight. Para ello, escriba el siguiente comando:
 
     ```cmd
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-3. Conéctese al clúster mediante SSH, escriba el comando siguiente:
+3. Conéctese al clúster mediante SSH con el comando siguiente:
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-4. En la sesión SSH abierta, copie el archivo jar en el almacenamiento de HDInsight.
+4. Desde la sesión de SSH abierta, copie el archivo .jar en el almacenamiento de HDInsight.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
@@ -210,7 +210,7 @@ En los siguientes comandos, reemplace `sshuser` con el nombre de usuario real si
 
 ## <a name="use-the-udf-from-hive"></a>Uso de la función definida por el usuario desde Hive
 
-1. Iniciar al cliente de Beeline desde la sesión SSH, escriba el comando siguiente:
+1. Escriba el siguiente comando desde la sesión de SSH para iniciar el cliente de Beeline:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -231,7 +231,7 @@ En los siguientes comandos, reemplace `sshuser` con el nombre de usuario real si
     SELECT tolower(state) AS ExampleUDF, state FROM hivesampletable LIMIT 10;
     ```
 
-    Esta consulta selecciona el estado de la tabla, convertirá la cadena a cuanto menor sea el caso y mostrarlos a continuación junto con el nombre sin modificar. La salida es similar al siguiente texto:
+    Esta consulta selecciona el estado de la tabla, convierte la cadena a minúsculas y, a continuación, las muestra junto con el nombre sin modificar. La salida es similar al siguiente texto:
 
         +---------------+---------------+--+
         |  exampleudf   |     state     |

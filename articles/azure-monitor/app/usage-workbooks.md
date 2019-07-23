@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64569608"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crear informes interactivos con libros de Azure Monitor
@@ -166,7 +166,7 @@ Hay cuatro tipos diferentes de parámetros que se admiten actualmente:
 
 ### <a name="using-a-text-parameter"></a>Uso de un parámetro de texto
 
-El valor que un usuario escribe en el cuadro de texto se sustituye directamente en la consulta, sin caracteres de escape ni comillas. Si el valor necesario es una cadena, la consulta debe tener comillas alrededor del parámetro (como **"{parameter}"**).
+El valor que un usuario escribe en el cuadro de texto se sustituye directamente en la consulta, sin caracteres de escape ni comillas. Si el valor necesario es una cadena, la consulta debe tener comillas alrededor del parámetro (como **"{parameter}"** ).
 
 Esto permite que el valor de un cuadro de texto se use en cualquier lugar. Puede ser el nombre de la tabla, el nombre de la columna, el nombre de la función, el operador, etc.
 
@@ -206,7 +206,7 @@ Genera el siguiente resultado:
 
 ![Controles de edición de secciones de libros de Application Insights](./media/usage-workbooks/011-data-table.png)
 
-Un ejemplo más aplicable usa una lista desplegable para elegir entre un conjunto de países o regiones por nombre:
+Un ejemplo más aplicable es usar una lista desplegable para elegir entre un conjunto de países o regiones por el nombre:
 
 ```
 customEvents

@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696415"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Conexión con el servidor SQL Server o Azure SQL Database desde Azure Logic Apps
@@ -56,7 +56,7 @@ En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenad
 
 2. En el cuadro de búsqueda, escriba "sql server" como filtro. En la lista de desencadenadores, seleccione el desencadenador de SQL que desee. 
 
-   En este ejemplo, seleccione este desencadenador: **SQL Server: cuando se crea un elemento**
+   Para este ejemplo, seleccione este desencadenador: **SQL Server - When an item is created** (SQL Server: cuando se crea un elemento)
 
    ![Selección del desencadenador "SQL Server - When an item is created" (SQL Server: cuando se crea un elemento)](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -90,11 +90,11 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
    ![Elegir "Nuevo paso", "Agregar una acción"](./media/connectors-create-api-sqlazure/add-action.png)
    
    Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. 
-   Elija el signo más (**+**) que aparece y, luego, elija **Agregar una acción**.
+   Elija el signo más ( **+** ) que aparece y, luego, elija **Agregar una acción**.
 
 2. En el cuadro de búsqueda, escriba "sql server" como filtro. En la lista de acciones, seleccione la acción SQL que quiera. 
 
-   En este ejemplo, seleccione esta acción, que obtiene un único registro: **SQL Server - obtener fila**
+   Para este ejemplo, seleccione esta acción, que obtiene un solo registro: **SQL Server - Get row** (SQL Server: obtener fila)
 
    ![Escribir "sql server", seleccionar "SQL Server - Get row" (SQL Server: obtener fila)](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
@@ -116,18 +116,18 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="handle-bulk-data"></a>Controlar datos de forma masiva
+## <a name="handle-bulk-data"></a>Controlar datos masivos
 
-En ocasiones, es posible que deba trabajar con conjuntos de resultados tan grandes que el conector no devuelve todos los resultados al mismo tiempo, o desea un mejor control sobre el tamaño y la estructura de los conjuntos de resultados. Presentamos algunas maneras en que puede controlar estos grandes conjuntos de resultados:
+En ocasiones, es posible que deba trabajar con conjuntos de resultados tan grandes que el conector no devuelva todos los resultados al mismo tiempo, o que quiera un control mayor sobre el tamaño y la estructura de los conjuntos de resultados. A continuación se indican algunas maneras de controlar conjuntos de resultados tan grandes:
 
-* Para ayudarle a administrar los resultados como conjuntos más pequeños, activar *paginación*. Para obtener más información, consulte [obtener datos de forma masiva, registros y elementos mediante paginación](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
+* Para ayudarle a administrar los resultados como conjuntos más pequeños, active la *paginación*. Para obtener más información, consulte el tema sobre la [obtención de datos masivos, registros y elementos mediante la paginación](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-* Crear un procedimiento almacenado que organiza los resultados de la forma que desee.
+* Cree un procedimiento almacenado que organice los resultados como desee.
 
-  Al obtener o insertar varias filas, la aplicación lógica puede iterar a través de estas filas utilizando un [ *bucle until* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dentro de estos [límites](../logic-apps/logic-apps-limits-and-config.md). 
-  Sin embargo, cuando la aplicación lógica tiene que trabajar con conjuntos de registros de tan grandes, por ejemplo, miles o millones de filas, que desea minimizar los costos resultantes de las llamadas a la base de datos.
+  Al obtener o insertar varias filas, la aplicación lógica puede iterar a través de estas filas mediante un [*bucle Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dentro de estos [límites](../logic-apps/logic-apps-limits-and-config.md). 
+  No obstante, si su aplicación lógica tiene que trabajar con conjuntos de registros tan grandes, por ejemplo, con miles o millones de filas, y quiere minimizar los costos de las llamadas a la base de datos.
 
-  Para organizar los resultados de la manera en que desea, puede crear un [ *procedimiento almacenado* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) que se ejecuta en la instancia de SQL y utiliza el **seleccionar: ORDER BY** instrucción. 
+  Para organizar los resultados de la manera deseada, puede crear un [*procedimiento almacenado*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) que se ejecute en la instancia de SQL y use la instrucción **SELECT - ORDER BY**. 
   Esta solución le permite tener mayor control sobre el tamaño y la estructura de los resultados. 
   La aplicación lógica llama al procedimiento almacenado mediante la acción **Ejecutar procedimiento almacenado** del conector de SQL Server.
 

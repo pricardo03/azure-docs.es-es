@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417314"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar como un servidor iSCSI mediante Azure Portal
@@ -88,7 +88,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
       > Si une el servidor iSCSI a un dominio, asegúrese de que su matriz virtual esté en su propia unidad organizativa (UO) de Microsoft Azure Active Directory y de que no se le aplica ningún objeto de directiva de grupo (GPO).
       > 
       > 
-   4. Aparece un cuadro de diálogo. Escriba las credenciales del dominio en el formato especificado. Haga clic en el icono de verificación  ![icono de marca de verificación](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Se comprobarán las credenciales del dominio. Verá un mensaje de error si las credenciales son incorrectas.
+   4. Aparece un cuadro de diálogo. Escriba las credenciales del dominio en el formato especificado. Haga clic en el icono de verificación ![icono de marca de verificación](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Se comprobarán las credenciales del dominio. Verá un mensaje de error si las credenciales son incorrectas.
       
        ![credentials](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. Haga clic en **Aplicar**. Esto aplicará y validará la configuración de dispositivo.
@@ -98,7 +98,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
    
     En la página **Proxy web** :
    
-   1. Proporcione el **dirección URL del proxy Web** en este formato: *http:\//host-IP dirección* o *FQDN: port número*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
+   1. Proporcione la **URL de proxy web** en este formato: *http:\//dirección IP del host* o *FQDN:número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
    2. Especifique **Autenticación** como **Básica** o **Ninguna**.
    3. Si utiliza autenticación, también debe escribir un **Nombre de usuario** y una **Contraseña**.
    4. Haga clic en **Aplicar**. Esto validará y aplicará los parámetros de proxy web configurados.

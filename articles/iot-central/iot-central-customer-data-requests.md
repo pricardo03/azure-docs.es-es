@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 4c63ac8d6b16b2a0476600f67c66b2ccc8dc2aab
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685553"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumen de características de solicitud de datos del cliente
@@ -33,7 +33,7 @@ Cuando se usan servicios para empresas de Microsoft, Microsoft genera cierta inf
 
 ## <a name="deleting-customer-data"></a>Eliminación de datos del cliente
 
-La capacidad de eliminar datos del usuario solo se proporciona a través de la página de administración de IoT Central. Administradores de la aplicación pueden seleccionar el usuario que desea eliminar y seleccione **eliminar** en la esquina superior derecha de la aplicación para eliminar el registro. Los administradores de la aplicación también pueden quitar cuentas individuales que ya no están asociadas con la aplicación en cuestión.
+La capacidad de eliminar datos del usuario solo se proporciona a través de la página de administración de IoT Central. Para eliminar el registro, los administradores de la aplicación pueden seleccionar el usuario que quieren eliminar y elegir **Eliminar** en la esquina superior derecha de la aplicación. Los administradores de la aplicación también pueden quitar cuentas individuales que ya no están asociadas con la aplicación en cuestión.
 
 Al eliminar un usuario, este deja de recibir alertas por correo electrónico. Sin embargo, su dirección de correo electrónico debe quitarse individualmente de cada alerta configurada.
 

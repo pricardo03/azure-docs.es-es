@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: a1ade6e823201419c3a742a36c66a50a9dc09976
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728804"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrado del tráfico de red con un grupo de seguridad de red mediante la CLI de Azure
@@ -196,7 +196,7 @@ La máquina virtual tarda en crearse unos minutos. Una vez creada la máquina vi
 
 ## <a name="test-traffic-filters"></a>Probar los filtros de tráfico
 
-Use el siguiente comando para crear una sesión SSH con la máquina virtual *myVmMgmt*. Reemplace  *\<publicIpAddress >* con la dirección IP pública de la máquina virtual. En el ejemplo anterior, la dirección IP era *13.90.242.231*.
+Use el siguiente comando para crear una sesión SSH con la máquina virtual *myVmMgmt*. Reemplace *\<publicIpAddress>* por la dirección IP pública de la máquina virtual. En el ejemplo anterior, la dirección IP era *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

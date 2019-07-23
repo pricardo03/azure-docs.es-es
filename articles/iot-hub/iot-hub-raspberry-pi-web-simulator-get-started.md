@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: 42c2c0d1a015baf4b846c86ed22e8383e21028b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569582"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Conectar el simulador en línea de Raspberry Pi a Azure IoT Hub (Node.js)
 
@@ -98,17 +98,17 @@ Hay tres áreas en el simulador web.
 
 1. En el área de codificación, asegúrese de trabajar en la aplicación de ejemplo predeterminada. Reemplace el marcador de posición de la línea 15 con la cadena de conexión del dispositivo de Azure IoT Hub.
 1. 
-   ![Reemplace la cadena de conexión de dispositivo](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
+   ![Reemplazo de la cadena de conexión de dispositivo](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
 
-2. Seleccione **ejecutar** o tipo `npm start` para ejecutar la aplicación.
+2. Seleccione **Ejecutar** o escriba `npm start` para ejecutar la aplicación.
 
 Debería ver el resultado siguiente que muestra los datos de sensor y los mensajes que se envían a IoT Hub ![Resultado: datos de sensor enviados desde Raspberry Pi a IoT Hub](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>Leer los mensajes recibidos por el centro
+## <a name="read-the-messages-received-by-your-hub"></a>Lectura de los mensajes recibidos por IoT Hub
 
-Es una forma de supervisar los mensajes recibidos por IoT hub del dispositivo simulado usar las herramientas de IoT de Azure para Visual Studio Code. Para obtener más información, consulte [uso de herramientas de IoT de Azure para Visual Studio Code para enviar y recibir mensajes entre su dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Una forma de supervisar los mensajes que recibe el centro de IoT del dispositivo simulado consiste en usar Azure IoT Tools para Visual Studio Code. Para más información, vea [Uso de Azure IoT Tools para Visual Studio Code a fin de enviar y recibir mensajes entre el dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Para que conocer más formas procesar los datos enviados por el dispositivo, continúe con la siguiente sección.
+Para obtener más formas de procesar los datos enviados por el dispositivo, continúe con la sección siguiente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

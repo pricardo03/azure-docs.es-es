@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472612"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analice el informe de Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
@@ -43,7 +43,7 @@ La hoja de cálculo de resumen local proporciona una introducción al entorno de
 ## <a name="recommendations"></a>Recomendaciones
 
 >[!Note]
->Cuando se replican directamente en los discos administrados, omitir la recomendación para el número de cuentas de almacenamiento.
+>Cuando la replicación se realice directamente en discos administrados, ignore la recomendación del número de cuentas de almacenamiento.
 
 La hoja de recomendaciones del informe de VMware a Azure tiene los siguientes detalles según el RPO deseado seleccionado:
 
@@ -160,7 +160,7 @@ Puede darse el caso de que sepa que no puede establecer un ancho de banda de má
 ## <a name="vm-storage-placement"></a>Selección de ubicación de almacenamiento de máquina virtual
 
 >[!Note]
->Cuando se replican directamente en los discos administrados, no es necesario preocuparse por número de cuentas de almacenamiento. Para storage, use solo la recomendación en el tipo de almacenamiento (estándar o Premium). Es aplicable a discos administrados del mismo tipo.
+>Cuando la replicación se realice directamente en discos administrados, no es necesario preocuparse por el número de cuentas de almacenamiento. Para el almacenamiento, use solo la recomendación sobre el tipo de almacenamiento (Estándar o Premium). El mismo tipo es aplicable a los discos administrados.
 
 ![Selección de ubicación de almacenamiento de máquina virtual](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
@@ -183,7 +183,7 @@ Puede darse el caso de que sepa que no puede establecer un ancho de banda de má
 
 **VM Name** (Nombre de la máquina virtual): el nombre o la dirección IP de la máquina virtual que se utilizan en VMListFile cuando se genera un informe. Esta columna también muestra los discos (VMDK) que están conectados a las máquinas virtuales. Para distinguir las máquinas virtuales de vCenter con nombres o direcciones IP, los nombres incluyen el nombre del host de ESXi. El host de ESXi enumerado es en el que se colocó la máquina virtual cuando la herramienta la detecto en el período de generación de perfiles.
 
-**VM Compatibility** (Compatibilidad de la máquina virtual): los valores son **Yes** (Sí) y **Yes**\* (Sí). **Sí**\* es para las instancias en las que la máquina virtual es una opción para [discos SSD Premium](../virtual-machines/windows/disks-types.md). En este caso, la alta actividad de la generación de perfiles o el disco de IOPS se encuadra en las categorías P20 o P30, pero el tamaño del disco hace que se asigne a una categoría P10 o P20. La cuenta de almacenamiento decide a qué tipo de disco de almacenamiento Premium se asigna un disco, en función de su tamaño. Por ejemplo: 
+**VM Compatibility** (Compatibilidad de la máquina virtual): los valores son **Yes** (Sí) y **Yes**\* (Sí). **Sí**\* es para las instancias en las que la máquina virtual es una opción para [discos SSD Premium](../virtual-machines/windows/disks-types.md). En este caso, la alta actividad de la generación de perfiles o el disco de IOPS se encuadra en las categorías P20 o P30, pero el tamaño del disco hace que se asigne a una categoría P10 o P20. La cuenta de almacenamiento decide a qué tipo de disco de almacenamiento Premium se asigna un disco, en función de su tamaño. Por ejemplo:
 * Menos de 128 GB es P10.
 * De 128 GB a 256 GB es P15
 * De 256 GB a 512 GB es P20.
@@ -279,7 +279,7 @@ Disco Premium P10 o P15 | 8 KB  | 2 MB/s | 168 GB por disco
 Disco Premium P10 o P15 | 16 KB | 4 MB/s |  336 GB por disco
 Disco Premium P10 o P15 | 32 KB, o más | 8 MB/s | 672 GB por disco
 Disco Premium P20, P30, P40 o P50 | 8 KB    | 5 MB/s | 421 GB por disco
-Disco Premium P20, P30, P40 o P50 | 16 KB, o más | 20 MB/s | 1684 GB por disco
+Disco Premium P20, P30, P40 o P50 | 16 KB, o más | 20 MB/s | 1684 GB por disco
 
 **Actividad de datos de origen** | **Límite máximo**
 ---|---

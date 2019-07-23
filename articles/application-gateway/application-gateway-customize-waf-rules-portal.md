@@ -1,5 +1,5 @@
 ---
-title: Personalizar reglas de firewall de aplicaciones web en Azure Application Gateway mediante Azure portal
+title: 'Personalización de las reglas de firewall de aplicaciones web en Azure Application Gateway: Azure Portal'
 description: En este artículo se proporciona información acerca de cómo personalizar reglas de firewall de aplicaciones web en Application Gateway con Azure Portal.
 services: application-gateway
 author: vhorne
@@ -7,10 +7,10 @@ ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
 ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720380"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personalización de reglas de firewall de aplicaciones web mediante Azure Portal
@@ -33,16 +33,16 @@ El firewall de aplicaciones web (WAF) de Azure Application Gateway proporciona p
 
 ## <a name="search-for-rules-to-disable"></a>Búsqueda de reglas para deshabilitar
 
-El **configuración de firewall de aplicación Web** página proporciona la capacidad de filtrar las reglas a través de una búsqueda de texto. El resultado muestra solo las reglas y los grupos de reglas que contienen el texto que se ha buscado.
+La página **Web application firewall settings** (Configuración del firewall de aplicaciones web) ofrece la posibilidad de filtrar las reglas a través de una búsqueda de texto. El resultado muestra solo las reglas y los grupos de reglas que contienen el texto que se ha buscado.
 
 ![Buscar reglas][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>Deshabilitación de reglas y grupos de reglas
 
 > [!IMPORTANT]
-> Tenga cuidado al deshabilitar los grupos de reglas o reglas. Esto puede exponer a mayores riesgos de seguridad.
+> Tenga cuidado al deshabilitar los grupos de reglas o reglas. Esta acción puede exponerlo a mayores riesgos de seguridad.
 
-Cuando se están deshabilitando las reglas, puede deshabilitar un grupo de reglas completo o reglas específicas de uno o varios grupos de reglas. 
+Cuando deshabilita reglas, puede deshabilitar un grupo de reglas completo o reglas específicas de uno o más grupos de reglas. 
 
 **Para deshabilitar grupos de reglas o reglas concretas**
 
@@ -52,20 +52,20 @@ Cuando se están deshabilitando las reglas, puede deshabilitar un grupo de regla
 
 ![Guardar cambios][3]
 
-## <a name="mandatory-rules"></a>Normas obligatorias
+## <a name="mandatory-rules"></a>Reglas obligatorias
 
-En la lista siguiente contiene las condiciones que provocan el WAF bloquear la solicitud en el modo de prevención. En modo de detección, se registran como excepciones.
+La lista siguiente contiene las condiciones que provocan que el firewall de aplicaciones web bloquee la solicitud durante el modo de prevención. En modo de detección, se registran como excepciones.
 
-Estos no se pueden configurar o deshabilitados:
+Estas condiciones no se pueden configurar o deshabilitar:
 
-* Error al analizar el cuerpo de solicitud tiene como resultado la solicitud está bloqueada, a menos que la inspección de cuerpo está desactivado (XML, JSON, datos de formulario)
-* Longitud de datos de solicitud de cuerpo (con ningún archivo) es mayor que el límite configurado
-* La solicitud es mayor que el límite de cuerpo (incluidos los archivos)
-* Se produjo un error interno en el motor de WAF
+* La imposibilidad de analizar el cuerpo de la solicitud tiene como resultado que la solicitud se bloquea, a menos que la inspección del cuerpo esté desactivada (XML, JSON, datos de formulario).
+* La longitud de los datos del cuerpo de la solicitud (sin archivos) es mayor que el límite configurado.
+* El cuerpo de la solicitud (archivos incluidos) es mayor que el límite.
+* Se produjo un error interno en el motor de WAF.
 
-CRS 3.x específica:
+Específico de CRS 3.x:
 
-* Entrada de umbral superado de puntuación de anomalías
+* La puntuación de anomalías de entrada superó el umbral.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

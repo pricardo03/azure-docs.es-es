@@ -1,5 +1,5 @@
 ---
-title: Conectarse a la máquina virtual basada en Azure de Microsoft | Azure Marketplace
+title: Conectarse a la máquina virtual basada en Microsoft Azure | Azure Marketplace
 description: Se explica cómo conectarse a la nueva máquina virtual creada en Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
 ms.openlocfilehash: ca002a77fd7252466f604b995af949b54694bc8c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938577"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Conectarse a la máquina virtual basada en Azure
@@ -22,7 +22,7 @@ En este artículo se explica cómo conectarse a las máquinas virtuales (VM) cre
 
 Para conectarse a la máquina virtual basada en Windows hospedada en Azure, se usa el cliente de escritorio remoto.  La mayoría de las versiones de Windows incluyen compatibilidad de forma nativa con el Protocolo de escritorio remoto (RDP).  En el caso de las demás máquinas, puede encontrar más información sobre los clientes en [Clientes de escritorio remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
 
-El siguiente artículo detalla cómo usar la compatibilidad integrada de Windows RDP para conectarse a la máquina virtual: [Cómo conectarse e iniciar sesión en una máquina virtual de Azure ejecutando Windows](../../../virtual-machines/windows/connect-logon.md).  
+En el siguiente artículo se detalla cómo usar la compatibilidad integrada de Windows RDP para conectarse a una VM: [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](../../../virtual-machines/windows/connect-logon.md).  
 
 >[!TIP]
 > Es posible que obtenga advertencias de seguridad durante el proceso, por ejemplo que el archivo .rdp procede de un publicador desconocido o que no se pueden verificar sus credenciales de usuario.  Es seguro hacer caso omiso de estas advertencias.
@@ -47,7 +47,7 @@ Para conectarse a la máquina virtual basada en Linux, necesita un cliente de pr
 7. Haga clic en **Abrir** para abrir un terminal PuTTY.  
 8. Cuando se le pida, escriba el nombre y la contraseña de la cuenta de máquina virtual Linux. 
 
-   Si tiene problemas de conexión, consulte la documentación del cliente SSH, por ejemplo [capítulo 10: Mensajes de error comunes](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
+   Si tiene problemas de conexión, vea la documentación del cliente SSH, por ejemplo el [Capítulo 10: Mensajes de error habituales](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
 
 Para obtener más información, por ejemplo cómo agregar un escritorio a una máquina virtual Linux aprovisionada, vea [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 

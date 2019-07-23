@@ -16,10 +16,10 @@ ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 769e6b9936ad6d3cb963e208cec4c49813f2b6d3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130728"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala distribuida geográficamente con entornos de App Service
@@ -46,7 +46,7 @@ El resto de este tema lo guía por los pasos necesarios para configurar una topo
 ## <a name="planning-the-topology"></a>Planeación de la topología
 Antes de crear la superficie de una aplicación distribuida, resulta útil tener algunos datos con antelación.
 
-* **Dominio personalizado para la aplicación:**  ¿cuál es el nombre de dominio personalizado que los clientes usarán para acceder a la aplicación?  Para la aplicación de ejemplo es el nombre de dominio personalizado `www.scalableasedemo.com`
+* **Dominio personalizado para la aplicación:**  ¿cuál es el nombre de dominio personalizado que los clientes usarán para acceder a la aplicación?  Para la aplicación de ejemplo, el nombre de dominio personalizado es `www.scalableasedemo.com`.
 * **Dominio de Traffic Manager:**  se tiene que elegir un nombre de dominio al crear un [perfil de Azure Traffic Manager][AzureTrafficManagerProfile].  Este nombre se combinará con el sufijo *trafficmanager.net* para registrar una entrada de dominio que es administrada por el Administrador de tráfico.  Para la aplicación de ejemplo, el nombre elegido es *scalable-ase-demo*.  Como resultado, el nombre de dominio completo administrado por el Administrador de tráfico es *scalable-ase-demo.trafficmanager.net*.
 * **Estrategia para escalar la superficie de la aplicación:**  ¿se va a distribuir el entorno de la aplicación entre varias instancias de App Service Environment de una sola región?  ¿Varias regiones?  ¿Una combinación de ambos enfoques?  La decisión debería basarse en las expectativas de dónde se vaya a originar el tráfico del cliente, así como también en la medida en que el resto de la infraestructura de back-end de apoyo de una aplicación pueda escalarse.  Por ejemplo, con una aplicación totalmente sin estado, se puede escalar una aplicación de forma masiva mediante una combinación de varias instancias de App Service Environment por región de Azure, multiplicados por más instancias de App Service Environment implementadas en varias regiones de Azure.  Con más de 15 regiones de Azure públicas entre las que elegir, los clientes pueden realmente crear una superficie de aplicación de gran escala en todo el mundo.  Para la aplicación de ejemplo usada en este artículo, se crearon tres entornos de App Service en una sola región de Azure (Centro y Sur de EE. UU.).
 * **Convención de nomenclatura para las instancias de App Service Environment:**  cada instancia de App Service Environment requiere un nombre único.  Si existen más de uno o dos entornos de App Service, resulta útil disponer de una convención de nomenclatura para ayudar a identificar cada uno de ellos.  Para la aplicación de ejemplo, se usó una convención de nomenclatura sencilla.  Los nombres de las tres instancias de App Service Environment son *fe1ase*, *fe2ase* y *fe3ase*.
@@ -87,7 +87,7 @@ Observe que existe una llamada a *Add-AzureTrafficManagerEndpointConfig* para ca
 Los tres extremos usan el mismo valor (10) para el parámetro *Weight* .  Como resultado, el Administrador de tráfico distribuye las solicitudes de los clientes entre las tres instancias de la aplicación de forma relativamente uniforme. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Hacer que el dominio personalizado de la aplicación apunte al dominio del Administrador de tráfico
-El último paso necesario es hacer que el dominio personalizado de la aplicación apunte al dominio del Administrador de tráfico.  Para la aplicación de ejemplo, esto significa que señala `www.scalableasedemo.com` en `scalable-ase-demo.trafficmanager.net`.  Este paso se debe completar con el registrador de dominios que administra el dominio personalizado.  
+El último paso necesario es hacer que el dominio personalizado de la aplicación apunte al dominio del Administrador de tráfico.  Para la aplicación de ejemplo, esto significa señalar a `www.scalableasedemo.com` en `scalable-ase-demo.trafficmanager.net`.  Este paso se debe completar con el registrador de dominios que administra el dominio personalizado.  
 
 Usando las herramientas de administración de dominios del registrador, se debe crear un registro CNAME que apunte al dominio personalizado en el dominio del Administrador de tráfico.  En la figura siguiente se muestra un ejemplo de esta configuración de CNAME:
 
@@ -95,16 +95,16 @@ Usando las herramientas de administración de dominios del registrador, se debe 
 
 Aunque no se trata en este tema, recuerde que cada instancia de aplicación individual debe tener el dominio personalizado registrado con ella también.  De lo contrario, si una solicitud llega a una instancia de la aplicación y la aplicación no tiene el dominio personalizado registrado con la aplicación, la solicitud producirá un error.  
 
-En este ejemplo es el dominio personalizado `www.scalableasedemo.com`, y cada instancia de la aplicación tiene el dominio personalizado asociado con él.
+En este ejemplo, el dominio personalizado es `www.scalableasedemo.com` y cada instancia de la aplicación tiene asociado el dominio personalizado.
 
 ![Dominio personalizado][CustomDomain] 
 
 Como resumen del registro de un dominio personalizado con las aplicaciones de Azure App Service, consulte el siguiente artículo sobre el [registro de dominios personalizados][RegisterCustomDomain].
 
 ## <a name="trying-out-the-distributed-topology"></a>Prueba de la topología distribuida
-El resultado final de la configuración del Administrador de tráfico y DNS es que las solicitudes de `www.scalableasedemo.com` fluirá a través de la siguiente secuencia:
+El resultado final de la configuración de Traffic Manager y de DNS es que las solicitudes de `www.scalableasedemo.com` fluirán en la siguiente secuencia:
 
-1. Un dispositivo o explorador realizará una búsqueda de DNS `www.scalableasedemo.com`
+1. Un dispositivo o explorador realizará una búsqueda DNS de `www.scalableasedemo.com`.
 2. La entrada CNAME en el registrador de dominios hace que la búsqueda DNS se redirija al Administrador de tráfico de Azure.
 3. Se realiza una búsqueda DNS de *scalable-ase-demo.trafficmanager.net* en uno de los servidores DNS del Administrador de tráfico de Azure.
 4. Según la directiva de equilibrio de carga (el parámetro *TrafficRoutingMethod* usado antes al crear el perfil del Administrador de tráfico), el Administrador de tráfico seleccionará uno de los extremos configurados y devolverá el FQDN de ese extremo al explorador o dispositivo.

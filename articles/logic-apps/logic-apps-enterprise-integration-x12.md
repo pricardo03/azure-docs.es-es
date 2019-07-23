@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
 ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728745"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes X12 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
@@ -87,7 +87,7 @@ Ahora que ha establecido las propiedades del contrato, puede configurar cómo es
 1.  En **Agregar**, seleccione **Configuración de recepción**.
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
 
-    **Configuración de recepción** se organiza en las siguientes secciones: Los identificadores, confirmación, esquemas, sobres, números de Control, validaciones y configuración interna.
+    La **configuración de recepción** se organiza en las siguientes secciones: identificadores, confirmación, esquemas, sobres, números de control, validaciones y configuración interna.
 
 2. Cuando haya terminado, asegúrese de guardar la configuración con **Aceptar**.
 
@@ -122,7 +122,7 @@ Seleccione un esquema para cada tipo de transacción (ST1) y aplicación de remi
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| `Version` |Seleccione la versión de X12. |
+| Versión |Seleccione la versión de X12. |
 | Transaction Type (ST01) (Tipo de transacción (ST01)) |Seleccione el tipo de transacción. |
 | Sender Application (GS02) (Aplicación remitente (GS02)) |Seleccione la aplicación remitente. |
 | Esquema |Seleccione el archivo de esquema que desee usar. Los esquemas se agregan a la cuenta de integración. |
@@ -144,7 +144,7 @@ Seleccione un esquema para cada tipo de transacción (ST1) y aplicación de remi
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Disallow Interchange Control Number duplicates (No permitir duplicados del número de control de intercambio) |Bloquee los intercambios duplicados. Comprueba el número de control de intercambio (ISA13) para el número de control de intercambio recibido. Si se detecta una coincidencia, la canalización de recepción no procesa el intercambio. Puede especificar el número de días para realizar la comprobación si especifica un valor para *Comprobar si hay ISA13 duplicados todos los (días)*. |
+| Disallow Interchange Control Number duplicates (No permitir duplicados del número de control de intercambio) |Bloquee los intercambios duplicados. Comprueba el número de control de intercambio (ISA13) para el número de control de intercambio recibido. Si se detecta una coincidencia, la canalización de recepción no procesa el intercambio. Puede especificar el número de días para realizar la comprobación si especifica un valor para *Comprobar si hay ISA13 duplicados todos los (días)* . |
 | Disallow Group control number duplicates (No permitir duplicados del número de control de grupo) |Bloquee los intercambios con números de control de grupo duplicados. |
 | Disallow Transaction set control number duplicates (No permitir duplicados del número de control del conjunto de transacciones) |Bloquee los intercambios con números de control de conjunto de transacciones duplicados. |
 
@@ -183,7 +183,7 @@ Puede configurar cómo este contrato identifica y controla los mensajes saliente
 1.  En **Agregar**, seleccione **Send Settings** (Configuración de envío).
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
 
-    **Configuración de envío** se organiza en las siguientes secciones: Los identificadores, confirmación, esquemas, sobres, juegos de caracteres y separadores, números de Control y validación.
+    La **configuración de envío** se organiza en las siguientes secciones: identificadores, confirmación, esquemas, sobres, juegos de caracteres y separadores, números de control y validación.
 
 2. Cuando haya terminado, asegúrese de guardar la configuración con **Aceptar**.
 
@@ -216,7 +216,7 @@ Ahora el contrato está preparado para controlar los mensajes salientes que cump
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| `Version` |Seleccione la versión de X12. |
+| Versión |Seleccione la versión de X12. |
 | Transaction Type (ST01) (Tipo de transacción (ST01)) |Seleccione el tipo de transacción. |
 | Esquema |Seleccione el esquema que se utilizará. Los esquemas se encuentran en la cuenta de integración. Si selecciona primero un esquema, este configura automáticamente la versión y el tipo de transacción  |
 

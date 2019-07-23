@@ -13,24 +13,24 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
 ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939511"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funcionalidades multimodelo de Azure SQL Database
 
 Las bases de datos de varios modelos permiten almacenar datos representados en varios formatos como datos relacionales, grafos, documentos JSON o XML, pares clave-valor, etc., así como trabajar con dichos datos.
 
-## <a name="when-to-use-multi-model-capabilities"></a>Cuándo usar las capacidades de varios modelos
+## <a name="when-to-use-multi-model-capabilities"></a>Cuándo usar las funcionalidades multimodelo
 
 Azure SQL Database está diseñado para trabajar con el modelo relacional que proporciona el mejor rendimiento en la mayoría de los casos para una variedad de aplicaciones de uso general. Sin embargo, no se limita únicamente a datos relacionales. Azure SQL Database permite usar una variedad de formatos no relacionales que están estrechamente integrados en el modelo relacional.
-Considere la posibilidad de usar capacidades de varios modelos de Azure SQL Database en los casos siguientes:
-- Tiene cierta información o estructuras que se ajusten mejor a para los modelos de NoSQL y no desean utilizar la base de datos de NoSQL independiente.
+Considere la posibilidad de usar funcionalidades multimodelo de Azure SQL Database en los casos siguientes:
+- Tiene cierta información o estructuras que se ajustan mejor a para los modelos de NoSQL y no quiere usar una base de datos de NoSQL independiente.
 - La mayoría de los datos es adecuada para el modelo relacional y necesita modelar algunas partes de los datos en el estilo de NoSQL.
-- Desea aprovechar el amplio lenguaje Transact-SQL para consultar y analizar relacionales y datos NoSQL e integrarla con una variedad de herramientas y aplicaciones que pueden usar el lenguaje SQL.
-- Va a aplicar características de base de datos, como [tecnologías en memoria](sql-database-in-memory.md) para mejorar el rendimiento de su análisis o procesamiento de su strucutres de datos NoSQL, use [la replicación transaccional](sql-database-managed-instance-transactional-replication.md) o [réplicas legibles](sql-database-read-scale-out.md) para crear la copia de los datos en el otro lugar y descargar algunas cargas de trabajo de análisis de la base de datos principal.
+- Quiere aprovechar el amplio lenguaje Transact-SQL para consultar y analizar datos relacionales y NoSQL, e integrarlos con una variedad de herramientas y aplicaciones que pueden usar el lenguaje SQL.
+- Quiere a aplicar características de base de datos, como [tecnologías en memoria](sql-database-in-memory.md) para mejorar el rendimiento de análisis o el procesamiento de estructuras de datos NoSQL, usa la [replicación transaccional](sql-database-managed-instance-transactional-replication.md) o [réplicas legibles](sql-database-read-scale-out.md) para crear la copia de los datos en el otro lugar y descargar algunas cargas de trabajo de análisis desde la base de datos principal.
 
 ## <a name="overview"></a>Información general
 
@@ -90,7 +90,7 @@ Los modelos de documento se pueden utilizar en lugar de los modelos relacionales
 
 ## <a name="spatial-features"></a>Características espaciales
 
-Los datos espaciales representan información sobre la ubicación física y la forma de objetos geométricos. Estos objetos pueden ser ubicaciones de punto u objetos más complejos como países o regiones, carreteras o lagos.
+Los datos espaciales representan información sobre la ubicación física y la forma de objetos geométricos. Estos objetos pueden ser ubicaciones de punto u objetos más complejos, como países o regiones, carreteras o lagos.
 
 Azure SQL Database admite dos tipos de datos espaciales: el tipo de datos geométricos y el tipo de datos geográficos.
 - El tipo geométrico representa los datos en un sistema de coordenadas euclidiano (plano).

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/14/2019
 ms.author: mayg
 ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471128"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Revisión del informe de estimación de costos en Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
@@ -19,12 +19,12 @@ ms.locfileid: "61471128"
 El informe de Deployment Planner ofrece un resumen de la estimación de costos incluida en las hojas de [Recomendaciones](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) y del análisis detallado de los costos en la hoja Estimación de costos. Incluye el análisis detallado del costo por máquina virtual. 
 
 >[!Note]
->La versión actual de la herramienta Deployment planner no proporciona la estimación de costos para máquinas virtuales de replicar a Managed Disks.
->* Las estimaciones de costos de recuperación ante desastres Drill son los mismos para las cuentas de almacenamiento y discos administrados, cuando el parámetro "Usar discos administrados" se establece en "Sí" en la hoja "Proceso y red".
->* Para obtener una estimación del costo anual aproximado para la replicación, realice la siguiente configuración temporal en **estimación de costos** hoja:
->    * Establezca el parámetro "Costo de duración" de **configuración** tabla "Año"
->    * En **detallado análisis de costos** de tabla, establezca la columna "Número de simulacros de recuperación ante desastres en un año" en 12 y "Each DR-Drill duration (días)" a 30 
->    * El costo de replicación será similar al costo rellenado en el costo de almacenamiento de información de exploración de recuperación ante desastres, es decir, ' R' columna al año en **DR-Drill costo por año** subsección.
+>La versión actual de la herramienta Deployment Planner no proporciona la estimación de costos de las VM que se replican en Managed Disks.
+>* Las estimaciones de costos de simulacro de recuperación ante desastres son los mismos para las cuentas de almacenamiento y los discos administrados, cuando el parámetro "Usar Managed Disks" se establece en "Sí" en la hoja "Proceso y red".
+>* Para obtener una estimación del costo anual aproximado de la replicación, realice la siguiente configuración temporal en la hoja **Cost Estimation** (Estimación de costos):
+>    * Establezca el parámetro "Cost duration" (Duración del costo) de la tabla **Configuración** en "Año".
+>    * En la tabla **Detailed cost analysis** (Análisis de costos detallado), establezca la columna "Number of DR-Drills in a year" (Número de simulacros de recuperación ante desastres en un año) en 12 y "Each DR-Drill duration (Days)" (Duración de cada simulacro de recuperación ante desastres [días]) en 30. 
+>    * El costo de replicación será similar al costo rellenado en la columna “R”, es decir, DR-Drill storage cost per year (Costo anual de almacenamiento del simulacro de recuperación ante desastres) de la subsección **DR-Drill cost per year** (Costo anual del simulacro de recuperación ante desastres).
 
 ### <a name="cost-estimation-summary"></a>Resumen de la estimación de costos 
 En el gráfico siguiente se muestra la vista de resumen del costo total estimado de la recuperación ante desastres en Azure de la región de destino elegida y en la moneda que ha especificado para generar el informe.

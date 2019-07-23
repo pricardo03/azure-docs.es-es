@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417590"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendaciones de rendimiento para SQL Database
@@ -79,7 +79,7 @@ La recomendación de corrección de problemas de esquema aparece cuando el servi
 
 | Código de error SQL | Message |
 | --- | --- |
-| 201 |El procedimiento o la función '*' espera parámetros '*', que no se han proporcionado. |
+| 201 |El procedimiento o la función ' *' espera parámetros '* ', que no se han proporcionado. |
 | 207 |Nombre de columna '*' no válido. |
 | 208 |Nombre de objeto '*' no válido. |
 | 213 |El nombre de columna o los valores especificados no corresponden a la definición de la tabla. |
@@ -88,7 +88,7 @@ La recomendación de corrección de problemas de esquema aparece cuando el servi
 
 ## <a name="custom-applications"></a>Aplicaciones personalizadas
 
-Los desarrolladores es posible que considere la posibilidad de desarrollar aplicaciones personalizadas con las recomendaciones de rendimiento para Azure SQL Database. Todas las recomendaciones se muestran en el portal para una base de datos se puede acceder mediante [Get AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
+Los desarrolladores pueden considerar la posibilidad de desarrollar aplicaciones personalizadas con las recomendaciones de rendimiento de Azure SQL Database. Todas las recomendaciones que se muestran en el portal para una base de datos están disponibles a través de la API [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. SQL Database Advisor sigue supervisando y ofreciendo recomendaciones que pueden mejorar el rendimiento de la base de datos. 

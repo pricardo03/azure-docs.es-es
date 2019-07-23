@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64572757"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configuración de ExpressRoute Global Reach
@@ -23,10 +23,10 @@ Este artículo le ayuda a configurar Global Reach de ExpressRoute con PowerShell
 
 Antes de comenzar la configuración, confirme lo siguiente:
 
-* Comprender el aprovisionamiento del circuito de ExpressRoute [flujos de trabajo](expressroute-workflows.md).
-* Los circuitos ExpressRoute están en un estado aprovisionado.
-* Emparejamiento privado de Azure se configura en los circuitos ExpressRoute.
-* Si desea ejecutar PowerShell localmente, compruebe que la versión más reciente de Azure PowerShell está instalada en el equipo.
+* Conoce los [flujos de trabajo](expressroute-workflows.md) del aprovisionamiento de circuitos ExpressRoute.
+* Los circuitos ExpressRoute están en estado aprovisionado.
+* El emparejamiento privado de Azure está configurado en los circuitos ExpressRoute.
+* Si quiere ejecutar PowerShell localmente, compruebe que la versión más reciente de Azure PowerShell está instalada en el equipo.
 
 ### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
 
@@ -34,19 +34,19 @@ Antes de comenzar la configuración, confirme lo siguiente:
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## <a name="identify-circuits"></a>Identificar los circuitos
+## <a name="identify-circuits"></a>Identificar circuitos
 
-1. Para iniciar la configuración, inicie sesión en su cuenta de Azure y seleccione la suscripción que desea usar.
+1. Para iniciar la configuración, inicie sesión en su cuenta de Azure y seleccione la suscripción que quiere usar.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Identifique los circuitos ExpressRoute que desea usar. Puede permitir que alcance Global de ExpressRoute entre los dos circuitos de ExpressRoute, siempre que se encuentran en los países o regiones admitidos y se crearon en diferentes ubicaciones de emparejamiento. 
+2. Identifique los circuitos ExpressRoute que quiere usar. Puede habilitar Global Reach de ExpressRoute entre dos circuitos ExpressRoute cualesquiera, siempre que se encuentren en los países o regiones admitidos y se hayan creado en distintas ubicaciones de emparejamiento. 
 
    * Si ambos circuitos pertenecen a la suscripción, puede elegir cualquiera de ellos para ejecutar la configuración en las secciones siguientes.
    * Si los circuitos están en diferentes suscripciones de Azure, necesita la autorización de una suscripción de Azure. Luego debe usar la clave de autorización al ejecutar el comando de configuración en la otra suscripción de Azure.
 
 ## <a name="enable-connectivity"></a>Habilitación de la conectividad
 
-Habilitar la conectividad entre las redes locales. Existen diferentes conjuntos de instrucciones de circuitos que se encuentran en la misma suscripción de Azure y circuitos de distintas suscripciones.
+Habilite la conectividad entre las redes locales. Existen diferentes conjuntos de instrucciones para los circuitos de la misma suscripción de Azure y los circuitos de distintas suscripciones.
 
 ### <a name="expressroute-circuits-in-the-same-azure-subscription"></a>Circuitos ExpressRoute en la misma suscripción de Azure
 
@@ -74,7 +74,7 @@ Habilitar la conectividad entre las redes locales. Existen diferentes conjuntos 
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-Cuando se complete la operación anterior, tendrán conectividad entre las redes locales en ambos lados a través de los dos circuitos de ExpressRoute.
+Una vez concluida la operación anterior, tendrá conectividad entre las redes locales en ambos lados a través de los dos circuitos ExpressRoute.
 
 ### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>Circuitos ExpressRoute en distintas suscripciones de Azure
 
@@ -100,7 +100,7 @@ Si los dos circuitos no están en la misma suscripción de Azure, necesita autor
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-Cuando se complete la operación anterior, tendrán conectividad entre las redes locales en ambos lados a través de los dos circuitos de ExpressRoute.
+Una vez concluida la operación anterior, tendrá conectividad entre las redes locales en ambos lados a través de los dos circuitos ExpressRoute.
 
 ## <a name="verify-the-configuration"></a>Comprobar la configuración
 
@@ -113,7 +113,7 @@ Si solo ejecuta *$ckt1* en PowerShell, se ve el valor de *CircuitConnectionStatu
 
 ## <a name="disable-connectivity"></a>Deshabilitar la conectividad
 
-Para deshabilitar la conectividad entre las redes de un entorno local, ejecute los comandos contra el circuito donde se ha realizado la configuración (por ejemplo, circuito 1 en el ejemplo anterior).
+Para deshabilitar la conectividad entre las redes locales, ejecute los comandos en el circuito en el que se ha realizado la configuración, (por ejemplo, el circuito 1 en el ejemplo anterior).
 
 ```azurepowershell-interactive
 $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"

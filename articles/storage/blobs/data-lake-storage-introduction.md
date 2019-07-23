@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: daa5efcf1be075e81e402edff56239a7cf21db18
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939224"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introducción a Azure Data Lake Storage Gen2
@@ -38,13 +38,13 @@ Anteriormente, los análisis basados en la nube tenían que llegar a un acuerdo 
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Características clave de Data Lake Storage Gen2
 
--   **Acceso compatible con Hadoop**: Data Lake Storage Gen2 le permite administrar y acceder a los datos igual que lo haría con un [sistema de archivos distribuido de Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). El nuevo [controlador ABFS](data-lake-storage-abfs-driver.md) está disponible en todos los entornos de Apache Hadoop, incluidos [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index) y [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) para acceder a los datos almacenados en Data Lake Storage Gen2.
+-   **Acceso compatible con Hadoop**: Data Lake Storage Gen2 le permite administrar y acceder a los datos igual que lo haría con un [sistema de archivos distribuido de Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). El nuevo [controlador ABFS](data-lake-storage-abfs-driver.md) está disponible en todos los entornos de Apache Hadoop, incluidos [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) *,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index) y [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) para acceder a los datos almacenados en Data Lake Storage Gen2.
 
 -   **Superconjunto de permisos POSIX**: el modelo de seguridad de Data Lake Gen2 es compatible con los permisos de ACL y POSIX junto con granularidad adicional específica de Data Lake Storage Gen2. La configuración se puede realizar mediante el Explorador de Storage o a través de marcos como Hive y Spark.
 
 -   **Rentabilidad**: Data Lake Storage Gen2 ofrece transacciones y capacidad de almacenamiento de bajo costo. Al igual que las transiciones de datos a lo largo de su ciclo de vida completo, las tasas de facturación cambian y mantienen los costos al mínimo a través de características integradas, como el [ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md).
 
--   **Controlador optimizado**: Es el controlador ABFS [específicamente optimizado](data-lake-storage-abfs-driver.md) para análisis de macrodatos. Las API de REST correspondiente se exponen a través del extremo `dfs.core.windows.net`.
+-   **Controlador optimizado**: El controlador ABFS está [optimizado específicamente](data-lake-storage-abfs-driver.md) para el análisis de macrodatos. Las API de REST correspondientes se exponen a través del punto de conexión `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Escalabilidad
 

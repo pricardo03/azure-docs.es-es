@@ -8,29 +8,29 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.openlocfilehash: 5135de0fc87af227073f96c653d928ace1a50fd0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64917052"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Ejecución de cargas de trabajo de Azure Machine Learning con aprendizaje automático automatizado (AutoML) en Apache Spark en Azure HDInsight
 
-Azure Machine Learning simplifica y acelera la creación, entrenamiento y la implementación de modelos de aprendizaje automático. En automatizadas machine learning (AutoML), comience con los datos de entrenamiento que tiene una característica de destino definido y, a continuación, recorrer en iteración las combinaciones de algoritmos y selecciones de características para seleccionar automáticamente el mejor modelo para los datos según las puntuaciones de entrenamiento. HDInsight permite a los clientes aprovisionen los clústeres con cientos de nodos. AutoML ejecutándose en Spark en un clúster de HDInsight permite a los usuarios usar la capacidad de proceso a través de estos nodos para ejecutar trabajos de entrenamiento en un modo de escalado horizontal y para ejecutar varios trabajos de entrenamiento en paralelo. Esto permite a los usuarios ejecutar experimentos AutoML mientras comparte el proceso con sus otras cargas de trabajo de macrodatos.
+Azure Machine Learning simplifica la creación y agiliza la creación, entrenamiento e implementación de modelos de Machine Learning. En el aprendizaje automático automatizado (AutoML), se comienza con datos de entrenamiento que tienen una característica de destino definida y después se realiza una iteración por las combinaciones de algoritmos y selecciones de características para elegir de forma automática el mejor modelo para los datos según las puntuaciones de entrenamiento. HDInsight permite que los clientes aprovisionen los clústeres con cientos de nodos. Cuando AutoML ejecuta Spark en un clúster de HDInsight, permite a los usuarios usar la capacidad de proceso de estos nodos para ejecutar trabajos de entrenamiento en escalado horizontal, así como ejecutar varios trabajos de entrenamiento en paralelo. Esto permite que los usuarios ejecuten experimentos de AutoML mientras comparten el proceso con sus otras cargas de trabajo de macrodatos.
  
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Instalación de Azure Machine Learning en un clúster de HDInsight
 
-Para obtener tutoriales generales del aprendizaje automático automatizadas, vea [Tutorial: Uso del aprendizaje automático para crear un modelo de regresión](../../machine-learning/service/tutorial-auto-train-models.md).
-Todos los nuevos clústeres Spark de HDInsight vienen preinstalados con el SDK de Azure ml AutoML. Puede empezar a trabajar con AutoML en HDInsight con este [cuaderno de Jupyter de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). Este cuaderno de Jupyter Notebook muestra cómo usar un clasificador de aprendizaje automático automatizado para solucionar un sencillo problema de clasificación.
+Para ver tutoriales generales sobre el aprendizaje automático automatizado, consulte el [Tutorial: Uso del aprendizaje automático para crear un modelo de regresión](../../machine-learning/service/tutorial-auto-train-models.md).
+Todos los nuevos clústeres de Spark con HDInsight tienen preinstalado el SDK de Azure Machine Learning y AutoML. Puede empezar a trabajar con AutoML en HDInsight con este [cuaderno de Jupyter de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). Este cuaderno de Jupyter Notebook muestra cómo usar un clasificador de aprendizaje automático automatizado para solucionar un sencillo problema de clasificación.
 
 > [!Note]
 > Los paquetes de Azure Machine Learning se instalan en el entorno de Python 3 Conda. Se debe ejecutar el cuaderno de Jupyter Notebook instalado mediante el kernel PySpark3.
 
-Como alternativa, puede usar cuadernos de Zeppelin para usar AutoML también.
+También puede usar cuadernos de Zeppelin para usar AutoML.
 
 > [!Note]
-> Zeppelin tiene un [problema conocido](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) donde PySpark3 no elegir la versión correcta de Python. Use la solución documentada.
+> Zeppelin tiene un [problema conocido](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) en el que PySpark3 no elige la versión correcta de Python. Use la solución alternativa documentada.
 
 ## <a name="authentication-for-workspace"></a>Autenticación de áreas de trabajo
 
@@ -69,10 +69,10 @@ También puede registrar el almacén de datos con el área de trabajo mediante u
 
 ## <a name="experiment-submission"></a>Realización de experimentos
 
-En el [configuración de aprendizaje de máquina automatizadas](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig), la propiedad `spark_context` debe establecerse para que el paquete se ejecute en modo distribuido. La propiedad `concurrent_iterations`, que es el número máximo de iteraciones que se ejecutan en paralelo, se debe establecer en un número menor que los núcleos de ejecutor de la aplicación de Spark.
+En la [configuración del aprendizaje automático automatizado](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig), la propiedad `spark_context` debe establecerse para que el paquete se ejecute en modo distribuido. La propiedad `concurrent_iterations`, que es el número máximo de iteraciones que se ejecutan en paralelo, se debe establecer en un número menor que los núcleos de ejecutor de la aplicación de Spark.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre la motivación para aprendizaje automático automatizadas, consulte [modelos de versión al ritmo utilizando Microsoft automated aprendizaje automático.](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
-* Para obtener más detalles sobre el uso de las capacidades de aprendizaje automático de Azure ML automatizadas, consulte [New automatizada capacidades de aprendizaje automático en el servicio de Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
+* Para obtener más información sobre los motivos para usar el aprendizaje automático automatizado, consulte [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/) (Lanzamiento periódico de modelos mediante el aprendizaje automático automatizado de Microsoft).
+* Para obtener más detalles sobre el uso de las funcionalidades de aprendizaje automático automatizado de Azure Machine Learning, consulte [New automated machine learning capabilities in Azure Machine Learning service](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/) (Nuevas funcionalidades de aprendizaje automático automatizado en Azure Machine Learning Service).
 * [Proyecto de AutoML de Microsoft Research](https://www.microsoft.com/research/project/automl/)

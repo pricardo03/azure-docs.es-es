@@ -14,25 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705214"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573512"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Supervisión y procesamiento de eventos de seguridad en Azure Security Center
 El panel Eventos proporciona información general sobre el número de eventos de seguridad recopilados a lo largo del tiempo y una lista de eventos importantes que requieren su atención.  
 
 > [!NOTE]
-> Para usar esta característica, el área de trabajo debe ejecutar la versión 2 de Log Analytics y tener el nivel Estándar de Security Center. Para más información sobre el nivel Estándar, vea la [página de precios](security-center-pricing.md) de Security Center.
->
->
+> El panel de eventos de seguridad se retirará el 31 de julio de 2019. Para obtener más información y servicios alternativos, consulte [Retirada de las características de Security Center (julio de 2019)](security-center-features-retirement-july2019.md#menu_events).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>¿Qué es un evento de seguridad?
 Security Center usa Microsoft Monitoring Agent para recopilar distintos eventos y configuraciones relacionados con la seguridad en los equipos y almacena esos eventos en los espacios de trabajo. Algunos ejemplos de estos datos son: registros del sistema operativo (registros de eventos de Windows), procesos en ejecución y eventos de soluciones de seguridad integrados con Security Center. Microsoft Monitoring Agent también copia los archivos de volcado de memoria en las áreas de trabajo.
+
+## <a name="requirements"></a>Requisitos
+Para usar esta característica, el área de trabajo debe ejecutar la versión 2 de Log Analytics y tener el nivel Estándar de Security Center. Para más información sobre el nivel Estándar, vea la [página de precios](security-center-pricing.md) de Security Center.
 
 ## <a name="events-processed-dashboard"></a>Panel de eventos procesados
 Puede tener acceso al panel **Eventos** desde el menú principal de Security Center o desde la hoja **Introducción** de Security Center.  
@@ -96,7 +97,7 @@ Si la fila del área de trabajo:
 - Está en blanco, el área de trabajo reúne los requisitos, de modo que si selecciona un área de trabajo, se le dirigirá al panel.
 
 > [!NOTE]
-> En el panel **Eventos**, la columna **EVENTOS** señala la cantidad de eventos que hay en cada área de trabajo.  Esta columna aparece en blanco en algunas áreas de trabajo porque esas áreas de trabajo tienen aplicado el nivel Gratis de Security Center. En el nivel gratis, Security Center recopilará eventos, pero los eventos no se guardan en los registros de Azure Monitor y no están disponibles en el panel.
+> En el panel **Eventos**, la columna **EVENTOS** señala la cantidad de eventos que hay en cada área de trabajo.  Esta columna aparece en blanco en algunas áreas de trabajo porque esas áreas de trabajo tienen aplicado el nivel Gratis de Security Center. En el nivel Gratis, Security Center recopilará eventos, pero estos no se guardarán en los registros de Azure Monitor ni estarán disponibles en el panel.
 >
 >
 
@@ -121,9 +122,9 @@ Si la fila del área de trabajo:
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a usar el panel Eventos de Security Center. Para más información sobre cómo funciona el panel y escribir sus propias consultas de eventos, vea:
 
-- [¿Qué es que los registros de Azure Monitor?](../log-analytics/log-analytics-overview.md) -Introducción a los registros de Azure Monitor
-- [Descripción de las búsquedas de Kusto](../log-analytics/log-analytics-log-search-new.md) : describe cómo se utilizan las búsquedas de registros en los registros de Azure Monitor y proporciona los conceptos que deben comprender antes de crear una búsqueda de registros
-- [Referencia de búsqueda de Kusto](../log-analytics/log-analytics-search-reference.md) : Obtenga información sobre cómo escribir sus propias consultas de eventos mediante el lenguaje de consulta en el registro
+- [¿Qué son los registros de Azure Monitor?](../log-analytics/log-analytics-overview.md) – Información general de los registros de Azure Monitor
+- [Descripción de las búsquedas de registros en Kusto](../log-analytics/log-analytics-log-search-new.md): en este artículo se describe cómo se usan las búsquedas de registros en los registros de Azure Monitor y se proporcionan los conceptos que debe comprender antes de crear una.
+- [Referencia sobre búsqueda de Kusto:](../log-analytics/log-analytics-search-reference.md) obtenga información sobre cómo escribir sus propias consultas de eventos con el lenguaje de consulta en el registro.
 
 Para más información sobre Security Center, consulte:
 

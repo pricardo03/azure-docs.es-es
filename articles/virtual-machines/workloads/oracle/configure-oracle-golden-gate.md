@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c8d2a948dd82fb2c04aceb24815e63be13e35919
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722610"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementación de Oracle Golden Gate en máquinas virtuales Linux de Azure 
@@ -698,7 +698,7 @@ Para instalar Oracle Golden Gate, complete los pasos siguientes:
    MAP pdb1.test.*, TARGET pdb1.test.*;
    ```
 
-5. Configurar un punto de comprobación de replicación:
+5. Configure un punto de control de réplica:
 
    ```bash
    GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
 ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110930"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conexión remota a una instancia de conjunto de escalado de máquinas virtuales o a un nodo de clúster
@@ -28,7 +28,7 @@ Para buscar una dirección IP y un puerto que pueda usar para conectarse remotam
 
 1. Obtenga las reglas de NAT de entrada para Protocolo de escritorio remoto (RDP).
 
-    Normalmente, cada tipo de nodo definido en el clúster tiene su propia dirección IP virtual y un equilibrador de carga dedicado. De forma predeterminada, el equilibrador de carga para un tipo de nodo se denomina con el formato siguiente: *LB-{nombre-clúster}-{tipo de nodo}*; por ejemplo, *mycluster-LB-FrontEnd*. 
+    Normalmente, cada tipo de nodo definido en el clúster tiene su propia dirección IP virtual y un equilibrador de carga dedicado. De forma predeterminada, el equilibrador de carga para un tipo de nodo se denomina con el formato siguiente: *LB-{nombre del clúster}-{tipo de nodo}* ; por ejemplo, *LB-mycluster-FrontEnd*. 
     
     En Azure Portal, en la página del equilibrador de carga, seleccione **Configuración** > **Reglas NAT de entrada**. 
 

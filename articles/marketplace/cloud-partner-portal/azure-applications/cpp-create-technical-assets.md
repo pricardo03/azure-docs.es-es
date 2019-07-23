@@ -1,5 +1,5 @@
 ---
-title: Crear los activos técnicos de aplicación de Azure | Azure Marketplace
+title: Creación de recursos técnicos de una aplicación de Azure | Azure Marketplace
 description: Creación de recursos técnicos para una oferta de aplicación de Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: pabutler
 ms.openlocfilehash: cbe1b8c8f1159d90fbf97eeae272c1c50ec9b9bb
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942984"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Preparación de los recursos técnicos de aplicaciones de Azure

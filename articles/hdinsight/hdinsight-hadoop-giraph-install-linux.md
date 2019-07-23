@@ -1,6 +1,6 @@
 ---
-title: Instalar y usar Giraph en HDInsight de Azure
-description: Obtenga información sobre cómo instalar Giraph en clústeres de HDInsight mediante acciones de script. Puede usar Giraph para realizar el procesamiento en Apache Hadoop en la nube de Azure de gráficos.
+title: Instalación y uso de Giraph en Azure HDInsight
+description: Aprenda a instalar Giraph en clústeres de HDInsight mediante acciones de script. Puede usar Giraph para realizar el procesamiento de gráficos en Apache Hadoop en Azure Cloud.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: aa13d8dfc65f020f3f27183423913933cd0b9404
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697598"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar Apache Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
@@ -143,7 +143,7 @@ Después de que se ha creado el clúster, use estos pasos para ejecutar el ejemp
 
     Para obtener más información sobre estos y otros parámetros que se usan en los ejemplos de Giraph, consulte la [guía de inicio rápido de Giraph](https://giraph.apache.org/quick_start.html).
 
-6. Una vez finalizado el trabajo, los resultados se almacenan en el **/example/out/shortestpaths** directory. Los nombres de los archivos de salida empezarán por **part-m-** y terminarán en un número que indica el primer, segundo, etc., archivo. Para ver la salida, use el comando siguiente:
+6. Una vez finalizado el trabajo, los resultados se almacenan en el directorio **/example/out/shotestpaths**. Los nombres de los archivos de salida empezarán por **part-m-** y terminarán en un número que indica el primer, segundo, etc., archivo. Para ver la salida, use el comando siguiente:
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*

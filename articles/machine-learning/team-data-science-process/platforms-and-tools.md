@@ -11,10 +11,10 @@ ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61428659"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas y herramientas para proyectos de ciencia de datos
@@ -44,7 +44,7 @@ La máquina virtual de ciencia de datos que Microsoft ofrece tanto con Windows c
 - Power BI Desktop para Windows
 - SQL Server 2016 Developer Edition en Windows/Postgres en Linux
 
-También incluye **herramientas de aprendizaje automático e inteligencia artificial** como xgboost, mxnet y Vowpal Wabbit.
+También incluye **herramientas de ML e IA**, como xgboost, mxnet y Vowpal Wabbit.
 
 Actualmente, la máquina virtual de ciencia de datos está disponible con los sistemas operativos **Windows** y **CentOS Linux**. Elija el tamaño de la máquina virtual de ciencia de datos (número de núcleos de CPU y cantidad de memoria) en función de los proyectos de ciencia de datos que se vayan a ejecutar en ella. 
 

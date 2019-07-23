@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62096134"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
@@ -67,10 +67,10 @@ Azure AD Connect Health no se admite en la nube de Alemania, excepto para la [ca
 
 | Roles | Características | Se admite en la nube de Alemania |
 | ------ | --------------- | --- |
-| Connect Health para sincronización | Supervisión / Información / Alertas / análisis | Sin  |
+| Connect Health para sincronización | Supervisión / Información / Alertas / análisis | Sin |
 |  | Informe de error de sincronización | Sí |
-| Connect Health para ADFS | Supervisión / Información / Alertas / análisis | Sin  |
-| Connect Health para ADDS | Supervisión / Información / Alertas / análisis | Sin  |
+| Connect Health para ADFS | Supervisión / Información / Alertas / análisis | Sin |
+| Connect Health para ADDS | Supervisión / Información / Alertas / análisis | Sin |
 
 Para garantizar la conectividad del agente de Connect Health para la sincronización, configure el [requisito de instalación](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) según corresponda.
 
@@ -155,7 +155,7 @@ Azure AD Connect Health para AD FS genera esta alerta cuando se produce un error
 
 A menudo, se produce un error en esta prueba porque el agente de mantenimiento no puede resolver el nombre de la granja de servidores de AD FS. Esto puede suceder si los servidores de AD FS están detrás de equilibradores de carga de red y la solicitud consigue iniciarse desde un nodo que esté detrás del equilibrador de carga (en lugar de un cliente normal que aparece delante del equilibrador de carga). Esto puede corregirse actualizando el archivo "hosts" en "C:\Windows\System32\drivers\etc" para incluir la dirección IP del servidor de AD FS o una dirección IP de bucle invertido (127.0.0.1) para el nombre de la granja de servidores de AD FS (por ejemplo, sts.contoso.com). Al agregar el archivo de host, se interrumpe la llamada de red, lo que permite que el agente de mantenimiento obtenga el token.
 
-**P: He recibido un correo electrónico que indica que Mis máquinas no se revisan los recientes ataques de ransomware. ¿Por qué he recibido este correo electrónico?**
+**P: He recibido un correo electrónico que indica que mis máquinas no se han revisado para contrarrestar los ataques de secuestro de datos recientes. ¿Por qué he recibido este correo electrónico?**
 
 El servicio Azure AD Connect Health analiza todas las máquinas que supervisa para garantizar que se instalaron las revisiones necesarias. El correo electrónico se envía a los administradores de inquilinos si al menos una máquina no tiene las revisiones críticas. Se usó la siguiente lógica para tomar esta decisión.
 1. Busque todas las revisiones instaladas en la máquina.
@@ -193,8 +193,8 @@ CheckForMS17-010
 
 Utilice el cmdlet de PowerShell <i>Get-AdfsProperties - AuditLevel</i> para asegurarse de que los registros de auditoría no se encuentran en estado deshabilitado. Obtenga más información sobre los [registros de auditoría de ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Tenga en cuenta que si se envía una configuración avanzada de auditoría al servidor de ADFS, se sobrescribirán los cambios realizados con auditpol.exe (aunque no se haya configurado Application Generated). En este caso, establezca la directiva de seguridad local para que registre los eventos correctos e incorrectos de Application Generated.
 
-**P: ¿Cuándo estará el certificado de agente automática expiración renovado antes?**
-La certificación de agente será automática renueva **6 meses** antes de su fecha de expiración. Si no se renueva, asegúrese de que la conexión de red del agente es estable. Reinicie los servicios del agente o actualice a la versión más reciente también puede resolver el problema.
+**P: ¿Cuándo se renovará automáticamente el certificado de agente antes de la expiración?**
+La certificación de agente se renovará automáticamente **6 meses** antes de la fecha de expiración. Si no se renueva, asegúrese de que la conexión de red del agente es estable. Reiniciar los servicios del agente o actualizar a la versión más reciente también pueden resolver el problema.
 
 
 ## <a name="related-links"></a>Vínculos relacionados

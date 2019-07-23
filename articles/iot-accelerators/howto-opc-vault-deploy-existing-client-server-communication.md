@@ -1,6 +1,6 @@
 ---
-title: Proteger OPC UA de cliente y la aplicación de servidor de OPC UA con el almacén de OPC - Azure | Microsoft Docs
-description: Cliente OPC UA y OPC UA server aplicación seguro con un nuevo par de claves y un certificado con el almacén de OPC.
+title: 'Protección de las aplicaciones cliente y servidor de OPC UA mediante OPC Vault: Azure | Microsoft Docs'
+description: Proteja las aplicaciones cliente y servidor de OPC UA con un nuevo par de claves y un certificado mediante OPC Vault.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -9,71 +9,71 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61450671"
 ---
-# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Proteger OPC UA de cliente y la aplicación de servidor de OPC UA 
-OPC Vault es un microservicio que puede configurar, registrar y administrar el ciclo de vida de los certificados para aplicaciones cliente y servidor de OPC UA en la nube. Este artículo muestra cómo proteger un cliente OPC UA y un OPC UA de aplicación de servidor con un nuevo par de claves y un certificado con el almacén de OPC.
+# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Protección de las aplicaciones cliente y servidor de OPC UA 
+OPC Vault es un microservicio que puede configurar, registrar y administrar el ciclo de vida de los certificados para aplicaciones cliente y servidor de OPC UA en la nube. Este artículo le muestra cómo proteger aplicaciones cliente y servidor de OPC UA con un nuevo par de claves y un certificado mediante OPC Vault.
 
-En la siguiente configuración, el cliente OPC está probando la conectividad con el PLC OPC. De forma predeterminada, la conectividad no es posible porque todavía no se ha aprovisionado ambos componentes con los certificados de la derecha. En este flujo de trabajo, no use los certificados autofirmados de componentes de OPC UA y firmarlos a través de OPC Vault. Vea la anterior [banco de pruebas](howto-opc-vault-deploy-existing-client-plc-communication.md). En su lugar, este banco de pruebas proporciona los componentes con un nuevo certificado, así como con una nueva clave privada que se generan en el almacén de OPC. Información general sobre la seguridad de OPC UA puede encontrarse en este [notas del producto](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). Toda la información puede encontrarse en la especificación de OPC UA.
+En la siguiente configuración, el cliente OPC prueba la conectividad al PLC de OPC. De forma predeterminada, la conectividad no es posible porque los dos componentes todavía no están aprovisionados con los certificados adecuados. En este flujo de trabajo, no se usan los certificados autofirmados de componentes de OPC UA, y se firman a través de OPC Vault. Consulte el [banco de pruebas](howto-opc-vault-deploy-existing-client-plc-communication.md) anterior. En su lugar, este banco de pruebas proporciona a los componentes un nuevo certificado, así como con una nueva clave privada, ambos generados por OPC Vault. Se puede encontrar algo de información preliminar sobre la seguridad de OPC UA en estas [notas del producto](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). La información completa se puede encontrar en la especificación de OPC UA.
 
-Banco de pruebas: El siguiente entorno está configurado para las pruebas.
+Banco de pruebas: El entorno siguiente está configurado para pruebas.
 
-Secuencias de comandos de OPC almacén:
-- Cliente OPC UA y OPC UA server aplicaciones seguras con un nuevo par de claves y un certificado con el almacén de OPC.
+Scripts de OPC Vault:
+- Proteja las aplicaciones cliente y servidor de OPC UA con un nuevo par de claves y un certificado mediante OPC Vault.
 
 > [!NOTE]
-> Para obtener más información, vea GitHub [repositorio](https://github.com/Azure-Samples/iot-edge-industrial-configs#testbeds).
+> Para más información, consulte el [repositorio](https://github.com/Azure-Samples/iot-edge-industrial-configs#testbeds) de GitHub.
 
-## <a name="generate-a-new-certificate-and-private-key"></a>Generar un nuevo certificado y clave privada 
+## <a name="generate-a-new-certificate-and-private-key"></a>Generar un certificado y una clave privada nuevos 
 **Preparación**
-- Asegúrese de que las variables de entorno `$env:_PLC_OPT` y `$env:_CLIENT_OPT` son indefinidos. Por ejemplo, `$env:_PLC_OPT=""` en su PowerShell
-- Establezca la variable de entorno `$env:_OPCVAULTID` en una cadena que permite buscar los datos de nuevo en el almacén de OPC. Se recomienda si se establece en un número de 6 dígitos. En nuestro ejemplo, "123456" se utiliza como valor para la variable.
-- Asegúrese de que no hay ningún volumen de docker `opcclient` o `opcplc`. Póngase en contacto con `docker volume ls` y quitarlas con `docker volume rm <volumename>`. Es posible que deba quitar también los contenedores con `docker rm <containerid>` si todavía se usan los volúmenes por un contenedor.
+- Asegúrese de que las variables de entorno `$env:_PLC_OPT` y `$env:_CLIENT_OPT` estén sin definir. Por ejemplo, `$env:_PLC_OPT=""` en su instancia de PowerShell.
+- Establezca la variable de entorno `$env:_OPCVAULTID` en una cadena que le permita buscar los datos de nuevo en OPC Vault. Se recomienda establecerla en un número de 6 dígitos. En nuestro ejemplo, se usó "123456" como valor para la variable.
+- Asegúrese de que no existe ningún volumen de Docker `opcclient` ni `opcplc`. Compruébelo con `docker volume ls` y elimínelos con `docker volume rm <volumename>`. Puede que tenga que eliminar también los contenedores con `docker rm <containerid>` si el contenedor usa todavía los volúmenes.
 
 **Guía de inicio rápido**
-1. Vaya a la [sitio Web de almacén de OPC](https://opcvault.azurewebsites.net/)
+1. Vaya al [sitio web de OPC Vault](https://opcvault.azurewebsites.net/).
 
 1. Seleccionar `Register New`
 
-1. Escriba la información de OPC PLC, como se muestra en la salida del registro del banco de pruebas anterior `CreateSigningRequest information` área en los campos de entrada en el `Register New OPC UA Application` página, seleccione `Server` como ApplicationType.
+1. Escriba la información del PLC de OPC como se mostraba en el área `CreateSigningRequest information` de la salida del registro del banco de pruebas anterior en la página `Register New OPC UA Application` y seleccione `Server` como ApplicationType.
 
 1. Seleccionar `Register`
 
-1. En la página siguiente, `Request New Certificate for OPC UA Application` seleccione `Request new KeyPair and Certificate`
+1. En la página siguiente, `Request New Certificate for OPC UA Application`, seleccione `Request new KeyPair and Certificate`.
 
-1. En la página siguiente, `Generate a new Certificate with a Signing Request` pegue en el `CSR (base64 encoded)` cadena a partir de la salida del registro en el `CreateRequest` campo de entrada. Asegúrese de que copiar la cadena completa.
+1. En la página siguiente, pegue `Generate a new Certificate with a Signing Request` en la cadena `CSR (base64 encoded)` de la salida del registro en el campo de entrada `CreateRequest`. Asegúrese de que copia la cadena completa.
 
-1. En la página siguiente, `Request New Certificate for OPC UA Application` seleccione `Request new Certificate with Signing Request`
+1. En la página siguiente, `Request New Certificate for OPC UA Application`, seleccione `Request new Certificate with Signing Request`.
 
-1. En la página siguiente `Generate a new KeyPair and for an OPC UA Application` escriba `CN=OpcPlc` como SubjectName, `opcplc-<_OPCVAULTID>` (reemplace `<_OPCVAULTID>` con el suyo) como nombre de dominio, seleccione `PEM` como PrivateKeyFormat y escriba una contraseña (nos referimos más adelante a ella como `<certpassword-string>`)
+1. En la página siguiente, `Generate a new KeyPair and for an OPC UA Application`, escriba `CN=OpcPlc` como SubjectName, `opcplc-<_OPCVAULTID>` (reemplace `<_OPCVAULTID>` por el suyo) como DomainName, seleccione `PEM` como PrivateKeyFormat y escriba una contraseña (nos referimos a esta más adelante como `<certpassword-string>`).
 
 1. Seleccionar `Generate New KeyPair`
 
-1. Ahora está moviendo hacia delante a `View Certificate Request Details`. En esta página, puede descargar toda la información necesaria para aprovisionar los almacenes de certificados de `opc-plc`.
+1. Ahora vaya a `View Certificate Request Details`. En esta página, puede descargar toda la información necesaria para aprovisionar los almacenes de certificados de `opc-plc`.
 
 1. En esta página:  
-    - Seleccione `Certificate` en `Download as Base64` y copie la cadena de texto se presenta en el `EncodedBase64` campo y lo almacenará para su uso posterior. Nos referimos a ellos como `<applicationcertbase64-string>` más adelante. Seleccione `Back`.
-    - Seleccione `PrivateKey` en `Download as Base64` y copie la cadena de texto se presenta en el `EncodedBase64` campo y lo almacenará para su uso posterior. Nos referimos a ellos como `<privatekeybase64-string>` más adelante. Seleccione `Back`.
-    - Seleccione `Issuer` en `Download as Base64` y copie la cadena de texto se presenta en el `EncodedBase64` campo y lo almacenará para su uso posterior. Nos referimos a ellos como `<addissuercertbase64-string>` más adelante. Seleccione `Back`.
-    - Seleccione `Crl` en `Download as Base64` y copie la cadena de texto se presenta en el `EncodedBase64` campo y lo almacenará para su uso posterior. Nos referimos a ellos como `<updatecrlbase64-string>` más adelante. Seleccione `Back`.
+    - Seleccione `Certificate` en `Download as Base64` y copie la cadena de texto presente en el campo `EncodedBase64` y guárdela para su uso posterior. Haremos referencia a ella como `<applicationcertbase64-string>` más adelante. Seleccione `Back`.
+    - Seleccione `PrivateKey` en `Download as Base64` y copie la cadena de texto presente en el campo `EncodedBase64` y guárdela para su uso posterior. Haremos referencia a ella como `<privatekeybase64-string>` más adelante. Seleccione `Back`.
+    - Seleccione `Issuer` en `Download as Base64` y copie la cadena de texto presente en el campo `EncodedBase64` y guárdela para su uso posterior. Haremos referencia a ella como `<addissuercertbase64-string>` más adelante. Seleccione `Back`.
+    - Seleccione `Crl` en `Download as Base64` y copie la cadena de texto presente en el campo `EncodedBase64` y guárdela para su uso posterior. Haremos referencia a ella como `<updatecrlbase64-string>` más adelante. Seleccione `Back`.
 
-1. Establecer ahora en su PowerShell una variable denominada `$env:_PLC_OPT`:
+1. Ahora, establezca en su instancia de PowerShell una variable denominada `$env:_PLC_OPT`:
 
    `$env:_PLC_OPT="--applicationcertbase64 <applicationcertbase64-string> --privatekeybase64 <privatekeybase64-string> --certpassword <certpassword-string> --addtrustedcertbase64 <addissuercertbase64-string> --addissuercertbase64 <addissuercertbase64-string> --updatecrlbase64 <updatecrlbase64-string>"`  
 
-    Reemplace las cadenas que se pasan como cadenas de Base64 de los valores de opción que recuperó los cambios desde el sitio Web.  
+    Reemplace las cadenas que se pasaron como cadenas Base64 de valores de opción que capturó en el sitio web.  
 
-1. Repita el proceso completo a partir de `Register New` para el cliente OPC. Hay solo las siguientes diferencias que debe tener en cuenta:
-    - Utilice la salida del registro el `opcclient`.
+1. Repita el proceso completo empezando con `Register New` para el cliente de OPC. Solo debe tener en cuenta las siguientes diferencias:
+    - Utilice la salida del registro de `opcclient`.
     - Seleccione `Client` como ApplicationType durante el registro.
     - Use `$env:_CLIENT_OPT` como nombre de la variable de PowerShell.
 
     > [!NOTE] 
-    > Al trabajar con este escenario, quizás haya reconocido que la `<addissuercertbase64-string>` y `<updatecrlbase64-string>` valores son idénticos para `opcplc` y `opcclient`. Esto es cierto en nuestro caso de uso y puede ahorrarle tiempo mientras se lleva a cabo los pasos.
+    > Al trabajar con este escenario, puede que haya observado que los valores `<addissuercertbase64-string>` y `<updatecrlbase64-string>` son idénticos para `opcplc` y `opcclient`. Esto es cierto en nuestro caso de uso y puede ahorrarle algo de tiempo a la hora de realizar los pasos.
 
 **Guía de inicio rápido**
 
@@ -85,14 +85,14 @@ docker-compose -f connecttest.yml up
 
 **Comprobación**
 
-Compruebe que los dos componentes no han tenido un certificado existente de la aplicación. Compruebe la salida del registro. A continuación es el resultado de OPC PLC y cliente OPC tiene una salida de registro similar.
+Compruebe que los dos componentes no tienen un certificado de aplicación existente. Compruebe la salida del registro. A continuación, se muestra la salida del PLC de OPC. El cliente de OPC tiene una salida de registro similar.
 
 ```
 opcplc-123456 | [13:40:08 INF] There is no existing application certificate.
 ```
-Si hay un certificado de aplicación, quite los volúmenes de docker, como se explica en los pasos de preparación.
+Si hay un certificado de aplicación, quite los volúmenes de Docker, como se explica en los pasos de preparación.
 
-Compruebe en el registro que se instaló el certificado de CA del almacén de OPC en el almacén de certificados de emisor, así como en el almacén de certificados de confianza del mismo nivel. A continuación es la salida del registro de OPC PLC y cliente de OPC tiene una salida de registro similar. 
+Compruebe en el registro si se instaló el certificado de entidad de certificación de OPC Vault en el almacén de certificados del emisor, así como en el almacén de certificados de confianza del mismo nivel. A continuación, se muestra la salida del registro del PLC de OPC. El cliente de OPC tiene una salida de registro similar. 
 
 ```
 opcplc-123456 | [13:40:09 INF] Trusted issuer store contains 1 certs
@@ -105,9 +105,9 @@ opcplc-123456 | [13:40:09 INF] Trusted peer store has 1 CRLs.
 opcplc-123456 | [13:40:09 INF] 01: Issuer 'CN=Azure IoT OPC Vault CA, O=Microsoft Corp.', Next update time '10/19/2019 22:06:46'
 opcplc-123456 | [13:40:09 INF] Rejected certificate store contains 0 certs
 ```
-Ahora el PLC OPC confiar en todos los clientes de OPC UA con certificados firmados por el almacén de OPC.
+El PLC de OPC ahora confía en todos los clientes de OPC UA con certificados firmados por OPC Vault.
 
-Compruebe en el registro que se reconoce el formato de clave privada como PEM y que está instalado el nuevo certificado de aplicación. A continuación es la salida del registro de OPC PLC y cliente OPC tiene una salida de registro similar. 
+Compruebe en el registro que el formato de clave privada se reconoce como PEM y que el nuevo certificado de la aplicación está instalado. A continuación, se muestra la salida del registro del PLC de OPC. El cliente de OPC tiene una salida de registro similar. 
 
 ```
 opcplc-123456 | [13:40:09 INF] The private key for the new certificate was passed in using PEM format.
@@ -116,9 +116,9 @@ opcplc-123456 | [13:40:09 INF] The new application certificate 'CN=OpcPlc' and t
 opcplc-123456 | [13:40:09 INF] Activating the new application certificate with thumbprint 'A3CB288FC1D2B7A5C08AACF531CF4A85E44A6C4C'.
 ```
 
-El certificado de la aplicación y la clave privada están instalados en el almacén de certificados de la aplicación y utilizados por la aplicación de OPC UA.
+El certificado de la aplicación y la clave privada ahora están instalados en el almacén de certificados de la aplicación y se usan en la aplicación OPC UA.
 
-Compruebe que se puede establecer la conexión entre el cliente OPC y OPC PLC correctamente y el cliente OPC puede leer correctamente los datos de OPC PLC. Debería ver el siguiente resultado en la salida del registro de cliente OPC:
+Compruebe que se puede establecer la conexión entre el cliente de OPC y el PLC de OPC correctamente, y que el cliente de OPC puede leer correctamente los datos del PLC de OPC. Debería ver la salida siguiente en la salida del registro de OPC Client:
 ```
 opcclient-123456 | [13:40:12 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [13:40:12 INF] Session successfully created with Id ns=3;i=941910499.
@@ -132,9 +132,9 @@ opcclient-123456 | [13:40:12 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [13:40:12 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [13:40:12 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/21/2018 13:40:12
 ```
-Si ve esta salida, a continuación, el PLC OPC ahora confía en que el OPC cliente y viceversa, dado que ambas tienen ahora los certificados firmados por una entidad de certificación y ambos certificados de confianza que se han firmado por esta CA.
+Si ve esta salida, significa que el PLC de OPC ya confía en el cliente de OPC y viceversa, ya que ambos ahora disponen de certificados firmados por una entidad de certificación en la que ambos confían.
 
-### <a name="a-testbed-for-opc-publisher"></a>Un banco de pruebas para el publicador de OPC ###
+### <a name="a-testbed-for-opc-publisher"></a>Banco de pruebas para el editor de OPC ###
 
 **Guía de inicio rápido**
 
@@ -144,13 +144,13 @@ docker-compose -f testbed.yml up
 ```
 
 **Comprobación**
-- Compruebe que los datos se envían al centro de IOT configura estableciendo `_HUB_CS` mediante [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o [iothub-explorer](https://github.com/Azure/iothub-explorer).
-- Cliente de prueba OPC se va a usar las llamadas de método directo de IoTHub y llamadas a métodos OPC para configurar el publicador de OPC para publicar o cancelar la publicación nodos desde el servidor de prueba OPC.
-- Ver la salida de mensajes de error.
+- Compruebe que los datos se envían a la instancia de IoT Hub que configuró estableciendo `_HUB_CS` mediante el [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o [iothub-explorer](https://github.com/Azure/iothub-explorer).
+- El cliente de prueba de OPC usará llamadas de método directo de IoT Hub y llamadas de método de OPC para configurar el editor de OPC para publicar o anular la publicación de nodos desde el servidor de prueba de OPC.
+- Consulte la salida para ver los mensajes de error.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido cómo implementar OPC almacén a un proyecto existente, aquí es el siguiente paso sugerido:
+Ahora que ha aprendido cómo implementar OPC Vault en un proyecto existente, este es el siguiente paso que se le sugiere:
 
 > [!div class="nextstepaction"]
-> [Implementar a OPC gemelo a un proyecto existente](howto-opc-twin-deploy-existing.md)
+> [Implementación de OPC Twin en un proyecto ya existente](howto-opc-twin-deploy-existing.md)

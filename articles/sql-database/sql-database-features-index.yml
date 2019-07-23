@@ -17,7 +17,7 @@ metadata:
 sections:
   - items:
       - type: paragraph
-        text: La base de datos de SQL Azure es más que un motor de base de datos relacional clásica que le permite consultar los datos con lenguaje SQL. Características de base de datos en Azure SQL Database permiten realizar más operaciones muy eficaces e implementar escenarios avanzados.
+        text: Azure SQL Database es más que un motor de base de datos relacional clásico que le permite consultar los datos mediante el lenguaje de SQL. Las características de base de datos de Azure SQL Database permiten realizar operaciones más eficaces e implementar escenarios avanzados.
       - type: list
         style: cards
         className: cardsM
@@ -25,26 +25,26 @@ sections:
         items:
           - title: Tecnologías en memoria
             href: /azure/sql-database/sql-database-in-memory
-            html: <p>Implementar aplicaciones de alto rendimiento mediante las tecnologías en memoria.</p>
+            html: <p>Implemente aplicaciones de alto rendimiento mediante las tecnologías en memoria.</p>
           - title: Funcionalidades de varios modelos
             href: /azure/sql-database/sql-database-multi-model-features
-            html: '<p>Obtenga información acerca de Graph, JSON, XML, las características espaciales en Azure SQL Database.</p>'
+            html: '<p>Obtenga información acerca de las características de Graph, JSON, XML y espaciales en Azure SQL Database.</p>'
           - title: Replicación transaccional
             href: /azure/sql-database/sql-database-managed-instance-transactional-replication
-            html: <p>Replicar los datos entre las tablas de Azure SQL Database y SQL Server.</p>
+            html: <p>Replique sus datos entre las tablas de Azure SQL Database y SQL Server.</p>
           - title: Sincronización de datos
             href: /azure/sql-database/sql-database-sync-data
-            html: <p>Sincronizar los datos entre varias bases de datos SQL e instancias de SQL Server.</p>
+            html: <p>Sincronice los datos entre varias bases de datos SQL e instancias de SQL Server.</p>
           - title: Automatización de trabajos
             href: /azure/sql-database/sql-database-job-automation-overview
-            html: <p>Programar tareas repetitivas con trabajos del Agente SQL y elástica.</p>
+            html: <p>Programe tareas repetitivas con el Agente SQL y los trabajos elásticos.</p>
           - title: Tablas temporales
             href: /azure/sql-database/sql-database-temporal-tables
-            html: <p>Realizar un seguimiento y analizar el historial completo de los cambios en los datos.</p>
+            html: <p>Realice el seguimiento y el análisis del historial completo de cambios en los datos.</p>
   - title: Más recursos
     items:
       - type: list
         style: ordered
         items:
-          - html: Obtenga información sobre la <a href="/azure/sql-database/sql-database-features">características de base de datos de las diferencias entre SQL Server y SQL Azure</a>.
-          - html: Obtenga información sobre cómo usar estas características en <a href="/azure/sql-database/sql-database-howto">guías de procedimientos</a>.
+          - html: Obtenga información sobre las <a href="/azure/sql-database/sql-database-features">diferencias entre las características de SQL Server y Azure SQL Database</a>.
+          - html: Obtenga información sobre cómo usar estas características en las <a href="/azure/sql-database/sql-database-howto">guías paso a paso</a>.

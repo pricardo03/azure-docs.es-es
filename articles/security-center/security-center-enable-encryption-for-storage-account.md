@@ -1,5 +1,5 @@
 ---
-title: Cifrado de la cuenta de almacenamiento de Azure en Azure Security Center | Microsoft Docs
+title: Cifrado de la cuenta de Azure Storage en Security Center | Microsoft Docs
 description: Este documento muestra cómo implementar las recomendaciones de Azure Security Center de **Habilitar el cifrado para la cuenta de Azure Storage**.
 services: security-center
 documentationcenter: na
@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: cadf375b541900600be82e76673637ff01a8ad96
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696067"
 ---
-# <a name="encryption-for-azure-storage-account-in-azure-security-center"></a>Cifrado de la cuenta de almacenamiento de Azure en Azure Security Center
+# <a name="encryption-for-azure-storage-account-in-azure-security-center"></a>Cifrado de la cuenta de Azure Storage en Azure Security Center
 
-Cifrado de Azure Storage para datos en reposo está habilitado de forma predeterminada para todas las cuentas de almacenamiento de Azure. Azure Storage cifra los datos cuando se escribe en el almacenamiento de Azure y los descifra antes de la recuperación. Para obtener más información, consulte [cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md).
+El cifrado de Azure Storage para los datos en reposo está habilitado de forma predeterminada para todas las cuentas de Azure Storage. Azure Storage cifra los datos cuando se escriben en Azure Storage y los descifra antes de la recuperación. Para más información, consulte [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md).
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 

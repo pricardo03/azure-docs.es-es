@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
 ms.openlocfilehash: e1d47be159d4721aed4b055a51acf675688b855e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65071802"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Administración de Azure Monitor para el agente de contenedores
@@ -35,7 +35,7 @@ El proceso para actualizar al agente consta de dos pasos sencillos. El primer pa
 >Mientras está realizando esta actividad de mantenimiento, los nodos del clúster no reenviarán los datos recopilados y las vistas de rendimiento no mostrarán datos en el período comprendido entre la eliminación del agente y la instalación de la nueva versión. 
 >
 
-Para instalar la nueva versión del agente, siga los pasos descritos en la [habilitar la supervisión mediante la CLI de Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli), para completar este proceso.  
+Para instalar la nueva versión del agente, siga los pasos descritos en [Habilitar de la supervisión con la CLI de Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli) para completar este proceso.  
 
 Después de volver a habilitar la supervisión, pueden pasar unos 15 minutos hasta que pueda ver actualizada la métrica de estado del clúster. Para verificar que el agente se ha actualizado correctamente, ejecute el comando: `kubectl logs omsagent-484hw --namespace=kube-system`
 

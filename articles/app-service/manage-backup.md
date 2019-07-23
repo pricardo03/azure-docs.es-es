@@ -16,10 +16,10 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61271800"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
@@ -123,7 +123,7 @@ En ocasiones, no querrá realizar una copia de seguridad de todo el contenido de
 Las copias de seguridad parciales permiten elegir exactamente de qué archivos desea realizar la copia de seguridad.
 
 > [!NOTE]
-> Bases de datos individuales en la copia de seguridad pueden ser el número máximo de 4GB, pero el tamaño máximo total de la copia de seguridad es 10GB
+> Las bases de datos individuales de la copia de seguridad pueden tener un tamaño máximo de 4 GB, pero el tamaño máximo total de la copia de seguridad es de 10 GB.
 
 ### <a name="exclude-files-from-your-backup"></a>Exclusión de los archivos de la copia de seguridad
 Suponga que tiene una aplicación que contiene archivos de registro e imágenes estáticas de los que se ha hecho una copia de seguridad una vez y nunca van a cambiar. En tales casos puede excluir las carpetas y los archivos para que no se almacenen en las futuras copias de seguridad. Para excluir archivos y carpetas de las copias de seguridad, cree un archivo `_backup.filter` en la carpeta `D:\home\site\wwwroot` de la aplicación. Especifique la lista de archivos y carpetas que desea excluir en este archivo. 

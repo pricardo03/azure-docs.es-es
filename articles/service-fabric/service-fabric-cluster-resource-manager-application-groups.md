@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7e90dc00a8e042e48d8016e25dda04c15ce9f619
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62114080"
 ---
 # <a name="introduction-to-application-groups"></a>Introducción a los grupos de aplicaciones
@@ -37,7 +37,7 @@ La siguiente imagen muestra una instancia de aplicación con y sin un número m�
 
 <center>
 
-![Número máximo de nodos de definición de la instancia de aplicación][Image1]
+![Definición del número máximo de nodos para la instancia de aplicación][Image1]
 </center>
 
 En el ejemplo de la izquierda, la aplicación no tiene definido un número máximo de nodos, y tiene tres servicios. Cluster Resource Manager ha repartido todas las réplicas entre seis nodos disponibles para lograr el mejor equilibrio en el clúster (el comportamiento predeterminado). En el ejemplo de la derecha, se ve la misma aplicación limitada en tres nodos.
@@ -119,7 +119,7 @@ Veamos un ejemplo de la reserva de capacidad:
 
 <center>
 
-![Definición de la capacidad reservada de la instancia de aplicación][Image2]
+![Definición de la capacidad reservada para la instancia de aplicación][Image2]
 </center>
 
 En el ejemplo de la izquierda, las aplicaciones no tienen definida ninguna capacidad de aplicación. Cluster Resource Manager equilibra todos los elementos según las reglas normales.
@@ -180,13 +180,13 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 
 La consulta ApplicationLoad devuelve la información básica de la capacidad de aplicación que se especificó. Esta información incluye la información de nodos mínimos y máximos, y la cantidad que la aplicación está usando actualmente. También incluye información de cada métrica de carga de la aplicación, por ejemplo:
 
-* Nombre de métrica: Nombre de la métrica.
-* Capacidad de reserva: Capacidad del clúster que está reservada en el clúster para esta aplicación.
-* Carga de la aplicación: Carga total de las réplicas secundarias de esta aplicación.
-* Capacidad de aplicación: Máximo valor de la carga de la aplicación permitido.
+* Nombre de la métrica: el nombre de la métrica.
+* Capacidad de reserva: capacidad del clúster que está reservada en el clúster para esta aplicación.
+* Carga de la aplicación: carga total de las réplicas secundarias de esta aplicación.
+* Capacidad de aplicación: valor máximo permitido de la carga de la aplicación.
 
 ## <a name="removing-application-capacity"></a>Eliminación de la capacidad de aplicación
-Cuando se han establecido los parámetros de capacidad de aplicación, se pueden eliminar mediante las API de actualización de aplicaciones o los cmdlets de PowerShell. Por ejemplo: 
+Cuando se han establecido los parámetros de capacidad de aplicación, se pueden eliminar mediante las API de actualización de aplicaciones o los cmdlets de PowerShell. Por ejemplo:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity

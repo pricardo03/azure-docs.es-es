@@ -15,38 +15,38 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: jegeib
 ms.openlocfilehash: 6ad6eca20827e1683237b2c668eba71acedfaade
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64917619"
 ---
-# <a name="threat-modeling-tool-update-release-71604081---492019"></a>Versión de actualización de Threat Modeling Tool 7.1.60408.1 - 4/9/2019
+# <a name="threat-modeling-tool-update-release-71604081---492019"></a>Threat Modeling Tool, versión actualizada 7.1.60408.1: 9 de abril de 2019
 
-Versión 7.1.60408.1 de la herramienta de modelado de amenazas de Microsoft (TMT) se lanzó en 9 de abril de 2019 y contiene los siguientes cambios:
+El 9 de abril de 2019 se lanzó la versión 7.1.60408.1 de Microsoft Threat Modeling Tool (TMT), que incluye los cambios siguientes:
 
-- Galerías de símbolos nuevos para el almacén de claves de Azure y Azure Traffic Manager
-- Número de versión TMT ahora se muestra en la pantalla principal
-- Se han actualizado los vínculos de soporte técnico
+- Nuevas galerías de símbolos para Azure Key Vault y Azure Traffic Manager
+- El número de versión de TMT ahora se muestra en la pantalla principal
+- Se actualizaron los vínculos de soporte técnico
 - Corrección de errores
 
 ## <a name="feature-changes"></a>Cambios de características
 
-### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Galerías de símbolos nuevos para el almacén de claves de Azure y Azure Traffic Manager
+### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Nuevas galerías de símbolos para Azure Key Vault y Azure Traffic Manager
 
-![Galería de símbolos de almacén de claves de Azure](./media/azure-security-threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
+![Galerías de símbolos de Azure Key Vault](./media/azure-security-threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
 
-Se agregaron nuevas galerías de símbolos y amenazas para Azure Key Vault y Azure Traffic Manager para el conjunto de Azure de la Galería de símbolos. Al abrir los modelos basados en el conjunto de Azure de la Galería de símbolos, se solicitará a los usuarios actualizar la plantilla asociada con el modelo. Actualizar un modelo basado en el conjunto de Azure de la Galería de símbolos puede también iniciar manualmente utilizando el comando "Aplicar plantilla" en el menú "Archivo" y vuelva a aplicar el archivo Services.tb7 en la nube de Azure más reciente.
+Se agregaron nuevas galerías de símbolos y amenazas para Azure Key Vault y Azure Traffic Manager en el conjunto de galerías de símbolos de Azure. Cuando abre los modelos basados en el conjunto de galerías de símbolos de Azure, se pedirá a los usuarios que actualicen la plantilla asociada con el modelo. También es puede iniciar manualmente la actualización de un modelo basada en el conjunto de galerías de símbolos de Azure mediante el comando "Aplicar plantilla" del menú "Archivo" y la reaplicación del archivo Azure Cloud Services.tb7 más reciente.
 
-### <a name="tmt-version-number-is-now-shown-on-the-home-screen"></a>Número de versión TMT ahora se muestra en la pantalla principal
+### <a name="tmt-version-number-is-now-shown-on-the-home-screen"></a>El número de versión de TMT ahora se muestra en la pantalla principal
 
-La versión de cliente de Threat Modeling Tool no se muestra en la pantalla principal de la aplicación de facilidad de acceso.
+La versión de cliente de Threat Modeling Tool ahora se muestra en la pantalla principal de la aplicación para facilitar su acceso.
 
-![Galería de símbolos de almacén de claves de Azure](./media/azure-security-threat-modeling-tool-releases-71604081/tmt_version.PNG)
+![Galerías de símbolos de Azure Key Vault](./media/azure-security-threat-modeling-tool-releases-71604081/tmt_version.PNG)
 
-### <a name="support-links-have-been-updated"></a>Se han actualizado los vínculos de soporte técnico
+### <a name="support-links-have-been-updated"></a>Se actualizaron los vínculos de soporte técnico
 
-Se han actualizado todos los vínculos de soporte técnico dentro de la herramienta para dirigir a los usuarios a [ tmtextsupport@microsoft.com ](mailto:tmtextsupport@microsoft.com) en lugar de un foro de MSDN.
+Se han actualizado todos los vínculos de soporte técnico dentro de la herramienta para dirigir a los usuarios a [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) en lugar de a un foro de MSDN.
 
 ## <a name="system-requirements"></a>Requisitos del sistema
 

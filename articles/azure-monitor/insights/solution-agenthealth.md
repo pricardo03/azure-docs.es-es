@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ms.openlocfilehash: 568ff99364923c43b7199bed1dacd32cf0d18ab9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571153"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solución Agent Health en Azure Monitor
-La solución Agent Health en Azure le ayudará a comprender, para todos los agentes que informan directamente al área de trabajo de Log Analytics en Azure Monitor o un grupo de administración de System Center Operations Manager conectado a Azure Monitor, que son no responde y enviar datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
+La solución Agent Health en Azure le ayuda a entender, para todos los agentes que informan directamente al área de trabajo de Log Analytics en Azure Monitor o a un grupo de administración de System Center Operations Manager conectado a Azure Monitor, cuáles no responden y cuáles envían datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de implementar esta solución, confirme que tiene actualmente [agentes de Windows](../../log-analytics/log-analytics-windows-agent.md) compatibles que informan al área de trabajo de Log Analytics o a un [grupo de administración de Operations Manager](../../azure-monitor/platform/om-agents.md) integrado con el área de trabajo.
@@ -48,7 +48,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
 | Agentes de Windows | Sí | Se recopilan eventos de latido de agentes directos de Windows.|
-| Grupo de administración de System Center Operations Manager | Sí | Eventos de latido se recopilan desde los agentes que informan al grupo de administración cada 60 segundos y luego se reenvían a Azure Monitor. No se requiere una conexión directa desde los agentes de Operations Manager a Azure Monitor. Datos de eventos de latido se reenvían desde el grupo de administración para el área de trabajo de Log Analytics.|
+| Grupo de administración de System Center Operations Manager | Sí | Se recopilan eventos de latido de agentes que informan al grupo de administración cada 60 segundos y después se reenvían a Azure Monitor. No se requiere ninguna conexión directa entre los agentes de Operations Manager y Azure Monitor. Los datos de eventos de latido se reenvían del grupo de administración al área de trabajo de Log Analytics.|
 
 ## <a name="using-the-solution"></a>Uso de la solución
 Al agregar la solución al área de trabajo de Log Analytics, se agrega el icono **Agent Health** al panel. Este icono muestra el número total de agentes y el número de agentes que no responden en las últimas 24 horas.<br><br> ![Icono de la solución Agent Health en el panel](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
@@ -62,8 +62,8 @@ Haga clic en el icono **Agent Health** para abrir el panel **Agent Health**.  El
 | Distribution by OS Type (Distribución por tipo de sistema operativo) | Una división de cuántos agentes de Windows y Linux tiene en su entorno.|
 | Distribution by Agent Version (Distribución por versión del agente) | Una división de las diferentes versiones de agente instaladas en su entorno y el número de cada una de ellas.|
 | Distribution by Agent Category (Distribución por categoría del agente) | Una división de las diferentes categorías de agentes que envían eventos de latido: agentes directos, agentes de OpsMgr o el servidor de administración de OpsMgr.|
-| Distribution by Management Group (Distribución por grupo de administración) | Una partición de los diferentes grupos de administración de Operations Manager en su entorno.|
-| Geo-location of Agents (Geolocalización de los agentes) | Una partición de los diferentes países o regiones donde haya agentes y un recuento total del número de agentes que se han instalado en cada país o región.|
+| Distribution by Management Group (Distribución por grupo de administración) | División de los diferentes grupos de administración de Operations Manager en su entorno.|
+| Geo-location of Agents (Geolocalización de los agentes) | División de los diferentes países o regiones donde tiene agentes y número total de agentes instalados en cada país o región.|
 | Count of Gateways Installed (Número de puertas de enlace instaladas) | Número de servidores que tienen instalada la puerta de enlace de Log Analytics y una lista de estos servidores.|
 
 ![Ejemplo de panel de la solución Agent Health](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
@@ -92,7 +92,7 @@ Se crea un registro del tipo **Heartbeat**.  Estos registros tienen las propieda
 | `RemoteIPLongitude` | Longitud de la ubicación geográfica del equipo.|
 | `RemoteIPLatitude` | Latitud de la ubicación geográfica del equipo.|
 
-Cada agente que informa a un servidor de administración de Operations Manager enviará dos latidos y el valor de la propiedad SCAgentChannel incluirá tanto **directo** y **SCManagementServer** dependiendo de lo que orígenes de datos y soluciones de supervisión se ha habilitado en su suscripción. Si lo recuerda, datos de soluciones se envía directamente desde un servidor de administración de Operations Manager a Azure Monitor, o debido al volumen de los datos recopilados en el agente, se envían directamente desde el agente a Azure Monitor. Para los eventos de latido que tienen el valor **SCManagementServer**, el valor de ComputerIP es la dirección IP del servidor de administración, ya que es el que realmente carga los datos.  Para los latidos donde SCAgentChannel esté establecido en **Direct**, es la dirección IP pública del agente.  
+Cada agente que informa a un servidor de administración de Operations Manager enviará dos latidos y el valor de la propiedad SCAgentChannel incluirá tanto **Direct** como **SCManagementServer**, en función de qué soluciones y orígenes de datos haya habilitado en su suscripción. Si recuerda, los datos de soluciones se envían directamente desde un servidor de administración de Operations Manager a Azure Monitor, o bien, debido al volumen de los datos recopilados en el agente, se envían directamente del agente a Azure Monitor. Para los eventos de latido que tienen el valor **SCManagementServer**, el valor de ComputerIP es la dirección IP del servidor de administración, ya que es el que realmente carga los datos.  Para los latidos donde SCAgentChannel esté establecido en **Direct**, es la dirección IP pública del agente.  
 
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para los registros recopilados por esta solución.
@@ -117,4 +117,4 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre [alertas en Azure Monitor](../platform/alerts-overview.md) para obtener más información sobre la generación de alertas de consultas de registros. 
+* Consulte las [información general sobre las alertas en Azure Monitor](../platform/alerts-overview.md) para obtener más detalles sobre la generación de alertas desde consultas de registro. 

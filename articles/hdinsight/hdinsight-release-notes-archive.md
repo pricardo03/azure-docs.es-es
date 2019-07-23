@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 95a530ea57237453a3b0d7d8dd42963f4b9c3dde
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713046"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas de la versión de Azure HDInsight.
@@ -28,9 +28,9 @@ Azure HDInsight es uno de los servicios más populares entre los clientes de emp
 
 Las nuevas actualizaciones y capacidades se dividen en las siguientes categorías:
 
-*  ***Actualización de Hadoop y otros proyectos de código abierto***: además de más de 1000 errores solucionados en más de 20 proyectos de código abierto, esta actualización contiene una versión nueva de **Spark (2.3)** y **Kafka (1.0)**.
+*  ***Actualización de Hadoop y otros proyectos de código abierto***: además de más de 1000 errores solucionados en más de 20 proyectos de código abierto, esta actualización contiene una versión nueva de **Spark (2.3)** y **Kafka (1.0)** .
 
-     a.  [**Nuevas características en Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
+    a.  [**Nuevas características en Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
     b.  [**Nuevas características en Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
@@ -270,7 +270,7 @@ Esta versión proporciona Hive 1.2.1 y Hive 2.1.0, además de las revisiones sig
 
 -   [*HIVE-17013*](https://issues.apache.org/jira/browse/HIVE-17013): eliminar solicitud con una subconsulta basada en la selección en una vista.
 
--   [*HIVE 17063*](https://issues.apache.org/jira/browse/HIVE-17063): insertar la sobrescritura de partición en un error de tabla externa cuando quite partición primero.
+-   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): error al insertar partición de sobrescritura en una tabla externa cuando se coloca la partición primero.
 
 -   [*HIVE 17259*](https://issues.apache.org/jira/browse/HIVE-17259): JDBC de Hive no reconoce columnas UNIONTYPE.
 
@@ -368,7 +368,7 @@ Esta versión proporciona Hive 1.2.1 y Hive 2.1.0, además de las revisiones sig
 
 -   [*HIVE 16828*](https://issues.apache.org/jira/browse/HIVE-16828): con CBO habilitado, la consulta en vistas con particiones emite la excepción IndexOutOfBoundException.
 
--   [*HIVE 17063*](https://issues.apache.org/jira/browse/HIVE-17063): insertar la sobrescritura de partición en un error de tabla externa cuando quite partición primero.
+-   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): error al insertar partición de sobrescritura en una tabla externa cuando se coloca la partición primero.
 
 -   [*HIVE 17259*](https://issues.apache.org/jira/browse/HIVE-17259): JDBC de Hive no reconoce columnas UNIONTYPE.
 
@@ -822,73 +822,73 @@ Esta sección abarca todas las vulnerabilidades y exposiciones (CVE) comunes que
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **Resumen:**  La evaluación de directivas de Apache Ranger omite los caracteres después del carácter comodín "\*". |
+| **Resumen:**   La evaluación de directivas de Apache Ranger omite los caracteres después del carácter comodín "\*". |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravedad:** crítica                                                                           |
-| **Proveedor:** Hortonworks                                                                          |
-| **Versiones afectadas:**  versiones de HDInsight 3.6, incluidas Apache Ranger versiones 0.5.x/0.6.x/0.7.0     |
-| **Usuarios afectados:**  entornos que usan directivas de Ranger con caracteres después del carácter comodín "\*", como my\*test, test\*.txt |
-| **Impacto:**  el buscador de coincidencias de recursos de directiva omite los caracteres después del carácter comodín "\*", lo que puede provocar un comportamiento imprevisto.      |
-| **Detalle de la corrección:**  el buscador de coincidencias de recursos de directiva de Ranger se actualizó para controlar correctamente las coincidencias con caracteres comodín.           |
-| **Acción recomendada:**  actualizar a HDI 3.6 (con Apache Ranger 0.7.1 o superior).                                |
+| **Gravedad:**  crítica                                                                           |
+| **Proveedor:**  Hortonworks                                                                          |
+| **Versiones afectadas:**   versiones de HDInsight 3.6, incluidas Apache Ranger versiones 0.5.x/0.6.x/0.7.0     |
+| **Usuarios afectados:**   entornos que usan directivas de Ranger con caracteres después del carácter comodín "\*", como my\*test, test\*.txt |
+| **Impacto:**   el buscador de coincidencias de recursos de directiva omite los caracteres después del carácter comodín "\*", lo que puede provocar un comportamiento imprevisto.      |
+| **Detalle de la corrección:**   el buscador de coincidencias de recursos de directiva de Ranger se actualizó para controlar correctamente las coincidencias con caracteres comodín.           |
+| **Acción recomendada:**   actualizar a HDI 3.6 (con Apache Ranger 0.7.1 o superior).                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **Resumen:**  el autorizador de Apache Ranger Hive debe comprobar el permiso de RWX cuando se especifica una ubicación externa. |
+| **Resumen:**   el autorizador de Apache Ranger Hive debe comprobar el permiso de RWX cuando se especifica una ubicación externa. |
 |--------------------------------------------------------------------------------------------------|
-| **Gravedad:** crítica                                                                           |
-| **Proveedor:** Hortonworks                                                                          |
-| **Versiones afectadas:**  versiones de HDInsight 3.6, incluidas Apache Ranger versiones 0.5.x/0.6.x/0.7.0 |
-| **Usuarios afectados:**  entornos que usan una ubicación externa para las tablas de Hive |
-| **Impacto:**  en entornos que usan una ubicación externa para las tablas de Hive, el autorizador de Apache Ranger Hive debe comprobar el permiso de RWX para la ubicación externa especificada para crear una tabla. |
-| **Detalle de la corrección:**  el autorizador de Hive de Ranger se actualizó para controlar correctamente la comprobación de permisos para la ubicación externa. |
-| **Acción recomendada:**  los usuarios deben actualizar a HDI 3.6 (con Apache Ranger 0.7.1 o superior). |
+| **Gravedad:**  crítica                                                                           |
+| **Proveedor:**  Hortonworks                                                                          |
+| **Versiones afectadas:**   versiones de HDInsight 3.6, incluidas Apache Ranger versiones 0.5.x/0.6.x/0.7.0 |
+| **Usuarios afectados:**   entornos que usan una ubicación externa para las tablas de Hive |
+| **Impacto:**   en entornos que usan una ubicación externa para las tablas de Hive, el autorizador de Apache Ranger Hive debe comprobar el permiso de RWX para la ubicación externa especificada para crear una tabla. |
+| **Detalle de la corrección:**   el autorizador de Hive de Ranger se actualizó para controlar correctamente la comprobación de permisos para la ubicación externa. |
+| **Acción recomendada:**   los usuarios deben actualizar a HDI 3.6 (con Apache Ranger 0.7.1 o superior). |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **Resumen:**  posible ejecución de código como usuario incorrecto en Apache Storm |
+| **Resumen:**   posible ejecución de código como usuario incorrecto en Apache Storm |
 |--------------------------------------------------------------------------------------------------|
-|**Gravedad:** importante |
-| **Proveedor:** Hortonworks |
-| **Versiones afectadas:**  HDP 2.4.0, HDP-2.5.0 HDP-2.6.0 |
-| **Usuarios afectados:**  usuarios que usan Storm en modo seguro y usan BlobStore para distribuir topología en función de los artefactos o usan BlobStore para distribuir recursos de topología. |
-| **Impacto:**  en algunas situaciones y configuraciones de Storm es teóricamente posible que el propietario de una topología engañe al supervisor para iniciar un trabajo como otro usuario no raíz. En el peor de los casos, esto podría provocar que las credenciales seguras del otro usuario se vieran comprometidas. Esta vulnerabilidad solo se aplica a las instalaciones de Apache Storm con seguridad habilitada. |
-| **Mitigación:**  actualizar a HDP-2.6.2.1 ya que actualmente no hay soluciones alternativas.  |
+|**Gravedad:**  importante |
+| **Proveedor:**  Hortonworks |
+| **Versiones afectadas:**   HDP 2.4.0, HDP-2.5.0 HDP-2.6.0 |
+| **Usuarios afectados:**   usuarios que usan Storm en modo seguro y usan BlobStore para distribuir topología en función de los artefactos o usan BlobStore para distribuir recursos de topología. |
+| **Impacto:**   en algunas situaciones y configuraciones de Storm es teóricamente posible que el propietario de una topología engañe al supervisor para iniciar un trabajo como otro usuario no raíz. En el peor de los casos, esto podría provocar que las credenciales seguras del otro usuario se vieran comprometidas. Esta vulnerabilidad solo se aplica a las instalaciones de Apache Storm con seguridad habilitada. |
+| **Mitigación:**   actualizar a HDP-2.6.2.1 ya que actualmente no hay soluciones alternativas.  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **Resumen:**  handler/ssl/OpenSslEngine.java en Netty 4.0 antes de 4.0.37.Final y 4.1.x antes de 4.1.1.Final permite a los atacantes remotos provocar una denegación de servicio (bucle infinito) |
+| **Resumen:**   handler/ssl/OpenSslEngine.java en Netty 4.0 antes de 4.0.37.Final y 4.1.x antes de 4.1.1.Final permite a los atacantes remotos provocar una denegación de servicio (bucle infinito) |
 |--------------------------------------------------------------------------------------------------|
 | **Gravedad:** Moderado  |
-| **Proveedor:** Hortonworks  |
-| **Versiones afectadas:**  HDP 2.x.x a partir de 2.3.x  |
-| **Usuarios afectados:**  todos los usuarios que usan HDFS. |
-| **Impacto:**  el impacto es bajo ya que Hortonworks no usa OpenSslEngine.java directamente en el código base de Hadoop.     |
-| **Acción recomendada:**  actualizar a HDP 2.6.3.   |
+| **Proveedor:**  Hortonworks  |
+| **Versiones afectadas:**   HDP 2.x.x a partir de 2.3.x  |
+| **Usuarios afectados:**   todos los usuarios que usan HDFS. |
+| **Impacto:**   el impacto es bajo ya que Hortonworks no usa OpenSslEngine.java directamente en el código base de Hadoop.     |
+| **Acción recomendada:**   actualizar a HDP 2.6.3.   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **Resumen:**  problema al buscar coincidencias de rutas de acceso de Apache Ranger en la evaluación de directivas                                                                    |
+| **Resumen:**   problema al buscar coincidencias de rutas de acceso de Apache Ranger en la evaluación de directivas                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravedad:** normal                                                                                                                   |
+| **Gravedad:**  normal                                                                                                                   |
 | **Proveedor:** Hortonworks                                                                                                                |
-| **Versiones afectadas:**  todas las versiones de HDP 2.5, incluidas Apache Ranger versiones 0.6.0/0.6.1/0.6.2                                         |
-| **Usuarios afectados:**  todos los usuarios de la herramienta de administración de directivas de Ranger.                                                                         |
-| **Impacto:**  el motor de directivas de Ranger encuentra coincidencias incorrectas de las rutas de acceso en determinadas condiciones cuando una directiva contiene comodines y marcas recursivas. |
+| **Versiones afectadas:**   todas las versiones de HDP 2.5, incluidas Apache Ranger versiones 0.6.0/0.6.1/0.6.2                                         |
+| **Usuarios afectados:**   todos los usuarios de la herramienta de administración de directivas de Ranger.                                                                         |
+| **Impacto:**   el motor de directivas de Ranger encuentra coincidencias incorrectas de las rutas de acceso en determinadas condiciones cuando una directiva contiene comodines y marcas recursivas. |
 | **Detalle de la corrección:** se ha corregido la lógica de evaluación de directivas                                                                                          |
-| **Acción recomendada:**  los usuarios deben actualizar a HDP 2.5.4 o superior (con Apache Ranger 0.6.3 o superior) o HDP 2.6 o superior (con Apache Ranger 0.7.0 o superior).         |
+| **Acción recomendada:**   los usuarios deben actualizar a HDP 2.5.4 o superior (con Apache Ranger 0.6.3 o superior) o HDP 2.6 o superior (con Apache Ranger 0.7.0 o superior).         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **Resumen:**  problema de scripting almacenado entre sitios de Apache Ranger  |
+| **Resumen:**   problema de scripting almacenado entre sitios de Apache Ranger  |
 |--------------------------------------------------------------------------------------------------|
-| **Gravedad:** normal |
-| **Proveedor:** Hortonworks |
-| **Versiones afectadas:**  todas las versiones de HDP 2.3/2.4/2.5, incluidas Apache Ranger versiones 0.5.x/0.6.0/0.6.1/0.6.2  |
-| **Usuarios afectados:**  todos los usuarios de la herramienta de administración de directivas de Ranger. |
-| **Impacto:**  Apache Ranger es vulnerable a scripting almacenado entre sitios al escribir condiciones de directivas personalizadas. Los usuarios administradores pueden almacenar parte de código javascript arbitrario que se ejecuta cuando los usuarios habituales inician sesión y las directivas de acceso. |
-| **Detalle de la corrección:**  se ha agregado lógica para sanear la entrada del usuario.  |
-| **Acción recomendada:**  los usuarios deben actualizar a HDP 2.5.4 o superior (con Apache Ranger 0.6.3 o superior) o HDP 2.6 o superior (con Apache Ranger 0.7.0 o superior).  |
+| **Gravedad:**  normal |
+| **Proveedor:**  Hortonworks |
+| **Versiones afectadas:**   todas las versiones de HDP 2.3/2.4/2.5, incluidas Apache Ranger versiones 0.5.x/0.6.0/0.6.1/0.6.2  |
+| **Usuarios afectados:**   todos los usuarios de la herramienta de administración de directivas de Ranger. |
+| **Impacto:**   Apache Ranger es vulnerable a scripting almacenado entre sitios al escribir condiciones de directivas personalizadas. Los usuarios administradores pueden almacenar parte de código javascript arbitrario que se ejecuta cuando los usuarios habituales inician sesión y las directivas de acceso. |
+| **Detalle de la corrección:**   se ha agregado lógica para sanear la entrada del usuario.  |
+| **Acción recomendada:**   los usuarios deben actualizar a HDP 2.5.4 o superior (con Apache Ranger 0.6.3 o superior) o HDP 2.6 o superior (con Apache Ranger 0.7.0 o superior).  |
 
 ## <a name="fixed-issues-for-support"></a>Se han corregido problemas de soporte técnico
 
@@ -990,7 +990,7 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
 | BUG-93136              | [HIVE-18189](https://issues.apache.org/jira/browse/HIVE-18189)                                                                         | La posición de Ordenar por no funciona cuando cbo está deshabilitado.                                                   |
 | BUG-93595              | [HIVE-12378](https://issues.apache.org/jira/browse/HIVE-12378), [HIVE-15883](https://issues.apache.org/jira/browse/HIVE-15883)         | Error de decimal y columnas binarias en la inserción de tabla asignada de HBase en Hive.                                  |
 | BUG-94007              | [PHOENIX-1751](https://issues.apache.org/jira/browse/PHOENIX-1751), [PHOENIX-3112](https://issues.apache.org/jira/browse/PHOENIX-3112) | Las consultas de Phoenix devuelven valores NULL debido a filas parciales de HBase                                          |
-| BUG-94144              | [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)                                                                         | Insertar la sobrescritura de partición en un error de tabla externa cuando coloque primero los partición                        |
+| BUG-94144              | [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)                                                                         | Error al insertar partición de sobrescritura en una tabla externa cuando se coloca la partición primero.                        |
 | BUG-94280              | [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785)                                                                         | Se interrumpe la vista con tipo de unión y UDF para\`convertir\` la estructura.                                          |
 | BUG-94505              | [PHOENIX-4525](https://issues.apache.org/jira/browse/PHOENIX-4525)                                                                     | Desbordamiento de enteros en la ejecución de GroupBy.                                                                  |
 | BUG-95618              | [HIVE-18506](https://issues.apache.org/jira/browse/HIVE-18506)                                                                         | LlapBaseInputFormat: índice de matriz negativa.                                                             |
@@ -1152,7 +1152,7 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
 | BUG-98983              | [KNOX-1108](https://issues.apache.org/jira/browse/KNOX-1108)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | NiFiHaDispatch no conmuta por error.                                                                                                                |
 | BUG-99107              | [HIVE-19054](https://issues.apache.org/jira/browse/HIVE-19054)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | La replicación de la función debe usar "hive.repl.replica.functions.root.dir" como raíz.                                                                  |
 | BUG-99145              | [RANGER-2035](https://issues.apache.org/jira/browse/RANGER-2035)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Errores de acceso a servicedefs con implClass vacía con el back-end de Oracle.                                                                          |
-| BUG-99160              | [SLIDER-1259](https://issues.apache.org/jira/browse/SLIDER-1259)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Control deslizante no funciona en entornos múltiple                                                                                               |
+| BUG-99160              | [SLIDER-1259](https://issues.apache.org/jira/browse/SLIDER-1259)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | El control deslizante no funciona en entornos de host múltiple.                                                                                               |
 | BUG-99239              | [ATLAS-2462](https://issues.apache.org/jira/browse/ATLAS-2462)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | La importación de Sqoop para todas las tablas produce NPE para ninguna tabla proporcionada en el comando.                                                                        |
 | BUG-99301              | [ATLAS-2530](https://issues.apache.org/jira/browse/ATLAS-2530)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Nueva línea al principio del nombre del atributo de hive\_process y hive\_column\_lineage.                                                    |
 | BUG-99453              | [HIVE-19065](https://issues.apache.org/jira/browse/HIVE-19065)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | La comprobación de la compatibilidad de cliente Metastore debe incluir syncMetaStoreClient.                                                                        |
@@ -1371,7 +1371,7 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
     
   Si un usuario quiere crear una directiva con condiciones de directiva personalizadas y la expresión o el texto contiene caracteres especiales, la aplicación de la directiva no funcionará. Los caracteres especiales se convierten a ASCII antes de guardar la directiva en la base de datos.
     
-  **Caracteres especiales:** & &lt; &gt; " \` '
+  **Caracteres especiales:**  & &lt; &gt; " \` '
     
   Por ejemplo, la condición tags.attributes\['type'\]= 'abc' se convertiría en lo siguiente después de guardar la directiva.
     
@@ -1427,7 +1427,7 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
 
 ## <a name="deprecation"></a>Desuso
 
--   **Portal de OMS:** se ha eliminado el vínculo de la página de recursos de HDInsight que apuntaba al portal de OMS. Inicialmente, los registros de Azure Monitor utilizan su propio portal llamado el portal de OMS para administrar su configuración y analizar los datos recopilados. Toda la funcionalidad de este portal se ha movido a Azure Portal, donde continuará desarrollándose. La compatibilidad de HDInsight para el portal de OMS está en desuso. Los clientes podrán usar la integración de registros de HDInsight de Azure Monitor en Azure portal.
+-   **Portal de OMS:** se ha eliminado el vínculo de la página de recursos de HDInsight que apuntaba al portal de OMS. Inicialmente, los registros de Azure Monitor usaban su propio portal denominado portal de OMS para administrar su configuración y analizar los datos recopilados. Toda la funcionalidad de este portal se ha movido a Azure Portal, donde continuará desarrollándose. La compatibilidad de HDInsight para el portal de OMS está en desuso. Los clientes podrán usar la integración de registros de Azure Monitor para HDInsight en Azure Portal.
 
 -   **Spark 2.3**
 

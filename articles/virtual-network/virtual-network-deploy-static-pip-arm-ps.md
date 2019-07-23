@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
 ms.openlocfilehash: 208cff3c816b8243bc31b3db819f13dafe58c1d1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683204"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Creación de una máquina virtual con una dirección IP pública estática mediante PowerShell
@@ -39,7 +39,7 @@ Puede realizar los pasos siguientes desde el equipo local o mediante Azure Cloud
    New-AzResourceGroup -Name myResourceGroup -Location EastUS
    ```
 
-3. Crear una máquina virtual con el [New-AzVM](/powershell/module/az.Compute/New-azVM) comando. La opción `-AllocationMethod "Static"` asigna una dirección IP pública estática a la máquina virtual. En el ejemplo siguiente se crea una máquina virtual Windows Server con una dirección IP pública estática, con una SKU básica, denominada *myPublicIpAddress*. Cuando se le solicite, proporcione un nombre de usuario y una contraseña; se usarán como credenciales de inicio de sesión para la máquina virtual:
+3. Cree una máquina virtual con el comando [New-AzVM](/powershell/module/az.Compute/New-azVM). La opción `-AllocationMethod "Static"` asigna una dirección IP pública estática a la máquina virtual. En el ejemplo siguiente se crea una máquina virtual Windows Server con una dirección IP pública estática, con una SKU básica, denominada *myPublicIpAddress*. Cuando se le solicite, proporcione un nombre de usuario y una contraseña; se usarán como credenciales de inicio de sesión para la máquina virtual:
 
    ```azurepowershell-interactive
    New-AzVm `
@@ -52,7 +52,7 @@ Puede realizar los pasos siguientes desde el equipo local o mediante Azure Cloud
 
    Si la dirección IP pública debe ser una SKU estándar, tiene que [crear una dirección IP pública](virtual-network-public-ip-address.md#create-a-public-ip-address), [crear una interfaz de red](virtual-network-network-interface.md#create-a-network-interface), [asignar la dirección IP pública a la interfaz de red](virtual-network-network-interface-addresses.md#add-ip-addresses) y luego [crear una máquina virtual con la interfaz de red](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), en pasos independientes. Más información sobre las [SKU de dirección IP pública](virtual-network-ip-addresses-overview-arm.md#sku). Si la máquina virtual se va a agregar al grupo back-end de una instancia pública de Azure Load Balancer, la SKU de la dirección IP pública de la máquina virtual debe coincidir con la SKU de la dirección IP del equilibrador de carga. Para más información, consulte [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-4. Ver la dirección IP pública asignada y confirme que se creó como una dirección estática, con [Get AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
+4. Vea la dirección IP pública asignada y confirme que se creó como una dirección estática, con [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
    ```azurepowershell-interactive
    Get-AzPublicIpAddress `

@@ -1,5 +1,5 @@
 ---
-title: Crear recursos técnicos para una oferta de máquina virtual para Azure Marketplace
+title: Creación de recursos técnicos para una oferta de máquina virtual para Azure Marketplace
 description: Se explica cómo crear los recursos técnicos para una oferta de máquina virtual en Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
 ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938407"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Creación de recursos técnicos para una oferta de máquina virtual
 
 Esta sección le guía a través de la creación y configuración de los recursos técnicos para una oferta de máquina virtual (VM) para Azure Marketplace.  Una máquina virtual contiene dos componentes: el disco duro virtual (VHD) de la solución y los discos de datos asociados opcionales.  
 
-- *Discos duros virtuales (VHD)*, que contienen el sistema operativo y la solución, que se van a implementar con la oferta de Azure Marketplace. El proceso de preparación del disco duro virtual es diferente en función de si se basa en Linux, en Windows o una máquina virtual personalizada.
+- *Discos duros virtuales (VHD)* , que contienen el sistema operativo y la solución, que se van a implementar con la oferta de Azure Marketplace. El proceso de preparación del disco duro virtual es diferente en función de si se basa en Linux, en Windows o una máquina virtual personalizada.
 - *Los discos de datos* representan el almacenamiento persistente dedicado para una máquina virtual. *No* use el disco duro virtual de la solución (por ejemplo, la unidad `C:`) para almacenar información persistente.
 
 Una imagen de máquina virtual contiene un disco del sistema operativo y cero o más discos de datos. Es necesario un VHD por disco. Incluso los discos de datos vacíos requieren la creación de un VHD.
@@ -28,7 +28,7 @@ Debe configurar el sistema operativo de la máquina virtual, el tamaño, los pue
 > Independientemente del sistema operativo que use, agregue solo el número mínimo de discos de datos necesarios para la SKU. Los usuarios no pueden quitar los discos que formen parte de una imagen durante la implementación, pero siempre pueden agregar discos durante o después de la implementación. 
 
 > [!IMPORTANT]
-> *No cambie el número de discos en una nueva versión de imagen.*  Si necesita volver a configurar los discos de datos de la imagen, defina una nueva SKU. Si publica una versión nueva de la imagen con otro número de discos, las nuevas implementaciones que se realicen en función de la versión nueva pueden registrar problemas con el escalado automático, las implementaciones automáticas de soluciones mediante plantillas de Azure Resource Manager y otros escenarios.
+> *No cambie el número de discos en una nueva versión de imagen.* Si necesita volver a configurar los discos de datos de la imagen, defina una nueva SKU. Si publica una versión nueva de la imagen con otro número de discos, las nuevas implementaciones que se realicen en función de la versión nueva pueden registrar problemas con el escalado automático, las implementaciones automáticas de soluciones mediante plantillas de Azure Resource Manager y otros escenarios.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 

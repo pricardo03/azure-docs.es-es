@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 06b96ac6ea0202b74638b9331d754c0e0cc28ad0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64695244"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Guía de las limitaciones de Azure Key Vault
@@ -31,7 +31,7 @@ Si tiene un caso empresarial válido para limitaciones superiores, póngase en c
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Limitación de la aplicación en respuesta a los límites de servicio
 
-Los siguientes son **procedimientos recomendados** deben implementar cuando está limitado a su servicio:
+Los siguientes son los **procedimientos recomendados** que debe implementar cuando el servicio está limitado:
 - Reduzca el número de operaciones por solicitud.
 - Reduzca la frecuencia de las solicitudes.
 - Evite los reintentos inmediatos. 
@@ -112,7 +112,7 @@ A continuación, se muestra el código que implementa el retroceso exponencial.
 ```
 
 
-Utilice este código en un cliente C\# aplicación es sencilla. En el ejemplo siguiente se muestra cómo hacerlo, mediante la clase HttpClient.
+Utilizar este código en una aplicación cliente C\# es sencillo. En el ejemplo siguiente se muestra cómo hacerlo, mediante la clase HttpClient.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)
@@ -145,7 +145,7 @@ En el código de error HTTP 429, comience la limitación del cliente mediante un
 
 En este momento, se deben no está recibiendo los códigos de respuesta HTTP 429.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 Para obtener una orientación más profunda de la limitación en Microsoft Cloud, consulte [Patrón de limitación](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 

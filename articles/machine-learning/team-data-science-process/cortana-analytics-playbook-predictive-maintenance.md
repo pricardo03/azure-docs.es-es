@@ -12,10 +12,10 @@ ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573769"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
@@ -92,7 +92,7 @@ Esta sección se centra en una colección de casos de uso de mantenimiento predi
 |**Sector financiero** |                         |
 |Los _errores de un cajero automático_ son un problema común del sector bancario. Aquí, el problema es informar la probabilidad de que una transacción de retiro de efectivo de un cajero automático se interrumpe debido a un error en las piezas o un atasco de papel en el dispensador de efectivo. En función de las predicciones de los errores en las transacciones, se puede realizar un mantenimiento proactivo de los cajeros automáticos para evitar errores.| En lugar de permitir que la máquina presente errores en medio de una transacción, la alternativa deseable es programar la máquina para denegar el servicio en función de la predicción.|
 |**Sector energético** |                          |
-|_Error en turbinas eólicas_: Las turbinas eólicas son la fuente de energía principal en países o regiones respetuosa e implican altos costos de capital. Un componente clave de las turbinas eólicas es el motor del generador. Si presenta errores, la turbina deja de funcionar. También es muy costoso de arreglar.|Predecir KPI como el MTTF (tiempo medio entre errores) puede ayudar a las empresas generadoras de energía eviten los errores de las turbinas y garanticen que el tiempo de inactividad sea mínimo. Las probabilidades de error informarán a los técnicos que supervisen las turbinas que probablemente pronto presenten errores y programen regímenes de mantenimiento en función del tiempo. Los modelos predictivos proporcionan conclusiones sobre los distintos factores que contribuyen a los errores, lo que ayuda a los técnicos a comprender mejor que las causas principales de los problemas.|
+|_Error en turbinas eólicas_: las turbinas eólicas son la principal fuente energética en países o regiones respetuosos con el medio ambiente y significan altos costos de capital. Un componente clave de las turbinas eólicas es el motor del generador. Si presenta errores, la turbina deja de funcionar. También es muy costoso de arreglar.|Predecir KPI como el MTTF (tiempo medio entre errores) puede ayudar a las empresas generadoras de energía eviten los errores de las turbinas y garanticen que el tiempo de inactividad sea mínimo. Las probabilidades de error informarán a los técnicos que supervisen las turbinas que probablemente pronto presenten errores y programen regímenes de mantenimiento en función del tiempo. Los modelos predictivos proporcionan conclusiones sobre los distintos factores que contribuyen a los errores, lo que ayuda a los técnicos a comprender mejor que las causas principales de los problemas.|
 |_Errores de disyuntores_: la distribución de la electricidad a hogares y empresas requiere que las redes eléctricas siempre funcionen para garantizar la entrega de la energía. Los disyuntores ayudar a limitar o evitar daños en las redes eléctricas durante alguna sobrecarga o condiciones meteorológicas adversas. El problema empresarial aquí es predecir los errores de los disyuntores.| Las soluciones de mantenimiento predictivo ayudan a reducir los costos de reparación y aumentan el ciclo de vida del equipo, como los disyuntores. Ayudan a mejorar la calidad de la red energética mediante la reducción de interrupciones del servicio y errores inesperados.|
 |**Transporte y logística** |    |
 |_Errores en puertas de ascensores_: las grandes empresas de ascensores proporcionan un servicio completo para millones de ascensores en funcionamiento en todo el mundo. Las principales preocupaciones para esos clientes son la seguridad, la confiabilidad y el tiempo de actividad de los ascensores. Estas empresas realizan el seguimiento de estos y otros atributos a través de sensores, los que ayudarán a realizar el mantenimiento correctivo y preventivo. En un ascensor, el principal problema para los clientes es el funcionamiento incorrecto de las puertas de los ascensores. El problema empresarial de este caso es proporcionar una aplicación predictiva de la base de conocimientos que prediga las posibles causas de los errores en las puertas.| Los ascensores son inversiones de capital posiblemente para un período de 20 a 30 años. Por tanto, cada venta potencial puede ser muy competitiva, por lo que las expectativas de servicio y soporte técnico son altas. El mantenimiento predictivo puede brindar a estas empresas una ventaja con respecto a la competencia en cuanto a sus ofertas de productos y servicios.|
@@ -215,7 +215,7 @@ Ejemplos de agregados acumulados en una ventana de tiempo son recuento, promedio
 Otra técnica útil en el mantenimiento predictivo es capturar los cambios de tendencia, picos y cambios de nivel mediante algoritmos que detectan anomalías en los datos.
 
 #### <a name="tumbling-aggregates"></a>Agregados de saltos de tamaño constante
-En cada registro etiquetado de un recurso, se define una ventana de tamaño _W-<sub>k</sub>_, donde _k_ es el número de ventanas de tamaño _W_. Luego se crean agregados en _k_ _ventanas de saltos de tamaño constante_ _W-k, W-<sub>(k-1)</sub>, …, W-<sub>2</sub>, W-<sub>1</sub>_ para los períodos anteriores a la marcha de tiempo de un registro. _k_ puede ser un número pequeño para capturar efectos a corto plazo o un número grande para capturar patrones de degradación a largo plazo. (Consulte la ilustración 2).
+En cada registro etiquetado de un recurso, se define una ventana de tamaño _W-<sub>k</sub>_ , donde _k_ es el número de ventanas de tamaño _W_. Luego se crean agregados en _k_ _ventanas de saltos de tamaño constante_ _W-k, W-<sub>(k-1)</sub>, …, W-<sub>2</sub>, W-<sub>1</sub>_ para los períodos anteriores a la marcha de tiempo de un registro. _k_ puede ser un número pequeño para capturar efectos a corto plazo o un número grande para capturar patrones de degradación a largo plazo. (Consulte la ilustración 2).
 
 ![Ilustración 2. Características de agregados de saltos de tamaño constante](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png) Ilustración 2. Características de agregados de saltos de tamaño constante
 
@@ -227,7 +227,7 @@ Las especificaciones técnicas del equipo, como la fecha de fabricación, el nú
 
 Los esfuerzos de preparación de los datos descritos hasta el momento deben implicar que los datos se organicen como se muestra a continuación. Los datos de aprendizaje, prueba y validación deben tener este esquema lógico (en este ejemplo se muestra el tiempo en unidades de días).
 
-| Identificador de recurso | Time | \<Columnas de características > | Etiqueta |
+| Identificador de recurso | Hora | \<Columnas de características> | Etiqueta |
 | ---- | ---- | --- | --- |
 | A123 |Día 1 | . . . | . |
 | A123 |Día 2 | . . . | . |
@@ -291,11 +291,11 @@ Aquí la pregunta es: "¿Cuál es la probabilidad de que un recurso presente un 
 
 ![Ilustración 5. Etiquetado de predicción del momento del error para la clasificación multiclase](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Ilustración 5. Etiquetado de la clasificación multiclase para predecir el momento del error
 
-Aquí la pregunta es: "¿Cuál es la probabilidad de que el recurso presente un error en las próximas X unidades de tiempo debido a la causa principal/problema _P<sub>i</sub>_?" donde _i_ es el número de las causas principales posibles. Para responder esta pregunta, etiquete X registros antes del error de un recurso como "a punto del error debido a la causa principal _P<sub>i</sub>_" (etiqueta = _P<sub>i</sub>_). Etiquete todos los otros registros como "normales" (etiqueta = 0). En este método, las etiquetas también son de categoría (consulte la ilustración 6).
+Aquí la pregunta es: "¿Cuál es la probabilidad de que el recurso presente un error en las próximas X unidades de tiempo debido a la causa principal/problema _P<sub>i</sub>_ ?" donde _i_ es el número de las causas principales posibles. Para responder esta pregunta, etiquete X registros antes del error de un recurso como "a punto del error debido a la causa principal _P<sub>i</sub>_ " (etiqueta = _P<sub>i</sub>_ ). Etiquete todos los otros registros como "normales" (etiqueta = 0). En este método, las etiquetas también son de categoría (consulte la ilustración 6).
 
 ![Ilustración 6. Etiquetado de la predicción de la causa del error para la clasificación multiclase](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Ilustración 6. Etiquetado de la clasificación multiclase para predecir la causa del error
 
-El modelo asigna una probabilidad de error debido a cada _P<sub>i</sub>_, así como la probabilidad de que no se produzca ningún error. Estas probabilidades se pueden ordenar por magnitud para permitir la predicción de los problemas que es más probable que ocurran en el futuro.
+El modelo asigna una probabilidad de error debido a cada _P<sub>i</sub>_ , así como la probabilidad de que no se produzca ningún error. Estas probabilidades se pueden ordenar por magnitud para permitir la predicción de los problemas que es más probable que ocurran en el futuro.
 
 Aquí la pregunta es: "¿Qué acciones de mantenimiento se recomiendan después de un error?" Para responder esta pregunta, el etiquetado _no requiere elegir un horizonte futuro_, porque el modelo no predice ningún error en el futuro. Simplemente predice la causa principal más probable _una vez que ya se produjo el error_.
 
@@ -432,7 +432,7 @@ Microsoft Azure ofrece rutas de aprendizaje de los conceptos fundamentales sobre
 | [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Público |
 | [Aprendizaje de Azure AI de GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Público |
-| [Microsoft AI YouTube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
+| [Seminarios web sobre Microsoft AI en YouTube](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
 | [Presentación de Microsoft AI](https://channel9.msdn.com/Shows/AI-Show) | Público |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Asociados |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Asociados |

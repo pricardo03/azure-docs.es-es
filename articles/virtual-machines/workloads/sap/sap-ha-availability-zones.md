@@ -18,10 +18,10 @@ ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125319"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configuraciones de cargas de trabajo de SAP con Azure Availability Zones
@@ -31,7 +31,7 @@ Este gráfico muestra la arquitectura básica de alta disponibilidad de SAP:
 
 ![Configuración de alta disponibilidad estándar](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-El nivel de aplicación de SAP se implementa en un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) de Azure. Para lograr alta disponibilidad de Servicios centrales de SAP, implementa dos máquinas virtuales en un conjunto de disponibilidad independiente. Use clústeres de conmutación por error de Windows Server o Pacemaker (Linux) como marco de alta disponibilidad con conmutación automática por error en el caso de problemas de infraestructura o software. Para más información acerca de estas implementaciones, consulte:
+El nivel de aplicación de SAP se implementa en un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) de Azure. Para lograr alta disponibilidad de Servicios centrales de SAP, implementa dos máquinas virtuales en un conjunto de disponibilidad independiente. Use clústeres de conmutación por error de Windows Server o Pacemaker (Linux) como marco de trabajo de alta disponibilidad con conmutación automática por error en el caso de problemas de infraestructura o software. Para más información acerca de estas implementaciones, consulte:
 
 - [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
 - [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
@@ -48,10 +48,10 @@ Para implementar la misma arquitectura con Azure Availability Zones, deben reali
 Al usar Availability Zones, tenga en cuenta lo siguiente:
 
 - No hay ninguna garantía relativa a las distancias entre distintas zonas de Availability Zones dentro de una región de Azure.
-- Availability Zones no es una solución ideal de recuperación ante desastres. Los desastres naturales pueden provocar daños en zonas muy extensas de algunas regiones del mundo, incluidas las infraestructuras energéticas, que pueden resultar muy perjudicadas. Las distancias entre distintas zonas podrían no ser lo suficientemente grandes como para constituir una solución de recuperación ante desastres adecuada.
-- La latencia de red entre las zonas de Availability Zones no es la misma en todas las regiones de Azure. Hay casos en los que puede implementar y ejecutar el nivel de aplicación de SAP en diferentes zonas porque la latencia de red de una zona a la máquina virtual de DBMS activa es aceptable. Sin embargo, en algunas regiones de Azure la latencia entre la máquina virtual de DBMS activa y la instancia de la aplicación de SAP, implementadas en zonas diferentes, puede no ser aceptable para los procesos empresariales de SAP. En estos casos, la arquitectura de implementación debe ser diferente con una arquitectura activa/activa para la aplicación o activa/pasiva si la latencia de red entre zonas es demasiado alta.
+- Availability Zones no es una solución ideal de recuperación ante desastres. Los desastres naturales pueden provocar daños en zonas muy extensas de algunas regiones del mundo, también en las infraestructuras energéticas, que puede resultar muy perjudicada. Las distancias entre distintas zonas podrían no ser lo suficientemente grandes como para constituir una solución de recuperación ante desastres adecuada.
+- La latencia de red entre las zonas de Availability Zones no es la misma en todas las regiones de Azure. Hay casos en los que puede implementar y ejecutar el nivel de aplicación de SAP en diferentes zonas porque la latencia de red de una zona a la máquina virtual de DBMS activa es aceptable. Sin embargo, en algunas regiones de Azure la latencia entre la máquina virtual de DBMS activa y la instancia de la aplicación de SAP, implementadas en zonas diferentes, puede no ser aceptable para los procesos empresariales de SAP. En estos casos, la arquitectura de implementación debe ser diferente con una arquitectura en modo activo/activo para la aplicación o activo/pasivo si la latencia de red entre zonas es demasiado alta.
 - Al decidir dónde usar Availability Zones, base la decisión en la latencia de red entre las zonas. La latencia de red desempeña un papel importante en dos áreas:
-    - Latencia entre las dos instancias de DBMS que deben tener una replicación sincrónica. Cuanto mayor sea la latencia de red, más afectará a la escalabilidad de la carga de trabajo.
+    - Latencia entre las dos instancias de DBMS que deben tener una replicación sincrónica. Cuanto mayor sea la latencia de red, mayor afectará a la escalabilidad de la carga de trabajo.
     - La diferencia de latencia de red entre una máquina virtual que ejecuta una instancia de diálogo de SAP en zona con la instancia de DBMS activa y una máquina virtual similar en otra zona. A medida que aumente esta diferencia, mayor será la influencia en el tiempo de ejecución de procesos empresariales y trabajos por lotes, en función de si se ejecutan en zona con DBMS o en una zona distinta.
 
 Hay algunas restricciones al implementar máquinas virtuales de Azure entre zonas de Availability Zones y el establecimiento de las soluciones de conmutación por error en la misma región de Azure.
@@ -59,7 +59,7 @@ Hay algunas restricciones al implementar máquinas virtuales de Azure entre zona
 - Debe usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) al implementar en Azure Availability Zones. 
 - Se ha corregido la asignación de las enumeraciones de zona para las zonas físicas en cada suscripción de Azure. Si utiliza suscripciones diferentes para implementar los sistemas SAP, debe definir las zonas ideales para cada suscripción.
 - No se pueden implementar conjuntos de disponibilidad de Azure en una zona de disponibilidad de Azure Availability Zones. Elija una de ellas como marco de implementación para las máquinas virtuales.
-- No puede usar [Azure Load Balancer básico](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) para crear soluciones de clúster de conmutación por error basadas en los clústeres de conmutación por error de Windows Server o en Linux Pacemaker. En su lugar, deberá usar la [SKU de Azure Load Balancer estándar](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+- No puede usar [Azure Load Balancer Básico](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) para crear soluciones de clúster de conmutación por error basadas en los clústeres de conmutación por error de Windows Server o en Linux Pacemaker. En su lugar, deberá usar el [SKU de Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
 
 
 
@@ -75,15 +75,15 @@ Para determinar la latencia entre las distintas zonas, debe hacer lo siguiente:
 
 - Implemente la SKU de la máquina virtual que desea utilizar para la instancia de DBMS en las tres zonas. Asegúrese de que [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está habilitado al realizar esta medición.
 - Tan pronto encuentre las dos zonas con la mínima latencia de red, implemente otras tres máquinas virtuales de la SKU de máquina virtual que desea usar como máquina virtual de nivel de aplicación en las tres zonas de disponibilidad. Mida la latencia de red de las dos máquinas virtuales de DBMS en las dos zonas de DBMS distintas que elija. 
-- Use **niping** como herramienta de medición. Esta herramienta de SAP se describe en las notas de soporte técnico de SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) y [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Céntrese en los comandos documentados para medir la latencia. Dado que **ping** no funciona a través de las rutas de código de Azure Accelerated Networking, no se recomienda que lo use.
+- Use **niping** como herramienta de medición. Esta herramienta de SAP se describe en las notas de soporte técnico de SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) y [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Céntrese en los comandos documentados para medir la latencia. Dado que **ping** no funciona a través de las rutas de código Azure Accelerated Networking, no se recomienda que lo use.
 
 En función de las medidas y la disponibilidad de las SKU de máquina virtual de Availability Zones, debe tomar las siguientes decisiones:
 
-- Defina las zonas ideales para el nivel de DBMS.
-- Determine si desea distribuir el nivel de aplicación de SAP activo a una, dos o las tres zonas, en función de las diferencias de latencia de red dentro de una zona o entre zonas.
+- Defina las zonas ideales para la capa de DBMS.
+- Determine si desea distribuir el nivel de aplicación de SAP activo a una, dos o las tres zonas diferentes, en función de las diferencias de latencia de red dentro de una zona o entre zonas.
 - Determine si desea implementar una configuración en modo activo/pasivo o activo/activo desde el punto de vista de una aplicación. (Estas configuraciones se explican posteriormente en este artículo).
 
-Para tomar estas decisiones, tenga también en cuenta las recomendaciones sobre latencia de red de SAP documentadas en la nota de SAP [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E).
+Para tomar estas decisiones, tome también en cuenta las recomendaciones sobre latencia de red de SAP documentadas en la nota de SAP [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E).
 
 > [!IMPORTANT]
 > Las medidas y decisiones tomadas son válidas para la suscripción de Azure utilizada para realizar estas medidas. Si usa otra suscripción de Azure, deberá repetir las mediciones. La asignación de zonas enumeradas puede ser diferente para otra suscripción de Azure.
@@ -93,7 +93,7 @@ Para tomar estas decisiones, tenga también en cuenta las recomendaciones sobre 
 > Se espera que las medidas realizadas anteriormente muestren resultados distintos en cada región de Azure que admita [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). Aunque los requisitos de latencia de red sean los mismos, puede que deba adaptar diferentes estrategias de implementación en distintas regiones de Azure, ya que la latencia de red entre zonas puede variar. En algunas regiones de Azure, la latencia de red entre las tres zonas diferentes puede variar significativamente. En otras regiones, la latencia de red entre las tres zonas diferentes puede ser más uniforme. La afirmación de que siempre hay una latencia de red entre 1 y 2 milisegundos no es correcta. La latencia de red entre las zonas de Availability Zones de las regiones de Azure no se puede generalizar.
 
 ## <a name="activeactive-deployment"></a>Implementación activa/activa
-Esta arquitectura de implementación se denomina activo/activo, dado que implementar los servidores de aplicaciones SAP activos a través de dos o tres zonas. Los servicios centrales de SAP que usan la instancia que usa la replicación de puesta en cola se van a implementar entre dos zonas. Lo mismo sucede con la capa de DBMS, que se va a implementar entre las mismas zonas que el servicio central de SAP.
+Esta arquitectura de implementación se denomina activa/activa porque se implementan los servidores de aplicaciones de SAP activos en dos o tres zonas. Los servicios centrales de SAP que usan la instancia que usa la replicación de puesta en cola se van a implementar entre dos zonas. Lo mismo sucede con la capa de DBMS, que se va a implementar entre las mismas zonas que el servicio central de SAP.
 
 Para contemplar dicha configuración, debe encontrar las dos zonas de Availability Zones de su región que ofrezcan una latencia de red entre zonas que sea aceptable para la carga de trabajo y la replicación de DBMS sincrónica. Además, desea asegurarse de que la diferencia entre la latencia de red dentro de las zonas seleccionadas y la latencia de red entre zonas no sea demasiado grande. Esto se debe a que no desea que haya variaciones demasiado grandes, dependiendo del hecho de que un trabajo se ejecute dentro de una zona con el servidor de DBMS o entre distintas zonas, en los tiempos de ejecución de los procesos empresariales o los trabajos por lotes. Algunas variaciones son aceptables, pero no los factores de diferencia.
 

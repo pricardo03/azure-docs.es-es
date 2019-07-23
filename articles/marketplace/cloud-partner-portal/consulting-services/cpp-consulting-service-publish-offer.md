@@ -1,6 +1,6 @@
 ---
-title: Publicación de la oferta de Azure y Dynamics 365 servicio de consultoría | Azure Marketplace
-description: Publicar una oferta de servicio de consultoría de Azure o Dynamics 365 en Cloud Partner Portal para Azure Marketplace o AppSource.
+title: Publicación de una oferta de servicios de consultoría de Azure y Dynamics 365 | Azure Marketplace
+description: Publique una oferta de servicios de consultoría de Azure o Dynamics 365 en Cloud Partner Portal para Azure Marketplace o AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pabutler
 ms.openlocfilehash: 44fe7f11d365761c351e488d834a63392ea9cac1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942803"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Publicación de una oferta de servicios de consultoría

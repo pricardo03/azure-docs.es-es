@@ -8,42 +8,42 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.openlocfilehash: af2225d749283c7124f89d5a7cd735b2f6bfd121
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61348274"
 ---
-# <a name="mapping-data-flow-union-transformation"></a>Transformación Unión de flujo de datos de asignación
+# <a name="mapping-data-flow-union-transformation"></a>Transformación Unión de Mapping Data Flow
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Unión combina varias secuencias de datos en una, y la unión SQL de esas secuencias será la salida de la transformación Unión. Todo el esquema de cada secuencia de entrada se combina dentro de su flujo de datos, sin necesidad de tener una clave de combinación.
+Unión combina varias secuencias de datos en una, y la unión SQL de esas secuencias será la salida de la transformación Unión. Todo el esquema de cada secuencia de entrada se combinará en su flujo de datos, sin necesidad de tener una clave de combinación.
 
-Puede combinar n-el número de flujos en la tabla de configuración, seleccione el icono "+" junto a cada fila configurada, incluidos datos de origen así como flujos procedentes de las transformaciones existentes en el flujo de datos.
+Puede combinar un número n de secuencias en la tabla de configuración. Para ello, seleccione el icono "+" junto a cada fila configurada, incluidos los datos de origen y las secuencias de transformaciones existentes en el flujo de datos.
 
 ![Transformación Unión](media/data-flow/union.png "Union")
 
-En este caso, puede combinar los metadatos dispares de varios orígenes (en este ejemplo, tres archivos de origen diferente) y combinarlos en una única secuencia:
+En este caso, puede combinar los metadatos dispares de varios orígenes (en este ejemplo, tres archivos de origen diferentes) y combinarlos en una única secuencia:
 
-![Información general de la transformación Unión](media/data-flow/union111.png "unión 1")
+![Información general de la transformación Unión](media/data-flow/union111.png "Unión 1")
 
-Para lograr esto, agregue filas adicionales en la configuración de la unión mediante la inclusión de todo el código fuente que desea agregar. No hay ninguna necesidad de una clave común de búsqueda o unión:
+Para lograrlo, agregue filas adicionales en la configuración de Unión mediante la inclusión de todos los orígenes que quiere agregar. No se quiere ninguna clave común de búsqueda o unión:
 
-![Configuración de transformación Unión](media/data-flow/unionsettings.png "configuración de unión")
+![Configuración de la transformación Unión](media/data-flow/unionsettings.png "Configuración de Unión")
 
-Si establece una transformación seleccione después de la unión, podrá cambiar el nombre de campos o los campos que no se han llamado desde orígenes headerless superpuestas. Haga clic en "Inspeccionar" para ver los metadatos se combinan con 132 columnas total en este ejemplo de tres orígenes diferentes:
+Si establece una transformación Selección después de Unión, podrá cambiar el nombre de los campos superpuestos o los campos cuyos nombres no se han asignado desde orígenes sin encabezado. Haga clic en "Inspeccionar" para ver los metadatos combinados con un total de 132 columnas en este ejemplo de tres orígenes diferentes:
 
-![Transformación Unión final](media/data-flow/union333.png "unión 3")
+![Transformación Unión final](media/data-flow/union333.png "Unión 3")
 
-## <a name="name-and-position"></a>Nombre y la posición
+## <a name="name-and-position"></a>Nombre y posición
 
-Al elegir "unión por nombre", cada valor de columna se quitará en la columna correspondiente de cada origen, con un nuevo esquema de metadatos concatenados.
+Al elegir la "unión por nombre", cada valor de columna se colocará en la columna correspondiente de cada origen, con un nuevo esquema de metadatos concatenados.
 
-Si elige "unión por posición", cada valor de columna se quitará en la posición original de cada origen correspondiente, lo que resulta en un nuevo flujo combinado de datos donde los datos de cada origen se agregan a la misma secuencia:
+Si elige la "unión por posición", cada valor de columna se colocará en la posición original de cada origen correspondiente, lo que dará lugar a un nuevo flujo de datos combinado, donde los datos de cada origen se agregan a la misma secuencia:
 
-![Salida de unión](media/data-flow/unionoutput.png "salida unión")
+![Salida de Unión](media/data-flow/unionoutput.png "Salida de Unión")
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explorar las transformaciones similar incluido [unir](data-flow-join.md) y [Exists](data-flow-exists.md).
+Explorar transformaciones similares, como [Combinación](data-flow-join.md) y [Existe](data-flow-exists.md).

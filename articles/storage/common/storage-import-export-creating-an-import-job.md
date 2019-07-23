@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61483084"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Creación de un trabajo de importación para el servicio Azure Import/Export
@@ -33,7 +33,7 @@ Para crear un trabajo de importación para el servicio Microsoft Azure Import/Ex
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Preparación de las unidades con la herramienta Azure Import/Export
 
-Los pasos para preparar las unidades para un trabajo de importación son los mismos si crea el trabajo mediante el portal o mediante la API de REST.
+Los pasos para preparar las unidades para un trabajo de importación son los mismos si crea el trabajo a través del portal o a través de la API de REST.
 
 A continuación se muestra una breve descripción general de cómo preparar la unidad. Vea [Azure Import-ExportTool Reference](storage-import-export-tool-how-to-v1.md) (Referencia de la herramienta Azure Import/Export) para obtener las instrucciones completas. Puede descargar la herramienta Azure Import/Export [aquí](https://go.microsoft.com/fwlink/?LinkID=301900).
 

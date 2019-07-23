@@ -1,7 +1,7 @@
 ---
-title: Implementar una aplicación de pila doble de IPv6 en Azure virtual network - CLI
+title: 'Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: CLI'
 titlesuffix: Azure Virtual Network
-description: En este artículo se muestra cómo implementa una aplicación de pila doble de IPv6 en Azure virtual network mediante la CLI de Azure.
+description: En este artículo, se explica cómo se implementa una aplicación de pila doble IPv6 en Azure Virtual Network mediante la CLI de Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,32 +14,32 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
 ms.openlocfilehash: 12fbf2ae5387ac0a9350cc203f4a6f2587c8dafe
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62131011"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Implementar una aplicación de pila doble de IPv6 en Azure virtual network - CLI (versión preliminar)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: CLI (versión preliminar)
 
-Este artículo muestra cómo implementar una aplicación de doble pila (IPv4 + IPv6) en Azure que incluya una red virtual de la pila dual con una subred de pila doble, con configuraciones de front-end dual (IPv4 + IPv6), las máquinas virtuales con NIC que tienen una configuración de IP dual, un equilibrador de carga reglas del grupo de seguridad de red dual y dos direcciones IP públicas.
+En este artículo, se explica cómo se implementa en Azure una aplicación de pila doble (IPv4 + IPv6) que contiene una red virtual de pila doble y una subred de pila doble, un equilibrador de carga con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual e IP públicas duales.
 
 > [!Important]
-> Pila dual de IPv6 para Azure Virtual Network está actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La pila doble IPv6 para Azure Virtual Network se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI de Azure localmente en su lugar, este inicio rápido requiere que use la CLI de Azure versión 2.0.49 o posterior. Ejecute `az --version` para buscar la versión instalada. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) para obtener información sobre la instalación o actualización.
+Si, en su lugar, decide instalar y usar la CLI de Azure en un entorno local, para esta guía de inicio rápido se necesita la versión 2.0.49 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) para obtener información sobre la instalación o actualización.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para usar IPv6 para la característica de red virtual de Azure, debe configurar su suscripción mediante Azure PowerShell como sigue:
+Para usar IPv6 para la característica Azure Virtual Network, debe configurar la suscripción mediante Azure PowerShell como se indica a continuación:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 ```
-Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar su estado de registro ejecutando el siguiente comando de CLI de Azure:
+Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar el estado del registro ejecutando el siguiente comando de la CLI de Azure:
 
 ```azurelci
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
@@ -51,7 +51,7 @@ az provider register --namespace Microsoft.Network
 ```
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Para poder crear la red virtual de doble pila, debe crear un grupo de recursos con [crear grupo az](/cli/azure/group). En el ejemplo siguiente se crea un grupo de recursos denominado *myRGDualStack* en el *eastus* ubicación:
+Para poder generar la red virtual de doble pila, debe crear primero un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos llamado *myRGDualStack* en la ubicación *eastus*:
 
 ```azurecli
 az group create \
@@ -59,8 +59,8 @@ az group create \
 --location eastus
 ```
 
-## <a name="create-ipv4-and-ipv6-public-ip-addresses-for-load-balancer"></a>Creación de IPv4 e IPv6 direcciones IP públicas para el equilibrador de carga
-Para obtener acceso a los puntos de conexión IPv4 e IPv6 en Internet, necesita direcciones IP públicas IPv4 e IPv6 para el equilibrador de carga. Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip). En el ejemplo siguiente se crea IPv4 e IPv6 dirección IP pública denominada *dsPublicIP_v4* y *dsPublicIP_v6* en el *myRGDualStack* grupo de recursos:
+## <a name="create-ipv4-and-ipv6-public-ip-addresses-for-load-balancer"></a>Creación de direcciones IP públicas IPv4 e IPv6 para el equilibrador de carga
+Para obtener acceso los puntos de conexión IPv4 e IPv6 en Internet, necesita direcciones IP públicas IPv4 e IPv6 para el equilibrador de carga. Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip). En el ejemplo siguiente, se crean las direcciones IP públicas IPv4 e IPv6 denominadas *dsPublicIP_v4* y *dsPublicIP_v6* en el grupo de recursos *myRGDualStack*:
 
 ```azurecli
 # Create an IPV4 IP address
@@ -83,9 +83,9 @@ az network public-ip create \
 
 ```
 
-## <a name="create-public-ip-addresses-for-vms"></a>Creación de direcciones IP públicas para máquinas virtuales
+## <a name="create-public-ip-addresses-for-vms"></a>Creación de direcciones IP públicas para las VM
 
-Para obtener acceso remoto a las máquinas virtuales en internet, necesita las direcciones IP públicas IPv4 para las máquinas virtuales. Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip).
+Para acceder de forma remota a las VM en Internet, necesita las direcciones IP públicas IPv4 de las VM. Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli
 az network public-ip create \
@@ -107,11 +107,11 @@ az network public-ip create \
 
 ## <a name="create-basic-load-balancer"></a>Creación de un equilibrador de carga básico
 
-En esta sección, configurará dos front-end IP (IPv4 e IPv6) y el grupo de direcciones de back-end del equilibrador de carga y, a continuación, crear un equilibrador de carga básico.
+En esta sección, va a configurar la dirección IP del front-end (IPv4 y IPv6) y el grupo de direcciones del back-end para el equilibrador de carga, además de crear un equilibrador de carga básico.
 
 ### <a name="create-load-balancer"></a>Creación de un equilibrador de carga
 
-Cree el equilibrador de carga básica con [crear az network lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominado **dsLB** que incluya un grupo de front-end llamado **dsLbFrontEnd_v4**, un grupo de back-end llamado  **dsLbBackEndPool_v4** que está asociado con la dirección IP pública de IPv4 **dsPublicIP_v4** que creó en el paso anterior. 
+Cree una instancia de Load Balancer básico con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominada **dsLB** que incluya un grupo de servidores front-end llamado **dsLbFrontEnd_v4** y un grupo de servidores back-end llamado **dsLbBackEndPool_v4** que esté asociado a la dirección IP pública IPv4 **dsPublicIP_v4** que creó en el paso anterior. 
 
 ```azurecli
 az network lb create \
@@ -124,9 +124,9 @@ az network lb create \
 --backend-pool-name dsLbBackEndPool_v4
 ```
 
-### <a name="create-ipv6-frontend"></a>Cree front-end de IPv6
+### <a name="create-ipv6-frontend"></a>Creación de un servidor front-end IPv6
 
-Crear una dirección IP de front-end de IPV6 con [crear az network lb frontend-ip](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). En el ejemplo siguiente se crea una configuración de IP de front-end denominada *dsLbFrontEnd_v6* y adjunta el *dsPublicIP_v6* dirección:
+Cree una dirección IP de front-end IPV6 con [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). En el ejemplo siguiente, se crea una configuración de direcciones IP de front-end llamada *dsLbFrontEnd_v6* y se asocia a la dirección *dsPublicIP_v6*:
 
 ```azurepowershell-interactive
 az network lb frontend-ip create \
@@ -137,9 +137,9 @@ az network lb frontend-ip create \
 
 ```
 
-### <a name="configure-ipv6-back-end-address-pool"></a>Configurar el grupo de direcciones de back-end de IPv6
+### <a name="configure-ipv6-back-end-address-pool"></a>Configuración del grupo de direcciones de back-end IPv6
 
-Crear una dirección de back-end de IPv6 de los grupos con [crear az network lb-grupo de direcciones](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create). El ejemplo siguiente crea el grupo de direcciones de back-end denominado *dsLbBackEndPool_v6* para incluir las máquinas virtuales con configuraciones de NIC de IPv6:
+Cree un grupo de direcciones de back-end IPv6 con [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create). En el ejemplo siguiente, se crean el grupo de direcciones de back-end denominado *dsLbBackEndPool_v6* que va a incluir VM con configuraciones de NIC IPv6:
 
 ```azurecli
 az network lb address-pool create \
@@ -152,7 +152,7 @@ az network lb address-pool create \
 
 Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Defina la configuración de la IP de front-end para el tráfico entrante y el grupo de IP de back-end para el tráfico entrante, junto con los puertos de origen y destino requeridos. 
 
-Cree una regla de equilibrador de carga con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create). En el ejemplo siguiente se crea reglas de equilibrador de carga denominadas *dsLBrule_v4* y *dsLBrule_v6* y equilibra el tráfico en *TCP* puerto *80* a las configuraciones de IP front-end de IPv4 e IPv6:
+Cree una regla de equilibrador de carga con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create). En el ejemplo siguiente, se crean reglas del equilibrador de carga llamadas *dsLBrule_v4* y *dsLBrule_v6*, y se equilibra el tráfico del puerto *TCP* *80* dirigido a las configuraciones de IP de front-end IPv4 e IPv6:
 
 ```azurecli
 az network lb rule create \
@@ -179,9 +179,9 @@ az network lb rule create \
 ```
 
 ## <a name="create-network-resources"></a>Crear recursos de red
-Antes de implementar algunas máquinas virtuales, debe crear los recursos de red auxiliares - conjunto de disponibilidad, el grupo de seguridad de red, la red virtual y NIC virtuales. 
+Para poder implementar algunas VM, debe crear recursos de red que lo permitan: un conjunto de disponibilidad, un grupo de seguridad de red, una red virtual y varias NIC virtuales. 
 ### <a name="create-an-availability-set"></a>Crear un conjunto de disponibilidad
-Para mejorar la disponibilidad de la aplicación, coloque las máquinas virtuales en un conjunto de disponibilidad.
+Para mejorar la disponibilidad de la aplicación, coloque las VM en un conjunto de disponibilidad.
 
 Cree el conjunto de disponibilidad con [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado *dsAVset*:
 
@@ -196,11 +196,11 @@ az vm availability-set create \
 
 ### <a name="create-network-security-group"></a>Creación de un grupo de seguridad de red
 
-Cree un grupo de seguridad de red para las reglas que rige la comunicación entrante y saliente de la red virtual.
+Cree un grupo de seguridad de red para las reglas que van a controlar la comunicación entrante y saliente de la red virtual.
 
 #### <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
 
-Cree un grupo de seguridad de red con [crear az network nsg](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
+Cree un grupo de seguridad de red con [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create).
 
 
 ```azurecli
@@ -211,9 +211,9 @@ az network nsg create \
 
 ```
 
-#### <a name="create-a-network-security-group-rule-for-inbound-and-outbound-connections"></a>Cree una regla de grupo de seguridad de red para conexiones entrantes y salientes
+#### <a name="create-a-network-security-group-rule-for-inbound-and-outbound-connections"></a>Creación de una regla de grupo de seguridad de red para las conexiones entrantes y salientes
 
-Cree una regla de grupo de seguridad de red para permitir las conexiones RDP a través de la conexión del puerto 3389, internet a través del puerto 80 y para las conexiones salientes con [crear regla de nsg de red az](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create).
+Cree una regla de grupo de seguridad de red para permitir las conexiones RDP a través del puerto 3389, la conexión a Internet a través del puerto 80 y las conexiones salientes con [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create).
 
 ```azurecli
 # Create inbound rule for port 3389
@@ -266,7 +266,7 @@ az network nsg rule create \
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Cree la red virtual con el comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). En el ejemplo siguiente se crea una red virtual denominada *dsVNET* con subredes *dsSubNET_v4* y *dsSubNET_v6*:
+Cree la red virtual con el comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). En el ejemplo siguiente se crea una red virtual denominada *dsVNET* con las subredes *dsSubNET_v4* y *dsSubNET_v6*:
 
 ```azurecli
 # Create the virtual network
@@ -288,7 +288,7 @@ az network vnet subnet create \
 
 ### <a name="create-nics"></a>Creación de tarjetas NIC
 
-Crear NIC virtuales para cada máquina virtual con [crear nic de red az](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). El ejemplo siguiente crea una NIC virtual para cada máquina virtual. Cada NIC tiene dos configuraciones de IP (1 configuración de IPv4, 1 configuración de IPv6). Crear la configuración de IPV6 con [crear az network nic ip-config](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
+Cree NIC virtuales para cada VM con [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). El ejemplo siguiente crea una NIC virtual para cada VM. Cada NIC tiene dos configuraciones IP (una configuración IPv4 y una configuración IPv6). Debe crear la configuración IPV6 con [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
  
 ```azurecli
 # Create NICs
@@ -341,7 +341,7 @@ az network nic ip-config create \
 
 Cree las máquinas virtuales con [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). En el ejemplo siguiente, se crean dos máquinas virtuales y los componentes de red virtual necesarios, si aún no existen. 
 
-Crear máquina virtual *dsVM0* como sigue:
+Cree la máquina virtual *dsVM0* de la siguiente manera:
 
 ```azurecli
  az vm create \
@@ -352,7 +352,7 @@ Crear máquina virtual *dsVM0* como sigue:
 --availability-set dsAVset \
 --image MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest  
 ```
-Crear máquina virtual *dsVM1* como sigue:
+Cree la máquina virtual *dsVM1* de la siguiente manera:
 
 ```azurecli
 az vm create \
@@ -364,15 +364,15 @@ az vm create \
 --image MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest 
 ```
 
-## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Ver la red virtual de pila doble de IPv6 en Azure portal
-Puede ver la red virtual de pila doble de IPv6 en Azure portal como sigue:
-1. En la barra de búsqueda, escriba *dsVnet*.
-2. Cuando aparezca la opción **myVirtualNetwork** en los resultados de la búsqueda, selecciónela. Esto inicia el **Introducción** página de la red virtual de pila doble llamada *dsVnet*. La red virtual de la pila dual muestra las dos NIC con las configuraciones de IPv4 e IPv6 ubicadas en la subred de pila doble denominada *dsSubnet*.
+## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Visualización de la red virtual de doble pila IPv6 en Azure Portal
+Para ver la red virtual de doble pila IPv6 en Azure Portal, siga estos pasos:
+1. En la barra de búsqueda del portal, escriba *dsVnet*.
+2. Cuando aparezca la opción **myVirtualNetwork** en los resultados de la búsqueda, selecciónela. De este modo, se abrirá la **página de información general** de la red virtual de doble pila llamada *dsVnet*. En la red virtual de doble pila, se muestran las dos NIC con las configuraciones IPv4 e IPv6 en una subred de pila doble denominada *dsSubnet*.
 
-  ![Red virtual de pila doble de IPv6 en Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
+  ![Red virtual de doble pila IPv6 de Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
 > [!NOTE]
-> IPv6 para Azure virtual network está disponible en el portal de Azure en solo lectura para esta versión preliminar.
+> En esta versión preliminar, la dirección IPv6 de la red virtual de Azure está disponible en Azure Portal en modo de solo lectura.
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -385,4 +385,4 @@ Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/gr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha creado un equilibrador de carga básica con una configuración de IP de frontend dual (IPv4 e IPv6). También creó un dos máquinas virtuales que se incluyen las NIC con configuraciones de IP duales (IPV4 + IPv6) que se han agregado al grupo de back-end del equilibrador de carga. Para más información sobre la compatibilidad con IPv6 en redes virtuales de Azure, consulte [¿qué es IPv6 para Azure Virtual Network?](ipv6-overview.md)
+En este artículo, ha creado un equilibrador de carga básico con una configuración de IP de front-end doble (IPv4 e IPv6). También ha creado dos máquinas virtuales que contienen NIC con configuraciones de IP duales (IPV4 + IPv6) que se agregaron al grupo de back-end del equilibrador de carga. Para más información sobre la compatibilidad de IPv6 en las redes virtuales de Azure, consulte [¿Qué es IPv6 para Azure Virtual Network?](ipv6-overview.md)

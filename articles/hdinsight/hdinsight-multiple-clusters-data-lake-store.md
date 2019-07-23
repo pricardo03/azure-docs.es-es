@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700287"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Uso de varios clústeres de HDInsight con una cuenta de Azure Data Lake Storage
@@ -29,7 +29,7 @@ En este artículo se proporcionan recomendaciones para que el administrador de D
 En el resto de este artículo se da por supuesto que tiene un conocimiento profundo de las listas de control de acceso de nivel de archivo y de carpeta en Azure Data Lake Storage, que se describen en detalle en [Control de acceso en Azure Data Lake Storage](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Configuración de Data Lake Storage para varios clústeres de HDInsight
-Empecemos por una jerarquía de carpetas de dos niveles para explicar las recomendaciones para el uso de varios clústeres de HDInsight con una cuenta de Data Lake Storage. Supongamos que tiene una cuenta de Data Lake Storage con la estructura de carpetas **/clusters/finance**. Con esta estructura, todos los clústeres requeridos por la organización de Finanzas pueden usar /clusters/finance como la ubicación de almacenamiento. En el futuro, si otra organización (por ejemplo, Marketing) desea crear clústeres de HDInsight con la misma cuenta de Data Lake Storage, podría crear /clusters/marketing. De momento, usaremos simplemente **/clusters/finance**.
+Empecemos por una jerarquía de carpetas de dos niveles para explicar las recomendaciones de uso de varios clústeres de HDInsight con una cuenta de Data Lake Storage. Supongamos que tiene una cuenta de Data Lake Storage con la estructura de carpetas **/clusters/finance**. Con esta estructura, todos los clústeres requeridos por la organización de Finanzas pueden usar /clusters/finance como la ubicación de almacenamiento. En el futuro, si otra organización (por ejemplo, Marketing) desea crear clústeres de HDInsight con la misma cuenta de Data Lake Storage, podría crear /clusters/marketing. De momento, usaremos simplemente **/clusters/finance**.
 
 Para que los clústeres de HDInsight puedan utilizar esta estructura de carpetas eficazmente, el administrador de Data Lake Storage debe asignar los permisos adecuados, tal como se describe en la tabla. Los permisos mostrados en la tabla corresponden a las ACL de acceso, y no a las ACL predeterminadas. 
 
@@ -50,10 +50,10 @@ Para obtener instrucciones sobre cómo crear una aplicación de AAD (que tambié
 
 Algunos puntos que se deben tener en cuenta:
 
-- El administrador de Data Lake Storage debe crear la estructura de carpetas de dos niveles (**/clusters/finance/**) y aprovisionarla con los permisos adecuados **antes** de utilizar la cuenta de almacenamiento para clústeres. Esta estructura no se crea automáticamente durante la creación de clústeres.
+- El administrador de Data Lake Storage debe crear la estructura de carpetas de dos niveles ( **/clusters/finance/** ) y aprovisionarla con los permisos adecuados **antes** de utilizar la cuenta de almacenamiento para clústeres. Esta estructura no se crea automáticamente durante la creación de clústeres.
 - El ejemplo anterior recomienda establecer el grupo propietario de **/clusters/finance** como **FINGRP** y permitir acceso **r-x** a FINGRP a la jerarquía de carpetas completa desde la raíz. Esto garantiza que los miembros de FINGRP pueden navegar desde la raíz de la estructura de carpetas.
 - En el caso de que varias entidades de servicio de AAD puedan crear clústeres en **/clusters/finance**, el bit sticky (cuando se establece en la carpeta **finance**) garantiza que una carpeta creada por una entidad de servicio no puede eliminar a otra.
-- Una vez que la estructura de carpetas y los permisos estén en su lugar, el proceso de creación del clúster de HDInsight crea una ubicación de almacenamiento específica del clúster en **/clusters/finance/**. Por ejemplo, el almacenamiento para un clúster con el nombre fincluster01 podría ser **/clusters/finance/fincluster01**. La propiedad y los permisos para las carpetas creadas por un clúster de HDInsight se muestran en esta tabla.
+- Una vez que la estructura de carpetas y los permisos estén configurados, el proceso de creación de clústeres de HDInsight crea una ubicación de almacenamiento específica para clústeres en **/clusters/finance/** . Por ejemplo, el almacenamiento para un clúster con el nombre fincluster01 podría ser **/clusters/finance/fincluster01**. La propiedad y los permisos para las carpetas creadas por un clúster de HDInsight se muestran en esta tabla.
 
     |Carpeta  |Permisos  |usuario propietario  |grupo propietario  | Usuario con nombre | Permisos de usuario con nombre | Grupo con nombre | Permisos de grupo con nombre |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -88,9 +88,9 @@ Se sabe que esta configuración afecta a un caso de uso de HDInsight específico
 Como se indica en el JIRA YARN vinculado anteriormente, al localizar recursos públicos el localizador valida que todos los recursos solicitados son realmente públicos comprobando sus permisos en el sistema de archivos remoto. Se rechaza la localización de cualquier recurso local que no se ajuste a esa condición. La comprobación de permisos incluye acceso de lectura al archivo para otros usuarios. Este escenario no funciona en principio al hospedar clústeres de HDInsight en Azure Data Lake, ya que Azure Data Lake deniega el acceso a otros usuarios en el nivel de la carpeta raíz.
 
 #### <a name="workaround"></a>Solución alternativa
-Configure los permisos de lectura y ejecución para **otros** mediante la jerarquía (por ejemplo, en **/**, **/clusters** y **/clusters/finance**), como se muestra en la tabla anterior.
+Configure los permisos de lectura y ejecución para **otros** mediante la jerarquía (por ejemplo, en **/** , **/clusters** y **/clusters/finance**), como se muestra en la tabla anterior.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) (Guía de inicio rápido: Configuración de clústeres en HDInsight).
 * [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)

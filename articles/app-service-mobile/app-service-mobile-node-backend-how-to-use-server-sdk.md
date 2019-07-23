@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128107"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Uso del SDK de Node.js de Mobile Apps
@@ -284,7 +284,7 @@ El SDK de Node.js de Mobile Apps usa el [paquete de mssql para Node.js] para est
 1. Descargue e instale [Microsoft SQL Server 2014 Express]. Asegúrese de instalar la edición SQL Server 2014 Express con Tools. A menos que necesite expresamente compatibilidad con 64 bits, la versión de 32 bits consumirá menos memoria cuando se ejecuta.
 1. Ejecute el Administrador de configuración de SQL Server 2014:
 
-    a. Expanda el nodo **Configuración de red de SQL Server** en el menú de árbol.
+   a. Expanda el nodo **Configuración de red de SQL Server** en el menú de árbol.
 
    b. Seleccione **Protocolos para SQLEXPRESS**.
 
@@ -404,7 +404,7 @@ El uso de Azure SQL Database como almacén de datos es idéntico en todos los ti
 1. En el cuadro **Grupo de recursos** , escriba el mismo nombre de la aplicación.
 1. Se seleccionará el plan de App Service predeterminado. Si desea cambiar su plan de App Service:
 
-    a. Seleccione **Plan de App Service** > **+Crear nuevo**.
+   a. Seleccione **Plan de App Service** >  **+Crear nuevo**.
 
    b. Proporcione un nombre al plan de App Service nuevo y seleccione una ubicación adecuada.
 
@@ -422,7 +422,7 @@ Puede conectar una base de datos SQL al back-end de Mobile Apps o bien crear una
 > [!NOTE]
 > Si ya hay una base de datos en la misma ubicación que el back-end de Mobile Apps, puede seleccionar **Utilizar una base de datos existente**7 y seleccionar dicha base de datos. No se recomienda el uso de una base de datos en una ubicación diferente debido a las elevadas latencias.
 
-1. En el nuevo back-end de Mobile Apps, seleccione **Configuración** > **Aplicación móvil** > **Datos** > **+Agregar**.
+1. En el nuevo back-end de Mobile Apps, seleccione **Configuración** > **Aplicación móvil** > **Datos** >  **+Agregar**.
 1. En el panel **Agregar la conexión de datos**, haga clic en **SQL Database - Configurar los valores obligatorios** > **Crear una base de datos nueva**. Escriba el nombre de la base de datos nueva en el cuadro **Nombre**.
 1. Seleccione **Servidor**. En el panel **Nuevo servidor**, escriba un nombre de servidor único en el cuadro **Nombre del servidor** y especifique un inicio de sesión del administrador del servidor y una contraseña apropiados. Asegúrese de que la opción **Permitir que los servicios de Azure accedan al servidor** esté seleccionada. Seleccione **Aceptar**.
 

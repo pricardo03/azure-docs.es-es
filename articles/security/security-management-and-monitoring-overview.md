@@ -1,5 +1,5 @@
 ---
-title: Administración y supervisión de las características de seguridad - Microsoft Azure | Microsoft Docs
+title: 'Administración y supervisión de las características de seguridad: Microsoft Azure | Microsoft Docs'
 description: En este artículo se proporciona información general sobre los servicios y características de seguridad que proporciona Azure para ayudarle a administrar y supervisar servicios en la nube y máquinas virtuales de Azure.
 services: security
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 9f741f578ea44e27814ddfcde2fadc44a0e90536
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64872069"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Información general sobre la administración y la supervisión de la seguridad en Azure

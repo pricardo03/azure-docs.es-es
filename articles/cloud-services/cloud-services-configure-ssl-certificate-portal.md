@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2a9879ebc55a5f25c1a358e386697dce1c55ec90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61434104"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configuración de SSL para una aplicación en Azure
@@ -40,7 +40,7 @@ El certificado debe cumplir los siguientes requisitos de certificados SSL en Azu
 
 * El certificado debe contener una clave privada.
 * El certificado debe crearse para el intercambio de claves, que se puedan exportar a un archivo Personal Information Exchange (.pfx).
-* El nombre de sujeto del certificado debe coincidir con el dominio usado para tener acceso al servicio en la nube. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio cloudapp.net. Debe adquirir un nombre de dominio personalizado para usarlo cuando obtenga acceso a su servicio. Cuando solicite un certificado de una entidad de certificación, el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado que se usó para tener acceso a su aplicación. Por ejemplo, si el nombre de dominio personalizado es **contoso.com** podría solicitar un certificado de la entidad de certificación para ***. contoso.com** o **www\.contoso.com**.
+* El nombre de sujeto del certificado debe coincidir con el dominio usado para tener acceso al servicio en la nube. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio cloudapp.net. Debe adquirir un nombre de dominio personalizado para usarlo cuando obtenga acceso a su servicio. Cuando solicite un certificado de una entidad de certificación, el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado que se usó para tener acceso a su aplicación. Por ejemplo, si su nombre de dominio personalizado es **contoso.com**, solicitaría un certificado a su entidad de certificación para * **.contoso.com** o **www\.contoso.com**.
 * Este certificado debe usar un cifrado de 2048 bits como mínimo.
 
 Para propósitos de prueba, puede [crear](cloud-services-certs-create.md) y usar un certificado autofirmado. Un certificado autofirmado no está autenticado por una CA y puede usar el dominio cloudapp.net como la dirección URL del sitio web. Por ejemplo, la tarea siguiente usa un certificado autofirmado en el que el nombre común (CN) usado en el certificado es **sslexample.cloudapp.net**.
@@ -49,7 +49,7 @@ A continuación, debe incluir información sobre el certificado en su definició
 
 <a name="modify"></a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Paso 2: Modificar los archivos de definición y configuración de servicio
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Paso 2: Modificar los archivos de definición y configuración del servicio
 Su aplicación debe estar configurada para usar el certificado y se debe agregar un punto de conexión HTTPS. Como resultado, se deben actualizar la definición de servicio y los archivos de configuración del servicio.
 
 1. En su entorno de desarrollo, abra el archivo de definición de servicio (CSDEF), agregue una sección **Certificates** dentro de la sección **WebRole** e incluya la siguiente información sobre el certificado (y los certificados intermedios):
@@ -155,7 +155,7 @@ Conéctese a Azure Portal y...
 
 4. Escriba los valores de **Archivo** y **Contraseña**, y haga clic en **Cargar** en la parte inferior del área de entrada de datos.
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Paso 4: Conéctese a la instancia de rol mediante el uso de HTTPS
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Paso 4: Conectarse a la instancia de rol con HTTPS
 Ahora que su implementación está funcionando en Azure, puede conectarse a ella con HTTPS.
 
 1. Haga clic en la **dirección URL del sitio** para abrir el explorador web.

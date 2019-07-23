@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61348314"
 ---
-# <a name="azure-data-factory-unpivot-transformation"></a>Transformación Anulación de dinamización de Azure Data Factory
+# <a name="azure-data-factory-unpivot-transformation"></a>Transformación Anular dinamización de Azure Data Factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -54,4 +54,4 @@ El conjunto de resultados final de los datos con dinamización anulada muestra l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use la [transformación dinámica](data-flow-pivot.md) a pivot de filas a las columnas.
+Use la [transformación Dinamizar](data-flow-pivot.md) para dinamizar las filas en columnas.

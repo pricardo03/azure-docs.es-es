@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
 ms.openlocfilehash: 732cb118b7a0eebdbf28c7d7fe6ced435ce7920e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713725"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migración de clústeres locales de Apache Hadoop a Azure HDInsight: prácticas recomendadas de la migración de datos
@@ -28,7 +28,7 @@ Hay dos opciones principales para migrar datos desde un entorno local a un entor
     2. ExpressRoute: ExpressRoute es un servicio de Azure que permite crear conexiones privadas entre los centros de datos de Microsoft y la infraestructura local o en una instalación de coubicación. Las conexiones ExpressRoute no se realizan sobre una conexión a Internet pública, ofrecen una mayor confiabilidad, seguridad y velocidad con una menor latencia que las conexiones a Internet típicas. Para más información, consulte [Creación y modificación de un circuito ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Transferencia de datos en línea con Data Box: Data Box Edge y Data Box Gateway son productos para la transferencia de datos en línea que actúan como puertas de enlace de almacenamiento en la red con el fin de administrar los datos entre su centro de datos y Azure. Data Box Edge, un dispositivo de red local, transfiere los datos a Azure, y al contrario, y utiliza el proceso perimetral con inteligencia artificial (IA) para procesar los datos. Data Box Gateway es un dispositivo virtual con funcionalidades de puerta de enlace de almacenamiento. Para más información, consulte [Documentación de Azure Data Box: Transferencia en línea](https://docs.microsoft.com/azure/databox-online/).
 1.  Envío de datos sin conexión
-    1. Transferencia de datos con Data Box: Los dispositivos Data Box, Data Box Disk y Data Box Heavy facilitan la transferencia de grandes cantidades de datos a Azure cuando la red no es una opción. Estos dispositivos de transferencia de datos sin conexión se envían entre su organización y el centro de datos Azure. Utilizan cifrado AES para proteger los datos en tránsito y se someten a un estricto proceso de saneamiento después de la carga para eliminar los datos del dispositivo. Para obtener más información sobre los dispositivos de Data Box transferencia sin conexión, consulte [documentación de cuadro de datos de Azure: transferencia sin conexión](https://docs.microsoft.com/azure/databox/). Para obtener más información sobre la migración de clústeres de Hadoop, consulte [uso Azure Data Box para migrar desde un almacén HDFS local a Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+    1. Transferencia de datos con Data Box: Los dispositivos Data Box, Data Box Disk y Data Box Heavy facilitan la transferencia de grandes cantidades de datos a Azure cuando la red no es una opción. Estos dispositivos de transferencia de datos sin conexión se envían entre su organización y el centro de datos Azure. Utilizan cifrado AES para proteger los datos en tránsito y se someten a un estricto proceso de saneamiento después de la carga para eliminar los datos del dispositivo. Para obtener más información sobre los dispositivos de transferencia sin conexión de Data Box, consulte la [Documentación de Azure Data Box: transferencia sin conexión](https://docs.microsoft.com/azure/databox/). Para obtener más información sobre la migración de clústeres de Hadoop, consulte [Usar Azure Data Box para migrar datos desde un almacén HDFS local a Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 La tabla siguiente contiene la duración de la transferencia de datos aproximada según el volumen de datos y el ancho de banda de la red. Utilice un Data Box si la migración de datos se espera que tarde más de tres semanas.
 
@@ -92,7 +92,7 @@ Hive Metastore se puede migrar mediante el uso de scripts o mediante la replicac
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Migración de Hive Metastore mediante scripts
 
-1. Generar el DDL de Hive desde en tienda de metadatos de Hive localmente. Este paso se puede realizar mediante un [script de Bash de contenedor](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Genere los DDL de Hive desde Hive Metastore local. Este paso se puede realizar mediante un [script de Bash de contenedor](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
 1. Edite el DDL generado para reemplazar la dirección URL de HDFS con direcciones URL de WASB, ADLS o ABFS.
 1. Ejecute el DDL actualizado en la tienda de metadatos desde el clúster de HDInsight.
 1. Asegúrese de que la versión de Hive Metastore es compatible entre el entorno local y la nube.
@@ -109,7 +109,7 @@ Hive Metastore se puede migrar mediante el uso de scripts o mediante la replicac
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - Exporte las directivas de Ranger locales a archivos xml.
-- Transformar determinadas rutas de acceso basado en HDFS a WASB/ADLS con una herramienta como XSLT en el entorno local.
+- Transforme las rutas de acceso basadas en HDFS específicas locales a WASB o ADLS mediante una herramienta como XSLT.
 - Importe las directivas de Ranger que se ejecutan en HDInsight.
 
 ## <a name="next-steps"></a>Pasos siguientes

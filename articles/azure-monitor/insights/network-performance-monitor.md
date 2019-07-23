@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
 ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64916755"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
@@ -59,7 +59,7 @@ La lista de regiones admitidas para la Supervisión de ExpressRoute está dispon
 
 ### <a name="install-and-configure-agents"></a>Instalación y configuración de agentes 
 
-Use los procesos básicos para instalar agentes en [equipos Windows conectarse a Azure Monitor](../platform/agent-windows.md) y [conectar Operations Manager a Azure Monitor](../platform/om-agents.md).
+Use los procesos básicos para instalar agentes en [Conexión de equipos Windows a Azure Monitor](../platform/agent-windows.md) y [Conexión de Operations Manager con Azure Monitor](../platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Dónde instalar los agentes 
 
@@ -83,7 +83,7 @@ Network Performance Monitor usa transacciones sintéticas para supervisar el ren
     > El script configura solo el firewall de Windows localmente. Si tiene un firewall de red, asegúrese de que permite el tráfico destinado al puerto TCP que Network Performance Monitor esté utilizando.
 
     >[!NOTE]
-    > No es necesario ejecutar el [EnableRules.ps1](https://aka.ms/npmpowershellscript ) script de PowerShell para el Monitor de conectividad del servicio.
+    > No es necesario ejecutar el script de PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript ) para el Monitor de conectividad de servicio.
 
     
 
@@ -101,7 +101,7 @@ Network Performance Monitor usa transacciones sintéticas para supervisar el ren
 
 ### <a name="configure-the-solution"></a>Configuración de la solución 
 
-1. Agregue la solución Network Performance Monitor al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). También puede usar el proceso descrito en [soluciones de agregar Azure Monitor desde la Galería de soluciones](../../azure-monitor/insights/solutions.md). 
+1. Agregue la solución Network Performance Monitor al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). También puede usar el proceso que se describe en cómo [agregar soluciones de Azure Monitor desde la Galería de soluciones](../../azure-monitor/insights/solutions.md). 
 2. Abra el área de trabajo de Log Analytics y seleccione el icono **Overview** (Información general). 
 3. Seleccione el icono denominado **Network Performance Monitor**  con el mensaje *Solution requires additional configuration* (La solución necesita una configuración adicional).
 
@@ -115,17 +115,17 @@ Network Performance Monitor usa transacciones sintéticas para supervisar el ren
     
    **Monitor de conectividad de servicio**: esta funcionalidad proporciona pruebas preconfiguradas integradas para supervisar la conectividad de red a Office 365 y Dynamics 365 desde los agentes. Elija los servicios de Office 365 y Dynamics 365 que desea supervisar seleccionando las casillas junto a ellos. Para elegir los agentes desde los que desea realizar la supervisión, seleccione el botón **Add Agents** (Agregar agentes). Si no desea utilizar esta funcionalidad o si desea configurarla más adelante, no seleccione nada y haga clic en **Save & Continue** (Guardar y continuar).
 
-   ![Vista de Monitor de conectividad del servicio](media/network-performance-monitor/npm-service-endpoint-monitor.png)
+   ![Vista del Monitor de conectividad de servicio](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
    **Supervisión de ExpressRoute**: Seleccione **Detectar ahora** para detectar todos los emparejamientos privados de ExpressRoute que están conectados a las redes virtuales en la suscripción de Azure vinculada a esta área de trabajo de Azure Log Analytics. 
 
    ![Vista Supervisión de ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
-   Una vez finalizada la detección, los emparejamientos y circuitos detectados se muestran en una tabla. 
+   Después de finalizar la detección, los emparejamientos y circuitos detectados se muestran en una tabla. 
 
    ![Página Configuración de Network Performance Monitor](media/network-performance-monitor/npm-private-peerings.png)
     
-La supervisión para estos circuitos y emparejamientos está inicialmente en estado deshabilitado. Seleccione cada recurso que desea supervisar y configure la supervisión para ellos en la vista de detalles de la derecha. Para guardar la configuración, seleccione **Guardar**. Para más información, consulte el artículo "Configure ExpressRoute monitoring" (Configuración de la supervisión de ExpressRoute). 
+La supervisión de estos emparejamientos y circuitos está inicialmente en estado deshabilitado. Seleccione todos los recursos que desee supervisar y configure su supervisión en la vista de detalles de la derecha. Para guardar la configuración, seleccione **Guardar**. Para más información, consulte el artículo "Configure ExpressRoute monitoring" (Configuración de la supervisión de ExpressRoute). 
 
 Una vez finalizada la configuración, se tarda entre 30 minutos y una hora en rellenar los datos. Mientras la solución agrega datos de la red, verá el mensaje *Solution requires additional configuration* (La solución necesita una configuración adicional) en el icono **Overview** (Información general) de Network Performance Monitor. Después de que los datos se recopilen e indexen, el icono **Overview** (Información general) cambia y le informa sobre el mantenimiento de la red en un resumen. Puede editar la supervisión de los nodos donde se han instalado los agentes de Log Analytics, así como las subredes detectadas desde el entorno.
 
@@ -152,7 +152,7 @@ En la pestaña **Nodes** (Nodos) se muestran todos los nodos que tienen un agent
 Configure las funcionalidades que desee:
 
 - [Supervisión del rendimiento](network-performance-monitor-performance-monitor.md#configuration)
-- [Monitor de conectividad del servicio](network-performance-monitor-performance-monitor.md#configuration)
+- [Monitor de conectividad de servicio](network-performance-monitor-performance-monitor.md#configuration)
 - [Supervisión de ExpressRoute](network-performance-monitor-expressroute.md#configuration)
 
  
@@ -164,11 +164,11 @@ En la siguiente tabla se muestran los métodos de recopilación de datos y otros
 
 | Plataforma | Agente directo | Agente de System Center Operations Manager | Azure Storage | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Windows | &#8226; | &#8226; |  |  |  |Protocolos de enlace TCP/mensajes ICMP ECHO cada 5 segundos, datos enviados cada 3 minutos |
+| Windows | &#8226; | &#8226; |  |  |  |Protocolos de enlace TCP/mensajes ICMP ECHO cada 5 segundos, datos enviados cada 3 minutos |
  
 
  
-La solución usa transacciones sintéticas para evaluar el estado de la red. Los agentes de Log Analytics instalados en diversos puntos de la red intercambian entre sí paquetes TCP o eco ICMP. El hecho de que los agentes utilicen paquetes TCP o ICMP Echo depende del protocolo seleccionado para la supervisión. En el proceso, los agentes conocen el tiempo de ida y vuelta y se enteran de la pérdida de paquetes, si la hay. Periódicamente, cada agente también realiza un seguimiento de la ruta hasta los demás agentes para descubrir las diversas rutas de la red que se deben comprobar. Con estos datos, los agentes pueden deducir la latencia de red y las cifras de pérdida de paquetes. Las pruebas se repiten cada cinco segundos. Antes de cargarlos en el área de trabajo de Log Analytics en Azure Monitor, los datos se agregan durante aproximadamente tres minutos por los agentes.
+La solución usa transacciones sintéticas para evaluar el estado de la red. Los agentes de Log Analytics instalados en diversos puntos de la red intercambian entre sí paquetes TCP o eco ICMP. El hecho de que los agentes utilicen paquetes TCP o ICMP Echo depende del protocolo seleccionado para la supervisión. En el proceso, los agentes conocen el tiempo de ida y vuelta y se enteran de la pérdida de paquetes, si la hay. Periódicamente, cada agente también realiza un seguimiento de la ruta hasta los demás agentes para descubrir las diversas rutas de la red que se deben comprobar. Con estos datos, los agentes pueden deducir la latencia de red y las cifras de pérdida de paquetes. Las pruebas se repiten cada cinco segundos. Los agentes agregan los datos durante aproximadamente tres minutos antes de que se carguen en el área de trabajo de Log Analytics en Azure Monitor.
 
 
 
@@ -241,9 +241,9 @@ La topología mostrada en el mapa corresponde al nivel 3 y no contiene ningún d
 ![Mapa de topología](media/network-performance-monitor/topology-map.png)
  
 
-## <a name="log-queries-in-azure-monitor"></a>Consultas de registros en Azure Monitor
+## <a name="log-queries-in-azure-monitor"></a>Consultas de registro en Azure Monitor
 
-También está disponible de forma nativa en todos los datos expuestos mediante el panel de Network Performance Monitor gráficos y exploración en profundidad en las páginas [registrar consultas](../log-query/log-query-overview.md). Puede realizar un análisis interactivo de los datos en el repositorio y correlacionar datos procedentes de distintos orígenes. También puede crear vistas y alertas personalizadas, y exportar los datos a Excel, Power BI o un vínculo que se pueda compartir. El área  **Common Queries**  (Consultas comunes) del panel incorpora una serie de consultas útiles que puede usar como punto de partida para crear sus propios informes y consultas. 
+Todos los datos expuestos mediante gráficos en las páginas de exploración en profundidad y en el panel de Network Performance Monitor también se encuentran disponibles de forma nativa en las [consultas de registro](../log-query/log-query-overview.md). Puede realizar un análisis interactivo de los datos en el repositorio y correlacionar datos procedentes de distintos orígenes. También puede crear vistas y alertas personalizadas, y exportar los datos a Excel, Power BI o un vínculo que se pueda compartir. El área  **Common Queries**  (Consultas comunes) del panel incorpora una serie de consultas útiles que puede usar como punto de partida para crear sus propios informes y consultas. 
 
 ## <a name="alerts"></a>Alertas
 
@@ -252,18 +252,18 @@ Network Performance Monitor usa las capacidades de alerta de [Azure Monitor](htt
 Esto quiere decir que todas las notificaciones se administran con [grupos de acciones](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
 Si es un usuario de NPM que crea una alerta mediante Log Analytics: 
-1. Verá un vínculo que le redirigirá al portal de Azure. Haga clic en él para obtener acceso al portal.
+1. Verá un vínculo que le redirigirá a Azure Portal. Haga clic en él para obtener acceso al portal.
 2. Haga clic en el icono de la solución Network Performance Monitor. 
 3. Navegue hasta Configurar.  
 4. Seleccione la prueba para la que quiere crear una alerta y siga los pasos mencionados a continuación.
 
-Si es un usuario NPM que crea una alerta a través del portal de Azure:  
+Si es un usuario NPM que va a crear una alerta a través de Azure Portal:  
 1. Puede escribir directamente el correo electrónico o puede crear alertas a través de grupos de acciones.
 2. Si decide escribir directamente el correo electrónico, se crea un grupo de acciones con el nombre **NPM Email ActionGroup** (Grupo de acciones de correo electrónico NPM) y se agrega el id. de correo electrónico a ese grupo de acciones.
 3. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Puede aprender a crear un grupo de acciones [aquí.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Una vez que se ha creado correctamente la alerta, puede usar el vínculo Administrar alertas para administrar las alertas. 
 
-Cada vez que cree una alerta, NPM creará una regla de alertas de registro basada en consultas en Azure Monitor. Esta consulta se desencadena cada 5 minutos de forma predeterminada. Azure Monitor no realiza ningún cargo por las primeras 250 reglas de alertas de registro creadas; pero las reglas de alertas por encima del límite de 250 reglas de alertas de registro se facturan según los [Precios de alertas en la página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Cada vez que cree una alerta, NPM creará una regla de alertas de registro basada en consultas en Azure Monitor. Esta consulta se desencadena de forma predeterminada cada cinco minutos. Azure Monitor no realiza ningún cargo por las primeras 250 reglas de alertas de registro creadas; pero las reglas de alertas por encima del límite de 250 reglas de alertas de registro se facturan según los [Precios de alertas en la página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 Las notificaciones se cobran por separado según los [Precios de notificaciones en la página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 

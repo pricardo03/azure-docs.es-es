@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
 ms.openlocfilehash: 2a46879a6882e6d45e4a7ccce59e4a02feea9005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61432966"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Conectividad y problemas de red para Azure Cloud Services: Preguntas más frecuentes (P+F)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividad y redes en Azure Cloud Services: Preguntas más frecuentes (P+F)
 
 Este artículo incluye preguntas frecuentes sobre conectividad y redes para [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Para obtener información del tamaño, consulte la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md).
 
@@ -65,7 +65,7 @@ El algoritmo de distribución usado para asignar el tráfico a los servidores di
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>¿Cómo puedo redirigir el tráfico que entra en la dirección URL predeterminada de un servicio en la nube a una dirección URL personalizada?
 
-El módulo URL Rewrite de IIS podría usarse para redirigir el tráfico que entra en la dirección URL predeterminada del servicio en la nube (por ejemplo, \*.cloudapp.net) a alguna dirección URL o nombre personalizados. Dado que el módulo URL Rewrite está habilitado en los roles web de forma predeterminada y sus reglas se configuran en el archivo web.config de la aplicación, siempre está disponible en la máquina virtual, independientemente de los reinicios o restablece la imagen inicial. Para obtener más información, consulte:
+El módulo URL Rewrite de IIS podría usarse para redirigir el tráfico que entra en la dirección URL predeterminada del servicio en la nube (por ejemplo, \*.cloudapp.net) a alguna dirección URL o nombre personalizados. Dado que el módulo URL Rewrite está habilitado de forma predeterminada en los roles web y sus reglas se configuran en el archivo web.config de la aplicación, siempre está disponible en la VM con independencia de los reinicios o los restablecimientos de la imagen inicial. Para obtener más información, consulte:
 
 - [Create Rewrite Rules for the URL Rewrite Module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module) (Creación de reglas de reescritura para el módulo URL Rewrite)
 - [Remove a default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top) (Quitar un vínculo predeterminado)
@@ -104,7 +104,7 @@ Para asegurarse de que la dirección IP pública de un servicio en la nube (tamb
 - [Reserva de la dirección IP de un servicio en la nube existente](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Asociación de una dirección IP reservada a un servicio en la nube mediante un archivo de configuración de servicio](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Si tiene más de una instancia de sus roles, la asociación de RIP a su servicio en la nube no debería producir tiempos de inactividad. Como alternativa, puede que la lista de permitidos el intervalo IP de su centro de datos de Azure. Puede encontrar todos los intervalos de direcciones IP de Azure en el [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Si tiene más de una instancia para sus roles, la asociación de RIP a su servicio en la nube no debería producir ningún tiempo de inactividad. Como alternativa, puede incluir el intervalo IP de su centro de datos de Azure en la lista de autorizados. Puede encontrar todos los intervalos IP de Azure en el [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 Este archivo contiene los intervalos de direcciones IP (incluidos los intervalos de Compute, SQL y Storage) utilizados en los centros de datos de Azure. Semanalmente, se publica un archivo actualizado que refleja los intervalos implementados actualmente y los próximos cambios en los intervalos de direcciones IP. Los nuevos intervalos que aparecen en el archivo no se utilizan en los centros de datos durante al menos una semana. Descargue el nuevo archivo .xml cada semana y realice los cambios necesarios en su sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Azure ExpressRoute podrían apreciar que este archivo se usa para actualizar la publicidad de BGP del espacio de Azure en la primera semana de cada mes.
 

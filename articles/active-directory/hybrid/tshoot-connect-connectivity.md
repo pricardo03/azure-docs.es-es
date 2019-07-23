@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Solución de problemas de Azure AD problemas de conectividad | Microsoft Docs'
+title: 'Azure AD Connect: solución de problemas de conectividad de Azure AD | Microsoft Docs'
 description: Explica cómo solucionar problemas de conectividad con Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64572786"
 ---
-# <a name="troubleshoot-azure-ad-connectivity"></a>Solucionar problemas de conectividad de Azure AD
+# <a name="troubleshoot-azure-ad-connectivity"></a>Solución de problemas de conectividad de Azure AD
 Este artículo explica cómo funciona la conectividad entre Azure AD Connect y Azure AD y cómo solucionar los problemas de conectividad. Estos problemas suelen aparecer en un entorno con un servidor proxy.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Solución de problemas de conectividad en el asistente para la instalación
@@ -113,7 +113,7 @@ Este es un volcado de un registro de proxy real y la página del asistente para 
 
 **Conectarse a Azure AD**
 
-| Time | URL |
+| Hora | URL |
 | --- | --- |
 | 11/1/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 11/1/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -124,7 +124,7 @@ Este es un volcado de un registro de proxy real y la página del asistente para 
 
 **Configuración**
 
-| Time | URL |
+| Hora | URL |
 | --- | --- |
 | 11/1/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 11/1/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -140,7 +140,7 @@ Este es un volcado de un registro de proxy real y la página del asistente para 
 
 **Sincronización inicial**
 
-| Time | URL |
+| Hora | URL |
 | --- | --- |
 | 11/1/2016 8:48 |connect://login.windows.net:443 |
 | 11/1/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
@@ -166,7 +166,7 @@ Las credenciales han expirado. Cambie la contraseña.
 No se pudo autorizar el usuario para realizar la acción en Azure AD.
 
 ### <a name="authentication-canceled"></a>Autenticación cancelada
-Se canceló el desafío de autenticación multifactor (MFA).
+Se canceló el desafío de la autenticación multifactor (MFA).
 
 <div id="connect-msolservice-failed">
 <!--

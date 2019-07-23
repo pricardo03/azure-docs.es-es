@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler
 ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935024"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Cómo rellenar el formulario de detalles del escaparate electrónico
@@ -50,9 +50,9 @@ Debe tener un vínculo de ayuda activo que permita a los clientes acceder a la a
 
 ### <a name="supported-countriesregions"></a>Países y regiones admitidos
 
-En este campo se determinan las regiones en las que estará disponible la versión de prueba. Solo puede elegir los países o regiones donde Microsoft Dynamics 365 Business Central ya está disponible o en versión preliminar. Para obtener la lista actual, vea [países o regiones y admite la traducción](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
+En este campo se determinan las regiones en las que estará disponible la versión de prueba. Solo puede elegir los países o regiones donde Microsoft Dynamics 365 Business Central ya esté disponible o se encuentre en versión preliminar. Para obtener la lista actual, consulte [Countries/Regions and Translations Supported](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations) (Países, regiones y traducciones admitidos).
 
-![Seleccione los países o regiones y traducciones admitidas](./media/d365-financials/image008.png)
+![Seleccione los países o regiones y traducciones admitidos](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>Idiomas admitidos
@@ -112,7 +112,7 @@ Debe haber una página de soporte técnico específica que ofrezca a los cliente
 
 ### <a name="lead-destination"></a>Destino de clientes potenciales
 
-Seleccione un sistema de CRM donde se guardará el cliente potencial. Seleccione \"Azure Table\" aquí si tiene uno de los siguientes sistemas CRM: Salesforce, Marketo o Microsoft Dynamics CRM. El sistema de CRM que seleccione aquí es donde escribiremos los detalles de los usuarios finales que prueben su aplicación en AppSource (clientes potenciales). En función del sistema de CRM que seleccione, haga clic en la dirección URL correspondiente para obtener información sobre cómo completar el siguiente conjunto de campos
+Seleccione un sistema de CRM donde se guardará el cliente potencial. Seleccione \"Tabla de Azure\" si tiene uno de los siguientes sistemas de CRM: Salesforce, Marketo o Microsoft Dynamics CRM. El sistema de CRM que seleccione aquí es donde escribiremos los detalles de los usuarios finales que prueben su aplicación en AppSource (clientes potenciales). En función del sistema de CRM que seleccione, haga clic en la dirección URL correspondiente para obtener información sobre cómo completar el siguiente conjunto de campos
 
 -   [Tabla de Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: c4684dd27aeed4fab4335a93ea5a458b4a9f5d80
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: a6474320fd8b1545d61320cd43e155ab077ba310
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821190"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64683524"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Administrar un conjunto de escalado de máquinas virtuales con Azure PowerShell
 
@@ -28,7 +28,7 @@ Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar un
 
 Si necesita crear un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado con Azure PowerShell](quick-create-powershell.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="view-information-about-a-scale-set"></a>Visualización de información acerca de un conjunto de escalado
 Para ver información general acerca de un conjunto de escalado, use [Get-AzVmss](/powershell/module/az.compute/get-azvmss). En el ejemplo siguiente se obtiene información sobre el conjunto de escalado denominado *myScaleSet* del grupo de recursos *myResourceGroup*. Escriba sus propios nombres, como se indica a continuación:
@@ -92,7 +92,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Reinicio de máquinas virtuales en un conjunto de escalado
-Para reiniciar una o más máquinas virtuales en un conjunto de escalado, use [reinicio AzVmss](/powershell/module/az.compute/restart-azvmss). El parámetro `-InstanceId` le permite especificar una o más máquinas virtuales para que se reinicien. Si no especifica un identificador de instancia, se reinician todas las máquinas virtuales del conjunto de escalado. Para reiniciar varias máquinas virtuales, separe cada identificador de instancia con una coma.
+Para reiniciar una o varias VM en un conjunto de escalado, use [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss). El parámetro `-InstanceId` le permite especificar una o más máquinas virtuales para que se reinicien. Si no especifica un identificador de instancia, se reinician todas las máquinas virtuales del conjunto de escalado. Para reiniciar varias máquinas virtuales, separe cada identificador de instancia con una coma.
 
 En el ejemplo siguiente se reinicia la instancia *0* del conjunto de escalado denominado *myScaleSet* y el grupo de recursos *myResourceGroup*. Proporcione sus propios valores, como se indica a continuación:
 

@@ -1,6 +1,6 @@
 ---
 title: Introducción a la comunidad de Azure Media Services | Microsoft Docs
-description: Esta página de la Comunidad de Azure Media Services describe diferentes maneras puede formular preguntas, comentarios y obtener actualizaciones de Media Services.
+description: Esta página de la comunidad de Azure Media Services habla sobre diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: juliako
 ms.openlocfilehash: 6a3c02c1f14c37317a03cb6ebe63bcddc92f3253
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710169"
 ---
 # <a name="azure-media-services-community"></a>Comunidad de Azure Media Services  
 
-Esta página de la Comunidad de Azure Media Services describe diferentes maneras puede formular preguntas, comentarios y obtener actualizaciones de Media Services.
+Esta página de la comunidad de Azure Media Services habla sobre diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 
 ## <a name="provide-feedback-and-make-suggestions"></a>Comentarios y sugerencias
 
@@ -32,7 +32,7 @@ Esta página de la Comunidad de Azure Media Services describe diferentes maneras
 
 ### <a name="twitter"></a>Twitter
 
-Puede usar el [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) de usuario de twitter para ponerse en contacto con nosotros o seguir las actualizaciones en Twitter. Use la [ @AzureSupport ](https://twitter.com/azuresupport) de usuario de twitter para solicitar soporte técnico en Twitter.  
+Puede usar el identificador de Twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) para ponerse en contacto con nosotros o para seguir las actualizaciones en Twitter. Use el identificador de Twitter [@AzureSupport](https://twitter.com/azuresupport) para solicitar soporte técnico en Twitter.  
 
 ### <a name="online-forums"></a>Foros en línea
 
@@ -48,7 +48,7 @@ El equipo también supervisa las preguntas etiquetadas con "azure-media-services
 
 ## <a name="contact-the-team"></a>Póngase en contacto con el equipo
 
-Azure Media Services es el correo electrónico de soporte técnico principal: **amshelp\@microsoft.com**.
+El correo principal del soporte técnico de Azure Media Services es: **amshelp\@microsoft.com**.
 
 La siguiente tabla enumera el correo electrónico de los subequipos de las características:
 

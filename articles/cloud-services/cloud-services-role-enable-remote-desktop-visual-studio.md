@@ -4,22 +4,20 @@ description: Configuración de la aplicación de servicios en la nube de Azure p
 services: cloud-services
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/06/2018
-ms.date: 10/22/2018
-ms.author: v-yiso
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.topic: conceptual
+ms.workload: azure-vs
+ms.date: 03/06/2018
+ms.author: ghogen
 ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406453"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717758"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services mediante Visual Studio
 
@@ -48,10 +46,8 @@ Cuando se utiliza Visual Studio 2017 versión 15.4 y anteriores, puede usar la o
 
    > [!Note]
    > Los certificados que necesita para una conexión de escritorio remoto son distintos de los certificados que se usan para otras operaciones de Azure. El certificado de acceso remoto tiene que tener una clave privada.
-   >
-   >
 
-5. Seleccione un certificado de la lista o elija **&lt;Crear...&gt;**. Si crea un certificado, proporciónele un nombre descriptivo cuando se le solicite y seleccione **Aceptar**. El nuevo certificado aparece en el cuadro de lista desplegable.
+5. Seleccione un certificado de la lista o elija **&lt;Crear...&gt;** . Si crea un certificado, proporciónele un nombre descriptivo cuando se le solicite y seleccione **Aceptar**. El nuevo certificado aparece en el cuadro de lista desplegable.
 
 6. Proporcione un nombre de usuario y una contraseña. No se puede usar una cuenta existente. No utilice Administrador como el nombre de usuario de la nueva cuenta.
 
@@ -90,7 +86,7 @@ Puede implementar un proyecto de servicio en la nube desde un servidor de compil
 
 Para utilizar la extensión RDP desde Azure DevOps Services, incluya los siguientes detalles en la canalización de compilación:
 
-1. Incluya `/p:ForceRDPExtensionOverPlugin=true` en los argumentos de MSBuild para asegurarse de que la implementación funciona con la extensión RDP en lugar de con el complemento RDP. Por ejemplo: 
+1. Incluya `/p:ForceRDPExtensionOverPlugin=true` en los argumentos de MSBuild para asegurarse de que la implementación funciona con la extensión RDP en lugar de con el complemento RDP. Por ejemplo:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None
@@ -99,7 +95,7 @@ Para utilizar la extensión RDP desde Azure DevOps Services, incluya los siguien
 
 1. Después de los pasos de compilación, agregue el paso **Implementación de servicio en la nube de Azure** y defina sus propiedades.
 
-1. Después del paso de implementación, agregue un **Azure Powershell** paso, establezca su **nombre para mostrar** propiedad en "implementación de Azure: Habilitar extensión RDP"(u otro nombre adecuado) y seleccione su suscripción a Azure apropiada.
+1. Después del paso de implementación, agregue un paso de **Azure Powershell** y establezca la propiedad **nombre para mostrar** en "Implementación de Azure: Habilitar extensión RDP"(u otro nombre adecuado) y seleccione la suscripción a Azure apropiada.
 
 1. Establezca **Tipo de script** en "Alineado" y pegue el código siguiente en el campo **Script en línea**. (También puede crear un archivo `.ps1` en el proyecto con este script, establecer **Tipo de script** en "Ruta de acceso de archivo de script" y establecer **Ruta de acceso del script** para que apunte al archivo).
 

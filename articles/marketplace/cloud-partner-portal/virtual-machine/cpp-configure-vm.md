@@ -1,5 +1,5 @@
 ---
-title: Configurar la máquina virtual hospedada en Azure de Microsoft para Azure Marketplace
+title: Configurar la VM hospedada en Microsoft Azure para Azure Marketplace
 description: Se explica cómo cambiar el tamaño, actualizar y generalizar una máquina virtual hospedada en Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
 ms.openlocfilehash: 3d38efadfb8ad13d072056ef851be99d9540ad4b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938427"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurar la máquina virtual hospedada en Azure
@@ -22,7 +22,7 @@ En este artículo se explica cómo cambiar el tamaño, actualizar y generalizar 
 ## <a name="sizing-the-vhds"></a>Cambio de tamaño de los VHD
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-Si ha seleccionado una de las máquinas virtuales preconfiguradas con un sistema operativo (y, opcionalmente, otros servicios), entonces ya ha seleccionado un tamaño de máquina virtual de Azure estándar, como se describe en [pestaña SKU de máquina Virtual](./cpp-skus-tab.md).  Iniciar la solución con un sistema operativo configurado previamente es el enfoque recomendado.  Pero si va a instalar un sistema operativo manualmente, debe ajustar el tamaño del disco duro virtual principal en la imagen de máquina virtual:
+Si ha seleccionado una de las VM preconfiguradas con un sistema operativo (y, opcionalmente, otros servicios), ya ha seleccionado un tamaño de VM de Azure estándar, como se explica en [Pestaña SKU de máquina virtual](./cpp-skus-tab.md).  Iniciar la solución con un sistema operativo configurado previamente es el enfoque recomendado.  Pero si va a instalar un sistema operativo manualmente, debe ajustar el tamaño del disco duro virtual principal en la imagen de máquina virtual:
 
 - En Windows, el VHD del sistema operativo debe crearse como VHD de 127-128 GB con formato fijo. 
 - En Linux, este VHD debe crearse como VHD de 30-50 GB con formato fijo.
@@ -59,14 +59,14 @@ Para obtener más información sobre las personalizaciones de Linux, vea [Caract
 
 Todas las imágenes de Azure Marketplace deben ser reutilizables de forma genérica. Para lograrlo, el VHD de sistema operativo debe estar *generalizado*, una operación que quita todos los controladores de software y los identificadores específicos de la instancia de una máquina virtual.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Los discos de sistema operativo Windows se generalizan con la [herramienta sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Si posteriormente actualiza o vuelve a configurar el sistema operativo, debe volver a ejecutar sysprep. 
 
 > [!WARNING]
 >  Dado que las actualizaciones se pueden ejecutar automáticamente, una vez que ejecute sysprep, debe desactivar la máquina virtual hasta que se implemente.  Este apagado evita que las actualizaciones posteriores realicen cambios específicos de la instancia en el sistema operativo del disco duro virtual o los servicios instalados.
 
-Para obtener más información sobre la ejecución de sysprep, consulte [pasos para generalizar un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+Para obtener más información sobre la ejecución de sysprep, consulte [Pasos para generalizar un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd).
 
 ### <a name="linux"></a>Linux
 

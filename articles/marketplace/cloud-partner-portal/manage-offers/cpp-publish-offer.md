@@ -1,5 +1,5 @@
 ---
-title: Publicar ofertas en Marketplace | Azure Marketplace
+title: Publicar ofertas de Marketplace | Azure Marketplace
 description: Publicación de ofertas en los Marketplace de Azure y AppSource mediante Cloud Partner Portal
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: pabutler
 ms.openlocfilehash: b0121be4aecffe46c9440e62372e17ac7993163c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943515"
 ---
 # <a name="publish-azure-marketplace-and-appsource-offers"></a>Publicación de ofertas de Azure Marketplace y AppSource

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
 ms.openlocfilehash: 40ba5814bce08037b9e4d0787defbab4d02e58df
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128573"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Prueba del rendimiento de un servicio en la nube de manera local en el emulador de Azure Compute con el generador de perfiles de Visual Studio
@@ -30,8 +30,8 @@ También es posible que desee generar un perfil de la aplicación localmente en 
 
 Este artículo abarca el método de muestreo de CPU de la generación de perfiles, que se puede realizar localmente en el emulador. El muestreo de CPU es un método para generar perfiles que no es muy intrusivo. A un intervalo de muestreo designado, el generador de perfiles realiza una instantánea de la pila de llamadas. Los datos se recopilan por un lapso de tiempo y se muestran en un informe. Este método de generación de perfiles tiende a indicar dónde se está realizando la mayoría del trabajo de la CPU en una aplicación informáticamente intensiva.  Esto le da la oportunidad de centrarse en la "ruta de acceso activa" donde su aplicación pasa la mayor parte del tiempo.
 
-## <a name="1-configure-visual-studio-for-profiling"></a>1: Configurar Visual Studio para la generación de perfiles
-Primero, existen unas pocas opciones de configuración de Visual Studio que podrían ser útiles para la generación de perfiles. Para que los informes de generación de perfiles tengan sentido, necesitará símbolos (archivos .pdb) para su aplicación y también símbolos para las bibliotecas del sistema. Necesitará asegurarse de que hace referencia a los servidores de símbolos disponibles. Para hacer esto, en el menú **Herramientas** de Visual Studio, elija **Opciones** y, a continuación, elija **Depuración** y luego, **Símbolos**. Asegúrese de que los servidores de símbolos de Microsoft aparezcan en **Ubicaciones del archivo de símbolos (.pdb)**.  También puede hacer referencia a https://referencesource.microsoft.com/symbols, que podría tener archivos de símbolos adicionales.
+## <a name="1-configure-visual-studio-for-profiling"></a>1: Configuración de Visual Studio para la generación de perfiles
+Primero, existen unas pocas opciones de configuración de Visual Studio que podrían ser útiles para la generación de perfiles. Para que los informes de generación de perfiles tengan sentido, necesitará símbolos (archivos .pdb) para su aplicación y también símbolos para las bibliotecas del sistema. Necesitará asegurarse de que hace referencia a los servidores de símbolos disponibles. Para hacer esto, en el menú **Herramientas** de Visual Studio, elija **Opciones** y, a continuación, elija **Depuración** y luego, **Símbolos**. Asegúrese de que los servidores de símbolos de Microsoft aparezcan en **Ubicaciones del archivo de símbolos (.pdb)** .  También puede hacer referencia a https://referencesource.microsoft.com/symbols, que podría tener archivos de símbolos adicionales.
 
 ![Opciones Símbolo][4]
 
@@ -77,7 +77,7 @@ private async Task RunAsync(CancellationToken cancellationToken)
 
 Compile y ejecute localmente su servicio en la nube sin depuración (Ctrl+F5), con la configuración de solución establecida en **Liberar**. Esto asegura que todos los archivos y carpetas se crean para ejecutar la aplicación localmente y asegura que se inicien todos los emuladores. Comience la interfaz de usuario del emulador de proceso desde la barra de tareas para comprobar que el rol de trabajo se está ejecutando.
 
-## <a name="2-attach-to-a-process"></a>2. Asociar a un proceso
+## <a name="2-attach-to-a-process"></a>2\. Asociación a un proceso
 En vez de generar un perfil en la aplicación al iniciarla desde Visual Studio 2010 IDE, debe asociar el generador de perfiles a un proceso en ejecución. 
 
 Para asociar el generador de perfiles a un proceso, en el menú **Analizar**, elija **Generador de perfiles** y **Asociar/desasociar**.
@@ -113,7 +113,7 @@ Cuando desee detener la generación de perfiles, seleccione el vínculo **Detene
 
 ![Opción Detener generación de perfiles][10]
 
-## <a name="3-view-performance-reports"></a>3: Ver informes de rendimiento
+## <a name="3-view-performance-reports"></a>3: Vista de informes de rendimiento
 Aparece el informe de rendimiento de la aplicación.
 
 En este punto, el generador de perfiles detiene su ejecución, guarda los datos en un archivo .vsp y exhibe un informe que muestra un análisis de estos datos.
@@ -130,7 +130,7 @@ Si agregó el código de concatenación de cadena en este artículo, debería ve
 
 ![Advertencias de rendimiento][14]
 
-## <a name="4-make-changes-and-compare-performance"></a>4: Realizar cambios y comparar el rendimiento
+## <a name="4-make-changes-and-compare-performance"></a>4: Realización de cambios y comparación del rendimiento
 Puede también comparar el rendimiento antes y después de un cambio en el código.  Detenga el proceso de ejecución y edite el código para reemplazar la operación de concatenación de cadena con el uso de StringBuilder:
 
 ```csharp
@@ -162,10 +162,10 @@ Felicidades. Ya ha empezado a usar el generador de perfiles.
 * Use la interfaz de usuario del emulador de proceso para ver el estado de la aplicación. 
 * Si tiene problemas al iniciar aplicaciones en el emulador o asociar el generador de perfiles, apague el emulador de proceso y reinícielo. Si el problema no se soluciona, intente reiniciar. Este problema se produce si usa el emulador de proceso para suspender y quitar implementaciones en ejecución.
 * Si ha utilizado cualquiera de los comandos de generación de perfiles desde la línea de comandos, especialmente la configuración global, asegúrese de que se haya llamado a VSPerfClrEnv /globaloff y que VsPerfMon.exe se haya apagado.
-* Cuando el muestreo, ve el mensaje "PRF0025: Se recopiló ningún dato,"Compruebe que el proceso que ha adjuntado a tiene actividad de la CPU. Es posible que las aplicaciones que no están realizando ningún trabajo informático no produzcan datos de muestreo.  También es posible que el proceso haya finalizado antes de que se haya realizado muestreo alguno. Compruebe que el método de ejecución de un rol para el cual está generando un perfil no termine.
+* Si al realizar el muestreo, ve el mensaje "PRF0025: no se recopilaron datos", compruebe que el proceso al que se asoció tiene actividad de CPU. Es posible que las aplicaciones que no están realizando ningún trabajo informático no produzcan datos de muestreo.  También es posible que el proceso haya finalizado antes de que se haya realizado muestreo alguno. Compruebe que el método de ejecución de un rol para el cual está generando un perfil no termine.
 
 ## <a name="next-steps"></a>Pasos siguientes
-La instrumentación de binarios de Azure en el emulador no es compatible en el generador de perfiles de Visual Studio; sin embargo, si desea probar la asignación de memoria, puede seleccionar esta opción al generar perfiles. También puede seleccionar una generación de perfiles de concurrencia, la cual le ayuda a determinar si los subprocesos están desperdiciando tiempo al competir por bloqueos, o la generación de perfiles de interacción de capa, que le ayuda a hacer un seguimiento de los problemas de rendimiento cuando se interactúa entre las capas de una aplicación, con mayor frecuencia entre la capa de datos y un rol de trabajo.  Puede ver las consultas de la base de datos que genera la aplicación y usar los datos de generación de perfiles para mejorar el uso que hace de la base de datos. Para obtener información sobre la generación de perfiles de interacción de capas, vea la entrada de blog [Tutorial: Con el Profiler de interacción de capa de Visual Studio Team System 2010][3].
+La instrumentación de binarios de Azure en el emulador no es compatible en el generador de perfiles de Visual Studio; sin embargo, si desea probar la asignación de memoria, puede seleccionar esta opción al generar perfiles. También puede seleccionar una generación de perfiles de concurrencia, la cual le ayuda a determinar si los subprocesos están desperdiciando tiempo al competir por bloqueos, o la generación de perfiles de interacción de capa, que le ayuda a hacer un seguimiento de los problemas de rendimiento cuando se interactúa entre las capas de una aplicación, con mayor frecuencia entre la capa de datos y un rol de trabajo.  Puede ver las consultas de la base de datos que genera la aplicación y usar los datos de generación de perfiles para mejorar el uso que hace de la base de datos. Para obtener información acerca de la generación de perfiles de interacción de capa, consulte la entrada de blog [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3] (Tutorial: Uso del generador de perfiles de interacción de capa en Visual Studio Team System 2010).
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
 [2]: https://msdn.microsoft.com/library/azure/hh411542.aspx

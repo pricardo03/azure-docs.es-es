@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122776"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Administración de inscripciones de dispositivos con Azure Portal
@@ -29,9 +29,9 @@ Hay dos maneras de inscribir los dispositivos con el servicio de aprovisionamien
     Se puede crear un grupo de inscripción en el portal para un grupo de dispositivos mediante los siguientes pasos:
 
   1. Inicie sesión en Azure Portal y haga clic en **Todos los recursos** en el menú a la izquierda.  
-  2. Haga clic en el servicio de aprovisionamiento de dispositivos donde desee inscribir su dispositivo en la lista de recursos.  
-  3. En el servicio de aprovisionamiento:  
-      a. Haga clic en **Administrar inscripciones**y seleccione la pestaña **Grupos de inscripción**.  
+  1. Haga clic en el servicio de aprovisionamiento de dispositivos donde desee inscribir su dispositivo en la lista de recursos.  
+  1. En el servicio de aprovisionamiento:  
+     a. Haga clic en **Administrar inscripciones**y seleccione la pestaña **Grupos de inscripción**.  
      b. Haga clic en el botón **Agregar** de la parte superior.  
      c. Cuando aparezca el panel de incorporación de grupos de inscripción, escriba la información de entrada en la lista de inscripción.  El **nombre del grupo** es obligatorio. Seleccione también "de entidad de certificación" o "intermedio" como **Tipo de certificado** y cargar el **certificado principal** raíz para el grupo de dispositivos.  
      d. Haga clic en **Save**(Guardar). Si el grupo de inscripción se creó correctamente, verá el nombre del grupo aparecer en la pestaña **Enrollment Groups** (Grupos de inscripción).  
@@ -46,7 +46,7 @@ Hay dos maneras de inscribir los dispositivos con el servicio de aprovisionamien
     1. Inicie sesión en Azure Portal y haga clic en **Todos los recursos** en el menú a la izquierda.
     1. Haga clic en el servicio de aprovisionamiento de dispositivos donde desee inscribir su dispositivo en la lista de recursos.
     1. En el servicio de aprovisionamiento:  
-        a. Haga clic en **Administrar inscripciones** y seleccione la pestaña **Inscripciones individuales**.  
+       a. Haga clic en **Administrar inscripciones** y seleccione la pestaña **Inscripciones individuales**.  
        b. Haga clic en el botón **Agregar** de la parte superior.   
        c. Cuando aparezca el panel de incorporación de inscripciones, escriba la información de entrada en la lista de inscripción. Seleccione primero el **Mecanismo** de atestación para el dispositivo (X.509 o TPM). La atestación de X.509 requiere la carga del **certificado principal** de hoja para el dispositivo. TPM requiere que escriba la **clave de atestación** y el **identificador de registro** del dispositivo.  
        d. Haga clic en **Save**(Guardar). Si el grupo de inscripción se creó correctamente, verá el nombre del dispositivo aparecer en la pestaña **Individual Enrollments** (Inscripciones individuales).  

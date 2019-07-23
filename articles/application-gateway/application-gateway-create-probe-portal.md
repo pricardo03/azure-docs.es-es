@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122394"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creación de un sondeo personalizado para Puerta de enlace de aplicaciones mediante el portal
@@ -54,7 +54,7 @@ Los sondeos se configuran en un proceso de dos pasos a través del portal. El pr
    |**Nombre**|customProbe|Este valor es un nombre descriptivo para el sondeo al que se puede acceder en el portal.|
    |**Protocolo**|HTTP o HTTPS | El protocolo que usa el sondeo de estado.|
    |**Host**|es decir, contoso.com|Este valor es el nombre de host que se utiliza para el sondeo. Solo se puede aplicar cuando se ha configurado un entorno multisitio en Application Gateway; de lo contrario hay que usar '127.0.0.1'. Este valor es distinto del nombre de host de máquina virtual.|
-   |**Ruta de acceso**|/ u otra ruta de acceso|El resto de la dirección URL completa del sondeo personalizado. Las rutas de acceso válidas comienzan por '/'. Para la ruta de acceso predeterminada de http:\//contoso.com simplemente use '/' |
+   |**Ruta de acceso**|/ u otra ruta de acceso|El resto de la dirección URL completa del sondeo personalizado. Las rutas de acceso válidas comienzan por '/'. Para la ruta de acceso predeterminada de http:\//contoso.com, use solo '/'. |
    |**Intervalo (segundos)**|30|La frecuencia con que se ejecuta el sondeo para comprobar el estado. No se recomienda establecer un valor inferior a 30 segundos.|
    |**Tiempo de espera (segundos)**|30|El período que espera el sondeo antes de agotarse el tiempo de espera. El intervalo de tiempo de espera debe ser lo suficientemente alto como para que se pueda realizar una llamada http para asegurarse de que la página de mantenimiento de back-end está disponible.|
    |**Umbral incorrecto**|3|Número de intentos con error para que se considere incorrecto. Un umbral de 0 significa que si el resultado de una comprobación de mantenimiento no es satisfactorio, se determinará de inmediato que el back-end es incorrecto.|

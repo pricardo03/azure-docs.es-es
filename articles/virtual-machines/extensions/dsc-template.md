@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
 ms.openlocfilehash: 1bcec37e7642ae0cb5bd68de1426c8cc62085d38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475531"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
@@ -184,11 +184,11 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 | settings.configuration.url |string |Especifica la ubicación de la dirección URL desde la que descargar el archivo .zip de la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, establezca la propiedad **protectedSettings.configurationUrlSasToken** en el valor de su token de SAS. Esta propiedad es necesaria si se definen **settings.configuration.script** o **settings.configuration.function**. Si no se especifica ningún valor para estas propiedades, la extensión llamará al script de configuración predeterminada para establecer los metadatos del administrador de configuración de ubicación (LCM) y se deben proporcionar los argumentos. |
 | settings.configuration.script |string |Especifica el nombre de archivo del script que contiene la definición de la configuración de DSC. Este script debe estar en la carpeta raíz del archivo .zip descargado de la dirección URL especificada por la propiedad **settings.configuration.url**. Esta propiedad es necesaria si se definen **settings.configuration.url** o **settings.configuration.script**. Si no se especifica ningún valor para estas propiedades, la extensión llama al script de configuración predeterminada para establecer los metadatos de LCM, y deben proporcionarse los argumentos. |
 | settings.configuration.function |string |Especifica el nombre de la configuración de DSC. La configuración con nombre se debe incluir en el script que **settings.configuration.script** define. Esta propiedad es necesaria si se definen **settings.configuration.url** o **settings.configuration.function**. Si no se especifica ningún valor para estas propiedades, la extensión llama al script de configuración predeterminada para establecer los metadatos de LCM, y deben proporcionarse los argumentos. |
-| settings.configurationArguments |Collection |Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
+| settings.configurationArguments |Colección |Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
 | settings.configurationData.url |string |Especifica la dirección URL desde la que descargar el archivo de datos de configuración (.psd1) que se usará como entrada para la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, establezca la propiedad **protectedSettings.configurationDataUrlSasToken** en el valor de su token de SAS. |
-| settings.privacy.dataCollection |string |Habilita o deshabilita la recopilación de telemetría. Los únicos valores posibles para esta propiedad son **Enable**, **Disable**, **''** o **$null**. Si se deja esta propiedad en blanco o como null, se habilita la telemetría. El valor predeterminado es **''**. Para más información, consulte [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Colección de datos de la extensión DSC de Azure). |
-| settings.advancedOptions.downloadMappings |Collection |Define las ubicaciones alternativas desde las que descargar WMF. Para más información, consulte el artículo sobre la [extensión DSC 2.8 de Azure y cómo asignar las descargas de las dependencias de la extensión a su propia ubicación](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
-| protectedSettings.configurationArguments |Collection |Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
+| settings.privacy.dataCollection |string |Habilita o deshabilita la recopilación de telemetría. Los únicos valores posibles para esta propiedad son **Enable**, **Disable**, **''** o **$null**. Si se deja esta propiedad en blanco o como null, se habilita la telemetría. El valor predeterminado es **''** . Para más información, consulte [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Colección de datos de la extensión DSC de Azure). |
+| settings.advancedOptions.downloadMappings |Colección |Define las ubicaciones alternativas desde las que descargar WMF. Para más información, consulte el artículo sobre la [extensión DSC 2.8 de Azure y cómo asignar las descargas de las dependencias de la extensión a su propia ubicación](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| protectedSettings.configurationArguments |Colección |Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
 | protectedSettings.configurationUrlSasToken |string |Especifica el token de SAS que se usa para acceder a la dirección URL que **settings.configuration.url** define. Esta propiedad no está cifrada. |
 | protectedSettings.configurationDataUrlSasToken |string |Especifica el token de SAS que se usa para acceder a la dirección URL que **settings.configurationData.url** define. Esta propiedad no está cifrada. |
 
@@ -254,7 +254,7 @@ Los argumentos de configuración se transfieren al script de configuración pred
 
 El ejemplo siguiente proviene de la [información general del controlador de la extensión DSC](dsc-overview.md).
 Este ejemplo usa plantillas de Resource Manager en lugar de cmdlets para implementar la extensión.
-Guardar la configuración IisInstall.ps1, colóquela en un archivo .zip (ejemplo: `iisinstall.zip`) y, a continuación, cargue el archivo en una dirección URL accesible.
+Guarde la configuración IisInstall.ps1, colóquela en un archivo .zip (ejemplo: `iisinstall.zip`) y cargue el archivo en una dirección URL accesible.
 Este ejemplo usa Azure Blob Storage, pero puede descargar los archivos .zip desde cualquier ubicación arbitraria.
 
 En la plantilla de Resource Manager, el código siguiente indica a la máquina virtual que descargue el archivo correcto y, luego, ejecute la función de PowerShell adecuada:
@@ -355,27 +355,27 @@ The only possible values are '', 'Enable', and 'Disable'" (Privacy.dataCollectio
 "WmfVersion is '{0}'. ("WmfVersion es "{0}")
 Los únicos valores posibles son: and "latest" (WmfVersion es '{0}'. Los únicos valores posibles son... y "latest").
 
-**Problema**: No se permite un valor proporcionado.
+**Problema**: se proporcionó un valor no permitido.
 
-**Solución**: Cambie el valor no válido a un valor válido.
+**Solución**: cambie el valor no válido por un valor válido.
 Para más información, consulte la tabla que aparece en [Detalles](#details).
 
 ### <a name="invalid-url"></a>Dirección URL no válida
 
 "ConfigurationData.url is '{0}'. ("ConfigurationData.url es "{0}") This is not a valid URL" "DataBlobUri is '{0}'. (Esta dirección URL no es válida" "DataBlobUri es "{0}") This is not a valid URL" "Configuration.url is '{0}'. (Esta dirección URL no es válida" "Configuration.url es "{0}") This is not a valid URL" This is not a valid URL" (Configuration.url es '{0}'. No es una dirección URL válida)
 
-**Problema**: Una dirección URL proporcionada no es válida.
+**Problema**: una URL proporcionada no es válida.
 
-**Solución**: Compruebe todas las direcciones URL proporcionadas.
+**Solución**: revise todas las direcciones URL proporcionadas.
 Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas a las que la extensión pueda acceder en la máquina remota.
 
 ### <a name="invalid-registrationkey-type"></a>Tipo RegistrationKey no válido
 
 "Tipo no válido para el parámetro RegistrationKey del tipo PSCredential."
 
-**Problema**: El *RegistrationKey* valor en protectedSettings.configurationArguments no se puede proporcionar cualquier tipo distinto de PSCredential.
+**Problema**: el valor de *RegistrationKey* en protectedSettings.configurationArguments no se puede proporcionar como cualquier tipo que no sea PSCredential.
 
-**Solución**: Cambiar la entrada de protectedSettings.configurationArguments para RegistrationKey a un tipo PSCredential con el formato siguiente:
+**Solución**: cambie la entrada de protectedSettings.configurationArguments de RegistrationKey a un tipo PSCredential con el formato siguiente:
 
 ```json
 "configurationArguments": {
@@ -390,18 +390,18 @@ Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas
 
 "Invalid configurationArguments type {0}" ("Tipo {0} de configurationArguments" no válido)
 
-**Problema**: El *ConfigurationArguments* propiedad no se puede resolver a un **tabla Hash** objeto.
+**Problema**: la propiedad *ConfigurationArguments* no se puede resolver en un objeto **Tabla hash**.
 
-**Solución**: Realice su *ConfigurationArguments* propiedad un **tabla Hash**.
+**Solución**: convierta la propiedad *ConfigurationArguments* en una **Tabla hash**.
 Siga el formato proporcionado en los ejemplos anteriores. Esté atento a las comillas, comas y llaves.
 
 ### <a name="duplicate-configurationarguments"></a>ConfigurationArguments duplicadas
 
 "Found duplicate arguments '{0}' in both public and protected configurationArguments" (Se encontraron argumentos duplicados "{0}" en propiedades configurationArguments públicas y privadas)
 
-**Problema**: El *ConfigurationArguments* en la configuración pública y la *ConfigurationArguments* en la configuración protegida tiene propiedades con el mismo nombre.
+**Problema**: la propiedad *ConfigurationArguments* en la configuración pública y la propiedad *ConfigurationArguments* en la configuración protegida contienen propiedades con el mismo nombre.
 
-**Solución**: Quite una de las propiedades duplicadas.
+**Solución**: quite una de las propiedades duplicadas.
 
 ### <a name="missing-properties"></a>Propiedades que faltan
 
@@ -417,7 +417,7 @@ Siga el formato proporcionado en los ejemplos anteriores. Esté atento a las com
 
 "protectedSettings.ConfigurationDataUrlSasToken requiere que se especifique settings.configurationData.url"
 
-**Problema**: Una propiedad definida requiere otra propiedad que falta.
+**Problema**: una propiedad definida requiere otra propiedad que falta.
 
 **Soluciones**:
 

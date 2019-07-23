@@ -9,22 +9,22 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64572374"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Búsqueda de una dirección mediante el servicio de búsqueda de Azure Maps
 
 El servicio de búsqueda de Maps es un conjunto de API RESTful diseñadas para que los desarrolladores busquen direcciones, lugares, puntos de interés, listados de empresas y otra información geográfica. El servicio de búsqueda asigna una latitud y longitud a una dirección específica, calle transversal, característica geográfica o punto de interés (POI). Los valores de latitud y longitud devueltos por la búsqueda se pueden usar como parámetros en otros servicios de Maps como las rutas y el flujo de tráfico.
 
-En este artículo, aprenderá cómo:
+En este artículo, aprenderá a:
 
-* Busque una dirección con [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
-* Buscar una dirección, junto con las propiedades y las coordenadas
-* Realizar una [búsqueda de direcciones inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para buscar una dirección postal
-* Busque un cruzado mediante Calle [dirección inversa entre calle API de búsqueda](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
+* Buscar una dirección mediante [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
+* Buscar una dirección junto con sus propiedades y coordenadas.
+* Realizar una [búsqueda de dirección inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para buscar una dirección postal.
+* Buscar una intersección de calles mediante [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -68,7 +68,7 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
 
     La cadena de consulta ambigua de "pizza" devolvió 10 [resultados de punto de interés](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) con categorías correspondientes a "pizza" y "restaurante". Cada resultado devuelve una dirección, valores de latitud y longitud, ventanilla y puntos de entrada para la ubicación.
   
-    Los resultados son variados para esta consulta, no se asocian a ninguna ubicación de referencia determinada. Puede usar el **countrySet** parámetro para especificar solo los países o regiones para que la aplicación necesita cobertura, como el comportamiento predeterminado consiste en Buscar en todo el mundo, devolución de resultados innecesarios.
+    Los resultados son variados para esta consulta, no se asocian a ninguna ubicación de referencia determinada. Puede usar el parámetro **countrySet** para especificar solo los países o las regiones para los que su aplicación necesita cobertura, ya que el comportamiento predeterminado es buscar en todo el mundo, lo que puede provocar la devolución de resultados innecesarios.
 
 5. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 

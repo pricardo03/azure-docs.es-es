@@ -18,10 +18,10 @@ ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128456"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Solucionar los problemas de rendimiento reducido de aplicaciones web en Azure App Service
@@ -136,7 +136,7 @@ Para acceder al diagnóstico de App Service, vaya a la aplicación de App Servic
 #### <a name="use-the-kudu-debug-console"></a>Uso de la consola de depuración Kudu
 App Service incluye una consola de depuración que puede usar para depurar, explorar o cargar archivos, e incluye también puntos de conexión JSON para obtener información sobre su entorno. A esta consola se le denomina *Consola Kudu* o *Panel SCM* para la aplicación.
 
-Puede tener acceso a este panel en el vínculo **https://&lt;Nombre de la aplicación>.scm.azurewebsites.net/**.
+Puede tener acceso a este panel en el vínculo **https://&lt;Nombre de la aplicación>.scm.azurewebsites.net/** .
 
 Algunas de las cosas que proporciona Kudu son:
 
@@ -162,7 +162,7 @@ Además, puede elegir ejecutar la aplicación en más de una instancia. El escal
 Puede establecer el escalado en Manual o Automático.
 
 #### <a name="use-autoheal"></a>Uso de AutoHeal
-AutoHeal recicla el proceso de trabajo para su aplicación en función de la configuración que elija (como cambios de configuración, solicitudes, límites de memoria o el tiempo necesario para ejecutar una solicitud). Casi siempre, el proceso de reciclaje es la forma más rápida de recuperarse de un problema. Aunque siempre puede reiniciar la aplicación directamente en Azure Portal, AutoHeal lo hará automáticamente por usted. Todo lo que debe hacer es agregar algunos desencadenadores en web.config raíz de la aplicación. Esta configuración funcionaría igual incluso si la aplicación no es una aplicación. NET.
+AutoHeal recicla el proceso de trabajo para su aplicación en función de la configuración que elija (como cambios de configuración, solicitudes, límites de memoria o el tiempo necesario para ejecutar una solicitud). Casi siempre, el proceso de reciclaje es la forma más rápida de recuperarse de un problema. Aunque siempre puede reiniciar la aplicación directamente en Azure Portal, AutoHeal lo hará automáticamente por usted. Todo lo que debe hacer es agregar algunos desencadenadores en web.config raíz de la aplicación. Esta configuración funcionaría igual aunque la aplicación no fuera de .NET.
 
 Para obtener más información, consulte [Recuperación automática de Sitios web de Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

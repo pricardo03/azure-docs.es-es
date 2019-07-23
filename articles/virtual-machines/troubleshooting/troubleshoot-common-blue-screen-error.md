@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
 ms.openlocfilehash: 26306489b11e24ab50f0ae893f11137d279c6127
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719809"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows muestra un error de pantalla azul al iniciar una máquina virtual de Azure.
@@ -56,7 +56,7 @@ Para resolver este problema, primero debe recopilar el archivo de volcado del bl
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Busque el archivo de volcado de memoria y envíe una incidencia de soporte técnico.
 
 1. En la máquina virtual de recuperación, vaya a la carpeta de Windows en el disco del sistema operativo conectado. Si la letra de unidad que se asigna al disco del sistema operativo conectado es F, deberá ir a F:\Windows.
-2. Busque el archivo memory.dmp y, a continuación, [envíe una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) con el archivo de volcado. 
+2. Busque el archivo memory.dmp y, a continuación, [envíe una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) con el archivo de volcado de memoria. 
 
 Si no encuentra el archivo de volcado de memoria, vaya el paso siguiente para habilitar el registro de volcado de memoria y Serial Console.
 

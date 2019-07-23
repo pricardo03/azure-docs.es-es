@@ -10,10 +10,10 @@ ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
 ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61280660"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
@@ -92,14 +92,14 @@ Si el botón **Conectar** de la máquina virtual conmutada por error de Azure es
 2. Si la aplicación dentro de la máquina virtual no aparece, realice la conmutación por error a un punto de recuperación coherente con la aplicación.
 3. Si la máquina virtual está unida al dominio, asegúrese de que ese controlador de dominio funciona correctamente. Esto se puede hacer siguiendo estos pasos:
 
-     a. Cree una nueva máquina virtual en la misma red.
+    a. Cree una nueva máquina virtual en la misma red.
 
     b.  Asegúrese de que es capaz de unirse al mismo dominio en el que se espera que aparezca la máquina virtual que ha conmutado por error.
 
     c. Si el controlador de dominio **no** funciona correctamente, inicie sesión en la máquina virtual con conmutación por error mediante una cuenta de administrador local.
 4. Si está utilizando un servidor DNS personalizado, asegúrese de que es accesible. Esto se puede hacer siguiendo estos pasos:
 
-     a. Cree una nueva máquina virtual en la misma red y
+    a. Cree una nueva máquina virtual en la misma red y
 
     b. Compruebe si la máquina virtual es capaz de realizar la resolución de nombres con el servidor DNS personalizado.
 
@@ -110,25 +110,25 @@ Si el botón **Conectar** de la máquina virtual conmutada por error de Azure es
 
 Al arrancar una máquina tras la conmutación por error, si recibe un mensaje de cierre inesperado sobre la máquina virtual recuperada, esto indica que el estado de cierre no se capturó en el punto de recuperación usado para la conmutación por error. Esto ocurre al recuperarse hasta un punto en el que la máquina virtual no se había cerrado completamente.
 
-Esto no suele ser motivo de preocupación y normalmente puede omitirse en las conmutaciones por error no planeadas. Si se ha planeado la conmutación por error, asegúrese de que la máquina virtual está apagada correctamente antes de la conmutación por error y proporcionar tiempo suficiente para pendientes de replicación de datos localmente para enviarse a Azure. A continuación, use la opción **Más reciente** de la [pantalla Conmutación por error](site-recovery-failover.md#run-a-failover) para que los datos pendientes de Azure se procesen en un punto de recuperación, el cual se utiliza para la conmutación por error de la máquina virtual.
+Esto no suele ser motivo de preocupación y normalmente puede omitirse en las conmutaciones por error no planeadas. Si la conmutación por error se ha planeado, asegúrese de que la VM se cierra correctamente antes de la conmutación por error y proporcione tiempo suficiente para que los datos de replicación pendientes locales se envíen a Azure. A continuación, use la opción **Más reciente** de la [pantalla Conmutación por error](site-recovery-failover.md#run-a-failover) para que los datos pendientes de Azure se procesen en un punto de recuperación, el cual se utiliza para la conmutación por error de la máquina virtual.
 
 ## <a name="unable-to-select-the-datastore"></a>No se puede seleccionar el almacén de datos
 
-Este problema se indica cuando no se puede ver el almacén de datos en Azure el portal cuando se intenta volver a proteger la máquina virtual que ha experimentado una conmutación por error. Esto es porque el maestro de destino no se reconoce como una máquina virtual en vCenter agregado a Azure Site Recovery.
+Este problema se indica cuando no se puede ver el almacén de datos en Azure Portal al intentar volver a proteger la máquina virtual que ha experimentado una conmutación por error. Esto es porque el destino maestro no se reconoce como una máquina virtual en las instancias de vCenter agregadas a Azure Site Recovery.
 
-Para obtener más información sobre cómo volver a proteger una máquina virtual, consulte [volver a proteger y conmutar por recuperación máquinas back-en un sitio local después de la conmutación por error a Azure](vmware-azure-reprotect.md).
+Para obtener más información sobre cómo volver a proteger una máquina virtual, consulte [Reprotección y conmutación por recuperación de máquinas en un sitio local después de la conmutación por error en Azure](vmware-azure-reprotect.md).
 
 Para resolver el problema:
 
-Crear manualmente el maestro de destino en el servidor vCenter que administra la máquina de origen. El almacén de datos estarán disponible después de la siguiente vCenter detección y la actualización de las operaciones de fabric.
+Cree manualmente el destino maestro en la instancia de vCenter que administra la máquina de origen. El almacén de datos estará disponible después de las siguientes operaciones de tejido de detección y actualización de vCenter.
 
 > [!Note]
 > 
-> Las operaciones de tejido de detección y la actualización pueden tardar hasta 30 minutos en completarse. 
+> Las operaciones de tejido de detección y actualización pueden tardar hasta 30 minutos en completarse. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Registro de destino maestro de Linux con CS produce un error SSL 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>El registro del destino maestro de Linux con CS produce un error de SSL 35 
 
-Se produce un error en el registro del destino maestro de recuperación de sitio de Azure con el servidor de configuración porque el servidor Proxy autenticado está habilitado en el destino maestro. 
+Se produce un error en el registro del destino maestro de Azure Site Recovery con el servidor de configuración porque el servidor proxy autenticado se está habilitando en el destino maestro. 
  
 Este error se indica mediante las siguientes cadenas en el registro de instalación: 
 
@@ -138,23 +138,23 @@ RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] Cu
 
 Para resolver el problema:
  
-1. En el servidor de configuración de máquina virtual, abra un símbolo del sistema y compruebe la configuración del proxy mediante los siguientes comandos:
+1. En la VM del servidor de configuración, abra un símbolo del sistema y compruebe la configuración del proxy mediante los siguientes comandos:
 
     cat /etc/environment  echo $http_proxy  echo $https_proxy 
 
-2. Si se muestra el resultado de los comandos anteriores que se define configuración http_proxy o https_proxy, use uno de los métodos siguientes para desbloquear las comunicaciones de destino maestro con el servidor de configuración:
+2. Si la salida de los comandos anteriores muestra que se ha definido la configuración de http_proxy o https_proxy, use uno de los métodos siguientes para desbloquear las comunicaciones del destino maestro con el servidor de configuración:
    
-   - Descargue el [herramienta PsExec](https://aka.ms/PsExec).
-   - Use la herramienta para tener acceso al contexto de usuario del sistema y determinar si la dirección del proxy está configurada. 
-   - Si se configura el proxy, abra Internet Explorer en un contexto de usuario del sistema mediante la herramienta de PsExec.
+   - Descargue la [herramienta PsExec](https://aka.ms/PsExec).
+   - Use la herramienta para acceder al contexto de usuario del sistema y determinar si la dirección del proxy está configurada. 
+   - Si se ha configurado el proxy, abra Internet Explorer en un contexto de usuario del sistema mediante la herramienta PsExec.
   
      **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
 
-   - Para asegurarse de que el servidor de destino maestro puede comunicarse con el servidor de configuración:
+   - Para asegurarse de que el destino maestro puede comunicarse con el servidor de configuración:
   
-     - Modificar la configuración de proxy en Internet Explorer para omitir la dirección IP del servidor de destino maestro a través del proxy.   
+     - Modifique la configuración del proxy en Internet Explorer para omitir la dirección IP del servidor de destino maestro a través del proxy.   
      o
-     - Deshabilitar al proxy en el servidor de destino maestro. 
+     - Deshabilite al proxy en el servidor de destino maestro. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

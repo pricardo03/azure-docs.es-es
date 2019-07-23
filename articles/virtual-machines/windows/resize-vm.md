@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: f54ff738199d433308a8eaba6a643861c57b4abb
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: 3dc6ea7419e3ee1f24d19447a7a33e5556ffc70f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540693"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64688718"
 ---
 # <a name="resize-a-windows-vm"></a>Cambio de tamaño de una máquina virtual Windows
 
@@ -30,7 +30,7 @@ Después de crear una máquina virtual, puede escalarla o reducirla verticalment
 
 Si la máquina virtual usa Premium Storage, asegúrese de elegir una versión **s** del tamaño para obtener compatibilidad con este nivel de almacenamiento. Por ejemplo, elija Standard_E4**s**_v3 en lugar de Standard_E4_v3.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Cambio de tamaño de una máquina virtual Windows que no está en un conjunto de disponibilidad
 
@@ -55,7 +55,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-Si el tamaño deseado no se muestra, ejecute los siguientes comandos para desasignar la máquina virtual, cambiar su tamaño y reiniciarla. Reemplace  **\<newVMsize >** con el tamaño que desee.
+Si el tamaño deseado no se muestra, ejecute los siguientes comandos para desasignar la máquina virtual, cambiar su tamaño y reiniciarla. Sustituya **\<newVMsize>** por el tamaño que quiera.
    
 ```powershell
 Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force

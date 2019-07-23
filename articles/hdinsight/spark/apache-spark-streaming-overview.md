@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: 19d77d4aa49008232a01cd3ac2761a796505a35c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712001"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Introducción a Apache Spark Streaming
@@ -145,7 +145,7 @@ stream.foreachRDD { rdd =>
 ssc.start()
 ```
 
-Espere unos 30 segundos después de iniciar la aplicación anterior.  A continuación, puede consultar la trama de datos periódicamente para ver el conjunto actual de los valores presentes en el lote, por ejemplo, mediante esta consulta SQL:
+Espere aproximadamente 30 segundos después de iniciar la aplicación anterior.  Después, puede consultar periódicamente el objeto DataFrame para ver el conjunto actual de valores presentes en el lote, por ejemplo, con el uso de esta consulta SQL:
 
 ```sql
 %%sql

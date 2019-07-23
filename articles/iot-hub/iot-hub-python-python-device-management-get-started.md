@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 04fc1da04d9da715acfed8ca9d26e9c325afb403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61441804"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569440"
 ---
 # <a name="get-started-with-device-management-python"></a>Introducción a la administración de dispositivos (Python)
 
@@ -38,9 +38,9 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * [Python 2.x o 3.x](https://www.python.org/downloads/). Asegúrese de usar la instalación de 32 bits o 64 bits en función del programa de instalación. Cuando se le solicite durante la instalación, asegúrese de agregar Python a la variable de entorno específica de la plataforma. Si usa Python 2.x, puede que necesite [instalar o actualizar *pip*, el sistema de administración de paquetes de Python](https://pip.pypa.io/en/stable/installing/).
 
-* Instalar el [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) empaquetar, mediante el comando       `pip install azure-iothub-device-client`
+* Instale el paquete [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) mediante el comando       `pip install azure-iothub-device-client`.
 
-* Instalar el [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) empaquetar, mediante el comando       `pip install azure-iothub-service-client`
+* Instale el paquete [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) mediante el comando       `pip install azure-iothub-service-client`.
 
 * Si usa el sistema operativo Windows, puede que necesite el [paquete redistribuible de Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) para permitir el uso de archivos DLL nativos de Python.
 

@@ -16,10 +16,10 @@ ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b207d9e3123245e5cb7dddb625f7488886591ae5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128530"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service utilizando el Administrador de tráfico
@@ -58,7 +58,7 @@ Para asociar el dominio personalizado a una aplicación web de Azure App Service
 Aunque los detalles de cada proveedor de dominio varían, en general se asigna *desde* el nombre del dominio personalizado (como **contoso.com**) *al* nombre de dominio de Traffic Manager (**contoso.trafficmanager.net**) que se integra con la aplicación web.
 
 > [!NOTE]
-> Si un registro ya se está usando y necesita enlazar de forma preventiva sus aplicaciones a él, puede crear otro registro CNAME. Por ejemplo, para enlazar de forma preferente **www\.contoso.com** a su aplicación web, cree un registro CNAME de **awverify.www** a **contoso.trafficmanager.net**. A continuación, puede agregar "www\.contoso.com" a la aplicación Web sin cambiar el registro CNAME "www". Para más información, consulte [Creación de registros DNS para una aplicación web en un dominio personalizado][CREATEDNS].
+> Si un registro ya se está usando y necesita enlazar de forma preventiva sus aplicaciones a él, puede crear otro registro CNAME. Por ejemplo, para enlazar de forma preferente **www\.contoso.com** a su aplicación web, cree un registro CNAME de **awverify.www** a **contoso.trafficmanager.net**. Después, puede agregar "www\.contoso.com" a la aplicación web sin cambiar el registro CNAME de "www". Para más información, consulte [Creación de registros DNS para una aplicación web en un dominio personalizado][CREATEDNS].
 
 Una vez que haya terminado de agregar o modificar registros DNS en su proveedor de dominio, guarde los cambios.
 

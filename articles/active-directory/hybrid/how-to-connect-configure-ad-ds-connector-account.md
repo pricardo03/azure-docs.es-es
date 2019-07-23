@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64918495"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS 
@@ -25,7 +25,7 @@ Con la compilación 1.1.880.0 (publicada en agosto de 2018), se introdujo el mó
 ## <a name="overview"></a>Información general 
 Los siguientes cmdlets de PowerShell se pueden usar para configurar los permisos de Active Directory de la cuenta del conector de AD DS, para cada característica que elija habilitar en Azure AD Connect. Para evitar problemas, recuerde que debe preparar de antemano los permisos de Active Directory siempre que quiera instalar Azure AD Connect con una cuenta de dominio personalizada para conectarse a su bosque. Este módulo ADSyncConfig también se puede usar para configurar permisos después de implementar Azure AD Connect.
 
-![información general de la cuenta de ad ds](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![información general de la cuenta de AD DS](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 Para instalar Azure AD Connect Express, se crea una cuenta generada automáticamente (MSOL_nnnnnnnnnn) en Active Directory que incluye todos los permisos necesarios. De este modo, no es necesario usar el módulo ADSyncConfig a menos que haya bloqueado la herencia de permisos en unidades organizativas o en objetos específicos de Active Directory que quiera sincronizar en Azure AD. 
  
@@ -110,7 +110,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### <a name="view-ad-ds-permissions-of-an-object"></a>Ver los permisos de AD DS de un objeto 
-Puede usar el cmdlet siguiente para ver la lista de permisos establecidos actualmente en un objeto de Active Directory proporcionando su DistinguishedName: 
+Puede usar el cmdlet que hay a continuación para ver la lista de permisos establecidos actualmente en un objeto de Active Directory mediante el elemento DistinguishedName: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 

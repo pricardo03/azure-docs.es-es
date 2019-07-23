@@ -1,6 +1,6 @@
 ---
-title: 'Crear y administrar reglas y puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL: solo servidor mediante la CLI de Azure'
-description: En este artículo se describe cómo crear y administrar los puntos de conexión de servicio de red virtual y reglas para Azure Database for PostgreSQL mediante la línea de comandos de CLI de Azure.
+title: Creación y administración de reglas y puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL con un único servidor mediante la CLI de Azure
+description: En este artículo se describe cómo crear y administrar reglas y puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL mediante la línea de comandos de la CLI de Azure.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: df2af0240852b23203e504d8233de4af48475438
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067566"
 ---
-# <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Crear y administrar los puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL: solo servidor mediante la CLI de Azure
+# <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Creación y administración de puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL con un único servidor mediante la CLI de Azure
 Las reglas y los puntos de conexión de servicios de red virtual (VNet) amplían el espacio de direcciones privadas de una red virtual al servidor de Azure Database for PostgreSQL. Con los comandos de la interfaz de la línea de comandos (CLI) de Azure adecuados, puede crear, actualizar, eliminar, enumerar y mostrar reglas y puntos de conexión de servicio de red virtual para administrar el servidor. Para obtener información general sobre los puntos de conexión de servicio de red virtual de Azure Database for PostgreSQL, incluidas las limitaciones, consulte [Azure Database for PostgreSQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md) (Puntos de conexión de servicio de red virtual del servidor de Azure Database for PostgreSQL). Los puntos de conexión de servicio de red virtual están disponibles en todas las regiones admitidas para Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Requisitos previos

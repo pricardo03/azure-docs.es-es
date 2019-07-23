@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867906"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Información general de streaming en vivo con Media Services
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a la v3](../latest/migrate-from-v2-to-v3.md).
 
 ## <a name="overview"></a>Información general
 
@@ -44,12 +44,12 @@ Cuando se proporcionan eventos de streaming en vivo con Azure Media Services nor
 
 **Microsoft Azure Media Services** (AMS) permite recopilar, codificar, mostrar una vista previa, almacenar y entregar el contenido de streaming en vivo.
 
-Con Media Services, puede sacar partido de [empaquetado dinámico](media-services-dynamic-packaging-overview.md), que le permite difundir sus transmisiones en vivo en MPEG DASH, HLS, y Smooth Streaming en formatos de la fuente de contribución que se envía al servicio. Los espectadores pueden reproducir el streaming en vivo con cualquier reproductor compatible con HLS, DASH o Smooth Streaming. Puede usar Azure Media Player en las aplicaciones web o móviles para entregar la secuencia en cualquiera de estos protocolos.
+Con Media Services puede aprovechar el [empaquetado dinámico](media-services-dynamic-packaging-overview.md), que le permite difundir streaming en vivo en los formatos MPEG DASH, HLS y Smooth Streaming desde la fuente de contribución que se envía al servicio. Los espectadores pueden reproducir el streaming en vivo con cualquier reproductor compatible con HLS, DASH o Smooth Streaming. Puede utilizar Azure Media Player en las aplicaciones web o móviles para entregar la transmisión en cualquiera de estos protocolos.
 
 > [!NOTE]
 > A partir del 12 de mayo de 2018, los canales en directo ya no admitirán el protocolo de ingesta de secuencia de transporte RTP/MPEG-2. Migre de RTP/MPEG-2 a RTMP o protocolos de ingeesta de MP4 fragmentado (Smooth Streaming).
 
-## <a name="streaming-endpoints-channels-programs"></a>Los puntos de conexión, canales, programas de streaming
+## <a name="streaming-endpoints-channels-programs"></a>Puntos de conexión de streaming, canales y programas
 
 En Azure Media Services, los **canales**, **programas** y **extremos de streaming** controlan todas las funcionalidades de streaming en vivo, incluidas la recopilación, el formato, DVR, la seguridad, la escalabilidad y la redundancia.
 
@@ -74,17 +74,17 @@ La tabla siguiente proporciona a una guía para comparar los dos tipos de canal 
 
 | Característica | Canal de paso a través | Canal estándar |
 | --- | --- | --- |
-| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |Sí |
+| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin |Sí |
 | Resolución máxima, número de capas |1080p, 8 capas, 60+fps |720p, 6 capas, 30 fps |
 | Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Precio |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo" |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tiempo de ejecución máximo |24x7 |8 horas |
-| Compatibilidad con inserción de tabletas táctiles |Sin  |Sí |
-| Compatibilidad con señalización de anuncios |Sin  |Sí |
+| Compatibilidad con inserción de tabletas táctiles |Sin |Sí |
+| Compatibilidad con señalización de anuncios |Sin |Sí |
 | Títulos CEA 608/708 de paso a través |Sí |Sí |
 | Compatibilidad con GOP de entrada no uniformes |Sí |No: la entrada debe ser GOP de 2 s fijos |
 | Compatibilidad con la entrada de la velocidad de fotogramas variable |Sí |No: la entrada debe ser una velocidad de fotogramas fija.<br/>Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Sin embargo, el codificador no puede tener una frecuencia inferior de 10 fotogramas/s. |
-| Apagado automático de canales cuando se pierde la fuente de entrada |Sin  |Después de 12 horas, si no hay ningún programa en ejecución |
+| Apagado automático de canales cuando se pierde la fuente de entrada |Sin |Después de 12 horas, si no hay ningún programa en ejecución |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales (paso a través)
 
@@ -151,9 +151,9 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | Estado del canal | Indicadores IU del portal | ¿Es la facturación? |
 | --- | --- | --- |
 | Iniciando |Iniciando |No (estado transitorio) |
-| En ejecución |Listo (no hay programas en ejecución)<br/>O bien<br/>Streaming (al menos un programa en ejecución) |SÍ |
+| En ejecución |Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución) |SÍ |
 | Deteniéndose |Deteniéndose |No (estado transitorio) |
-| Detenido |Stopped |Sin  |
+| Detenido |Stopped |Sin |
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

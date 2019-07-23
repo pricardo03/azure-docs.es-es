@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60880491"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a usuarios concretos mediante Azure Notification Hubs
@@ -54,7 +54,7 @@ Si quiere utilizar Aplicaciones móviles como su servicio back-end, consulte [In
 
 2. En el archivo `Main.storyboard`, agregue los componentes que se muestran en la captura de pantalla desde la biblioteca de objetos.
 
-    ![Editar el guion gráfico en interface builder de Xcode][1]
+    ![Edición del guion gráfico en el generador de interfaz de Xcode][1]
 
    * **Nombre de usuario**: campo de texto de la interfaz de usuario con el texto de marcador de posición, *Escriba el nombre de usuario*, inmediatamente debajo de la etiqueta de resultados de envío y limitado a los márgenes izquierdo y derecho y por debajo de la etiqueta de envío de resultados.
    * **Contraseña**: campo de texto de la interfaz de usuario con al texto de marcador de posición, *Escriba la contraseña*, inmediatamente debajo del campo de texto de no nombre de usuario y limitado a los márgenes izquierdo y derecho y por debajo del campo de texto del nombre de usuario. Active la opción **Entrada de texto seguro** en el Inspector de atributos, en *Devolver clave*.

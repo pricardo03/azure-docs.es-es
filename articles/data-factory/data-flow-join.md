@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61348582"
 ---
-# <a name="mapping-data-flow-join-transformation"></a>Asignación de transformación combinación de flujo de datos
+# <a name="mapping-data-flow-join-transformation"></a>Transformación Combinación de Mapping Data Flow
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,11 +24,11 @@ Use Combinación para combinar datos de dos tablas en su flujo de datos. Haga cl
 
 ## <a name="join-types"></a>Tipos de combinación
 
-Es necesario para la transformación combinación de seleccionar tipo de combinación.
+La selección de un tipo de combinación es necesaria para la transformación Combinación.
 
 ### <a name="inner-join"></a>Combinación interna
 
-Combinación interna pasará a través solo las filas que cumplen las condiciones de la columna de ambas tablas.
+La combinación interna pasará solo a través de las filas que cumplen las condiciones de columna de ambas tablas.
 
 ### <a name="left-outer"></a>Externa izquierda
 
@@ -44,7 +44,7 @@ Externa completa genera todas las columnas y filas de ambos lados con valores NU
 
 ### <a name="cross-join"></a>Combinación cruzada
 
-Especifique el producto cruzado de las dos secuencias con una expresión. Puede usar esto para crear condiciones de combinación personalizadas.
+Especifica el producto cruzado de las dos secuencias con una expresión. Se puede usar para crear condiciones de combinación personalizadas.
 
 ## <a name="specify-join-conditions"></a>Especificar condiciones de combinación
 
@@ -70,8 +70,8 @@ En el diagrama anterior, la transformación Selección se encuentra en la parte 
 
 ## <a name="composite-and-custom-keys"></a>Claves compuestas y personalizadas
 
-Puede crear claves compuestas y personalizadas sobre la marcha dentro de la transformación combinación de. Agregar filas para las columnas de combinación adicionales con el signo más (+) situado junto a cada fila de la relación. O calcular un nuevo valor de clave en el generador de expresiones para un valor de combinación en la marcha.
+Puede crear claves compuestas y personalizadas sobre la marcha en la transformación Combinación. Agregue filas para las columnas de combinación adicionales con el signo más (+) situado junto a cada fila de la relación. O bien calcule un nuevo valor de clave en el Generador de expresiones para obtener un valor de combinación sobre la marcha.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de la combinación de datos, a continuación, puede [crear nuevas columnas](data-flow-derived-column.md) y [receptor los datos a un almacén de datos de destino](data-flow-sink.md).
+Después de combinar datos, puede [crear nuevas columnas](data-flow-derived-column.md) y [recibir sus datos en un almacén de datos de destino](data-flow-sink.md).

@@ -9,10 +9,10 @@ ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 1851e9b2bb5ff86583228136dee977001cf0a3fd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714953"
 ---
 # <a name="cloud-tiering-overview"></a>Información general de nube por niveles
@@ -26,7 +26,7 @@ Cuando un usuario abre un archivo con niveles, el servicio Azure File Sync recup
 Azure File Sync no admite la organización por niveles de archivos menores de 64 KiB ya que la sobrecarga de rendimiento de organizar por niveles y recuperar estos archivos pequeños superaría con creces los ahorros de espacio.
 
  > [!Important]  
- > Para recuperar los archivos que se ha organizado en niveles, el ancho de banda de red debe ser al menos 1 Mbps. Si el ancho de banda de red es menor que 1 Mbps, los archivos pueden producir un error al recuperar un error de tiempo de espera.
+ > Para recuperar los archivos que están organizados en niveles, el ancho de banda de red debe ser de al menos 1 Mbps. Si el ancho de banda de red es menor que 1 Mbps, puede ocurrir un error de tiempo de expiración al recuperar los archivos.
 
 ## <a name="cloud-tiering-faq"></a>Preguntas frecuentes de la nube por niveles
 
@@ -73,7 +73,7 @@ Hay varias maneras de comprobar si un archivo se ha organizado en niveles en el 
         
         | Letra del atributo | Atributo | Definición |
         |:----------------:|-----------|------------|
-        | Una  | Archivar | Indica que se debe realizar la copia de seguridad del archivo con un software de copia de seguridad. Este atributo siempre se establece, independientemente de si el archivo está organizado en niveles o está completamente almacenado en el disco. |
+        | Una | Archivar | Indica que se debe realizar la copia de seguridad del archivo con un software de copia de seguridad. Este atributo siempre se establece, independientemente de si el archivo está organizado en niveles o está completamente almacenado en el disco. |
         | P | Archivos dispersos | Indica que el archivo es un archivo disperso. Un archivo disperso es un tipo especializado de archivo que ofrece NTFS para un uso eficaz cuando el archivo en el flujo del disco está en gran parte vacío. Azure File Sync usa archivos dispersos porque un archivo o está completamente organizado en niveles o parcialmente recuperado. En un archivo completamente organizado en niveles, su flujo de archivos se almacena en la nube. En un archivo parcialmente recuperado, esa parte del archivo ya está en el disco. Si un archivo está totalmente recuperado en el disco, Azure File Sync lo convierte de un archivo disperso a un archivo normal. |
         | L | Punto de repetición de análisis | Indica que el archivo tiene un punto de repetición de análisis. Un punto de repetición de análisis es un puntero especial para su uso en un filtro del sistema de archivos. Azure File Sync usa puntos de repetición de análisis a fin de definir para el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) la ubicación en la nube donde está almacenado el archivo. Esto permite el acceso sin problemas. Los usuarios no necesitan saber que se está usando Azure File Sync ni cómo obtener acceso al archivo en el recurso compartido de archivos de Azure. Cuando un archivo completo se recupera, Azure File Sync quita el punto de repetición de análisis del archivo. |
         | O | Sin conexión | Indica que parte del contenido del archivo, o la totalidad, no se ha almacenado en el disco. Cuando un archivo completo se recupera, Azure File Sync quita este atributo. |

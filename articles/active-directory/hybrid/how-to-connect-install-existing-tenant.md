@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571377"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Cuando tiene un inquilino
@@ -34,7 +34,7 @@ Puede administrar algunos usuarios locales y otros en la nube. Un escenario com�
 Si ya comenzó a administrar usuarios en Azure AD que también se encuentran en AD local y, posteriormente, desea volver a utilizar Connect, debe tener en cuenta más escenarios.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Sincronización con los usuarios existentes de Azure AD
-Al instalar Azure AD Connect y empezar a sincronizar, el servicio de sincronización de Azure AD (en Azure AD) realiza una comprobación de cada nuevo objeto y trata de buscar un objeto coincidente que ya existe. Hay tres atributos que se utilizan para este proceso: **userPrincipalName**, **proxyAddresses** y **sourceAnchor**/**immutableID**. Una coincidencia de **userPrincipalName** y **proxyAddresses** se conoce como **coincidencia parcial**. Una coincidencia de **sourceAnchor** se conoce como **coincidencia exacta**. En el caso del atributo **proxyAddresses**, solo se usa para la evaluación el valor con el atributo **SMTP:**, que es la dirección de correo electrónico principal.
+Al instalar Azure AD Connect y empezar a sincronizar, el servicio de sincronización de Azure AD (en Azure AD) realiza una comprobación de cada nuevo objeto y trata de buscar un objeto coincidente que ya existe. Hay tres atributos que se utilizan para este proceso: **userPrincipalName**, **proxyAddresses** y **sourceAnchor**/**immutableID**. Una coincidencia de **userPrincipalName** y **proxyAddresses** se conoce como **coincidencia parcial**. Una coincidencia de **sourceAnchor** se conoce como **coincidencia exacta**. En el caso del atributo **proxyAddresses**, solo se usa para la evaluación el valor con el atributo **SMTP:** , que es la dirección de correo electrónico principal.
 
 La coincidencia solo se evalúa para los nuevos objetos procedentes de Connect. Si cambia uno que ya exista para que coincida con alguno de estos atributos, verá un error en su lugar.
 
@@ -59,12 +59,12 @@ En una instalación nueva de Connect, apenas las hay. La diferencia reside en lo
 ### <a name="other-objects-than-users"></a>Otros objetos distintos a los usuarios
 Para grupos y contactos habilitados para correo electrónico, puede hacer una coincidencia parcial en función de las direcciones de proxy. La coincidencia exacta no es aplicable porque solo puede actualizar el sourceAnchor o inmutableID (mediante PowerShell) en los usuarios. Para grupos que no están habilitados para correo, no se admiten actualmente la coincidencia parcial ni la coincidencia exacta.
 
-### <a name="admin-role-considerations"></a>Consideraciones sobre el rol Administrador
-Para evitar que los usuarios de confianza en el entorno local coincide con un usuario en la nube que tenga cualquier rol de administrador, Azure AD Connect no coincidirá con objetos de usuario local con objetos que tienen un rol de administrador. Se trata de forma predeterminada. Para solucionar este comportamiento, puede hacer lo siguiente:
+### <a name="admin-role-considerations"></a>Consideraciones sobre el rol de administrador
+Para evitar que los usuarios de confianza locales coincidan con un usuario en la nube que tenga cualquier rol de administrador, Azure AD Connect no hará coincidir objetos de usuario locales con objetos que tengan un rol de administrador. Esto se aplica de manera predeterminada. Para resolver este comportamiento, puede hacer lo siguiente:
 
-1.  Quite los roles de directorio del objeto de usuario solo de nube
-2.  Desencadenar una sincronización
-3.  Opcionalmente, agregue los roles de directorio al objeto de usuario en la nube una vez que la coincidencia se ha producido.
+1.  Quitar los roles de directorio del objeto de usuario solo de nube.
+2.  Desencadenar una sincronización.
+3.  Opcionalmente, agregar los roles de directorio al objeto de usuario en la nube una vez que la coincidencia se haya producido.
 
 
 

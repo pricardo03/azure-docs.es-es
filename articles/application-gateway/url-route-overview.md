@@ -10,14 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/23/2018
-ms.date: 04/17/2019
-ms.author: v-junlch
+ms.date: 4/23/2018
+ms.author: victorh
 ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61361965"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Introducción al enrutamiento basado en la ruta de acceso URL con Azure Application Gateway
@@ -30,7 +29,7 @@ En el ejemplo siguiente, Application Gateway atiende el tráfico de contoso.com 
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 
-Las solicitudes de <http://contoso.com/video/*> se enrutan a VideoServerPool, y <http://contoso.com/images/*> a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
+Las solicitudes de <http://contoso.com/video/*> se redirigen a VideoServerPool, y las de <http://contoso.com/images/*>, a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
 
 > [!IMPORTANT]
 > Las reglas se procesan en el orden en que aparecen en el portal. Es muy recomendable configurar a los agentes de escucha multisitio antes de configurar un agente de escucha básico.  De esta forma se asegura de que el tráfico se enruta al back-end adecuado. Si un agente de escucha básico aparece en primer lugar y coincide con una solicitud entrante, lo procesa ese agente de escucha.
@@ -69,7 +68,7 @@ El elemento UrlPathMap se utiliza para especificar patrones de ruta de acceso pa
 ```
 
 > [!NOTE]
-> PathPattern: Esta configuración es una lista de patrones de ruta de acceso para hacer coincidir. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "*" es al final, después de un carácter "/". La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer ? o #, y esos caracteres no se permiten aquí.
+> PathPattern: esta opción es una lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "*" es al final, después de un carácter "/". La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer ? o #, y esos caracteres no se permiten aquí.
 
 Para obtener más información, puede consultar una [plantilla de Resource Manager que use el enrutamiento basado en URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .
 
@@ -101,5 +100,3 @@ Fragmento de código de la regla PathBasedRouting:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que conoce el enrutamiento de contenido basado en URL, vaya a [Create an application gateway using URL based routing](tutorial-url-route-powershell.md) (Creación de una puerta de enlace de aplicaciones mediante el enrutamiento basado en URL) para crear una puerta de enlace de aplicaciones con reglas de enrutamiento de direcciones URL.
-
-<!-- Update_Description: update metedata properties -->

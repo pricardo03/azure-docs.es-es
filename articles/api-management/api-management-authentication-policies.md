@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708797"
 ---
 # <a name="api-management-authentication-policies"></a>Directivas de autenticación de Azure API Management
@@ -30,7 +30,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   [Autenticar con certificado de cliente](api-management-authentication-policies.md#ClientCertificate) : autenticar con un servicio de back-end mediante certificados de cliente.  
 
--   [Autenticar con identidad administrada](api-management-authentication-policies.md#ManagedIdentity) -autenticarse con el [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) para el servicio API Management.  
+-   [Autenticar con identidad administrada](api-management-authentication-policies.md#ManagedIdentity): autenticar con una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) para el servicio API Management.  
   
 ##  <a name="Basic"></a> Autenticación con Basic  
  Use la directiva `authentication-basic` para realizar la autenticación con un servicio de back-end mediante autenticación Básica. Esta directiva establece eficazmente el encabezado de autorización HTTP en el valor correspondiente a las credenciales proporcionadas en la directiva.  
@@ -57,8 +57,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|username|Especifica el nombre de usuario de la credencial básica.|Sí|N/D|  
-|password|Especifica la contraseña de usuario de la credencial básica.|Sí|N/D|  
+|nombre de usuario|Especifica el nombre de usuario de la credencial básica.|Sí|N/D|  
+|contraseña|Especifica la contraseña de usuario de la credencial básica.|Sí|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -78,11 +78,11 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="examples"></a>Ejemplos  
   
-En este ejemplo de cliente el certificado se identifica mediante su huella digital.
+En este ejemplo, el certificado de cliente se identifica mediante su huella digital.
 ```xml  
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />  
 ``` 
-En este ejemplo el certificado de cliente se identifica por nombre de recurso.
+En este ejemplo, el certificado de cliente se identifica mediante el nombre de recurso.
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ```  
@@ -97,8 +97,8 @@ En este ejemplo el certificado de cliente se identifica por nombre de recurso.
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|La huella digital del certificado de cliente.|Ya sea `thumbprint` o `certificate-id` debe estar presente.|N/D|  
-|certificate-id|El nombre del recurso de certificado.|Ya sea `thumbprint` o `certificate-id` debe estar presente.|N/D|  
+|thumbprint|La huella digital del certificado de cliente.|`thumbprint` o `certificate-id` debe estar presente.|N/D|  
+|certificate-id|Nombre del recurso de certificado.|`thumbprint` o `certificate-id` debe estar presente.|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -107,8 +107,8 @@ En este ejemplo el certificado de cliente se identifica por nombre de recurso.
   
 -   **Ámbitos de la directiva:** API  
 
-##  <a name="ManagedIdentity"></a> Autenticar con identidad administrada  
- Use el `authentication-managed-identity` directiva para autenticarse con un servicio de back-end mediante la identidad administrada del servicio API Management. Esta directiva usa eficazmente la identidad administrada para obtener un token de acceso de Azure Active Directory para acceder al recurso especificado. 
+##  <a name="ManagedIdentity"></a> Autenticación con una identidad administrada  
+ Use la directiva `authentication-managed-identity` para autenticarse con un servicio de back-end mediante la identidad administrada del servicio de API Management. Esta directiva usa eficazmente la identidad administrada para obtener un token de acceso de Azure Active Directory para acceder al recurso especificado. 
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  
   
@@ -132,9 +132,9 @@ En este ejemplo el certificado de cliente se identifica por nombre de recurso.
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|resource|String. El URI de Id. de aplicación de la API (recurso seguro) de la web de destino en Azure Active Directory.|Sí|N/D|  
-|output-token-variable-name|String. Nombre de la variable de contexto que recibirá el valor del token como un tipo de objeto `string`.|Sin |N/D|  
-|ignore-error|Booleano. Si establece en `true`, la canalización de pólizas seguirá ejecutándose incluso si no se obtiene un token de acceso.|Sin |false|  
+|resource|String. URI del identificador de aplicación de la API web de destino (recurso seguro) en Azure Active Directory.|Sí|N/D|  
+|output-token-variable-name|String. Nombre de la variable de contexto que recibirá el valor del token como un tipo de objeto `string`.|Sin|N/D|  
+|ignore-error|Booleano. Si se establece en `true`, la canalización de directivas seguirá ejecutándose incluso si no se obtiene un token de acceso.|Sin|false|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  

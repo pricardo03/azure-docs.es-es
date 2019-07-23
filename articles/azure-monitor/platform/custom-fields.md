@@ -1,6 +1,6 @@
 ---
 title: Campos personalizados en Azure Monitor | Microsoft Docs
-description: La característica campos personalizados de Azure Monitor permite crear sus propios campos de búsqueda de registros en un área de trabajo de Log Analytics que agregan a las propiedades de un registro recopilado.  En este artículo, se describe el proceso que debe seguir para crear un campo personalizado y se incluye un tutorial detallado con un evento de ejemplo.
+description: La característica Campos personalizados de Azure Monitor le permite crear sus propios campos de búsqueda a partir de registros de un área de trabajo de Log Analytics y agregarlos a las propiedades de un registro recopilado.  En este artículo, se describe el proceso que debe seguir para crear un campo personalizado y se incluye un tutorial detallado con un evento de ejemplo.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,22 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: bwren
 ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61461940"
 ---
-# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Crear campos personalizados en un área de trabajo de Log Analytics en Azure Monitor
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Creación de campos personalizados en un área de trabajo de Log Analytics en Azure Monitor
 
 > [!NOTE]
-> En este artículo se describe cómo analizar datos de texto en un área de trabajo de Log Analytics, tal y como se recopila. Existen ventajas en el análisis de datos de texto en una consulta que se recopila como se describe en [analizar datos de texto en Azure Monitor](../log-query/parse-text.md).
+> En este artículo se describe cómo analizar los datos de texto en un área de trabajo de Log Analytics cuando se recopilan. El análisis de los datos de texto en una consulta una vez recopilados presenta varias ventajas, tal y como se describe en [Análisis de los datos de texto en Azure Monitor](../log-query/parse-text.md).
 
-El **campos personalizados** característica de Azure Monitor le permite ampliar los registros existentes en el área de trabajo de Log Analytics agregando sus propios campos de búsqueda.  Los campos personalizados se rellenan automáticamente a partir de los datos extraídos de otras propiedades del mismo registro.
+La característica **Campos personalizados** de Azure Monitor le permite ampliar los registros existentes del área de trabajo de Log Analytics agregando sus propios campos de búsqueda.  Los campos personalizados se rellenan automáticamente a partir de los datos extraídos de otras propiedades del mismo registro.
 
 ![Información general](media/custom-fields/overview.png)
 
-Por ejemplo, en el registro que se muestra a continuación, hay información útil que está escondida en la descripción del evento. Extraer estos datos en una propiedad independiente pone a disposición de acciones tales como ordenar y filtrar.
+Por ejemplo, en el registro que se muestra a continuación, hay información útil que está escondida en la descripción del evento. Si estos datos se extraen en una propiedad diferente, estarán disponibles para ciertas acciones, como la ordenación y el filtrado.
 
 ![Extracción de ejemplo](media/custom-fields/sample-extract.png)
 
@@ -37,27 +37,27 @@ Por ejemplo, en el registro que se muestra a continuación, hay información út
 > En la versión preliminar, el área de trabajo tiene un límite de 100 campos personalizados.  Este límite se ampliará cuando esta característica esté disponible con carácter general.
 
 ## <a name="creating-a-custom-field"></a>Creación de un campo personalizado
-Cuando se crea un campo personalizado, Log Analytics necesita saber qué datos debe usar para rellenar el valor.  Para identificar rápidamente estos datos, utiliza una tecnología de Microsoft Research denominada FlashExtract.  En lugar de requerir que proporcione instrucciones explícitas, Azure Monitor, aprende sobre los datos que desea extraer de ejemplos que proporcione.
+Cuando se crea un campo personalizado, Log Analytics necesita saber qué datos debe usar para rellenar el valor.  Para identificar rápidamente estos datos, utiliza una tecnología de Microsoft Research denominada FlashExtract.  Azure Monitor es capaz de reconocer los datos que debe extraer a partir de los ejemplos proporcionados, por lo que no es necesario especificar instrucciones explícitas.
 
 En las secciones siguientes, se describe el procedimiento necesario para crear un campo personalizado.  Al final de este artículo, encontrará un tutorial con una extracción de ejemplo.
 
 > [!NOTE]
-> El campo personalizado se rellena como registros que coincidan con los criterios especificados se agregan al área de trabajo de Log Analytics, por tanto, solo aparecerá en los registros recopilados una vez creado el campo personalizado.  El campo personalizado no se agregará a los registros que ya se encuentren en el almacén de datos en el momento de su creación.
+> El campo personalizado se rellena a medida que los registros que cumplen los criterios especificados se agregan al área de trabajo de Log Analytics; por tanto, el campo personalizado solo aparecerá en los registros recopilados una vez que se haya creado.  El campo personalizado no se agregará a los registros que ya se encuentren en el almacén de datos en el momento de su creación.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Paso 1: Identificación de los registros que incluirán el campo personalizado
-El primer paso consiste en identificar los registros que incluirán el campo personalizado.  Comience con un [consulta de registro estándar](../log-query/log-query-overview.md) y, a continuación, seleccione un registro para que actúe como el modelo que Azure Monitor obtendrá información.  Cuando especifique que va a extraer los datos en un campo personalizado, se abrirá **Field Extraction Wizard** y (Asistente para extraer campos) podrá validar y delimitar los criterios.
+El primer paso consiste en identificar los registros que incluirán el campo personalizado.  Comience con una [consulta de registros estándar](../log-query/log-query-overview.md) y, después, seleccione un registro que sirva de modelo para que Azure Monitor aprenda de él.  Cuando especifique que va a extraer los datos en un campo personalizado, se abrirá **Field Extraction Wizard** y (Asistente para extraer campos) podrá validar y delimitar los criterios.
 
-1. Vaya a **registros** y usar un [consulta para recuperar los registros](../log-query/log-query-overview.md) que tendrán el campo personalizado.
+1. Vaya a **Registros** y utilice una [consulta para recuperar los registros](../log-query/log-query-overview.md) que incluirán el campo personalizado.
 2. Seleccione el registro que Log Analytics utilizará como modelo para extraer los datos y rellenar el campo personalizado.  Deberá identificar los datos que quiere extraer de este registro. Log Analytics utilizará esa información para determinar la lógica con la que rellenará el campo personalizado en todos los registros que sean similares.
-3. Expanda las propiedades de registro, haga clic en la elipse a la izquierda de la propiedad top del registro y seleccione **extraer campos de**.
-4. El **Asistente para la extracción de campos** se abre, y el registro seleccionado se muestra en el **Main Example** columna.  El campo personalizado se va a definir para aquellos recursos que tengan los mismos valores en las propiedades seleccionadas.  
+3. Expanda las propiedades de registro, haga clic en los puntos suspensivos a la izquierda de la propiedad principal del registro y seleccione **Extraer campos de**.
+4. Se abrirá el **Asistente para extraer campos** y el registro seleccionado aparecerá en la columna **Ejemplo principal**.  El campo personalizado se va a definir para aquellos recursos que tengan los mismos valores en las propiedades seleccionadas.  
 5. Si la selección no coincide exactamente con sus expectativas, seleccione otros campos para restringir los criterios.  Para cambiar los valores de campo de los criterios, debe cancelar y seleccionar otro registro que coincida con los criterios que quiere usar.
 
 ### <a name="step-2---perform-initial-extract"></a>Paso 2: Ejecución de la extracción inicial.
 Una vez identificados los registros que incluirán el campo personalizado, deberá identificar los datos que desea extraer.  Log Analytics utilizará esta información para identificar patrones parecidos en registros similares.  En el paso siguiente, podrá validar los resultados y proporcionar más detalles para que Log Analytics los utilice en su análisis.
 
-1. Resalte el texto del registro de ejemplo con el que desea rellenar el campo personalizado.  A continuación, aparecerá un cuadro de diálogo para proporcionar un nombre y tipo de datos para el campo y para realizar la extracción inicial.  Los caracteres **\_CF** se anexarán automáticamente.
+1. Resalte el texto del registro de ejemplo con el que desea rellenar el campo personalizado.  A continuación, aparecerá un cuadro de diálogo en el que tendrá que especificar un nombre y un tipo de datos para el campo y realizar la extracción inicial.  Los caracteres **\_CF** se anexarán automáticamente.
 2. Haga clic en **Extract** (Extraer) para realizar un análisis de los registros recopilados.  
 3. En las secciones **Resumen**y **Resultados de búsqueda**, se muestran los resultados de la extracción para que pueda revisar si son correctos.  **Summary** (Resumen), aparecen los criterios utilizados para identificar registros y el recuento de cada uno de los valores de datos identificados.  **Search Results** (Resultados de búsqueda), aparece una lista detallada de los registros que cumplen los criterios.
 
@@ -81,17 +81,17 @@ Puede ver una lista de todos los campos personalizados en el grupo de administra
 Existen dos formas de quitar un campo personalizado.  La primera es a través de la opción **Remove** (Quitar) que aparece en cada campo cuando se consulta la lista completa, tal y como que se describió anteriormente.  El otro método consiste en recuperar un registro y hacer clic en el botón situado a la izquierda del campo.  El menú incluirá una opción para quitar el campo personalizado.
 
 ## <a name="sample-walkthrough"></a>Tutorial de ejemplo
-La siguiente sección contiene un ejemplo completo que le guiará por el proceso de creación de un campo personalizado.  En este ejemplo, se extrae el nombre de servicio de los eventos de Windows que indican un cambio de estado en el servicio.  Esto se basa en los eventos creados por el Administrador de Control de servicios durante el inicio del sistema en los equipos de Windows.  Si desea seguir este ejemplo, debe [recopilar eventos de información del registro del sistema](data-sources-windows-events.md).
+La siguiente sección contiene un ejemplo completo que le guiará por el proceso de creación de un campo personalizado.  En este ejemplo, se extrae el nombre de servicio de los eventos de Windows que indican un cambio de estado en el servicio.  En este ejemplo, se utilizan eventos creados por el Administrador de control de servicios durante el inicio del sistema en equipos Windows.  Si desea seguir este ejemplo, debe [recopilar eventos de información del registro del sistema](data-sources-windows-events.md).
 
 En primer lugar, escribimos la siguiente consulta para que devuelva todos los eventos del Administrador de control de servicios que tengan el identificador 7036, que es el evento que indica el inicio o la detención de un servicio.
 
 ![Consultar](media/custom-fields/query.png)
 
-Después, seleccione y expanda cualquier registro con el identificador de evento 7036.
+A continuación, seleccionamos y expandimos cualquier registro con el identificador de evento 7036.
 
 ![Registro de origen](media/custom-fields/source-record.png)
 
-Definimos los campos personalizados, haga clic en los puntos suspensivos junto a la propiedad top.
+Definimos los campos personalizados haciendo clic en los puntos suspensivos junto a la propiedad principal.
 
 ![Extraer campos](media/custom-fields/extract-fields.png)
 
@@ -103,7 +103,7 @@ Ahora, resaltamos el nombre del servicio en la propiedad **RenderedDescription**
 
 ![Título del campo](media/custom-fields/field-title.png)
 
-Como podemos ver, el nombre del servicio se identifica correctamente en algunos registros, pero no en otros.   En **Resultados de búsqueda**, vemos que parte del nombre del **Adaptador de rendimiento de WMI** no aparece seleccionado.  El **resumen** muestra ese registro identificado **Modules Installer** en lugar de **Windows Modules Installer**.  
+Como podemos ver, el nombre del servicio se identifica correctamente en algunos registros, pero no en otros.   En **Resultados de búsqueda**, vemos que parte del nombre del **Adaptador de rendimiento de WMI** no aparece seleccionado.  El campo **Resumen** indica que un registro ha identificado **Instalador de Módulos** en lugar de **Instalador de Módulos de Windows**.  
 
 ![Search Results](media/custom-fields/search-results-01.png)
 
@@ -119,7 +119,7 @@ Ahora, podemos ver que las entradas de **Adaptador de rendimiento de WMI** se ha
 
 ![Search Results](media/custom-fields/search-results-02.png)
 
-Ahora podemos ejecutar una consulta que comprueba **Service_CF** se crea pero no se ha agregado a ningún registro. Eso es porque el campo personalizado no funciona con los registros existentes, así que tenemos que esperar para que los nuevos registros que se recopilen.
+Ahora podemos ejecutar una consulta que compruebe que **Service_CF** se ha creado, aunque aún no se ha agregado a ningún registro. Eso es porque el campo personalizado no funciona con los registros existentes, así que tenemos que esperar hasta que se recopilen registros nuevos.
 
 ![Recuento inicial](media/custom-fields/initial-count.png)
 
@@ -132,6 +132,6 @@ Ahora, podemos usar el campo personalizado como cualquier otra propiedad del reg
 ![Agrupar por consulta](media/custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información sobre [registrar consultas](../log-query/log-query-overview.md) para generar consultas con campos personalizados en los criterios.
+* Si desea crear consultas con campos personalizados en función de unos criterios, obtenga más información acerca de las [consultas de registros](../log-query/log-query-overview.md).
 * Supervise los [archivos de registro personalizados](data-sources-custom-logs.md) que se analizan con campos personalizados.
 

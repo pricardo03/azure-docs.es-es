@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: ghogen
 ms.openlocfilehash: 154eaa577ea66056c301db9516b425931b81d24d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730428"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adición de Key Vault a una aplicación web mediante los servicios conectados de Visual Studio
 
-En este tutorial, aprenderá cómo agregar con facilidad todo lo que necesita para empezar a usar Azure Key Vault para administrar sus secretos para proyectos web en Visual Studio, independientemente de que use ASP.NET Core o cualquier tipo de proyecto de ASP.NET. Mediante el uso de la característica servicios conectados en Visual Studio, puede usar Visual Studio agrega automáticamente todos los paquetes de NuGet y opciones de configuración que necesita para conectarse a Key Vault en Azure. 
+En este tutorial, aprenderá cómo agregar con facilidad todo lo que necesita para empezar a usar Azure Key Vault para administrar sus secretos para proyectos web en Visual Studio, independientemente de que use ASP.NET Core o cualquier tipo de proyecto de ASP.NET. Mediante la característica de servicios conectados de Visual Studio, Visual Studio puede agregar automáticamente todas las opciones de configuración y los paquetes de NuGet que necesita para conectarse a Key Vault en Azure. 
 
 Para obtener información sobre los cambios que los servicios conectados realizan en el proyecto para habilitar Key Vault, vea [Servicio conectado de Key Vault : ¿Qué ha sucedido con mi proyecto de ASP.NET 4.7.1?](#how-your-aspnet-framework-project-is-modified) o [Servicio conectado de Key Vault: ¿Qué ha sucedido con mi proyecto de ASP.NET Core?](#how-your-aspnet-core-project-is-modified)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - **Una suscripción de Azure**. Si no tiene, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio de 2019** o **Visual Studio 2017 versión 15.7** con el **desarrollo Web** carga de trabajo instalada. [Descárguelo ahora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- Para ASP.NET (no Core) con Visual Studio 2017, necesita .NET Framework 4.7.1 o herramientas de desarrollo posteriores, que no se instalan de forma predeterminada. Para instalarlas, inicie el Instalador de Visual Studio, elija **Modificar** y luego seleccione **Componentes individuales**; después, en el lado derecho, expanda **ASP.NET y desarrollo web** y seleccione **Herramientas de desarrollo de .NET Framework 4.7.1**.
-- ASP.NET 4.7.1 o versiones posteriores, o abra el proyecto web ASP.NET Core 2.0.
+- **Visual Studio 2019** o **Visual Studio 2017 versión 15.7** con la carga de trabajo de **Desarrollo web** instalada. [Descárguelo ahora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Para ASP.NET (no Core) con Visual Studio 2017,necesita las herramientas de desarrollo de .NET Framework 4.7.1 o posteriores, que no se instalan de forma predeterminada. Para instalarlas, inicie el Instalador de Visual Studio, elija **Modificar** y luego seleccione **Componentes individuales**; después, en el lado derecho, expanda **ASP.NET y desarrollo web** y seleccione **Herramientas de desarrollo de .NET Framework 4.7.1**.
+- Abra un proyecto web de ASP.NET 4.7.1 o posterior, o de ASP.NET Core 2.0.
 
 ## <a name="add-key-vault-support-to-your-project"></a>Adición de la compatibilidad con Key Vault a un proyecto
 
@@ -48,7 +48,7 @@ Para obtener información sobre los cambios que los servicios conectados realiza
 
    ![Cambiar el nombre de la instancia de Key Vault y elegir un grupo de recursos](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
 
-1. Seleccione un grupo de recursos existente o elija crear uno nuevo con un nombre único generado automáticamente.  Si desea crear un grupo con un nombre diferente, puede usar [Azure Portal](https://portal.azure.com) y luego cerrar la página y reiniciar la recarga de la lista de grupos de recursos.
+1. Seleccione un grupo de recursos existente o elija crear uno con un nombre único generado automáticamente.  Si desea crear un grupo con un nombre diferente, puede usar [Azure Portal](https://portal.azure.com) y luego cerrar la página y reiniciar la recarga de la lista de grupos de recursos.
 1. Elija la región en que va a crear la instancia de Key Vault. Si la aplicación web se hospeda en Azure, elija la región que hospeda la aplicación web para lograr un rendimiento óptimo.
 1. Elija un modelo de precios. Para más información, vea los [precios de Key Vault ](https://azure.microsoft.com/pricing/details/key-vault/).
 1. Haga clic en Aceptar para aceptar las opciones de configuración.
@@ -107,8 +107,8 @@ Ahora, puede acceder a los secretos en el código. Los pasos siguientes son dist
     }
    ```
 
-3. A continuación, abra el archivo de About.cshtml.cs y escribir el código siguiente:
-   1. Incluir una referencia a Microsoft.Extensions.Configuration por esta instrucción using:
+3. Luego, abra el archivo About.cshtml.cs y escriba el código siguiente:
+   1. Incluya una referencia a Microsoft.Extensions.Configuration mediante esta instrucción using:
 
        ```csharp
        using Microsoft.Extensions.Configuration
@@ -123,7 +123,7 @@ Ahora, puede acceder a los secretos en el código. Los pasos siguientes son dist
        }
        ```
 
-   1. Actualice el método OnGet. Actualice el valor de marcador de posición que se muestra a continuación con el nombre del secreto que creó en los comandos anteriores.
+   1. Actualice el método OnGet. Actualice el valor del marcador que se muestra aquí con el nombre del secreto que creó en los comandos anteriores.
 
        ```csharp
        public void OnGet()
@@ -133,7 +133,7 @@ Ahora, puede acceder a los secretos en el código. Los pasos siguientes son dist
        }
        ```
 
-Ejecute la aplicación localmente, vaya a la página About. Debería ver el valor del secreto recuperado.
+Ejecute la aplicación localmente, para lo que debe desplazarse a la página Acerca de. Debería recuperar el valor del secreto.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -143,13 +143,13 @@ Cuando ya no necesite el grupo de recursos, elimínelo. De esta forma, se elimin
 2. Seleccione **Eliminar grupo de recursos**.
 3. En el cuadro **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS:** escriba el nombre del grupo de recursos y seleccione **Eliminar**.
 
-## <a name="how-your-aspnet-core-project-is-modified"></a>¿Cómo se modifica el proyecto de ASP.NET Core
+## <a name="how-your-aspnet-core-project-is-modified"></a>Cómo se modifica el proyecto de ASP.NET Core
 
-Esta sección identifican los cambios exactos realizados en un proyecto de ASP.NET al agregar el almacén de claves conectados service con Visual Studio.
+En esta sección se identifican los cambios exactos realizados en el proyecto de ASP.NET cuando se agrega el servicio conectado de Key Vault mediante Visual Studio.
 
 ### <a name="added-references"></a>Referencias agregadas
 
-Afecta a las referencias de .NET del archivo de proyecto y referencias de paquetes de NuGet.
+Afecta a las referencias de paquetes de NuGet y a las referencias de .NET del archivo de proyecto.
 
 | Type | Referencia |
 | --- | --- |
@@ -179,13 +179,13 @@ Afecta a las referencias de .NET del archivo de proyecto y referencias de paquet
 - Se crea un grupo de recursos o se usa uno existente.
 - Se crea una instancia de Key Vault en el grupo de recursos especificado.
 
-## <a name="how-your-aspnet-framework-project-is-modified"></a>¿Cómo se modifica el proyecto de ASP.NET Framework
+## <a name="how-your-aspnet-framework-project-is-modified"></a>Cómo se modifica el proyecto de ASP.NET Framework
 
-Esta sección identifican los cambios exactos realizados en un proyecto de ASP.NET al agregar el almacén de claves conectados service con Visual Studio.
+En esta sección se identifican los cambios exactos realizados en el proyecto de ASP.NET cuando se agrega el servicio conectado de Key Vault mediante Visual Studio.
 
 ### <a name="added-references"></a>Referencias agregadas
 
-Afecta a las referencias de .NET del archivo de proyecto y `packages.config` (referencias de NuGet).
+Afecta a las referencias .NET y a `packages.config` (referencias de NuGet) del archivo del proyecto.
 
 | Type | Referencia |
 | --- | --- |

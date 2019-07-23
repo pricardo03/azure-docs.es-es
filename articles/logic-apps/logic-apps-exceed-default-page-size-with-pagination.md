@@ -1,6 +1,6 @@
 ---
-title: Obtener más elementos, datos o registros con la paginación - Azure Logic Apps
-description: Configurar la paginación para superar el límite de tamaño de página predeterminado para las acciones de conector en Azure Logic Apps
+title: 'Obtención de más datos, elementos o registros con la paginación: Azure Logic Apps'
+description: Configuración de la paginación para superar el límite de tamaño de página predeterminado para las acciones de conector en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,25 +10,25 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 04/11/2019
 ms.openlocfilehash: 2d1bcf2cf83fab106f79120c3caacc424f839836
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64476547"
 ---
-# <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obtener más datos, los elementos o registros mediante la paginación en Azure Logic Apps
+# <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obtención de más datos, elementos o registros con la paginación en Azure Logic Apps
 
-Al recuperar datos, los elementos o registros mediante el uso de una acción del conector en [Azure Logic Apps](../logic-apps/logic-apps-overview.md), podría obtener conjuntos de resultados tan grande que la acción no devuelve todos los resultados al mismo tiempo. Con algunas acciones, el número de resultados puede superar el tamaño de página predeterminado del conector. En este caso, la acción devolverá solo la primera página de resultados. Por ejemplo, el tamaño de página predeterminado para el conector de SQL Server **obtener filas** acción es 2048, pero puede variar según otros valores de configuración.
+Al recuperar datos, elementos o registros mediante una acción de conector en [Azure Logic Apps](../logic-apps/logic-apps-overview.md), puede obtener conjuntos de resultados tan grandes que la acción no devuelva todos los resultados al mismo tiempo. Con algunas acciones, el número de resultados puede superar el tamaño de página predeterminado del conector. En este caso, la acción devolverá solo la primera página de resultados. Por ejemplo, el tamaño de página predeterminado para la acción **Obtener filas** del conector de SQL Server es 2048, pero puede ser diferente según la configuración.
 
-Algunas acciones permiten activar un *paginación* establecer para que la aplicación lógica puede recuperar más resultados hasta el límite de paginación, pero devuelve los resultados como un mensaje único cuando finaliza la acción. Cuando se utiliza la paginación, debe especificar un *umbral* valor, que es el número de destino de resultados que desea que la acción a devolver. La acción recupera los resultados hasta alcanzar el umbral especificado. Cuando el número total de elementos es menor que el umbral especificado, la acción recupera todos los resultados.
+Algunas acciones permiten activar una opción de *paginación* para que la aplicación lógica pueda recuperar más resultados hasta el límite de paginación, pero devuelve los resultados como un mensaje único cuando finaliza la acción. Cuando utilice la paginación, debe especificar un valor de *umbral*, que es el número de resultados objetivo que quiere que devuelva la acción. La acción recupera los resultados hasta alcanzar el umbral especificado. Cuando el número total de elementos es menor que el umbral especificado, la acción recupera todos los resultados.
 
-Activar las páginas de recupera de configuración de la paginación de resultados según el tamaño de página de un conector. Este comportamiento significa que, en ocasiones, podría obtener resultados más que el umbral especificado. Por ejemplo, al usar SQL Server **obtener filas** acción, que admite la paginación:
+Al activar la opción de paginación se recuperan las páginas de resultados según el tamaño de página de un conector. Este comportamiento significa que, en ocasiones, podría obtener más resultados que el umbral especificado. Por ejemplo, al usar la acción **Obtener filas** de SQL Server, que admite la opción de paginación:
 
-* Tamaño de página predeterminado de la acción es 2048 registros por página.
-* Suponga que tiene 10.000 registros y especifica 5000 registros como mínimo.
-* Paginación Obtiene las páginas de registros, por lo que para obtener al menos el mínimo especificado, la acción devuelve 6144 registros a (3 páginas x 2048), no 5000 registros.
+* El tamaño de página predeterminado de la acción es de 2048 registros por página.
+* Supongamos que tiene 10 000 registros y que especifica un mínimo de 5000 registros.
+* La paginación obtiene páginas de registros, por lo que para obtener al menos el mínimo especificado, la acción devuelve 6144 registros a (3 páginas x 2048), no 5000 registros.
 
-Esta es una lista con sólo algunos de los conectores que puede superar el tamaño de página predeterminado para acciones específicas:
+Esta es una lista con solo algunos de los conectores donde puede superar el tamaño de página predeterminado para acciones específicas:
 
 * [Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/)
 * [Dynamics 365](https://docs.microsoft.com/connectors/dynamicscrmonline/)
@@ -45,27 +45,27 @@ Esta es una lista con sólo algunos de los conectores que puede superar el tama�
 
 * Una suscripción de Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* La aplicación lógica y la acción que desea activar la paginación. Si no tiene una aplicación lógica, consulte [inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* La aplicación lógica y la acción donde quiere activar la paginación. Si no tiene una aplicación lógica, consulte [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="turn-on-pagination"></a>Activar la paginación
 
-Para determinar si una acción admite la paginación en el Diseñador de aplicaciones lógicas, compruebe la configuración de la acción para el **paginación** configuración. En este ejemplo se muestra cómo activar la paginación en el servidor de SQL Server **obtener filas** acción.
+Para determinar si una acción admite la paginación en el Diseñador de aplicación lógica, compruebe la configuración de la acción para la opción de **paginación**. En este ejemplo se muestra cómo activar la paginación en la acción **Obtener filas** de SQL Server.
 
-1. En la esquina superior derecha de la acción, elija el botón de puntos suspensivos (**...** ) y seleccione **configuración**.
+1. En la esquina superior derecha de la acción, elija el botón de puntos suspensivos ( **...** ) y, después, seleccione **Configuración**.
 
-   ![Abra la configuración de la acción](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
+   ![Abrir la configuración de la acción](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 
-   Si la acción es compatible con la paginación, la acción se muestra el **paginación** configuración.
+   Si la acción admite la paginación, la acción muestra la opción **Paginación**.
 
-1. Cambiar el **paginación** de **desactivar** a **en**. En el **umbral** propiedad, especifique un valor entero para el número de destino de resultados que desea que la acción a devolver.
+1. Cambie la opción **Paginación** de **Desactivado** a **Activado**. En la propiedad **Umbral**, especifique un valor entero para el número de resultados objetivo que quiere que devuelva la acción.
 
-   ![Especifique el número mínimo de resultados para devolver](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
+   ![Especificar el número mínimo de resultados que se devolverán](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
 
 1. Cuando esté listo, elija **Hecho**.
 
 ## <a name="workflow-definition---pagination"></a>Definición de flujo de trabajo: paginación
 
-Al activar la paginación de una acción que admite esta funcionalidad, la definición de flujo de trabajo de la aplicación lógica incluye el `"paginationPolicy"` propiedad junto con la `"minimumItemCount"` propiedad en esa acción `"runtimeConfiguration"` propiedad, por ejemplo:
+Al activar la paginación para una acción que admite esta funcionalidad, la definición de flujo de trabajo de la aplicación lógica incluye la propiedad `"paginationPolicy"` junto con la propiedad `"minimumItemCount"` en la propiedad `"runtimeConfiguration"` de esa acción; por ejemplo:
 
 ```json
 "actions": {

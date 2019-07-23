@@ -18,10 +18,10 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e52829723b41f9274251ebe7432aa659251c0da4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64695119"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restricción del acceso a la red a los recursos de PaaS con puntos de conexión de servicio de red virtual mediante la CLI de Azure
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Cada grupo de seguridad de red contiene varias [reglas de seguridad predeterminadas](security-overview.md#default-security-rules). La regla siguiente reemplaza una regla de seguridad predeterminada que permite el acceso saliente a todas las direcciones IP públicas. El `destination-address-prefix "Internet"` opción deniega el acceso saliente a direcciones IP públicas todo. La regla anterior invalida esta regla porque su prioridad es más alta, lo que permite el acceso a las direcciones IP públicas de Azure Storage.
+Cada grupo de seguridad de red contiene varias [reglas de seguridad predeterminadas](security-overview.md#default-security-rules). La regla siguiente invalida una regla de seguridad predeterminada que permite el acceso de salida a todas las direcciones IP públicas. La opción `destination-address-prefix "Internet"` deniega el acceso de salida a todas las direcciones IP públicas. La regla anterior invalida esta regla porque su prioridad es más alta, lo que permite el acceso a las direcciones IP públicas de Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -137,7 +137,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-La siguiente regla permite el tráfico SSH entrante a la subred desde cualquier lugar. La regla invalidará cualquier regla de seguridad predeterminada que deniegue todo el tráfico de entrada procedente de Internet. SSH se permite a la subred para que se puede probar la conectividad en un paso posterior.
+La siguiente regla permite la entrada de tráfico SSH en la subred desde cualquier lugar. La regla invalidará cualquier regla de seguridad predeterminada que deniegue todo el tráfico de entrada procedente de Internet. SSH se admite en la subred, por lo que dicha conectividad podrá probarse en un paso posterior.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -272,7 +272,7 @@ La máquina virtual tarda en crearse unos minutos. Después de la creación, tom
 
 ## <a name="confirm-access-to-storage-account"></a>Confirmación del acceso a la cuenta de almacenamiento
 
-SSH en la máquina virtual *myVmPrivate*. Reemplace  *\<publicIpAddress >* con la dirección IP pública de su *myVmPrivate* máquina virtual.
+SSH en la máquina virtual *myVmPrivate*. Reemplace *\<publicIpAddress>* por la dirección IP pública de la VM *myVmPrivate*.
 
 ```bash 
 ssh <publicIpAddress>

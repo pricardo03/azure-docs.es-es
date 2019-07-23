@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a6cf2276da463f71f008c4bfb6eee4c232b18308
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61433782"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube
-El portal de Azure ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *creación personalizada*.
+Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada*.
 
 En este artículo se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, a continuación, cómo usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando Creación personalizada.
 
@@ -35,11 +35,11 @@ En este artículo se explica cómo usar el método Creación rápida para crear 
 Necesita tres componentes para implementar una aplicación como servicio en la nube en Azure:
 
 * **Definición de servicio**  
-   El archivo de definición de servicio en la nube (.csdef) define el modelo de servicio, incluyendo el número de roles.
+  El archivo de definición de servicio en la nube (.csdef) define el modelo de servicio, incluyendo el número de roles.
 * **Configuración de servicio**  
-   El archivo de configuración de servicio en la nube (.cscfg) proporciona opciones de configuración para los roles de servicio en la nube e individuales, incluyendo el número de instancias de rol.
+  El archivo de configuración de servicio en la nube (.cscfg) proporciona opciones de configuración para los roles de servicio en la nube e individuales, incluyendo el número de instancias de rol.
 * **Paquete de servicio**  
-   El paquete de servicio (.cspkg) contiene el código y las configuraciones de la aplicación y el archivo de definición de servicio.
+  El paquete de servicio (.cspkg) contiene el código y las configuraciones de la aplicación y el archivo de definición de servicio.
 
 Puede obtener más información acerca de estas y cómo crear un paquete [aquí](cloud-services-model-and-package.md).
 

@@ -17,11 +17,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: e1ed419892412c1fb9334fed74b82c53154723ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252420"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708424"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Creación de una imagen de máquina virtual no administrada a partir de una máquina virtual de Azure
 
@@ -41,7 +41,7 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 > 
 > 
 
-También puede generalizar una máquina virtual Linux con `sudo waagent -deprovision+user` y, luego, usar PowerShell para capturar la máquina virtual. Para obtener información sobre cómo usar la CLI para capturar una máquina virtual, consulte [cómo generalizar y capturar una máquina virtual de Linux mediante la CLI de Azure](../linux/capture-image.md).
+También puede generalizar una máquina virtual Linux con `sudo waagent -deprovision+user` y, luego, usar PowerShell para capturar la máquina virtual. Para obtener información sobre cómo usar la CLI para capturar una máquina virtual, consulte el artículo sobre [cómo generalizar y capturar una máquina virtual Linux mediante la CLI de Azure](../linux/capture-image.md).
 
 
 1. Inicie sesión en la máquina virtual de Windows.
@@ -89,7 +89,7 @@ También puede generalizar una máquina virtual Linux con `sudo waagent -deprovi
     Stop-AzVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
    
-    El *estado* de la máquina virtual en Azure Portal cambia de **Detenido** a **Detenido (desasignado)**.
+    El *estado* de la máquina virtual en Azure Portal cambia de **Detenido** a **Detenido (desasignado)** .
 2. Establezca el estado de la máquina virtual en **Generalizado**. 
    
     ```powershell

@@ -1,5 +1,5 @@
 ---
-title: Oferta de negocio Central de Dynamics 365 para Azure Marketplace
+title: Oferta de Dynamics 365 Business Central para Azure Marketplace
 description: En este artículo se explica cómo crear una oferta de Dynamics 365 Business Central en Cloud Partner Portal.
 services: Dynamics 365 Business Central, AppSource Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
 ms.openlocfilehash: e9581f2ca4322a247b2cd3e64483b8baac3a6a58
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64934950"
 ---
 # <a name="dynamics-365-business-central-offer"></a>Oferta de Dynamics 365 Business Central

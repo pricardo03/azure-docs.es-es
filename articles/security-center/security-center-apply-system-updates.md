@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095460"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar actualizaciones del sistema en Azure Security Center
@@ -63,7 +63,7 @@ En este ejemplo usaremos **Proceso**.
 
    ![Actualización de seguridad que falta][3]
 
-4. Seleccione el icono **Buscar** de la cinta de opciones superior.  Se abre una consulta de búsqueda de registros de Azure Monitor filtrados a los equipos que falta la actualización.
+4. Seleccione el icono **Buscar** de la cinta de opciones superior.  Se abrirá una consulta de búsqueda de registros de Azure Monitor filtrada por los equipos a los que les falta la actualización.
 
    ![Búsqueda de registros de Azure Monitor][4]
 

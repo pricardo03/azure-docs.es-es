@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
 ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683168"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensión del controlador de GPU de NVIDIA para Linux
@@ -35,7 +35,7 @@ También se dispone de una extensión para instalar controladores de GPU de NVID
 
 Esta extensión admite las siguientes distribuciones del sistema operativo, dependiendo de la compatibilidad de controladores para la versión específica del sistema operativo.
 
-| Distribución | `Version` |
+| Distribución | Versión |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
@@ -85,7 +85,7 @@ Todos los parámetros son opcionales. El comportamiento predeterminado consiste 
 | NOMBRE | DESCRIPCIÓN | Valor predeterminado | Valores válidos | Tipo de datos |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Actualice el kernel, incluso si no es necesario para la instalación del controlador | false | true, false | boolean |
-| driverVersion | NV: versión del controlador de GRID<br> NC o ND: versión del kit de herramientas CUDA. Los controladores más recientes del CUDA elegido se instalan automáticamente. | latest | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: versión del controlador de GRID<br> NC o ND: versión del kit de herramientas CUDA. Los controladores más recientes del CUDA elegido se instalan automáticamente. | más reciente | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Instale el kit de herramientas CUDA. Pertinente solo para las máquinas virtuales de la serie NC/ND. | true | true, false | boolean |
 
 
@@ -152,7 +152,7 @@ az vm extension set `
   }'
 ```
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
+## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

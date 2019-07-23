@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62096247"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar Azure DNS para proporcionar la configuración de un dominio personalizado para un servicio de Azure
 
-Azure DNS proporciona DNS para un dominio personalizado de cualquiera de los recursos de Azure que admiten dominios personalizados o que tienen un nombre de dominio completo (FQDN). Un ejemplo es tener una aplicación web de Azure y desea que los usuarios para acceder a él, ya sea mediante contoso.com o www\.contoso.com como FQDN. Este artículo le guiará a través de la configuración del servicio de Azure con Azure DNS para usar dominios personalizados.
+Azure DNS proporciona DNS para un dominio personalizado de cualquiera de los recursos de Azure que admiten dominios personalizados o que tienen un nombre de dominio completo (FQDN). Por ejemplo, tiene una aplicación web de Azure y quiere que los usuarios puedan acceder a estas a través de contoso.com o www\.contoso.com como un FQDN. Este artículo le guiará a través de la configuración del servicio de Azure con Azure DNS para usar dominios personalizados.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -54,7 +54,7 @@ En la hoja **Agregar nombre de host**, escriba el registro CNAME en el campo de 
 
 ## <a name="public-ip-address"></a>Dirección IP pública
 
-Para configurar un dominio personalizado de recurso de Application Gateway, el equilibrador de carga, el servicio en la nube, máquinas virtuales de Resource Manager de direcciones de servicios que utilizan una dirección IP pública y se usa máquinas virtuales clásicas, un registro.
+Para configurar un dominio personalizado para servicios que usan una dirección IP pública como, por ejemplo, Application Gateway, Load Balancer, Cloud Service, VM de Resource Manager y VM clásicas, se usa un registro A.
 
 Vaya a **Redes** > **Dirección IP pública**, seleccione el recurso de dirección IP pública y haga clic en **Configuración**. Anote la dirección IP.
 
@@ -66,7 +66,7 @@ Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la inform
 |Propiedad  |Valor  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |NOMBRE     | mywebserver        | Este valor junto con la etiqueta de nombre de dominio es el FQDN del nombre de dominio personalizado.        |
-|Type     | Una         | Use un registro A como recurso en una dirección IP.        |
+|Type     | Una        | Use un registro A como recurso en una dirección IP.        |
 |TTL     | 1        | 1 se usa para 1 hora        |
 |Unidad de TTL     | Horas        | Las horas se utilizan como medida de tiempo         |
 |Dirección IP     | `<your ip address>`       | La dirección IP pública.|

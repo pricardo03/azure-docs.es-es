@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pabutler
 ms.openlocfilehash: 3691664ee6212f838e7a9b95089893e4b52c689f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943025"
 ---
 # <a name="azure-application-offer"></a>Oferta de aplicación de Azure
@@ -38,7 +38,7 @@ Hay dos tipos de aplicaciones de Azure: una aplicación administrada y una plant
 Además de Azure Marketplace, también puede ofrecer aplicaciones administradas en un catálogo de servicios. El catálogo de servicios es un catálogo interno de soluciones aprobadas para los usuarios de una organización. Use el catálogo para cumplir los estándares organizativos y ofrecer al mismo tiempo soluciones para los grupos en una organización. Los empleados usarán el catálogo para encontrar fácilmente las aplicaciones que el departamento de TI recomienda y aprueba.
 
 >[!Note]
->Opt channel en cloud Solution Providers (CSP) asociado ya está disponible.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obtener más información sobre la oferta a través de Microsoft CSP de marketing de canales asociado.
+>La participación en el canal de asociados de Proveedores de soluciones en la nube (CSP) ya está disponible.  Consulte [Proveedores de soluciones en la nube](../../cloud-solution-providers.md) para obtener más información sobre el marketing que ofrece a través de los canales de asociados de CSP de Microsoft.
 
 Para más información sobre las ventajas y los tipos de aplicaciones administradas, consulte [Introducción a las aplicaciones administradas de Azure](https://docs.microsoft.com/azure/managed-applications/overview).
 

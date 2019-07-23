@@ -13,10 +13,10 @@ ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484769"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Notificación entre inquilinos mediante consultas distribuidas.
@@ -106,7 +106,7 @@ En este ejercicio se implementa la base de datos _adhocreporting_. Esta es la ba
 
 1. En *PowerShell ISE*, abra ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1*. 
 
-1. Establecer **$DemoScenario = 2**, _implementar Ad hoc reporting database_.
+1. Establezca **$DemoScenario = 2**, _Deploy Ad-hoc reporting database_.
 
 1. Presione **F5** para ejecutar el script y crear la base de datos *adhocreporting*.
 
@@ -128,7 +128,7 @@ En este ejercicio se agrega el esquema (el origen de datos externo y las definic
 
     ![crear origen de datos externos](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   Las tablas externas que hacen referencia a las vistas globales descritas en la sección anterior y definidas con **DISTRIBUTION = SHARDED(VenueId)**. Dado que cada identificador *VenueId* se asigna a una base de datos individual, se mejora el rendimiento de muchos escenarios, tal como se muestra en la sección siguiente.
+   Las tablas externas que hacen referencia a las vistas globales descritas en la sección anterior y definidas con **DISTRIBUTION = SHARDED(VenueId)** . Dado que cada identificador *VenueId* se asigna a una base de datos individual, se mejora el rendimiento de muchos escenarios, tal como se muestra en la sección siguiente.
 
     ![crear tablas externas](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -148,7 +148,7 @@ Ahora que la base de datos *adhocreporting* está configurada, continúe y ejecu
 
 Al inspeccionar el plan de ejecución, mantenga el mouse sobre los iconos de plan para obtener más información. 
 
-Es importante tener en cuenta que, si configura **DISTRIBUTION = SHARDED(VenueId)** al definir el origen de datos externo, se mejora el rendimiento de muchos escenarios. Como cada *VenueId* se asigna a una base de datos individual, el filtrado se realiza fácilmente de forma remota, devolver solo los datos necesarios.
+Es importante tener en cuenta que, si configura **DISTRIBUTION = SHARDED(VenueId)** al definir el origen de datos externo, se mejora el rendimiento de muchos escenarios. Dado que cada identificador *VenueId* se asigna a una base de datos individual, el filtrado se lleva a cabo fácilmente de forma remota y devuelve solo los datos necesarios.
 
 1. Abra ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* en SSMS.
 2. Asegúrese de que está conectado a la base de datos **adhocreporting**.

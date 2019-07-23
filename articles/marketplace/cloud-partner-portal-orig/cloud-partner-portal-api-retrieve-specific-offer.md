@@ -1,5 +1,5 @@
 ---
-title: Recuperar una oferta específica de API | Azure Marketplace
+title: Recuperación de una API de oferta específica | Azure Marketplace
 description: La API recupera la oferta especificada en el espacio de nombres del anunciante.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935432"
 ---
 <a name="retrieve-a-specific-offer"></a>Recuperación de una oferta específica
@@ -40,8 +40,8 @@ También puede recuperar una versión concreta de la oferta o recuperar la ofert
 
 | **Nombre**    | **Descripción**                                                                          | **Tipo de datos** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Por ejemplo, Contoso.                                                        | string        |
-| offerId     | GUID que identifica de manera única la oferta.                                                 | string        |
+| publisherId | publisherId. Por ejemplo, Contoso.                                                        | Cadena        |
+| offerId     | GUID que identifica de manera única la oferta.                                                 | Cadena        |
 | version     | Versión de la oferta que se va a recuperar. De forma predeterminada, se recupera la versión más reciente de la oferta. | Entero       |
 | slotId      | El espacio del que se va a recuperar la oferta. Puede ser uno de estos:      <br/>  - `Draft` (valor predeterminado), recupera la versión de la oferta que está actualmente en modo borrador.  <br/>  -  `Preview` recupera la versión de la oferta que está actualmente en la etapa de versión preliminar.     <br/>  -  `Production` recupera la versión de la oferta que está actualmente en la fase de producción.          |      enum |
 | api-version | Última versión de la API.                                                                    | Date          |

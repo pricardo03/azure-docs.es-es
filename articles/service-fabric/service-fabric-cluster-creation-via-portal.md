@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
 ms.openlocfilehash: 02312a19c687908b0e1c0e6417dc6b0a9df23912
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125092"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
@@ -90,7 +90,7 @@ Vaya a la hoja **Clúster de Service Fabric** y haga clic en **Crear**.
 La hoja **Crear clúster de Service Fabric** consta de los cuatro pasos siguientes:
 
 ### <a name="1-basics"></a>1. Aspectos básicos
-![Captura de pantalla de creación de un grupo de recursos.][CreateRG]
+![Captura de pantalla de la creación de un grupo de recursos.][CreateRG]
 
 En la hoja Básico, se deben proporcionar los datos básicos del clúster.
 
@@ -130,7 +130,7 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 > 
 
 ### <a name="3-security"></a>3. Seguridad
-![Captura de pantalla de las configuraciones de seguridad en Azure portal.][BasicSecurityConfigs]
+![Captura de pantalla de las configuraciones de seguridad de Azure Portal.][BasicSecurityConfigs]
 
 Para facilitar la configuración de un clúster de prueba seguro, hemos proporcionado la opción **Básico**. Si ya dispone de un certificado y lo ha cargado en su [almacén de claves](/azure/key-vault/) (y habilitó el almacén de claves para la implementación), use la opción **Personalizado**
 
@@ -191,7 +191,7 @@ Puede ver el progreso de creación en las notificaciones. (Haga clic en el icono
 Para realizar operaciones de administración en el clúster con Powershell o la CLI, deberá conectarse a su clúster. Puede obtener más información al respecto en [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md).
 
 ## <a name="view-your-cluster-status"></a>Visualización del estado del clúster
-![Captura de pantalla de detalles del clúster en el panel.][ClusterDashboard]
+![Captura de pantalla de los detalles del clúster en el panel.][ClusterDashboard]
 
 Una vez finalizado el clúster, puede inspeccionarlo en el portal:
 

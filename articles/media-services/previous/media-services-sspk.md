@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: xpouyat
 ms.openlocfilehash: 505def9cde7cddf2ddcc23408fa3159de886167a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472725"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licencias de Microsoft® Smooth Streaming Client Porting Kit 
@@ -125,9 +125,9 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* FilmFlex Movies Limited
+* Filmflex Movies Limited
 * Fluendo S.A.
-* FUNAI ELECTRIC CO., LTD
+* FUNAI ELECTRIC CO., LTD.
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.

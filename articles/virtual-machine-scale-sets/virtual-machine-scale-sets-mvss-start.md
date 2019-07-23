@@ -1,6 +1,6 @@
 ---
 title: Información sobre las plantillas de conjunto de escalado de máquinas virtuales | Microsoft Docs
-description: Aprenda a crear una plantilla de conjunto de escalado básico para conjuntos de escalado de máquinas virtuales
+description: Obtenga información sobre cómo crear una plantilla de conjunto de escalado básico para conjuntos de escalado de máquinas virtuales
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
 ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868924"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Más información sobre las plantillas de conjuntos de escalado de máquinas virtuales
-Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituyen una excelente manera de implementar grupos de recursos relacionados. Esta serie de tutoriales muestra cómo crear una plantilla de conjunto de escalado básico y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss).
+Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituyen una excelente manera de implementar grupos de recursos relacionados. En esta serie de tutoriales se explica cómo crear una plantilla de conjunto de escalado básico y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss).
 
 Esta plantilla está diseñada para ser sencilla. Para ejemplos más completos de plantillas de conjuntos de escalado, consulte el [repositorio de GitHub de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates) y busque las carpetas que contienen la cadena `vmss`.
 
@@ -131,7 +131,7 @@ El conjunto de escalado necesita saber qué tamaño de máquina virtual debe cre
 ```
 
 ### <a name="choose-type-of-updates"></a>Elección del tipo de actualizaciones
-El conjunto de escalado también debe saber cómo controlar las actualizaciones en el conjunto de escalado. Actualmente, hay tres opciones `Manual`, `Rolling` y `Automatic`. Para obtener más información sobre las diferencias entre ambas, consulte la documentación sobre [cómo actualizar un conjunto de escalado](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+El conjunto de escalado también debe saber cómo controlar las actualizaciones en el conjunto de escalado. En estos momentos hay tres opciones, `Manual`, `Rolling` y `Automatic`. Para obtener más información sobre las diferencias entre ambas, consulte la documentación sobre [cómo actualizar un conjunto de escalado](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

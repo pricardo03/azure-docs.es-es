@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
 ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125702"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
@@ -34,22 +34,22 @@ En la tabla siguiente se resumen los requisitos mínimos de hardware necesarios 
 
 ## <a name="azure-active-directory-permission-requirements"></a>Requisitos de permisos de Azure Active Directory
 
-Requiere un usuario con **uno de los siguientes** los permisos establecidos en AAD (Azure Active Directory) para registrar el servidor de configuración con los servicios de Azure Site Recovery.
+Necesita un usuario con **uno de los siguientes** permisos establecidos en AAD (Azure Active Directory) para registrar el servidor de configuración con los servicios de Azure Site Recovery.
 
-1. Usuario debe tener el rol de "Desarrollador de aplicaciones" para crear la aplicación.
-   1. Para comprobar, inicie sesión en Azure portal</br>
-   1. Vaya a Azure Active Directory > Roles y administradores</br>
-   1. Compruebe si se asigna el rol de "Desarrollador de aplicaciones" al usuario. Si no, utilizar un usuario con este permiso o póngase en contacto con [administrador que habilite el permiso](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+1. El usuario debe tener el rol "Desarrollador de aplicaciones" para poder crear la aplicación.
+   1. Para comprobarlo, inicie sesión en Azure Portal.</br>
+   1. Vaya a Azure Active Directory > Roles y administradores.</br>
+   1. Compruebe si el rol "Desarrollador de aplicaciones" está asignado al usuario. Si no lo está, utilice un usuario con este permiso o póngase en contacto con el [administrador para que habilite el permiso](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
-1. Si no se puede asignar el rol de "Desarrollador de aplicaciones", asegúrese de que la marca "El usuario puede registrar la aplicación" está establecido como true para el usuario crear la identidad. Para habilitar por encima de los permisos,
+1. Si no se puede asignar el rol "Desarrollador de aplicaciones", asegúrese de que la marca "Los usuarios pueden registrar aplicaciones" está establecida en true para que el usuario pueda crear la identidad. Para habilitar los permisos anteriores:
    1. Inicio de sesión en Azure Portal
-   1. Vaya a Azure Active Directory > configuración de usuario
-   1. Bajo ** registros de aplicaciones ","Los usuarios pueden registrar aplicaciones"debe elegirse como"Sí".
+   1. Vaya a Azure Active Directory > Configuración de usuario.
+   1. En "Registros de aplicaciones", "Los usuarios pueden registrar aplicaciones" debe estar establecido en "Sí".
 
       ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Services(ADFS) de federación de Active Directory es **no admite**. Use una cuenta administrada mediante [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> Los Servicios de federación de Active Directory (ADFS) **no se admiten**. Use una cuenta administrada mediante [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## <a name="capacity-planning"></a>Planificación de capacidad
 
@@ -74,7 +74,7 @@ Si replica más de una máquina virtual de VMware, consulte las [consideraciones
    >También puede descargar la versión más reciente de la plantilla del servidor de configuración directamente desde el [Centro de descarga de Microsoft](https://aka.ms/asrconfigurationserver).
 
 > [!NOTE]
-> La licencia que se proporcionan con la plantilla de OVA es una licencia de evaluación válida durante 180 días. Registrar este período, cliente necesita para activar windows con una licencia adquirida.
+> La licencia que se proporciona con la plantilla de OVA es una licencia de evaluación válida durante 180 días. Tras este periodo, el cliente debe activar Windows con una licencia adquirida.
 
 ## <a name="import-the-template-in-vmware"></a>Importación de la plantilla en VMware
 
@@ -114,20 +114,20 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 4. La primera vez que inicie sesión, se inicia la herramienta de configuración de Azure Site Recovery en unos segundos.
 5. Especifique el nombre que se usará para registrar el servidor de configuración en Site Recovery. Luego, seleccione **Siguiente**.
 6. La herramienta comprueba que la máquina virtual pueda conectarse a Azure. Una vez establecida la conexión, haga clic en **Iniciar sesión** para iniciar sesión en la suscripción de Azure.</br>
-     a. Las credenciales deben tener acceso al almacén donde desea registrar el servidor de configuración.</br>
-    b. Asegúrese de que la cuenta de usuario elegido tiene permisos para crear una aplicación en Azure. Para habilitar los permisos necesarios, siga la instrucciones proporcionadas [aquí](#azure-active-directory-permission-requirements).
+    a. Las credenciales deben tener acceso al almacén donde desea registrar el servidor de configuración.</br>
+    b. Asegúrese de que la cuenta de usuario elegida tiene permisos para crear una aplicación en Azure. Para habilitar los permisos necesarios, siga la instrucciones que se proporcionan [aquí](#azure-active-directory-permission-requirements).
 7. La herramienta realiza algunas tareas de configuración y, a continuación, se reinicia.
 8. Inicie sesión de nuevo en la máquina. En pocos segundos, el Asistente para administración del servidor de configuración se inicia **automáticamente**.
 
 ### <a name="configure-settings"></a>Definición de la configuración
 
-1. En el Asistente para administración del servidor de configuración, seleccione **Setup connectivity** (Conectividad de configuración). En las listas desplegables, seleccione primero la NIC que utiliza el servidor de procesos integrados para la detección y la instalación de inserción del servicio de movilidad en los equipos de origen y, a continuación, seleccione la NIC que usa el servidor de configuración para la conectividad con Azure. Después, seleccione **Guardar**. No se puede cambiar esta configuración después de configurarlo. Es absolutamente recomendable no cambiar la dirección IP de un servidor de configuración. Asegúrese de que la dirección IP asignada al servidor de configuración sea una dirección IP ESTÁTICA y no una dirección IP de DHCP.
-2. En **seleccionar servicios de recuperación del almacén**, inicie sesión en Microsoft Azure con las credenciales usadas en **paso 6** de "[servidor de configuración de registro con Azure Site Recovery Services](#register-the-configuration-server-with-azure-site-recovery-services)" .
-3. Después de iniciar sesión, seleccione su suscripción de Azure y el grupo de recursos correspondiente y el almacén.
+1. En el Asistente para administración del servidor de configuración, seleccione **Setup connectivity** (Conectividad de configuración). En las listas desplegables, seleccione primero la NIC que utiliza el servidor de procesos integrados para la detección y la instalación de inserción del servicio de movilidad en los equipos de origen y, a continuación, seleccione la NIC que usa el servidor de configuración para la conectividad con Azure. Después, seleccione **Guardar**. Una vez configurada, esta opción no se puede cambiar. Es absolutamente recomendable no cambiar la dirección IP de un servidor de configuración. Asegúrese de que la dirección IP asignada al servidor de configuración sea una dirección IP ESTÁTICA y no una dirección IP de DHCP.
+2. En **Selección de almacén de Recovery Services**, inicie sesión en Microsoft Azure con las credenciales usadas en el **paso 6** de "[Registrar el servidor de configuración con los servicios de Azure Site Recovery](#register-the-configuration-server-with-azure-site-recovery-services)".
+3. Después de iniciar sesión, seleccione la suscripción de Azure y el grupo de recursos y el almacén correspondientes.
 
     > [!NOTE]
     > Una vez registrado, no hay ninguna flexibilidad para cambiar el almacén de Recovery Services.
-    > Almacén de recovery services cambiantes requeriría la asociación de servidor de configuración desde el almacén actual y se detiene la replicación de todas las máquinas virtuales protegidas en el servidor de configuración. [Más información](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
+    > El cambio del almacén de Recovery Services requiere desasociar el servidor de configuración del almacén actual y provoca la detención de la replicación de todas las máquinas virtuales protegidas en el servidor de configuración. [Más información](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
 
 4. En **Instalar software de terceros**,
 
@@ -156,7 +156,7 @@ Para evitar interrupciones en la replicación en curso, asegúrese de que la dir
 
 1. ¿Cuánto dura la licencia proporcionada en el servidor de configuración implementado a través de OVF? ¿Qué ocurre si no reactivo la licencia?
 
-    La licencia que se proporcionan con la plantilla de OVA es una licencia de evaluación válida durante 180 días. Antes de que expire, debe activar la licencia. En caso contrario, esto puede provocar que la configuración del servidor se detenga y, por lo tanto, se entorpezcan las actividades de replicación.
+    La licencia que se proporciona con la plantilla de OVA es una licencia de evaluación válida durante 180 días. Antes de que expire, debe activar la licencia. En caso contrario, esto puede provocar que la configuración del servidor se detenga y, por lo tanto, se entorpezcan las actividades de replicación.
 
 2. ¿Puedo usar la máquina virtual, donde está instalado el servidor de configuración, para otros fines?
 
@@ -184,7 +184,7 @@ Para evitar interrupciones en la replicación en curso, asegúrese de que la dir
     En **Almacén de Recovery Services**,**Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**. En Servidores, seleccione **Descargar clave de registro** para descargar el archivo de credenciales de almacén.
 10. ¿Puedo clonar un servidor de configuración existente y usarlo para la orquestación de replicación?
 
-    **No**, no se admite el uso de componentes del servidor de configuración clonados. Clon del servidor de procesos de escalado horizontal también es un escenario admitido. Clonación de Site Recovery componentes afectan a las replicaciones en curso.
+    **No**, no se admite el uso de componentes del servidor de configuración clonados. La clonación del servidor de procesos de escalabilidad horizontal también es un escenario no admitido. La clonación de componentes de Site Recovery afecta a las replicaciones en curso.
 
 11. ¿Puedo cambiar la dirección IP del servidor de configuración?
 

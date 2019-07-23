@@ -1,19 +1,19 @@
 ---
-title: Optimizar la recopilación de estadísticas de consulta en una base de datos de Azure Database for PostgreSQL - servidor único
-description: Este artículo describe cómo puede optimizar la recopilación de estadísticas de consulta en una base de datos de Azure Database for PostgreSQL - servidor único
+title: Optimización de la recopilación de estadísticas de consulta en Azure Database for PostgreSQL con un único servidor
+description: En este artículo se describe cómo puede optimizar la recopilación de estadísticas de consulta en Azure Database for PostgreSQL con un único servidor.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 7425ee7916fd71625f336a7af35f6481d1ed2474
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65068952"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Optimizar la recopilación de estadísticas de consultas en Azure Database for PostgreSQL: servidor único
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Optimización de la recopilación de estadísticas de consulta en Azure Database for PostgreSQL con un único servidor
 En este artículo se describe cómo optimizar la recopilación de estadísticas de consulta en un servidor de Azure Database for PostgreSQL.
 
 ## <a name="use-pgstatsstatements"></a>Uso de pg_stats_statements

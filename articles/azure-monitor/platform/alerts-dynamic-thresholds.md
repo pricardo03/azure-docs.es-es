@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067611"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métricas con umbrales dinámicos en Azure Monitor
@@ -42,16 +42,16 @@ Los umbrales dinámicos aprenden continuamente los datos de las series de métri
 Los umbrales se seleccionan de forma que una desviación de estos umbrales indica una anomalía en el comportamiento de la métrica.
 
 > [!NOTE]
-> Detección de patrones estacionales se establece en una hora, día o intervalo de semanas. Esto significa que otros patrones como patrón bihourly o quincenal podría no detectarse.
+> La detección de patrones estacionales se establece en un intervalo de hora, día o semana. Esto significa que otros patrones, como el patrón cada dos horas o dos veces por semana, podrían no detectarse.
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>¿Qué significa el valor "Sensibilidad" en los umbrales dinámicos?
 
 La sensibilidad del umbral de alerta es un concepto de alto nivel que controla la cantidad de desviación del comportamiento de la métrica necesaria para desencadenar una alerta.
 Esta opción no requiere conocimiento acerca del umbral estático similar a una métrica. Las opciones disponibles son:
 
-- Alto: los umbrales serán estrictos y estarán próximos al patrón de la serie de métricas. Se desencadena una regla de alerta en la desviación más pequeña, lo que genera más alertas.
+- Alto: los umbrales serán estrictos y estarán próximos al patrón de la serie de métricas. Una regla de alertas se desencadenará ante la mínima desviación, lo que generará más alertas.
 - Mediano: umbrales menos estrechos y más equilibrados, menos alertas que con la sensibilidad alta (valor predeterminado).
-- Bajo: los umbrales serán laxos y habrá más distancia desde el patrón de la serie de métricas. Solo se desencadenará una regla de alerta sobre las desviaciones grandes, lo que resulta en menos alertas.
+- Bajo: los umbrales serán laxos y habrá más distancia desde el patrón de la serie de métricas. Una regla de alertas se desencadenará solo ante desviaciones más grandes, lo que generará menos alertas.
 
 ## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>¿Cuáles son las opciones de configuración de "Operador" en los umbrales dinámicos?
 
@@ -76,15 +76,15 @@ Para desencadenar una alerta cuando se ha producido una infracción de un umbral
 
 **Omitir los datos anteriores a**: los usuarios también tienen la opción de definir la fecha a partir de la que el sistema debe comenzar a calcular los umbrales. Un caso de uso típico puede producirse cuando un recurso se ejecutaba en modo de prueba y ahora se ha promocionado a servir una carga de trabajo de producción y, por lo tanto, no debe tenerse en cuenta el comportamiento de las métrica durante la fase de pruebas.
 
-## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>¿Cómo averiguar por qué se desencadene una alerta de umbrales dinámicos?
+## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>¿Cómo averiguar por qué se ha desencadenado una alerta de umbrales dinámicos?
 
-Puede explorar las instancias de alerta desencadenadas en la vista de alertas, haga clic en el vínculo en el correo electrónico o mensaje de texto o el explorador para ver las alertas en Azure portal. [Más información sobre la vista alertas](alerts-overview.md#alerts-experience).
+Puede explorar las instancias de alerta desencadenadas en la vista de alertas, haciendo clic en el vínculo en el correo electrónico o mensaje de texto, o en el explorador para mostrar la vista de alertas en Azure Portal. [Más información sobre la vista de alertas](alerts-overview.md#alerts-experience).
 
-Muestra la vista de alertas:
+La vista de alertas muestra:
 
-- Todos los detalles de métrica en el momento en que se desencadena la alerta de umbrales dinámicos.
-- Un gráfico del período en el que se desencadenó la alerta que incluye los umbrales dinámicos usados en ese momento dado.
-- Capacidad para proporcionar comentarios sobre alertas de umbrales dinámicos y las alertas de la experiencia de vista, lo que podría mejorar futuras detecciones.
+- Todos los detalles de la métrica en el momento en que se desencadena la alerta de umbrales dinámicos.
+- Un gráfico del período en el que se desencadenó la alerta, que incluye los umbrales dinámicos usados en ese momento dado.
+- La capacidad de proporcionar comentarios sobre la experiencia de alertas de umbrales dinámicos y la vista de alertas, lo que podría mejorar futuras detecciones.
 
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>¿Desencadenará una alerta el lento cambio de comportamiento lento en la métrica?
 
@@ -92,11 +92,11 @@ Probablemente no. Los umbrales dinámicos son buenos para detectar desviaciones 
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>¿Cuántos datos se usan para obtener una vista previa y, después, calcular los umbrales?
 
-Los umbrales que aparecen en el gráfico, antes de crea una regla de alerta en la métrica, se calculan según suficientes datos históricos para calcular la hora o diariamente patrones estacionales (10 días). Una vez creada una regla de alerta, los umbrales dinámicos utilizará todos los datos históricos necesarios que está disponible y continuamente conocerá y adaptarse según los datos nuevos para hacer que los umbrales más precisos. Esto significa que, después de este cálculo, el gráfico también mostrará los patrones semanales.
+Los umbrales que aparecen en el gráfico, antes de haber creado una regla de alerta en la métrica, se calculan según suficientes datos históricos para calcular los patrones estacionales por hora o día (10 días). Una vez creada una regla de alerta, los umbrales dinámicos usarán todos los datos históricos necesarios que estén disponible y aprenderá y se adaptará continuamente según los datos nuevos para que los umbrales sean más precisos. Esto significa que, después de este cálculo, el gráfico también mostrará los patrones semanales.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>¿Cuántos datos se necesitan para desencadenar una alerta?
 
-Si tiene un nuevo recurso o que faltan datos métricos, umbrales dinámicos no desencadenan alertas para que estén disponibles para asegurarse de umbrales precisos tres días de datos.
+Si tiene un nuevo recurso o faltan datos de métricas, los umbrales dinámicos no desencadenarán alertas antes de que haya disponibles tres días de datos para garantizar umbrales precisos.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Procedimientos recomendados para umbrales dinámicos
 

@@ -9,10 +9,10 @@ ms.date: 04/24/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: c4290473a7c1edce02d74a4a787c62ccf0d9c052
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924309"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuitos ExpressRoute y emparejamiento
@@ -22,7 +22,7 @@ Los circuitos ExpressRoute conectan la infraestructura local a Microsoft a trav�
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
-> Emparejamiento público de Azure está desusado y no está disponible para nuevos circuitos ExpressRoute. Circuitos nueva compatibilidad con emparejamiento privado y emparejamiento de Microsoft.  
+> El emparejamiento público de Azure está en desuso y no está disponible para nuevos circuitos de ExpressRoute. Los nuevos circuitos admiten el emparejamiento privado y el emparejamiento de Microsoft.  
 >
 
 ## <a name="circuits"></a>Circuitos ExpressRoute
@@ -62,7 +62,7 @@ Para obtener más información sobre los servicios admitidos, los costos y los d
 ### <a name="publicpeering"></a> Emparejamiento público de Azure (en desuso para circuitos nuevos)
 
 > [!Note]
-> Emparejamiento público de Azure tiene 1 dirección IP de NAT asociado a cada sesión BGP. Para más de 2 direcciones IP de NAT, mueva a emparejamiento de Microsoft. Emparejamiento de Microsoft le permite configurar sus propias asignaciones de NAT, así como usar los filtros de ruta para los anuncios de prefijo selectivo. Para obtener más información, consulte [mover a emparejamiento de Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+> El emparejamiento público de Azure tiene 1 dirección IP de NAT asociada a cada sesión BGP. Para más de 2 direcciones IP de NAT, migre al emparejamiento de Microsoft. El emparejamiento de Microsoft le permite configurar sus propias asignaciones de NAT, así como usar filtros de ruta para los anuncios de prefijo selectivo. Para obtener más información, consulte [Cambio al emparejamiento de Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
 >
 
 Se ofrecen servicios como Azure Storage, SQL Databases, y Websites en direcciones IP públicas. Puede conectarse de forma privada a servicios hospedados en direcciones IP públicas (incluida las VIP de servicios en la nube) a través del dominio de enrutamiento de emparejamiento público. Puede conectar el dominio de emparejamiento público a la red perimetral y conectarse a todos los servicios de Azure en sus direcciones IP públicas desde la WAN sin tener que conectarse a través de Internet.

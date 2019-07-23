@@ -1,6 +1,6 @@
 ---
-title: Escriba los detalles del escaparate de oferta de consultoría | Azure Marketplace
-description: Defina los detalles del escaparate en una oferta de servicio de consultoría Azure o Dynamics 365 en Cloud Partner Portal.
+title: Escribir los detalles del escaparate electrónico para una oferta de consultoría | Azure Marketplace
+description: Defina los detalles del escaparate electrónico en una oferta de servicios de consultoría de Azure o Dynamics 365 en Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942712"
 ---
 # <a name="storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico
@@ -163,7 +163,7 @@ Se incluyen los siguientes cinco tipos de ofertas:
 Seleccione el país y región en la que estará disponible esta oferta de servicios de consultoría. No se puede publicar una oferta única en varios países o regiones. Se debe crear una oferta nueva para cada país o región.
 
 >[!Note]
->Los servicios de consultoría de AppSource se pueden disfrutar actualmente en Estados Unidos, Reino Unido y Canadá. Puede enviar una oferta para un país o región que aún no está activa y se revisan y preparado para empezar a funcionar. Para abrir un nuevo país o región, por lo que se aconsejan ofertas para países o regiones que no están activos, se necesita un número mínimo de ofertas listos para publicarse.
+>Los servicios de consultoría de AppSource se pueden disfrutar actualmente en Estados Unidos, Reino Unido y Canadá. Puede enviar una oferta para cualquier otro país o región, ya que se examinará y se preparará para empezar a funcionar en dicho país o región. Para abrir un nuevo país o región, es preciso que haya un número mínimo de ofertas, por lo que animamos al envío de ofertas de otros países o regiones.
 
 **Industrias**
 

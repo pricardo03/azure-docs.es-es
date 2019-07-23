@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a2d714cae187e4ebcf2eefd37c61484dc48495e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105955"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creación de una conexión de sitio a sitio mediante Azure Portal (clásico)
@@ -72,13 +72,13 @@ Cuando se crea una red virtual que se usará para una conexión S2S, debe asegur
 ### <a name="to-create-a-virtual-network"></a>Creación de una red virtual
 
 1. Desde un explorador, vaya a [Azure Portal](https://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
-2. Haga clic en **+**. En el campo **Buscar en el Marketplace**, escriba "Virtual Network". En la lista de resultados, busque **Virtual Network** y haga clic para abrir la página **Virtual Network**.
+2. Haga clic en **+** . En el campo **Buscar en el Marketplace**, escriba "Virtual Network". En la lista de resultados, busque **Virtual Network** y haga clic para abrir la página **Virtual Network**.
 
    ![Búsqueda de la página Red virtual](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
 3. Cerca de la parte inferior de la página Virtual Network, en la lista desplegable **Seleccionar un modelo de implementación**, seleccione **Clásico** y, a continuación, haga clic en **Crear**.
 
    ![Seleccionar modelo de implementación](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. En la página **Crear red virtual (clásica)**, configure los valores de la red virtual. En esta página, se agrega el primer espacio de direcciones y un intervalo único de direcciones de subred. Cuando termine de crear la red virtual, puede volver atrás y agregar espacios de direcciones y subredes adicionales.
+4. En la página **Crear red virtual (clásica)** , configure los valores de la red virtual. En esta página, se agrega el primer espacio de direcciones y un intervalo único de direcciones de subred. Cuando termine de crear la red virtual, puede volver atrás y agregar espacios de direcciones y subredes adicionales.
 
    ![Página Crear red virtual](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Página Crear red virtual")
 5. Compruebe que la **Suscripción** es la correcta. Puede cambiar las suscripciones mediante la lista desplegable.
@@ -121,7 +121,7 @@ Normalmente, sitio local suele hacer referencia a la ubicación local. Contiene 
 3. En la página **Nueva conexión VPN**, seleccione **De sitio a sitio**.
 4. Haga clic en **Sitio local: Configurar valores obligatorios** para abrir la página **Sitio local**. Configure las opciones y haga clic en **Aceptar** para guardar la configuración.
    - **Nombre:** cree un nombre para el sitio local para que sea fácil de identificar.
-   - **Dirección IP de la puerta de enlace de VPN:** es la dirección IP pública del dispositivo VPN en la red local. El dispositivo VPN requiere una dirección IP IPv4 pública. Especifique una dirección IP pública válida para el dispositivo VPN al que desea conectarse. Debe ser accesible por Azure. Si no conoce la dirección IP del dispositivo VPN, siempre puede poner un valor de marcador de posición (siempre que tenga el formato de una dirección IP pública válida) y cambiarlo más adelante.
+   - **Dirección IP de la puerta de enlace de VPN:** es la dirección IP pública del dispositivo VPN en la red local. El dispositivo VPN requiere una dirección IP IPv4 pública. Especifique una dirección IP pública válida para el dispositivo VPN al que desea conectarse. Debe ser accesible para Azure. Si no conoce la dirección IP del dispositivo VPN, siempre puede poner un valor de marcador de posición (siempre que tenga el formato de una dirección IP pública válida) y cambiarlo más adelante.
    - **Espacio de direcciones de cliente:** lista de los intervalos de direcciones IP que quiere enrutar a la red local mediante esta puerta de enlace. Puede agregar varios intervalos de espacios de direcciones. Asegúrese de que los intervalos que especifique aquí no se superponen con los intervalos de otras redes a la que se conecta su red virtual, ni con los intervalos de direcciones de la propia red virtual.
 
    ![Sitio local](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configuración de sitio local")

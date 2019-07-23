@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/25/2019
 ms.author: banders
 ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702617"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API para la automatización de reservas de Azure
@@ -30,9 +30,9 @@ También puede analizar el uso de sus recursos mediante el detalle de uso de la 
 
 ## <a name="buy-a-reservation"></a>Adquisición de una reserva
 
-Puede adquirir planes de software y las reservas de Azure mediante programación utilizando las API de REST. Para obtener más información, consulte [pedido de reserva - API de compra](/rest/api/reserved-vm-instances/reservationorder/purchase).
+Puede comprar reservas de Azure y planes de software mediante programación con las API REST. Para obtener más información, consulte [API para pedido de reserva: compra](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
-Este es un ejemplo de solicitud de compra mediante el uso de la API de REST:
+A continuación se muestra una solicitud de ejemplo para comprar mediante una API REST:
 
 ```
 PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
@@ -61,7 +61,7 @@ Cuerpo de la solicitud:
 }
 ```
 
-También puede comprar una reserva en el portal de Azure. Para más información, consulte los siguientes artículos.
+También puede comprar una reserva en Azure Portal. Para más información, consulte los siguientes artículos.
 
 Planes de servicio:
 - [Máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)

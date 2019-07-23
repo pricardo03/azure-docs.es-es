@@ -10,22 +10,22 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
 ms.openlocfilehash: 24123278ff353860ff2af59f4fd77645dfc189e3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938851"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Uso de la CLI de HDFS con Data Lake Storage Gen2
 
-Puede acceder y administrar los datos en la cuenta de almacenamiento mediante una interfaz de línea de comandos como haría con un [del sistema de archivos distribuido de Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Este artículo proporciona algunos ejemplos que le ayudarán a empezar a trabajar.
+Puede acceder y administrar los datos en la cuenta de almacenamiento mediante una interfaz de línea de comandos como lo haría con un [Sistema de archivos distribuido de Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). En este artículo se dan algunos ejemplos que le ayudarán a empezar a trabajar.
 
-HDInsight brinda acceso al sistema de archivos distribuidos que se adjunta localmente a los nodos de ejecución. Puede tener acceso a este sistema de archivos mediante el shell que interactúa directamente con HDFS y otros sistemas de archivos compatibles con Hadoop.
+HDInsight brinda acceso al sistema de archivos distribuidos que se adjunta localmente a los nodos de ejecución. Puede acceder a este sistema de archivos mediante el shell que interactúa directamente con HDFS y con otros sistemas de archivos que admiten Hadoop.
 
-Para obtener más información sobre HDFS CLI, consulte el [documentación oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) y [Guía de permisos de HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+Para más información sobre la CLI de HDFS, consulte la [documentación oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) y la [Guía de permisos de HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
 >[!NOTE]
->Si usa Azure Databricks, en lugar de HDInsight, y desea interactuar con los datos mediante una interfaz de línea de comandos, puede usar la CLI de Databricks para interactuar con el sistema de archivos de Databricks. Consulte [CLI de Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+>Si usa Azure Databricks, en lugar de HDInsight, y quiere interactuar con los datos mediante una interfaz de línea de comandos, puede usar la CLI de Databricks para interactuar con el sistema de archivos de Databricks. Consulte la [CLI de Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Usar la CLI de HDFS con un clúster de HDInsight Hadoop en Linux
 
@@ -120,4 +120,4 @@ Puede consultar una lista completa de comandos en el sitio web de la [guía de c
 
 * [Uso de una cuenta compatible de Azure Data Lake Storage Gen2 en Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Obtenga información acerca de las listas de control de acceso en archivos y directorios](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Información sobre las listas de control de acceso en archivos y directorios](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)

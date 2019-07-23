@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424710"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabajo con cadenas en consultas de registro de Azure Monitor
 
 
 > [!NOTE]
-> Debe completar [empezar a trabajar con Azure Monitor de Log Analytics](get-started-portal.md) y [Introducción a las consultas de registro de Azure Monitor](get-started-queries.md) antes de completar este tutorial.
+> Debe completar [Introducción a los análisis de registros de Azure Monitor](get-started-portal.md) y [Introducción a las consultas de registro en Azure Monitor](get-started-queries.md) antes de completar este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -53,30 +53,30 @@ operador       |DESCRIPCIÓN                         |Distingue mayúsculas de m
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Equals                              |Sí           |`"aBc" == "aBc"`
 `!=`           |Not Equals                          |Sí           |`"abc" != "ABC"`
-`=~`           |Equals                              |Sin             |`"abc" =~ "ABC"`
-`!~`           |Not Equals                          |Sin             |`"aBc" !~ "xyz"`
-`has`          |El lado derecho es un término completo en el lado izquierdo |Sin |`"North America" has "america"`
-`!has`         |El lado derecho no es un término completo en el lado izquierdo       |Sin             |`"North America" !has "amer"` 
+`=~`           |Equals                              |Sin            |`"abc" =~ "ABC"`
+`!~`           |Not Equals                          |Sin            |`"aBc" !~ "xyz"`
+`has`          |El lado derecho es un término completo en el lado izquierdo |Sin|`"North America" has "america"`
+`!has`         |El lado derecho no es un término completo en el lado izquierdo       |Sin            |`"North America" !has "amer"` 
 `has_cs`       |El lado derecho es un término completo en el lado izquierdo |Sí|`"North America" has_cs "America"`
 `!has_cs`      |El lado derecho no es un término completo en el lado izquierdo       |Sí            |`"North America" !has_cs "amer"` 
-`hasprefix`    |El lado derecho es un prefijo de término en el lado izquierdo         |Sin             |`"North America" hasprefix "ame"`
-`!hasprefix`   |El lado derecho no es un prefijo de término en el lado izquierdo     |Sin             |`"North America" !hasprefix "mer"` 
+`hasprefix`    |El lado derecho es un prefijo de término en el lado izquierdo         |Sin            |`"North America" hasprefix "ame"`
+`!hasprefix`   |El lado derecho no es un prefijo de término en el lado izquierdo     |Sin            |`"North America" !hasprefix "mer"` 
 `hasprefix_cs`    |El lado derecho es un prefijo de término en el lado izquierdo         |Sí            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |El lado derecho no es un prefijo de término en el lado izquierdo     |Sí            |`"North America" !hasprefix_cs "CA"` 
-`hassuffix`    |El lado derecho es un sufijo de término en el lado izquierdo         |Sin             |`"North America" hassuffix "ica"`
-`!hassuffix`   |El lado derecho no es un sufijo de término en el lado izquierdo     |Sin             |`"North America" !hassuffix "americ"`
+`hassuffix`    |El lado derecho es un sufijo de término en el lado izquierdo         |Sin            |`"North America" hassuffix "ica"`
+`!hassuffix`   |El lado derecho no es un sufijo de término en el lado izquierdo     |Sin            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |El lado derecho es un sufijo de término en el lado izquierdo         |Sí            |`"North America" hassuffix_cs "ica"`
 `!hassuffix_cs`   |El lado derecho no es un sufijo de término en el lado izquierdo     |Sí            |`"North America" !hassuffix_cs "icA"`
-`contains`     |El lado derecho aparece como subsecuencia en el lado izquierdo  |Sin             |`"FabriKam" contains "BRik"`
-`!contains`    |El lado derecho no aparece en el lado izquierdo           |Sin             |`"Fabrikam" !contains "xyz"`
+`contains`     |El lado derecho aparece como subsecuencia en el lado izquierdo  |Sin            |`"FabriKam" contains "BRik"`
+`!contains`    |El lado derecho no aparece en el lado izquierdo           |Sin            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |El lado derecho aparece como subsecuencia en el lado izquierdo  |Sí           |`"FabriKam" contains_cs "Kam"`
 `!contains_cs`  |El lado derecho no aparece en el lado izquierdo           |Sí           |`"Fabrikam" !contains_cs "Kam"`
-`startswith`   |El lado derecho es una subsecuencia inicial del lado izquierdo|Sin             |`"Fabrikam" startswith "fab"`
-`!startswith`  |El lado derecho no es una subsecuencia inicial del lado izquierdo|Sin         |`"Fabrikam" !startswith "kam"`
+`startswith`   |El lado derecho es una subsecuencia inicial del lado izquierdo|Sin            |`"Fabrikam" startswith "fab"`
+`!startswith`  |El lado derecho no es una subsecuencia inicial del lado izquierdo|Sin        |`"Fabrikam" !startswith "kam"`
 `startswith_cs`   |El lado derecho es una subsecuencia inicial del lado izquierdo|Sí            |`"Fabrikam" startswith_cs "Fab"`
 `!startswith_cs`  |El lado derecho no es una subsecuencia inicial del lado izquierdo|Sí        |`"Fabrikam" !startswith_cs "fab"`
-`endswith`     |El lado derecho es una subsecuencia final del lado izquierdo|Sin              |`"Fabrikam" endswith "Kam"`
-`!endswith`    |El lado derecho no es una subsecuencia final del lado izquierdo|Sin          |`"Fabrikam" !endswith "brik"`
+`endswith`     |El lado derecho es una subsecuencia final del lado izquierdo|Sin             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |El lado derecho no es una subsecuencia final del lado izquierdo|Sin         |`"Fabrikam" !endswith "brik"`
 `endswith_cs`     |El lado derecho es una subsecuencia final del lado izquierdo|Sí             |`"Fabrikam" endswith "Kam"`
 `!endswith_cs`    |El lado derecho no es una subsecuencia final del lado izquierdo|Sí         |`"Fabrikam" !endswith "brik"`
 `matches regex`|El lado izquierdo contiene a una coincidencia del lado derecho        |Sí           |`"Fabrikam" matches regex "b.*k"`

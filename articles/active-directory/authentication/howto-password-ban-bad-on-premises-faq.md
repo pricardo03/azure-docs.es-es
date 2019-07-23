@@ -1,5 +1,5 @@
 ---
-title: 'Protección de contraseñas de Azure AD preguntas más frecuentes: Azure Active Directory local'
+title: 'Preguntas frecuentes sobre la protección con contraseña de Azure AD local: Azure Active Directory'
 description: P+F de la protección con contraseña de Azure AD local
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64917660"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protección con contraseña de Azure AD local: preguntas más frecuentes
@@ -36,13 +36,13 @@ No, la protección con contraseña de Azure AD local solo se admite en las nubes
 
 No compatible. Una vez implementada y habilitada, la característica Protección con contraseña de Azure AD no es discriminatoria: todos los usuarios reciben ventajas de seguridad por igual.
 
-**P: ¿Qué es la diferencia entre un cambio de contraseña y una contraseña establecida (o reset)?**
+**P: ¿Cuál es la diferencia entre un cambio de contraseña y el establecimiento (o restablecimiento) de una contraseña?**
 
-Un cambio de contraseña es cuando un usuario elige una nueva contraseña después de demostrar que tienen conocimientos de la contraseña antigua. Por ejemplo, esto es lo que sucede cuando un usuario inicia sesión en Windows y, a continuación, deberá elegir una contraseña nueva.
+Un cambio de contraseña es cuando un usuario elige una nueva contraseña después de demostrar que conoce la contraseña antigua. Por ejemplo, esto es lo que sucede cuando un usuario inicia sesión en Windows y, a continuación, debe elegir una contraseña nueva.
 
-Un conjunto de contraseña (denominado a veces un restablecimiento de contraseña) es cuando un administrador reemplaza a la contraseña en una cuenta con una contraseña nueva, por ejemplo mediante la herramienta de administración de equipos y usuarios de Active Directory. Esta operación requiere un alto nivel de privilegios (normalmente, el Administrador de dominio) y la persona que realiza la operación normalmente no tiene conocimiento de la contraseña antigua. Escenarios de asistencia suelen hacen esto, por ejemplo cuando la asistencia de un usuario que ha olvidado su contraseña. También verá contraseña establece eventos cuando se crea una nueva cuenta de usuario por primera vez con una contraseña.
+Un establecimiento de contraseña (denominado a veces restablecimiento de contraseña) es cuando un administrador reemplaza la contraseña de una cuenta por una contraseña nueva; por ejemplo mediante la herramienta de administración de equipos y usuarios de Active Directory. Esta operación requiere un alto nivel de privilegios (normalmente, administrador del dominio) y la persona que realiza la operación normalmente no conoce la contraseña anterior. Los departamentos de soporte técnico suelen hacen esto, por ejemplo cuando ayudan a un usuario que ha olvidado su contraseña. También verá eventos de establecimiento de contraseña cuando se crea por primera vez una nueva cuenta de usuario con contraseña.
 
-La directiva de validación de contraseña comporta igual independientemente de si se realiza un cambio de contraseña o un conjunto. El servicio del agente de DC de protección de contraseña de Azure AD registrar eventos diferentes para informarle si un cambio de contraseña o se realizó la operación de establecimiento.  Consulte [protección con contraseña de Azure AD de supervisión y registro](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+La directiva de validación de contraseña se comporta de la misma forma, independientemente de si se realiza un cambio o un establecimiento de contraseña. El servicio del agente de control de dominio para protección con contraseña de Azure AD registra eventos diferentes para informarle si se realizó una operación de cambio o establecimiento de contraseña.  Consulte [Supervisión y registro de la protección con contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **P: ¿Es posible instalar la protección con contraseña de Azure AD junto con otros productos basados en filtros de contraseña?**
 
@@ -82,9 +82,9 @@ No. Puesto que el servidor proxy es sin estado, no es importante qué servidor p
 
 Sí. El servicio de proxy de Protección con contraseña de Azure AD y Azure AD Connect no deben nunca entrar en conflicto directamente entre sí.
 
-**P: ¿En qué orden deben los agentes del controlador de dominio y servidores proxy esté instalados y registrados?**
+**P: ¿En qué orden se deben instalar y registrar los agentes del controlador de dominio y los servidores proxy?**
 
-Se admite ningún orden de instalación del agente Proxy, instalación del agente DC, registro del bosque y el registro de Proxy.
+Se admite cualquier orden de instalación del agente de proxy, instalación del agente de controlador de domino, registro del bosque y registro de proxy.
 
 **P: ¿Debe preocuparme el rendimiento de mis controladores de dominio por implementar esta característica?**
 
@@ -110,15 +110,15 @@ En resumen, se requiere implementar el servicio de agente de controlador de domi
 
 No.
 
-**P: ¿Por qué Azure aún rechaza las contraseñas, aunque he configurado la directiva para que esté en modo de auditoría?**
+**P: ¿Por qué Azure sigue rechazando las contraseñas no segura, aunque configuré la directiva para que esté en modo de auditoría?**
 
-Solo se admite el modo de auditoría en el entorno de Active Directory local. Azure implícitamente siempre está en modo de "Aplicar" cuando se evalúa como las contraseñas.
+Solo se admite el modo de auditoría en el entorno de Active Directory local. Azure implícitamente siempre está en modo "aplicar" cuando evalúa las contraseñas.
 
 ## <a name="additional-content"></a>Contenido adicional
 
 Los vínculos siguientes no forman parte de la documentación principal de Protección con contraseña de Azure AD, pero pueden ser una fuente de información adicional útil sobre la característica.
 
-[Protección mediante contraseña de Azure AD ya está disponible con carácter general.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
+[La protección con contraseña de Azure AD ya está en modo de disponibilidad general](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
 [Email Phishing Protection Guide – Part 15: Implement the Microsoft Azure AD Password Protection Service (for On-Premises too!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/) (Guía de protección contra la suplantación de identidad en correos electrónicos: Implementación del servicio Protección con contraseña de Microsoft Azure AD)
 

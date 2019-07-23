@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61276743"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
@@ -81,7 +81,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Protocol| (Opcional) Especifica el protocolo 'http' o 'https' para conectarse a vCenter. El protocolo predeterminado es https.|
 | -StorageAccountName | (Opcional) El nombre de la cuenta de almacenamiento que se usa para ver el rendimiento que se puede obtener en la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el rendimiento. La cuenta de almacenamiento debe ser de tipo de uso general v1 (GPv1). |
 | -StorageAccountKey | (Opcional) La clave de la cuenta de almacenamiento utilizada para acceder a dicha cuenta. Vaya a Azure Portal > Cuentas de almacenamiento > <*nombre de la cuenta de almacenamiento*> > Configuración > Claves de acceso > Key1. |
-| -Environment | (Opcional) Se trata del entorno de la cuenta de Azure Storage de destino. Puede ser uno de estos tres valores: AzureCloud, AzureUSGovernment y AzureChinaCloud. El valor predeterminado es AzureCloud. Use el parámetro cuando la región de Azure de destino es Azure US Government o Azure China 21Vianet. |
+| -Environment | (Opcional) Se trata del entorno de la cuenta de Azure Storage de destino. Puede ser uno de estos tres valores: AzureCloud, AzureUSGovernment y AzureChinaCloud. El valor predeterminado es AzureCloud. Use el parámetro si la región de destino de Azure se corresponde con Azure US Government o Azure China 21Vianet. |
 
 
 Se recomienda generar perfiles de las máquinas virtuales durante más de 7 días. Si el patrón de actividad varía en un mes, se recomienda realizar la generación de perfiles durante la semana en que contemple la actividad máxima. La mejor manera es generar perfiles durante 31 días para obtener la mejor recomendación. Durante el período de generación de perfiles ASRDeploymentPlanner.exe sigue ejecutándose. La herramienta admite la entrada de tiempo de generación de perfiles en días. Para realizar una prueba rápida de la herramienta o una prueba de concepto, puede generar perfiles durante algunas horas o minutos. El tiempo mínimo de generación de perfiles permitido es de 30 minutos.
@@ -95,7 +95,7 @@ De forma predeterminada, la herramienta está configurada tanto para generar per
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Con la configuración predeterminada, para generar perfiles de 1500 máquinas virtuales, cree dos archivos VMList.txt. Uno con 1000 máquinas virtuales y otro con una lista de 500 máquinas virtuales. Ejecute las dos instancias de Azure Site Recovery Deployment Planner, una con VMList1.txt y otra con VMList2.txt. Puede usar la misma ruta de acceso de directorio para almacenar los datos de los perfiles de las máquinas virtuales de ambos VMList.
+Con la configuración predeterminada, para generar perfiles de 1500 máquinas virtuales, cree dos archivos VMList.txt. Uno con 1000 máquinas virtuales y otro con una lista de 500 máquinas virtuales. Ejecute las dos instancias de Azure Site Recovery Deployment Planner, una con VMList1.txt y la otra con VMList2.txt. Puede usar la misma ruta de acceso de directorio para almacenar los datos de los perfiles de las máquinas virtuales de ambos VMList.
 
 Hemos visto que en función de la configuración de hardware, sobre todo el tamaño de la RAM del servidor desde el que se ejecuta la herramienta para generar el informe, la operación puede no completarse debido a que la memoria no es suficiente. Si el hardware es bueno, puede asignar cualquier valor MaxVMsSupported, por grande que sea.  
 
@@ -136,10 +136,10 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>Generación de informes
-La herramienta genera un archivo de Microsoft Excel habilitado para macros (archivo XLSM) como la salida del informe, que resume todas las recomendaciones de implementación. El informe se denomina `DeploymentPlannerReport_<unique numeric identifier>.xlsm` y se coloca en el directorio especificado.
+La herramienta genera un archivo de Microsoft Excel habilitado para macros (archivo XLSM) como la salida del informe, que resume todas las recomendaciones de implementación. El informe se llama `DeploymentPlannerReport_<unique numeric identifier>.xlsm` y está ubicado en el directorio especificado.
 
 >[!NOTE]
->La generación de informes requiere un PC de Windows o Windows Server con Excel 2013 o versiones posteriores. El símbolo decimal en esta máquina debe configurarse como "." para generar las estimaciones de costos. En caso de que ha configurado "," como símbolo decimal, vaya a "Cambio de fecha, hora o formatos de número" en el Panel de Control y vaya a "Configuración adicional" que se cambie el símbolo decimal a".".
+>La generación de informes requiere un equipo con Windows o Windows Server con Excel 2013, o cualquier versión posterior. El símbolo decimal de esta máquina debe configurarse como "." para generar las estimaciones de costos. En caso de que haya configurado "," como símbolo decimal, vaya a "Cambiar los formatos de fecha, hora o número" en el Panel de control y vaya a "Configuración adicional" para cambiar el símbolo decimal a ".".
 
 Una vez que se completa la generación de perfiles, se puede ejecutar la herramienta en modo de generación de informes. La siguiente tabla contiene una lista de los parámetros obligatorios y opcionales de la herramienta que se ejecutan en modo de generación de informes.
 
@@ -265,7 +265,7 @@ Abra una consola de línea de comandos y vaya a la carpeta de la herramienta de 
 | -StorageAccountName | El nombre de la cuenta de almacenamiento que se usa para hallar el ancho de banda consumido durante la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el ancho de banda consumido. La cuenta de almacenamiento debe ser de tipo de uso general v1 (GPv1).|
 | -StorageAccountKey | La clave de la cuenta de almacenamiento utilizada para acceder a dicha cuenta. Vaya a Azure Portal > Cuentas de almacenamiento > <*Nombre de cuenta de almacenamiento*> > Configuración > Claves de acceso > Key1 (o una clave de acceso principal para una cuenta de almacenamiento clásico). |
 | -VMListFile | El archivo que contiene la lista de máquinas virtuales de las que se va a generar el perfil para calcular el ancho de banda consumido. La ruta de acceso del archivo puede ser absoluta o relativa. El archivo debe contener un nombre de máquina virtual o una dirección IP en cada línea. Los nombres de máquina virtual especificados en el archivo debe ser los mismo que los nombres de máquina virtual del servidor vCenter/host de vSphere ESXi.<br>Por ejemplo, el archivo VMList.txt contiene las siguientes máquinas virtuales:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Environment | (Opcional) Se trata del entorno de la cuenta de Azure Storage de destino. Puede ser uno de estos tres valores: AzureCloud, AzureUSGovernment y AzureChinaCloud. El valor predeterminado es AzureCloud. Use el parámetro cuando la región de Azure de destino es Azure US Government o Azure China 21Vianet. |
+| -Environment | (Opcional) Se trata del entorno de la cuenta de Azure Storage de destino. Puede ser uno de estos tres valores: AzureCloud, AzureUSGovernment y AzureChinaCloud. El valor predeterminado es AzureCloud. Use el parámetro si la región de destino de Azure se corresponde con Azure US Government o Azure China 21Vianet. |
 
 La herramienta crea varios archivos llamados asrvhdfile<#>.vhd de 64 MB (donde "#" es el número de archivos) en el directorio especificado. La herramienta carga los archivos en la cuenta de almacenamiento para hallar el rendimiento. Después de medir el rendimiento, la herramienta elimina todos estos archivos de la cuenta de almacenamiento y del servidor local. Si la herramienta se termina por cualquier motivo mientras calcula el rendimiento, no elimina los archivos del almacenamiento ni del servidor local. Será preciso eliminarlos manualmente.
 

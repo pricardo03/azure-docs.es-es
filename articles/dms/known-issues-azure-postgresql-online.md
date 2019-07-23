@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/23/2019
-ms.openlocfilehash: 83c5401298d2682328da4e45d150d2d0416601fc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/14/2019
 ms.locfileid: "64691946"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure DB for PostgreSQL
@@ -27,7 +27,7 @@ Los problemas conocidos y las limitaciones relacionadas con las migraciones en l
 - Solo se admiten migraciones de la misma versión. Por ejemplo, no se admite la migración de PostgreSQL 9.5.11 a Azure Database for PostgreSQL 9.6.7.
 
     > [!NOTE]
-    > Actualmente para la versión 10 de PostgreSQL, DMS solo admite la migración de versión 10.3 a Azure Database for PostgreSQL. Tenemos previsto admitir las versiones más recientes de PostgreSQL muy pronto.
+    > Para PostgreSQL versión 10, DMS solo admite en la actualidad la migración de la versión 10.3 a Azure Database for PostgreSQL. Tenemos previsto admitir versiones más recientes de PostgreSQL muy pronto.
 
 - Para habilitar la replicación lógica en el archivo de origen **PostgreSQL postgresql.conf**, establezca los parámetros siguientes:
     - **wal_level** = logical
@@ -101,7 +101,7 @@ Las columnas de objetos grandes (LOB) son columnas que pueden alcanzar un tamañ
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Solución alternativa**: Si tiene un objeto de unidad de negocio que es mayor que 32 KB, póngase en contacto con el equipo de ingeniería en [formular las migraciones de base de datos de Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Solución alternativa**: si tiene un objeto LOB mayor de 32 KB, póngase en contacto con el equipo de ingeniería en [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Limitación**: si hay columnas LOB en la tabla y no hay ningún conjunto de claves principales para la tabla, es posible que los datos no se migren para esta tabla.
 

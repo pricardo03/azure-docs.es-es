@@ -1,6 +1,6 @@
 ---
-title: Crear vistas para analizar datos de registro en Azure Monitor | Microsoft Docs
-description: Al usar el Diseñador de vistas en Azure Monitor, puede crear vistas personalizadas que se muestran en el portal de Azure y contienen una gran variedad de visualizaciones de datos del área de trabajo de Log Analytics. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
+title: Creación de vistas para analizar los datos de registro en Azure Monitor | Microsoft Docs
+description: Con el uso del Diseñador de vistas en Azure Monitor se pueden crear vistas personalizadas que se muestran en Azure Portal y que contienen diferentes visualizaciones de datos en el área de trabajo de Log Analytics. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61342135"
 ---
-# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Crear vistas personalizadas mediante el Diseñador de vistas en Azure Monitor
-Al usar el Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en el portal de Azure que puede ayudarle a visualizar los datos en el área de trabajo de Log Analytics. Este artículo presenta una información general sobre Diseñador de vistas y los procedimientos para crear y editar vistas personalizadas.
+# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creación de vistas personalizadas mediante el Diseñador de vistas en Azure Monitor
+Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo presenta una información general sobre Diseñador de vistas y los procedimientos para crear y editar vistas personalizadas.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -32,7 +32,7 @@ Para más información acerca del Diseñador de vistas, consulte:
 
 
 ## <a name="concepts"></a>Conceptos
-Las vistas se muestran en el Monitor de Azure **Introducción** página en el portal de Azure. Abra esta página desde el menú **Azure Monitor** haciendo clic en **Más** en la sección **Conocimiento**. Los iconos de cada vista personalizada se muestran por orden alfabético, y se instalan los iconos de las soluciones de supervisión de la misma área de trabajo.
+Las vistas se muestran en la página **Información general** de Azure Monitor en Azure Portal. Abra esta página desde el menú **Azure Monitor** haciendo clic en **Más** en la sección **Conocimiento**. Los iconos de cada vista personalizada se muestran en orden alfabético, y los iconos para supervisar las soluciones se instalan en la misma área de trabajo.
 
 ![Página de información general](media/view-designer/overview-page.png)
 
@@ -40,12 +40,12 @@ Las vistas que se crean con el Diseñador de vistas contienen los elementos que 
 
 | Elemento | DESCRIPCIÓN |
 |:--- |:--- |
-| Iconos | Se muestran en el Monitor de Azure **Introducción** página. Cada icono muestra un resumen visual de la vista personalizada que representa. Cada tipo de icono proporciona una visualización distinta de los registros. Seleccione un icono para mostrar una vista personalizada. |
+| Iconos | Se muestran en la página **Información general** de Azure Monitor. Cada icono muestra un resumen visual de la vista personalizada que representa. Cada tipo de icono proporciona una visualización distinta de los registros. Seleccione un icono para mostrar una vista personalizada. |
 | Vista personalizada | Se muestra al seleccionar un icono. Cada vista contiene uno o varios elementos de visualización. |
-| Elementos de visualización | Presentar una visualización de datos del área de trabajo de Log Analytics según uno o varios [registrar consultas](../log-query/log-query-overview.md). Muchos de los elementos incluyen un encabezado que proporciona una visualización de alto nivel y una lista que muestra los principales resultados. Cada tipo de elemento proporciona una visualización diferente de los registros del área de trabajo de Log Analytics. Seleccionar elementos en la parte para realizar una consulta de registro que proporcione registros detallados. |
+| Elementos de visualización | Presentan una visualización de los datos del área de trabajo de Log Analytics que se basa en una o varias [consultas de registros](../log-query/log-query-overview.md). Muchos de los elementos incluyen un encabezado que proporciona una visualización de alto nivel y una lista que muestra los principales resultados. Cada tipo de elemento proporciona una visualización diferente de los registros del área de trabajo de Log Analytics. Seleccione los elementos para realizar una consulta de registro que proporcione registros detallados. |
 
 ## <a name="required-permissions"></a>Permisos necesarios
-Requieren al menos [permisos de nivel de colaborador](manage-access.md#manage-accounts-and-users) en el área de trabajo de Log Analytics para crear o modificar las vistas. Si no tiene este permiso, la opción de diseñador de vistas no se mostrará en el menú.
+Requiere como mínimo [permisos de nivel de colaborador](manage-access.md#manage-accounts-and-users) en el área de trabajo de Log Analytics para crear o modificar las vistas. Si no tiene este permiso, la opción Diseñador de vistas no se mostrará en el menú.
 
 
 ## <a name="work-with-an-existing-view"></a>Uso de una vista existente
@@ -58,7 +58,7 @@ Las opciones se describen en la tabla siguiente:
 | Opción | DESCRIPCIÓN |
 |:--|:--|
 | Actualizar   | Actualiza la vista con los datos más recientes. | 
-| Registros      | Se abre el [Log Analytics](../log-query/portals.md) para analizar los datos con consultas de registros. |
+| Registros      | Abre [Log Analytics](../log-query/portals.md) para analizar los datos con consultas de registro. |
 | Edit       | Abre la vista en el Diseñador de vistas para editar su contenido y configuración.  |
 | Clon      | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
 | Intervalo de fechas | Establezca un filtro de tiempo y fechas para los datos que se incluye en la vista. Este intervalo de fechas se aplica antes de cualquier conjunto de intervalo de fechas en consultas de la vista.  |

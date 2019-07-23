@@ -17,11 +17,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251074"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693813"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Crear una máquina virtual a partir de un VHD especializado en una cuenta de almacenamiento
 
@@ -65,7 +65,7 @@ Si necesita crear una nueva cuenta de almacenamiento, siga estos pasos:
     Get-AzResourceGroup
     ```
 
-    Para crear un grupo de recursos denominado **myResourceGroup** en la región **Oeste de EE. UU.**, escriba:
+    Para crear un grupo de recursos denominado **myResourceGroup** en la región **Oeste de EE. UU.** , escriba:
 
     ```powershell
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
@@ -126,7 +126,7 @@ Desasigne la máquina virtual para liberar espacio en el VHD que se va a copiar.
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-El **estado** de la máquina virtual en Azure Portal cambia de **Detenido** a **Detenido (desasignado)**.
+El **estado** de la máquina virtual en Azure Portal cambia de **Detenido** a **Detenido (desasignado)** .
 
 ### <a name="get-the-storage-account-urls"></a>Obtención de las URL de las cuentas de almacenamiento
 Necesita las URL de las cuentas de almacenamiento de origen y de destino. Las direcciones URL se verán así: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Si ya conoce el nombre de la cuenta de almacenamiento y el contenedor, puede reemplazar simplemente la información entre corchetes para crear la dirección URL. 
@@ -271,7 +271,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. Agregue el disco del sistema operativo. En este ejemplo, cuando se crea el disco del sistema operativo, el término "osDisk" se anexa al nombre de VM para crear el nombre del disco del sistema operativo. En este ejemplo también se especifica que este VHD basado en Windows debería asociarse a la VM como el disco del SO.
+2. Agregue el disco del sistema operativo. En este ejemplo, cuando se crea el disco del SO, el término "osDisk" se anexa al nombre de la VM para crear el nombre del disco de SO. En este ejemplo también se especifica que este VHD basado en Windows debería asociarse a la VM como el disco del SO.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

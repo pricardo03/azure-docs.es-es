@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943542"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configuración de la aplicación en el portal de publicación
@@ -47,7 +47,7 @@ El formulario de configuración de oferta es un formulario básico en el que se 
 
 Se trata de un identificador único de la oferta en un perfil del publicador. Este identificador será visible en las direcciones URL de producto. Puede contener solo caracteres alfanuméricos en minúscula o guiones (-). El identificador, que tendrá 50 caracteres como máximo, no puede terminar con un guion. Este campo queda bloqueado en cuanto se lanza una oferta.
 
-Por ejemplo, si un publicador **"contoso"** publicadores crea una oferta con el identificador de oferta **"aplicación Web de ejemplo"**, se mostrará en AppSource como "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+Por ejemplo, si un publicador **"contoso"** crea una oferta con el identificador de oferta **"sample-WebApp"** , aparecerá en AppSource como "https:\//appsource.microsoft.com./marketplace/apps/contoso.sample-WebApp?tab=Overview".
 
 ### <a name="publisher-id"></a>Id. de publicador
 
@@ -82,7 +82,7 @@ A continuación aparece una explicación de estos campos:
 
 ### <a name="crm-package-availability"></a>Disponibilidad del paquete CRM
 
-En esta sección, seleccione en qué regiones de CRM estará disponible el paquete. Para obtener información sobre qué CRM servir las regiones que países y regiones, consulte el vínculo: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+En esta sección, seleccione en qué regiones de CRM estará disponible el paquete. Para información sobre qué regiones de CRM abarcan qué países o regiones, consulte el vínculo: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Nota: La implementación en Soberanía "Soberanía y US Gov Cloud" de Alemania REQUIERE PERMISO ESPECIAL y VALIDACIÓN DURANTE LA CERTIFICACIÓN
 

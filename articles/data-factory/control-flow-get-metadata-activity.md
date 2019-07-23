@@ -1,6 +1,6 @@
 ---
 title: Actividad de obtención de metadatos en Azure Data Factory | Microsoft Docs
-description: Obtenga información sobre cómo puede usar la actividad GetMetadata en una canalización de Data Factory.
+description: Obtenga información sobre cómo usar la actividad GetMetadata en una canalización de Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: jingwang
 ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346922"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
@@ -55,7 +55,7 @@ La actividad GetMetadata toma un conjunto de datos como entrada necesaria y gene
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- Para Amazon S3 y Google Sloud Storage, el `lastModified` se aplica a los depósitos y la clave pero no virtual carpeta; y el `exists` se aplica a los depósitos y clave, pero no prefijo o una carpeta virtual.
+- En el caso de Amazon S3 y Google Cloud Storage, `lastModified` se aplica al cubo y a la clave, pero no a la carpeta virtual y `exists` se aplica al cubo y a la clave, pero no al prefijo ni a la carpeta virtual.
 - En el caso de Blob de Azure, `lastModified` se aplica al contenedor y al blob, pero no a la carpeta virtual.
 
 **Base de datos relacional:**

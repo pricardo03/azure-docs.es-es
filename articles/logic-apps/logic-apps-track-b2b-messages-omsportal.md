@@ -1,5 +1,5 @@
 ---
-title: 'Seguimiento de mensajes B2B con registros de Azure Monitor: Azure Logic Apps | Microsoft Docs'
+title: 'Seguimiento de mensajes B2B con los registros de Azure Monitor: Azure Logic Apps | Microsoft Docs'
 description: Seguimiento de la comunicación B2B de las cuentas de integración y Azure Logic Apps con Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -10,15 +10,15 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120133"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Seguimiento de mensajes B2B con los registros de Azure Monitor
 
-Después de establecer la comunicación B2B entre entidades en la cuenta de integración, los asociados pueden intercambiar mensajes con protocolos como AS2, X12 y EDIFACT. Para comprobar que estos mensajes se procesan correctamente, puede realizar un seguimiento de estos mensajes con [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Por ejemplo, puede usar estas capacidades de seguimiento basado en web para el seguimiento de mensajes:
+Después de establecer la comunicación B2B entre entidades en la cuenta de integración, los asociados pueden intercambiar mensajes con protocolos como AS2, X12 y EDIFACT. Para comprobar si estos mensajes se procesan correctamente, puede realizar un seguimiento de ellos con los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Por ejemplo, puede usar estas capacidades de seguimiento basado en web para el seguimiento de mensajes:
 
 * Número y estado de los mensajes
 * Del estado de las confirmaciones
@@ -37,13 +37,13 @@ Después de establecer la comunicación B2B entre entidades en la cuenta de inte
 
 * Una cuenta de integración configurada con supervisión y registro. Obtenga información sobre [cómo crear una cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) y [cómo configurar la supervisión y el registro de esa cuenta](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Si no lo ha hecho ya, [publicar datos de diagnóstico a los registros de Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Si aún no lo ha hecho, [publique los datos de diagnóstico en los registros de Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 * Una vez que cumpla con los requisitos anteriores, también necesitará un área de trabajo de Log Analytics que usará para realizar el seguimiento de la comunicación B2B mediante Log Analytics. Si no tiene un área de trabajo de Log Analytics, aprenda a [crear un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="install-logic-apps-b2b-solution"></a>Instalación de una solución Logic Apps B2B
 
-Antes de realizar un seguimiento de mensajes B2B de la aplicación lógica puede tener registros de Azure Monitor, agregar el **Logic Apps B2B** soluciones a los registros de Azure Monitor. Obtenga más información sobre [agregar soluciones a los registros de Azure Monitor](../azure-monitor/learn/quick-create-workspace.md).
+Para que los registros de Azure Monitor realicen el seguimiento de los mensajes B2B de la aplicación lógica, agregue la solución **Logic Apps B2B** a los registros de Azure Monitor. Obtenga más información sobre la [incorporación de soluciones a los registros de Azure Monitor](../azure-monitor/learn/quick-create-workspace.md).
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los servicios**. En el cuadro de búsqueda, busque "log analytics" y seleccione **Log Analytics**.
 
@@ -130,7 +130,7 @@ Una vez procesados los mensajes B2B, puede ver el estado y los detalles de esos 
    * Para buscar resultados con consultas predeterminadas, elija **Favoritos**.
 
    * Aprenda [cómo generar consultas mediante la adición de filtros](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
-   U obtenga más información acerca de [cómo buscar datos con búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+   O bien aprenda [cómo buscar datos con búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 
    * Para cambiar la consulta del cuadro de búsqueda, actualícela con las columnas y los valores que quiera usar como filtros.
 
@@ -239,7 +239,7 @@ Estos son los formatos de nombre de cada carpeta y archivo de mensajes EDIFACT d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Consulta de mensajes B2B en registros de Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Consultar mensajes B2B en los registros de Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Esquemas de seguimiento de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Esquemas de seguimiento de X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Esquemas de seguimiento personalizados](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

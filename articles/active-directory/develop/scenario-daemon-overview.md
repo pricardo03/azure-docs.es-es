@@ -1,6 +1,6 @@
 ---
-title: 'Web de aplicación de demonio que realiza la llamada API (información general): la plataforma de identidad de Microsoft'
-description: Obtenga información sobre cómo compilar una aplicación demonio que llama a las API web
+title: 'Aplicación de demonio que llama a las API web (información general): Plataforma de identidad de Microsoft'
+description: Obtenga información sobre cómo compilar una aplicación de demonio que llama a las API web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,15 +17,15 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 578b7cdb38b7df3fab5885d773354a36f76a4cfb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075886"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Escenario: Aplicación de demonio que llama a las API web
 
-Aprenda todo lo que necesita para compilar una aplicación de demonio que llama a las API web.
+Obtenga toda la información necesaria para compilar una aplicación de demonio que llama a las API web.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,38 +33,38 @@ Aprenda todo lo que necesita para compilar una aplicación de demonio que llama 
 
 ## <a name="overview"></a>Información general
 
-La aplicación puede adquirir un token para llamar a una API web en nombre propio (no en el nombre de un usuario). Este escenario es útil para aplicaciones de demonio. Utiliza el estándar de OAuth 2.0 [las credenciales del cliente](v2-oauth2-client-creds-grant-flow.md) conceder.
+La aplicación puede adquirir un token para llamar a una API web en nombre propio (no en el nombre de un usuario). Este escenario es útil para aplicaciones de demonio. Usa la concesión de [credenciales del cliente](v2-oauth2-client-creds-grant-flow.md) OAuth 2.0 estándar.
 
 ![Aplicaciones de demonio](./media/scenario-daemon-app/daemon-app.svg)
 
-Estos son algunos ejemplos de casos de uso de aplicaciones de demonio:
+Estos son algunos ejemplos de casos de usos para aplicaciones de demonio:
 
-- Las aplicaciones Web que se usan para aprovisionar o administración los usuarios o procesos en un directorio de batch
-- Aplicaciones de escritorio como (servicios de windows en Windows) o los procesos de demonios de Linux que realizan los trabajos por lotes o un servicio de sistema operativo que se ejecuta en segundo plano
-- API Web que necesitan manipular directorios, los usuarios no específicos
+- Aplicaciones web que se usan para aprovisionar o administrar usuarios, o llevar a cabo procesos en lote en un directorio
+- Aplicaciones de escritorio (como servicios de ventanas en Windows o procesos de demonios en Linux) que realizan trabajos por lotes, o un servicio de sistema operativo que se ejecuta en segundo plano
+- API Web que necesitan manipular directorios, no usuarios específicos
 
-Hay otro caso habitual donde las aplicaciones que no son daemon usen las credenciales del cliente: incluso cuando actúan en nombre de usuarios, que necesitan tener acceso a una API web o un recurso con su identidad por motivos técnicos. Un ejemplo es el acceso a los secretos en Key Vault o Azure SQL database para una memoria caché.
+Hay otro caso habitual donde las aplicaciones que no son demonios usan las credenciales del cliente: incluso cuando actúan en nombre de usuarios, deben tener acceso a una API web o a un recurso con su identidad por motivos técnicos. Un ejemplo es el acceso a los secretos en Key Vault o una base de datos de Azure SQL para una memoria caché.
 
-Aplicaciones que adquieren un token para sus propias identidades:
+Las aplicaciones que adquieren un token para sus propias identidades:
 
-- Son aplicaciones de cliente confidencial. Estas aplicaciones, dado que acceden a recursos independientemente de un usuario, deben demostrar su identidad. También son las aplicaciones confidenciales en su lugar, lo que necesitan ser aprobados por administradores de inquilinos de Azure Active Directory (Azure AD).
-- Ha registrado un secreto (contraseña de la aplicación o certificado) con Azure AD. Este secreto es pasado durante la llamada a Azure AD para obtener un token.
+- Son aplicaciones cliente confidenciales. Estas aplicaciones, dado que acceden a recursos independientemente de un usuario, deben demostrar su identidad. También son aplicaciones bastante confidenciales, por lo que tiene que ser aprobadas por los administradores de inquilinos de Azure Active Directory (Azure AD).
+- Han registrado un secreto (contraseña de la aplicación o certificado) en Azure AD. Este secreto se pasa durante la llamada a Azure AD para obtener un token.
 
 ## <a name="specifics"></a>Características específicas
 
 > [!IMPORTANT]
 >
-> - Interacción del usuario no es posible con una aplicación de demonio. Una aplicación de demonio requiere su propia identidad. Este tipo de aplicación solicita un token de acceso con su identidad de aplicación y presenta su Id. de aplicación, credenciales (contraseña o certificado) y aplicación de URI de Id. de Azure AD. Tras una autenticación correcta, el demonio recibe un token de acceso (y un token de actualización) desde el extremo de plataforma de identidad de Microsoft, que, a continuación, se usa para llamar a la API web (y se actualiza según sea necesario).
-> - Dado que no es posible la interacción del usuario, el consentimiento incremental no será posible. Todos los permisos necesarios de API deben configurarse en el registro de aplicación y el código de la aplicación simplemente solicita permisos definidos estáticamente. Esto también significa que las aplicaciones de demonio no admiten consentimiento incremental.
+> - La interacción del usuario no es posible con una aplicación de demonio. Una aplicación de demonio requiere su propia identidad. Este tipo de aplicación solicita un token de acceso con su identidad de aplicación y presenta el identificador de la aplicación, las credenciales (contraseña o certificado) y el identificador URI del identificador de la aplicación a Azure AD. Tras una autenticación correcta, el demonio recibe un token de acceso (y un token de actualización) del punto de conexión de la Plataforma de identidad de Microsoft, que, luego, se usa para llamar a la API web (y se actualiza según sea necesario).
+> - Dado que no es posible la interacción del usuario, el consentimiento incremental no será posible. Todos los permisos necesarios de API deben configurarse en el registro de aplicación, y el código de la aplicación simplemente solicita permisos definidos estáticamente. Esto también significa que las aplicaciones de demonio no admiten el consentimiento incremental.
 
-Para los desarrolladores, la experiencia de extremo a otro para este escenario tiene los siguientes aspectos:
+Para los desarrolladores, la experiencia total de este escenario tiene los siguientes aspectos:
 
-- Aplicaciones demonio solo pueden funcionar en inquilinos de Azure AD. Para crear una aplicación demonio que intenta manipular cuentas personales de Microsoft no tendría sentido. Si es un desarrollador de aplicaciones de línea de negocio (LOB), creará la aplicación de demonio en el inquilino. Si es un ISV, que es posible que desee crear una aplicación de demonio de varios inquilinos. Deberá ser aceptado por cada administrador de inquilinos.
-- Durante la [registro de la aplicación](./scenario-daemon-app-registration.md), **URI de respuesta** no es necesario. Necesita compartir certificados o secretos con Azure AD, y deberá solicitar permisos de aplicaciones y conceder consentimiento para usar esos permisos de aplicación.
-- El [configuración de la aplicación](./scenario-daemon-app-configuration.md) tiene que proporcionar credenciales de cliente como compartido con Azure AD durante el registro de aplicación.
-- El [ámbito](scenario-daemon-acquire-token.md#scopes-to-request) utilizada para adquirir un token con las credenciales del cliente flujo debe ser un ámbito estático.
+- Las aplicaciones de demonio solo pueden funcionar en inquilinos de Azure AD. No tendría sentido crear una aplicación de demonio que intentara manipular cuentas personales de Microsoft. Si es desarrollador de aplicaciones de línea de negocio (LOB), creará la aplicación de demonio en el inquilino. Si es ISV, es posible que quiera crear una aplicación de demonio de varios inquilinos. Cada administrador de inquilinos deberá dar su consentimiento.
+- Durante el [registro de la aplicación](./scenario-daemon-app-registration.md), no es necesario el **URI de respuesta**. Tiene que compartir secretos o certificados con Azure AD, y tiene que solicitar permisos de aplicación y conceder el consentimiento del administrador para usar esos permisos de aplicación.
+- La [configuración de la aplicación](./scenario-daemon-app-configuration.md) tiene que proporcionar las credenciales de cliente tal cual se comparten con Azure AD durante el registro de la aplicación.
+- El [ámbito](scenario-daemon-acquire-token.md#scopes-to-request) usado para adquirir un token con el flujo de credenciales del cliente debe ser un ámbito estático.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aplicación de demonio - registro de aplicación](./scenario-daemon-app-registration.md)
+> [Aplicación de demonio: registro de la aplicación](./scenario-daemon-app-registration.md)

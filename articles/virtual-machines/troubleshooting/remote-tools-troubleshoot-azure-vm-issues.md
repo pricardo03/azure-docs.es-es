@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: 513ce98703e67053ab0bcac3e6fc7a3e959f6870
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307430"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717278"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Uso de herramientas remotas para solucionar problemas con la VM de Azure
 
@@ -39,7 +39,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!Note]
 >* El comando debe ejecutarse en un equipo que esté en la misma red virtual.
->* Nombre de host o DIP puede utilizarse para reemplazar \<equipo >.
+>* Los valores de DIP o HostName pueden usarse para reemplazar \<computer>.
 >* El parámetro -s asegura que se invoca el comando mediante el uso de la cuenta del sistema (permisos de administrador).
 >* PsExec usa los puertos TCP 135 y 445. Por lo tanto, los dos puertos deben estar abiertos en el firewall.
 
@@ -236,7 +236,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. Desde otra máquina virtual en la misma red virtual, abra una instancia de **Services.msc**.
 
-2. Haga clic con el botón derecho en **Servicios (Local)**.
+2. Haga clic con el botón derecho en **Servicios (Local)** .
 
 3. Seleccione **Conectarse a otro equipo**.
 

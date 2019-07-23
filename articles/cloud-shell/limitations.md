@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 8fd88221818d28c227c33719c03e522e815a408b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097072"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitaciones de Azure Cloud Shell
@@ -45,7 +45,7 @@ Cloud Shell es compatible con las versiones más recientes de Microsoft Edge, Mi
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Solo puede haber un shell activo para un usuario determinado
 
-Los usuarios solo pueden iniciar un tipo de shell a la vez, ya sea **Bash** o **PowerShell**. Pero puede haber varias instancias de Bash o PowerShell en ejecución al mismo tiempo. Los cambios entre Bash o PowerShell mediante el menú, hace que Cloud Shell que se reinicie, que finaliza las sesiones existentes. Como alternativa, puede ejecutar bash dentro de PowerShell escribiendo `bash`, y puede ejecutar PowerShell dentro de bash escribiendo `pwsh`.
+Los usuarios solo pueden iniciar un tipo de shell a la vez, ya sea **Bash** o **PowerShell**. Pero puede haber varias instancias de Bash o PowerShell en ejecución al mismo tiempo. Los cambios entre Bash y PowerShell mediante el menú provocan el reinicio de Cloud Shell, lo que finaliza las sesiones existentes. Como alternativa, puede escribir `bash` para ejecutar Bash en PowerShell o escribir `pwsh` para ejecutar PowerShell en Bash.
 
 ### <a name="usage-limits"></a>Límites de uso
 
@@ -57,9 +57,9 @@ Cloud Shell está pensado para casos de uso interactivos. Por tanto, todas las s
 
 Los permisos se establecen como usuarios normales sin acceso a sudo. No se conserva cualquier instalación fuera del directorio `$Home`.
 
-### <a name="editing-bashrc-or-profile"></a>Editar .bashrc o $PROFILE
+### <a name="editing-bashrc-or-profile"></a>Edición de .bashrc o $PROFILE
 
-Tenga cuidado al editar .bashrc $PROFILE archivo de PowerShell o, si lo hace, puede producir errores inesperados en Cloud Shell.
+Tenga cuidado al editar el archivo .bashrc o el archivo $PROFILE de PowerShell, ya que puede provocar errores inesperados en Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitaciones de PowerShell
 
@@ -73,11 +73,11 @@ El módulo `SqlServer` incluido en Cloud Shell solo es compatible con versiones 
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Ubicación del archivo predeterminada cuando se crea a partir de la unidad de Azure:
 
-Con los cmdlets de PowerShell, los usuarios no pueden crear archivos en Azure: unidad. Cuando los usuarios crean nuevos archivos con otras herramientas, como vim o nano, los archivos se guardan de forma predeterminada en `$HOME`. 
+Con los cmdlets de PowerShell, los usuarios no pueden crear archivos en la unidad de Azure (Azure:). Cuando los usuarios crean nuevos archivos con otras herramientas, como vim o nano, los archivos se guardan de forma predeterminada en `$HOME`. 
 
 ### <a name="gui-applications-are-not-supported"></a>No se admiten las aplicaciones con GUI
 
-Si el usuario ejecuta un comando que crearía un cuadro de diálogo de Windows, se ve como un mensaje de error: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Si el usuario ejecuta un comando que crearía un cuadro de diálogo de Windows, se ve un mensaje de error como el siguiente: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Espacio grande después de mostrar la barra de progreso
 

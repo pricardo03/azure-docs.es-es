@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan;juliako
 ms.openlocfilehash: 5c86a49cd9dc26f724de12ed2e5e77e645e4ab53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61466602"
 ---
-# <a name="hybrid-design-of-drm-subsystems"></a>Diseño híbrido de subsistemas DRM 
+# <a name="hybrid-design-of-drm-subsystems"></a>Diseño híbrido de subsistemas de DRM 
 
 En este tema se describe el diseño híbrido de subsistemas DRM con Azure Media Services.
 
@@ -98,9 +98,9 @@ Según las explicaciones de la sección anterior, en los cinco siguientes escena
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Sí|Sí|Ejemplo 1|
 |AMS|AMS|Aplicaciones de terceros|Sí|Sí|Ejemplo 2|
-|AMS|Aplicaciones de terceros|AMS|Sí|Sin |Ejemplo 3|
-|AMS|Aplicaciones de terceros|Externo|Sin |Sin |Ejemplo 4|
-|Aplicaciones de terceros|Aplicaciones de terceros|AMS|Sí|Sin |    
+|AMS|Aplicaciones de terceros|AMS|Sí|Sin|Ejemplo 3|
+|AMS|Aplicaciones de terceros|Externo|Sin|Sin|Ejemplo 4|
+|Aplicaciones de terceros|Aplicaciones de terceros|AMS|Sí|Sin|    
 
 En los ejemplos, la protección de PlayReady funciona para DASH y Smooth Streaming. Las direcciones URL de vídeo siguientes son direcciones URL de Smooth Streaming. Para obtener las direcciones URL de DASH correspondientes, simplemente anexe "(format=mpd-time-csf)". Puede usar el [reproductor multimedia de prueba de Azure](https://aka.ms/amtest) para probar en un explorador. Permite configurar qué protocolo de streaming usar y en qué tecnología. IE11 y Microsoft Edge en Windows 10 admiten PlayReady a través de EME. Para más información, vea los [detalles sobre la herramienta de prueba](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 

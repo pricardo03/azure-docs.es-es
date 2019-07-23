@@ -1,6 +1,6 @@
 ---
-title: 'Aplicación Web que llama a web API (inicio de sesión): la plataforma de identidad de Microsoft'
-description: Obtenga información sobre cómo compilar una aplicación Web que llama a web API (inicio de sesión)
+title: 'Aplicación web que llama a las API web (inicio de sesión): Plataforma de identidad de Microsoft'
+description: Obtenga información sobre cómo compilar una aplicación web que llame a API web (inicio de sesión)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,23 +16,23 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 663cea72eb620217ad5fa8925d3bb00eedbf890c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074566"
 ---
-# <a name="web-app-that-calls-web-apis---sign-in"></a>Aplicación Web que llama a web API: inicio de sesión
+# <a name="web-app-that-calls-web-apis---sign-in"></a>Aplicación web que llama a las API web: inicio de sesión
 
-Ya sabe cómo agregar el inicio de sesión a la aplicación web. Obtenga información sobre esto en [aplicación Web que inicia sesión usuarios: agregar inicio de sesión](scenario-web-app-sign-user-sign-in.md).
+Ya sabe cómo agregar el inicio de sesión a una aplicación web. Obtuvo información sobre esto en [Aplicación web que permite iniciar sesión a los usuarios (inicio de sesión)](scenario-web-app-sign-user-sign-in.md).
 
-¿Qué es diferente de aquí, es que cuando el usuario ha iniciado horizontalmente, de esta aplicación o desde cualquier aplicación, que desea quitar de la caché de tokens, los tokens asociados con el usuario.
+Lo diferente de aquí es que, cuando el usuario ha cerrado la sesión, desde esta aplicación o desde cualquier aplicación, querrá quitar de la caché de tokens los tokens asociados con el usuario.
 
-## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>Interceptar la devolución de llamada después de cierre de sesión: cierre de sesión único
+## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>Interceptar la devolución de llamada después del cierre de sesión: cierre de sesión único
 
-La aplicación puede interceptar la después `logout` eventos, por ejemplo para borrar la entrada de la caché del token asociada con la cuenta que cerrar la sesión. Veremos en la segunda parte de este tutorial (acerca de la aplicación Web de una llamada a una API Web), que la aplicación web almacenará los tokens de acceso para el usuario en una memoria caché. Interceptar la después `logout` devolución de llamada permite que la aplicación web quitar el usuario de la caché de tokens. Este mecanismo se ilustra en la `AddMsal()` método [StartupHelper.cs L137 143](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/b87a1d859ff9f9a4a98eb7b701e6a1128d802ec5/Microsoft.Identity.Web/StartupHelpers.cs#L137-L143)
+La aplicación puede interceptar el evento posterior a `logout`, por ejemplo para borrar la entrada de la caché de tokens asociada con la cuenta que ha cerrado la sesión. Veremos en la segunda parte de este tutorial (acerca de la aplicación web que llama a una API web), que la aplicación web almacenará los tokens de acceso para el usuario en una memoria caché. Interceptar la devolución de llamada posterior a `logout` permite que la aplicación web quite al usuario de la caché de tokens. Este mecanismo se ilustra en el método `AddMsal()` de [StartupHelper.cs L137 143](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/b87a1d859ff9f9a4a98eb7b701e6a1128d802ec5/Microsoft.Identity.Web/StartupHelpers.cs#L137-L143).
 
-El **Logout Url** que ha registrado para la aplicación le permite implementar el cierre de sesión único. La plataforma Microsoft identity `logout` llamará el punto de conexión de la **Logout URL** registrado con la aplicación. Esta llamada se produce si el cierre de sesión se inició desde la aplicación web, o desde otra aplicación web o el explorador. Para obtener más información, consulte [cierre de sesión único](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#single-sign-out) en la documentación conceptual.
+La **URL de cierre de sesión** que ha registrado para la aplicación le permite implementar el cierre de sesión único. El punto de conexión `logout` de la Plataforma de identidad de Microsoft llamará a la **URL de cierre de sesión** registrada en la aplicación. Esta llamada se produce si el cierre de sesión se ha iniciado desde la aplicación web, o desde otra aplicación web o el explorador. Para más información, consulte [Cierre de sesión único](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#single-sign-out) en la documentación conceptual.
 
 ```CSharp
 public static IServiceCollection AddMsal(this IServiceCollection services, IEnumerable<string> initialScopes)
@@ -57,4 +57,4 @@ public static IServiceCollection AddMsal(this IServiceCollection services, IEnum
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Adquirir un token para la aplicación web](scenario-web-app-call-api-acquire-token.md)
+> [Adquisición de un token para la aplicación web](scenario-web-app-call-api-acquire-token.md)

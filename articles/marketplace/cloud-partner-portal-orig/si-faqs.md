@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943074"
 ---
 <a name="seller-insights-faq"></a>Preguntas más frecuentes sobre Seller Insights
@@ -29,7 +29,7 @@ Las definiciones de los valores de métrica del archivo de transacciones se encu
 <a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Consulta de los detalles de cliente de las transacciones por las que me han pagado
 -------------------------------------------------------------
 
-Después de descargar las transacciones desde el módulo de pago, busque la columna con la etiqueta **Payout Status** (Estado del pago) y aplique el filtro para que aparezcan solo aquellas con el valor "Paid Out" (Pagado). Aparecerán las columnas siguientes que contiene los detalles del cliente: **Nombre de la empresa**, **correo electrónico de cliente**, **país cliente**, **estado de cliente**, y **código Postal del cliente**.
+Después de descargar las transacciones desde el módulo de pago, busque la columna con la etiqueta **Payout Status** (Estado del pago) y aplique el filtro para que aparezcan solo aquellas con el valor "Paid Out" (Pagado). Aparecerán las columnas siguientes que contienen los detalles del cliente: **Company Name** (Nombre de la compañía), **Customer Email** (Correo electrónico del cliente), **Customer Country** (País del cliente), **Customer State** (Estado del cliente) y **Customer Postal Code** (Código postal del cliente).
 
 
 <a name="calculate-my-open-accounts-receivable"></a>Cálculo de las cuentas por cobrar abiertas
@@ -41,7 +41,7 @@ Después de descargar las transacciones desde el módulo de pago, busque la colu
 <a name="calculate-revenue-by-customer-usage-period"></a>Cálculo de los ingresos por período de uso del cliente
 ------------------------------------------
 
-Después de descargar las transacciones desde el módulo de pago, busque la columna con la etiqueta **estado de la transacción**y filtrar el valor de "Pagado".   Para cada transacción en la lista, la columna con la etiqueta **importe de pago (PC)** representa la cantidad que se ha pagado.  Para calcular el período de uso asociado con la transacción, use la columna **fecha del cargo**, que es una buena aproximación del último día de uso para el período al que se aplica la transacción.
+Después de descargar las transacciones desde el módulo de pago, busque la columna con la etiqueta  **Transaction Status** (Estado de la transacción) y aplique el filtro para que aparezcan solo aquellas con el valor "Paid" (Pagado).   Para cada transacción de la lista, la columna con la etiqueta **Payout Amount (PC)**  (Importe del pago) representa la cantidad que le han pagado.  Para calcular el período de uso asociado con la transacción, use la columna **Charge Date** (Fecha del cargo), la cual resulta una buena aproximación al último día de uso del período al que se aplica la transacción.
 
 
 <a name="calculate-your-bad-debt"></a>Cálculo de la deuda incobrable

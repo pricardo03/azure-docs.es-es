@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/29/2019
 ms.author: rkarlin
 ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875602"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalización de la directiva de SQL Information Protection en Azure Security Center (versión preliminar)
@@ -41,11 +41,11 @@ Information Protection incluye un conjunto integrado de etiquetas y tipos de inf
 ## <a name="customize-the-information-protection-policy"></a>Personalización de la directiva de protección de la información
 Para personalizar la directiva de protección de información de su inquilino de Azure, deberá tener [privilegios administrativos en el grupo de administración raíz del inquilino](security-center-management-groups.md). 
  
-1. En la seguridad centrar en el menú principal, **higiene de seguridad de recursos** vaya a **datos y almacenamiento** y haga clic en el **SQL Information Protection** botón.
+1. En el menú principal de Security Center, en **PROTECCIÓN DE SEGURIDAD DE RECURSOS** vaya a **Datos y almacenamiento** y haga clic en el botón **SQL Information Protection**.
 
    ![Configuración de la directiva de protección de información](./media/security-center-info-protection-policy/security-policy.png) 
  
-2. En el **SQL Information Protection** página, puede ver el conjunto actual de etiquetas. Estos son los atributos principales de clasificación que se usan para categorizar el nivel de confidencialidad de los datos. Desde aquí, puede configurar las **etiquetas de protección de la información** y los **tipos de información** para el inquilino. 
+2. En la página **SQL Information Protection**, puede ver el conjunto actual de etiquetas. Estos son los atributos principales de clasificación que se usan para categorizar el nivel de confidencialidad de los datos. Desde aquí, puede configurar las **etiquetas de protección de la información** y los **tipos de información** para el inquilino. 
  
 ### <a name="customizing-labels"></a>Personalización de las etiquetas
  

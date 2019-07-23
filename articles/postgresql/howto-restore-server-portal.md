@@ -1,19 +1,19 @@
 ---
-title: 'Cómo restaurar un servidor de Azure Database for PostgreSQL: servidor único'
-description: 'En este artículo se describe cómo restaurar un servidor en Azure Database for PostgreSQL: servidor único con Azure portal.'
+title: Restauración de un servidor en Azure Database for PostgreSQL con un único servidor
+description: En este artículo se describe cómo restaurar un servidor en Azure Database for PostgreSQL con un único servidor mediante Azure Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 1950b43e0922eebe34463c06db9a5d67dce76f56
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65068879"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Cómo las copias de seguridad y restauración de un servidor en Azure Database for PostgreSQL: servidor único con Azure portal
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
 
 ## <a name="backup-happens-automatically"></a>Las copias de seguridad se realizan automáticamente
 Periódicamente, se realizan copias de seguridad de los servidores de Azure Database for PostgreSQL para habilitar las características de restauración. Con esta característica, puede restaurar el servidor y todas sus bases de datos en un servidor nuevo a un momento dado anterior.
@@ -59,7 +59,7 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
    ![Azure Database for PostgreSQL - Información sobre restauración](./media/howto-restore-server-portal/3-restore.png)
    - **Punto de restauración**: seleccione el momento al que desea restaurar.
-   - **Servidor de destino:**: proporcione un nombre para el nuevo servidor.
+   - **Servidor de destino:** : proporcione un nombre para el nuevo servidor.
    - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
    - **Plan de tarifa**: estos parámetros no se pueden cambiar al realizar una restauración a un momento dado. Es el mismo que el del servidor de origen. 
 

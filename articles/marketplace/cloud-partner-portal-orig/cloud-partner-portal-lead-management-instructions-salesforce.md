@@ -1,6 +1,6 @@
 ---
-title: Configurar la administración de clientes potenciales de Salesforce | Azure Marketplace
-description: Configurar la administración de cliente potencial en Salesforce para los clientes de Azure Marketplace.
+title: Configuración de la administración de clientes potenciales en Salesforce | Azure Marketplace
+description: Configure la administración de clientes potenciales en Salesforce para clientes de Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 0be5cd84e9ed8314584b5cea064b5c0241db1ab5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935092"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configuración de la administración de clientes potenciales en Salesforce
@@ -31,4 +31,4 @@ En este artículo se describe cómo configurar el sistema de Salesforce para adm
 5. En **Create a Web-to-Lead Form** (Creación de un formulario web para clientes potenciales), seleccione **Generate** (Generar) ![Salesforce generate](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png) (Generación de Salesforce)
 
 6. Copie el OID del ejemplo y guárdelo. Pegue el OID en el campo **Identificador de objeto** en Cloud Partner Portal.
-![Get OID de Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![OID de obtención de Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

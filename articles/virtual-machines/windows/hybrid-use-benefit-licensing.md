@@ -3,8 +3,8 @@ title: Ventaja para uso híbrido de Azure para Windows Server | Microsoft Docs
 description: Descubra cómo maximizar las ventajas de Software Assurance de Windows para incorporar licencias locales a Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: xujing
-manager: jeconnoc
+author: xujing-ms
+manager: gwallace
 editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
-ms.author: xujing-ms
-ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.author: xujing
+ms.openlocfilehash: 0a0b2a38cb01a5cd551d07da89a42dd837264aae
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570375"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875069"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Ventaja para uso híbrido de Azure para Windows Server
 Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure para Windows Server le permite usar las licencias de Windows Server locales y ejecutar máquinas virtuales de Windows en Azure a bajo costo. Puede usar la Ventaja híbrida de Azure para Windows Server para implementar nuevas máquinas virtuales con el SO Windows. En este artículo se recorren los pasos necesarios para implementar nuevas máquinas virtuales con la Ventaja híbrida de Azure para Windows Server y para actualizar las máquinas virtuales en funcionamiento existentes. Para obtener más información acerca de los ahorros de costos y la concesión de licencias de la ventaja para uso híbrido para Azure para Windows Server, vea la [página de concesión de licencias de la ventaja para uso híbrido de Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -33,10 +33,10 @@ Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure 
 >
 
 > [!NOTE]
-> Para las máquinas virtuales clásicas, se admiten solo implementar nuevas máquinas virtuales desde en imágenes personalizadas locales. Para aprovechar las ventajas de las funcionalidades admitidas en este artículo, primero debe migrar las máquinas virtuales clásicas al modelo de Resource Manager.
+> Para las VM clásicas, solo se admite la implementación de una nueva VM desde imágenes personalizadas locales. Para aprovechar las ventajas de las funcionalidades admitidas en este artículo, primero debe migrar las máquinas virtuales clásicas al modelo de Resource Manager.
 >
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Formas de usar la ventaja para uso híbrido de Azure para Windows Server
 Hay varias maneras de utilizar máquinas virtuales de Windows con la ventaja para uso híbrido de Azure:
@@ -171,7 +171,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Implementación de un conjunto de escalado de máquinas virtuales con la Ventaja híbrida de Azure para Windows Server
-En las plantillas de Resource Manager del conjunto de escalado de máquinas virtuales, se debe especificar un parámetro `licenseType` adicional en la propiedad VirtualMachineProfile. Puede hacerlo al crear o actualizar el conjunto de escalado a través de la plantilla ARM, PowerShell, CLI de Azure o REST.
+En las plantillas de Resource Manager del conjunto de escalado de máquinas virtuales, se debe especificar un parámetro `licenseType` adicional en la propiedad VirtualMachineProfile. Puede hacerlo durante la creación o actualización del conjunto de escalado a través de la plantilla de ARM, PowerShell, la CLI de Azure o REST.
 
 En el ejemplo siguiente, se usa una plantilla de ARM con una imagen de Windows Server 2016 Datacenter:
 ```json

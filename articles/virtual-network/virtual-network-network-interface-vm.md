@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: kumud
 ms.openlocfilehash: 23e46290af6bdb4c217d8fa0cd836673652fc81d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701372"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Incorporación de interfaces de red a máquinas virtuales o su eliminación de ellas
@@ -56,7 +56,7 @@ Antes de crear la máquina virtual, cree una interfaz de red mediante los pasos 
 
 1. Inicie sesión en el Portal de Azure.
 2. En el cuadro de búsqueda que se encuentra en la parte superior del portal, escriba el nombre de la máquina virtual a la que quiere agregar la interfaz de red; o también la puede buscar si selecciona **Todos los servicios** y, a continuación, **Máquinas virtuales**. Cuando haya encontrado la máquina virtual, selecciónela. La máquina virtual debe admitir el número de interfaces de red que quiere agregar. Para averiguar cuántas red interfaces admite cada tamaño de máquina virtual, consulte [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. En **CONFIGURACIÓN**, haga clic en **Información general**. Seleccione **Detener** y espere hasta que el **estado** de la máquina virtual cambie a **Detenida (desasignada)**.
+3. En **CONFIGURACIÓN**, haga clic en **Información general**. Seleccione **Detener** y espere hasta que el **estado** de la máquina virtual cambie a **Detenida (desasignada)** .
 4. En **CONFIGURACIÓN**, haga clic en **Redes**.
 5. Seleccione **Asociar interfaz de red**. En la lista de interfaces de red que no están asociadas actualmente a otra máquina virtual, seleccione la que quiere asociar.
 
@@ -73,7 +73,7 @@ Antes de crear la máquina virtual, cree una interfaz de red mediante los pasos 
 |Herramienta|Get-Help|
 |---|---|
 |CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (referencia) o [pasos detallados](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Agregar-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referencia) o [pasos detallados](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|PowerShell|[Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referencia) o [pasos detallados](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="view-network-interfaces-for-a-vm"></a>Visualización de las interfaces de red de una máquina virtual
 
@@ -95,7 +95,7 @@ Puede ver las interfaces de red asociadas actualmente a una máquina virtual par
 
 1. Inicie sesión en el Portal de Azure.
 2. En el cuadro de búsqueda que se encuentra en la parte superior del portal, busque el nombre de la máquina virtual de la que quiere quitar (desasociar) la interfaz de red; o también la puede buscar si selecciona **Todos los servicios** y, a continuación, **Máquinas virtuales**. Cuando haya encontrado la máquina virtual, selecciónela.
-3. En **CONFIGURACIÓN**, seleccione **Información general** y, luego, **Detener**. Espere a que el **estado** de la máquina virtual cambie a **Detenida (desasignada)**.
+3. En **CONFIGURACIÓN**, seleccione **Información general** y, luego, **Detener**. Espere a que el **estado** de la máquina virtual cambie a **Detenida (desasignada)** .
 4. En **CONFIGURACIÓN**, haga clic en **Redes**.
 5. Seleccione **Desasociar interfaz de red**. En la lista de interfaces de red actualmente asociadas a la máquina virtual, seleccione la interfaz de red que quiere desasociar.
 
@@ -126,7 +126,7 @@ Puede ver las interfaces de red asociadas actualmente a una máquina virtual par
 - De manera similar a IPv6, después de crear una máquina virtual no se le puede asociar una interfaz de red con redes aceleradas habilitadas. Además, para aprovechar las redes aceleradas, también debe completar pasos dentro del sistema operativo de la máquina virtual. Aprenda más sobre las redes aceleradas y otras restricciones cuando la use, en [Windows](create-vm-accelerated-networking-powershell.md) o [Linux](create-vm-accelerated-networking-cli.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para crear una máquina virtual con varias interfaces de red o direcciones IP, consulte los artículos siguientes:
+Para crear una máquina virtual con varias interfaces de red o direcciones IP, consulte los siguientes artículos:
 
 |Tarea|Herramienta|
 |---|---|

@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: manayar
 ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869106"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Incorporación de una imagen personalizada a una plantilla de un conjunto de escalado de Azure
 
-En este artículo se muestra cómo modificar el [plantilla de conjunto de escalado básico](virtual-machine-scale-sets-mvss-start.md) implementar desde la imagen personalizada.
+Este artículo le enseña cómo modificar la [plantilla de conjunto de escalado básico](virtual-machine-scale-sets-mvss-start.md) para implementarla a partir de una imagen personalizada.
 
 ## <a name="change-the-template-definition"></a>Cambio de la definición de la plantilla
-En un [artículo anterior](virtual-machine-scale-sets-mvss-start.md) hemos creado una plantilla de conjunto de escalado básico. Ahora utilice esa plantilla anterior y modificarlo para crear una plantilla que implementa un conjunto de escalado desde una imagen personalizada.  
+En un [artículo anterior](virtual-machine-scale-sets-mvss-start.md) creamos una plantilla de conjunto de escalado básico. Ahora usaremos esa plantilla anterior y la modificaremos para crear una plantilla que implementa un conjunto de escalado a partir de una imagen personalizada.  
 
 ### <a name="creating-a-managed-disk-image"></a>Creación de una imagen de disco administrado
 

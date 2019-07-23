@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Active Directory para autenticar soluciones de administración de Batch | Microsoft Docs
-description: Las aplicaciones compiladas con Azure Resource Manager y el proveedor de recursos de Batch se autentican con Azure AD.
+description: Las aplicaciones creadas con Azure Resource Manager y el proveedor de recursos de Batch se autentican con Azure AD.
 services: batch
 documentationcenter: .net
 author: laurenhughes
@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: lahugh
 ms.openlocfilehash: 0f6db6d9c86e6da047c45ae7b1c43cf5f55c7e2b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922850"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticación de soluciones de administración de Batch con Active Directory

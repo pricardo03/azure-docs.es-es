@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61429355"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Movimiento de datos desde un servidor SQL Server local hasta SQL Azure con Azure Data Factory
@@ -52,7 +52,7 @@ En este tutorial se asume que dispone de:
 
 * Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una **cuenta de almacenamiento de Azure**. En este tutorial se usa una cuenta de Azure Storage para almacenar los datos. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) . Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Consulte [Administración de las claves de acceso de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
-* Acceso a **Azure SQL Database**. Si debe configurar una base de datos de SQL Azure, el tema [Introducción a Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) proporciona información sobre cómo aprovisionar una nueva instancia de una base de datos de SQL Azure.
+* Acceso a **Azure SQL Database**. Si debe configurar una instancia de Azure SQL Database, el tema [Introducción a Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) proporciona información sobre cómo aprovisionar una nueva.
 * **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
@@ -71,7 +71,7 @@ Las instrucciones para crear una nueva factoría de datos de Azure y un grupo de
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Instalación y configuración de Integration Runtime de Azure Data Factory
 Integration Runtime es una infraestructura de integración de datos administrados que usa Azure Data Factory para proporcionar funcionalidades de integración de datos en distintos entornos de red. Este entorno en tiempo de ejecución se denominaba "Data Management Gateway".
 
-Para configurar, [siga las instrucciones para crear una canalización](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Para configurarlo, [siga las instrucciones para crear una canalización](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline).
 
 ## <a name="adflinkedservices"></a>Crear servicios vinculados para conectarse a los recursos de datos
 Un servicio vinculado define la información necesaria para que Azure Data Factory se conecte a un recurso de datos. Tenemos tres recursos en este escenario para los que se necesitan servicios vinculados:
@@ -99,7 +99,7 @@ Las definiciones basadas en JSON de las tablas usan los siguientes nombres:
 Se necesitan tres definiciones de tabla para esta canalización de ADF:
 
 1. [Tabla de SQL local](#adf-table-onprem-sql)
-2. [Tabla BLOB](#adf-table-blob-store)
+2. [Tabla Blob](#adf-table-blob-store)
 3. [Tabla SQL de Azure](#adf-table-azure-sql)
 
 > [!NOTE]

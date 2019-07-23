@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924843"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planeamiento de la capacidad y escalado para la recuperación ante desastres de VMware en Azure
@@ -114,13 +114,13 @@ Antes de configurar la infraestructura de Site Recovery, acceda al entorno para 
 1. Para medir estos parámetros, ejecute Site Recovery Deployment Planner en su entorno. Para obtener más información, consulte [Información sobre Azure Site Recovery Deployment Planner para VMware en Azure](site-recovery-deployment-planner.md).
 2. Implemente un servidor de configuración que cumpla las [recomendaciones de tamaño para el servidor de configuración](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Si la carga de trabajo de producción supera 650 máquinas virtuales, implemente otro servidor de configuración.
 3. Según la tasa de cambios de datos diaria medida, implemente [servidores de procesos de escalabilidad horizontal](vmware-azure-set-up-process-server-scale.md#download-installation-file) con ayuda de las [directrices de tamaño](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. Si espera que los datos de frecuencia de cambio para una máquina virtual de disco superar los 2 MBps, asegúrese de que usa discos administrados premium. Site Recovery Deployment Planner se ejecuta durante un período de tiempo específico. Los picos de la tasa de cambio de datos en otros momentos podrían no reflejarse en el informe.
+4. Si espera que la tasa de cambios de datos para una máquina virtual de disco supere los 2 MBps, asegúrese de usar discos administrados Premium. Site Recovery Deployment Planner se ejecuta durante un período de tiempo específico. Los picos de la tasa de cambio de datos en otros momentos podrían no reflejarse en el informe.
 5. [Configure el ancho de banda de red](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) según el RPO que desea conseguir.
 6. Cuando la infraestructura esté configurada, habilite la recuperación ante desastres para la carga de trabajo. Para ver cómo hacerlo, consulte [Configuración del entorno de origen para la replicación de VMware en Azure](vmware-azure-set-up-source.md).
 
 ## <a name="deploy-additional-process-servers"></a>Implementar servidores de procesos adicionales
 
-Si debe escalar horizontalmente la implementación a más de 200 máquinas de origen o si la tasa de renovación diaria total supera los 2 TB, debe agregar servidores de procesos para controlar el volumen del tráfico. Hemos mejorado el producto en versión 9.24 para proporcionar [procesar alertas del servidor](vmware-physical-azure-monitor-process-server.md#process-server-alerts) sobre cuándo configurar un servidor de procesos de escalado horizontal. [Configurar el servidor de procesos](vmware-azure-set-up-process-server-scale.md) para proteger las máquinas de origen nuevo o [equilibrar la carga](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
+Si debe escalar horizontalmente la implementación a más de 200 máquinas de origen o si la tasa de renovación diaria total supera los 2 TB, debe agregar servidores de procesos para controlar el volumen del tráfico. Mejoramos el producto en su versión 9.24 para ofrecerle [alertas del servidor de procesos](vmware-physical-azure-monitor-process-server.md#process-server-alerts) sobre cuándo configurar un servidor de procesos de escalabilidad horizontal. [Configure un servidor de procesos](vmware-azure-set-up-process-server-scale.md) para proteger las nuevas máquinas de origen o [equilibrar las cargas](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrar máquinas para utilizar el nuevo servidor de procesos
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
 ms.openlocfilehash: 685c978ff206e75d770918f2528a826ad522b706
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427111"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64710190"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visualización de los repositorios de registros de contenedor en Azure Portal
 
@@ -21,9 +21,9 @@ Azure Container Registry permite almacenar imágenes de contenedor Docker en rep
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Registro de contenedor**: Cree un registro de contenedor en su suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md).
-* **CLI de docker**: Instalar [Docker] [ docker-install] en el equipo local, lo que proporciona la interfaz de línea de comandos de Docker.
-* **Imagen de contenedor**: Insertar una imagen en el registro de contenedor. Para instrucciones sobre cómo insertar y extraer imágenes, consulte [Inserción y extracción de una imagen](container-registry-get-started-docker-cli.md).
+* **Registro de contenedor**: cree un registro de contenedor en la suscripción a Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md).
+* **CLI de Docker**: instale [Docker][docker-install] en el equipo local, lo que proporciona la interfaz de la línea de comandos de Docker.
+* **Imagen de contenedor**: inserte la imagen en el registro de contenedor. Para instrucciones sobre cómo insertar y extraer imágenes, consulte [Inserción y extracción de una imagen](container-registry-get-started-docker-cli.md).
 
 ## <a name="view-repositories-in-azure-portal"></a>Visualización de repositorios en Azure Portal
 
