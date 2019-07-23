@@ -56,8 +56,8 @@ O bien, si la conexión ya existe, especifique la información necesaria para el
    | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
    |----------|----------|-------|-------------|
    | Search Query (Consulta de búsqueda) | Sí | <*search-words*> | Escriba las palabras clave de búsqueda que desee usar. |
-   | Mercados | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
-   | Búsqueda segura | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
+   | Market | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
+   | Safe Search | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
    | Count | Sin | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
    | Offset | Sin | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
    |||||
@@ -107,8 +107,8 @@ En la lista de acciones, seleccione la que desee.
    | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
    |----------|----------|-------|-------------|
    | Search Query (Consulta de búsqueda) | Sí | <*search-expression*> | Escriba una expresión para consultar los resultados del desencadenador. Puede seleccionar entre los campos de la lista de contenido dinámico o crear una expresión con el generador de expresiones. |
-   | Mercados | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
-   | Búsqueda segura | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
+   | Market | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
+   | Safe Search | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
    | Count | Sin | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
    | Offset | Sin | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
    |||||
