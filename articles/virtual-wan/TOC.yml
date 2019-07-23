@@ -10,8 +10,6 @@
       href: virtual-wan-site-to-site-portal.md
     - name: Creación de una conexión de ExpressRoute
       href: virtual-wan-expressroute-portal.md
-    - name: Creación de una conexión de punto a sitio
-      href: virtual-wan-point-to-site-portal.md
 - name: Conceptos
   items:
     - name: Acerca de ubicaciones y asociados
@@ -38,7 +36,7 @@
       href: '/powershell/module/az.network#networking'
     - name: REST
       href: /rest/api/azure
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/ext/virtual-wan
 - name: Recursos
   items:

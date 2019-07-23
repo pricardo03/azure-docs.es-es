@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575321"
 ---
 # <a name="glossary"></a>Glosario
 
 A continuación se incluye una lista de palabras comunes que se usan con Azure Maps.
 
-## <a name="a"></a>Una 
+## <a name="a"></a>Una
 
 <a name="address-validation"></a> **Validación de direcciones**: proceso de comprobar la existencia de una dirección.
 
@@ -37,11 +37,11 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="antimeridian"></a> **Antimeridiano**: también conocido como el meridiano 180<sup></sup>, es el punto donde se encuentran los grados de longitud -180 y 180. Es el opuesto al primer meridiano en el globo.
 
-<a name="application-programming-interface-api"></a> **Interfaz de programación de aplicaciones (API)**: especificación que permite a los desarrolladores crear aplicaciones.
+<a name="application-programming-interface-api"></a> **Interfaz de programación de aplicaciones (API)** : especificación que permite a los desarrolladores crear aplicaciones.
 
 <a name="api-key"></a> **Clave de API**: vea Clave de Azure Maps.
 
-<a name="area-of-interest-aoi"></a> **Área de interés (AOI)**: extensión que se usa para definir un área de enfoque para la producción de un mapa o una base de datos.
+<a name="area-of-interest-aoi"></a> **Área de interés (AOI)** : extensión que se usa para definir un área de enfoque para la producción de un mapa o una base de datos.
 
 <a name="asset-tracking"></a> **Seguimiento de activos**: proceso de seguimiento de la ubicación de un recurso, como una persona, vehículo o algún otro objeto.
 
@@ -51,19 +51,19 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="autosuggest"></a> **Sugerencias automáticas**: una característica en una aplicación predice posibilidades lógicas para lo que el usuario está escribiendo.
 
-<a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)**: nombre anterior de Azure Maps cuando estaba en versión preliminar.
+<a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)** : nombre anterior de Azure Maps cuando estaba en versión preliminar.
 
 <a name="azure-maps-key"></a> **Clave de Azure Maps**: una clave de Azure Maps es una cadena única que se usa para autenticar una solicitud de servicio o aplicación de Azure Maps de un usuario. 
 
 ## <a name="b"></a>b
 
-<a name="base-map"></a> **Mapa base**: parte de una aplicación de mapas que muestra información de referencia en segundo plano, como carreteras, monumentos y fronteras políticas.
+<a name="base-map"></a> **Mapa base**: parte de una aplicación de mapa que muestra información de referencia en segundo plano, como carreteras, monumentos y fronteras políticas.
 
 <a name="batch-request"></a> **Solicitud por lotes**: proceso de combinar varias solicitudes en una única.
 
 <a name="bearing"></a> **Rumbo**: dirección horizontal de un punto en relación con otro punto. Se expresa como un ángulo con respecto al norte, de 0 a 360 grados en la dirección de las agujas del reloj. 
 
-<a name="boundary"></a> **Límite**: Una línea o polígono separación de entidades políticas adyacentes, como países o regiones, distritos y propiedades. Un límite es una línea que puede o no seguir características físicas, como paredes, montañas o ríos.
+<a name="boundary"></a> **Límite**: línea o polígono que separa entidades políticas adyacentes, como países o regiones, distritos y propiedades. Un límite es una línea que puede o no seguir características físicas, como paredes, montañas o ríos.
 
 <a name="bounds"></a> **Límites**: vea [Rectángulo de selección](#bounding-box).
 
@@ -91,13 +91,13 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="coordinate-system"></a> **Sistema de coordenadas**: marco de referencia que se utiliza para definir las posiciones de puntos en el espacio en dos o tres dimensiones.
 
-<a name="country-code"></a> **Código de país**: Un identificador único para un país o región según el estándar ISO. ISO2 es un código de dos caracteres de un país o región (por ejemplo, US), que en ISO3 se representa con un código de tres caracteres (por ejemplo, USA).
+<a name="country-code"></a> **Código de país**: identificador único para un país o región según el estándar ISO. ISO2 es un código de dos caracteres de un país o región (por ejemplo, US), que en ISO3 se representa con un código de tres caracteres (por ejemplo, USA).
 
-<a name="country-subdivision"></a> **Subdivisión de país o región**: Una subdivisión de primer nivel de un país o región, que normalmente se conoce como un estado o provincia.
+<a name="country-subdivision"></a> **Subdivisión de país o región**: subdivisión de primer nivel de un país o región, normalmente conocida como estado o provincia.
 
-<a name="country-secondary-subdivision"></a> **Subdivisión secundaria de país o región**: Segundo nivel subdivisión de un país o región, que normalmente se conoce como un condado.
+<a name="country-secondary-subdivision"></a> **Subdivisión secundaria de país o región**: subdivisión de segundo nivel de país o región, normalmente conocida como condado o municipio.
 
-<a name="country-tertiary-subdivision"></a> **Subdivisión terciaria de país o región**: Tercer nivel subdivisión de un país o región, normalmente un área con nombre como un ward.
+<a name="country-tertiary-subdivision"></a> **Subdivisión terciaria de país o región**: subdivisión de tercer nivel de país o región. Suele ser un área con un nombre, como un distrito electoral.
 
 <a name="cross-street"></a> **Intersección**: punto de intersección de dos o más calles.
 
@@ -109,7 +109,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="dbf-file"></a> **Archivo DBF**: formato de archivo de base de datos que se usa en combinación con los archivos de forma (SHP).
 
-<a name="degree-minutes-seconds-dms"></a> **Grados, minutos y segundos (DMS)**: unidad de medida para describir la latitud y longitud. Un grado es 1 de 360 partes de un círculo. Un grado se divide en 60 minutos y un minuto, en 60 segundos.
+<a name="degree-minutes-seconds-dms"></a> **Grados, minutos y segundos (DMS)** : unidad de medida para describir la latitud y longitud. Un grado es 1 de 360 partes de un círculo. Un grado se divide en 60 minutos y un minuto, en 60 segundos.
 
 <a name="delaunay-triangulation"></a> **Triangulación Delaunay**: técnica para crear una malla de triángulos contiguos y no superpuestos a partir de un conjunto de datos de puntos. Cada círculo delimitador de triángulo no contiene ningún punto del conjunto de datos en su interior.
 
@@ -117,7 +117,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="destination"></a> **Destino**: punto de conexión o ubicación a la que se desplaza alguien.
 
-<a name="digital-elevation-model-dem"></a> **Modelo de elevación digital (DEM)**: conjunto de datos de valores de elevación en relación con una superficie, capturados en un área en intervalos periódicos mediante datos de referencia comunes. Normalmente, los DEM se usan para representar un relieve en el terreno.
+<a name="digital-elevation-model-dem"></a> **Modelo de elevación digital (DEM)** : conjunto de datos de valores de elevación en relación con una superficie, capturados en un área en intervalos periódicos mediante datos de referencia comunes. Normalmente, los DEM se usan para representar un relieve en el terreno.
 
 <a name="dijkstra's-algorithm"></a> **Algoritmo de Dijkstra**: un algoritmo que examina la conectividad de una red para encontrar la ruta más corta entre dos puntos.
 
@@ -185,7 +185,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="great-circle-distance"></a> **Distancia ortodrómica**: distancia más corta entre dos puntos en la superficie de una esfera.
 
-<a name="greenwich-mean-time-gmt"></a> **Hora del meridiano de Greenwich (GMT)**: hora del primer meridiano, que pasa por el Real Observatorio de Greenwich (Inglaterra).
+<a name="greenwich-mean-time-gmt"></a> **Hora del meridiano de Greenwich (GMT)** : hora del primer meridiano, que pasa por el Real Observatorio de Greenwich (Inglaterra).
 
 <a name="guid"></a> **GUID**: un identificador único global. Cadena utilizada para identificar de forma única una interfaz, clase, biblioteca de tipos, categoría de componente o registro.
 
@@ -273,7 +273,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="point"></a> **Punto**: geometría que representa una posición única en el mapa. 
 
-<a name="points-of-interest-poi"></a> **Puntos de interés (POI)**: una empresa, punto de referencia o lugar de interés común.
+<a name="points-of-interest-poi"></a> **Puntos de interés (POI)** : una empresa, punto de referencia o lugar de interés común.
 
 <a name="polygon"></a> **Polígono**: geometría sólida que representa un área en un mapa. 
 
@@ -281,9 +281,9 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="position"></a> **Posición**: longitud, latitud y altitud (coordenadas x, y, z) de un punto.
 
-<a name="post-code"></a> **C. P.**: vea [Código postal](#postal-code).
+<a name="post-code"></a> **C. P.** : vea [Código postal](#postal-code).
 
-<a name="postal-code"></a> **Código postal**: Una serie de letras, números o ambos, en un formato específico, usado el servicio postal de un país o región para dividir las áreas geográficas en zonas con el fin de simplificar la entrega de correo electrónico.
+<a name="postal-code"></a> **Código postal**: serie de letras o números, o ambos, en un formato específico, que usa el servicio postal de un país o región para dividir las áreas geográficas en zonas con el fin de simplificar la entrega de correo.
 
 <a name="prime-meridian"></a> **Primer meridiano**: línea de longitud que representa la longitud de 0 grados. Por lo general, los valores de longitud disminuyen al desplazarse hacia el oeste hasta los 180 grados y se reducen al desplazarse hacia el este hasta los -180 grados. 
 
@@ -297,7 +297,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="quadtree"></a> **Árbol cuaternario**: estructura de datos en que cada nodo tiene exactamente cuatro elementos secundarios. El sistema de división en cortes que se usa en Azure Maps usa una estructura de árbol cuaternario y, cuando un usuario amplía un nivel, cada corte del mapa se divide en cuatro.  Para más información, consulte la [documentación de niveles de zoom y cuadrícula de cortes](zoom-levels-and-tile-grid.md).
 
-<a name="queries-per-second-qps"></a> **Consultas por segundo (QPS)**: número de consultas o solicitudes que pueden realizarse en una plataforma o servicio en un segundo. 
+<a name="queries-per-second-qps"></a> **Consultas por segundo (QPS)** : número de consultas o solicitudes que pueden realizarse en una plataforma o servicio en un segundo. 
 
 ## <a name="r"></a>R
 
@@ -321,7 +321,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="route"></a> **Ruta**: ruta entre dos o más ubicaciones, que también puede incluir información adicional, como instrucciones para puntos de referencia en la ruta.
 
-<a name="requests-per-second-rps"></a> **Solicitudes por segundo (RPS)**: vea [Consultas por segundo (QPS)](#queries-per-second-qps). 
+<a name="requests-per-second-rps"></a> **Solicitudes por segundo (RPS)** : vea [Consultas por segundo (QPS)](#queries-per-second-qps). 
 
 <a name="rss"></a> **RSS**: acrónimo de Really Simple Syndication, resumen de sitio de marco de descripción de recursos (RDF) o fuentes Rich Site Summary, dependiendo del origen. Un formato XML simple y estructurado para compartir contenido entre diferentes sitios web. Los documentos RSS incluyen elementos de metadatos clave, como autor, fecha, título, una breve descripción y un vínculo de hipertexto. Esta información ayuda a un usuario (o servicio del editor RSS) a decidir qué materiales merecen una investigación más minuciosa.
 
@@ -329,9 +329,9 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="satellite-imagery"></a> **Imágenes de satélite**: imágenes que han capturado aviones y satélites apuntando directamente hacia abajo.
 
-<a name="software-development-kit-sdk"></a> **Kit de desarrollo de software (SDK)**: colección de documentación, código de ejemplo y aplicaciones de ejemplo que ayudan a un desarrollador a utilizar una API para compilar aplicaciones.
+<a name="software-development-kit-sdk"></a> **Kit de desarrollo de software (SDK)** : colección de documentación, código de ejemplo y aplicaciones de ejemplo que ayudan a un desarrollador a utilizar una API para compilar aplicaciones.
 
-<a name="shapefile-shp"></a> **Archivo de forma (SHP)**: también conocido como archivo de forma ESRI, es un formato de almacenamiento de datos de vector para almacenar la ubicación, forma y los atributos de las características geográficas. Un archivo de forma se almacena en un conjunto de archivos relacionados.
+<a name="shapefile-shp"></a> **Archivo de forma (SHP)** : también conocido como archivo de forma ESRI, es un formato de almacenamiento de datos de vector para almacenar la ubicación, forma y los atributos de las características geográficas. Un archivo de forma se almacena en un conjunto de archivos relacionados.
 
 <a name="spherical-mercator-projection"></a> **Proyección de Mercator esférica**: vea [Web Mercator](#web-mercator). 
 
@@ -351,11 +351,11 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="terrain"></a> **Terreno**: superficie de tierra con una característica concreta, como terreno arenoso o montañoso.
 
-<a name="thematic-maps"></a> **Mapas temáticos**: un mapa temático es un mapa simple creado para reflejar un tema en un área geográfica. Es un escenario común para este tipo de asignación para las regiones administrativas, como países o regiones en función de alguna métrica de datos de color.
+<a name="thematic-maps"></a> **Mapas temáticos**: un mapa temático es un mapa simple creado para reflejar un tema en un área geográfica. Un escenario común para este tipo de mapa es la coloración de regiones administrativas, como países o regiones, en función de las métricas de datos.
 
 <a name="tile-layer"></a> **Capa de cortes**: una capa mostrada ensamblando cortes de mapa (secciones rectangulares) en una capa continua. Los cortes son cortes de vector o de imagen de trama. Las capas de cortes de trama se suelen representar antes de tiempo y se almacenan como imágenes en un servidor. Esto puede ocupar una gran cantidad de espacio de almacenamiento. Las capas de cortes vectoriales se representan en el acto dentro de la aplicación cliente, de modo que los requisitos de almacenamiento del lado servidor son menores.
 
-<a name="time-zone"></a> **Zona horaria**: una región del mundo que observa una hora estándar uniforme con fines legales, comerciales y sociales. Zonas horarias tienden a seguir los límites de países o regiones y sus subdivisiones.
+<a name="time-zone"></a> **Zona horaria**: una región del mundo que observa una hora estándar uniforme con fines legales, comerciales y sociales. Las zonas horarias tienden a seguir los límites de países o regiones, y sus subdivisiones.
 
 <a name="transaction"></a> **Transacción**: Azure Maps usa un modelo de licencias transaccional donde;
 
@@ -364,7 +364,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="transformation"></a> **Transformación**: proceso de conversión de datos entre distintos sistemas de coordenadas geográficas. Por ejemplo, podría tener algunos datos capturados en el Reino Unido y basados en el sistema de coordenadas geográficas OSGB 1936. Azure Maps usa la variante del sistema de referencia de coordenadas [EPSG:3857](https://epsg.io/3857) de WGS84. Para que muestren los datos correctamente, sus coordenadas se deben transformar de un sistema a otro.
 
-<a name="traveling-salesmen-problem-tsp"></a> **Problema del vendedor ambulante (TSP)**:  problema de camino hamiltoniano en el que un vendedor debe encontrar la manera más eficaz de hacer una serie de visitas y volver a la ubicación inicial.  
+<a name="traveling-salesmen-problem-tsp"></a> **Problema del vendedor ambulante (TSP)** :  problema de camino hamiltoniano en el que un vendedor debe encontrar la manera más eficaz de hacer una serie de visitas y volver a la ubicación inicial.  
 
 <a name="trilateration"></a> **Trilateración**: proceso de determinar la posición de un punto de la superficie terrestre con respecto a otros dos puntos, midiendo las distancias entre los tres puntos.
 
@@ -376,7 +376,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="vector-tile"></a> **Corte vectorial**: especificación de datos abiertos para almacenar datos de vectores geoespaciales mediante el mismo sistema de cortes que el control de mapa. Vea también [Capa de cortes](#tile-layer).
 
-<a name="vehicle-routing-problem-vrp"></a> **Problema de enrutamiento de vehículos (VRP)**: clase de problemas en que se calcula un conjunto de rutas ordenadas para una flota de vehículos teniendo en cuenta una serie de restricciones. Estas restricciones pueden incluir elementos como periodos de tiempo de entrega, funcionalidades de múltiples rutas y restricciones de duración de viaje.
+<a name="vehicle-routing-problem-vrp"></a> **Problema de enrutamiento de vehículos (VRP)** : clase de problemas en que se calcula un conjunto de rutas ordenadas para una flota de vehículos teniendo en cuenta una serie de restricciones. Estas restricciones pueden incluir elementos como periodos de tiempo de entrega, funcionalidades de múltiples rutas y restricciones de duración de viaje.
 
 <a name="voronoi-diagram"></a> **Diagrama de Voronoi**: partición de espacio en áreas o celdas que rodean un conjunto de objetos geométricos (normalmente, características de punto). Estas celdas o polígonos deben cumplir los criterios de los triángulos de Delaunay. Todas las ubicaciones de un área están más cerca del objeto que rodea que de cualquier otro objeto del conjunto. A menudo, los diagramas de Voronoi se suelen usar para delinear áreas de influencia en torno a características geográficas. 
 
@@ -386,7 +386,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="waypoint-optimization"></a> **Optimización de punto de referencia**: proceso de reordenación de un conjunto de puntos de referencia para minimizar el tiempo de desplazamiento o la distancia necesaria para atravesar todos los puntos de referencia proporcionados. A menudo se conoce como el [problema del vendedor ambulante](#traveling-salesmen-problem-tsp) o [problema de enrutamiento de vehículos](#vehicle-routing-problem-vrp), según la complejidad de la optimización.
 
-<a name="web-map-service-wms"></a> **Web Map Service (WMS)**: WMS es un estándar de Open Geographic Consortium (OGC) que define servicios de mapas basados en imagen. Los servicios de WMS proporcionan imágenes de mapa para áreas específicas de un mapa a petición. Las imágenes incluyen una simbología representada previamente y se pueden representar en uno de varios estilos concretos, si así lo define el servicio.
+<a name="web-map-service-wms"></a> **Web Map Service (WMS)** : WMS es un estándar de Open Geographic Consortium (OGC) que define servicios de mapas basados en imagen. Los servicios de WMS proporcionan imágenes de mapa para áreas específicas de un mapa a petición. Las imágenes incluyen una simbología representada previamente y se pueden representar en uno de varios estilos concretos, si así lo define el servicio.
 
 <a name="web-mercator"></a> **Web Mercator**: también conocido como proyección de Mercator esférica, es una ligera variación de la proyección de Mercator que se usa, principalmente, en programas de generación de mapas basados en web. Usa las mismas fórmulas que la proyección de Mercator estándar que se usa para mapas a pequeña escala. Sin embargo, Web Mercator usa las fórmulas esféricas en todas las escalas, mientras que los mapas de Mercator de gran escala suelen utilizar la forma elipsoidal de la proyección. La discrepancia es imperceptible a escala global, pero hace que los mapas de áreas locales difieran ligeramente de los auténticos mapas de Mercator elipsoidales de la misma escala.
 
@@ -398,5 +398,5 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="zip-code"></a> **Código zip**: vea [Código postal](#postal-code).
 
-<a name="Zoom level"></a> **Nivel de zoom**: especifica el nivel de detalle y qué parte del mapa es visible. Cuando se aleja hasta un nivel 0, el mapa del mundo completa será a menudo en la vista pero mostrará detalles limitados, como los nombres de país o región y bordes así como los nombres de océano. Si se acerca al nivel 17, el mapa mostrará un área con algunas manzanas de una ciudad con información detallada sobre las calles. Para más información, consulte la documentación sobre [niveles de zoom y cuadrícula de cortes](zoom-levels-and-tile-grid.md).
+<a name="Zoom level"></a> **Nivel de zoom**: especifica el nivel de detalle y qué parte del mapa es visible. Cuando se aleja hasta un nivel 0, a menudo se verá el mapa completo del mundo, pero los detalles que se mostrarán serán limitados, como nombres de país o región y fronteras, así como nombres de océanos. Si se acerca al nivel 17, el mapa mostrará un área con algunas manzanas de una ciudad con información detallada sobre las calles. Para más información, consulte la documentación sobre [niveles de zoom y cuadrícula de cortes](zoom-levels-and-tile-grid.md).
 
