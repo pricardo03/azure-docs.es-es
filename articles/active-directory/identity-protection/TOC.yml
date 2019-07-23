@@ -52,8 +52,6 @@
           href: howto-provide-risk-event-feedback.md
         - name: Configuración de directivas de riesgo
           href: howto-configure-risk-policies.md
-        - name: Mejora de la precisión de detección
-          href: howto-improve-detection-accuracy.md
         - name: Preguntas frecuentes y problemas conocidos
           href: known-issues.md
 - name: Referencia
