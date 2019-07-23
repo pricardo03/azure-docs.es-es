@@ -1,21 +1,21 @@
 ---
-title: 'Procedimientos recomendados de la consulta Store en Azure Database for PostgreSQL: servidor único'
-description: 'Este artículo describe los procedimientos recomendados para la consulta Store en Azure Database for PostgreSQL: servidor único.'
+title: Procedimientos recomendados para usar Almacén de consultas en Azure Database for PostgreSQL con un único servidor
+description: En este artículo se describen los procedimientos recomendados para usar Almacén de consultas en Azure Database for PostgreSQL con un único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 798a7a3edbf11c8421848871d26ba55b5bada0b6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067248"
 ---
 # <a name="best-practices-for-query-store"></a>Procedimientos recomendados para usar Almacén de consultas
 
-**Se aplica a:** Azure Database for PostgreSQL: servidor único 9.6 y 10
+**Se aplica a:** Azure Database for PostgreSQL con un único servidor 9.6 y 10
 
 En este artículo se describen los procedimientos recomendados para usar Almacén de consultas en Azure Database for PostgreSQL.
 
@@ -24,7 +24,7 @@ Permite que Almacén de consultas capture los datos realmente relevantes.
 
 |**pg_qs.query_capture_mode** | **Escenario**|
 |---|---|
-|_Todo_  |Analice la carga de trabajo exhaustivamente en todas las consultas, así como sus frecuencias de ejecución y otras estadísticas. Identifique nuevas consultas en la carga de trabajo. Detectar si las consultas ad hoc se usan para identificar oportunidades de parametrización automática o de usuario. _All_ (Todas) aumenta el costo de consumo de recursos. |
+|_Todo_  |Analice la carga de trabajo exhaustivamente en todas las consultas, así como sus frecuencias de ejecución y otras estadísticas. Identifique nuevas consultas en la carga de trabajo. Detecte si las consultas ad-hoc se usan para identificar oportunidades de parametrización automática o manual. _All_ (Todas) aumenta el costo de consumo de recursos. |
 |_Top_ (Principales)  |Centre la atención en las consultas principales; las emitidos por los clientes.
 |_None_ |Ya ha capturado un conjunto de consultas y el período de tiempo que desea investigar, y también desea eliminar los objetos innecesarios que pueden introducir otras consultas. La opción _None_ (Ninguna) es adecuada para entornos de pruebas y evaluación comparativa. Además, _None_ (Ninguna) debe usarse con precaución, ya que podría perder la oportunidad de realizar un seguimiento de las consultas nuevas importantes y de optimizarlas. No se pueden recuperar datos en períodos de tiempo transcurridos. |
 

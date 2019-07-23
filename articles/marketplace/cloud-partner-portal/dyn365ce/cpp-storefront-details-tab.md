@@ -1,5 +1,5 @@
 ---
-title: Dynamics 365 for Customer Engagement ofrece la ficha Detalles del escaparate electrónico | Azure Marketplace
+title: 'Oferta de Dynamics 365 for Customer Engagement: Pestaña Detalles del escaparate electrónico de Azure Marketplace | Azure Marketplace'
 description: Use la pestaña Detalles del escaparate electrónico para especificar la información de ventas y marketing para una oferta de Dynamics 365 for Customer Engagement.
 services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: ad6a84679df09964b1bed047f3fbd236a29172b5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942295"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico para Dynamics 365 for Customer Engagement
@@ -25,7 +25,7 @@ En esta sección proporcionará el resumen y la descripción de la oferta.  Esta
  
 ![Sección Detalles de la oferta en la pestaña Detalles del escaparate electrónico](./media/storefront-tab-offer-details.png)
 
-En la tabla siguiente describe los campos de esta pestaña. Los campos obligatorios se indican con un asterisco (*). 
+En la siguiente tabla se describen los campos de esta pestaña. Los campos obligatorios se indican con un asterisco (*). 
 
 |    **Campo**          |  **Descripción**               |
 |  ---------------      |  ---------------               |
@@ -40,16 +40,16 @@ En esta sección se proporcionarán detalles acerca del anuncio de Marketplace.
 
 ![Sección Detalles del anuncio en la pestaña Detalles del escaparate electrónico](./media/storefront-tab-listing-details.png)
 
-En la tabla siguiente describe los campos de esta pestaña. Los campos obligatorios se indican con un asterisco (*). 
+En la siguiente tabla se describen los campos de esta pestaña. Los campos obligatorios se indican con un asterisco (*). 
 
 |    **Campo**          |  **Descripción**               |
 |  ---------------      |  ---------------               |
 |  Industrias           | Seleccione los sectores (máximo dos) con los que la aplicación es más afín. Si ninguno es aplicable, puede no seleccionar ninguna opción.  |
 |  Categorías\*         | Seleccione las categorías que sean pertinentes para la aplicación. Seleccione entre una y tres opciones.  |
 |  Tipo de aplicación\*           | Seleccione el tipo de prueba que está habilitado para la aplicación en AppSource. **Gratis** indica que la aplicación se puede usar sin cargo alguno; **Versión de evaluación** indica que los clientes pueden probar la aplicación durante un breve período sin cargo alguno; y **Ponerse en contacto conmigo** indica que los clientes pueden solicitar una versión de prueba de la aplicación en AppSource.  |
-| Vínculo de ayuda para la aplicación\* | Dirección URL de la documentación en línea u otro recurso de ayuda para la aplicación.  |
+| Vínculo de ayuda de la aplicación\* | Dirección URL de la documentación en línea u otro recurso de ayuda para la aplicación.  |
 | Países y regiones admitidos | Un cuadro de diálogo emergente permite la selección de las regiones geográficas en las que se ofrecerá la aplicación.  Distribución internacional es el valor predeterminado. |
-| Idiomas admitidos   | Seleccione los idiomas que admite la aplicación. En la actualidad solos se admiten unas pocas opciones de idiomas.  (Si la aplicación es compatible con idiomas adicionales que no están en esta lista, continúe publicar su oferta y correo electrónico de esta información para: appsource\@microsoft.com.)  |
+| Idiomas admitidos   | Seleccione los idiomas que admite la aplicación. En la actualidad solos se admiten unas pocas opciones de idiomas.  (Si la aplicación es compatible con idiomas adicionales que no están en esta lista, publique su oferta y envíenos un correo electrónico con esta información a: appsource\@microsoft.com).  |
 | Versión de la aplicación           | Número de versión de la aplicación    |
 | Fecha de lanzamiento de la aplicación      | Fecha de lanzamiento de la aplicación |
 | Productos con los que funciona su aplicación | Productos o servicios con los que la aplicación interactúa. Puede enumerar tres productos como máximo. Para publicar un producto, haga clic en **+Nuevo** y escriba el nombre de un producto en el cuadro de texto que aparece.  |
@@ -68,8 +68,8 @@ En la siguiente tabla se describen los campos de esta pestaña:
 
 |      Campo            |    DESCRIPCIÓN                 |
 |  ---------------      |  ---------------               |
-| Logotipo de la oferta (formato png, 48 x 48)\* | Cargue la imagen que aparecerá en la página de búsqueda de la aplicación. El formato es PNG y el tamaño debe ser 48 x 48 píxeles. |
-| Logotipo de la oferta (formato png, 216 x 216)\* | Cargue la imagen que aparecerá en la página de detalles de la aplicación. El formato es PNG y el tamaño debe ser 216 x 216 píxeles. |
+| Logotipo de la oferta (formato .png, 48×48)\* | Cargue la imagen que aparecerá en la página de búsqueda de la aplicación. El formato es PNG y el tamaño debe ser 48 x 48 píxeles. |
+| Logotipo de la oferta (formato .png, 216×216)\* | Cargue la imagen que aparecerá en la página de detalles de la aplicación. El formato es PNG y el tamaño debe ser 216 x 216 píxeles. |
 | Vídeos                | Cargue vídeos promocionales o con instrucciones para la aplicación, cuatro como máximo.  Para cada vídeo, rellene el nombre del vídeo, la dirección URL (solo YouTube o Vimeo) y la miniatura asociada en formato PNG y con un tamaño de 1280 x 720 píxeles.  | 
 | Documentos\*             | Cargue los documentos promocionales o de instrucciones del producto en formato PDF, tres como máximo.  Proporcione un nombre para cada documento.  |
 | Capturas de pantalla\*           | Cargue un máximo de cinco imágenes de la interfaz de usuario de la aplicación en formato PNG y un tamaño de 1280 x 720 píxeles.  Estas capturas de pantalla aparecerán en la página de detalles de AppSource para la aplicación. |
@@ -86,7 +86,7 @@ En la siguiente tabla se describen los campos de esta pestaña:
 
 |      Campo            |    DESCRIPCIÓN                 |
 |  ---------------      |  ---------------               |
-| URL de la política de privacidad\*    | Dirección URL de la directiva de privacidad en línea de la aplicación.  |
+| Dirección URL de la directiva de privacidad\*    | Dirección URL de la directiva de privacidad en línea de la aplicación.  |
 | Términos de uso\*          | Términos de uso de la aplicación con texto sin formato.  Los clientes de AppSource deben aceptar estos términos antes de poder probar la aplicación. |
 |  |  |
 

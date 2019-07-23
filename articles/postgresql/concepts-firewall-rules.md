@@ -1,20 +1,20 @@
 ---
-title: 'Reglas de Firewall en Azure Database for PostgreSQL: servidor único'
-description: 'Este artículo describe las reglas de firewall para Azure Database for PostgreSQL: servidor único.'
+title: Reglas de firewall de Azure Database for PostgreSQL con un único servidor
+description: En este artículo se describen las reglas de firewall para Azure Database for PostgreSQL con un único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 40a675fbefe9743f5de1f9766cf33ae7dba9e5a7
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073586"
 ---
-# <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Reglas de Firewall en Azure Database for PostgreSQL: servidor único
-De Azure Database for PostgreSQL firewall del servidor impide todo acceso al servidor de base de datos hasta que se especifique qué equipos cuentan con permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
+# <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Reglas de firewall de Azure Database for PostgreSQL con un único servidor
+El firewall del servidor de Azure Database for PostgreSQL impide todo acceso al servidor de base de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
 Para configurar su firewall, cree reglas de firewall que especifiquen intervalos de direcciones IP aceptables. Puede crear reglas de firewall a nivel de servidor.
 
 **Reglas de firewall:** estas reglas permiten a los clientes tener acceso a todo el servidor de Azure Database for PostgreSQL; es decir, a todas las bases de datos que se encuentren en el mismo servidor lógico. Las reglas de firewall de nivel de servidor pueden configurarse a través de Azure Portal o los comandos de la CLI de Azure. Para crear reglas de firewall en el nivel del servidor, debe ser propietario o colaborador de la suscripción.

@@ -1,5 +1,5 @@
 ---
-title: Creación de Dynamics 365 para los activos técnicos de compromiso del cliente | Azure Marketplace
+title: Creación de recursos técnicos de Dynamics 365 for Customer Engagement | Azure Marketplace
 description: Cree los recursos técnicos para una oferta de aplicación de Dynamics 365 for Customer Engagement.
 services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/29/2018
 ms.author: pabutler
 ms.openlocfilehash: eff175264677d6b8ffb885229b5e68b306424335
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943103"
 ---
 # <a name="create-technical-assets-for-azure-application-offer"></a>Creación de recursos técnicos para una oferta de aplicación de Azure

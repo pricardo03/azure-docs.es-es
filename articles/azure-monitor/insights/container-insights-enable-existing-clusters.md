@@ -1,6 +1,6 @@
 ---
 title: Supervisión de un clúster de Azure Kubernetes Service (AKS) implementado | Microsoft Docs
-description: Obtenga información sobre cómo habilitar la supervisión de un clúster de Azure Kubernetes Service (AKS) con Azure Monitor para los contenedores ya implementados en su suscripción.
+description: Obtenga información sobre cómo habilitar la supervisión de un clúster de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores ya implementados en la suscripción.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -14,22 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
 ms.openlocfilehash: ae340fb11d422b7516cc315e78be974d22239503
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074686"
 ---
-# <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilitar la supervisión del clúster de Azure Kubernetes Service (AKS) ya ha implementado
+# <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilitar la supervisión de un clúster de Azure Kubernetes Service (AKS) ya implementado
 
-Este artículo describe cómo configurar Azure Monitor para los contenedores para supervisar el clúster de Kubernetes administrado hospedado en [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) que ya se ha implementado en su suscripción.
+En este artículo se describe cómo configurar Azure Monitor para contenedores para supervisar un clúster de Kubernetes administrado, hospedado en [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/), que ya se han implementado en la suscripción.
 
-Puede habilitar la supervisión de un clúster de AKS que ya se ha implementado con uno de los métodos admitidos:
+Puede habilitar la supervisión de un clúster de AKS que ya se haya implementado mediante uno de los métodos admitidos:
 
 * Azure CLI
 * Terraform
-* [Azure monitor](#enable-from-azure-monitor-in-the-portal) o [directamente desde el clúster de AKS](#enable-directly-from-aks-cluster-in-the-portal) en el portal de Azure 
-* Con el [proporciona la plantilla de Azure Resource Manager](#enable-using-an-azure-resource-manager-template) mediante el cmdlet de PowerShell de Azure `New-AzResourceGroupDeployment` o con la CLI de Azure. 
+* [Desde Azure Monitor](#enable-from-azure-monitor-in-the-portal) o [directamente desde un clúster de AKS](#enable-directly-from-aks-cluster-in-the-portal) en Azure Portal. 
+* Con la [plantilla de Azure Resource Manager proporcionada](#enable-using-an-azure-resource-manager-template) con el cmdlet `New-AzResourceGroupDeployment` de Azure PowerShell o con la CLI de Azure. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -37,7 +37,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Habilitación del uso de la CLI de Azure
 
-El paso siguiente habilita la supervisión del clúster de AKS mediante la CLI de Azure. En este ejemplo, no es necesario que cree o especifique un área de trabajo. Este comando le simplifica el proceso al crear un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS, si aún no existe en la región.  El formato del área de trabajo predeterminada creada es similar al de *DefaultWorkspace-\<GUID>-\<Region>*.  
+El paso siguiente habilita la supervisión del clúster de AKS mediante la CLI de Azure. En este ejemplo, no es necesario que cree o especifique un área de trabajo. Este comando le simplifica el proceso al crear un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS, si aún no existe en la región.  El formato del área de trabajo predeterminada creada es similar al de *DefaultWorkspace-\<GUID>-\<Region>* .  
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
@@ -76,7 +76,7 @@ provisioningState       : Succeeded
 
 2. Agregue [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) siguiendo los pasos descritos en la documentación de Terraform.
 
-## <a name="enable-from-azure-monitor-in-the-portal"></a>Habilitación de Azure Monitor en el portal 
+## <a name="enable-from-azure-monitor-in-the-portal"></a>Habilitación desde Azure Monitor en el portal 
 
 Para habilitar la supervisión de un clúster de AKS en Azure Portal desde Azure Monitor, siga estos pasos:
 
@@ -94,9 +94,9 @@ Para habilitar la supervisión de un clúster de AKS en Azure Portal desde Azure
  
 Después de habilitar la supervisión, pueden pasar unos 15 minutos hasta que pueda ver la métrica de estado del clúster. 
 
-## <a name="enable-directly-from-aks-cluster-in-the-portal"></a>Habilitar directamente desde el clúster de AKS en el portal
+## <a name="enable-directly-from-aks-cluster-in-the-portal"></a>Habilitación directamente desde un clúster de AKS en el portal
 
-Para habilitar la supervisión directamente desde uno de los clústeres de AKS en Azure portal, haga lo siguiente:
+Para habilitar la supervisión directamente desde un clúster de AKS en Azure Portal, siga estos pasos:
 
 1. En Azure Portal, seleccione **Todos los servicios**. 
 2. En la lista de recursos, empiece a escribir **Containers**.  
@@ -117,7 +117,7 @@ Para habilitar la supervisión directamente desde uno de los clústeres de AKS e
  
 Después de habilitar la supervisión pueden pasar unos 15 minutos hasta que pueda ver los datos operativos del clúster. 
 
-## <a name="enable-using-an-azure-resource-manager-template"></a>Habilitar el uso de una plantilla de Azure Resource Manager
+## <a name="enable-using-an-azure-resource-manager-template"></a>Habilitación mediante una plantilla de Azure Resource Manager
 
 Este método incluye dos plantillas JSON. Una plantilla especifica la configuración para habilitar la supervisión y la otra contiene los valores de los parámetros que se configuran para especificar lo siguiente:
 
@@ -128,13 +128,13 @@ Este método incluye dos plantillas JSON. Una plantilla especifica la configurac
 >La plantilla debe implementarse en el mismo grupo de recursos que el clúster.
 >
 
-El área de trabajo de Log Analytics debe crearse antes de habilitar la supervisión con Azure PowerShell o CLI. Para crear el área de trabajo, puede configurarla una mediante [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
+El área de trabajo de Log Analytics debe crearse antes de habilitar la supervisión con Azure PowerShell o la CLI. Para crear el área de trabajo, puede configurarla una mediante [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
 
 Si no conoce el concepto de implementación de recursos mediante una plantilla, consulte:
 * [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe estar ejecutando la CLI de Azure versión 2.0.59 o posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.59 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ### <a name="create-and-execute-a-template"></a>Creación y ejecución de una plantilla
 
@@ -208,7 +208,7 @@ Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. 
     }
     ```
 
-4. Edite los valores de **aksResourceId** y **aksResourceLocation** con los valores en el **Introducción a AKS** página para el clúster de AKS. El valor de **workspaceResourceId** es el identificador de recurso completo del área de trabajo de Log Analytics e incluye el nombre del área de trabajo. 
+4. Edite los valores de **aksResourceId** y **aksResourceLocation** con los valores de la página **AKS Overview** (Introducción a AKS) del clúster de AKS. El valor de **workspaceResourceId** es el identificador de recurso completo del área de trabajo de Log Analytics e incluye el nombre del área de trabajo. 
 5. Guarde este archivo como **existingClusterParam.json** en una carpeta local.
 6. Está listo para implementar esta plantilla. 
 

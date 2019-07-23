@@ -1,5 +1,5 @@
 ---
-title: Dynamics 365 para la pestaña Configuración de oferta de compromiso de cliente | Azure Marketplace
+title: Pestaña Configuración de la oferta de Dynamics 365 for Customer Engagement| Azure Marketplace
 description: Establezca la configuración de una oferta de la aplicación Dynamics 365 for Customer Engagement en AppSource Marketplace.
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 219a69632fe29b1d756702d97804613021b57006
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942437"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Pestaña Configuración de oferta en Dynamics 365 for Customer Engagement
@@ -30,7 +30,7 @@ En la siguiente tabla se describen los campos de esta pestaña. Los campos oblig
 |    Campo         |       DESCRIPCIÓN                                                            |
 |  ---------       |     ---------------                                                          |
 | **Id. de oferta\***   | Identificador único (en el perfil de un publicador) de la oferta. Este identificador es visible en las direcciones URL del producto y en los informes de Insights. Tiene una longitud máxima de 50 caracteres y puede usar caracteres alfanuméricos en minúscula y guiones (-). (El identificador no puede terminar con un guión). **Nota:** Este campo no se puede modificar una vez que se activa la oferta ya que está ligado a la dirección URL base de la oferta en Marketplace.  |
-| **Id. de publicador\***  | Identificador único de la organización en Azure Marketplace. Todas las ofertas se deben asociar al identificador de publicador. No se puede cambiar este valor después de guardar la oferta. |
+| **Id. del anunciante\***  | Identificador único de la organización en Azure Marketplace. Todas las ofertas se deben asociar al identificador de publicador. No se puede cambiar este valor después de guardar la oferta. |
 | **Nombre\***       | Nombre para mostrar de la oferta. Este nombre se muestra en AppSource Marketplace. Puede tener un máximo de 50 caracteres. Se recomienda usar un nombre de marca que identifique al producto. No incluya el nombre de la organización a menos que sea así como se comercializa el producto. Si comercializa esta oferta en otros sitios web y publicaciones, asegúrese de que el nombre sea exactamente el mismo en todas las publicaciones. |
 |  |  |
 

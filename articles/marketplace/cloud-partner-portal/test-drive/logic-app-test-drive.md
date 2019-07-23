@@ -1,5 +1,5 @@
 ---
-title: Versión de prueba de la aplicación de lógica | Azure Marketplace
+title: Versión de prueba de aplicación lógica | Azure Marketplace
 description: Explica cómo compilar su versión de prueba que se conecta con una instancia de Dynamics AX/CRM o con cualquier otro recurso distinto de Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64940006"
 ---
 <a name="logic-app-test-drive"></a>Versión de prueba de aplicación lógica
@@ -61,11 +61,11 @@ En la sección siguiente es donde puede configurar la versión de prueba de la a
 
 ![Configuración técnica de la versión de prueba](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Región** - *[campo obligatorio]* La región que seleccione es en la que se implementarán los recursos de la versión de prueba de la aplicación lógica.
+- **Región** -  *[campo obligatorio]* La región que seleccione es en la que se implementarán los recursos de la versión de prueba de la aplicación lógica.
 
     *Nota:* Si la aplicación lógica tiene algún recurso personalizado almacenado en una región, asegúrese de que se haya seleccionado esa región. La mejor forma de hacerlo es **implementar la aplicación lógica completamente de forma local en la suscripción de Azure del portal y comprobar que funciona** antes de escribir en ella aquí.
 
-- **Número máximo de versiones de prueba simultáneas** - *[campo obligatorio]* Número de instancias de versiones de prueba que ya están implementadas y que esperan acceso por cada región seleccionada. Los clientes tienen acceso inmediato a estas versiones de prueba en lugar de tener que esperar a una implementación.
+- **Número máximo de versiones de prueba simultáneas** -  *[campo obligatorio]* Número de instancias de versiones de prueba que ya están implementadas y que esperan acceso por cada región seleccionada. Los clientes tienen acceso inmediato a estas versiones de prueba en lugar de tener que esperar a una implementación.
 
     *Nota:* Si va a realizar un seminario web o clase en los que quiere que todos los alumnos hagan una versión de prueba, se recomienda publicar un número N de instancias frecuentes y, después, una vez que la clase haya terminado, volver a publicar el número de instancias frecuentes habitual.
 
@@ -77,7 +77,7 @@ En la sección siguiente es donde puede configurar la versión de prueba de la a
 
 - **Desaprovisionar nombre de la aplicación lógica:** *[campo obligatorio]* Escriba el nombre de la aplicación lógica para desaprovisionarla de todos los recursos que se crearon en la versión de prueba. Asegúrese de que este archivo se guarda en el grupo de recursos anterior.
 
-- **Información de acceso:** *[campo obligatorio]* después de que un cliente obtiene su versión de prueba, se le presenta la información de acceso. Estas instrucciones están diseñadas para compartir los parámetros de salida útiles de la plantilla de Resource Manager de la versión de prueba. Para incluir parámetros de salida, use corchetes dobles (por ejemplo, **{{outputname}}**) y se insertarán correctamente en la ubicación. (En este caso se recomienda usar el formato de cadena HTML para la representación en el front-end).
+- **Información de acceso:** *[campo obligatorio]* después de que un cliente obtiene su versión de prueba, se le presenta la información de acceso. Estas instrucciones están diseñadas para compartir los parámetros de salida útiles de la plantilla de Resource Manager de la versión de prueba. Para incluir parámetros de salida, use corchetes dobles (por ejemplo, **{{outputname}}** ) y se insertarán correctamente en la ubicación. (En este caso se recomienda usar el formato de cadena HTML para la representación en el front-end).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Detalles de suscripción de la implementación de la versión de prueba
 
@@ -119,7 +119,7 @@ Haga clic en Guardar. El último paso consiste en copiar el identificador de apl
 Dado que vamos a usar la aplicación para implementar en la suscripción, es necesario agregar la aplicación como colaborador en la suscripción. Las instrucciones son las siguientes:
 
 1. Vaya a la hoja Suscripciones y seleccione la suscripción adecuada que va a usar solo para la versión de prueba.
-1. Haga clic en **Control de acceso (IAM)**.
+1. Haga clic en **Control de acceso (IAM)** .
 1. Haga clic en la pestaña **Asignaciones de roles**.  ![Azure Active Directory, incorporación de una nueva entidad de seguridad de Access Control](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Haga clic en **Agregar asignación de roles**.
 1. Establezca el rol en **Colaborador**.
@@ -132,7 +132,7 @@ Dado que vamos a usar la aplicación para implementar en la suscripción, es nec
 ![Sección de claves de Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails8.png)
 
 > [!CAUTION]
-> No puede usar la versión preliminar de Azure App registro porque actualmente no generar una clave con codificación base64.
+> No puede usar la versión preliminar de registro de Aplicación de Azure porque actualmente no generar una clave codificada en base64.
 
 
 <a name="next-steps"></a>Pasos siguientes

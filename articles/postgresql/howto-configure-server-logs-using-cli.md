@@ -1,6 +1,6 @@
 ---
-title: 'Configurar y obtener acceso a registros de servidor para PostgreSQL: servidor único con la CLI de Azure'
-description: 'En este artículo se describe cómo configurar y obtener acceso a los registros del servidor en Azure Database for PostgreSQL: servidor único mediante el uso de la línea de comandos de CLI de Azure.'
+title: Configuración y acceso a los registros del servidor para PostgreSQL con un único servidor con la CLI de Azure
+description: En este artículo se describe cómo configurar los registros de servidor de Azure Database for PostgreSQL con un único servidor, y acceder a ellos, mediante la línea de comandos de la CLI de Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4702db31ffeb15481584b9638f5be1aa640ff39e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067205"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configuración y acceso a los registros del servidor con la CLI de Azure
@@ -30,7 +30,7 @@ Puede configurar el servidor para tener acceso a los registros de consulta y los
 
 Para obtener más información, consulte cómo [Personalización de los parámetros de configuración del servidor con la CLI de Azure](howto-configure-server-parameters-using-cli.md).
 
-## <a name="list-logs"></a>Mostrar registros
+## <a name="list-logs"></a>Enumerar registros
 Para mostrar la lista de archivos de registro disponibles para el servidor, ejecute el comando [az postgres server-logs list](/cli/azure/postgres/server-logs).
 
 Puede enumerar archivos de registro del servidor **mydemoserver.postgres.database.azure.com** en el grupo de recursos **myresourcegroup**. A continuación, dirija la lista de archivos de registro a un archivo de texto denominado **log\_files\_list.txt**.

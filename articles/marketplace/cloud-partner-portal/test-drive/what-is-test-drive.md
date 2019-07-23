@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938451"
 ---
 <a name="what-is-test-drive"></a>¿Qué es la versión de prueba?
@@ -47,9 +47,9 @@ A continuación se muestra un ejemplo de cómo se ve una oferta cuando necesita 
 
 No importa lo compleja que sea la aplicación, la versión de prueba de Microsoft le ayuda a realizar una demostración real del producto para el cliente. Actualmente se ofrecen tres tipos diferentes de versiones de prueba en función del tipo de producto, el escenario y Marketplace en el que se encuentra.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**: Una versión de prueba de Azure Resource Manager es una plantilla de implementación que contiene todos los recursos de Azure que componen una solución que está compilando el anunciante. Los productos que se ajustan a este escenario son las que usan solo recursos de Azure.
-- **[Aplicación lógica](./logic-app-test-drive.md)**: Una versión de prueba de aplicación lógica es una plantilla de implementación que está pensada para abarcar todas las arquitecturas de soluciones complejas. Todas las aplicaciones o productos personalizados de Dynamics deberían usar este tipo de versión de prueba.
-- **Power BI**: Power BI pruébelas es simplemente un vínculo incrustado a un panel personalizado creado. Aquellos productos que solo quieran mostraar de un objeto visual interactivo de Power BI deben usar este tipo de versión de prueba.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Una versión de prueba de Azure Resource Manager es una plantilla de implementación que contiene todos los recursos de Azure que componen una solución que está compilando el anunciante. Los productos que se ajustan a este escenario son las que usan solo recursos de Azure.
+- **[Aplicación lógica](./logic-app-test-drive.md)** : Una versión de prueba de aplicación lógica es una plantilla de implementación que está diseñada para incluir todas las arquitecturas de soluciones complejas. Todas las aplicaciones o productos personalizados de Dynamics deberían usar este tipo de versión de prueba.
+- **Power BI**: Una versión de prueba de Power BI es simplemente un vínculo insertado en un panel con una compilación personalizada. Aquellos productos que solo quieran mostraar de un objeto visual interactivo de Power BI deben usar este tipo de versión de prueba.
     Todo lo que necesita para la carga aquí es la dirección URL insertada de Power BI.
 
 <a name="what-goes-on-in-the-background"></a>¿Qué ocurre en el segundo plano?

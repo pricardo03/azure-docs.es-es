@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875814"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Asignación de esquemas en la actividad de copia
@@ -25,15 +25,15 @@ Este artículo describe el modo en que la actividad de copia de Azure Data Facto
 
 ## <a name="schema-mapping"></a>Asignación de esquemas
 
-Asignación de columnas se aplica cuando se copian datos de origen a receptor. De forma predeterminada, la actividad de copia **asignar datos de origen al receptor por los nombres de columna**. Puede especificar [asignación explícita](#explicit-mapping) para personalizar la asignación de columna según sus necesidades. Más concretamente, la actividad de copia:
+La asignación de columnas se aplica cuando se copian datos del origen al receptor. De forma predeterminada, la actividad de copia **asigna los datos de origen al receptor por nombres de columna**. Puede especificar una [asignación explícita](#explicit-mapping) para personalizar la asignación de columnas según sus necesidades. Más concretamente, la actividad de copia:
 
 1. Lee los datos desde el origen y determina el esquema de origen.
-2. Utilice la asignación de columnas predeterminado para asignar columnas por nombre o aplicar la asignación de columnas explícita si se especifica.
+2. Utilice la asignación de columnas predeterminada para asignar las columnas por nombre o aplique la asignación de columnas explícita si se especifica.
 3. Escritura de datos en el receptor
 
 ### <a name="explicit-mapping"></a>Asignación explícita
 
-Puede especificar las columnas que desea asignar en la actividad de copia -> `translator`  ->  `mappings` propiedad. El ejemplo siguiente define una actividad de copia en una canalización para copiar datos de texto delimitado para Azure SQL Database.
+Puede especificar las columnas que quiere asignar en actividad de copia -> propiedad `translator` -> `mappings`. El ejemplo siguiente define una actividad de copia en una canalización para copiar datos de texto delimitado a Azure SQL Database.
 
 ```json
 {
@@ -86,33 +86,33 @@ Puede especificar las columnas que desea asignar en la actividad de copia -> `tr
 }
 ```
 
-Se admiten las siguientes propiedades en `translator`  ->  `mappings` -> objeto con `source` y `sink`:
+Se admiten las siguientes propiedades en `translator` -> `mappings` -> objeto con `source` y `sink`:
 
 | Propiedad | DESCRIPCIÓN                                                  | Obligatorio |
 | -------- | ------------------------------------------------------------ | -------- |
-| name     | Nombre de la columna de origen o receptor.                           | Sí      |
-| ordinal  | Índice de columna. Iniciar con 1. <br>Aplicar y será necesario cuando uso delimitado por texto sin línea de encabezado. | Sin        |
-| path     | Expresión de ruta de acceso JSON para cada campo extraer o asignar. Se aplican para los datos jerárquicos, por ejemplo, MongoDB o REST.<br>Para los campos en el objeto raíz, ruta de acceso JSON se inicia por root $; para los campos dentro de la matriz elegida mediante `collectionReference` propiedad, la ruta de acceso JSON se inicia desde el elemento de matriz. | Sin        |
-| type     | Tipo de datos provisionales de factoría de datos de la columna de origen o receptor. | Sin        |
-| culture  | Referencia cultural de la columna de origen o receptor. <br>Se aplican cuando el tipo es `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. | Sin        |
-| format   | Cadena de formato que se usa cuando el tipo es `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | Sin        |
+| Nombre     | Nombre de la columna de origen o receptor.                           | Sí      |
+| ordinal  | Índice de columna. Comienza con 1. <br>Se aplica y es obligatoria cuando se usa texto delimitado sin línea de encabezado. | Sin       |
+| path     | Expresión de ruta de acceso JSON de cada campo para su extracción o asignación. Se aplica para los datos jerárquicos; por ejemplo, MongoDB o REST.<br>Para los campos en el objeto raíz, la ruta de acceso JSON comienza con root $; para los campos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz. | Sin       |
+| Tipo     | Tipo de datos provisionales de Data Factory de la columna de origen o receptor. | Sin       |
+| culture  | Cultura de la columna de origen o receptor.Se aplica cuando el tipo es `Datetime` o `Datetimeoffset`. <br>Apply when type is <ph id="ph1">`Datetime`</ph> or <ph id="ph2">`Datetimeoffset`</ph>. El valor predeterminado es `en-us`. | Sin       |
+| formato   | Cadena de formato que se usa cuando el tipo es `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | Sin       |
 
-Se admiten las siguientes propiedades en `translator`  ->  `mappings` además de objeto con `source` y `sink`:
+Se admiten las siguientes propiedades en `translator` -> `mappings`, así como en un objeto con `source` y `sink`:
 
 | Propiedad            | DESCRIPCIÓN                                                  | Obligatorio |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | Admite solo cuando los datos jerárquicos, por ejemplo, MongoDB o REST están el origen.<br>Si desea iterar y extraer datos de los objetos **dentro de un campo de matriz** con el mismo patrón y convertir al modo por fila por objeto, especifique la ruta de acceso JSON de esa matriz para realizar la aplicación cruzada. | Sin        |
+| collectionReference | Solo se admite si el origen son datos jerárquicos; por ejemplo, MongoDB o REST.<br>Si desea iterar y extraer datos de los objetos **dentro de un campo de matriz** con el mismo patrón y convertir al modo por fila por objeto, especifique la ruta de acceso JSON de esa matriz para realizar la aplicación cruzada. | Sin       |
 
-### <a name="alternative-column-mapping"></a>Asignación de columna alternativos
+### <a name="alternative-column-mapping"></a>Asignación de columnas alternativa
 
-Puede especificar copia -> actividad `translator`  ->  `columnMappings` para asignar entre los datos en forma tabular. En este caso, la sección "structure" es necesario para los conjuntos de datos de entrada y salida. La asignación de columnas admite **la asignación de todas las columnas o un subconjunto de ellas del conjunto de datos de origen "structure" a todas las columnas del conjunto de datos receptor "structure"**. Las siguientes son las condiciones de error que tienen como resultado una excepción:
+Puede especificar actividad de copia -> `translator` -> `columnMappings` para realizar asignaciones de datos en forma tabular. En este caso, la sección "structure" es necesaria para los conjuntos de datos de entrada y salida. La asignación de columnas admite **la asignación de todas las columnas o un subconjunto de ellas del conjunto de datos de origen "structure" a todas las columnas del conjunto de datos receptor "structure"** . Las siguientes son las condiciones de error que tienen como resultado una excepción:
 
 * El resultado de la consulta del almacén de datos de origen no tiene un nombre de columna que se especifique en la sección "structure" del conjunto de datos de entrada.
 * El almacén de datos receptor (si está en el esquema predefinido) no tiene un nombre de columna que se especifique en la sección "structure" del conjunto de datos de salida.
 * O bien menos columnas o más columnas en "structure" del conjunto de datos receptor de las que se especifican en la asignación.
 * Asignación duplicada.
 
-En el ejemplo siguiente, el conjunto de datos de entrada tiene una estructura y apunta a una tabla en una base de datos de Oracle en el entorno local.
+En el siguiente ejemplo, el conjunto de datos de entrada tiene una estructura y apunta a una tabla en una base de datos de Oracle local.
 
 ```json
 {
@@ -160,7 +160,7 @@ En este ejemplo, el conjunto de datos de salida tiene una estructura y apunta a 
 }
 ```
 
-El siguiente fragmento JSON define una actividad de copia en una canalización. Las columnas de origen se asignan a columnas del receptor mediante el uso de la **traductor** -> **columnMappings** propiedad.
+El siguiente fragmento JSON define una actividad de copia en una canalización. Las columnas del origen se asignan a columnas del receptor mediante la propiedad **translator** -> **columnMappings**.
 
 ```json
 {
@@ -197,15 +197,15 @@ El siguiente fragmento JSON define una actividad de copia en una canalización. 
 
 Si estaba usando la sintaxis de `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` para especificar una asignación de columnas, esta se sigue admitiendo tal cual.
 
-### <a name="alternative-schema-mapping"></a>Asignación de esquema alternativo
+### <a name="alternative-schema-mapping"></a>Asignación de esquemas alternativa
 
-Puede especificar copia -> actividad `translator`  ->  `schemaMapping` entre los datos en forma jerárquica y datos tabulares en forma de mapa, por ejemplo, copiar de MongoDB/REST al archivo de texto y copie desde Oracle a la API de Azure Cosmos DB para MongoDB. Se admiten las siguientes propiedades en la sección `translator` de la actividad de copia:
+Puede especificar actividad de copia -> `translator` -> `schemaMapping` para realizar la asignación de tablas de datos jerárquicos y datos tabulares. Por ejemplo, al copiar de MongoDB o REST a un archivo de texto, o al copiar de Oracle a la API de Azure Cosmos DB para MongoDB. Se admiten las siguientes propiedades en la sección `translator` de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del traductor de la actividad de copia debe establecerse en: **TabularTranslator** | Sí |
-| schemaMapping | Una colección de pares de clave-valor, que representa la relación de asignación **desde el lado del origen al receptor del lado**.<br/>- **Clave:** origen representa. Para **origen tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para **origen jerárquica**, especifique la expresión de ruta de acceso JSON para cada campo extraer y asignar.<br>- **Valor:** representa receptor. Para **receptor tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para **receptor jerárquica**, especifique la expresión de ruta de acceso JSON para cada campo extraer y asignar. <br>En el caso de los datos jerárquicos, para los campos en el objeto raíz, la ruta de acceso JSON se inicia por root $; para los campos dentro de la matriz elegida mediante `collectionReference` propiedad, la ruta de acceso JSON se inicia desde el elemento de matriz.  | Sí |
-| collectionReference | Si desea iterar y extraer datos de los objetos **dentro de un campo de matriz** con el mismo patrón y convertir al modo por fila por objeto, especifique la ruta de acceso JSON de esa matriz para realizar la aplicación cruzada. Esta propiedad solo se admite si el origen son datos jerárquicos. | Sin  |
+| Tipo | La propiedad type del traductor de la actividad de copia debe establecerse en: **TabularTranslator** | Sí |
+| schemaMapping | Colección de pares clave-valor, que representa la relación de la asignación **del lado origen al lado receptor**.<br/>- **Clave:** representa el origen. Para un **origen tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **origen jerárquico**, especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar.<br>- **Valor:** representa el receptor. Para un **receptor tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **receptor jerárquico**, especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar. <br>En el caso de los datos jerárquicos, para los campos en el objeto raíz, la ruta de acceso JSON comienza con root $; para los campos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz.  | Sí |
+| collectionReference | Si desea iterar y extraer datos de los objetos **dentro de un campo de matriz** con el mismo patrón y convertir al modo por fila por objeto, especifique la ruta de acceso JSON de esa matriz para realizar la aplicación cruzada. Esta propiedad solo se admite si el origen son datos jerárquicos. | Sin |
 
 **Ejemplo: copia de MongoDB a Oracle:**
 
@@ -236,7 +236,7 @@ Por ejemplo, si tiene un documento de MongoDB con el siguiente contenido:
 }
 ```
 
-y desea copiarlo en una tabla de Azure SQL del formato siguiente, puede hacerlo mediante el acoplamiento de los datos dentro de la matriz *(order_pd y order_price)* y la combinación cruzada con la información de la raíz habitual *(número, fecha y ciudad)*:
+y desea copiarlo en una tabla de Azure SQL del formato siguiente, puede hacerlo mediante el acoplamiento de los datos dentro de la matriz *(order_pd y order_price)* y la combinación cruzada con la información de la raíz habitual *(número, fecha y ciudad)* :
 
 | orderNumber | orderDate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
@@ -296,8 +296,8 @@ Data Factory admite los siguientes tipos de datos provisionales: Puede especific
 * Int32
 * Int64
 * Single
-* String
-* Timespan
+* Cadena
+* TimeSpan
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los otros artículos de la actividad de copia:

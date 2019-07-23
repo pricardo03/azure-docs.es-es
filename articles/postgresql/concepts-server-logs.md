@@ -1,19 +1,19 @@
 ---
-title: 'Registros de servidor en Azure Database for PostgreSQL: servidor único'
-description: Este artículo describe cómo Azure Database for PostgreSQL - único servidor genera la consulta y los registros de errores y cómo se configura la retención de registro.
+title: Registros de servidor en Azure Database for PostgreSQL con un único servidor
+description: En este artículo se describe cómo Azure Database for PostgreSQL con un único servidor genera registros de consultas y de errores, y cómo se configura la retención de registros.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067381"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Registros de servidor en Azure Database for PostgreSQL: servidor único
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Registros de servidor en Azure Database for PostgreSQL con un único servidor
 Azure Database for PostgreSQL genera registros de errores y consultas. Los registros de consulta y errores se pueden usar para identificar, solucionar y reparar errores de configuración y casos de rendimiento no óptimo. (No se incluye acceso a los registros de transacciones). 
 
 ## <a name="configure-logging"></a>registro 
@@ -28,10 +28,10 @@ Si ha habilitado los registros, puede acceder a ellos desde el almacenamiento de
 
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
-Azure Database for PostgreSQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros en el servidor PostgreSQL, puede elegir hacer que se emiten para [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de procedimientos de la [documentación de registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Azure Database for PostgreSQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros en el servidor PostgreSQL, puede optar por hacer que se emitan a los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de procedimientos de la [documentación de registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 > [!IMPORTANT]
-> Esta característica de diagnóstico para registros de servidor solo está disponible en el uso General y memoria optimizada [planes de tarifa](concepts-pricing-tiers.md).
+> Esta función de diagnóstico para registros de servidor solo está disponibles en los [planes de tarifa](concepts-pricing-tiers.md) de uso general y optimizados para memoria.
 
 En la tabla siguiente se describe lo que contiene cada registro. En función del punto de conexión de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen. 
 

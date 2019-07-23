@@ -1,19 +1,19 @@
 ---
-title: 'Crear y administrar los puntos de conexión de servicio de red virtual y reglas en Azure Database for PostgreSQL: servidor único con Azure portal'
-description: 'Crear y administrar los puntos de conexión de servicio de red virtual y reglas de Azure Database for PostgreSQL: servidor único con Azure portal'
+title: Creación y administración de reglas y puntos de conexión de servicio de red virtual en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
+description: Creación y administración de reglas y puntos de conexión de servicio de red virtual en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 9da46ae905457f6f6b1786a2161e224d397d0507
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073176"
 ---
-# <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Crear y administrar los puntos de conexión de servicio de red virtual y reglas de red virtual en Azure Database for PostgreSQL: servidor único mediante el portal de Azure
+# <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Creación y administración de reglas y puntos de conexión de servicio de red virtual en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
 Las reglas y los puntos de conexión de servicios de red virtual (VNet) amplían el espacio de direcciones privadas de una red virtual al servidor de Azure Database for PostgreSQL. Para obtener información general sobre los puntos de conexión de servicio de red virtual de Azure Database for PostgreSQL, incluidas las limitaciones, consulte [Azure Database for PostgreSQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md) (Puntos de conexión de servicio de red virtual del servidor de Azure Database for PostgreSQL). Los puntos de conexión de servicio de red virtual están disponibles en todas las regiones admitidas para Azure Database for PostgreSQL.
 
 > [!NOTE]
@@ -24,10 +24,10 @@ Las reglas y los puntos de conexión de servicios de red virtual (VNet) amplían
 
 1. En la página del servidor de PostgreSQL, en el encabezado Configuración, haga clic en **Seguridad de conexión** para abrir la página de seguridad de conexión para Azure Database for PostgreSQL. 
 
-2. Asegúrese de que permitir el acceso al control de servicios de Azure está establecido en **OFF**.
+2. Asegúrese de que el control Permitir el acceso a los servicios de Azure está configurado en**Desactivado**.
 
 > [!Important]
-> Si deja el control establecido en ON, el servidor Azure PostgreSQL Database aceptará la comunicación desde cualquier subred. Si deja el control establecido en Activado, el número de accesos podría ser excesivo desde un punto de vista de seguridad. La característica de punto de conexión de servicio de Microsoft Azure Virtual Network, en coordinación con la característica de la regla de red virtual de Azure Database for PostgreSQL, puede reducir el área expuesta de seguridad.
+> Si deja el control establecido en Activado, el servidor de Azure Database for PostgreSQL aceptará la comunicación desde cualquier subred. Si deja el control establecido en Activado, el número de accesos podría ser excesivo desde un punto de vista de seguridad. La característica de punto de conexión del servicio Microsoft Azure Virtual Network, junto con la característica de la regla de red virtual de Azure Database for PostgreSQL, pueden reducir el área expuesta de seguridad.
 
 3. A continuación, haga clic en **+ Agregar una red virtual existente**. Si no tiene ninguna red virtual, puede hacer clic en **+ Crear nueva red virtual** para crear una. Consulte [Quickstart: Creación de una red virtual mediante Azure Portal](../virtual-network/quick-create-portal.md)
 

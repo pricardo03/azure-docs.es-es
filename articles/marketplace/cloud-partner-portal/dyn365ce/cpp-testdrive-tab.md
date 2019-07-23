@@ -1,5 +1,5 @@
 ---
-title: Pestaña de la versión de prueba de la oferta de Dynamics 365 para la aplicación de interacción de cliente | Azure Marketplace
+title: Pestaña Versión de prueba de una oferta de aplicación de Dynamics 365 for Customer Engagement | Azure Marketplace
 description: Configuración de una versión de prueba para una oferta de la aplicación Dynamics 365 for Customer Engagement en AppSource Marketplace.
 services: Azure, Marketplace, AppSource, Cloud Partner Portal, Dynamics 365 for Customer Engagement
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 5bb5f39ef5f5bce09a8639ba9eedc6d042e60c1d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942331"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Pestaña Versión de prueba de la aplicación Dynamics 365 for Customer Engagement
@@ -50,19 +50,19 @@ En esta sección, proporcionará detalles técnicos sobre la versión de prueba.
 
 ![Sección Detalles de la versión de prueba](./media/test-drive-tab-tech-config.png)
 
-Donde los campos tienen los siguientes fines.  Los campos obligatorios se indican con un asterisco (*).
+Los campos tienen las siguientes funciones.  Los campos obligatorios se indican con un asterisco (*).
 
 |      Campo                    |    DESCRIPCIÓN                  |
 |    ---------                  |  ---------------                |
-| Tipo de versión de prueba\*            | Elija **Hospedada por Microsoft (Dynamics 365 for Customer Engagement)**.  |
-| Las versiones de prueba simultáneas máximas\*    | Número de instancias simultáneas de una versión de prueba activa en cualquier momento determinado de tiempo. Cada usuario consumirá una licencia de Dynamics mientras que esté activa su versión de prueba, por lo que tendrá que garantizar este número de licencias de Dynamics para que estén disponibles para los usuarios de la versión de prueba. Se recomienda un valor entre 3 y 5.  |
-| Unidad de duración de la prueba (horas)\*   | Número máximo de horas que estará activa la instancia de la versión de prueba del usuario. Una vez que se supera este tiempo, la instancia se desaprovisionará del inquilino. Se recomienda un valor entre 2 y 24 horas dependiendo de la complejidad de la aplicación. El usuario siempre puede solicitar otra versión de prueba si se agota el tiempo y desea volver a realizar una evaluación.  |
+| Tipo de versión de prueba\*            | Elija **Hospedada por Microsoft (Dynamics 365 for Customer Engagement)** .  |
+| Número máximo de versiones de prueba simultáneas\*    | Número de instancias simultáneas de una versión de prueba activa en cualquier momento determinado de tiempo. Cada usuario consumirá una licencia de Dynamics mientras que esté activa su versión de prueba, por lo que tendrá que garantizar este número de licencias de Dynamics para que estén disponibles para los usuarios de la versión de prueba. Se recomienda un valor entre 3 y 5.  |
+| Duración de la versión de prueba (horas)\*   | Número máximo de horas que estará activa la instancia de la versión de prueba del usuario. Una vez que se supera este tiempo, la instancia se desaprovisionará del inquilino. Se recomienda un valor entre 2 y 24 horas dependiendo de la complejidad de la aplicación. El usuario siempre puede solicitar otra versión de prueba si se agota el tiempo y desea volver a realizar una evaluación.  |
 | Dirección URL de la instancia\*                  | Dirección URL a la que irá inicialmente la versión de prueba. Esta suele ser la dirección URL de la instancia de Dynamics 365 que contiene la aplicación y los datos de ejemplo.  |
-| Id. de inquilino de Azure AD\*            | El identificador único del inquilino de Azure para la instancia de Dynamics 365. Para recuperar este valor, inicie sesión en Azure Portal y vaya a **Azure Active Directory** >  **Seleccionar propiedades** > **Copiar el identificador de directorio**.  |
+| Identificador de inquilino de Azure AD\*            | El identificador único del inquilino de Azure para la instancia de Dynamics 365. Para recuperar este valor, inicie sesión en Azure Portal y vaya a **Azure Active Directory** >  **Seleccionar propiedades** > **Copiar el identificador de directorio**.  |
 | Identificador de aplicación de Azure AD\*               | Identificador único de la aplicación de Azure AD  |
 | Clave de aplicación de Azure AD\*              | El secreto de la aplicación de Azure AD, por ejemplo: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` |
 | Nombre del inquilino de Azure AD\*          | El nombre del inquilino de Azure para la instancia de Dynamics 365. Use el formato <nombreinquilino.>onmicrosoft.com. Por ejemplo: `testdrive.onmicrosoft.com`  |
-| Dirección URL de Web API de instancia\*          | Dirección URL de API web para la instancia de Dynamics 365. Para recuperar este valor, inicie sesión en la instancia de Microsoft Dynamics 365 y vaya a **Configuración** > **Personalización** > **Recursos de desarrollador** > **API web de la instancia (copie esta dirección URL)**. Valor de ejemplo: `https://testdrive.crm.dynamics.com/api/data/v9.0`  |
+| Dirección URL de API web de la instancia\*          | Dirección URL de API web para la instancia de Dynamics 365. Para recuperar este valor, inicie sesión en la instancia de Microsoft Dynamics 365 y vaya a **Configuración** > **Personalización** > **Recursos de desarrollador** > **API web de la instancia (copie esta dirección URL)** . Valor de ejemplo: `https://testdrive.crm.dynamics.com/api/data/v9.0`  |
 | Nombre de rol\*                     | Nombre del rol de seguridad personalizado de Dynamics 365 que ha creado para la versión de prueba y que se asignará a los usuarios cuando la ejecuten, por ejemplo `testdriveuser`. |
 |  |  |
 

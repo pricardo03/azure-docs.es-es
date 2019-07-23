@@ -1,21 +1,21 @@
 ---
-title: 'Query Store en Azure Database for PostgreSQL: servidor único'
-description: 'En este artículo se describe la característica de consulta Store en Azure Database for PostgreSQL: servidor único.'
+title: Almacén de consultas en Azure Database for PostgreSQL con un único servidor
+description: En este artículo se describe la característica Almacén de consultas en Azure Database for PostgreSQL con un único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067200"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Supervisión del rendimiento con el Almacén de consultas
 
-**Se aplica a:** Azure Database for PostgreSQL: servidor único 9.6 y 10
+**Se aplica a:** Azure Database for PostgreSQL con un único servidor 9.6 y 10
 
 La característica Almacén de consultas de Azure Database for PostgreSQL proporciona una manera de realizar un seguimiento del rendimiento de las consultas a lo largo del tiempo. El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. El Almacén de consultas captura automáticamente un historial de consultas y estadísticas de tiempo de ejecución y lo conserva para su revisión. Separa los datos por ventanas de tiempo para que pueda ver patrones de uso de la base de datos. Los datos de todos los usuarios, las bases de datos y las consultas se almacenan en una base de datos denominada **azure_sys** en la instancia de Azure Database for PostgreSQL.
 
@@ -29,14 +29,14 @@ El Almacén de consultas es una característica opcional, por lo que no está ac
 1. Inicie sesión en Azure Portal y seleccione el servidor de Azure Database for PostgreSQL.
 2. Seleccione **Parámetros del servidor** en la sección **Configuración** del menú.
 3. Busque el parámetro `pg_qs.query_capture_mode`.
-4. Establezca el valor en `TOP` y **guardar**.
+4. Establezca el valor en `TOP` y haga clic en **Guardar**.
 
-Para habilitar las estadísticas de espera en la consulta de Store: 
+Para habilitar las estadísticas de espera en el Almacén de consultas: 
 1. Busque el parámetro `pgms_wait_sampling.query_capture_mode`.
-1. Establezca el valor en `ALL` y **guardar**.
+1. Establezca el valor en `ALL` y haga clic en **Guardar**.
 
 
-También puede establecer estos parámetros mediante la CLI de Azure.
+También puede establecer estos parámetros con la CLI de Azure.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -120,8 +120,8 @@ Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por 
 |query_id   |bigint  || Código hash interno, calculado a partir del árbol de análisis de la instrucción|
 |query_sql_text |Varchar(10000)  || Texto de una instrucción representativa. Las consultas diferentes con la misma estructura se agrupan; este texto es el texto para la primera consulta del clúster.|
 |plan_id    |bigint |   |Identificador del plan correspondiente a esta consulta, no está disponible todavía.|
-|start_time | timestamp  ||  Las consultas se agregan por ciclos: el intervalo de tiempo de un ciclo es de 15 minutos de forma predeterminada. Se trata de la hora de inicio correspondiente al ciclo para esta entrada.|
-|end_time   | timestamp  ||  Hora de finalización correspondiente al ciclo para esta entrada.|
+|start_time |timestamp  ||  Las consultas se agregan por ciclos: el intervalo de tiempo de un ciclo es de 15 minutos de forma predeterminada. Se trata de la hora de inicio correspondiente al ciclo para esta entrada.|
+|end_time   |timestamp  ||  Hora de finalización correspondiente al ciclo para esta entrada.|
 |calls  |bigint  || Número de veces que se ejecuta la consulta.|
 |total_time |double precision   ||  Tiempo total de ejecución de las consultas, en milisegundos.|
 |min_time   |double precision   ||  Tiempo mínimo de ejecución de las consultas, en milisegundos.|

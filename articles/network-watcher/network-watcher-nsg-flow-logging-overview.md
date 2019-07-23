@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925411"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
@@ -93,7 +93,7 @@ El texto que sigue es un ejemplo de un registro de flujo. Como puede ver, hay va
 
 **Costos del registro de flujo**: El registro de flujos de NSG se factura según el volumen de registros generados. Un volumen de tráfico elevado puede producir un volumen de registro de flujo elevado, con los costos asociados. Los precios del registro de flujos de NSG no incluyen los costos de almacenamiento subyacentes. Si se usa la característica de directiva de retención con el registro de flujo de NSG, es posible que se presente un gran volumen de operaciones de almacenamiento, con sus respectivos costos. Si no necesita la característica de directiva de retención, se recomienda que establezca este valor en 0. Consulte [precios de Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) y [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/) para obtener más detalles.
 
-**Iniciado sesión desde direcciones IP de internet a las máquinas virtuales sin direcciones IP públicas de flujos de entrada**: Las máquinas virtuales que no tienen una dirección IP pública asignada a través de una dirección IP pública asociada con la NIC como una dirección IP pública de nivel de instancia, o que forman parte de un grupo de back-end de equilibrador de carga básico, uso [predeterminado SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) y tiene una dirección IP asignada por Azure para facilitar la conectividad de salida. Como resultado, es posible que vea las entradas de registro de flujo para los flujos desde internet las direcciones IP, si el flujo está destinado a un puerto en el intervalo de puertos asignados para SNAT. Si bien Azure no permitirá que estos flujos a la máquina virtual, el intento se registra y aparece en el registro de flujos de Network Watcher por diseño. Se recomienda que el tráfico de internet entrante no deseado puede bloquearse explícitamente con NSG.
+**Flujos entrantes registrados desde direcciones IP de Internet a VM sin direcciones IP públicas**: Las VM que no tienen una dirección IP pública asignada a través de una dirección IP pública asociada con la NIC como dirección IP pública de nivel de instancia, o que forman parte de un grupo de back-end de equilibrador de carga básico, usan [SNAT predeterminada](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) y tiene una dirección IP asignada por Azure para facilitar la conectividad de salida. Como consecuencia, es posible que vea las entradas de registro de flujo para los flujos desde las direcciones IP de Internet, si el flujo está destinado a un puerto en el intervalo de puertos asignados para SNAT. Si bien Azure no permitirá estos flujos a la VM, el intento se registra y aparece en el registro de flujos de NSG de Network Watcher por diseño. Se recomienda que el tráfico entrante de Internet no deseado se bloquee explícitamente con NSG.
 
 ## <a name="sample-log-records"></a>Entradas de registro de ejemplo
 
@@ -288,5 +288,5 @@ El texto que sigue es un ejemplo de un registro de flujo. Como puede ver, hay va
 
 - Para saber cómo habilitar los registros de flujo, consulte [Habilitación del registro de flujo de NSG](network-watcher-nsg-flow-logging-portal.md).
 - Para obtener información sobre cómo leer los registros del flujo, consulte [Lectura de registros de flujo de NSG](network-watcher-read-nsg-flow-logs.md).
-- Para más información sobre el registro de NSG, consulte [los registros de Azure Monitor para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Para saber más sobre el registro de NSG, consulte [Registros de Azure Monitor para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Para determinar si el tráfico se permite o deniega en una máquina virtual, consulte [Diagnóstico de problemas al filtrar el tráfico de red de una máquina virtual](diagnose-vm-network-traffic-filtering-problem.md).

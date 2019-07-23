@@ -8,13 +8,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/07/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 02b335de7f105d768168d5f798ec9109136d7430
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459715"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846260"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Reglas personalizadas para el firewall de aplicaciones web con Azure Front Door
 El servicio del firewall de aplicaciones web (WAF) de Azure con Front Door le permite controlar el acceso a sus aplicaciones web en función de las condiciones que defina. Una regla WAF personalizada consta de un número de prioridad, un tipo de regla, condiciones de coincidencia y una acción. Existen dos tipos de reglas personalizadas: reglas de coincidencia y reglas de límite de frecuencia. Una regla de coincidencia controla el acceso en función de las condiciones de coincidencia, mientras que una regla de limitación de frecuencia controla el acceso en función de las condiciones de coincidencia y la frecuencia de las solicitudes entrantes. Puede deshabilitar una regla personalizada para impedir que se evalúe, pero mantener la configuración. En este artículo se describen las reglas de coincidencia que se basan en parámetros HTTP.

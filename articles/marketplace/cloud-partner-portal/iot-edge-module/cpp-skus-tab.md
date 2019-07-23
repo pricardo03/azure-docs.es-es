@@ -1,5 +1,5 @@
 ---
-title: Módulo de Azure IoT Edge SKU | Azure Marketplace
+title: SKU de los módulos Azure IoT Edge | Azure Marketplace
 description: Cree SKU para un módulo IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
 ms.openlocfilehash: bf8957c315909785112dea947f2e2e0f7b26349f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942194"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Pestaña SKU de módulo IoT Edge
@@ -35,7 +35,7 @@ La pestaña **SKU** se actualiza y muestra los campos que edita el usuario para 
 
 |  **Campo**       |     **Descripción**                                                          |
 |  ---------       |     ---------------                                                          |
-| **IDENTIFICADOR DE SKU\***       | Identificador de esta SKU. Este nombre tiene un máximo de 50 caracteres, consta de caracteres alfanuméricos en minúscula o guiones (-), pero no puede terminar con un guión. **Nota:** No se puede cambiar este nombre una vez publicada de la oferta. El nombre es públicamente visible en las direcciones URL del producto. |
+| **Id. de SKU\***       | Identificador de esta SKU. Este nombre tiene un máximo de 50 caracteres, consta de caracteres alfanuméricos en minúscula o guiones (-), pero no puede terminar con un guión. **Nota:** No se puede cambiar este nombre una vez publicada la oferta. El nombre es públicamente visible en las direcciones URL del producto. |
 |  |  |
 
 
@@ -52,7 +52,7 @@ En la tabla siguiente se describen el propósito, el contenido y el formato de l
 | **Título\***        | Título de esta SKU. La longitud máxima es de 50 caracteres. <br/> Se muestra en Azure Portal y se usa como nombre de módulo predeterminado (sin espacios ni caracteres especiales) cuando se implementa. Vea las imágenes siguientes para saber exactamente dónde aparece este campo.|
 | **Resumen\***      | Resumen breve de esta SKU. Tiene una longitud máxima de 100 caracteres. **NO** resume la oferta, solo la SKU.  Este resumen aparece en Azure Marketplace. Vea las imágenes siguientes para saber exactamente dónde aparece este campo.|
 | **Descripción\***  | Breve descripción de esta SKU. Longitud máxima de 3 000 caracteres. NO describe la oferta, simplemente esta SKU. Aparece en Azure Marketplace y en Azure Portal. En Azure Portal, se anexa a la descripción de Marketplace que describe la oferta definida en la pestaña Marketplace.  Puede ser igual que el resumen de la SKU. Vea las imágenes siguientes para saber exactamente dónde aparece este campo.|
-| **Ocultar esta SKU\*** | Mantenga el valor predeterminado, que es **No**. |
+| **Hide this SKU\*** (Ocultar esta SKU) | Mantenga el valor predeterminado, que es **No**. |
 |  |  |
 
 
@@ -99,24 +99,24 @@ Puede elegir como destino varias plataformas y proporcionar varias versiones por
 
 ![Imágenes de módulo IoT Edge](./media/iot-edge-module-skus-tab-acr.png)
 
-En la tabla siguiente describe el propósito, contenido y el formato de los campos de las secciones **detalles del repositorio de imágenes** y **versión de la imagen**.  Los campos obligatorios se indican con un asterisco (*).
+En la tabla siguiente se describe el propósito, el contenido y el formato de los campos de las secciones **Image Repository Details** (Detalles del repositorio de imágenes) y **Versión de la imagen**.  Los campos obligatorios se indican con un asterisco (*).
 
 
 |  **Campo**       |     **Descripción**                                                          |
 |  ---------       |     ---------------                                                          |
 |  |  ***Detalles del repositorio de imágenes***    |
 | **Id. de suscripción\***        | Id. de suscripción de Azure de ACR.|
-| **nombre del grupo de recursos\***      | Nombre del grupo de recursos de ACR.|
-| **Nombre del registro\***  | Nombre del Registro de ACR. Simplemente copie el nombre del Registro, NO el nombre del servidor de inicio de sesión (por ejemplo, sin `azurecr.io`). |
-| **Nombre del repositorio\***  | Nombre del repositorio de ACR que contiene el módulo IoT Edge. **Nota:** Después de establece el nombre, no puede cambiarse más adelante. Use un nombre único para asegurarse de que ninguna otra oferta de la cuenta tenga el mismo. |
+| **Nombre del grupo de recursos\***      | Nombre del grupo de recursos de ACR.|
+| **Nombre del Registro\***  | Nombre del Registro de ACR. Simplemente copie el nombre del Registro, NO el nombre del servidor de inicio de sesión (por ejemplo, sin `azurecr.io`). |
+| **Nombre del repositorio\***  | Nombre del repositorio de ACR que contiene el módulo IoT Edge. **Nota:** Una vez establecido el nombre, no se puede cambiar más adelante. Use un nombre único para asegurarse de que ninguna otra oferta de la cuenta tenga el mismo. |
 | **Nombre de usuario\*** | Nombre de usuario asociado a ACR (nombre de usuario de administrador). |
 | **Contraseña\*** | Contraseña asociada a la instancia de ACR. |
 |    |  ***Versión de la imagen***   |
-| **Etiqueta de imagen o texto implícita\*** | Debe incluir al menos una etiqueta `latest` y una etiqueta de versión (que, por ejemplo, empiece por `xx.xx.xx-`, donde xx es un número). Deben ser [etiquetas de manifiesto](https://github.com/estesp/manifest-tool) para varias plataformas. Todas las etiquetas a las que hace referencia una etiqueta de manifiesto también se deben agregar para que podamos cargarlas. Puede agregar varias versiones de un módulo IoT Edge mediante etiquetas. Todas las etiquetas de manifiesto (excepto `latest`) deben comenzar por `X.Y-` o `X.Y.Z-`, donde X, Y, Z son números enteros. Obtenga más información sobre [etiquetas y control de versiones en "Preparar los recursos técnicos del módulo IoT Edge"](./cpp-create-technical-assets.md). <br/> Por ejemplo, si una etiqueta `latest` apunta a `1.0.1-linux-x64`, `1.0.1-linux-arm32` y `1.0.1-windows-arm32`, estas seis etiquetas tienen que agregarse aquí. |
+| **Etiqueta o resumen de imagen\*** | Debe incluir al menos una etiqueta `latest` y una etiqueta de versión (que, por ejemplo, empiece por `xx.xx.xx-`, donde xx es un número). Deben ser [etiquetas de manifiesto](https://github.com/estesp/manifest-tool) para varias plataformas. Todas las etiquetas a las que hace referencia una etiqueta de manifiesto también se deben agregar para que podamos cargarlas. Puede agregar varias versiones de un módulo IoT Edge mediante etiquetas. Todas las etiquetas de manifiesto (excepto `latest`) deben comenzar por `X.Y-` o `X.Y.Z-`, donde X, Y, Z son números enteros. Obtenga más información sobre [etiquetas y control de versiones en "Preparar los recursos técnicos del módulo IoT Edge"](./cpp-create-technical-assets.md). <br/> Por ejemplo, si una etiqueta `latest` apunta a `1.0.1-linux-x64`, `1.0.1-linux-arm32` y `1.0.1-windows-arm32`, estas seis etiquetas tienen que agregarse aquí. |
 |  |  |
 
 
-### <a name="help-your-customers-launch-by-using-default-settings"></a>Ayudar a sus clientes a iniciar con configuración predeterminada
+### <a name="help-your-customers-launch-by-using-default-settings"></a>Ayudar a los clientes a publicar con la configuración predeterminada
 
 Defina la configuración más común para implementar el módulo IoT Edge. Optimice las implementaciones de los clientes al permitirles publicar el módulo IoT Edge directamente con estos valores predeterminados.
 

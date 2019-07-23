@@ -7,11 +7,11 @@ author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073777"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementación desde GitHub en Azure Kubernetes Service (AKS) con la integración e implementación continuas de Jenkins
@@ -48,6 +48,9 @@ Para completar este tutorial, necesita estos elementos:
 ## <a name="prepare-your-app"></a>Preparación de la aplicación
 
 En este artículo, se usa una aplicación de votación de Azure de ejemplo que contiene una interfaz web hospedada en uno o varios pods y un segundo pod que hospeda Redis para el almacenamiento de datos temporales. Antes de integrar Jenkins y AKS para las implementaciones automatizadas, primero prepare e implemente manualmente la aplicación de votación de Azure en el clúster de AKS. Esta implementación manual es la primera versión de la aplicación y permite ver la aplicación en acción.
+
+> [!NOTE]
+> La aplicación de ejemplo de voto de Azure usa un pod de Linux que está programado para ejecutarse en un nodo de Linux. El flujo que se describe en este artículo también funciona para un pod de Windows Server que se ha programado en un nodo de Windows Server.
 
 Bifurque el siguiente repositorio de GitHub para la aplicación de ejemplo - [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis). Para bifurcar el repositorio en su propia cuenta de GitHub, seleccione el botón **Fork** (Bifurcar) de la esquina superior derecha.
 
@@ -227,8 +230,8 @@ Haga clic en **Aceptar** y vuelva al portal de Jenkins.
 En la página principal del portal de Jenkins, seleccione **Nuevo elemento** en el lado izquierdo:
 
 1. Escriba *azure-vote* como nombre de trabajo. Seleccione **Freestyle project** (Proyecto de estilo libre) y elija **OK** (Aceptar).
-1. En el **General** sección, seleccione **proyecto GitHub** y escriba la URL del repositorio bifurcado, como *https:\//github.com/\<your-github-account\>/azure-voting-app-redis*
-1. En el **administración de código fuente** sección, seleccione **Git**, especifique el repositorio bifurcado *.git* dirección URL, como *https:\//github.com/\<su cuenta de github\>/azure-voting-app-redis.git*
+1. En la sección **General**, seleccione el **proyecto de GitHub** y escriba la dirección URL del repositorio bifurcado; por ejemplo, *https:\//github.com/\<su-cuenta-de-github\>/azure-voting-app-redis*.
+1. En la sección **Administración de código fuente**, seleccione **Git** y escriba la dirección URL del repositorio bifurcado *.git*; por ejemplo, *https:\//github.com/\<su-cuenta-de-github\>/azure-voting-app-redis.git*.
 
 1. En la sección **Build Triggers** (Compilar desencadenadores), seleccione **GitHub hook trigger for GITScm polling** (Desencadenador de enlace de GitHub para sondeo de GITScm).
 1. En **Build Environment** (Entorno de compilación), seleccione **Use secret texts or files** (Usar textos secretos o archivos).

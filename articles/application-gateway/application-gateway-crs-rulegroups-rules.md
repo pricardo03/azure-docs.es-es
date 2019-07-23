@@ -165,7 +165,7 @@ Los grupos de reglas y reglas siguientes están disponibles al usar Application 
 |941180|Palabras clave de lista negra de node-validator|
 |941190|XSS mediante hojas de estilos|
 |941200|XSS mediante fotogramas VML|
-|941210|XSS mediante Ja https://aka.ms/sdsdk-quickstartvascript ofuscado|
+|941210|XSS mediante Javascript ofuscado|
 |941220|XSS mediante VBScript ofuscado|
 |941230|XSS mediante etiqueta "embed"|
 |941240|XSS mediante el atributo "import" o "implementación"|

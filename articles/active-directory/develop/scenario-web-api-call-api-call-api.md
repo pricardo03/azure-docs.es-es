@@ -1,6 +1,6 @@
 ---
-title: 'Web API que llama a web API (llamada de API): la plataforma de identidad de Microsoft'
-description: Obtenga información sobre cómo crear una web API que web de bajada llamadas API (llamando a una API web).
+title: 'API web que llama a otras API web (llamada a API): Plataforma de identidad de Microsoft'
+description: Obtenga información sobre cómo compilar una API web que llame a API web de bajada (llamada a una API web).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,21 +16,21 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cd093cc68a21558dc326221eeaa8c034c24f1c2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074731"
 ---
-# <a name="web-api-that-calls-web-apis---call-an-api"></a>Web API que llama a web API: llamar a una API
+# <a name="web-api-that-calls-web-apis---call-an-api"></a>API web que llama a otras API web (llamada a una API)
 
-Una vez que un token, puede llamar a una API web protegida. Esto se realiza desde el controlador de la API web de ASP.NET/ASP.NET Core.
+Una vez que disponga de un token, puede llamar a una API web protegida. Esto se hace desde el controlador de la API web de ASP.NET/ASP.NET Core.
 
-## <a name="controller-code"></a>Código de controlador
+## <a name="controller-code"></a>Código del controlador
 
-Esta es la continuación del código de ejemplo se muestra en [llamadas de API web Protected web API: adquirir un token](scenario-web-api-call-api-acquire-token.md), denominado en las acciones de los controladores de API, al llamar a una API de nivel inferior (denominada todolist).
+Esta es la continuación del código de ejemplo que se muestra en [API web protegida que llama a las API web: adquisición de un token](scenario-web-api-call-api-acquire-token.md), llamado en las acciones de los controladores de API, al llamar a una API de bajada (denominada todolist).
 
-Una vez que ha adquirido el token, usarlo como un token de portador para llamar a la API de bajada.
+Una vez que haya adquirido el token, úselo como token de portador para llamar a la API de bajada.
 
 ```CSharp
 private async Task GetTodoList(bool isAppStarting)
@@ -61,4 +61,4 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Pasar a producción](scenario-web-api-call-api-production.md)
+> [Paso a producción](scenario-web-api-call-api-production.md)
