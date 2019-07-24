@@ -45,7 +45,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Amazon M
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **AmazonMWS** | Sí |
-| punto de conexión | Punto de conexión del servidor de Amazon MWS (es decir, mws.amazonservices.com)  | Sí |
+| endpoint | Punto de conexión del servidor de Amazon MWS (es decir, mws.amazonservices.com)  | Sí |
 | marketplaceID | ID de Amazon Marketplace del que desea recuperar los datos. Para recuperar datos de varios id. de Marketplace, sepárelos con una coma (`,`). (es decir, A2EUQ1WTGCTBG2)  | Sí |
 | sellerID | Id. del vendedor de Amazon.  | Sí |
 | mwsAuthToken | Token de autenticación de Amazon MWS. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
