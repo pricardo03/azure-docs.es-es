@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159623"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186377"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Creación de puntos de conexión públicos en la aplicación en la nube
 
@@ -31,7 +31,7 @@ ms.locfileid: "66159623"
 
         En la hoja Agregar regla de seguridad de entrada:
 
-        1. Para el **nombre**, escriba el siguiente nombre para el punto de conexión: WinRMHttps.
+        1. En **Nombre**, escriba el siguiente nombre para el punto de conexión: WinRMHttps.
         
         2. En **Prioridad**, seleccione un número menor que 1000 (que es la prioridad para la regla predeterminada). Cuanto mayor sea el valor, menor es la prioridad.
 

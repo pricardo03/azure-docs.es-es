@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539742"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147329"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Introducción a los diagnósticos de Azure App Service
 
@@ -103,12 +103,12 @@ Al igual que la supervisión de CPU proactiva, la recuperación automática proa
 
 ![Recuperación automática proactiva](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## <a name="change-analysis"></a>Análisis de cambios
+## <a name="change-analysis-only-for-windows-app"></a>Análisis de cambios (solo para la aplicación de Windows)
 
-En un entorno de desarrollo muy dinámico, a veces puede ser difícil llevar un seguimiento de todos los cambios que se realizan en la aplicación, por no hablar de detectar un cambio que provocó un comportamiento incorrecto. El análisis de cambios puede ayudarle a restringir los cambios que se han realizado en la aplicación para facilitar la experiencia de solución de problemas. El análisis de cambios está insertado en informes de diagnóstico como **Bloqueos de aplicación**, de modo que pueda usarlo simultáneamente con otras métricas.
+En un entorno de desarrollo muy dinámico, a veces puede ser difícil llevar un seguimiento de todos los cambios que se realizan en la aplicación, por no hablar de detectar un cambio que ha provocado un comportamiento incorrecto. El análisis de cambios puede ayudarle a restringir los cambios que se han realizado en la aplicación para facilitar la experiencia de solución de problemas. El análisis de cambios se encuentra en **Cambios en la aplicación** y está insertado también en informes de diagnóstico como **Bloqueos de aplicación**, de modo que pueda usarlo simultáneamente con otras métricas.
+
+El análisis de cambios debe habilitarse antes de usar la característica. Para obtener más información sobre el análisis de cambios, visite [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html) (Anuncio de la nueva experiencia de análisis de cambios en los diagnósticos de App Service).
 
 ![Página predeterminada del análisis de cambios](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
 ![Vista diferente](./media/app-service-diagnostics/diff-view-12.png)
-
-El análisis de cambios debe habilitarse antes de usar la característica. Para obtener más información sobre el análisis de cambios, visite [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html) (Anuncio de la nueva experiencia de análisis de cambios en los diagnósticos de App Service).

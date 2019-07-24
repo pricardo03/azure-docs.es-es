@@ -1,22 +1,22 @@
 ---
-title: Automatización de la aplicación de revisiones de sistema operativo y plataforma con Azure Container Registry Tasks (ACR Tasks)
-description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor y aplicación de revisiones automatizadas y seguras en la nube.
+title: Automatización de la compilación y aplicación de revisiones de imágenes de contenedor con Azure Container Registry Tasks (ACR Tasks)
+description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.openlocfilehash: 5089650996693b81e548bba8d89c0de29a8afd93
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977199"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147986"
 ---
-# <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatización de la aplicación de revisiones de sistema operativo y plataforma con ACR Tasks
+# <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
-Los contenedores proporcionan nuevos niveles de virtualización, que aíslan las dependencias de aplicaciones y desarrolladores de los requisitos operativos y la infraestructura. Sin embargo, lo que permanece es la necesidad de abordar cómo se aplican las revisiones de esta virtualización de aplicaciones.
+Los contenedores proporcionan nuevos niveles de virtualización, que aíslan las dependencias de aplicaciones y desarrolladores de los requisitos operativos y la infraestructura. Sin embargo, lo que permanece es la necesidad de abordar cómo se administran y aplican las revisiones de esta virtualización de aplicaciones en el ciclo de vida del contenedor.
 
 ## <a name="what-is-acr-tasks"></a>¿Qué es ACR Tasks?
 
@@ -27,7 +27,7 @@ Compile y pruebe imágenes de contenedor con ACR Tasks de cuatro maneras:
 * [Tarea rápida](#quick-task): Compile e inserte imágenes de contenedor a petición en Azure, sin necesidad de una instalación local del motor de Docker. Considere que `docker build`, es `docker push` en la nube. Compile desde el código fuente local o un repositorio de Git.
 * [Compilación al confirmar el código fuente](#automatic-build-on-source-code-commit): Desencadene una compilación de imágenes de contenedor automáticamente cuando el código se confirme en un repositorio de Git.
 * [Compilación al actualizar la imagen base](#automate-os-and-framework-patching): Desencadene una compilación de imágenes de contenedor cuando se ha actualizado la imagen base de la imagen.
-* [Tareas de varios pasos](#multi-step-tasks): Defina tareas de varios pasos que compilan imágenes, ejecutan contenedores como comandos e insertan imágenes en un registro. Esta característica de ACR tareas admite la ejecución de tareas y a petición y compilación de imágenes paralelas, prueba y las operaciones de inserción.
+* [Tareas de varios pasos](#multi-step-tasks): Defina tareas de varios pasos que compilan imágenes, ejecutan contenedores como comandos e insertan imágenes en un registro. Esta característica de ACR Tasks admite la ejecución de tareas a petición y operaciones en paralelo de compilación, prueba e inserción de imágenes.
 
 ## <a name="quick-task"></a>Tarea rápida
 
@@ -37,7 +37,7 @@ Antes de confirmar la primera línea de código, la característica de [tareas r
 
 Mediante el conocido formato `docker build`, el comando [az acr build][az-acr-build] de la CLI de Azure toma un *contexto* (el conjunto de archivos que se van a compilar), lo envía a ACR Tasks y, de forma predeterminada, inserta la imagen compilada en su registro tras completarse.
 
-Para obtener una introducción, consulte la Guía de inicio rápido para [compilar y ejecutar una imagen de contenedor](container-registry-quickstart-task-cli.md) en Azure Container Registry.  
+A modo de introducción, vea el inicio rápido de [compilación y ejecución de una imagen de contenedor](container-registry-quickstart-task-cli.md) en Azure Container Registry.  
 
 En la tabla siguiente se muestran algunos ejemplos de ubicaciones de contexto admitidas en ACR Tasks:
 
@@ -46,8 +46,7 @@ En la tabla siguiente se muestran algunos ejemplos de ubicaciones de contexto ad
 | Sistema de archivos local | Archivos en un directorio en el sistema de archivos local. | `/home/user/projects/myapp` |
 | Rama maestra de GitHub | Archivos dentro de la rama maestra (u otra predeterminada) de un repositorio de GitHub.  | `https://github.com/gituser/myapp-repo.git` |
 | Rama de GitHub | Rama específica de un repositorio de GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| PR de GitHub | Solicitud de incorporación de cambios en un repositorio de GitHub. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
-| Subcarpeta de GitHub | Archivos en una subcarpeta en un repositorio de GitHub. En el ejemplo se muestra la combinación de especificación de PR y de subcarpeta. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| Subcarpeta de GitHub | Archivos en una subcarpeta en un repositorio de GitHub. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Tarball remoto | Archivos en un archivo comprimido en un servidor web remoto. | `http://remoteserver/myapp.tar.gz` |
 
 ACR Tasks está diseñado como un primitivo de ciclo de vida de contenedor. Por ejemplo, puede integrar ACR Tasks en su solución de CI/CD. Al ejecutar [az login][az-login] con una [entidad de servicio][az-login-service-principal], la solución de CI/CD podría emitir entonces comandos [az acr build][az-acr-build] para iniciar las compilaciones de imágenes.
@@ -65,7 +64,7 @@ Aprenda a desencadenar compilaciones tras la confirmación del código fuente en
 
 ## <a name="automate-os-and-framework-patching"></a>Automatización de aplicación de revisiones de sistema operativo y marco
 
-La eficacia de ACR Tasks para mejorar verdaderamente el flujo de trabajo de compilación del contenedor procede de su capacidad para detectar una actualización de una imagen base. Cuando la imagen base actualizada se inserta en el registro, ACR Tasks puede compilar automáticamente cualquier imagen de aplicación basada en ella.
+La eficacia de ACR Tasks para mejorar verdaderamente el flujo de trabajo de compilación del contenedor procede de su capacidad para detectar una actualización de una imagen base. Cuando la imagen base actualizada se inserta en el registro, o una imagen base se actualiza en un repositorio público, como en Docker Hub, ACR Tasks puede compilar automáticamente cualquier imagen de aplicación basada en ella.
 
 Las imágenes de contenedor pueden clasificarse a grandes rasgos en imágenes *base* e imágenes de *aplicación*. Normalmente, las imágenes base incluyen el sistema operativo y los marcos de aplicaciones sobre los que se compila la aplicación, junto con otras personalizaciones. Estas imágenes base se basan normalmente en imágenes ascendentes públicas, por ejemplo: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] o [Node.js][base-node]. Algunas de las imágenes de aplicación podrían compartir una imagen base común.
 
@@ -76,11 +75,11 @@ Como ACR Tasks detecta dinámicamente las dependencias de la imagen base cuando 
 Aprenda sobre la aplicación de revisiones de sistema operativo y plataforma en el tercer tutorial de ACR Tasks, [Automatización de compilaciones de imágenes en la actualización de imagen base con Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> La imagen base actualiza las compilaciones del desencadenador solo cuando las imágenes base y de aplicación residen en el mismo registro de contenedor de Azure o en repositorios de Docker Hub públicos.
+> Actualmente, la imagen base actualiza las compilaciones del desencadenador solo cuando las imágenes base y de aplicación residen en el mismo registro de contenedor de Azure o en repositorios de Docker Hub públicos o Microsoft Container Registry.
 
 ## <a name="multi-step-tasks"></a>Tareas de varios pasos
 
-Tareas de varios pasos proporcionan la definición de tarea basada en el paso y la ejecución para compilar, probar y aplicación de revisiones de imágenes de contenedor en la nube. Los pasos de las tareas definen las operaciones de creación e inserción de imágenes de contenedor individuales. También pueden definir la ejecución de uno o más contenedores, donde cada paso utiliza el contenedor como su entorno de ejecución.
+Las tareas con varios pasos proporcionan definición y ejecución de tareas basadas en pasos para compilar y probar imágenes de contenedor en la nube, y aplicarles revisiones. Los pasos de las tareas definen las operaciones de creación e inserción de imágenes de contenedor individuales. También pueden definir la ejecución de uno o más contenedores, donde cada paso utiliza el contenedor como su entorno de ejecución.
 
 Por ejemplo, puede crear una tarea de varios pasos que automatice lo siguiente:
 
@@ -95,11 +94,11 @@ Las tareas de varios pasos permiten dividir la compilación, la ejecución y la 
 
 Aprenda más sobre las tareas de varios pasos en [Ejecución de tareas de varios pasos de compilación, prueba y aplicación de revisiones en ACR Tasks](container-registry-tasks-multi-step.md).
 
-## <a name="view-task-logs"></a>Ver registros de tarea
+## <a name="view-task-logs"></a>Vista de los registros de tareas
 
-Cada ejecución de la tarea genera el resultado de registro que se puede examinar para determinar si los pasos de la tarea se ejecutaban correctamente. Si usas el [compilación de az acr](/cli/azure/acr#az-acr-build), [acr az ejecutar](/cli/azure/acr#az-acr-run), o [ejecución de la tarea de az acr](/cli/azure/acr/task#az-acr-task-run) comando para desencadenar la tarea, salida de registro para la ejecución de la tarea se transmite a la consola y también se almacenan para su uso posterior recuperación. Ver los registros de una tarea ejecutan en el portal de Azure, o usar el [registros de tareas de az acr](/cli/azure/acr/task#az-acr-task-logs) comando.
+Las ejecuciones de las tareas generan un resultado de registro que se puede examinar para determinar si los pasos de dicha tarea se han ejecutado correctamente. Si usa los comandos [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run) o [az acr task run](/cli/azure/acr/task#az-acr-task-run) para desencadenar la tarea, la salida de registro para la ejecución de la tarea se transmite a la consola y también se almacena para su posterior recuperación. Vea los registros de la ejecución de una tarea en Azure Portal o use el comando [az acr task logs](/cli/azure/acr/task#az-acr-task-logs).
 
-A partir de julio de 2019, datos y registros para la tarea se ejecuta en un registro se conservan de forma predeterminada durante 30 días y, a continuación, se purgan automáticamente. Si desea archivar los datos para una ejecución de la tarea, habilitar el archivado con el [az acr tarea de ejecución de la actualización](/cli/azure/acr/task#az-acr-task-update-run) comando. El ejemplo siguiente habilita el archivado de la tarea ejecutar *cf11* en registro *myregistry*.
+A partir de julio de 2019, los datos y registros de las ejecuciones de las tareas en un registro se conservarán de manera predeterminada durante 30 días y, luego, se purgarán automáticamente. Si quiere archivar los datos de la ejecución de una tarea, habilite el archivado con el comando [az acr task update-run](/cli/azure/acr/task#az-acr-task-update-run). En el ejemplo siguiente se habilita el archivado para la ejecución de la tarea *cf11* en el registro *myregistry*.
 
 ```azurecli
 az acr task update-run --registry myregistry --run-id cf11 --no-archive false
@@ -107,7 +106,7 @@ az acr task update-run --registry myregistry --run-id cf11 --no-archive false
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cuando esté listo para automatizar el sistema operativo y aplicación de revisiones de framework mediante la creación de las imágenes de contenedor en la nube, consulte las tres partes [serie de tutoriales de las tareas de ACR](container-registry-tutorial-quick-task.md).
+Cuando esté listo para automatizar la aplicación de revisiones de sistema operativo y plataforma mediante la compilación de imágenes de contenedor en la nube, vea la [serie de tutoriales de ACR Tasks](container-registry-tutorial-quick-task.md) en tres partes.
 
 Opcionalmente, instale la [extensión de Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) y la extensión de la [cuenta de Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) para trabajar con los registros de contenedor de Azure. Extraiga e inserte imágenes en un registro de contenedor de Azure o ejecute ACR Tasks y, todo ello, en Visual Studio Code.
 

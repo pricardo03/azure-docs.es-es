@@ -11,27 +11,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f15d6fd81337aa4a859539e86f37a516848c9370
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197143"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165981"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Descripción de las asignaciones de denegación para recursos de Azure
 
-De forma similar a una asignación de roles, una *asignación de denegación* asocia un conjunto de acciones de denegación a un usuario, grupo o entidad de servicio en un ámbito determinado con el fin de denegar el acceso. Las asignaciones de denegación impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. Algunos proveedores de recursos ya incluyen asignaciones de denegación de Azure.
-
-En cierto modo, las asignaciones de denegación son diferentes a las asignaciones de roles. Las asignaciones de denegación pueden excluir las entidades de seguridad e impedir la herencia a los ámbitos secundarios. Las asignaciones de denegación también se aplican a las asignaciones de [administrador de suscripciones clásicas](rbac-and-directory-admin-roles.md).
+De forma similar a una asignación de roles, una *asignación de denegación* asocia un conjunto de acciones de denegación a un usuario, grupo o entidad de servicio en un ámbito determinado con el fin de denegar el acceso. Las asignaciones de denegación impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso.
 
 En este artículo se describe cómo se definen las asignaciones de denegación.
 
-> [!NOTE]
-> En este momento, la única manera de agregar sus propias asignaciones de denegación es usar Azure Blueprints. Para más información, consulte [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md) (Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints).
+## <a name="how-deny-assignments-are-created"></a>Cómo se crean las asignaciones de denegación
+
+Azure crea y administra las asignaciones de denegación para proteger los recursos. Por ejemplo, Azure Blueprints y las aplicaciones administradas de Azure usan las asignaciones de denegación para proteger los recursos administrados por el sistema. Para más información, consulte [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md) (Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints).
+
+## <a name="compare-role-assignments-and-deny-assignments"></a>Asignaciones de roles de comparación y asignaciones de denegación
+
+Las asignaciones de denegación siguen un patrón similar que las asignaciones de roles, pero también presentan algunas diferencias.
+
+| Capacidad | Asignación de roles | Asignación de denegación |
+| --- | --- | --- |
+| Conceder acceso | :heavy_check_mark: |  |
+| Denegación del acceso |  | :heavy_check_mark: |
+| Se pueden crear directamente | :heavy_check_mark: |  |
+| Se aplican en un ámbito | :heavy_check_mark: | :heavy_check_mark: |
+| Excluyen entidades de seguridad |  | :heavy_check_mark: |
+| Impiden la herencia de los ámbitos secundarios |  | :heavy_check_mark: |
+| Se aplican a las asignaciones de [administrador de suscripciones clásicas](rbac-and-directory-admin-roles.md) |  | :heavy_check_mark: |
 
 ## <a name="deny-assignment-properties"></a>Propiedades de la asignación de denegación
 
@@ -40,28 +53,38 @@ En este artículo se describe cómo se definen las asignaciones de denegación.
 > [!div class="mx-tableFixed"]
 > | Propiedad | Obligatorio | Type | DESCRIPCIÓN |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | Sí | string | El nombre para mostrar de la asignación de denegación. Los nombres deben ser únicos para un ámbito determinado. |
-> | `Description` | Sin  | string | La descripción de la asignación de denegación. |
+> | `DenyAssignmentName` | Sí | Cadena | El nombre para mostrar de la asignación de denegación. Los nombres deben ser únicos para un ámbito determinado. |
+> | `Description` | Sin | Cadena | La descripción de la asignación de denegación. |
 > | `Permissions.Actions` | Al menos una Actions o una DataActions | String[] | Una matriz de cadenas que especifican las operaciones de administración a las que la asignación de denegación bloquea el acceso. |
-> | `Permissions.NotActions` | Sin  | String[] | Una matriz de cadenas que especifican las operaciones de administración que deben excluirse de la asignación de denegación. |
+> | `Permissions.NotActions` | Sin | String[] | Una matriz de cadenas que especifican las operaciones de administración que deben excluirse de la asignación de denegación. |
 > | `Permissions.DataActions` | Al menos una Actions o una DataActions | String[] | Una matriz de cadenas que especifican las operaciones de datos a las que la asignación de denegación bloquea el acceso. |
-> | `Permissions.NotDataActions` | Sin  | String[] | Una matriz de cadenas que especifican las operaciones de datos que deben excluirse de la asignación de denegación. |
-> | `Scope` | Sin  | string | Una cadena que especifica el ámbito al que se aplica la asignación de denegación. |
-> | `DoNotApplyToChildScopes` | Sin  | Boolean | Especifica si la asignación de denegación se aplica a los ámbitos secundarios. El valor predeterminado es False. |
+> | `Permissions.NotDataActions` | Sin | String[] | Una matriz de cadenas que especifican las operaciones de datos que deben excluirse de la asignación de denegación. |
+> | `Scope` | Sin | Cadena | Una cadena que especifica el ámbito al que se aplica la asignación de denegación. |
+> | `DoNotApplyToChildScopes` | Sin | Boolean | Especifica si la asignación de denegación se aplica a los ámbitos secundarios. El valor predeterminado es False. |
 > | `Principals[i].Id` | Sí | String[] | Matriz de identificadores de objetos de entidad de seguridad de Azure AD (usuario, grupo o entidad de servicio) a los que se aplica la asignación de denegación. Establézcala en un GUID `00000000-0000-0000-0000-000000000000` vacío para representar a todas las entidades de seguridad. |
-> | `Principals[i].Type` | Sin  | String[] | Una matriz de tipos de objetos representados por Principals[i].Id. Establézcala en `SystemDefined` para representar a todas las entidades de seguridad. |
-> | `ExcludePrincipals[i].Id` | Sin  | String[] | Matriz de identificadores de objetos de entidades de seguridad de Azure AD (usuario, grupo o entidad de servicio) a los que no se aplica la asignación de denegación. |
-> | `ExcludePrincipals[i].Type` | Sin  | String[] | Una matriz de tipos de objetos representados por ExcludePrincipals[i].Id. |
-> | `IsSystemProtected` | Sin  | Boolean | Especifica si Azure ha creado esta asignación de denegación y no se puede editar ni eliminar. Actualmente, el sistema protege todas las asignaciones de denegación. |
+> | `Principals[i].Type` | Sin | String[] | Una matriz de tipos de objetos representados por Principals[i].Id. Establézcala en `SystemDefined` para representar a todas las entidades de seguridad. |
+> | `ExcludePrincipals[i].Id` | Sin | String[] | Matriz de identificadores de objetos de entidades de seguridad de Azure AD (usuario, grupo o entidad de servicio) a los que no se aplica la asignación de denegación. |
+> | `ExcludePrincipals[i].Type` | Sin | String[] | Una matriz de tipos de objetos representados por ExcludePrincipals[i].Id. |
+> | `IsSystemProtected` | Sin | Boolean | Especifica si Azure ha creado esta asignación de denegación y no se puede editar ni eliminar. Actualmente, el sistema protege todas las asignaciones de denegación. |
 
-## <a name="system-defined-principal"></a>Entidad de seguridad definida por el sistema
+## <a name="the-all-principals-principal"></a>La entidad de seguridad Todas las entidades de seguridad
 
-Con objeto de admitir las asignaciones de denegación, se ha introducido la **entidad de seguridad definida por el sistema**. Esta entidad de seguridad representa a todos los usuarios, grupos, entidades de servicio y identidades administradas de un directorio de Azure AD. Si el identificador de la entidad de seguridad es un GUID cero `00000000-0000-0000-0000-000000000000` y el tipo de entidad de seguridad es `SystemDefined`, la entidad de seguridad representa a todas las entidades de seguridad. `SystemDefined` se puede combinar con `ExcludePrincipals` para denegar todas las entidades de seguridad, salvo algunos usuarios. `SystemDefined` tiene las siguientes restricciones:
+Con objeto de admitir las asignaciones de denegación, se ha introducido una entidad de seguridad definida por el sistema llamada *Todas las entidades de seguridad*. Esta entidad de seguridad representa a todos los usuarios, grupos, entidades de servicio y identidades administradas de un directorio de Azure AD. Si el identificador de la entidad de seguridad es un GUID cero `00000000-0000-0000-0000-000000000000` y el tipo de entidad de seguridad es `SystemDefined`, la entidad de seguridad representa a todas las entidades de seguridad. En la salida de Azure PowerShell, la entidad Todas las entidades muestra un aspecto como el siguiente:
+
+```azurepowershell
+Principals              : {
+                          DisplayName:  All Principals
+                          ObjectType:   SystemDefined
+                          ObjectId:     00000000-0000-0000-0000-000000000000
+                          }
+```
+
+Todas las entidades se puede combinar con `ExcludePrincipals` para denegar todas las entidades de seguridad, salvo algunos usuarios. Todas las entidades tiene las siguientes restricciones:
 
 - Solo se puede utilizar en `Principals` y no se puede usar en `ExcludePrincipals`.
 - `Principals[i].Type` se debe establecer en `SystemDefined`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Vista denegar las asignaciones de recursos de Azure mediante el portal de Azure](deny-assignments-portal.md)
+* [Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure Portal](deny-assignments-portal.md)
 * [Descripción de definiciones de roles para los recursos de Azure](role-definitions.md)

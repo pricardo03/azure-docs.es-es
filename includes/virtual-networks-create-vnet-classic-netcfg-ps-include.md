@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116822"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186232"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Creación de una red virtual mediante un archivo de configuración de red desde PowerShell
 Azure utiliza un archivo xml para definir todas las redes virtuales disponibles para una suscripción. Dicho archivo se puede descargar y editarlo para modificar o eliminar las redes virtuales existentes, y crear otras nuevas. En este tutorial, aprenderá a descargar dicho archivo, denominado archivo de configuración de red (o netcfg) y a editarlo para crear una red virtual nueva. Para más información acerca del archivo de configuración de red, consulte el artículo [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) (Esquema de configuración de Azure Virtual Network).
@@ -35,8 +35,8 @@ Para crear una red virtual con un archivo netcfg mediante PowerShell, realice lo
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Abra el archivo que guardó en el paso 2 con cualquier aplicación de editor de texto o XML y busque el  **\<VirtualNetworkSites >** elemento. Si tiene otras redes creadas, cada red se muestra como su propio  **\<VirtualNetworkSite >** elemento.
-4. Para crear la red virtual que se describe en este escenario, agregue el siguiente código XML justo debajo del  **\<VirtualNetworkSites >** elemento:
+3. Abra el archivo que ha guardado en el paso 2 con cualquier aplicación de edición de texto o XML, y busque el elemento **\<VirtualNetworkSites>** . Si ya tiene otras redes creadas, cada una de ellas se muestra como su propio elemento **\<VirtualNetworkSite>** .
+4. Para crear la red virtual que se describe en este escenario, agregue el siguiente código XML justo debajo del elemento **\<VirtualNetworkSites>** :
 
    ```xml
          <?xml version="1.0" encoding="utf-8"?>

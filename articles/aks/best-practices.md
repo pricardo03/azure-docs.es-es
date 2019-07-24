@@ -2,17 +2,17 @@
 title: Procedimientos recomendados para Azure Kubernetes Service (AKS)
 description: Colección de procedimientos recomendados de operadores de clúster y desarrolladores para crear y administrar aplicaciones en Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.author: iainfou
-ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.author: mlearned
+ms.openlocfilehash: 7127894b364ac8f0fe1d87e13150d5522f5473e2
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514560"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615959"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Procedimientos recomendados de operadores de clúster y desarrolladores para crear y administrar aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ Como operador de clúster, trabaje en conjunto con los propietarios y desarrolla
 * [Procedimientos recomendados para actualizaciones y seguridad de clústeres](operator-best-practices-cluster-security.md)
     * Incluye la protección del acceso al servidor de API, limitar el acceso a los contenedores y la administración de las actualizaciones y los reinicios de nodos.
 * [Procedimientos recomendados para la administración y la protección de las imágenes de contenedor](operator-best-practices-container-image-management.md)
-    * Incluye la protección de la imagen y los tiempos de ejecución y compilaciones automatizadas en actualizaciones de la imagen base.
+    * Incluye la protección de la imagen y los runtime y compilaciones automatizadas en actualizaciones de la imagen base.
 * [Procedimientos recomendados para la seguridad de pods](developer-best-practices-pod-security.md)
     * Incluye la protección del acceso a los recursos, la limitación de la exposición de las credenciales y el uso de identidades de pods y almacenes de claves digitales.
 

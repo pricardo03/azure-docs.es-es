@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad9bb5c135684c4573195298fb8e55a08208f6b6
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735003"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785817"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Orígenes de eventos de Azure Event Grid
 
@@ -149,6 +149,16 @@ Suscríbase a eventos Azure App Configuration para responder a los eventos de mo
 | [Reacción a eventos de Azure App Configuration con Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Información general de la integración de Azure App Configuration con Event Grid. |
 | [Inicio rápido: enrutamiento de eventos de Azure App Configuration a un endpoint web personalizado con la CLI de Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Muestra cómo utilizar la CLI de Azure para enviar eventos de Azure App Configuration a un webhook. |
 | [Esquema del evento](event-schema-app-configuration.md) | Muestra los campos de eventos de Azure App Configuration. |
+
+## <a name="azure-signalr"></a>Azure SignalR
+Suscríbase a eventos de Azure SignalR Service para responder a eventos de conexión de cliente.
+
+|Título | DESCRIPCIÓN |
+|---------|---------|
+| [Reaccionar a eventos de Azure SignalR Service mediante Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Información general sobre la integración de Azure SignalR Service con Event Grid. |
+| [Cómo enviar eventos de Azure SignalR Service a Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Muestra cómo enviar eventos de Azure SignalR Service a una aplicación a través de Event Grid. |
+| [Esquema del evento](event-schema-azure-signalr.md) | Muestra campos de eventos de Azure SignalR Service. |
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

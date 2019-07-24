@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.openlocfilehash: e9363f88db4fa44879eb8f6a6a04e23563c5ba44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125727"
 ---
 # <a name="use-azure-files-with-linux"></a>Uso de Azure Files con Linux
 
@@ -25,31 +25,31 @@ ms.locfileid: "66754821"
 ## <a name="prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Requisitos previos para el montaje de un recurso compartido de archivos de Azure con Linux y el paquete cifs-utils
 <a id="smb-client-reqs"></a>
 
-* **Un recurso de cuenta y el archivo de almacenamiento de Azure existente**: Para completar este artículo, debe tener una cuenta de almacenamiento y el recurso compartido. Si ya no ha creado uno, consulte uno de nuestros tutoriales sobre el tema: [Crear recursos compartidos de archivos - CLI](storage-how-to-use-files-cli.md).
+* **Una cuenta de Azure Storage existente y un recurso compartido de archivos**: para completar los procedimientos de este artículo, debe tener una cuenta de almacenamiento y un recurso compartido de archivos. Si aún no ha creado uno, vea uno de nuestros inicios rápidos sobre el tema: [Creación de recursos compartidos de archivos: CLI](storage-how-to-use-files-cli.md).
 
-* **El nombre de la cuenta de almacenamiento y la clave** necesitará el nombre de la cuenta de almacenamiento y la clave con el fin de completar este artículo. Si ha creado uno mediante la Guía de inicio rápido CLI ya debe disponer de ellos, de lo contrario, consulte el tutorial rápido CLI que se ha vinculado anteriormente, con el fin de obtener información sobre cómo recuperar la clave de cuenta de almacenamiento.
+* **El nombre y la clave de la cuenta de almacenamiento** Necesitará el nombre y la clave de la cuenta de almacenamiento para completar los procedimientos de este artículo. Si los creó con el inicio rápido de la CLI, ya debería tenerlos; de lo contrario, vea el inicio rápido de la CLI del vínculo anterior para obtener información sobre cómo recuperar la clave de la cuenta de almacenamiento.
 
 * **Seleccione una distribución de Linux para satisfacer sus necesidades de montaje.**  
       Azure Files se puede montar ya sea a través de SMB 2.1 o de SMB 3.0. Para las conexiones procedentes de clientes locales o de otras regiones de Azure, debe usar SMB 3.0; Azure Files rechazará SMB 2.1 (o SMB 3.0 sin cifrado). Si accede al recurso compartido de archivos de Azure desde una VM dentro de la misma región de Azure, puede tener acceso a este con SMB 2.1 solo si la opción *Se requiere transferencia segura* está deshabilitada para la cuenta de almacenamiento que hospeda el recurso compartido de archivos de Azure. Siempre se recomienda requerir transferencia segura y usar solo SMB 3.0 con cifrado.
 
     La compatibilidad con el cifrado de SMB 3.0 se introdujo en el kernel de Linux versión 4.11 y se ha modificado para poder utilizarla con versiones anteriores del kernel para las distribuciones más populares de Linux. En el momento de la publicación de este documento, las siguientes distribuciones de la galería de Azure admiten la opción de montaje especificada en los encabezados de tabla. 
 
-* **Versiones mínimas recomendadas con funcionalidades de montaje correspondientes (SMB versión 2.1 frente a SMB versión 3.0)**    
+### <a name="minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30"></a>Versiones mínimas recomendadas con funcionalidades de montaje correspondientes (SMB versión 2.1 frente a SMB versión 3.0)
 
-    |   | SMB 2.1 <br>(Puede montar en máquinas virtuales dentro de la misma región de Azure) | SMB 3.0 <br>(Puede montar desde el nivel local a entre regiones) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04 (o posterior) |
-    | RHEL | 7 (o posterior) | 7.5+ |
-    | CentOS | 7 (o posterior) |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2 (o posterior) | 42.3 (o posterior) |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3 (o posterior) |
+|   | SMB 2.1 <br>(Puede montar en máquinas virtuales dentro de la misma región de Azure) | SMB 3.0 <br>(Puede montar desde el nivel local a entre regiones) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04 (o posterior) |
+| RHEL | 7 (o posterior) | 7.5 (o posterior) |
+| CentOS | 7 (o posterior) |  7.5 (o posterior) |
+| Debian | 8 (o posterior) |   |
+| openSUSE | 13.2 (o posterior) | 42.3 (o posterior) |
+| SUSE Linux Enterprise Server | 12 | 12 SP3 (o posterior) |
 
-    Si la distribución de Linux no aparece aquí, puede comprobar la versión del kernel de Linux con el siguiente comando:
+Si la distribución de Linux no aparece aquí, puede comprobar la versión del kernel de Linux con el siguiente comando:
 
-   ```bash
-   uname -r
-   ```
+```bash
+uname -r
+```
 
 * <a id="install-cifs-utils"></a>**El paquete cifs-utils está instalado**.  
     El paquete cifs-utils se puede instalar con el administrador de paquetes en la distribución de Linux de su elección. 
@@ -75,10 +75,10 @@ ms.locfileid: "66754821"
 
     En otras distribuciones, use el administrador de paquetes apropiado o [compile desde el origen](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Decidir sobre los permisos de archivo o directorio del recurso compartido montado**: en los ejemplos siguientes, se usa el permiso `0777` para proporcionar permisos de lectura, escritura y ejecución a todos los usuarios. Puede reemplazarlo con otro [permisos chmod](https://en.wikipedia.org/wiki/Chmod) según sea necesario, aunque esto implicará potencialmente restringir el acceso. Si usa otros permisos, debe considerar el uso también uid y gid con el fin de conservar el acceso para los grupos locales de su elección.
+* **Decidir sobre los permisos de archivo o directorio del recurso compartido montado**: en los ejemplos siguientes, se usa el permiso `0777` para proporcionar permisos de lectura, escritura y ejecución a todos los usuarios. Puede reemplazarlo por otros [permisos chmod](https://en.wikipedia.org/wiki/Chmod) según sea necesario, aunque esto puede conllevar algunas restricciones de acceso. Si usa otros permisos, debe considerar el uso también de uid y gid para seguir teniendo acceso a los usuarios locales y a los grupos de su elección.
 
 > [!NOTE]
-> Si no asigna permisos de archivos y directorios con dir_mode y file_mode explícitamente, su valor predeterminado será a 0755.
+> Si no asigna expresamente permisos de archivo y de directorio con dir_mode y file_mode, se establecerán de forma predeterminada en 0755.
 
 * **Asegúrese de que el puerto 445 está abierto**: SMB se comunica a través del puerto TCP 445: compruebe que el firewall no bloquea el puerto TCP 445 en el equipo cliente.
 
@@ -86,13 +86,13 @@ ms.locfileid: "66754821"
 
 1. **[Instale el paquete cifs-utils correspondiente a su distribución de Linux](#install-cifs-utils)** .
 
-1. **Cree una carpeta para un punto de montaje**: Se puede crear una carpeta para un punto de montaje en cualquier lugar en el sistema de archivos, pero es una convención común para crear esta clave en una nueva carpeta. Por ejemplo, el siguiente comando crea un nuevo directorio, reemplace **< storage_account_name >** y **< file_share_name >** con la información adecuada para su entorno:
+1. **Cree una carpeta para un punto de montaje**: La carpeta para el punto de montaje se puede crear en cualquier parte del sistema de archivos, pero es habitual crearla en una carpeta nueva. Por ejemplo, con el siguiente comando se crea un directorio; reemplace **<storage_account_name>** y **<file_share_name>** por la información de su entorno correspondiente:
 
     ```bash
     mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **Use el comando siguiente para montar el recurso compartido de archivos de Azure**: No olvide reemplazar **< storage_account_name >** , **< nombre_recurso_compartido >** , **< smb_version >** , **<storage_account_key>** , y **< punto_montaje >** con la información adecuada para su entorno. Si la distribución de Linux compatible con SMB 3.0 con cifrado (consulte [requisitos del cliente SMB comprender](#smb-client-reqs) para obtener más información), utilice **3.0** para **< smb_version >** . Para las distribuciones de Linux que no admiten SMB 3.0 con cifrado, use **2.1** para **< smb_version >** . Solo se puede montar un recurso compartido de archivos de Azure fuera de una región de Azure (incluido en el entorno local o en otra región de Azure) con SMB 3.0. Si lo desea, puede cambiar los permisos de archivos y directorios del recurso compartido montado pero, esto significaría restringir el acceso.
+1. **Use el comando siguiente para montar el recurso compartido de archivos de Azure**: No olvide reemplazar **<storage_account_name>** , **<share_name>** , **<smb_version>** , **<storage_account_key>** y **<mount_point>** por la información de su entorno correspondiente. Si la distribución de Linux es compatible con SMB 3.0 con cifrado (vea [Comprender los requisitos de cliente de SMB](#smb-client-reqs) para más información), use **3.0** en **<smb_version>** . Para las distribuciones de Linux que no sean compatibles con SMB 3.0 con cifrado, use **2.1** en **<smb_version>** . Solo se puede montar un recurso compartido de archivos de Azure fuera de una región de Azure (incluidos en local o en una región distinta de Azure) con SMB 3.0. Si lo desea, puede cambiar los permisos de archivo y de directorio del recurso compartido montado, pero esto significaría restringir el acceso.
 
     ```bash
     sudo mount -t cifs //<storage_account_name>.file.core.windows.net/<share_name> <mount_point> -o vers=<smb_version>,username=<storage_account_name>,password=<storage_account_key>,dir_mode=0777,file_mode=0777,serverino
@@ -105,13 +105,13 @@ ms.locfileid: "66754821"
 
 1. **[Instale el paquete cifs-utils correspondiente a su distribución de Linux](#install-cifs-utils)** .
 
-1. **Cree una carpeta para un punto de montaje**: Se puede crear una carpeta para un punto de montaje en cualquier lugar en el sistema de archivos, pero es una convención común para crear esta clave en una nueva carpeta. Siempre que la cree, tenga en cuenta la ruta de acceso absoluta de la carpeta. Por ejemplo, el siguiente comando crea un nuevo directorio, reemplace **< storage_account_name >** y **< file_share_name >** con la información adecuada para su entorno.
+1. **Cree una carpeta para un punto de montaje**: La carpeta para el punto de montaje se puede crear en cualquier parte del sistema de archivos, pero es habitual crearla en una carpeta nueva. Siempre que la cree, tenga en cuenta la ruta de acceso absoluta de la carpeta. Por ejemplo, con el siguiente comando se crea un directorio; reemplace **<storage_account_name>** y **<file_share_name>** por la información de su entorno correspondiente.
 
     ```bash
     sudo mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **Cree un archivo de credenciales para almacenar el nombre de usuario (el nombre de cuenta de almacenamiento) y la contraseña (la clave de cuenta de almacenamiento) para el recurso compartido de archivos.** Reemplace **< storage_account_name >** y **< storage_account_key >** con la información adecuada para su entorno.
+1. **Cree un archivo de credenciales para almacenar el nombre de usuario (el nombre de cuenta de almacenamiento) y la contraseña (la clave de cuenta de almacenamiento) para el recurso compartido de archivos.** Reemplace **<storage_account_name>** y **<storage_account_key>** por la información de su entorno correspondiente.
 
     ```bash
     if [ ! -d "/etc/smbcredentials" ]; then
@@ -129,7 +129,7 @@ ms.locfileid: "66754821"
     sudo chmod 600 /etc/smbcredentials/<storage_account_name>.cred
     ```
 
-1. **Use el siguiente comando para anexar la siguiente línea a `/etc/fstab`** : No olvide reemplazar **< storage_account_name >** , **< nombre_recurso_compartido >** , **< smb_version >** , y **< punto_montaje >** con la información adecuada para su entorno. Si la distribución de Linux compatible con SMB 3.0 con cifrado (consulte [requisitos del cliente SMB comprender](#smb-client-reqs) para obtener más información), utilice **3.0** para **< smb_version >** . Para las distribuciones de Linux que no admiten SMB 3.0 con cifrado, use **2.1** para **< smb_version >** . Solo se puede montar un recurso compartido de archivos de Azure fuera de una región de Azure (incluido en el entorno local o en otra región de Azure) con SMB 3.0.
+1. **Use el siguiente comando para anexar la siguiente línea a `/etc/fstab`** : No olvide reemplazar **<storage_account_name>** , **<share_name>** , **<smb_version>** y **<mount_point>** por la información de su entorno correspondiente. Si la distribución de Linux es compatible con SMB 3.0 con cifrado (vea [Comprender los requisitos de cliente de SMB](#smb-client-reqs) para más información), use **3.0** en **<smb_version>** . Para las distribuciones de Linux que no sean compatibles con SMB 3.0 con cifrado, use **2.1** en **<smb_version>** . Solo se puede montar un recurso compartido de archivos de Azure fuera de una región de Azure (incluidos en local o en una región distinta de Azure) con SMB 3.0.
 
     ```bash
     sudo bash -c 'echo "//<STORAGE ACCOUNT NAME>.file.core.windows.net/<FILE SHARE NAME> /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME> cifs nofail,vers=3.0,credentials=/etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'

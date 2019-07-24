@@ -1,6 +1,6 @@
 ---
-title: Visualización de las asignaciones de denegación de recursos de Azure mediante Azure Portal | Microsoft Docs
-description: Aprenda cómo ver a usuarios, grupos, entidades de servicio e identidades administradas a los que se les ha denegado el acceso a acciones específicas en recursos de Azure en un ámbito determinado mediante Azure Portal.
+title: Enumeración de las asignaciones de denegación de recursos de Azure mediante Azure Portal | Microsoft Docs
+description: Aprenda cómo enumerar los usuarios, grupos, entidades de servicio e identidades administradas a los que se les ha denegado el acceso a acciones específicas en recursos de Azure en un ámbito determinado mediante Azure Portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,38 +11,38 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 21ffb1a2539a2e724a91dd3b2818270a5e573ef8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194366"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127486"
 ---
-# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visualización de las asignaciones de denegación de recursos de Azure mediante Azure Portal
+# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure Portal
 
-Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. En este artículo se describe cómo usar Azure Portal para ver las asignaciones de denegación.
+Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. En este artículo se describe cómo enumerar las asignaciones de denegación mediante Azure Portal.
 
 > [!NOTE]
-> En este momento, la única manera de agregar sus propias asignaciones de denegación es usar Azure Blueprints. Para más información, consulte [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md) (Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints).
+> No se pueden crear directamente asignaciones de denegación propias. Para obtener información sobre cómo se crean las asignaciones de denegación, vea [Asignaciones de denegación](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para obtener información sobre una asignación de denegar, debe tener:
+Para obtener información sobre una asignación de denegación, debe tener lo siguiente:
 
-- `Microsoft.Authorization/denyAssignments/read` permiso que se incluye en la mayoría [roles integrados para los recursos de Azure](built-in-roles.md).
+- El permiso `Microsoft.Authorization/denyAssignments/read`, que se incluye en la mayoría de [roles integrados para los recursos de Azure](built-in-roles.md).
 
-## <a name="view-deny-assignments"></a>Visualización de asignaciones de denegación
+## <a name="list-deny-assignments"></a>Enumeración de asignaciones de denegación
 
-Siga estos pasos para ver las asignaciones de denegación en el ámbito de la suscripción o del grupo de administración.
+Siga estos pasos para enumerar las asignaciones de denegación en el ámbito de la suscripción o del grupo de administración.
 
 1. En Azure Portal, haga clic en **Todos los servicios** y, después, en **Grupos de administración** o **Suscripciones**.
 
-1. Haga clic en el grupo de administración o suscripción que desee ver.
+1. Haga clic en el grupo de administración o suscripción que quiera enumerar.
 
-1. Haga clic en **Control de acceso (IAM)**.
+1. Haga clic en **Control de acceso (IAM)** .
 
 1. Haga clic en la pestaña **Asignaciones de denegación** (o haga clic en el botón **Ver** en el icono Ver asignaciones de denegación).
 
@@ -67,9 +67,9 @@ Siga estos pasos para ver las asignaciones de denegación en el ámbito de la su
 
 1. Agregue una marca de verificación a cualquiera de los elementos habilitados y, a continuación, haga clic en **Aceptar** para mostrar las columnas seleccionadas.
 
-## <a name="view-details-about-a-deny-assignment"></a>Visualización de detalles sobre una asignación de denegación
+## <a name="list-details-about-a-deny-assignment"></a>Enumeración de detalles sobre una asignación de denegación
 
-Siga estos pasos para ver detalles adicionales sobre una asignación de denegación.
+Siga estos pasos para enumerar detalles adicionales sobre una asignación de denegación.
 
 1. Abra el panel **Asignaciones de denegación**, tal como se describe en la sección anterior.
 
@@ -110,4 +110,4 @@ Siga estos pasos para ver detalles adicionales sobre una asignación de denegaci
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Descripción de las asignaciones de denegación para recursos de Azure](deny-assignments.md)
-* [Enumeración de las asignaciones de denegación para recursos de Azure mediante la API de REST](deny-assignments-rest.md)
+* [Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure PowerShell](deny-assignments-powershell.md)

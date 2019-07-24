@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cb3260fa11354de963318a023fec912d082eae4
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539267"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653399"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Solución de problemas comunes con el indizador en Azure Search
 
@@ -35,20 +35,17 @@ Azure Storage ofrece un firewall configurable. De manera predeterminada, el fire
 
 No hay ningún mensaje de error específico cuando el firewall está habilitado. Por lo general, los errores de firewall se verán así: `The remote server returned an error: (403) Forbidden`.
 
-Puede comprobar que el firewall está habilitado en el [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Si el firewall está habilitado, tiene dos opciones para evitar este problema:
+Puede comprobar que el firewall está habilitado en el [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). La única solución alternativa admitida es deshabilitar el firewall al elegir permitir el acceso desde ["Todas las redes"](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
 
-1. Para deshabilitar el firewall, elija permitir el acceso desde ["Todas las redes"](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
-1. [Agregue una excepción](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) para la dirección IP del servicio de búsqueda. Para encontrar esta dirección IP, use el comando siguiente:
+Si el indizador no tiene un conjunto de aptitudes adjunto _puede_ intentar [agregar una excepción](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) para las direcciones IP del servicio de búsqueda. Sin embargo, este escenario no es compatible y no se garantiza que funcione.
 
-`nslookup <service name>.search.windows.net`
-
-Las excepciones no funcionan en [Cognitive Search](cognitive-search-concept-intro.md). La única solución alternativa es deshabilitar el firewall.
+Puede averiguar la dirección IP del servicio de búsqueda haciendo ping al FQDN (`<your-search-service-name>.search.windows.net`).
 
 ### <a name="cosmos-db"></a>Cosmos DB
 
 #### <a name="indexing-isnt-enabled"></a>El indexado no está habilitado
 
-Azure Search tiene una dependencia implícita del indexado de Cosmos DB. Si desactiva el indexado automático en Cosmos DB, Azure Search devuelve un estado correcto, pero no puede indexar el contenido del contenedor. Para instrucciones sobre cómo establecer y activar el indexado, consulte [Administración automática en Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal).
+Azure Search tiene una dependencia implícita del indexado de Cosmos DB. Si desactiva el indexado automático en Cosmos DB, Azure Search devuelve un estado correcto, pero no puede indexar el contenido del contenedor. Para instrucciones sobre cómo establecer y activar el indexado, consulte [Administración automática en Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## <a name="document-processing-errors"></a>Errores en el procesamiento de documentos
 

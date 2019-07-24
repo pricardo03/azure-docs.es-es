@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 06/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 332f899f3502f34e46b4f158a6980dc96248140e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6ba41132c93ebdb2578bafb100416ca3fe579298
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703155"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123281"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Administración de laboratorios de clase en Azure Lab Services 
 En este artículo se describe cómo crear y eliminar un laboratorio de clase. También se muestra cómo ver todos los laboratorios de clase de una cuenta de laboratorio. 
@@ -37,10 +37,10 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
         ![Creación de un laboratorio educativo](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. En la página **Seleccionar especificaciones de máquina virtual**, realice los pasos siguientes:
-    1. Seleccione un **tamaño** para las máquinas virtuales (VM) creadas en el laboratorio. Actualmente, los tamaños permitidos son **pequeña**, **mediana**, **grande** y **GPU**.
-    2. Seleccione la **región** en la que quiere que se creen las máquinas virtuales. 
-    3. Seleccione la **imagen de máquina virtual** que se usará para crear máquinas virtuales en el laboratorio. Si selecciona una imagen de Linux, verá una opción para habilitar la conexión a Escritorio remoto para ella. Para más información, consulte [Habilitar conexión de escritorio remoto para Linux](how-to-enable-remote-desktop-linux.md).
-    4. Seleccione **Next** (Siguiente).
+    1. Seleccione un **tamaño** para las máquinas virtuales (VM) creadas en el laboratorio. Actualmente, se permiten los tamaños **pequeño**, **medio**, **medio (virtualización)** , **grande** y **GPU**. Para obtener información detallada, vea la sección sobre los [tamaños de las máquinas virtuales](#vm-sizes).
+    1. Seleccione la **región** en la que quiere que se creen las máquinas virtuales. 
+    1. Seleccione la **imagen de máquina virtual** que se usará para crear máquinas virtuales en el laboratorio. Si selecciona una imagen de Linux, verá una opción para habilitar la conexión a Escritorio remoto para ella. Para más información, consulte [Habilitar conexión de escritorio remoto para Linux](how-to-enable-remote-desktop-linux.md).
+    1. Seleccione **Next** (Siguiente).
 
         ![Especificaciones de máquina virtual](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
 5. En la página **Establecer credenciales**, especifique las credenciales predeterminadas de todas las máquinas virtuales del laboratorio. 
@@ -49,7 +49,10 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
         > [!IMPORTANT]
         > Tome nota de ambos. No se volverán a mostrar.
-    3. Seleccione **Crear**. 
+    3. Deshabilite la opción **Usar la misma contraseña para todas las máquinas virtuales** si quiere que los alumnos establezcan sus propias contraseñas. Este paso es **opcional**. 
+
+        Un profesor puede elegir usar la misma contraseña para todas las máquinas virtuales en el laboratorio o permitir a los alumnos establecer contraseñas para sus máquinas virtuales. De forma predeterminada, esta configuración está habilitada para todas las imágenes Windows y Linux, excepto para Ubuntu. Al seleccionar la máquina virtual **Ubuntu**, esta opción está deshabilitada, por lo que se pedirá a los alumnos que establezcan una contraseña cuando inicien sesión por primera vez.
+    1. Seleccione **Crear**. 
 
         ![Establecer credenciales](../media/tutorial-setup-classroom-lab/set-credentials.png)
 6. En la página **Configurar plantilla**, puede ver el estado del proceso de creación del laboratorio. La creación de la plantilla en el laboratorio tarda un máximo de 20 minutos. En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio.  
@@ -59,13 +62,11 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
     ![Página Configurar plantilla una vez terminada](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Los pasos siguientes son opcionales para este tutorial: 
-    1. Seleccione **Iniciar** para iniciar la plantilla de máquina virtual.
     2. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. Si es una plantilla de máquina virtual Linux, decida si desea conectarse mediante SSH o RDP (si RDP está habilitado).
-    3. Instale y configure el software en la plantilla de máquina virtual. 
-    4. **Pare** la máquina virtual.  
-    5. Escriba una **descripción** para la plantilla.
-
-        ![Siguiente en la página Configurar plantilla](../media/tutorial-setup-classroom-lab/configure-template-next.png)
+    1. Seleccione **Restablecer contraseña** para restablecer la contraseña de la máquina virtual. 
+    1. Instale y configure el software en la plantilla de máquina virtual. 
+    1. **Pare** la máquina virtual.  
+    1. Escriba una **descripción** para la plantilla.
 9. Seleccione **Siguiente** en la página de plantilla. 
 10. En la página **Publicar la plantilla**, realice las acciones siguientes. 
     1. Para publicar la plantilla inmediatamente, seleccione la casilla *I understand I can't modify the template after publishing. This process can only be done once and can take up to an hour* (Comprendo que no puedo modificar la plantilla después de la publicación. Este proceso solo se puede realizar una vez y puede tardar hasta una hora), y seleccione **Publicar**.  Publique la plantilla si desea que las instancias de la máquina virtual de la plantilla estén disponibles para los usuarios del laboratorio.
@@ -88,6 +89,15 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
     ![Máquinas virtuales en estado detenido](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+### <a name="vm-sizes"></a>Tamaños de VM  
+
+| Tamaño | Núcleos | RAM | DESCRIPCIÓN | 
+| ---- | ----- | --- | ----------- | 
+| Pequeña | 2 | 3,5 GB | Este tamaño es el más adecuado para la línea de comandos, apertura de navegador web, servidores web de poco tráfico, bases de datos pequeñas o medianas. |
+| Mediano | 4 | 7 GB | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria | 
+| Mediano (virtualización anidada) | 4 | 16 GB | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. Este tamaño admite la virtualización anidada. <p>Este tamaño puede usarse en escenarios donde cada alumno necesita varias máquinas virtuales. Los profesores pueden usar la virtualización anidada para configurar varias máquinas virtuales anidadas de tamaño pequeño dentro de la máquina virtual. </p> |
+| grande | 8 | 32 GB | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes. Este tamaño admite la virtualización anidada |  
+| GPU | 12 | 112 GB | Este tamaño es el más adecuado para cargas de trabajo de proceso intensivo, uso intensivo de gráficos y visualización | 
 
 ## <a name="view-all-classroom-labs"></a>Visualización de todos los laboratorios de clase
 1. Vaya al [portal de Azure Lab Services](https://labs.azure.com).

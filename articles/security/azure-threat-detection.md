@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2a6a0e6219a45821e2a4416a4e563aa6edb86eba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611235"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127169"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 
-Ofertas de Azure integradas en la funcionalidad de detección de amenazas avanzada a través de servicios como Azure Security Center, registros de Azure Monitor y Azure Active Directory (Azure AD). Esta colección de servicios de seguridad y funcionalidades ofrece una manera sencilla y rápida de comprender lo que ocurre en las implementaciones de Azure.
+Azure ofrece funciones de detección de amenazas avanzada integradas en servicios como Azure Active Directory (Azure AD), registros de Azure Monitor y Azure Security Center. Esta colección de servicios de seguridad y funcionalidades ofrece una manera sencilla y rápida de comprender lo que ocurre en las implementaciones de Azure.
 
 Azure proporciona una amplia gama de opciones para configurar y personalizar la seguridad para que cumpla los requisitos de las implementaciones de la aplicación. En este artículo se explica cómo cumplir estos requisitos.
 
@@ -77,15 +77,15 @@ PIM ayuda a:
 
 ## <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-[Registros de Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) es una Microsoft basado en la nube TI solución de administración que le ayuda a administrar y proteger sus instalaciones y la infraestructura en la nube. Dado que los registros de Azure Monitor se implementa como un servicio basado en la nube, se puede hacer que en marcha rápidamente con una inversión mínima en servicios de infraestructura. Las características nuevas de seguridad se entregan de forma automática, lo que supone un ahorro en costos permanentes de mantenimiento y actualización.
+Los [registros de Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) son una solución de administración de TI basada en la nube de Microsoft que permiten administrar y proteger la infraestructura local y en la nube. Como los registros de Azure Monitor se implementan como un servicio basado en la nube, puede ponerlos en funcionamiento rápidamente con una inversión mínima en servicios de infraestructura. Las características nuevas de seguridad se entregan de forma automática, lo que supone un ahorro en costos permanentes de mantenimiento y actualización.
 
-Además de ofrecer servicios valiosos por sí solo, Azure Monitor registros pueden integrarse con componentes de System Center, como [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para ampliar la seguridad existente inversiones de administración en el en la nube. Los registros de System Center y Azure Monitor pueden trabajar juntos para proporcionar la experiencia de una administración totalmente híbrida.
+Además de proporcionar servicios útiles, los registros de Azure Monitor se pueden integrar con componentes de System Center, como [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para ampliar a la nube las inversiones de administración de seguridad existentes. System Center y los registros de Azure Monitor pueden funcionar de forma conjunta para ofrecer una experiencia de administración híbrida completa.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Seguridad integral y postura de cumplimiento
 
-En el [panel Seguridad y auditoría de Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started), se muestra una vista completa de la posición de seguridad de TI de la organización, con consultas de búsqueda integradas para problemas relevantes que necesiten su atención. El panel Security and Audit es la pantalla principal para todo lo relacionado con la seguridad de registros de Azure Monitor. Proporciona información detallada sobre el estado de seguridad de los equipos. También se pueden ver todos los eventos de las últimas 24 horas, siete días o cualquier otro intervalo personalizado.
+En el [panel Seguridad y auditoría de Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started), se muestra una vista completa de la posición de seguridad de TI de la organización, con consultas de búsqueda integradas para problemas relevantes que necesiten su atención. El panel Seguridad y auditoría es la pantalla principal para todo lo relacionado con la seguridad en los registros de Azure Monitor. Proporciona información detallada sobre el estado de seguridad de los equipos. También se pueden ver todos los eventos de las últimas 24 horas, siete días o cualquier otro intervalo personalizado.
 
-Azure Monitor registra le servirán de forma rápida y fácilmente el estado general de seguridad de cualquier entorno, todo dentro del contexto de las operaciones de TI, incluida la evaluación de actualizaciones de software, evaluación de antimalware y líneas base de configuración. Los datos del registro de seguridad son accesibles en todo momento para simplificar los procesos de auditoría de seguridad y cumplimiento.
+Los registros de Azure Monitor permiten comprender de forma rápida y sencilla la posición de seguridad global de cualquier entorno, todo ello en el contexto de las operaciones de TI, como la evaluación de actualizaciones de software, la evaluación de antimalware y las líneas base de configuración. Los datos del registro de seguridad son accesibles en todo momento para simplificar los procesos de auditoría de seguridad y cumplimiento.
 
 ![Panel Seguridad y auditoría de Log Analytics](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
@@ -95,14 +95,14 @@ El panel Seguridad y auditoría de Log Analytics se divide en cuatro categorías
 
 -   **Problemas importantes**: permite identificar de forma rápida la cantidad de problemas activos y su gravedad.
 
--   **Detecciones (versión preliminar)**: permite identificar los patrones de ataque mediante la visualización de alertas de seguridad a medida que se producen contra sus recursos.
+-   **Detecciones (versión preliminar)** : permite identificar los patrones de ataque mediante la visualización de alertas de seguridad a medida que se producen contra sus recursos.
 
 -   **Información sobre amenazas**: permite identificar los patrones de ataque mediante la visualización del número total de servidores con tráfico IP malintencionado de salida, el tipo de amenaza malintencionada y un mapa de las ubicaciones IP.
 
 -   **Consultas comunes de seguridad**: enumera las consultas de seguridad más comunes que se pueden usar para supervisar el entorno. Al seleccionar cualquier consulta, se abre el panel de búsqueda y se muestran los resultados para esa consulta.
 
 ### <a name="insight-and-analytics"></a>Insight y Analytics
-En el centro de [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) es el repositorio, que está hospedado en Azure.
+En el centro de los [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) se encuentra el repositorio de OMS, que está hospedado en Azure.
 
 ![Diagrama de Insight y Analytics](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
@@ -113,14 +113,14 @@ Los datos se recopilan en el repositorio desde los orígenes conectados mediante
 Cada uno de los orígenes de datos y soluciones crea tipos de registros distintos con su propio conjunto de propiedades, pero se pueden seguir analizando de forma conjunta en consultas al repositorio. Se pueden usar las mismas herramientas y métodos para trabajar con una variedad de datos que se recopilan mediante diversos orígenes.
 
 
-La mayoría de la interacción con los registros de Azure Monitor es a través del portal de Azure, que se ejecuta en cualquier explorador y proporciona acceso a los valores de configuración y a varias herramientas para analizar y actuar en los datos recopilados. Desde el portal, puede usar:
+La mayor parte de la interacción con los registros de Azure Monitor se realiza mediante Azure Portal, que se ejecuta en cualquier explorador y proporciona acceso a opciones de configuración y a herramientas para analizar los datos recopilados y realizar acciones en estos. Desde el portal, puede usar:
 * [Búsquedas de registros](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) donde se crean consultas para analizar los datos recopilados.
 * [Paneles](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), que se pueden personalizar con vistas gráficas de las búsquedas más valiosas.
 * [Soluciones](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), que proporcionan herramientas de análisis y funcionalidad adicionales.
 
 ![Herramientas de análisis](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-Las soluciones agregan funcionalidad a los registros de Azure Monitor. Principalmente, se ejecutan en la nube y proporcionar análisis de datos que se recopilan en el repositorio de log analytics. Las soluciones también podrían definir nuevos tipos de registro que se deben recopilar que se pueden analizar con búsquedas de registros o mediante una interfaz de usuario adicional que proporciona la solución en el panel de análisis de registro.
+Las soluciones agregan funcionalidad a los registros de Azure Monitor. Se ejecutan principalmente en la nube y proporcionan análisis de los datos recopilados en el repositorio de Log Analytics. Puede que las soluciones también definan nuevos tipos de registro para recopilar que se pueden analizar con las búsquedas de registros o mediante una interfaz de usuario adicional que la solución proporciona en el panel de Log Analytics.
 
 El panel Seguridad y auditoría es un ejemplo de estos tipos de solución.
 

@@ -6,22 +6,22 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 365264d40554f45533e2ddf0aeb9d85f3e8f8d2d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc09aa500743d608c0a3a7a379fe9584c9c55e9b
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564028"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657611"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montaje de un recurso compartido de archivos de Azure en Azure Container Instances
 
 De forma predeterminada, Azure Container Instances no tiene estado. Si el contenedor se bloquea o se detiene, se pierde todo su estado. Para conservar el estado más allá de la duración del contenedor, debe montar un volumen desde un almacén externo. En este artículo se explica cómo montar un recurso compartido de archivos de Azure con [Azure Files](../storage/files/storage-files-introduction.md) para su uso con Azure Container Instances. Azure Files ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo de bloque de mensajes del servidor (SMB) estándar. El uso de un recurso compartido de archivos de Azure con Azure Container Instances ofrece características de uso compartido de archivos similares al uso de un recurso compartido de archivo de Azure con Azure Virtual Machines.
 
 > [!NOTE]
-> El montaje de un recurso compartido de Azure Files está actualmente restringido a los contenedores Linux. Aunque estamos trabajando para traer todas las características a los contenedores Windows, puede encontrar diferencias en la plataforma actual en la [disponibilidad de cuotas y regiones en Azure Container Instances](container-instances-quotas.md).
+> El montaje de un recurso compartido de Azure Files está actualmente restringido a los contenedores Linux. Aunque se está trabajando para incorporar todas las características a los contenedores Windows, puede consultar las diferencias actuales entre plataformas en [Información general](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 
@@ -62,9 +62,9 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="deploy-container-and-mount-volume"></a>Implementación de un contenedor y montaje del volumen
+## <a name="deploy-container-and-mount-volume---cli"></a>Implementar contenedor y montar volumen: CLI
 
-Para montar un recurso compartido de archivos de Azure como volumen en un contenedor, especifique el recurso compartido y el punto de montaje del volumen al crear el contenedor con [az container create][az-container-create]. Si ha seguido los pasos anteriores, puede montar el recurso compartido que creó anteriormente mediante el comando siguiente para crear un contenedor:
+Para montar un recurso compartido de archivos de Azure como volumen en un contenedor mediante la CLI de Azure, especifique el recurso compartido y el punto de montaje del volumen al crear el contenedor con [az container create][az-container-create]. Si ha seguido los pasos anteriores, puede montar el recurso compartido que creó anteriormente mediante el comando siguiente para crear un contenedor:
 
 ```azurecli-interactive
 az container create \
@@ -79,23 +79,160 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-El valor `--dns-name-label` debe ser único dentro de la región de Azure en la que crea la instancia de contenedor. Actualice el valor del comando anterior si recibe un mensaje de error de **etiqueta de nombre DNS** al ejecutar el comando.
+El valor `--dns-name-label` debe ser único dentro de la región de Azure en la que se crea la instancia de contenedor. Actualice el valor del comando anterior si recibe un mensaje de error de **etiqueta de nombre DNS** al ejecutar el comando.
 
 ## <a name="manage-files-in-mounted-volume"></a>Administración de archivos en el volumen montado
 
-Una vez que se inicie el contenedor, puede usar la aplicación web sencilla que se implementó mediante la imagen [aci-hellofiles][aci-hellofiles] de Microsoft para crear archivos de texto pequeños en el recurso compartido de archivos de Azure de la ruta de montaje que especificó. Obtenga el nombre de dominio completo (FQDN) de la aplicación web con el comando [az container show][az-container-show]:
+Una vez que se inicia el contenedor, se puede usar la aplicación web sencilla implementada a través del comando [aci-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] de Microsoft:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-Puede usar [Azure Portal][portal] o una herramienta como el [Explorador de Microsoft Azure Storage][storage-explorer] para recuperar e inspeccionar el archivo escrito en el recurso compartido de archivos.
+Después de guardar el texto mediante la aplicación, puede usar [Azure Portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] para recuperar e inspeccionar el archivo escrito en el recurso compartido de archivos.
+
+## <a name="deploy-container-and-mount-volume---yaml"></a>Implementar contenedor y montar volumen: YAML
+
+También puede implementar un grupo de contenedores y montar un volumen en un contenedor con la CLI de Azure y una [plantilla de YAML](container-instances-multi-container-yaml.md). La implementación mediante la plantilla YAML es el método preferido al implementar grupos de contenedores que constan de varios contenedores.
+
+La siguiente plantilla de YAML define un grupo de contenedores con un contenedor creado con la imagen `aci-hellofiles`. El contenedor monta el recurso compartido de archivos de Azure *acishare* creado anteriormente como un volumen. Donde se indique, escriba la clave de almacenamiento y el nombre de la cuenta de almacenamiento que hospeda el recurso compartido de archivos. 
+
+Al igual que en el ejemplo de la CLI, el valor `dnsNameLabel` debe ser único dentro de la región de Azure en la que se crea la instancia de contenedor. Si es necesario, actualice el valor en el archivo YAML.
+
+```yaml
+apiVersion: '2018-10-01'
+location: eastus
+name: file-share-demo
+properties:
+  containers:
+  - name: hellofiles
+    properties:
+      environmentVariables: []
+      image: mcr.microsoft.com/azuredocs/aci-hellofiles
+      ports:
+      - port: 80
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+      volumeMounts:
+      - mountPath: /aci/logs/
+        name: filesharevolume
+  osType: Linux
+  restartPolicy: Always
+  ipAddress:
+    type: Public
+    ports:
+      - port: 80
+    dnsNameLabel: aci-demo
+  volumes:
+  - name: filesharevolume
+    azureFile:
+      sharename: acishare
+      storageAccountName: <Storage account name>
+      storageAccountKey: <Storage account key>
+tags: {}
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+Para implementar con la plantilla de YAML, guarde el anterior YAML en un archivo denominado `deploy-aci.yaml` y luego ejecute el comando [az container create][az-container-create] con el parámetro `--file`:
+
+```azurecli
+# Deploy with YAML template
+az container create --resource-group myResourceGroup --file deploy-aci.yaml
+```
+## <a name="deploy-container-and-mount-volume---resource-manager"></a>Implementar contenedor y montar volumen: Resource Manager
+
+Además de la implementación mediante la CLI y YAML, puede implementar un grupo de contenedores y montar un volumen en un contenedor con una [plantilla de Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups).
+
+En primer lugar, rellene la matriz `volumes` en la sección `properties` del grupo de contenedores de la plantilla. 
+
+Luego, en todos los contenedores en los que quiera montar el volumen, rellene la matriz `volumeMounts` de la sección `properties` de la definición del contenedor.
+
+La siguiente plantilla de Resource Manager define un grupo de contenedores con un contenedor creado con la imagen `aci-hellofiles`. El contenedor monta el recurso compartido de archivos de Azure *acishare* creado anteriormente como un volumen. Donde se indique, escriba la clave de almacenamiento y el nombre de la cuenta de almacenamiento que hospeda el recurso compartido de archivos. 
+
+Al igual que en los ejemplos anteriores, el valor `dnsNameLabel` debe ser único dentro de la región de Azure en la que se crea la instancia de contenedor. Si es necesario, actualice el valor en la plantilla.
+
+```JSON
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "container1name": "hellofiles",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-hellofiles"
+  },
+  "resources": [
+    {
+      "name": "file-share-demo",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2018-10-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
+                }
+              ],
+              "volumeMounts": [
+                {
+                  "name": "filesharevolume",
+                  "mountPath": "/aci/logs"
+                }
+              ]
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            }
+          ],
+          "dnsNameLabel": "aci-demo"
+        },
+        "volumes": [
+          {
+            "name": "filesharevolume",
+            "azureFile": {
+                "shareName": "acishare",
+                "storageAccountName": "<Storage account name>",
+                "storageAccountKey": "<Storage account key>"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Para implementar con la plantilla de Resource Manager, guarde el anterior JSON en un archivo denominado `deploy-aci.json` y luego ejecute el comando [az group deployment create][az-group-deployment-create] con el parámetro `--template-file`:
+
+```azurecli
+# Deploy with Resource Manager template
+az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
+```
+
 
 ## <a name="mount-multiple-volumes"></a>Montaje de varios volúmenes
 
-Para montar varios volúmenes en una instancia del contenedor, debe realizar la implementación con una [plantilla de Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) o un archivo YAML.
+Para montar varios volúmenes en una instancia del contenedor, debe realizar la implementación con una [plantilla de Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) o un archivo YAML. Para usar una plantilla o un archivo YAML, proporcione los detalles del recurso compartido y defina los volúmenes al rellenar la matriz `volumes` de la sección `properties` de la plantilla. 
 
-Para usar una plantilla, proporcione los detalles del recurso compartido y defina los volúmenes rellenando la matriz `volumes` en la sección `properties` de la plantilla. Por ejemplo, si ha creado dos recursos compartidos de archivos de Azure llamados *share1* y *share2* en la cuenta de almacenamiento *myStorageAccount*, la matriz `volumes` sería similar a la siguiente:
+Por ejemplo, si ha creado dos recursos compartidos de Azure Files denominados *share1* y *share2* en la cuenta de almacenamiento *myStorageAccount*, la matriz `volumes` de la plantilla de Resource Manager sería similar a la siguiente:
 
 ```JSON
 "volumes": [{
@@ -129,8 +266,6 @@ A continuación, para cada contenedor del grupo de contenedores en el que desea 
 }]
 ```
 
-Para ver un ejemplo de implementación de instancias de contenedor con una plantilla de Azure Resource Manager, vea [Implementación de un grupo de contenedores](container-instances-multi-container-group.md). Para obtener un ejemplo con un archivo YAML, vea [Implementación de un grupo de contenedores con varios contenedores mediante YAML](container-instances-multi-container-yaml.md).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a montar otros tipos de volúmenes en Azure Container Instances:
@@ -147,3 +282,4 @@ Aprenda a montar otros tipos de volúmenes en Azure Container Instances:
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-container-show]: /cli/azure/container#az-container-show
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create

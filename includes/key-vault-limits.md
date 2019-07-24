@@ -5,40 +5,40 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238662"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186720"
 ---
-#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transacciones clave (número máximo de transacciones permitido en 10 segundos, por almacén y región<sup>1</sup>):
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transacciones clave (n.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup>):
 
-|Tipo de clave|Clave de HSM<br>Crear clave|Clave de HSM<br>Las restantes transacciones|Clave de software<br>Crear clave|Clave de software<br>Las restantes transacciones|
+|Tipo de clave|Clave HSM<br>Clave CREATE|Clave HSM<br>Las restantes transacciones|Clave de software<br>Clave CREATE|Clave de software<br>Las restantes transacciones|
 |:---|---:|---:|---:|---:|
-|RSA de 2048 bits|5|1000|10|2.000|
-|3.072 bits de RSA|5|250|10|500|
-|RSA de 4096 bits|5|125|10|250|
-|ECC P-256|5|1000|10|2.000|
-|ECC P-384|5|1000|10|2.000|
-|ECC P-521|5|1000|10|2.000|
-|ECC SECP256K1|5|1000|10|2.000|
+|2048 bits de RSA|5|1000|10|2\.000|
+|3072 bits de RSA|5|250|10|500|
+|4096 bits de RSA|5|125|10|250|
+|ECC P-256|5|1000|10|2\.000|
+|ECC P-384|5|1000|10|2\.000|
+|ECC P-521|5|1000|10|2\.000|
+|ECC SECP256K1|5|1000|10|2\.000|
 
 > [!NOTE]
-> En la tabla anterior, vemos que para las claves de software de RSA 2048 bits, se permiten 2.000 transacciones GET cada 10 segundos. RSA 2048 bits de las claves HSM, se permiten los 1000 transacciones GET cada 10 segundos.
+> En la tabla anterior, vemos que para las claves de software de 2048 bits RSA, se permiten 2000 transacciones GET cada 10 segundos. Para las claves HSM de 2048 bits RSA, se permiten 1000 transacciones GET cada 10 segundos.
 >
-> Los umbrales de limitación se ponderan y el cumplimiento es en su suma. Por ejemplo, tal como se muestra en la tabla anterior, al realizar las operaciones GET en las claves RSA HSM, es ocho veces más costoso de usar claves de 4.096 bits en comparación con las claves de 2048 bits. Eso es porque 1000/125 = 8.
+> Los umbrales de limitación se ponderan y el cumplimiento se basa en su suma. Por ejemplo, como se ha mostrado en la tabla anterior, al realizar operaciones GET en las claves HSM RSA, resulta ocho veces más costoso usar claves de 4096 bits en comparación con las claves de 2048 bits. Eso es porque 1000/125 = 8.
 >
-> En un determinado intervalo de 10 segundos, puede hacer un cliente de Azure Key Vault *sola* de las siguientes operaciones antes de encontrar un `429` limitación código de estado HTTP:
-> - 2.000 transacciones GET de clave de software de RSA 2048 bits
-> - 1000 transacciones de RSA 2048 bits clave de HSM GET
-> - 125 transacciones RSA 4096 bits clave de HSM GET
-> - Las transacciones de clave de HSM RSA 4096 bits GET 124 y 8 RSA 2048 bits clave de HSM GET
+> En un intervalo determinado de 10 segundos, un cliente de Azure Key Vault *solo* puede realizar una de las siguientes operaciones antes de encontrar un código de estado HTTP de limitación `429`:
+> - 2000 transacciones GET de clave de software de 2048 bits RSA
+> - 1000 transacciones GET de clave HSM de 2048 bits RSA
+> - 125 transacciones GET de clave HSM de 4096 bits RSA
+> - 124 transacciones GET de clave HSM de 4096 bits y 8 transacciones GET de clave HSM de 2048 bits RSA
 
-#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Los secretos, claves de cuenta de almacenamiento administrado y transacciones de almacén:
-| Tipo de transacciones | Número máximo de transacciones permitido en 10 segundos, por almacén y región<sup>1</sup> |
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Secretos, claves de cuentas de almacenamiento administradas y transacciones de almacén:
+| Tipo de transacciones | N.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup> |
 | --- | --- |
-| Todas las transacciones |2.000 |
+| Todas las transacciones |2\.000 |
 
-Para obtener información sobre cómo controlar la limitación cuando se superan estos límites, consulte [guía sobre la limitación de Azure Key Vault](../articles/key-vault/key-vault-ovw-throttling.md).
+Vea la [Guía de las limitaciones de Azure Key Vault](../articles/key-vault/key-vault-ovw-throttling.md) para obtener información sobre cómo controlar la limitación cuando se superan estos límites.
 
-<sup>1</sup> un límite de toda la suscripción para todos los tipos de transacción es cinco veces por límite de almacén de claves. Por ejemplo, HSM-otras transacciones por cada suscripción se limita a 5000 transacciones en 10 segundos por suscripción.
+<sup>1</sup> Un límite global para la suscripción para todos los tipos de transacciones es cinco veces el límite del almacén de claves. Por ejemplo, en las otras transacciones HSM por suscripción, el límite es de 5000 transacciones en 10 segundos por suscripción.

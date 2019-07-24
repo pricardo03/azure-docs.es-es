@@ -1,5 +1,5 @@
 ---
-title: Definición de la configuración
+title: Configuración de las opciones de Personalizer
 titleSuffix: Azure Cognitive Services
 description: La configuración del servicio incluye la forma en que el servicio trata las recompensas, la frecuencia con el servicio realiza las exploraciones, la frecuencia con que se vuelve a entrenar al modelo y la cantidad de datos que se almacenan.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 6f5028f093a9fd8c17928c2167039599d4db897c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478582"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722342"
 ---
 # <a name="personalizer-settings"></a>Configuración de Personalizer
 
@@ -35,7 +35,7 @@ Crear un recurso de Personalizer para cada bucle de comentarios.
 1. Busque el recurso Personalizer. 
 1. En la sección **Administración de recursos**, seleccione **Configuración**.
 
-    Antes de salir de Azure Portal, copie una de las claves de recurso de la página **Claves**. La necesitará para usar [Personalizer SDK](https://go.microsoft.com/fwlink/?linkid=2092353).
+    Antes de salir de Azure Portal, copie una de las claves de recurso de la página **Claves**. La necesitará para usar [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Configure las opciones de recompensas para el bucle de comentarios según cada caso de uso
 

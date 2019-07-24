@@ -9,13 +9,13 @@ ms.date: 09/18/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 092b5696b97b73344a01af8103b24a01010f7a55
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114541"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186516"
 ---
-Los límites siguientes se aplican solo al realizar operaciones de administración mediante el uso de Azure Resource Manager con Azure Storage.
+Los límites siguientes se aplican solo si realiza operaciones de administración mediante Azure Resource Manager con Azure Storage.
 
 | Recurso | Límite predeterminado |
 | --- | --- |

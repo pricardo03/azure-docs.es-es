@@ -1,25 +1,25 @@
 ---
 title: Registros de servidor en Azure Database for MySQL
-description: Describe los registros disponibles en Azure Database for MySQL y los parámetros disponibles para habilitar diferentes niveles de registro.
+description: Describe los registros de consultas lentas disponibles en Azure Database for MySQL y los parámetros disponibles para habilitar diferentes niveles de registro.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 05/29/2019
+ms.openlocfilehash: 1a8956d40ef30e8d52fbdded3448019e14ab16a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062403"
 ---
-# <a name="server-logs-in-azure-database-for-mysql"></a>Registros de servidor en Azure Database for MySQL
-En Azure Database for MySQL, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema. 
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registros de consultas lentas en Azure Database for MySQL
+En Azure Database for MySQL, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema.
 
 Para obtener más información sobre el registro de consultas lentas de MySQL, vea la [sección de registro de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) del manual de referencia.
 
-## <a name="access-server-logs"></a>Acceso a registros de servidor
-Puede enumerar y descargar los registros de servidor de Azure Database for MySQL mediante Azure Portal y la CLI de Azure.
+## <a name="access-slow-query-logs"></a>Acceso a registros de consultas lentas
+Puede enumerar y descargar los registros de consultas lentas de Azure Database for MySQL mediante Azure Portal y la CLI de Azure.
 
 En Azure Portal, seleccione el servidor de Azure Database for MySQL. En el encabezado **Supervisión**, seleccione la página **Registros de servidor**.
 
@@ -30,8 +30,7 @@ Los registros están disponibles hasta siete días después de su creación. Si 
 
 Los registros se rotan cada 24 horas o 7 GB, lo que ocurra primero.
 
-
-## <a name="configure-logging"></a>registro 
+## <a name="configure-slow-query-logging"></a>Configuración del registro de consultas lentas 
 De forma predeterminada, el registro de consultas lentas está deshabilitado. Para habilitarlo, establezca low_query_log en ON.
 
 Otros parámetros que se pueden ajustar son los siguientes:
@@ -44,10 +43,10 @@ Otros parámetros que se pueden ajustar son los siguientes:
 Consulte la [documentación rel registro de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) de MySQL para obtener una descripción completa de los parámetros de registro de consultas lentas.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
-Azure Database for MySQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros de consultas lentas en el servidor MySQL, puede elegir que estén emitidos para los registros de Azure Monitor, Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de la [documentación de registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
+Azure Database for MySQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros de consultas lentas en el servidor MySQL, puede optar por hacer que se emitan a los registros de Azure Monitor, Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de la [documentación de registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 > [!IMPORTANT]
-> Esta característica de diagnóstico para registros de servidor solo está disponible en el uso General y memoria optimizada [planes de tarifa](concepts-pricing-tiers.md).
+> Esta función de diagnóstico para registros de servidor solo está disponible en los [planes de tarifa](concepts-pricing-tiers.md) de uso general y optimizados para memoria.
 
 En la tabla siguiente se describe lo que contiene cada registro. En función del método de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen.
 
@@ -73,10 +72,10 @@ En la tabla siguiente se describe lo que contiene cada registro. En función del
 | `rows_sent_s` | Número de filas enviadas |
 | `rows_examined_s` | Número de filas examinadas |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| `insert_id_s` | Id. de inserción |
+| `insert_id_s` | ID de inserción |
 | `sql_text_s` | Consulta completa |
-| `server_id_s` | Id. del servidor |
-| `thread_id_s` | Id. del subproceso |
+| `server_id_s` | ID del servidor |
+| `thread_id_s` | ID del subproceso |
 | `\_ResourceId` | URI de recurso |
 
 ## <a name="next-steps"></a>Pasos siguientes

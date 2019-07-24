@@ -4,15 +4,15 @@ description: En este artículo se introducen conceptos como procedimientos almac
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 40d120fe5fcc79721923d3493e74b5195ecc129c
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965701"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165575"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario
 
@@ -61,7 +61,7 @@ Si un procedimiento almacenado está asociado con un contenedor de Azure Cosmos,
 
 Las transacciones están integradas de forma nativa en el modelo de programación de JavaScript de Azure Cosmos DB. Dentro de una función de JavaScript, todas las operaciones se ajustan automáticamente en una única transacción. Si la lógica de JavaScript en un procedimiento almacenado se completa sin excepciones, todas las operaciones dentro de la transacción se confirman en la base de datos. Instrucciones como `BEGIN TRANSACTION` y `COMMIT TRANSACTION` (familiarizadas con bases de datos relacionales) están implícitas en Azure Cosmos DB. Si existe alguna excepción desde el script, el entorno en tiempo de ejecución de JavaScript de Azure Cosmos DB revertirá toda la transacción. Por lo tanto, el inicio de una excepción es equivalente a una instrucción `ROLLBACK TRANSACTION` en Azure Cosmos DB.
 
-### <a name="data-consistency"></a>Coherencia de los datos
+### <a name="data-consistency"></a>Coherencia de datos
 
 Los procedimientos almacenados y los desencadenadores se ejecutan siempre en la réplica principal del contenedor de Azure Cosmos. Esta característica garantiza que las lecturas desde los procedimientos almacenados ofrezcan una [fuerte coherencia](consistency-levels-tradeoffs.md). Las consultas que utilizan funciones definidas por el usuario se pueden ejecutar en el servidor principal o en cualquier réplica secundaria. Los procedimientos almacenados y los desencadenadores están diseñados para admitir escrituras de transacción; sin embargo, la lógica de solo lectura se implementa mejor como lógica del lado de la aplicación y las consultas con los [SDK de la API de SQL de Azure Cosmos DB](sql-api-dotnet-samples.md) le ayudarán a saturar el rendimiento de la base de datos. 
 
@@ -75,7 +75,7 @@ Las funciones de JavaScript también están sujetas a la [capacidad de rendimien
 
 ## <a name="triggers"></a>Desencadenadores
 
-En esta sección se describen los dos tipos de desencadenadores:
+Azure Cosmos DB admite dos tipos de desencadenadores:
 
 ### <a name="pre-triggers"></a>Desencadenadores previos
 
@@ -84,6 +84,9 @@ Azure Cosmos DB proporciona desencadenadores que se pueden invocar mediante la r
 ### <a name="post-triggers"></a>Desencadenadores posteriores
 
 De forma similar a los desencadenadores previos, los desencadenadores posteriores también están asociados a una operación en un elemento de Azure Cosmos DB y no requieren ningún parámetro de entrada. Se ejecutan *después* de que se haya completado la operación y tienen acceso al mensaje de respuesta que se envía al cliente. Para obtener ejemplos, vea el artículo [Escritura de desencadenadores](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+
+> [!NOTE]
+> Los desencadenadores registrados no se ejecutan automáticamente cuando se producen sus correspondientes operaciones (crear/eliminar/reemplazar/actualizar). Se les debe llamar de forma explícita al ejecutar estas operaciones. Para obtener más información, vea el artículo [Cómo ejecutar desencadenadores](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers).
 
 ## <a id="udfs"></a>Funciones definidas por el usuario
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: e668a5238859d8cd8c2a7797200a12197ce72be9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235124"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110468"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guía de implementación de la característica Azure Active Directory
 
@@ -47,7 +47,7 @@ En esta fase, los administradores habilitan unas características de seguridad c
 | [Uso de roles de administrador no global siempre que sea posible](../users-groups-roles/directory-assign-admin-roles.md) | Asigne a los administradores solo el acceso que necesitan a las áreas a las que necesitan acceso. No todos los administradores necesitan ser administradores globales. | Azure AD Free |
 | [Habilitación de Privileged Identity Management para el seguimiento del uso del rol de administrador](../privileged-identity-management/pim-getting-started.md) | Habilite Privileged Identity Management para empezar el seguimiento del uso del rol de administrador. | Azure AD Premium P2 |
 | [Implementación del autoservicio de restablecimiento de contraseña](../authentication/howto-sspr-deployment.md) | Reduzca las llamadas al departamento de soporte técnico para el restablecimiento de contraseña al permitir a los empleados restablecerlas ellos mismos mediante directivas que controle usted como administrador. | Azure AD Basic |
-| [Crear una lista de contraseñas prohibidas de personalizado específico de la organización](../authentication/howto-password-ban-bad-configure.md) | Evite que los usuarios creen contraseñas que incluyan palabras o frases comunes de su organización o zona. | Azure AD Basic |
+| [Creación de una lista de contraseñas prohibidas personalizada específica de la organización](../authentication/howto-password-ban-bad-configure.md) | Evite que los usuarios creen contraseñas que incluyan palabras o frases comunes de su organización o zona. | Azure AD Basic |
 | [Habilitación de la integración local con la protección de contraseñas de Azure AD](../authentication/concept-password-ban-bad-on-premises.md) | Amplíe la lista de contraseñas prohibidas al directorio local para garantizar que las contraseñas locales también cumplen los requisitos de las listas de contraseñas prohibidas globales y específicas del inquilino. | Azure AD Premium P1 |
 | [Habilitación de la guía de contraseñas de Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Olvídese de solicitar a los usuarios que cambien periódicamente la contraseña, deshabilite los requisitos de complejidad y a los usuarios les será más fácil recordar la contraseña y mantener una segura. | Azure AD Free |
 | [Deshabilitación de los restablecimientos de contraseña periódicos para las cuentas de usuario en la nube](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Los restablecimientos de contraseña periódicos promueven un aumento de las contraseñas existentes para los usuarios. Sírvase de la documentación de guía de las directrices de Microsoft sobre las contraseñas y copie la directiva local con los usuarios únicamente de la nube. | Azure AD Free |

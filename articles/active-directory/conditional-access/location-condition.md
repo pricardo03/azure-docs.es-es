@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98588e0c25439fd4988fe39e06e7042cfa9113cb
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: bd62cda209a8ac95a41fa271ce3a96001a3b4811
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305678"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164773"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory? 
 
@@ -27,16 +27,16 @@ En este artículo se proporciona la información necesaria para configurar la co
 
 ## <a name="locations"></a>Ubicaciones
 
-Azure AD habilita el inicio de sesión único en dispositivos, aplicaciones y servicios desde cualquier ubicación en la red internet pública. Gracias a la condición de ubicación, podrá controlar el acceso a las aplicaciones en la nube en función de la ubicación de la red de un usuario. Estos son los casos de uso más comunes de la condición de ubicación:
+Azure AD habilita el inicio de sesión único en dispositivos, aplicaciones y servicios desde cualquier ubicación de la red pública de Internet. Gracias a la condición de ubicación, podrá controlar el acceso a las aplicaciones en la nube en función de la ubicación de la red de un usuario. Estos son los casos de uso más comunes de la condición de ubicación:
 
 - Solicitar la autenticación multifactor a los usuarios que obtengan acceso a un servicio desde fuera de la red corporativa.
 - Bloquear el acceso a los usuarios que accedan a un servicio desde determinados países o regiones.
 
-Una ubicación es una etiqueta para una ubicación de red que representa una ubicación con nombre o la autenticación multifactor direcciones IP de confianza.
+Una ubicación es una etiqueta para una ubicación de red que representa una ubicación con nombre o IP de autenticación multifactor de confianza.
 
 ## <a name="named-locations"></a>Ubicaciones con nombre
 
-Con las ubicaciones con nombre, puede crear agrupaciones lógicas de intervalos de direcciones IP o países y regiones.
+Gracias a las ubicaciones con nombre, puede crear agrupaciones lógicas de rangos de direcciones IP o de países y regiones.
 
 Puede obtener acceso a sus ubicaciones con nombre en la sección **Administrar** de la página Acceso condicional.
 
@@ -44,43 +44,46 @@ Puede obtener acceso a sus ubicaciones con nombre en la sección **Administrar**
 
 Una ubicación con nombre tiene los siguientes componentes:
 
-![Cree una nueva ubicación nombre](./media/location-condition/42.png)
+![Creación de una nueva ubicación con nombre](./media/location-condition/42.png)
 
 - **Nombre**: el nombre para mostrar de una ubicación con nombre.
-- **Intervalos de IP**: uno o varios intervalos de direcciones IPv4 en formato CIDR. No se admite la especificación de un intervalo de direcciones IPv6.
+- **Intervalos de IP**: uno o varios intervalos de direcciones IPv4 en formato CIDR. No se admite la operación para especificar un rango de direcciones IPv6.
 
    > [!NOTE]
-   > Actualmente, rangess de dirección IPv6 no pueden incluirse en una ubicación con nombre. No se puede excluir este intervalos IPv6 de measn desde una directiva de acceso condicional.
+   > Actualmente, los rangos de direcciones IPv6 no se pueden incluir en una ubicación con nombre. Esto significa que los rangos IPv6 no se pueden excluir de una directiva de acceso condicional.
 
 - **Marcar como ubicación de confianza**: marca que puede establecer a una ubicación con nombre para indicar una ubicación de confianza. Las ubicaciones de confianza son áreas de red que controla el departamento de TI. Además del acceso condicional, Azure Identity Protection y los informes de seguridad de Azure AD también usan las ubicaciones con nombre de confianza para reducir los [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Países o regiones**: esta opción le permite seleccionar uno o más países o regiones para definir una ubicación con nombre.
-- **Incluir áreas desconocidas** -algunas direcciones IP no están asignadas a un país o región determinados. Esta opción le permite elegir si estas direcciones IP deberían estar incluidas en la ubicación con nombre. Use esta configuración cuando la directiva que usa la ubicación con nombre deba aplicarse en ubicaciones desconocidas.
+- **Incluir áreas desconocidas**: algunas direcciones IP no están asignadas a ningún país o región determinados. Esta opción le permite elegir si estas direcciones IP deberían estar incluidas en la ubicación con nombre. Use esta configuración cuando la directiva que usa la ubicación con nombre deba aplicarse en ubicaciones desconocidas.
 
-El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Las organizaciones pueden configurar hasta 90 ubicaciones con nombre, cada una configurada con hasta 1200 intervalos IP.
+El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Puede configurar las ubicaciones en función de las limitaciones siguientes:
 
-Directiva de acceso condicional se aplica al tráfico IPv4 e IPv6. Ubicaciones con nombre actualmente no permiten intervalos IPv6 va a configurar. Esta limitación hace que las siguientes situaciones:
+- Una ubicación con nombre de hasta 1200 intervalos IP.
+- Un máximo de 90 ubicaciones con nombre con un intervalo IP asignado a cada una.
 
-- Directiva de acceso condicional no puede destinarse a intervalos específicos de IPv6
-- Directiva de acceso condicional no puede excluir determinados intervalos IPV6
+La directiva de acceso condicional se aplica a los tráficos IPv4 e IPv6. Actualmente, las ubicaciones con nombre no permiten la configuración de rangos IPv6. Esta limitación provoca las siguientes situaciones:
 
-Si se configura una directiva para aplicar a "Cualquier ubicación", se aplicará al tráfico IPv4 e IPv6. Las ubicaciones con nombre configuradas para las regiones y países especificados solo admiten direcciones IPv4. Tráfico IPv6 sólo está incluido si selecciona la opción "incluir áreas desconocidas".
+- La directiva de acceso condicional no puede destinarse a rangos específicos de IPv6.
+- La directiva de acceso condicional no puede excluir rangos específicos de IPv6.
+
+Si se configura una directiva para que se aplique a "Cualquier ubicación", se aplicará a los tráficos IPv4 e IPv6. Las ubicaciones con nombre configuradas para las regiones y países especificados solo admiten direcciones IPv4. El tráfico IPv6 solo se incluye si se selecciona la opción "incluir áreas desconocidas".
 
 ## <a name="trusted-ips"></a>IP de confianza
 
-También puede configurar los intervalos de direcciones IP que representen a la intranet local de su organización en la [configuración del servicio de la autenticación multifactor](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esta función le permite configurar hasta 50 intervalos de direcciones IP. Los intervalos de direcciones IP están en formato CIDR. Para obtener más información, consulte [IP de confianza](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+También puede configurar los intervalos de direcciones IP que representen a la intranet local de su organización en la [configuración del servicio de la autenticación multifactor](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esta función le permite configurar hasta 50 intervalos de direcciones IP. Los intervalos de direcciones IP están en formato CIDR. Para obtener más información, vea [IP de confianza](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Si tiene direcciones IP de confianza configurado, se mostrarán como **IP de confianza de MFA** en la lista de ubicaciones para la condición de ubicación.
+Si se han configurado IP de confianza, se mostrarán como **IP de confianza de MFA** en la lista de ubicaciones de la condición de ubicación.
 
 ### <a name="skipping-multi-factor-authentication"></a>Omisión de la autenticación multifactor
 
-En la página de configuración del servicio de la autenticación multifactor, podrá identificar a los usuarios de la intranet corporativa seleccionando **Omitir la autenticación multifactor para solicitudes de usuarios federados en mi intranet**. Esta configuración indica que la notificación interna de la red corporativa, la cual emiten los Servicios de federación de Active Directory (AD FS), es de confianza y se utiliza para identificar al usuario como si estuviera en la red corporativa. Para obtener más información, consulte [Enable the Trusted IPs feature by using conditional access](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access) (Habilitar la función de direcciones IP de confianza utilizando el acceso condicional).
+En la página de configuración del servicio de la autenticación multifactor, podrá identificar a los usuarios de la intranet corporativa seleccionando **Omitir la autenticación multifactor para solicitudes de usuarios federados en mi intranet**. Esta configuración indica que la notificación interna de la red corporativa, la cual emiten los Servicios de federación de Active Directory (AD FS), es de confianza y se utiliza para identificar al usuario como si estuviera en la red corporativa. Para obtener más información, vea [Habilitar la función de direcciones IP de confianza mediante el acceso condicional](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
-Después de activar esta opción, incluida la ubicación con nombre **IP de confianza de MFA** se aplicará a todas las directivas con esta opción seleccionada.
+Tras activar esta opción, incluida la ubicación con nombre, las **IP de confianza de MFA** se aplicarán a todas las directivas que tengan esta opción seleccionada.
 
-Para aplicaciones de escritorio y móviles, que disponen de larga duración de la sesión, periódicamente se reevalúa el acceso condicional. El valor predeterminado es de una hora. Cuando la notificación dentro de la red corporativa solo se emite en el momento de la autenticación inicial, puede que Azure AD no tenga ninguna lista de intervalos de IP de confianza. En este caso, es más difícil determinar si el usuario sigue conectado a la red corporativa:
+Para las aplicaciones móviles y de escritorio que hayan tenido sesiones de larga duración, el acceso condicional se vuelve a evaluar periódicamente. El valor predeterminado es de una hora. Cuando la notificación dentro de la red corporativa solo se emite en el momento de la autenticación inicial, puede que Azure AD no tenga ninguna lista de intervalos de IP de confianza. En este caso, es más difícil determinar si el usuario sigue conectado a la red corporativa:
 
 1. Compruebe si la dirección IP del usuario está en uno de los intervalos IP de confianza.
-2. Compruebe si los tres primeros octetos de la dirección IP del usuario coinciden con los tres primeros octetos de la dirección IP de la autenticación inicial. La dirección IP se compara con la inicial se emitió originalmente la autenticación cuando la notificación de la red corporativa interna y se validó la ubicación del usuario.
+2. Compruebe si los tres primeros octetos de la dirección IP del usuario coinciden con los tres primeros octetos de la dirección IP de la autenticación inicial. La dirección IP se compara con la autenticación inicial cuando se emitió la notificación interna de red corporativa y se validó la ubicación del usuario.
 
 Si se produce un error en los dos pasos, se considera que el usuario ya no está conectado a ninguna dirección IP de confianza.
 
@@ -116,18 +119,18 @@ Con esta opción, puede seleccionar una o varias ubicaciones con nombre. Para un
 Las directivas de acceso condicional se evalúan cuando:
 
 - Un usuario inicia sesión por primera vez en una aplicación web, móvil o de escritorio.
-- Una aplicación móvil o de escritorio que usa la autenticación moderna, con un token de actualización para adquirir un nuevo token de acceso. De forma predeterminada esta comprobación es de una hora.
+- Una aplicación móvil o de escritorio que usa la autenticación moderna, con un token de actualización para adquirir un nuevo token de acceso. De forma predeterminada, esta comprobación se realiza una vez por hora.
 
-Esta comprobación significa que para dispositivos móviles y aplicaciones de escritorio que usan autenticación moderna, se detectaría un cambio en la ubicación de una hora después de cambiar la ubicación de red. Para las aplicaciones de escritorio y móviles que no usan la autenticación moderna, la directiva se aplica para cada solicitud de token. La frecuencia de la solicitud varía en función de la aplicación. De forma similar, para las aplicaciones web, la directiva se aplica en el primer inicio de sesión y es adecuada para la duración de la sesión en la aplicación web. Debido a las diferencias en la duración de la sesión de las aplicaciones, el tiempo de una evaluación de directiva a otra también varía. Cada vez que la aplicación solicita un nuevo token de inicio de sesión, la directiva se aplica.
+Esta comprobación significa que, para que las aplicaciones móviles y de escritorio usen la autenticación moderna, se detecta un cambio en la ubicación dentro de la hora siguiente al cambio de la ubicación de red. Para las aplicaciones de escritorio y móviles que no usan la autenticación moderna, la directiva se aplica para cada solicitud de token. La frecuencia de la solicitud varía en función de la aplicación. De forma similar, para las aplicaciones web, la directiva se aplica en el primer inicio de sesión y es adecuada para la duración de la sesión en la aplicación web. Debido a las diferencias en la duración de la sesión de las aplicaciones, el tiempo de una evaluación de directiva a otra también varía. Cada vez que la aplicación solicita un nuevo token de inicio de sesión, la directiva se aplica.
 
 De manera predeterminada, Azure AD emite un token cada hora. Tras salir de la red corporativa, la directiva se aplica a las aplicaciones que usan la autenticación moderna en un plazo de una hora.
 
 ### <a name="user-ip-address"></a>Dirección IP del usuario
 
-La dirección IP que se utiliza en la evaluación de directivas es la dirección IP pública del usuario. Para los dispositivos en una red privada, esta dirección IP no es la dirección IP de cliente de dispositivo del usuario en la intranet, es la dirección utilizada por la red para conectarse a la red internet pública.
+La dirección IP que se utiliza en la evaluación de directivas es la dirección IP pública del usuario. Para los dispositivos conectados a una red privada, esta no es la dirección IP de cliente del dispositivo del usuario conectado a la intranet, sino la dirección que utiliza la red para conectarse a la red pública de Internet.
 
 > [!WARNING]
-> Si el dispositivo tiene sólo una dirección IPv6, no se admite la configuración de la condición de ubicación.
+> Si el dispositivo tiene solo una dirección IPv6, no se admite la configuración de la condición de ubicación.
 
 ### <a name="bulk-uploading-and-downloading-of-named-locations"></a>Carga y descarga masiva de ubicaciones con nombre
 
@@ -145,5 +148,5 @@ La API y PowerShell no son compatibles todavía con las ubicaciones con nombre o
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
-- Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).
+- Si quiere saber cómo configurar una directiva de acceso condicional, vea [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
+- Si está listo para configurar directivas de acceso condicional para su entorno, vea [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).

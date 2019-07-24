@@ -11,10 +11,10 @@ ms.date: 11/13/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 33b379a03c92b81885f7adfc70f7025a85ce9057
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511667"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitación de la restricción de acceso por edad en Azure Active Directory B2C
@@ -25,13 +25,13 @@ ms.locfileid: "66511667"
 
 La restricción de acceso por edad en Azure Active Directory (Azure AD) B2C le permite identificar a los menores que quieren usar la aplicación. Puede optar por impedir que los menores inicien sesión en la aplicación. Los usuarios también pueden volver a la aplicación e identificar su grupo de edad y su estado de consentimiento parental. Azure AD B2C puede bloquear a los menores sin consentimiento parental. Azure AD B2C también se puede configurar para permitir que la aplicación decida qué hacer con los menores.
 
-Después de habilitar el acceso por edad en su [flujo de usuario](active-directory-b2c-reference-policies.md), se piden a los usuarios cuando nacieron y en qué país o región vive. Si inicia sesión un usuario que no ha introducido la información anteriormente, deberá escribirla la próxima vez que inicie sesión. Las reglas se aplican cada vez que un usuario inicia sesión.
+Después de habilitar la restricción de acceso por edad en el [flujo de usuario](active-directory-b2c-reference-policies.md), se pedirá a los usuarios su fecha de nacimiento y el país o región donde residen. Si inicia sesión un usuario que no ha introducido la información anteriormente, deberá escribirla la próxima vez que inicie sesión. Las reglas se aplican cada vez que un usuario inicia sesión.
 
 Azure AD B2C usa la información que escribe el usuario para identificar si es un menor. A continuación, el campo **ageGroup** se actualiza en su cuenta. El valor puede ser `null`, `Undefined`, `Minor`, `Adult` y `NotAdult`.  Los campos **ageGroup** y **consentProvidedForMinor** se utilizan para calcular el valor de **legalAgeGroupClassification**.
 
 La restricción de acceso por edad implica dos valores de edad: la edad en que alguien ya se no considera un menor y la edad en la que un menor debe tener consentimiento parental. En la tabla siguiente se enumeran las reglas de edad que se usan para la definición de un menor y de un menor que requiere consentimiento.
 
-| País/región | Nombre de país o región | Edad de consentimiento de menores | Edad del menor |
+| País/región | Nombre del país o región | Edad de consentimiento de menores | Edad del menor |
 | -------------- | ------------------- | ----------------- | --------- |
 | Valor predeterminado | None | None | 18 |
 | AE | Emiratos Árabes Unidos | None | 21 |
@@ -47,7 +47,7 @@ La restricción de acceso por edad implica dos valores de edad: la edad en que a
 | EE | Estonia | 16 | 18 |
 | EG | Egipto | None | 21 |
 | ES | España | 13 | 18 |
-| FR | Francia | 16 | 18 |
+| VF | Francia | 16 | 18 |
 | GB | Reino Unido | 13 | 18 |
 | GR | Grecia | 16 | 18 |
 | HR | Croacia | 16 | 18 |

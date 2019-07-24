@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fb2fd9503dad4113609b35dbe66496a03272f85
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735252"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137222"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola serie de Azure para Linux
 
-La consola serie de Azure Portal proporciona acceso a una consola basada en texto para las máquinas virtuales Linux y los conjuntos de escalado de máquinas virtuales. Esta conexión serie se conecta al puerto serie COM1 de la máquina virtual o del conjunto de escalado de máquinas virtuales y ofrece acceso a ellos sin estar relacionada con el estado del sistema operativo o de la red. A la consola serie solo se puede acceder mediante Azure Portal; además, esta solo se permite a los usuarios que tienen un rol de acceso de colaborador o superior en el conjunto de escalado de máquinas virtuales o la máquina virtual.
+La consola serie de Azure Portal proporciona acceso a una consola basada en texto para las máquinas virtuales Linux y los conjuntos de escalado de máquinas virtuales. Esta conexión serie se conecta al puerto serie ttys0 de la máquina virtual o del conjunto de escalado de máquinas virtuales y ofrece acceso a ellos sin estar relacionada con el estado del sistema operativo o de la red. A la consola serie solo se puede acceder mediante Azure Portal; además, esta solo se permite a los usuarios que tienen un rol de acceso de colaborador o superior en el conjunto de escalado de máquinas virtuales o la máquina virtual.
 
 La consola serie funciona de la misma manera para las máquinas virtuales y los conjuntos de escalado de máquinas virtuales. En este documento, todas las menciones a las máquinas virtuales incluirán implícitamente los conjuntos de escalado de máquinas virtuales, a menos que se indique lo contrario.
 

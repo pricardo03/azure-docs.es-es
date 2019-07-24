@@ -4,7 +4,7 @@ description: Preparación de la infraestructura de Azure para la alta disponibil
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3577128e66112bda5a5e3e08097d14604043cbd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409613"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708992"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS
 
@@ -267,14 +267,14 @@ Para preparar la infraestructura de Azure, complete los siguientes pasos:
 
 * [Incorpore máquinas virtuales de Windows al dominio][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* [Incorpore entradas del Registro en ambos nodos del clúster usados para la instancia de ASCS/SCS de SAP][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+* [Incorpore entradas del Registro en ambos nodos del clúster de la instancia de ASCS/SCS de SAP][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* Si usa Windows Server 2016, le recomendamos que configure el [testigo de Azure Cloud][deploy-cloud-witness].
+* Si usa Windows Server 2016, se recomienda configurar el [testigo en la nube de Azure][deploy-cloud-witness].
 
 
 ## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implementación manual del clúster de servidores de archivos de escalabilidad horizontal 
 
-Puede implementar de forma manual el clúster de servidores de archivos de escalabilidad horizontal de Microsoft, tal y como se describe en la entrada de blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure] (Espacios de almacenamiento directo en Azure), si ejecuta el código siguiente:  
+Puede implementar de forma manual el clúster de servidores de archivos de escalabilidad horizontal de Microsoft, tal como se explica en el blog [Espacios de almacenamiento directo en Azure][ms-blog-s2d-in-azure], si ejecuta el código siguiente:  
 
 
 ```powershell
@@ -345,7 +345,7 @@ En el cuadro **Tipo de cuenta de almacenamiento**, seleccione **Premium Storage*
 
 ## <a name="adjust-cluster-timeout-settings"></a>Ajustar la configuración de tiempo de expiración del clúster
 
-Después de instalar correctamente el clúster de servidores de archivos de escalabilidad horizontal de Windows, adapte los umbrales de tiempo de expiración para la detección de conmutación por error a las condiciones de Azure. Los parámetros que se van a cambiar se documentan en el blog [Tuning Failover Cluster Network Thresholds][tuning-failover-cluster-network-thresholds] (Ajuste de los umbrales de la red en clúster de conmutación por error). Si imagina que las máquinas virtuales en clúster están en la misma subred, cambie los parámetros siguientes a estos valores:
+Después de instalar correctamente el clúster de servidores de archivos de escalabilidad horizontal de Windows, adapte los umbrales de tiempo de expiración para la detección de conmutación por error a las condiciones de Azure. Los parámetros que se van a cambiar se documentan en [Ajuste de los umbrales de la red en clúster de conmutación por error][tuning-failover-cluster-network-thresholds]. Si imagina que las máquinas virtuales en clúster están en la misma subred, cambie los parámetros siguientes a estos valores:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
@@ -355,4 +355,4 @@ Esta configuración se han probado con clientes y ofrece un buen compromiso. Es 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Instalación de alta disponibilidad para SAP NetWeaver en el clúster de conmutación por error de Windows y el recurso compartido de archivos para la instancia de SAP (A)SCS][sap-high-availability-installation-wsfc-file-share]
+* [Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un recurso compartido de archivos para una instancia de ASCS/SCS de SAP][sap-high-availability-installation-wsfc-file-share]

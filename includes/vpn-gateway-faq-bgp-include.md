@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7c1f3fc7861f5e1b895423d502218b9b07302c1c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186133"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659908"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite BGP en todas las SKU de Azure VPN Gateway?
 No, BGP se admite solo en las puertas de enlace VPN de Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** y **HighPerformance**. **Basic** NO se admite.
@@ -85,7 +85,7 @@ Sí, pero al menos una de las puertas de enlace de la red virtual debe estar en 
 Sí. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>¿Qué dirección utiliza la puerta de enlace de VPN de Azure para la dirección IP del par BGP?
-La puerta de enlace de VPN de Azure asignará una sola dirección IP del intervalo de GatewaySubnet definido para la red virtual. De forma predeterminada, es la penúltima dirección del intervalo. Por ejemplo, si el valor de GatewaySubnet es 10.12.255.0/27, y oscila entre 10.12.255.0 y 10.12.255.31, la dirección IP del par BGP de la puerta de enlace de la VPN de Azure será 10.12.255.30. Puede encontrar esta información al mostrar la información de la puerta de enlace de VPN de Azure.
+La puerta de enlace de VPN de Azure asigna una única dirección IP del intervalo de GatewaySubnet para puertas de enlace de VPN en modo activo/en espera o dos direcciones IP para puertas de enlace de VPN en modo activo/activo. Puede obtener las direcciones IP de BGP reales asignadas mediante PowerShell (Get-AzVirtualNetworkGateway, busque la propiedad "bgpPeeringAddress"), o en Azure Portal (en la propiedad "Configurar ASN BGP" de la página Configuración de puerta de enlace).
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>¿Cuáles son los requisitos para las direcciones IP del par BGP en mi dispositivo VPN?
 Su dirección del par BGP local **NO DEBE** ser la misma que la dirección IP pública del dispositivo VPN. Utilice otra dirección IP en el dispositivo VPN para la dirección IP del par BGP. Puede ser una dirección asignada a la interfaz de bucle invertido en el dispositivo, pero tenga en cuenta que no puede ser una dirección APIPA (169.254.x.x). Especifique esta dirección en la puerta de enlace de red local correspondiente que representa la ubicación.

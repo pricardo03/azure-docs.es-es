@@ -9,11 +9,11 @@ ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156376"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186417"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar y ampliar el dispositivo las acciones de administración del dispositivo
 
@@ -27,6 +27,6 @@ Normalmente, puede dispositivos para llevar a cabo acciones a la vez que minimiz
 
 En este tutorial se usó un método directo para desencadenar un reinicio remoto en un dispositivo. Se usaron las propiedades notificadas para notificar la última hora de reinicio del dispositivo y se consultó el dispositivo gemelo para detectar la última hora de reinicio del dispositivo desde la nube.
 
-Para continuar la introducción a IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, consulte [cómo realizar una actualización de firmware](../articles/iot-hub/tutorial-firmware-update.md)
+Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos como remotos a través de la actualización de firmware de aire, vea [Realización de una actualización de firmware](../articles/iot-hub/tutorial-firmware-update.md)
 
-Para obtener información sobre cómo ampliar la solución y programar llamadas de método en varios dispositivos de IoT, consulte [programación y difusión de trabajos](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
+Para obtener información sobre cómo ampliar la solución IoT y programar llamadas a métodos en varios dispositivos, vea [Programación de trabajos en varios dispositivos](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

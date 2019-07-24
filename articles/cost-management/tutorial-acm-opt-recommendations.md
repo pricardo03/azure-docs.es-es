@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416091"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164492"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Optimización de los costos a partir de las recomendaciones
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Comprobar la acción para asegurarse de que la máquina virtual cambió el tamaño correctamente
 
 ## <a name="prerequisites"></a>Requisitos previos
-Las recomendaciones están disponibles para una variedad de ámbitos y tipos de cuenta de Azure, incluidos [contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) a los clientes. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
+Las recomendaciones están disponibles para varios tipos de cuenta y ámbitos de Azure, entre las que se incluyen las de los clientes con [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 - Subscription
 - Grupos de recursos
@@ -41,9 +41,9 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="view-cost-optimization-recommendations"></a>Visualización de las recomendaciones de optimización de costos
 
-Para ver las recomendaciones de optimización de costos para una suscripción, abra el ámbito deseado en Azure portal y seleccione **las recomendaciones de Advisor**.
+Para ver las recomendaciones de optimización de costos para una suscripción, abra el ámbito de su elección en Azure Portal y seleccione **Recomendaciones de Advisor**.
 
-Para ver las recomendaciones para un grupo de administración, abra el ámbito deseado en Azure portal y seleccione **análisis de costos** en el menú. Use la **ámbito** pastilla para cambiar a un ámbito diferente, por ejemplo, un grupo de administración. Seleccione **las recomendaciones de Advisor** en el menú. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
+Con el fin de ver las recomendaciones para un grupo de administración, abra el ámbito de su elección en Azure Portal y seleccione **Análisis de costos** en el menú. Use la píldora **Ámbito** para cambiar a un ámbito distinto como, por ejemplo, un grupo de administración. Seleccione **Recomendaciones de Advisor** en el menú. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 ![Recomendaciones de Advisor para Cost Management en Azure Portal](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
@@ -51,15 +51,15 @@ La lista de recomendaciones identifica las deficiencias de uso o muestra las rec
 
 La categoría **Impacto**, junto con el **Ahorro potencial anual**, está diseñada para ayudar a identificar las recomendaciones con el máximo potencial de ahorro.
 
-Se incluyen recomendaciones de alto impacto:
-- [Comprar instancias reservadas de máquina virtual para ahorrar dinero en costos de pago por uso](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
-- [Optimizar el gasto en máquinas virtuales cambiando el tamaño o apagar instancias infrautilizadas](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
-- [Usar almacenamiento estándar para almacenar las instantáneas de discos administrados ](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+Entre las recomendaciones de gran impacto se incluyen:
+- [Compra de instancias reservadas de máquina virtual para ahorrar dinero en los costos de pago por uso](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs).
+- [Optimización del gasto en máquinas virtuales mediante la adecuación del tamaño o el apagado en instancias infrautilizadas](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances).
+- [Uso de Standard Storage para almacenar instantáneas de Managed Disks](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks).
 
-Se incluyen recomendaciones de impacto moderado:
-- [Eliminar las canalizaciones de Azure Data Factory que se producen errores](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
-- [Reducir los costos mediante la eliminación de circuitos de ExpressRoute no aprovisionados](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
-- [Reducir los costos al eliminar o reconfigurar puertas de enlace de red virtual inactivas](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
+Entre las recomendaciones de impacto medio se incluyen:
+- [Eliminación de las canalizaciones de Azure Data Factory que dan error](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing).
+- [Reducción de los costos mediante la eliminación de circuitos ExpressRoute no aprovisionados](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits).
+- [Reducción de costos mediante la eliminación o reconfiguración de puertas de enlace de red virtual inactivas](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways).
 
 ## <a name="act-on-a-recommendation"></a>Actuar en función de una recomendación
 

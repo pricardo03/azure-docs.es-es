@@ -4,23 +4,29 @@ description: Revisión de las propiedades específicas y sus valores de los mód
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b6eb0c5b0d52bba3d34c9853a73b1f3e07b112a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8a8170023c8f529894522e27a4c6231325089af
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61322747"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190992"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propiedades de los módulos gemelos del agente de IoT Edge y del centro de IoT Edge
 
 El agente de IoT Edge y el centro de IoT Edge son dos módulos que constituyen el entorno de tiempo de ejecución de IoT Edge. Para más información acerca de las tareas que realiza cada módulo, consulte [Información sobre el entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md). 
 
-En este artículo se proporcionan las propiedades deseadas y notificadas de los módulos gemelos de tiempo de ejecución. Para más información sobre cómo implementar módulos en dispositivos IoT Edge, consulte el artículo sobre [implementación y supervisión](module-deployment-monitoring.md).
+En este artículo se proporcionan las propiedades deseadas y notificadas de los módulos gemelos de tiempo de ejecución. Para obtener más información sobre cómo implementar módulos en dispositivos IoT Edge, vea [Obtener información sobre cómo implementar módulos y establecer rutas en IoT Edge](module-composition.md).
+
+Un módulo gemelo incluye lo siguiente: 
+
+* **Propiedades deseadas**. El back-end de solución puede establecer propiedades deseadas, y el módulo puede leerlas. El módulo también puede recibir notificaciones de cambios en las propiedades deseadas. Las propiedades deseadas se usan junto con las propiedades notificadas para sincronizar la configuración o las condiciones del módulo.
+
+* **Propiedades notificadas**. El módulo puede establecer propiedades notificadas, y el back-end de solución puede leerlas y consultarlas. Las propiedades notificadas se usan junto con las propiedades deseadas para sincronizar la configuración o las condiciones del módulo. 
 
 ## <a name="edgeagent-desired-properties"></a>Propiedades deseadas de EdgeAgent
 
@@ -48,7 +54,7 @@ El módulo gemelo del agente de IoT Edge se denomina `$edgeAgent` y coordina las
 | modules.{moduleId}.version | Una cadena definida por el usuario que representa la versión de este módulo. | Sí |
 | modules.{moduleId}.type | Debe ser "docker". | Sí |
 | modules.{moduleId}.status | {"running" \| "stopped"} | Sí |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Sí |
+| modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | Sí |
 | modules.{moduleId}.settings.image | El URI de la imagen del módulo. | Sí |
 | modules.{moduleId}.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del módulo. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Sin |
 | modules.{moduleId}.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica el manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
@@ -61,7 +67,7 @@ Las propiedades notificadas del agente de IoT Edge incluyen tres fragmentos prin
 2. El estado de los módulos que se están ejecutando actualmente en el dispositivo, tal y como ha notificado el agente de IoT Edge.
 3. Una copia de las propiedades deseadas que se están ejecutando actualmente en el dispositivo.
 
-Este último fragmento de información es útil en caso de que las propiedades deseadas más recientes no las aplicara correctamente la instancia en tiempo de ejecución, y de que el dispositivo aún esté ejecutando un manifiesto de implementación anterior.
+Este último fragmento de información, una copia de las propiedades deseadas actuales, es útil para indicar si el dispositivo ha aplicado las propiedades deseadas más recientes o todavía ejecuta el manifiesto de una implementación anterior.
 
 > [!NOTE]
 > Las propiedades notificadas del agente de IoT Edge resultan útiles porque pueden consultarse con el [lenguaje de consultas de IoT Hub](../iot-hub/iot-hub-devguide-query-language.md) para investigar a escala el estado de las implementaciones. Para más información sobre cómo usar las propiedades del agente de IoT Edge para ver el estado, consulte [Descripción de las implementaciones de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md).
@@ -71,7 +77,7 @@ La tabla siguiente no incluye la información que se copia de las propiedades de
 | Propiedad | DESCRIPCIÓN |
 | -------- | ----------- |
 | lastDesiredVersion | Este entero hace referencia a la última versión de las propiedades deseadas procesadas mediante el agente de IoT Edge. |
-| lastDesiredStatus.code | Se trata del código de estado que hace referencia a las últimas propiedades que procesó el agente de IoT Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida), `412` (versión de esquema no válido), `417` (las propiedades deseadas están vacías) y `500` (error) |
+| lastDesiredStatus.code | Este código de estado hace referencia a las últimas propiedades que ha procesado el agente de IoT Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida), `412` (versión de esquema no válido), `417` (las propiedades deseadas están vacías) y `500` (error) |
 | lastDesiredStatus.description | Descripción de texto del estado. |
 | deviceHealth | `healthy` si el estado en tiempo de ejecución de todos los módulos es `running` o `stopped`; `unhealthy` otra condición. |
 | configurationHealth.{deploymentId}.health | `healthy` si el estado en tiempo de ejecución de todos los módulos establecidos mediante la implementación {deploymentId} es `running` o `stopped`; `unhealthy` otra condición. |
@@ -81,14 +87,14 @@ La tabla siguiente no incluye la información que se copia de las propiedades de
 | systemModules.edgeAgent.statusDescription | Descripción de texto del estado notificado del agente de IoT Edge. |
 | systemModules.edgeHub.runtimeStatus | Estado del centro de IoT Edge: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
 | systemModules.edgeHub.statusDescription | Descripción de texto del estado del centro de IoT Edge si es el estado es unhealthy. |
-| systemModules.edgeHub.exitCode | Si se produce un evento de salida, será el código de salida que notifica el contenedor del centro de IoT Edge. |
+| systemModules.edgeHub.exitCode | El código de salida que ha notificado el contenedor del centro de IoT Edge si se produce la salida del contenedor |
 | systemModules.edgeHub.startTimeUtc | Hora a la que se inició por última vez el centro de IoT Edge. |
 | systemModules.edgeHub.lastExitTimeUtc | Hora a la que se salió por última vez del centro de IoT Edge. |
 | systemModules.edgeHub.lastRestartTimeUtc | Hora a la que se reinició por última vez el centro de IoT Edge. |
 | systemModules.edgeHub.restartCount | Número de veces que se ha reiniciado este módulo como parte de la directiva de reinicio. |
 | modules.{moduleId}.runtimeStatus | Estado del módulo: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
 | modules.{moduleId}.statusDescription | Descripción de texto del estado del módulo si el estado es unhealthy. |
-| modules.{moduleId}.exitCode | Si se produce un evento de salida, será el código de salida que notifica el contenedor del módulo. |
+| modules.{moduleId}.exitCode | El código de salida que ha notificado el contenedor del módulo si se produce la salida del contenedor |
 | modules.{moduleId}.startTimeUtc | Hora a la que se inició por última vez el módulo. |
 | modules.{moduleId}.lastExitTimeUtc | Hora a la que se salió por última vez del módulo. |
 | modules.{moduleId}.lastRestartTimeUtc | Hora a la que se reinició por última vez el módulo. |
@@ -101,19 +107,19 @@ El módulo gemelo del centro de IoT Edge se denomina `$edgeHub` y coordina las c
 | Propiedad | DESCRIPCIÓN | Requerida en el manifiesto de implementación |
 | -------- | ----------- | -------- |
 | schemaVersion | Debe ser "1.0". | Sí |
-| routes.{routeName} | Una cadena que representa una ruta del centro de IoT Edge. | El elemento `routes` puede estar presente, pero vacío. |
-| storeAndForwardConfiguration.timeToLiveSecs | El tiempo en segundos que el centro de IoT Edge conserva los mensajes en el caso de que se desconecten puntos de conexión de enrutamiento, por ejemplo, de IoT Hub o del módulo local. | Sí |
+| routes.{routeName} | Una cadena que representa una ruta del centro de IoT Edge. Para obtener más información, vea [Declaración de rutas](module-composition.md#declare-routes). | El elemento `routes` puede estar presente, pero vacío. |
+| storeAndForwardConfiguration.timeToLiveSecs | El tiempo en segundos que el centro de IoT Edge conserva los mensajes en caso de que se desconecte de algún punto de conexión de enrutamiento, ya sea IoT Hub o un módulo local. El valor puede ser cualquier entero positivo. | Sí |
 
 ## <a name="edgehub-reported-properties"></a>Propiedades notificadas de EdgeHub
 
 | Propiedad | DESCRIPCIÓN |
 | -------- | ----------- |
 | lastDesiredVersion | Este entero hace referencia a la última versión de las propiedades deseadas procesadas mediante el centro de IoT Edge. |
-| lastDesiredStatus.code | Se trata del código de estado que hace referencia a las últimas propiedades que procesó el centro de IoT Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida) y `500` (error) |
+| lastDesiredStatus.code | El código de estado hace referencia a las últimas propiedades que ha procesado el centro de IoT Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida) y `500` (error) |
 | lastDesiredStatus.description | Descripción de texto del estado. |
 | clients.{device or moduleId}.status | El estado de conectividad de este dispositivo o módulo. Valores posibles {"connected" \| "disconnected"}. Solo las identidades de módulo pueden estar en el estado disconnected. Los dispositivos de nivel inferior que se conectan al centro de IoT Edge solo aparecen cuando se conectan. |
-| clients.{device or moduleId}.lastConnectTime | Última vez que se conectó el dispositivo o módulo. |
-| clients.{device or moduleId}.lastDisconnectTime | Última vez que se desconectó el dispositivo o módulo. |
+| clients.{device or moduleId}.lastConnectTime | Última vez que se ha conectado el dispositivo o módulo. |
+| clients.{device or moduleId}.lastDisconnectTime | Última vez que se ha desconectado el dispositivo o módulo. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

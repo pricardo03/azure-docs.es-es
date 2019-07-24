@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055624"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -31,14 +31,14 @@ Este artículo de procedimientos recomendados se centra en las características 
 
 Al crear el clúster de AKS, puede implementar los nodos con compatibilidad con GPU o un gran número de CPU eficaces. Estos nodos se utilizan a menudo para cargas de trabajo de procesamiento de datos grandes, como el aprendizaje automático o la inteligencia artificial. Como este tipo de hardware suele ser un recurso de nodo costoso para implementar, limite las cargas de trabajo que se pueden programar en esos nodos. En su lugar, puede dedicar algunos nodos del clúster a ejecutar servicios de entrada y evitar otras cargas de trabajo.
 
-Se proporciona esta compatibilidad para distintos nodos mediante el uso de varios grupos de nodos. Un clúster de AKS proporciona uno o varios grupos de nodos. Compatibilidad con varios grupos de nodos de AKS está actualmente en versión preliminar.
+Esta compatibilidad para distintos nodos se proporciona mediante el uso de varios grupos de nodos. Un clúster de AKS proporciona uno o varios grupos de nodos. Actualmente, la compatibilidad con varios grupos de nodos en AKS está en versión preliminar.
 
 El programador de Kubernetes puede utilizar taints y tolerations para limitar las cargas de trabajo que se pueden ejecutar en los nodos.
 
 * Un valor **taint** se aplica a un nodo que indica que solo se pueden programar pods específicos en él.
 * Luego se aplica un valor **toleration** a un pod que le permite *tolerar* el valor taint de un nodo.
 
-Al implementar un pod en un clúster de AKS, Kubernetes programa solo pods en nodos donde un valor toleration se alinea con el valor taint. Por ejemplo, suponga que tiene un grupo de nodos en el clúster de AKS para los nodos con GPU admite. Define el nombre (por ejemplo, *gpu*) y, a continuación, un valor para la programación. Si establece este valor en *NoSchedule*, el programador de Kubernetes no puede programar pods en el nodo si el pod no define el valor toleration correspondiente.
+Al implementar un pod en un clúster de AKS, Kubernetes programa solo pods en nodos donde un valor toleration se alinea con el valor taint. Por ejemplo, suponga que tiene un grupo de nodos en el clúster de AKS para nodos con compatibilidad con GPU. Define el nombre (por ejemplo, *gpu*) y, a continuación, un valor para la programación. Si establece este valor en *NoSchedule*, el programador de Kubernetes no puede programar pods en el nodo si el pod no define el valor toleration correspondiente.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -75,24 +75,24 @@ Al aplicar valores taint, el trabajo con los desarrolladores y propietarios de s
 
 Para obtener más información acerca de taints y tolerations, consulte [applying taints and tolerations][k8s-taints-tolerations] (aplicación de taints y tolerations).
 
-Para obtener más información sobre cómo usar varios grupos de nodos de AKS, consulte [crear y administrar varios grupos de nodos para un clúster de AKS][use-multiple-node-pools].
+Para obtener más información sobre cómo usar varios grupos de nodos en AKS, vea [Creación y administración de varios grupos de nodos para un clúster en AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamiento de taints y tolerations en AKS
 
-Al actualizar un grupo de nodos de AKS, taints y tolerations siguen un patrón de conjunto de medida que se apliquen a los nuevos nodos:
+Al actualizar un grupo de nodos en AKS, taints y tolerations siguen un patrón de conjunto a medida que se aplican a los nuevos nodos:
 
-- **Clústeres predeterminados sin soporte de escalado de máquina virtual**
-  - Supongamos que tiene un clúster de dos nodos: *node1* y *Nodo2*. Al actualizar, un nodo adicional (*Nodo3*) se crea.
-  - El taints de *node1* se aplican a *Nodo3*, a continuación, *node1* , a continuación, se elimina.
-  - Se crea otro nuevo nodo (denominado *node1*, desde la anterior *node1* se ha eliminado) y el *Nodo2* taints se aplican a la nueva *node1*. A continuación, *Nodo2* se elimina.
-  - En esencia *node1* se convierte en *Nodo3*, y *Nodo2* se convierte en *node1*.
+- **Clústeres predeterminados sin compatibilidad de escala de máquina virtual**
+  - Supongamos que tiene un clúster de dos nodos: *node1* y *node2*. Al actualizar, se crea un nodo adicional (*node3*).
+  - Los valores taints de *node1* se aplican a *node3* y luego *node1* se elimina.
+  - Se crea otro nuevo nodo (llamado *node1*, ya que el anterior *node1* se ha eliminado) y los valores taints de *node2* se aplican al nuevo *node1*. Luego, *node2* se elimina.
+  - Básicamente, *node1* se convierte en *node3* y *node2* se convierte en *node1*.
 
-- **Conjuntos de escalado de clústeres que usan la máquina virtual** (actualmente en versión preliminar de AKS)
-  - Nuevamente, supongamos que tiene un clúster de dos nodos: *node1* y *Nodo2*. Actualizar el grupo de nodos.
-  - Se crean dos nodos adicionales, *Nodo3* y *Nodo4*, y se pasan los taints respectivamente.
-  - La versión original *node1* y *Nodo2* se eliminan.
+- **Clústeres que usan conjuntos de escalado de máquinas virtuales** (actualmente en versión preliminar en AKS)
+  - Supongamos de nuevo que tiene un clúster de dos nodos: *node1* y *node2*. Actualice el grupo de nodos.
+  - Se crean dos nodos adicionales, *node3* y *node4*, y se pasan los valores taints respectivamente.
+  - Las versiones originales de *node1* y *node2* se eliminan.
 
-Al escalar un grupo de nodos de AKS, taints y tolerations no transportan diseño la tecla TAB.
+Al escalar un grupo de nodos en AKS, los valores taints y tolerations no se transfieren mediante el diseño.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Control de la programación del pod mediante selectores de nodo y afinidad
 
@@ -157,11 +157,11 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: hardware
-          operator: In
-          values: highmem
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values: highmem
 ```
 
 La parte *IgnoredDuringExecution* de la configuración indica que, si cambian las etiquetas del nodo, el pod no debe expulsarse del nodo. El programador de Kubernetes usa solo las etiquetas de nodo actualizadas para los nuevos pods que se programan, no para los pods que ya están programados en los nodos.
@@ -172,7 +172,7 @@ Para obtener más información, consulte [Affinity and anti-affinity][k8s-affini
 
 Un último enfoque para que el programador de Kubernetes aísle lógicamente las cargas de trabajo es usar la afinidad o la falta de afinidad entre pods. La configuración define que los pods *no deben* estar programados en un nodo que tenga un pod coincidente existente, o que *deben* estar programados. De forma predeterminada, el programador de Kubernetes intenta programar varios pods en un conjunto de réplica entre nodos. Puede definir reglas más específicas sobre este comportamiento.
 
-Un buen ejemplo es una aplicación web que también usa una instancia de Azure Cache for Redis. Puede usar reglas de falta de afinidad de pods para solicitar que el programador de Kubernetes distribuya réplicas entre nodos. A continuación, puede usar las reglas de afinidad para asegurarse de que cada componente de aplicación web está programada en el mismo host como una memoria caché correspondiente. La distribución de pods en todos los nodos es similar al ejemplo siguiente:
+Un buen ejemplo es una aplicación web que también usa una instancia de Azure Cache for Redis. Puede usar reglas de falta de afinidad de pods para solicitar que el programador de Kubernetes distribuya réplicas entre nodos. Después, puede usar las reglas de afinidad para asegurarse de que cada componente de aplicación web se programe en el mismo host como una caché correspondiente. La distribución de pods en todos los nodos es similar al ejemplo siguiente:
 
 | **Nodo 1** | **Nodo 2** | **Nodo 3** |
 |------------|------------|------------|

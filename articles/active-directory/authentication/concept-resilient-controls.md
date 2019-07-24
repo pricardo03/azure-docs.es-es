@@ -1,5 +1,5 @@
 ---
-title: Crear una estrategia de administración de control de acceso resistente - Azure Active Directory
+title: 'Creación de una estrategia de administración de control de acceso resistente: Azure Active Directory'
 description: En este documento se proporcionan instrucciones sobre las estrategias que una organización debe adoptar para proporcionar resistencia para reducir el riesgo de bloqueo durante interrupciones imprevistas
 services: active-directory
 author: martincoetzer
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113486"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -58,7 +58,7 @@ Para desbloquear el acceso de administrador a su inquilino, debe crear cuentas d
 
 ### <a name="mitigating-user-lockout"></a>Mitigación del bloqueo de usuario
 
- Para mitigar el riesgo de bloqueo de usuario, use directivas de acceso condicional con varios controles para proporcionar a los usuarios varias opciones para acceder a los recursos y aplicaciones. Al permitir a un usuario elegir entre, por ejemplo, iniciar sesión con MFA **o** iniciar sesión desde un dispositivo administrado **o** iniciar sesión desde la red corporativa, si uno de los controles de acceso no está disponible el usuario tiene otras opciones para continuar trabajando.
+ Para mitigar el riesgo de bloqueo de usuario, use directivas de acceso condicional con varios controles para proporcionar a los usuarios una opción para acceder a los recursos y aplicaciones. Al permitir a un usuario elegir entre, por ejemplo, iniciar sesión con MFA **o** iniciar sesión desde un dispositivo administrado **o** iniciar sesión desde la red corporativa, si uno de los controles de acceso no está disponible el usuario tiene otras opciones para continuar trabajando.
 
 #### <a name="microsoft-recommendations"></a>Recomendaciones de Microsoft
 
@@ -117,7 +117,7 @@ Una directiva de acceso condicional de contingencia es una **directiva deshabili
 * Configure un conjunto de directivas de reserva si una interrupción en un tipo de credencial o un mecanismo de control de acceso afecta al acceso a sus aplicaciones. Configure una directiva en estado deshabilitado que requiera la unión a un dominio como un control como una copia de seguridad para una directiva activa que requiera un proveedor de MFA de terceros.
 * Reduzca el riesgo de que actores malintencionados adivinen las contraseñas cuando no se requiere MFA, siguiendo las prácticas en la documentación técnica de [Password Guidance](https://aka.ms/passwordguidance) (Instrucciones sobre contraseñas).
 * Implemente el [Autoservicio de restablecimiento de contraseña de Azure AD (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) y la [Protección con contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) para asegurarse de que los usuarios no usan contraseñas comunes y términos que decide prohibir.
-* Use directivas que restrinjan el acceso dentro de las aplicaciones si no se alcanza un cierto nivel de autenticación en lugar de simplemente retroceder al acceso completo. Por ejemplo: 
+* Use directivas que restrinjan el acceso dentro de las aplicaciones si no se alcanza un cierto nivel de autenticación en lugar de simplemente retroceder al acceso completo. Por ejemplo:
   * Configure una directiva de copia de seguridad que envíe la reclamación de sesión restringida a Exchange y SharePoint.
   * Si la organización usa Microsoft Cloud App Security, considere la posibilidad de recurrir a una directiva que interactúe con MCAS y después MCAS permita acceso de solo lectura, pero no cargas.
 * Ponga nombre a las directivas para encontrarlas con facilidad durante una interrupción. Incluya los siguientes elementos en el nombre de la directiva:

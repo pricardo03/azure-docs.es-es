@@ -9,11 +9,11 @@ ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
 ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541150"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186568"
 ---
 * Si está usando Azure SQL Database, siga los pasos que se indican en [Conexión a Azure SQL Database](#connect-azure-sql-db). 
 
@@ -45,7 +45,7 @@ ms.locfileid: "60541150"
    <br>
    Los asteriscos (*) indican los valores obligatorios.
 
-   | Propiedad | Value | Detalles | 
+   | Propiedad | Valor | Detalles | 
    |----------|-------|---------| 
    | Nombre de la conexión | <*my-sql-connection*> | El nombre de la conexión | 
    | Nombre del servidor SQL Server | <*my-sql-server*> | El nombre del servidor SQL server |
@@ -96,7 +96,7 @@ Para poder seleccionar la puerta de enlace, asegúrese de que ya ha [configurado
    <br>
    Los asteriscos (*) indican los valores obligatorios.
 
-   | Propiedad | Value | Detalles | 
+   | Propiedad | Valor | Detalles | 
    |----------|-------|---------| 
    | Conectar mediante puerta de enlace local | Seleccione esta opción en primer lugar para la configuración de SQL Server. | | 
    | Nombre de la conexión | <*my-sql-connection*> | El nombre de la conexión | 
@@ -104,7 +104,7 @@ Para poder seleccionar la puerta de enlace, asegúrese de que ya ha [configurado
    | Nombre de la instancia de SQL Database | <*my-sql-database*>  | El nombre de la instancia de SQL Database |
    | Nombre de usuario | <*my-sql-username*> | El nombre de usuario para acceder a la base de datos |
    | Contraseña | <*my-sql-password*> | La contraseña para acceder a la base de datos | 
-   | Tipo de autenticación | Windows o básica | Opcional: El tipo de autenticación utilizado por SQL server | 
+   | Tipo de autenticación | Windows o básica | Opcional: El tipo de autenticación utilizado por SQL Server | 
    | Puertas de enlace | <*my-data-gateway*> | El nombre de la puerta de enlace de datos local | 
    |||| 
 

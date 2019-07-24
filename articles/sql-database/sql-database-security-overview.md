@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 6b9a5ca350377777beebda24e52bc678c976ad19
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258622"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070200"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -68,13 +68,13 @@ La autenticación es el proceso por el cual se demuestra que el usuario es quien
 
 ## <a name="authorization"></a>Autorización
 
-Autorización hace referencia a los permisos asignados a un usuario dentro de una base de datos de Azure SQL, y determina qué puede hacer el usuario. Los permisos se controlan mediante la adición de cuentas de usuario [roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) y asignar permisos de nivel de base de datos a dichas funciones o concediendo al usuario determinado [permisos de nivel de objeto](/sql/relational-databases/security/permissions-database-engine). Para más información, consulte [Inicios de sesión y usuarios](sql-database-manage-logins.md).
+Autorización hace referencia a los permisos asignados a un usuario dentro de una base de datos de Azure SQL, y determina qué puede hacer el usuario. Los permisos se controlan mediante la adición de cuentas de usuario a [roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) y la asignación de permisos de nivel de base de datos a estos roles o concediendo al usuario determinados [permisos de nivel de objeto](/sql/relational-databases/security/permissions-database-engine). Para más información, consulte [Inicios de sesión y usuarios](sql-database-manage-logins.md).
 
-Como práctica recomendada, crear funciones personalizadas cuando sea necesario. Agregar usuarios a la función con los privilegios mínimos necesarios para realizar su función de trabajo. No asigne permisos directamente a los usuarios. La cuenta de administrador del servidor es un miembro del rol db_owner integrados, que tiene amplios permisos y solo se debe conceder a algunos usuarios con derechos administrativos. Para las aplicaciones de Azure SQL Database, use el [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar el contexto de ejecución del módulo llamado o usar [Roles de aplicación](/sql/relational-databases/security/authentication-access/application-roles) con permisos limitados. Esta práctica garantiza que la aplicación que se conecta a la base de datos tiene los privilegios mínimos necesarios para la aplicación. También se sigue estos procedimientos recomendados fomenta la separación de obligaciones.
+Como procedimiento recomendado, cree roles personalizados cuando sea necesario. Agregue usuarios al rol con los privilegios mínimos necesarios para realizar su función de trabajo. No asigne permisos directamente a los usuarios. La cuenta de administrador del servidor es un miembro del rol db_owner integrado, que tiene amplios permisos y se debe conceder solo a pocos usuarios con responsabilidades administrativas. Para las aplicaciones de Azure SQL Database, use [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar el contexto de ejecución del módulo llamado o use [roles de aplicación](/sql/relational-databases/security/authentication-access/application-roles) con permisos limitados. Esta práctica garantiza que la aplicación que se conecta a la base de datos tenga los privilegios mínimos necesarios para la aplicación. Seguir estos procedimientos recomendados también fomenta la separación de responsabilidades.
 
 ### <a name="row-level-security"></a>Seguridad de nivel de fila
 
-La seguridad de nivel de fila permite a los clientes controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (como, por ejemplo, la pertenencia a un grupo o el contexto de ejecución). Seguridad de nivel de fila también puede utilizarse para implementar los conceptos de seguridad personalizado basado en etiquetas. Para más información, consulte [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security).
+La seguridad de nivel de fila permite a los clientes controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (como, por ejemplo, la pertenencia a un grupo o el contexto de ejecución). La seguridad de nivel de fila también puede utilizarse para implementar los conceptos de seguridad basados en etiquetas personalizados. Para más información, consulte [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
@@ -88,7 +88,7 @@ SQL Database Auditing hace un seguimiento de las actividades de la base de datos
 
 ### <a name="advanced-threat-protection"></a>Protección contra amenazas avanzada
 
-Protección contra amenazas avanzada está analizando los registros de SQL Server para detectar un comportamiento poco habitual e intentos potencialmente dañinos de acceso o ataque a las bases de datos. Las alertas se crean para detectar actividades sospechosas, como inyección de código SQL, infiltración de datos posibles y fuerza bruta forzar ataques o para detectar anomalías en el acceso de usar patrones para detectar las elevaciones de privilegios y credenciales ha puesto en peligro. Las alertas se ven desde el [Azure Security Center](https://azure.microsoft.com/services/security-center/), donde se proporcionan los detalles de las actividades sospechosas y recomendaciones para una investigación más minuciosa dado junto con las acciones para mitigar la amenaza. Protección contra amenazas avanzada se puede habilitar por servidor para una cuota adicional. Para obtener más información, consulte [empezar a trabajar con protección contra amenazas avanzada de base de datos del SQL](sql-database-threat-detection.md).
+La protección contra amenazas avanzada es el análisis de registros de SQL Server para detectar un comportamiento poco habitual e intentos potencialmente peligrosos de acceder o aprovechar las bases de datos. Las alertas se crean para detectar actividades sospechosas, como inyección de código SQL, infiltración potencial de datos y ataques de fuerza bruta, o anomalías en los patrones de acceso para detectar elevaciones de privilegios y uso de credenciales vulneradas. Las alertas se ven desde [Azure Security Center](https://azure.microsoft.com/services/security-center/), donde se proporcionan detalles de las actividades sospechosas y se dan recomendaciones para una investigación más minuciosa, junto con las acciones para mitigar la amenaza. La protección contra amenazas avanzada se puede habilitar por servidor, bajo una cuota adicional. Para más información, vea [Introducción a la protección de amenazas avanzadas de SQL Database](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -98,16 +98,16 @@ Protección contra amenazas avanzada está analizando los registros de SQL Serve
 
 SQL Database protege los datos de los clientes mediante el cifrado de datos en movimiento con [Seguridad de la capa de transporte](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-SQL Server aplica el cifrado (SSL/TLS) en todo momento para todas las conexiones. Esto garantiza que todos los datos se cifran "en tránsito" entre el cliente y servidor independientemente de la configuración de **Encrypt** o **TrustServerCertificate** en la cadena de conexión.
+SQL Server aplica el cifrado (SSL/TLS) en todo momento para todas las conexiones. Esto garantiza que todos los datos se cifran "en tránsito" entre el cliente y el servidor independientemente de la configuración de **Encrypt** o **TrustServerCertificate** en la cadena de conexión.
 
-Como práctica recomendada, se recomienda que, en la conexión de la aplicación de cadena especifica una conexión cifrada y _**no**_ confiar en el certificado de servidor. Esto obliga la la aplicación para comprobar el certificado de servidor y, por tanto, impide que la aplicación sea vulnerable a ataques de tipo de medio de.
+Como procedimiento recomendado, le sugerimos que en la cadena de conexión de la aplicación especifique una conexión cifrada y _**no**_ confíe en el certificado de servidor. Esto obliga a la aplicación a comprobar el certificado de servidor y, por tanto, impide que la aplicación sea vulnerable a ataques de tipo "Man in the middle".
 
-Por ejemplo, cuando se utiliza el controlador ADO.NET esto se logra a través de **Encrypt = True** y **TrustServerCertificate = False**. Si obtiene la cadena de conexión de Azure portal, tendrá la configuración correcta.
+Por ejemplo, cuando se utiliza el controlador ADO.NET, esto se logra a través de **Encrypt=True** y **TrustServerCertificate=False**. Si obtiene la cadena de conexión en Azure Portal, tendrá la configuración correcta.
 
 > [!IMPORTANT]
-> Tenga en cuenta que algunos controladores no son de Microsoft no pueden usar TLS de forma predeterminada o se basan en una versión anterior de TLS (< 1.2) para poder funcionar. En este caso SQL Server permite conectarse a la base de datos. Sin embargo, recomendamos que evalúe los riesgos de seguridad de permitir que los controladores y aplicaciones para conectarse a SQL Database, especialmente si se almacenan datos confidenciales. 
+> Tenga en cuenta que algunos controladores que no son de Microsoft pueden no usar TLS de forma predeterminada o basarse en una versión anterior de TLS (<1.2) para poder funcionar. En este caso, SQL Server sigue permitiendo conectarse a la base de datos. Pero recomendamos que evalúe los riesgos de seguridad de permitir que estos controladores y aplicaciones se conecten a SQL Database, especialmente si almacena datos confidenciales. 
 >
-> Para obtener más información acerca de TLS y conectividad, consulte [consideraciones de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Para obtener información adicional sobre TLS y la conectividad, vea [Consideraciones de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Cifrado de datos transparente (cifrado en reposo)
 
@@ -149,11 +149,11 @@ Para más información, consulte [Clasificación y detección de datos de Azure 
 
 ### <a name="compliance"></a>Cumplimiento normativo
 
-Además de las anteriores características y funcionalidades que pueden ayudar a la aplicación a cumplir distintos requisitos de seguridad, Azure SQL Database también participa en las auditorías regulares y ha obtenido la certificación de una serie de normas de cumplimiento. Para obtener más información, consulte el [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) donde puede encontrar la lista más actualizada de certificaciones de cumplimiento de la base de datos SQL.
+Además de las anteriores características y funcionalidades que pueden ayudar a la aplicación a cumplir distintos requisitos de seguridad, Azure SQL Database también participa en las auditorías regulares y ha obtenido la certificación de una serie de normas de cumplimiento. Para obtener más información, vea el [Centro de confianza de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Database.
 
 ### <a name="feature-restrictions"></a>Restricciones de características
 
-Característica restricciones ayudan a impedir que algunas formas de inyección de código SQL de la pérdida de información acerca de la base de datos, incluso cuando la inyección SQL es correcta. Para obtener más información, consulte [restricciones de características de base de datos de SQL Azure](sql-database-feature-restrictions.md).
+Las restricciones de características ayudan a impedir que algunas formas de inyección de código SQL filtren información sobre la base de datos, incluso cuando la inyección de código SQL es correcta. Para obtener más información, vea [Restricciones de características de base de datos de SQL Azure](sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

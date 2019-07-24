@@ -1,6 +1,6 @@
 ---
-title: Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único | Microsoft Docs
-description: Cómo solucionar problemas relacionados con aplicaciones de la galería de Azure AD configuradas para inicio de sesión único con contraseña
+title: Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único con contraseña | Microsoft Docs
+description: Cómo solucionar incidencias relacionadas con aplicaciones de la galería de Azure AD configuradas para inicio de sesión único con contraseña.
 documentationcenter: ''
 author: msmimart
 manager: CelesteDG
@@ -15,187 +15,182 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0559213706c499878e0f14a0beeee22dcdbaf59a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 742df882fb64e09ff63ef2eceb5514ca070dc227
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825145"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190321"
 ---
-# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único
+# <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Problemas de información de inicio de sesión con una aplicación de galería de Azure AD configurada para inicio de sesión único
 
-El Panel de acceso es un portal web que permite que un usuario con una cuenta profesional o educativa de Azure Active Directory (Azure AD) vea e inicie aplicaciones basadas en la nube a las que el administrador de Azure AD le ha concedido acceso. Un usuario que posee ediciones de Azure AD también puede usar las funcionalidades de administración de grupos de autoservicio y aplicaciones a través del Panel de acceso. El Panel de acceso es independiente de Azure Portal y no requiere que los usuarios tengan una suscripción de Azure.
+El panel de acceso es un portal basado en la web. Habilita a los usuarios que tienen cuentas profesionales o educativas de Azure Active Directory (Azure AD) el acceso a las aplicaciones basadas en la nube a las que tienen permisos. Los usuarios que tienen ediciones de Azure AD también pueden usar las capacidades de administración de grupos de autoservicio y aplicaciones a través del Panel de acceso.
 
-Para usar el inicio de sesión único (SSO) basado en contraseña en el Panel de acceso, se debe instalar la extensión del Panel de acceso en el explorador del usuario. Esta extensión se descarga automáticamente cuando un usuario selecciona una aplicación que está configurada para SSO basado en contraseña.
+El Panel de acceso es independiente de Azure Portal. Los usuarios no necesitan una suscripción de Azure para usar el Panel de acceso.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Cumplimiento de los requisitos del explorador para el Panel de acceso
+Para usar el inicio de sesión único (SSO) basado en contraseña en el Panel de acceso, se debe instalar la extensión del Panel de acceso en el explorador. Esta extensión se descarga automáticamente cuando se selecciona una aplicación que está configurada para el inicio de sesión único basado en contraseña.
 
-El Panel de acceso requiere un explorador compatible con JavaScript y que tenga habilitado CSS. Para usar el inicio de sesión único (SSO) basado en contraseña en el Panel de acceso, se debe instalar la extensión del Panel de acceso en el explorador del usuario. Esta extensión se descarga automáticamente cuando un usuario selecciona una aplicación que está configurada para SSO basado en contraseña.
+## <a name="browser-requirements-for-access-panel"></a>Requisitos del explorador para el Panel de acceso
 
-Para el SSO basado en contraseña, los exploradores del usuario final pueden ser:
+El Panel de acceso requiere un explorador compatible con JavaScript y que tenga habilitado CSS.
 
--   Internet Explorer 8, 9, 10, 11: en Windows 7 o versiones superiores
+Los siguientes exploradores admiten el inicio de sesión único basado en contraseña:
 
--   Chrome: en Windows 7 o versiones superiores y en MacOS X o versiones superiores
+- Internet Explorer 8, 9, 10 y 11 en Windows 7 o versiones posteriores
 
--   Firefox 26.0 o versiones superiores: en Windows XP SP2 o versiones superiores y en Mac OS X 10.6 o versiones superiores
+- Chrome en Windows 7 o versiones posteriores y en MacOS X o versiones posteriores
+
+- Firefox 26.0 o versiones posteriores en Windows XP SP2 o versiones posteriores y en Mac OS X 10.6 o versiones posteriores
 
 >[!NOTE]
->La extensión de SSO basado en contraseña está disponible para Microsoft Edge en Windows 10 cuando se admiten extensiones de explorador para Microsoft Edge.
->
->
+>La extensión de SSO basado en contraseña está disponible para Microsoft Edge en Windows 10 desde que se admitieron las extensiones de explorador para Microsoft Edge.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Cómo instalar la extensión de explorador del Panel de acceso
+## <a name="install-the-access-panel-browser-extension"></a>Instalación de la extensión de explorador del Panel de acceso
 
-Para instalar la extensión de explorador del panel de acceso, siga estos pasos:
+Siga estos pasos:
 
-1.  Abra el [Panel de acceso](https://myapps.microsoft.com) en uno de los exploradores admitidos e inicie sesión como **usuario** en su instancia de Azure AD.
+1. Abra [Panel de acceso](https://myapps.microsoft.com) en un explorador compatible e inicie sesión como usuario de Azure AD.
 
-2.  Haga clic en una **aplicación de SSO con contraseña** en el Panel de acceso.
+2. Seleccione una aplicación habilitada de inicio de sesión único con contraseña en el Panel de acceso.
 
-3.  En el mensaje que le pregunta si desea instalar el software, seleccione **Instalar ahora**.
+3. Cuando se le pida, seleccione **Instalar ahora**.
 
-4.  Se le dirigirá al vínculo de descarga en función del explorador. **Agregue** la extensión al explorador.
+4. Se le dirigirá al vínculo de descarga en función del explorador. Seleccione **Agregar** para instalar la extensión de explorador.
 
-5.  Si el explorador lo solicita, seleccione **Habilitar** o **Permitir** la extensión.
+5. Si se le pide, seleccione **Habilitar** o **Permitir**.
 
-6.  Una vez instalada, **reinicie** la sesión del explorador.
+6. Después de la instalación, reinicie el explorador.
 
-7.  Inicie sesión en el Panel de acceso y vea si puede **iniciar** las aplicaciones de SSO con contraseña
+7.  Inicie sesión en el Panel de acceso y vea si puede iniciar las aplicaciones habilitadas de inicio de sesión único con contraseña.
 
-También puede descargar la extensión para Chrome y Firefox desde los siguientes vínculos directos:
+También puede descargar directamente las extensiones para Chrome y Firefox a través de estos vínculos:
 
 -   [Extensión del Panel de acceso para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extensión del Panel de acceso para Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Extensión del panel de acceso para Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Configuración de una directiva de grupo para Internet Explorer
+## <a name="set-up-a-group-policy-for-internet-explorer"></a>Configuración de una directiva de grupo para Internet Explorer
 
 Puede configurar una directiva de grupo que le permita instalar de forma remota la extensión del Panel de acceso para Internet Explorer en las máquinas de los usuarios.
 
-Los requisitos previos son:
+Estos son los requisitos previos:
 
--   Configuró [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)y unió los equipos de los usuarios a su dominio.
+-   Se debe configurar [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx) y se deben unir las máquinas de los usuarios a su dominio.
 
 -   Debe tener el permiso "Editar configuración" para editar el objeto de directiva de grupo (GPO). De forma predeterminada, los miembros de los siguientes grupos de seguridad tienen este permiso: administradores de dominio, administradores de empresa y propietarios del creador de directivas de grupo. [Más información](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Siga el tutorial [Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) para obtener instrucciones paso a paso sobre cómo configurar la directiva de grupo e implementarla en los usuarios.
+Vea [Implementación de la extensión del Panel de acceso para Internet Explorer mediante la directiva de grupo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) para configurar la directiva de grupo e implementarla en los usuarios.
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Solución de problemas del Panel de acceso en Internet Explorer
+## <a name="troubleshoot-access-panel-in-internet-explorer"></a>Solución de problemas del Panel de acceso en Internet Explorer
 
-Siga la guía de [solución de problemas de la extensión del Panel de acceso para Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) para acceder a la herramienta de diagnóstico, junto con instrucciones paso a paso sobre cómo configurar la extensión para IE.
+Vea [Solución de problemas de la extensión del Panel de acceso para Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) para acceder a la herramienta de diagnóstico y a las instrucciones sobre cómo configurar la extensión.
 
-## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Configuración del inicio de sesión único con contraseña para una aplicación de la galería de Azure AD
+## <a name="configure-password-sso-for-an-azure-ad-gallery-app"></a>Configuración del inicio de sesión único con contraseña para una aplicación de la galería de Azure AD
 
-Para configurar una aplicación desde la galería de Azure AD, realice los siguientes pasos:
+Para configurar una aplicación desde la galería de Azure AD, necesita realizar lo siguiente:
 
--   Incorporación de una aplicación desde la galería de Azure AD
+-   Agregar la aplicación desde la galería de Azure AD
+-   [Configurar la aplicación para el inicio de sesión único con contraseña](#configure-the-app-for-password-sso)
+-   [Asignar usuarios a la aplicación](#assign-users-to-the-app)
 
--   [Configuración de la aplicación para el inicio de sesión único con contraseña](#configure-the-application-for-password-single-sign-on)
+### <a name="add-the-app-from-the-azure-ad-gallery"></a>Agregar la aplicación desde la galería de Azure AD
 
--   [Asignar usuarios a la aplicación](#assign-users-to-the-application)
+Siga estos pasos:
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Incorporación de una aplicación desde la galería de Azure AD
+1. Abra [Azure Portal](https://portal.azure.com) e inicie sesión como administrador global o coadministrador.
 
-Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
+2. Seleccione **Todos los servicios** en la parte superior del panel del lado izquierdo para abrir la extensión de Azure AD.
 
-1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**.
+3. Escriba **Azure Active Directory** en el cuadro de búsqueda de filtrado y, luego, seleccione **Azure Active Directory**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+4. En el panel de navegación de Azure AD, seleccione **Aplicaciones empresariales**.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+5. Seleccione **Agregar** en la esquina superior derecha del panel **Aplicaciones empresariales**.
 
-4.  Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+6. En el cuadro de texto **Escriba un nombre** de la sección **Agregar desde la galería**, escriba el nombre de la aplicación.
 
-5.  Haga clic en el botón **Agregar** situado en la esquina superior derecha del panel **Aplicaciones empresariales**.
+7. Seleccione la aplicación para la que quiere configurar el inicio de sesión único.
 
-6.  En el cuadro de texto **Escriba un nombre** de la sección **Agregar desde la galería**, escriba el nombre de la aplicación.
+8. *Opcional:* antes de agregar la aplicación, puede cambiar el nombre en el cuadro de texto **Nombre**.
 
-7.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
+9. Haga clic en **Agregar** para agregar la aplicación.
 
-8.  Antes de agregar la aplicación, puede cambiar su nombre en el cuadro de texto **Nombre**.
+   Después de un pequeño lapso de tiempo, podrá ver el panel de configuración de la aplicación.
 
-9.  Haga clic en el botón **Agregar** para agregar la aplicación.
+### <a name="configure-the-app-for-password-sso"></a>Configuración de la aplicación para inicio de sesión único con contraseña
 
-Tras un breve período, podrá ver el panel de configuración de la aplicación.
+Siga estos pasos:
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Configuración de la aplicación para el inicio de sesión único con contraseña
+1. Abra [Azure Portal](https://portal.azure.com/) e inicie sesión como administrador global o coadministrador.
 
-Para configurar el inicio de sesión único para una aplicación, siga estos pasos:
+2. Seleccione **Todos los servicios** en la parte superior del panel del lado izquierdo para abrir la extensión de Azure AD.
 
-1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
+3. Escriba **Azure Active Directory** en el cuadro de búsqueda de filtrado y, luego, seleccione **Azure Active Directory**.
 
-2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+4. En el panel de navegación de Azure AD, seleccione **Aplicaciones empresariales**.
 
-3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+5. Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-4. Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+   > [!NOTE]
+   > Si no ve la aplicación que busca, use el control **Filtro** en la parte superior de la lista **Todas las aplicaciones**. Establezca la opción **Mostrar** en "Todas las aplicaciones".
 
-5. Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+6. Seleccione la aplicación para la que quiere configurar el inicio de sesión único.
 
-   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+7. Después de que la aplicación se cargue, seleccione **Inicio de sesión único** en el panel del lado izquierdo de la aplicación.
 
-6. Seleccionar la aplicación que desea configurar para el inicio de sesión único
-
-7. Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
-
-8. Seleccione el modo de **Inicio de sesión con contraseña**.
+8. Seleccione el modo **Inicio de sesión basado en contraseña**.
 
 9. Asigne usuarios a la aplicación.
 
-10. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios, haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
+10. También puede proporcionar credenciales para los usuarios. (En caso contrario, se le pedirá a los usuarios que escriban las credenciales cuando inicien la aplicación). Para ello, seleccione las filas de los usuarios. Luego seleccione **Actualizar credenciales** y escriba los nombres de usuario y contraseñas.
 
-### <a name="assign-users-to-the-application"></a>Asignación de usuarios a la aplicación
+### <a name="assign-users-to-the-app"></a>Asignación de usuarios a la aplicación
 
-Para asignar uno o varios usuarios a una aplicación directamente, siga estos pasos:
+Para asignar usuarios directamente a una aplicación, siga estos pasos:
 
-1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
+1. Abra [Azure Portal](https://portal.azure.com/) e inicie sesión como administrador global.
 
-2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. En el panel de navegación del lado izquierdo, seleccione **Todos los servicios** para abrir la extensión de Azure AD.
 
-3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **Azure Active Directory** en el cuadro de búsqueda de filtrado y, luego, seleccione **Azure Active Directory**.
 
-4. Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+4. En el panel de navegación de Azure AD, seleccione **Aplicaciones empresariales**.
 
-5. Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+5. Seleccione **Todas las aplicaciones** para ver una lista de las aplicaciones.
 
-   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+   > [!NOTE]
+   > Si no ve la aplicación que busca, use el control **Filtro** en la parte superior de la lista **Todas las aplicaciones**. Establezca la opción **Mostrar** en "Todas las aplicaciones".
 
-6. Seleccione la aplicación que desea asignar a un usuario de la lista.
+6. En la lista, seleccione la aplicación a la que quiere asignar un usuario.
 
-7. Cuando se cargue la aplicación, haga clic en **Usuarios y grupos** desde el menú de navegación izquierdo de la aplicación.
+7. Una vez se cargue la aplicación, seleccione **Usuarios y grupos** en el panel de navegación del lado izquierdo.
 
-8. Haga clic en el botón **Agregar** en la parte superior de la lista **Usuarios y grupos** para abrir el panel **Agregar asignación**.
+8. Seleccione **Agregar** en la parte superior de la lista **Usuarios y grupos** para abrir el panel **Agregar asignación**.
 
-9. Haga clic en el selector **Usuarios y grupos** del panel **Agregar asignación**.
+9. En el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
 
-10. Escriba el **nombre completo** o la **dirección de correo electrónico** del usuario al que quiere asignar en el cuadro de búsqueda **Buscar por nombre o dirección de correo**.
+10. En el cuadro de texto **Buscar por nombre o dirección de correo**, escriba el nombre completo o la dirección de correo electrónico del usuario que quiere asignar.
 
-11. Mantenga el puntero sobre el **usuario** en la lista para que aparezca una **casilla**. Haga clic en la casilla situada junto a la foto o el logotipo del perfil del usuario para agregar ese usuario a la lista de **seleccionados**.
+11. Mantenga el ratón sobre el usuario en la lista. Seleccione la casilla situada junto a la foto o el logotipo del perfil del usuario para agregarlo a la lista **Seleccionados**.
 
-12. **Opcional:** si desea **agregar más de un usuario**, escriba otro **nombre completo** o **dirección de correo electrónico** en el cuadro de búsqueda **Buscar por nombre o dirección de correo** y haga clic en la casilla para agregar ese usuario a la lista de **seleccionados**.
+12. *Opcional:* para agregar otro usuario, escriba otra nombre o dirección de correo electrónico en el cuadro de texto **buscar por nombre o dirección de correo electrónico** y, después, seleccione la casilla para agregarlo a la lista **Seleccionados**.
 
-13. Cuando haya terminado de seleccionar usuarios, haga clic en el botón **Seleccionar** para agregarlos a la lista de usuarios y grupos que se asignarán a la aplicación.
+13. Cuando haya terminado de seleccionar usuarios, haga clic en **Seleccionar** para agregarlos a la lista de usuarios y grupos que se van a asignar a la aplicación.
 
-14. **Opcional:** haga clic en el selector **Seleccionar rol** del panel **Agregar asignación** para seleccionar un rol que se asignará a los usuarios que ha seleccionado.
+14. *Opcional:* haga clic en **Seleccionar rol** del panel **Agregar asignación** para seleccionar un rol que se asignará a los usuarios que ha seleccionado.
 
-15. Haga clic en el botón **Asignar** para asignar la aplicación a los usuarios seleccionados.
+15. Seleccione **Asignar** para asignar la aplicación a los usuarios seleccionados.
 
-Tras un breve período, los usuarios que seleccionó podrán iniciar estas aplicaciones en el Panel de acceso.
+    Tras un breve lapso de tiempo, los usuarios podrán acceder a esas aplicaciones desde el Panel de acceso.
 
-## <a name="if-these-troubleshoot-steps-dont-resolve-the-issue"></a>Si después de seguir estos pasos el problema no se ha resuelto, 
-abra una incidencia de soporte técnico con la información siguiente si está disponible:
+## <a name="request-support"></a>Solicitud de soporte técnico 
+Si recibe un mensaje de error al configurar el inicio de sesión único y asignar usuarios, abra una incidencia de soporte técnico. De la siguiente información, incluya tanta como sea posible:
 
 -   Id. de error de correlación
-
 -   UPN (dirección de correo electrónico del usuario)
-
 -   TenantID
-
 -   Tipo de explorador
-
--   Zona horaria y hora/período de tiempo durante el que se produce el error
-
+-   Zona horaria y hora o período de tiempo en el que se ha producido el error
 -   Seguimientos de Fiddler
 
 ## <a name="next-steps"></a>Pasos siguientes

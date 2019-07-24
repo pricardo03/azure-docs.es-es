@@ -4,7 +4,7 @@ description: Descubra cómo realizar una instalación de alta disponibilidad par
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1229b7f9e2a430a663a3e78bb457c03cf4a4a590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1a7d3d3a8f66cfbb3ed649ac645520f39cbb1e4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714464"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709011"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un disco compartido para una instancia de ASCS/SCS de SAP en Azure
 
@@ -155,7 +155,7 @@ Antes de comenzar la instalación, consulte estos documentos:
 
 * [Guía de arquitectura: Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster][sap-high-availability-guide-wsfc-shared-disk]
 
-* [Preparación de la infraestructura de Azure para alta disponibilidad de SAP con un clúster de conmutación por error de Windows y un disco compartido para una instancia de ASCS/SCS de SAP][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Preparación de la infraestructura de Azure para alta disponibilidad de SAP con un clúster de conmutación por error de Windows y un disco compartido para ASCS/SCS de SAP][sap-high-availability-infrastructure-wsfc-shared-disk]
 
 En este artículo no se describe la configuración de DBMS porque las opciones varían en función del sistema DBMS que use. Se da por supuesto que las cuestiones relacionadas con la alta disponibilidad con DBMS se solucionan con las funcionalidades que admiten los diversos proveedores de DBMS para Azure. Por ejemplo, AlwaysOn o creación de reflejo de la base de datos para SQL Server y Oracle Data Guard para bases de datos de Oracle. En el escenario de este artículo, no se añade más protección a DBMS.
 
@@ -211,7 +211,7 @@ Para instalar SAP con una instancia de ASCS/SCS de alta disponibilidad, siga est
    * **Sistema Java**: número de instancia de **SCS** **01**
    * **Sistema ABAP+Java**: número de instancia de **ASCS** **00** y número de instancia de **SCS** **01**
 
-   Para utilizar números de instancia distintos de 00 para la instancia de ABAP ASCS y 01 para la instancia de SCS de Java, en primer lugar, cambie las reglas predeterminadas de equilibrio de carga para el equilibrador de carga interno de Azure. Para más información, consulte [Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure][sap-ha-guide-8.9].
+   Para utilizar números de instancia distintos de 00 para la instancia de ABAP ASCS y 01 para la instancia de SCS de Java, en primer lugar, cambie las reglas predeterminadas de equilibrio de carga para el equilibrador de carga interno de Azure. Para obtener más información, vea [Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure][sap-ha-guide-8.9].
 
 Luego, realice unos pasos que no se describen en la documentación de instalación usual de SAP.
 
@@ -222,7 +222,7 @@ Luego, realice unos pasos que no se describen en la documentación de instalaci�
 
 ### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modificación del perfil SAP de la instancia de ASCS/SCS
 
-En primer lugar, añada un nuevo parámetro de perfil. El parámetro de perfil evita el cierre de las conexiones entre los procesos de trabajo de SAP y el servidor de puesta en cola cuando lleven inactivas demasiado tiempo. Mencionamos el escenario del problema en [Incorporación de entradas del Registro en ambos nodos del clúster usados para la instancia de ASCS/SCS de SAP][sap-ha-guide-8.11]. En esa sección, también se presentan dos cambios para algunos parámetros básicos de la conexión TCP/IP. En el segundo paso, es necesario configurar el servidor de puesta en cola para enviar una señal `keep_alive` de forma que las conexiones no alcancen el umbral de inactividad del equilibrador de carga interno de Azure.
+En primer lugar, añada un nuevo parámetro de perfil. El parámetro de perfil evita el cierre de las conexiones entre los procesos de trabajo de SAP y el servidor de puesta en cola cuando lleven inactivas demasiado tiempo. El escenario del problema se menciona en [Incorporación de entradas del Registro en ambos nodos del clúster usados para la instancia de ASCS/SCS de SAP][sap-ha-guide-8.11]. En esa sección, también se presentan dos cambios para algunos parámetros básicos de la conexión TCP/IP. En el segundo paso, es necesario configurar el servidor de puesta en cola para enviar una señal `keep_alive` de forma que las conexiones no alcancen el umbral de inactividad del equilibrador de carga interno de Azure.
 
 Para modificar el perfil SAP de la instancia de ASCS/SCS, siga estos pasos:
 

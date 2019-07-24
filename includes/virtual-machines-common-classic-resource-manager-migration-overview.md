@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines
-author: jpconnock
+author: singhkays
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/25/2019
-ms.author: jeconnoc
+ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: de2e33ceb182383d9529bfe41afffbbf28e1e493
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158265"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671287"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager
 En este artículo se describe la forma de migrar recursos de infraestructura como servicio (IaaS) de los modelos de implementación clásicos a Resource Manager y detalla cómo conectar los recursos de los dos modelos de implementación que coexisten en su suscripción mediante el uso de puertas de enlace de sitio a sitio de red virtual. Se puede leer más información sobre [características y ventajas de Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -75,19 +75,19 @@ Si la cuenta de almacenamiento no tiene ningún disco o datos de Máquinas virtu
 > [!NOTE]
 > El modelo de implementación de Resource Manager carece del concepto de discos e imágenes de la implementación clásica. Cuando se migra la cuenta de almacenamiento, los discos e imágenes de la implementación clásica no están visibles en la pila de Resource Manager pero los discos duros virtuales de respaldo permanecen en la cuenta de almacenamiento.
 
-Las capturas de pantalla siguientes muestran cómo actualizar una cuenta de almacenamiento clásico a una cuenta de almacenamiento de Azure Resource Manager mediante Azure portal:
+En las capturas de pantalla siguientes se muestra cómo actualizar una cuenta de almacenamiento de la implementación clásica a una cuenta de almacenamiento de Azure Resource Manager mediante Azure Portal:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento.
-3. En el **configuración** sección, haga clic en **migrar a ARM**.
-4. Haga clic en **validar** para determinar la viabilidad de la migración.
-5. Si la validación es correcta, haga clic en **preparar** para crear una cuenta de almacenamiento migrada.
-6. Tipo **Sí** para confirmar la migración y haga clic en **confirmar** para finalizar la migración.
+3. En la sección **Configuración**, haga clic en **Migrar a ARM**.
+4. Haga clic en **Validar** para determinar la viabilidad de la migración.
+5. Si la validación es correcta, haga clic en **Preparar** para crear una cuenta de almacenamiento migrada.
+6. Escriba **Sí** para confirmar la migración y haga clic en **Confirmar** para finalizar la migración.
 
     ![Validar la cuenta de almacenamiento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
     
     ![Preparar la cuenta de almacenamiento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
     
-    ![Finalizar la migración de cuentas de almacenamiento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
+    ![Finalizar la migración de la cuenta de almacenamiento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>Migración de recursos sin asociar
 Las cuentas de almacenamiento que no tengan discos o datos de máquinas virtuales asociados se puede migrar de forma independiente.
@@ -115,7 +115,7 @@ Actualmente no se admiten las siguientes configuraciones.
 
 | Servicio | Configuración | Recomendación |
 | --- | --- | --- |
-| Resource Manager |Control de acceso basado en roles (RBAC) para recursos clásicos |Puesto que el identificador URI de los recursos se modifica después de la migración, se recomienda planear las actualizaciones de directiva del control de acceso basado en rol que deben producirse después de la migración. |
+| Resource Manager |Control de acceso basado en rol (RBAC) para recursos clásicos |Puesto que el identificador URI de los recursos se modifica después de la migración, se recomienda planear las actualizaciones de directiva del control de acceso basado en rol que deben producirse después de la migración. |
 | Proceso |Varias subredes asociadas con una máquina virtual |Actualice la configuración de subred para que solo haga referencia a una subred. Puede que para ello sea necesario quitar una NIC secundaria (que hace referencia a otra subred) de la máquina virtual y asociarla de nuevo una vez finalizada la migración. |
 | Proceso |Máquinas virtuales que pertenecen a una red virtual, pero no tienen una subred explícita asignada |Opcionalmente, puede eliminar la máquina virtual. |
 | Proceso |Máquinas virtuales que tienen alertas, directivas de escalado automático |Se efectúa la migración y se descartan estos valores. Es muy recomendable evaluar el entorno antes de realizar la migración. Como alternativa, puede reconfigurar los valores de las alertas una vez completada la migración. |

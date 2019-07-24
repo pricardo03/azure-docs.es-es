@@ -8,22 +8,22 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d62dd6c65975d63a0127bb5dd1c62cd741b59ac6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427027"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067997"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Roles y permisos de Azure Container Registry
 
 El servicio Azure Container Registry admite un conjunto de roles de Azure que proporcionan distintos niveles de permisos a una instancia de Azure Container Registry. Use el [control de acceso basado en roles](../role-based-access-control/index.yml) (RBAC) de Azure para asignar permisos específicos a usuarios o entidades de servicio que necesiten interactuar con un registro.
 
-| Rol/permiso       | [Acceso a Resource Manager](#access-resource-manager) | [Crear o eliminar un registro](#create-and-delete-registry) | [Insertar imagen](#push-image) | [Extraer imagen](#pull-image) | [Eliminar datos de imagen](#delete-image-data) | [Cambiar directivas](#change-policies) |   [Firmar imágenes](#sign-images)  |
+| Rol/permiso       | [Acceso a Resource Manager](#access-resource-manager) | [Crear o eliminar un registro](#create-and-delete-registry) | [Insertar imagen](#push-image) | [Extraer imagen](#pull-image) | [Eliminar los datos de imagen](#delete-image-data) | [Cambiar directivas](#change-policies) |   [Firmar imágenes](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Propietario | X | X | X | X | X | X |  |  
 | Colaborador | X | X | X |  X | X | X |  |  
-| Lector | X |  |  | X |  |  |  |
+| Lector | X |  |  |  |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
@@ -63,7 +63,7 @@ La capacidad para `docker pull` una imagen que no esté en cuarentena o extraer 
 
 ## <a name="delete-image-data"></a>Eliminación de los datos de la imagen
 
-La capacidad de [eliminar imágenes de contenedor](container-registry-delete.md), o eliminar otros [admiten artefactos](container-registry-image-formats.md) como gráficos de Helm, desde un registro.
+La capacidad de [eliminar imágenes de contenedor](container-registry-delete.md) u otros [artefactos admitidos](container-registry-image-formats.md), como gráficos de Helm, desde un registro.
 
 ## <a name="change-policies"></a>Cambiar directivas
 

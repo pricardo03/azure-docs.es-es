@@ -7,17 +7,17 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: da8ad71ccf8b58ddf3ef7cc6a2f9e9c732913caa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0ab11d8ef9fd481d2b3ea7029664a1ec2778cf4b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858406"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604084"
 ---
-# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Inicio rápido: Comprobación del texto con una lista de términos personalizada en C#
+# <a name="check-text-against-a-custom-term-list-in-c"></a>Comprobación del texto con una lista de términos personalizada en C#
 
 La lista global predeterminada de términos de Azure Content Moderator es suficiente para la mayoría de las necesidades de moderación de contenido. Sin embargo, puede que deba filtrar términos específicos de la organización. Por ejemplo, es aconsejable etiquetar los nombres de la competencia para revisarlos en profundidad. 
 
@@ -373,7 +373,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="putting-it-all-together"></a>Resumen
+## <a name="compose-the-main-method"></a>Creación del método Main
 
 Agregue la definición de método **Main** al espacio de nombres **TermLists**, clase **Program**. Por último, cierre la clase **Program** y el espacio de nombres **TermLists**.
 
@@ -415,9 +415,9 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>Ejecute la aplicación para ver la salida
 
-La salida se incluirá en las siguientes líneas, pero los datos pueden variar.
+El resultado de la consola tiene un aspecto similar al siguiente:
 
-```
+```console
 Creating term list.
 Term list created. ID: 252.
 Updating information for term list with ID 252.

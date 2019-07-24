@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2019
+ms.date: 06/12/2019
 ms.author: aljo
-ms.openlocfilehash: e992aae17f1217803b411a49c5d942efc501fbdc
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.openlocfilehash: a309b30fc9438ded280109691afd3bde0883dc3c
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606982"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144389"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -41,7 +41,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |CrlCheckingFlag|uint, el valor predeterminado es 0x40000000 |Dinámica| Marcas para la validación de la cadena de certificados del servicio o aplicación; p. ej., comprobación de CRL 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY. Establecer la configuración en 0 deshabilita la comprobación de CRL. dwFlags de CertGetCertificateChain proporciona una lista completa de valores admitidos: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tiempo en segundos. El valor predeterminado es 120 |Dinámica|Especifique el intervalo de tiempo en segundos.  Proporciona el tiempo de espera de solicitud predeterminado para las solicitudes HTTP que se van a procesar en la puerta de enlace de aplicaciones HTTP. |
 |ForwardClientCertificate|bool, el valor predeterminado es FALSE|Dinámica|Si se establece en false, el proxy inverso no solicitará el certificado de cliente. Si se establece en true, el proxy inverso solicitará el certificado de cliente durante el protocolo de enlace SSL y reenviará la cadena con formato PEM con codificación Base64 al servicio en un encabezado denominado X-Client-Certificate. El servicio puede producir un error en la solicitud con un código de estado apropiado después de inspeccionar los datos del certificado. Si el valor es true y el cliente no presenta un certificado, el proxy inverso reenviará un encabezado vacío y dejará que el servicio gestione el caso. El proxy inverso actuará como una capa transparente. Para más información, consulte [Configuración de la autenticación de certificado](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
-|GatewayAuthCredentialType |string, el valor predeterminado es "None" |estática| Indica el tipo de credenciales de seguridad que se usa en los valores válidos del punto de conexión de puerta de enlace de http aplicación son None / X 509. |
+|GatewayAuthCredentialType |string, el valor predeterminado es "None" |estática| Indica el tipo de credenciales de seguridad que se usarán en el punto de conexión de la puerta de enlace de aplicaciones HTTP. Los valores válidos son None/X509. |
 |GatewayX509CertificateFindType |string, el valor predeterminado es "FindByThumbprint". |Dinámica| Indica cómo buscar el certificado en el almacén especificado mediante el valor admitido GatewayX509CertificateStoreName: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | string, el valor predeterminado es "". |Dinámica| Valor del filtro de búsqueda usado para encontrar el certificado de puerta de enlace de aplicaciones HTTP. Este certificado se configura en el punto de conexión HTTP y también puede usarse para comprobar la identidad de la aplicación en caso de que la necesiten los servicios. Primero se busca FindValue y, si no existe, se busca FindValueSecondary. |
 |GatewayX509CertificateFindValueSecondary | string, el valor predeterminado es "". |Dinámica|Valor del filtro de búsqueda usado para encontrar el certificado de puerta de enlace de aplicaciones HTTP. Este certificado se configura en el punto de conexión HTTP y también puede usarse para comprobar la identidad de la aplicación en caso de que la necesiten los servicios. Primero se busca FindValue y, si no existe, se busca FindValueSecondary.|
@@ -87,7 +87,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |MaxDataMigrationTimeout |Tiempo en segundos, el valor predeterminado es 600. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo para operaciones de recuperación de migración de datos después de que ha tenido lugar una actualización de Fabric. |
 |MaxOperationRetryDelay |Tiempo en segundos, el valor predeterminado es 5.|Dinámica| Especifique el intervalo de tiempo en segundos. El retraso máximo de reintentos internos cuando se producen errores. |
 |MaxOperationTimeout |Tiempo en segundos, el valor predeterminado es MaxValue. |Dinámica| Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo global para procesar internamente las operaciones en ClusterManager. |
-|MaxTimeoutRetryBuffer | Tiempo en segundos, el valor predeterminado es 600. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo de funcionamiento cuando se realizan reintentos internos debido a tiempos de espera es `<Original Time out> + <MaxTimeoutRetryBuffer>`. El tiempo de espera adicional se agrega en incrementos de MinOperationTimeout. |
+|MaxTimeoutRetryBuffer | Tiempo en segundos, el valor predeterminado es 600. |Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo de espera máximo de funcionamiento cuando se realizan reintentos internos debido a que el tiempo de espera es `<Original Time out> + <MaxTimeoutRetryBuffer>`. El tiempo de espera adicional se agrega en incrementos de MinOperationTimeout. |
 |MinOperationTimeout | Tiempo en segundos, el valor predeterminado es 60. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera mínimo global para procesar internamente las operaciones en ClusterManager. |
 |MinReplicaSetSize |Int, el valor predeterminado es 3. |No permitida|MinReplicaSetSize para ClusterManager. |
 |PlacementConstraints | string, el valor predeterminado es "". |No permitida|PlacementConstraints para ClusterManager. |
@@ -125,16 +125,21 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
+|AdminOnlyHttpAudit |Bool, el valor predeterminado es true. | Dinámica | Excluya de la auditoría las solicitudes HTTP que no afecten al estado del clúster. Actualmente, se excluyen solamente las solicitudes de tipo "GET"; pero esto está sujeto a cambios. |
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, el valor predeterminado es true. | Dinámica |Si se requerirá o no suplantación para acceder a los almacenes de diagnóstico en nombre de la aplicación. |
 |AppEtwTraceDeletionAgeInDays |Int, el valor predeterminado es 3. | Dinámica |Número de días transcurridos los cuales se eliminarán los archivos ETL antiguos que contienen seguimientos de ETW de aplicación. |
 |ApplicationLogsFormatVersion |Int, el valor predeterminado es 0. | Dinámica |Versión del formato de registros de aplicación. Los valores admitidos son 0 y 1. La versión 1 incluye más campos del registro de eventos de ETW que la versión 0. |
-|ClusterId |string | Dinámica |El id. único del clúster. Se genera cuando se crea el clúster. |
-|ConsumerInstances |string | Dinámica |La lista de instancias de consumidor de DCA. |
+|AuditHttpRequests |Bool, el valor predeterminado es false. | Dinámica | Active o desactive la auditoría de HTTP. La finalidad de las auditorías es ver las actividades que se han realizado en el clúster, incluido quién inició la solicitud. Cabe decir que solamente se registra el menor intento, con lo cual pueden producirse pérdidas de seguimiento. Las solicitudes HTTP con autenticación de "Usuario" no se registran. |
+|CaptureHttpTelemetry|Bool, el valor predeterminado es false. | Dinámica | Active y desactive la telemetría HTTP. La finalidad de la telemetría es que Service Fabric pueda capturar datos de telemetría para ayudar a planear el trabajo futuro e identificar las áreas problemáticas. La telemetría no registra ningún dato personal ni el cuerpo de la solicitud. La telemetría captura todas las solicitudes HTTP, a menos que se configure de otra manera. |
+|ClusterId |Cadena | Dinámica |El id. único del clúster. Se genera cuando se crea el clúster. |
+|ConsumerInstances |Cadena | Dinámica |La lista de instancias de consumidor de DCA. |
 |DiskFullSafetySpaceInMB |Int, el valor predeterminado es 1024. | Dinámica |Espacio en disco restante en MB para proteger contra el uso por DCA. |
 |EnableCircularTraceSession |Bool, el valor predeterminado es false. | estática |La marca indica si se deben usar sesiones de seguimiento circulares. |
 |EnableTelemetry |Bool, el valor predeterminado es true. | Dinámica |Indica si se habilitará o deshabilitará la telemetría. |
+|FailuresOnlyHttpTelemetry | Bool, el valor predeterminado es true. | Dinámica | Si la captura de telemetría HTTP está habilitada, capture solo las solicitudes con errores, así el número de eventos generados para la telemetría será menor. |
+|HttpTelemetryCapturePercentage | int, el valor predeterminado es 50. | Dinámica | Si la captura de telemetría HTTP está habilitada, capture solo un porcentaje de solicitudes aleatorio, así el número de eventos generados para la telemetría será menor. |
 |MaxDiskQuotaInMB |Int, el valor predeterminado es 65 536. | Dinámica |Cuota de disco en MB para archivos de registro de Windows Fabric. |
-|ProducerInstances |string | Dinámica |La lista de instancias de productor de DCA. |
+|ProducerInstances |Cadena | Dinámica |La lista de instancias de productor de DCA. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |
@@ -145,7 +150,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |PartitionPrefix|string, el valor predeterminado es "--"|estática|Controla el valor de cadena del prefijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>No puede ser una cadena vacía.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md).|
 |PartitionSuffix|string, el valor predeterminado es "".|estática|Controla el valor de cadena del sufijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md). |
 
-## <a name="eventstore"></a>EventStore
+## <a name="eventstoreservice"></a>EventStoreService
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
@@ -159,7 +164,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |Tiempo en segundos, el valor predeterminado es 2. |Dinámica|Especifique el intervalo de tiempo en segundos. El intervalo de tiempo de espera de conexión para cada vez que el cliente intenta abrir una conexión a la puerta de enlace.|
 |HealthOperationTimeout. |Tiempo en segundos, el valor predeterminado es 120. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera de un mensaje de informe enviado al administrador de mantenimiento. |
-|HealthReportRetrySendInterval |Tiempo en segundos, el valor predeterminado es 30, el valor mínimo es 1 |Dinámica|Especifique el intervalo de tiempo en segundos. El intervalo en el que el componente de informes vuelve a enviar mantenimiento acumulados informa al administrador de mantenimiento. |
+|HealthReportRetrySendInterval |Tiempo en segundos, el valor predeterminado es 30 minutos, el valor mínimo es 1. |Dinámica|Especifique el intervalo de tiempo en segundos. El intervalo dentro del cual el componente de informes reenvía informes de mantenimiento acumulados al administrador de mantenimiento. |
 |HealthReportSendInterval. |Tiempo en segundos, el valor predeterminado es 30. |Dinámica|Especifique el intervalo de tiempo en segundos. El intervalo dentro del cual el componente de informes envía informes de mantenimiento acumulados al administrador de mantenimiento. |
 |KeepAliveIntervalInSeconds |Int, el valor predeterminado es 20. |estática|El intervalo dentro del cual el transporte de FabricClient envía mensajes persistentes a la puerta de enlace. Para 0; keepAlive está deshabilitado. Debe ser un valor positivo. |
 |MaxFileSenderThreads |Uint, el valor predeterminado es 10. |estática|El número máximo de archivos que se transfieren en paralelo. |
@@ -296,7 +301,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, el valor predeterminado es false. |estática|Directiva de evaluación de mantenimiento del clúster: habilita la evaluación de mantenimiento de tipos por aplicación. |
-|MaxSuggestedNumberOfEntityHealthReports|Int, el valor predeterminado es 500 |Dinámica|El número máximo de estado informa de que puede tener una entidad antes de generar inquietudes sobre el mantenimiento del guardián reporting lógica. Cada entidad de mantenimiento se supone que tiene un número relativamente pequeño de informes de estado. Si el número de informe supera este número. puede haber problemas con la implementación del guardián. Se marca una entidad con demasiados informes a través de un informe de estado de advertencia cuando se evalúa la entidad. |
+|MaxSuggestedNumberOfEntityHealthReports|Int, el valor predeterminado es 500. |Dinámica|Número máximo de informes de estado que una entidad puede tener antes de levantar suspicacias sobre la lógica de los informes de estado del watchdog. Se supone que cada entidad de estado tiene un número relativamente pequeño de informes de estado. Si la cantidad de informes supera este número, puede que haya problemas con la implementación del watchdog. Una entidad con demasiados informes se marca en un informe de estado de advertencia cuando dicha entidad se evalúa. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 
@@ -345,7 +350,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |EndpointProviderEnabled| bool, el valor predeterminado es FALSE|estática| Permite la administración de recursos de punto de conexión con Fabric. Requiere la especificación del inicio y del fin del intervalo de puertos de la aplicación en FabricNode. |
 |FabricContainerAppsEnabled| bool, el valor predeterminado es FALSE|estática| |
 |FirewallPolicyEnabled|bool, el valor predeterminado es FALSE|estática| Permite la apertura de puertos de firewall para los recursos del punto de conexión con puertos explícitos especificados en ServiceManifest. |
-|GetCodePackageActivationContextTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica|Especifique el intervalo de tiempo en segundos. El valor de tiempo de espera para las llamadas de CodePackageActivationContext. Esto no es aplicable a los servicios ad hoc. |
+|GetCodePackageActivationContextTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica|Especifique el intervalo de tiempo en segundos. El valor de tiempo de espera para las llamadas de CodePackageActivationContext. Esto no es válido en los servicios ad-hoc. |
 |GovernOnlyMainMemoryForProcesses|bool, el valor predeterminado es FALSE|estática|El comportamiento por defecto de la gobernanza de recursos es establecer el límite especificado en MemoryInMB en la cantidad de memoria total (RAM + swap) que usa el proceso. Si se supera el límite, el proceso recibirá una excepción OutOfMemory. Si este parámetro se establece en true, el límite se aplicará solo a la cantidad de memoria RAM que va a usar un proceso. Si se supera este límite y si este valor es true, el sistema operativo cambiará la memoria principal al disco. |
 |IPProviderEnabled|bool, el valor predeterminado es FALSE|estática|Habilita la administración de direcciones IP. |
 |IsDefaultContainerRepositoryPasswordEncrypted|bool, el valor predeterminado es FALSE|estática|Si DefaultContainerRepositoryPassword está cifrado o no.|
@@ -395,7 +400,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |SharedLogId |string, el valor predeterminado es "". |estática|GUID único del contenedor de registros compartidos. Use "" si utiliza la ruta de acceso predeterminada en la raíz de datos de Fabric. |
 |SharedLogPath |string, el valor predeterminado es "". |estática|Nombre de archivo y ruta a la ubicación para colocar el contenedor de registros compartidos. Use "" para utilizar la ruta de acceso predeterminada en la raíz de datos de Fabric. |
 |SharedLogSizeInMB |Int, el valor predeterminado es 8192. |estática|El número de MB para asignar en el contenedor de registros compartidos. |
-|SharedLogThrottleLimitInPercentUsed|int, el valor predeterminado es 0 | estática | El porcentaje de uso del registro compartido que provoca la limitación. El valor debe estar entre 0 y 100. Un valor de 0 implica el uso del valor de porcentaje de forma predeterminada. Un valor de 100 implica que no hay ninguna limitación. Un valor entre 1 y 99 especifica el porcentaje de uso del registro anterior se producirá la limitación; Por ejemplo, si el registro compartido es 10GB y el valor es 90, a continuación, se producirá la limitación una vez 9GB está en uso. Se recomienda usar el valor predeterminado.|
+|SharedLogThrottleLimitInPercentUsed|int, el valor predeterminado es 0 | estática | El porcentaje de uso del registro compartido que provoca la limitación. El valor debe estar entre 0 y 100. Un valor de 0 implica el uso del valor de porcentaje de forma predeterminada. Un valor de 100 implica que no hay ninguna limitación. Un valor entre 1 y 99 especifica el porcentaje de uso del registro por encima del que se producirá la limitación; por ejemplo, si el registro compartido es 10 GB y el valor es 90, la limitación se producirá una vez que estén en uso 9 GB. Se recomienda usar el valor predeterminado.|
 |WriteBufferMemoryPoolMaximumInKB | Int, el valor predeterminado es 0. |Dinámica|El número de KB que se permite que crezca el bloque de memoria del búfer de escritura. Use 0 para indicar que no hay límite. |
 |WriteBufferMemoryPoolMinimumInKB |Int, el valor predeterminado es 8 388 608. |Dinámica|El número de KB para asignar inicialmente al bloque de memoria del búfer de escritura. Use 0 para indicar que no hay límite. El valor predeterminado debe ser coherente con el valor de SharedLogSizeInMB siguiente. |
 
@@ -403,18 +408,18 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|AutomaticUnprovisionInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(5)|Dinámica|Especifique el intervalo de tiempo en segundos. El intervalo de limpieza para permitido para anular el registro de tipo de aplicación durante la limpieza del tipo de aplicación automática.|
+|AutomaticUnprovisionInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromMinutes(5)|Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de limpieza permitido para anular el registro del tipo de aplicación durante la limpieza automática del tipo de aplicación.|
 |AzureStorageMaxConnections | Int, el valor predeterminado es 5000. |Dinámica|El número máximo de conexiones simultáneas a Azure Storage. |
 |AzureStorageMaxWorkerThreads | Int, el valor predeterminado es 25. |Dinámica|El número máximo de subprocesos de trabajo en paralelo. |
 |AzureStorageOperationTimeout | Tiempo en segundos, el valor predeterminado es 6000. |Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo de espera para que finalice la operación xstore. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, el valor predeterminado es FALSE |Dinámica|Habilita o deshabilita la limpieza automática del paquete de aplicación sobre el aprovisionamiento correcto. |
-|CleanupUnusedApplicationTypes|Bool, el valor predeterminado es FALSE |Dinámica|Esta configuración si está habilitada, permite que se va a anular automáticamente las versiones del tipo de aplicación sin usar omitiendo las últimas tres sin usar versiones, con lo que se recorte el espacio ocupado por el almacén de imágenes. La limpieza automática se desencadena al final de aprovisionamiento correcto para ese tipo de aplicación específica y también ejecuta periódicamente una vez al día para todos los tipos de aplicación. Número de las versiones no utilizadas para omitir es configurable mediante el parámetro "MaxUnusedAppTypeVersionsToKeep". |
+|CleanupApplicationPackageOnProvisionSuccess|bool, el valor predeterminado es FALSE |Dinámica|Habilita o deshabilita la limpieza automática de paquetes de aplicación cuando el aprovisionamiento es correcto. |
+|CleanupUnusedApplicationTypes|Bool, el valor predeterminado es FALSE |Dinámica|Si esta configuración está habilitada, permite anular automáticamente las versiones del tipo de aplicación sin usar (omitiendo las tres últimas versiones sin usar), con lo que el espacio ocupado por el almacén de imágenes disminuye. La limpieza automática se desencadenará al final de un aprovisionamiento correcto de ese tipo de aplicación específica, y también se ejecuta periódicamente una vez al día para todos los tipos de aplicación. El número de versiones sin usar que se van a omitir es configurable mediante el parámetro "MaxUnusedAppTypeVersionsToKeep". |
 |DisableChecksumValidation | Bool, el valor predeterminado es false. |estática| Esta configuración permite habilitar o deshabilitar la validación de suma de comprobación durante el aprovisionamiento de aplicaciones. |
 |DisableServerSideCopy | Bool, el valor predeterminado es false. |estática|Esta configuración habilita o deshabilita la copia del lado servidor del paquete de aplicación en ImageStore durante el aprovisionamiento de aplicaciones. |
 |ImageCachingEnabled | Bool, el valor predeterminado es true. |estática|Esta configuración permite habilitar o deshabilitar el almacenamiento en caché. |
 |ImageStoreConnectionString |SecureString |estática|Cadena de conexión a la raíz de ImageStore. |
 |ImageStoreMinimumTransferBPS | Int, el valor predeterminado es 1024. |Dinámica|La velocidad mínima de transferencia entre el clúster e ImageStore. Este valor se usa para determinar el tiempo de espera al acceder al elemento ImageStore externo. Cambie este valor solo si la latencia entre el clúster e ImageStore es alta a fin de dar más tiempo al clúster para que se descargue del elemento ImageStore externo. |
-|MaxUnusedAppTypeVersionsToKeep | Int, el valor predeterminado es 3. |Dinámica|Esta configuración define el número de versiones de tipo de aplicación sin usar se omite para la limpieza. Este parámetro sólo es aplicable si el parámetro CleanupUnusedApplicationTypes está habilitado. |
+|MaxUnusedAppTypeVersionsToKeep | Int, el valor predeterminado es 3. |Dinámica|Esta configuración define el número de versiones de tipo de aplicación sin usar que se van a omitir de la limpieza. Este parámetro es válido solo si el parámetro CleanupUnusedApplicationTypes está habilitado. |
 
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
@@ -484,7 +489,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|Counters |string | Dinámica |Lista separada por comas de los contadores de rendimiento que se recolectarán. |
+|Counters |Cadena | Dinámica |Lista separada por comas de los contadores de rendimiento que se recolectarán. |
 |IsEnabled |Bool, el valor predeterminado es true. | Dinámica |La marca indica si está habilitada la colección de contadores de rendimiento en el nodo local. |
 |MaxCounterBinaryFileSizeInMB |Int, el valor predeterminado es 1. | Dinámica |Tamaño máximo (en MB) de cada archivo binario de contador de rendimiento. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, el valor predeterminado es 10. | Dinámica |Intervalo máximo (en segundos) después del cual se crea un nuevo archivo binario de contador de rendimiento. |
@@ -618,13 +623,13 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ## <a name="security"></a>Seguridad
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|string, el valor predeterminado es "".|estática|AAD Cert punto de conexión de formato, versión comercial de Azure, de forma predeterminada especificada para el entorno no predeterminado, como Azure Government "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
+|AADCertEndpointFormat|string, el valor predeterminado es "".|estática|Formato de punto de conexión de certificado AAD, valor predeterminado Azure Commercial, especificado para el entorno no predeterminado, como Azure Government "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml". |
 |AADClientApplication|string, el valor predeterminado es "".|estática|Nombre de la aplicación de cliente nativo o identificador que representa a los clientes de Fabric. |
 |AADClusterApplication|string, el valor predeterminado es "".|estática|Nombre de la aplicación API web o identificador que representa el clúster. |
-|AADLoginEndpoint|string, el valor predeterminado es "".|estática|Inicio de sesión de punto de conexión AAD, comercial de Azure, de forma predeterminada especificada para el entorno no predeterminado, como Azure Government "https:\//login.microsoftonline.us" |
+|AADLoginEndpoint|string, el valor predeterminado es "".|estática|Punto de conexión de inicio de sesión de AAD, valor predeterminado Azure Commercial, especificado para el entorno no predeterminado, como Azure Government "https:\//login.microsoftonline.us". |
 |AADTenantId|string, el valor predeterminado es "".|estática|Id. de inquilino (GUID) |
 |AdminClientCertThumbprints|string, el valor predeterminado es "".|Dinámica|Huellas digitales de certificados que usan los clientes con el rol de administrador. Lista de nombres separados por comas. |
-|AADTokenEndpointFormat|string, el valor predeterminado es "".|estática|AAD extremo de Token, Azure Commercial predeterminado especificado para el entorno no predeterminado, como Azure Government "https:\//login.microsoftonline.us/{0}" |
+|AADTokenEndpointFormat|string, el valor predeterminado es "".|estática|Punto de conexión de token de AAD, valor predeterminado Azure Commercial, especificado para el entorno no predeterminado, como Azure Government "https:\//login.microsoftonline.us/{0}". |
 |AdminClientClaims|string, el valor predeterminado es "".|Dinámica|Todas las notificaciones posibles que se esperan de los clientes de administración. Tiene el mismo formato que ClientClaims. Esta lista se agrega internamente a ClientClaims, por lo que no es necesario agregar también las mismas entradas para ClientClaims. |
 |AdminClientIdentities|string, el valor predeterminado es "".|Dinámica|Identidades de Windows de clientes de Fabric con el rol de administrador; se usa para autorizar las operaciones de Fabric con privilegios. Lista separada por comas; cada entrada es un nombre de grupo o de cuenta de dominio. Para mayor comodidad, a la cuenta que ejecuta fabric.exe se le asigna automáticamente un rol de administrador. Lo mismo sucede con ServiceFabricAdministrators. |
 |AppRunAsAccountGroupX509Folder|string, el valor predeterminado es /home/sfuser/sfusercerts |estática|Carpeta donde se encuentran los certificados AppRunAsAccountGroup X509 y las claves privadas. |
@@ -804,10 +809,10 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, el valor predeterminado es "".| estática |Nombre de red que se usará al configurar una red de contenedores.|
 |ContainerNetworkSetup|bool, el valor predeterminado es FALSE| estática |Establece si se debe configurar una red de contenedores.|
-|FabricDataRoot |string | No permitida |Directorio raíz de datos de Service Fabric. El valor predeterminado para Azure es d:\svcfab. |
-|FabricLogRoot |string | No permitida |Directorio raíz del registro de Service Fabric. Aquí es donde se colocan los seguimientos y registros de SF. |
+|FabricDataRoot |Cadena | No permitida |Directorio raíz de datos de Service Fabric. El valor predeterminado para Azure es d:\svcfab. |
+|FabricLogRoot |Cadena | No permitida |Directorio raíz del registro de Service Fabric. Aquí es donde se colocan los seguimientos y registros de SF. |
 |NodesToBeRemoved|string, el valor predeterminado es "".| Dinámica |Nodos que deben quitarse como parte de la actualización de la configuración. (Solo para implementaciones independientes.)|
-|ServiceRunAsAccountName |string | No permitida |El nombre de la cuenta con el que se ejecuta el servicio Fabric Host. |
+|ServiceRunAsAccountName |Cadena | No permitida |El nombre de la cuenta con el que se ejecuta el servicio Fabric Host. |
 |SkipContainerNetworkResetOnReboot|bool, el valor predeterminado es FALSE|No permitidos|Si se debe omitir el restablecimiento de la red de contenedores al reiniciar.|
 |SkipFirewallConfiguration |Bool, el valor predeterminado es false. | No permitida |Especifica si el sistema debe establecer o no la configuración de firewall. Solo aplicable si usa Firewall de Windows. Si usa firewalls de terceros, debe abrir los puertos para que los usen el sistema y las aplicaciones. |
 

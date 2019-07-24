@@ -12,13 +12,13 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: MT
+ms.date: 06/14/2019
+ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66019821"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144046"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabajo con problemas de conexión de SQL Database y errores transitorios
 
@@ -91,9 +91,9 @@ Para probar la lógica de reintento, debe simular o producir un error que se pue
 Una forma de probar la lógica de reintento es desconectar el equipo cliente de la red mientras se ejecuta el programa. El error es:
 
 - **SqlException.Number** = 11001
-- Mensaje: "Este host es desconocido"
+- Mensaje: "Host desconocido"
 
-Como parte del primer reintento, el programa puede corregir el error ortográfico y, a continuación, intentar conectarse.
+Como parte del primer reintento, puede volver a conectar el equipo cliente a la red y, después, intentar conectarlo.
 
 Para llevar a cabo esta prueba, desconecte el equipo de la red antes de iniciar el programa. El programa reconoce entonces un parámetro de tiempo de ejecución que hace que el programa:
 
@@ -134,12 +134,12 @@ Si el programa cliente se conecta a SQL Database mediante la clase **System.Data
 Cuando cree la [cadena de conexión](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para su objeto **SqlConnection**, coordine los valores entre los parámetros siguientes:
 
 - **ConnectRetryCount**:&nbsp;&nbsp;El valor predeterminado es 1. El intervalo es de 0 a 255.
-- **ConnectRetryInterval**:&nbsp;&nbsp;predeterminado es 10 segundos. El intervalo es de 1 a 60.
+- **ConnectRetryInterval**:&nbsp;&nbsp;El valor predeterminado es 10 segundos. El intervalo es de 1 a 60.
 - **Connection Timeout**:&nbsp;&nbsp;El valor predeterminado es 15 segundos. El intervalo es de 0 a 2147483647.
 
 Específicamente, los valores elegidos deben cumplir la siguiente igualdad: Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
-Por ejemplo, si el recuento es igual a 3 y el intervalo es igual a 10 segundos, tiempo de espera de solo 29 segundos no proporcionará al sistema tiempo suficiente para que su tercer y último reintento de conexión: 29 < 3 * 10.
+Por ejemplo, si el recuento es igual a 3 y el intervalo es igual a 10 segundos, un tiempo de espera de solo 29 segundos no proporcionará al sistema tiempo suficiente para su tercer y último reintento de conexión: 29 < 3 x 10.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -219,7 +219,7 @@ Si usa ADO.NET 4.0 o versiones anteriores, se recomienda que lo actualice a la v
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnóstico: Comprobar si las utilidades pueden conectarse
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnóstico: Probar si las utilidades pueden conectarse
 
 Si el programa no puede conectarse a SQL Database, una opción de diagnóstico es intentar conectarse con una utilidad. Idealmente, la utilidad se conecta mediante la misma biblioteca que usa el programa.
 
@@ -267,11 +267,11 @@ A veces un problema intermitente se diagnostica mejor mediante la detección de 
 
 El cliente puede ayudar al diagnóstico mediante el registro de todos los errores que encuentra. Puede correlacionar las entradas del registro con los datos de error que SQL Database registra internamente.
 
-Enterprise Library 6 (EntLib60) ofrece clases administradas de .NET para ayudar con el registro. Para obtener más información, consulte [5 - tan fácil como caerse por un registro: Usar el bloque de aplicaciones de registro](https://msdn.microsoft.com/library/dn440731.aspx).
+Enterprise Library 6 (EntLib60) ofrece clases administradas de .NET para ayudar con el registro. Para más información, vea [5 - El procedimiento más sencillo: uso del bloque de aplicación de registro](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnóstico: Examine los registros de errores del sistema
+### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnóstico: Examinar los registros del sistema en busca de errores
 
 Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los registros de error y otra información.
 
@@ -282,7 +282,7 @@ Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los regis
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnóstico: Buscar eventos de problema en el registro de base de datos SQL
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnóstico: Buscar eventos de problema en el registro de SQL Database
 
 Puede buscar entradas sobre los eventos de problema en el registro de SQL Database. Pruebe la siguiente instrucción SELECT de Transact-SQL en la base de datos *principal* :
 
@@ -327,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Enterprise Library 6 (EntLib60) es un marco de clases de .NET que ayuda a implementar a clientes sólidos de servicios en la nube, uno de los cuales es el servicio SQL Database. Para buscar temas dedicados a cada área en la que puede ayudar EntLib60 en, vea [Enterprise Library 6 - April 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx) (Enterprise Library 6: abril de 2013).
 
-La lógica de reintento para controlar los errores transitorios es un área en la que puede ayudar EntLib60. Para obtener más información, consulte [4 - perseverancia, el secreto de todos los triunfos: Usar el bloque de aplicaciones de control de errores transitorios](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+La lógica de reintento para controlar los errores transitorios es un área en la que puede ayudar EntLib60. Para más información, vea [4: Perseverancia, el secreto de todos los triunfos: uso del bloque de aplicación de control de errores transitorios](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
 > El código fuente de EntLib60 está disponible de forma pública para descargarlo desde el [Centro de descarga](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft no tiene previsto realizar más actualizaciones de mantenimiento o de característica en EntLib.
@@ -354,9 +354,9 @@ En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultH
 
 Estos son algunos vínculos a información sobre EntLib60:
 
-- Descarga gratuita del libro: [Guía del desarrollador para Microsoft Enterprise Library, 2nd edition](https://www.microsoft.com/download/details.aspx?id=41145).
+- Descarga gratis del libro: [Developer's Guide to Microsoft Enterprise Library, 2nd Edition](https://www.microsoft.com/download/details.aspx?id=41145) (Guía del desarrollador para Microsoft Enterprise Library, segunda edición).
 - Procedimientos recomendados: [Orientación general sobre reintentos](../best-practices-retry-general.md) tiene una excelente explicación detallada de la lógica de reintento.
-- Descarga de NuGet: [Biblioteca empresarial - bloque de aplicaciones de control de errores transitorios 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Descarga de NuGet: [Enterprise Library: Bloque de aplicación de control de errores transitorios 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
@@ -368,7 +368,7 @@ Estos son algunos vínculos a información sobre EntLib60:
   - Recopilar la información contextual es útil para la depuración y el seguimiento, así como para los requisitos de registro generales y de auditoría.
 - El bloque de registro abstrae la funcionalidad de registro desde el destino de registro para que el código de la aplicación sea coherente, con independencia de la ubicación y del tipo de almacén de registro de destino.
 
-Para obtener más información, consulte [5 - tan fácil como caerse por un registro: Usar el bloque de aplicaciones de registro](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Para más información, vea [5 - El procedimiento más sencillo: uso del bloque de aplicación de registro](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 

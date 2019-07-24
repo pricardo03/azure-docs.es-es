@@ -1,6 +1,6 @@
 ---
 title: Administración del acceso a los recursos de Azure mediante RBAC y Azure PowerShell | Microsoft Docs
-description: Obtenga información sobre cómo administrar el acceso a recursos de Azure para usuarios, grupos y las aplicaciones que usan el control de acceso basado en roles (RBAC) y Azure PowerShell. Esto incluye cómo enumerar el acceso, conceder acceso y quitar el acceso.
+description: Aprenda a administrar el acceso a recursos de Azure de usuarios, grupos y aplicaciones mediante el control de acceso basado en rol (RBAC) y Azure PowerShell. Esto incluye cómo enumerar el acceso, conceder acceso y quitar el acceso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: deb7864c9f59427d6da9d27ede349c7532bf40d5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66160317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074024"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Administración del acceso a los recursos de Azure mediante RBAC y Azure PowerShell
 
@@ -81,11 +81,11 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-## <a name="list-a-role-definition"></a>Lista de una definición de rol
+## <a name="list-a-role-definition"></a>Enumeración de una definición de roles
 
-### <a name="list-a-role-definition-in-json-format"></a>Lista de una definición de rol en formato JSON
+### <a name="list-a-role-definition-in-json-format"></a>Enumeración de una definición de roles en formato JSON
 
-Para enumerar una definición de función en formato JSON, use [Get AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+Para mostrar una definición de rol en formato JSON, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | ConvertTo-Json
@@ -225,13 +225,13 @@ Para asignar un rol, debe identificar el objeto (usuario, grupo o aplicación) y
 
 Si no conoce el identificador de suscripción, lo encontrará en la hoja **Suscripciones** de Azure Portal o bien puede utilizar [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
-Para obtener el identificador de objeto para un usuario de Azure AD, use [Get AzADUser](/powershell/module/az.resources/get-azaduser).
+Para obtener el identificador del objeto de un usuario de Azure AD, use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
 
 ```azurepowershell
 Get-AzADUser -StartsWith <string_in_quotes>
 ```
 
-Para obtener el identificador de objeto para un grupo de Azure AD, use [Get AzADGroup](/powershell/module/az.resources/get-azadgroup).
+Para obtener el identificador del objeto de un grupo de Azure AD, use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 
 ```azurepowershell
 Get-AzADGroup -SearchString <group_name_in_quotes>
@@ -267,26 +267,26 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Crear una asignación de roles mediante el identificador único de la función
+### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Creación de una asignación de roles mediante el identificador único de la función
 
-Hay un par de veces cuando es posible que cambiar un nombre de rol, por ejemplo:
+Hay un par de veces en las que el nombre de un rol puede cambiar, por ejemplo:
 
-- Usa un rol personalizado propio y decide cambiar el nombre.
-- Usa un rol de vista previa que tenga **(versión preliminar)** en el nombre. Cuando se suelta el rol, se cambia el nombre de la función.
+- Utiliza su propio rol personalizado y decide cambiar el nombre.
+- Utiliza una rol de versión preliminar que tiene **(Versión preliminar)** en el nombre. Cuando se libera el rol, se cambia su nombre.
 
 > [!IMPORTANT]
-> Una versión preliminar se proporciona sin un contrato de nivel de servicio y no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Se ofrece una versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Incluso si se cambia el nombre de un rol, no cambia el identificador de rol. Si utiliza secuencias de comandos o la automatización para crear las asignaciones de rol, es una práctica recomendada para usar el identificador único de la función en lugar del nombre de rol. Por lo tanto, si se cambia el nombre de un rol, las secuencias de comandos están más probable que funcione.
+Incluso si se cambia el nombre de un rol, su identificador no cambia. Si utiliza scripts o automatización para crear las asignaciones de roles, se recomienda utilizar el identificador de rol único en lugar del nombre del rol. Por tanto, si se cambia el nombre de un rol, es más probable que los scripts funcionen.
 
-Para crear una asignación de roles mediante el identificador único de la función en lugar del nombre de rol, use [New AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Para crear una asignación de roles con el identificador de función único en lugar del nombre de rol, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-En el ejemplo siguiente se asigna el [colaborador de máquina Virtual](built-in-roles.md#virtual-machine-contributor) rol *alain@example.com* usuario en el *pharma-sales* ámbito del grupo de recursos. Para obtener el identificador único de la función, puede usar [Get AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o vea [roles integrados para los recursos de Azure](built-in-roles.md).
+En el ejemplo siguiente, se asigna el rol [Colaborador de la máquina virtual](built-in-roles.md#virtual-machine-contributor) al usuario *alain@example.com* en el ámbito del grupo de recursos *pharma-sales*. Para obtener el identificador de rol único, puede usar [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o vea [Roles integrados en los recursos de Azure](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -366,6 +366,8 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
+
+Si se obtiene un mensaje de error parecido al siguiente: "La información proporcionada no se asigna a una asignación de roles", asegúrese de especificar también los parámetros `-Scope` o `-ResourceGroupName`. Para más información, vea [Solución de problemas de RBAC para recursos de Azure](troubleshooting.md#role-assignments-without-a-security-principal).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

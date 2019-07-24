@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140214"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186822"
 ---
 1. Cree una nueva clase en el proyecto denominado `ToDoBroadcastReceiver`.
 2. Agregue las siguientes instrucciones using a **ToDoBroadcastReceiver** :
@@ -66,7 +66,7 @@ ms.locfileid: "66140214"
     Tenga en cuenta que esta clase se deriva de **GcmServiceBase** y que el atributo **Service** se debe aplicar a esta clase.
 
     > [!NOTE]
-    > La clase **GcmServiceBase** implementa los métodos **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** y **OnError()**. Debe invalidar estos métodos en la clase **PushHandlerService** .
+    > La clase **GcmServiceBase** implementa los métodos **OnRegistered()** , **OnUnRegistered()** , **OnMessage()** y **OnError()** . Debe invalidar estos métodos en la clase **PushHandlerService** .
 
 6. Agregue el código siguiente a la clase **PushHandlerService** que reemplaza al controlador de eventos **OnRegistered**.
 
@@ -109,7 +109,7 @@ ms.locfileid: "66140214"
     }
     ```
 
-    Este método usa el identificador de registro GCM devuelto para registrarse con Azure para las notificaciones de inserción. Las etiquetas solo pueden agregarse al registro después de haberlo creado. Para obtener más información, consulte [Cómo Agregar etiquetas a la instalación de un dispositivo para habilitar la inserción de etiquetas](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+    Este método usa el identificador de registro GCM devuelto para registrarse con Azure para las notificaciones de inserción. Las etiquetas solo pueden agregarse al registro después de haberlo creado. Para obtener más información, consulte [Instrucciones: incorporación de etiquetas a la instalación de un dispositivo para habilitar la inserción de etiquetas](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
 7. Reemplace el método **OnMessage** en **PushHandlerService** por el código siguiente:
 

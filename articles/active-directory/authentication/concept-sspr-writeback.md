@@ -1,5 +1,5 @@
 ---
-title: Integración de la escritura diferida de contraseñas con Azure AD SSPR - Azure Active Directory local
+title: 'Integración de la escritura diferida de contraseñas local con el autoservicio de restablecimiento de contraseña de Azure AD: Azure Active Directory'
 description: Escriba en diferido las contraseñas de la nube en la infraestructura de AD local
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113496"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
@@ -117,9 +117,9 @@ La escritura diferida de contraseñas es un servicio muy seguro. Para garantizar
 
 Después de que un usuario envíe un restablecimiento de contraseña, la solicitud de restablecimiento pasa por varias fases de cifrado antes de que llegue al entorno local. Estos pasos de cifrado garantizan una seguridad y confiabilidad máximas del servicio. A continuación se detalla la descripción de estos pasos:
 
-* **Paso 1: Cifrado de contraseña con clave RSA de 2048 bits**: cuando el usuario envía una contraseña para que se escriba en diferido en el entorno local, se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
-* **Paso 2: cifrado a nivel de paquete con AES-GCM**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM. Este cifrado evita que cualquier persona con acceso directo al canal de Service Bus subyacente vea o manipule el contenido.
-* **Paso 3: Toda la comunicación se realiza a través de TLS/SSL**: toda comunicación con Service Bus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
+* **Paso 1: Cifrado de contraseña con clave RSA de 2048 bits**: cuando el usuario envía una contraseña para que se escriba en diferido en el entorno local, se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
+* **Paso 2: cifrado a nivel de paquete con AES-GCM**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM. Este cifrado evita que cualquier persona con acceso directo al canal de Service Bus subyacente vea o manipule el contenido.
+* **Paso 3: Toda la comunicación se realiza a través de TLS/SSL**: toda comunicación con Service Bus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
 * **Sustitución de clave automática cada seis meses**: todas las claves se sustituyen cada seis meses, o cada vez que la escritura diferida de contraseñas se deshabilita y luego se vuelve a habilitar en Azure AD Connect, para garantizar la máxima seguridad y protección del servicio.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Uso de ancho de banda de la escritura diferida de contraseñas
@@ -152,7 +152,6 @@ Las contraseñas se escriben en diferido en todas las situaciones siguientes:
    * Cualquier operación exigida de cambio de contraseña de autoservicio del administrador (por ejemplo, la expiración de contraseña)
    * Cualquier restablecimiento de contraseña de autoservicio del administrador que se origina en el [portal de restablecimiento de contraseñas](https://passwordreset.microsoftonline.com)
    * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde [Azure Portal](https://portal.azure.com)
-   * Cualquier usuario final iniciado por el Administrador de restablecimiento de contraseña desde el [centro de administración de Microsoft 365](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Operaciones de reescritura no admitidas
 
@@ -162,9 +161,10 @@ Las contraseñas *no* se escriben en diferido en ninguna de las situaciones sigu
    * Cualquier usuario final que restablezca su propia contraseña mediante PowerShell v1, v2 o Graph API de Azure AD
 * **Operaciones de administrador no admitidas**
    * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell v1, v2 o Graph API de Azure AD
+   * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
 
 > [!WARNING]
-> No se admite el uso de la casilla de verificación "el usuario debe cambiar la contraseña en el siguiente inicio de sesión" en Herramientas administrativas de Active Directory local, como usuarios de Active Directory y los equipos o el centro de administración de Active Directory. Al cambiar una contraseña en el entorno local no Active esta opción.
+> No se admite el uso de la casilla "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en herramientas administrativas de Active Directory local como Usuarios y equipos de Active Directory o el Centro de administración de Active Directory. Al cambiar una contraseña en local no active esta opción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

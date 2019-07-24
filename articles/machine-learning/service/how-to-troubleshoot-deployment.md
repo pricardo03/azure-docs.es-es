@@ -1,7 +1,7 @@
 ---
 title: Guía de solución de problemas de implementación
 titleSuffix: Azure Machine Learning service
-description: Aprenda a evitar, solucionar y solucionar los errores comunes de implementación de Docker con AKS y ACI con el servicio Azure Machine Learning.
+description: Obtenga información sobre cómo abordar, solucionar y resolver los errores comunes de implementación de Docker con AKS y ACI con Azure Machine Learning Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 05/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9d173409fc9f270f13d688999a88f9480c3eb40f
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.openlocfilehash: 0fba7c2f5a46e0c5d0e3c5fdd65a03bb77f148d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742922"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074990"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Solución de problemas de implementaciones de AKS y ACI de Azure Machine Learning Service
 
-Aprenda a evitar o solucionar errores comunes de implementación de Docker con Azure Container Instances (ACI) y con el servicio Azure Machine Learning con Azure Kubernetes Service (AKS).
+Obtenga información sobre cómo abordar, solucionar y resolver los errores comunes de implementación de Docker con Azure Container Instances (ACI) y Azure Kubernetes Service (AKS) mediante Azure Machine Learning Service.
 
 Al implementar un modelo en el servicio de Azure Machine Learning, el sistema realiza una serie de tareas. Las tareas de implementación son:
 
@@ -34,7 +34,7 @@ Al implementar un modelo en el servicio de Azure Machine Learning, el sistema re
     5. Registre la imagen de Docker en la instancia de Azure Container Registry asociada con el área de trabajo.
 
     > [!IMPORTANT]
-    > Dependiendo de su código, creación de imágenes se realiza automáticamente sin la intervención del usuario.
+    > En función del código, la creación de imágenes se realiza automáticamente sin que sea necesaria la entrada.
 
 3. Implementar la imagen de Docker en el servicio de instancia de contenedor de Azure (ACI) o Azure Kubernetes Service (AKS).
 
@@ -46,7 +46,7 @@ Más información sobre este proceso en la introducción a la [administración d
 
 Si tiene algún problema, lo primero es dividir la tarea de implementación (descrita anteriormente) en pasos individuales para aislar el problema.
 
-Dividir la implementación en tareas es útil si está utilizando el [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) API, o [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) API, como ambas funciones realizar los pasos mencionados anteriormente como un acción única. Normalmente, esas API resultan prácticos, pero resulta útil dividir los pasos para solucionar el problema al reemplazarlos con el siguiente llama a la API.
+Dividir la implementación en tareas es útil si se utilizan las API [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) o [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), ya que ambas funciones realizan los pasos mencionados anteriormente como una acción única. Normalmente estas API son prácticas, pero resulta útil dividir los pasos para solucionar problemas al reemplazarlas por las siguientes llamadas API.
 
 1. Registre el modelo. Este es un código de ejemplo:
 
@@ -63,7 +63,7 @@ Dividir la implementación en tareas es útil si está utilizando el [Webservice
     ```python
     # configure the image
     image_config = ContainerImage.image_configuration(runtime="python",
-                                                      execution_script="score.py",
+                                                      entry_script="score.py",
                                                       conda_file="myenv.yml")
 
     # create the image
@@ -90,7 +90,7 @@ Una vez que haya dividido el proceso de implementación en tareas individuales, 
 
 ## <a name="image-building-fails"></a>Error de compilación de la imagen
 
-Si no se puede generar la imagen de Docker, el [image.wait_for_creation()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) o [service.wait_for_deployment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) llamada produce un error con algunos mensajes de error que pueden ofrecer algunas pistas. También puede encontrar más detalles acerca de los errores en el registro de compilación de la imagen. A continuación encontrará algunos ejemplos de código que muestra cómo detectar el URI del registro de compilación de la imagen.
+Si no se puede compilar la imagen de Docker, no se podrá realizar la llamada a [image.wait_for_creation()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) o [service.wait_for_deployment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) con algunos mensajes de error que pueden dar algunas pistas. También puede encontrar más detalles acerca de los errores en el registro de compilación de la imagen. A continuación encontrará algunos ejemplos de código que muestra cómo detectar el URI del registro de compilación de la imagen.
 
 ```python
 # if you already have the image object handy
@@ -108,9 +108,9 @@ El URI del registro de la imagen es una dirección URL de SAS que apunta a un ar
 
 ### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Directiva de acceso de Azure Key Vault y plantillas de Azure Resource Manager
 
-La compilación de imagen también puede producir un error debido a un problema con la directiva de acceso en Azure Key Vault. Esta situación puede producirse cuando se usa una plantilla de Azure Resource Manager para crear el área de trabajo y recursos asociados (incluido Azure Key Vault), varias veces. Por ejemplo, mediante la plantilla varias veces con los mismos parámetros como parte de una canalización de implementación e integración continua.
+La compilación de la imagen también puede producir un error debido a un problema con la directiva de acceso en Azure Key Vault. Esta situación puede suceder cuando se usa una plantilla de Azure Resource Manager para crear el área de trabajo y los recursos asociados (incluido Azure Key Vault) varias veces. Por ejemplo, con el uso de la plantilla varias veces con los mismos parámetros como parte de una canalización de implementación e integración continuas.
 
-La mayoría las operaciones de creación de recursos a través de plantillas son idempotentes, pero Key Vault borra las directivas de acceso cada vez que se usa la plantilla. Al desactivar el acceso de saltos de directivas de acceso al almacén de claves para cualquier área de trabajo existente que esté usando. Esta condición da como resultado errores al intentar crear nuevas imágenes. Los siguientes son ejemplos de los errores que se pueden recibir:
+La mayoría de las operaciones de creación de recursos mediante plantillas son idempotentes, pero Key Vault borra las directivas de acceso cada vez que se usa la plantilla. Al borrar las directivas de acceso se interrumpe el acceso al almacén de claves en el área de trabajo existente que lo esté usando. Esta condición produce errores cuando intenta crear nuevas imágenes. Los siguientes son ejemplos de errores que puede recibir:
 
 __Portal__:
 ```text
@@ -146,23 +146,23 @@ GMT\', \'Content-Type\': \'application/json\', \'Transfer-Encoding\': \'chunked\
 b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}\'',)}
 ```
 
-Para evitar este problema, se recomienda uno de los enfoques siguientes:
+Para evitar este problema, se recomienda uno de los siguientes enfoques:
 
-* No implemente la plantilla de más de una vez para los mismos parámetros. O eliminar los recursos existentes antes de usar la plantilla para volver a crearlos.
-* Examine las directivas de acceso de Key Vault y, a continuación, use estas directivas para establecer el `accessPolicies` propiedad de la plantilla.
-* Compruebe si ya existe el recurso de Key Vault. Si es así, no volver a crearla con la plantilla. Por ejemplo, agregue un parámetro que le permite deshabilitar la creación del recurso de Key Vault si ya existe.
+* No implemente la plantilla de más de una vez con los mismos parámetros. O bien, elimine los recursos existentes antes de usar la plantilla para volver a crearlos.
+* Examine las directivas de acceso de Key Vault y, luego, use estas directivas para establecer la propiedad `accessPolicies` de la plantilla.
+* Compruebe si ya existe el recurso de Key Vault. Si es así, no lo vuelva a crear con la plantilla. Por ejemplo, agregue un parámetro que permita deshabilitar la creación del recurso de Key Vault si ya existe.
 
-## <a name="debug-locally"></a>La depuración local
+## <a name="debug-locally"></a>Depuración local
 
-Si encuentra problemas al implementar un modelo en ACI o AKS, vuelva a implementarlo como un servicio web local. Mediante un servicio web local facilita la solución de problemas. Se descarga la imagen de Docker que contiene el modelo y se inicia en el sistema local.
+Si tiene problemas al implementar un modelo en ACI o AKS, intente implementarlo como un servicio web local. El uso de un servicio web local facilita la solución de problemas. Se descarga la imagen de Docker que contiene el modelo y se inicia en el sistema local.
 
 > [!IMPORTANT]
-> Las implementaciones de servicios web locales requieren una instalación de Docker en el sistema local en funcionamiento. Docker se debe ejecutar antes de implementar un servicio web local. Para obtener información sobre cómo instalar y usar Docker, consulte [ https://www.docker.com/ ](https://www.docker.com/).
+> Las implementaciones de servicios web locales requieren una instalación de Docker en funcionamiento en el sistema local. Docker se debe ejecutar antes de implementar un servicio web local. Para obtener información sobre cómo instalar y usar Docker, vea [https://www.docker.com/](https://www.docker.com/).
 
 > [!WARNING]
-> No se admiten las implementaciones de servicio web local para escenarios de producción.
+> No se admiten las implementaciones de servicios web locales en escenarios de producción.
 
-Para implementar localmente, modificar el código para usar `LocalWebservice.deploy_configuration()` para crear una configuración de implementación. A continuación, usar `Model.deploy()` para implementar el servicio. En el ejemplo siguiente se implementa un modelo (incluidos en el `model` variable) como un servicio web local:
+Para implementar de forma local, modifique el código para usar `LocalWebservice.deploy_configuration()` con el fin de crear una configuración de implementación. Luego use `Model.deploy()` para implementar el servicio. En el ejemplo siguiente se implementa un modelo (incluido en la variable `model`) como un servicio web local:
 
 ```python
 from azureml.core.model import InferenceConfig,Model
@@ -183,7 +183,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-En este momento, puede trabajar con el servicio de forma habitual. Por ejemplo, el código siguiente muestra cómo enviar datos al servicio:
+En este punto, se puede trabajar con el servicio de forma habitual. Por ejemplo, en el código siguiente se muestra cómo enviar datos al servicio:
 
 ```python
 import json
@@ -201,7 +201,7 @@ print(prediction)
 
 ### <a name="update-the-service"></a>Actualizar el servicio
 
-Durante las pruebas locales, es posible que deba actualizar el `score.py` archivo para agregar un registro o intentar resolver los problemas que haya descubierto. Para volver a cargar los cambios realizados en el `score.py` , debe usar `reload()`. Por ejemplo, el código siguiente vuelve a cargar la secuencia de comandos para el servicio y, a continuación, envía datos a él. Se usa para puntuar los datos mediante la actualización `score.py` archivo:
+Durante las pruebas locales, es posible que deba actualizar el archivo `score.py` para agregar un registro o intentar resolver los problemas que haya descubierto. Para recargar los cambios realizados en el archivo `score.py`, use `reload()`. Por ejemplo, el código siguiente recarga el script para el servicio y luego envía datos. Los datos se puntúan con el archivo `score.py` actualizado:
 
 ```python
 service.reload()
@@ -209,21 +209,21 @@ print(service.run(input_data=test_sample))
 ```
 
 > [!NOTE]
-> El script se vuelve a cargar desde la ubicación especificada por el `InferenceConfig` objeto utilizado por el servicio.
+> El script se recarga desde la ubicación que especifica el objeto `InferenceConfig` que usa el servicio.
 
-Para cambiar la configuración de implementación, dependencias de Conda o el modelo, use [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). El ejemplo siguiente actualiza el modelo usado por el servicio:
+Para cambiar el modelo, las dependencias de Conda o la configuración de implementación, use [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). En el siguiente ejemplo se actualiza el modelo que usa el servicio:
 
 ```python
 service.update([different_model], inference_config, deployment_config)
 ```
 
-### <a name="delete-the-service"></a>Eliminar el servicio
+### <a name="delete-the-service"></a>Eliminación del servicio
 
 Para eliminar el servicio, use [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
 
-### <a id="dockerlog"></a> Inspeccionar el registro de Docker
+### <a id="dockerlog"></a> Inspección del registro de Docker
 
-Puede imprimir los mensajes detallados de registro del motor de Docker desde el objeto de servicio. Puede ver el registro para las implementaciones locales, ACI y AKS. El ejemplo siguiente muestra cómo imprimir los registros.
+Puede imprimir los mensajes detallados de registro del motor de Docker desde el objeto de servicio. Puede ver el registro para ACI, AKS y las implementaciones locales. En el ejemplo siguiente se muestra cómo imprimir los registros.
 
 ```python
 # if you already have the service object handy
@@ -235,13 +235,13 @@ print(ws.webservices['mysvc'].get_logs())
 
 ## <a name="service-launch-fails"></a>Error en el inicio del servicio
 
-Después de la imagen se compile correctamente, el sistema intenta iniciar un contenedor con la configuración de implementación. Como parte del proceso de puesta en marcha del contenedor, el sistema invoca la función `init()` en el script de puntuación. Si hay excepciones no detectadas en la función `init()`, es posible que vea el error **CrashLoopBackOff** en el mensaje de error.
+Después de que la imagen se haya compilado correctamente, el sistema intenta iniciar un contenedor con el uso de la configuración de implementación. Como parte del proceso de puesta en marcha del contenedor, el sistema invoca la función `init()` en el script de puntuación. Si hay excepciones no detectadas en la función `init()`, es posible que vea el error **CrashLoopBackOff** en el mensaje de error.
 
-Use la información en el [inspeccionar el registro de Docker](#dockerlog) sección comprobar los registros.
+Use la información que aparece en la sección [Inspeccionar el registro de Docker](#dockerlog) para comprobar los registros.
 
 ## <a name="function-fails-getmodelpath"></a>Error en la función: get_model_path()
 
-A menudo, en el `init()` función en el script de puntuación, [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) función se invoca para buscar un archivo de modelo o una carpeta de archivos de modelo en el contenedor. Si no se encuentra el archivo de modelo o la carpeta, se produce un error en la función. La manera más fácil de depurar este error es ejecutar el siguiente código de Python en el shell del contenedor:
+A menudo, en la función `init()` en el script de puntuación, se llama a la función [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) para buscar un archivo de modelo o una carpeta de archivos de modelo en el contenedor. Si no se encuentra el archivo de modelo o la carpeta, se produce un error en la función. La manera más fácil de depurar este error es ejecutar el siguiente código de Python en el shell del contenedor:
 
 ```python
 import logging
@@ -250,9 +250,9 @@ from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Este ejemplo imprime la ruta de acceso local (relativo a `/var/azureml-app`) en el contenedor donde se espera el script de puntuación para buscar el archivo de modelo o una carpeta. A continuación, puede comprobar si el archivo o la carpeta están realmente donde se espera que estén.
+En este ejemplo se imprime la ruta de acceso local (relativa a `/var/azureml-app`) en el contenedor donde el script de puntuación espera encontrar el archivo de modelo o la carpeta. A continuación, puede comprobar si el archivo o la carpeta están realmente donde se espera que estén.
 
-Establecer el nivel de registro para la depuración, puede generar información adicional que se registre, que puede ser útil para identificar el error.
+Establecer el nivel de registro en DEBUG puede provocar el registro de información adicional, que puede resultar útil para identificar el error.
 
 ## <a name="function-fails-runinputdata"></a>Error en la función: run(input_data)
 
@@ -271,26 +271,26 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Nota**: La devolución de mensajes de error de la llamada `run(input_data)` se debe realizar solo con fines de depuración. Por motivos de seguridad no debe devolver mensajes de error de este modo en un entorno de producción.
+**Nota**: La devolución de mensajes de error de la llamada `run(input_data)` se debe realizar solo con fines de depuración. Por motivos de seguridad, no debe devolver los mensajes de error de este modo en un entorno de producción.
 
 ## <a name="http-status-code-503"></a>Código de estado HTTP 503
 
-Las implementaciones de Azure Kubernetes Service admiten el escalado automático, que permite que las réplicas se agregaron para admitir una carga adicional. Sin embargo, el Escalador automático está diseñado para controlar **gradual** cambios en la carga. Si recibe grandes picos en solicitudes por segundo, los clientes pueden recibir un código de estado HTTP 503.
+Las implementaciones de Azure Kubernetes Service admiten el escalado automático, que permite que las réplicas se agreguen para admitir una carga adicional. Sin embargo, el escalador automático está diseñado para controlar cambios **graduales** en la carga. Si recibe grandes picos en las solicitudes por segundo, los clientes pueden recibir un código de estado HTTP 503.
 
-Hay dos cosas que pueden ayudar a evitar 503 códigos de estado:
+Hay dos cosas que ayudan a impedir los códigos de estado 503:
 
-* Cambiar el nivel de uso en que el escalado automático crea nuevas réplicas.
+* Cambiar el nivel de uso en el que el escalado automático crea nuevas réplicas.
     
-    De forma predeterminada, se establece el uso de destino de escalado automático en el 70%, lo que significa que el servicio puede controlar los picos de solicitudes por segundo (RPS) de hasta un 30%. Puede ajustar el objetivo de uso estableciendo la `autoscale_target_utilization` en un valor inferior.
+    De forma predeterminada, se establece el uso de destino de escalado automático en el 70 %, lo que significa que el servicio puede controlar los picos en las solicitudes por segundo (RPS) de hasta un 30 %. Puede ajustar el objetivo de uso mediante el establecimiento de `autoscale_target_utilization` en un valor inferior.
 
     > [!IMPORTANT]
-    > Este cambio no hace que las réplicas a crearse *con mayor rapidez*. En su lugar, se crean con un umbral de utilización más bajo. En lugar de esperar hasta que el servicio se utiliza de 70%, cambiar el valor a un 30% hace que las réplicas que se creará al 30% de uso se produce.
+    > Este cambio no hace que las réplicas se creen *más rápidamente*. En lugar de eso, se crean con un umbral de uso más bajo. En lugar de esperar a que el servicio se use en un 70 %, si se cambia el valor a un 30 %, las réplicas se crearán cuando se produzca este 30 % de uso.
     
-    Si el servicio web ya está usando las réplicas máximo actuales y sigue apareciendo 503 códigos de estado, aumentar la `autoscale_max_replicas` valor para aumentar el número máximo de réplicas.
+    Si el servicio web ya usa el número máximo de réplicas actuales y siguen apareciendo los códigos de estado 503, aumente el valor de `autoscale_max_replicas` con el fin de aumentar el número máximo de réplicas.
 
-* Cambiar el número mínimo de réplicas. Aumentar las réplicas mínimas proporciona un grupo más grande para controlar los picos entrantes.
+* Cambie el número mínimo de réplicas. El aumento en el número mínimo de réplicas proporciona un grupo más grande para controlar los picos entrantes.
 
-    Para aumentar el número mínimo de réplicas, establecer `autoscale_min_replicas` en un valor superior. Puede calcular las réplicas necesarias mediante el código siguiente, reemplazando los valores por valores específicos al proyecto:
+    Para aumentar el número mínimo de réplicas, establezca `autoscale_min_replicas` en un valor superior. Puede calcular las réplicas necesarias mediante el código siguiente, reemplazando los valores por valores específicos del proyecto:
 
     ```python
     from math import ceil
@@ -310,9 +310,9 @@ Hay dos cosas que pueden ayudar a evitar 503 códigos de estado:
     ```
 
     > [!NOTE]
-    > Si recibe los picos de solicitud más grande que pueden controlar las nuevas réplicas mínimas, puede recibir 503s de nuevo. Por ejemplo, como el tráfico a los aumentos de servicio, es posible que deba aumentar las réplicas mínimas.
+    > Si recibe picos de solicitudes más grandes que el número mínimo nuevo de réplicas que se puede controlar, es posible que reciba códigos de estado 503 otra vez. Por ejemplo, a medida que el tráfico al servicio aumente, es posible que deba aumentar el número mínimo de réplicas.
 
-Para obtener más información sobre cómo `autoscale_target_utilization`, `autoscale_max_replicas`, y `autoscale_min_replicas` para, consulte el [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) referencia del módulo.
+Para obtener más información sobre cómo configurar `autoscale_target_utilization`, `autoscale_max_replicas`, y `autoscale_min_replicas`, vea la referencia de módulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

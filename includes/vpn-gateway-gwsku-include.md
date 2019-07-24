@@ -9,13 +9,13 @@ ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159324"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186200"
 ---
-Al crear una puerta de enlace de red virtual, debe especificar la SKU de la puerta de enlace que desea usar. Seleccione las SKU que cumplan sus requisitos en función de los tipos de cargas de trabajo, rendimientos, características y Acuerdos de Nivel de Servicio. Para la puerta de enlace de red virtual SKU en las zonas de disponibilidad de Azure, consulte [SKU de puerta de enlace de Azure disponibilidad zonas](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
+Al crear una puerta de enlace de red virtual, debe especificar la SKU de la puerta de enlace que desea usar. Seleccione las SKU que cumplan sus requisitos en función de los tipos de cargas de trabajo, rendimientos, características y Acuerdos de Nivel de Servicio. En relación con las SKU de puerta de enlace de red virtual en Azure Availability Zones, vea la información sobre las [SKU de puerta de enlace de Azure Availability Zones](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>SKU de puerta de enlace por túnel, conexión y rendimiento
 
@@ -29,7 +29,7 @@ Las nueva SKU de puerta de enlace de VPN simplifican los conjuntos de caracterí
 
 | **SKU**| **Características**|
 | ---    | ---         |
-|**Basic** (\*\*)   | **VPN basada en rutas**: 10 túneles S2S/conexiones; Sin autenticación RADIUS para P2S; sin IKEv2 para P2S<br>**VPN basada en directivas**: (IKEv1): 1 túnel S2S o conexión; sin P2S|
+|**Basic** (\*\*)   | **VPN basada en rutas**: 10 túneles para conexiones o S2S, sin autenticación RADIUS para P2S, sin IKEv2 para P2S<br>**VPN basada en directivas**: (IKEv1): 1 túnel S2S o conexión; sin P2S|
 | **VpnGw1, VpnGw2 y VpnGw3** | **VPN basada en ruta**: hasta 30 túneles (\*), P2S, BGP, activo-activo, directiva de IPsec/IKE personalizada, coexistencia de VPN y ExpressRoute |
 |        |             |
 

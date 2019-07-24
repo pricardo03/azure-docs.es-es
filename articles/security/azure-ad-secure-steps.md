@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
-ms.author: martincoetzer
-ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.author: martinco
+ms.openlocfilehash: a3a1542279077ffb949fbfd9c8cb7236827803d9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236780"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588898"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -64,7 +64,7 @@ La característica de [contraseña dinámica prohibida](https://docs.microsoft.c
 Microsoft recomienda adoptar la directiva moderna de contraseñas basada en las [directrices del NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) que se describe a continuación:
 
 1. Solicitar contraseñas que tengan al menos 8 caracteres. Que sean más largas no quiere decir que sean mejores, ya que hacen que los usuarios elijan contraseñas predecibles, guarden las contraseñas en archivos o las acaben apuntando.
-2. Deshabilitar reglas de expiración, impulsar a los usuarios a las contraseñas puede adivinadas con facilidad como **Spring2019!**
+2. Deshabilitar las reglas de expiración, que solo consiguen que los usuarios elijan contraseñas fáciles de adivinar, como **Spring2019!**
 3. Deshabilitar los requisitos de composición de caracteres y evitar que los usuarios elijan contraseñas comúnmente atacadas, ya que solo se consigue que los usuarios elijan sustituciones de caracteres predecibles en las contraseñas.
 
 Si crea identidades directamente en Azure AD, puede usar [PowerShell para evitar que las contraseñas de los usuarios expiren](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy). Las organizaciones híbridas deben implementar estas directivas utilizando la [configuración de la directiva de grupo de dominio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) o [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
@@ -103,7 +103,7 @@ Las aplicaciones que usan sus propios métodos heredados para autenticarse con A
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloquear los puntos de entrada de autenticación no válidos
 
-Al usar los recursos de vulneración de seguridad, debe reducir el impacto de las credenciales de usuario comprometidas cuando se produce un ataque. Teniendo en cuenta cada aplicación del entorno, considere los casos de uso válidos: qué grupos, qué redes, qué dispositivos y qué más elementos están autorizados y, a continuación, bloquee el resto. Mediante el [ acceso condicional de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), puede controlar la manera en que los usuarios autorizados obtienen acceso a las aplicaciones y recursos, en función de las condiciones específicas que defina.
+Al usar los recursos de vulneración de seguridad, debe reducir el impacto de las credenciales de usuario comprometidas cuando se produce un ataque. Teniendo en cuenta cada aplicación del entorno, considere los casos de uso válidos: qué grupos, qué redes, qué dispositivos y qué más elementos están autorizados y, a continuación, bloquee el resto. Mediante el [acceso condicional de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), puede controlar la manera en que los usuarios autorizados acceden a aplicaciones y recursos, en función de las condiciones específicas que defina.
 
 ### <a name="block-end-user-consent"></a>Consentimiento del usuario final del bloqueo
 
@@ -162,7 +162,7 @@ Azure AD Identity Protection dispone de dos informes importantes que debe superv
 1. Los informes de inicios de sesión de riesgo ponen de manifiesto las actividades de inicio de sesión de los usuarios que deben investigarse, ya que es posible que el inicio de sesión no lo haya realizado el propietario legítimo.
 2. Los informes de riesgo de usuarios ponen de manifiesto las cuentas de usuario que podrían haberse visto comprometidas; por ejemplo, las cuentas en las que se ha detectado una filtración de credenciales o donde el usuario ha iniciado sesión desde una ubicación diferente, lo que indicaría que se ha producido un viaje que no es posible. 
 
-![Usuarios marcados en riesgo](media/azure-ad/azure-ad-sec-steps3.png)
+![Usuarios marcados con riesgo](media/azure-ad/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Aplicaciones de auditoría y permisos consentidos
 

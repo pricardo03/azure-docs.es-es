@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe163fc2370e884bed58bfffe5baffa5642b6d90
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799120"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148002"
 ---
 # <a name="public-ip-address-prefix"></a>Prefijo de dirección IP pública
 
@@ -32,7 +32,7 @@ Especifique un nombre y cuántas direcciones desea que incluya el prefijo para c
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>¿Por qué crear un prefijo de dirección IP pública?
 
-Al crear recursos de dirección IP pública, Azure asigna una dirección IP pública disponible de cualquiera de los intervalos usados en una región. Una vez que Azure asigna la dirección, se sabe cuál es la dirección, pero hasta que Azure asigna la dirección, no se sabe qué dirección podría asignar. Esto puede ser problemático cuando, por ejemplo, usted o sus socios comerciales configuran reglas de firewall para permitir direcciones IP específicas. Cada vez que se asigna una nueva dirección IP pública a un recurso, la dirección se debe agregar a la regla de firewall. Al asignar direcciones a los recursos desde un prefijo de dirección IP pública, no es necesario actualizar las reglas de firewall cada vez que se asigna una de las direcciones, porque se puede agregar todo el intervalo a una regla.
+Al crear recursos de IP pública, Azure asigna una IP pública disponible de cualquiera de los rangos usados en la región. Una vez que Azure asigna la dirección, se sabe cuál es la dirección, pero hasta que Azure asigna la dirección, no se sabe qué dirección podría asignar. Esto puede ser problemático cuando, por ejemplo, usted o sus socios comerciales configuran reglas de firewall para permitir direcciones IP específicas. Cada vez que se asigna una nueva dirección IP pública a un recurso, la dirección se debe agregar a la regla de firewall. Al asignar direcciones a los recursos desde un prefijo de dirección IP pública, no es necesario actualizar las reglas de firewall cada vez que se asigna una de las direcciones, porque se puede agregar todo el intervalo a una regla.
 
 ## <a name="benefits"></a>Ventajas
 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a0581ef43e8a3c02126612a21122db559a941370
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311222"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190160"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus
 
@@ -62,6 +62,17 @@ El proceso de configuración es el siguiente:
 2. Aprovisione un espacio de nombres prémium de Service Bus ***secundario*** en una región *diferente de aquella en la que se aprovisiona el espacio de nombres principal*. Esto ayudará con el aislamiento de errores entre regiones de centro de datos diferentes.
 
 3. Cree un emparejamiento entre el espacio de nombres principal y el secundario para obtener el ***alias***.
+
+    >[!NOTE] 
+    > Si ha [migrado el espacio de nombres de Azure Service Bus Standard a Azure Service Bus Premium](service-bus-migrate-standard-premium.md), debe utilizar el alias ya existente (es decir, la cadena de conexión de espacio de nombres de Service Bus Standard) para crear la configuración de recuperación ante desastres a través de la **PS/CLI** o la **API REST**.
+    >
+    >
+    > Esto es porque, durante la migración, el nombre de DNS o la cadena de conexión de espacio de nombres de Azure Service Bus Standard se convierte automáticamente en un alias para el espacio de nombres de Azure Service Bus Premium.
+    >
+    > Las aplicaciones cliente deben utilizar este alias (es decir, la cadena de conexión de espacio de nombres de Azure Service Bus Standard) para conectarse al espacio de nombres Premium si se ha configurado el emparejamiento de recuperación ante desastres.
+    >
+    > Si usa el portal para realizar la configuración de recuperación ante desastres, se encargará de hacerlo de forma automática.
+
 
 4. Use el ***alias*** obtenido en el paso 3 para conectar las aplicaciones cliente al espacio de nombres principal con recuperación ante desastres geográfica. Inicialmente, el alias apunta al espacio de nombres principal.
 
@@ -120,7 +131,7 @@ Tenga en cuenta y recuerde las siguientes consideraciones para esta versión:
 
 2. El hecho de que no se replican datos significa que las sesiones activas en la actualidad no se replican. Además, la detección de duplicados y mensajes programados puede no funcionar. Funcionarán las nuevas sesiones, los mensajes programados nuevos y los duplicados nuevos. 
 
-3. Conmutar por error una compleja infraestructura distribuida debe [ensayarse](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) al menos una vez.
+3. Conmutar por error una compleja infraestructura distribuida debe [ensayarse](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) al menos una vez.
 
 4. La sincronización de entidades puede tardar algún tiempo, aproximadamente 50-100 entidades por minuto. Las suscripciones y reglas también cuentan como entidades.
 

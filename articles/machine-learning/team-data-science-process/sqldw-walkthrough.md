@@ -12,10 +12,10 @@ ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66478858"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Data Warehouse
@@ -77,7 +77,7 @@ Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
 **Aprovisione la instancia de Almacenamiento de datos SQL de Azure.**
 Siga la documentación de [Creación de SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para aprovisionar una instancia de SQL Data Warehouse. Asegúrese de que hacer anotaciones en las credenciales de SQL Data Warehouse siguientes que se usarán en los pasos posteriores.
 
-* **Nombre del servidor**: \<nombre servidor >. database.windows.net
+* **Nombre del servidor**: \<nombre del servidor>.database.windows.net
 * **Nombre de SQLDW (base de datos)**
 * **Nombre de usuario**
 * **Contraseña**

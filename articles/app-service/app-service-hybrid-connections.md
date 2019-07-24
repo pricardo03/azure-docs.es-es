@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4b125649dee51680625ac5a92b31bdc9f6830529
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653397"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069636"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service #
 
@@ -41,7 +41,6 @@ Cuando la aplicación realiza una solicitud DNS que coincide con un punto de con
 > [!NOTE]
 > lo que significa que debe intentar usar siempre un nombre DNS para la conexión híbrida. Cierto software cliente no lleva a cabo una búsqueda de DNS si el punto de conexión utiliza una dirección IP.
 >
-
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Beneficios de usar las conexiones híbridas de App Service ###
 
@@ -140,7 +139,7 @@ Para agregar una o varias conexiones híbridas a HCM:
 2. Seleccione **Configure another Hybrid Connection** (Configurar otra conexión híbrida).
 ![Captura de pantalla de configuración de conexiones híbridas nuevas][8]
 
-1. Inicie sesión con su cuenta de Azure.
+1. Inicie sesión con su cuenta de Azure para obtener las conexiones híbridas disponibles con sus suscripciones. El HCM no usará su cuenta de Azure aparte de para esto. 
 1. Elija una suscripción.
 1. Seleccione las conexiones híbridas que desea que retransmita el HCM.
 ![Captura de pantalla de las conexiones híbridas][9]
@@ -226,7 +225,9 @@ El estado "Conectado" significa que hay al menos una instancia de HCM configurad
 
 La razón principal por la que los clientes no se pueden conectar a su punto de conexión es porque este se especificó mediante una dirección IP en lugar de un nombre DNS. Si la aplicación no puede acceder al punto de conexión deseado y ha usado una dirección IP, utilice un nombre DNS que sea válido en el host en el que se ejecuta HCM. Compruebe también que el nombre DNS se resuelve adecuadamente en el host donde se ejecuta el HCM. Confirme que existe conectividad desde el host donde se ejecuta el HCM al punto de conexión de la conexión híbrida.  
 
-En App Service, es posible invocar la herramienta tcpping desde la consola de herramientas avanzadas (Kudu). Esta herramienta puede indicarle si tienen acceso a un punto de conexión TCP, pero no indica si tiene acceso a un punto de conexión híbrida. Cuando usa la herramienta de la consola en un punto de conexión de la conexión híbrida, simplemente confirma que usa una combinación de host:puerto.  
+En App Service, es posible invocar la herramienta de la línea de comandos **tcpping** desde la consola de herramientas avanzadas (Kudu). Esta herramienta puede indicarle si tienen acceso a un punto de conexión TCP, pero no indica si tiene acceso a un punto de conexión híbrida. Cuando usa la herramienta de la consola en un punto de conexión de la conexión híbrida, simplemente confirma que usa una combinación de host:puerto.  
+
+Si tiene un cliente de línea de comandos para el punto de conexión, puede probar la conectividad desde la consola de la aplicación. Por ejemplo, puede probar el acceso a los puntos de conexión de servidor web mediante cURL.
 
 ## <a name="biztalk-hybrid-connections"></a>Conexiones híbridas de BizTalk ##
 

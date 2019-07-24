@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: genli
 ms.openlocfilehash: 3df4108907a4e1e65a444faf1049163966b7accf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170744"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186237"
 ---
 ## <a name="scenario"></a>Escenario
 Se crea una máquina virtual con una sola NIC y se conecta a una red virtual. La máquina virtual requiere tres direcciones IP *privadas* y dos direcciones IP *públicas*, todas diferentes. Las direcciones IP se asignan a las siguientes configuraciones de IP:
 
-* **IPConfig-1:** Asigna un *estático* dirección IP privada y un *estático* dirección IP pública.
-* **IPConfig-2:** Asigna un *estático* dirección IP privada y un *estático* dirección IP pública.
-* **IPConfig-3:** Asigna un *estático* dirección IP privada y ninguna dirección IP pública.
+* **IPConfig-1:** asigna un dirección IP privada *estática* y una dirección IP pública *estática*.
+* **IPConfig-2:** asigna un dirección IP privada *estática* y una dirección IP pública *estática*.
+* **IPConfig-3:** asigna un dirección IP privada *estática* y ninguna dirección IP pública.
   
     ![Varias direcciones IP](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
 

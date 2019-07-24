@@ -1,0 +1,109 @@
+---
+title: 'Creación de un circuito de ExpressRoute (plantilla de Resource Manager): Azure | Microsoft Docs'
+description: Cree, aprovisione, elimine y desaprovisione un circuito de ExpressRoute.
+services: expressroute;azure-resource-manager
+author: cherylmc
+ms.service: expressroute
+ms.topic: article
+ms.date: 07/05/2019
+ms.author: cherylmc
+ms.reviewer: ganesr
+ms.openlocfilehash: 103c61b6ad244bf4b140f897c070ce5bfd54cded
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849231"
+---
+# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creación de un circuito de ExpressRoute mediante una plantilla de Azure Resource Manager
+
+> [!div class="op_single_selector"]
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [CLI de Azure](howto-circuit-cli.md)
+> * [Plantilla de Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
+> * [Vídeo: Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [PowerShell (clásico)](expressroute-howto-circuit-classic.md)
+>
+
+Aprenda a crear un circuito de ExpressRoute mediante la implementación de una plantilla de Azure Resource Manager con Azure PowerShell. Para más información sobre el desarrollo de plantillas de Resource Manager, consulte la [documentación de Resource Manager](/azure/azure-resource-manager/) y la [referencia de plantilla](/azure/templates/microsoft.network/expressroutecircuits).
+
+## <a name="before-you-begin"></a>Antes de empezar
+
+* Revise los [Requisitos previos y lista de comprobación de ExpressRoute](expressroute-prerequisites.md) y los [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute](expressroute-workflows.md) antes de comenzar la configuración.
+* Asegúrese de que tiene permisos para crear recursos de red. Si no tiene los permisos adecuados, póngase en contacto con el administrador de cuenta.
+* Puede [ver un vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) antes de comenzar para entender mejor los pasos.
+
+## <a name="create"></a>Crear y aprovisionar un circuito ExpressRoute
+
+[Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) tiene una buena colección de plantillas de Resource Manager. Use alguna de las [plantillas existentes](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) para crear un circuito de ExpressRoute.
+
+[!code-json[create-azure-expressroute-circuit](~/quickstart-templates/101-expressroute-circuit-create/azuredeploy.json)]
+
+Para ver más plantillas relacionadas, seleccione [aquí](https://azure.microsoft.com/resources/templates/?term=expressroute).
+
+Para crear un circuito de ExpressRoute mediante la implementación de una plantilla:
+
+1. Seleccione **Probar** en el bloque de código siguiente y luego siga las instrucciones para iniciar sesión en Azure Cloud Shell.
+
+    ```azurepowershell-interactive
+    $circuitName = Read-Host -Prompt "Enter a circuit name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${circuitName}rg"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-expressroute-circuit-create/azuredeploy.json"
+
+    $serviceProviderName = "Equinix"
+    $peeringLocation = "Silicon Valley"
+    $bandwidthInMbps = 500
+    $sku_tier = "Premium"
+    $sku_family = "MeteredData"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -circuitName $circuitName -serviceProviderName $serviceProviderName -peeringLocation $peeringLocation -bandwidthInMbps $bandwidthInMbps -sku_tier $sku_tier -sku_family $sku_family
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+   * **Nivel** determina si está habilitado un complemento estándar o premium de ExpressRoute. Puede especificar **Estándar** para obtener la SKU estándar o **Premium** si quiere el complemento Premium.
+
+   * La **ubicación de emparejamiento** es la ubicación física de emparejamiento con Microsoft.
+
+     > [!IMPORTANT]
+     > La ubicación de emparejamiento indica la [ubicación física](expressroute-locations.md) de emparejamiento con Microsoft. **No** está vinculada a la propiedad Location, que hace referencia a la ubicación geográfica donde se encuentra el proveedor de recursos de red de Azure. Aunque no están relacionadas, se recomienda elegir un proveedor de recursos de red geográficamente cerca de la ubicación de emparejamiento del circuito.
+
+    El nombre del grupo de recursos es el nombre del espacio de nombres de Service Bus con **rg** anexado.
+
+2. Seleccione **Copiar** para copiar el script de PowerShell.
+3. Haga clic con el botón derecho en la consola del shell y seleccione **Pegar**.
+
+Lleva algunos minutos crear un centro de eventos.
+
+En este tutorial se usa Azure PowerShell para implementar la plantilla. Para otros métodos de implementación de plantillas, consulte:
+
+* [Mediante Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* [Mediante la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).
+* [Mediante la API de REST](../azure-resource-manager/resource-group-template-deploy-rest.md).
+
+## <a name="delete"></a>Desaprovisionar y eliminar un circuito ExpressRoute
+
+Puede eliminar el circuito ExpressRoute seleccionando el icono **Eliminar** . Tenga en cuenta la información siguiente:
+
+* Tiene que desvincular todas las redes virtuales del circuito ExpressRoute. Si se produce un error en esta operación, compruebe si hay alguna red virtual vinculada al circuito.
+* Si el estado de aprovisionamiento del proveedor de servicios del circuito ExpressRoute es **Aprovisionando** o **Aprovisionado**, debe colaborar con su proveedor de servicios para que desaprovisionen el circuito. Se le siguen reservando recursos y facturándole por ello hasta que el proveedor de servicios complete el desaprovisionamiento del circuito y nos lo notifique.
+* Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprovisionamiento del proveedor de servicios está establecido en **No aprovisionado**), puede eliminar el circuito. Esto detiene la facturación del circuito.
+
+Puede eliminar el circuito de ExpressRoute si ejecuta el siguiente comando de PowerShell:
+
+```azurepowershell-interactive
+$circuitName = Read-Host -Prompt "Enter the same circuit name that you used earlier"
+$resourceGroupName = "${circuitName}rg"
+
+Remove-AzExpressRouteCircuit -ResourceGroupName $resourceGroupName -Name $circuitName
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Después de crear el circuito, lleve a cabo los pasos siguientes:
+
+* [Crear y modificar el enrutamiento para el circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
+* [Vincular la red virtual a su circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 05/24/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3f4ef7f333525d7408d0345b917102cddb295386
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 6ad2ab00060528557f618eb684ccfa710c3f09b9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66255462"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074176"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Monitor de estado de Application Insights
 
@@ -27,7 +27,7 @@ Monitor de estado se usa para instrumentar una aplicación .NET hospedada en IIS
 
 - Si la aplicación se implementa en Azure App Services, siga [estas instrucciones](azure-web-apps.md).
 - Si la aplicación se implementa en una máquina virtual de Azure, puede activar la supervisión de Application Insights en el panel de control de Azure.
-- (También hay varios artículos sobre cómo instrumentar [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
+- (También hay artículos independientes sobre cómo instrumentar [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)).
 
 
 ![Captura de pantalla de gráficos de información general de App Insights con información sobre las solicitudes con error, el tiempo de respuesta del servidor y las solicitudes del servidor](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -48,10 +48,10 @@ A continuación hay un resumen de lo que se obtiene por cada vía:
 | [Excepciones más detalladas](../../azure-monitor/app/asp-net-exceptions.md) | |Sí |
 | [Diagnósticos de dependencia](../../azure-monitor/app/asp-net-dependencies.md) |En .NET 4.6 +, pero con menos detalle |Sí, detalles completos: códigos de resultado, texto de comandos SQL, verbo HTTP|
 | [Contadores de rendimiento del sistema](../../azure-monitor/app/performance-counters.md) |Sí |Sí |
-| [API para la telemetría personalizada][api] |Sí |Sin  |
-| [Integración del registro de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md) |Sí |Sin  |
-| [Datos de usuario y página](../../azure-monitor/app/javascript.md) |Sí |Sin  |
-| Es necesario volver a compilar el código |Sí | Sin  |
+| [API para la telemetría personalizada][api] |Sí |Sin |
+| [Integración del registro de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md) |Sí |Sin |
+| [Datos de usuario y página](../../azure-monitor/app/javascript.md) |Sí |Sin |
+| Es necesario volver a compilar el código |Sí | Sin |
 
 
 
@@ -149,7 +149,7 @@ Hacemos un seguimiento de este problema [aquí](https://github.com/Microsoft/App
 * Para generar registros detallados, modifique el archivo de configuración: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` y agregue `<add key="TraceLevel" value="All" />` en `appsettings`.
 Luego, reinicie el monitor de estado.
 
-* Como Monitor de estado es una aplicación .NET también es posible habilitar [seguimiento de .net mediante la adición de los diagnósticos adecuados para el archivo de configuración](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por ejemplo, en algunos escenarios puede ser útil ver lo que sucede en el nivel de red por [configuración del seguimiento de red](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+* Puesto que Monitor de estado es una aplicación .NET, también es posible habilitar [seguimiento de .net mediante la adición de los diagnósticos adecuados al archivo de configuración](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por ejemplo, en algunos escenarios puede resultar útil ver lo que sucede en el nivel de red mediante la [configuración del seguimiento de red](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing).
 
 ### <a name="insufficient-permissions"></a>Permisos insuficientes
   
@@ -186,7 +186,7 @@ Compatibilidad de sistema operativo para el Monitor de estado de Application Ins
 * Windows Server 2012 R2
 * Windows Server 2016
 
-con .NET Framework 4.5 y SP más recientes (Monitor de estado se basa en esta versión de framework)
+con .NET Framework 4.5 y la versión más reciente de SP (Monitor de estado se compila en esta versión de framework).
 
 En el lado cliente: Windows 7, 8, 8.1 y 10, nuevamente con .NET Framework 4.5
 
@@ -280,7 +280,7 @@ Cuando selecciona una aplicación web para instrumentarla con el Monitor de esta
 
 A partir de ahora, Monitor de estado solo puede instalar las versiones 2.3 o 2.4 del SDK de Application Insights. 
 
-El SDK de Application Insights versión 2.4 es el [última versión compatible con .NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) que era [EOL enero de 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Por lo tanto, a partir de ahora se puede usar Monitor de estado para instrumentar una aplicación .NET 4.0. 
+La versión 2.4 del SDK de Application Insights es la [última compatible con .NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1), cuyo [final de vida útil fue en enero de 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Por lo tanto, a partir de ahora se puede usar Monitor de estado para instrumentar una aplicación .NET 4.0. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>¿Tengo que actualizar el Monitor de estado siempre que actualice la aplicación?
 

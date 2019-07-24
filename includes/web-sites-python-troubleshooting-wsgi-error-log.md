@@ -9,11 +9,11 @@ ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66137032"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186919"
 ---
 Si Python encuentra un error al iniciar la aplicación, se devolverá solo una página de error simple (p. ej. "La página no se puede mostrar porque se ha producido un error interno del servidor").
 
@@ -23,6 +23,6 @@ Para capturar errores de aplicaciones Python:
 2. En la pestaña **Configuración**, seleccione **Configuración de la aplicación**.
 3. En **Configuración de la aplicación**, escriba el siguiente par clave-valor:
     * Clave: WSGI_LOG
-    * Valor: D:\home\site\wwwroot\logs.txt (escriba el nombre de archivo)
+    * Valor: D:\home\site\wwwroot\logs.txt (escriba el nombre de archivo que elija)
 
 Ahora debería ver los errores en el archivo logs.txt en la carpeta wwwroot.

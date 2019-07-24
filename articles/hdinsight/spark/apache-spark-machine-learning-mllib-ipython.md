@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 31755dcc247ea3be5fb38249afd98dc72dcbc544
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: bdc645bf8de95265158c3bb7ebf71952369e4ab2
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717113"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190908"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Uso de Apache Spark MLlib para compilar una aplicación de aprendizaje automático y analizar un conjunto de datos
 
@@ -45,7 +45,7 @@ En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario
 
 1. Cree un cuaderno de Jupyter Notebook con el kernel de PySpark. Para las instrucciones, consulte [Creación de un cuaderno de Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-2. Importe los tipos necesarios para esta aplicación. Copie y pegue el código siguiente en una celda vacía y, a continuación, presione **MAYÚS + ENTRAR**.
+2. Importe los tipos necesarios para esta aplicación. Copie y pegue el siguiente código en una celda vacía y presione **Mayús + Entrar**.
 
     ```PySpark
     from pyspark.ml import Pipeline

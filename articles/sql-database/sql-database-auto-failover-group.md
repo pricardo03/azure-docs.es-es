@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 11b3e7724f34a7929d9851dbc8034829f020868b
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522850"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190710"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -42,7 +42,10 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Grupo de conmutación por error (FOG)**
 
-  Un grupo de conmutación por error es un grupo de bases de datos administradas por un único servidor de SQL Database o en una sola instancia administrada que puede conmutar por error como una unidad a otra región en caso de que algunas o todas bases de datos principales dejen de estar disponibles debido a una interrupción en la región primaria. Cuando se crea para instancias administradas, un grupo de conmutación por error contiene todas las bases de datos de usuario de la instancia, por lo que solo se puede configurar un grupo de conmutación por error en una instancia.
+  Un grupo de conmutación por error es un grupo con nombre de bases de datos administradas por un único servidor de SQL Database o en una sola instancia administrada que puede conmutar por error como una unidad a otra región en caso de que algunas o todas las bases de datos principales estén deshabilitadas debido a una interrupción en la región primaria. Cuando se crea para instancias administradas, un grupo de conmutación por error contiene todas las bases de datos de usuario de la instancia, por lo que solo se puede configurar un grupo de conmutación por error en una instancia.
+  
+  > [!IMPORTANT]
+  > El nombre del grupo de conmutación por error debe ser único globalmente en el dominio `.database.windows.net`.
 
 - **Servidores de SQL Database**
 

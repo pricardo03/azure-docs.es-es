@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158696"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186252"
 ---
 Si tiene problemas al realizar cualquier operación en galerías de imágenes compartidas, definiciones de imágenes y versiones de imágenes, vuelva a ejecutar el comando con errores en modo de depuración. El modo de depuración se activa al pasar el conmutador **-debug** con la CLI y el conmutador **-debug** con PowerShell. Una vez que haya encontrado el error, siga este documento para solucionar los errores.
 
@@ -24,7 +24,7 @@ Causas posibles:
 
 *El nombre de la galería no es válido.*
 
-Los caracteres permitidos para el nombre de la Galería son letras mayúsculas o minúsculas, números y puntos. El nombre de la Galería no puede contener guiones. Cambie el nombre de la galería y vuelva a intentarlo. 
+Los caracteres permitidos para el nombre de la Galería son letras mayúsculas o minúsculas, números y puntos. El nombre de la galería no puede contener guiones. Cambie el nombre de la galería y vuelva a intentarlo. 
 
 *El nombre de la galería no es único dentro de la suscripción.*
 
@@ -37,7 +37,7 @@ Causas posibles:
 
 *El nombre de la definición de la imagen no es válido.*
 
-Caracteres permitidos para la definición de la imagen son letras mayúsculas o minúsculas, dígitos, puntos, guiones y períodos. Cambie el nombre de la definición de la imagen y vuelva a intentarlo.
+Los caracteres permitidos para la definición de una imagen son letras mayúsculas o minúsculas, números, guiones y puntos. Cambie el nombre de la definición de la imagen y vuelva a intentarlo.
 
 *No se rellenan las propiedades obligatorias para crear la definición de una imagen.*
 
@@ -88,7 +88,7 @@ Compruebe que el valor de **OSType** de la versión de la imagen a partir de la 
 
 ## <a name="unable-to-share-resources"></a>No se pueden compartir los recursos
 
-El uso compartido de recursos de la versión de imagen, definición de la imagen y Galería de imágenes compartidas entre suscripciones se habilita mediante [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+El uso compartido de los recursos de la galería de imágenes compartidas, versiones de imágenes y definiciones de imágenes entre suscripciones se habilita mediante el [Control de acceso basado en roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## <a name="replication-is-slow"></a>La replicación es lenta
 

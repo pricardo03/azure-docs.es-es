@@ -6,20 +6,20 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 50368175fbe563d5685f17e96dd41251a0494afd
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.openlocfilehash: 0a482ae44c796e1519ffad0a604510166b1ac63c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728992"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165607"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Administrar datos de referencia de la disponibilidad general para un entorno de Azure Time Series Insights medianteC#
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Administración de los datos de referencia de GA en un entorno de Azure Time Series Insights con C#
 
 Este artículo describe un proyecto de ejemplo en C# que puede compilar para administrar los datos de referencia para un entorno de Azure Time Series Insights.
 
@@ -36,7 +36,7 @@ Realice los pasos siguientes antes de compilar y ejecutar el código de ejemplo:
 1. Modifique el código de ejemplo para reemplazar las constantes de ejemplo, designadas en **DUMMY #** , cerca del principio del código.
 
 > [!NOTE]
-> Ver el código de ejemplo de disponibilidad general en [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Vea el código de ejemplo de GA en [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dependencias del proyecto
 
@@ -247,4 +247,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Leer el [hacen referencia a datos API](/rest/api/time-series-insights/ga-reference-data-api).
+- Lea la [API de datos de referencia](/rest/api/time-series-insights/ga-reference-data-api).

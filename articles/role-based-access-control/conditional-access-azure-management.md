@@ -1,6 +1,6 @@
 ---
 title: Administración del acceso a la administración de Azure con acceso condicional en Azure Active Directory
-description: Aprenda a usar el acceso condicional en Azure AD para administrar el acceso a la administración de Azure.
+description: Obtenga más información sobre el uso del acceso condicional en Azure AD para administrar el acceso a la administración de Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: b824d122a5d26c17c41a0e2ea1c595c9e2dd7206
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 4ee58835a5055f5382cefa3a049424ffe97a01c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709284"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122940"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Administración el acceso a la administración de Azure con acceso condicional
 
@@ -37,4 +37,4 @@ La directiva que se crea se aplica a todos los puntos de conexión de la adminis
 > [!CAUTION]
 > Asegúrese de comprender cómo funciona el acceso condicional antes de configurar una directiva para administrar el acceso a la administración de Azure. Asegúrese de no crear condiciones que pudieran bloquear su propio acceso al portal.
 
-Para obtener más información sobre cómo configurar y usar el acceso condicional, consulte [Acceso condicional de Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
+Para obtener más información sobre cómo configurar y usar el acceso condicional, vea [Acceso condicional de Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).

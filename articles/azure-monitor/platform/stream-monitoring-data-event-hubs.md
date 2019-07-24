@@ -1,19 +1,19 @@
 ---
 title: Flujo de datos de supervisión de Azure a Event Hubs
-description: Aprenda a transmitir los datos de supervisión de Azure a un centro de eventos para obtener los datos en un asociado de SIEM o la herramienta de análisis.
-author: johnkemnetz
+description: Obtenga información sobre cómo hacer streaming de los datos de supervisión de Azure a un centro de eventos para que una herramienta de un asociado de Administración de eventos e información de seguridad o de análisis puedan disponer de ellos.
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: johnkem
+ms.author: nikiest
 ms.subservice: ''
-ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 8a4de244d0fa07bfc162625f577015317fca7e6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243464"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069334"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
@@ -33,7 +33,7 @@ En el entorno de Azure hay varios "niveles" de datos de supervisión, cuyo méto
 - **Datos de supervisión de la suscripción de Azure:** datos sobre el funcionamiento y la administración de una suscripción de Azure, así como sobre el estado y el funcionamiento del propio Azure. El [registro de actividad](./../../azure-monitor/platform/activity-logs-overview.md) contiene la mayoría de los datos de supervisión de suscripciones, como los incidentes de estado del servicio y las auditorías de Azure Resource Manager. Puede recopilar estos datos mediante un perfil de registro.
 - **Datos de supervisión de inquilino de Azure:** datos sobre el funcionamiento de los servicios de Azure en el nivel del inquilino, como Azure Active Directory. Las auditorías y los inicios de sesión de Azure Active Directory son ejemplos de datos de supervisión de inquilino. Estos datos se pueden recopilar con la configuración de diagnóstico de inquilino.
 
-Pueden enviarse datos desde cualquier nivel a un centro de eventos, donde pueden extraerse en una herramienta asociada. Algunos orígenes pueden configurarse para enviar datos directamente a un centro de eventos, mientras que otro proceso, como una aplicación lógica podría ser necesaria para recuperar los datos necesarios. En las secciones siguientes se describe cómo configurar los datos de cada nivel para el flujo de datos a un centro de eventos. En los pasos se presupone que ya tiene recursos en ese nivel que desea supervisar.
+Pueden enviarse datos desde cualquier nivel a un centro de eventos, donde pueden extraerse en una herramienta asociada. Algunos orígenes pueden configurarse para enviar datos directamente a un centro de eventos, mientras que es posible que se requiera otro proceso, como una aplicación lógica, para recuperar los datos necesarios. En las secciones siguientes se describe cómo configurar los datos de cada nivel para el flujo de datos a un centro de eventos. En los pasos se presupone que ya tiene recursos en ese nivel que desea supervisar.
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Configuración de un espacio de nombres de Event Hubs
 
@@ -43,8 +43,8 @@ Antes de empezar, debe [crear un espacio de nombres de Event Hubs y un centro de
 * El número de unidades de rendimiento permite aumentar la escala de rendimiento para los centros de eventos. El número de particiones permite paralelizar el consumo entre muchos consumidores. Una sola partición puede hacer hasta 20 MBps o aproximadamente 20 000 mensajes por segundo. Dependiendo de la herramienta que consume los datos, puede o no puede admitir el consumo de varias particiones. Si no está seguro del número de particiones que se va a establecer, se recomienda empezar con cuatro particiones.
 * Se recomienda establecer la retención de mensajes en el centro de eventos a 7 días. Si la herramienta de consumo deja de funcionar durante más de un día, esto garantiza que dicha herramienta puede continuar donde se quedó (para los eventos de hasta 7 días de antigüedad).
 * Se recomienda utilizar el grupo de consumidores predeterminado para el centro de eventos. No es necesario para crear otros grupos de consumidores o usar un grupo de consumidores independientes a menos que piense disponer de dos herramientas diferentes que consuman los mismos datos del mismo centro de eventos.
-* Para el registro de actividad de Azure, se elige un espacio de nombres de Event Hubs y Azure Monitor crea un centro de eventos dentro de ese espacio de nombres denominado "insights-logs-operationallogs". Para otros tipos de registro, puede elegir un centro de eventos existente (lo que permite reutilizar el mismo centro de eventos insights-logs-operationallogs) o hacer que Azure Monitor cree un centro de eventos por categoría de registro.
-* Por lo general, los puertos 5671 y 5672 deben estar abiertos en la máquina que consume datos del centro de eventos.
+* Para el registro de actividad de Azure, se elige un espacio de nombres de Event Hubs y Azure Monitor crea un centro de eventos dentro de ese espacio de nombres llamado "insights-logs-operational-logs". Para otros tipos de registro, puede elegir un centro de eventos existente (lo que permite reutilizar el mismo centro de eventos insights-logs-operational-logs) o hacer que Azure Monitor cree un centro de eventos por categoría de registro.
+* Por lo general, los puertos de salida 5671 y 5672 deben estar abiertos en la máquina o red virtual que consume datos del centro de eventos.
 
 Consulte también [Preguntas frecuentes sobre Event Hubs](../../event-hubs/event-hubs-faq.md).
 
@@ -117,8 +117,8 @@ El enrutamiento de los datos de supervisión a un centro de eventos con Azure Mo
 * **Servidor de Syslog**: si desea transmitir los datos de Azure Monitor directamente a un servidor de syslog, puede consultar [este repositorio de GitHub](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Archivar el registro de actividad a una cuenta de almacenamiento](../../azure-monitor/platform/archive-activity-log.md)
-* [Lea la información general sobre el registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md)
-* [Configurar una alerta basada en un evento de registro de actividad](../../azure-monitor/platform/alerts-log-webhook.md)
+* [Archivar el registro de actividad en una cuenta de almacenamiento](../../azure-monitor/platform/archive-activity-log.md)
+* [Leer la introducción sobre el registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md)
+* [Configurar una alerta basada en un evento del registro de actividad](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

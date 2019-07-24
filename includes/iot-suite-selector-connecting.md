@@ -9,11 +9,11 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147704"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186751"
 ---
 > [!div class="op_single_selector"]
 > * [C en Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -58,9 +58,9 @@ Cuando finalice el proceso de implementación para la solución de supervisión 
 
 Para que un dispositivo se conecte al acelerador de soluciones, debe identificarse en IoT Hub con credenciales válidas. Tendrá la oportunidad de guardar la cadena de conexión del dispositivo que contiene estas credenciales cuando agregue el dispositivo a la solución. Más adelante en este tutorial incluirá esta cadena en su aplicación cliente.
 
-Para agregar un dispositivo a la solución de supervisión remota, complete los pasos siguientes en el **Device Explorer** página en la solución:
+Para agregar un dispositivo a la solución de supervisión remota, realice los pasos siguientes en la página **Explorador de dispositivos** de la solución:
 
-1. Elija **+ nuevo dispositivo**y, a continuación, elija **Real** como el **tipo de dispositivo**:
+1. Elija **+ Nuevo dispositivo** y, luego, **Real** en **Tipo de dispositivo**:
 
     ![Adición de un dispositivo real](media/iot-suite-selector-connecting/devicesprovision.png)
 

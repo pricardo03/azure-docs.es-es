@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387968"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186339"
 ---
 El diagnóstico de problemas con un servicio en la nube de Microsoft Azure requiere la recopilación de archivos de registro del servicio en máquinas virtuales cuando se producen los problemas. Puede usar la extensión AzureLogCollector a petición para realizar una recopilación única de registros provenientes de una o más máquinas virtuales del servicio en la nube (desde roles web y roles de trabajo) y transferir los archivos recopilados a una cuenta de almacenamiento de Azure, sin iniciar sesión de manera remota en ninguna de las máquinas virtuales.
 
@@ -20,8 +20,8 @@ El diagnóstico de problemas con un servicio en la nube de Microsoft Azure requi
 
 Existen dos modos de recopilación que dependen de los tipos de archivos que se van a recopilar.
 
-* **Solo los registros del agente invitado de Azure (disponibilidad general)**. Este modo de recopilación incluye todos los registros relacionados con los agentes invitados y otros componentes de Azure.
-* **Todos los registros (completo)**. Este modo de recopilación recopila todos los archivos en modo de disponibilidad general además de:
+* **Solo los registros del agente invitado de Azure (disponibilidad general)** . Este modo de recopilación incluye todos los registros relacionados con los agentes invitados y otros componentes de Azure.
+* **Todos los registros (completo)** . Este modo de recopilación recopila todos los archivos en modo de disponibilidad general además de:
   
   * los registros de eventos de aplicación y del sistema
   * registros de errores HTTP
@@ -41,7 +41,7 @@ En ambos modos de recopilación, pueden especificarse carpetas de recopilación 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 * Tener una cuenta de almacenamiento como extensión para guardar los archivos zip generados.
-* Azure PowerShell. Consulte [instalar Azure PowerShell](/powershell/azure/install-az-ps)] para obtener instrucciones de instalación.
+* Azure PowerShell. Para obtener instrucciones de instalación, vea [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="add-the-extension"></a>Adición de la extensión
 Puede usar los cmdlets de [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) o las [API de REST de Service Management](https://msdn.microsoft.com/library/ee460799.aspx) para agregar la extensión AzureLogCollector.
