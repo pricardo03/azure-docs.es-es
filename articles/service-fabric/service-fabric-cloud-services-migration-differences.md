@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 8b486e617389e1611dfebf3d347d2d64df088593
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258648"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Obtenga información acerca de las diferencias entre Cloud Services y Service Fabric antes de migrar las aplicaciones.
@@ -29,11 +29,11 @@ Se trata de una guía de introducción a la migración de aplicaciones desde Clo
 ## <a name="applications-and-infrastructure"></a>Infraestructura y aplicaciones
 Una diferencia fundamental entre Cloud Services y Service Fabric es la relación entre las máquinas virtuales, las cargas de trabajo y aplicaciones. Aquí, una carga de trabajo se define como el código que escribe para realizar una tarea específica o proporcionar un servicio.
 
-* **Cloud Services tiene que ver con la implementación de aplicaciones como máquinas virtuales.**  El código que escriba está estrechamente asociado a una instancia de máquina virtual, como un rol de trabajo o un rol web. Implementar una carga de trabajo en Cloud Services es implementar una o más instancias de máquina virtual que ejecutan la carga de trabajo. No hay ninguna separación de las aplicaciones y las máquinas virtuales, por lo que no hay ninguna definición formal de una aplicación. Una aplicación puede considerarse un conjunto de instancias de rol de trabajo o web dentro de una implementación de Cloud Services o como una implementación completa de Cloud Services. En este ejemplo, se muestra una aplicación como un conjunto de instancias de rol.
+* **Cloud Services tiene que ver con la implementación de aplicaciones como máquinas virtuales.** El código que escriba está estrechamente asociado a una instancia de máquina virtual, como un rol de trabajo o un rol web. Implementar una carga de trabajo en Cloud Services es implementar una o más instancias de máquina virtual que ejecutan la carga de trabajo. No hay ninguna separación de las aplicaciones y las máquinas virtuales, por lo que no hay ninguna definición formal de una aplicación. Una aplicación puede considerarse un conjunto de instancias de rol de trabajo o web dentro de una implementación de Cloud Services o como una implementación completa de Cloud Services. En este ejemplo, se muestra una aplicación como un conjunto de instancias de rol.
 
 ![Aplicaciones y topología de Cloud Services][1]
 
-* **Service Fabric se usa para implementar aplicaciones en máquinas virtuales existentes o máquinas que ejecutan Service Fabric en Windows o Linux.**  Los servicios que escriba estarán completamente desacoplados de la infraestructura subyacente, que se abstrae mediante la plataforma de aplicaciones de Service Fabric, por lo que una aplicación se puede implementar en varios entornos. Una carga de trabajo en Service Fabric se denomina un "servicio", y uno o más servicios se agrupan en una aplicación definida formalmente, que se ejecuta en la plataforma de aplicaciones de Service Fabric. Varias aplicaciones se pueden implementar en un único clúster de Service Fabric.
+* **Service Fabric se usa para implementar aplicaciones en máquinas virtuales existentes o máquinas que ejecutan Service Fabric en Windows o Linux.** Los servicios que escriba estarán completamente desacoplados de la infraestructura subyacente, que se abstrae mediante la plataforma de aplicaciones de Service Fabric, por lo que una aplicación se puede implementar en varios entornos. Una carga de trabajo en Service Fabric se denomina un "servicio", y uno o más servicios se agrupan en una aplicación definida formalmente, que se ejecuta en la plataforma de aplicaciones de Service Fabric. Varias aplicaciones se pueden implementar en un único clúster de Service Fabric.
 
 ![Aplicaciones y topología de Service Fabric][2]
 
@@ -73,7 +73,7 @@ Con la comunicación directa, los niveles pueden comunicarse directamente a trav
 
  La comunicación directa es un modelo de comunicación común en Service Fabric. La principal diferencia entre Service Fabric y Cloud Services es que en Cloud Services se conecta a una máquina virtual, mientras que en Service Fabric se conecta a un servicio. Esta distinción es importante por dos motivos:
 
-* Servicios de Service Fabric no están enlazados a las máquinas virtuales que hospedan; servicios pueden moverse por el clúster y, de hecho, se esperan que mover por diversos motivos: El equilibrio de recursos, conmutación por error, las actualizaciones de aplicaciones y la infraestructura y las restricciones de colocación o carga. Esto significa que la dirección de una instancia de servicio se puede cambiar en cualquier momento. 
+* En Service Fabric, los servicios no están enlazados a las máquinas virtuales que los hospedan y pueden moverse por el clúster y; de hecho, se espera que lo hagan por varias razones: equilibrio de recursos, conmutación por error, actualizaciones de aplicaciones y de infraestructura, y restricciones de colocación o carga. Esto significa que la dirección de una instancia de servicio se puede cambiar en cualquier momento. 
 * En Service Fabric, una máquina virtual puede hospedar varios servicios, cada uno con puntos de conexión únicos.
 
 Service Fabric proporciona un mecanismo de detección de servicios, llamado Servicio de nombres, que puede usarse para resolver direcciones de puntos de conexión. 
@@ -90,22 +90,22 @@ Puede usarse el mismo modelo de comunicación en Service Fabric. Esto puede ser 
 ![Comunicación directa de Service Fabric][8]
 
 ## <a name="parity"></a>Paridad
-[Servicios en la nube es similar a Service Fabric en el grado de control frente a la facilidad de uso, pero ahora es un servicio heredado y Service Fabric se recomienda para nuevo desarrollo](https://docs.microsoft.com/azure/app-service/overview-compare); la siguiente es una comparación de la API:
+[Cloud Services es similar a Service Fabric en lo que se refiere al grado de control frente a la facilidad de uso, pero es un servicio heredado y Service Fabric se recomienda para los desarrollos nuevos](https://docs.microsoft.com/azure/app-service/overview-compare). A continuación se muestra una comparación de la API:
 
 
-| **API de servicio en la nube** | **API de Service Fabric** | **Notas** |
+| **API de Cloud Services** | **API de Service Fabric** | **Notas** |
 | --- | --- | --- |
-| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId o. NodeName | Id. es una propiedad de NodeName |
-| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrar por NodeName y use la propiedad FD |
-| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filtrar por NodeName y use la propiedad Upgrade |
-| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext o nomenclatura (ResolveService) | CodePackageActivationContext proporcionado por FabricRuntime.GetActivationContext tanto dentro de las réplicas a través de ServiceInitializationParameters.CodePackageActivationContext proporcionada durante. Inicializar |
-| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Si desea hacer el mismo tipo de filtrado por tipo, de que puede obtener la lista tipos de nodos del clúster manifiesto mediante FabricClient.ClusterManager.GetClusterManifest y tomar los tipos de nodo de rol/desde allí. |
-| RoleEnvironment.GetIsAvailable | WindowsFabricCluster conectarse o crear un FabricRuntime señalada a un nodo concreto | * |
+| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId o .NodeName | ID es una propiedad de NodeName. |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrar por NodeName y usar la propiedad FD. |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filtrar por NodeName y usar la propiedad Upgrade. |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext o Naming (ResolveService) | CodePackageActivationContext que se proporciona mediante FabricRuntime.GetActivationContext y dentro de las réplicas mediante ServiceInitializationParameters.CodePackageActivationContext proporcionado durante .Initialize. |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Si desea realizar el mismo tipo de filtrado por tipo, puede obtener la lista tipos de nodos del manifiesto de clúster mediante FabricClient.ClusterManager.GetClusterManifest y seleccionar los tipos de rol/nodo de ahí. |
+| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster o crear FabricRuntime que apunta a un nodo determinado | * |
 | RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
 | RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
 | LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
 | Role.GetInstances | FabricClient.QueryManager.GetNodeList o ResolveService | * |
-| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext o nomenclatura (ResolveService) | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext o Naming (ResolveService) | * |
 
 ## <a name="next-steps"></a>Pasos siguientes
 La ruta de migración más sencilla desde Cloud Services a Service Fabric es reemplazar solo la implementación de Cloud Services por una aplicación de Service Fabric y mantener la arquitectura general de la misma. El siguiente artículo proporciona una guía para ayudar a convertir un rol de trabajo o web en un servicio sin estado de Service Fabric.

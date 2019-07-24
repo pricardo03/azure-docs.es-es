@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 2dc4994d88fc03c23a6d5722d6018c926e7d6b8c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788367"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838444"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Tutorial: Aceptación y recepción de datos mediante Azure Data Share, versión preliminar
 
@@ -31,6 +31,8 @@ Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una i
 * Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Una cuenta de Azure Storage: si no la tiene, puede crear una cuenta de [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * Una invitación de Azure Data Share: Una invitación de Microsoft Azure con el asunto "Azure Data Share invitation from **<yourdataprovider@domain.com>** " (Invitación para Azure Data Share de yourdataprovider@domain.com).
+* Permiso para agregar la asignación de roles a la cuenta de almacenamiento, que está presente en el permiso *Microsoft.Authorization/role assignments/write*. Este permiso existe en el rol de propietario. 
+* Registro de proveedor de recursos para Microsoft.DataShare. Consulte la documentación sobre [proveedores de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) para obtener información sobre cómo hacerlo. 
 
 > [!IMPORTANT]
 > Para aceptar y recibir una instancia de Azure Data Share, primero debe registrar el proveedor de recursos Microsoft.DataShare y debe ser propietario de la cuenta de almacenamiento en la que acepta los datos. Siga las instrucciones documentadas en [Troubleshoot Azure Data Share Preview](data-share-troubleshoot.md) (Solución de problemas de Azure Data Share, versión preliminar) para registrar el proveedor de recursos del recurso compartido de datos, además de agregarse como propietario de la cuenta de almacenamiento. 

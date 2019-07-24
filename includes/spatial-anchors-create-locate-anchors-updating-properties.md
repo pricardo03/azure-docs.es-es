@@ -1,11 +1,11 @@
 ---
 ms.openlocfilehash: 8ebb10f955be8f3004fdbdc595ea0fefc0d2b7ea
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110766"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186028"
 ---
-## <a name="update-properties"></a>Actualizar propiedades
+## <a name="update-properties"></a>Actualización de propiedades
 
-Para actualizar las propiedades en un delimitador, usa el `UpdateAnchorProperties()` método. Si dos o más dispositivos intentan actualizar las propiedades para el mismo delimitador al mismo tiempo, usamos un modelo de simultaneidad optimista. Lo que significa que la primera escritura tendrán prioridad.  Todas las otras escrituras producirá un error de "Concurrency": se necesitaría una actualización de las propiedades antes de intentarlo de nuevo.
+Para actualizar las propiedades de un delimitador, se usa el método `UpdateAnchorProperties()`. Si dos o más dispositivos intentan actualizar las propiedades del mismo delimitador al mismo tiempo, se usa un modelo de simultaneidad optimista, lo que significa que la primera escritura tendrá prioridad.  En todas las demás se producirá un error de "simultaneidad", es decir, será necesario actualizar las propiedades antes de intentarlo de nuevo.

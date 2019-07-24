@@ -9,29 +9,29 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d52e0e1093668a65e76bd6600329619240aee182
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596626"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612602"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carga de archivos de un dispositivo a la nube con IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este tutorial se basa en el código del tutorial sobre el [envío de mensajes de la nube a un dispositivo con IoT Hub](iot-hub-node-node-c2d.md) para mostrar cómo se usan las [funcionalidades de carga de archivos de IoT Hub](iot-hub-devguide-file-upload.md) para cargar un archivo en [Azure Blob Storage](../storage/index.yml). En este tutorial se muestra cómo realizar las siguientes acciones:
+Este tutorial se basa en el código del tutorial sobre el [envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-node-node-c2d.md) para mostrar cómo se usan las [funcionalidades de carga de archivos de IoT Hub](iot-hub-devguide-file-upload.md) para cargar un archivo en [Azure Blob Storage](../storage/index.yml). En este tutorial se muestra cómo realizar las siguientes acciones:
 
-- Proporcionar un dispositivo de forma segura con un identificador URI de blob de Azure para cargar un archivo.
-- 
-- Usar las notificaciones de carga de archivo de IoT Hub para desencadenar el procesamiento del archivo en el back-end de aplicación.
+* Proporcionar un dispositivo de forma segura con un identificador URI de blob de Azure para cargar un archivo.
 
-El tutorial [Introducción al IoT Hub](quickstart-send-telemetry-node.md) muestra la funcionalidad de mensajería básica del dispositivo a la nube de la instancia de IoT Hub. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Por ejemplo:
+* Usar las notificaciones de carga de archivo de IoT Hub para desencadenar el procesamiento del archivo en el back-end de aplicación.
 
-*  Archivos grandes con imágenes
-*  Vídeos
-*  Datos de vibración muestreados con alta frecuencia
-*  Alguna forma de datos procesados previamente.
+En el inicio rápido sobre el [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md) se explica la funcionalidad básica de mensajería del dispositivo a la nube de IoT Hub. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Por ejemplo:
+
+* Archivos grandes con imágenes
+* Vídeos
+* Datos de vibración muestreados con alta frecuencia
+* Alguna forma de datos procesados previamente.
 
 Dichos archivos se suelen procesar por lotes en la nube mediante herramientas como [Azure Data Factory](../data-factory/introduction.md) o la pila [Hadoop](../hdinsight/index.yml). Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
 
@@ -216,6 +216,8 @@ Puede usar el portal para ver el archivo cargado en el contenedor de almacenamie
 
 En este tutorial ha aprendido a usar la funcionalidad de carga de archivos de IoT Hub para simplificar la carga de archivos desde los dispositivos. Puede continuar explorando las características y los escenarios del centro de IoT con los siguientes artículos:
 
-*  [Creación de un centro de IoT mediante programación](iot-hub-rm-template-powershell.md)
-*  [Introducción a SDK para C](iot-hub-device-sdk-c-intro.md)
-*  [SDK de IoT de Azure](iot-hub-devguide-sdks.md)
+* [Creación de un centro de IoT mediante programación](iot-hub-rm-template-powershell.md)
+
+* [Introducción a SDK para C](iot-hub-device-sdk-c-intro.md)
+
+* [SDK de IoT de Azure](iot-hub-devguide-sdks.md)

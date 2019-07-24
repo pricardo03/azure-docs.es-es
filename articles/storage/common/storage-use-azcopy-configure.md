@@ -1,6 +1,6 @@
 ---
-title: Configurar, optimizar y solucionar problemas de AzCopy con el almacenamiento de Azure | Microsoft Docs
-description: Configurar, optimizar y solucionar problemas de AzCopy.
+title: Configuración, optimización y solución de problemas de AzCopy con Azure Storage | Microsoft Docs
+description: Configure, optimice y solucione problemas de AzCopy.
 services: storage
 author: normesta
 ms.service: storage
@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 18dc3e224df18c900653e4549badcdd93f0df6ec
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.openlocfilehash: 1a67846889b43d582a7a7d477a33f0e2168fd760
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688024"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147862"
 ---
-# <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, optimizar y solucionar problemas de AzCopy
+# <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
-AzCopy es una utilidad de línea de comandos que puede usar para copiar los blobs o archivos a o desde una cuenta de almacenamiento. En este artículo le ayuda a realizar tareas de configuración avanzada y le ayuda a solucionar los problemas que pueden surgir al utilizar AzCopy.
+AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o archivos a o desde una cuenta de almacenamiento. Este artículo le ayuda a realizar tareas de configuración avanzadas y a solucionar los problemas que puedan surgir al usar AzCopy.
 
 > [!NOTE]
-> Si está buscando el contenido que le ayudarán a empezar a trabajar con AzCopy, consulte cualquiera de los siguientes artículos:
+> Si busca contenido que le ayude a empezar a trabajar con AzCopy, vea cualquiera de los artículos siguientes:
 > - [Introducción a AzCopy](storage-use-azcopy-v10.md)
 > - [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
 > - [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
@@ -28,19 +28,19 @@ AzCopy es una utilidad de línea de comandos que puede usar para copiar los blob
 
 ## <a name="configure-proxy-settings"></a>Configuración de los valores de proxy
 
-Para configurar la configuración de proxy para AzCopy, establezca el `https_proxy` variable de entorno.
+Para configurar las opciones de proxy para AzCopy, establezca la variable de entorno `https_proxy`.
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
-| **Windows** | `set https_proxy=<proxy IP>:<proxy port>` |
+| **Windows** | En un símbolo del sistema, use: `set https_proxy=<proxy IP>:<proxy port>`<br> En PowerShell, use: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
-Actualmente, AzCopy no admite a servidores proxy que requieren autenticación con NTLM o Kerberos.
+En la actualidad, AzCopy no admite servidores proxy que requieren autenticación con NTLM o Kerberos.
 
 ## <a name="optimize-throughput"></a>Optimización del rendimiento
 
-Establecer el `AZCOPY_CONCURRENCY_VALUE` variable de entorno para configurar el número de solicitudes simultáneas y para controlar el consumo de recursos y el rendimiento de rendimiento. Si el equipo tiene menos de 5 CPU, entonces el valor de esta variable se establece en `32`. En caso contrario, el valor predeterminado es igual a 16 multiplicado por el número de CPU. El valor máximo predeterminado de esta variable es `300`, pero puede establecer manualmente este valor superior o inferior.
+Establezca la variable de entorno `AZCOPY_CONCURRENCY_VALUE` para configurar el número de solicitudes simultáneas y controlar la capacidad de rendimiento y el consumo de recursos. Si el equipo tiene menos de cinco CPU, el valor de esta variable se establece en `32`. En caso contrario, el valor predeterminado es igual a 16 multiplicado por el número de CPU. El valor máximo predeterminado de esta variable es `300`, pero puede establecerlo manualmente en un valor superior o inferior.
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
@@ -48,11 +48,11 @@ Establecer el `AZCOPY_CONCURRENCY_VALUE` variable de entorno para configurar el 
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **macOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-Use el `azcopy env` para comprobar el valor actual de esta variable.  Si el valor está en blanco, el `AZCOPY_CONCURRENCY_VALUE` variable se establece en el valor predeterminado de `300`.
+Use `azcopy env` para comprobar el valor actual de esta variable.  Si el valor está en blanco, la variable `AZCOPY_CONCURRENCY_VALUE` se establece en el valor predeterminado de `300`.
 
 ## <a name="change-the-location-of-the-log-files"></a>Cambie la ubicación del archivo de registro.
 
-De forma predeterminada, los archivos de registro se encuentran en el `%USERPROFILE\\.azcopy` directorio de Windows o en el `$HOME\\.azcopy` directorio en Mac y Linux. Puede cambiar esta ubicación si necesita mediante los siguientes comandos.
+De forma predeterminada, los archivos de registro se encuentran en el directorio `%USERPROFILE\\.azcopy` de Windows o en el directorio `$HOME\\.azcopy` en Mac y Linux. Si es necesario, puede cambiar esta ubicación mediante los comandos siguientes.
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
@@ -60,28 +60,28 @@ De forma predeterminada, los archivos de registro se encuentran en el `%USERPROF
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
-Use el `azcopy env` para comprobar el valor actual de esta variable. Si el valor está en blanco, los registros se escriben en la ubicación predeterminada.
+Use `azcopy env` para comprobar el valor actual de esta variable. Si el valor está en blanco, los registros se escriben en la ubicación predeterminada.
 
 ## <a name="change-the-default-log-level"></a>Cambiar el nivel de registro predeterminado
 
-De forma predeterminada, el nivel de registro de AzCopy se establece en `INFO`. Si desea reducir el nivel de detalle de registro para ahorrar espacio en disco, sobrescribir esta configuración mediante el ``--log-level`` opción. 
+De forma predeterminada, el nivel de registro de AzCopy se establece en `INFO`. Si quiere reducir el nivel de detalle del registro para ahorrar espacio en disco, sobrescriba este valor mediante la opción ``--log-level``. 
 
-Los niveles de registro disponibles son: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, y `FATAL`.
+Los niveles de registro disponibles son: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` y `FATAL`.
 
 ## <a name="troubleshoot-issues"></a>Solución de problemas
 
-AzCopy crea archivos de registro y el plan para cada trabajo. Puede usar los registros para investigar y solucionar los problemas potenciales. 
+AzCopy crea archivos de registro y de plan para cada trabajo. Puede usar los registros para investigar y solucionar los problemas potenciales. 
 
-Los registros contendrá el estado de error (`UPLOADFAILED`, `COPYFAILED`, y `DOWNLOADFAILED`), la ruta de acceso completa y el motivo del error.
+Los registros contendrán el estado de error (`UPLOADFAILED`, `COPYFAILED` y `DOWNLOADFAILED`), la ruta de acceso completa y el motivo del error.
 
-De forma predeterminada, los archivos de registro y el plan se encuentran en el `%USERPROFILE\\.azcopy` directorio en Windows o `$HOME\\.azcopy` directorio en Mac y Linux.
+De forma predeterminada, los archivos de registro y de plan se encuentran en el directorio `%USERPROFILE\\.azcopy` de Windows o en el directorio `$HOME\\.azcopy` en Mac y Linux.
 
 > [!IMPORTANT]
-> Al enviar una solicitud a Microsoft Support (o para solucionar el problema de que impliquen a ningún tercero), compartir la versión censurada del comando que desea ejecutar. Esto garantiza que la SAS accidentalmente no se comparte con nadie. Puede encontrar la versión censurada al principio del archivo de registro.
+> Al enviar una solicitud a Soporte técnico de Microsoft (o al solucionar el problema con la participación de terceros), comparta la versión censurada del comando que quiere ejecutar. Esto garantiza que la SAS no se comparta de forma accidental con nadie. Puede encontrar la versión censurada al principio del archivo de registro.
 
 ### <a name="review-the-logs-for-errors"></a>Revisión de los registros en busca errores
 
-El siguiente comando obtiene todos los errores con `UPLOADFAILED` estado desde el `04dc9ca9-158f-7945-5933-564021086c79` registro:
+El comando siguiente obtiene todos los errores con el estado `UPLOADFAILED` del registro `04dc9ca9-158f-7945-5933-564021086c79`:
 
 **Windows**
 
@@ -97,7 +97,7 @@ grep UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 
 ### <a name="view-and-resume-jobs"></a>Visualización y reanudación de trabajos
 
-Cada operación de transferencia creará un trabajo de AzCopy. Use el siguiente comando para ver el historial de trabajos:
+Cada operación de transferencia creará un trabajo de AzCopy. Use el comando siguiente para ver el historial de trabajos:
 
 ```
 azcopy jobs list
@@ -115,11 +115,11 @@ Para filtrar a las transferencias por estado, use el siguiente comando:
 azcopy jobs show <job-id> --with-status=Failed
 ```
 
-Use el comando siguiente para reanudar un trabajo de error/cancelado. Este comando usa su identificador, junto con el token de SAS, ya que no es persistente por motivos de seguridad:
+Use el comando siguiente para reanudar un trabajo con error o cancelado. Este comando usa su identificador, junto con el token de SAS, ya que no es persistente por motivos de seguridad:
 
 ```
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
-Al reanudar un trabajo, AzCopy examina el archivo de plan de trabajo. El archivo de plan enumera todos los archivos que se identificaron para el procesamiento cuando se creó el trabajo por primera vez. Al reanudar un trabajo, AzCopy intentará transferir todos los archivos que aparecen en el archivo de plan que ya no se ha transferido.
+Al reanudar un trabajo, AzCopy examina el archivo de plan de trabajo. En el archivo de plan se enumeran todos los archivos que se han identificado para el procesamiento al crear el trabajo por primera vez. Al reanudar un trabajo, AzCopy intentará transferir todos los archivos que aparecen en el archivo de plan que no se han transferido todavía.

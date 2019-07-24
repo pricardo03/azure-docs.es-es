@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8eedea2e867dd2a5e2d9cf7e92f47c007bc48af1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797621"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707082"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -343,6 +343,8 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 El demonio de IoT Edge aplica la identificación de proceso para todos los módulos que se conectan a edgeHub por motivos de seguridad. Comprueba que todos los mensajes enviados por un módulo proceden del identificador de proceso principal del módulo. Si un módulo envía un mensaje desde un identificador de proceso diferente del que se estableció inicialmente, se rechazará el mensaje y se generará el mensaje de error 404.
 
 ### <a name="resolution"></a>Resolución
+A partir de la versión 1.0.7, todos los procesos de módulo tienen autorización para conectarse. Si no es posible actualizar a la versión 1.0.7, realice los pasos siguientes. Para más información, consulte el [registro de cambios de la versión v1.1.0.7](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+
 Asegúrese de que el módulo de IoT Edge personalizado siempre usa el mismo identificador de proceso para enviar los mensajes a edgeHub. Por ejemplo, asegúrese de usar `ENTRYPOINT` en lugar del comando `CMD` en el archivo de Docker, ya que `CMD` da lugar a un identificador de proceso para el módulo y a otro identificador de proceso para el comando bash que ejecuta el programa principal, mientras que `ENTRYPOINT` da lugar a un identificador de proceso único.
 
 
@@ -380,7 +382,7 @@ El ejemplo anterior establece el servidor DNS en un servicio DNS accesible públ
 
 Coloque `daemon.json` en la ubicación correcta para la plataforma: 
 
-| Plataforma | Ubicación |
+| Plataforma | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Host de Windows con contenedores de Windows | `C:\ProgramData\iotedge-moby\config` |

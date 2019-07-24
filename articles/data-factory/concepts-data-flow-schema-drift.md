@@ -3,16 +3,15 @@ title: Desfase de esquema de flujos de datos de asignación de Azure Data Factor
 description: Creación de flujos de datos resistentes en Azure Data Factory con desfase de esquema
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61262166"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722887"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Desfase del esquema de Mapping Data Flow
 
@@ -34,7 +33,7 @@ Con el fin de protegerse contra el desfase de esquema, es importante disponer de
 
 * Cuando haya seleccionado esta opción, todos los campos de entrada se leerán desde el origen de cada ejecución de flujo de datos y se pasará a través del flujo completo al receptor.
 
-* Asegúrese de usar "Asignación automática" para asignar todos los nuevos campos en la transformación de receptor con el fin de que todos los nuevos campos se seleccionen y coloquen en el destino:
+* Asegúrese de usar "Asignación automática" para asignar todos los nuevos campos en la transformación de receptor con el fin de que todos los nuevos campos se seleccionen y coloquen en el destino.
 
 <img src="media/data-flow/automap.png" width="400">
 

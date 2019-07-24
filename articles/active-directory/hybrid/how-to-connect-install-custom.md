@@ -14,12 +14,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706a826d1b256e95e459d2a44cdb13ee56c70599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 969d08888002c97453cb2af18f42371227676597
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60352708"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109478"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
@@ -39,7 +39,7 @@ Al instalar los servicios de sincronización, puede dejar desactivada la secció
 
 | Configuración opcional | DESCRIPCIÓN |
 | --- | --- |
-| Usar un SQL Server existente |Permite especificar el nombre de SQL Server y el nombre de la instancia. Elija esta opción si ya dispone de un servidor de base de datos que le gustaría utilizar. Si SQL Server no tiene la exploración habilitada, escriba el nombre de la instancia seguido de una coma y un número de puerto en el cuadro **Nombre de instancia** .  A continuación, especifique el nombre de la base de datos de Azure AD Connect.  Los privilegios de SQL Server determinan si se creará una nueva base de datos o el Administrador de SQL debe crear la base de datos de antemano.  Si dispone de permisos de SA de SQL consulte [cómo instalar con una base de datos](how-to-connect-install-existing-database.md).  Si han sido permisos delegados (DBO) vea [instalar Azure AD Connect con permisos de administrador delegados de SQL](how-to-connect-install-sql-delegation.md). |
+| Usar un SQL Server existente |Permite especificar el nombre de SQL Server y el nombre de la instancia. Elija esta opción si ya dispone de un servidor de base de datos que le gustaría utilizar. Si SQL Server no tiene la exploración habilitada, escriba el nombre de la instancia seguido de una coma y un número de puerto en el cuadro **Nombre de instancia** .  Luego, especifique el nombre de la base de datos de Azure AD Connect.  Los privilegios de SQL Server determinan si se creará una nueva base de datos o el administrador de SQL debe crear la base de datos de antemano.  Si dispone de permisos de asociación de seguridad de SQL, vea [cómo instalar mediante una base de datos existente](how-to-connect-install-existing-database.md).  Si ha tenido permisos delegados (DBO), vea [instalar Azure AD Connect con permisos de administrador delegados de SQL](how-to-connect-install-sql-delegation.md). |
 | Usar una cuenta de servicio existente |De forma predeterminada, Azure AD Connect usa una cuenta de servicio virtual para que la usen los servicios de sincronización. Si usa un servidor SQL Server remoto o un proxy que requiere autenticación, necesita usar una **cuenta de servicio administrada** o una cuenta de servicio en el dominio y conocer la contraseña. En esos casos, especifique la cuenta que se va a usar. Asegúrese de que el usuario que ejecuta la instalación es una SA en SQL, por lo que se puede crear un inicio de sesión para la cuenta de servicio.  Consulte [Azure AD Connect: cuentas y permisos](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Con la versión más reciente, el administrador SQL puede realizar ahora el aprovisionamiento de la base de datos fuera de banda y luego el administrador de Azure AD Connect puede instalarlo con derechos de propietario de la base de datos.  Para más información, consulte [Instalación de Azure AD Connect con permisos de administrador delegado de SQL](how-to-connect-install-sql-delegation.md).|
 | Especificar grupos de sincronización personalizada |De forma predeterminada, Azure AD Connect crea cuatro grupos locales en el servidor cuando se instalan los servicios de sincronización. Estos grupos son: grupo Administradores, grupo Operadores, grupo Examinar y grupo Restablecimiento de contraseña. Puede especificar sus grupos aquí. Los grupos deben ser locales en el servidor y no se pueden encontrar en el dominio. |
 
@@ -113,7 +113,7 @@ Si tiene previsto usar el [filtrado basado en el grupo](#sync-filtering-based-on
 
 También es posible que algunos dominios no sean accesibles debido a restricciones del firewall. De forma predeterminada estos dominios no estarán seleccionados y tendrán una indicación de advertencia.  
 ![Dominios no accesibles](./media/how-to-connect-install-custom/unreachable.png)  
- Si la ve, asegúrese de que efectivamente no se pueda acceder a estos dominios y, por lo tanto, esta advertencia sea esperada.
+Si la ve, asegúrese de que efectivamente no se pueda acceder a estos dominios y, por lo tanto, esta advertencia sea esperada.
 
 ### <a name="uniquely-identifying-your-users"></a>Identificación de forma exclusiva de usuarios
 
@@ -143,7 +143,7 @@ Puesto que no se puede cambiar el atributo, debe pensar en un atributo que sea a
 ### <a name="sync-filtering-based-on-groups"></a>Filtrado de sincronización basado en grupos
 El filtrado por grupos permite sincronizar solo un pequeño subconjunto de objetos para una prueba piloto. Para utilizar esta característica, cree un grupo específicamente para este propósito en su entorno de Active Directory local. Luego, agregue los usuarios y grupos que se deben sincronizar con Azure AD como miembros directos. Posteriormente puede agregar y quitar usuarios a este grupo para mantener la lista de objetos que deban estar presentes en Azure AD. Todos los objetos que quiere sincronizar deben ser un miembro directo del grupo. Los usuarios, grupos, contactos y equipos o dispositivos deben ser miembros directos. No se resuelve la pertenencia a grupos anidados. Cuando se agrega un grupo como miembro, solo se agrega el grupo en sí, no sus miembros.
 
-![ Filtrado de sincronización ](./media/how-to-connect-install-custom/filter2.png)
+![Filtrado de sincronización](./media/how-to-connect-install-custom/filter2.png)
 
 > [!WARNING]
 > Esta característica solo está destinada a admitir una implementación piloto. No se debe usar en una implementación de producción completa.
@@ -219,7 +219,7 @@ Para cada bosque que se ha agregado en Azure AD Connect, debe proporcionar las c
 >Puede omitir un bosque particular si no desea usar el inicio de sesión único con ese bosque.
 
 #### <a name="configure-the-intranet-zone-for-client-machines"></a>Configuración de la zona de intranet para máquinas cliente
-Para asegurarse de que el cliente inicia sesión automáticamente en la zona de intranet, deberá asegurarse de que la dirección URL es parte de la zona de intranet. Así se asegurará de que el equipo unido a un dominio envía automáticamente un vale de Kerberos cuando está conectado a la red corporativa.
+Para asegurarse de que el cliente inicia sesión automáticamente en la zona de intranet, debe comprobar que la dirección URL forma parte de la zona de intranet. Así se asegurará de que el equipo unido a un dominio envía automáticamente un vale de Kerberos cuando está conectado a la red corporativa.
 En un equipo que tenga las herramientas de administración de directiva de grupo:
 
 1.  Abra las herramientas de administración de directivas de grupo.

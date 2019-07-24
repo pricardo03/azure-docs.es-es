@@ -1,22 +1,22 @@
 ---
-title: Reglas personalizadas de Firewall de aplicaciones web (WAF) de Azure
-description: Este artículo proporciona una introducción a las reglas personalizadas del firewall de aplicaciones web (WAF) de Azure Application Gateway.
+title: Reglas personalizadas de Firewall de aplicaciones web (WAF) v2 de Azure
+description: En este artículo se proporciona una introducción a las reglas personalizadas del firewall de aplicaciones web (WAF) v2 de Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6ea831771a8ffecfdd4c7c0d6374c16894e25ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752034"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164659"
 ---
-# <a name="custom-rules-for-web-application-firewall"></a>Reglas personalizadas para el firewall de aplicaciones web
+# <a name="custom-rules-for-web-application-firewall-v2"></a>Reglas personalizadas para el firewall de aplicaciones web v2
 
-El firewall de aplicaciones web (WAF) de Azure Application Gateway viene con un conjunto de reglas configuradas previamente y administradas por la plataforma que ofrece protección frente a muchos tipos diferentes de ataques. Estos ataques incluyen scripts entre sitios, inyección de código SQL y otros. Si es un administrador de WAF, puede escribir reglas propias para aumentar las del conjunto de reglas básico (CRS). Las reglas pueden bloquear o permitir el tráfico solicitado en función de criterios de coincidencia.
+El firewall de aplicaciones web (WAF) v2 de Azure Application Gateway viene con un conjunto de reglas preconfiguradas y administradas por la plataforma que ofrece protección frente a muchos tipos de ataques diferentes. Estos ataques incluyen scripts entre sitios, inyección de código SQL y otros. Si es un administrador de WAF, puede escribir reglas propias para aumentar las del conjunto de reglas básico (CRS). Las reglas pueden bloquear o permitir el tráfico solicitado en función de criterios de coincidencia.
 
 Las reglas personalizadas permiten crear reglas propias que se evalúan en cada solicitud que pasa por el WAF. Estas reglas tienen una prioridad mayor que el resto de las reglas de los conjuntos de reglas administrados. Las reglas personalizadas contienen un nombre de regla, la prioridad de la regla y una matriz de condiciones de coincidencia. Si estas condiciones se cumplen, se realiza una acción (para permitir o bloquear).
 

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304136"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementación y dexploración de una aplicación de inquilino único independiente que usa Azure SQL Database
@@ -27,7 +27,7 @@ El patrón de aplicación independiente (o aplicación por inquilino) implementa
 
 En este tutorial, implementará tres aplicaciones independientes para tres inquilinos en su suscripción de Azure.  Tiene acceso completo para explorar y trabajar con los componentes individuales de la aplicación.
 
-El código fuente y los scripts de administración de la aplicación están disponibles en el repositorio [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) de GitHub. La aplicación se creó con Visual Studio 2015 y no correctamente abrir y compilar en Visual Studio de 2019 sin actualizar.
+El código fuente y los scripts de administración de la aplicación están disponibles en el repositorio [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) de GitHub. La aplicación se creó con Visual Studio 2015 y no se abre ni se compila correctamente Visual Studio 2019 si no se actualiza.
 
 
 En este tutorial, obtendrá información:
@@ -37,7 +37,7 @@ En este tutorial, obtendrá información:
 > * Dónde obtener el código fuente de la aplicación y los scripts de administración.
 > * Información sobre los servidores y las bases de datos que componen la aplicación.
 
-Se publicarán más tutoriales. Le permiten explorar una variedad de escenarios de administración según este patrón de aplicación.   
+Se publicarán más tutoriales. Estos le permitirán explorar una variedad de escenarios de administración basados en este patrón de aplicación.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Implementación de la aplicación independiente SaaS Wingtip Tickets
 
@@ -55,8 +55,8 @@ Implemente la aplicación para los tres inquilinos proporcionados:
     > [!IMPORTANT]
     > Para realizar la demostración, se ha eliminado intencionadamente la protección de varios firewalls de autenticación y del servidor. **Cree un nuevo grupo de recursos** para cada implementación de aplicación.  No use un grupo de recursos existente. No use esta aplicación, ni ninguno de los recursos que se crean, para producción. Elimine todos los grupos de recursos cuando haya terminado con la aplicación para detener la facturación relacionada con ellos.
 
-    Es mejor usar solo letras minúsculas, números y guiones en los nombres de recursos.
-    * En **Grupo de recursos**, seleccione Crear nuevo y, luego, proporcione un nombre en minúsculas para el grupo de recursos. **wingtip-sa-\<venueName\>-\<usuario\>** es el patrón recomendado.  Para \<venueName\>, reemplace el nombre de la ubicación sin espacios en blanco. Para \<usuario\>, reemplace el valor de usuario a continuación.  Con este patrón, los nombres de grupos de recursos podrían ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1* y *wingtip-sa-fabrikamjazzclub-af1*.
+    Se recomienda usar solo letras minúsculas, números y guiones en los nombres de recurso.
+    * En **Grupo de recursos**, seleccione Crear nuevo y, luego, proporcione un nombre en minúsculas para el grupo de recursos. **wingtip-sa-\<venueName\>-\<usuario\>** es el patrón recomendado.  Para \<venueName\>, reemplace el nombre del lugar sin espacios. Para \<usuario\>, reemplace el valor de usuario a continuación.  Con este patrón, los nombres de grupos de recursos podrían ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1* y *wingtip-sa-fabrikamjazzclub-af1*.
     * Seleccione una **ubicación** en la lista desplegable.
 
     * En **Usuario**, se recomienda elegir un valor de usuario corto, como sus iniciales más un dígito, por ejemplo: *af1*.
@@ -76,16 +76,16 @@ La aplicación presenta lugares que albergan eventos.  Los lugares son los inqui
 
 1. Abra la página de eventos para cada uno de los tres inquilinos en pestañas independientes del explorador:
 
-   - http://events.contosoconcerthall.&lt;usuario&gt;.trafficmanager.net
-   - http://events.dogwooddojo.&lt;usuario&gt;.trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt;usuario&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt ;usuario&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt ;usuario&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt ;usuario&gt;.trafficmanager.net
 
      (En cada dirección URL, reemplace &lt;usuario&gt; por el valor de usuario de la implementación).
 
    ![Eventos](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Para controlar la distribución de las solicitudes entrantes, la aplicación usa [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Cada instancia de aplicación específica del inquilino incluye el nombre del inquilino como parte del nombre de dominio de la dirección URL. Todas las direcciones URL de inquilino incluyen el valor específico de **usuario**. Las direcciones URL tienen el formato siguiente:
-- http://events.&lt;nombreDeInstalación&gt;.&lt;usuario&gt;.trafficmanager.net
+- http://events.&lt ;nombreDeInstalación&gt;.&lt; usuario&gt;.trafficmanager.net
 
 La **ubicación** de la base de datos de cada inquilino se incluye en la configuración de la aplicación implementada correspondiente.
 
@@ -126,6 +126,6 @@ En este tutorial ha obtenido información:
 > * Información sobre los servidores y las bases de datos que componen la aplicación.
 > * Información sobre cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos.
 
-A continuación, pruebe el [aprovisionar y catalogar](saas-standaloneapp-provision-and-catalog.md) tutorial en el que explorará el uso de un catálogo de inquilinos que permite una variedad de escenarios entre inquilinos, como análisis de inquilinos y administración de esquema.
+A continuación, pruebe el tutorial de [aprovisionamiento y catálogo](saas-standaloneapp-provision-and-catalog.md) en el que explorará el uso de un catálogo de inquilinos que permite una variedad de escenarios entre inquilinos, como la administración de esquemas y el análisis de inquilinos.
  
 

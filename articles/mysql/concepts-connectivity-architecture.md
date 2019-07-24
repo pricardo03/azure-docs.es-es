@@ -1,30 +1,30 @@
 ---
 title: Arquitectura de conectividad en Azure Database for MySQL
-description: Describe la arquitectura de conectividad para su servidor Azure Database for MySQL.
+description: Se describe la arquitectura de conectividad para el servidor de Azure Database for MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: fa92c836fc967f67b46f0417ec5182b41e980b18
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 7a7ac843960e253b3172d1ed22fe5b59633897dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062464"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitectura de conectividad en Azure Database for MySQL
-Este artículo explica la base de datos de Azure para MySQL, arquitectura de conectividad, así cómo el tráfico se dirige a la base de datos de Azure para la instancia de MySQL desde clientes tanto dentro como fuera de Azure.
+En este artículo se explica la arquitectura de conectividad de Azure Database for MySQL y cómo se dirige el tráfico a la instancia de Azure Database for MySQL desde clientes internos y externos de Azure.
 
 ## <a name="connectivity-architecture"></a>Arquitectura de conectividad
-Conexión a la base de datos de Azure para MySQL SQL se establece a través de una puerta de enlace que se encarga de enrutamiento de las conexiones entrantes a la ubicación física del servidor en nuestros clústeres. El diagrama siguiente ilustra el flujo de tráfico.
+La conexión a la base de datos de Azure Database for MySQL se establece a través de una puerta de enlace que se encarga de enrutar las conexiones entrantes a la ubicación física del servidor en nuestros clústeres. En el diagrama siguiente se muestra este flujo de tráfico.
 
-![Información general sobre la arquitectura de conectividad](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+![Información general de la arquitectura de conectividad](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-Como cliente conectarse a la base de datos, obtiene una cadena de conexión que se conecta a la puerta de enlace. Esta puerta de enlace tiene una dirección IP pública que escucha el puerto 3306. Dentro del clúster de base de datos, el tráfico se reenvía a la base de datos de Azure adecuada para MySQL. Por lo tanto, para conectarse a su servidor, como en redes corporativas, es necesario abrir el firewall del lado cliente para permitir el tráfico saliente poder tener acceso a las puertas de enlace. A continuación encontrará una lista completa de las direcciones IP usadas por las puertas de enlace por región.
+Al conectarse a la base de datos, los clientes obtienen una cadena de conexión para conectarse a la puerta de enlace. Esta puerta de enlace tiene una dirección IP pública que escucha el puerto 3306. Dentro del clúster de base de datos, el tráfico se reenvía a la instancia de Azure Database for MySQL adecuada. Por tanto, para conectarse al servidor, como en las redes corporativas, es necesario abrir el firewall del lado cliente para permitir que el tráfico saliente llegue a nuestras puertas de enlace. A continuación encontrará una lista completa de las direcciones IP que usan nuestras puertas de enlace por región.
 
-## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>Base de datos de Azure para las direcciones IP de puerta de enlace de MySQL
-En la tabla siguiente se enumera las direcciones de IP principal y secundaria de la puerta de enlace de MySQL para todas las regiones de datos de la base de datos de Azure. La dirección IP principal es la dirección IP actual de la puerta de enlace y la segunda dirección IP es una dirección IP de conmutación por error en caso de error de la réplica principal. Como se mencionó, los clientes deben permitir salientes a ambas direcciones IP. La segunda dirección IP no escuche en cualquier servicio hasta que se active por-Azure Database for MySQL para que acepte conexiones.
+## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>Direcciones IP de la puerta de enlace de Azure Database for MySQL
+En la tabla siguiente se enumeran las direcciones IP principales y secundarias de la puerta de enlace de Azure Database for MySQL para todas las regiones de datos. La dirección IP principal es la dirección IP actual de la puerta de enlace y la dirección IP secundaria es una dirección IP de conmutación por error en caso de que se produzca un error en la principal. Como ya se ha mencionado, los clientes deben permitir el tráfico saliente a las dos direcciones IP. La dirección IP secundaria no escucha en ningún servicio hasta que Azure Database for MySQL la activa para aceptar conexiones.
 
 | **Nombre de la región** | **Dirección IP principal** | **Dirección IP secundaria** |
 |:----------------|:-------------|:------------------------|
@@ -67,5 +67,5 @@ En la tabla siguiente se enumera las direcciones de IP principal y secundaria de
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación y administración de reglas de firewall de Azure Database for MySQL mediante Azure Portal](./howto-manage-firewall-using-portal.md)
-* [Crear y administrar la base de datos de Azure para las reglas de firewall de MySQL mediante la CLI de Azure](./howto-manage-firewall-using-cli.md)
+* [Creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure](./howto-manage-firewall-using-cli.md)
 

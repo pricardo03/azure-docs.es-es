@@ -2,21 +2,21 @@
 title: 'Conceptos: aspectos básicos de Kubernetes para Azure Kubernetes Services (AKS)'
 description: Obtenga información sobre el clúster básico y los componentes de carga de trabajo de Kubernetes y cómo se relacionan con las características de Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: iainfou
-ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.author: mlearned
+ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514529"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616014"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
-Como el desarrollo de aplicaciones se mueve hacia un enfoque basado en contenedor, es importante la necesidad para organizar y administrar los recursos. Kubernetes es la plataforma líder que ofrece la capacidad de proporcionar programación de confianza de cargas de trabajo de aplicación con tolerancia a errores. Azure Kubernetes Service (AKS) es un oferta de Kubernetes administrado que simplifica aún más la administración e implementación de aplicaciones basadas en contenedores.
+Dado que el desarrollo de aplicaciones evoluciona hacia un enfoque basado en contenidos, cobra importancia la necesidad de organizar y administrar los recursos. Kubernetes es la plataforma líder que ofrece la capacidad de proporcionar programación de confianza de cargas de trabajo de aplicación con tolerancia a errores. Azure Kubernetes Service (AKS) es un oferta de Kubernetes administrado que simplifica aún más la administración e implementación de aplicaciones basadas en contenedores.
 
 En este artículo se presentan los componentes principales de la infraestructura de Kubernetes, como el *patrón de clúster*, los *nodos* y los *grupos de nodos*. También se presentan los recursos de la carga de trabajo, como los *pods*, las *implementaciones* y los *conjuntos*, junto con información acerca de cómo agrupar los recursos en *espacios de nombres*.
 
@@ -28,7 +28,7 @@ Puede compilar y ejecutar aplicaciones modernas, portátiles y basadas en micros
 
 Como plataforma abierta, Kubernetes le permite compilar aplicaciones con el lenguaje de programación, el sistema operativo, las bibliotecas o el bus de mensajería que prefiera. La integración continua y las herramientas de entrega continua (CI/CD) existentes pueden integrarse con Kubernetes para programar e implementar versiones.
 
-Azure Kubernetes Service (AKS) proporciona un servicio de Kubernetes administrado que reduce la complejidad de las principales tareas de administración e implementación, incluida la coordinación de actualizaciones. Los patrones de clúster de AKS se administran mediante la plataforma Azure y el usuario solo paga por los nodos de AKS que ejecuten sus aplicaciones. AKS se basa en el motor de código abierto Azure Kubernetes Service ([aks motor][aks-engine]).
+Azure Kubernetes Service (AKS) proporciona un servicio de Kubernetes administrado que reduce la complejidad de las principales tareas de administración e implementación, incluida la coordinación de actualizaciones. Los patrones de clúster de AKS se administran mediante la plataforma Azure y el usuario solo paga por los nodos de AKS que ejecuten sus aplicaciones. AKS se ha diseñado sobre el motor de código abierto de Azure Kubernetes Service ([aks-engine][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Arquitectura del clúster de Kubernetes
 
@@ -41,7 +41,7 @@ Un clúster de Kubernetes se divide en dos componentes:
 
 ## <a name="cluster-master"></a>Patrón de clúster
 
-Al crear un clúster de AKS, se crea y se configura automáticamente un patrón de clúster. Este patrón de clúster se proporciona como un recurso de Azure administrado que se extrae del usuario. No hay ningún costo para el patrón del clúster, solo los nodos que forman parte del clúster AKS.
+Al crear un clúster de AKS, se crea y se configura automáticamente un patrón de clúster. Este patrón de clúster se proporciona como un recurso de Azure administrado que se extrae del usuario. No hay ningún costo para el patrón de clúster, solo los nodos que forman parte del clúster de AKS.
 
 El patrón de clúster incluye los siguientes componentes principales de Kubernetes:
 
@@ -52,11 +52,11 @@ El patrón de clúster incluye los siguientes componentes principales de Kuberne
 
 AKS proporciona un patrón de clúster de inquilino único con un servidor de API dedicado, Scheduler, etc. El usuario define el número de nodos, así como su tamaño, y la plataforma Azure configura la comunicación segura entre el patrón de clúster y los nodos. La interacción con el patrón de clúster se produce a través de las API de Kubernetes, como `kubectl` o el panel de Kubernetes.
 
-Este patrón de clúster administrado significa que no es necesario configurar componentes, como alta disponibilidad *etcd* almacén, pero también significa que no puede acceder directamente el maestro del clúster. Las actualizaciones de Kubernetes se organizan a través de la CLI de Azure o Azure Portal, que actualiza el patrón de clúster y, a continuación, los nodos. Para solucionar los posibles problemas, puede revisar los registros maestros del clúster mediante registros de Azure Monitor.
+Este patrón de clúster administrado significa que no es necesario configurar componentes como el almacén *etcd* de alta disponibilidad, pero también significa que no puede obtener acceso al patrón de clúster directamente. Las actualizaciones de Kubernetes se organizan a través de la CLI de Azure o Azure Portal, que actualiza el patrón de clúster y, a continuación, los nodos. Para solucionar los posibles problemas, puede revisar los registros maestros del clúster mediante registros de Azure Monitor.
 
 Si tiene que configurar el patrón de clúster de una manera determinada o necesita acceso directo a él, puede implementar su propio clúster de Kubernetes con [aks-engine][aks-engine].
 
-Para las prácticas recomendadas asociadas, consulte [procedimientos recomendados de seguridad del clúster y las actualizaciones en AKS][operator-best-practices-cluster-security].
+Para los procedimientos recomendados asociados, consulte [Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)][operator-best-practices-cluster-security].
 
 ## <a name="nodes-and-node-pools"></a>Nodos y grupos de nodos
 
@@ -64,15 +64,15 @@ Para ejecutar las aplicaciones y los servicios de soporte técnico, necesitará 
 
 - `kubelet` es el agente de Kubernetes que procesa las solicitudes de orquestación desde el patrón de clúster y la programación de la ejecución de los contenedores solicitados.
 - Las redes virtuales se controlan mediante *kube-proxy* en cada nodo. El proxy enruta el tráfico de red y administra las direcciones IP para los servicios y los pods.
-- El *entorno de ejecución del contenedor* es el componente que permite que las aplicaciones en contenedor ejecuten recursos adicionales e interactúen con ellos, como la red virtual y el almacenamiento. En AKS, Moby se utiliza como el tiempo de ejecución del contenedor.
+- El *entorno de ejecución del contenedor* es el componente que permite que las aplicaciones en contenedor ejecuten recursos adicionales e interactúen con ellos, como la red virtual y el almacenamiento. En AKS, Moby se usa como el entorno de ejecución del contenedor.
 
 ![Máquina virtual de Azure y recursos auxiliares para un nodo de Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
 El tamaño de la máquina virtual de Azure para los nodos define el número de CPU, la cantidad de memoria y el tamaño y tipo de almacenamiento disponible (por ejemplo, SSD de alto rendimiento o HDD normal). Si prevé que las aplicaciones requerirán gran cantidad de CPU y memoria o almacenamiento de alto rendimiento, planifique el tamaño del nodo en consecuencia. También puede escalar verticalmente el número de nodos del clúster de AKS para satisfacer la demanda.
 
-En AKS, la imagen de máquina virtual para los nodos del clúster actualmente se basa en Ubuntu Linux o Windows Server 2019. Al crear un clúster de AKS o escalar verticalmente el número de nodos, la plataforma Azure crea el número solicitado de máquinas virtuales y las configura. No hay ninguna configuración manual para poder realizar. Los nodos de agente se facturan como máquinas virtuales estándares, tenemos los descuentos en el tamaño de máquina virtual que está usando (incluidos [reservas Azure][reservation-discounts]) se aplican automáticamente.
+En AKS, la imagen de la máquina virtual para los nodos del clúster se basa en Ubuntu Linux o en Windows Server 2019. Al crear un clúster de AKS o escalar verticalmente el número de nodos, la plataforma Azure crea el número solicitado de máquinas virtuales y las configura. No se puede realizar ninguna configuración manual. Los nodos de agente se facturan como máquinas virtuales estándar, por lo que cualquier descuento que tenga en el tamaño de la máquina virtual que esté utilizando (incluidas las [reservas de Azure][reservation-discounts]) se aplica automáticamente.
 
-Si tiene que utilizar un sistema operativo de host diferente, otro entorno de ejecución del contenedor o incluir paquetes personalizados, puede implementar su propio clúster de Kubernetes mediante [aks-engine][aks-engine]. El componente `aks-engine` ascendente incluye y ofrece opciones de configuración antes de que se admitan oficialmente en los clústeres de AKS. Por ejemplo, si desea usar un contenedor en tiempo de ejecución que no sean Moby, puede usar `aks-engine` para configurar e implementar un clúster de Kubernetes que satisfaga sus necesidades actuales.
+Si tiene que utilizar un sistema operativo de host diferente, otro entorno de ejecución del contenedor o incluir paquetes personalizados, puede implementar su propio clúster de Kubernetes mediante [aks-engine][aks-engine]. El componente `aks-engine` ascendente incluye y ofrece opciones de configuración antes de que se admitan oficialmente en los clústeres de AKS. Por ejemplo, si quiere usar un entorno de ejecución del contenedor que no sea Moby, puede usar `aks-engine` para configurar e implementar un clúster de Kubernetes que satisfaga sus necesidades actuales.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
@@ -81,7 +81,7 @@ No es necesario administrar los componentes principales de Kubernetes en cada no
 - **CPU**: 60 ms
 - **Memoria**: 20 % hasta 4 GiB
 
-Estas reservas significan que la cantidad de CPU y memoria disponibles para las aplicaciones puede parecer menos de lo que contiene el nodo propiamente dicho. Si hay restricciones de recursos debido al número de aplicaciones que se ejecutan, estas reservas garantizan que CPU y memoria permanecen disponibles para los componentes principales de Kubernetes. No se puede cambiar las reservas de recursos.
+Estas reservas significan que la cantidad de CPU y memoria disponibles para las aplicaciones puede parecer menos de lo que contiene el nodo propiamente dicho. Si hay restricciones de recursos debido al número de aplicaciones que se ejecutan, estas reservas garantizan que CPU y memoria permanecen disponibles para los componentes principales de Kubernetes. Las reservas de recursos no se pueden cambiar.
 
 Por ejemplo:
 
@@ -95,21 +95,21 @@ Por ejemplo:
     
 El sistema operativo del nodo subyacente también requiere cierta cantidad de recursos de CPU y memoria para completar sus propias funciones esenciales.
 
-Para las prácticas recomendadas asociadas, consulte [procedimientos recomendados para las características básicas de programador en AKS][operator-best-practices-scheduler].
+Para consultar los procedimientos recomendados asociados, consulte[Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)][operator-best-practices-scheduler].
 
 ### <a name="node-pools"></a>Grupos de nodos
 
-Los nodos de la misma configuración se agrupan en *grupos de nodos*. Un clúster de Kubernetes contiene uno o varios grupos de nodos. El número de nodos y el tamaño iniciales se definen al crear un clúster de AKS, que crea un *grupo de nodos predeterminado*. Este grupo de nodos predeterminado de AKS contiene las máquinas virtuales subyacentes que ejecutan los nodos del agente. Soporte para varios nodos grupo está actualmente en versión preliminar de AKS.
+Los nodos de la misma configuración se agrupan en *grupos de nodos*. Un clúster de Kubernetes contiene uno o varios grupos de nodos. El número de nodos y el tamaño iniciales se definen al crear un clúster de AKS, que crea un *grupo de nodos predeterminado*. Este grupo de nodos predeterminado de AKS contiene las máquinas virtuales subyacentes que ejecutan los nodos del agente. La compatibilidad con varios grupos de nodos está actualmente en versión preliminar en AKS.
 
 Al escalar o actualizar un clúster de AKS, la acción se realiza en el grupo de nodos predeterminado. También puede escalar o actualizar un grupo de nodos específicos. Para las operaciones de actualización, los contenedores en ejecución se programan en otros nodos del grupo de nodos hasta que todos los nodos se actualizan correctamente.
 
-Para obtener más información sobre cómo usar varios grupos de nodos de AKS, consulte [crear y administrar varios grupos de nodos para un clúster de AKS][use-multiple-node-pools].
+Para más información sobre cómo usar varios grupos de nodos en AKS, consulte [Creación y administración de varios grupos de nodos para un clúster en AKS][use-multiple-node-pools].
 
-### <a name="node-selectors"></a>Selectores de nodo
+### <a name="node-selectors"></a>Selectores de nodos
 
-En un clúster AKS que contiene varios grupos de nodos, es posible que necesite indicar que el programador de Kubernetes a qué grupo de nodos que se usará para un recurso determinado. Por ejemplo, controladores de entrada no deben ejecutar en nodos de Windows Server (actualmente en versión preliminar de AKS). Los selectores de nodo le permiten definir varios parámetros, por ejemplo, el nodo del sistema operativo, para controlar dónde se debe programar un pod.
+En un clúster de AKS que contenga varios grupos de nodos, es posible que tenga que indicar al programador de Kubernetes qué grupo de nodos utilizar para un recurso determinado. Por ejemplo, los controladores de entrada no deben ejecutarse en los nodos de Windows Server (actualmente en versión preliminar en AKS). Los selectores de nodo le permiten definir varios parámetros, por ejemplo, el nodo del sistema operativo, para controlar dónde se debe programar un pod.
 
-El siguiente ejemplo básico programa una instancia NGINX en un nodo de Linux mediante el selector de nodo *"beta.kubernetes.io/os": linux*:
+El siguiente ejemplo básico programa una instancia de NGINX en un nodo Linux mediante el selector de nodos *"beta.kubernetes.io/os": linux*:
 
 ```yaml
 kind: Pod
@@ -124,7 +124,7 @@ spec:
     "beta.kubernetes.io/os": linux
 ```
 
-Para obtener más información sobre cómo controlar dónde se programan pods, consulte [procedimientos recomendados para las características avanzadas de programador en AKS][operator-best-practices-advanced-scheduler].
+Para más información sobre cómo controlar pods en grupos de nodos, consulte [Procedimientos recomendados para las características avanzadas del programador en AKS][operator-best-practices-advanced-scheduler].
 
 ## <a name="pods"></a>Pods
 
@@ -132,7 +132,7 @@ Kubernetes utiliza *pods* para ejecutar una instancia de la aplicación. Un pod 
 
 Al crear un pod, puede definir *límites de recursos* para solicitar una determinada cantidad de recursos de memoria o CPU. Scheduler de Kubernetes intenta programar los pods para que se ejecuten en un nodo con recursos disponibles para satisfacer la solicitud. También puede especificar los límites de recursos máximos que impiden que un determinado pod consuma demasiados recursos de proceso del nodo subyacente. Un procedimiento recomendado consiste en incluir los límites de recursos de todos los pods para ayudar a Scheduler de Kubernetes a comprender qué recursos son necesarios y cuáles se permiten.
 
-Para obtener más información, consulte [Kubernetes pods][kubernetes-pods] (Pods de Kubernetes) y [Kubernetes pod lifecycle][kubernetes-pod-lifecycle] (Ciclo de vida de pods de Kubernetes).
+Para más información, consulte los [pods de Kubernetes][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
 
 Un pod es un recurso lógico, pero los contenedores se refieren al lugar donde se ejecutan las cargas de trabajo de la aplicación. Normalmente los pods son recursos desechables y efímeros, y los pods programados individualmente pierden algunas de las características de redundancia y alta disponibilidad que proporciona Kubernetes. En su lugar, los pods suelen implementarse y administrarse mediante *controladores* de Kubernetes, como el controlador de implementación.
 
@@ -142,7 +142,7 @@ Una *implementación* representa uno o varios pods idénticos, administrados por
 
 Puede actualizar implementaciones para cambiar la configuración de los pods, la imagen del contenedor que se ha utilizado o el almacenamiento conectado. El controlador de implementación purga y finaliza un determinado número de réplicas, crea réplicas a partir de la nueva definición de implementación y continúa el proceso hasta que se actualizan todas las réplicas de la implementación.
 
-La mayoría de las aplicaciones sin estado de AKS debe usar el modelo de implementación en lugar de programar pods individuales. Kubernetes puede supervisar el estado de las implementaciones para asegurarse de que se ejecute el número de réplicas necesario dentro del clúster. Cuando se programación solo pods individuales, los pods no se reinician si se produce un problema y no se vuelve a programar en los nodos en buen estado si su nodo actual encuentra un problema.
+La mayoría de las aplicaciones sin estado de AKS debe usar el modelo de implementación en lugar de programar pods individuales. Kubernetes puede supervisar el estado de las implementaciones para asegurarse de que se ejecute el número de réplicas necesario dentro del clúster. Cuando solo programa pods individuales, los pods no se reinician si se produce un problema y no se reprograman en nodos correctos si su nodo actual encuentra un problema.
 
 Si una aplicación requiere que un cuórum de instancias siempre esté disponible para tomar decisiones de administración, el usuario no quiere que un proceso de actualización interrumpa dicha capacidad. Los *presupuestos de interrupción de pods* se pueden usar para definir el número de réplicas de una implementación que se pueden quitar durante una actualización o la actualización de un nodo. Por ejemplo, si tiene *5* réplicas en la implementación, puede definir una interrupción del pod de *4* para permitir que solo se elimine o se vuelva a programar una réplica a la vez. Como en el caso de los límites de recursos del pod, un procedimiento recomendado consiste en definir los presupuestos de interrupciones de pods en aplicaciones que requieren que siempre esté presente un número mínimo de réplicas.
 
@@ -179,11 +179,11 @@ spec:
 
 Las aplicaciones más complejas se pueden crear incluyendo también servicios como los equilibradores de carga en el manifiesto de YAML.
 
-Para más información, consulte [Kubernetes deployments][kubernetes-deployments] (Implementaciones de Kubernetes).
+Para más información, consulte el artículo sobre las [implementaciones de Kubernetes][kubernetes-deployments].
 
 ### <a name="package-management-with-helm"></a>Administración de paquetes con Helm
 
-Un enfoque común para la administración de aplicaciones en Kubernetes es con [Helm][helm]. Puede compilar y usar *gráficos* públicos de Helm existentes que contienen una versión empaquetada del código de la aplicación y los manifiestos de YAML de Kubernetes para la implementación de recursos. Estos gráficos de Helm pueden almacenarse localmente o, con frecuencia, en un repositorio remoto, como [Azure Container Registry como un repositorio de Helm para gráficos][acr-helm].
+Un enfoque común para la administración de aplicaciones en Kubernetes es con [Helm][helm]. Puede compilar y usar *gráficos* públicos de Helm existentes que contienen una versión empaquetada del código de la aplicación y los manifiestos de YAML de Kubernetes para la implementación de recursos. Estos gráficos de Helm pueden almacenarse localmente o, con frecuencia, en un repositorio remoto, como un [repositorio de gráficos de Helm para Azure Container Registry][acr-helm].
 
 Para usar Helm, se instala un componente de servidor denominado *Tiller* en el clúster de Kubernetes. Tiller administra la instalación de gráficos dentro del clúster. El propio cliente de Helm se instala localmente en el equipo, o bien puede utilizarse dentro de [Azure Cloud Shell][azure-cloud-shell]. Puede buscar o crear gráficos de Helm con el cliente y, a continuación, instalarlos en el clúster de Kubernetes.
 
@@ -206,7 +206,7 @@ Con frecuencia, el desarrollo de aplicaciones modernas tiene como objetivo las a
 
 El usuario define la aplicación en formato YAML mediante `kind: StatefulSet` y el controlador de StatefulSet, a continuación, controla la implementación y administración de las réplicas necesarias. Los datos se escriben en el almacenamiento persistente, proporcionado por Azure Managed Disks o Azure Files. Con StatefulSets, el almacenamiento persistente subyacente permanece incluso cuando se elimina StatefulSet.
 
-Para más información, consulte [Kubernetes StatefulSets][kubernetes-statefulsets] (StatefulSets de Kubernetes).
+Para más información, consulte el [objeto StatefulSets de Kubernetes][kubernetes-statefulsets].
 
 Las réplicas de StatefulSet se programan y se ejecutan en cualquier nodo disponible en un clúster de AKS. Si tiene que asegurarse de que al menos un pod del conjunto se ejecute en un nodo, puede usar DaemonSet en su lugar.
 
@@ -218,10 +218,10 @@ El controlador de DaemonSet puede programar los pods en los nodos al principio d
 
 Como StatefulSets, DaemonSet se define como parte de una definición de YAML mediante `kind: DaemonSet`.
 
-Para más información, consulte [Kubernetes DaemonSets][kubernetes-daemonset] (DaemonSets de Kubernetes).
+Para más información, consulte el [objeto DaemonSets de Kubernetes][kubernetes-daemonset].
 
 > [!NOTE]
-> Si usa el [complemento nodos virtuales](virtual-nodes-cli.md#enable-virtual-nodes-addon), DaemonSets no creará los pods en el nodo virtual.
+> Si usa el [complemento de nodos virtuales](virtual-nodes-cli.md#enable-virtual-nodes-addon), DaemonSets no creará los pods en el nodo virtual.
 
 ## <a name="namespaces"></a>Espacios de nombres
 
@@ -235,17 +235,17 @@ Cuando se crea un clúster de AKS, están disponibles los siguientes espacios de
 - *kube-system*: este espacio de nombres es donde existen recursos principales, como las funciones de red como DNS y proxy o el panel de Kubernetes. Normalmente, el usuario no implementa sus propias aplicaciones en este espacio de nombres.
 - *kube-public*: este espacio de nombres no se utiliza normalmente, pero puede usarse para que los recursos sean visibles en todo el clúster y para que puedan verlos todos los usuarios.
 
-Para más información, consulte [Kubernetes namespaces][kubernetes-namespaces] (Espacios de nombres de Kubernetes).
+Para más información, consulte los [espacios de nombres de Kubernetes][kubernetes-namespaces].
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo se tratan algunos de los componentes básicos de Kubernetes y cómo se aplican a los clústeres de AKS. Para obtener más información sobre los conceptos básicos de Kubernetes y AKS, consulte los artículos siguientes:
 
-- [Kubernetes / AKS access and identity][aks-concepts-identity] (Acceso e identidad de Kubernetes/AKS)
-- [Kubernetes / AKS security][aks-concepts-security] (Seguridad de Kubernetes/AKS)
-- [Kubernetes / AKS virtual networks][aks-concepts-network] (Redes virtuales de Kubernetes/AKS)
-- [Kubernetes / AKS storage][aks-concepts-storage] (Almacenamiento de Kubernetes/AKS)
-- [Kubernetes / AKS scale][aks-concepts-scale] (Escala de Kubernetes/AKS)
+- [Acceso a Kubernetes/AKS e identidad][aks-concepts-identity]
+- [Seguridad de Kubernetes/AKS][aks-concepts-security]
+- [Redes virtuales de Kubernetes/AKS][aks-concepts-network]
+- [Almacenamiento de Kubernetes/AKS][aks-concepts-storage]
+- [Escala de Kubernetes/AKS][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 [aks-engine]: https://github.com/Azure/aks-engine

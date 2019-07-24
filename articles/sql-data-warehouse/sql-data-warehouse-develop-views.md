@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d4321f8aef6e754d8a1c5b16ac82b4fa62c40949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873608"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595499"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Vistas en Azure SQL Data Warehouse
 Sugerencias para usar las vistas T-SQL en Azure SQL Data Warehouse para desarrollar soluciones. 
@@ -23,12 +23,18 @@ Sugerencias para usar las vistas T-SQL en Azure SQL Data Warehouse para desarrol
 ## <a name="why-use-views"></a>¿Por qué usar vistas?
 Las vista se pueden usar de formas diferentes para mejorar la calidad de la solución.  Este artículo resalta algunos ejemplos de cómo enriquecer su solución con vistas, así como las limitaciones que se deben tener en cuenta.
 
+
+> [!IMPORTANT]
+> Vea la nueva sintaxis de la vista materializada en la instrucción [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Para más información, consulte las [notas de la versión](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+>
+
+
 > [!NOTE]
 > En este artículo no se explica la sintaxis de CREATE VIEW. Para más información, consulte la documentación de [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql).
 > 
-> 
 
 ## <a name="architectural-abstraction"></a>Abstracción de arquitectura
+
 Se trata de un patrón de aplicación común para volver a crear tablas con la característica CREATE TABLE AS SELECT (CTAS) seguida de un patrón de cambio de nombre de objetos mientras se cargan los datos.
 
 En el ejemplo siguiente se agregan registros de fecha nuevos a una dimensión de fecha. Observe cómo una nueva tabla, DimDate_New, se crea por primera vez y luego cambia de nombre para reemplazar la versión original de la tabla.

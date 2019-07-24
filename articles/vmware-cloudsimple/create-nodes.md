@@ -1,6 +1,6 @@
 ---
-title: Comprar nodos para la solución VMware CloudSimple - Azure
-description: Obtenga información sobre cómo agregar nodos a la de VMWare con implementación CloudSimple
+title: 'Aprovisionamiento de nodos de la solución de VMware de CloudSimple: Azure'
+description: Obtenga información sobre cómo agregar nodos a VMWare con la implementación de CloudSimple.
 author: dikamath
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -8,40 +8,40 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9f5108207c4f8debc65b9d1fe625ae7033ca4e70
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 33de07663c91f12d4e10c4661b841cd2dbe5a162
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577186"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165251"
 ---
-# <a name="purchase-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Comprar nodos para la solución VMware CloudSimple - Azure
+# <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Aprovisionamiento de nodos de la solución de VMware de CloudSimple: Azure
 
-Aprovisionar los nodos en el portal de Azure. A continuación, puede configurar paga a medida que vaya capacidad para su entorno de nube privada CloudSimple.
+Aprovisione nodos en Azure Portal. Después puede configurar la capacidad de pago por uso de su entorno de nube privada de CloudSimple.
 
-## <a name="add-a-purchased-node-to-your-cloudsimple-private-cloud"></a>Agregar un nodo comprado a la nube privada CloudSimple
+## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>Adición de un nodo aprovisionado a la nube privada de CloudSimple
 
 1. Seleccione **Todos los servicios**.
-2. Busque **CloudSimple nodos**.
+2. Busque **Nodos CloudSimple**.
 
-   ![Búsqueda CloudSimple nodos](media/create-cloudsimple-node-search.png)
+   ![Búsqueda de los nodos CloudSimple](media/create-cloudsimple-node-search.png)
 
-3. Seleccione **CloudSimple nodos**.
-4. Haga clic en **agregar** para crear los nodos.
+3. Seleccione **Nodos CloudSimple**.
+4. Haga clic en **Agregar** para crear los nodos.
 
-    ![Agregar nodos CloudSimple](media/create-cloudsimple-node-add.png)
+    ![Adición de los nodos CloudSimple](media/create-cloudsimple-node-add.png)
 
-5. Seleccione la suscripción que desea comprar CloudSimple nodos.
-6. Seleccione el grupo de recursos para los nodos. Para agregar un nuevo grupo de recursos, haga clic en **crear nuevo**.
+5. Seleccione la suscripción en la que quiera aprovisionar los nodos CloudSimple.
+6. Seleccione el grupo de recursos de los nodos. Para agregar un nuevo grupo de recursos, haga clic en **Crear nuevo**.
 7. Escriba el prefijo para identificar los nodos.
-8. Seleccione la ubicación de los recursos del nodo.
-9. Seleccione la ubicación dedicada para hospedar los recursos del nodo.
-10. Seleccione el tipo de nodo. Puede elegir el [opción CS28 o CS36](cloudsimple-node.md). Esta última opción incluye la capacidad de proceso y memoria máxima.
-11. Seleccione el número de nodos para aprovisionar.
+8. Seleccione la ubicación de los recursos de los nodos.
+9. Seleccione la ubicación dedicada en la que hospedar los recursos de los nodos.
+10. Seleccione el tipo de nodo. Puede elegir entre las [opciones CS28 o CS36](cloudsimple-node.md). Esta última opción incluye la capacidad de proceso y memoria máxima.
+11. Seleccione el número de nodos que quiere aprovisionar.
 12. Seleccione **Revisar + crear**.
-13. Revise la configuración. Para modificar la configuración, haga clic en **anterior**.
+13. Revise la configuración. Para modificar la configuración, haga clic en **Anterior**.
 14. Seleccione **Crear**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de la nube privada](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* [Create Private Cloud](https://docs.azure.cloudsimple.com/create-private-cloud/) (Creación de una nube privada)

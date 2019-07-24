@@ -4,7 +4,7 @@ description: Guía de alta disponibilidad para la configuración de varios SID d
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b27ea761d19eb494895daceff699b2b604eccea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dadbfb138fb9e3e77cee265c008524b9c424a5dd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153868"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709616"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Creación de una configuración de varios SID de SAP NetWeaver
 
@@ -642,31 +642,31 @@ El procedimiento completo de instalar un segundo sistema SID2 de SAP se describe
 
 El procedimiento general es el siguiente:
 
-1. [Instalación del primer nodo de clúster de SAP][sap-ha-guide-9.1.2].  
+1. [Instale el primer nodo de clúster de SAP][sap-ha-guide-9.1.2].  
  En este paso, instalará SAP con una instancia de ASCS/SCS de alta disponibilidad en el **nodo 1 del clúster de WSFC existente**.
 
-2. [Modificación del perfil SAP de la instancia de ASCS/SCS][sap-ha-guide-9.1.3].
+2. [Modifique el perfil SAP de la instancia de ASCS/SCS][sap-ha-guide-9.1.3].
 
-3. [Configuración de un puerto de sondeo][sap-ha-guide-9.1.4].  
+3. [Configure un puerto de sondeo][sap-ha-guide-9.1.4].  
  En este paso, va a configurar un puerto de sondeo SAP-SID2-IP del recurso de clúster de SAP mediante PowerShell. Ejecute esta configuración en uno de los nodos del clúster ASCS/SCS de SAP.
 
-4. [Instalación de la instancia de base de datos][sap-ha-guide-9.2].  
+4. [Instale la instancia de base de datos][sap-ha-guide-9.2].  
  En este paso, va a instalar DBMS en un clúster WSFC específico.
 
-5. [Instalación del segundo nodo del clúster][sap-ha-guide-9.3].  
+5. [Instale el segundo nodo de clúster][sap-ha-guide-9.3].  
  En este paso, instalará SAP con una instancia de ASCS/SCS de alta disponibilidad en el nodo 2 del clúster de WSFC existente.
 
 6. Abra los puertos de Firewall de Windows de la instancia ASCS/SCS de SAP y el puerto de sondeo.  
  En ambos nodos del clúster usados para la instancia ASCS/SCS de SAP, abra todos los puertos de Firewall de Windows usados por los puertos ASCS/SCS de SAP. Estos puertos se enumeran en la [Guía de alta disponibilidad de SAP NetWeaver en máquinas virtuales Windows][sap-ha-guide-8.8].  
  Además, abra el puerto de sondeo del equilibrador de carga interno de Azure, que en nuestro caso es 62350.
 
-7. [Cambio del tipo de inicio del servicio de Windows para la instancia de ERS de SAP][sap-ha-guide-9.4].
+7. [Cambie el tipo de inicio del servicio de Windows para la instancia de ERS de SAP][sap-ha-guide-9.4].
 
-8. [Instalación del servidor de aplicaciones principal de SAP][sap-ha-guide-9.5] en la nueva máquina virtual dedicada.
+8. [Instale el servidor de aplicaciones principal de SAP][sap-ha-guide-9.5] en la nueva máquina virtual dedicada.
 
-9. [Instalación del servidor de aplicaciones adicional de SAP][sap-ha-guide-9.6] en la nueva máquina virtual dedicada.
+9. [Instale el servidor de aplicaciones adicional de SAP][sap-ha-guide-9.6] en la nueva máquina virtual dedicada.
 
-10. [Prueba de la conmutación por error de la instancia de ASCS/SCS de SAP y de la replicación de SIOS][sap-ha-guide-10].
+10. [Pruebe la conmutación por error de la instancia de ASCS/SCS de SAP y de la replicación de SIOS][sap-ha-guide-10].
 
 ## <a name="next-steps"></a>Pasos siguientes
 

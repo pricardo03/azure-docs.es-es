@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 92ea3c71dda011c5f7b19682d9bdea6c226ae5d2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992080"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Uso de colas de Service Bus con PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-En este tutorial, aprenderá a crear aplicaciones de PHP para enviar y recibir mensajes de una cola de Service Bus. 
+En este tutorial, obtendrá información sobre cómo crear aplicaciones de PHP para enviar mensajes a una cola Service Bus y recibir mensajes de una cola de Service Bus. 
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar su [ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener un [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Si no tiene una cola para que funcione con, siga los pasos de la [uso de Azure portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) artículo para crear una cola.
-    1. Leer el breve **Introducción** de Service Bus **colas**. 
-    2. Creación de un Bus de servicio **espacio de nombres**. 
-    3. Obtener el **cadena de conexión**. 
+1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Si no tiene una cola con la que trabajar, siga los pasos del artículo [Uso de Azure Portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) para crear una.
+    1. Lea la **introducción** rápida de las **colas** de Service Bus. 
+    2. Cree un **espacio de nombres** de Service Bus. 
+    3. Obtenga la **cadena de conexión**. 
 
         > [!NOTE]
-        > Creará un **cola** en el espacio de nombres de Service Bus mediante PHP en este tutorial. 
+        > Creará una **cola** en el espacio de nombres de Service Bus con PHP en este tutorial. 
 3. [SDK de Azure para PHP](../php-download-sdk.md)
 
 ## <a name="create-a-php-application"></a>Creación de una aplicación PHP
@@ -43,7 +43,7 @@ El único requisito a la hora de crear una aplicación PHP para obtener acceso a
 > [!NOTE]
 > La instalación de PHP debe tener también la [extensión OpenSSL](https://php.net/openssl) instalada y habilitada.
 
-En esta guía, usará las características de servicio, que pueden llamarse desde dentro de una aplicación PHP localmente o en el código que se ejecuta dentro de un rol web de Azure, el rol de trabajo o el sitio Web.
+En esta guía, utilizará funciones del servicio a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Obtención de las bibliotecas de clientes de Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
@@ -96,7 +96,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageShare
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="create-a-queue"></a>Crear una cola
+## <a name="create-a-queue"></a>Creación de una cola
 Puede realizar operaciones de administración para colas de Service Bus mediante la clase `ServiceBusRestProxy`. Un objeto `ServiceBusRestProxy` se construye mediante el método de generador `ServicesBuilder::createServiceBusService` con una cadena de conexión adecuada que encapsula los permisos de token para administrarlo.
 
 En el ejemplo siguiente se muestra cómo crear una instancia de un objeto `ServiceBusRestProxy` y llamar a `ServiceBusRestProxy->createQueue` para crear una cola denominada `myqueue` dentro de un espacio de nombres de servicios `MySBNamespace`:
@@ -163,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-Los mensajes enviados a (desde) Service Bus y recibidos las colas son instancias de la [BrokeredMessage][BrokeredMessage] clase. Los objetos [BrokeredMessage][BrokeredMessage] tienen un conjunto de métodos y propiedades estándar que se usan para retener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de la aplicación.
+Los mensajes enviados a las colas de Service Bus y recibidos en ellas son instancias de la clase [BrokeredMessage][BrokeredMessage]. Los objetos [BrokeredMessage][BrokeredMessage] tienen un conjunto de métodos y propiedades estándar que se usan para retener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de la aplicación.
 
 El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB.
 
@@ -224,7 +224,7 @@ También hay un tiempo de espera asociado con un mensaje bloqueado en la cola y,
 En caso de que la aplicación se bloquee después de procesar el mensaje, pero antes de realizar la solicitud `deleteMessage`, el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina *Al menos un procesamiento*, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado,entonces se recomienda la incorporación de lógica adicional a la aplicación para administrar la entrega de mensajes duplicados. A menudo, esto se consigue con la propiedad `getMessageId` del mensaje, que permanece constante en todos los intentos de entrega.
 
 > [!NOTE]
-> Puede administrar los recursos de Service Bus con [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta ofrece características avanzadas, como la funcionalidad de importación/exportación o la capacidad de probar el tema, colas, suscripciones, servicios de retransmisión, notification hubs y los centros de eventos. 
+> Puede administrar los recursos de Service Bus con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar el tema, las colas, las suscripciones, los servicios de retransmisión, los centros de notificaciones y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya conoce los aspectos básicos de las colas de Service Bus, consulte [Colas, temas y suscripciones][Queues, topics, and subscriptions], donde encontrará más información.

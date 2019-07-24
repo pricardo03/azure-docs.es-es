@@ -1,5 +1,5 @@
 ---
-title: Información general de los nodos para la solución VMware CloudSimple - Azure
+title: 'Introducción a los nodos de la solución de VMware de CloudSimple: Azure'
 description: Obtenga información sobre los conceptos y los nodos CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
@@ -8,54 +8,54 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b3c8fca1dd93f379860cc3b084fbb14d4a0c6380
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: fb82e31d58d9955efc3b147eccf2b82b8768aeee
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577366"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165796"
 ---
-# <a name="cloudsimple-nodes-overview"></a>Información general de los nodos de CloudSimple
+# <a name="cloudsimple-nodes-overview"></a>Introducción a los nodos CloudSimple
 
-Un nodo es:
+Un nodo:
 
-* Una reconstrucción completa dedicado de proceso host donde está instalado el hipervisor de VMware ESXi  
-* Una unidad de la informática puede comprar o reservar para crear nubes privadas  
-* Disponible para comprar o reservar en una región donde está disponible el servicio CloudSimple
+* Es un host de proceso completo dedicado en el que se instala el hipervisor ESXi.  
+* Es una unidad de computación que puede aprovisionar o reservar para crear nubes privadas.  
+* Está disponible para aprovisionar o reservar en una región donde está disponible el servicio CloudSimple.
 
-Los nodos son bloques de creación de una nube privada.  Para crear una nube privada, se necesita un mínimo de tres nodos de la misma SKU.  Para expandir una nube privada, agregar nodos adicionales.  Puede agregar nodos a un clúster existente. O bien, puede crear un nuevo clúster mediante la compra de los nodos en el portal de Azure y su asociación con el servicio CloudSimple.  Todos los nodos adquiridos están visibles en el servicio CloudSimple.  Crear una nube privada desde los nodos en el CloudSimple Portal adquiridos.
+Los nodos son bloques de compilación de una nube privada.  Para crear una nube privada, necesita un mínimo de tres nodos de la misma SKU.  Para ampliar una nube privada, agregue más nodos.  Puede agregar nodos a un clúster existente. O bien, puede crear un clúster; para ello, aprovisione nodos en Azure Portal y asócielos con el servicio CloudSimple.  Todos los nodos aprovisionados aparecen en el servicio CloudSimple.  Se crea una nube privada desde los nodos aprovisionados en el portal de CloudSimple.
 
-## <a name="purchased-nodes"></a>Nodos adquiridos
+## <a name="provisioned-nodes"></a>Nodos aprovisionados
 
-Nodos adquiridos proporcionan capacidad de pago por uso. Comprar nodos le ayuda a escalar rápidamente su clúster de VMware a petición. Puede agregar nodos según sea necesario, o eliminar un nodo adquirido para escalar verticalmente el clúster de VMware. Nodos adquiridos se factura mensualmente y carga a la suscripción en la que se compran:
+Los nodos aprovisionados proporcionan capacidad de pago por uso. Al aprovisionar nodos, puede escalar rápidamente su clúster de VMware a petición. Puede agregar nodos según sea necesario o eliminar un nodo aprovisionado para reducir verticalmente el clúster de VMware. Los nodos aprovisionados se facturan mensualmente y se cargan en la suscripción en la que están aprovisionados:
 
-* Si paga por su suscripción de Azure con tarjeta de crédito, la tarjeta se factura inmediatamente.
-* Si se le factura por factura, los cargos aparecen en la próxima factura.
+* Si paga la suscripción a Azure con tarjeta de crédito, se factura de inmediato en la tarjeta.
+* Si se le factura, los cargos aparecerán en la próxima factura.
 
-## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>Solución VMware CloudSimple nodos SKU
+## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>SKU de los nodos de la solución de VMware de CloudSimple
 
-Los tipos de nodos siguientes están disponibles para su compra o de reserva.
+Los siguientes tipos de nodos están disponibles para aprovisionar o reservar.
 
-| SKU | CS28 - nodo | CS36 - nodo |
+| SKU | Nodo CS28 | Nodo CS36 |
 |-----|-------------|-------------|
-| CPU | 2x2.2 GHz, 28 núcleos (56 HT) | 2x2.3 GHz, 36 núcleos (72 HT) |
+| CPU | 2 × 2,2 GHz, 28 núcleos (56 HT) | 2 × 2,3 GHz, 36 núcleos (72 HT) |
 | RAM | 256 GB | 512 GB |
-| Caché de disco |  NVMe 1,6 TB | 3.2 TB NVMe |
-| Disco de capacidad | 5.625 TB sin procesar | 11,25 TB sin procesar |
+| Disco de caché |  1,6 TB NVMe | 3,2 TB NVMe |
+| Disco de capacidad | 5,625 TB sin formato | 11,25 TB sin formato |
 | Tipo de almacenamiento | All Flash | All Flash |
 
 ## <a name="limits"></a>límites
 
-Los límites de nodo siguientes se aplican a las nubes privadas.
+Se aplican los siguientes límites de nodo a las nubes privadas.
 
 | Recurso | Límite |
 |----------|-------|
-| Número mínimo de nodos que se va a crear una nube privada | 3 |
+| Número mínimo de nodos para crear una nube privada | 3 |
 | Número máximo de nodos en un clúster en una nube privada | 16 |
 | Número máximo de nodos en una nube privada | 64 |
-| Número mínimo de nodos en un nuevo clúster | 3 |
+| Número mínimo de nodos en un clúster nuevo | 3 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo [adquiere nodos](create-nodes.md)
-* Obtenga información sobre [nube privada](cloudsimple-private-cloud.md)
+* Obtenga información sobre cómo [aprovisionar nodos](create-nodes.md).
+* Obtenga información sobre la [nube privada](cloudsimple-private-cloud.md).

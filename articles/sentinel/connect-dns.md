@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6429568b33ece3ed4f26614e55e8c3069dd65d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e6ed18a49a77f8061c975bdf3ecb085ebf71317
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204401"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190768"
 ---
 # <a name="connect-your-domain-name-server"></a>Conectar con el servidor de nombres de dominio
 
@@ -36,21 +36,33 @@ Habilitar una conexión de registro DNS permite lo siguiente:
 - Ver la carga de solicitudes en los servidores DNS
 - Ver errores de registro DNS dinámicos
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="connected-sources"></a>Orígenes conectados
 
-Para poder establecer una conexión de DNS, hay que instalar un agente en el equipo DNS. El agente extrae eventos de DNS y los pasa a Log Analytics.
+En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución:
+
+| **Origen conectado** | **Soporte técnico** | **Descripción** |
+| --- | --- | --- |
+| [Agentes de Windows](../azure-monitor/platform/agent-windows.md) | Sí | La solución recopila información de DNS de los agentes de Windows. |
+| [Agentes de Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | Sin | La solución no recopila información de DNS de los agentes directos de Linux. |
+| [Grupo de administración de System Center Operations](../azure-monitor/platform/om-agents.md) | Sí | La solución recopila información de DNS de los agentes en un grupo de administración de Operations Manager conectado. No se requiere ninguna conexión directa entre el agente de Operations Manager y Azure Monitor. Los datos se reenvían desde el grupo de administración al área de trabajo de Log Analytics. |
+| [Cuenta de Almacenamiento de Azure](../azure-monitor/platform/collect-azure-metrics-logs.md) | Sin | La solución no usa Azure Storage. |
+
+### <a name="data-collection-details"></a>Detalles de la recopilación de datos
+
+La solución permite recopilar inventario y datos relacionados con eventos de DNS de los servidores DNS donde se ha instalado un agente de Log Analytics. Los datos relacionados con el inventario como, por ejemplo, el número de servidores DNS, las zonas y los registros de recursos se recopilan con la ejecución de cmdlets de Powershell para DNS. Los datos se actualizan una vez cada dos días. Los datos relacionados con eventos se recopilan casi en tiempo real a partir de los [registros analíticos y de auditoría](https://technet.microsoft.com/library/dn800669.aspx#enhanc) proporcionados por las funcionalidades mejoradas de registro y diagnóstico de Windows Server 2012 R2.
+
 
 ## <a name="connect-your-dns-appliance"></a>Conectar el dispositivo DNS
 
 1. En el portal de Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y elija el icono de **DNS**.
 1. Si los equipos DNS están en Azure:
-    1. Haga clic en **Download & install agent for Windows virtual machines** (Descargar e instalar agente para máquinas virtuales de Windows).
+    1. Haga clic en **Install agent on Azure Windows virtual machine** (Instalar el agente en la máquina virtual Windows de Azure).
     1. En la lista **Virtual machines** (Máquinas virtuales), seleccione el equipo DNS que quiera transmitir a Azure Sentinel. Asegúrese de que se trata de una máquina virtual Windows.
     1. En la ventana de la máquina virtual que se abre, haga clic en **Connect**(Conectar).  
     1. Haga clic en **Enable** (Habilitar) en la ventana **DNS connector** (Conector DNS). 
 
 2. Si el equipo DNS no está en Azure:
-    1. Haga clic en **Download & install agent for Windows non-Azure machines** (Descargar e instalar agente para equipos Windows que no son de Azure).
+    1. Haga clic en **Install agent on non-Azure machines** (Instalar el agente en máquinas que no son de Azure).
     1. En la ventana **Direct agent** (Agente directo), seleccione **Download Windows agent (64 bit)** (Descargar agente de Windows de [64 bits]) o **Download Windows agent (32 bit)** (Descargar agente de Windows de [32 bits]).
     1. Instale el agente en el equipo DNS. Copie los valores de **Workspace ID** (Identificador de área de trabajo), **Primary key** (Clave principal) y **Secondary key** (Clave secundaria) y úselos cuando se le solicite durante la instalación.
 

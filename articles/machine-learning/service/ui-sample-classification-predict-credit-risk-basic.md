@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ec91ca83d7aa1bc5e6c290d35b573a60cc0ed19
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789395"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605766"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Ejemplo 3 - Clasificación: Predicción del riesgo de crédito
 
@@ -72,9 +72,10 @@ En los resultados de la evaluación, puede ver que el AUC del modelo es 0,776. E
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore el resto de ejemplos disponibles para la interfaz visual:
+Explore otros ejemplos disponibles para la interfaz visual:
 
-- [Ejemplo 1 - Regresión: Predecir el precio de un automóvil](ui-sample-regression-predict-automobile-price-basic.md)
+- [Ejemplo 1 - Regresión: predicción del precio de un automóvil](ui-sample-regression-predict-automobile-price-basic.md)
 - [Ejemplo 2 - Regresión: Comparar algoritmos para la predicción de precios de automóviles](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Ejemplo 4 - Clasificación: Predecir el riesgo de crédito (sensible a los costos)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Ejemplo 5 - Clasificación: Predecir la renovación](ui-sample-classification-predict-churn.md)
+- [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Ejemplo 5 - Clasificación: predicción de la renovación](ui-sample-classification-predict-churn.md)
+- [Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos](ui-sample-classification-predict-flight-delay.md)

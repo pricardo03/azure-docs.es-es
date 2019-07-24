@@ -1,6 +1,6 @@
 ---
-title: Importancia de carga de trabajo de Azure SQL Data Warehouse | Microsoft Docs
-description: Instrucciones de configuración de importancia para las consultas en Azure SQL Data Warehouse.
+title: Importancia de la carga de trabajo de Azure SQL Data Warehouse | Microsoft Docs
+description: Directrices para establecer la importancia de las consultas en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -11,58 +11,58 @@ ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.openlocfilehash: 0147977307ec22134777d6c3e8242a4191362ada
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66233840"
 ---
-# <a name="azure-sql-data-warehouse-workload-importance"></a>Importancia de carga de trabajo de Azure SQL Data Warehouse
+# <a name="azure-sql-data-warehouse-workload-importance"></a>Importancia de la carga de trabajo de Azure SQL Data Warehouse
 
-En este artículo se explica cómo importancia de la carga de trabajo puede influir en el orden de ejecución para las solicitudes de SQL Data Warehouse.
+En este artículo se explica cómo la importancia de la carga de trabajo puede influir en el orden de ejecución de las solicitudes de SQL Data Warehouse.
 
 ## <a name="importance"></a>importancia
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
-Las necesidades empresariales pueden requerir que las cargas de trabajo para que sea más importante que otros usuarios de almacenamiento de datos.  Considere un escenario donde esté cargados los datos de ventas de misión crítica antes de que el fiscal período cerrar.  Cargas de datos para otros orígenes, como los datos meteorológicos no tienen SLA estricta.   Establecer importancia alta para una solicitud para cargar los datos de ventas y poca importancia en una solicitud para cargar si los datos garantiza que la carga de datos de ventas Obtiene el primer acceso a los recursos y se completa con mayor rapidez.
+Las necesidades empresariales pueden requerir que las cargas de trabajo de almacenamiento de datos sean más importantes que otras.  Piense en un escenario donde los datos de ventas críticos se cargan antes del cierre del período fiscal.  Las cargas de datos de otros orígenes, como los datos meteorológicos, no tienen SLA estrictos.   Establecer una importancia alta para una solicitud de carga de datos de ventas y una importancia baja para una solicitud de carga de otro tipo de datos garantiza que la carga de los datos de ventas obtienen el primer a acceso a los recursos y se completan más rápido.
 
 ## <a name="importance-levels"></a>Niveles de importancia
 
-Hay cinco niveles de importancia: baja, normal, below_normal, above_normal y alto.  Las solicitudes que no establecen la importancia se asignan en el nivel predeterminado de normal.  Las solicitudes que tienen el mismo nivel de importancia tienen el mismo comportamiento de programación que existe hoy en día.
+Hay cinco niveles de importancia: low (baja), below_normal (por debajo de la normal), normal, above_normal (por encima de la normal) y high (alta).  A las solicitudes donde no se establece ninguna importancia se les asigna el nivel predeterminado normal.  Las solicitudes que tienen el mismo nivel de importancia tienen el mismo comportamiento de programación que existe actualmente.
 
 ## <a name="importance-scenarios"></a>Escenarios de importancia
 
-Más allá del escenario básico de importancia que se ha descrito anteriormente con las ventas y datos meteorológicos, hay otros escenarios donde la importancia de la carga de trabajo ayuda a satisfacer las necesidades de consulta y procesamiento de datos.
+Más allá del escenario de importancia básico ya descrito con datos de ventas y datos meteorológicos, existen otros escenarios donde la importancia de la carga de trabajo ayuda a cumplir con las necesidades de consulta y procesamiento de datos.
 
 ### <a name="locking"></a>Bloqueo
 
-El acceso a los bloqueos de lectura y escritura de actividad es un área de contención natural.  Algunas actividades, como [conmutación de particiones](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) o [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) requieren bloqueos con privilegios elevados.  Sin la importancia de la carga de trabajo, SQL Data Warehouse se optimiza para el rendimiento.  Optimización de rendimiento significa que cuando se ejecuta y solicitudes en cola tienen las mismas necesidades de bloqueos y los recursos están disponibles, las solicitudes en cola pueden omitir las solicitudes con mayores necesidades de bloqueo que ha llegado en la cola de solicitudes anteriormente.  Una vez importancia de la carga de trabajo se aplica a las solicitudes con mayor bloqueo necesario. Solicitud con mayor importancia se ejecutará antes de la solicitud con una importancia menor.
+El acceso a bloqueos de la actividad de lectura y escritura es un área de contención natural.  Las actividades como [modificación de particiones](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) o [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) requieren bloqueos elevados.  Sin la importancia de la carga de trabajo SQL Data Warehouse se optimiza para mejorar el rendimiento.  La optimización para el rendimiento significa que, cuando las solicitudes en ejecución y las que están en cola tienen las mismas necesidades de bloqueo y hay recursos disponibles, las solicitudes en cola pueden omitir las solicitudes con necesidades de bloqueo mayores que llegaron anteriormente a la cola de solicitud.  Una vez que la importancia de la carga de trabajo se aplica a las solicitudes con necesidades de bloqueo más altas, se ejecutará la solicitud con la importancia de la solicitud antes de una solicitud con una menor importancia.
 
-Considere el ejemplo siguiente:
+Considere el siguiente ejemplo:
 
-Q1 ejecuta activamente y seleccionar datos de SalesFact.
-P2 se pone en cola esperando Q1 en completarse.  Se envió a las 9 a.m. y está intentando datos nuevos del conmutador de partición en SalesFact.
-P3 se envía a las 9:01 a.m. y desea seleccionar datos de SalesFact.
+Q1 se ejecuta activamente y selecciona datos desde SalesFact.
+Q2 está en la cola y espera que Q1 se complete.  Se envió a las 9:00 a.m. e intenta modificar las particiones de los datos nuevos en SalesFact.
+Q3 se envía a las 9:01 a.m. y quiere seleccionar datos de SalesFact.
 
-Si T2 y Q3 tienen la misma importancia y Q1 todavía se está ejecutando, Q3 inicia la ejecución. Q2 continuará esperando un bloqueo exclusivo en SalesFact.  Si T2 tiene una importancia mayor que Q3, Q3 esperará hasta que Q2 finalice antes de comenzar la ejecución.
+Si Q2 y Q3 tienen la misma importancia y Q1 todavía está en ejecución, se empezará a ejecutar Q3. Q2 seguirá esperando un bloqueo exclusivo en SalesFact.  Si Q2 tiene una mayor importancia que Q3, Q3 esperará hasta que Q2 se finalice antes de empezar a ejecutarse.
 
-### <a name="non-uniform-requests"></a>Solicitudes no uniforme
+### <a name="non-uniform-requests"></a>Solicitudes no uniformes
 
-Otro escenario donde puede ayudar a satisfacer las demandas de consultas importancia es cuando se envían las solicitudes con diferentes clases de recursos.  Como se mencionó anteriormente, en la misma importancia, SQL Data Warehouse se optimiza para el rendimiento.  Cuando se ponen en cola las solicitudes de tamaño mixto (por ejemplo, "smallrc" o mediumrc), SQL Data Warehouse elegirá la solicitud que llegan más antiguo que se adapta a los recursos disponibles.  Si se aplica la importancia de la carga de trabajo, programar la solicitud de importancia más alta a continuación.
+Otro escenario donde la importancia puede ayudar a cumplir las demandas de consultas es cuando se envían solicitudes con clases de recursos distintas.  Como se mencionó anteriormente, en la misma importancia, SQL Data Warehouse se optimiza para lograr un mejor rendimiento.  Cuando se ponen en cola solicitudes de distinto tamaño (como smallrc o mediumrc), SQL Data Warehouse elegirá la primera solicitud que llegue y que se ajuste a los recursos disponibles.  Si se aplica la importancia de la carga de trabajo, la solicitud con la importancia más alta se programará a continuación.
   
-Considere el siguiente ejemplo en DW500c:
+Considere el ejemplo siguiente en DW500c:
 
-P1, P2, P3 y P4 ejecutan consultas smallrc.
-P5 se envía con la clase de recurso mediumrc a las 9 a.m.
-P6 se envía con la clase de recursos smallrc a las 9:01 am.
+Q1, Q2, Q3 y Q4 son consultas smallrc en ejecución.
+Q5 se envía con la clase de recurso mediumrc a las 9:00 a.m.
+Q6 se envía con la clase de recurso smallrc a las 9:01 a.m.
 
-Dado que P5 es mediumrc, requiere dos espacios de simultaneidad.  P5 debe esperar para dos de las consultas que completar.  Sin embargo, cuando se completa una de las consultas de ejecución (P1 a P4), P6 está programada en inmediatamente porque los recursos existen para ejecutar la consulta.  Si P5 tiene mayor importancia que P6, P6 espera hasta que P5 se está ejecutando antes de empezar a ejecutar.
+Como Q5 es mediumrc, requiere dos espacios de simultaneidad.  Q5 debe esperar que se completen dos de las consultas en ejecución.  Sin embargo, cuando se completa una de las consultas en ejecución (de Q1 a Q4), Q6 se programa de inmediato porque existen los recursos para ejecutar la consulta.  Si Q5 tiene una importancia más alta que Q6, Q6 espera hasta que se ejecute Q5 para empezar a ejecutarse.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre cómo crear un clasificador, consulte el [crear CLASIFICADOR de carga de trabajo (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- Para obtener más información acerca de la clasificación de la carga de trabajo de SQL Data Warehouse, consulte [clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md).  
-- Consulte la Guía de inicio rápido [crear clasificador de carga de trabajo](quickstart-create-a-workload-classifier-tsql.md) acerca de cómo crear un clasificador de carga de trabajo.
+- Para más información sobre cómo crear un clasificador, consulte [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Para más información sobre la clasificación de una carga de trabajo de SQL Data Warehouse, consulte el artículo sobre la [clasificación de cargas de trabajo](sql-data-warehouse-workload-classification.md).  
+- Consulte el inicio rápido sobre cómo [crear un clasificador de carga de trabajo](quickstart-create-a-workload-classifier-tsql.md) para aprender a crear uno.
 - Consulte los artículos de procedimientos para [configurar la importancia de la carga de trabajo](sql-data-warehouse-how-to-configure-workload-importance.md) y sobre cómo [administrar y supervisar la administración de la carga de trabajo](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para ver las consultas y la importancia asignada.

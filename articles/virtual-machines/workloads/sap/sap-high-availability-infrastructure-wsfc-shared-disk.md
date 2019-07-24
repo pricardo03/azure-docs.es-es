@@ -4,7 +4,7 @@ description: Aprenda cómo preparar la infraestructura de Azure para alta dispon
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4e107da9d8e5019ba51769d283f3faa34839380
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65408771"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709255"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparación de la infraestructura de Azure para alta disponibilidad de SAP con un clúster de conmutación por error de Windows y un disco compartido para ASCS/SCS de SAP
 
@@ -224,7 +224,7 @@ _**Ilustración 1:** Configuración de los parámetros de Azure Resource Manage
 >
 
 ## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Implementación de máquinas virtuales con conectividad de red corporativa (entre locales) para uso en producción
-Para los sistemas de producción de SAP, implemente máquinas virtuales de Azure con [conectividad de red corporativa (entre locales)][planning-guide-2.2] mediante el uso de Azure VPN Gateway o Azure ExpressRoute.
+En los sistemas de producción de SAP, implemente máquinas virtuales de Azure con [conectividad de red corporativa (entre locales)][planning-guide-2.2] mediante Azure VPN Gateway o Azure ExpressRoute.
 
 > [!NOTE]
 > Puede usar la instancia de Azure Virtual Network. La red virtual y la subred ya se crearon y están preparadas.
@@ -279,7 +279,7 @@ Aquí puede obtener las plantillas de Azure Resource Manager para este escenario
 
 ## <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Preparación de la infraestructura de la plantilla 3 de arquitectura
 
-Puede preparar la infraestructura y configurar SAP para varios SID. Por ejemplo, puede agregar una instancia de ASCS/SCS de SAP adicional en una configuración de clúster *existente*. Para más información, consulte [Configuración de una instancia adicional de ASCS/SCS de SAP en una configuración de clúster existente para crear una configuración de varios SID de SAP en Azure Resource Manager][sap-ha-multi-sid-guide].
+Puede preparar la infraestructura y configurar SAP para varios SID. Por ejemplo, puede agregar una instancia de ASCS/SCS de SAP adicional en una configuración de clúster *existente*. Para obtener más información, vea [Configuración de una instancia adicional de ASCS/SCS de SAP en una configuración de clúster existente para crear una configuración de varios SID de SAP en Azure Resource Manager][sap-ha-multi-sid-guide].
 
 Si desea crear un nuevo clúster de varios SID, puede usar las [plantillas de inicio rápido en GitHub](https://github.com/Azure/azure-quickstart-templates) para varios SID.
 
@@ -295,7 +295,7 @@ Las siguientes secciones contienen más detalles sobre las plantillas y los par�
 
 La plantilla de ASCS/SCS permite implementar dos máquinas virtuales que se pueden usar para crear un clúster de conmutación por error de Windows Server que hospeda varias instancias de ASCS/SCS.
 
-Para configurar la plantilla de varios SID de ASCS/SCS, en la [plantilla de varios SID de ASCS/SCS][sap-templates-3-tier-multisid-xscs-marketplace-image] o en la [plantilla de varios SID de ASCS/SCS con Managed Disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md], especifique los valores para los parámetros siguientes:
+Para configurar la plantilla de varios SID de ASCS/SCS, en la [plantilla de varios SID de ASCS/SCS][sap-templates-3-tier-multisid-xscs-marketplace-image] or [ASCS/SCS multi-SID template by using Managed Disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md], especifique valores para los parámetros siguientes:
 
 - **Prefijo de recurso**:  Establezca el prefijo de recurso, que se utiliza para prefijar todos los recursos que se hayan creado durante la implementación. Dado que los recursos no pertenecen a un único sistema SAP, el prefijo del recurso no es el SID de un sistema SAP.  El prefijo debe tener entre tres y seis caracteres.
 - **Tipo de pila**: Seleccione el tipo de la pila del sistema SAP. Dependiendo del tipo de la pila, Azure Load Balancer tendrá una (solo ABAP o JAVA) o dos (ABAP + JAVA) direcciones IP privadas por cada sistema SAP.
@@ -333,7 +333,7 @@ El equilibrador de carga se configurará para usar los siguientes puertos de son
 
 La plantilla de la base de datos implementa uno o dos máquinas virtuales que puede usar para instalar el sistema de administración de bases de datos relacionales (RDBMS) de un sistema SAP. Por ejemplo, si ha implementado una plantilla de ASCS/SCS para 5 sistemas SAP, debe implementar esta plantilla cinco veces.
 
-Para configurar la plantilla de varios SID de base de datos, en la [plantilla de varios SID de base de datos][sap-templates-3-tier-multisid-db-marketplace-image] o en la [plantilla de varios SID de base de datos con Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md], especifique los valores para los parámetros siguientes:
+Para configurar la plantilla de varios SID de las bases de datos, especifique [en ella][sap-templates-3-tier-multisid-db-marketplace-image] or [database multi-SID template by using Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md] valores para los parámetros siguientes:
 
 - **Identificador de sistema SAP**: escriba el identificador del sistema SAP que se va a instalar. El identificador se usa como prefijo de los recursos que se implementan.
 - **Tipo de SO**: Seleccione el sistema operativo de las máquinas virtuales.
@@ -350,7 +350,7 @@ Para configurar la plantilla de varios SID de base de datos, en la [plantilla de
 
 La plantilla de servidores de aplicaciones permite implementar dos o más máquinas virtuales que se pueden usar como instancias de servidores de aplicaciones SAP en un sistema SAP. Por ejemplo, si ha implementado una plantilla de ASCS/SCS para 5 sistemas SAP, debe implementar esta plantilla cinco veces.
 
-Para configurar la plantilla de varios SID de servidores de aplicaciones, en la [plantilla de varios SID de servidores de aplicaciones][sap-templates-3-tier-multisid-apps-marketplace-image] o en la [plantilla de varios SID de servidores de aplicaciones con Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], especifique los valores para los parámetros siguientes:
+Para configurar la plantilla de varios SID de servidores de aplicaciones, especifique [en ella][sap-templates-3-tier-multisid-apps-marketplace-image] or [application servers multi-SID template  by using Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md] valores para los parámetros siguientes:
 
   -  **Identificador de sistema SAP**: escriba el identificador del sistema SAP que se va a instalar. El identificador se usa como prefijo de los recursos que se implementan.
   -  **Tipo de SO**: Seleccione el sistema operativo de las máquinas virtuales.
@@ -404,9 +404,9 @@ Para la implementación local, necesita estas direcciones IP y nombres de host r
 | Nombre de host virtual de la instancia de ASCS/SCS de SAP |pr1-ascs-sap |10.0.0.43 |
 | Segundo nombre de host virtual de clúster de DBMS de SAP (administración del clúster) |pr1-dbms-vir |10.0.0.32 |
 
-Cuando crea el clúster, crea los nombres de host virtual pr1-ascs-vir y pr1-dbms-vir, además de las direcciones IP asociadas que administran el clúster mismo. Para obtener información sobre cómo hacerlo, consulte [Recopilación de nodos del clúster en la configuración de clúster][sap-high-availability-infrastructure-wsfc-shared-disk-collect-cluster-config].
+Cuando crea el clúster, crea los nombres de host virtual pr1-ascs-vir y pr1-dbms-vir, además de las direcciones IP asociadas que administran el clúster mismo. Para obtener información sobre cómo hacerlo, vea [Recopilación de nodos del clúster en la configuración de clúster][sap-high-availability-infrastructure-wsfc-shared-disk-collect-cluster-config].
 
-Puede crear manualmente los otros dos nombres de host virtual, pr1-ascs-sap y pr1-dbms-sap y las direcciones IP asociadas en el servidor DNS. La instancia de ASCS/SCS de SAP en clúster y la instancia de DBMS en clúster usan estos recursos. Para obtener información sobre cómo hacerlo, consulte [Creación de un nombre de host virtual para la instancia de ASCS/SCS de SAP en clúster][sap-ha-guide-9.1.1].
+Puede crear manualmente los otros dos nombres de host virtual, pr1-ascs-sap y pr1-dbms-sap y las direcciones IP asociadas en el servidor DNS. La instancia de ASCS/SCS de SAP en clúster y la instancia de DBMS en clúster usan estos recursos. Para obtener información sobre cómo hacerlo, vea [Creación de un nombre de host virtual para la instancia de ASCS/SCS de SAP en clúster][sap-ha-guide-9.1.1].
 
 ## <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Configuración de direcciones IP estáticas para las máquinas virtuales SAP
 Después de implementar las máquinas virtuales que usará en el clúster, deberá establecer direcciones IP estáticas para todas las máquinas virtuales. Debe hacerlo en la configuración de Azure Virtual Network y no en el sistema operativo invitado.
@@ -551,7 +551,7 @@ Azure Load Balancer tiene un equilibrador de carga interno que cierra las conexi
 
 Para agregar entradas de registro en los dos nodos de clúster de la instancia de ASCS/SCS de SAP, en primer lugar, agregue estas entradas del registro de Windows en ambos nodos de clúster de Windows para ASCS/SCS de SAP:
 
-| Ruta de acceso | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nombre de la variable |`KeepAliveTime` |
 | Tipo de variable |REG_DWORD (Decimal) |
@@ -562,7 +562,7 @@ Para agregar entradas de registro en los dos nodos de clúster de la instancia d
 
 Luego, agregue estas entradas del registro de Windows en ambos nodos del clúster de Windows para ASCS/SCS de SAP:
 
-| Ruta de acceso | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nombre de la variable |`KeepAliveInterval` |
 | Tipo de variable |REG_DWORD (Decimal) |
@@ -652,7 +652,7 @@ Para configurar un clúster de conmutación por error de Windows Server para una
 
    _**Figura 18:** *No* active la casilla_
 
-   Puede pasar por alto las advertencias sobre el cuórum y los discos. Establecerá el cuórum y compartirá el disco más adelante, tal como se describe en [Instalación de SIOS DataKeeper Cluster Edition para un disco compartido de clúster de ASCS/SCS de SAP][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].
+   Puede pasar por alto las advertencias sobre el cuórum y los discos. Se establece el cuórum y se comparte el disco más adelante, tal como se explica en [Instalación de SIOS DataKeeper Cluster Edition para un disco compartido de clúster de ASCS/SCS de SAP][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].
 
    ![Figura 19: Omisión de las advertencias sobre el cuórum de disco][sap-ha-guide-figure-3018]
 
@@ -737,7 +737,7 @@ Para configurar un testigo de recurso compartido de archivos de clúster, hay qu
 
    _**Figura 28:** Confirmación de que volvió a configurar el clúster_
 
-Después de instalar correctamente el clúster de conmutación por error de Windows, se deben realizar cambios en algunos umbrales para adaptar la detección de conmutación por error a las condiciones de Azure. Los parámetros que se van a cambiar se documentan en el blog [Tuning Failover Cluster Network Thresholds][tuning-failover-cluster-network-thresholds] (Ajuste de los umbrales de la red en clúster de conmutación por error). Suponiendo que las dos máquinas virtuales que forman la configuración del clúster de Windows para ASCS/SCS están en la misma subred, los parámetros siguientes deben cambiarse a estos valores:
+Después de instalar correctamente el clúster de conmutación por error de Windows, se deben realizar cambios en algunos umbrales para adaptar la detección de conmutación por error a las condiciones de Azure. Los parámetros que se van a cambiar se documentan en [Ajuste de los umbrales de la red en clúster de conmutación por error][tuning-failover-cluster-network-thresholds]. Suponiendo que las dos máquinas virtuales que forman la configuración del clúster de Windows para ASCS/SCS están en la misma subred, los parámetros siguientes deben cambiarse a estos valores:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15

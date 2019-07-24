@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95ad2ba4798d41f2e5e49ca33735b997859af23f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477270"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67658135"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Preguntas más frecuentes para SQL Server en máquinas virtuales de Windows en Azure
 
@@ -37,7 +37,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 ## <a id="images"></a> Imágenes
 
-1. **¿Qué imágenes de la galería de máquinas virtuales de SQL Server están disponibles?**
+1. **¿Qué imágenes de la galería de máquinas virtuales de SQL Server están disponibles?** 
 
    Azure mantiene imágenes de máquinas virtuales para todas las versiones principales de SQL Server admitidas en todas las ediciones para Windows y Linux. Para obtener más información, consulte la lista completa de [imágenes de VM de Windows](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) e [imágenes de VM de Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
 
@@ -78,7 +78,6 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 1. **¿Cómo puedo instalar mi copia de SQL Server con licencia en una máquina virtual de Azure?**
 
    Existen dos formas de hacerlo. Puede aprovisionar una de las [imágenes de máquina virtual que admita licencias](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), lo que también se conoce como traiga su propia licencia (BYOL). También existe la posibilidad de copiar los medios de instalación de SQL Server en la máquina virtual de Windows Server y, luego, instalar SQL Server en la máquina virtual. En cambio, si instala manualmente SQL Server, no habrá ninguna integración del portal y no se admitirá la extensión del agente de IaaS de SQL Server, por lo que las características como Copia de seguridad automática y Aplicación de revisiones no funcionarán en este escenario. Por este motivo, se recomienda usar una de las imágenes de la galería de BYOL. Para usar BYOL o sus propios medios de SQL Server en una máquina virtual de Azure, debe tener [Movilidad de licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/). Para más información, vea [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Orientación de precios de máquinas virtuales de SQL Server Azure).
-
 
 1. **¿Tengo que pagar para obtener una licencia de SQL Server en una máquina virtual de Azure si solo se usa para conmutación por error o en modo en espera?**
 
@@ -147,9 +146,10 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    
 ## <a name="updating-and-patching"></a>Actualizaciones y revisiones
 
-1. **¿Cómo cambio a una nueva versión o edición de SQL Server en una máquina virtual de Azure?**
+1. **¿Cómo cambio a una versión o edición de SQL Server diferente en una máquina virtual de Azure?**
 
-   Los clientes con Software Assurance pueden hacer actualizaciones locales de SQL Server ejecutado en una máquina virtual de Azure mediante los soportes de instalación en el Portal de licencias por volumen. Sin embargo, actualmente no hay manera de cambiar la edición de una instancia de SQL Server. Cree una máquina virtual de Azure nueva con la edición de SQL Server que quiera y, luego, migre las bases de datos al servidor nuevo con las [técnicas de migración de datos estándar](virtual-machines-windows-migrate-sql.md).
+   Para cambiar su versión o edición de SQL Server, los clientes pueden utilizar los medios de instalación que contengan la versión o edición de SQL Server que deseen. Una vez que se ha cambiado la edición, utilice Azure Portal para modificar la propiedad edition de la máquina virtual para que refleje con precisión la facturación de la máquina virtual. Para más información, consulte cómo [cambiar la edición de una máquina virtual de SQL Server](virtual-machines-windows-sql-change-edition.md). 
+
 
 1. **¿Cómo se aplican las actualizaciones y los Service Packs en una máquina virtual de SQL Server?**
 
@@ -170,7 +170,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Cómo instalo herramientas de datos de SQL en mi máquina virtual de Azure?**
 
-    Descargue e instale las herramientas de datos de SQL desde [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+    Descargue e instale las herramientas de datos de SQL desde [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313).
 
 1. **¿Las transacciones distribuidas con MSDTC se admiten en las VM con SQL Server?**
    

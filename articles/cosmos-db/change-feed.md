@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954399"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Fuente de cambios en Azure Cosmos DB: introducción
@@ -35,10 +35,10 @@ La característica actualmente es compatible con los siguientes SDK de cliente y
 
 | **Controladores cliente** | **CLI de Azure** | **SQL API** | **Cassandra API** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | Sí | No | No | Sí | No |
-|Java|N/D|Sí|No|No|Sí|No|
-|Python|N/D|Sí|No|No|Sí|No|
-|Node/JS|N/D|Sí|No|No|Sí|No|
+| .NET | N/D | Sí | No | No | Sí | Sin |
+|Java|N/D|Sí|No|No|Sí|Sin|
+|Python|N/D|Sí|No|No|Sí|Sin|
+|Node/JS|N/D|Sí|No|No|Sí|Sin|
 
 ## <a name="change-feed-and-different-operations"></a>Fuente de cambios y operaciones diferentes
 
@@ -58,7 +58,7 @@ Si la propiedad TTL (período de vida) se establece en -1 en un elemento, la fue
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Fuente de cambios y _etag, _lsn o _ts
 
-El formato _etag es interno y no debe depender de él, porque puede cambiar en cualquier momento. _ts es una modificación o una marca de tiempo de creación. Puede usar _ts para la comparación cronológica. _lsn es un identificador de lote que se agrega para solo; la fuente de cambios representa el identificador de transacción. Muchos elementos pueden tener el mismo _lsn. ETag en FeedResponse es diferente del formato _etag que se ve en un elemento. _etag es un identificador interno que se usa para el control de simultaneidad e indica la versión del elemento, mientras que ETag se usa para secuenciar la fuente.
+El formato _etag es interno y no debe depender de él, porque puede cambiar en cualquier momento. _ts es una modificación o una marca de tiempo de creación. Puede usar _ts para la comparación cronológica. _lsn es un identificador de lote que se agrega solo para la fuente de cambios y representa el identificador de transacción. Muchos elementos pueden tener el mismo _lsn. ETag en FeedResponse es diferente del formato _etag que se ve en un elemento. _etag es un identificador interno que se usa para el control de simultaneidad e indica la versión del elemento, mientras que ETag se usa para secuenciar la fuente.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Casos de uso y escenarios de la fuente de cambios
 
@@ -118,7 +118,7 @@ La fuente de cambios está disponible para cada clave de partición lógica dent
 
 * Los cambios están disponibles en paralelo para todas las claves de partición lógica de un contenedor de Azure Cosmos. Esta funcionalidad permite que los cambios de contenedores grandes se procesen en paralelo por medio de varios consumidores.
 
-* Las aplicaciones pueden solicitar varias fuentes de cambios en el mismo contenedor al mismo tiempo. ChangeFeedOptions.StartTime se puede usar para proporcionar un punto inicial. Por ejemplo, para buscar el token de continuación correspondiente a una hora especificada. ContinuationToken, si se especifica, tiene prioridad sobre los valores StartTime y StartFromBeginning. La precisión de ChangeFeedOptions.StartTime es aproximadamente de 5 segundos. 
+* Las aplicaciones pueden solicitar varias fuentes de cambios en el mismo contenedor de forma simultánea. ChangeFeedOptions.StartTime se puede usar para proporcionar un punto inicial. Por ejemplo, para buscar el token de continuación correspondiente a una hora especificada. ContinuationToken, si se especifica, tiene prioridad sobre los valores StartTime y StartFromBeginning. La precisión de ChangeFeedOptions.StartTime es aproximadamente de 5 segundos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

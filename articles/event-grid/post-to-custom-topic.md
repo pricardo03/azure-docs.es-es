@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304208"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicación en un tema personalizado de Azure Event Grid
@@ -76,10 +76,10 @@ Para los temas personalizados, los datos de nivel superior contienen los mismos 
 ]
 ```
 
-Para obtener una descripción de estas propiedades, vea [Esquema de eventos de Azure Event Grid](event-schema.md). Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento en la matriz se limita a 64 KB (Disponibilidad General) o 1 MB (versión preliminar).
+Para obtener una descripción de estas propiedades, vea [Esquema de eventos de Azure Event Grid](event-schema.md). Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento en la matriz se limita a 64 KB (disponibilidad general) o 1 MB (versión preliminar).
 
 > [!NOTE]
-> Un evento de tamaño de hasta 64 KB se tratan por acuerdo de nivel de servicio (SLA) de disponibilidad General (GA). El soporte técnico para un evento de tamaño de hasta 1 MB está actualmente en versión preliminar. Eventos de más de 64 KB se cobran en incrementos de 64 KB. 
+> Los eventos con un tamaño de hasta 64 KB están cubiertos por el acuerdo de nivel de servicio de disponibilidad general (GA). La compatibilidad de un evento con un tamaño de hasta 1 MB se encuentra actualmente en una versión preliminar. Los eventos de más de 64 KB se cobran en incrementos de 64 KB. 
 
 Por ejemplo, un esquema de datos de evento válido es:
 

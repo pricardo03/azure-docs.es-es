@@ -13,50 +13,50 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: ae59e8115ca2d1ba69c8a3a099216eb3d98e2658
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237690"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos a un entorno de Time Series Insights mediante un centro de eventos
 
-En este artículo se explica cómo crear y configurar un centro de eventos en Azure Event Hubs. También se describe cómo ejecutar una aplicación de ejemplo para insertar eventos a Azure Time Series Insights desde Event Hubs. Si tiene un centro de eventos con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+En este artículo se explica cómo crear y configurar un centro de eventos en Azure Event Hubs. También se describe cómo ejecutar una aplicación de ejemplo para insertar eventos en Azure Time Series Insights desde Event Hubs. Si tiene un centro de eventos con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Configuración de un centro de eventos
 
 1. Para saber cómo crear un centro de eventos, consulte la [documentación de Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 1. En el cuadro de búsqueda, busque **Event Hubs**. Haga clic en **Event Hubs** en la lista devuelta.
 1. Seleccione su centro de eventos.
-1. Cuando se crea un centro de eventos, se crea un espacio de nombres del centro de eventos. Si todavía no ha creado un centro de eventos dentro del espacio de nombres en el menú, en **entidades**, crear un centro de eventos.  
+1. Cuando se crea un centro de eventos, se crea un espacio de nombres del centro de eventos. Si todavía no ha creado un centro de eventos en el espacio de nombres, vaya al menú y, en **Entities** (Entidades), cree un centro de eventos.  
 
-    [![Lista de event hubs](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
+    [![Lista de centros de eventos](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. Después de crear un centro de eventos, selecciónelo en la lista de centros de eventos.
-1. En el menú, bajo **entidades**, seleccione **Event Hubs**.
+1. En el menú, en **Entities** (Entidades), seleccione **Event Hubs**.
 1. Seleccione el nombre del centro de eventos para configurarlo.
 1. En **Entidades** seleccione **Grupos de consumidores** y, a continuación **Grupo de consumidores**.
 
-    [![Crear un grupo de consumidores](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
+    [![Creación de un grupo de consumidores](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
-1. Asegúrese de que crear un grupo de consumidores que sea utilizado exclusivamente por el origen de eventos de Time Series Insights.
+1. Asegúrese de crear un grupo de consumidores que se use exclusivamente con el origen de eventos de Time Series Insights.
 
     > [!IMPORTANT]
-    > Asegúrese de que no se usa este grupo de consumidores por cualquier otro servicio, como un trabajo de Azure Stream Analytics u otro entorno de Time Series Insights. Si otros servicios usan el grupo de consumidores, las operaciones de lectura se ven afectadas negativamente en este entorno y en los otros servicios. Si usa **$Default** como grupo de consumidores, otros lectores podrían volver a usar el grupo de consumidores.
+    > Asegúrese de que ningún otro servicio usa este grupo de consumidores, como un trabajo de Azure Stream Analytics u otro entorno de Time Series Insights. Si otros servicios usan el grupo de consumidores, las operaciones de lectura se ven afectadas negativamente en este entorno y en los otros servicios. Si usa **$Default** como grupo de consumidores, otros lectores podrían volver a usar el grupo de consumidores.
 
-1. En el menú, bajo **configuración**, seleccione **directivas de acceso compartido**y, a continuación, seleccione **agregar**.
+1. En el menú, en **Settings** (Configuración), seleccione **Shared access policies** (Directivas de acceso compartido) y, luego, **Add** (Agregar).
 
-    [![Seleccione las directivas de acceso compartido y, a continuación, seleccione el botón Agregar](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
+    [![Seleccionar las directivas de acceso compartido y luego del botón Add (Agregar)](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
-1. En el panel **Add new shared access policy** (Agregar nueva directiva de acceso compartido), cree un acceso compartido denominado **MySendPolicy**. Use esta directiva de acceso compartido para enviar eventos en el C# ejemplos más adelante en este artículo.
+1. En el panel **Add new shared access policy** (Agregar nueva directiva de acceso compartido), cree un acceso compartido denominado **MySendPolicy**. Usará esta directiva de acceso compartido para enviar eventos en los ejemplos de C# más adelante en este artículo.
 
-    [![En el cuadro Nombre de directiva, escriba MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
+    [![Escribir un nombre en el cuadro Policy name (Nombre de la directiva)](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
-1. En **notificación**, seleccione el **enviar** casilla de verificación.
+1. En **Claim** (Reclamar), active la casilla **Send** (Enviar).
 
 ## <a name="add-a-time-series-insights-instance"></a>Agregar una instancia de Time Series Insights
 
-La actualización de Time Series Insights usa instancias para agregar datos contextuales a los datos de telemetría entrantes. Los datos se unen en el momento de la consulta mediante un **id. de serie temporal**. El **Id. de serie de tiempo** para el molinos de ejemplo es el proyecto que se usará más adelante en este artículo `id`. Para obtener más información sobre las instancias de Time Series Insight y el **id. de serie temporal**, consulte el artículo [Time Series Models](./time-series-insights-update-tsm.md) (Modelos de serie temporal).
+La actualización de Time Series Insights usa instancias para agregar datos contextuales a los datos de telemetría entrantes. Los datos se unen en el momento de la consulta mediante un **id. de serie temporal**. El **identificador de serie temporal** del proyecto de ejemplo de los molinos de viento que se usará más adelante en este artículo es `id`. Para obtener más información sobre las instancias de Time Series Insight y el **id. de serie temporal**, consulte el artículo [Time Series Models](./time-series-insights-update-tsm.md) (Modelos de serie temporal).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Crear un origen de eventos de Time Series Insights
 
@@ -70,24 +70,24 @@ La actualización de Time Series Insights usa instancias para agregar datos cont
 
 1. Seleccione su centro de eventos.
 
-1. Vaya a **Shared Access Policies (Directivas de acceso compartido)**  > **RootManageSharedAccessKey**. Copie el valor de **clave principal de la cadena de conexión**.
+1. Vaya a **Shared Access Policies (Directivas de acceso compartido)**  > **RootManageSharedAccessKey**. Copie el valor de **Connection string-primary key**.
 
-    [![Copie el valor de la cadena de conexión de clave principal](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
+    [![Copiar el valor de la cadena de conexión de la clave principal](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
 1. Vaya a https://tsiclientsample.azurewebsites.net/windFarmGen.html. La dirección URL ejecuta dispositivos simulados de molinos de viento.
 1. En el cuadro **Cadena de conexión del centro de eventos** de la página web, pegue la cadena de conexión que copió en [Eventos push](#push-events).
   
-    [![Pegue la cadena de conexión de clave principal en el cuadro cadena de conexión del centro de eventos](media/send-events/updated_two.png)](media/send-events/updated_two.png#lightbox)
+    [![Pegar la cadena de conexión de la clave principal en el cuadro de la cadena de conexión del centro de eventos](media/send-events/updated_two.png)](media/send-events/updated_two.png#lightbox)
 
 1. Seleccione **Click to start** (Haga clic para iniciar). El simulador genera la instancia JSON que puede usar directamente.
 
-1. Vuelva a su centro de eventos en Azure Portal. En el **Introducción** página, verá los nuevos eventos que reciben el centro de eventos.
+1. Vuelva a su centro de eventos en Azure Portal. En la página **Información general**, verá que los nuevos eventos s reciben en el centro de eventos.
 
-    [![Una página de introducción del centro de eventos que se muestra las métricas para el centro de eventos](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
+    [![Una página de información general del centro de eventos que muestra las métricas del centro de eventos](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 
-## <a name="json"></a>Formas de JSON admitidas
+## <a name="json"></a>Formas JSON admitidas
 
-### <a name="example-one"></a>Ejemplo uno
+### <a name="example-one"></a>Ejemplo 1
 
 * **Entrada**: Un objeto JSON simple.
 
@@ -100,11 +100,11 @@ La actualización de Time Series Insights usa instancias para agregar datos cont
 
 * **Salida**: Un evento.
 
-    |id| timestamp|
+    |id|timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
 
-### <a name="example-two"></a>Segundo ejemplo
+### <a name="example-two"></a>Ejemplo 2
 
 * **Entrada**: Una matriz JSON con dos objetos JSON. Cada objeto JSON se convierte en un evento.
 
@@ -123,7 +123,7 @@ La actualización de Time Series Insights usa instancias para agregar datos cont
 
 * **Salida**: Dos eventos.
 
-    |id| timestamp|
+    |id|timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
     |device2|2016-01-08T01:17:00Z|
@@ -198,4 +198,4 @@ La actualización de Time Series Insights usa instancias para agregar datos cont
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Vea el entorno](https://insights.timeseries.azure.com) en el Explorador de Time Series Insights.
+- [Vea el entorno](https://insights.timeseries.azure.com) en el explorador de Time Series Insights.

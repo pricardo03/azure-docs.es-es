@@ -1,6 +1,6 @@
 ---
-title: Configurar una respuesta personalizada para firewall de aplicaciones web en Azure puerta de entrada
-description: Obtenga información sobre cómo configurar un código de respuesta personalizado y un mensaje cuando el firewall de aplicaciones web (WAF) bloquea una solicitud.
+title: Configuración de una respuesta personalizada para el firewall de aplicaciones web en Azure Front Door
+description: Obtenga información sobre cómo configurar un mensaje y un código de respuesta personalizados cuando el firewall de aplicaciones web (WAF) bloquee una solicitud.
 services: frontdoor
 author: KumudD
 ms.service: frontdoor
@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
 ms.author: tyao;kumud
-ms.openlocfilehash: d6d73055abe972cd3b6fee253b6bdb2b082ceca8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 146d17fe457751fb950f723c34826e43516e4e86
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242983"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165372"
 ---
-# <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Configurar una respuesta personalizada para el firewall de aplicaciones web de Azure
+# <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Configuración de una respuesta personalizada para el firewall de aplicaciones web de Azure
 
-De forma predeterminada, cuando el firewall de aplicaciones web de Azure (WAF) con Azure puerta principal bloquea una solicitud debido a una regla coincidente, devuelve un código de 403 estado con **se bloquea la solicitud** mensaje. Este artículo describe cómo configurar un código de estado de respuesta personalizada y un mensaje de respuesta cuando se bloquea una solicitud con WAF.
+De forma predeterminada, cuando el firewall de aplicaciones web (WAF) de Azure con Azure Front Door bloquea una solicitud debido a una regla coincidente, devuelve un código de estado 403 con el mensaje **La solicitud está bloqueada**. En este artículo se describe cómo configurar un mensaje de respuesta y un código de estado de respuesta personalizados cuando WAF bloquea una solicitud.
 
 ## <a name="set-up-your-powershell-environment"></a>Configuración del entorno de PowerShell
 Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para administrar los recursos de Azure. 
@@ -44,15 +44,15 @@ Install-Module -Name Az.FrontDoor
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-En Azure, puede asignar recursos relacionados a un grupo de recursos. En este ejemplo, cree un grupo de recursos mediante el uso de [New AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
+En Azure, puede asignar recursos relacionados a un grupo de recursos. En este ejemplo, creará un grupo de recursos con el comando [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupWAF
 ```
 
-## <a name="create-a-new-waf-policy-with-custom-response"></a>Crear una nueva directiva de WAF con respuesta personalizada 
+## <a name="create-a-new-waf-policy-with-custom-response"></a>Creación de una directiva de WAF con respuesta personalizada 
 
-A continuación es un ejemplo de creación de una nueva directiva de WAF con código de estado de respuesta personalizada establecida en 405 y el mensaje para **se le ha bloqueado.** uso de [New AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+A continuación se muestra un ejemplo de creación de una directiva de WAF con el código de estado de respuesta personalizado establecido en 405 y el mensaje **You are blocked** (Se le ha bloqueado) con el comando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```azurepowershell
 # WAF policy setting
@@ -65,7 +65,7 @@ New-AzFrontDoorWafPolicy `
 -CustomBlockResponseBody "<html><head><title>You are blocked.</title></head><body></body></html>"
 ```
 
-Modificar el código de respuesta personalizado o configuración de cuerpo de respuesta de una directiva existente de WAF mediante [actualización AzFrontDoorFireWallPolicy ](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy).
+Modifique la configuración del cuerpo de la respuesta o el código de respuesta personalizados de una directiva de WAF existente mediante el comando [Update-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy).
 
 ```azurepowershell
 # modify WAF response code
@@ -86,4 +86,4 @@ Update-AzFrontDoorFireWallPolicy `
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre [puerta delantera](front-door-overview.md)
+- Más información sobre [Front Door](front-door-overview.md).

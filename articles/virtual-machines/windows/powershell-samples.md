@@ -4,7 +4,7 @@ description: Ejemplos de PowerShell de máquina virtual de Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 576fe268bec12c16c7c2e2076dfa066c908693d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9aea63b8366bf974fd89c32105bea707ad72c8a5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583696"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719987"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Ejemplos de PowerShell de máquina virtual de Azure
 
@@ -50,4 +50,5 @@ En la tabla siguiente se proporcionan vínculos a ejemplos de scripts de PowerSh
 | [Cifrado de una VM y sus discos de datos](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crea un almacén de claves de Azure, una clave de cifrado y una entidad de servicio, y luego cifra una VM. |
 |**Supervisión de máquinas virtuales**||
 | [Supervisión de una máquina virtual con Azure Monitor](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea una máquina virtual, instala el agente de Azure Log Analytics e inscribe la VM en un área de trabajo de Log Analytics.  |
+| [Recopilación de detalles sobre todas las máquinas virtuales de una suscripción con PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea un csv que contiene el nombre de la máquina virtual, el nombre del grupo de recursos, la región, la red virtual, la subred, la dirección IP privada, el tipo de sistema operativo y la dirección IP pública de las máquinas virtuales de la suscripción proporcionada.
 | | |

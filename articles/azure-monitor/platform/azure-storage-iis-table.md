@@ -1,6 +1,6 @@
 ---
-title: Uso de blob storage para IIS y table storage para eventos en Azure Monitor | Microsoft Docs
-description: Monitor de Azure puede leer los registros de servicios de Azure que escriben diagnósticos en table storage o registros ISS en blob storage.
+title: Uso de Blob Storage para IIS y Table Storage para eventos en Azure Monitor | Microsoft Docs
+description: Azure Monitor puede leer los registros de los servicios de Azure que escriben los diagnósticos en Table Storage o los registros de IIS escritos en Blob Storage.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,27 +14,27 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.openlocfilehash: 901544886e0a0c90c29e83fc71f7a7a25ffc6862
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244880"
 ---
-# <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>Recopilar registros de diagnóstico de Azure desde Azure Storage
+# <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>Recopilación de registros de diagnóstico de Azure de Azure Storage
 
-Monitor de Azure puede leer los registros de los siguientes servicios que escriben diagnósticos en table storage o registros ISS en blob storage:
+Azure Monitor puede leer los registros de los siguientes servicios que escriben los diagnósticos en Table Storage o los registros de IIS en Blob Storage:
 
 * Clústeres de Service Fabric (versión preliminar)
 * Virtual Machines
 * Roles web y de trabajo
 
-Antes de que Azure Monitor puede recopilar datos en un área de trabajo de Log Analytics para estos recursos, deben estar habilitados diagnósticos de Azure.
+Antes de que Azure Monitor pueda recopilar los datos en un área de trabajo de Log Analytics, es necesario habilitar Azure Diagnostics.
 
-Una vez que se habilitan los diagnósticos, puede usar el portal de Azure o PowerShell para configurar el área de trabajo para recopilar los registros.
+Una vez que se habilitan los diagnósticos, puede usar Azure Portal o PowerShell para configurar el área de trabajo para recopilar los registros.
 
-Diagnósticos de Azure es una extensión de Azure que le permite recopilar datos de diagnóstico de un rol de trabajo, un rol web o una máquina virtual en ejecución en Azure. Los datos se almacenan en una cuenta de almacenamiento de Azure y, a continuación, se pueden recopilar mediante Azure Monitor.
+Diagnósticos de Azure es una extensión de Azure que le permite recopilar datos de diagnóstico de un rol de trabajo, un rol web o una máquina virtual en ejecución en Azure. Los datos se almacenan en una cuenta de Azure Storage para que se puedan recopilar con Azure Monitor.
 
-Monitor de Azure recopilar estos registros de diagnósticos de Azure, los registros deben estar en las siguientes ubicaciones:
+Para que Azure Monitor recopile estos registros de Azure Diagnostics, deben estar en las siguientes ubicaciones:
 
 | Tipo de registro | Tipo de recurso | Ubicación |
 | --- | --- | --- |
@@ -120,11 +120,11 @@ Asegúrese de que ConfigurationSettings especifica una cuenta de almacenamiento,
 
 Los valores de **AccountName** y **AccountKey** se encuentran en el panel de cuentas de almacenamiento de Azure Portal, en Administrar claves de acceso. El protocolo de la cadena de conexión debe ser **https**.
 
-Una vez que se aplica la configuración de diagnóstico actualizada al servicio de nube y se escribe el diagnóstico en Azure Storage, está listo para configurar el área de trabajo de Log Analytics.
+Una vez que se aplica la configuración de diagnóstico actualizada al servicio en la nube y se escribe el diagnóstico en Azure Storage, está preparado para configurar el área de trabajo de Log Analytics.
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Uso de Azure Portal para recopilar registros de Azure Storage
 
-Puede usar el portal de Azure para configurar un área de trabajo de Log Analytics en Azure Monitor para recopilar los registros para los siguientes servicios de Azure:
+Con Azure Portal puede configurar un área de trabajo de Log Analytics en Azure Monitor para recopilar los registros para los siguientes servicios de Azure:
 
 * Clústeres de Service Fabric
 * Virtual Machines
@@ -141,9 +141,9 @@ En Azure Portal, vaya hasta el área de trabajo de Log Analytics y realice las s
 5. El valor de origen se rellenará automáticamente según el tipo de datos y no se puede cambiar
 6. Haga clic en Aceptar para guardar la configuración
 
-Repita los pasos 2 a 6 para los tipos de datos que desea recopilar en el área de trabajo y cuentas de almacenamiento adicionales.
+Repita los pasos 2 a 6 para los tipos de datos y las cuentas de almacenamiento adicionales que quiera recopilar en el área de trabajo.
 
-En aproximadamente 30 minutos, es posible ver los datos de la cuenta de almacenamiento en el área de trabajo de Log Analytics. Solo verá los datos que se escriban en el almacenamiento de una vez aplicada la configuración. El área de trabajo no lee los datos preexistentes de la cuenta de almacenamiento.
+En aproximadamente 30 minutos podrá ver los datos de la cuenta de almacenamiento en el área de trabajo de Log Analytics. Solo verá los datos que se escriban en el almacenamiento de una vez aplicada la configuración. El área de trabajo no lee los datos preexistentes de la cuenta de almacenamiento.
 
 > [!NOTE]
 > El portal no valida la existencia del origen en la cuenta de almacenamiento o si se escriben nuevos datos.
@@ -154,7 +154,7 @@ En aproximadamente 30 minutos, es posible ver los datos de la cuenta de almacena
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Siga los pasos de [configurar Azure Monitor para indizar diagnósticos de Azure](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage) usar PowerShell para leer desde diagnósticos de Azure que se escriben en table storage.
+Siga los pasos de [Configuring Azure Monitor to index Azure diagnostics](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage) (Configuración de Azure Monitor para indexar Azure Diagnostics) para usar PowerShell con el fin de leer datos desde los diagnósticos de Azure que se escriben en Table Storage.
 
 Con PowerShell de Azure puede especificar con mayor precisión los eventos que se escriben en Azure Storage.
 Para obtener más información, vea[Habilitación de Diagnósticos en Azure](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).

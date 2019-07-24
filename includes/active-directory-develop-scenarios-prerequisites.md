@@ -15,15 +15,15 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: c2769282a2e9afda22d2e03c653b0f62b05b98bc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121580"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186496"
 ---
-Antes de leer este artículo, debe estar familiarizado con los conceptos siguientes o lea los artículos siguientes:
+Antes de leer este artículo, debería estar familiarizado con los conceptos siguientes o leer los artículos siguientes:
 
-- [Información general sobre la plataforma de identidades de Microsoft](../articles/active-directory/develop/v2-overview.md)
+- [Introducción a la Plataforma de identidad de Microsoft](../articles/active-directory/develop/v2-overview.md)
 - [Conceptos básicos sobre autenticación](../articles/active-directory/develop/authentication-scenarios.md)
 - [Audiencias](../articles/active-directory/develop/v2-supported-account-types.md)
 - [Aplicaciones y entidades de servicio](../articles/active-directory/develop/app-objects-and-service-principals.md)

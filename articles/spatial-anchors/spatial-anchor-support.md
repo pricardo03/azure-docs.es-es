@@ -1,6 +1,6 @@
 ---
-title: Obtenga información sobre las opciones de soporte técnico de Azure espacial delimitador | Microsoft Docs
-description: Información espacial delimitadores Azure sobre cómo abrir una solicitud con el equipo de soporte técnico.
+title: Información sobre las opciones de soporte técnico de Azure Spatial Anchor | Microsoft Docs
+description: Información de Azure Spatial Anchors sobre cómo abrir una solicitud con el equipo de soporte técnico.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -9,45 +9,45 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 1930d5fc9dafe7d480302ded9b4e5a86f55a7669
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964529"
 ---
-# <a name="azure-spatial-anchors-support-options"></a>Opciones de soporte técnico de Azure delimitadores espacial
+# <a name="azure-spatial-anchors-support-options"></a>Opciones de soporte técnico de Azure Spatial Anchors
 
 ## <a name="open-a-tech-support-ticket"></a>Abra una incidencia de soporte técnico
 
-Para abrir una incidencia de soporte técnico en el Portal de Azure para Azure espacial delimitadores:
+Para abrir una incidencia de soporte técnico dentro de Azure Portal para Azure Spatial Anchors:
 
-1. Con el [portal Azure](https://azure.microsoft.com/account/) abra, seleccione el icono de Ayuda de la barra de menús superior y, a continuación, seleccione el **ayuda y soporte técnico** botón. 
+1. Con [Azure Portal](https://azure.microsoft.com/account/) abierto, seleccione el icono de ayuda en la barra de menús superior y, luego, seleccione **Ayuda y soporte técnico**. 
 
-![Soporte técnico y ayuda del portal de azure](./media/spatial-anchor-support.png)
+![Ayuda de Azure Portal y soporte técnico](./media/spatial-anchor-support.png)
 
-1. Con la Ayuda y soporte técnico abierto, seleccione de la página **+ nueva solicitud de soporte técnico**.
+1. Con la página Ayuda y soporte técnico abierta, seleccione **+ Nueva solicitud de soporte técnico**.
 
-![Azure portal nueva solicitud de soporte](./media/spatial-anchor-support2.png)
+![Nueva solicitud de soporte técnico de Azure Portal](./media/spatial-anchor-support2.png)
 
 1. Al completar los campos de la incidencia de soporte técnico: 
 
-- Tipo de problema: Técnico
+- Tipo de problema: Requisitos previos técnicos
 - Servicio: Spatial Anchors
 
-![Campos de la incidencia de soporte técnico de Azure portal](./media/spatial-anchor-support3.png)
+![Campos de la incidencia de soporte técnico de Azure Portal](./media/spatial-anchor-support3.png)
 
 ## <a name="community-support"></a>Soporte técnico de la comunidad
 
-Para obtener soporte técnico de la Comunidad de usuarios, consulte [espacial delimitadores de Azure en Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors). 
+Para soporte técnico de la comunidad de usuarios, consulte [Azure Spatial Anchors en Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors). 
 
 ## <a name="provide-content-feedback"></a>Proporcionar comentarios sobre el contenido
 
-En la parte inferior de cada artículo contenido, hay una oportunidad para abrir un problema de GitHub y proporcionar comentarios sobre el contenido de la documentación de Azure espacial delimitador. 
+En la parte inferior de cada artículo de contenido, puede abrir una incidencia de GitHub y proporcionar comentarios sobre el contenido de la documentación de Azure Spatial Anchor. 
 
 ## <a name="provide-product-feedback"></a>Proporcionar comentarios sobre el producto
 
-Para proporcionar comentarios, compartir una idea o sugerencia para el servicio Azure espacial delimitadores o votar las ideas que otros usuarios han enviado, visite la [foro de comentarios de Azure espacial delimitadores](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
+Para proporcionar comentarios, comparta una idea o sugerencia para el servicio Azure Spatial Anchors, o bien vote por las ideas enviadas por otros usuarios. Visite el [foro de comentarios sobre Azure Spatial](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para las preguntas más frecuentes sobre los delimitadores espacial de Azure, consulte el [preguntas más frecuentes sobre](spatial-anchor-faq.md) página.
+Para ver las preguntas más frecuentes sobre Azure Spatial Anchors, consulte la página [Preguntas frecuentes](spatial-anchor-faq.md).

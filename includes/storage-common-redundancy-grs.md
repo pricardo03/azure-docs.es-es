@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/26/2018
 ms.author: jeking
 ms.custom: include file
-ms.openlocfilehash: efa593d0ff0043d81574b67192deed30933e1e40
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3aa5310589101fa66fd70cc8d5449fbef80f02fa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186926"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286300"
 ---
 El almacenamiento con redundancia geográfica(GRS) está diseñado para proporcionar al menos el 99.99999999999999 % (dieciséis nueves) de durabilidad de objetos a lo largo de un año. Para ello, replica los datos a una región secundaria que se encuentra a cientos de kilómetros de la región primaria. Si la cuenta de almacenamiento tiene habilitado GRS, sus datos se mantienen incluso ante un apagón regional completo o un desastre del cual la región principal no se puede recuperar.
 

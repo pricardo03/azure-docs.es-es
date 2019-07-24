@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d527b08f3610531bef8e98a11998942411651d27
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925686"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621347"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configuración de una instancia de Application Developers Controlled Distribution (ADCD) en IBM zD&T v1
 
@@ -21,7 +21,7 @@ Puede ejecutar un entorno de IBM Z Development and Test Environment (zD&T) en m�
 
 En este artículo se muestra cómo configurar una instancia de ADCD en un entorno de zD&T en Azure. Los ADCD crean implementaciones completas de sistema operativo de Z Series para entornos de desarrollo y pruebas que se ejecutan en zD&T.
 
-Al igual que zD&T, los ADCD solo están disponibles para los socios y clientes de IBM, y son exclusivamente para fines de desarrollo y prueba. No deben usarse para entornos de producción. Hay disponibles varios paquetes de instalación de IBM para su descarga a través de [Passport Advantage](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) o [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+Al igual que zD&T, los ADCD solo están disponibles para los socios y clientes de IBM, y son exclusivamente para fines de desarrollo y prueba. No deben usarse para entornos de producción. Hay disponibles varios paquetes de instalación de IBM para su descarga a través de [Passport Advantage](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) o [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,13 +33,13 @@ Al igual que zD&T, los ADCD solo están disponibles para los socios y clientes d
 
 - Un [servidor de licencias](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html). Esto es necesario para ejecutar IBM zD&T. La forma en que se cree depende de cómo se autorice el software desde IBM:
 
-  - **Servidor de licencias basado en hardware**: Requiere un dispositivo de hardware USB que contenga la licencia Rational Token necesaria para acceder a todas las partes del software. Se debe solicitar a IBM.
+  - **Servidor de licencias basado en hardware**: requiere un dispositivo de hardware USB que contenga la licencia Rational Token necesaria para acceder a todas las partes del software. Se la debe proporciona IBM.
 
-  - **Servidor de licencias basado en software**: Requiere que configure un servidor centralizado para la administración de las claves de licencia. Este método es preferible y requiere que configure las claves que recibe de IBM en el servidor de administración.
+  - **Servidor de licencias basado en software**: requiere que configure un servidor centralizado para la administración de las claves de licencia. Este método es preferible y requiere que configure las claves que recibe de IBM en el servidor de administración.
 
 ## <a name="download-the-installation-packages-from-passport-advantage"></a>Descargar los paquetes de instalación de Passport Advantage
 
-Se requiere acceso a los medios de ADCD. En los pasos siguientes se supone que es cliente de IBM y puede usar Passport Advantage. Los partners de IBM pueden usar [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+Se requiere acceso a los medios de ADCD. En los pasos siguientes se supone que es cliente de IBM y puede usar Passport Advantage. Los partners de IBM pueden usar [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 > [!NOTE]
 > En este artículo se supone que se usa un equipo con Windows para acceder a Azure Portal y descargar los medios de IBM. Si usa un equipo de escritorio Mac o Ubuntu, los comandos y el proceso para obtener el medio de IBM pueden diferir ligeramente.

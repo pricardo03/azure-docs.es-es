@@ -1,20 +1,20 @@
 ---
-title: Invalidación del comportamiento HTTP mediante la red CDN de Azure desde el motor de reglas de Verizon Premium | Microsoft Docs
-description: El motor de reglas permite personalizar cómo se controlan las solicitudes HTTP mediante Azure CDN de Verizon Premium, como el bloqueo de la entrega de determinados tipos de contenido, definir una directiva de almacenamiento en caché y modificar los encabezados HTTP.
+title: Invalidación del comportamiento HTTP mediante el motor de reglas de Azure CDN de Verizon Premium | Microsoft Docs
+description: El motor de reglas permite personalizar cómo Azure CDN de Verizon Premium controla las solicitudes HTTP, como el bloqueo de la entrega de determinados tipos de contenido, la definición de una directiva de almacenamiento en caché y la modificación de encabezados HTTP.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 81af3073d64e4379972568a57907a7fb2f82356d
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: fa08f59f3b69395d548649bb131e04c5071c053d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481735"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593178"
 ---
-# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Invalidación del comportamiento HTTP mediante la red CDN de Azure desde el motor de reglas de Verizon Premium
+# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Invalidación del comportamiento HTTP mediante el motor de reglas de Azure CDN de Verizon Premium
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
@@ -93,11 +93,11 @@ Para acceder al motor de reglas, primero debe seleccionar **Manage** (Administra
    >
    >
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Información general de Azure CDN](cdn-overview.md)
 - [Referencia del motor de reglas](cdn-verizon-premium-rules-engine-reference.md)
 - [Condiciones de coincidencia del motor de reglas](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Expresiones condicionales del motor de reglas](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Características del motor de reglas](cdn-verizon-premium-rules-engine-reference-features.md)
-- [Azure Fridays: Potentes nuevas características premium la red Azure CDN](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)
+- [Azure Fridays: Azure CDN's powerful new Premium Features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (Azure Fridays: Características nuevas y eficaces de la edición Premium de Azure CDN) (vídeo)

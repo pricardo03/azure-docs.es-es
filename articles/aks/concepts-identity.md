@@ -2,17 +2,17 @@
 title: 'Conceptos: Acceso e identidad en Azure Kubernetes Service (AKS)'
 description: Este artículo contiene más información sobre el acceso y la identidad en Azure Kubernetes Service (AKS), incluida la integración de Azure Active Directory, el control de acceso basado en rol de Kubernetes y los roles y enlaces.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: a1ed1eccd7a10d78cd503559469654e5562cde0c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467058"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615859"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opciones de acceso e identidad en Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ Uno de los tipos de usuario principales de Kubernetes es una *cuenta de servicio
 
 Las cuentas de usuario normales permiten un acceso más tradicional para administradores o desarrolladores humanos, no solo a servicios y procesos. Kubernetes por sí solo no proporciona una solución de administración de identidades donde se almacenan contraseñas y cuentas de usuario normales. En su lugar, se pueden integrar soluciones de identidad externas en Kubernetes. Para los clústeres de AKS, esta solución de identidades integrada es Azure Active Directory.
 
-Para más información sobre las opciones de identidad en Kubernetes, consulte [autenticación Kubernetes][kubernetes-authentication].
+Para más información sobre las opciones de identidad en Kubernetes, consulte la [autenticación Kubernetes][kubernetes-authentication].
 
 ## <a name="azure-active-directory-integration"></a>Integración de Azure Active Directory
 
@@ -40,15 +40,15 @@ Puede mejorar la seguridad de los clústeres de AKS con la integración de Azure
 
 ![Integración de Azure Active Directory con clústeres de AKS](media/concepts-identity/aad-integration.png)
 
-Con los clústeres de AKS integrados en Azure AD, puede conceder a los usuarios o grupos acceso a los recursos de Kubernetes de un espacio de nombres o del clúster. Para obtener un contexto de configuración `kubectl`, un usuario puede ejecutar el comando [az aks get-credentials][az-aks-get-credentials]. Cuando un usuario interactúa con el clúster de AKS con `kubectl`, se le pide que inicie sesión con sus credenciales de Azure AD. Este enfoque proporciona un único origen para la administración de cuentas de usuario y de las credenciales de contraseña. El usuario solo puede acceder a los recursos como defina el administrador de clústeres.
+Con los clústeres de AKS integrados en Azure AD, puede conceder a los usuarios o grupos acceso a los recursos de Kubernetes de un espacio de nombres o del clúster. Para obtener un contexto de configuración de `kubectl`, el usuario puede ejecutar el comando [az aks get-credentials][az-aks-get-credentials]. Cuando un usuario interactúa con el clúster de AKS con `kubectl`, se le pide que inicie sesión con sus credenciales de Azure AD. Este enfoque proporciona un único origen para la administración de cuentas de usuario y de las credenciales de contraseña. El usuario solo puede acceder a los recursos como defina el administrador de clústeres.
 
-La autenticación de Azure AD en los clústeres de AKS usa OpenID Connect, una capa de identidad que se basa en el protocolo OAuth 2.0. OAuth 2.0 define los mecanismos para obtener y utilizar tokens de acceso para acceder a recursos protegidos, y OpenID Connect implementa la autenticación como una extensión del proceso de autorización de OAuth 2.0. Puede encontrar más información sobre OpenID Connect en la [documentación de OpenID Connect][openid-connect]. Para comprobar los tokens de autenticación obtenidos de Azure AD a través de OpenID Connect, los clústeres de AKS usan la autenticación de token de webhook de Kubernetes. Para más información, consulte la [documentación de autenticación de token de webhook][webhook-token-docs].
+La autenticación de Azure AD en los clústeres de AKS usa OpenID Connect, una capa de identidad que se basa en el protocolo OAuth 2.0. OAuth 2.0 define los mecanismos para obtener y utilizar tokens de acceso para acceder a recursos protegidos, y OpenID Connect implementa la autenticación como una extensión del proceso de autorización de OAuth 2.0. Puede encontrar más información sobre OpenID Connect en la [documentación de OpenID Connect][openid-connect]. To verify the authentication tokens obtained from Azure AD through OpenID Connect, AKS clusters use Kubernetes Webhook Token Authentication. For more information, see the [Webhook Token Authentication documentation][webhook-token-docs].
 
 ## <a name="role-based-access-controls-rbac"></a>Controles de acceso basado en rol (RBAC)
 
 Para proporcionar el filtrado pormenorizado de las acciones que los usuarios pueden realizar, Kubernetes utiliza controles de acceso basado en rol (RBAC). Este mecanismo de control le permite asignar a usuarios o grupos de usuarios, permiso para realizar acciones como crear o modificar recursos, o ver registros de cargas de trabajo de aplicaciones en ejecución. Estos permisos se pueden limitar a un único espacio de nombres o conceder en todo el clúster de AKS. Con el control de acceso basado en rol de Kubernetes, puede crear *roles* para definir permisos y, después, asignar esos roles a usuarios mediante *enlaces de rol*.
 
-Para más información, consulte [Uso de la autorización de RBAC][kubernetes-rbac].
+Para obtener más información, consulte [Uso de la autorización de RBAC][kubernetes-rbac].
 
 ### <a name="azure-role-based-access-controls-rbac"></a>Controles de acceso basado en rol (RBAC) de Azure
 Un mecanismo adicional para controlar el acceso a los recursos es el control de acceso de basado en rol (RBAC) de Azure. El control de acceso basado en rol de Kubernetes está diseñado para trabajar con los recursos del clúster de AKS y el de Azure está diseñado para trabajar con los recursos de su suscripción de Azure. Con el control de acceso basado en rol de Azure, puede crear una *definición de rol* que describe los permisos que se aplicarán. A continuación, se asigna esta definición de rol a un usuario o grupo para un *ámbito* determinado que puede ser un recurso individual, un grupo de recursos o en toda la suscripción.
@@ -73,17 +73,17 @@ Un ClusterRoleBinding funciona de la misma manera para enlazar roles con usuario
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar a trabajar con Azure AD y el RBAC de Kubernetes, consulte [Integración de Azure Active Directory con AKS][aks-aad].
+Para empezar a trabajar con Azure AD y el RBAC de Kubernetes, consulte [Integración de Azure Active Directory con AKS][aks-aad].
 
 Para conocer los procedimientos recomendados asociados, consulte [Procedimientos recomendados para la autenticación y la autorización en AKS][operator-best-practices-identity].
 
 Para obtener más información sobre los conceptos básicos de Kubernetes y AKS, consulte los artículos siguientes:
 
-- [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads] (Clústeres y cargas de trabajo de Kubernetes/AKS)
-- [Kubernetes / AKS security][aks-concepts-security] (Seguridad de Kubernetes/AKS)
-- [Kubernetes / AKS virtual networks][aks-concepts-network] (Redes virtuales de Kubernetes/AKS)
-- [Kubernetes / AKS storage][aks-concepts-storage] (Almacenamiento de Kubernetes/AKS)
-- [Kubernetes / AKS scale][aks-concepts-scale] (Escala de Kubernetes/AKS)
+- [Clústeres y cargas de trabajo de Kubernetes/AKS][aks-concepts-clusters-workloads]
+- [Seguridad de Kubernetes/AKS][aks-concepts-security]
+- [Redes virtuales de Kubernetes/AKS][aks-concepts-network]
+- [Almacenamiento de Kubernetes/AKS][aks-concepts-storage]
+- [Escala de Kubernetes/AKS][aks-concepts-scale]
 
 <!-- LINKS - External -->
 [kubernetes-authentication]: https://kubernetes.io/docs/reference/access-authn-authz/authentication

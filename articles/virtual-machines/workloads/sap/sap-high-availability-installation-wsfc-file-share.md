@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357691"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un recurso compartido de archivos para instancias de SAP ASCS/SCS
@@ -204,15 +204,15 @@ En este artículo se describe cómo instalar y configurar un sistema SAP de alta
 
 Antes de empezar la instalación, consulte los artículos siguientes:
 
-* [Guía de arquitectura: Agrupar una instancia ASCS/SCS de SAP en un clúster de conmutación por error de Windows mediante el uso compartido de archivos][sap-high-availability-guide-wsfc-file-share]
+* [Guía de arquitectura: Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos][sap-high-availability-guide-wsfc-file-share]
 
 * [Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-file-share]
 
 * [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure][high-availability-guide]
 
 Necesitará los siguientes archivos ejecutables y DLL de SAP:
-* SAP Software Provisioning Manager (SWPM) SPS25 de versión de la herramienta de instalación o una versión posterior.
-* Kernel SAP 7.49 o posterior
+* Versión de la herramienta de instalación SAP Software Provisioning Manager (SWPM) SPS25 (o posterior).
+* Kernel de SAP 7.49 o posterior
 
 > [!IMPORTANT]
 > La agrupación en clústeres de instancias de ASCS/SCS de SAP con un recurso compartido de archivos es compatible con SAP NetWeaver 7.40 (y versiones posteriores), con el kernel de SAP 7.49 (y versiones posteriores).
@@ -232,7 +232,7 @@ No hay ninguna consideración especial cuando distintos servicios de DBMS intera
 
 Cree el volumen y el recurso compartido de archivos siguientes en el clúster de SOFS:
 
-* Archivo SAP GLOBALHOST `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` (CSV) de volumen compartido en la estructura en un clúster SOFS
+* Estructura `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` del archivo GLOBALHOST de SAP en el volumen compartido del clúster (CSV) de SOFS
 
 * Recurso compartido de archivos SAPMNT
 
@@ -294,28 +294,28 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 Cree un nombre de red en clúster de SAP ASCS/SCS (por ejemplo, **pr1-ascs [10.0.6.7]** ), como se describe en [Creación de un nombre de host virtual para la instancia de SAP ASCS/SCS en clúster][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
 
 
-## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Instalar una instancia ASCS/SCS y ERS en el clúster
+## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Instalación de instancias de ASCS/SCS y ERS en el clúster
 
-### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Instalar una instancia ASCS/SCS en el primer nodo del clúster ASCS/SCS
+### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Instalación de instancias de ASCS/SCS en el primer nodo de clúster de ASCS/SCS
 
-Instale una instancia ASCS/SCS de SAP en el primer nodo del clúster. Para instalar la instancia, en la herramienta de instalación SAP SWPM, vaya a:
+Instale una instancia de ASCS/SCS de SAP en el primer nodo de clúster. Para instalar la instancia, en la herramienta de instalación SAP SWPM, vaya a:
 
-**\<Producto >**  >  **\<DBMS >**  > **instalación** > **Application Server ABAP** () o **Java**) > **High-Availability System** > **instancia ASCS/SCS** > **primer nodo del clúster**.
+**\<Product (Producto) >**  >  **\<DBMS >**  > **Installation (Instalación)**  > **Application Server ABAP** (o **Java**) > **High-Availability System (Sistema de alta disponibilidad)**  > **ASCS/SCS instance (Instancia de ASCS/SCS)**  > **First cluster node (Primer nodo de clúster)** .
 
 ### <a name="add-a-probe-port"></a>Adición de un puerto de sondeo
 
 Configure un recurso de clúster de SAP y el puerto de sondeo SAP-SID-IP mediante PowerShell. Ejecute esta configuración en uno de los nodos del clúster de SAP ASCS/SCS, como se describe [en este artículo][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
 
-### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Instalar una instancia ASCS/SCS en el segundo nodo del clúster ASCS/SCS
+### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Instalación de instancias de ASCS/SCS en el segundo nodo de clúster de ASCS/SCS
 
-Instale una instancia ASCS/SCS de SAP en el segundo nodo del clúster. Para instalar la instancia, en la herramienta de instalación SAP SWPM, vaya a:
+Instale una instancia de ASCS/SCS de SAP en el segundo nodo de clúster. Para instalar la instancia, en la herramienta de instalación SAP SWPM, vaya a:
 
-**\<Producto >**  >  **\<DBMS >**  > **instalación** > **Application Server ABAP** () o **Java**) > **High-Availability System** > **instancia ASCS/SCS** > **nodo de clúster adicional** .
+**\<Product (Producto) >**  >  **\<DBMS >**  > **Installation (Instalación)**  > **Application Server ABAP** (o **Java**) > **High-Availability System (Sistema de alta disponibilidad)**  > **ASCS/SCS instance (Instancia de ASCS/SCS)**  > **Additional cluster node (Nodo de clúster adicional)** .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Actualización del perfil de instancia de SAP ASCS/SCS
 
-Actualizar los parámetros en el perfil de la instancia ASCS/SCS de SAP \<SID >_ASCS/SCS\<Nr >_ \<Host >.
+Actualice los parámetros en el perfil de la instancia de ASCS/SCS de SAP \<SID>_ASCS/SCS\<Nr>_ \<Host>.
 
 
 | Nombre de parámetro | Valor del parámetro |
@@ -324,7 +324,7 @@ Actualizar los parámetros en el perfil de la instancia ASCS/SCS de SAP \<SID >_
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-Reinicie la instancia ASCS/SCS de SAP. Establecer `KeepAlive` parámetros en ambos nodos del clúster ASCS/SCS de SAP siguen las instrucciones para [configurar entradas de registro en los nodos del clúster de la instancia ASCS/SCS de SAP][high-availability-guide]. 
+Reinicie la instancia de ASCS/SCS de SAP. Establezca los parámetros `KeepAlive` en ambos nodos del clúster ASCS/SCS de SAP para que sigan las instrucciones de [Establecimiento de entradas de registro en los nodos del clúster de la instancia de ASCS/SCS de SAP][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instalación de instancias de DBMS y servidores de aplicaciones SAP
 

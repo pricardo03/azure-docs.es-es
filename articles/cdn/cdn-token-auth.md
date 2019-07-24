@@ -7,19 +7,19 @@ author: zhangmanling
 manager: zhangmanling
 editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
-ms.service: cdn
+ms.service: azure-cdn
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472159"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593390"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protección de los activos de Azure CDN con autenticación por tokens
 
@@ -33,13 +33,13 @@ La autenticación por tokens es un mecanismo que permite impedir que Azure Conte
 
 La autenticación por tokens verifica que un sitio de confianza genere las solicitudes, para lo que se requiere que contengan un valor de token con información codificada sobre el solicitante. El contenido solo se proporciona al solicitante cuando la información codificada cumple los requisitos; de lo contrario, las solicitudes se deniegan. Puede configurar los requisitos mediante el uso de uno o varios de los siguientes parámetros:
 
-- País: Permitir o denegar las solicitudes que se originan en los países o regiones especificados por su [código de país](/previous-versions/azure/mt761717(v=azure.100)).
-- Dirección URL: Permitir solo las solicitudes que coinciden con el recurso especificado o la ruta de acceso.
-- Host: Permitir o denegar las solicitudes que usan los hosts especificados en el encabezado de solicitud.
-- Origen de referencia: Permitir o denegar la solicitud de referencia especificado.
-- Dirección IP: Permitir solo las solicitudes originadas en la dirección IP específica o subred IP.
-- Protocolo: Permitir o denegar las solicitudes según el protocolo utilizado para solicitar el contenido.
-- Hora de expiración: Asignar un período de fecha y hora para asegurarse de que un vínculo es válido solo durante un período de tiempo limitado.
+- País: permitir o denegar las solicitudes que se originan en los países o regiones especificados con su [código de país](/previous-versions/azure/mt761717(v=azure.100)).
+- Dirección URL: permitir solo las solicitudes que coinciden con el recurso o la ruta de acceso especificados.
+- Host: permitir o denegar las solicitudes que usan los hosts especificados en el encabezado de la solicitud.
+- Origen de referencia: permitir o denegar las solicitudes procedentes del origen de referencia especificado.
+- Dirección IP: permitir solo las solicitudes cuyo origen es una dirección IP específica o subred IP concretas.
+- Protocolo: permitir o denegar las solicitudes en función del protocolo usado para solicitar el contenido.
+- Fecha de expiración: asignar un período de fecha y hora para asegurarse de que un vínculo solo es válido durante un tiempo limitado.
 
 Para obtener más información, vea los ejemplos de configuración detallados para cada parámetro en [Configuración de la autenticación por tokens](#setting-up-token-authentication).
 
@@ -81,12 +81,12 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
    2. Escriba una clave de cifrado única en el cuadro **Clave principal** y, opcionalmente, escriba una clave de copia de seguridad en el cuadro **Clave de copia de seguridad**.
 
    3. Seleccione la versión de cifrado mínima para cada clave de la lista **Minimum Encryption Version** (Versión mínima de cifrado) y después seleccione **Actualizar**:
-      - **V2**: Indica que la clave se puede utilizar para generar tokens de la versión 2.0 y 3.0. Use esta opción solo si está realizando la transición de una clave de cifrado de la versión 2.0 heredada a una clave de la versión 3.0.
-      - **V3**: (Recomendado) Indica que la clave solo puede usarse para generar tokens de la versión 3.0.
+      - **V2**: indica que la clave se puede utilizar para generar tokens de versión 2.0 y 3.0. Use esta opción solo si está realizando la transición de una clave de cifrado de la versión 2.0 heredada a una clave de la versión 3.0.
+      - **V3**: (recomendada) indica que la clave solo se puede utilizar para generar tokens de la versión 3.0.
 
       ![Clave de configuración de autenticación por tokens de la red CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Use la herramienta de cifrado para configurar los parámetros de cifrado y generar un token. Con la herramienta de cifrado, puede permitir o denegar las solicitudes en función del tiempo de expiración, país o región, origen de referencia, protocolo y dirección IP del cliente (con cualquier combinación). Aunque no hay ningún límite en el número y la combinación de parámetros que se pueden combinar para formar un token, la longitud total de un token está limitada a 512 caracteres. 
+   4. Use la herramienta de cifrado para configurar los parámetros de cifrado y generar un token. Con la herramienta de cifrado, puede permitir o denegar las solicitudes según la fecha de expiración, el país o región, el origen de referencia, el protocolo y la dirección IP del cliente (con cualquier combinación). Aunque no hay ningún límite en el número y la combinación de parámetros que se pueden combinar para formar un token, la longitud total de un token está limitada a 512 caracteres. 
 
       ![Herramienta de cifrado de la red CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -108,23 +108,23 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
       >    <td>Permite adaptar tokens para un recurso o ruta de acceso concretos. Restringe el acceso a las solicitudes cuya dirección URL comience con una ruta de acceso relativa específica. Las direcciones URL distinguen mayúsculas de minúsculas. Incluya varias rutas de acceso separadas por comas y no agregue espacios. En función de los requisitos, puede configurar otros valores para proporcionar distintos niveles de acceso.> 
       >    Por ejemplo, para la dirección URL `http://www.mydomain.com/pictures/city/strasbourg.png`, estas solicitudes se permiten para los siguientes valores de entrada: 
       >    <ul>
-      >       <li>Valor de entrada `/`: Se permiten todas las solicitudes.</li>
+      >       <li>Valor de entrada `/`: se permiten todas las solicitudes.</li>
       >       <li>Valor de entrada `/pictures`: se permiten las siguientes solicitudes: <ul>
       >          <li>`http://www.mydomain.com/pictures.png`</li>
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Valor de entrada `/pictures/`: Solo las solicitudes que contienen el `/pictures/` se permiten la ruta de acceso. Por ejemplo, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
-      >       <li>Valor de entrada `/pictures/city/strasbourg.png`: Se permiten solo las solicitudes para esta ruta de acceso específica y activo.</li>
+      >       <li>Valor de entrada `/pictures/`: solo se permiten las solicitudes que contienen la ruta de acceso `/pictures/`. Por ejemplo, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Valor de entrada `/pictures/city/strasbourg.png`: solo se permiten las solicitudes de esta ruta de acceso y recurso específicos.</li>
       >    </ul>
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Solo se permiten solicitudes que se originan en uno o más países/regiones determinadas. Se deniegan las solicitudes originadas en todos los demás países o regiones. Utilice un [código ISO 3166 de país](/previous-versions/azure/mt761717(v=azure.100)) de dos letras para cada país, sepárelos con una coma y no agregue espacios. Por ejemplo, si solo desea permitir el acceso desde Estados Unidos y Francia, escriba `US,FR`.</td>
+      >    <td>Solo permite solicitudes que se originen en uno o más países o regiones especificados. Se deniegan las solicitudes originadas en los demás países o regiones. Utilice un [código ISO 3166 de país](/previous-versions/azure/mt761717(v=azure.100)) de dos letras para cada país, sepárelos con una coma y no agregue espacios. Por ejemplo, si solo desea permitir el acceso desde Estados Unidos y Francia, escriba `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Deniega solicitudes que se originan en uno o más países/regiones determinadas. Se permiten las solicitudes originadas en todos los demás países o regiones. La implementación es la misma que con el parámetro <b>ec_country_allow</b>. Si hay un código de país en los parámetros <b>ec_country_allow</b> y <b>ec_country_deny</b>, el parámetro <b>ec_country_allow</b> tiene prioridad.</td>
+      >    <td>Deniega solicitudes que se originan en uno o más países o regiones especificados. Se permiten las solicitudes originadas en todos los demás países o regiones. La implementación es la misma que con el parámetro <b>ec_country_allow</b>. Si hay un código de país en los parámetros <b>ec_country_allow</b> y <b>ec_country_deny</b>, el parámetro <b>ec_country_allow</b> tiene prioridad.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
@@ -158,7 +158,7 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
 
    5. Cuando termine de especificar los valores de los parámetros de cifrado, seleccione una clave para cifrar (si ha creado una clave principal y una clave de copia de seguridad) en la lista **Key To Encrypt** (Clave para cifrar).
     
-   6. Seleccione una versión de cifrado de la **Encryption Version** lista: **V2** para la versión 2 o **V3** para la versión 3 (recomendado). 
+   6. Seleccione una versión de cifrado de la lista **Encryption Version** (Versión de cifrado): **V2** para la versión 2 o **V3** para la versión 3 (recomendado). 
 
    7. Seleccione **Cifrar** para generar el token.
 
@@ -179,11 +179,11 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
 
 4. En el motor de reglas, también puede habilitar otras características relacionadas con la autenticación por tokens. Para habilitar cualquiera de las siguientes características, selecciónela en la lista **Características** y después seleccione **Habilitada**.
     
-   - **[Código de denegación de autorización de token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : Determina el tipo de respuesta que se devuelve a un usuario cuando se deniega una solicitud. Las reglas establecidas aquí invalidan el código de respuesta especificado en la sección **Custom Denial Handling** (Control de denegación personalizado) de la página de autenticación por tokens.
+   - **[Token Auth Denial Code](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** (Código de denegación de autenticación de token): determina el tipo de respuesta que se devuelve al usuario cuando se deniega una solicitud. Las reglas establecidas aquí invalidan el código de respuesta especificado en la sección **Custom Denial Handling** (Control de denegación personalizado) de la página de autenticación por tokens.
 
-   - **[Token Auth Omitir mayúsculas y minúsculas de la dirección URL](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : Determina si la dirección URL usada para validar el token distingue mayúsculas de minúsculas.
+   - **[Token Auth Ignore URL Case](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** (Ignorar mayúsculas y minúsculas en URL de autenticación de tokens): determina si la dirección URL usada para validar el token distingue mayúsculas de minúsculas.
 
-   - **[Parámetro de autenticación de token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : Cambia el nombre el parámetro de cadena de consulta de autenticación por tokens que aparece en la dirección URL solicitada. 
+   - **[Token Auth Parameter](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** (Parámetro de autenticación por tokens): cambia el nombre del parámetro de cadena de consulta de autenticación por tokens que aparece en la dirección URL solicitada. 
         
      ![Ejemplo de configuración de la autenticación por tokens en el motor de reglas de la red CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 

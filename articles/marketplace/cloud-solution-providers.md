@@ -1,28 +1,28 @@
 ---
 title: Proveedores de soluciones en la nube | Azure Marketplace
-description: Los publicadores pueden vender ahora sus ofertas a través del canal de asociado de CSP de Microsoft
+description: Los publicadores ya pueden comercializar sus ofertas a través del canal de asociados de CSP de Microsoft.
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 02/27/2019
-ms.author: ellacroi
-ms.openlocfilehash: d39ebf993498cea3ede11e07c5e71628287b81ac
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.date: 06/13/2019
+ms.author: v-qiwe
+ms.openlocfilehash: 0b47e5af0b0656cac4962c1007e999508f58a9e5
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938549"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150972"
 ---
 # <a name="cloud-solution-providers"></a>Proveedores de soluciones en la nube
 
-Ofertas de software ahora pueden llegar a millones de clientes de Microsoft completos atendidos por asociados de proveedor de soluciones en la nube (CSP) con la mínima inversión en marketing y venta.  Ahora los editores pueden aprovechar los canales de asociado CSP, además de la disponibilidad pública de las ofertas a través de [escaparates web de Microsoft](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+Las ofertas de software pueden llegar a millones de clientes de Microsoft aptos a los que atienden los asociados del programa Proveedor de soluciones en la nube (CSP), al igual que la disponibilidad pública de las ofertas a través de los [escaparates web de Microsoft](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 
-Los publicadores pueden optar por participar en una oferta para disponibilidad en el canal de asociados CSP para una oferta nueva o existente. Esta opción permite a los asociados CSP vender sus productos y crear soluciones preconfiguradas para los clientes.
+Los publicadores configuran las ofertas para su disponibilidad en el programa CSP en función de la participación (el valor predeterminado es Excluido), tanto para una oferta nueva como existente, lo que permite que los asociados vendan los productos y creen conjuntos de soluciones para los clientes.
 
-Los anunciantes son responsables de proporcionar soporte break-fix a los clientes finales y para proporcionar un mecanismo para que los asociados de CSP o a los clientes en contacto con usted para obtener soporte técnico. Es el procedimiento recomendado para proporcionar a los asociados de CSP con la documentación de usuario, el aprendizaje y notificaciones de mantenimiento o interrupción (según corresponda) del servicio para que los asociados de CSP estarán equipados para controlar solicitudes de nivel 1 de soporte técnico de clientes.
+Los publicadores son los responsables de ofrecer soporte break-fix a los clientes finales y de proporcionar un mecanismo para que los asociados de CSP y los clientes se pongan en contacto con usted para obtener soporte técnico. Se recomienda ofrecer a los asociados de CSP documentación de usuario, entrenamiento y notificaciones sobre el mantenimiento o la interrupción del servicio (según corresponda), de modo que los asociados de CSP estén equipados para responder a solicitudes de soporte técnico de nivel 1 por parte de los clientes.
 
-La siguiente tabla muestra los tipos de ofertas y precios de los modelos que pueden participar en el canal de asociados CSP:
+En la tabla siguiente se muestran los tipos de ofertas y los modelos de precios que pueden participar en el programa CSP:
 
 | **Tipo de oferta**    | **BYOL**  |  **Gratis** | **PAYG**   |
 | :---------------- | :---------|:----------|:-----------|
@@ -30,14 +30,28 @@ La siguiente tabla muestra los tipos de ofertas y precios de los modelos que pue
 | Contenedores | N/D | Sí | N/D |
 | Plantillas de solución | N/D | Sí | N/D |
 | Aplicaciones administradas | N/D | Sí | Sí |
-| Solución de TI SaaS (por sitio precios) | N/D | Sí | Sí |
+| Software como servicio (SaaS) | N/D | Sí | Sí |
 |   |   |   |
 
-## <a name="how-to-opt-in"></a>Cómo participar
+## <a name="how-to-configure-an-offering"></a>Cómo configurar una oferta
 
-La CSP partner participar en configuración del canal se encuentra en la ficha de Marketplace o Storefront dentro de la experiencia de creación de la oferta de Cloud Partner Portal.
+La opción de participar en el programa CSP se configura en la experiencia de creación de ofertas del Centro de partners o de Cloud Partner Portal. ([Obtenga más información sobre los cambios en la experiencia de publicador](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293)).
 
-![Experiencia de participación en CSP](media/marketplace-publishers-guide/csp-opt-in.png)
+En Cloud Partner Portal, se establece en la pestaña Marketplace o Escaparate. En el Centro de partners, se establece en la pestaña Configuración de la oferta, en Detalles de configuración.
+
+![Experiencia de participación en CSP en CPP](media/marketplace-publishers-guide/csp-opt-in.png)
+
+Tal como se muestra a continuación, en el Centro de partners, los publicadores pueden participar para que sus ofertas estén disponibles en el programa CSP. Para ello, deben activar la casilla **Hacer que mi oferta esté disponible para partners en el programa Proveedores de soluciones en la nube (CSP)** .
+
+![Experiencia de participación en CSP en el Centro de partners](media/marketplace-publishers-guide/pc-csp-opt-in.png)
+
+## <a name="sharing-sales-and-support-materials-with-csp-partners"></a>Uso compartido de materiales de soporte técnico y ventas con los asociados de CSP
+
+Para permitir que los asociados del programa Proveedor de soluciones en la nube representen la oferta e interactúen con su organización de la forma más eficaz posible, envíe materiales de soporte técnico y ventas para que estén a disposición de los revendedores. Estos recursos no se expondrán a los clientes en los escaparates de Marketplace.
+
+Tal como se muestra a continuación, en Cloud Partner Portal, los publicadores pueden especificar una dirección URL que hospeda los materiales de marketing pertinentes y la información de contacto de canal para el canal CSP:
+
+![Información sobre la documentación y el material adjunto de CSP](media/marketplace-publishers-guide/cpp-csp-information.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -45,6 +59,6 @@ Visite la página [Guía del anunciante de Azure Marketplace y AppSource](https:
 
 Para más información sobre los servicios GTM de Marketplace, visite [Servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
 
-Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/) para crear y configurar la oferta.
+Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/) o en el [Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) para ofertas de SaaS a fin de crear y configurar su oferta.
 
 ---

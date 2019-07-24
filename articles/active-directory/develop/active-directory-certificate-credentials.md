@@ -19,10 +19,10 @@ ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001231"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciales de certificado para la autenticación de aplicaciones
@@ -98,10 +98,10 @@ Puede asociar las credenciales del certificado con la aplicación de cliente en 
 ### <a name="uploading-the-certificate-file"></a>Cargar el archivo de certificado
 
 En el registro de aplicación de Azure para la aplicación cliente:
-1. Seleccione **certificados y secretos**. 
-2. Haga clic en **cargar certificado** y seleccione el archivo de certificado para cargar.
+1. Seleccione **Certificados y secretos**. 
+2. Haga clic en **Cargar certificado** y seleccione el archivo del certificado que va a cargar.
 3. Haga clic en **Agregar**.
-  Una vez cargado el certificado, se muestran la huella digital, fecha de inicio y los valores de expiración. 
+  Una vez que se carga el certificado, se muestra la huella digital, la fecha de inicio y los valores de expiración. 
 
 ### <a name="updating-the-application-manifest"></a>Actualizar el manifiesto de aplicación
 
@@ -113,7 +113,7 @@ Si tiene un certificado, debe calcular:
 También debe proporcionar un GUID para identificar la clave en el manifiesto de la aplicación (`$keyId`).
 
 En el registro de aplicación de Azure para la aplicación cliente:
-1. Seleccione **manifiesto** para abrir el manifiesto de aplicación.
+1. Seleccione **Manifiesto** para abrir el manifiesto de aplicación.
 2. Reemplace la propiedad *keyCredentials* por la información del nuevo certificado con el siguiente esquema.
 
    ```

@@ -1,5 +1,5 @@
 ---
-title: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Storage
+title: Acceso a Azure Storage mediante una identidad administrada asignada por el sistema de una máquina virtual Windows | Microsoft Docs
 description: Este tutorial contiene directrices acerca de cómo utilizar una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure Storage.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bb1370b2d828aaddae61c32a663bd032b18e7b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e7d7200dd89d51817a5d146ff4d33e2501ed2826
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801902"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278010"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Storage
 

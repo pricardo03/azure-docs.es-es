@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: ddff9ffb00f4167cb8f64a75b129711467de739d
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297060"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conexión con Apache Kafka en HDInsight mediante una instancia de Azure Virtual Network
@@ -85,7 +85,7 @@ Use los pasos de esta sección para crear la configuración siguiente:
 
 1. Siga los pasos del documento [Working with self-signed certificates for Point-to-site connections (Funcionamiento de los certificados autofirmados para conexiones de punto a sitio)](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md). Este documento crea los certificados necesarios para la puerta de enlace.
 
-2. Abra un símbolo del sistema de PowerShell y use el código siguiente para iniciar sesión en su suscripción de Azure:
+2. Abra un símbolo del sistema de PowerShell y use el código siguiente para iniciar sesión en la suscripción de Azure:
 
     ```powershell
     Connect-AzAccount
@@ -242,7 +242,7 @@ Use los pasos de esta sección para crear la configuración siguiente:
 
 De manera predeterminada, Apache Zookeeper devuelve el nombre de dominio de los agentes de Kafka a los clientes. Esta configuración no funciona con el cliente de software de VPN, ya que no puede usar la resolución de nombres para entidades de la red virtual. Para esta configuración, use los pasos siguientes para configurar Kafka con el fin de anunciar direcciones IP en lugar de nombres de dominio:
 
-1. Vaya a `https://CLUSTERNAME.azurehdinsight.net` desde un explorador web. Reemplace `CLUSTERNAME` con el nombre del clúster de Kafka en HDInsight.
+1. Vaya a `https://CLUSTERNAME.azurehdinsight.net` desde un explorador web. Reemplace `CLUSTERNAME` por el nombre del clúster de Kafka en HDInsight.
 
     Cuando se le solicite, use el nombre de usuario y la contraseña HTTPS para el clúster. Aparece la interfaz de usuario web de Ambari para el clúster.
 

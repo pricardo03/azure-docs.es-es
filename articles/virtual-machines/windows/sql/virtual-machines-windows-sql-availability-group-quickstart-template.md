@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 406bd11765e4b580849e8719939c3e11c19d99a8
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591336"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604564"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Uso de plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure
 En este artículo se describe cómo usar las plantillas de inicio rápido de Azure para automatizar parcialmente la implementación de una configuración de grupo de disponibilidad Always On para SQL Server Virtual Machines en Azure. Son dos las plantillas de inicio rápido de Azure que se usan en este proceso. 
@@ -38,7 +38,7 @@ Otras partes de la configuración del grupo de disponibilidad deben realizarse m
 Para automatizar la configuración de un grupo de disponibilidad Always On mediante plantillas de inicio rápido, ya debe tener los siguientes requisitos previos: 
 - Una [suscripción a Azure](https://azure.microsoft.com/free/).
 - Un grupo de recursos con un controlador de dominio. 
-- Una o varias [máquinas virtuales en Azure, unidas a un dominio, con SQL Server 2016 (o superior) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) en el mismo conjunto o zona de disponibilidad que se hayan [registrado con el proveedor de recursos de máquina virtual de SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Una o varias [máquinas virtuales en Azure, unidas a un dominio, con SQL Server 2016 (o superior) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) en el mismo conjunto o zona de disponibilidad que se hayan [registrado con el proveedor de recursos de máquina virtual de SQL](virtual-machines-windows-sql-register-with-resource-provider.md).  
 - Dos direcciones IP disponibles (que no use ninguna entidad), una para la instancia de Load Balancer interno y otra para la escucha del grupo de disponibilidad, dentro de la misma subred que el grupo de disponibilidad. Si se utiliza un equilibrador de carga existente, solo será necesaria una dirección IP disponible.  
 
 ## <a name="permissions"></a>Permisos

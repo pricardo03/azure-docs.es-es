@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a98a98eea1b5c2824c1c54169c5c71456f3a2a64
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118891"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704788"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Administración de recursos de Batch con cmdlets de PowerShell
 
@@ -125,12 +125,12 @@ Cuando se utilizan muchos de estos cmdlets, además de pasar un objeto BatchCont
 
 ### <a name="create-a-batch-pool"></a>Crear un grupo de Batch
 
-Al crear o actualizar un grupo de Batch, seleccione una configuración de servicios en la nube o de máquina virtual para el sistema operativo de los nodos de proceso (consulte el artículo de [introducción a las características de Batch](batch-api-basics.md#pool)). Si se especifica la configuración de servicios en la nube, se crea la imagen de sus nodos de proceso con una de las [versiones del sistema operativo invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Si se especifica la configuración de máquina virtual, puede especificar alguna de las imágenes de máquina virtual de Linux o Windows que aparecen en [Azure Virtual Machines Marketplace][vm_marketplace], o proporcionar una imagen personalizada que haya preparado.
+Al crear o actualizar un grupo de Batch, seleccione una configuración de servicios en la nube o de máquina virtual para el sistema operativo de los nodos de proceso (consulte el artículo de [introducción a las características de Batch](batch-api-basics.md#pool)). Si se especifica la configuración de servicios en la nube, se crea la imagen de sus nodos de proceso con una de las [versiones del sistema operativo invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Si se especifica la configuración de la máquina virtual, puede especificar alguna de las imágenes de máquina virtual de Linux o Windows que aparecen en [Azure Virtual Machines Marketplace][vm_marketplace], o proporcionar una imagen personalizada que haya preparado.
 
 Al ejecutar **New-AzBatchPool**, pase la configuración del sistema operativo en un objeto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Por ejemplo, el siguiente fragmento de código crea un grupo de Batch con nodos de proceso de tamaño Standard_A1 en la configuración de la máquina virtual con una imagen de Ubuntu Server 18.04-LTS. En este caso, el parámetro **VirtualMachineConfiguration** especifica la variable *$configuration* como objeto PSVirtualMachineConfiguration. El parámetro **BatchContext** especifica una variable definida anteriormente *$context* como objeto BatchAccountContext.
 
 ```powershell
-$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04.0-LTS")
+$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
 
 $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 18.04")
 

@@ -1,6 +1,6 @@
 ---
 title: 'Configuración de ExpressRoute Direct: CLI de Azure | Microsoft Docs'
-description: Este artículo le ayudará a configurar ExpressRoute Direct mediante la CLI de Azure
+description: En este artículo aprenderá a configurar ExpressRoute Direct mediante la CLI de Azure.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -9,13 +9,13 @@ ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965912"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar ExpressRoute Direct mediante la CLI de Azure
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configuración de ExpressRoute Direct mediante la CLI de Azure
 
 Puede usar Azure ExpressRoute Direct para conectarse directamente a la red global de Microsoft en ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. Para obtener más información, consulte [About ExpressRoute Direct Connect](expressroute-erdirect-about.md) (Acerca de ExpressRoute Direct Connect).
 
@@ -280,9 +280,9 @@ De forma predeterminada, puede crear 10 circuitos en la suscripción que contien
 
 Puede utilizar anchos de banda de circuito adicionales en ExpressRoute Direct solo para admitir los escenarios aquí descritos. Los anchos de banda son 40 Gbps y 100 Gbps.
 
-**SkuTier** puede ser Local, estándar o Premium.
+**SkuTier** puede ser Local, Estándar o Premium.
 
-**SkuFamily** debe ser MeteredData solo como ilimitado no es compatible con ExpressRoute Direct.
+**SkuFamily** deben ser datos limitados solo, ya los ilimitados no son compatibles con ExpressRoute Direct.
 Cree un circuito en el recurso de ExpressRoute Direct:
 
   ```azurecli

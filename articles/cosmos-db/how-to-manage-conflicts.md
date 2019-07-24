@@ -4,14 +4,14 @@ description: Aprenda a administrar conflictos en Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 63d8b0dc8c446f70b981aacd1a18e6a60a217983
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: eedb52dc58c28ad3f10e91835e5dda36902f2c2c
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240951"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986008"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Administración de directivas de resolución de conflictos en Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Con las operaciones de escritura en varias regiones, cuando varios clientes escr
 
 En estos ejemplos se muestra cómo configurar un contenedor con una directiva de resolución de conflictos del tipo "el último en escribir gana". La ruta de acceso predeterminada para modo "el último en escribir gana" es el campo de marca de tiempo o la propiedad `_ts`. También se puede establecer en una ruta de acceso definida por el usuario para un tipo numérico. En un conflicto, gana el valor más alto. Si no se establece la ruta de acceso o la que se establece no es válida, se usará de forma predeterminada `_ts`. Los conflictos resueltos con esta directiva no se muestran en la fuente de conflictos. Todas las API pueden usar esta directiva.
 
-### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>SDK para .NET
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>SDK de .NET V2
 
 ```csharp
 DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -34,6 +34,20 @@ DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIf
           ConflictResolutionPath = "/myCustomId",
       },
   });
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>SDK de .NET V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.lwwCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.LastWriterWins,
+            ResolutionPath = "/myCustomId",
+        }
+    });
 ```
 
 ### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>SDK asincrónico para Java
@@ -157,7 +171,7 @@ function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
 }
 ```
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>SDK para .NET
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>SDK de .NET V2
 
 ```csharp
 DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -178,6 +192,24 @@ UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "
     Id = "resolver",
     Body = File.ReadAllText(@"resolver.js")
 });
+```
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet-v3"></a>SDK de .NET v3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.udpCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom,
+            ResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver")
+        }
+    });
+
+await container.Scripts.CreateStoredProcedureAsync(
+    new StoredProcedureProperties("resolver", File.ReadAllText(@"resolver.js"))
+);
 ```
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>SDK asincrónico para Java
@@ -244,7 +276,7 @@ Una vez creado el contenedor, debe crear el procedimiento almacenado `resolver`.
 
 En estos ejemplos se muestran cómo configurar un contenedor con una directiva de resolución de conflictos personalizada. Estos conflictos se mostrarán en la fuente de conflictos.
 
-### <a id="create-custom-conflict-resolution-policy-dotnet"></a>SDK para .NET
+### <a id="create-custom-conflict-resolution-policy-dotnet"></a>SDK de .NET V2
 
 ```csharp
 DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -256,6 +288,19 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
           Mode = ConflictResolutionMode.Custom,
       },
   });
+```
+
+### <a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>SDK de .NET V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.manualCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom
+        }
+    });
 ```
 
 ### <a id="create-custom-conflict-resolution-policy-java-async"></a>SDK asincrónico para Java
@@ -309,10 +354,32 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 En estos ejemplos se muestra cómo leer desde la fuente de conflictos de un contenedor. Los conflictos solo se muestran en la fuente si no se han resuelto de forma automática o si se usa una directiva de conflictos personalizada.
 
-### <a id="read-from-conflict-feed-dotnet"></a>SDK para .NET
+### <a id="read-from-conflict-feed-dotnet"></a>SDK de .NET V2
 
 ```csharp
 FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
+```
+
+### <a id="read-from-conflict-feed-dotnet-v3"></a>SDK de .NET v3
+
+```csharp
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictIterator();
+while (conflictFeed.HasMoreResults)
+{
+    FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();
+    foreach (ConflictProperties conflict in conflicts)
+    {
+        // Read the conflicted content
+        MyClass intendedChanges = container.Conflicts.ReadConflictContent<MyClass>(conflict);
+        MyClass currentState = await container.Conflicts.ReadCurrentAsync<MyClass>(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Do manual merge among documents
+        await container.ReplaceItemAsync<MyClass>(intendedChanges, intendedChanges.Id, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Delete the conflict
+        await container.Conflicts.DeleteAsync(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+    }
+}
 ```
 
 ### <a id="read-from-conflict-feed-java-async"></a>SDK asincrónico para Java

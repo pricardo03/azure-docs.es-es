@@ -4,15 +4,15 @@ description: Describe cómo configurar el script de escalado automático para lo
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755135"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620412"
 ---
 # <a name="automatically-scale-session-hosts"></a>Escalado automático de los host de sesiones
 
@@ -75,7 +75,7 @@ A continuación, deberá crear las credenciales almacenadas de forma segura:
     Por ejemplo, **Set-Variable -Name KeyPath -Scope Global -Value "c:\\scaling-HostPool1"**
 5. Ejecute el cmdlet **New-StoredCredential -KeyPath \$KeyPath**. Cuando se le solicite, escriba las credenciales de Windows Virtual Desktop con permisos para consultar el grupo de hosts (el grupo de hosts se especifica en **config.xml**).
     - Si utiliza diferentes entidades de servicio o una cuenta estándar, ejecute el cmdlet **New-StoredCredential -KeyPath \$KeyPath** una vez por cada cuenta crear credenciales almacenadas locales.
-6. Ejecute **Get-StoredCredentials -List** para confirmar que las credenciales se han creado correctamente.
+6. Ejecute **Get-StoredCredential -List** para confirmar que las credenciales se han creado correctamente.
 
 ### <a name="configure-the-configxml-file"></a>Configuración del archivo config.xml
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232671"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260609"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Administración de solicitudes de lista de distribución de correo con Azure Logic Apps
 
@@ -79,7 +79,7 @@ Cada aplicación lógica debe comenzar con un desencadenador, que se activa cuan
 
 1. En el diseñador, escriba "when email arrives" (cuando llega correo electrónico) en el cuadro de búsqueda. Seleccione el desencadenador para su proveedor de correo electrónico: **<*su proveedor de correo electrónico*> - Cuando llega un nuevo correo electrónico**
    
-   ![Seleccionar este desencadenador para el proveedor de correo electrónico: "When a new email arrives" (Cuando llega un nuevo correo electrónico)](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
+   ![Seleccione este desencadenador para el proveedor de correo electrónico: "Cuando llega un nuevo correo electrónico"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
 
    * Para las cuentas profesionales o educativas de Azure, seleccione Office 365 Outlook.
    * Para las cuentas de Microsoft personales, seleccione Outlook.com.
@@ -128,7 +128,7 @@ Ahora que tiene un desencadenador, agregue una [acción](../logic-apps/logic-app
    | ------- | ----- | ----------- | 
    | **To** | <*approver-email-address*> | Dirección de correo electrónico del aprobador. Para realizar pruebas, puede usar su propia dirección de correo electrónico. | 
    | **Opciones de usuario** | Aprobar, Rechazar | Las opciones de respuesta que puede elegir el aprobador. De forma predeterminada, el aprobador puede elegir "Aprobar" o "Rechazar" como respuesta. | 
-   | **Asunto** | Aprobación de solicitud de miembro de test-members-ML | Un asunto de correo electrónico descriptivo | 
+   | **Subject** | Aprobación de solicitud de miembro de test-members-ML | Un asunto de correo electrónico descriptivo | 
    |  |  |  | 
 
    Por ahora, omita la lista de contenido dinámico o la lista de parámetros insertada que aparece al hacer clic en los cuadros específicos de edición. 
@@ -147,7 +147,7 @@ A continuación, agregue una condición para comprobar la respuesta elegida del 
 
 2. Cambie el nombre de la condición por una descripción mejor.
 
-   1. En la barra de título de la condición, elija el botón **puntos suspensivos** (**...** ) > **Rename** (Cambiar nombre).
+   1. En la barra de título de la condición, elija el botón **puntos suspensivos** ( **...** ) > **Rename** (Cambiar nombre).
 
       Por ejemplo, si el explorador se encuentra en vista reducida:
 
@@ -183,7 +183,7 @@ A continuación, especifique la acción que realizará la aplicación lógica cu
 Ahora, agregue una acción que incorpore al miembro aprobado a la lista de distribución de correo electrónico.
 
 1. En la rama **If true** (Si es true) de la condición, elija **Agregar una acción**.
-Busque "mailchimp" y seleccione esta acción: **MailChimp: Agregar un miembro a una lista**
+Busque "mailchimp" y seleccione esta acción: **MailChimp: Agregar un miembro a una lista**.
 
    ![Seleccionar "MailChimp: Agregar un miembro a una lista"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
 
@@ -206,7 +206,7 @@ A continuación, agregue una condición para comprobar si el nuevo miembro se ha
 
 ## <a name="check-for-success-or-failure"></a>Comprobación de si la operación se ha realizado correctamente o se ha producido un error
 
-1. En la rama **If true** (Si es true), en la acción **Agregar un miembro a una lista**, elija **Más...** > **Agregar una condición**.
+1. En la rama **If true** (Si es true), en la acción **Agregar un miembro a una lista**, elija **Más...**  > **Agregar una condición**.
 
 2. Cambie el nombre de la condición por esta descripción: ```If add member succeeded```
 
@@ -248,7 +248,7 @@ A continuación, configure los correos electrónicos que se enviarán si la uni�
    | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
    | **To** | <*your-email-address*> | La dirección de correo electrónico a la que enviar el correo electrónico de confirmación de que la unión se ha realizado correctamente. Para realizar pruebas, puede usar su propia dirección de correo electrónico. | 
-   | **Asunto** | <*subject-for-success-email*> | El asunto del correo electrónico de confirmación de que la unión se ha realizado correctamente. Para este tutorial, escriba este texto y seleccione el campo especificado en **Agregar un miembro a una lista** en la lista de parámetros o la lista de contenido dinámico: <p>"Correcto. Se ha agregado al miembro a 'test-members-ML': **Dirección de correo electrónico**" | 
+   | **Subject** | <*subject-for-success-email*> | El asunto del correo electrónico de confirmación de que la unión se ha realizado correctamente. Para este tutorial, escriba este texto y seleccione el campo especificado en **Agregar un miembro a una lista** en la lista de parámetros o la lista de contenido dinámico: <p>"Correcto. Se ha agregado el miembro a ' test-Members-ML': **Dirección de correo electrónico**" | 
    | **Cuerpo** | <*body-for-success-email*> | El contenido del cuerpo del correo electrónico de confirmación de unión correcta. Para este tutorial, escriba este texto y seleccione los campos especificados en **Agregar un miembro a una lista** en la lista de parámetros o la lista de contenido dinámico:  <p>"El nuevo miembro se ha unido a 'test-members-ML': **Dirección de correo electrónico**"</br>"Estado de participación del miembro: **Estado**" | 
    | | | | 
 
@@ -273,7 +273,7 @@ A continuación, configure los correos electrónicos que se enviarán si la uni�
    | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
    | **To** | <*your-email-address*> | La dirección de correo electrónico a la que enviar el correo electrónico de error. Para realizar pruebas, puede usar su propia dirección de correo electrónico. | 
-   | **Asunto** | <*subject-for-failure-email*> | El asunto del correo electrónico de error. Para este tutorial, escriba este texto y seleccione el campo especificado en **Agregar un miembro a una lista** en la lista de parámetros o la lista de contenido dinámico: <p>"Error, el miembro no se ha agregado a 'test-members-ML': **Dirección de correo electrónico**" | 
+   | **Subject** | <*subject-for-failure-email*> | El asunto del correo electrónico de error. Para este tutorial, escriba este texto y seleccione el campo especificado en **Agregar un miembro a una lista** en la lista de parámetros o la lista de contenido dinámico: <p>"Error, el miembro no se ha agregado a 'test-members-ML': **Dirección de correo electrónico**" | 
    | **Cuerpo** | <*body-for-failure-email*> | El contenido del cuerpo del correo electrónico de error. Para este tutorial, escriba este texto: <p>"Puede que ya exista este miembro. Compruebe su cuenta de MailChimp". | 
    | | | | 
 

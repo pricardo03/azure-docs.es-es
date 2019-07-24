@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2e7f1bb54ce316a10eca0d020519779b0536c9e
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825742"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Configuración de las cookies para el acceso a aplicaciones locales en Azure Active Directory
@@ -43,19 +43,19 @@ Para configurar los valores de las cookies en Azure Portal:
 5. En **Configuración adicional**, establezca la configuración de la cookie en **Sí** o **No**.
 6. Haga clic en **Guardar** para aplicar los cambios. 
 
-## <a name="view-current-cookie-settings---powershell"></a>Ver la configuración actual de cookie - PowerShell
+## <a name="view-current-cookie-settings---powershell"></a>Visualización de la configuración actual de cookies (PowerShell)
 
-Para ver la configuración actual de la cookie para la aplicación, use este comando de PowerShell:  
+Para ver la configuración actual de cookies de la aplicación, use este comando de PowerShell:  
 
 ```powershell
 Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl * 
 ```
 
-## <a name="set-cookie-settings---powershell"></a>Establecer a configuración de cookies - PowerShell
+## <a name="set-cookie-settings---powershell"></a>Establecimiento de la configuración de cookies (PowerShell)
 
 En los siguientes comandos de PowerShell, ```<ObjectId>``` es el valor de ObjectId de la aplicación. 
 
-**Http-Only Cookie** 
+**Cookie de solo HTTP** 
 
 ```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $true 

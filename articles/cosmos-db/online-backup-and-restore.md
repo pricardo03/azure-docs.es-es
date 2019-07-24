@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 066549f1343eaceb9a47fccc3b5d4508f226a89b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967476"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Copias de seguridad en línea y restauración de datos a petición en Azure Cosmos DB
@@ -20,17 +20,17 @@ Azure Cosmos DB crea automáticamente copias de seguridad de los datos a interva
 
 ## <a name="automatic-and-online-backups"></a>Copias de seguridad automáticas y en línea
 
-Con Azure Cosmos DB no solo los datos, sino también las copias de seguridad de los mismos, son altamente redundantes y resistentes ante los desastres regionales. Los pasos siguientes muestran cómo Azure Cosmos DB realiza copia de seguridad de datos:
+Con Azure Cosmos DB no solo los datos, sino también las copias de seguridad de los mismos, son altamente redundantes y resistentes ante los desastres regionales. Los pasos siguientes muestran cómo Azure Cosmos DB realiza la copia de seguridad de datos:
 
-* Azure Cosmos DB crea automáticamente una copia de seguridad de la base de datos cada 4 horas y en cualquier momento, se almacenan solo de las copias de 2 seguridad más recientes. Pero si se elimina el contenedor o la base de datos, Azure Cosmos DB conserva las instantáneas existentes de un contenedor o base de datos dado durante 30 días.
+* Azure Cosmos DB toma automáticamente una copia de seguridad de la base de datos cada 4 horas y en cualquier momento, solo se almacenan las últimas 2. Pero si se elimina el contenedor o la base de datos, Azure Cosmos DB conserva las instantáneas existentes de un contenedor o base de datos dado durante 30 días.
 
-* Azure Cosmos DB almacena estas copias de seguridad en Azure Blob storage, mientras que los datos reales residen localmente dentro de Azure Cosmos DB.
+* Azure Cosmos DB almacena estas copias de seguridad en Azure Blob Storage, mientras que los datos reales residen localmente dentro de Azure Cosmos DB.
 
-*  Para garantizar una latencia baja, la instantánea de la copia de seguridad se almacena en Azure Blob storage en la misma región que la actual región de escritura (o una de las regiones de escritura, en caso de que tiene una configuración de varios maestra) de la Cosmos Azure cuenta de base de datos. Para lograr resistencia frente a desastres regionales, cada instantánea de la copia de seguridad de los datos en Azure Blob Storage se vuelve a replicar en otra región mediante almacenamiento con redundancia geográfica (GRS). La región a la que se replica la copia de seguridad se basa en la región de origen y el par regional asociado con la región de origen. Para más información, consulte el artículo [lista de parejas regionales de Azure para redundancia geográfica](../best-practices-availability-paired-regions.md). No se puede acceder directamente a esta copia de seguridad. Azure Cosmos DB utilizará esta copia de seguridad solo si se inicia una restauración de copia de seguridad.
+*  Para garantizar la baja latencia, la instantánea de la copia de seguridad se guarda en Azure Blob Storage en la misma región que la región de escritura actual (o una de las regiones de escritura, si tiene una configuración de arquitectura multimaestro) de la cuenta de Azure Cosmos Database. Para lograr resistencia frente a desastres regionales, cada instantánea de la copia de seguridad de los datos en Azure Blob Storage se vuelve a replicar en otra región mediante almacenamiento con redundancia geográfica (GRS). La región a la que se replica la copia de seguridad se basa en la región de origen y el par regional asociado con la región de origen. Para más información, consulte el artículo [lista de parejas regionales de Azure para redundancia geográfica](../best-practices-availability-paired-regions.md). No se puede acceder directamente a esta copia de seguridad. Azure Cosmos DB utilizará esta copia de seguridad solo si se inicia una restauración de copia de seguridad.
 
 * Las copias de seguridad se crean sin afectar el rendimiento ni la disponibilidad de la aplicación. Azure Cosmos DB realiza la copia de seguridad de datos en segundo plano y no consume rendimiento aprovisionado (RU) aprovisionadas, tampoco afecta al rendimiento ni a la disponibilidad de su base de datos.
 
-* Si accidentalmente que haya eliminado o dañado los datos, debe ponerse en contacto [soporte técnico de Azure](https://azure.microsoft.com/support/options/) en 8 horas para que el equipo de Azure Cosmos DB puede ayudar a restaurar los datos desde las copias de seguridad.
+* Si accidentalmente ha eliminado o dañado los datos, debe ponerse en contacto con [soporte técnico de Azure](https://azure.microsoft.com/support/options/) en un plazo de 8 horas para que el equipo de Azure Cosmos DB pueda ayudarle a restaurar los datos a partir de las copias de seguridad.
 
 La imagen siguiente muestra cómo se crea una copia de seguridad de un contenedor de Azure Cosmos con las tres particiones físicas principales en el Oeste de EE. UU. en una cuenta de Azure Blob Storage remota en el Oeste de EE. UU. y, luego, se replica al Este de EE. UU.:
 

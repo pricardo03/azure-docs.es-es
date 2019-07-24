@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61e88e0fe7e6eec5b3cdfd03755a186744b77b47
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964208"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cerner Central para el aprovisionamiento automático de usuarios
@@ -57,7 +57,7 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 Esta sección le guía a través de los pasos necesarios para conectar Azure AD con la lista de usuarios de Cerner Central mediante la API de aprovisionamiento de la cuenta de usuario SCIM de Cerner Central, así como para configurar el servicio de aprovisionamiento con el fin de crear, actualizar y deshabilitar cuentas de usuario asignadas en Cerner Central en función de la asignación de grupos y usuarios en Azure AD.
 
 > [!TIP]
-> También puede habilitar basado en SAML Single Sign-On para Cerner Central, siguiendo las instrucciones en [portal Azure](https://portal.azure.com). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí. Para más información, vea el [Tutorial: Integración de Azure Active Directory con Cerner Central](cernercentral-tutorial.md).
+> Además, para habilitar el inicio de sesión único basado en SAML para Cerner Central, puede seguir las instrucciones de [Azure Portal](https://portal.azure.com). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí. Para más información, vea el [Tutorial: Integración de Azure Active Directory con Cerner Central](cernercentral-tutorial.md).
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Para configurar el aprovisionamiento de cuentas de usuario automático para Cerner Central en Azure AD, siga estos pasos:
 

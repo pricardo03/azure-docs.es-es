@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54c3ae22b9cc2e447960b9e3527bbbb0afae3e54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095091"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227479"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integración de Azure Active Directory con PageDNA
 
@@ -171,7 +171,7 @@ En esta sección, creará un usuario de prueba en Azure Portal llamado Britta Si
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a PageDNA.
+En esta sección, para permitir a Britta Simon usar el inicio de sesión único de Azure, le concederá acceso a PageDNA.
 
 1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **PageDNA**.
 
@@ -212,3 +212,4 @@ Al seleccionar **PageDNA** en el portal Aplicaciones, debería iniciar sesión a
 * [Inicio de sesión único en aplicaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 * [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

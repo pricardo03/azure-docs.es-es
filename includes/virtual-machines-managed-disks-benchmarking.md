@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147907"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673513"
 ---
 *Preparación de la memoria caché*  
 El disco con almacenamiento en caché de host ReadOnly puede proporcionar un valor de IOPS mayor que el límite del disco. Para obtener este máximo rendimiento de lectura de la caché de host, primero debe preparar la memoria caché de este disco. Así se garantiza que las operaciones de E/S de lectura en las qué la herramienta de pruebas comparativas manejará el volumen de CacheReads alcanzan realmente la memoria caché y no el disco directamente. Los aciertos de caché generan IOPS adicionales desde el único disco con la memoria caché habilitada.
 
 > [!IMPORTANT]
->  debe preparar la memoria caché antes de ejecutar pruebas comparativas y cada vez que se reinicie la máquina virtual.
+> debe preparar la memoria caché antes de ejecutar pruebas comparativas y cada vez que se reinicie la máquina virtual.
 
 ## <a name="tools"></a>Herramientas
 
 ### <a name="iometer"></a>Iometer
 
-[Descargue la herramienta Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) en la máquina virtual.
+[Descargue la herramienta Iometer](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) en la máquina virtual.
 
 #### <a name="test-file"></a>Archivo de prueba
 
@@ -35,12 +35,12 @@ Iometer usa un archivo de prueba que se almacena en el volumen en el que se ejec
 
 Las especificaciones, el tamaño de la E/S de las solicitudes, % de lectura o escritura, % de acceso aleatorio o secuencial se configuran desde la pestaña "Access Specifications" (Especificaciones de acceso) de Iometer. Cree una especificación de acceso para cada uno de los escenarios descritos a continuación. Cree las especificaciones de acceso y "guárdelas" con un nombre apropiado como – RandomWrites\_8K o RandomReads\_8K. Seleccione la especificación correspondiente al ejecutar el escenario de prueba.
 
-A continuación se muestra un ejemplo de especificaciones de acceso para el escenario de IOPS de escritura máxima:   
+A continuación se muestra un ejemplo de especificaciones de acceso para el escenario de IOPS de escritura máxima:  
     ![Ejemplo de especificaciones de acceso para el valor máximo de IOPS de escritura](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
 
 #### <a name="maximum-iops-test-specifications"></a>Especificaciones de prueba de valor máximo de IOPS
 
- Para demostrar el número máximo de E/S por segundo, use el tamaño de solicitud más pequeño. Use el tamaño de solicitud de 8K y cree especificaciones de lecturas y escrituras aleatorias.
+Para demostrar el número máximo de E/S por segundo, use el tamaño de solicitud más pequeño. Use el tamaño de solicitud de 8K y cree especificaciones de lecturas y escrituras aleatorias.
 
 | Especificación de acceso | Tamaño de la solicitud | % aleatorio | % lectura |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ A continuación se muestra un ejemplo de especificaciones de acceso para el esce
 
 #### <a name="maximum-throughput-test-specifications"></a>Especificaciones de prueba de rendimiento máximo
 
- Para demostrar el rendimiento máximo, use el tamaño de la solicitud más grande. Use el tamaño de solicitud de 64 K y cree especificaciones de lecturas y escrituras aleatorias.
+Para demostrar el rendimiento máximo, use el tamaño de la solicitud más grande. Use el tamaño de solicitud de 64 K y cree especificaciones de lecturas y escrituras aleatorias.
 
 | Especificación de acceso | Tamaño de la solicitud | % aleatorio | % lectura |
 | --- | --- | --- | --- |
@@ -58,11 +58,11 @@ A continuación se muestra un ejemplo de especificaciones de acceso para el esce
 
 #### <a name="run-the-iometer-test"></a>Ejecución de la prueba Iometer
 
- Realice los siguientes pasos para preparar la memoria caché
+Realice los siguientes pasos para preparar la memoria caché
 
 1. Cree dos especificaciones de acceso con los valores que se muestran a continuación:
 
-   | NOMBRE | Tamaño de solicitud | % aleatorio | % lectura |
+   | NOMBRE | Tamaño de la solicitud | % aleatorio | % lectura |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
@@ -81,7 +81,7 @@ Una vez preparado el disco de memoria caché, continúe con los escenarios de pr
 
 | Escenario de prueba | Volumen de destino | NOMBRE | Resultado |
 | --- | --- | --- | --- |
-| Máx. IOPS de lectura |CacheReads |RandomWrites\_8K |50.000 E/S por segundo  |
+| Máx. IOPS de lectura |CacheReads |RandomWrites\_8K |50.000 E/S por segundo |
 | Máx. IOPS de escritura |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
 | Máx. IOPS combinado |CacheReads |RandomWrites\_8K |100.000 IOPS |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
@@ -102,7 +102,7 @@ A continuación se muestran capturas de pantalla de los resultados de la prueba 
 
 ### <a name="fio"></a>FIO
 
-FIO es una popular herramienta para el almacenamiento de información de referencia en las máquinas virtuales de Linux. Tiene flexibilidad para seleccionar distintos tamaños de E/S y lecturas y escrituras secuenciales o aleatorias. Genera subprocesos de trabajo o procesos para realizar las operaciones de E/S especificadas. Puede especificar el tipo de operaciones de E/S que debe realizar cada subproceso de trabajo con archivos de trabajo. Hemos creado un archivo de trabajo por escenario que se ilustra en los ejemplos siguientes. Puede cambiar las especificaciones de estos archivos de trabajo para tener referencia de diferentes cargas de trabajo en Premium Storage. En los ejemplos, usamos una máquina virtual estándar 14 DS  que ejecuta **Ubuntu**. Puede usar la misma configuración descrita al principio de la sección de pruebas comparativas y activa la memoria caché antes de ejecutar las pruebas comparativas.
+FIO es una popular herramienta para el almacenamiento de información de referencia en las máquinas virtuales de Linux. Tiene flexibilidad para seleccionar distintos tamaños de E/S y lecturas y escrituras secuenciales o aleatorias. Genera subprocesos de trabajo o procesos para realizar las operaciones de E/S especificadas. Puede especificar el tipo de operaciones de E/S que debe realizar cada subproceso de trabajo con archivos de trabajo. Hemos creado un archivo de trabajo por escenario que se ilustra en los ejemplos siguientes. Puede cambiar las especificaciones de estos archivos de trabajo para tener referencia de diferentes cargas de trabajo en Premium Storage. En los ejemplos, usamos una máquina virtual estándar 14 DS  que ejecuta **Ubuntu**. Use la misma configuración descrita al principio de la sección Pruebas comparativas y prepare la memoria caché antes de ejecutar dichas pruebas.
 
 Antes de comenzar, [descargue FIO](https://github.com/axboe/fio) e instálelo en la máquina virtual.
 
@@ -116,7 +116,7 @@ Usamos cuatro subprocesos de trabajo para realizar las operaciones de escritura 
 
 #### <a name="maximum-write-iops"></a>Valor máximo de IOPS de escritura
 
- Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de escritura máxima. Asígnele el nombre "fiowrite.ini".
+Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de escritura máxima. Asígnele el nombre "fiowrite.ini".
 
 ```ini
 [global]
@@ -157,7 +157,7 @@ Mientras se ejecuta la prueba, puede ver el número de IOPS de escritura que env
 
 #### <a name="maximum-read-iops"></a>Valor máximo de IOPS de lectura
 
- Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de lectura máxima. Asígnele el nombre "fioread.ini".
+Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de lectura máxima. Asígnele el nombre "fioread.ini".
 
 ```ini
 [global]
@@ -198,7 +198,7 @@ Mientras se ejecuta la prueba, puede ver el número de IOPS de lectura que enví
 
 #### <a name="maximum-read-and-write-iops"></a>Valor máximo de IOPS de lectura y escritura
 
- Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de lectura y escritura combinadas máxima. Asígnele el nombre "fioreadwrite.ini".
+Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de lectura y escritura combinadas máxima. Asígnele el nombre "fioreadwrite.ini".
 
 ```ini
 [global]
@@ -256,4 +256,4 @@ Mientras se ejecuta la prueba, puede ver el número de IOPS de lectura y escritu
 
 #### <a name="maximum-combined-throughput"></a>Rendimiento máximo combinado
 
- Para obtener el rendimiento de lectura y escritura combinado máximo, use un tamaño de bloque y la profundidad de la cola más grandes con varios subprocesos que realizan lecturas y escrituras. Puede usar un tamaño de bloque de 64 KB y una profundidad de la cola de 128.
+Para obtener el rendimiento de lectura y escritura combinado máximo, use un tamaño de bloque y la profundidad de la cola más grandes con varios subprocesos que realizan lecturas y escrituras. Puede usar un tamaño de bloque de 64 KB y una profundidad de la cola de 128.

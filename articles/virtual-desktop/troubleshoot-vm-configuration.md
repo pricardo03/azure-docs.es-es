@@ -4,15 +4,15 @@ description: Cómo resolver problemas al configurar una máquina virtual (VM) de
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96a9d8fc7495ea473b0a3250b34251afc5f30c13
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64928128"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786707"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
 
@@ -284,6 +284,18 @@ Si el sistema operativo es Microsoft Windows 10, continúe con las instrucciones
     ```
 
 16. Cuando se terminen de ejecutar los cmdlets, reinicie la VM con la pila en paralelo con error de funcionamiento.
+
+## <a name="remote-licensing-model-is-not-configured"></a>El modelo de licencias de Escritorio remoto no está configurado
+
+Si inicia sesión en Windows 10 Enterprise multisesión con una cuenta administrativa, puede recibir una notificación que dice que "el modo de administración de licencias de Escritorio remoto no está configurado, los servicios de Escritorio remoto dejarán de funcionar en X días. En el servidor de Agente de conexión, use el administrador del servidor para especificar el modo de administración de licencias de Escritorio remoto." Si ve este mensaje, significa que debe configurar manualmente el modo de administración de licencias a **Por usuario**.
+
+Para configurar manualmente el modo de administración de licencias:  
+
+1. Vaya al cuadro de búsqueda del **menú Inicio** y, a continuación, busque y abra **gpedit.msc** para acceder al editor local de directivas de grupo. 
+2. Vaya a  **Configuración del equipo** > **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Host de sesión de Escritorio remoto** > **Licencias**. 
+3. Seleccione **Establecer el modo de licencia de Escritorio remoto** y cámbielo a **Por usuario**.
+
+Estamos analizando los problemas de notificación y de tiempo de expiración del período de gracia y se les dará una solución en una futura actualización. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9744a4b7bc5d2e9ce22bfa14ea33a2b11dacda85
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60457208"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612466"
 ---
 # <a name="reset-a-vpn-gateway"></a>Restablecimiento de una instancia de VPN Gateway
 
@@ -24,7 +24,7 @@ Una puerta de enlace de VPN se compone de dos instancias de VM que se ejecutan e
 
 Una vez que se emite el comando para restablecer la puerta de enlace, se reiniciará inmediatamente la instancia activa actual de la puerta de enlace de VPN de Azure. Habrá un breve intervalo durante la conmutación por error de la instancia activa (que se está reiniciando) a la instancia en modo de espera. El intervalo debe ser inferior a un minuto.
 
-Si la conexión no se restaura después del primer reinicio, vuelve a ejecutar el mismo comando para reiniciar la segunda instancia de VM (la nueva puerta de enlace activa). Si se solicitan los dos reinicios consecutivamente, habrá un período un poco más largo durante el que se estén reiniciando ambas instancias de máquina virtual (activa y en espera). Esto causará una interrupción mayor en la conectividad de VPN, de 2 a 4 minutos, para que las máquinas virtuales completen los reinicios.
+Si la conexión no se restaura después del primer reinicio, vuelve a ejecutar el mismo comando para reiniciar la segunda instancia de VM (la nueva puerta de enlace activa). Si se solicitan los dos reinicios consecutivamente, habrá un período un poco más largo durante el que se estén reiniciando ambas instancias de máquina virtual (activa y en espera). Esto causará una interrupción mayor en la conectividad de VPN, de 30 a 45 minutos, para que las máquinas virtuales completen los reinicios.
 
 Después de dos reinicios, si sigue teniendo problemas de conectividad entre locales, abra una incidencia de soporte técnico en Azure Portal.
 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 9dfa4b62f5cb79a5716f6f29651e85d0f8a3a409
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddc7ae10581075127f72dd020c59cf28bbfc9ae2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787855"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606135"
 ---
 # <a name="sample-1---regression-predict-price"></a>Ejemplo 1 - Regresión: Predicción del precio
 
@@ -88,3 +88,4 @@ Explore otros ejemplos disponibles para la interfaz visual:
 - [Ejemplo 3 - Clasificación: predicción del riesgo crediticio](ui-sample-classification-predict-credit-risk-basic.md)
 - [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Ejemplo 5 - Clasificación: predicción de la renovación](ui-sample-classification-predict-churn.md)
+- [Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos](ui-sample-classification-predict-flight-delay.md)

@@ -2,17 +2,17 @@
 title: Dirección IP estática para el tráfico de salida en Azure Kubernetes Service (AKS)
 description: Aprenda a crear y usar una dirección IP pública estática para el tráfico de salida en un clúster de Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: 6612d801804cdd1e092b50977230f24b378e64ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 094a696a12025dcfd575ce3f035b12b4a04aba10
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60466433"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615566"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Usar una dirección IP pública estática para el tráfico de salida en Azure Kubernetes Service (AKS)
 
@@ -22,9 +22,9 @@ En este artículo se muestra cómo crear y usar una dirección IP pública está
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte la guía de inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="egress-traffic-overview"></a>Descripción del tráfico de salida
 
@@ -123,7 +123,7 @@ $ curl -s checkip.dyndns.org
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para evitar mantener varias direcciones IP públicas en Azure Load Balancer, recomendamos que use un controlador de entrada. Los controladores de entrada proporcionan otras ventajas, como terminación SSL/TLS, compatibilidad con reescritura de URI y cifrado SSL/TLS ascendente. Para más información, vea [Create a basic ingress controller in AKS][ingress-aks-cluster] (Creación de un controlador de entrada básico en AKS).
+Para evitar mantener varias direcciones IP públicas en Azure Load Balancer, recomendamos que use un controlador de entrada. Los controladores de entrada proporcionan otras ventajas, como terminación SSL/TLS, compatibilidad con reescritura de URI y cifrado SSL/TLS ascendente. Para más información, consulte [Creación de un controlador de entrada en Azure Kubernetes Service (AKS)][ingress-aks-cluster].
 
 <!-- LINKS - internal -->
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create

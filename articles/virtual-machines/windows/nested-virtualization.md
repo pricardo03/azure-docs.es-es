@@ -4,19 +4,19 @@ description: Habilitación de la virtualización anidada en Azure Virtual Machin
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510062"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720212"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Habilitación de la virtualización anidada en una máquina virtual de Azure
 
@@ -119,6 +119,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 
 ## <a name="create-the-guest-virtual-machine"></a>Creación de la máquina virtual invitada
+
+>[!IMPORTANT] 
+>
+>El agente invitado de Azure no se admite en máquinas virtuales anidadas y puede causar problemas en el host y en las máquinas virtuales anidadas. No instale al agente de Azure en máquinas virtuales anidadas y no use una imagen para crear las máquinas virtuales anidadas que ya tienen instalado el agente invitado de Azure.
 
 1. Abra el Administrador de Hyper-V y cree una máquina virtual nueva. Configure la máquina virtual para usar la red interna nueva que creó.
     

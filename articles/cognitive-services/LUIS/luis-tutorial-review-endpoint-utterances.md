@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2994f7b19d5a104b129dc4d7aff29dabbc89f0f4
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112286"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276011"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión
 En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Algunas expresiones puede que tengan que comprobarse para la intención y otras puede que necesiten comprobarse para la entidad. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS. 
@@ -74,31 +74,22 @@ Para ello, siga los pasos que se describen a continuación:
     
     [![Captura de pantalla de Review endpoint utterances (Revisar las expresiones de punto de conexión) con la alternancia de la vista de entidades resaltada](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
+
+    Esta expresión, `I'm looking for a job with Natural Language Processing`, no se encuentra en la intención correcta. 
+
+    La razón por la que no se predijo correctamente esta expresión es que la intención **ApplyForJob** tiene 21 expresiones, en comparación con las 7 de **GetJobInformation**. Tendrá una predicción más alta la intención con más expresiones. Es importante haya un equilibrio en la cantidad y la calidad de las expresiones entre las intenciones.
+
+1.  Para alinear esta expresión, seleccione la intención correcta y marque la entidad de trabajo en ella. Agregue la expresión cambiada a la aplicación activando la casilla verde. 
+
     |Expresión|Intención correcta|Entidades que faltan|
     |:--|:--|:--|
-    |I'm looking for a job with Natural Language Processing (Estoy buscando un trabajo con procesamiento de lenguaje natural)|GetJobInfo|Trabajo: "Proceso de lenguaje natural"|
+    |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Trabajo: "Proceso de lenguaje natural"|
 
-    Esta expresión no se encuentra en la intención correcta y tiene una puntuación menor del 50 %. La intención **ApplyForJob** tiene 21 expresiones en comparación con las siete expresiones de **GetJobInformation**. Junto con alinear correctamente la expresión de punto de conexión, se deben agregar más expresiones a la intención **GetJobInformation**. Esto queda como ejercicio para que pueda realizar por su cuenta. Cada intención, excepto para la intención **None** (Ninguno), debe tener aproximadamente el mismo número de expresiones de ejemplo. La intención **None** (Ninguno) debe contener un 10 % de las expresiones totales de la aplicación. 
+    Al incorporar la expresión, esta se mueve de **Review endpoint utterances** (Revisar las expresiones de punto de conexión) a la intención **GetJobInformation**. La expresión de punto de conexión ahora es una expresión de ejemplo para esa intención. 
 
-1. Para la intención `I'm looking for a job with Natual Language Processing`, seleccione la intención correcta, **GetJobInformation** en la columna **Aligned intent** (Intención alineada). 
-
-    [![Captura de pantalla de la alineación de la expresión con la intención en Review endpoint utterances (Revisar las expresiones de punto de conexión)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
-
-1. En la misma expresión, la entidad para `Natural Language Processing` es keyPhrase. Debe ser una entidad **Job** en su lugar. Seleccione `Natural Language Processing` y, después, seleccione la entidad **Job** en la lista.
-
-    [![Captura de pantalla del etiquetado de entidad en la expresión en Review endpoint utterances (Revisar las expresiones de punto de conexión)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
-
-1. En la misma línea, seleccione la marca de verificación en un círculo en la columna **Add to aligned intent** (Agregar a la intención alineada). 
-
-    [![Captura de pantalla de la finalización de la alineación de la expresión con la intención](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
-
-    Esta acción mueve la expresión de **Review endpoint utterances** (Revisar las expresiones de punto de conexión) a la intención **GetJobInformation**. La expresión de punto de conexión ahora es una expresión de ejemplo para esa intención. 
+    Además de alinear correctamente esta expresión, se deben agregar más expresiones a la intención **GetJobInformation**. Esto queda como ejercicio para que pueda realizar por su cuenta. Cada intención, excepto para la intención **None** (Ninguno), debe tener aproximadamente el mismo número de expresiones de ejemplo. La intención **None** (Ninguno) debe contener un 10 % de las expresiones totales de la aplicación. 
 
 1. Revise las expresiones restantes de esta intención, mediante el etiquetado de expresiones y la corrección de la **intención alineada**, si son incorrectas.
-
-1. Cuando todas las expresiones son correctas, active la casilla en cada fila y luego seleccione **Add selected** (Agregar selección) para alinear las expresiones correctamente. 
-
-    [![Captura de pantalla de la finalización de las expresiones restantes en la intención alineada](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
 1. La lista ya no debe tener esas expresiones. Si aparecen más expresiones, continúe trabajando en la lista, corrija las intenciones y etiquete cualquier entidad que falte, hasta que la lista esté vacía. 
 

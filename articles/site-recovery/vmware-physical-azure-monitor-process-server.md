@@ -1,5 +1,5 @@
 ---
-title: Supervisar el servidor de procesos de Azure Site Recovery
+title: Supervisión del servidor de procesos de Azure Site Recovery
 description: En este artículo se describe cómo supervisar el servidor de procesos de Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,92 +8,92 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66418289"
 ---
 # <a name="monitor-the-process-server"></a>Supervisión del servidor de procesos
 
-En este artículo se describe cómo supervisar la [Site Recovery](site-recovery-overview.md) servidor de procesos.
+En este artículo se describe cómo supervisar el servidor de procesos de [Site Recovery](site-recovery-overview.md).
 
-- El servidor de procesos se usa cuando configuró la recuperación ante desastres de máquinas virtuales de VMware locales y servidores físicos en Azure.
+- El servidor de procesos se usa al configurar la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos locales en Azure.
 - De forma predeterminada, el servidor de procesos se ejecuta en el servidor de configuración. Se instala de forma predeterminada al implementar el servidor de configuración.
-- Si lo desea, a escala y controlar un mayor número de máquinas replicadas y aumente el volumen de tráfico de replicación, puede implementar servidores de procesos adicional, la escalabilidad horizontal.
+- Opcionalmente, para escalar y controlar una cantidad mayor de máquinas replicadas y volúmenes de tráfico de replicación, puede implementar servidores de procesos de escalabilidad horizontal adicionales.
 
 [Obtenga más información](vmware-physical-azure-config-process-server-overview.md) sobre el rol y la implementación de servidores de procesos.
 
 ## <a name="monitoring-overview"></a>Información general de la supervisión
 
-Puesto que el servidor de procesos tiene muchas funciones, especialmente en el almacenamiento en caché de los datos replicados, la compresión y la transferencia a Azure, es importante supervisar el estado del servidor de proceso de forma continuada.
+Como el servidor de procesos tiene muchas funciones, especialmente en el almacenamiento en caché, la compresión y la transferencia de datos replicados en Azure, es importante supervisar el estado del servidor de proceso de manera continua.
 
-Hay una serie de situaciones que normalmente afectan al rendimiento del servidor de proceso. Problemas que afectan al rendimiento tendrá un efecto en cascada en el estado de la máquina virtual, insertar, finalmente, el servidor de procesos y sus máquinas replicadas en un estado crítico. Se incluyen situaciones:
+Hay una serie de situaciones que normalmente afectan al rendimiento del servidor de procesos. Los problemas que afectan al rendimiento tendrá un efecto en cascada en el estado de la máquina virtual y, en última instancia, llevarán al servidor de procesos y sus máquinas replicadas a un estado crítico. A continuación se describen algunas situaciones:
 
-- Gran cantidad de máquinas virtuales de usa un servidor de procesos, acercando o que se superen las limitaciones recomendadas.
-- Máquinas virtuales con el servidor de procesos tienen una tasa de renovación elevada.
-- Rendimiento de la red entre máquinas virtuales y el servidor de procesos no es suficiente para cargar datos de replicación en el servidor de procesos.
-- Rendimiento de la red entre el servidor de procesos y Azure no es suficiente para cargar datos de replicación desde el servidor de procesos en Azure.
+- Una gran cantidad de máquinas virtuales usa un servidor de procesos que se acerca o supera las limitaciones recomendadas.
+- Las máquinas virtuales que usan el servidor de procesos tienen una frecuencia de renovación elevada.
+- El rendimiento de la red entre las máquinas virtuales y el servidor de procesos no es suficiente para cargar datos de replicación en el servidor de procesos.
+- El rendimiento de la red entre el servidor de procesos y Azure no es suficiente para cargar datos de replicación desde el servidor de procesos a Azure.
 
-Todos estos problemas pueden afectar el objetivo de punto de recuperación (RPO) de máquinas virtuales. 
+Todos estos problemas pueden afectar al objetivo de punto de recuperación (RPO) de las máquinas virtuales. 
 
-**¿Por qué?** Dado que la generación de un punto de recuperación para una máquina virtual requiere todos los discos de la máquina virtual para tener un punto común. Si un disco tiene una tasa de renovación elevada, la replicación es lenta o el servidor de procesos no es óptimo, afecta a la eficacia con la que se crean puntos de recuperación.
+**¿Por qué?** Porque generar un punto de recuperación para una máquina virtual requiere que todos los discos de la máquina virtual tengan un punto común. Si un disco tiene una frecuencia de renovación elevada, la replicación es lenta o el servidor de procesos no es óptimo, la eficacia con la que se crean los puntos de recuperación se ve afectada.
 
 ## <a name="monitor-proactively"></a>Supervisar de forma proactiva
 
 Para evitar problemas con el servidor de procesos, es importante:
 
-- Comprender los requisitos específicos para los servidores de procesos mediante [capacidad y la Guía de ajuste de tamaño](site-recovery-plan-capacity-vmware.md#capacity-considerations)y asegúrese de que se implementan servidores de procesos y se ejecutan según las recomendaciones.
-- Supervisar alertas y solucionar problemas cuando se producen, para mantener los servidores de procesos que se ejecuten de forma eficaz.
+- comprender los requisitos específicos para los servidores de procesos mediante [recomendaciones sobre la capacidad y el tamaño](site-recovery-plan-capacity-vmware.md#capacity-considerations), y asegúrese de que los servidores de procesos se implementan y ejecutan según las recomendaciones;
+- supervisar alertas y solucionar problemas a medida que se producen para que los servidores de procesos se ejecuten de forma eficaz.
 
 
 ## <a name="process-server-alerts"></a>Alertas del servidor de procesos
 
-El servidor de procesos genera un número de alertas de estado de resumen en la tabla siguiente.
+El servidor de procesos genera una serie de alertas de estado que se resumen en la siguiente tabla.
 
 **Tipo de alerta** | **Detalles**
 --- | ---
-![Healthy][green] | Servidor de procesos está conectado y en buen estado.
-![Advertencia][yellow] | Uso de CPU > 80% durante los últimos 15 minutos
-![Advertencia][yellow] | Uso de memoria > 80% durante los últimos 15 minutos
-![Advertencia][yellow] | Carpeta de caché de espacio libre < 30% durante los últimos 15 minutos
-![Advertencia][yellow] | No se estén ejecutando los servicios de servidor de procesos para los últimos 15 minutos
-![Crítico][red] | Uso de CPU > 95% durante los últimos 15 minutos
-![Crítico][red] | > 95% de uso de memoria durante los últimos 15 minutos
-![Crítico][red] | Carpeta de caché de espacio libre < 25% para los últimos 15 minutos
-![Crítico][red] | Ningún latido desde el servidor de procesos durante 15 minutos.
+![Healthy][green] | El servidor de procesos está conectado y en buen estado.
+![Advertencia][yellow] | Uso de CPU > 80 % durante los últimos 15 minutos.
+![Advertencia][yellow] | Uso de memoria > 80 % durante los últimos 15 minutos.
+![Advertencia][yellow] | Espacio libre de la carpeta de caché < 30 % durante los últimos 15 minutos.
+![Advertencia][yellow] | Los servicios del servidor de procesos no se han ejecutado durante los últimos 15 minutos.
+![Crítico][red] | Uso de CPU > 95 % durante los últimos 15 minutos.
+![Crítico][red] | Uso de memoria > 95 % durante los últimos 15 minutos.
+![Crítico][red] | Espacio libre de la carpeta de caché < 25 % durante los últimos 15 minutos.
+![Crítico][red] | No hay latido del servidor de procesos desde hace 15 minutos.
 
-![Clave de la tabla](./media/vmware-physical-azure-monitor-process-server/table-key.png)
+![Clave de tabla](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 
 > [!NOTE]
-> El estado general del servidor de proceso se basa en el peor alerta generada.
+> El estado de mantenimiento general del servidor de procesos se basa en la peor alerta generada.
 
 
 
-## <a name="monitor-process-server-health"></a>Monitor estado del servidor de proceso
+## <a name="monitor-process-server-health"></a>Supervisión del estado de los servidores de procesos
 
-Puede supervisar el estado de mantenimiento de los servidores de procesos como sigue: 
+Puede supervisar el estado de los servidores de procesos de la siguiente manera: 
 
-1. Para supervisar el estado de replicación y el estado de una máquina replicada y de su servidor de procesos en almacén > **elementos replicados**, haga clic en la máquina que desea supervisar.
-2. En **estado de replicación**, puede supervisar el estado de mantenimiento de la máquina virtual. Haga clic en el estado para explorar en profundidad para obtener información detallada del error.
+1. Para supervisar el estado de replicación y el estado de una máquina replicada, así como el de su servidor de procesos, en Almacén > **Elementos replicados**, haga clic en la máquina que quiera supervisar.
+2. En **Mantenimiento de la replicación**, puede supervisar el estado de mantenimiento de la máquina virtual. Haga clic en el estado para explorar en profundidad los detalles del error.
 
-    ![Estado del servidor de proceso en el panel de máquinas virtuales](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
+    ![Estado del servidor de procesos en el panel de la máquina virtual](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
 
-4. En **estado del servidor de proceso**, puede supervisar el estado del servidor de procesos. Explorar en profundidad para obtener más información.
+4. En **Estado del servidor de proceso**, puede supervisar el estado del servidor de procesos. Explore los detalles en profundidad.
 
-    ![Detalles del servidor de proceso en el panel de máquinas virtuales](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
+    ![Detalles del servidor de procesos en el panel de la máquina virtual](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
 
-5. Estado también se puede supervisar mediante la representación gráfica de la página de la máquina virtual.
-    - Un servidor de procesos de escalado horizontal será resaltado en color naranja si hay advertencias asociadas con él y rojo si tiene cualquier problema crítico. 
-    - Si el servidor de procesos se está ejecutando en la implementación predeterminada en el servidor de configuración, a continuación, el servidor de configuración se resaltarán en consecuencia.
-    - Para explorar en profundidad, haga clic en el servidor de configuración o servidor de procesos. Tenga en cuenta los problemas y las recomendaciones de corrección.
+5. El estado también se puede supervisar mediante la representación gráfica de la página de la máquina virtual.
+    - Un servidor de procesos de escalabilidad horizontal se resaltará en color naranja si hay advertencias asociadas y en color rojo si tiene algún problema crítico. 
+    - Si el servidor de procesos se ejecuta en la implementación predeterminada en el servidor de configuración, el servidor de configuración se resaltará según corresponda.
+    - Para explorar en profundidad, haga clic en el servidor de configuración o el servidor de procesos. Tenga en cuenta cualquier problema y recomendación de corrección.
 
-También puede supervisar servidores en el almacén en de procesos **infraestructura de Site Recovery**. En **administrar su infraestructura de Site Recovery**, haga clic en **servidores de configuración**. Seleccione el servidor de configuración asociado con el servidor de procesos y la exploración en profundidad hacia abajo en los detalles del servidor de proceso.
+También puede supervisar los servidores de procesos del almacén en **Infraestructura de Site Recovery**. En **Administrar la infraestructura de Site Recovery**, haga clic en **Servidores de configuración**. Seleccione el servidor de configuración asociado al servidor de procesos y explore en profundidad los detalles del servidor de procesos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si tiene alguno de los problemas de los servidores de proceso, siga nuestro [Guía de solución de problemas](vmware-physical-azure-troubleshoot-process-server.md)
+- Si tiene algún problema con los servidores de procesos, siga nuestra [guía de solución de problemas](vmware-physical-azure-troubleshoot-process-server.md).
 - Si necesita más ayuda, puede publicar su pregunta en el [foro de Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png

@@ -13,16 +13,50 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 47578d5b6bb4a0094ba1a2e9e7dc7f92d0b0e231
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787508"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607101"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Notas de la versión de SQL Server en máquinas virtuales de Azure
 
 Azure permite implementar una máquina virtual con una imagen de SQL Server integrada. En este artículo se resumen las nuevas características y mejoras de las versiones recientes de [SQL Server en VM de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). En el artículo también se enumeran las actualizaciones importantes de contenido que no están directamente relacionadas con la versión, pero que se publican en el mismo período de tiempo. Para mejoras en otros servicios de Azure, consulte [las Actualizaciones del servicio](https://azure.microsoft.com/updates).
+
+
+## <a name="june-2019"></a>Junio de 2019
+
+### <a name="service-improvements"></a>Mejoras en el servicio
+
+| Mejoras en el servicio | Detalles |
+| --- | --- |
+| **Nuevos modos de instalación de IaaS de SQL** | Ahora es posible instalar la extensión IaaS de SQL en [modo ligero](virtual-machines-windows-sql-server-agent-extension.md) para evitar tener que reiniciar el servicio SQL Server.  |
+| **Modificación de la edición de SQL Server** | Ahora puede cambiar la [propiedad edition](virtual-machines-windows-sql-change-edition.md) de la VM con SQL Server. |
+| **Cambio del proveedor de recursos de VM con SQL** | Puede [registrar la máquina virtual con SQL Server con el proveedor de recursos de VM con SQL](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) (incluso [imágenes de Windows 2008](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008r2-on-windows-server-2008-vms)) mediante los nuevos modos de IaaS de SQL. |
+| **Imágenes BYOL con AHUB** | Ahora es posible cambiar a ["Pago por uso"](virtual-machines-windows-sql-ahb.md#remarks) el tipo de licencia de las imágenes BYOL implementadas desde Marketplace.| 
+| &nbsp; | &nbsp; |
+
+
+
+## <a name="may-2019"></a>Mayo de 2019
+
+### <a name="service-improvements"></a>Mejoras en el servicio
+
+| Mejoras en el servicio | Detalles |
+| --- | --- |
+| **Nueva administración de VM con SQL en Azure Portal** | Ahora existe una nueva forma de administrar una VM con SQL Server en Azure Portal. Para más información, consulte [Administración de VM con SQL Server en Azure Portal](virtual-machines-windows-sql-manage-portal.md).  | 
+| &nbsp; | &nbsp; |
+
+### <a name="documentation-improvements"></a>Mejoras en la documentación
+
+| Documentación | Detalles |
+| --- | --- |
+| **Nueva administración en el portal de VM con SQL** | Se han actualizado alrededor de una docena de artículos con la nueva experiencia de portal de administración de VM con SQL en el portal. | 
+| &nbsp; | &nbsp; |
+
+
+
 
 ## <a name="april-2019"></a>Abril de 2019
 
@@ -30,20 +64,17 @@ Azure permite implementar una máquina virtual con una imagen de SQL Server inte
 
 | Mejoras en el servicio | Detalles |
 | --- | --- |
-| **Ampliar la compatibilidad de SQL Server 2008/2008 R2** | [Ampliar la compatibilidad con](virtual-machines-windows-sql-server-2008-eos-extend-support.md) para SQL Server 2008 y SQL Server 2008 R2 mediante la migración *como-es* a una máquina virtual de Azure. | 
+| **Compatibilidad ampliada con SQL Server 2008/2008 R2** | [Amplíe la compatibilidad](virtual-machines-windows-sql-server-2008-eos-extend-support.md) con SQL Server 2008 y SQL Server 2008 R2 mediante una migración *tal cual* a una máquina virtual de Azure. | 
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>Mejoras en la documentación
-
-None
 
 ## <a name="march-2019"></a>Marzo de 2019
 
 | Mejoras en el servicio | Detalles |
 | --- | --- |
-| **Compatibilidad de la imagen personalizada** | Ahora puede instalar el [extensión SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) a imágenes de sistema operativo y SQL personalizadas, que ofrece una funcionalidad limitada de [licencias flexibles](virtual-machines-windows-sql-ahb.md). En caso contrario, al registrar la imagen personalizada con el proveedor de recursos SQL, especifique el tipo de licencia como 'AHUB' como el registro se producirá un error.  | 
-| **Compatibilidad de la instancia con nombre** | Ahora puede usar el [extensión SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) con una instancia con nombre, si la instancia predeterminada se ha desinstalado correctamente. | 
-| **Mejora del portal** | La experiencia de Azure portal para implementar una máquina virtual de SQL Server se ha renovado para mejorar la facilidad de uso. Para obtener más información, vea el breve [Quickstart](quickstart-sql-vm-create-portal.md) y profundice [procedimientos](virtual-machines-windows-portal-sql-server-provision.md) guía para implementar una máquina virtual de SQL Server.|
+| **Compatibilidad de imágenes personalizada** | Ahora puede instalar la [extensión IaaS de SQL](virtual-machines-windows-sql-server-agent-extension.md#installation) en imágenes de SQL y sistemas operativos personalizadas, lo que ofrece una funcionalidad limitada de [licencias flexibles](virtual-machines-windows-sql-ahb.md). Al registrar la imagen personalizada con el proveedor de recursos SQL, especifique el tipo de licencia como "AHUB" o, de lo contrario, se producirá un error durante el registro. | 
+| **Compatibilidad de instancias con nombre** | Ahora puede usar la [extensión IaaS de SQL](virtual-machines-windows-sql-server-agent-extension.md#installation) con una instancia con nombre, si la instancia predeterminada se ha desinstalado correctamente. | 
+| **Renovación del portal** | La experiencia de Azure Portal para implementar una VM con SQL Server se ha renovado para mejorar la facilidad de uso. Para más información, vea el breve [Inicio rápido](quickstart-sql-vm-create-portal.md) y la guía [paso a paso](virtual-machines-windows-portal-sql-server-provision.md) detallada para implementar una VM con SQL Server.|
 | &nbsp; | &nbsp; |
 
 
@@ -51,8 +82,8 @@ None
 
 | Mejoras en el servicio | Detalles |
 | --- | --- |
-| **Mejora del portal** | Ahora es posible cambiar el modelo de licencias para una VM de SQL Server de pago por uso para aportar a su propia-licencia utilizando la [portal Azure](virtual-machines-windows-sql-ahb.md#with-the-azure-portal-1).|
-|**Simplificación de la implementación de grupo de disponibilidad con la CLI de máquina virtual de SQL Azure** | Ahora es más fácil que nunca para implementar un grupo de disponibilidad en una máquina virtual de SQL Server en Azure. [CLI de máquina virtual de SQL Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) le permite crear el agente de escucha WSFC, el ILB y el grupo de disponibilidad, todo ello desde la línea de comandos y en un tiempo récord. Para obtener más información, consulte [CLI de máquina virtual Use Azure SQL para configurar el grupo de disponibilidad AlwaysOn para SQL Server en una máquina virtual de Azure](virtual-machines-windows-sql-availability-group-cli.md). | 
+| **Mejora del portal** | Ahora es posible cambiar el modelo de licencias para una VM con SQL Server de pago por uso a traiga su propia licencia mediante [Azure Portal](virtual-machines-windows-sql-ahb.md#change-license-for-vms-already-registered-with-resource-provider)|
+|**Simplificación de la implementación de grupos de disponibilidad con la CLI de la máquina virtual de Azure SQL** | Ahora es más fácil que nunca implementar un grupo de disponibilidad en una VM con SQL Server en Azure. La [CLI de la máquina virtual de Azure SQL](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) le permite crear el cliente de escucha del grupo de disponibilidad, WSFC e ILB desde la línea de comandos y en un tiempo récord. Para obtener más información, consulte [Usar la CLI de máquina virtual de Azure SQL para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure](virtual-machines-windows-sql-availability-group-cli.md). | 
 | &nbsp; | &nbsp; |
 
 
@@ -61,8 +92,8 @@ None
 | Mejoras en el servicio | Detalles |
 | --- | --- |
 | **Nuevo proveedor de recursos del grupo de clústeres SQL** | Un nuevo proveedor de recursos (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) que define los metadatos del clúster de conmutación por error de Windows. Al unir una VM con SQL Server a *SqlVirtualMachineGroups*, se arranca el servicio de clúster de conmutación por error de Windows y se une la VM al clúster.  |
-|**Automatización de la configuración de implementación de un grupo de disponibilidad con plantillas de inicio rápido de Azure** |Ahora es posible crear el clúster de conmutación por error de Windows, unirlo a las VM con SQL Server, crear el agente de escucha y configurar Load Balancer interno con dos plantillas de inicio rápido de Azure. Para obtener más información, consulte [plantilla de inicio rápido de Azure de uso para configurar el grupo de disponibilidad AlwaysOn para SQL Server en una máquina virtual de Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
-| **Registro automático del proveedor de recursos de VM de SQL** | Las VM con SQL Server implementadas después de este mes se registran automáticamente con el nuevo proveedor de recursos de SQL Server. Las VM con SQL Server implementadas antes de este mes todavía deben registrarse manualmente. Para obtener más información, consulte [registrar VM de SQL existente con el proveedor de recursos de VM de SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).|
+|**Automatización de la configuración de implementación de un grupo de disponibilidad con plantillas de inicio rápido de Azure** |Ahora es posible crear el clúster de conmutación por error de Windows, unirlo a las VM con SQL Server, crear el agente de escucha y configurar Load Balancer interno con dos plantillas de inicio rápido de Azure. Para obtener más información, consulte [Usar la plantilla de inicio rápido de Azure para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
+| **Registro automático del proveedor de recursos de VM de SQL** | Las VM con SQL Server implementadas después de este mes se registran automáticamente con el nuevo proveedor de recursos de SQL Server. Las VM con SQL Server implementadas antes de este mes todavía deben registrarse manualmente. Para más información, consulte [Registro de VM con SQL existentes con el proveedor de recursos de VM con SQL](virtual-machines-windows-sql-register-with-resource-provider.md).|
 | &nbsp; | &nbsp; |
 
 
@@ -70,8 +101,8 @@ None
 
 | Mejoras en el servicio | Detalles |
 | --- | --- |
-| **Nuevo proveedor de recursos de VM con SQL** |  Un nuevo proveedor de recursos para VM con SQL Server (Microsoft.SqlVirtualMachine) que proporciona una mejor administración de la VM con SQL Server. Para más información sobre cómo registrar la máquina virtual, consulte [Registro de máquinas virtuales de SQL existentes con el nuevo proveedor de recursos](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). |
-|**Cambiar el modelo de licencia** |Aahora puede cambiar entre los modelos de pago por uso y traer su propia licencia para la VM con SQL mediante PowerShell o la CLI de Azure. Para más información, consulte [Modificación del modelo de licencia para una máquina virtual de SQL en Azure](virtual-machines-windows-sql-ahb.md). | 
+| **Nuevo proveedor de recursos de VM con SQL** |  Un nuevo proveedor de recursos para VM con SQL Server (Microsoft.SqlVirtualMachine) que proporciona una mejor administración de la VM con SQL Server. Para más información sobre cómo registrar la máquina virtual, consulte [Registro de máquinas virtuales de SQL existentes con el nuevo proveedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md). |
+|**Cambiar el modelo de licencia** | Aahora puede cambiar entre los modelos de pago por uso y traer su propia licencia para la VM con SQL mediante PowerShell o la CLI de Azure. Para más información, consulte [Modificación del modelo de licencia para una máquina virtual de SQL en Azure](virtual-machines-windows-sql-ahb.md). | 
 | &nbsp; | &nbsp; |
 
 

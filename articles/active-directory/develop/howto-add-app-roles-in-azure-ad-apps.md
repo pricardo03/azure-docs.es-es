@@ -18,10 +18,10 @@ ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24e933399454942f4ee50440cffd791599679074
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299141"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedimientos para: Agregar roles de aplicación en la aplicación y recibirlos en el token
@@ -51,9 +51,9 @@ Estos roles de aplicación se definen en [Azure Portal](https://portal.azure.com
 1. Localice la opción de configuración `appRoles` para editar el manifiesto de la aplicación y agregar los roles de aplicación.
 
      > [!NOTE]
-     > Cada definición de rol de aplicación en este manifiesto debe tener un GUID válido diferente para el `id` propiedad. 
+     > Cada definición de roles de aplicación de este manifiesto debe tener un GUID válido diferente para la propiedad `id`. 
      > 
-     > El `value` propiedad de cada definición de rol de aplicación debe coincidir exactamente con las cadenas que se usan en el código de la aplicación. El `value` propiedad no puede contener espacios. Si es así, recibirá un error al guardar el manifiesto.
+     > La propiedad `value` de cada definición de rol de la aplicación debe coincidir exactamente con las cadenas que se usan en el código de la aplicación. La propiedad `value` no puede contener espacios. Si es así, recibirá un error al guardar el manifiesto.
      
 1. Guarde el manifiesto.
 
@@ -82,7 +82,7 @@ El ejemplo siguiente muestra los distintos `appRoles` que se pueden asignar a `u
 ```
 
 > [!NOTE]
->El `displayName` no puede contener espacios.
+>`displayName` no puede contener espacios.
 
 Puede definir roles de aplicación para `users`, `applications` o ambos. Cuando están disponibles para `applications`, los roles de aplicación aparecen como permisos de aplicación en la hoja **Permisos necesarios**. El ejemplo siguiente muestra un rol de aplicación dirigido a un elemento `Application`.
 
@@ -103,7 +103,7 @@ Puede definir roles de aplicación para `users`, `applications` o ambos. Cuando 
 "availableToOtherTenants": false,
 ```
 
-El número de roles definidos afecta a los límites que tiene el manifiesto de aplicación. Describe detalladamente en la [manifiesto límites](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) página.
+El número de roles definidos afecta a los límites que tiene el manifiesto de aplicación. Se describen detalladamente en la página de [límites del manifiesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits).
 
 ### <a name="assign-users-and-groups-to-roles"></a>Asignación de usuarios y grupos a roles
 

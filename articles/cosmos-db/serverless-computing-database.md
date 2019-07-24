@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: db85d02a4f5c6e0f644a03394b570aac46202e72
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66256952"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
@@ -107,11 +107,11 @@ En todos estos casos de uso, como la función desacopló la aplicación misma, n
 
 ## <a name="tooling"></a>Herramientas
 
-Integración nativa entre Azure Cosmos DB y Azure Functions está disponible en el portal de Azure y en Visual Studio de 2019.
+La integración nativa entre Azure Cosmos DB y Azure Functions está disponible en Azure Portal y en Visual Studio 2019.
 
 * En el portal de Azure Functions, puede crear un desencadenador de Azure Cosmos DB. Para obtener instrucciones en una guía de inicio rápido, consulte [Creación de un desencadenador de Azure Cosmos DB en Azure Portal](https://aka.ms/cosmosdbtriggerportalfunc).
 * En el portal de Azure Cosmos DB, puede agregar un desencadenador de Azure Cosmos DB a una aplicación de Azure Function existente en el mismo grupo de recursos.
-* En Visual Studio 2019, puede crear un desencadenador de Azure Cosmos DB mediante el [herramientas de Azure Functions](../azure-functions/functions-develop-vs.md):
+* En Visual Studio 2019, puede crear un desencadenador de Azure Cosmos DB mediante [Azure Functions Tools](../azure-functions/functions-develop-vs.md):
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
 

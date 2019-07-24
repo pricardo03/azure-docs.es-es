@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7db66f6f4efa5e48f2af9380115de8bcfb75cb86
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861121"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786685"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migración de Analytics desde Excel a Azure Machine Learning Studio
 
@@ -109,9 +109,9 @@ Con el libro abierto, copie los parámetros predefinidos en la sección de pará
 ![Libro de Excel de plantilla que conecta con el servicio web implementado](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>Optimización y otros experimentos
-Ahora que teníamos una línea de base con nuestro modelo de Excel, dimos un paso más para optimizar nuestro modelo de regresión lineal de Machine Learning. Usamos el módulo [Selección de características basada en filtros][filter-based-feature-selection] para mejorar nuestra selección de datos iniciales de elementos. Ello nos ayudó a lograr una mejora del rendimiento del 4,6 % en el error medio absoluto. En proyectos futuros, se usará esta característica que nos permitirá ahorrar semanas de iteración en los atributos de los datos para encontrar el conjunto correcto de características que se utilizará para el modelado. 
+Ahora que teníamos una línea de base con nuestro modelo de Excel, dimos un paso más para optimizar nuestro modelo de regresión lineal de Machine Learning. Usamos el módulo [Selección de características basada en filtros][filter-based-feature-selection] para mejorar nuestra selección de datos iniciales de elementos. Esto nos ayudó a lograr una mejora del rendimiento del 4,6 % en el error medio absoluto. En proyectos futuros, se usará esta característica que nos permitirá ahorrar semanas de iteración en los atributos de los datos para encontrar el conjunto correcto de características que se utilizará para el modelado. 
 
-A continuación, tenemos previsto incluir algoritmos adicionales como [bayesianos][bayesian-linear-regression] o [árboles de decisiones incrementados][boosted-decision-tree-regression] en nuestro experimento para comparar el rendimiento. 
+A continuación, tenemos previsto incluir algoritmos adicionales como [bayesianos][bayesian-linear-regression] or [Boosted Decision Trees][boosted-decision-tree-regression] en nuestro experimento para comparar el rendimiento. 
 
 Si desea experimentar con regresión, un buen conjunto de datos para probar es el conjunto de datos de ejemplo de Energy Efficiency Regression, que tiene muchos atributos numéricos. El conjunto de datos se proporciona como parte de los conjuntos de datos de muestra en Studio. Puede usar diversos módulos de entrenamiento para predecir la carga de calefacción o refrigeración. En el gráfico siguiente, se muestra una comparación de distintos entrenamientos de regresión efectuados con el conjunto de datos Energy Efficiency para predecir una variable de destino sobre la carga de refrigeración: 
 
@@ -123,7 +123,7 @@ Si desea experimentar con regresión, un buen conjunto de datos para probar es e
 | Regresión lineal (ordinaria de mínimos cuadrados) |1,428273 |1,984461 |0,163767 |0,042074 |0,957926 |
 
 ## <a name="key-takeaways"></a>Puntos clave
-Hemos aprendido mucho al ejecutar experimentos de regresión en Excel y en Studio de forma paralela. El hecho de crear un modelo de línea de base en Excel y compararlo con modelos usando la [regresión lineal][linear-regression] de Machine Learning nos permitió conocer Studio. Además, descubrimos oportunidades para mejorar la selección de datos y el rendimiento del modelo. 
+Hemos aprendido mucho al ejecutar experimentos de regresión en Excel y en Studio de forma paralela. El hecho de crear un modelo de línea de base en Excel y compararlo con modelos mediante la [regresión lineal][linear-regression] de Machine Learning nos ayudó a conocer mejor Studio. Además, descubrimos oportunidades para mejorar la selección de datos y el rendimiento del modelo. 
 
 También descubrimos que es aconsejable utilizar la [Selección de características basada en filtros][filter-based-feature-selection] para acelerar los proyectos futuros de predicción. Al aplicar la selección de características a los datos, se puede crear un modelo mejorado en Studio con un mejor rendimiento general. 
 
@@ -133,7 +133,7 @@ La capacidad de transferir sistemáticamente la predicción analítica previsió
 A continuación, encontrará algunos recursos que le ayudarán a trabajar con la regresión: 
 
 * Regresión en Excel. Si nunca ha probado Regresión en Excel, este tutorial le enseñará a usarla fácilmente: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
-* Regresión frente a previsión. Tyler Chessman escribió un artículo de blog que explica cómo realizar una serie de previsiones de tiempo en Excel. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* Regresión frente a previsión. Tyler Chessman escribió un artículo de blog que explica cómo realizar una serie de previsiones de tiempo en Excel. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
 * Regresión lineal (ordinaria de mínimos cuadrados): errores, problemas y riesgos. Para obtener una introducción y una explicación de Regresión, consulte: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->

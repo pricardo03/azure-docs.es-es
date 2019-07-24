@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: f2539d5250ff436a720fe10f748f40db29b0ee25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba29688958ee11aa9906a820f7a3d2bf41223743
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783440"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798178"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análisis de uso con Application Insights
 
@@ -132,11 +132,11 @@ Para realizar esta técnica, adjunte valores de propiedad distintas a toda la te
 
 En el portal de Application Insights, podrá filtrar y dividir los datos en los valores de propiedad, con el fin de comparar las distintas versiones.
 
-Para ello, [configure un inicializador de telemetría](../../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer):
+Para ello, [configure un inicializador de telemetría](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer):
+
+**Aplicaciones ASP.NET**
 
 ```csharp
-
-
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
@@ -155,8 +155,24 @@ En el inicializador de la aplicación web, como Global.asax.cs:
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
+         .Add(new MyTelemetryInitializer());
     }
+```
+
+**Aplicaciones de ASP.NET Core**
+
+> [!NOTE]
+> La adición del inicializador mediante `ApplicationInsights.config` o `TelemetryConfiguration.Active` no es válida para las aplicaciones de ASP.NET Core. 
+
+Para aplicaciones de [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers), la adición de un nuevo elemento `TelemetryInitializer` se realiza agregándolo al contenedor de inserción de dependencias, como se muestra a continuación. Esto se hace en el método `ConfigureServices` de la clase `Startup.cs`.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 Todos los nuevos clientes de telemetría agregan automáticamente el valor de propiedad especificado. La telemetría individual puede invalidar los valores predeterminados.

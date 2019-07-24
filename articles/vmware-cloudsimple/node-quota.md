@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 26a5876971749a1a63447ef813219dad8485781c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd1416befb74a7299136ea497eccc8a06b7f0f6a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160176"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164866"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Límites de cuota de los nodos de CloudSimple
 
-Cuando la suscripción está habilitada para el servicio CloudSimple, la cantidad predeterminada de nodos disponibles para su compra es cuatro.  Puede comprar cualquier [tipo de nodo](cloudsimple-node.md) desde Azure Portal.  Para crear una nube privada, se requieren un mínimo de tres nodos de la misma SKU.  Si ha comprado los nodos, es posible que vea un error cuando intente adquirir nodos adicionales.
+Cuando la suscripción está habilitada para el servicio CloudSimple, la cantidad predeterminada de nodos disponibles para su aprovisionamiento es cuatro.  Puede aprovisionar cualquier [tipo de nodo](cloudsimple-node.md) desde Azure Portal.  Para crear una nube privada, se requieren un mínimo de tres nodos de la misma SKU.  Si ha aprovisionado los nodos, es posible que vea un error cuando intente aprovisionar nodos adicionales.
 
 ## <a name="quota-increase"></a>Aumento de la cuota
 
@@ -40,5 +40,5 @@ También puede ponerse en contacto con su representante de la cuenta Microsoft e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Comprar nodos](create-nodes.md)
+* [Aprovisionamiento de nodos](create-nodes.md)
 * [Introducción a los nodos de CloudSimple](cloudsimple-node.md)

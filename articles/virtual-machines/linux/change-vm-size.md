@@ -4,7 +4,7 @@ description: Escalado o reducción en vertical de una máquina virtual de Linux 
 services: virtual-machines-linux
 documentationcenter: na
 author: mikewasson
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: e163f878-b919-45c5-9f5a-75a64f3b14a0
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bd8136c61a277e730c07c8789afd1bf3214bd7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46baa3d4dbcd466944d7a91e446e380c89f53f2b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127079"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671738"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Cambiar el tamaño de una máquina virtual Linux que usa la CLI de Azure 
 
@@ -56,7 +56,7 @@ Para cambiar el tamaño de una máquina virtual, necesita tener instalada la úl
    > Al desasignar la máquina virtual, también se liberan todas las direcciones IP dinámicas asignadas a ella. Esto no afecta a los discos del SO y de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener una mayor escalabilidad, ejecute varias instancias de VM y escálelas horizontalmente. Para obtener más información, consulte [Escalado automático de máquinas de Linux en un conjunto de escalado de máquinas virtuales][scale-set]. 
+Para obtener una mayor escalabilidad, ejecute varias instancias de VM y escálelas horizontalmente. Para más información, consulte [Escalado automático de máquinas de Linux en un conjunto de escalado de máquinas virtuales][scale-set]. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

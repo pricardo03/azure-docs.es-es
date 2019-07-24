@@ -1,0 +1,120 @@
+---
+title: Azure Backup para SQL Server que se ejecuta en la máquina virtual de Azure
+description: Registro de Azure Backup para SQL Server que se ejecuta en la máquina virtual de Azure
+services: backup
+author: swatisachdeva
+manager: vijayts
+ms.service: backup
+ms.topic: conceptual
+ms.date: 07/05/2019
+ms.author: swatisachdeva
+ms.openlocfilehash: 8710242e04156c8af6e5882a3cb4d42cc31e3677
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607376"
+---
+# <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure Backup para SQL Server que se ejecuta en la máquina virtual de Azure
+
+Azure Backup, entre otras ofertas, proporciona soporte técnico para realizar copias de seguridad de cargas de trabajo como SQL Server que se ejecuta en las máquinas virtuales Azure. Puesto que la aplicación de SQL se ejecuta dentro de una máquina virtual de Azure, el servicio de copia de seguridad necesita permiso para acceder a la aplicación y capturar los detalles necesarios.
+Para ello, Azure Backup instala la extensión **AzureBackupWindowsWindowsWorkload** en la máquina virtual, en la que se ejecuta SQL Server, durante el proceso de registro iniciado por el usuario.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Para obtener la lista de escenarios admitidos, consulte la [matriz de compatibilidad](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support) admitida con Azure Backup.
+
+## <a name="network-connectivity"></a>Conectividad de red
+
+Azure Backup admite las etiquetas del grupo de seguridad de red, implementando un servidor proxy o rangos IP listados; para más detalles sobre cada uno de los métodos, consulte este [artículo](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#establish-network-connectivity).
+
+## <a name="extension-schema"></a>Esquema de extensión
+
+Los valores de propiedad y del esquema de extensión son los valores de configuración (configuración del entorno de ejecución) que está pasando el servicio a la API de CRP. Estos valores de configuración se usan durante el registro y la actualización. La extensión **AzureBackupWindowsWorkload** también utiliza este esquema. El esquema está preestablecido; se puede agregar un nuevo parámetro en el campo objectStr.
+
+  ```json
+      "runtimeSettings": [{
+      "handlerSettings": {
+      "protectedSettingsCertThumbprint": "",
+      "protectedSettings": {
+      "objectStr": "",
+      "logsBlobUri": "",
+      "statusBlobUri": ""
+      }
+      },
+      "publicSettings": {
+      "locale": "en-us",
+      "taskId": "1c0ae461-9d3b-418c-a505-bb31dfe2095d",
+      "objectStr": "",
+      "commandStartTimeUTCTicks": "636295005824665976",
+      "vmType": "vmType"
+      }
+      }]
+      }
+  ```
+
+En el siguiente JSON, se muestra el esquema para la extensión WorkloadBackup.  
+
+  ```json
+  {
+    "type": "extensions",
+    "name": "WorkloadBackup",
+    "location":"<myLocation>",
+    "properties": {
+      "publisher": "Microsoft.RecoveryServices",
+      "type": "AzureBackupWindowsWorkload",
+      "typeHandlerVersion": "1.1",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "locale":"<location>",
+        "taskId":"<TaskId used by Azure Backup service to communicate with extension>",
+
+        "objectStr": "<The configuration passed by Azure Backup service to extension>",
+
+        "commandStartTimeUTCTicks": "<Scheduled start time of registration or upgrade task>",
+        "vmType": "<Type of VM where registration got triggered Eg. Compute or ClassicCompute>"
+      },
+      "protectedSettings": {
+        "objectStr": "<The sensitive configuration passed by Azure Backup service to extension>",
+        "logsBlobUri": "<blob uri where logs of command execution by extension are written to>",
+        "statusBlobUri": "<blob uri where status of the command executed by extension is written>"
+      }
+    }
+  }
+  ```
+
+### <a name="property-values"></a>Valores de propiedad
+
+NOMBRE | Valor o ejemplo | Tipo de datos
+ --- | --- | ---
+locale | es-ES  |  string
+taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | string
+objectStr <br/> (publicSettings)  | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5ODI3ZTgzNTQiLCJVbmlxdWVDb250YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ==" | string
+commandStartTimeUTCTicks | "636967192566036845"  | string
+vmType  | "microsoft.compute/virtualmachines"  | string
+objectStr <br/> (protectedSettings) | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5ODI3ZTgzNTQiLCJVbmlxdWVDb250YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ==" | string
+logsBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Logs.txt?sv=2014-02-14&sr=b&sig=DbwYhwfeAC5YJzISgxoKk%2FEWQq2AO1vS1E0rDW%2FlsBw%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string
+statusBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Status.txt?sv=2014-02-14&sr=b&sig=96RZBpTKCjmV7QFeXm5IduB%2FILktwGbLwbWg6Ih96Ao%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string
+
+
+## <a name="template-deployment"></a>Implementación de plantilla
+
+Recomendamos agregar la extensión AzureBackupWindowsWorkload a una máquina virtual mediante la habilitación la copia de seguridad de SQL Server en la máquina virtual. Esto puede lograrse mediante la [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) diseñada para automatizar la copia de seguridad en una máquina virtual de SQL Server.
+
+
+## <a name="powershell-deployment"></a>Implementación de PowerShell
+
+Para ello, debe "registrar" la máquina virtual de Azure que contiene la aplicación de SQL con un almacén de Recovery Services. Durante el registro, la extensión AzureBackupWindowsWorkload se instala en la máquina virtual. Use el cmdlet  [Register-AzRecoveryServicesBackupContainerPS](https://docs.microsoft.com/powershell/module/az.recoveryservices/Register-AzRecoveryServicesBackupContainer?view=azps-1.5.0) para registrar la máquina virtual.
+ 
+```powershell
+$myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
+Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID -Force
+```
+ 
+El comando devolverá un **contenedor de copia de seguridad** de este recurso y el estado se **registrará**.
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Más información ](https://docs.microsoft.com/azure/backup/backup-sql-server-azure-troubleshoot)sobre las directrices para la solución de problemas de copias de seguridad de máquinas virtuales de Azure SQL Server
+- [Preguntas comunes](https://docs.microsoft.com/azure/backup/faq-backup-sql-server) sobre la copia de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con el servicio Azure Backup.

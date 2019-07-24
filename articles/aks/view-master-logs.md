@@ -2,17 +2,17 @@
 title: Visualización de los registros de controlador de Azure Kubernetes Service (AKS)
 description: Aprenda a habilitar y ver los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: iainfou
-ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.author: mlearned
+ms.openlocfilehash: ef77b991461c5d9640cbab9d53f8393540f47c9b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497246"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613921"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -20,36 +20,36 @@ Con Azure Kubernetes Service (AKS), los componentes principales, como *kube-apis
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se requiere un clúster de AKS existente que se ejecute en su cuenta de Azure. Si no dispone de un clúster de AKS, cree uno mediante la [CLI de Azure][cli-quickstart] o [Azure Portal][portal-quickstart]. Registros de Azure Monitor funciona tanto con clústeres de AKS habilitados para RBAC como no habilitados para RBAC.
+En este artículo se requiere un clúster de AKS existente que se ejecute en su cuenta de Azure. Si no dispone de un clúster de AKS, cree uno mediante la [CLI de Azure][cli-quickstart] or [Azure portal][portal-quickstart]. Registros de Azure Monitor funciona tanto con clústeres de AKS habilitados para RBAC como no habilitados para RBAC.
 
 ## <a name="enable-diagnostics-logs"></a>Habilitación del registro de diagnósticos
 
-Para ayudar a recopilar y revisar los datos de varios orígenes, registros de Azure Monitor proporciona un motor de lenguaje y análisis de consultas que ofrece información detallada sobre su entorno. Un área de trabajo se usa para intercalar y analizar los datos, y se puede integrar con otros servicios de Azure como Application Insights y Security Center. Para usar una plataforma diferente para analizar los registros, puede decidir en su lugar enviar los registros de diagnóstico a una cuenta de almacenamiento o un centro de eventos de Azure. Para más información, vea [Análisis de datos de registro en Azure Monitor][log-analytics-overview].
+Para ayudar a recopilar y revisar los datos de varios orígenes, registros de Azure Monitor proporciona un motor de lenguaje y análisis de consultas que ofrece información detallada sobre su entorno. Un área de trabajo se usa para intercalar y analizar los datos, y se puede integrar con otros servicios de Azure como Application Insights y Security Center. Para usar una plataforma diferente para analizar los registros, puede decidir en su lugar enviar los registros de diagnóstico a una cuenta de almacenamiento o un centro de eventos de Azure. Para más información, consulte el artículo sobre los [registros de Azure Monitor][log-analytics-overview].
 
-Registros de Azure Monitor están habilitados y se administran en el portal de Azure. Para habilitar la recopilación de registros para los componentes principales de Kubernetes en el clúster de AKS, abra Azure Portal en un explorador web y realice los pasos siguientes:
+Los registros de Azure Monitor se habilitan y administran en Azure Portal. Para habilitar la recopilación de registros para los componentes principales de Kubernetes en el clúster de AKS, abra Azure Portal en un explorador web y realice los pasos siguientes:
 
 1. Seleccione el grupo de recursos del clúster de AKS, como *myResourceGroup*. No seleccione el grupo de recursos que contiene los recursos del clúster de AKS individuales, como *MC_myResourceGroup_myAKSCluster_eastus*.
 1. En la parte izquierda, elija **Configuración de diagnóstico**.
-1. Seleccione el clúster de AKS, como *myAKSCluster*, a continuación, elija **Agregar configuración de diagnóstico**.
+1. Seleccione el clúster de AKS, como *myAKSCluster*, y elija **Agregar configuración de diagnóstico**.
 1. Escriba un nombre, como *myAKSClusterLogs* y seleccione la opción **Send to Log Analytics** (Enviar a Log Analytics).
-1. Seleccione un área de trabajo existente o cree uno nuevo. Si crea un área de trabajo, proporcione un nombre de área de trabajo, un grupo de recursos y una ubicación.
-1. En la lista de registros disponibles, seleccione los que desea habilitar. Registros comunes incluyen la *kube apiserver*, *kube-controller-manager*, y *kube-programador*. Puede habilitar otros, como *kube-audit* y *cluster-autoscaler*. Puede volver y cambiar los registros recopilados una vez que las áreas de trabajo de Log Analytics está habilitadas.
+1. Seleccione un área de trabajo existente o cree uno. Al crear un área de trabajo, proporciónele un nombre, un grupo de recursos y una ubicación.
+1. En la lista de registros disponibles, seleccione los que desea habilitar. Los registros típicos incluyen *kube-apiserver*, *kube-controller-manager* y *kube-scheduler*. Puede habilitar otros, como *kube-audit* y *cluster-autoscaler*. Puede volver y cambiar los registros recopilados una vez que las áreas de trabajo de Log Analytics está habilitadas.
 1. Cuando esté listo, seleccione **Guardar** para habilitar la recopilación de los registros seleccionados.
 
 > [!NOTE]
-> AKS solo captura registros de auditoría para los clústeres que se crearon o actualizaron después de habilitar una marca de característica en la suscripción. Para registrar la marca de característica *AKSAuditLog*, use el comando [az feature register][az-feature-register] tal como se muestra en el ejemplo siguiente:
+> AKS solo captura registros de auditoría para los clústeres que se crearon o actualizaron después de habilitar una marca de característica en la suscripción. Para registrar la marca de característica *AKSAuditLog*, use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
 >
 > `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
 >
-> Espere a que el estado se muestre como *registrado*. Puede comprobar el estado del registro con el comando [az feature list][az-feature-list]:
+> Espere a que el estado se muestre como *registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
 >
 > `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
 >
-> Cuando todo esté listo, actualice el registro del proveedor de recursos AKS con el comando [az provider register][az-provider-register]:
+> Cuando todo esté listo, actualice el registro del proveedor de recursos de AKS con el comando [az provider register][az-provider-register]:
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
-El portal de la captura de pantalla de ejemplo siguiente se muestra el *configuración de diagnóstico* ventana:
+La siguiente captura de pantalla de ejemplo del portal muestra la ventana *Configuración de diagnóstico*:
 
 ![Habilitación de un área de trabajo de Log Analytics para registros de Azure Monitor del clúster de AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
@@ -87,7 +87,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visualización de los datos recopilados
 
-Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparecer en el área de trabajo de Log Analytics. En el portal de Azure, seleccione el grupo de recursos para el área de trabajo de Log Analytics, como *myResourceGroup*, a continuación, elija el recurso de log analytics, como *myAKSLogs*.
+Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparecer en el área de trabajo de Log Analytics. En Azure Portal, seleccione el grupo de recursos para el área de trabajo de Log Analytics, como *myResourceGroup*, y elija el recurso de Log Analytics, por ejemplo, *myAKSLogs*.
 
 ![Selección del área de trabajo de Log Analytics para el clúster de AKS](media/view-master-logs/select-log-analytics-workspace.png)
 
@@ -114,7 +114,7 @@ Se muestran los registros específicos de su pod NGINX, como se ilustra en la si
 
 Para ver registros adicionales, puede actualizar la consulta del nombre *Categoría* a *kube-controller-manager* o *kube-programador*, dependiendo de qué registros adicionales habilite. Luego, se pueden usar instrucciones adicionales *where* para refinar los eventos que busca.
 
-Para más información acerca de cómo consultar y filtrar datos de registro, consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics][analyze-log-analytics].
+Para más información acerca de cómo consultar y filtrar datos de registro, consulte el artículo de [Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics][analyze-log-analytics].
 
 ## <a name="log-event-schema"></a>Esquema de evento de registro
 
@@ -129,11 +129,11 @@ Para ayudar a analizar los datos de registro, en la tabla siguiente se describe 
 | *properties.log*         | Texto completo del registro desde el componente |
 | *properties.stream*      | *stderr* o *stdout* |
 | *properties.pod*         | Nombre del pod del que procede el registro |
-| *properties.containerID* | Identificador del contenedor de docker que procede este registro |
+| *properties.containerID* | Identificador del contenedor de Docker del que procede este registro |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, aprendió a habilitar y revisar los registros de los componentes principales de Kubernetes en el clúster de AKS. Para seguir supervisando y solucionando problemas, también puede [ver los registros de Kubelet][kubelet-logs] y [habilitar el acceso al nodo SSH][aks-ssh].
+En este artículo, aprendió a habilitar y revisar los registros de los componentes principales de Kubernetes en el clúster de AKS. Para seguir supervisando y solucionando problemas, también puede [ver los registros de Kubelet][kubelet-logs] and [enable SSH node access][aks-ssh].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827468"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transición a un certificado de puerta de enlace de entidad de certificación pública para P2S
@@ -29,7 +29,7 @@ Anteriormente, un certificado autofirmado para la puerta de enlace (que emitía 
 Solo las puertas de enlace anteriores se ven afectados por este cambio. Si el certificado de puerta de enlace se puede migrar, recibirá un aviso en Azure Portal. Puede ver si se ve afectada la puerta de enlace siguiendo los pasos de este artículo.
 
 > [!IMPORTANT]
-> Se ha completado la transición para certificados de entidad de certificación pública en el 12 de mayo de 2019. **Este documento se quitará en el 31 de mayo de 2019.**
+> El 12 de mayo de 2019 se completó la transición para certificados de entidad de certificación públicas. **Este documento se eliminará el 31 de mayo de 2019.**
 
 ## <a name="1-verify-your-certificate"></a>1. Comprobación del certificado
 
@@ -44,7 +44,7 @@ Solo las puertas de enlace anteriores se ven afectados por este cambio. Si el ce
    * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Si *ServerCertRotCn* y *ServerCertIssuerCn* son "DigiCert Global Root CA", no se verán afectados por esta actualización y no es necesario continuar con los pasos descritos en este artículo. Sin embargo, si aparece algo más, el certificado de puerta de enlace forma parte de la actualización y realizará la transición.
 
-### <a name="classic"></a>Clásica
+### <a name="classic"></a>Clásico
 
 1. En un equipo cliente, vaya a la ruta de acceso `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. En la carpeta con el identificador de la puerta de enlace, puede ver el certificado.
 2. En la pestaña General del certificado, compruebe que la entidad emisora es "DigiCert Global Root CA". Si tiene algo distinto a esta entidad emisora, el certificado de la puerta de enlace formará parte de la actualización y se realizará su transición.

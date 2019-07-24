@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967511"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Implementación local del acelerador de soluciones de supervisión remota: Visual Studio
@@ -60,7 +60,7 @@ Ejecute el siguiente comando para iniciar el contenedor de Docker para el servic
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Implementación de los demás microservicios en la máquina local
 
-Los pasos siguientes muestran cómo ejecutar los microservicios de supervisión remota en Visual Studio:
+En los pasos siguientes se muestra cómo ejecutar los microservicios de Supervisión remota en Visual Studio:
 
 1. Inicie Visual Studio.
 1. Abra la solución **remote-monitoring.sln** en la carpeta **Servicios** de la copia local del repositorio.
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-Una vez completado el inicio, el explorador muestra la página **http:\//localhost:3000 / panel**. Los errores de esta página son de esperar. Para ver la aplicación sin errores, complete el paso siguiente.
+Una vez completado el inicio, aparecerá en el explorador la página **http:\//localhost:3000/dashboard**. Los errores de esta página son de esperar. Para ver la aplicación sin errores, complete el paso siguiente.
 
 ### <a name="configure-and-run-nginx"></a>Configuración y ejecución de NGINX
 
@@ -109,7 +109,7 @@ Para obtener más información acerca de cómo ejecutar **nginx**, consulte [ngi
 
 ### <a name="connect-to-the-dashboard"></a>Conexión al panel
 
-Para acceder al panel de solución de supervisión remota, vaya a http:\//localhost:9000 en el explorador.
+Para acceder al panel de soluciones de supervisión remota, vaya a http:\//localhost:9000 en el explorador.
 
 ## <a name="clean-up"></a>Limpieza
 

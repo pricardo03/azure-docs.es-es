@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 5dbdeeba68ae75069b61bd6dc069279ec3c5e5de
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2957e784540f7c6450235d26da43121db2458dd1
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443006"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249523"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
@@ -48,7 +48,7 @@ Antes de empezar, compruebe lo siguiente:
 **Implementaciones admitidas** | Se admiten máquinas virtuales de Azure de SQL Marketplace y que no son de Marketplace (SQL Server instalado manualmente).
 **Zonas geográficas admitidas** | Sudeste de Australia (ASE) y Australia Oriental (AE) <br> Sur de Brasil (BRS)<br> Centro de Canadá (CNC) y Este de Canadá (CE)<br> Asia Suroriental (SEA) y Asia Oriental (EA) <br> Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Centro-oeste de EE. UU. (WCUS), Oeste de EE. UU. (WUS); Oeste de EE. UU. 2 (WUS 2) Centro-norte de EE. UU. (NCUS) Centro de EE. UU. (CUS) Centro-sur de EE. UU. (SCUS) <br> Centro de la India (INC), India del Sur (INS) <br> Este de Japón (JPE) y Oeste de Japón (JPW) <br> Centro de Corea del Sur (KRC), Sur de Corea del Sur (KRS) <br> Norte de Europa (NE) y Oeste de Europa <br> Sur de Reino Unido (UKS) y Oeste de Reino Unido (UKW)
 **Sistemas operativos compatibles** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux no se admite actualmente.
-**Versiones admitidas de SQL Server** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Versiones admitidas de SQL Server** | SQL Server 2017 como se detalla [aquí](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 y SP como se detalla [aquí](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versiones de .NET compatibles** | .NET Framework 4.5.2, y versiones posteriores, instaladas en la máquina virtual
 
 ### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Compatibilidad con SQL Server 2008 y SQL Server 2008 R2
@@ -76,7 +76,7 @@ No se cobrará a los usuarios por esta característica hasta que esté disponibl
 - Puede hacer una copia de seguridad de hasta **aproximadamente 2000** bases de datos de SQL Server en un almacén. Si tiene un número mayor de bases de datos, puede crear varios almacenes.
 - Puede configurar la copia de seguridad de hasta **50** bases de datos a la vez; esta restricción ayuda a optimizar la carga de copias de seguridad.
 - Se admiten bases de datos de hasta **2 TB** de tamaño; si su tamaño es mayor pueden surgir problemas de rendimiento.
-- Para saber el número aproximado de bases de datos que se pueden proteger por servidor, es preciso tener en cuenta factores tales como el ancho de banda, el tamaño de la máquina virtual, la frecuencia de copia de seguridad, el tamaño de la base de datos, etc. Estamos trabajando en una herramienta de planeación que le ayudaría a calcular estas cifras. La publicaremos en breve.
+- Para saber el número aproximado de bases de datos que se pueden proteger por servidor, es preciso tener en cuenta factores tales como el ancho de banda, el tamaño de la máquina virtual, la frecuencia de copia de seguridad, el tamaño de la base de datos, etc. [Descargue](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) la herramienta de planeamiento de recursos que proporciona el número aproximado de bases de datos que puede tener por servidor según los recursos de la máquina virtual y la directiva de copia de seguridad.
 - En el caso de los grupos de disponibilidad, las copias de seguridad se realizan de los distintos nodos en función de una serie de factores. A continuación, se resume el comportamiento del proceso de copia de seguridad en un grupo de disponibilidad.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Comportamiento del proceso de copia de seguridad en el caso de los grupos de disponibilidad Always On

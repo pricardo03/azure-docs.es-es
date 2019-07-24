@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86f8c099061cd3b75b77330c567f34dea2b34928
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563026"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657597"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montaje de un volumen de gitRepo en Azure Container Instances
 
 Obtenga información acerca de cómo montar un volumen de *gitRepo* para clonar un repositorio de GIT en las instancias de Container Instances.
 
 > [!NOTE]
-> El montaje de un volumen de *gitRepo* está actualmente restringido a los contenedores Linux. Aunque estamos trabajando para traer todas las características a los contenedores Windows, puede encontrar diferencias en la plataforma actual en la [disponibilidad de cuotas y regiones en Azure Container Instances](container-instances-quotas.md).
+> El montaje de un volumen de *gitRepo* está actualmente restringido a los contenedores Linux. Aunque se está trabajando para incorporar todas las características a los contenedores Windows, puede consultar las diferencias actuales entre plataformas en la [introducción](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="gitrepo-volume"></a>Volumen de gitRepo
 
@@ -33,9 +33,9 @@ Al montar un volumen de *gitRepo*, puede establecer tres propiedades para config
 | `directory` | Sin | Directorio en el que se debe clonar el repositorio. La ruta de acceso no debe contener "`..`" ni empezar por ello.  Si especifica "`.`", el repositorio se clona en el directorio del volumen. De lo contrario, el repositorio de GIT se clona en un subdirectorio del nombre indicado dentro del directorio del volumen. |
 | `revision` | Sin | Hash de confirmación de la revisión que se va a clonar. Si no se especifica, se clona la revisión de `HEAD`. |
 
-## <a name="mount-gitrepo-volume-azure-cli"></a>Montaje de un volumen de gitRepo: Azure CLI
+## <a name="mount-gitrepo-volume-azure-cli"></a>Montaje de un volumen de gitRepo: CLI de Azure
 
-Para montar un volumen de GitRepo al implementar instancias de contenedor con la [CLI de Azure](/cli/azure), utilice los parámetros `--gitrepo-url` y `--gitrepo-mount-path` en el comando [crear contenedor az][az-container-create]. Opcionalmente, puede especificar el directorio del volumen en que va a realizar la clonación (`--gitrepo-dir`) y el hash de confirmación de la revisión que se va a clonar (`--gitrepo-revision`).
+Para montar un volumen de gitRepo al implementar instancias de contenedor con la [CLI de Azure](/cli/azure), utilice los parámetros `--gitrepo-url` y `--gitrepo-mount-path` en el comando [az container create][az-container-create]. Opcionalmente, puede especificar el directorio del volumen en que va a realizar la clonación (`--gitrepo-dir`) y el hash de confirmación de la revisión que se va a clonar (`--gitrepo-revision`).
 
 Este comando de ejemplo clona la aplicación de ejemplo [aci-helloworld][aci-helloworld] de Microsoft en `/mnt/aci-helloworld` en la instancia de contenedor:
 
@@ -50,7 +50,7 @@ az container create \
     --gitrepo-mount-path /mnt/aci-helloworld
 ```
 
-Para comprobar que se ha montado el volumen de GitRepo, inicie un shell en el contenedor con [az container exec][az-container-exec] y enumere el directorio:
+Para comprobar que se ha montado el volumen de gitRepo, inicie un shell en el contenedor con [az container exec][az-container-exec] y enumere el directorio:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh

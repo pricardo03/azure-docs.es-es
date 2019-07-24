@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478596"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147947"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -41,7 +41,7 @@ Para preparar las unidades de disco duro con la herramienta WAImportExport, se a
 
 El servicio Azure Import/Export admite los siguientes tipos de cuentas de almacenamiento:
 
-- Cuentas de almacenamiento de uso general v2 (recomendadas para la mayoría de los escenarios)
+- Cuentas de almacenamiento de uso general estándar v2 (recomendadas para la mayoría de los escenarios)
 - Cuentas de Blob Storage
 - Cuentas de almacenamiento de uso general v1 (implementación clásica o de Azure Resource Manager), 
 
@@ -72,7 +72,7 @@ Para el servicio Azure Import/Export, se necesitan discos admitidos para copiar 
 En la siguiente lista se muestran los discos que se pueden usar con el servicio Import/Export.
 
 
-|Tipo de disco  |Tamaño  |Compatible |No compatible  |
+|Tipo de disco  |Size  |Compatible |No compatible  |
 |---------|---------|---------|---------|
 |SSD    |   2,5"      |SATA III          |  USB       |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |Unidad de disco duro externa con adaptador USB integrado <br> Disco dentro de la carcasa de una unidad de disco duro externa         |

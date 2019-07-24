@@ -1,6 +1,6 @@
 ---
-title: Atributos de seguridad de base de datos de SQL Azure
-description: Una lista de comprobación de los atributos de seguridad para evaluar la base de datos de SQL Azure
+title: Atributos de seguridad de Azure SQL Database
+description: Lista de comprobación de los atributos de seguridad para evaluar Azure SQL Database
 services: sql-database
 author: msmbaldwin
 manager: barbkess
@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 6c495456a5a3295abe5460ff6b5586e41fab2d95
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001036"
 ---
-# <a name="security-attributes-for-azure-sql-database"></a>Atributos de seguridad de base de datos de SQL Azure
+# <a name="security-attributes-for-azure-sql-database"></a>Atributos de seguridad de Azure SQL Database
 
-Este artículo documenta los atributos comunes de seguridad integrados en Azure SQL Database.
+En este artículo, se explican los atributos de seguridad comunes integrados en Azure SQL Database.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-Azure SQL Database incluye tanto [base de datos única](sql-database-single-index.yml) y [instancia administrada](sql-database-managed-instance.md). Las siguientes entradas se aplican a ambas ofertas, excepto donde se indique lo contrario.
+Azure SQL Database una [base de datos única](sql-database-single-index.yml) y una [instancia administrada](sql-database-managed-instance.md). Las entradas siguientes se aplican a ambas ofertas, excepto si se indica la contrario.
 
 ## <a name="preventative"></a>Prevención
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí | Conoce como "cifrado en uso", como se describe en el artículo [Always Encrypted](sql-database-always-encrypted.md). Cifrado del lado del servicio usa [cifrado de datos transparente](transparent-data-encryption-azure-sql.md) (TDE).|
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En el cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | Se usa HTTPS. |
-| Control de claves de cifrado (CMK, BYOK, etcetera.)| Sí | Se ofrecen control de claves administradas del servicio tanto administradas por el cliente (a través de este último [Azure Key Vault](../key-vault/index.yml). |
-| Cifrado de nivel de columna (Azure Data Services)| Sí | A través de [Always Encrypted](sql-database-always-encrypted.md). |
-| Llamadas a API cifradas| Sí | Uso de HTTPS/SSL. |
+| Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí | Se conoce como "cifrado en uso", tal y como se describe en el artículo [Always Encrypted](sql-database-always-encrypted.md). El cifrado del servicio usa [cifrado de datos transparente](transparent-data-encryption-azure-sql.md) (TDE).|
+| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | Se usa HTTPS. |
+| Control de claves de cifrado (CMK, BYOK, etc.)| Sí | Se ofrece control de claves tanto administradas por el servicio como por el cliente (este último, mediante [Azure Key Vault](../key-vault/index.yml)). |
+| Cifrado de nivel de columna (Azure Data Services)| Sí | Mediante [Always Encrypted](sql-database-always-encrypted.md). |
+| Llamadas a API cifradas| Sí | Con HTTPS/SSL. |
 
 ## <a name="network-segmentation"></a>Segmentación de red
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad de punto de conexión de servicio| Sí | Se aplica a [base de datos única](sql-database-single-index.yml) solo. |
-| Compatibilidad con inserción de redes virtuales| Sí | Se aplica a [instancia administrada](sql-database-managed-instance.md) solo. |
-| Aislamiento de red y la compatibilidad con Firewall| Sí | En ambas bases de datos - y nivel de servidor; de Firewall aislamiento de red [instancia administrada](sql-database-managed-instance.md) solo |
-| Fuerza la tunelización de soporte técnico| Sí | [instancia administrada](sql-database-managed-instance.md) a través de [Azure ExpressRoute](../expressroute/index.yml) VPN |
+| Compatibilidad con los puntos de conexión de servicio| Sí | Se aplica solo a las [bases de datos únicas](sql-database-single-index.yml). |
+| Compatibilidad con la inserción de redes virtuales| Sí | Se aplica solo a las [instancias administradas](sql-database-managed-instance.md). |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí | Firewal a nivel de base de datos y de servidor; aislamiento de red solo para las [instancias administradas](sql-database-managed-instance.md) |
+| Compatibilidad con la tunelización forzada| Sí | [Instancia administrada](sql-database-managed-instance.md) mediante VPN de [Azure ExpressRoute](../expressroute/index.yml) |
 
 ## <a name="detection"></a>Detección
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Supervisión de soporte técnico (Log analytics, Application insights, etcetera) de Azure| Sí | La solución SIEM de terceros de Imperva (SecureSphere) también se admite, a través [Azure Event Hubs](../event-hubs/index.yml) integración a través de [auditoría SQL](sql-database-auditing.md). |
+| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | La solución SIEM externa de Imperva (SecureSphere) también se admite gracias a la integración de [Azure Event Hubs](../event-hubs/index.yml) mediante la [auditoría de SQL](sql-database-auditing.md). |
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso
 
@@ -60,19 +60,19 @@ Azure SQL Database incluye tanto [base de datos única](sql-database-single-inde
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Auditoría y registro del plano de control y administración| Sí | Sí, solo algunos eventos. |
-| Auditoría y registro del plano de datos | Sí | A través de [auditoría SQL](sql-database-auditing.md). |
+| Registro y auditoría del plano de administración y de control| Sí | Sí, pero solo para algunos eventos. |
+| Registro y auditoría del plano de datos | Sí | Mediante la [auditoría de SQL](sql-database-auditing.md). |
 
 ## <a name="configuration-management"></a>Administración de configuración
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la administración de configuración (control de versiones de configuración, etcetera.)| No  | | 
+| Compatibilidad con la administración de configuración (control de versiones de configuración, etc.)| Sin  | | 
 
-## <a name="additional-security-attributes-for-sql-database"></a>Atributos de seguridad adicionales para la base de datos de SQL
+## <a name="additional-security-attributes-for-sql-database"></a>Atributos de seguridad adicionales para SQL Database
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Preventivas: evaluación de vulnerabilidad | Sí | Consulte [evaluación de vulnerabilidad de SQL service le ayuda a identificar las vulnerabilidades de la base de datos](sql-vulnerability-assessment.md). |
-| Preventivas: clasificación y detección de datos  | Sí | Consulte [clasificación y detección de datos de Azure SQL Database y SQL Data Warehouse](sql-database-data-discovery-and-classification.md). |
-| Detección: detección de amenazas | Sí | Consulte [protección contra amenazas para Azure SQL Database avanzada](sql-database-threat-detection-overview.md). |
+| Preventivo: evaluación de vulnerabilidad | Sí | Consulte [El servicio de evaluación de vulnerabilidad de SQL le ayuda a identificar los puntos vulnerables de la base de datos](sql-vulnerability-assessment.md). |
+| Preventivo: detección y clasificación de datos  | Sí | Consulte [Clasificación y detección de datos de Azure SQL Database y Azure SQL Data Warehouse](sql-database-data-discovery-and-classification.md). |
+| Detección: detección de amenazas | Sí | Consulte [Advanced Threat Protection en Azure SQL Database](sql-database-threat-detection-overview.md). |

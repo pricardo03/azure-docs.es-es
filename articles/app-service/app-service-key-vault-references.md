@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a049c8def0a5014aeb8a0e7a16aaa8def28009
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397828"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705697"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Uso de referencias de Key Vault para App Service y Azure Functions (versión preliminar)
 
@@ -38,6 +38,8 @@ Para leer secretos desde Key Vault, debe tener creado un almacén y proporcionar
    > Las referencias de Key Vault solo admiten actualmente identidades administradas asignadas por el sistema. No se pueden usar identidades asignadas por el usuario.
 
 1. Cree una [directiva de acceso en Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para la identidad de aplicación que creó anteriormente. Habilite el permiso secreto "Get" en esta directiva. No configure la "aplicación autorizada" o la configuración `applicationId`, ya que no es compatible con una identidad administrada.
+
+    La operación para conceder acceso a una identidad de aplicación del almacén de claves solo se realiza una vez, por lo que será igual en todas las suscripciones de Azure. Puede usarlo para implementar tantos certificados como desee. 
 
 ## <a name="reference-syntax"></a>Sintaxis de referencia
 

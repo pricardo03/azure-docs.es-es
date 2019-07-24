@@ -1,19 +1,19 @@
 ---
-title: 'Script de PowerShell de Azure: actualización de Azure Cosmos DB RU/s para la API de Cassandra'
-description: 'Script de PowerShell de Azure: actualización de Azure Cosmos DB RU/s para la API de Cassandra'
+title: 'Script de Azure PowerShell: Actualización de RU/s para Cassandra API en Azure Cosmos DB'
+description: 'Script de Azure PowerShell: Actualización de RU/s para Cassandra API en Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 05ff4379c0a5d5436525f25bd755a7fce46d8121
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247925"
 ---
-# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Actualizar RU/s para una tabla o un espacio de claves para Azure Cosmos DB: API de Cassandra
+# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Actualización de RU/s para una tabla o un espacio de claves de Cassandra API en Azure Cosmos DB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

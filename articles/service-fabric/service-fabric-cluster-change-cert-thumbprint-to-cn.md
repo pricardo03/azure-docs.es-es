@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/01/2019
 ms.author: aljo
 ms.openlocfilehash: a94fda5a1f3aedd5842bad92b5348a77177b4137
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66302459"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Cambiar el clúster para que use un nombre común en vez de la huella digital del certificado
@@ -102,7 +102,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > Los secretos de un conjunto de escalado no admiten el mismo identificador de recurso para dos secretos independientes, porque cada secreto es una versión única de un recurso. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Descargar y actualizar la plantilla desde el portal
-El certificado se ha instalado en el conjunto de escalado subyacente, pero también debe actualizar el clúster de Service Fabric para que use ese certificado y su nombre común.  A continuación, descargue la plantilla para implementar el clúster.  Inicie sesión en el [portal Azure](https://portal.azure.com) y navegue hasta el grupo de recursos que hospeda el clúster.  En **Configuración**, seleccione **Implementaciones**.  Seleccione la implementación más reciente y haga clic en **Ver plantilla**.
+El certificado se ha instalado en el conjunto de escalado subyacente, pero también debe actualizar el clúster de Service Fabric para que use ese certificado y su nombre común.  A continuación, descargue la plantilla para implementar el clúster.  Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya al grupo de recursos que hospeda el clúster.  En **Configuración**, seleccione **Implementaciones**.  Seleccione la implementación más reciente y haga clic en **Ver plantilla**.
 
 ![Ver plantillas][image1]
 
@@ -127,7 +127,7 @@ A continuación, abra el archivo de plantilla en el editor de texto y realice tr
     },
     ```
 
-    También puede quitar el *certificateThumbprint*, ya no se puede hacer referencia en la plantilla de Resource Manager.
+    Asimismo, quite el valor *certificateThumbprint*, puesto que ya no se hará referencia a él en la plantilla de Resource Manager.
 
 2. En el recurso **Microsoft.Compute/virtualMachineScaleSets**, actualice la extensión de máquina virtual para usar el nombre común en la configuración del certificado en lugar de la huella digital.  En **virtualMachineProfile**->**extensionProfile**->**extensiones**->**propiedades**->**configuración**->**certificado**, agregue `"commonNames": ["[parameters('certificateCommonName')]"],` y quite `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json

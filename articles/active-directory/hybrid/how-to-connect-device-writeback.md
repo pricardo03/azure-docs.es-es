@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109496"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitación de la escritura diferida de dispositivo
 > [!NOTE]
@@ -31,10 +31,10 @@ ms.locfileid: "65785727"
 
 En la siguiente documentación se ofrece información sobre cómo habilitar la característica de escritura diferida de dispositivo en Azure AD Connect. La escritura diferida de dispositivo se usa en los siguientes escenarios:
 
-* Habilitar [Windows Hello para empresas mediante implementación híbrida de confianza de certificado](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
-* Habilite el acceso condicional basado en dispositivos para aplicaciones protegida de ADFS (2012 R2 o superior) (relaciones de confianza para usuario autenticado).
+* Habilitación de [Windows Hello para empresas mediante la implementación híbrida de confianza de certificado](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Habilite el acceso condicional basado en dispositivos para aplicaciones protegido de ADFS (2012 R2 o superior) (confianzas para usuario de confianza).
 
-Esto ofrece seguridad adicional y la garantía de que el acceso a las aplicaciones solo se concede para dispositivos de confianza. Para más información sobre el acceso condicional, consulte [Administración de riesgos con el acceso condicional](../active-directory-conditional-access-azure-portal.md) y [Configuración del acceso condicional local mediante el Registro de dispositivos de Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Esto ofrece seguridad adicional y la garantía de que el acceso a las aplicaciones solo se concede para dispositivos de confianza. Para más información sobre el acceso condicional, vea [Administración de riesgos con el acceso condicional](../active-directory-conditional-access-azure-portal.md) y [Configuración del acceso condicional local mediante el Registro de dispositivos de Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 > [!IMPORTANT]
 > <li>Los dispositivos deben encontrarse en el mismo bosque que los usuarios. Puesto que los dispositivos deben volver a escribirse en un único bosque, esta característica no admite actualmente una implementación con varios bosques de usuarios.</li>
@@ -59,7 +59,7 @@ Instale Azure AD Connect mediante la configuración rápida o personalizada. Mic
 
 4. La página **Contenedor de dispositivos** ofrece la opción de preparar Active Directory usando una de las dos opciones disponibles:
 
-     a. **Proporcionar credenciales de administrador de empresa**: si se proporcionan las credenciales de administrador de empresa para el bosque donde deben volver a escribirse los dispositivos, Azure AD Connect preparará el bosque automáticamente durante la configuración de la escritura diferida de dispositivos.
+    a. **Proporcionar credenciales de administrador de empresa**: si se proporcionan las credenciales de administrador de empresa para el bosque donde deben volver a escribirse los dispositivos, Azure AD Connect preparará el bosque automáticamente durante la configuración de la escritura diferida de dispositivos.
 
     b. **Descargar el script de PowerShell**: Azure AD Connect genera automáticamente un script de PowerShell que puede preparar Active Directory para la escritura diferida de dispositivos. En caso de que no puedan proporcionarse las credenciales de administrador de empresa en Azure AD Connect, es recomendable descargar el script de PowerShell. Proporcione el script de PowerShell descargado **CreateDeviceContainer.psq** al administrador de empresa del bosque donde se volverán a escribir los dispositivos.
     ![Preparar el bosque de Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
@@ -82,7 +82,7 @@ La reescritura de dispositivos debería funcionar ahora correctamente. Tenga en 
 
    ![Lista de dispositivos registrados del centro de administración de Active Directory](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
-## <a name="enable-conditional-access"></a>Habilitar el acceso condicional
+## <a name="enable-conditional-access"></a>Habilitación del acceso condicional
 Encontrará a su disposición instrucciones detalladas para habilitar este escenario en [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 ## <a name="troubleshooting"></a>solución de problemas

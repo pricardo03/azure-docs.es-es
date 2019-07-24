@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: 478714f48782adb138f1ed803d53c81ec48f2efd
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967292"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimización del costo de varias regiones de Azure Cosmos DB
@@ -25,7 +25,7 @@ La capacidad de proceso con una sola región de escritura cuesta 0,008 USD/hora
 
 ## <a name="costs-for-multiple-write-regions"></a>Costos para varias regiones de escritura
 
-En un sistema de arquitectura multimaestro, las RU disponibles netas para las operaciones de escritura aumentan `N`, siendo `N` el número de regiones de escritura. A diferencia de la arquitectura con una sola región de escritura, ahora se podrá escribir en todas las regiones y estas admitirán la resolución de conflictos. La carga de trabajo de escritura ha aumentado. Desde el costo de planeación de punto de vista, para realizar `M` worth RU/s de escrituras en todo el mundo, tendrá que aprovisionar M `RUs` en un nivel de contenedor o base de datos. A continuación, puede agregar tantas regiones como desee y usarlas para la escritura global por valor de `M` RU. 
+En un sistema de arquitectura multimaestro, las RU disponibles netas para las operaciones de escritura aumentan `N`, siendo `N` el número de regiones de escritura. A diferencia de la arquitectura con una sola región de escritura, ahora se podrá escribir en todas las regiones y estas admitirán la resolución de conflictos. La carga de trabajo de escritura ha aumentado. Desde el punto de vista de la planificación de los costos, para realizar escrituras por valor de `M` RU/s por todo el mundo, es necesario aprovisionar M `RUs` en un nivel de contenedor o base de datos. A continuación, puede agregar tantas regiones como desee y usarlas para la escritura global por valor de `M` RU. 
 
 ### <a name="example"></a>Ejemplo
 

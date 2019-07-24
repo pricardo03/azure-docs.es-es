@@ -16,16 +16,16 @@ ms.date: 05/28/2019
 ms.author: TomSh
 ms.custom: azlog
 ms.openlocfilehash: 65e256b476c1e459ae937d9f6cbb43e0020fd9fe
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298129"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Introducción a Azure Log Integration
 
 >[!IMPORTANT]
-> La característica de integración de registro de Azure dejará de utilizarse en 15/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
+> La característica Azure Log Integration dejará de utilizarse el 15/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
 
 Azure Log Integration se encuentra disponible para simplificar la tarea de integración de los registros de Azure con el sistema local de Administración de eventos e información de seguridad (SIEM).
 
@@ -61,7 +61,7 @@ Si no hay ninguna otra opción disponible, considere la posibilidad de usar Azur
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Inicie la migración al [complemento Azure Monitor para Splunk](https://splunkbase.splunk.com/app/3534/). | Use el [conector de Splunk](https://splunkbase.splunk.com/app/3534/). |
 |**QRadar** | Migre o comience a usar el conector de QRadar documentado en la última sección de [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). | Use el conector de QRadar documentado en la última sección de [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Siga usando el integrador de registros de Azure hasta que haya disponible un conector y, a continuación, migre a la solución basada en el conector.  | Considere el uso de los registros de Azure Monitor como una alternativa. No se incorpore a Azure Log Integration, a menos que esté dispuesto a pasar por el proceso de migración cuando el conector esté disponible. |
+|**ArcSight** | Siga usando el integrador de registros de Azure hasta que haya disponible un conector y, a continuación, migre a la solución basada en el conector.  | Como alternativa, considere la posibilidad de usar registros de Azure Monitor. No se incorpore a Azure Log Integration, a menos que esté dispuesto a pasar por el proceso de migración cuando el conector esté disponible. |
 
 > [!NOTE]
 > Aunque Azure Log Integration es una solución gratuita, hay costos de almacenamiento de Azure asociados con el almacenamiento de la información de archivos de registro.

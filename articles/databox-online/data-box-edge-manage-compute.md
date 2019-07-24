@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953125"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Administración de proceso en una instancia de Azure Data Box Edge
@@ -34,7 +34,7 @@ Los eventos son cosas que ocurren dentro del entorno de nube o en el dispositivo
 - **Scheduled**: estos desencadenadores surgen en respuesta a una programación que puede definir con una fecha de inicio, una hora de inicio y el intervalo de repetición.
 
 
-### <a name="add-a-trigger"></a>Agregar un desencadenador
+### <a name="add-a-trigger"></a>Incorporación de un desencadenador
 
 Para crear un desencadenador, siga estos pasos en Azure Portal.
 
@@ -131,4 +131,4 @@ Para sincronizar las claves de acceso del dispositivo, siga estos pasos en Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [Edge administrar red a través del portal de Azure de proceso](data-box-edge-extend-compute-access-modules.md).
+- Obtenga información sobre cómo [administrar la red de proceso perimetral a través de Azure Portal](data-box-edge-extend-compute-access-modules.md).

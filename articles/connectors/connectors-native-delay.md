@@ -1,6 +1,6 @@
 ---
-title: Retrasar la acción siguiente en los flujos de trabajo - Azure Logic Apps
-description: Esperar a ejecutar la siguiente acción en aplicaciones lógicas mediante el uso de las acciones de retraso o retraso hasta que en Azure Logic Apps
+title: 'Retraso de la acción siguiente en los flujos de trabajo: Azure Logic Apps'
+description: Espera para la ejecución de la siguiente acción en flujos de trabajo de aplicaciones lógicas mediante acciones "Retraso" y "Retraso hasta" en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,21 +11,21 @@ tags: connectors
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 27475fb3f086dbc5166a473e9d657d2dab723938
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297603"
 ---
-# <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Retraso que se ejecuta la acción siguiente en Azure Logic Apps
+# <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Retraso de la ejecución de la siguiente acción en Azure Logic Apps
 
-Para que la aplicación lógica espera una cantidad de tiempo antes de ejecutar la siguiente acción, puede agregar la integrada **retraso: programar** acción antes de realizar una acción en el flujo de trabajo de la aplicación lógica. O bien, puede agregar la integrada **retraso hasta: programar** acción espera hasta una fecha y hora específicas antes de ejecutar la siguiente acción. Para obtener más información acerca de los desencadenadores y acciones de programación integradas, consulte [programación y ejecución periódica automatizada, tareas y flujos de trabajo con Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Para que su aplicación lógica espere un período determinado antes de ejecutar la siguiente acción, puede agregar la acción **Programación de retraso** antes de una acción en el flujo de trabajo de su aplicación lógica. También puede agregar la acción **Programación de Retraso hasta** para esperar hasta una fecha y hora específicas antes de ejecutar la siguiente acción. Para obtener más información sobre los desencadenadores y las acciones de programación integradas, consulte [Programación y ejecución de tareas y flujos de trabajo automatizados periódicos con Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-* **retraso**: Espere a que el número especificado de unidades de tiempo, por ejemplo, segundos, minutos, horas, días, semanas o meses, antes de ejecutar en la siguiente acción.
+* **Retraso**: permite esperar durante un número especificado de unidades de tiempo, como segundos, minutos, horas, días o meses, antes de ejecutar la siguiente acción.
 
-* **Retraso hasta**: Espere hasta la fecha y hora especificadas antes de ejecutar en la siguiente acción.
+* **Retraso hasta**: permite esperar hasta la fecha y hora especificadas antes de que se ejecute la siguiente acción.
 
-Estas son algunas maneras de ejemplo para usar estas acciones:
+Aquí se muestran algunos ejemplos de uso de estas acciones:
 
 * Esperar hasta un día de la semana para enviar una actualización de estado por correo electrónico.
 
@@ -33,62 +33,62 @@ Estas son algunas maneras de ejemplo para usar estas acciones:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Una suscripción de Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
-* Conocimientos básicos sobre [aplicaciones lógicas](../logic-apps/logic-apps-overview.md). Antes de realizar una acción, debe iniciar la aplicación lógica con un desencadenador. Puede usar cualquier desencadenador que desee y agrega otras acciones antes de agregar una acción de retraso. En este tema se usa un desencadenador de Office 365 Outlook. Si está familiarizado con las aplicaciones lógicas, aprenda [cómo crear su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conocimientos básicos sobre [aplicaciones lógicas](../logic-apps/logic-apps-overview.md). Antes de realizar una acción, debe iniciar su aplicación lógica con un desencadenador. Puede usar el desencadenador que desee y agregar otras acciones antes de añadir una acción de retraso. En este tema se usa un desencadenador de Office 365 Outlook. Si es la primera vez que interactúa con las aplicaciones lógicas, consulte el artículo sobre [cómo crear la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-delay"></a>
 
-## <a name="add-the-delay-action"></a>Agregar la acción de retraso
+## <a name="add-the-delay-action"></a>Adición de la acción de retraso
 
-1. En el Diseñador de aplicación lógica, en el paso donde desea agregar la acción de retraso, elija **nuevo paso**.
+1. En el diseñador de aplicaciones lógicas, en el paso donde desea agregar una acción de retraso, elija **Nuevo paso**.
 
-   Para agregar la acción de retraso entre los pasos, mueva el puntero sobre la flecha que conecta los pasos. Elija el signo más (+) que aparece y, a continuación, seleccione **agregar una acción**.
+   Para agregar la acción de retraso entre pasos, mueva el puntero sobre la flecha que conecta los pasos. Elija el signo más (+) que aparece y, a continuación, seleccione **Agregar una acción**.
 
 1. En el cuadro de búsqueda, escriba "retraso" como filtro. En la lista de acciones, seleccione esta acción: **Retraso**
 
-   ![Agregar acción de "Retraso"](./media/connectors-native-delay/add-delay-action.png)
+   ![Adición de la acción "Retraso"](./media/connectors-native-delay/add-delay-action.png)
 
-1. Especifique la cantidad de tiempo de espera antes de ejecutar en la siguiente acción.
+1. Especifique el tiempo de espera antes de que se ejecute la siguiente acción.
 
    ![Establecer la cantidad de tiempo de retraso](./media/connectors-native-delay/delay-time-intervals.png)
 
    | Propiedad | Nombre JSON | Obligatorio | Type | DESCRIPCIÓN |
    |----------|-----------|----------|------|-------------|
-   | Count | count | Sí | Entero | El número de unidades de tiempo de retraso |
-   | Unidad | unit | Sí | String | La unidad de tiempo, por ejemplo: `Second`, `Minute`, `Hour`, `Day`, `Week`, o `Month` |
+   | Recuento | count | Sí | Entero | El número de unidades de tiempo de retraso |
+   | Unidad | unit | Sí | Cadena | La unidad de tiempo: `Second`, `Minute`, `Hour`, `Day`, `Week` o `Month`. |
    ||||||
 
-1. Agregue todas las demás acciones que desea ejecutar en el flujo de trabajo.
+1. Agregue las demás acciones que desee ejecutar en el flujo de trabajo.
 
 1. Cuando haya terminado, guarde la aplicación lógica.
 
 <a name="add-delay-until"></a>
 
-## <a name="add-the-delay-until-action"></a>Agregar el retraso-acción until
+## <a name="add-the-delay-until-action"></a>Adición de la acción Retraso hasta
 
-1. En el Diseñador de aplicación lógica, en el paso donde desea agregar la acción de retraso, elija **nuevo paso**.
+1. En el diseñador de aplicaciones lógicas, en el paso donde desea agregar una acción de retraso, elija **Nuevo paso**.
 
-   Para agregar la acción de retraso entre los pasos, mueva el puntero sobre la flecha que conecta los pasos. Elija el signo más (+) que aparece y, a continuación, seleccione **agregar una acción**.
+   Para agregar la acción de retraso entre pasos, mueva el puntero sobre la flecha que conecta los pasos. Elija el signo más (+) que aparece y, a continuación, seleccione **Agregar una acción**.
 
 1. En el cuadro de búsqueda, escriba "retraso" como filtro. En la lista de acciones, seleccione esta acción: **Retraso hasta**
 
    ![Agregar acción "Retraso hasta"](./media/connectors-native-delay/add-delay-until-action.png)
 
-1. Proporciona la fecha de finalización y la hora con la que desea reanudar el flujo de trabajo.
+1. Proporcione la fecha y hora de finalización cuando desee reanudar el flujo de trabajo.
 
-   ![Especifique la marca de tiempo de cuándo se debe finalizar el retraso](./media/connectors-native-delay/delay-until-timestamp.png)
+   ![Especificar la marca de tiempo de cuándo se debe finalizar el retraso](./media/connectors-native-delay/delay-until-timestamp.png)
 
    | Propiedad | Nombre JSON | Obligatorio | Type | DESCRIPCIÓN |
    |----------|-----------|----------|------|-------------|
-   | Timestamp |  timestamp | Sí | String | La fecha y hora final para reanudar el flujo de trabajo con este formato: <p>AAAA-MM-ddTHH <p>Por ejemplo, si desea el 18 de septiembre de 2017 a las 2:00 P.M., especifique "2017-09-18T14:00:00Z". <p>**Nota:** Debe seguir este formato de hora la [especificación de tiempo de fecha ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin un [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Sin una zona horaria, debe agregar la letra "Z" al final sin espacios en blanco. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). |
+   | Timestamp | timestamp | Sí | Cadena | La fecha y hora de finalización para reanudar el flujo de trabajo con este formato: <p>YYYY-MM-DDThh:mm:ssZ <p>Por ejemplo, si desea el 18 de septiembre de 2017 a las 14:00, especifique "2017-09-18T14:00:00Z". <p>**Nota:** Este formato de hora debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). |
    ||||||
 
-1. Agregue todas las demás acciones que desea ejecutar en el flujo de trabajo.
+1. Agregue las demás acciones que desee ejecutar en el flujo de trabajo.
 
 1. Cuando haya terminado, guarde la aplicación lógica.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Crear, programar y ejecutar tareas repetitivas y flujos de trabajo con el desencadenador de periodicidad](../connectors/connectors-native-recurrence.md)
+* [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de periodicidad](../connectors/connectors-native-recurrence.md)
 * [Conectores de Logic Apps](../connectors/apis-list.md)

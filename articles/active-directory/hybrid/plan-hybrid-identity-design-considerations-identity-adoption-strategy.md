@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55dc0cbc175542d0b208bbe72566a0adb55a371
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496736"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109332"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
 En esta tarea, define la estrategia de adopción de identidades híbridas para que una solución de identidad híbrida cumpla los requisitos empresariales que se trataron en:
@@ -111,14 +111,14 @@ A lo largo de los años existieron varias herramientas de sincronización y se u
 ### <a name="supported-topologies"></a>Topologías admitidas
 Al definir una estrategia de sincronización, es preciso determinar la topología que se usa. En función de la información que se determinó en el paso 2 se puede especificar qué topología es la adecuada. El bosque único, la única topología de Azure AD, es la más común y consta de un único bosque de Active Directory y una única instancia de Azure AD.  Dicha topología se va a usar en la mayoría de los escenarios y es la que se espera que haya cuando se usa la instalación rápida de Azure AD Connect, como se muestra en la ilustración siguiente.
 
-![Topologías admitidas](./media/plan-hybrid-identity-design-considerations/single-forest.png) único bosque escenario es común para las organizaciones grandes y pequeñas incluso tener varios bosques, como se muestra en la figura 5.
+![Tecnologías compatibles](./media/plan-hybrid-identity-design-considerations/single-forest.png) Escenario de bosque único. Es habitual que las organizaciones grandes e, incluso, las pequeñas tengan varios bosques, tal como se muestra en la ilustración 5.
 
 > [!NOTE]
 > Para obtener más información acerca de las diferentes topologías locales y de Azure AD con sincronización con Azure AD Connect, consulte el artículo [Topologías de Azure AD Connect](plan-connect-topologies.md).
 > 
 > 
 
-![topología de varios bosques](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![Topología de bosques múltiples](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 Escenario de bosques múltiples
 
@@ -148,7 +148,7 @@ Se recomienda tener un solo directorio por organización en Azure AD, pero se ad
 
 No solo es posible, sino que también se admite la conexión de una instancia local de Active Directory a varios directorios de Azure AD, como se muestra en la ilustración siguiente:
 
-![filtrado de bosque único](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![Filtrado de bosque único](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **Escenario de filtrado de bosque único**
 
@@ -213,6 +213,6 @@ La autenticación multifactor está disponible de forma predeterminada para los 
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de los requisitos de protección de datos](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

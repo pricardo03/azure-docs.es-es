@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d473cffeefe29febc4f0dfb2a620d917bf238d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540860"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672112"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento
 
-La búsqueda cognitiva extrae y enriquece datos para que se puedan buscar en Azure Search. A los pasos de extracción y enriquecimiento los denominamos *aptitudes cognitivas*, combinadas en un *conjunto de aptitudes* al que se hace referencia durante la indexación. Un conjunto de aptitudes puede usar [aptitudes integradas](cognitive-search-predefined-skills.md) o aptitudes personalizadas (vea [Ejemplo: crear una aptitud personalizada](cognitive-search-create-custom-skill-example.md) para obtener más información).
+La búsqueda cognitiva extrae y enriquece datos para que se puedan buscar en Azure Search. A los pasos de extracción y enriquecimiento los denominamos *aptitudes cognitivas*, combinadas en un *conjunto de aptitudes* al que se hace referencia durante la indexación. Los conjuntos de aptitudes pueden utilizar [aptitudes predefinidas](cognitive-search-predefined-skills.md) o aptitudes personalizadas (consulte [Ejemplo: Creación de una aptitud personalizada de búsqueda cognitiva](cognitive-search-create-custom-skill-example.md) para más información).
 
 En este artículo aprenderá a crear una canalización de enriquecimiento para las aptitudes que desee utilizar. Se adjunta un conjunto de aptitudes a un [indexador](search-indexer-overview.md) de Azure Search. Una parte del diseño de canalización, que se trata en este artículo, es la construcción del propio conjunto de aptitudes. 
 

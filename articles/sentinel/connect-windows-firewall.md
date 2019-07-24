@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9388e267c52ef53b59aacad844e964d3cfeb13d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09e63612d6e0e70b1bb21c23b158f650d4c34080
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233828"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190596"
 ---
 # <a name="connect-windows-firewall"></a>Conexión del firewall de Windows
 
@@ -27,7 +27,7 @@ ms.locfileid: "65233828"
 > Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-El conector de Firewall de Windows le permite conectarse fácilmente a los registros de los Firewall de Windows, si están conectados al área de trabajo Azure Sentinel. Esta conexión le permite ver paneles, crear alertas personalizadas y mejorar la investigación, de modo que dispondrá de más información sobre la red de la organización y de mejores capacidades de seguridad.  
+El conector de Firewall de Windows le permite conectarse fácilmente a los registros de los Firewall de Windows, si están conectados al área de trabajo Azure Sentinel. Esta conexión le permite ver paneles, crear alertas personalizadas y mejorar la investigación, de modo que dispondrá de más información sobre la red de la organización y de mejores capacidades de seguridad. La solución recopila eventos de firewall de Windows de las máquinas de Windows en las que está instalado un agente de Log Analytics. 
 
 
 > [!NOTE]
@@ -36,8 +36,19 @@ El conector de Firewall de Windows le permite conectarse fácilmente a los regis
 ## <a name="enable-the-connector"></a>Habilitar el conector 
 
 1. En el portal de Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y, después, haga clic en el icono de **Firewall de Windows**. 
-1. Seleccione los tipos de datos que quiera transmitir.
-1. Haga clic en **Instalar**.
+1.  Si las máquinas Windows están en Azure:
+    1. Haga clic en **Install agent on Azure Windows virtual machine** (Instalar el agente en la máquina virtual Windows de Azure).
+    1. En la lista **Máquinas virtuales**, seleccione la máquina Windows que quiera transmitir a Azure Sentinel. Asegúrese de que se trata de una máquina virtual Windows.
+    1. En la ventana de la máquina virtual que se abre, haga clic en **Connect**(Conectar).  
+    1. Haga clic en **Habilitar** en la ventana **Windows firewall connector** (Conector de Firewall de Windows). 
+
+2. Si la máquina Windows no es una máquina virtual de Azure:
+    1. Haga clic en **Install agent on non-Azure machines** (Instalar el agente en máquinas que no son de Azure).
+    1. En la ventana **Direct agent** (Agente directo), seleccione **Download Windows agent (64 bit)** (Descargar agente de Windows de [64 bits]) o **Download Windows agent (32 bit)** (Descargar agente de Windows de [32 bits]).
+    1. Instale el agente en su máquina Windows. Copie los valores de **Workspace ID** (Identificador de área de trabajo), **Primary key** (Clave principal) y **Secondary key** (Clave secundaria) y úselos cuando se le solicite durante la instalación.
+
+4. Seleccione los tipos de datos que quiera transmitir.
+5. Haga clic en **Install solution** (Instalar solución).
 6. Para usar el esquema correspondiente en Log Analytics para encontrar Firewall de Windows, busque **SecurityEvent**.
 
 ## <a name="validate-connectivity"></a>Validar conectividad

@@ -14,10 +14,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 7b6323e02225be3d954e4ee91ea06952bb3ce396
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001762"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Excepciones de mensajería de Event Hubs
@@ -33,7 +33,7 @@ Las API de Event Hubs generan excepciones que pueden dividirse en las siguientes
 3. Excepciones transitorias: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](#serverbusyexception), [Microsoft.Azure.EventHubs.ServerBusyException](#serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). Acción general: intente realizar de nuevo la operación o informe a los usuarios.
 4. Otras excepciones: [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](#timeoutexception), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception). Acción general: específica del tipo de excepción; consulte la tabla de la siguiente sección. 
 
-## <a name="exception-types"></a>Tipos de excepción
+## <a name="exception-types"></a>Tipos de excepciones
 En la tabla siguiente se describen los tipos de excepción de mensajería, sus causas y las acciones sugeridas que puede realizar.
 
 | Tipo de excepción | Descripción/causa/ejemplos | Acción sugerida | Nota sobre el reintento automático o inmediato |
@@ -91,8 +91,8 @@ Este error puede producirse por uno de estos dos motivos:
 
 Este error se produce raras veces. Se produce cuando el contenedor que ejecuta el código para su espacio de nombres hace un uso bajo de la CPU: no más de unos pocos segundos antes de que comience el equilibrador de carga de Event Hubs.
 
-### <a name="limit-on-calls-to-the-getruntimeinformation-method"></a>El límite de las llamadas a GetRuntimeInformation (método)
-Azure Event Hubs admite hasta 50 llamadas por segundo a la GetRuntimeInfo por segundo. Una vez que se alcanza el límite puede recibir una excepción similar al siguiente:
+### <a name="limit-on-calls-to-the-getruntimeinformation-method"></a>Límite a las llamadas al método GetRuntimeInformation
+Azure Event Hubs admite hasta 50 llamadas por segundo al método GetRuntimeInfo. Una vez que se alcanza el límite, puede recibir una excepción similar a esta:
 
 ```
 ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.

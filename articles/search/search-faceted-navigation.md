@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fc1e1aaaa3b2489dd4083f56d45ab0abc2b6892
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65793618"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165970"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Procedimiento para implementar la navegación por facetas en Azure Search
 La navegación por facetas es un mecanismo de filtrado que proporciona una navegación en profundidad autodirigida en aplicaciones de búsqueda. El término "navegación por facetas" puede resultarle desconocido, pero probablemente es algo que ya ha usado con anterioridad. Como se muestra en el siguiente ejemplo, la navegación por facetas no es más que las categorías usadas para filtrar los resultados.
@@ -401,5 +401,5 @@ Vea el vídeo de [profundización en Azure Search](https://channel9.msdn.com/Eve
 Para obtener más información sobre los principios de diseño de la navegación por facetas, recomendamos los siguientes vínculos:
 
 * [Patrones de diseño: Navegación por facetas](https://alistapart.com/article/design-patterns-faceted-navigation)
-* [Problemas de front-end al implementar la búsqueda por facetas – Parte 1 ](https://articles.uie.com/faceted_search2/)
+* [Problemas de front-end al implementar la búsqueda por facetas – Parte 1](https://articles.uie.com/faceted_search2/)
 

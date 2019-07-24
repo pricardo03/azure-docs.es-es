@@ -1,5 +1,5 @@
 ---
-title: Usar el volumen de disco de alta disponibilidad servicio Fabric confiable en una aplicación de Azure Service Fabric Mesh | Microsoft Docs
+title: Uso de un volumen de disco confiable disponible de Service Fabric en una aplicación de Azure Service Fabric Mesh | Microsoft Docs
 description: Aprenda a almacenar el estado en una aplicación de Azure Service Fabric Mesh montando el volumen de disco confiable de Service Fabric en el contenedor mediante la CLI de Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -16,10 +16,10 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147489"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montaje de un volumen de disco confiable de Service Fabric en una aplicación de Service Fabric Mesh 
@@ -36,7 +36,7 @@ En este ejemplo, la aplicación Counter tiene un servicio de ASP.NET Core con un
 
 Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar esta tarea. Para usar la CLI de Azure con este artículo, asegúrese de que `az --version` devuelve al menos `azure-cli (2.0.43)`.  Instale (o actualice) el módulo de extensión de la CLI de Azure Service Fabric Mesh siguiendo estas [instrucciones](service-fabric-mesh-howto-setup-cli.md).
 
-## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure y configure la suscripción.
 

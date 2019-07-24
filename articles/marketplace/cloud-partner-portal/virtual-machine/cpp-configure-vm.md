@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 3d38efadfb8ad13d072056ef851be99d9540ad4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0637491a1d7799bcaef594123aab53f89690c86f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938427"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654029"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurar la máquina virtual hospedada en Azure
 
@@ -66,7 +66,7 @@ Los discos de sistema operativo Windows se generalizan con la [herramienta syspr
 > [!WARNING]
 >  Dado que las actualizaciones se pueden ejecutar automáticamente, una vez que ejecute sysprep, debe desactivar la máquina virtual hasta que se implemente.  Este apagado evita que las actualizaciones posteriores realicen cambios específicos de la instancia en el sistema operativo del disco duro virtual o los servicios instalados.
 
-Para obtener más información sobre la ejecución de sysprep, consulte [Pasos para generalizar un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd).
+Para obtener más información sobre la ejecución de sysprep, consulte [Pasos para generalizar un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep).
 
 ### <a name="linux"></a>Linux
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
 ms.openlocfilehash: 18f84062bcaf2766ee0abd5248f876c3d8acef3f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304018"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server
@@ -69,7 +69,7 @@ La información de esta sección le ayuda a completar el flujo de trabajo de cop
 
     ![Pantalla de importación](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
-    Aquí está la pantalla correspondiente en System Center Data Protection Manager:  <br/>
+    Aquí está la pantalla correspondiente en System Center Data Protection Manager: <br/>
     ![Pantalla de importación de servidor de SC DPM y Azure Backup](./media/backup-azure-backup-import-export/dpmoffline.png)
 
     La descripción de las entradas es la siguiente:
@@ -98,7 +98,7 @@ La información de esta sección le ayuda a completar el flujo de trabajo de cop
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparación de unidades SATA y envío a Azure
 La utilidad *AzureOfflineBackupDiskPrep* se usa para preparar las unidades SATA que se envían al centro de datos de Azure más próximo. Esta utilidad está disponible en el directorio de instalación del agente de Recovery Services en la ruta de acceso siguiente:
 
-*\\Microsoft Azure Recovery Services Agent\\Utils\\*
+Utilidades del Agente de *\\Microsoft Azure Recovery Services\\\\*
 
 1. Vaya al directorio y copie el directorio de **AzureOfflineBackupDiskPrep** en un equipo de copia en el que se conectarán las unidades SATA que se van a preparar. Compruebe que se cumplen los siguientes requisitos en el equipo de copia:
 

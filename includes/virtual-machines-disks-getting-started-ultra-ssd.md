@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 742e0028b1f92beb8300cc97f09d8292259fbc0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133141"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712460"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Habilitación e implementación de disco SSD ultra de Azure (versión preliminar)
 
@@ -33,7 +33,7 @@ La respuesta será similar al formulario siguiente, donde X es la zona que se ut
 
 Conserve el valor de **Zonas**, ya que representa la zona de disponibilidad y la necesitará para implementar un disco SSD Ultra.
 
-|ResourceType  |NOMBRE  |Ubicación  |Zones  |Restricción  |Capacidad  |Valor  |
+|ResourceType  |NOMBRE  |Location  |Zones  |Restricción  |Capacidad  |Valor  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -63,7 +63,7 @@ Para usar discos SSD Ultra, debe crear una máquina virtual que sea capaz de usa
 Reemplace o establezca las variables **$vmname**, **$rgname**, **$diskname**, **$location**, **$password** y **$user** con sus propios valores. Establezca **$zone** en el valor de la zona de disponibilidad que ha obtenido al [inicio de este artículo](#determine-your-availability-zone). Después, ejecute el siguiente comando de la CLI para crear una máquina virtual habilitada para ultra:
 
 ```azurecli-interactive
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
 ```
 
 ### <a name="create-an-ultra-ssd-using-cli"></a>Creación de un disco SSD Ultra mediante la CLI

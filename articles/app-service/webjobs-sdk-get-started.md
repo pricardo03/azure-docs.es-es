@@ -14,31 +14,31 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66418231"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
-En este artículo se muestra cómo usar Visual Studio de 2019 para crear un proyecto de SDK de Azure WebJobs, ejecutarlo localmente y, a continuación, implementarla en [Azure App Service](overview.md). Versión 3.x del SDK de WebJobs es compatible con aplicaciones de consola .NET Core y .NET Framework. Para más información sobre cómo trabajar con el SDK de WebJobs, consulte [cómo usar el SDK de WebJobs de Azure para el procesamiento en segundo plano basado en eventos](webjobs-sdk-how-to.md).
+En este artículo se muestra cómo usar Visual Studio 2019 para crear un proyecto de SDK de Azure WebJobs, ejecutarlo de forma local e implementarlo en [Azure App Service](overview.md). La versión 3.x del SDK de WebJobs es compatible con las aplicaciones de consola de .NET Core y .NET Framework. Para más información sobre cómo trabajar con el SDK de WebJobs, consulte [Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos](webjobs-sdk-how-to.md).
 
-Este artículo muestra cómo implementar WebJobs como una aplicación de consola .NET Core. Para implementar WebJobs como una aplicación de consola de .NET Framework, consulte [WebJobs como .NET Framework de las aplicaciones de consola](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Si está interesado en la versión de SDK de WebJobs 2.x, que solo es compatible con .NET Framework, consulte [desarrollar e implementar WebJobs con Visual Studio: Azure App Service](webjobs-dotnet-deploy-vs.md).
+En este artículo se muestra cómo implementar WebJobs como una aplicación de consola de .NET Core. Para implementar WebJobs como una aplicación de consola de .NET Framework, consulte [WebJobs as .NET Framework console apps](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps) (WebJobs como aplicaciones de consola de .NET Framework). Si está interesado en la versión 2.x del SDK de WebJobs, que solo es compatible con .NET Framework, consulte [Desarrollo e implementación de WebJobs mediante Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Instalar Visual Studio de 2019](/visualstudio/install/) con el **desarrollo de Azure** carga de trabajo. Si ya tiene Visual Studio pero no tiene esa carga de trabajo, agréguela mediante la selección de **Herramientas > Obtener herramientas y características**.
+* [Instale Visual Studio 2019](/visualstudio/install/) con la carga de trabajo de **desarrollo de Azure**. Si ya tiene Visual Studio pero no tiene esa carga de trabajo, agréguela mediante la selección de **Herramientas > Obtener herramientas y características**.
 
-* Debe tener [una cuenta de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) para publicar el proyecto de SDK de WebJobs en Azure.
+* Debe tener [una cuenta de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) para publicar el proyecto del SDK de WebJobs en Azure.
 
 ## <a name="create-a-project"></a>Crear un proyecto
 
-1. En Visual Studio, seleccione **crear un nuevo proyecto**.
+1. En Visual Studio, seleccione **Crear un proyecto nuevo**.
 
-2. Seleccione **(.NET Core) de la aplicación de consola**.
+2. Luego, seleccione **Aplicación de consola (.NET Core)** .
 
-3. Denomine el proyecto *WebJobsSDKSample*y, a continuación, seleccione **crear**.
+3. Asigne al proyecto el nombre *WebJobsSDKSample* y seleccione **Crear**.
 
    ![Cuadro de diálogo Nuevo proyecto](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -49,7 +49,7 @@ Este artículo muestra cómo implementar WebJobs como una aplicación de consola
    * `Microsoft.Azure.WebJobs`
    * `Microsoft.Azure.WebJobs.Extensions`
 
-     Este es el **Package Manager Console** comandos para la versión 3.0.4:
+     Estos son los comandos de la **Consola del Administrador de paquetes** de la versión 3.0.4:
 
      ```powershell
      Install-Package Microsoft.Azure.WebJobs -version 3.0.4
@@ -58,7 +58,7 @@ Este artículo muestra cómo implementar WebJobs como una aplicación de consola
 
 ## <a name="create-the-host"></a>Creación del host
 
-El host es el contenedor en tiempo de ejecución para las funciones que realiza escuchas para las funciones llamadas y desencadenadores. Los pasos siguientes crean un host que implementa [ `IHost` ](/dotnet/api/microsoft.extensions.hosting.ihost), que es el Host genérico en ASP.NET Core.
+El host es el contenedor en tiempo de ejecución de las funciones que escucha a los desencadenadores y llama a las funciones. En los pasos siguientes se crea un host que implementa [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost), que es el host genérico en ASP.NET Core.
 
 1. En *Program.cs*, agregue una instrucción `using`:
 
@@ -84,11 +84,11 @@ El host es el contenedor en tiempo de ejecución para las funciones que realiza 
     }
     ```
 
-En ASP.NET Core, las configuraciones de host se establecen mediante la llamada a los métodos de la instancia [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). Para más información, consulte [Host genérico .NET](/aspnet/core/fundamentals/host/generic-host). El método de extensión `ConfigureWebJobs` inicializa el host de WebJobs. En `ConfigureWebJobs`, inicializar extensiones específicas de WebJobs y establecer las propiedades de dichas extensiones.  
+En ASP.NET Core, las configuraciones de host se establecen mediante la llamada a los métodos de la instancia [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). Para más información, consulte [Host genérico .NET](/aspnet/core/fundamentals/host/generic-host). El método de extensión `ConfigureWebJobs` inicializa el host de WebJobs. En `ConfigureWebJobs`, se inicializan extensiones específicas de WebJobs y se establecen las propiedades de esas extensiones.  
 
 ## <a name="enable-console-logging"></a>Habilitación del registro de consola
 
-En esta sección, configure el registro de consola que usa el [plataforma de registro de ASP.NET Core](/aspnet/core/fundamentals/logging).
+En esta sección, se configura el registro de la consola que usa la [plataforma de registro de ASP.NET Core](/aspnet/core/fundamentals/logging).
 
 1. Instale la última versión estable de los siguientes paquetes NuGet:
 
@@ -151,11 +151,11 @@ Ahora, puede agregar una función desencadenada por los mensajes que llegan a un
 
 ## <a name="install-the-storage-binding-extension"></a>Instalación de la extensión de enlaces de Storage
 
-Comenzando con la versión 3.x, explícitamente debe instalar la extensión de enlace de almacenamiento requerida por el SDK de WebJobs. En versiones anteriores, los enlaces de almacenamiento se han incluido en el SDK.
+A partir de la versión 3.x, es necesario instalar explícitamente la extensión de enlace de almacenamiento que requiere el SDK de WebJobs. En versiones anteriores, los enlaces de almacenamiento se incluían en el SDK.
 
 1. Instale la versión estable más reciente del paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), versión 3.x. 
 
-    Este es el **Package Manager Console** comando para la versión 3.0.3:
+    Este es el comando de la **Consola del Administrador de paquetes** para la versión 3.0.3:
 
     ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.3
@@ -173,7 +173,7 @@ Comenzando con la versión 3.x, explícitamente debe instalar la extensión de e
 
 ## <a name="create-a-function"></a>Creación de una función
 
-1. Haga clic en el proyecto, seleccione **agregar** > **nuevo elemento...** , elija **clase**, el nombre del nuevo C# archivo de clase *Functions.cs*y seleccione **agregar**.
+1. Haga clic con el botón derecho en el proyecto, seleccione **Agregar** > **Nuevo elemento...** , elija **Clase**, asigne al nuevo archivo de clase C# el nombre *Functions.cs* y seleccione **Agregar**.
 
 1. En Functions.cs, reemplace la plantilla generada por el código siguiente:
 
@@ -199,7 +199,7 @@ Comenzando con la versión 3.x, explícitamente debe instalar la extensión de e
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-El emulador de Azure Storage que se ejecuta localmente no tiene todas las características que necesita el SDK de WebJobs. Por lo que en esta sección crear una cuenta de almacenamiento en Azure y configurar el proyecto para que lo utilicen. Si ya tiene una cuenta de almacenamiento, pasar directamente al paso 6.
+El emulador de Azure Storage que se ejecuta localmente no tiene todas las características que necesita el SDK de WebJobs. Por lo tanto, en esta sección creará una cuenta de almacenamiento en Azure y configurará el proyecto para utilizarla. Si ya tiene una cuenta de almacenamiento, vaya al paso 6.
 
 1. Abra el **Explorador de servidores** en Visual Studio e inicie sesión en Azure. Haga clic con el botón derecho en el nodo **Azure** y, después, seleccione **Conectar a la suscripción de Microsoft Azure**.
 
@@ -229,9 +229,9 @@ El emulador de Azure Storage que se ejecuta localmente no tiene todas las caract
 
 El SDK de WebJobs busca la cadena de conexión de almacenamiento en la Configuración de la aplicación en Azure. Cuando se ejecuta localmente, busca este valor en el archivo de configuración local o en variables de entorno.
 
-1. Haga clic en el proyecto, seleccione **agregar** > **nuevo elemento...** , elija **archivo de configuración JSON de JavaScript**, asigne al nuevo archivo *appsettings.json* de archivo y seleccione **agregar**. 
+1. Haga clic con el botón derecho en el proyecto, seleccione **Agregar** > **Nuevo elemento...** , elija **Archivo de configuración JSON de JavaScript**, asigne al nuevo archivo el nombre *appsettings.json* y seleccione **Agregar**. 
 
-1. En el nuevo archivo, agregue un `AzureWebJobsStorage` campo, como en el ejemplo siguiente:
+1. En el nuevo archivo, agregue un campo `AzureWebJobsStorage`, como en el ejemplo siguiente:
 
     ```json
     {
@@ -241,7 +241,7 @@ El SDK de WebJobs busca la cadena de conexión de almacenamiento en la Configura
 
 1. Reemplace *{storage connection string}* (cadena de conexión de almacenamiento) por la cadena de conexión copiada anteriormente.
 
-1. Seleccione el *appsettings.json* archivo en el Explorador de soluciones y en el **propiedades** ventana, establezca **Copy to Output Directory** a **copiar si es posterior**.
+1. Seleccione el archivo *appsettings.json* en el Explorador de soluciones y, en la ventana **Propiedades**, establezca **Copiar en el directorio de salida** en **Copiar si es posterior**.
 
 Más adelante, agregará la misma configuración de aplicación de cadena de conexión a la aplicación en Azure App Service.
 
@@ -249,7 +249,7 @@ Más adelante, agregará la misma configuración de aplicación de cadena de con
 
 En esta sección, va a crear y ejecutar el proyecto localmente, y desencadenar la función mediante la creación de un mensaje de cola.
 
-1. Presione **CTRL+F5** para ejecutar el proyecto.
+1. Presione **Ctrl+F5** para ejecutar el proyecto.
 
    La consola muestra que el tiempo de ejecución encuentra la función y está esperando mensajes de cola para desencadenarla. El host v3.x genera la siguiente salida:
 
@@ -308,7 +308,7 @@ En esta sección, va a crear y ejecutar el proyecto localmente, y desencadenar l
 
 1. Cierre la ventana de la consola. 
 
-1. Vuelva a la ventana de la cola y actualizarlo. El mensaje ha desaparecido, puesto que se ha procesado por la función que se ejecuta localmente. 
+1. Vuelva a la ventana Cola y actualícela. El mensaje desaparece, puesto que lo ha procesado la función que se ejecuta localmente. 
 
 ## <a name="add-application-insights-logging"></a>Incorporación del registro de Application Insights
 
@@ -352,7 +352,7 @@ En esta sección, realiza las tareas siguientes para configurar el registro de A
 
 1. Seleccione **Guardar**.
 
-1. Agregar la conexión de Application Insights al proyecto para que se puede ejecutar localmente. En el archivo *appsettings.json*, agregue un campo `APPINSIGHTS_INSTRUMENTATIONKEY`, como en el ejemplo siguiente:
+1. Agregue la conexión de Application Insights al proyecto para que pueda ejecutarlo localmente. En el archivo *appsettings.json*, agregue un campo `APPINSIGHTS_INSTRUMENTATIONKEY`, como en el ejemplo siguiente:
 
     ```json
     {
@@ -411,7 +411,7 @@ Para aprovechar el registro de [Application Insights](../azure-monitor/app/app-i
     }
     ```
 
-    Esto agrega el proveedor de Application Insights para el registro, utilizando la clave que agregó anteriormente a la configuración de la aplicación.
+    Esto agrega el proveedor de Application Insights al registro mediante la clave que usted agregó anteriormente a la configuración de la aplicación.
 
 ## <a name="test-application-insights-logging"></a>Prueba del registro de Application Insights
 
@@ -437,9 +437,9 @@ En esta sección, volverá a realizar una ejecución local para comprobar que lo
 
 1. Cierre la ventana de la consola.
 
-## <a name="deploy-as-a-webjob"></a>Implementar en Azure
+## <a name="deploy-as-a-webjob"></a>Implementación en Azure
 
-Durante la implementación, cree una instancia del servicio de aplicación en el que se va a ejecutar las funciones. Al publicar una aplicación de consola .NET Core en App Service en Azure, automáticamente se ejecuta como un trabajo Web. Para más información acerca de la publicación, consulte [desarrollar e implementar WebJobs con Visual Studio](webjobs-dotnet-deploy-vs.md).
+Durante la implementación, cree una instancia de App Service en la que se ejecutarán las funciones. Al publicar una aplicación de consola de .NET Core en App Service de Azure, este se ejecuta automáticamente como un WebJob. Para obtener más información sobre la publicación, consulte [Desarrollo e implementación de WebJobs mediante Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 [!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)]
 
@@ -508,7 +508,7 @@ Los enlaces de entrada simplifican el código que lee los datos. En este ejemplo
 
    ![Mensaje de cola Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-1. Ejecute el proyecto localmente.
+1. Ejecute el proyecto de forma local.
 
    El mensaje de cola desencadena la función, que lee el blob y registra su longitud. La salida de la consola tendrá un aspecto similar al siguiente:
 
@@ -542,21 +542,21 @@ Los enlaces de salida simplifican el código que escribe los datos. Este ejemplo
 
 1. Cree otro mensaje de cola con *Program.cs* como texto del mensaje.
 
-1. Ejecute el proyecto localmente.
+1. Ejecute el proyecto de forma local.
 
    El mensaje de cola desencadena la función, que lee el blob, registra su longitud y crea un nuevo blob. La salida de la consola es la misma pero cuando vaya a la ventana del contenedor de blobs y seleccione **Actualizar**, verá un nuevo blob denominado *copy-Program.cs*.
 
-## <a name="republish-the-updates-to-azure"></a>Volver a publicar las actualizaciones en Azure
+## <a name="republish-the-updates-to-azure"></a>Nueva publicación de las actualizaciones en Azure
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
 
-1. En el **publicar** cuadro de diálogo, asegúrese de que está seleccionado el perfil actual y, a continuación, elija **publicar**. Resultados de la publicación se detallan en el **salida** ventana.
+1. En el cuadro de diálogo **Publicar**, asegúrese de que el perfil actual esté seleccionado y elija **Publicar**. Los resultados de la publicación se detallan en la ventana **Salida**.
  
-1. Comprobar la función en Azure, vuelva a cargar un archivo en el contenedor de blobs y agregar un mensaje a la cola que es el nombre del archivo cargado. Ver el mensaje se quitan de la cola y una copia del archivo creado en el contenedor de blobs. 
+1. Compruebe la función en Azure volviendo a cargar un archivo en el contenedor de blobs y agregando un mensaje a la cola que es el nombre del archivo cargado. Verá que el mensaje se quita de la cola y una copia del archivo creado en el contenedor de blobs. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se ha explicado cómo crear, ejecutar e implementar un proyecto de SDK de WebJobs 3.x.
+En este artículo se ha mostrado cómo crear, ejecutar e implementar un proyecto del SDK 3.x de WebJobs.
 
 > [!div class="nextstepaction"]
 > [Más información sobre el SDK de WebJobs](webjobs-sdk-how-to.md)

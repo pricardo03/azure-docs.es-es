@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66356221"
 ---
 # <a name="log-analytics-faq"></a>Preguntas frecuentes sobre Log Analytics
@@ -72,7 +72,7 @@ R: Para obtener acceso a un área de trabajo en Azure, debe tener asignados perm
 R: El Diseñador de vistas solo está disponible en los registros de los usuarios asignados que tengan permiso de colaborador o superior.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>P: ¿Puedo seguir usando el portal de Analytics fuera de Azure?
-A. Sí, la página de registros de Azure y el portal de análisis avanzado se basan en el mismo código. Log Analytics se integra como una característica de Azure Monitor para proporcionar una experiencia de supervisión más unificada. Todavía puede tener acceso a portal de análisis mediante la dirección URL: https:\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+A. Sí, la página de registros de Azure y el portal de análisis avanzado se basan en el mismo código. Log Analytics se integra como una característica de Azure Monitor para proporcionar una experiencia de supervisión más unificada. Todavía puede acceder al portal de Analytics mediante la dirección URL: https:\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 
@@ -84,7 +84,7 @@ R: La lista de vistas y soluciones instaladas está disponible en Azure Portal. 
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>P: ¿por qué no puedo crear áreas de trabajo en la región Centro-oeste de EE. UU.? 
 
-R: Esta región tiene un límite de capacidad temporal. Este límite se prevé que se dirige a finales de septiembre de 2019.
+R: Esta región tiene un límite de capacidad temporal. Se espera que se solucione este límite a finales de septiembre de 2019.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>P: ¿Log Analytics utiliza al mismo agente que Azure Security Center?
@@ -171,7 +171,7 @@ El tráfico dirigido a Log Analytics utiliza el circuito de ExpressRoute de empa
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>P: ¿Hay alguna manera fácil y directa de transferir un área de trabajo existente de Log Analytics a otra suscripción de Azure o a otra área de trabajo de Log Analytics?
 
-A. El cmdlet `Move-AzResource` permite mover un área de trabajo de Log Analytics y también una cuenta de Automation de una suscripción de Azure a otra. Para obtener más información, consulte [movimiento AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
+A. El cmdlet `Move-AzResource` permite mover un área de trabajo de Log Analytics y también una cuenta de Automation de una suscripción de Azure a otra. Para obtener más información, consulte [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 También es posible realizar este cambio en el Portal de Azure.
 

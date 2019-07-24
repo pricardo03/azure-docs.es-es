@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9df592272b97bded9eba64249aa7608c72f8abdf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121541"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorización del acceso a aplicaciones web con OpenID Connect y Azure Active Directory
@@ -47,7 +47,7 @@ OpenID Connect describe un documento de metadatos que contiene la mayor parte de
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-Los metadatos son un documento de notación de objetos JavaScript (JSON) simple. Consulte el fragmento de código siguiente para ver un ejemplo. El contenido del fragmento de código se describe detalladamente en la [especificación de OpenID Connect](https://openid.net). Tenga en cuenta que proporciona un identificador de inquilino en lugar de `common` en lugar de {tenant} anterior dará como resultado en los URI específico del inquilino en el objeto JSON devuelto.
+Los metadatos son un documento de notación de objetos JavaScript (JSON) simple. Consulte el fragmento de código siguiente para ver un ejemplo. El contenido del fragmento de código se describe detalladamente en la [especificación de OpenID Connect](https://openid.net). Tenga en cuenta que al proporcionar un id. de inquilino en lugar de `common` y no {tenant} anteriormente, el resultado serán URI específicos del inquilino en el objeto JSON devuelto.
 
 ```
 {
@@ -65,7 +65,7 @@ Los metadatos son un documento de notación de objetos JavaScript (JSON) simple.
 }
 ```
 
-Si la aplicación tiene las claves de firma personalizadas como resultado de utilizar el [asignación de notificaciones](active-directory-claims-mapping.md) característica, debe anexar un `appid` que contiene el identificador de aplicación con el fin de obtener el parámetro de consulta un `jwks_uri` que apunta a la aplicación de la clave de firma información. Por ejemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene un `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Si la aplicación tiene claves de firma personalizadas como resultado de usar la característica de [asignación de notificaciones](active-directory-claims-mapping.md), debe anexar un parámetro de consulta `appid` que contenga el identificador de aplicación con el fin de obtener un elemento `jwks_uri` que apunte a la información de la clave de firma de la aplicación. Por ejemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene el elemento `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ## <a name="send-the-sign-in-request"></a>Envío de la solicitud de inicio de sesión
 
@@ -93,11 +93,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parámetro |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | tenant |requerido |El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son los identificadores de inquilino; por ejemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` para los tokens independientes del inquilino. |
-| client_id |requerido |Identificador de aplicación asignado a la aplicación cuando se registra en Azure AD. Puede encontrarlo en Azure Portal. Haga clic en **Azure Active Directory**, haga clic en **registros de aplicaciones**, elija la aplicación y busque el identificador de aplicación en la página de aplicación. |
+| client_id |requerido |Identificador de aplicación asignado a la aplicación cuando se registra en Azure AD. Puede encontrarlo en Azure Portal. Haga clic en **Azure Active°Directory**, en **Registros de aplicaciones**, elija la aplicación y busque el identificador de la aplicación en la página de aplicación. |
 | response_type |requerido |Debe incluir `id_token` para el inicio de sesión en OpenID Connect. También puede incluir otros elementos response_type como `code` o `token`. |
-| ámbito | recomendado | La especificación de OpenID Connect requiere el ámbito `openid`, que se convierte en el permiso "Iniciar sesión" en la IU de consentimiento. Este y otros ámbitos OIDC se omiten en el punto de conexión v1.0, pero sigue siendo una práctica recomendada para los clientes compatibles con los estándares. |
+| scope | recomendado | La especificación de OpenID Connect requiere el ámbito `openid`, lo que se traduce en el permiso de inicio de sesión en la interfaz de usuario de consentimiento. Este y otros ámbitos de OIDC se omiten en el punto de conexión v1.0, pero sigue siendo un procedimiento recomendado para los clientes que cumplen con las normas. |
 | valor de seguridad |requerido |Un valor incluido en la solicitud que ha generado la aplicación y que se incluye en el elemento `id_token` resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es un GUID o una cadena única aleatorios que puede utilizarse para identificar el origen de la solicitud. |
-| redirect_uri | recomendado |El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. Si faltan, se enviará al agente de usuario a uno de lo URI de redirección registrados para la aplicación, de forma aleatoria. La longitud máxima es 255 bytes |
+| redirect_uri | recomendado |El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. Si falta, el agente de usuario se enviará de vuelta a uno de los URI de redireccionamiento registrado para la aplicación, de manera aleatoria. La longitud máxima es de 255 bytes. |
 | response_mode |opcional |Especifica el método que debe usarse para enviar el authorization_code resultante de nuevo a tu aplicación. Los valores admitidos son `form_post` para *envíos de formulario HTTP* y `fragment` para *fragmentos de dirección URL*. Para las aplicaciones web, se recomienda usar `response_mode=form_post` para asegurar la transferencia más segura de tokens a la aplicación. El valor predeterminado para cualquier flujo que incluye un elemento id_token es `fragment`.|
 | state |recomendado |Un valor incluido en la solicitud que se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Normalmente se usa un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
 | símbolo del sistema |opcional |Indica el tipo de interacción necesaria con el usuario. Actualmente, los únicos valores válidos son 'login', 'none' y 'consent'. `prompt=login` obliga al usuario a escribir sus credenciales en esa solicitud, negando el inicio de sesión único. `prompt=none` se asegura de que al usuario no se le presenta ninguna solicitud interactiva del tipo que sea. Si la solicitud no se puede completar sin notificaciones mediante el inicio de sesión único, el punto de conexión devuelve un error. `prompt=consent` desencadena el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión y solicita a este que conceda permisos a la aplicación. |
@@ -107,7 +107,7 @@ En este punto, se le pide al usuario que escriba sus credenciales y que complete
 
 ### <a name="sample-response"></a>Respuesta de muestra
 
-Una respuesta de ejemplo enviada a la `redirect_uri` especificado en la solicitud de inicio de sesión después de que el usuario se ha autenticado, podría tener este aspecto:
+Una respuesta de ejemplo, enviada al `redirect_uri` especificado en la solicitud de inicio de sesión una vez que se autenticó el usuario, podría verse así:
 
 ```
 POST / HTTP/1.1
@@ -162,7 +162,7 @@ Puede elegir validar el `id_token` en el código de cliente, pero lo habitual es
 Se recomienda que valide notificaciones adicionales según su escenario. Algunas validaciones comunes incluyen:
 
 * Asegurarse de que la organización/el usuario se ha registrado en la aplicación.
-* Lo que garantiza el usuario tiene autorización/los privilegios adecuados mediante la `wids` o `roles` notificaciones. 
+* Asegurarse de que el usuario tiene la autorización y los privilegios con las notificaciones de `wids` o `roles`. 
 * Asegurarse de que se haya producido un determinado nivel de autenticación, como la autenticación multifactor.
 
 Cuando haya validado `id_token`, puede iniciar una sesión con el usuario y usar las notificaciones de `id_token` para más información sobre el usuario de la aplicación. Esta información puede usarse para visualización, registros, autorizaciones, etc. Para más información sobre `id_tokens` y notificaciones, lea [Elementos id_tokens de AAD](id-tokens.md).
@@ -181,7 +181,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parámetro |  | DESCRIPCIÓN |
 | --- | --- | --- |
-| post_logout_redirect_uri |recomendado |La dirección URL que se debe redirigir al usuario después de cierre de sesión correcto. Si no se incluye, se muestra un mensaje genérico al usuario. |
+| post_logout_redirect_uri |recomendado |La dirección URL a la que se debe redirigir al usuario después de un cierre de sesión correcto. Si no se incluye, se muestra un mensaje genérico al usuario. |
 
 ## <a name="single-sign-out"></a>Cierre de sesión único
 
@@ -216,7 +216,7 @@ Con la inclusión de los ámbitos de permiso en la solicitud y el uso de `respon
 
 ### <a name="successful-response"></a>Respuesta correcta
 
-Una respuesta correcta, enviada a la `redirect_uri` mediante `response_mode=form_post`, aspecto:
+Una respuesta correcta, enviada a `redirect_uri` vía `response_mode=form_post`, se ve así:
 
 ```
 POST /myapp/ HTTP/1.1

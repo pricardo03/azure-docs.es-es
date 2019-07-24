@@ -5,19 +5,19 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 07/06/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d7add3d509427d72e23d61d1777db7941c7550a4
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367648"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657257"
 ---
 # <a name="about-expressroute-direct"></a>Acerca de ExpressRoute Direct
 
-ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red global de Microsoft en ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. ExpressRoute Direct proporciona conectividad dual de 100 Gbps, que es compatible con la conectividad activa/activa a escala.
+ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red global de Microsoft en ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. ExpressRoute Direct proporciona conectividad dual de 100 Gbps o 10 Gbps, que es compatible con la conectividad activa/activa a escala.
 
 Algunas de las características clave que ofrece ExpressRoute Direct incluyen:
 
@@ -38,9 +38,9 @@ Para poder usar ExpressRoute Direct, primero hay que inscribir la suscripción. 
 
 | **ExpressRoute con un proveedor de servicios** | **ExpressRoute Direct** | 
 | --- | --- |
-| Usa proveedores de servicios para permitir la incorporación y la conectividad de forma rápida en la infraestructura existente | Requiere una infraestructura de 100 Gbps y administración completa de todas las capas
+| Usa proveedores de servicios para permitir la incorporación y la conectividad de forma rápida en la infraestructura existente | Requiere una infraestructura de 100 Gbps/10 Gbps y administración completa de todas las capas
 | Se integra con cientos de proveedores, incluidos Ethernet y MPLS | Capacidad dedicada o de Direct para los sectores regulados y la ingesta de datos masivos |
-| SKU de circuitos de 50 Mbps a 10 Gbps | El cliente puede seleccionar una combinación de las SKU del circuito siguientes: 5 Gbps, 10 Gbps, 40 Gbps, 100 GB/s, limitados a un total de 200 GB/s
+| SKU de circuitos de 50 Mbps a 10 Gbps | El consumidor puede seleccionar una combinación de las SKU de circuito siguientes en instancias de ExpressRoute Direct de 100 Gbps: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> El consumidor puede seleccionar una combinación de las SKU de circuito siguientes en instancias de ExpressRoute Direct de 10 Gbps:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 | Optimizado para un solo inquilino | Optimizado para un único inquilino, proveedores de servicios en la nube o varias unidades de negocio
 
 ## <a name="expressroute-direct-circuits"></a>Circuitos de ExpressRoute Direct
@@ -53,7 +53,12 @@ En la mayoría de los escenarios, la funcionalidad es equivalente a circuitos qu
 
 ## <a name="circuit-skus"></a>SKU de circuitos
 
-ExpressRoute Direct admite escenarios de ingesta de datos masivos en Azure Storage y otros servicios de macrodatos. Ahora, los circuitos ExpressRoute en ExpressRoute Direct también admiten SKU de circuitos de **40 Gbps** y **100 Gbps**. Los pares de puerto físico son solo de **100 Gbps** y pueden tener varios circuitos virtuales con anchos de banda de 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps y hasta 200 Gbps en cualquier combinación. 
+ExpressRoute Direct admite escenarios de ingesta de datos masivos en Azure Storage y otros servicios de macrodatos. Ahora, los circuitos ExpressRoute de ExpressRoute Direct 100 Gbps también admiten SKU de circuito de **40 Gbps** y **100 Gbps**. Los pares de puertos físicos solamente son de **100 o 10 Gbps** y pueden tener varios circuitos virtuales. Tamaños del circuito:
+
+| **ExpressRoute Direct de 100 Gbps** | **ExpressRoute Direct de 10 Gbps** | 
+| --- | --- |
+| **Ancho de banda suscrito**: 200 Gbps | **Ancho de banda suscrito**: 20 Gbps |
+| <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 
 ## <a name="vlan-tagging"></a>Etiquetado de VLAN
 

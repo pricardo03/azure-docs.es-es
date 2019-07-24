@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
 ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967739"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
@@ -34,7 +34,7 @@ Azure usa la traducción de direcciones de red de origen (SNAT) para realizar es
 Son varios los [escenarios de salida](#scenarios). Puede combinar estos escenarios según sea necesario. Revíselos cuidadosamente para comprender las funcionalidades, las restricciones y los patrones que se aplican a su modelo de implementación y escenario de aplicación. Revise las instrucciones para [administrar estos escenarios](#snatexhaust).
 
 >[!IMPORTANT] 
->Standard Load Balancer y la IP pública estándar presentan capacidades nuevas y comportamientos diferentes en la conectividad saliente.  No son lo mismo que las SKU de nivel Básico.  Si quiere conectividad saliente al trabajar con las SKU de nivel Estándar, debe definirlas con las direcciones IP públicas estándar o con la instancia pública de Load Balancer estándar.  Esto incluye la creación de conectividad de salida cuando se usa un equilibrador de carga estándar interno.  Se recomienda que use siempre las reglas de salida en una instancia pública de Load Balancer estándar.  El [escenario 3](#defaultsnat) no está disponible con la SKU de nivel Estándar.  Esto significa que cuando se usa una instancia interna de Standard Load Balancer, es necesario seguir los pasos para establecer la conectividad saliente para las máquinas virtuales en el grupo de back-end si se quiere contar con conectividad saliente.  En el contexto de la conectividad saliente, una máquina virtual independiente, todas las máquinas virtuales en un conjunto de disponibilidad y todas las instancias de VMSS se comportan como un grupo. Es decir que, si una máquina virtual en un conjunto de disponibilidad está asociada con una SKU de nivel Estándar, todas las instancias de máquina virtual dentro de dicho conjunto de disponibilidad ahora siguen las mismas reglas que están asociadas con la SKU de nivel Estándar, incluso si una instancia individual no está directamente asociada con ella.  Revise cuidadosamente todo el documento para entender los conceptos generales, consulte [Standard Load Balancer](load-balancer-standard-overview.md) para conocer las diferencias entre las SKU y consulte las [reglas de salida](load-balancer-outbound-rules-overview.md).  Al usar las reglas de salida, obtiene un control avanzado de todos los aspectos de la conectividad saliente.
+>Standard Load Balancer y la IP pública estándar presentan capacidades nuevas y comportamientos diferentes en la conectividad saliente.  No son lo mismo que las SKU de nivel Básico.  Si quiere conectividad saliente al trabajar con las SKU de nivel Estándar, debe definirlas con las direcciones IP públicas estándar o con la instancia pública de Load Balancer estándar.  Esto incluye establecer conectividad saliente cuando se usa una instancia interna de Standard Load Balancer.  Se recomienda que use siempre las reglas de salida en una instancia pública de Load Balancer estándar.  El [escenario 3](#defaultsnat) no está disponible con la SKU de nivel Estándar.  Esto significa que cuando se usa una instancia interna de Standard Load Balancer, es necesario seguir los pasos para establecer la conectividad saliente para las máquinas virtuales en el grupo de back-end si se quiere contar con conectividad saliente.  En el contexto de la conectividad saliente, una máquina virtual independiente, todas las máquinas virtuales en un conjunto de disponibilidad y todas las instancias de VMSS se comportan como un grupo. Es decir que, si una máquina virtual en un conjunto de disponibilidad está asociada con una SKU de nivel Estándar, todas las instancias de máquina virtual dentro de dicho conjunto de disponibilidad ahora siguen las mismas reglas que están asociadas con la SKU de nivel Estándar, incluso si una instancia individual no está directamente asociada con ella.  Revise cuidadosamente todo el documento para entender los conceptos generales, consulte [Standard Load Balancer](load-balancer-standard-overview.md) para conocer las diferencias entre las SKU y consulte las [reglas de salida](load-balancer-outbound-rules-overview.md).  Al usar las reglas de salida, obtiene un control avanzado de todos los aspectos de la conectividad saliente.
 
 ## <a name="scenarios"></a>Información general de los escenarios
 
@@ -70,7 +70,7 @@ Los puertos SNAT se asignan previamente, como se describe en la sección [Descri
 
 Cuando hay [varias direcciones IP públicas asociadas a Load Balancer básico](load-balancer-multivip-overview.md), cualquiera de estas direcciones IP públicas son candidatas para los flujos de salida y se selecciona una de forma aleatoria.  
 
-Para supervisar el estado de las conexiones salientes con Load Balancer básico, puede usar [registros de Azure Monitor para el equilibrador de carga](load-balancer-monitor-log.md) y [registros de eventos de alerta](load-balancer-monitor-log.md#alert-event-log) para supervisar los mensajes de agotamiento de puertos SNAT.
+Para supervisar el mantenimiento de las conexiones salientes con Load Balancer básico, puede usar los [logs de Azure Monitor para Load Balancer](load-balancer-monitor-log.md) y [registros de eventos de alerta](load-balancer-monitor-log.md#alert-event-log).
 
 ### <a name="defaultsnat"></a>Escenario 3: máquina virtual independiente sin una dirección IP pública en el nivel de instancia
 
@@ -176,13 +176,13 @@ Las asignaciones de puertos SNAT son específicas del protocolo de transporte IP
 
 ### <a name="tcp-snat-port-release"></a>Liberación del puerto TCP SNAT
 
-- Si cualquier servidor o cliente envía FINACK, puerto SNAT se liberará después de 240 segundos.
+- Si tanto el cliente como el servidor envían FIN/ACK, el puerto SNAT se liberará después de 240 segundos.
 - Si se ve un RST, el puerto SNAT se liberará después de 15 segundos.
-- Si se ha alcanzado el tiempo de espera de inactividad, se libera el puerto.
+- Si se agotó el tiempo de expiración, el puerto se libera.
 
 ### <a name="udp-snat-port-release"></a>Liberación del puerto UDP SNAT
 
-- Si se ha alcanzado el tiempo de espera de inactividad, se libera el puerto.
+- Si se agotó el tiempo de expiración, el puerto se libera.
 
 ## <a name="problemsolving"></a> Solución de problemas 
 

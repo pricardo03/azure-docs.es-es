@@ -9,14 +9,14 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8d8fd03d9c3d912788e9893377bbab3efac86f8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a89d73b63680415aa8e516926b8e1d6c59ffbbad
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383834"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626016"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrado de los resultados incluidos en la respuesta de búsqueda  
 
@@ -44,14 +44,20 @@ Al consultar la web, Bing devuelve todo el contenido relevante para la búsqueda
     }
 }    
 ```
-Puede filtrar los tipos de contenido que reciba (por ejemplo imágenes, vídeos y noticias) mediante el parámetro de consulta [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter). Si Bing encuentra contenido relevante a los resultados especificados, lo mostrará. El filtro de respuesta es una lista de resultados delimitados por comas. 
 
-Para excluir determinados tipos de contenido (como imágenes) de la respuesta, puede agregar un carácter `-` al principio del valor `responseFilter`. Asimismo, puede separar los tipos excluidos con comas (`,`). Por ejemplo:
+## <a name="query-parameters"></a>Parámetros de consulta
+
+Para filtrar las respuestas devueltas por Bing, utilice los siguientes parámetros de consulta cuando llame a la API.  
+
+### <a name="responsefilter"></a>ResponseFilter
+
+Puede filtrar los tipos de respuestas que Bing incluye en la respuesta (por ejemplo, imágenes, vídeos y noticias) mediante el parámetro de consulta [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter), que es una lista de respuestas delimitada por comas. Se incluirá una respuesta si Bing encuentra contenido relevante para ella. 
+
+Para excluir respuestas específicas de la respuesta, como imágenes, anteponga un carácter `-` al tipo de respuesta. Por ejemplo:
 
 ```
 &responseFilter=-images,-videos
 ```
-
 
 A continuación se muestra cómo utilizar `responseFilter` para solicitar imágenes, vídeos y noticias de barcos de navegación. Cuando se codifica la cadena de consulta, las comas cambian a %2c.  
 
@@ -94,7 +100,9 @@ Aunque Bing no devolvió resultados de vídeo y de noticias en la respuesta ante
 
 No recomienda no utilizar `responseFilter` para obtener los resultados de una sola API. Si desea contenido de una sola API de Bing, llame directamente a dicha API. Por ejemplo, para recibir solo las imágenes, envíe una solicitud al punto de conexión de Image Search API, `https://api.cognitive.microsoft.com/bing/v7.0/images/search` u otros de los puntos de conexión de [imágenes](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints). Llamar a una sola API es importante no solo por motivos de rendimiento, también porque las API específicas de contenido ofrecen mejores resultados. Por ejemplo, puede utilizar filtros que no están disponibles en Web Search API para filtrar los resultados.  
 
-Para obtener resultados de búsqueda de un dominio específico, incluya el operador de consulta `site:` en la cadena de consulta.  
+### <a name="site"></a>Sitio
+
+Para obtener resultados de búsqueda parámetro de un dominio específico, incluya el operador de consulta `site:` en la cadena de consulta.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -103,9 +111,27 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 > [!NOTE]
 > En función de la consulta, si usa el operador de consulta `site:`, existe la posibilidad de que la respuesta incluya contenido para adultos sin tener en cuenta la configuración de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) (búsqueda segura). Debería usar `site:` solo si es consciente del contenido del sitio y el escenario admite la posibilidad de contenido para adultos.
 
+### <a name="freshness"></a>Freshness
+
+Para limitar los resultados de la respuesta web a las páginas web que Bing ha detectado durante un período específico, establezca el parámetro de consulta [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) en uno de los siguientes valores que no distinguen mayúsculas de minúsculas:
+
+* `Day`: devuelve páginas web que Bing ha detectado en las últimas 24 horas
+* `Week`: devuelve las páginas web que Bing ha detectado en los últimos 7 días
+* `Month`: devuelve las páginas web que ha descubierto en los últimos 30 días
+
+También puede establecer este parámetro en un intervalo de fechas personalizado con la forma, `YYYY-MM-DD..YYYY-MM-DD`. 
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
+
+Para limitar los resultados a una sola fecha, establezca el parámetro freshness en una fecha específica:
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
+
+Los resultados pueden incluir páginas web que se encuentran fuera del período especificado si el número de páginas web que Bing coincide con sus criterios de filtro es menor que el número de páginas web que se han solicitado (o el número predeterminado que Bing devuelve).
+
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limitación del número de resultados en la respuesta
 
-Bing incluye resultados en la respuesta en función de la clasificación. Por ejemplo, si consulta *navegar + barco*, Bing devuelve `webpages`, `images`, `videos`, y `relatedSearches`.
+Bing puede devolver varios tipos de respuesta en la respuesta JSON. Por ejemplo, si consulta *sailing+dinghies* (navegar+barco), Bing devuelve `webpages`, `images`, `videos` y `relatedSearches`.
 
 ```json
 {

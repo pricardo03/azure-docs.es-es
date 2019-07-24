@@ -2,17 +2,17 @@
 title: 'Conceptos: almacenamiento en Azure Kubernetes Service (AKS)'
 description: Obtenga información sobre el almacenamiento en Azure Kubernetes Service (AKS), incluidos los volúmenes, los volúmenes persistentes, las clases de almacenamiento y las notificaciones
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: eb9141d363bdb09b5773f80dfc5a1c4b9b92728f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60466824"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615806"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -121,22 +121,22 @@ spec:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para consultar los procedimientos recomendados, vea [Procedimientos recomendados para el almacenamiento y las copias de seguridad en AKS][operator-best-practices-storage].
+Para consultar los procedimientos recomendados asociados, consulte [Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)][operator-best-practices-storage].
 
 Para ver cómo crear volúmenes dinámicos y estáticos que usen Azure Disks o Azure Files, consulte los artículos de procedimientos siguientes:
 
-- [Create a static volume using Azure Disks][aks-static-disks] (Crear un volumen estático con Azure Disks)
-- [Create a static volume using Azure Files][aks-static-files] (Crear un volumen estático con Azure Files)
-- [Create a dynamic volume using Azure Disks][aks-dynamic-disks] (Crear un volumen dinámico con Azure Disks)
-- [Create a dynamic volume using Azure Files][aks-dynamic-files] (Crear un volumen dinámico con Azure Files)
+- [Creación de un volumen estático con Azure Disks][aks-static-disks]
+- [Creación de un volumen estático con Azure Files][aks-static-files]
+- [Creación de un volumen dinámico con Azure Disks][aks-dynamic-disks]
+- [Creación de un volumen dinámico con Azure Files][aks-dynamic-files]
 
 Para obtener más información sobre los conceptos básicos de Kubernetes y AKS, consulte los artículos siguientes:
 
-- [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads] (Clústeres y cargas de trabajo de Kubernetes/AKS)
-- [Kubernetes / AKS identity][aks-concepts-identity] (Identidad de Kubernetes/AKS)
-- [Kubernetes / AKS security][aks-concepts-security] (Seguridad de Kubernetes/AKS)
-- [Kubernetes / AKS virtual networks][aks-concepts-network] (Redes virtuales de Kubernetes/AKS)
-- [Kubernetes / AKS scale][aks-concepts-scale] (Escala de Kubernetes/AKS)
+- [Clústeres y cargas de trabajo de Kubernetes/AKS][aks-concepts-clusters-workloads]
+- [Identidad de Kubernetes/AKS][aks-concepts-identity]
+- [Seguridad de Kubernetes/AKS][aks-concepts-security]
+- [Redes virtuales de Kubernetes/AKS][aks-concepts-network]
+- [Escala de Kubernetes/AKS][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 

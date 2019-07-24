@@ -1,11 +1,11 @@
 ---
 ms.openlocfilehash: 6d6886996d926ce778600dfa1d69caaa1c7ac004
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110509"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186036"
 ---
-## <a name="pause-reset-or-stop-the-session"></a>Pausar, restablecer o detener la sesión
+## <a name="pause-reset-or-stop-the-session"></a>Pausa, restablecimiento o detención de la sesión
 
-Para detener la sesión temporalmente, puede invocar `Stop()`. Si lo hace, se detendrán los monitores y procesamiento de entorno, incluso si se invoca ProcessFrame(). A continuación, puede invocar `Start()` para reanudar el procesamiento. Cuando se reanuda, se mantienen los datos de entorno ya está capturados en la sesión.
+Para detener la sesión temporalmente, puede invocar `Stop()`. Si lo hace, se detendrán los monitores y el procesamiento de entorno, incluso si invoca ProcessFrame(). Puede invocar `Start()` para reanudar el procesamiento. Cuando se reanude, se conservarán los datos del entorno que ya se hayan capturado en la sesión.

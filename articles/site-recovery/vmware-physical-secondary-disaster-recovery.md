@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 9a1cb63bd2a209c72af608d23515723a63b180e1
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66417732"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos locales en un sitio secundario
@@ -159,7 +159,7 @@ Scout Update 7 es un instalador completo que se puede usar para una instalación
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Actualización manual para PHP y MySQL en CS, PS y RX
 La plataforma de scripting PHP debe actualizarse a la versión 7.2.10 en el servidor de configuración, el servidor de procesos y el servidor RX.
 El sistema de administración de bases de datos de MySQL debe actualizarse a la versión 5.7.23 en el servidor de configuración, el servidor de procesos y el servidor RX.
-Siga los pasos manuales indicados el [Guía de instalación rápida](https://aka.ms/asr-scout-quick-install-guide) para actualizar las versiones PHP y MySQL.
+Siga los pasos manuales de la [guía de instalación rápida](https://aka.ms/asr-scout-quick-install-guide) para actualizar las versiones PHP y MySQL.
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
 Actualizado: 12 de octubre de 2017
@@ -188,7 +188,7 @@ Descargue el archivo .zip de la [actualización](https://aka.ms/asr-scout-update
 - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
 - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- Actualización de UA de 4 bits para RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS > _8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- Actualización de UA de 4 bits para RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   1. Extraiga los archivos .zip.
   2. **Servidor de RX**: copie **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** en el servidor RX y extráigalo. En la carpeta extraída, ejecute **/Install**.
   3. **Servidor de configuración y servidor de procesos**: copie **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** en el servidor de configuración y el servidor de procesos. Haga doble clic para ejecutarlo.<br>

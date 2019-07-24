@@ -7,10 +7,10 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: 28a4cc854842b66a9fb61134e3ca9ac9a5f38fed
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965611"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comunes de Azure Cosmos DB
@@ -108,7 +108,7 @@ O bien, si desea leer más acerca de los usuarios que emplean Cosmos DB, tiene a
 * [Citrix](https://customers.microsoft.com/story/citrix). Citrix desarrolla una solución de inicio de sesión único con Azure Service Fabric y Azure Cosmos DB
 * [TEXA](https://customers.microsoft.com/story/texaspa) La revolucionaria solución IoT de TEXA para propietarios de vehículos permite ahorrar tiempo, dinero y combustible... y posiblemente salvar vidas.
 * [Domino's Pizza](https://www.dominos.com). Domino's Pizza Inc. es una cadena de pizzerías de Estados Unidos.
-* [Johnson Controls](https://www.johnsoncontrols.com). Johnson Controls es una tecnología diversificada global varios líder y una amplia gama de clientes en más de 150 países o regiones.
+* [Johnson Controls](https://www.johnsoncontrols.com). Johnson Controls es un líder en tecnología diversificada y de varios sectores a nivel mundial, con una gran variedad de clientes en más de 150 países o regiones.
 * [Microsoft Windows, Universal Store, Azure IoT Hub, Xbox Live y otros servicios a escala de Internet](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Cómo Microsoft compila de forma masiva servicios escalables con Azure Cosmos DB.
 * [Equipo de Datos y análisis de Microsoft](https://customers.microsoft.com/story/microsoftdataandanalytics). El equipo de Datos y análisis de Microsoft alcanza una colección de macrodatos a escala mundial con Azure Cosmos DB
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha usa Azure Cosmos DB para conectar a clientes y empresa en la India.

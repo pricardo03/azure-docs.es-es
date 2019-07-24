@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304293"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Dominios de eventos para administrar temas de Event Grid
@@ -47,7 +47,7 @@ RBAC en dominios de eventos funciona del mismo modo que lo hace el [control de a
 
 ### <a name="built-in-roles"></a>Roles integrados
 
-Event Grid tiene dos definiciones de roles integradas que facilitan el trabajo de RBAC con dominios de eventos. Estos roles son los de **colaborador de EventGrid EventSubscription (versión preliminar)** y **lector de EventGrid EventSubscription (versión preliminar)** . Estos roles se asignan a los usuarios que necesitan suscribirse a temas en el dominio de eventos. Definir el ámbito de la asignación de roles al tema es necesario suscribirse a los usuarios.
+Event Grid tiene dos definiciones de roles integradas que facilitan el trabajo de RBAC con dominios de eventos. Estos roles son los de **colaborador de EventGrid EventSubscription (versión preliminar)** y **lector de EventGrid EventSubscription (versión preliminar)** . Estos roles se asignan a los usuarios que necesitan suscribirse a temas en el dominio de eventos. El ámbito de la asignación de roles se limita a solo el tema al que necesitan suscribirse los usuarios.
 
 Para información sobre estos roles, consulte [Roles integrados para Event Grid](security-authentication.md#built-in-roles).
 
@@ -97,18 +97,18 @@ Por ejemplo, la siguiente matriz de eventos de publicación enviará eventos con
 Los dominios de eventos controlan la publicación de temas por usted. En lugar de publicar los eventos en cada tema que administra individualmente, puede publicar todos los eventos en el punto de conexión del dominio. Event Grid garantiza que cada evento se envía al tema correcto.
 
 ## <a name="limits-and-quotas"></a>Límites y cuotas
-Estos son los límites y cuotas de dominios de evento:
+Estos son los límites y cuotas relacionados con los dominios de eventos:
 
-- 100.000 temas por dominio de eventos 
-- 100 dominios de evento por suscripción de Azure 
-- 500 suscripciones por tema en un dominio de eventos a eventos
-- 50 suscripciones de ámbito de dominio 
-- 5000 eventos por segundo tasa de ingesta (en un dominio)
+- 100 000 temas por dominio de eventos 
+- 100 dominios de eventos por suscripción de Azure 
+- 500 suscripciones a eventos por tema en un dominio de eventos
+- 50 suscripciones del ámbito de dominio 
+- 5000 eventos por tasa de ingesta por segundo (en un dominio)
 
-Si estos límites no se adaptan a, en contacto con el equipo del producto, abra una incidencia de soporte técnico o envíe un correo electrónico a [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com). 
+Si estos límites no son los adecuados para usted, póngase en contacto con el equipo del producto. Para ello, abra una incidencia de soporte técnico o envíe un correo electrónico a [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com). 
 
 ## <a name="pricing"></a>Precios
-Dominios de eventos utilizan el mismo [operaciones precios](https://azure.microsoft.com/pricing/details/event-grid/) que usan todas las demás características de Event Grid.
+Los dominios de eventos usan el mismo [precio por operaciones](https://azure.microsoft.com/pricing/details/event-grid/) que el resto de características de Event Grid.
 
 Las operaciones funcionan igual en dominios de eventos que en temas personalizados. Cada entrada de un evento a un dominio de eventos es una operación, y cada intento de entrega de un evento es una operación.
 

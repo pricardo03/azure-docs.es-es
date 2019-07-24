@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a03a1224451411617f38c8cecafbef008aa08916
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66124235"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276204"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extracción de nombres con una lista de entidades simples y frases
 
@@ -58,7 +58,7 @@ Fíjese en las siguientes expresiones de un bot de chat:
 |Submit my resume for the engineering position.|engineering|
 |Fill out application for job 123456|123456|
 
-El nombre del trabajo es difícil de determinar porque un nombre puede ser un sustantivo, un verbo o una frase de varias palabras. Por ejemplo: 
+El nombre del trabajo es difícil de determinar porque un nombre puede ser un sustantivo, un verbo o una frase de varias palabras. Por ejemplo:
 
 |Trabajos|
 |--|
@@ -229,7 +229,7 @@ Abra el archivo [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitiv
 
 1. Seleccione **Create new phrase list** (Crear lista de frases). 
 
-1. Asigne un nombre a la nueva lista de frases `JobNames` y copie la lista del archivo jobs-phrase-list.csv en el cuadro de texto **Values**. Seleccione ENTRAR. 
+1. Asigne un nombre a la nueva lista de frases `JobNames` y copie la lista del archivo jobs-phrase-list.csv en el cuadro de texto **Values**.
 
     [![Captura de pantalla donde se muestra el cuadro de diálogo para crear una nueva lista de frases](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -237,7 +237,7 @@ Abra el archivo [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitiv
 
     Asegúrese de mantener activada la opción **These values are interchangeable** (Estos valores son intercambiables) porque estos valores deben tratarse como sinónimos de los trabajos. Más información sobre los [conceptos de la lista de frases](luis-concept-feature.md#how-to-use-phrase-lists) intercambiables y no intercambiables.
 
-1. Seleccione **Save** (Guardar) para activar la lista de frases.
+1. Seleccione **Done** (Listo) para activar la lista de frases.
 
     [![Captura de pantalla donde se muestra el cuadro de diálogo para crear una lista de frases que contiene palabras en el cuadro de valores de la lista de frases](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 

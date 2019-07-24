@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/14/2019
+ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734648"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147930"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
@@ -122,6 +122,9 @@ Las réplicas se crean con la misma configuración de servidor que el servidor m
 PostgreSQL requiere que el valor del parámetro `max_connections` en la réplica de lectura sea mayor o igual que el valor principal; en caso contrario, no se iniciará la réplica. En Azure Database for PostgreSQL, el valor del parámetro `max_connections` se basa en la SKU. Para obtener más información, consulte el artículo de [límites de Azure Database for PostgreSQL](concepts-limits.md). 
 
 Si trata de actualizar los valores del servidor, pero no cumple los límites, recibirá un error.
+
+### <a name="maxpreparedtransactions"></a>max_prepared_transactions
+[PostgreSQL requiere](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) que el valor del parámetro `max_prepared_transactions` en la réplica de lectura sea mayor o igual que el valor principal; en caso contrario, no se iniciará la réplica. Si quiere cambiar `max_prepared_transactions` en el servidor maestro, primero cámbielo en las réplicas.
 
 ### <a name="stopped-replicas"></a>Réplicas detenidas
 Si decide detener la replicación entre un servidor maestro y una réplica de lectura, esta se reiniciará para aplicar el cambio. La réplica detenida se convierte en un servidor independiente que acepta las lecturas y escrituras. Este servidor independiente no puede volver a convertirse en una réplica.

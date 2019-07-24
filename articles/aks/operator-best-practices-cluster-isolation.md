@@ -2,17 +2,17 @@
 title: 'Procedimientos recomendados del operador: aislamiento de clústeres en Azure Kubernetes Service (AKS)'
 description: Obtenga más información acerca de los procedimientos recomendados del operador de clústeres para el aislamiento en Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 8150e184f0c7533d5a6e7e4847bf126206f5e6c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465313"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614926"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el aislamiento de clústeres en Azure Kubernetes Service (AKS)
 
@@ -28,17 +28,17 @@ Este artículo de procedimientos recomendados se centra en el aislamiento de los
 
 Kubernetes proporciona características que permiten aislar de forma lógica los equipos y las cargas de trabajo en el mismo clúster. El objetivo debería consistir en proporcionar el menor número de privilegios, con el ámbito definido según los recursos que necesita cada equipo. Un [espacio de nombres][k8s-namespaces] en Kubernetes crea un límite de aislamiento lógico. Las características y consideraciones adicionales de Kubernetes para el aislamiento y la arquitectura multiempresa incluyen las siguientes áreas:
 
-* La **programación** incluye el uso de características básicas, como las cuotas de recursos y los presupuestos de interrupciones del pod. Para obtener más información acerca de estas características, consulte [Best practices for basic scheduler features in AKS][aks-best-practices-scheduler] (Procedimientos recomendados para las características básicas del programador en AKS).
-  * Las características más avanzadas del programador incluyen manchas y tolerancias, selectores de nodo y afinidad o falta de afinidad del nodo y el pod. Para obtener más información acerca de estas características, consulte [Best practices for advanced scheduler features in AKS][aks-best-practices-advanced-scheduler] (Procedimientos recomendados para las características avanzadas del programador en AKS).
+* La **programación** incluye el uso de características básicas, como las cuotas de recursos y los presupuestos de interrupciones del pod. Para más información acerca de estas características, consulte [Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)][aks-best-practices-scheduler].
+  * Las características más avanzadas del programador incluyen manchas y tolerancias, selectores de nodo y afinidad o falta de afinidad del nodo y el pod. Para más información acerca de estas características, consulte [Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)][aks-best-practices-advanced-scheduler].
 * Las **redes** incluyen el uso de directivas de red para controlar el flujo de tráfico de entrada y salida de pods.
-* La **autenticación y autorización** incluyen el uso del control de acceso basado en rol (RBAC) y la integración de Azure Active Directory (AD), las identidades de pods y los secretos de Azure Key Vault. Para obtener más información acerca de estas características, consulte [Best practices for authentication and authorization in AKS][aks-best-practices-identity]. (Procedimientos recomendados para la autenticación y autorización en AKS).
+* La **autenticación y autorización** incluyen el uso del control de acceso basado en rol (RBAC) y la integración de Azure Active Directory (AD), las identidades de pods y los secretos de Azure Key Vault. Para más información sobre estas características, consulte [Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)][aks-best-practices-identity].
 * Los **contenedores** incluyen directivas de seguridad de pods, contextos de seguridad de pods, análisis de imágenes y entornos de ejecución para las vulnerabilidades. Esto también implica el uso de AppArmor o Seccomp (informática segura) para restringir el acceso del contenedor al nodo subyacente.
 
 ## <a name="logically-isolate-clusters"></a>Aislamiento de clústeres de forma lógica
 
 **Guía de procedimientos recomendados**: use el aislamiento lógico para separar los equipos y los proyectos. Intente minimizar el número de clústeres físicos de AKS que implementa para aislar los equipos o las aplicaciones.
 
-Con el aislamiento lógico, un único clúster de AKS puede utilizarse para varios entornos, equipos o cargas de trabajo. Los [espacios de nombres][k8s-namespaces] de Kubernetes forman el límite de aislamiento lógico de cargas de trabajo y recursos.
+Con el aislamiento lógico, un único clúster de AKS puede utilizarse para varios entornos, equipos o cargas de trabajo. Los [espacios de nombres][k8s-namespaces] de Kubernetes forman el límite de aislamiento lógico para las cargas de trabajo y los recursos.
 
 ![Aislamiento lógico de un clúster de Kubernetes en AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
@@ -60,9 +60,9 @@ Los clústeres físicamente independientes suelen tener una densidad de pods baj
 
 Este artículo se centra en el aislamiento de clústeres. Para obtener más información acerca de las operaciones de clúster en AKS, consulte los siguientes procedimientos recomendados:
 
-* [Basic Kubernetes scheduler features][aks-best-practices-scheduler] (Características básicas de programadores de Kubernetes)
-* [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler] (Características avanzadas de programadores de Kubernetes)
-* [Authentication and authorization][aks-best-practices-identity] (Autenticación y autorización)
+* [Características básicas del programador de Kubernetes][aks-best-practices-scheduler]
+* [Características avanzadas del programador de Kubernetes][aks-best-practices-advanced-scheduler]
+* [Autenticación y autorización][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->
 

@@ -9,20 +9,17 @@ ms.topic: tutorial
 ms.date: 06/05/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 61569159d83493bb5338f8eda5b9201ef9164143
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: ba1ec821bd25e3b9f4479c3d09fdf5ab981ab0a7
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734580"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305508"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Creación de una aplicación de consola de Node.js con el SDK de JavaScript para administrar los datos de SQL API de Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET (versión preliminar)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core (versión preliminar)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -102,7 +99,7 @@ Ahora que existe la aplicación, se debe asegurar de que se puede comunicar con 
 
    El SDK de JavaScript usa los términos genéricos de *contenedor* y *elemento*. Un contenedor puede ser una colección, un grafo o una tabla. Un elemento puede ser un documento, un vértice o borde, o una fila, y es el contenido que hay en un contenedor. 
    
-   `module.exports = config;` código emitido para exportar el objeto ```config```, con el fin de que pueda hacer referencia a él en el archivo ```app.js```.
+   El código `module.exports = config;` se usa para exportar el objeto ```config```, con el fin de que pueda hacer referencia a él en el archivo ```app.js```.
 
 ## <a id="Connect"></a>Conexión a una cuenta de Azure Cosmos DB
 
@@ -130,8 +127,9 @@ Ahora que existe la aplicación, se debe asegurar de que se puede comunicar con 
 > [!Note]
 > Si se conecta al **emulador de Cosmos DB**, deshabilite la comprobación de SSL mediante la creación de una directiva de conexión personalizada.
 >   ```
->   const connectionPolicy = new cosmos.ConnectionPolicy ()
->   connectionPolicy.DisableSSLVerification = true
+>   const ConnectionPolicy = require('@azure/cosmos').ConnectionPolicy;
+>   const connectionPolicy = new ConnectionPolicy();
+>   connectionPolicy.DisableSSLVerification = true;
 >
 >   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey }, connectionPolicy });
 >   ```
@@ -383,7 +381,7 @@ Para crear un contenedor se pueden usar las funciones `createIfNotExists` o crea
 
 Para crear un elemento se puede usar la función create de la clase **Items**. Cuando se usa SQL API, los elementos se proyectan como documentos, que son contenido JSON (arbitrario) definido por el usuario. Ahora puede insertar un elemento en Azure Cosmos DB.
 
-1. Copie y pegue la función **createFamilyItem** debajo de la función **readContainer**. La función **createFamilyItem** crea los elementos que contienen los datos JSON guardados en el objeto ```config```. Vamos a asegurarnos de que un elemento con el mismo identificador no existe antes de crearlo.
+1. Copie y pegue la función **createFamilyItem** debajo de la función **readContainer**. La función **createFamilyItem** crea los elementos que contienen los datos JSON guardados en el objeto ```config```. Vamos a asegurarnos de que no existe un elemento con el mismo identificador antes de crearlo.
 
    ```javascript
    /**

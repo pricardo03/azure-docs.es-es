@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: b9f7a5332c8529753f2e22efd6af3d04cb3f44b6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: a5881bea578f2791f8dc0d6e760fd15c6f47e435
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479753"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593262"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP específicos de Verizon para el motor de reglas de Azure CDN
 
@@ -27,7 +27,7 @@ En el caso de los productos de **Azure CDN Premium de Verizon**, cuando se enví
 
 Si desea impedir que se agregue uno de estos encabezados reservados en la solicitud POP de Azure CDN (Content Delivery Network) al servidor de origen, deberá crear una regla con la [característica Encabezados de proxy especiales](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) en el motor de reglas. En esta regla, excluya el encabezado que desee quitar de la lista predeterminada de encabezados del campo correspondiente. Si ha habilitado la [característica Depurar encabezados de respuesta de la caché](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), no olvide agregar los encabezados `X-EC-Debug` necesarios. 
 
-Por ejemplo, para quitar el `Via` encabezado, el campo de encabezados de la regla debe incluir la siguiente lista de encabezados: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
+Por ejemplo, para quitar el encabezado `Via`, el campo de encabezados de la regla debe incluir la siguiente lista de encabezados: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
 
 ![Regla de encabezados de proxy especiales](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
@@ -41,7 +41,7 @@ X-Forwarded-Proto | Indica el protocolo de la solicitud. | http
 X-Host | Indica el nombre de host de la solicitud. | cdn.mydomain.com
 X-Midgress | Indica si la solicitud se redirigió mediante un proxy a través de un servidor de CDN adicional. Por ejemplo, un servidor POP de escudo de servidor a origen o un servidor POP de puerta de enlace de servidor a ADN. <br />Este encabezado se agrega a la solicitud solo cuando tiene lugar el tráfico de midgress. En este caso, el encabezado se establece en 1 para indicar que la solicitud se redirigió mediante un proxy a través de un servidor de CDN adicional.| 1
 [Host](#host-request-header) | Identifica el host y el puerto en los que se puede encontrar el contenido solicitado. | marketing.mydomain.com:80
-[X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifica la lista de conmutación por error de servidores de puerta de enlace de ADN asignados a un origen de cliente. <br />Escudo de origen: Indica el conjunto de servidores de escudo de origen asignados a un origen de cliente. | `icn1,hhp1,hnd1`
+[X-Gateway-List](#x-gateway-list-request-header) | ADN: identifica la lista de conmutaciones por error de los servidores de puerta de enlace de ADN asignados a un origen de cliente. <br />Escudo de origen: indica el conjunto de servidores de escudo de origen asignados a un origen de cliente. | `icn1,hhp1,hnd1`
 X-EC- _&lt;name&gt;_ | Los encabezados de solicitud que comienzan por *X-EC* (por ejemplo, X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) están reservados para su uso por la CDN.| waf-production
 
 ## <a name="via-request-header"></a>Encabezado de solicitud Via
@@ -50,9 +50,9 @@ El formato a través del cual el encabezado de solicitud `Via` identifica un ser
 `Via: Protocol from Platform (POP/ID)` 
 
 Los términos que se usan en la sintaxis se definen de la siguiente manera:
-- Protocolo: Indica la versión del protocolo (por ejemplo, HTTP/1.1) que usa para proxy la solicitud. 
+- Protocolo: indica la versión del protocolo (por ejemplo, HTTP/1.1) que se usa para redirigir mediante proxy la solicitud. 
 
-- Plataforma: Indica la plataforma en la que se solicitó el contenido. Los códigos siguientes son válidos para este campo: 
+- Plataforma: indica la plataforma en la que se solicitó el contenido. Los códigos siguientes son válidos para este campo: 
 
     Código | Plataforma
     -----|---------
@@ -60,7 +60,7 @@ Los términos que se usan en la sintaxis se definen de la siguiente manera:
     ECS   | HTTP pequeño
     ECD   | Red de entrega de aplicaciones (ADN)
 
-- POP: Indica el [POP](cdn-pop-abbreviations.md) que procesó la solicitud. 
+- POP: indica el servidor [POP](cdn-pop-abbreviations.md) que procesó la solicitud. 
 
 - Id.: Solo para uso interno.
 

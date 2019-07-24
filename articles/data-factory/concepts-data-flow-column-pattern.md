@@ -1,23 +1,23 @@
 ---
 title: Patrones de columna de Azure Data Factory Mapping Data Flow
-description: Aprenda a usar patrones de columnas de factoría de datos de Azure en asignación de flujo de datos para crear patrones de plantilla generalizada para transformar los campos en un flujo de datos sin tener en cuenta los metadatos subyacentes de esquema
+description: Obtenga información sobre cómo usar los patrones de columna de Azure Data Factory en Mapping Data Flow para crear patrones de plantilla generalizados a fin de transformar los campos de un flujo de datos sin tener en cuenta los metadatos del esquema subyacentes.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430759"
 ---
-# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Patrones de columnas de flujos de datos de asignación de Azure data factory
+# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Patrones de columna de Azure Data Factory Mapping Data Flow
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Varias transformaciones de Azure Data Factory Data Flow admiten la idea de "Patrones de columnas" para que pueda crear columnas de plantilla basadas en patrones, en lugar de nombres de columna codificados de forma rígida. Puede usar esta característica en el generador de expresiones para definir los patrones para que coincida con las columnas para la transformación en lugar de requerir nombres de campo específico, exacto. Patrones son útiles si los campos de origen entrante cambian con frecuencia, especialmente en el caso de cambio de columnas en los archivos de texto o bases de datos NoSQL. Esta condición se conoce a veces como "Desviación en el esquema".
+Varias transformaciones de Azure Data Factory Data Flow admiten la idea de "Patrones de columnas" para que pueda crear columnas de plantilla basadas en patrones, en lugar de nombres de columna codificados de forma rígida. Esta característica se puede usar en Generador de expresiones para definir patrones que coinciden con las columnas para la transformación, en lugar de requerir nombres de campo específicos y exactos. Los patrones son útiles si los campos de origen de entrada cambian a menudo, en concreto en el caso de que cambien columnas en archivos de texto o bases de datos NoSQL. A veces esta condición se denomina "Desviación en el esquema".
 
 ![patrones de columna](media/data-flow/columnpattern2.png "Column Patterns")
 
@@ -27,6 +27,6 @@ Cuando agregue una expresión a una transformación que acepta patrones, elija "
 
 Al crear patrones de las columnas de la plantilla, use `$$` en la expresión para representar una referencia a cada campo coincidente desde el flujo de datos de entrada.
 
-Si decide usar una de las funciones de expresión regular del generador de expresiones,, a continuación, puede usar posteriormente $1, 2 $, $3... Para hacer referencia a los subpatrones coincidentes desde la expresión regex.
+Si elige usar una de las funciones de expresión regular del Generador de expresiones, posteriormente podrá usar $1, $2, $3... para hacer referencia a los patrones secundarios que coinciden con su expresión regular.
 
-Un ejemplo de escenario de patrón de columnas usa SUM con una serie de campos de entrada. Los cálculos de SUM de agregados se encuentran en la transformación Agregado. A continuación, puede usar suma en cada coincidencia de tipos de campo que coincide con "integer" y, a continuación, utilice $$ para hacer referencia a cada coincidencia en la expresión.
+Un ejemplo de escenario de patrón de columnas usa SUM con una serie de campos de entrada. Los cálculos de SUM de agregados se encuentran en la transformación Agregado. Posteriormente puede usar SUM en todas las coincidencias de tipos de campos que coincidan con "integer" y, después, usar $$ para hacer referencia a cada coincidencia en la expresión.

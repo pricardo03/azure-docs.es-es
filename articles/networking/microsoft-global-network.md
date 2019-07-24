@@ -1,6 +1,6 @@
 ---
 title: 'Red global de Microsoft: Azure'
-description: Describe cómo Microsoft compila su red global rápida y confiable
+description: Se describe cómo crea Microsoft su red global rápida y confiable
 services: networking
 documentationcenter: ''
 author: KumudD
@@ -10,62 +10,64 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 06/13/2019
 ms.author: ypitsch,kumud
-ms.openlocfilehash: 99650577b17874e61d1cede979d7ef2f4bfd491b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: ecce41878f7579862bba083f8cecf5db3cbde3e6
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247295"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144149"
 ---
 # <a name="microsoft-global-network"></a>Red global de Microsoft
 
-Microsoft posee y administra una de las redes de la red troncal más grandes del mundo. Esta arquitectura global y sofisticada, que abarca más de 100.000 millas, conecta a nuestros centros de datos y los clientes. 
+Microsoft posee y opera una de las mayores redes troncales del mundo. Esta arquitectura global y sofisticada, que abarca más de 100.000 millas, conecta nuestros centros de datos y clientes. 
  
-Cada día, los clientes en todo el mundo conexión y pasan billones de solicitudes a Microsoft Azure, Bing, Dynamics 365, Office 365, XBox y muchos otros. Independientemente del tipo, los clientes esperan instantánea confiabilidad y capacidad de respuesta de nuestros servicios. 
+Cada día, clientes de todo el mundo se conectan y pasan billones de solicitudes a Microsoft Azure, Bing, Dynamics 365, Office 365, XBox y muchos otros. Con independencia del tipo, los clientes esperan la confiabilidad y capacidad de respuesta instantánea de nuestros servicios. 
  
-El [red global de Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) es una parte fundamental de ofrecer una experiencia excelente en la nube. Conexión de nuestra Microsoft [centros de datos](https://azure.microsoft.com/global-infrastructure/) en 54 regiones de Azure y grande malla de nodos perimetrales de estratégicamente en todo el mundo, nuestra red global ofrece tanto la disponibilidad, capacidad y la flexibilidad para satisfacer cualquier demanda.
+La [red global de Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) es una parte fundamental de la oferta de una experiencia de nube excelente. Nuestra red global, que conecta los [centros de datos](https://azure.microsoft.com/global-infrastructure/) de Microsoft en 54 regiones de Azure y una gran red de nodos perimetrales estratégicamente ubicados en todo el mundo, ofrece la disponibilidad, capacidad y flexibilidad para satisfacer cualquier demanda.
 
 ![Red global de Microsoft](./media/microsoft-global-network/microsoft-global-wan.png)
  
-## <a name="get-the-premium-cloud-network"></a>Obtiene la red de la nube premium
+## <a name="get-the-premium-cloud-network"></a>Obtención de la red en la nube Premium
  
-Optar por la [mejor experiencia posible](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) es fácil cuando se usa en la nube de Microsoft. Desde el momento cuando entra el tráfico de cliente en nuestra red global a través de nuestro nodos perimetrales estratégicamente, los datos se viajan a través de rutas optimizadas en cerca de la velocidad de la luz. Esto garantiza una latencia óptimo para un mejor rendimiento. Estos nodos perimetrales, todos conectados entre sí a más de 3500 único Internet asociados (elementos del mismo nivel) a través de miles de conexiones en más de 145 ubicaciones, proporcionan la base de nuestra estrategia de interconexión. 
+Optar por la [mejor experiencia posible](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) es fácil cuando se usa la nube de Microsoft. Desde el momento en que el tráfico de cliente entra en nuestra red global a través de nuestros nodos perimetrales estratégicamente ubicados, los datos viajan a través de rutas optimizadas prácticamente a la velocidad de la luz. Esto garantiza una latencia óptima para obtener el mejor rendimiento. Estos nodos perimetrales, todos conectados entre sí a más de 3500 asociados de Internet únicos (homólogos) mediante miles de conexiones en más de 145 ubicaciones, proporcionan la base de nuestra estrategia de interconexión. 
  
-Si se conecta de Londres a Tokio o de Washington DC en Los Ángeles, rendimiento de la red es cuantificado y se ve afectado por cosas como latencia, vibración, pérdida de paquetes y el rendimiento.  En Microsoft, es preferible y uso directo interconexiones en lugar de vínculos de tránsito, esto evita que el tráfico de respuesta simétrico y ayuda a mantener saltos, emparejamiento de entidades y las rutas de acceso más corto y sencillo posible. Este enfoque premium, suele denominarse [frío patata enrutamiento](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), garantiza que los clientes de red sigue siendo el tráfico dentro de la red de Microsoft siempre y cuando sea posible antes de que se entregan.  
+Con independencia de que se conecte desde Londres a Tokio o desde Washington DC a Los Ángeles, el rendimiento de la red se cuantifica y se ve afectado por aspectos como la latencia, la vibración, la pérdida de paquetes y el rendimiento.  En Microsoft, se prefieren y usan interconexiones directas en lugar de conexiones de tránsito, lo que hace que el tráfico de respuesta sea simétrico y ayuda a reducir la duración y la complejidad de los saltos, las entidades de emparejamiento y las rutas de acceso. 
+
+Por ejemplo, si un usuario en Londres intenta acceder a un servicio de Tokio, el tráfico de Internet entra en uno de nuestros servidores perimetrales en Londres, recorre la WAN de Microsoft a través de Francia, nuestras rutas de acceso de Trans-Arabia entre Europa e India, y después llega a Japón, donde se hospeda el servicio. El tráfico de respuesta es simétrico. Esto se conoce a veces como [enrutamiento de patata fría](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), lo que significa que el tráfico permanece en la red de Microsoft el máximo tiempo posible antes de entregarlo.  
+  
+Por tanto, ¿se refiere a todo el tráfico cuando se usan los servicios de Microsoft? Sí, todo el tráfico entre centros datos, dentro de Microsoft Azure o entre los servicios de Microsoft, como máquinas virtuales, Office 365, XBox, bases de datos SQL, Storage y redes virtuales se enruta dentro de nuestra red mundial y nunca sobre Internet, para garantizar un rendimiento y una integridad óptimos.  
  
-Por lo tanto, ¿significa que cualquier tráfico al usar los servicios de Microsoft? Sí, los centros de todo el tráfico entre los datos, dentro de Microsoft Azure o entre los servicios de Microsoft, como las máquinas virtuales, Office 365, XBox, bases de datos SQL, almacenamiento, y se enrutan las redes virtuales dentro de nuestra red mundial y nunca a través de Internet, para garantizar una óptima rendimiento y la integridad.  
- 
-Grandes inversiones en capacidad de fibra y diversidad a través de rutas de acceso de metro, terrestre y submarino son fundamentales para que podamos mantener coherente y de alto nivel de servicio mientras las impulsando el crecimiento de extremo de la nube y servicios en línea. Son las adiciones recientes a nuestra red global nuestro [Ana](https://www.submarinecablemap.com/#/submarine-cable/marea) submarino cable, primero abrir línea del sistema (OLS del sector) a través de subsea entre Bilbao, España y Virginia Beach, Virginia, EE. UU., así como el [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1)entre Nueva York, Estados Unidos y Dublín, Irlanda y [New Cross del Pacífico (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) entre Tokio, Japón y Portland, Oregon, Estados Unidos. 
+Las grandes inversiones en capacidad de fibra y diversidad a través de rutas metropolitanas, terrestres y submarinas son fundamentales para poder mantener un alto nivel de servicio coherente al tiempo que se impulsa el crecimiento extremo de nuestros servicios en la nube y en línea. Las adiciones recientes a la red son nuestro cable submarino [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea), el primer sistema de líneas abiertas (OLS) submarino del sector (entre Bilbao, España y Virginia Beach, Virginia, EE. UU.), así como el [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) entre Nueva York, Estados Unidos y Dublín, Irlanda, y [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) entre Tokio, Japón y Portland, Oregon, Estados Unidos. 
  
 
-## <a name="our-network-is-your-network"></a>Nuestra red es la red
+## <a name="our-network-is-your-network"></a>Nuestra red es la suya
 
-Hemos creado dos décadas de experiencia, junto con grandes inversiones en la red garantizar un rendimiento óptimo en todo momento. Las empresas pueden aprovechar al máximo nuestros recursos de red y crear arquitecturas de superposición avanzadas en la parte superior. 
+Para garantizar un rendimiento óptimo en todo momento, hemos incluido en la red dos décadas de experiencia junto con grandes inversiones. Las empresas pueden aprovechar al máximo nuestros recursos de red sobre los que crear arquitecturas de superposición avanzadas. 
  
-Microsoft Azure ofrece la mayor cartera de servicios y capacidades, lo que permite a los clientes crear rápida y fácilmente, expanda y cumplan requisitos de red en cualquier lugar. Nuestra familia de servicios de conectividad abarcar el emparejamiento de redes virtuales entre regiones, híbridas y en la nube de punto a sitio y escenarios de tránsito de arquitecturas de sitio a sitio, así como IP global.  Para las empresas que desean conectarse a su propio centro de datos o la red en Azure o los clientes con necesidades de tránsito, o la ingesta de datos masivos [ExpressRoute](../expressroute/expressroute-introduction.md), y [ExpressRoute Direct](../expressroute/expressroute-erdirect-about.md) proporcionan opciones hasta 100 Gbps de ancho de banda, directamente en la red global de Microsoft en ubicaciones de emparejamiento en todo el mundo.  
+Microsoft Azure ofrece la mayor cartera de servicios y funciones, lo que permite a los clientes crear, expandir y cumplir los requisitos de red en cualquier lugar, de forma rápida y sencilla. Nuestra familia de servicios de conectividad abarca el emparejamiento de redes virtuales entre regiones, arquitecturas híbridas y de punto a sitio y de sitio a sitio en la nube, así como escenarios de tránsito IP globales.  Para las empresas que buscan conectar su propio centro de datos o red a Azure, o bien para los clientes con necesidades de tránsito o ingesta de datos masivos, [ExpressRoute](../expressroute/expressroute-introduction.md) y [ExpressRoute Direct](../expressroute/expressroute-erdirect-about.md) proporcionan opciones de hasta 100 Gbps de ancho de banda, directamente en la red global de Microsoft en ubicaciones de emparejamiento de todo el mundo.  
  
-[Alcance Global de ExpressRoute](../expressroute/expressroute-global-reach.md) está diseñado para complementar la implementación de WAN de su proveedor de servicios y conectar sus sitios locales en todo el mundo. Si ejecuta una operación global, se puede usar alcance Global de ExpressRoute junto con sus proveedores de servicios preferido y local para conectarse a todos los sitios globales con la red global de Microsoft. Expansión de la nueva red en la nube (WAN) para abarcar el gran número de sitios de sucursal puede realizarse a través de Azure red WAN Virtual, que ofrece la posibilidad de conectarse sin problemas sus ramas a red global de Microsoft con dispositivos SDWAN & VPN (es decir, Equipamiento para instalaciones de cliente o CPE) con integrados facilidad de uso y la administración de conectividad y la configuración automatizada. 
+[Global Reach de ExpressRoute](../expressroute/expressroute-global-reach.md) está diseñado para complementar la implementación de WAN de su proveedor de servicios y conectar los sitios locales en todo el mundo. Si ejecuta una operación global, puede usar Global Reach de ExpressRoute junto con sus proveedores de servicios locales preferidos para conectar todos los sitios globales mediante la red global de Microsoft. La expansión de la nueva red en la nube (WAN) para abarcar grandes números de sitios de sucursales se puede realizar a través de Azure Virtual WAN, que ofrece la posibilidad de conectar las sucursales sin problemas a la red global de Microsoft con dispositivos SDWAN y VPN (es decir, Equipo local del cliente o CPE) con facilidad de uso integrada y administración automatizada de la conectividad y la configuración. 
  
-[Emparejamiento de VNet global](../virtual-network/virtual-network-peering-overview.md) permite a los clientes conectarse sin problemas dos o más redes virtuales de Azure entre regiones. Una vez emparejadas, las redes virtuales aparecen como una sola. El tráfico entre máquinas virtuales en las redes virtuales emparejadas se enruta a través de la infraestructura de red troncal de Microsoft, gran parte como el tráfico se enruta entre máquinas virtuales en la misma red virtual: a través de direcciones IP privadas solo. 
+El [emparejamiento de VNet global](../virtual-network/virtual-network-peering-overview.md) permite a los clientes conectar sin problemas dos o más redes virtuales de Azure entre regiones. Una vez emparejadas, las redes virtuales aparecen como una sola. El tráfico entre las máquinas virtuales de las redes virtuales emparejadas se enruta a través de la infraestructura de la red troncal de Microsoft, de forma muy parecida al enrutamiento del tráfico entre máquinas virtuales de la misma red virtual únicamente a través de direcciones IP privadas. 
  
 
-## <a name="well-managed-using-software-defined-innovation"></a>Administrar correctamente con innovación definidas por software
+## <a name="well-managed-using-software-defined-innovation"></a>Administración correcta con innovación definida por software
 
-Ejecuta una de las nubes líderes en el mundo, Microsoft ha obtenido mucha información y experiencia en [crear y administrar](https://myignite.techcommunity.microsoft.com/sessions/66668) infraestructura global de alto rendimiento.  
+Con una de las nubes líderes a nivel mundial, Microsoft ha obtenido mucha información y experiencia sobre la [creación y administración](https://myignite.techcommunity.microsoft.com/sessions/66668) de una infraestructura global de alto rendimiento.  
  
-Se debe seguir un sólido conjunto de principios operativos: 
+Seguimos un conjunto sólido de principios operativos: 
  
-- Usar hardware de conmutación de mejor entre los distintos niveles de la red.  
-- Implementar nuevas características sin tener impacto en los usuarios finales.  
-- Implementar actualizaciones de forma segura y confiable a través de la flota, tan rápido como sea posible. Horas en lugar de semanas.  
-- Usar deep telemetría de escala de nube y automatizar completamente la mitigación de error.  
-- Usar tecnología de red unificada y definidas por software para controlar todos los elementos de hardware de la red.  Eliminar la duplicación y reducir los errores. 
+- Uso del mejor hardware de conmutación entre los distintos niveles de la red.  
+- Implementación de nuevas características sin impacto para los usuarios finales.  
+- Implementación de actualizaciones de forma segura y confiable en toda la flota, tan rápido como sea posible. Horas en lugar de semanas.  
+- Uso de telemetría profunda de escala de nube y mitigación de errores totalmente automatizada.  
+- Uso de tecnología de red unificada y definida por software para controlar todos los elementos de hardware de la red.  Eliminación de la duplicación y reducción de los errores. 
  
-Estos principios se aplican a todas las capas de la red: desde el host de la interfaz de red, el cambio de plataforma, las funciones en el centro de datos, como los equilibradores de carga, hasta llegar a la red WAN con nuestra plataforma de ingeniería de tráfico y nuestras redes ópticos de red.  
+Estos principios se aplican a todas las capas de la red: desde la interfaz de red del host, la plataforma de conmutación, las funciones del centro de datos como los equilibradores de carga, hasta llegar a la WAN con nuestra plataforma de ingeniería de tráfico y nuestras redes ópticas.  
  
-El crecimiento exponencial de Azure y su red ha alcanzado un punto donde finalmente comprendimos que la intuición humana podría ya no se puede confiar en administrar las operaciones de red global. Para satisfacer la necesidad de validar long, medio y cambios a corto plazo en la red, hemos desarrollado una plataforma para crear el reflejo y emular sintética nuestra red de producción. La capacidad de crear entornos reflejados y ejecutar millones de simulaciones, nos permite probar los cambios de hardware, software y su impacto, antes de confirmarlos en nuestra plataforma de producción y la red. 
+El crecimiento exponencial de Azure y su red ha alcanzado un punto donde finalmente hemos asumido que ya no es posible confiar en la intuición humana para administrar las operaciones de red globales. Para satisfacer la necesidad de validar los cambios en la red a corto, medio y largo plazo, hemos desarrollado una plataforma que imite de forma sintética nuestra red de producción. La capacidad de crear entornos reflejados y ejecutar millones de simulaciones nos permite probar los cambios de hardware y software y su impacto, antes de confirmarlos en nuestra plataforma y red de producción. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Más información sobre los servicios de red proporcionados en Azure](https://azure.microsoft.com/product-categories/networking/)

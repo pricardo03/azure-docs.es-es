@@ -17,17 +17,17 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873415"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual Linux con Accelerated Networking
 
 En este tutorial, obtendrá información sobre cómo crear una máquina virtual Linux con Accelerated Networking. Para crear una máquina virtual Windows con Accelerated Networking, consulte [Creación de una máquina virtual Windows con Accelerated Networking](create-vm-accelerated-networking-powershell.md). Accelerated Networking habilita la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual (VM), lo que mejora significativamente su rendimiento en la red. Este método de alto rendimiento omite el host de la ruta de acceso de datos, lo que reduce la latencia, la inestabilidad y la utilización de la CPU para usarse con las cargas de trabajo de red más exigentes en los tipos de máquina virtual admitidos. En la siguiente imagen, se muestra la comunicación entre dos máquinas virtuales (VM) con y sin Accelerated Networking:
 
-![Comparación](./media/create-vm-accelerated-networking/accelerated-networking.png)
+![De comparación](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
 Sin Accelerated Networking, todo el tráfico de red de entrada y salida de la máquina virtual tiene que atravesar el host y el conmutador virtual. El conmutador virtual se encarga de toda la aplicación de directivas, como grupos de seguridad de red, listas de control de acceso, aislamiento y otros servicios virtualizados de red, al tráfico de red. Para más información sobre los conmutadores virtuales, lea el artículo sobre [virtualización de red y conmutador virtual de Hyper-V](https://technet.microsoft.com/library/jj945275.aspx).
 
@@ -42,27 +42,27 @@ Las ventajas de Accelerated Networking solo se aplican a la máquina virtual don
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
 Se admiten las siguientes distribuciones de fábrica desde la galería de Azure: 
-* **Ubuntu 14.04 con el kernel de linux de azure**
+* **Ubuntu 14.04 con el kernel linux-azure**
 * **Ubuntu 16.04 o posterior** 
 * **SLES12 SP3 o posterior** 
 * **RHEL 7.4 o posterior**
-* **CentOS 7.4 o posteriores**
+* **CentOS 7.4 o posterior**
 * **CoreOS Linux**
 * **Debian "Stretch" con kernel backports**
-* **Oracle Linux 7.4 y posterior con Hat compatibles del Kernel (RHCK) de Red**
-* **Oracle Linux 7.5 y versiones posterior con UEK versión 5**
-* **FreeBSD 10.4, 11.1 & 12.0**
+* **Oracle Linux 7.4 y posterior con Red Hat Compatible Kernel (RHCK)**
+* **Oracle Linux 7.5 y posterior con UEK, versión 5**
+* **FreeBSD 10.4, 11.1 y 12.0**
 
 ## <a name="limitations-and-constraints"></a>Limitaciones y restricciones
 
 ### <a name="supported-vm-instances"></a>Instancias de máquina virtual admitidas
 Accelerated Networking se admite con la mayoría de los tamaños de instancia de uso general y optimizados para procesos de dos o más vCPU.  Estas series admitidas son: D/DSv2 y F/Fs
 
-En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de máquina virtual con cuatro o más vCPU. Las series admitidas son: D/Dsv3, Esv3/E, Fsv2, Lsv2, Ms/Mms y Ms/Mmsv2.
+En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de máquina virtual con cuatro o más vCPU. Las series admitidas son: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms y Ms/Mmsv2.
 
 Para más información sobre las instancias de máquinas virtuales, consulte [Tamaños de las máquinas virtuales Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="regions"></a>Regiones
+### <a name="regions"></a>Regions
 Está disponible en todas las regiones públicas de Azure y en las nubes de Azure Government.
 
 <!-- ### Network interface creation 
@@ -75,11 +75,11 @@ Las máquinas virtuales (clásicas) no se pueden implementar con Accelerated Net
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Creación de una máquina virtual Linux con Azure Accelerated Networking
 ## <a name="portal-creation"></a>Creación del portal
-Aunque en este artículo se explica cómo crear una máquina virtual con redes aceleradas mediante la CLI de Azure, también puede [crear una máquina virtual con redes aceleradas mediante Azure Portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Al crear una máquina virtual en el portal, en la **crear una máquina virtual** hoja, elija el **redes** ficha.  En esta pestaña, hay una opción para **redes aceleradas**.  Si ha elegido un [sistema operativo compatible](#supported-operating-systems) y [tamaño de máquina virtual](#supported-vm-instances), esta opción se rellenará automáticamente en "Activado".  Si no, que va a rellenar la opción "Off" para redes aceleradas y proporcionar al usuario un motivo por qué no puede habilitarla.   
+Aunque en este artículo se explica cómo crear una máquina virtual con redes aceleradas mediante la CLI de Azure, también puede [crear una máquina virtual con redes aceleradas mediante Azure Portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Al crear una máquina virtual en el portal, en la hoja **Crear una máquina virtual**, seleccione la pestaña **Redes**.  En esta pestaña hay una opción para **Redes aceleradas**.  Si ha seleccionado un [sistema operativo compatible](#supported-operating-systems) y un [tamaño de máquina virtual](#supported-vm-instances), esta opción se rellena automáticamente como "Activado".  Si no, se rellena la opción "Desactivado" para Redes aceleradas y se proporciona al usuario un motivo de por qué no están habilitadas.   
 
-* *Nota:* Solo los sistemas operativos compatibles se puede habilitar a través del portal.  Si usa una imagen personalizada y su imagen es compatible con redes aceleradas, cree la máquina virtual mediante la CLI o Powershell. 
+* *Nota:* Solo los sistemas operativos compatibles se pueden habilitar a través del portal.  Si usa una imagen personalizada y esta es compatible con Redes aceleradas, cree la máquina virtual mediante la CLI o PowerShell. 
 
-Una vez creada la máquina virtual, puede confirmar Accelerated Networking está habilitado, siga las instrucciones en el [confirme que las redes aceleradas esté habilitada](#confirm-that-accelerated-networking-is-enabled).
+Una vez creada la máquina virtual, puede confirmar que la opción Redes aceleradas está habilitada si sigue las instrucciones que se indican en [Confirmar que las redes aceleradas están habilitadas](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="cli-creation"></a>Creación de la CLI
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
@@ -225,9 +225,9 @@ vf_tx_dropped: 0
 ```
 Las redes aceleradas ya están habilitadas para su máquina virtual.
 
-## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Controlar el enlace dinámico y la revocación de la función virtual 
-Las aplicaciones deben ejecutarse a través de la NIC sintética que se expone en la máquina virtual. Si la aplicación se ejecuta directamente a través de la NIC de VF, no recibe **todas** paquetes que están destinadas a la máquina virtual, ya que algunos paquetes aparecen en la interfaz sintética.
-Si ejecuta una aplicación a través de la NIC sintética, garantiza que la aplicación recibe **todas** paquetes destinados a él. También se asegura que la aplicación sigue ejecutándose, incluso si se revoca el VF cuando el host está en mantenimiento. Las aplicaciones de enlace a la NIC sintética es un **obligatorio** requisito para todas las aplicaciones aprovechar **Accelerated Networking**.
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Control de la revocación y el enlace dinámicos de la función virtual 
+Las aplicaciones deben ejecutarse a través del NIC sintético que se expone en la máquina virtual. Si la aplicación se ejecuta directamente sobre el VF de NIC, no recibirá **todos** los paquetes destinados a la máquina virtual, ya que algunos paquetes se mostrarán sobre la interfaz sintética.
+Si ejecuta una aplicación a través del NIC sintético, garantiza que la aplicación recibe **todos** los paquetes que están destinados a él. También se asegura de que la aplicación sigue ejecutándose, incluso si se revoca el VF cuando el host está en mantenimiento. El enlace de aplicaciones al NIC sintético es un requisito **obligatorio** para todas las aplicaciones que usan **redes aceleradas**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Habilitación de Accelerated Networking en máquinas virtuales existentes
 Si ha creado una VM sin Accelerated Networking, es posible habilitar esta característica en una VM existente.  Para admitir Accelerated Networking, la VM debe cumplir los siguientes requisitos previos que también se han descrito anteriormente:

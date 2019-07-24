@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff766375dd9ad7cb3bbdf1ef686abb77d1206099
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400701"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797868"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>SDK de dispositivo IoT de Microsoft Azure para C: más información sobre IoTHubClient
 
@@ -264,7 +264,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Hay un par de opciones que se usan con frecuencia:
 
-* **SetBatching** (bool): si es **true**, los datos enviados al IoT Hub se envían en lotes. Si es **false**, los mensajes se envían individualmente. El valor predeterminado es **false**. Tenga en cuenta que la opción **SetBatching** solo se aplica al protocolo HTTPS y no a los protocolos MQTT o AMQP.
+* **SetBatching** (bool): si es **true**, los datos enviados al IoT Hub se envían en lotes. Si es **false**, los mensajes se envían individualmente. El valor predeterminado es **false**. Son compatibles tanto el procesamiento por lotes a través de AMQP/AMQP WS, como la adición de propiedades del sistema en los mensajes D2C.
 
 * **Tiempo de espera** (entero sin sino): este valor se representa en milisegundos. Si el envío de una solicitud HTTPS o la recepción de una respuesta supera este tiempo, la conexión agota el tiempo.
 

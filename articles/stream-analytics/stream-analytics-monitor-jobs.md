@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.openlocfilehash: 7be57733f9bb5936747c77aa06bde3397eb84fa1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66302897"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creación de supervisión de trabajos de Stream Analytics mediante programación
@@ -22,9 +22,9 @@ En este artículo se demuestra cómo habilitar la supervisión de un trabajo de 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar este proceso, debe tener los siguientes requisitos previos:
+Antes de comenzar con este proceso, debe cumplir los siguientes requisitos previos:
 
-* 2019 de Visual Studio o 2015
+* Visual Studio 2019 o 2015
 * [SDK de .NET para Azure](https://azure.microsoft.com/downloads/) descargado e instalado
 * Un trabajo de Stream Analytics existente que requiera la habilitación de supervisión
 
@@ -137,7 +137,7 @@ El código siguiente configurará las variables y los clientes de administració
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Habilitación de supervisión para un trabajo de Stream Analytics existente
 
-El código siguiente habilitará la supervisión de un trabajo de Stream Analytics **existente**. La primera parte del código realiza una solicitud GET en el servicio Stream Analytics para recuperar información sobre el trabajo de Stream Analytics en concreto. Usa el *ID* propiedad (recuperada de la solicitud GET) como un parámetro del método Put en la segunda mitad del código, que envía una operación PUT solicitud al servicio Insights para habilitar la supervisión del trabajo de Stream Analytics.
+El código siguiente habilitará la supervisión de un trabajo de Stream Analytics **existente**. La primera parte del código realiza una solicitud GET en el servicio Stream Analytics para recuperar información sobre el trabajo de Stream Analytics en concreto. Usa la propiedad *ID* (recuperada de la solicitud GET) como parámetro del método Put en la segunda mitad del código que envía una solicitud PUT al servicio Insights para habilitar la supervisión para el trabajo de Stream Analytics.
 
 > [!WARNING]
 > Si previamente ha habilitado la supervisión de otro trabajo de Stream Analytics, a través del Azure Portal o mediante programación con el siguiente código, **es recomendable proporcionar el mismo nombre de cuenta de almacenamiento que usó cuando habilitó anteriormente la supervisión.**

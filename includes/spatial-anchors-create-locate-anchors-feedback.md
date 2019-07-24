@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: 685d982835042aa4a697d19a650e8dcb1476b400
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110599"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186013"
 ---
-## <a name="provide-feedback-to-the-user"></a>Proporcionar comentarios al usuario
+## <a name="provide-feedback-to-the-user"></a>Envío de comentarios al usuario
 
-Puede escribir código para controlar el evento de sesión actualizado. Este evento se desencadena cada vez que la sesión mejora su comprensión de su entorno. Al hacerlo, le permite:
+Puede escribir código para controlar el evento actualizado de la sesión. Este evento se desencadena cada vez que la sesión mejora su capacidad de reconocimiento del entorno. Esto le permite hacer lo siguiente:
 
-- Proporcionar comentarios al usuario como el dispositivo se mueve y la sesión actualiza su comprensión del entorno.
-- Determinar en qué punto ha suficiente realiza un seguimiento de los datos espaciales para crear o localizar los anclajes espaciales: se obtendrá más información en un paso posterior.
+- Proporcionar comentarios al usuario a medida que el dispositivo se mueve y la sesión actualiza su capacidad de reconocimiento del entorno.
+- Determinar en qué momento hay suficientes datos espaciales de seguimiento para crear o localizar anclajes espaciales. Obtendrá más información al respecto en un paso posterior.

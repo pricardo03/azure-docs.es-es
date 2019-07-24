@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: a88451403f242c39212c80e3c7425a901c6819cc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 67925f2123f2a4f2524002eb075754c38fad4b42
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118983"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Protección del acceso a un almacén de claves
 
@@ -53,12 +53,12 @@ En la siguiente tabla se muestran los puntos de conexión para los planos de adm
 
 | Plano de&nbsp;acceso | Puntos de conexión de acceso | Operaciones | Mecanismo de&nbsp;control de acceso |
 | --- | --- | --- | --- |
-| Plano de administración | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure Gobierno de EE. UU.:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br>  management.microsoftazure.de:443 | Crear, leer, actualizar y eliminar almacenes de claves<br><br>Establecer directivas de acceso de Key Vault<br><br>Establecer etiquetas de Key Vault | RBAC de Azure Resource Manager |
+| Plano de administración | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure Gobierno de EE. UU.:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> management.microsoftazure.de:443 | Crear, leer, actualizar y eliminar almacenes de claves<br><br>Establecer directivas de acceso de Key Vault<br><br>Establecer etiquetas de Key Vault | RBAC de Azure Resource Manager |
 | Plano de datos | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure Gobierno de EE. UU.:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Claves: descifrar, cifrar,<br> desencapsular, encapsular, verificar, firmar,<br> obtener, enumerar, actualizar, crear,<br> importar, eliminar, hacer copia de seguridad y restaurar<br><br> Secretos: obtener, enumerar, establecer y eliminar | Directiva de acceso de Key Vault |
 
 ## <a name="management-plane-and-rbac"></a>Plano de administración y RBAC
 
-En el plano de administración, se usa RBAC (Control de acceso basado en roles) para autorizar las operaciones que se puede ejecutar un autor de llamada. En el modelo de RBAC, cada suscripción de Azure tiene una instancia de Azure AD. Puede conceder acceso a usuarios, grupos y aplicaciones desde este directorio. El acceso se concede para administrar recursos de la suscripción de Azure que usan el modelo de implementación de Azure Resource Manager. Para conceder acceso, use [Azure Portal](https://portal.azure.com/), la [CLI de Azure](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+En el plano de administración, utilice RBAC (control de acceso basado en roles) para autorizar las operaciones que un llamador puede ejecutar. En el modelo de RBAC, cada suscripción de Azure tiene una instancia de Azure AD. Puede conceder acceso a usuarios, grupos y aplicaciones desde este directorio. El acceso se concede para administrar recursos de la suscripción de Azure que usan el modelo de implementación de Azure Resource Manager. Para conceder acceso, use [Azure Portal](https://portal.azure.com/), la [CLI de Azure](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Puede crear un almacén de claves en un grupo de recursos y administrar el acceso mediante Azure AD. Puede conceder a usuarios o grupos la capacidad de administrar los almacenes de claves en un grupo de recursos. Puede conceder acceso a un nivel de ámbito específico mediante la asignación de roles de RBAC apropiados. Para conceder acceso a un usuario para administrar almacén de claves, debe asignar un rol `key vault Contributor` predefinido al usuario en un ámbito específico. Los siguientes niveles de ámbitos se pueden asignar a un rol de RBAC:
 
@@ -125,7 +125,7 @@ En la tabla siguiente se resumen los permisos de acceso para los roles y la apli
 
 | Rol | Permisos del plano de administración | Permisos del plano de datos |
 | --- | --- | --- |
-| Equipo de seguridad | Colaborador de almacén de claves | Claves: copia de seguridad, creación, eliminación, obtención, importación, enumeración y restauración<br>Secretos: todas las operaciones |
+| Equipo de seguridad | Colaborador de almacén de claves | Claves: copia de seguridad, creación, eliminación, obtención, importación, lista y restauración<br>Secretos: todas las operaciones |
 | Desarrolladores y&nbsp;operadores | Permiso de implementación en Key Vault<br><br> **Nota**: Este permiso permite que las máquinas virtuales implementadas recuperen los secretos de un almacén de claves. | None |
 | Auditores | None | Claves: enumeración<br>Secretos: enumeración<br><br> **Nota**: Este permiso permite a los auditores inspeccionar los atributos (etiquetas, fechas de activación y fechas de expiración) para las claves y los secretos que no se emiten en los registros. |
 | Application | None | Claves: firma<br>Secretos: obtención |

@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: d75e4c3e2b6f28dfbde670406854ac87790dd090
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303826"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850112"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutorial: Desarrollo e implementación de un módulo de Python de IoT Edge para dispositivos Linux
 
@@ -69,25 +69,15 @@ En los siguientes pasos creará un módulo de Python para IoT Edge mediante Visu
 
 ### <a name="create-a-new-project"></a>Creación de un nuevo proyecto
 
-Use el paquete **cookiecutter** de Python para crear una plantilla con la que generar la solución. 
+Use Visual Studio Code para crear una plantilla de soluciones de Python con la que generar la solución. 
 
 1. En Visual Studio Code, seleccione **Ver** > **Terminal** para abrir el terminal integrado de VS Code.
 
-2. En el terminal, escriba el siguiente comando para instalar (o actualizar) **cookiecutter**, ya que lo necesitará para crear la plantilla de la solución de IoT Edge:
+1. Seleccione **Ver** > **Paleta de comandos** para abrir la paleta de comandos de VS Code. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Asegúrese de que el directorio en el que se va a instalar cookiecutter está en la RUTA DE ACCESO de su entorno para que sea posible invocarlo desde un símbolo del sistema. El directorio es parte de la salida del script de instalación, por ejemplo `C:\Users\{user}\AppData\Roaming\Python\Python{version}\Scripts`.
-   >
-   >Reinicie Visual Studio Code para que recoja los cambios en la RUTA DE ACCESO. 
+1. En la paleta de comandos, escriba y ejecute el comando **Azure: Sign in** (Azure: iniciar sesión) y siga las instrucciones para iniciar sesión en la cuenta de Azure. Si ya ha iniciado sesión, puede omitir este paso.
 
-3. Seleccione **Ver** > **Paleta de comandos** para abrir la paleta de comandos de VS Code. 
-
-4. En la paleta de comandos, escriba y ejecute el comando **Azure: Sign in** (Azure: iniciar sesión) y siga las instrucciones para iniciar sesión en la cuenta de Azure. Si ya ha iniciado sesión, puede omitir este paso.
-
-5. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución de IoT Edge). Siga los mensajes y proporcione la siguiente información para crear la solución:
+1. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución de IoT Edge). Siga los mensajes y proporcione la siguiente información para crear la solución:
 
    | Campo | Valor |
    | ----- | ----- |

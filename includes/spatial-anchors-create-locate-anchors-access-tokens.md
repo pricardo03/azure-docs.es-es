@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 02/21/2019
 ms.author: rgarcia
 ms.openlocfilehash: 63725d55e2b2935ec6a899789249259b096865c3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110495"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186010"
 ---
 ### <a name="access-tokens"></a>Tokens de acceso
 
-Los Tokens de acceso son un método más robusto para autenticarse con Azure espacial delimitadores. Especialmente cuando se prepare la aplicación para una implementación de producción. El resumen de este enfoque consiste en configurar un servicio back-end que la aplicación cliente puede autenticarse de forma segura. Las interfaces de servicio de back-end con AAD en tiempo de ejecución y con el Azure espacial delimitadores de servicio de Token seguro para solicitar un Token de acceso. Este token, a continuación, se entrega a la aplicación cliente y usa en el SDK para autenticarse con Azure espacial delimitadores.
+Los tokens de acceso son un método más sólido para autenticarse con Azure Spatial Anchors, sobre todo al preparar la aplicación para una implementación de producción. En resumen, este enfoque consiste en configurar un servicio back-end con el que la aplicación cliente se pueda autenticar de forma segura. El servicio de back-end se comunica con AAD en tiempo de ejecución y con el servicio de token seguro de Azure Spatial Anchors para solicitar un token de acceso. Después, este token se entrega a la aplicación cliente y se usa en el SDK para autenticarse con Azure Spatial Anchors.

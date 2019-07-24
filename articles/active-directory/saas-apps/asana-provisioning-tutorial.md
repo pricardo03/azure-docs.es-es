@@ -17,10 +17,10 @@ ms.author: arvinh
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10d5ceedfd1f0fad0c6f03feba2150968aecf02b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964225"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configuración de Asana para el aprovisionamiento automático de usuarios
@@ -40,7 +40,7 @@ En la situación descrita en este tutorial se supone que ya cuenta con los eleme
 
 ## <a name="assign-users-to-asana"></a>Asignación de usuarios a Asana
 
-Azure AD usa un concepto denominado *asignaciones* para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto de aprovisionamiento automático de cuentas de usuario, solo se sincronizarán los usuarios asignados a una aplicación en Azure AD.
+Azure AD usa un concepto que se denomina *asignaciones* para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto de aprovisionamiento automático de cuentas de usuario, solo se sincronizarán los usuarios asignados a una aplicación en Azure AD.
 
 Antes de configurar y habilitar el servicio de aprovisionamiento, tiene que decidir qué usuarios de Azure AD necesitan acceso a la aplicación Asana. A continuación, puede asignar estos usuarios a la aplicación Asana siguiendo estas instrucciones:
 
@@ -71,7 +71,7 @@ Esta sección le guía en el proceso de conexión de Azure AD a la API de aprovi
 
 1. En la sección **Credenciales de administrador**, siga estas instrucciones para generar el token y escríbalo en el cuadro de texto **Token secreto**:
 
-     a. Inicie sesión en [Asana](https://app.asana.com) mediante la cuenta de administrador.
+    a. Inicie sesión en [Asana](https://app.asana.com) mediante la cuenta de administrador.
 
     b. Seleccione la foto de perfil de la barra superior y seleccione la configuración del nombre de organización actual.
 

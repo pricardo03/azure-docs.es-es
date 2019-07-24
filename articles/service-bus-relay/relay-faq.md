@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6ea5e72f70620004b4b00be0c779893a3b2ad90
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111477"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706186"
 ---
 # <a name="azure-relay-faqs"></a>Preguntas frecuentes sobre Azure Relay
 
@@ -39,7 +39,7 @@ Un [espacio de nombres](relay-create-namespace-portal.md) es un contenedor de á
 El servicio anteriormente llamado Service Bus Relay se conoce ahora como [WCF Relay](relay-wcf-dotnet-get-started.md). Este servicio se puede seguir usando de la manera habitual. La característica Conexiones híbridas es una versión actualizada de un servicio trasplantado desde Azure BizTalk Services. Tanto WCF Relay como Conexiones híbridas seguirán siendo admitidos en el futuro.
 
 ## <a name="pricing"></a>Precios
-Esta sección responde a algunas preguntas frecuentes sobre la estructura de precios de Relay. También puede ver [Preguntas frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq/) para obtener información general sobre los precios de Azure. Para más información sobre los precios de Relay, consulte [Precios de Service Bus][Pricing overview].
+Esta sección responde a algunas preguntas frecuentes sobre la estructura de precios de Relay. También puede ver [Preguntas frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq/) para obtener información general sobre los precios de Azure. Para obtener más información sobre los precios de Relay, consulte [Precios de Service Bus][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>¿Cómo se cobra por Conexiones híbridas y WCF Relay?
 Para obtener información completa sobre los precios de retransmisión, consulte la tabla [Conexiones híbridas y retransmisiones de WCF][Pricing overview] en la página de detalles de precios de Service Bus. Además de los precios indicados en dicha página, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
@@ -106,7 +106,7 @@ Para mover un espacio de nombres de una suscripción de Azure a otra, puede util
 
 #### <a name="azure-portal"></a>Portal de Azure
 
-Para usar Azure Portal para migrar espacios de nombres de Azure Relay de una suscripción a otra suscripción, consulte [Mover recursos a un nuevo grupo de recursos o suscripción](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Para usar Azure Portal para migrar espacios de nombres de Azure Relay de una suscripción a otra suscripción, consulte [Mover recursos a un nuevo grupo de recursos o suscripción](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 

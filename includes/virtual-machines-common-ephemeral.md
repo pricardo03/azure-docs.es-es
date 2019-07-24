@@ -2,28 +2,31 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines
-author: jonbeck7
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/02/2019
-ms.author: azcspmt;jonbeck;cynthn
+ms.date: 07/01/2019
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 24c2bfa4aae94642d3ed66f2cfa6e31ba1e6b19a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 30d71ed54e490be8c3a4b36cedbc0eda634323a1
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67457534"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626476"
 ---
-Los discos del sistema operativo efímeros se crean en el almacenamiento local de la máquina virtual (VM) y no se conservan en la instancia remota de Azure Storage. Estos discos están indicados para cargas de trabajo sin estado, donde las aplicaciones toleran errores de máquinas virtuales individuales y tienen más en cuenta el tiempo empleado en implementaciones a gran escala o el tiempo en restablecer la imagen inicial de dichas máquinas. También son adecuados para migrar las aplicaciones en las que se ha usado el modelo de implementación clásico al modelo de implementación de Resource Manager. Con los discos del sistema operativo efímeros, notará una latencia de lectura y escritura inferior en el disco del sistema operativo y un restablecimiento más rápido de la imagen inicial de la máquina virtual. Además, los discos del sistema operativo efímeros son gratuitos, es decir, no generan costos de almacenamiento. 
+Los discos del sistema operativo efímeros se crean en el almacenamiento local de la máquina virtual y no se guardan en la instancia remota de Azure Storage. Estos discos están indicados para cargas de trabajo sin estado, donde las aplicaciones toleran errores de máquinas virtuales individuales, pero tienen más en cuenta el tiempo de implementación de las máquinas virtuales o el restablecimiento de la imagen inicial de dichas máquinas. Con los discos del sistema operativo efímeros, observará una latencia de lectura y escritura inferior en el disco del sistema operativo y un restablecimiento más rápido de la imagen inicial de la máquina virtual. 
  
 Las principales características de los discos efímeros son: 
-- Se pueden usar con imágenes de Marketplace e imágenes personalizadas.
-- Puede implementar imágenes de máquina virtual hasta el tamaño de la caché de máquina virtual.
-- Posibilidad de restablecimiento rápido o restablecimiento de la imagen inicial de sus máquinas virtuales al estado de arranque original.  
-- Latencia de tiempo de ejecución inferior, similar a la de un disco temporal. 
-- Sin costo alguno para el disco del sistema operativo. 
+- Perfecto para las aplicaciones sin estado.
+- Se pueden usar con imágenes de Marketplace y personalizadas.
+- Posibilidad de restablecimiento rápido o de restablecimiento de la imagen inicial de las máquinas virtuales y de las instancias de conjunto de escalado al estado de arranque original.  
+- Latencia inferior, similar a la de un disco temporal. 
+- Los discos del sistema operativo efímeros son gratuitos, es decir, no generan costos de almacenamiento.
+- Están disponibles en todas las regiones de Azure. 
+- El disco de sistema operativo efímero es compatible con [Shared Image Gallery](/azure/virtual-machines/linux/shared-image-galleries). 
  
+
  
 Principales diferencias entre discos del sistema operativo efímeros y persistentes:
 
@@ -39,7 +42,57 @@ Principales diferencias entre discos del sistema operativo efímeros y persisten
 | Cambio de tamaño del disco del sistema operativo              | Se admite durante la creación de la máquina virtual y después de que esta se detiene (desasigna).                                | Se admite solo durante la creación de la máquina virtual                                                  |
 | Cambio a un nuevo tamaño de máquina virtual   | Se conservan los datos del disco del sistema operativo                                                                    | Se eliminan los datos del disco del sistema operativo, se vuelve a aprovisionar el sistema operativo.                                      |
 
-## <a name="scale-set-deployment"></a>Implementación del conjunto de escalado  
+## <a name="size-requirements"></a>Requisitos de tamaño
+
+Puede implementar imágenes de instancias y de máquinas virtuales hasta el tamaño de la caché de máquina virtual. Por ejemplo, las imágenes estándar de Windows Server de Marketplace son de aproximadamente 127 GiB, lo que significa que necesita un tamaño de máquina virtual que tenga una caché de más de 127 GiB. En este caso, las máquinas virtuales [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) tienen un tamaño de caché de 86 GiB, que no es lo suficientemente grande. Las máquinas virtuales Standard_DS2_v2 tienen un tamaño de caché de 172 GiB, que es lo suficientemente grande. En este caso, Standard_DS3_v2 tienen el tamaño menor de la serie DSv2 que se puede usar con esta imagen. Las imágenes básicas de Linux en Marketplace y las imágenes de Windows Server indicadas por `[smallsize]` tienden a tener alrededor de 30 GiB y pueden usar la mayoría de los tamaños de máquinas virtuales disponibles.
+
+Los discos efímeros también requieren que el tamaño de la máquina virtual admita Premium Storage. Los tamaños normalmente (pero no siempre) tienen un `s` en el nombre, como DSv2 y EsV3. Para más información, consulte [Tamaños de máquinas virtuales de Azure](../articles/virtual-machines/linux/sizes.md) para más información sobre qué tamaños se admiten Premium Storage.
+
+## <a name="powershell"></a>PowerShell
+
+Para usar un disco efímero para una implementación de máquina virtual de PowerShell, utilice [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) en la configuración de la máquina virtual. Establezca `-DiffDiskSetting` en `Local` y `-Caching` en `ReadOnly`.     
+
+```powershell
+Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
+```
+
+Para las implementaciones de conjunto de escalado, use el cmdlet [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) en la configuración. Establezca `-DiffDiskSetting` en `Local` y `-Caching` en `ReadOnly`.
+
+
+```powershell
+Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
+```
+
+## <a name="cli"></a>CLI
+
+Para usar un disco efímero para una implementación de la máquina virtual de la CLI, establezca el parámetro `--ephemeral-os-disk` de [az vm create](/cli/azure/vm#az-vm-create) en `true` y el parámetro `--os-disk-caching` en `ReadOnly`.
+
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --ephemeral-os-disk true \
+  --os-disk-caching ReadOnly \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+Para los conjuntos de escalado, use el mismo parámetro `--ephemeral-os-disk true` para [az vmss create](/cli/azure/vmss#az-vmss-create) y establezca el parámetro `--os-disk-caching` en `ReadOnly`.
+
+## <a name="portal"></a>Portal   
+
+En Azure Portal, puede elegir usar discos efímeros al implementar una máquina virtual, abra la sección **Advanced** (Avanzadas) de la pestaña **Disks** (Discos). Para **Use ephemeral OS disk** (Utilizar disco de sistema operativo efímero) seleccione **Yes** (Sí).
+
+![Captura de pantalla que muestra el botón de radio para elegir un disco de sistema operativo efímero](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
+
+Si la opción de utilizar un disco efímero está atenuada, es posible que haya seleccionado un tamaño de máquina virtual que no tenga un tamaño de caché mayor que la imagen del sistema operativo o que no admita Premium Storage. Vuelva a la página **Basics** (Aspectos básicos) y pruebe con otro tamaño de máquina virtual.
+
+También puede crear conjuntos de escalado con discos de sistema operativo efímeros mediante el portal. Asegúrese de seleccionar un tamaño de máquina virtual que tenga un tamaño de caché lo suficientemente grande y, a continuación, en **Use ephemeral OS disk** (Utilizar disco de sistema operativo efímero) seleccione **Yes** (Sí).
+
+![Captura de pantalla que muestra el botón de radio para elegir un disco de sistema operativo efímero para el conjunto de escalado](./media/virtual-machines-common-ephemeral/scale-set.png)
+
+## <a name="scale-set-template-deployment"></a>Implementación de plantillas de conjunto de escalado  
 El proceso para crear un conjunto de escalado que use un disco del sistema operativo efímero consiste en agregar la propiedad `diffDiskSettings` al tipo de recurso `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` en la plantilla. Además, la directiva de almacenamiento en caché debe establecerse en `ReadOnly` para el disco del sistema operativo efímero. 
 
 
@@ -83,7 +136,7 @@ El proceso para crear un conjunto de escalado que use un disco del sistema opera
 }  
 ```
 
-## <a name="vm-deployment"></a>Implementación de la máquina virtual 
+## <a name="vm-template-deployment"></a>Implementación de plantillas de máquinas virtuales 
 Puede implementar una máquina virtual con un disco del sistema operativo efímero mediante una plantilla. El proceso para crear una máquina virtual que use discos del sistema operativo efímeros consiste en agregar la propiedad `diffDiskSettings` al tipo de recurso Microsoft.COMPUTE/virtualmachines en la plantilla. Además, la directiva de almacenamiento en caché debe establecerse en `ReadOnly` para el disco del sistema operativo efímero. 
 
 ```json
@@ -133,7 +186,7 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
 
 **P: ¿Cuál es el tamaño de los discos del sistema operativo locales?**
 
-R: En la versión preliminar, se admitirán la plataforma o las imágenes hasta el tamaño de caché de la máquina virtual, donde todas las operaciones de lectura y escritura en el disco del sistema operativo serán locales en el mismo nodo que la máquina virtual. 
+R: Admitiremos la plataforma o las imágenes personalizadas, hasta el tamaño de caché de la máquina virtual, donde todas las operaciones de lectura y escritura en el disco del sistema operativo serán locales en el mismo nodo que la máquina virtual. 
 
 **P: ¿Se puede cambiar el tamaño del disco del sistema operativo efímero?**
 

@@ -1,6 +1,6 @@
 ---
-title: Realización de SaaS API v1 | Azure Marketplace
-description: Explica cómo crear y administrar una oferta de SaaS en Azure Marketplace mediante la API v1 de entrega asociadas.
+title: API de suministro de SaaS v1 | Azure Marketplace
+description: Explica cómo crear y administrar una oferta de SaaS en Azure Marketplace mediante las API de suministro v1 asociadas.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
@@ -9,18 +9,18 @@ ms.date: 05/23/2019
 ms.author: evansma
 ROBOTS: NOINDEX
 ms.openlocfilehash: 78162983601e9126bd34cb737e74783df982bacb
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258945"
 ---
-# <a name="saas-fulfillment-apis-version-1-deprecated"></a>API de entrega SaaS versión 1 (en desuso)
+# <a name="saas-fulfillment-apis-version-1-deprecated"></a>API de suministro de SaaS, versión 1 (en desuso)
 
-En este artículo se explica cómo crear una oferta de SaaS con las API. Las API, formadas por los métodos REST y los puntos de conexión, son necesarias para permitir que las suscripciones a la oferta de SaaS si dispone de vender a través de Azure seleccionada.  
+En este artículo se explica cómo crear una oferta de SaaS con las API. Las API, que están compuestas de métodos y puntos de conexión de REST, son necesarias para permitir las suscripciones a la oferta de SaaS si tiene seleccionada la venta mediante Azure.  
 
 > [!WARNING]
-> Esta versión inicial de la API de entrega SaaS está en desuso; en su lugar, use [SaaS realización API V2](./pc-saas-fulfillment-api-v2.md).  Esta versión inicial de la API se mantiene actualmente solo para servir editores existentes. 
+> Esta versión inicial de la API de suministro de SaaS está en desuso; en su lugar, use la [API de suministro de SaaS V2](./pc-saas-fulfillment-api-v2.md).  Esta versión inicial de la API se mantiene actualmente solo para ofrecer servicio a los editores existentes. 
 
 Las API siguientes se proporcionan para ayudarle a integrar su servicio SaaS con Azure:
 
@@ -30,7 +30,7 @@ Las API siguientes se proporcionan para ayudarle a integrar su servicio SaaS con
 -   Cancelar suscripción
 
 
-## <a name="api-methods-and-endpoints"></a>Los puntos de conexión y los métodos de API
+## <a name="api-methods-and-endpoints"></a>Métodos y puntos de conexión de la API
 
 Las secciones siguientes describen los métodos de API y los puntos de conexión disponibles para habilitar las suscripciones para una oferta de SaaS.
 
@@ -64,8 +64,8 @@ Cuando se redirige a un usuario al sitio web del ISV, la dirección URL contiene
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.  |
-| x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este campo correlaciona todos los eventos de la operación de cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
+| x-ms-requestid     | Sin           | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.  |
+| x-ms-correlationid | Sin           | Valor de cadena único para la operación en el cliente. Este campo pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | Content-type       | Sí          | `application/json`                                        |
 | authorization      | Sí          | Token de portador JSON Web Token (JWT).                    |
 | x-ms-marketplace-token| Sí| Parámetro de consulta del token de la dirección URL cuando se redirige al usuario al sitio web del ISV de SaaS desde Azure. **Nota:** Este token solo es válido durante 1 hora. Además, descodifique como dirección URL el valor del token del explorador antes de usarlo.|
@@ -85,10 +85,10 @@ Cuando se redirige a un usuario al sitio web del ISV, la dirección URL contiene
 
 | **Nombre de parámetro** | **Tipo de datos** | **Descripción**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | String        | Identificador de la suscripción de SaaS.          |
-| subscriptionName| String| Nombre de la suscripción de SaaS establecida por el usuario en Azure al suscribirse al servicio SaaS.|
-| OfferId            | String        | Identificador de la oferta a la que se ha suscrito el usuario. |
-| planId             | String        | Identificador del plan al que se ha suscrito el usuario.  |
+| id                 | Cadena        | Identificador de la suscripción de SaaS.          |
+| subscriptionName| Cadena| Nombre de la suscripción de SaaS establecida por el usuario en Azure al suscribirse al servicio SaaS.|
+| OfferId            | Cadena        | Identificador de la oferta a la que se ha suscrito el usuario. |
+| planId             | Cadena        | Identificador del plan al que se ha suscrito el usuario.  |
 |  |  |  |
 
 
@@ -110,8 +110,8 @@ Cuando se redirige a un usuario al sitio web del ISV, la dirección URL contiene
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
 | x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, este valor es el identificador de correlación del servidor.                   |
-| x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Este identificador se usa para cualquier recíprocas. |
-| Retry-After        | Sin            | Este valor se establece solo para una respuesta 429.                                                                   |
+| x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Este identificador se utiliza para las reconciliaciones. |
+| Retry-After        | Sin           | Este valor se establece solo para una respuesta 429.                                                                   |
 |  |  |  |
 
 
@@ -125,7 +125,7 @@ El punto de conexión de suscripción permite a los usuarios iniciar una suscrip
 
 | **Nombre de parámetro**  | **Descripción**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Suscripción única de Id. de SaaS que se obtiene después de resolver el token a través de API de resolver.                              |
+| subscriptionId      | Identificador único de la suscripción de SaaS que se obtiene después de resolver el token mediante la API de resolución.                              |
 | api-version         | Versión de la operación que se usará para esta solicitud. |
 |  |  |
 
@@ -133,12 +133,12 @@ El punto de conexión de suscripción permite a los usuarios iniciar una suscrip
 
 |  **Clave del encabezado**        | **Obligatorio** |  **Descripción**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
-| x-ms-requestid         |   No         | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
-| x-ms-correlationid     |   Sin          | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
-| If-Match/If-None-Match |   Sin          |   Valor ETag de validador seguro.                                                          |
+| x-ms-requestid         |   Sin         | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
+| x-ms-correlationid     |   Sin         | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
+| If-Match/If-None-Match |   Sin         |   Valor ETag de validador seguro.                                                          |
 | content-type           |   Sí        |    `application/json`                                                                   |
 |  authorization         |   Sí        |    Token de portador JSON Web Token (JWT).                                               |
-| x-ms-marketplace-session-mode| Sin  | Marca para habilitar el modo de simulacro al suscribirse a una oferta de SaaS. Si se establece, no se cargará la suscripción. Esto es útil para escenarios de pruebas del ISV. Se debe establecer en **'dryrun'**|
+| x-ms-marketplace-session-mode| Sin | Marca para habilitar el modo de simulacro al suscribirse a una oferta de SaaS. Si se establece, no se cargará la suscripción. Esto es útil para escenarios de pruebas del ISV. Se debe establecer en **'dryrun'**|
 |  |  |  |
 
 *Cuerpo*
@@ -151,7 +151,7 @@ El punto de conexión de suscripción permite a los usuarios iniciar una suscrip
 
 | **Nombre del elemento** | **Tipo de datos** | **Descripción**                      |
 |------------------|---------------|--------------------------------------|
-| planId           | Cadena (obligatorio)        | Identificador del plan del usuario del servicio de SaaS se está suscribiendo a.  |
+| planId           | Cadena (obligatorio)        | Identificador del plan del servicio SaaS al que se está suscribiendo el usuario.  |
 |  |  |  |
 
 *Códigos de respuesta*
@@ -198,9 +198,9 @@ El punto de conexión de cambio permite al usuario convertir el plan al que actu
 
 | **Clave del encabezado**          | **Obligatorio** | **Descripción**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
-| x-ms-requestid          | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.   |
-| x-ms-correlationid      | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
-| If-Match /If-None-Match | No           | Valor ETag de validador seguro.                              |
+| x-ms-requestid          | Sin           | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.   |
+| x-ms-correlationid      | Sin           | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
+| If-Match /If-None-Match | Sin           | Valor ETag de validador seguro.                              |
 | content-type            | Sí          | `application/json`                                        |
 | authorization           | Sí          | Token de portador JSON Web Token (JWT).                    |
 |  |  |  |
@@ -215,7 +215,7 @@ El punto de conexión de cambio permite al usuario convertir el plan al que actu
 
 |  **Nombre del elemento** |  **Tipo de datos**  | **Descripción**                              |
 |  ---------------- | -------------   | --------------------------------------       |
-|  planId           |  Cadena (obligatorio)         | Identificador del plan del usuario del servicio de SaaS se está suscribiendo a.          |
+|  planId           |  Cadena (obligatorio)         | Identificador del plan del servicio SaaS al que se está suscribiendo el usuario.          |
 |  |  |  |
 
 *Códigos de respuesta*
@@ -262,8 +262,8 @@ La acción de eliminación en el punto de conexión de suscripción permite al u
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
-| x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.                                                           |
-| x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
+| x-ms-requestid     | Sin           | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.                                                           |
+| x-ms-correlationid | Sin           | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | authorization      | Sí          | Token de portador JSON Web Token (JWT).                    |
 |  |  |  |
 
@@ -312,8 +312,8 @@ Este punto de conexión permite el usuario realizar un seguimiento del estado de
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.   |
-| x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.  |
+| x-ms-requestid     | Sin           | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.   |
+| x-ms-correlationid | Sin           | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.  |
 | authorization      | Sí          | Token de portador JSON Web Token (JWT).                    |
 |  |  |  | 
 
@@ -331,11 +331,11 @@ Este punto de conexión permite el usuario realizar un seguimiento del estado de
 
 | **Nombre de parámetro** | **Tipo de datos** | **Descripción**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | string        | Identificador de la operación.                                                                      |
+| id                 | Cadena        | Identificador de la operación.                                                                      |
 | status             | Enum          | Estado de la operación, uno de los siguientes: `In Progress`, `Succeeded` o `Failed`.          |
-| resourceLocation   | String        | Vínculo a la suscripción que se ha creado o modificado. Sirve de ayuda al cliente para obtener el estado actualizado de la operación POST. No se establece este valor para las operaciones `Unsubscribe`. |
-| created            | DateTime      | Hora de creación de la operación en formato UTC.                                                           |
-| lastModified       | DateTime      | Última actualización de la operación en formato UTC.                                                      |
+| resourceLocation   | Cadena        | Vínculo a la suscripción que se ha creado o modificado. Sirve de ayuda al cliente para obtener el estado actualizado de la operación POST. No se establece este valor para las operaciones `Unsubscribe`. |
+| created            | Datetime      | Hora de creación de la operación en formato UTC.                                                           |
+| lastModified       | Datetime      | Última actualización de la operación en formato UTC.                                                      |
 |  |  |  |
 
 *Códigos de respuesta*
@@ -345,7 +345,7 @@ Este punto de conexión permite el usuario realizar un seguimiento del estado de
 | 200                  | `OK`                 | La solicitud GET se ha resuelto correctamente y el cuerpo contiene la respuesta.    |
 | 400                  | `BadRequest`         | Faltan encabezados necesarios o se ha especificado una versión de API incorrecta. |
 | 403                  | `Forbidden`          | El llamador no está autorizado para realizar esta operación.                      |
-| 404                  | `NotFound`           | Suscripción no encontrada con el identificador especificado.                                     |
+| 404                  | `NotFound`           | No se ha encontrado una suscripción con el identificador especificado.                                     |
 | 429                  | `RequestThrottleId`  | El servicio está ocupado procesando solicitudes, vuelva a intentarlo más tarde.                     |
 | 503                  | `ServiceUnavailable` | El servicio está temporalmente fuera de servicio, vuelva a intentarlo más tarde.                             |
 |  |  |  |
@@ -380,8 +380,8 @@ La acción Get en el punto de conexión de suscripción permite a un usuario rec
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.                                                           |
-| x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
+| x-ms-requestid     | Sin           | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.                                                           |
+| x-ms-correlationid | Sin           | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | authorization      | Sí          | Token de portador JSON Web Token (JWT).                                                                    |
 |  |  |  |
 
@@ -401,13 +401,13 @@ La acción Get en el punto de conexión de suscripción permite a un usuario rec
 
 | **Nombre de parámetro**     | **Tipo de datos** | **Descripción**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | string        | Identificador del recurso de la suscripción de SaaS en Azure.    |
-| offerId                | string        | Identificador de la oferta a la que se ha suscrito el usuario.         |
-| planId                 | string        | Identificador del plan al que se ha suscrito el usuario.          |
-| saasSubscriptionName   | String        | Nombre de la suscripción de SaaS.                |
+| id                     | Cadena        | Identificador del recurso de la suscripción de SaaS en Azure.    |
+| offerId                | Cadena        | Identificador de la oferta a la que se ha suscrito el usuario.         |
+| planId                 | Cadena        | Identificador del plan al que se ha suscrito el usuario.          |
+| saasSubscriptionName   | Cadena        | Nombre de la suscripción de SaaS.                |
 | saasSubscriptionStatus | Enum          | Estado de la operación.  Uno de los siguientes:  <br/> - `Subscribed`: la suscripción está activa.  <br/> - `Pending`: el usuario ha creado el recurso, pero no ha sido activado por el ISV.   <br/> - `Unsubscribed`: el usuario ha cancelado la suscripción.   <br/> - `Suspended`: el usuario ha suspendido la suscripción.   <br/> - `Deactivated`:  la suscripción de Azure está suspendida.  |
-| created                | DateTime      | Valor de la marca de tiempo de la creación de la suscripción en formato UTC. |
-| lastModified           | DateTime      | Valor de la marca de tiempo de la modificación de la suscripción en formato UTC. |
+| created                | Datetime      | Valor de la marca de tiempo de la creación de la suscripción en formato UTC. |
+| lastModified           | Datetime      | Valor de la marca de tiempo de la modificación de la suscripción en formato UTC. |
 |  |  |  |
 
 *Códigos de respuesta*
@@ -429,7 +429,7 @@ La acción Get en el punto de conexión de suscripción permite a un usuario rec
 | x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
 | x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
 | x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
-| Retry-After        | Sin            | Intervalo con el que el cliente puede comprobar el estado.                                                       |
+| Retry-After        | Sin           | Intervalo con el que el cliente puede comprobar el estado.                                                       |
 | eTag               | Sí          | Vínculo a un recurso para obtener el estado de la operación.                                                        |
 |  |  |  |
 
@@ -452,8 +452,8 @@ La acción Get en el punto de conexión de las suscripciones permite a un usuari
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.             |
-| x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
+| x-ms-requestid     | Sin           | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.             |
+| x-ms-correlationid | Sin           | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | authorization      | Sí          | Token de portador JSON Web Token (JWT).                    |
 |  |  |  |
 
@@ -473,13 +473,13 @@ La acción Get en el punto de conexión de las suscripciones permite a un usuari
 
 | **Nombre de parámetro**     | **Tipo de datos** | **Descripción**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | Recurso de suscripción del Id. de SaaS en Azure    |
-| offerId                | String        | Identificador de oferta que el usuario suscrito         |
-| planId                 | String        | Id. de plan que el usuario suscrito          |
-| saasSubscriptionName   | String        | Nombre de la suscripción de SaaS                |
+| id                     | Cadena        | Identificador del recurso de la suscripción de SaaS en Azure.    |
+| offerId                | Cadena        | Identificador de la oferta a la que se ha suscrito el usuario.         |
+| planId                 | Cadena        | Identificador del plan al que se ha suscrito el usuario.          |
+| saasSubscriptionName   | Cadena        | Nombre de la suscripción de SaaS.                |
 | saasSubscriptionStatus | Enum          | Estado de la operación.  Uno de los siguientes:  <br/> - `Subscribed`: la suscripción está activa.  <br/> - `Pending`: el usuario ha creado el recurso, pero no ha sido activado por el ISV.   <br/> - `Unsubscribed`: el usuario ha cancelado la suscripción.   <br/> - `Suspended`: el usuario ha suspendido la suscripción.   <br/> - `Deactivated`:  la suscripción de Azure está suspendida.  |
-| created                | DateTime      | Valor de marca de tiempo de creación de suscripción en formato UTC |
-| lastModified           | DateTime      | Suscripción modificado el valor de marca de tiempo en UTC |
+| created                | Datetime      | Valor de la marca de tiempo de la creación de la suscripción en formato UTC. |
+| lastModified           | Datetime      | Valor de la marca de tiempo de la modificación de la suscripción en formato UTC. |
 |  |  |  |
 
 *Códigos de respuesta*
@@ -501,7 +501,7 @@ La acción Get en el punto de conexión de las suscripciones permite a un usuari
 | x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
 | x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
 | x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
-| Retry-After        | Sin            | Intervalo con el que el cliente puede comprobar el estado.                                                       |
+| Retry-After        | Sin           | Intervalo con el que el cliente puede comprobar el estado.                                                       |
 |  |  |  |
 
 ### <a name="saas-webhook"></a>Webhook de SaaS
@@ -523,17 +523,17 @@ Un webhook de SaaS se usa para notificar los cambios de forma proactiva al servi
 
 | **Nombre de parámetro**     | **Tipo de datos** | **Descripción**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | string       | Identificador único de la operación desencadenada.                |
-| activityId   | String        | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones.               |
-| subscriptionId                     | String        | Identificador del recurso de la suscripción de SaaS en Azure.    |
-| offerId                | String        | Identificador de la oferta a la que se ha suscrito el usuario. Se proporciona únicamente con la acción "Actualizar".        |
-| publisherId                | String        | Id. de publicador de la oferta de SaaS         |
-| planId                 | String        | Identificador del plan al que se ha suscrito el usuario. Se proporciona únicamente con la acción "Actualizar".          |
-| action                 | String        | La acción que desencadena esta notificación. Valores posibles: Activate, Delete, Suspend, Reinstate, Update          |
-| Marca de tiempo                 | String        | Valor de marca de tiempo en UTC cuando se desencadenó esta notificación.          |
+| id  | Cadena       | Identificador único de la operación desencadenada.                |
+| activityId   | Cadena        | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones.               |
+| subscriptionId                     | Cadena        | Identificador del recurso de la suscripción de SaaS en Azure.    |
+| offerId                | Cadena        | Identificador de la oferta a la que se ha suscrito el usuario. Se proporciona únicamente con la acción "Actualizar".        |
+| publisherId                | Cadena        | Id. de publicador de la oferta de SaaS         |
+| planId                 | Cadena        | Identificador del plan al que se ha suscrito el usuario. Se proporciona únicamente con la acción "Actualizar".          |
+| action                 | Cadena        | La acción que desencadena esta notificación. Valores posibles: Activate, Delete, Suspend, Reinstate, Update          |
+| Marca de tiempo                 | Cadena        | Valor de marca de tiempo en UTC cuando se desencadenó esta notificación.          |
 |  |  |  |
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los programadores pueden recuperar mediante programación y manipulación de las cargas de trabajo, ofertas y el Editor de perfiles utilizando la [API de REST de Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).
+Los desarrolladores también pueden recuperar y manipular mediante programación las ofertas de carga de trabajo y los perfiles del anunciante usando las [API de REST de Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

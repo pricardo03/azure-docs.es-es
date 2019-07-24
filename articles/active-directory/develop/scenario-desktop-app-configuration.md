@@ -1,6 +1,6 @@
 ---
-title: Aplicación de escritorio que llama a web API (configuración de código), plataforma Microsoft identity
-description: Aprenda a crear una aplicación de escritorio que llama a web API (configuración de código de la aplicación)
+title: 'Aplicación de escritorio que llama a las API web: configuración del código - Plataforma de identidad de Microsoft'
+description: Obtenga información sobre cómo compilar una aplicación de escritorio que llama a las API web (configuración del código de la aplicación)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,37 +15,37 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc0042d6392891e8282c563afea2212031a0f49a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: f0224c215c1d5f6e0c36402926a594dcd79d2af0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121879"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057239"
 ---
-# <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Aplicación de escritorio que llama a web API: configuración de código
+# <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Aplicación de escritorio que llama a las API web: configuración de código
 
-Ahora que ha creado la aplicación, obtendrá información sobre cómo configurar el código con las coordenadas de la aplicación.
+Ahora que ha creado la aplicación, aprenderá a configurar el código con las coordenadas de la aplicación.
 
 ## <a name="msal-libraries"></a>Bibliotecas MSAL
 
-La única biblioteca MSAL que admiten aplicaciones de escritorio de hoy en día es MSAL.NET
+La única biblioteca MSAL que admite actualmente aplicaciones de escritorio es MSAL.NET
 
-## <a name="public-client-application"></a>Aplicación de cliente público
+## <a name="public-client-application"></a>Aplicación cliente pública
 
-Desde un punto de vista de código, las aplicaciones de escritorio son aplicaciones de cliente público, y por eso creará y manipular MSAL.NET `IPublicClientApplication`. Vuelva a cosas será un poco diferente si se utiliza la autenticación interactiva o no.
+Desde un punto de vista de código, las aplicaciones de escritorio son aplicaciones cliente públicas, por eso compilará y manipulará MSAL.NET `IPublicClientApplication`. De nuevo, el proceso diferirá un poco si se utiliza o no la autenticación interactiva.
 
 ![IPublicClientApplication](media/scenarios/public-client-application.png)
 
 ### <a name="exclusively-by-code"></a>Exclusivamente mediante código
 
-El código siguiente crea una instancia de una aplicación de cliente público, los usuarios iniciar sesión en la nube pública de Microsoft Azure, con un trabajo y cuenta educativa o una cuenta Microsoft personal.
+El código siguiente crea una instancia de una aplicación cliente pública e inicia la sesión de los usuarios en la nube pública de Microsoft Azure con una cuenta profesional o educativa o bien con una cuenta Microsoft personal.
 
 ```CSharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-Si piensa utilizar la autenticación interactiva, tal como se muestra anteriormente, que desea utilizar el `.WithRedirectUri` modificador:
+Si piensa utilizar la autenticación interactiva o el flujo de código de dispositivo, tal como se muestra anteriormente, querrá utilizar el modificador `.WithRedirectUri`:
 
 ```CSharp
 IPublicClientApplication app;
@@ -56,7 +56,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 ### <a name="using-configuration-files"></a>Uso de archivos de configuración
 
-El código siguiente crea una instancia de una aplicación cliente pública desde un objeto de configuración que podría rellenarse de mediante programación o leer desde un archivo de configuración
+El código siguiente crea una instancia de una aplicación cliente pública a partir de un objeto de configuración, que podría rellenarse mediante programación o leerse desde un archivo de configuración:
 
 ```CSharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
@@ -65,9 +65,9 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
         .Build();
 ```
 
-### <a name="more-elaborated-configuration"></a>Configuración más elaborado
+### <a name="more-elaborated-configuration"></a>Configuración más elaborada
 
-Puede proporcionar la información de la aplicación creando mediante la adición de un número de modificadores. Por ejemplo, si desea que la aplicación para que una aplicación de varios inquilinos en una nube nacional (aquí gobierno de Estados Unidos), podría escribir:
+Puede elaborar la compilación de la aplicación agregando una serie de modificadores. Por ejemplo, si quiere que la aplicación sea una aplicación de varios inquilinos en una nube nacional (en la Administración Pública de Estados Unidos), podría escribir lo siguiente:
 
 ```CSharp
 IPublicClientApplication app;
@@ -78,7 +78,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-MSAL.NET también contiene un modificador de 2019 ADFS:
+MSAL.NET también contiene un modificador de ADFS 2019:
 
 ```CSharp
 IPublicClientApplication app;
@@ -87,7 +87,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Por último, si desea adquirir tokens para un inquilino de Azure AD B2C, puede especificar al inquilino tal como se muestra en el siguiente fragmento de código:
+Por último, si quiere adquirir tokens para un inquilino de Azure AD B2C, puede especificar el inquilino tal como se muestra en el siguiente fragmento de código:
 
 ```CSharp
 IPublicClientApplication app;
@@ -96,16 +96,16 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>Obtenga más información
+### <a name="learn-more"></a>Más información
 
-Para más información sobre cómo configurar una aplicación de escritorio MSAL.NET:
+Para más información sobre cómo configurar una aplicación de escritorio de MSAL.NET:
 
-- Para obtener la lista de todos los modificadores disponibles en `PublicClientApplicationBuilder`, consulte la documentación de referencia [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
-- Para la descripción de todas las opciones que se muestran en `PublicClientApplicationOptions` vea [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions), en la documentación de referencia
+- Para obtener la lista de todos los modificadores disponibles en `PublicClientApplicationBuilder`, consulte la documentación de referencia [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- Para obtener la descripción de todas las opciones que se muestran en `PublicClientApplicationOptions`, vea [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) en la documentación de referencia.
 
-## <a name="complete-example-with-configuration-options"></a>Ejemplo completo con las opciones de configuración
+## <a name="complete-example-with-configuration-options"></a>Ejemplo completo con opciones de configuración
 
-Imagine una aplicación de consola .NET Core que tiene las siguientes `appsettings.json` archivo de configuración:
+Imagine una aplicación de consola .NET Core que tiene el siguiente archivo de configuración `appsettings.json`:
 
 ```JSon
 {
@@ -121,7 +121,7 @@ Imagine una aplicación de consola .NET Core que tiene las siguientes `appsettin
 }
 ```
 
-Tiene poco código para leer este archivo mediante .NET proporciona el marco de configuración;
+Tiene poco código para leer este archivo mediante el marco de configuración de .NET proporcionado;
 
 ```CSharp
 public class SampleConfiguration
@@ -164,7 +164,7 @@ public class SampleConfiguration
 }
 ```
 
-Ahora, para crear la aplicación, simplemente necesita escribir el código siguiente:
+Ahora, para crear la aplicación, basta con que escriba el código siguiente:
 
 ```CSharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
@@ -173,9 +173,9 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-y antes de llamar a la `.Build()` método, puede invalidar la configuración con las llamadas a `.WithXXX` métodos tal como se muestra anteriormente.
+y antes de llamar al método `.Build()`, puede invalidar la configuración con llamadas a los métodos `.WithXXX`, tal como se mostró anteriormente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Adquirir un token para una aplicación de escritorio](scenario-desktop-acquire-token.md)
+> [Adquisición de un token para una aplicación de escritorio](scenario-desktop-acquire-token.md)

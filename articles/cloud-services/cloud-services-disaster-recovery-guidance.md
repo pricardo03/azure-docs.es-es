@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
 ms.openlocfilehash: 976bb43fd3e6d6fdb19c733affd4afa2e49e482c
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967689"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Qué hacer en caso de una interrupción del servicio de Azure que afecte a Azure Cloud Services
@@ -36,14 +36,14 @@ En este artículo se expone un escenario real de recuperación ante desastres en
 >
 
 
-## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Opción 1: Use una implementación de copia de seguridad a través de Azure Traffic Manager
+## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Opción 1: uso de una implementación de copia de seguridad a través de Azure Traffic Manager
 La solución de recuperación ante desastres más sólida implica mantener varias implementaciones de la aplicación en diferentes regiones para después utilizar [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) para dirigir el tráfico entre ellas. Azure Traffic Manager proporciona varios [métodos de enrutamiento](../traffic-manager/traffic-manager-routing-methods.md), por lo que puede elegir si desea administrar las implementaciones con un modelo de copia de seguridad o principal o dividir el tráfico entre ellas.
 
 ![Equilibrio de Azure Cloud Services en distintas regiones con Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
 Para obtener la respuesta más rápida a la pérdida de una región, es importante configurar la [Supervisión de puntos de conexión de Traffic Manager](../traffic-manager/traffic-manager-monitoring.md).
 
-## <a name="option-2-deploy-your-application-to-a-new-region"></a>Opción 2: Implementar la aplicación en una región nueva
+## <a name="option-2-deploy-your-application-to-a-new-region"></a>Opción 2: implementación la aplicación en una región nueva
 Mantener varias implementaciones activas tal como se describe en la opción anterior supone costos adicionales. Si su objetivo de tiempo de recuperación (RTO) es lo suficientemente flexible y tiene el código original o el paquete de Cloud Services compilado, puede crear una nueva instancia de la aplicación en otra región y actualizar los registros DNS para que apunten a la nueva implementación.
 
 Para más información sobre cómo crear e implementar una aplicación de servicio en la nube, consulte [Creación e implementación de un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
@@ -51,7 +51,7 @@ Para más información sobre cómo crear e implementar una aplicación de servic
 En función de los orígenes de datos de la aplicación, es posible que deba comprobar los procedimientos de recuperación para el origen de datos de su aplicación.
 
 * Para los orígenes de datos de Azure Storage, consulte [Replicación de Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
-* Para los orígenes de base de datos SQL, lea [información general: En la nube negocio continuidad y la base de datos de recuperación ante desastres con SQL Database](../sql-database/sql-database-business-continuity.md) para comprobar las opciones que están disponibles según el modelo de replicación elegido para su aplicación.
+* Para ver los orígenes de SQL Database, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con SQL Database](../sql-database/sql-database-business-continuity.md) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
 
 
 ## <a name="option-3-wait-for-recovery"></a>Opción 3: Espera para la recuperación

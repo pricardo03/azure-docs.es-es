@@ -1,19 +1,19 @@
 ---
-title: Pago por adelantado de los cargos de SQL Data Warehouse con la capacidad reservada de Azure | Microsoft Docs
+title: Pago por adelantado de los cargos de SQL Data Warehouse con la capacidad reservada de Azure
 description: Obtenga información cómo puede pagar por adelantado los cargos de SQL Data Warehouse con la capacidad reservada para ahorrar dinero.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cea2c8e6d476c3ea2799337ab2da1f9406731814
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371196"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565355"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Pago por adelantado de los cargos de SQL Data Warehouse con la capacidad reservada
 
@@ -43,14 +43,15 @@ Por ejemplo, suponga que el consumo total de SQL Data Warehouse es DW3000c. Dese
 
 ## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Compra de capacidad reservada de SQL Data Warehouse
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Todos los servicios** > **Reservations**.
 3. Seleccione una suscripción. Utilice la lista de suscripciones para elegir la que se va a usar para pagar la capacidad reservada. Los costos anticipados de la capacidad reservada se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
   - Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite.
   - Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.
 4. Seleccione un ámbito. Utilice la lista de ámbitos para elegir el ámbito de la suscripción.
-  - Con la opción **Único**, el descuento por la reserva se aplica a la instancia de SQL Data Warehouse implementada en la suscripción seleccionada.
-  - Con la opción **Compartido**, el descuento por la reserva se aplica a las instancias en ejecución en cualquiera de las suscripciones en el contexto de facturación.
+  - **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
+  - **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
+  - **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de cuenta.
     - Para los clientes empresariales, el contexto de facturación es la inscripción en el Contrato Enterprise.
     - Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.
 5. Seleccione una región para elegir una región de Azure que abarca la capacidad reservada.

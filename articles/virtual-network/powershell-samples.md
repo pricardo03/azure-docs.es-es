@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/17/2019
+ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: e10f7ad4ae8995d9efffec97a37dc64b28fa37b0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 418a72eb9a8f98bca24c863b2f953bfe720979e6
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688022"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249046"
 ---
 # <a name="azure-powershell-samples-for-virtual-network"></a>Ejemplos de Azure PowerShell para red virtual
 
@@ -32,4 +32,5 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell:
 | [Emparejamiento de dos redes virtuales](./scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md) | Creación y conexión de dos redes virtuales en la misma región. |
 | [Enrutamiento del tráfico por una aplicación virtual de red](./scripts/virtual-network-powershell-sample-route-traffic-through-nva.md) | Creación de una red virtual con subredes de front-end y back-end y una máquina virtual que pueda enrutar el tráfico entre dos subredes. |
 | [Filtrado del tráfico de red entrante y saliente de máquina virtual](./scripts/virtual-network-powershell-sample-filter-network-traffic.md) | Creación de una red virtual con subredes de front-end y back-end. El tráfico de red entrante a la subred de front-end está limitado a HTTP y HTTPS. No se permite el tráfico saliente a Internet desde la subred de back-end. |
-|[Configuración de una red virtual de doble pila de IPv4 + IPv6](./scripts/virtual-network-powershell-sample-ipv6-dual-stack.md)|Implementa la red virtual de doble pila (IPv4 + IPv6) con dos máquinas virtuales y una instancia de Azure Basic Load Balancer con las direcciones IP públicas IPv4 e IPv6. |
+|[Configuración de una red virtual de doble pila de IPv4 + IPv6 con Basic Load Balancer](./scripts/virtual-network-powershell-sample-ipv6-dual-stack.md)|Implementa la red virtual de doble pila (IPv4 + IPv6) con dos máquinas virtuales y una instancia de Azure Basic Load Balancer con las direcciones IP públicas IPv4 e IPv6. |
+|[Configuración de una red virtual de doble pila de IPv4 + IPv6 con Standard Load Balancer](./scripts/virtual-network-powershell-sample-ipv6-dual-stack-standard-load-balancer.md)|Implementa la red virtual de doble pila (IPv4 + IPv6) con dos máquinas virtuales y una instancia de Azure Standard Load Balancer con las direcciones IP públicas IPv4 e IPv6. |

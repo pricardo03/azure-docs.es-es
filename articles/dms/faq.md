@@ -1,6 +1,6 @@
 ---
 title: Preguntas más frecuentes sobre el uso de Azure Database Migration Service | Microsoft Docs
-description: Obtenga información sobre las preguntas más frecuentes sobre el uso de Azure Database Migration Service para realizar migraciones de base de datos.
+description: Conozca las preguntas más frecuentes sobre cómo usar Azure Database Migration Service para realizar migraciones de base de datos.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -12,15 +12,15 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 05/24/2019
 ms.openlocfilehash: 856eee294eaa1426bc7c06661ac62ed0f9824dcb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66225344"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Preguntas más frecuentes sobre el uso de Azure Database Migration Service
 
-En este artículo se enumera las preguntas más frecuentes sobre el uso de Azure Database Migration Service junto con sus respuestas relacionadas.
+En este artículo aparecen las preguntas más comunes sobre el uso de Azure Database Migration Service junto con las respuestas relacionadas.
 
 ### <a name="q-what-is-azure-database-migration-service"></a>P: ¿Qué es Azure Database Migration Service?
 
@@ -32,7 +32,7 @@ Azure Database Migration Service es un servicio totalmente administrado diseñad
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>P: ¿Qué pares origen-destino admite actualmente Azure Database Migration Service?
 
-Actualmente, el servicio admite una variedad de escenarios de migración. Para obtener una lista completa del estado de cada escenario de migración disponible, consulte el artículo [Estado de los escenarios de migración que admite Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Otros escenarios de migración están en versión preliminar y necesitan enviar una nominación a través del sitio de vista previa de DMS. Para obtener una lista completa de los escenarios en versión preliminar y registrarse para participar en una de estas ofertas, vea el [sitio de vista previa de DMS](https://aka.ms/dms-preview/).
+Actualmente, el servicio admite una variedad de escenarios de migración. Para obtener una lista completa del estado de cada escenario de migración disponible, consulte el artículo [Estado de los escenarios de migración que admite Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Otros escenarios de migración están en versión preliminar y requieren que envíe una nominación a través del sitio de versión preliminar de DMS. Para obtener una lista completa de los escenarios en versión preliminar y suscribirse para participar en una de estas ofertas, consulte el [sitio de versión preliminar de DMS](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>P: ¿Cómo se compara Azure Database Migration Service con otras herramientas de migración de bases de datos de Microsoft, como Database Migration Assistant (DMA) o SQL Server Migration Assistant (SSMA)?
 
@@ -64,8 +64,8 @@ Hay varios requisitos previos necesarios para garantizar que Azure Database Migr
 
 Los requisitos de Azure Database Migration Service que son comunes en todos los escenarios de migración compatibles incluyen la necesidad de:
 
-* Crear una red virtual para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio con los servidores de origen local utilizando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [ VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Asegúrese de que Azure Virtual Network (VNet) las reglas del grupo de seguridad de red no bloquean los siguientes puertos de comunicación 443, 53, 9354, 445 y 12000. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales de Azure, consulte el artículo [Planeamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Crear una red virtual para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local utilizando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Asegúrese de que las reglas del grupo de seguridad de red de Azure Virtual Network (VNet) no bloquean estos puertos de comunicación: 443, 53, 9354, 445, 12000. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales de Azure, consulte el artículo [Planeamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
 
 Para una lista de todos los requisitos previos que se necesitan para completar los escenarios de migración específicos mediante Azure Database Migration Service, consulte los tutoriales relacionados en la [documentación](https://docs.microsoft.com/azure/dms/dms-overview) de Azure Database Migration Service que se encuentra en docs.microsoft.com.
@@ -109,7 +109,7 @@ Si el usuario detiene explícitamente la instancia de Azure Database Migration S
 
 ### <a name="q-where-can-i-leave-feedback-about-azure-database-migration-service"></a>P: ¿Dónde puedo dejar comentarios sobre Azure Database Migration Service?
 
-Queremos saber de usted. Envíe sus comentarios y / ideas tiene acerca de Azure Database Migration Service a través de Uservoice, [aquí](https://feedback.azure.com/forums/906100-azure-database-migration-service), o póngase en contacto con el equipo de [formular las migraciones de base de datos de Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+Queremos saber de usted. Envíe los comentarios o ideas que tenga sobre Azure Database Migration Service a través de UserVoice, [aquí](https://feedback.azure.com/forums/906100-azure-database-migration-service), o comunicándose con el equipo en [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

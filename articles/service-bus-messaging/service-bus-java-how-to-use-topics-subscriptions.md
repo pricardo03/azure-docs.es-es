@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 578fd0caa8986c48b3fd50a7890bb66b14bee2f4
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991720"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Uso de temas y suscripciones de Service Bus con Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-En este tutorial, escribir código de Java para enviar mensajes a un tema de Service Bus y, a continuación, recibir mensajes de suscripciones a dicho tema. 
+En este tutorial, puede escribir código de Java para enviar mensajes a un tema de Service Bus y, luego, recibir mensajes provenientes de suscripciones a ese tema. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar su [las ventajas de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o regístrese para obtener un [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga los pasos de la [inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones al tema ](service-bus-quickstart-topics-subscriptions-portal.md) para realizar las siguientes tareas:
-    1. Creación de un Bus de servicio **espacio de nombres**.
-    2. Obtener el **cadena de conexión**.
-    3. Crear un **tema** en el espacio de nombres.
-    4. Crear **tres suscripciones** el tema en el espacio de nombres.
+1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga los pasos de [Inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones al tema ](service-bus-quickstart-topics-subscriptions-portal.md) para realizar las siguientes tareas:
+    1. Cree un **espacio de nombres** de Service Bus.
+    2. Obtenga la **cadena de conexión**.
+    3. Cree un **tema** en el espacio de nombres.
+    4. Cree **tres suscripciones** al tema en el espacio de nombres.
 3. [SDK de Azure para Java][Azure SDK for Java].
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar Service Bus
@@ -455,7 +455,7 @@ Message sending: Id = 9
 ```
 
 > [!NOTE]
-> Puede administrar los recursos de Service Bus con [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta ofrece características avanzadas, como la funcionalidad de importación/exportación o la capacidad de probar el tema, colas, suscripciones, servicios de retransmisión, notification hubs y los centros de eventos. 
+> Puede administrar los recursos de Service Bus con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar el tema, las colas, las suscripciones, los servicios de retransmisión, los centros de notificaciones y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información, consulte [Colas, temas y suscripciones de Service Bus][Service Bus queues, topics, and subscriptions].

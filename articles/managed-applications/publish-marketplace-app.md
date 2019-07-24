@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/04/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 0e2e161c22ee87d11156c4818bd689c316799e87
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688570"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305610"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicaciones administradas de Azure en Marketplace
 
@@ -27,7 +27,7 @@ En este artículo se explica cómo puede publicar una aplicación en Marketplace
 
 Para completar este artículo, ya debe tener el archivo .zip de la definición de la aplicación administrada. Para más información, consulte [Creación de la aplicación de catálogo de servicios](publish-service-catalog-app.md).
 
-Además, hay varios requisitos previos de tipo empresarial. Son las siguientes:
+Hay varios requisitos previos de tipo empresarial. Son las siguientes:
 
 * Su empresa o sus subsidiarias deben encontrarse en uno de los países o las regiones donde las ventas se permiten en Marketplace.
 * El producto debe contar con una licencia que sea compatible con los modelos de facturación admitidos por Marketplace.
@@ -37,14 +37,7 @@ Además, hay varios requisitos previos de tipo empresarial. Son las siguientes:
 * Acepte los términos del acuerdo del publicador y de las directivas de participación de Azure Marketplace.
 * Acepte los Términos de uso, la Declaración de privacidad de Microsoft y el Contrato del programa Microsoft Azure Certified.
 
-## <a name="become-a-publisher"></a>Convertirse en publicador
-
-Para convertirse en publicador en Azure Marketplace, debe:
-
-1. Crear un identificador de Microsoft: cree su cuenta Microsoft con una dirección de correo electrónico que corresponda al dominio de su empresa, no a un solo individuo. Esta dirección de correo electrónico se usa tanto para el Centro de desarrolladores de Microsoft como para Cloud Partner Portal. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
-1. Envíe el [formulario de nominación para Azure Marketplace](https://aka.ms/ampnomination): en **Solution that you intend to publish?** (Solución que intenta publicar), seleccione **Managed Application** (Aplicación administrada). Una vez que se envía el formulario, el equipo de incorporación de Marketplace revisa la aplicación y valida la solicitud. El proceso de aprobación puede tardar entre uno y tres días. Una vez que se aprueba la nominación, recibe un código promocional para eximirse de la tarifa de registro del centro para desarrolladores. Si **no** completa el formulario de nominación de Marketplace, se le pedirá pagar un honorario de registro de 99 USD.
-1. Registrarse en el [Centro para desarrolladores](https://dev.windows.com/registration?accountprogram=azure): Microsoft valida que la organización es una entidad legal válida con un número de identificación fiscal correspondiente al país o la región en que está registrada. El proceso de aprobación puede tardar entre cinco y diez días. Para evitar la tarifa de registro, use el código promocional que recibió por correo electrónico del proceso de nominación. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
-1. Iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com): en el perfil del publicador, asocie la cuenta del Centro para desarrolladores con el perfil del publicador de Marketplace. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
+También debe tener una cuenta de Marketplace. Para crearla, consulte [Creación de una cuenta de Marketplace comercial en el Centro de partners](..//marketplace/partner-center-portal/create-account.md).
 
 ## <a name="create-a-new-azure-application-offer"></a>Creación de una nueva oferta de aplicación de Azure
 
@@ -105,6 +98,10 @@ La SKU aparece debajo de la oferta principal en Marketplace. como una entidad de
    * **Package file (.zip)** (Archivo del paquete [.zip]): este paquete contiene dos archivos necesarios comprimidos en uno .zip. Un archivo es una plantilla de Resource Manager que define los recursos que va a implementar en la aplicación administrada. El otro archivo define la [interfaz de usuario](create-uidefinition-overview.md) para que los consumidores implementen la aplicación administrada mediante el portal. En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
    * **Id. de inquilino**: El identificador del inquilino de la cuenta a la que se va a acceder.
    * **Enable JIT Access?** (¿Habilitar acceso JIT?): Seleccione **Sí** para habilitar el [control de acceso just-in-time](request-just-in-time-access.md) para la cuenta. Cuando se habilita, se solicita acceso a la cuenta del consumidor durante un período específico. Para exigir que los consumidores de la aplicación administrada concedan el acceso permanente a la cuenta, seleccione **No**.
+   * **Customize allowed customer actions?** (¿Personalizar las acciones de cliente permitidas?): Seleccione **Sí** para especificar qué acciones pueden realizar los consumidores en los recursos administrados.
+   * **Allowed customer actions** (Acciones de cliente permitidas): Si selecciona **Sí** en el valor anterior, puede especificar las acciones que se permiten a los consumidores mediante el uso de [asignaciones de denegación para recursos de Azure](../role-based-access-control/deny-assignments.md).
+
+     Puede consultar las acciones disponibles en [Operaciones del proveedor de recursos de Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Por ejemplo, para permitir que los consumidores reinicien las máquinas virtuales, agregue `Microsoft.Compute/virtualMachines/restart/action` a las acciones permitidas. La acción `*/read` se permite automáticamente, por lo que no es necesario incluir ese valor.
    * **PrincipalId**: esta propiedad es el identificador de Azure Active Directory de un usuario, de un grupo de usuarios o de una aplicación a quienes se haya concedido acceso a los recursos de la suscripción de los clientes. La definición de rol describe los permisos.
    * **Role Definition**: esta propiedad es una lista de todos los roles de control de acceso basado en rol (RBAC) integrados que proporciona Azure AD. Puede seleccionar el rol que resulte más adecuado para administrar los recursos en nombre del cliente.
    * **Configuración de directivas**: aplique una directiva de [Azure Policy](../governance/policy/overview.md) a la aplicación administrada para especificar los requisitos de cumplimiento para las soluciones implementadas. Entre las opciones disponibles, seleccione las directivas que se van a aplicar. En **Parámetros de directiva**, proporcione una cadena JSON con los valores del parámetro. Para las definiciones de directiva y el formato de los valores de parámetro, consulte [ejemplos de Azure Policy](../governance/policy/samples/index.md).

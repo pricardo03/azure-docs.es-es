@@ -4,7 +4,7 @@ description: Extensión de Microsoft Azure para instalar controladores de GPU de
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004d6125de6762303db91f3a5ef9ffa16e6e501f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388682"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705952"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensión del controlador de GPU de NVIDIA para Windows
 
@@ -27,6 +27,7 @@ ms.locfileid: "60388682"
 
 Esta extensión instala los controladores de GPU de NVIDIA en VM de la serie N de Windows. En función de la familia de VM, la extensión instala los controladores CUDA o GRID. Al instalar controladores de NVIDIA mediante esta extensión, acepta y está de acuerdo con los términos del [contrato de licencia de usuario final de NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante el proceso de instalación, es posible que la máquina virtual se reinicie para completar la instalación del controlador.
 
+Puede consultar [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup) instrucciones sobre la instalación manual de los controladores y las versiones que son compatibles actualmente.
 También hay disponible una extensión para instalar controladores de GPU de NVIDIA en [VM de la serie N para Linux](hpccompute-gpu-linux.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -37,7 +38,7 @@ Esta extensión es compatible con los siguientes sistemas operativos:
 
 | Distribución | Versión |
 |---|---|
-| Windows 10 (hasta la versión 1803)| Core |
+| Windows 10 | Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012R2 | Core |
 
@@ -69,7 +70,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 }
 ```
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 
 | NOMBRE | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
@@ -124,7 +125,7 @@ Set-AzVMExtension
     }'
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 ```azurecli
 az vm extension set `

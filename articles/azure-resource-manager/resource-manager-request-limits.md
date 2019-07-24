@@ -8,28 +8,28 @@ ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399712"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
 
 Para cada suscripción e inquilino de Azure, Resource Manager permite hasta 12 000 solicitudes de lectura y 1200 solicitudes de escritura cada hora. Estas cifras están limitadas al id. de identidad que realiza las solicitudes y al id. de suscripción o de inquilino. Si las solicitudes proceden de más de un id. de entidad, el límite en toda la suscripción o inquilino es mayor a 12 000 y 1200 por hora.
 
-Las solicitudes se aplican a su suscripción o inquilino. Las solicitudes de suscripción son aquellas en las que implican pasando el identificador de suscripción, como la recuperación de los grupos de recursos en su suscripción. Las solicitudes del inquilino no incluyen el identificador de la suscripción; por ejemplo, las solicitudes para recuperar ubicaciones válidas de Azure.
+Las solicitudes se aplican a su suscripción o inquilino. Las solicitudes de la suscripción son aquellas en las que se pasa el identificador de la suscripción; por ejemplo, las solicitudes para recuperar los grupos de recursos de la suscripción. Las solicitudes del inquilino no incluyen el identificador de la suscripción; por ejemplo, las solicitudes para recuperar ubicaciones válidas de Azure.
 
 Estos límites se aplican a cada instancia de Azure Resource Manager. En cada región de Azure hay varias instancias, y Azure Resource Manager está implementado en todas las regiones de Azure.  Por lo tanto, en la práctica, los límites son realmente mucho mayores que los mencionados anteriormente, ya que las solicitudes del usuario normalmente se suministran desde muchas instancias diferentes.
 
-Si la aplicación o el script alcanza estos límites, debe limitar las solicitudes. Este artículo muestra cómo determinar las solicitudes restantes que quedan antes de alcanzar el límite y cómo responder cuando se ha alcanzado el límite.
+Si la aplicación o el script alcanza estos límites, debe limitar las solicitudes. En este artículo se explica cómo determinar las solicitudes restantes que quedan antes de alcanzar el límite y cómo responder cuando se ha alcanzado dicho límite.
 
 Cuando se alcanza este límite, recibirá el código de estado HTTP **429 Demasiadas solicitudes**.
 
-Recursos de Azure Graph limita el número de solicitudes para sus operaciones. Los pasos descritos en este artículo para determinar las solicitudes restantes y cómo responder cuando se alcanza el límite también se aplican a gráfico de recursos. Sin embargo, el gráfico de recursos establece su propio límite y restablecimiento de la velocidad. Para obtener más información, consulte [limitación de recursos de Azure Graph](../governance/resource-graph/overview.md#throttling).
+Azure Resource Graph limita el número de solicitudes para sus operaciones. Los pasos descritos en este artículo para determinar las solicitudes restantes y sobre cómo responder cuando se alcanza el límite también se aplican a Resource Graph. Sin embargo, Resource Graph establece su límite y frecuencia de restablecimiento propios. Para más información, consulte [Throttle in Azure Resource Graph](../governance/resource-graph/overview.md#throttling) (Limitaciones en Azure Resource Graph).
 
 ## <a name="remaining-requests"></a>Solicitudes restantes
-Puede determinar el número de solicitudes restantes examinando los encabezados de respuesta. Las solicitudes de lectura devuelven un valor en el encabezado para el número de solicitudes de lectura restantes. Escribir las solicitudes incluyen un valor para el número de solicitudes de escritura restantes. En la tabla siguiente se describen los encabezados de respuesta que puede examinar para esos valores:
+Puede determinar el número de solicitudes restantes examinando los encabezados de respuesta. Las solicitudes de lectura devuelven un valor en el encabezado para el número de solicitudes de lectura restantes. Las solicitudes de escritura incluyen un valor para el número de solicitudes de escritura restantes. En la tabla siguiente se describen los encabezados de respuesta que puede examinar para esos valores:
 
 | Encabezado de respuesta | DESCRIPCIÓN |
 | --- | --- |

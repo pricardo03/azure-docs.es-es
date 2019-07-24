@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: af540267e4afc1b248b66b1c6f4989b832c38b58
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237575"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedimientos recomendados al elegir un id. de serie temporal
@@ -42,13 +42,13 @@ Además, puede seleccionar hasta *tres* (3) propiedades clave como id. de serie 
 
 En los siguientes escenarios se describe la opción para seleccionar más de una propiedad clave como id. de serie temporal:  
 
-### <a name="scenario-one"></a>Escenario uno
+### <a name="scenario-one"></a>Escenario 1
 
 * Tiene varios activos heredados, cada uno con una clave única.
 * Por ejemplo, la propiedad *deviceId* se encarga de identificar de manera única un tipo de activo y la propiedad única *objectId* se encarga de otro tipo. Ninguno de los dos tipos de activos contiene la propiedad única del otro. En este ejemplo, debe seleccionar dos claves, deviceId y objectId, como claves únicas.
 * Como se aceptan valores de tipo NULL, si falta una propiedad en la carga del evento, esta cuenta como un valor de `null`. Esta es también la forma adecuada de manejar el envío de datos a dos orígenes de eventos diferentes donde los datos de cada origen de eventos tienen un id. de serie temporal único.
 
-### <a name="scenario-two"></a>Escenario dos
+### <a name="scenario-two"></a>Escenario 2
 
 * Necesita que varias propiedades sean únicas dentro del mismo tipo de activos. 
 * Por ejemplo, digamos que es un fabricante de edificios inteligentes e implementa sensores en cada habitación. En cada habitación tendrá normalmente los mismos valores para *sensorId*, como *sensor1*, *sensor2* y *sensor3*.

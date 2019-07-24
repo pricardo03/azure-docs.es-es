@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 6195c37780acaf8c8f432fa09c5ac01a75363c04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23b0a2ac8e0264ddc1592479759cc8398d9ef5f8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61441311"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621263"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carga de archivos de un dispositivo a la nube con IoT Hub
 
@@ -26,7 +26,7 @@ En este tutorial, se describe cómo usar las [funcionalidades de carga de archiv
 
 * Usar el cliente de Python para cargar un archivo mediante IoT Hub.
 
-En el tutorial sobre el envío de [datos de telemetría a IoT Hub](quickstart-send-telemetry-python.md), se explica la funcionalidad básica de mensajería entre un dispositivo y la nube de IoT Hub. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
+En el inicio rápido sobre el [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-python.md) se explica la funcionalidad básica de mensajería del dispositivo a la nube de IoT Hub. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
 
 > [!NOTE]
 > El SDK de Python de IoT Hub solo admite actualmente la carga de archivos basados en caracteres como, por ejemplo, archivos **.txt**.

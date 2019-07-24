@@ -1,19 +1,19 @@
 ---
-title: 'Operaciones para una cuenta de Azure Cosmos de cadena del script de PowerShell Azure: clave de cuenta y conexión'
-description: Ejemplo de script de PowerShell de Azure - operaciones de cadena de conexión y la clave de cuenta con el para una cuenta de Azure Cosmos
+title: 'Script de Azure PowerShell: operaciones de clave de cuenta y cadena de conexión para una cuenta de Azure Cosmos'
+description: 'Ejemplo de script de Azure PowerShell: operaciones de clave de cuenta y cadena de conexión para una cuenta de Azure Cosmos'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/20/2019
 ms.author: mjbrown
 ms.openlocfilehash: a7f86bfee0ee2472260b622dc709dc437e53414c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247865"
 ---
-# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Cadena de conexión y cuenta de clave de las operaciones de una cuenta de Azure Cosmos mediante PowerShell
+# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Operaciones de clave de cuenta y cadena de conexión para una cuenta de Azure Cosmos mediante PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,7 @@ ms.locfileid: "66247865"
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-Los ejemplos se requiere que exista el grupo de recursos y la cuenta. Use un existente PowerShell crear muestra para aprovisionar una cuenta en primer lugar.
+Este ejemplo requiere la existencia del grupo de recursos y la cuenta. Use primero un ejemplo de creación de PowerShell existente para aprovisionar una cuenta.
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 

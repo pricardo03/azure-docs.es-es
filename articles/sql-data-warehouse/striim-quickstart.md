@@ -11,10 +11,10 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873412"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Guía de instalación de la oferta de Marketplace Azure SQL DW para Striim
@@ -29,7 +29,7 @@ Configure la máquina virtual de Striim con las propiedades especificadas y anot
 
 ![Configuración de Striim][configure]
 
-Una vez implementado, haga clic en \<nombre de máquina virtual >-masternode en Azure portal, haga clic en conectar y copiar el inicio de sesión con cuenta de máquina virtual local 
+Una vez implementado, haga clic en \<Nombre de máquina virtual>-masternode en Azure Portal, haga clic en Conectar y copie el inicio de sesión mediante la cuenta local de la máquina virtual. 
 
 ![Conexión de Striim a SQL Data Warehouse][connect]
 
@@ -55,7 +55,7 @@ Ejecute los siguientes comandos para mover el archivo .jar de JDBC al directorio
 
 ![Inicio del clúster de Striim][start-striim]
 
-Ahora, abra su explorador favorito y vaya a \<nombre DNS >: 9080
+Ahora, abra su explorador favorito y vaya a \<Nombre DNS>:9080
 
 ![Vaya a la pantalla de inicio de sesión.][navigate]
 

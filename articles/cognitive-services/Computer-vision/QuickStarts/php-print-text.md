@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 844d2ca9c2aa0e6a79eb7abebbec986f0fd5c5bc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a28dd94f32eac3cba3443761671b3c846e52798c
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604256"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277627"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-php"></a>Inicio rápido: Extracción de texto impreso (OCR) mediante la API REST Computer Vision y PHP
 
@@ -219,7 +219,7 @@ Se devuelve una respuesta correcta en JSON. El sitio web de ejemplo analiza y mu
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no sea necesario, elimine el archivo y después desinstale el paquete `HTTP_Request2` de PHP5. Para desinstalar el paquete, realice los siguientes pasos:
+Cuando ya no use el proyecto, elimine el archivo y desinstale el paquete `HTTP_Request2` de PHP5. Para desinstalar el paquete, realice los siguientes pasos:
 
 1. Abra una ventana del símbolo del sistema como administrador.
 2. Ejecute el siguiente comando:

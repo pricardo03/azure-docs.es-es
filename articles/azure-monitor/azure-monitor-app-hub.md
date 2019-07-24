@@ -11,10 +11,10 @@ ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
 ms.openlocfilehash: 451a2d6e658c08823d1629270bb7503ebd236c02
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66255695"
 ---
 <div id="main" class="v2">
@@ -66,8 +66,8 @@ ms.locfileid: "66255695"
                                                     <div class="cardText">
                                                         <h3>Novedades</h3>
                                                         <p>
-                                                            <a href="./app/kubernetes.md">Supervisar aplicaciones de Kubernetes</a><br>
-                                                            <a href="./app/status-monitor-v2-overview.md">V2 de Monitor de estado para las aplicaciones IIS</a><br>
+                                                            <a href="./app/kubernetes.md">Supervisión de aplicaciones de Kubernetes</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">Monitor de estado v2 para aplicaciones de IIS</a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3>Guías de inicio rápido</h3>

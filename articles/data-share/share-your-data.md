@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: ebd60607f9a24074e0fa985973dfc35674f0d66c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 01888f3656765b922c1b646e7ca8e07d81e799f3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788457"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838413"
 ---
 # <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>Tutorial: Uso compartido de datos mediante Azure Data Share, versión preliminar
 
@@ -29,6 +29,8 @@ En este tutorial, aprenderá a:
 
 * Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Una cuenta de Azure Storage: si no la tiene, puede crear una cuenta de [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Permiso para agregar la asignación de roles a la cuenta de almacenamiento, que está presente en el permiso *Microsoft.Authorization/role assignments/write*. Este permiso existe en el rol de propietario. 
+* La dirección de correo electrónico de inicio de sesión de Azure de los destinatarios (con el alias de correo electrónico no funcionará).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -50,7 +52,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
     |---|---|---|
     | NOMBRE | *datashareacount* | Especifique un nombre para la cuenta del recurso compartido de datos. |
     | Subscription | Su suscripción | Seleccione la suscripción de Azure que desea usar para la cuenta del recurso compartido de datos.|
-    | Grupos de recursos | *test-resource-group* | Use un grupo de recursos existente o cree uno. |
+    | Resource group | *test-resource-group* | Use un grupo de recursos existente o cree uno. |
     | Location | *Este de EE. UU. 2* | Seleccione una región para la cuenta de Azure Data Share.
     | | |
 

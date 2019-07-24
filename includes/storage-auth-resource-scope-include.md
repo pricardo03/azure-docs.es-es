@@ -9,21 +9,21 @@ ms.date: 03/28/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 518c57bc3327511b70deef143826f2a1b9df8639
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66115596"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67185985"
 ---
-Antes de asignar un rol de RBAC a una entidad de seguridad, determinar el ámbito de acceso que debe tener la entidad de seguridad. Las recomendaciones dictan que siempre es mejor conceder únicamente el ámbito más restringido posible.
+Antes de asignar un rol RBAC a una entidad de seguridad, determine el ámbito de acceso que debería tener la entidad de seguridad. Los procedimientos recomendados dictan que siempre es mejor conceder únicamente el ámbito más restringido posible.
 
-En la lista siguiente se describe los niveles en el que puede definir el ámbito acceso a recursos de blob y cola de Azure, empezando por el ámbito más restringido:
+En la lista siguiente se describen los niveles en los que puede definir el ámbito de acceso a recursos de blob y cola de Azure, empezando por el ámbito más restringido:
 
-- **Un contenedor individual.** En este ámbito, una asignación de roles se aplica a todos los blobs en el contenedor, así como las propiedades del contenedor y los metadatos.
-- **Una cola individual.** En este ámbito, una asignación de roles se aplica a mensajes en la cola, así como propiedades de la cola y los metadatos.
-- **La cuenta de almacenamiento.** En este ámbito, una asignación de roles se aplica a todos los contenedores y sus blobs, así como todas las colas y sus mensajes.
-- **El grupo de recursos.** En este ámbito, una asignación de roles se aplica a todos los contenedores o las colas en todas las cuentas de almacenamiento en el grupo de recursos.
-- **La suscripción.** En este ámbito, una asignación de roles se aplica a todos los contenedores o las colas en todas las cuentas de almacenamiento en todos los grupos de recursos en la suscripción.
+- **Un contenedor individual.** En este ámbito, se aplica una asignación de roles a todos los blobs del contenedor, así como las propiedades y los metadatos del contenedor.
+- **Una cola individual.** En este ámbito, se aplica una asignación de roles a los mensajes de la cola, así como las propiedades y los metadatos de la cola.
+- **La cuenta de almacenamiento.** En este ámbito, se aplica una asignación de roles a todos los contenedores y sus blobs, o bien a todas las colas y sus mensajes.
+- **El grupo de recursos.** En este ámbito, se aplica una asignación de roles a todos los contenedores o colas de todas las cuentas de almacenamiento del grupo de recursos.
+- **La suscripción.** En este ámbito, se aplica una asignación de roles a todos los contenedores o las colas de todas las cuentas de almacenamiento de todos los grupos de recursos de la suscripción.
 
 > [!IMPORTANT]
-> Si la suscripción incluye un espacio de nombres de Azure DataBricks, roles asignados en el ámbito de la suscripción no podrá conceder acceso a los datos de blob y cola.
+> Si la suscripción incluye un espacio de nombres de Azure DataBricks, los roles asignados en el ámbito de la suscripción no podrán conceder acceso a los datos del blob y la cola.

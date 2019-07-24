@@ -2,17 +2,17 @@
 title: Control de los recursos de clúster con RBAC y Azure AD en Azure Kubernetes Service
 description: Obtenga información sobre cómo usar la pertenencia a grupos de Azure Active Directory para restringir el acceso a recursos de clúster mediante el control de acceso basado en roles (RBAC) en Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: iainfou
-ms.openlocfilehash: e974c47d1dfb04f66b622c64a7143d00de87c4cb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: fba54fd23fefbe0029b9a809b23568490f05b23e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467551"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616164"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Administración del acceso a recursos de clúster mediante el control de acceso basado en roles y las identidades de Azure Active Directory en Azure Kubernetes Service
 
@@ -24,7 +24,7 @@ Este artículo muestra cómo usar la pertenencia a grupos de Azure AD para contr
 
 En este artículo se supone que ya tiene un clúster de AKS habilitado con integración de Azure AD. Si necesita un clúster de AKS, consulte [Integración de Azure Active Directory con AKS][azure-ad-aks-cli].
 
-Es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][install-azure-cli].
+Es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="create-demo-groups-in-azure-ad"></a>Creación de grupos de demostración en Azure AD
 
@@ -37,7 +37,7 @@ En este artículo, vamos a crear dos roles de usuario que se pueden usar para mo
 
 En entornos de producción, puede usar usuarios y grupos existentes dentro de un inquilino de Azure AD.
 
-En primer lugar, obtenga el Id. de recurso de clúster de AKS mediante el comando [az aks show][az-aks-show]. Asigne el Id. de recurso a una variable denominada *AKS_ID* de manera que pueda hacer referencia a los comandos adicionales.
+En primer lugar, obtenga el identificador de recurso de clúster de AKS mediante el comando [az aks show][az-aks-show]. Asigne el Id. de recurso a una variable denominada *AKS_ID* de manera que pueda hacer referencia a los comandos adicionales.
 
 ```azurecli-interactive
 AKS_ID=$(az aks show \
@@ -131,7 +131,7 @@ Cree un espacio de nombres en el clúster de AKS mediante el comando [kubectl cr
 kubectl create namespace dev
 ```
 
-En Kubernetes, los *roles* definen los permisos que conceder los *enlaces de roles* los aplican a los usuarios o grupos deseados. Estas asignaciones se pueden aplicar a un espacio de nombres especificado o a todo el clúster. Para más información, consulte [Uso de la autorización de RBAC][rbac-authorization].
+En Kubernetes, los *roles* definen los permisos que conceder los *enlaces de roles* los aplican a los usuarios o grupos deseados. Estas asignaciones se pueden aplicar a un espacio de nombres especificado o a todo el clúster. Para obtener más información, consulte [Uso de la autorización de RBAC][rbac-authorization].
 
 En primer lugar, cree un rol para el espacio de nombres *dev*. Este rol concede permisos completos al espacio de nombres. En entornos de producción, puede especificar permisos más granulares para diferentes usuarios o grupos.
 
@@ -225,7 +225,7 @@ Cree el rol mediante el comando [kubectl apply][kubectl-apply] y especifique el 
 kubectl apply -f role-sre-namespace.yaml
 ```
 
-Obtenga el Id. de recurso para el grupo *opssre* mediante el comando [az ad group show][az-ad-group-show]:
+Obtenga el identificador de recurso para el grupo *opssre* mediante el comando [az ad group show][az-ad-group-show]:
 
 ```azurecli-interactive
 az ad group show --group opssre --query objectId -o tsv
@@ -392,9 +392,9 @@ az ad group delete --group opssre
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre cómo proteger los clústeres de Kubernetes, consulte [Acceso e identificación de opciones para AKS][rbac-authorization].
+Para obtener más información sobre cómo proteger los clústeres de Kubernetes, consulte [Opciones de acceso e identificación para AKS][rbac-authorization].
 
-Para ver prácticas recomendadas sobre el control de recursos e identidades, consulte [Prácticas recomendadas para la autenticación y autorización en AKS][operator-best-practices-identity].
+Para ver procedimientos recomendados sobre el control de recursos e identidades, consulte [Procedimientos recomendados para la autenticación y autorización en AKS][operator-best-practices-identity].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

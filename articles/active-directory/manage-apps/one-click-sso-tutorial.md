@@ -1,6 +1,6 @@
 ---
-title: Configuración del Inicio de sesión único de One Click a una aplicación desde la galería de aplicaciones de Azure AD | Microsoft Docs
-description: Pasos para configurar el Inicio de sesión único de One Click a una aplicación desde la galería de aplicaciones de Azure AD.
+title: Configuración del inicio de sesión único (SSO) mediante un solo clic de una aplicación de Azure Marketplace | Microsoft Docs
+description: Pasos para la configuración del inicio de sesión único mediante un solo clic para una aplicación de Azure Marketplace.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,74 +16,74 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 358240823da469551e254356fc0613bea20d78c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a83d27af4fd783b95c53ef3a9169cb72bfc29d34
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064819"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872424"
 ---
-# <a name="one-click-sso-feature-for-azure-ad-gallery-applications"></a>Característica Inicio de sesión único de One Click para aplicaciones de la galería de Azure AD
+# <a name="one-click-app-configuration-of-single-sign-on"></a>Configuración del inicio de sesión único mediante un solo clic de una aplicación
 
- En este tutorial, aprenderás a realizar el Inicio de sesión único de One Click para todas las aplicaciones de SAML que proporcionan la interfaz de usuario para la configuración de inicio de sesión único (SSO).
+ En este tutorial, aprenderá a realizar una configuración del inicio de sesión único (SSO) mediante un solo clic para aplicaciones Azure Active Directory (Azure AD) compatibles con SAML de Azure Marketplace.
 
-## <a name="introduction-to-one-click-sso"></a>Introducción al Inicio de sesión único de One Click
+## <a name="introduction-to-one-click-sso"></a>Introducción a SSO con un clic
 
-La característica Inicio de sesión único de One Click se presenta para configurar el inicio de sesión único para aplicaciones de la galería de Azure AD que admiten el protocolo SAML. En la página de configuración de SSO de Azure AD, hemos proporcionado esta opción para permitir que nuestros clientes configuren automáticamente los metadatos de Azure AD en el lado de la aplicación. El objetivo es ayudar a los clientes a configurar rápidamente el SSO con el mínimo esfuerzo manual. 
+La característica de SSO con un clic se ha diseñado para configurar el inicio de sesión único para aplicaciones de Azure Marketplace que admiten el protocolo SAML. En la página de configuración del inicio de sesión único de Azure AD, esta opción permite configurar automáticamente los metadatos de Azure AD en la aplicación. De esta forma, se puede configurar rápidamente el inicio de sesión único con un mínimo esfuerzo manual.
 
-## <a name="advantages-of-the-one-click-sso"></a>Ventajas del Inicio de sesión único de One Click
+## <a name="advantages-of-one-click-sso"></a>Ventajas de SSO con un clic
 
-- Configuración rápida de inicio de sesión único de las aplicaciones de la galería donde los clientes tienen que llevar a cabo la configuración manual en el lado de la aplicación.
-- Manera más eficaz y precisa de configuración.
-- Ninguna necesidad de comunicación ni asistencia del partner para la configuración, ya que la aplicación proporciona la interfaz de usuario para la configuración de SAML.
+- Configuración del inicio de sesión único rápido de las aplicaciones de Azure Marketplace que requieren configuración manual en la aplicación.
+- Una configuración del inicio de sesión único más eficaz y precisa.
+- No se necesitan comunicación con el asociado ni soporte técnico para la instalación. La aplicación proporciona la interfaz de usuario para la configuración de SAML.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Suscripción activa de la aplicación con las credenciales de administrador que quieres configurar con Inicio de sesión único de One Click.
-- **Extensión de inicio de sesión seguro de Mis aplicaciones para el explorador** de la versión de Microsoft instalada en el explorador. Si quieres más información sobre esta extensión, consulta este [vínculo](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- Una suscripción activa de la aplicación en la que se va a configurar el inicio de sesión único. También se necesitan credenciales de administrador.
+- La **extensión de inicio de sesión seguro de Mis aplicaciones** de Microsoft instalada en el explorador. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
-## <a name="one-click-sso-feature-step-by-step-details"></a>Instrucciones paso a paso de la característica Inicio de sesión único de One Click
+## <a name="one-click-sso-configuration-steps"></a>Pasos para la configuración de SSO con un clic
 
-1. Agrega la aplicación desde la galería de aplicaciones de Azure AD.
+1. Agregue la aplicación desde Azure Marketplace.
 
-2. Haz clic en Inicio de sesión único.
+2. Seleccione **Inicio de sesión único**.
 
-3. Haz clic en Habilitar el inicio de sesión único.
+3. Seleccione **Habilitar el inicio de sesión único**.
 
-4. Rellena los valores de configuración obligatorios en la sección de Configuración básica de SAML.
-
-    > [!NOTE] 
-    > Si es necesario configurar notificaciones personalizadas para la aplicación, configúralas antes de Inicio de sesión único de One Click.
-
-5. Si se implementa la característica Inicio de sesión único de One Click para cualquier aplicación de la galería, verás la pantalla siguiente. Si la **extensión de inicio de sesión seguro de Mis aplicaciones para el explorador** aún no está instalada, haz clic en la opción **Instalar la extensión**.
-
-    ![Instalar la extensión de inicio de sesión seguro de Mis aplicaciones para el explorador](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
-
-6. Después de agregar la extensión al explorador, haz clic en **Configurar nombre de la aplicación**, que te redirigirá al portal de administración de la aplicación. Tienes que iniciar sesión como administrador para acceder a la aplicación.
-
-    ![Configurar nombre de la aplicación](./media/one-click-sso-tutorial/setup-sso.png)
-
-7. La extensión de explorador configurará automáticamente la aplicación. Primero pide que confirmes si quieres continuar. Haga clic en **Sí**.
-
-    ![Guardar los datos rellenados automáticamente](./media/one-click-sso-tutorial/save-autopopulate.png)
+4. Rellene los valores de configuración obligatorios en la sección **Configuración básica de SAML**.
 
     > [!NOTE]
-    > Si una aplicación necesita pasos o una navegación adicionales, deberías ver los mensajes apropiados para realizar esos pasos. 
+    > Si la aplicación tiene notificaciones personalizadas que se deben configurar, contrólelas antes de realizar el SSO con un clic.
 
-8. Una vez que completes la configuración, haz clic en **Aceptar** para guardar los cambios.
+5. Si la característica SSO con un clic está disponible para la aplicación de Azure Marketplace, se ve la siguiente pantalla. Es posible que tenga que instalar la **extensión de inicio de sesión seguro de Mis aplicaciones**. Para ello, seleccione **Instale la extensión**.
 
-    ![Guardar los datos rellenados automáticamente](./media/one-click-sso-tutorial/save-data.png)
+   ![Instalar la extensión de inicio de sesión seguro de Mis aplicaciones para el explorador](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-9. Se muestra un mensaje emergente de confirmación correcta, y las opciones de inicio de sesión único se han configurado correctamente. Puedes probar la aplicación.
+6. Después de agregar la extensión al explorador seleccione **Instalar \<nombre de aplicación\>** . Una vez que se le redirija al portal de administración de aplicaciones, inicie sesión como administrador.
 
-    ![Inicio de sesión único configurado](./media/one-click-sso-tutorial/sso-configured.png)
+   ![Configurar nombre de la aplicación](./media/one-click-sso-tutorial/setup-sso.png)
 
-10. Una vez finalizada correctamente la configuración, se cerrará la sesión de la aplicación y volverás a Azure Portal.
+7. La extensión de explorador configura automáticamente el inicio de sesión único en la aplicación. Para confirmar, seleccione **Sí**.
 
-11. Puedes hacer clic en el botón Probar para probar el inicio de sesión único.
+   ![Guardar los datos rellenados automáticamente](./media/one-click-sso-tutorial/save-autopopulate.png)
+
+   > [!NOTE]
+   > Si la configuración del inicio de sesión único de la aplicación requiere más pasos, siga las indicaciones para realizarlos.
+
+8. Una vez finalizada la configuración, seleccione **Aceptar** para guardar los cambios.
+
+   ![Guardar los datos rellenados automáticamente](./media/one-click-sso-tutorial/save-data.png)
+
+9. Se muestra una ventana de confirmación que le indica que el inicio de sesión único se ha configurado correctamente.
+
+   ![Inicio de sesión único configurado](./media/one-click-sso-tutorial/sso-configured.png)
+
+10. Cuando la configuración sea correcta, se cerrará la sesión de la aplicación y volverá a Azure Portal.
+
+11. Puede seleccionar **Probar** para probar el inicio de sesión único.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [Qué es la extensión de inicio de sesión seguro de Mis aplicaciones para el explorador](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
+* [¿Qué es la extensión de inicio de sesión seguro de Mis aplicaciones para el explorador?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
  

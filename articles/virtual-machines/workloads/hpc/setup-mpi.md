@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo configurar MPI para HPC en Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 5356a033dbc3d989dd27019f03b1fe36035ff9a4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 541e42a72ea604c4d71dc546b14dea2f0857bcc1
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441645"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797508"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configuración de la interfaz de paso de mensajes para HPC
 
@@ -126,7 +126,7 @@ De forma predeterminada, el anclaje del proceso funciona correctamente para 15, 
 
 ## <a name="osu-mpi-benchmarks"></a>Pruebas comparativas OSU MPI
 
-[Descargue las pruebas comparativas OSU MPI][http://mvapich.cse.ohio-state.edu/benchmarks/](http://mvapich.cse.ohio-state.edu/benchmarks/) y descomprima el archivo.
+[Descargue los bancos de pruebas de MPI de OSU](http://mvapich.cse.ohio-state.edu/benchmarks/) y descomprima el archivo.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -146,7 +146,7 @@ Las pruebas comparativas de MPI están en la carpeta `mpi/`.
 
 ## <a name="discover-partition-keys"></a>Detección de claves de partición
 
-Detecte las claves de partición (claves p) para comunicarse con otras máquinas virtuales.
+Detecte las claves de partición (p-keys) para comunicarse con otras máquinas virtuales dentro del mismo inquilino (conjunto de disponibilidad o conjunto de escalado de máquinas virtuales).
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -164,13 +164,15 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 
 Utilice la partición que no sea la clave de partición predeterminada (0x7fff). UCX requiere el MSB de la clave p para borrarse. Por ejemplo, establezca UCX_IB_PKEY como 0x000b para 0x800b.
 
+Tenga en cuenta mientras exista el inquilino (AVSet o VMSS), las PKEY seguirán siendo las mismas. Esto sucede incluso cuando se agregan o eliminan nodos. Los nuevos inquilinos obtienen PKEY diferentes.
+
 
 ## <a name="set-up-user-limits-for-mpi"></a>Configuración de los límites de usuario para MPI
 
 Configure los límites de usuario para MPI.
 
 ```bash
-cat << EOF >> /etc/security/limits.conf
+cat << EOF | sudo tee -a /etc/security/limits.conf
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 *               hard    nofile          65535

@@ -11,10 +11,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66256132"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas agregadas previamente y basadas en registros en Application Insights
@@ -63,7 +63,7 @@ La recopilación de dimensiones de métricas personalizadas se ha desactivado de
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Creación de gráficos y exploración de métricas estándar basadas en registros y agregadas previamente
 
-Use [Explorador de métricas de Azure Monitor](../platform/metrics-getting-started.md) para trazar los gráficos de métricas agregadas previamente y basado en registro y los paneles de autor con gráficos. Después de seleccionar el recurso de Application Insights deseado, utilice el selector de espacios de nombres para cambiar de métricas estándar (versión preliminar) a métricas basadas en registros, o seleccione un espacio de nombres de métricas personalizadas:
+Use el [Explorador de métricas de Azure Monitor](../platform/metrics-getting-started.md) para trazar los gráficos de las métricas agregadas previamente y basadas en registros, y para crear paneles con gráficos. Después de seleccionar el recurso de Application Insights deseado, utilice el selector de espacios de nombres para cambiar de métricas estándar (versión preliminar) a métricas basadas en registros, o seleccione un espacio de nombres de métricas personalizadas:
 
 ![Espacio de nombres de métricas](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Registro y diagnóstico de Azure espacial delimitadores | Microsoft Docs
-description: Explicación detallada de cómo generar y recuperar el registro y diagnóstico de Azure espacial delimitadores.
+title: Registro y diagnóstico en Azure Spatial Anchors | Microsoft Docs
+description: Explicación detallada sobre cómo generar y recuperar registros y diagnósticos en Azure Spatial Anchors.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -9,21 +9,21 @@ ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: b66dc7d6ec9d11fe645587fe791824009231b7c2
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964741"
 ---
-# <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registro y diagnóstico de Azure espacial delimitadores
+# <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registro y diagnóstico en Azure Spatial Anchors
 
-Delimitadores espacial Azure proporciona un mecanismo de registro estándar que es útil para el desarrollo de aplicaciones. El modo de registro de diagnósticos de delimitadores espacial es útil cuando necesita más información para la depuración. Registro de diagnóstico almacena las imágenes del entorno.
+Azure Spatial Anchors brinda un mecanismo de registro estándar que resulta útil para el desarrollo de aplicaciones. El modo de registro de diagnóstico de Spatial Anchors es útil cuando se necesita más información para realizar una depuración. El registro de diagnóstico almacena imágenes del entorno.
 
 ## <a name="standard-logging"></a>Registro estándar
-En la API de delimitadores espacial, puede suscribirse al mecanismo de registro para obtener registros útiles para el desarrollo de aplicaciones y la depuración. Las API de registro estándar no almacene imágenes del entorno en el disco del dispositivo. El SDK proporciona estos registros como las devoluciones de llamada de evento. Depende de usted para integrar estos registros en el mecanismo de registro de la aplicación.
+En la API Spatial Anchors, puede suscribirse al mecanismo de registro para obtener registros útiles para el desarrollo y la depuración de aplicaciones. Las API de registro estándar no almacenan imágenes del entorno en el disco del dispositivo. El SDK proporciona estos registros como devoluciones de llamada de eventos. De usted depende integrar estos registros en el mecanismo de registro de la aplicación.
 
 ### <a name="configuration-of-log-messages"></a>Configuración de los mensajes de registro
-Hay dos devoluciones de llamada de interés para el usuario. El ejemplo siguiente muestra cómo configurar la sesión.
+Existen dos devoluciones de llamada de interés para el usuario. En el ejemplo siguiente se muestra cómo configurar la sesión.
 
 ```csharp
     cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
@@ -38,27 +38,27 @@ Hay dos devoluciones de llamada de interés para el usuario. El ejemplo siguient
     cloudSpatialAnchorSession.Error += CloudSpatialAnchorSession_Error;
 ```
 
-### <a name="events-and-properties"></a>Propiedades y eventos
+### <a name="events-and-properties"></a>Eventos y propiedades
 
-Se proporcionan estas devoluciones de llamada de evento para procesar los registros y errores de la sesión:
+Estas devoluciones de llamada de eventos se proporcionan para procesar los registros y errores de la sesión:
 
-- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): Especifica el nivel de detalle de los eventos recibir desde el tiempo de ejecución.
-- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): Proporciona eventos de registro de depuración estándar.
-- [Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): Proporciona eventos de registro que tiene en cuenta el tiempo de ejecución que haya errores.
+- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): especifica el nivel de detalle de los eventos que se van a recibir desde el entorno en tiempo de ejecución.
+- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): proporciona eventos de registro de depuración estándar.
+- [Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): proporciona eventos de registro que el entorno en tiempo de ejecución considera como errores.
 
 ## <a name="diagnostics-logging"></a>Registro de diagnóstico
 
-Además el modo estándar de operación para el registro, los anclajes espaciales también tiene un modo de diagnóstico. Modo de diagnóstico captura imágenes del entorno y los registra en el disco. Puede usar este modo para depurar determinados tipos de problemas, como error al localizar un delimitador de forma predecible. Habilitar el registro de diagnóstico solo para reproducir un problema específico. A continuación, deshabilítelo. No habilite diagnósticos al ejecutar las aplicaciones con normalidad.
+Además del modo estándar de operación para el registro, Spatial Anchors también tiene un modo de diagnóstico. El modo de diagnóstico captura imágenes del entorno y las registra en el disco. Puede usar este modo para depurar ciertos tipos de problemas, como errores al ubicar un delimitador de manera predecible. Habilite el registro de diagnóstico solo para reproducir un problema específico. Luego, deshabilítelo. No habilite el diagnóstico si está ejecutando las aplicaciones con normalidad.
 
-Durante una interacción de soporte técnico con Microsoft, un representante de Microsoft podría preguntarse si está dispuesto a enviar un lote de diagnóstico para una investigación más detallada. En este caso, podría decidir habilitar los diagnósticos y reproducir el problema para que pueda enviar el paquete de diagnóstico. 
+Durante una interacción de soporte técnico con Microsoft, un representante de Microsoft podría preguntarle si está dispuesto a enviar un conjunto de diagnósticos para realizar una investigación más detallada. En este caso, puede decidir habilitar el diagnóstico y reproducir el error para poder enviar el conjunto de diagnósticos. 
 
-Si envía un registro de diagnóstico a Microsoft sin confirmación anterior de un representante de Microsoft, el envío pasará sin responder.
+Si envía un registro de diagnóstico a Microsoft sin el conocimiento previo de un representante de Microsoft, el envío no recibirá respuesta.
 
-Las secciones siguientes muestran cómo habilitar el modo de diagnóstico y también cómo enviar los registros de diagnóstico a Microsoft.
+En las secciones siguientes se muestra cómo habilitar el modo de diagnóstico y también cómo enviar registros de diagnóstico a Microsoft.
 
 ### <a name="enable-diagnostics-logging"></a>Habilitación del registro de diagnósticos
 
-Cuando se habilita una sesión de registro de diagnóstico, todas las operaciones en la sesión tienen correspondiente registro de diagnóstico en el sistema de archivos local. Durante el registro, las imágenes del entorno se guardan en el disco.
+Cuando se habilita una sesión para el registro de diagnóstico, todas las operaciones de la sección tienen un registro de diagnóstico correspondiente en el sistema de archivos local. Durante el registro, las imágenes del entorno se guardan en el disco.
 
 ```csharp
 private void ConfigureSession()
@@ -86,9 +86,9 @@ private void ConfigureSession()
 }
 ```
 
-### <a name="submit-the-diagnostics-bundle"></a>Enviar el paquete de diagnóstico
+### <a name="submit-the-diagnostics-bundle"></a>Envío del conjunto de diagnósticos
 
-El fragmento de código siguiente muestra cómo enviar un paquete de diagnóstico a Microsoft. Este paquete incluye imágenes del entorno capturados por la sesión después de habilitar los diagnósticos. 
+En el fragmento de código siguiente se muestra cómo enviar un conjunto de diagnósticos a Microsoft. Este conjunto incluirá las imágenes del entorno que capturó la sesión después de que habilitó los diagnósticos. 
 
 ```csharp
 // method to handle the diagnostics bundle submission
@@ -104,9 +104,9 @@ private async Task CreateAndSubmitBundle()
 }
 ```
 
-### <a name="parts-of-a-diagnostics-bundle"></a>Partes de un paquete de diagnóstico
-El paquete de diagnóstico podría contener la siguiente información:
+### <a name="parts-of-a-diagnostics-bundle"></a>Partes de un conjunto de diagnósticos
+El conjunto de diagnósticos podría contener esta información:
 
-- **Imágenes de fotograma clave**: Imágenes del entorno capturado durante la sesión mientras se han habilitado los diagnósticos.
-- **Registros**: Registrar los eventos registrados por el tiempo de ejecución.
-- **Los metadatos de la sesión**: Metadatos que identifica la sesión.
+- **Imágenes de fotograma clave**: las imágenes del entorno capturadas durante la sesión mientras el modo de diagnóstico estaba habilitado.
+- **Registros**: los eventos de registro registrados por el entorno en tiempo de ejecución.
+- **Metadatos de la sesión**: los metadatos que identifican a la sesión.

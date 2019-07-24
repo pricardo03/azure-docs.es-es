@@ -1,6 +1,6 @@
 ---
-title: Limita la pesada de cuadro de datos de Azure | Microsoft Docs
-description: Describe los límites del sistema y los tamaños recomendados para las conexiones y componentes pesados de cuadro de datos de Microsoft Azure.
+title: Límites de Azure Data Box Heavy | Microsoft Docs
+description: Se describen los límites del sistema y los tamaños recomendados de las conexiones y los componentes de Microsoft Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: alkohli
 ms.openlocfilehash: da518de4702925ebad29727e2bdce99e67d40249
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427752"
 ---
-# <a name="azure-data-box-heavy-limits-preview"></a>Límites de datos cuadro pesado de Azure (versión preliminar)
+# <a name="azure-data-box-heavy-limits-preview"></a>Límites de Azure Data Box Heavy (versión preliminar)
 
 
-Tenga en cuenta estos límites al implementar y operar el dispositivo cuadro intensivo de datos de Azure. En la tabla siguiente se describen los límites de Data Box.
+Tenga en cuenta estos límites al implementar y usar el dispositivo de Azure Data Box Heavy. En la tabla siguiente se describen los límites de Data Box.
 
 
-## <a name="data-box-heavy-service-limits"></a>Límites de servicio de datos cuadro pesado
+## <a name="data-box-heavy-service-limits"></a>Límites del servicio de Data Box Heavy
 
 [!INCLUDE [data-box-service-limits](../../includes/data-box-service-limits.md)]
 
-## <a name="data-box-heavy-limits"></a>Límites de datos cuadro pesado
+## <a name="data-box-heavy-limits"></a>Límites del servicio de Data Box Heavy
 
-- Cuadro de datos puede almacenar un máximo de 1 millones de archivos por nodo.
+- Data Box puede almacenar un máximo de mil millones de archivos por nodo.
 
-## <a name="azure-storage-limits"></a>Límites de almacenamiento de Azure
+## <a name="azure-storage-limits"></a>Límites de Azure Storage
 
 [!INCLUDE [data-box-storage-limits](../../includes/data-box-storage-limits.md)]
 

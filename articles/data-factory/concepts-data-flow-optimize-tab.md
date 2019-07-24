@@ -1,18 +1,17 @@
 ---
 title: Pestaña Optimizar de Azure Data Factory Mapping Data Flow
-description: Optimización de los flujos de datos de asignación de Azure Data Factory con la configuración de particiones de la pestaña Optimizar
+description: Optimización de Mapping Data Flow de Azure Data Factory mediante la pestaña Optimizar con la configuración de particiones
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 40023931b2a0b3788a583a5b5240e7916b187e34
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262295"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190642"
 ---
 # <a name="mapping-data-flow-transformation-optimize-tab"></a>Pestaña Optimizar de la transformación de Mapping Data Flow
 
@@ -51,3 +50,8 @@ Debe crear una expresión que proporcione un intervalo fijo para los valores de 
 ### <a name="key"></a>Clave
 
 Si conoce bien la cardinalidad de los datos, la creación de particiones clave puede ser una buena estrategia de partición. La creación de particiones clave creará particiones para cada valor único de la columna. No puede establecer el número de particiones porque dicho número se basará en valores únicos de los datos.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Guía de rendimiento de Mapping Data Flow](concepts-data-flow-performance.md)
+[Supervisión de Data Flow](concepts-data-flow-monitoring.md)

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 07/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 144ad8761b4d462012963e040b7699e38587831b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 10798b471012d53b5820b078b4be7c9c648d3233
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272778"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868357"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Creación de una aplicación web de una sola página
 
@@ -381,7 +381,7 @@ Función del representador de noticias:
 > * Compila etiquetas `<a>` HTML vinculadas con la imagen y la página que la contiene.
 > * Compila la descripción que muestra información sobre la imagen y el sitio en que se encuentra.
 
-El tamaño de las miniaturas se usa tanto en la etiqueta `<img>` como en los campos `h` y `w` en la dirección URL de la miniatura. El [servicio de miniaturas de Bing](resize-and-crop-thumbnails.md), a continuación, proporciona una miniatura de exactamente ese tamaño.
+El tamaño de las miniaturas se usa tanto en la etiqueta `<img>` como en los campos `h` y `w` en la dirección URL de la miniatura. El [servicio de miniaturas de Bing](../bing-web-search/resize-and-crop-thumbnails.md), a continuación, proporciona una miniatura de exactamente ese tamaño.
 
 ## <a name="persisting-client-id"></a>Id. de cliente persistente
 Las respuestas de Bing Search API pueden incluir un encabezado `X-MSEdge-ClientID` que debe devolverse a la API con las solicitudes sucesivas. Si se usan varias instancias de Bing Search API, se debe usar el mismo identificador de cliente con todas ellas, si es posible.
@@ -397,7 +397,7 @@ Las directivas de seguridad del explorador (CORS) pueden impedir que el encabeza
 > [!NOTE]
 > En una aplicación web de producción, debe realizar la solicitud del lado servidor. En caso contrario, es necesario incluir la clave de Bing Search API en la página web, donde está disponible para cualquiera que vea el origen. Se le facturará todo el uso bajo su clave de suscripción a API, incluso las solicitudes que realicen partes no autorizadas, por lo que es importante no exponer su clave.
 
-Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que agrega los encabezados de respuesta a listas blancas y hace que estén disponibles para JavaScript.
+Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que permite los encabezados de respuesta y hace que estén disponibles para JavaScript.
 
 Es fácil instalar un proxy CORS para permitir que nuestra aplicación de tutorial acceda al encabezado de identificador de cliente. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). Escriba el comando siguiente en una ventana de comandos:
 

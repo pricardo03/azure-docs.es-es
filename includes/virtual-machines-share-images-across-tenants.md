@@ -9,56 +9,56 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145897"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186279"
 ---
-Galerías de imágenes compartidas le permiten compartir las imágenes mediante RBAC. Puede utilizar RBAC para compartir imágenes dentro de su inquilino e incluso personas fuera de su inquilino. Sin embargo, si desea compartir las imágenes fuera de su inquilino de Azure a escala, debe crear un registro de aplicación para facilitar el uso compartido.  Uso de un registro de aplicación puede habilitar escenarios de uso compartidos más complejos, como: 
+Las galerías de imágenes compartidas le permiten compartir las imágenes mediante RBAC. Puede utilizar RBAC para compartir imágenes dentro de su inquilino e incluso con personas de fuera de él. Pero si quiere compartir las imágenes fuera de su inquilino de Azure, a escala, debe crear un registro de aplicación para facilitar el uso compartido.  Usar un registro de aplicación puede habilitar escenarios de uso compartidos más complejos, como por ejemplo: 
 
-* Administración de imágenes compartidos cuando una compañía adquiere otra y la infraestructura de Azure se reparte entre los inquilinos independientes. 
-* Los asociados de Azure administración la infraestructura de Azure en nombre de sus clientes. Personalización de imágenes se realiza en el inquilino de asociados, pero las implementaciones de infraestructura se realizarán en el inquilino del cliente. 
-
-
-## <a name="create-the-app-registration"></a>Crear el registro de aplicación
-
-Crear un registro de la aplicación que se usará ambos inquilinos para compartir los recursos de galería de imágenes.
-1. Abra el [registros de aplicaciones (versión preliminar) en el portal de Azure](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/).    
-1. Seleccione **nuevo registro** en el menú en la parte superior de la página.
-1. En **nombre**, tipo *myGalleryApp*.
-1. En **admite tipos de cuenta**, seleccione **cuentas en cualquier directorio de organización y las cuentas personales de Microsoft**.
-1. En **URI de redireccionamiento**, tipo *https://www.microsoft.com* y, a continuación, seleccione **registrar**. Una vez creado el registro de aplicación, se abrirá la página información general.
-1. En la página información general, copie el **Id. de aplicación (cliente)** y guárdelas para su uso posterior.   
-1. Seleccione **certificados y secretos**y, a continuación, seleccione **nuevo secreto de cliente**.
-1. En **descripción**, tipo *secreto de aplicación entre inquilinos de galería de imagen compartido*.
-1. En **Expires**, deje el valor predeterminado de **en 1 año** y, a continuación, seleccione **agregar**.
-1. Copie el valor del secreto y guardarlo en un lugar seguro. No podrá recuperarlo después de salir de la página.
+* Administración de imágenes compartidas cuando una compañía adquiere otra y la infraestructura de Azure se distribuye entre inquilinos independientes. 
+* Los asociados de Azure administran la infraestructura de Azure en nombre de sus clientes. La personalización de imágenes se realiza en el inquilino de los asociados, pero las implementaciones de infraestructura se realizarán en el inquilino del cliente. 
 
 
-Conceder el permiso de registro de aplicación para usar la Galería de imágenes compartidas.
-1. En el portal de Azure, seleccione la Galería de imágenes compartido que desea compartir con otro inquilino.
-1. Seleccione **seleccione control de acceso (IAM)** y en **Agregar asignación de roles** seleccione *agregar*. 
-1. En **rol**, seleccione **lector**.
-1. En **asignar acceso a:**, déjelo como **usuario, grupo o entidad de servicio de Azure AD**.
-1. En **seleccione**, tipo *myGalleryApp* y selecciónelo cuando aparezca en la lista. Cuando haya terminado, seleccione **guardar**.
+## <a name="create-the-app-registration"></a>Creación del registro de aplicaciones
+
+Cree un registro de aplicación que usarán ambos inquilinos para compartir los recursos de la galería de imágenes.
+1. Abra [Registros de aplicaciones (versión preliminar) en Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/).    
+1. En el menú de la parte superior de la página, seleccione **Nuevo registro**.
+1. En **Nombre**, escriba *myGalleryApp*.
+1. En **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales**.
+1. En **URI de redirección**, escriba *https://www.microsoft.com* y luego haga clic en **Registrar**. Una vez creado el registro de aplicación, se abrirá la página de información general.
+1. En la página de información general, copie el **identificador de aplicación (cliente)** y guárdelo para usarlo más adelante.   
+1. Seleccione **Certificados y secretos** y luego seleccione **Nuevo secreto de cliente**.
+1. En **Descripción**, escriba *Shared image gallery cross-tenant app secret* (Secreto de aplicación entre inquilinos de la Galería de imágenes compartidas).
+1. En **Expires**, deje el valor predeterminado de **En 1 año** y, después, seleccione **Agregar**.
+1. Copie el valor del secreto y guárdelo en un lugar seguro. No podrá recuperarlo después de salir de la página.
 
 
-## <a name="give-tenant-2-access"></a>Conceder acceso de inquilino 2
+Conceda permiso al registro de aplicación para usar la Galería de imágenes compartidas.
+1. En Azure Portal, seleccione la Galería de imágenes compartidas que quiere compartir con otro inquilino.
+1. Seleccione **Control de acceso (IAM)** y en **Agregar asignación de roles**, seleccione *Agregar*. 
+1. En **Rol**, seleccione **Lector**.
+1. En **Asignar acceso a**, déjelo como **Usuario, grupo o entidad de servicio de Azure AD**.
+1. En **Seleccionar**, escriba *myGalleryApp* y haga clic sobre él cuando aparezca en la lista. Cuando finalice, seleccione **Guardar**.
 
-Conceder acceso de inquilino 2 a la aplicación mediante la solicitud en un inicio de sesión mediante un explorador. Reemplace *<Tenant2 ID>* con el identificador del inquilino del inquilino que le gustaría compartir con la Galería de imágenes. Reemplace *< Id. de aplicación (cliente) >* con el identificador de aplicación del registro de la aplicación que creó. Cuando haya terminado de realizar los reemplazos, pegue la dirección URL en un explorador y siga las instrucciones de inicio de sesión para iniciar sesión en el inquilino 2.
+
+## <a name="give-tenant-2-access"></a>Conceder acceso a Inquilino 2
+
+Conceda acceso a Inquilino 2 a la aplicación solicitando un inicio de sesión mediante un explorador. Reemplace *<Tenant2 ID>* con el identificador del inquilino con el que le gustaría compartir la galería de imágenes. Reemplace *<Identificador de la aplicación (cliente)>* con el identificador de la aplicación del registro de aplicación que creó. Cuando haya terminado de realizar los reemplazos, pegue la dirección URL en un explorador y siga las instrucciones de inicio de sesión para iniciar sesión en Inquilino 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 
 ```
 
-En el [portal Azure](https://portal.azure.com) iniciar sesión como inquilino 2 y dar acceso de registro de la aplicación al grupo de recursos donde desea crear la máquina virtual.
+En [Azure Portal](https://portal.azure.com), inicie sesión como Inquilino 2 y dé acceso de registro de aplicación al grupo de recursos donde quiere crear la máquina virtual.
 
-1. Seleccione el grupo de recursos y, a continuación, seleccione **control de acceso (IAM)**. En **Agregar asignación de roles** seleccione **agregar**. 
-1. En **rol**, tipo **colaborador**.
-1. En **asignar acceso a:**, déjelo como **usuario, grupo o entidad de servicio de Azure AD**.
-1. En **seleccione** tipo *myGalleryApp* , a continuación, selecciónelo cuando aparezca en la lista. Cuando haya terminado, seleccione **guardar**.
+1. Seleccione el grupo de recursos, y luego haga clic en **Control de acceso (IAM)** . En **Agregar asignación de roles**, seleccione **Agregar**. 
+1. En **Rol**, escriba **Colaborador**.
+1. En **Asignar acceso a**, déjelo como **Usuario, grupo o entidad de servicio de Azure AD**.
+1. En **Seleccionar**, escriba *myGalleryApp* y luego haga clic sobre él cuando aparezca en la lista. Cuando finalice, seleccione **Guardar**.
 
 > [!NOTE]
-> Deberá esperar a que finalice por completo que se compila y se replican para poder usar la misma imagen administrada para crear otra versión de la imagen la versión de imagen.
+> Deberá esperar a que la versión de la imagen termine de compilarse y replicarse por completo antes de poder usar la misma imagen administrada para crear otra versión de la imagen.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Realización de operaciones de imagen - Python'
+title: Realización de operaciones de imagen - Python
 titlesuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo usar Computer Vision API con Python utilizando Jupyter Notebook. Visualice los resultados mediante bibliotecas populares.
 services: cognitive-services
@@ -7,20 +7,20 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
-ms.date: 11/06/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: b5333557355aa816245b5086836eac980d90540a
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b18f41db772c1c214bdf48c9bb765b1ce7e6d2c2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341479"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604151"
 ---
-# <a name="tutorial-computer-vision-api-python"></a>Tutorial: Computer Vision API para Python
+# <a name="computer-vision-api-jupyter-notebook"></a>Cuaderno de Jupyter de la API Computer Vision
 
-En este tutorial se muestra cómo usar Computer Vision API en Python y cómo visualizar los resultados mediante algunas bibliotecas conocidas. Usará Jupyter para realizar el tutorial. Para información sobre cómo empezar a trabajar con cuadernos interactivos de Jupyter, consulte la [documentación de Jupyter](https://jupyter.readthedocs.io/en/latest/index.html).
+En esta guía se muestra cómo usar la API Computer Vision en Python y cómo visualizar los resultados mediante algunas bibliotecas conocidas. Usará Jupyter para realizar el tutorial. Para información sobre cómo empezar a trabajar con cuadernos interactivos de Jupyter, consulte la [documentación de Jupyter](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,7 +28,7 @@ En este tutorial se muestra cómo usar Computer Vision API en Python y cómo vis
 - Herramienta [pip](https://pip.pypa.io/en/stable/installing/)
 - [Jupyter Notebook](https://jupyter.org/install) instalado
 
-## <a name="open-the-tutorial-notebook-in-jupyter"></a>Apertura del cuaderno del tutorial en Jupyter 
+## <a name="open-the-notebook-in-jupyter"></a>Apertura del cuaderno en Jupyter 
 
 1. Vaya al repositorio de GitHub de [Cognitive Vision Python](https://github.com/Microsoft/Cognitive-Vision-Python). 
 2. Haga clic en el botón verde para clonar o descargar el repositorio. 
@@ -37,7 +37,7 @@ En este tutorial se muestra cómo usar Computer Vision API en Python y cómo vis
 1. Para iniciar Jupyter, ejecute el comando `jupyter notebook` desde el símbolo del sistema.
 1. En la ventana de Jupyter, haga clic en _Computer Vision API Example.ipynb_ para abrir el cuaderno del tutorial.
 
-## <a name="run-the-tutorial"></a>Ejecución del tutorial
+## <a name="run-the-notebook"></a>Ejecución del cuaderno
 
 Para utilizar este cuaderno, necesitará una clave de suscripción para Computer Vision API. Visite la [página de suscripción](https://azure.microsoft.com/try/cognitive-services/) para registrarse. En la página de **inicio de sesión**, use su cuenta Microsoft para iniciar sesión y podrá suscribirse y obtener claves gratuitas. Después de completar el proceso de suscripción, pegue la clave en la sección `Variables` del cuaderno (se reproduce a continuación). Servirá la clave principal o la secundaria. Asegúrese de encerrar la clave entre comillas para convertirla en una cadena.
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1bf42e5f418f99f5e5327d790c1adffe2357b84e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e181aab3d92d8111a0a7d1d41bbddac20687a547
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021934"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668881"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Cómo agregar una aptitud personalizada a una canalización de Cognitive Search
 
 Se puede crear una [canalización de indexación de Cognitive Search](cognitive-search-concept-intro.md) en Azure Search a partir de [aptitudes predefinidas](cognitive-search-predefined-skills.md) y [aptitudes personalizadas](cognitive-search-custom-skill-web-api.md) que puede crear y agregar personalmente a la canalización. En este artículo, obtendrá información sobre cómo crear una aptitud personalizada que exponga una interfaz para que pueda incluirse en una canalización de Cognitive Search. 
 
-Crear una aptitud personalizada le otorga una forma de insertar transformaciones únicas en el contenido. Una aptitud personalizada se ejecuta de forma independiente; además, puede aplicar cualquier paso de enriquecimiento que quiera. Por ejemplo, puede definir entidades personalizadas específicas de campo, crear modelos de clasificación personalizados para diferenciar contratos y documentos comerciales y financieros, o agregar una aptitud de reconocimiento de voz para profundizar en el contenido relevante de los archivos de audio. Para obtener un ejemplo paso a paso, consulte [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md) (Ejemplo: crear una aptitud personalizada).
+Crear una aptitud personalizada le otorga una forma de insertar transformaciones únicas en el contenido. Una aptitud personalizada se ejecuta de forma independiente; además, puede aplicar cualquier paso de enriquecimiento que quiera. Por ejemplo, puede definir entidades personalizadas específicas de campo, crear modelos de clasificación personalizados para diferenciar contratos y documentos comerciales y financieros, o agregar una aptitud de reconocimiento de voz para profundizar en el contenido relevante de los archivos de audio. Para ver un ejemplo paso a paso, consulte [Ejemplo: Creación de una aptitud personalizada de búsqueda cognitiva](cognitive-search-create-custom-skill-example.md).
 
  Cualquiera que sea la capacidad personalizada que necesite, existe una interfaz simple y clara para conectar una aptitud personalizada al resto de la canalización de enriquecimiento. El único requisito para su inclusión en un [conjunto de aptitudes](cognitive-search-defining-skillset.md), es la capacidad de aceptar entradas y emitir salidas de manera que se puedan consumir dentro del conjunto de aptitudes en conjunto. Este artículo se centra en los formatos de entrada y salida que necesita la canalización de enriquecimiento.
 
@@ -156,7 +156,7 @@ Cuando crea una opción de enriquecimiento de Web API, puede describir encabezad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-+ [Ejemplo: crear una aptitud personalizada para la Translate Text API](cognitive-search-create-custom-skill-example.md)
++ [Ejemplo: Creación de una habilidad personalizada de búsqueda cognitiva](cognitive-search-create-custom-skill-example.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Crear un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Cómo asignar campos enriquecidos](cognitive-search-output-field-mapping.md)

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967307"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
@@ -33,7 +33,7 @@ Las siguientes son algunas directrices para decidir una estrategia de rendimient
 
 1. Tiene algunas decenas de contenedores de Azure Cosmos y quiere compartir el rendimiento entre algunos o todos ellos. 
 
-2. Va a migrar desde una base de datos de inquilino único diseñada para ejecutarse en VM hospedadas por IaaS o en entornos locales, por ejemplo, NoSQL o bases de datos relacionales, a Azure Cosmos DB. Y si tiene muchas colecciones, grafos o tablas y no desean realizar cambios en el modelo de datos. Tenga en cuenta, es posible que deba poner en peligro algunas de las ventajas que ofrece Azure Cosmos DB si no va a actualizar el modelo de datos al migrar desde una base de datos local. Se recomienda volver a acceder siempre al modelo de datos para sacar el máximo provecho en cuanto a rendimiento y también para optimizar los costos. 
+2. Va a migrar desde una base de datos de inquilino único diseñada para ejecutarse en VM hospedadas por IaaS o en entornos locales, por ejemplo, NoSQL o bases de datos relacionales, a Azure Cosmos DB. Y si tiene muchas colecciones, tablas o grafos y no quiere hacer cambios en el modelo de datos. Tenga en cuenta que quizás deba renunciar a algunas de las ventajas que ofrece Azure Cosmos DB si no va a actualizar el modelo de datos al migrar desde una base de datos local. Se recomienda volver a acceder siempre al modelo de datos para sacar el máximo provecho en cuanto a rendimiento y también para optimizar los costos. 
 
 3. Quiere absorber los picos no planeados en cargas de trabajo en virtud de rendimiento agrupado en el nivel de base de datos sometido a un pico inesperado en la carga de trabajo. 
 
@@ -56,9 +56,9 @@ Como se muestra en la tabla siguiente, según la elección de la API, puede apro
 |API|Para rendimiento **compartido**, configure |Para rendimiento **dedicado**, configure |
 |----|----|----|
 |API DE SQL|Base de datos|Contenedor|
-|API de Azure Cosmos DB para MongoDB|Base de datos|Recolección|
-|Cassandra API|Keyspace|Tabla|
-|API de Gremlin|Cuenta de base de datos|Gráfico|
+|API de Azure Cosmos DB para MongoDB|Base de datos|Colección|
+|Cassandra API|Espacio de claves|Tabla|
+|API de Gremlin|Cuenta de base de datos|Grafo|
 |Table API|Cuenta de base de datos|Tabla|
 
 Al aprovisionar el rendimiento en diferentes niveles, puede optimizar los costos en función de las características de la carga de trabajo. Como se mencionó anteriormente, puede aumentar o disminuir mediante programación y en cualquier momento el rendimiento aprovisionado para contenedores individuales o de a varios en un conjunto de contenedores. Al escalar elásticamente el rendimiento a medida que cambia la carga de trabajo, solo paga por el rendimiento que haya configurado. Si el contenedor o el conjunto de contenedores se distribuyen entre varias regiones, se garantiza que el rendimiento que configura en el contenedor o el conjunto de contenedores está disponible en todas las regiones.
@@ -159,7 +159,7 @@ Los pasos siguientes le ayudan a que sus soluciones sean altamente escalables y 
 
 2. Un método para calcular la cantidad de rendimiento reservado que necesita la aplicación es registrar la carga de unidades de solicitud (RU) asociadas a la ejecución de las operaciones típicas, frente a un contenedor o base de datos representativo de Azure Cosmos que usa la aplicación y, después, calcular el número de operaciones que prevé realizar cada segundo. Asegúrese de medir e incluir las consultas típicas, así como su uso. Para información sobre cómo calcular los costos de RU de consultas mediante programación o con el portal, consulte [Optimización del costo de las consultas](online-backup-and-restore.md). 
 
-3. Otra forma de obtener operaciones y sus costos en unidades de solicitud es mediante la habilitación de registros de Azure Monitor, lo que proporcionan el desglose de duración de la operación/y el cargo de solicitud. Azure Cosmos DB proporciona el cargo de solicitud para cada operación, por lo que cada cargo de operación se puede almacenar desde la respuesta y luego usarse para el análisis. 
+3. Otra forma de obtener las operaciones y sus costos en RU es habilitar los registros de Azure Monitor, lo que proporcionará el desglose de operación/duración y el cargo de solicitud. Azure Cosmos DB proporciona el cargo de solicitud para cada operación, por lo que cada cargo de operación se puede almacenar desde la respuesta y luego usarse para el análisis. 
 
 4. Puede escalar o reducir verticalmente y de manera elástica el rendimiento aprovisionado según sea necesario para ajustarse a sus necesidades de carga de trabajo. 
 

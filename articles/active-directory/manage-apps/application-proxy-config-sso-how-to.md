@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f26b28b34a569673b397fa4700c5332c3550500f
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825864"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Configuración del inicio de sesión único en una aplicación de proxy de aplicación
@@ -43,9 +43,9 @@ Configure el tipo específico de inicio de sesión único. Los métodos de inici
 
 -   **Inicio de sesión basado en el encabezado**: se habilita mediante una asociación y requiere una configuración adicional. Para ver detalles sobre la asociación y las instrucciones paso a paso para configurar el inicio de sesión único para una aplicación que use encabezados para la autenticación, consulte la [documentación de PingAccess para Azure AD](application-proxy-configure-single-sign-on-with-ping-access.md).
 
--   **Inicio de sesión único en SAML**: Con SAML single sign-on, Azure AD autentica a la aplicación mediante el uso de la cuenta de Azure AD del usuario. Azure AD comunica la información de inicio de sesión a la aplicación a través de un protocolo de conexión. Con el inicio de sesión único basado en SAML puede asignar usuarios a roles de aplicación específicos según las reglas que defina en las notificaciones SAML. Para obtener información acerca de cómo configurar el inicio de sesión único de SAML, vea [SAML para inicio de sesión único con el Proxy de aplicación](application-proxy-configure-single-sign-on-on-premises-apps.md).
+-   **Inicio de sesión único SAML**: Con el inicio de sesión único de SAML, Azure AD se autentica en la aplicación mediante el uso de la cuenta de Azure AD del usuario. Azure AD comunica la información de inicio de sesión a la aplicación a través de un protocolo de conexión. Con el inicio de sesión único basado en SAML puede asignar usuarios a roles de aplicación específicos según las reglas que defina en las notificaciones SAML. Para obtener información sobre cómo configurar el inicio de sesión único de SAML, vea [SAML para inicio de sesión único con Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
-Puede encontrar todas estas opciones si va a "Aplicaciones empresariales" en la aplicación y abre la página **Inicio de sesión único** en el menú de la izquierda. Tenga en cuenta que si la aplicación se creó en el portal antiguo, es posible que no vea todas estas opciones.
+Puede encontrar todas estas opciones si va a "Aplicaciones empresariales" en la aplicación y abre la página **Inicio de sesión único** en el menú de la izquierda. Tenga en cuenta que, si la aplicación se creó en el portal antiguo, es posible que no vea todas estas opciones.
 
 En esta página, también verá una opción adicional para el inicio de sesión: Inicio de sesión vinculado. El proxy de aplicación también admite esta opción. Sin embargo, esta opción no agrega el inicio de sesión único a la aplicación. Dicho esto, es posible que ya se haya implementado el inicio de sesión único en la aplicación mediante otro servicio, como los Servicios de federación de Active Directory. 
 
@@ -55,4 +55,4 @@ Esta opción permite que un administrador cree un vínculo a una aplicación que
 - [Almacén de contraseñas para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Delegación limitada de Kerberos para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-with-ping-access.md) 
-- [SAML de inicio de sesión único con el Proxy de aplicación](application-proxy-configure-single-sign-on-on-premises-apps.md).
+- [SAML para inicio de sesión único con Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).

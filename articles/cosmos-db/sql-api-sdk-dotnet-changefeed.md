@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
 ms.openlocfilehash: 2a4d636ccb03e36f7c495f3c10c90033d7c3c93c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66417914"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
@@ -44,9 +44,9 @@ ms.locfileid: "66417914"
 ### <a name="v2-builds"></a>compilaciones v2
 
 ### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
-* Estrategia para el escenario de equilibrio al obtener todas las concesiones de carga mejorado tarda más tiempo que el intervalo de expiración de concesiones, por ejemplo, debido a problemas de red:
-  * Este algoritmo utilizado para erróneamente como caducada, tenga en cuenta las concesiones de equilibrio de carga de escenario, causando concesiones de robo de los propietarios de activos. Esto podría desencadenar necesario volver a equilibrar una gran cantidad de concesiones.
-  * Este problema está corregido en esta versión, ya que evita reintento en caso de conflicto mientras adquirir concesión expirada qué propietario no ha cambiado y adquirir posponing expirado concesión a la siguiente iteración de equilibrio de carga.
+* La estrategia de equilibrio de carga mejorada para el escenario en el que se obtienen todas las concesiones tarda más que el intervalo de expiración de la concesión, p. ej., debido a problemas de red:
+  * En este escenario, el algoritmo de equilibrio de carga se usa para considerar erróneamente las concesiones como expiradas, lo que provoca el robo de concesiones de propietarios activos. Esto puede desencadenar el reequilibrio innecesario de muchas concesiones.
+  * Este problema se ha corregido en esta versión evitando volver a probar el conflicto mientras se adquiere una concesión expirada que el propietario no ha cambiado y posponiendo la adquisición de una concesión expirada a la siguiente itera de equilibrio de carga.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Control mejorado de las excepciones del observador.
@@ -137,7 +137,7 @@ ms.locfileid: "66417914"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Mejoras de estabilidad.
-  * Corrección para controlar los aspectos de las tareas canceladas que podrían conducir a los observadores detenidos en algunas particiones.
+  * Corrección para administrar el problema de las tareas canceladas que puede detener a los observadores en algunas particiones.
 * Compatibilidad con puntos de control manuales.
 * Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.21 y posteriores.
 
@@ -168,7 +168,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 <br/>
 
-| Version | Fecha de lanzamiento | Fecha de retirada |
+| Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
 | [2.2.7](#2.2.7) |14 de mayo de 2019 |--- |
 | [2.2.6](#2.2.6) |29 de enero de 2019 |--- |

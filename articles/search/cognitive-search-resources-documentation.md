@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41637fae5592ac292da22303071d51b43116c78b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022177"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671903"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Recursos de documentación para las cargas de trabajo de búsqueda cognitiva
 
@@ -27,7 +27,7 @@ Los artículos siguientes son la documentación completa para la búsqueda cogni
 + [What is cognitive search?](cognitive-search-concept-intro.md) (¿Qué es la búsqueda cognitiva?)
 + [Inicio rápido: Probar Cognitive Search en el portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Aprendizaje de Cognitive Search API](cognitive-search-tutorial-blob.md)
-+ [Ejemplo: creación de una aptitud personalizada](cognitive-search-create-custom-skill-example.md)
++ [Ejemplo: Creación de una aptitud de búsqueda cognitiva personalizada](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Guía de procedimientos
 + [Definición de un conjunto de habilidades](cognitive-search-defining-skillset.md)

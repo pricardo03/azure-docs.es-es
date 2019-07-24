@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
 ms.openlocfilehash: 5722e05e5a5e3a57b4d12b70b14f8674364f824b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244813"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Información general de API de informes para clientes de Enterprise
@@ -44,7 +44,7 @@ Hay disponible un punto de conexión de Swagger [aquí](https://consumption.azur
 
 * **Hoja de precios**: la [API de hoja de precios](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) proporciona el tipo aplicable de cada medidor para la inscripción y el período de facturación determinados.
 
-* **Detalles de la instancia de reserva** : la [API de uso de instancias reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) devuelve el uso de la instancia reservada de compras. El [API cobra la instancia reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) muestra todas las transacciones facturación realizadas. 
+* **Detalles de la instancia reservada**: la [API de uso de la instancia reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) devuelve el uso de las compras de la instancia reservada. La [API de cargos de instancia reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) muestra las transacciones de facturación realizadas. 
 
 ## <a name="data-freshness"></a>Actualización de datos
 Como respuesta a todas las API anteriores, se devuelven etiquetas ETag. Un cambio en una etiqueta ETag indica que se han actualizado los datos.  En las sucesivas llamadas a la misma API con los mismos parámetros, pase la etiqueta ETag capturada con la clave "If-None-Match" en el encabezado de solicitud HTTP. El código de estado de respuesta sería "NotModified" si los datos no se han actualizado más y no se devuelve ningún dato. La API devolverá el conjunto de datos completo para el periodo necesario cada vez que haya un cambio de etiqueta ETag.

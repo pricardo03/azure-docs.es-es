@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 168e5eea2004a31b108a8a00d883298f8e2198ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 82e8fe26cc58117bc6249f8a7e87612dabc5f438
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090277"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839506"
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de Azure Portal para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
@@ -35,6 +35,9 @@ ms.locfileid: "58090277"
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el [tutorial de la actividad de copia](../quickstart-create-data-factory-dot-net.md). 
+
+> [!WARNING]
+> El editor de JSON de Azure Portal para crear e implementar canalizaciones de ADF v1 se desactivará el 31 de julio de 2019. Después del 31 de julio de 2019, puede seguir usando los [cmdlets de PowerShell de ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), el [SDK de .Net para ADF v1](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), las [API REST de ADF v1](https://docs.microsoft.com/rest/api/datafactory/) para crear las canalizaciones de ADF v1.
 
 En este artículo, aprenderá a usar [Azure Portal](https://portal.azure.com) para crear una factoría de datos con una canalización que copia datos desde Azure Blob Storage a Azure SQL Database. Si no está familiarizado con Azure Data Factory, lea el artículo [Introducción a Azure Data Factory](data-factory-introduction.md) antes de realizar este tutorial.   
 
@@ -67,7 +70,7 @@ Estos son los pasos que se realizan en este tutorial:
     Esta actividad copia los datos desde un blob de Azure Blob Storage a una tabla de la base de datos de Azure SQL. Puede utilizar una actividad de copia en una canalización para copiar datos desde cualquier origen admitido a cualquier destino admitido. Para ver una lista de los almacenes de datos admitidos, consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
 5. Supervise la canalización. En este paso, **supervisará** los segmentos de los conjuntos de datos de entrada y salida con Azure Portal. 
 
-## <a name="create-data-factory"></a>Creación de Data Factory
+## <a name="create-a-data-factory"></a>Crear una factoría de datos
 > [!IMPORTANT]
 > Complete los [requisitos previos del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) si aún no lo ha hecho.   
 
@@ -120,7 +123,7 @@ AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de 
 
 AzureSqlLinkedService vincula la base de datos de Azure SQL con la factoría de datos. Los datos que se copian desde Blob Storage se almacenan en esta base de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó la tabla emp en esta base de datos.  
 
-### <a name="create-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
+### <a name="create-an-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
 En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. Especifique el nombre y la clave de la cuenta de almacenamiento de Azure en esta sección.  
 
 1. En la hoja **Factoría de datos**, haga clic en el icono **Crear e implementar**.
@@ -141,7 +144,7 @@ En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. E
 
     Para más información sobre las propiedades JSON en la definición de servicio vinculado, vea el artículo [Conector de Azure Blob Storage](data-factory-azure-blob-connector.md#linked-service-properties).
 
-### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Crear un servicio vinculado para Azure SQL Database
+### <a name="create-a-linked-service-for-azure-sql-database"></a>Creación de un servicio vinculado para Azure SQL Database
 En este paso, vinculará su base de datos de Azure SQL con su factoría de datos. Especifique el nombre del servidor Azure SQL, nombre de base de datos, nombre de usuario y contraseña del usuario en esta sección. 
 
 1. En **Data Factory Editor**, haga clic en el botón **Nuevo almacén de datos** de la barra de herramientas y seleccione **Azure SQL Database** en el menú desplegable. Verá la plantilla JSON para crear un servicio vinculado SQL de Azure en el panel derecho.
@@ -158,7 +161,7 @@ El servicio vinculado Azure Storage especifica la cadena de conexión que el ser
 
 De forma similar, el servicio vinculado de Azure SQL Database especifica la cadena de conexión que el servicio Data Factory utiliza en tiempo de ejecución para conectarse a su base de datos de Azure SQL. Además, el conjunto de datos de la tabla SQL de salida (OutputDataset) especifica la tabla de la base de datos en la que se copian los datos de Blob Storage. 
 
-### <a name="create-input-dataset"></a>Creación de un conjunto de datos de entrada
+### <a name="create-an-input-dataset"></a>Creación de un conjunto de datos de entrada
 En este paso, se crea un conjunto de datos llamado InputDataset, que apunta a un archivo de blobs (emp.txt) en la carpeta raíz de un contenedor de blobs (adftutorial), en la instancia de Azure Storage representada por el servicio vinculado AzureStorageLinkedService. Si no especifica un valor para fileName (o puede omitirlo), los datos de todos los blobs en la carpeta de entrada se copian en el destino. En este tutorial, especifique un valor para fileName. 
 
 1. En el **Editor** en la instancia de Data Factory, haga clic en **... Más**, luego en **Nuevo conjunto de datos** y, finalmente, en **Azure Blob Storage** en el menú desplegable. 
@@ -215,7 +218,7 @@ En este paso, se crea un conjunto de datos llamado InputDataset, que apunta a un
     Para más información acerca de estas propiedades JSON, consulte el [artículo sobre el conector de blob de Azure](data-factory-azure-blob-connector.md#dataset-properties).      
 3. Haga clic en **Implementar** en la barra de herramientas para crear e implementar el conjunto de datos **InputDataset**. Confirme que **InputDataset** aparece en la vista de árbol.
 
-### <a name="create-output-dataset"></a>Creación del conjunto de datos de salida
+### <a name="create-an-output-dataset"></a>Crear un conjunto de datos de salida
 El servicio vinculado de Azure SQL Database especifica la cadena de conexión que el servicio Data Factory usa en tiempo de ejecución para conectarse a su base de datos de Azure SQL. El conjunto de datos de la tabla SQL de salida (OutputDataset) que crea en este paso especifica la tabla de la base de datos en la que se copian los datos de Blob Storage.
 
 1. En el **Editor** en la instancia de Data Factory, haga clic en **... Más**, luego en **Nuevo conjunto de datos** y, finalmente, en **Azure SQL** en el menú desplegable. 
@@ -262,7 +265,7 @@ El servicio vinculado de Azure SQL Database especifica la cadena de conexión qu
     Para más información acerca de estas propiedades JSON, consulte el artículo sobre el [conector de Azure SQL Database](data-factory-azure-sql-connector.md#dataset-properties).
 3. Haga clic en **Implementar** en la barra de herramientas para crear e implementar el conjunto de datos **OutputDataset**. Confirme que **OutputDataset** aparece en la vista de árbol, en **Conjuntos de datos**. 
 
-## <a name="create-pipeline"></a>Creación de una canalización
+## <a name="create-a-pipeline"></a>Crear una canalización
 En este paso, creará una canalización con una **actividad de copia** que utiliza **InputDataset** como entrada y **OutputDataset** como salida.
 
 Actualmente, el conjunto de datos de salida es lo que impulsa la programación. En este tutorial, el conjunto de datos de salida está configurado para generar un segmento una vez cada hora. La canalización tiene una hora de inicio y una hora de finalización con un día de diferencia, es decir, 24 horas. Por lo tanto, la canalización produce 24 segmentos del conjunto de datos de salida. 
@@ -329,8 +332,8 @@ Actualmente, el conjunto de datos de salida es lo que impulsa la programación. 
 **¡Enhorabuena!** Ha creado correctamente una factoría de datos de Azure, con una canalización para copiar datos desde un almacenamiento de blobs de Azure a una base de datos de Azure SQL. 
 
 
-## <a name="monitor-pipeline"></a>Supervisión de la canalización
-En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo en una factoría de datos de Azure.    
+## <a name="monitor-the-pipeline"></a>Supervisar la canalización
+En este paso, usará Azure Portal para supervisar lo que está ocurriendo en una factoría de datos de Azure.    
 
 ### <a name="monitor-pipeline-using-monitor--manage-app"></a>Supervisión de una canalización con la Aplicación de supervisión y administración
 Los pasos siguientes muestran cómo supervisar las canalizaciones de la factoría de datos mediante la aplicación de supervisión y administración: 
@@ -360,7 +363,7 @@ Los pasos siguientes muestran cómo supervisar las canalizaciones de la factorí
 
 Para más información acerca del uso de esta aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
 
-### <a name="monitor-pipeline-using-diagram-view"></a>Supervisión de una canalización desde la vista de diagrama
+### <a name="monitor-the-pipeline-using-diagram-view"></a>Supervisión de la canalización desde la vista de diagrama
 También puede supervisar las canalizaciones de datos mediante la vista de diagrama.  
 
 1. En la hoja **Data Factory**, haga clic en **Diagrama**.

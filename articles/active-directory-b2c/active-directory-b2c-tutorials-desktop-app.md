@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 474aad3b4b2019c9f79f8f1316dd88769e0fabbd
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: c84f336d11a512435e6d8eea814b41e9213eeb13
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508200"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835700"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación cliente nativa mediante Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Cree flujos de usuario](tutorial-create-user-flows.md) para habilitar las experiencias de usuario en la aplicación. 
+- [Cree flujos de usuario](tutorial-create-user-flows.md) para habilitar las experiencias de usuario en la aplicación.
 - [Instale Visual Studio 2019](https://www.visualstudio.com/downloads/) con las cargas de trabajo de **desarrollo de escritorio de .NET** y de **desarrollo web y de ASP.NET**.
 
 ## <a name="add-the-native-client-application"></a>Agregar la aplicación cliente nativa
@@ -83,12 +83,12 @@ Presione **F5** para compilar y ejecutar el ejemplo.
 ### <a name="sign-up-using-an-email-address"></a>Registro con una dirección de correo electrónico
 
 1. Haga clic en **Iniciar sesión** para registrarse como un usuario. Esto usa el flujo de usuario **B2C_1_signupsignin1**.
-2. Azure AD B2C presenta una página de inicio de sesión con un vínculo de registro. Como no tiene aún una cuenta, haga clic en el vínculo **Registrarse ahora**. 
+2. Azure AD B2C presenta una página de inicio de sesión con un vínculo de registro. Como no tiene aún una cuenta, haga clic en el vínculo **Registrarse ahora**.
 3. El flujo de trabajo del registro presenta una página para recopilar y verificar la identidad del usuario con una dirección de correo electrónico. El flujo de trabajo de registro también recopila la contraseña del usuario y los atributos requeridos definidos en el flujo de usuario.
 
-    Utilice una dirección de correo electrónico válida y valídela mediante el código de verificación. Establezca una contraseña. Especifique valores para los atributos solicitados. 
+    Utilice una dirección de correo electrónico válida y valídela mediante el código de verificación. Establezca una contraseña. Especifique valores para los atributos solicitados.
 
-    ![Flujo de trabajo de registro](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![Página de registro que se muestra como parte del flujo de trabajo de inicio de sesión o registro](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 4. Haga clic en **Crear** para crear una cuenta local en el inquilino de Azure AD B2C.
 

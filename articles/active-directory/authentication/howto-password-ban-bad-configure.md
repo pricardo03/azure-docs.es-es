@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f531174c889948308e27109ab4fd80a481ec6bdc
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742290"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798182"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configuración de la lista personalizada de contraseñas prohibidas
 
@@ -29,7 +29,7 @@ La configuración de la lista personalizada de contraseñas prohibidas requiere 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory**, **Métodos de autenticación** y **Protección con contraseña**.
 1. En **Enforce custom list** (Exigir lista personalizada), seleccione la opción **Yes** (Sí).
 1. Agregue cadenas a la **lista personalizada de contraseñas prohibidas**, una cadena por línea
-   * La lista personalizada de contraseñas prohibidas puede contener hasta 1000 palabras.
+   * La lista personalizada de contraseñas prohibidas puede contener hasta 1000 términos.
    * La lista personalizada de contraseñas prohibidas distingue mayúsculas de minúsculas.
    * La lista personalizada de contraseñas prohibidas considera la sustitución de caracteres comunes.
       * Ejemplo: "o" y "0" o "a" y "\@"
@@ -39,6 +39,9 @@ La configuración de la lista personalizada de contraseñas prohibidas requiere 
 > [!NOTE]
 > Las actualizaciones a la lista personalizada de contraseñas prohibidas pueden tardar varias horas en aplicarse.
 
+> [!NOTE]
+> La lista personalizada de contraseñas prohibidas se limita a tener un máximo de 1000 términos. No está diseñado para bloquear listas muy grandes de contraseñas. Para aprovechar al máximo las ventajas de la lista personalizada de contraseñas prohibidas, Microsoft recomienda que primero revise y comprenda el diseño y uso previstos de la lista personalizada de contraseñas prohibidas (consulte [Lista personalizada de contraseñas prohibidas](concept-password-ban-bad.md#custom-banned-password-list)), así como el algoritmo de evaluación de contraseñas (consulte [Cómo se evalúan las contraseñas](concept-password-ban-bad.md#how-are-passwords-evaluated)).
+
 ![Modifique la lista personalizada de contraseñas prohibidas en Método de autenticación de Azure Portal](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="how-it-works"></a>Cómo funciona
@@ -47,9 +50,10 @@ Cada vez que un usuario o un administrador restablecen o cambian la contraseña 
 
 ## <a name="what-do-users-see"></a>Lo que ven los usuarios
 
-Si un usuario intenta restablecer una contraseña a algo que estaría prohibido, verá el siguiente mensaje de error:
+Si un usuario intenta restablecer una contraseña a algo que estaría prohibido, verá uno de los siguientes mensajes de error:
 
-Lamentablemente, la contraseña contiene una palabra, frase o patrón que permite adivinar la contraseña fácilmente. Vuelva a intentarlo con una contraseña diferente.
+* Lamentablemente, la contraseña contiene una palabra, frase o patrón que permite adivinar la contraseña fácilmente. Vuelva a intentarlo con una contraseña diferente.
+* No puede usar esta contraseña porque contiene palabras o caracteres que el administrador ha bloqueado. Vuelva a intentarlo con una contraseña diferente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Citrix Netscaler | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Citrix Netscaler.
+title: 'Tutorial: Integración de Azure Active Directory con Citrix NetScaler | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Citrix NetScaler.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cc32f464044149e263db60fc2de237b473da5ab2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64dd67680626857db7f39fa7fd721b28a02d1561
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105492"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276901"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Tutorial: Integración de Azure Active Directory con Citrix Netscaler
+# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Tutorial: Integración de Azure Active Directory con Citrix NetScaler
 
-En este tutorial, aprenderá a integrar Citrix Netscaler con Azure Active Directory (Azure AD).
-La integración de Citrix Netscaler con Azure AD le proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Citrix NetScaler con Azure Active Directory (Azure AD).
+La integración de Citrix NetScaler con Azure AD le proporciona las siguientes ventajas:
 
-* En Azure AD puede controlar quién tiene acceso a Citrix Netscaler.
-* Puede permitir que los usuarios inicien sesión automáticamente en Citrix Netscaler (Inicio de sesión único) con sus cuentas de Azure AD.
+* En Azure AD puede controlar quién tiene acceso a Citrix NetScaler.
+* Puede permitir que los usuarios inicien sesión automáticamente en Citrix NetScaler (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,24 +36,24 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Citrix Netscaler, necesita los siguientes elementos:
+Para configurar la integración de Azure AD con Citrix NetScaler, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para el inicio de sesión único en Citrix Netscaler
+* Una suscripción habilitada para el inicio de sesión único en Citrix NetScaler
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Citrix Netscaler admite el inicio de sesión único iniciado por **SP**.
+* Citrix NetScaler admite el inicio de sesión único iniciado por **SP**.
 
-* Citrix Netscaler admite aprovisionamiento de usuarios **Just-In-Time**.
+* Citrix NetScaler admite aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-citrix-netscaler-from-the-gallery"></a>Adición de Citrix Netscaler desde la galería
+## <a name="adding-citrix-netscaler-from-the-gallery"></a>Incorporación de Citrix NetScaler desde la galería
 
-Para configurar la integración de Citrix Netscaler en Azure AD, deberá agregar Citrix Netscaler desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de Citrix NetScaler en Azure AD, deberá agregar Citrix NetScaler desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Citrix Netscaler desde la galería, realice los siguientes pasos:**
+**Para agregar Citrix NetScaler desde la galería, siga estos pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
@@ -67,31 +67,31 @@ Para configurar la integración de Citrix Netscaler en Azure AD, deberá agregar
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Citrix Netscaler**, seleccione **Citrix Netscaler** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Citrix NetScaler**, seleccione **Citrix NetScaler** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![Citrix Netscaler en la lista de resultados](common/search-new-app.png)
+     ![Citrix NetScaler en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Citrix Netscaler con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Citrix Netscaler.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Citrix NetScaler con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Citrix NetScaler.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Citrix Netscaler, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Citrix NetScaler, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Citrix Netscaler](#configure-citrix-netscaler-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Citrix NetScaler](#configure-citrix-netscaler-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Citrix Netscaler](#create-citrix-netscaler-test-user)** : para tener un homólogo de Britta Simon en Citrix Netscaler que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Citrix NetScaler](#create-citrix-netscaler-test-user)** : para tener un homólogo de Britta Simon en Citrix NetScaler que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con Citrix Netscaler, realice los siguientes pasos:
+Para configurar el inicio de sesión único de Azure AD con Citrix NetScaler, realice los siguientes pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Citrix Netscaler**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Citrix NetScaler**, haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Citrix Netscaler, re
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Citrix Netscaler](common/sp-identifier-reply.png)
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de Citrix NetScaler](common/sp-identifier-reply.png)
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
@@ -114,7 +114,7 @@ Para configurar el inicio de sesión único de Azure AD con Citrix Netscaler, re
     c. En el cuadro de texto **URL de respuesta (URL del Servicio de consumidor de aserciones)** , escriba una URL con el siguiente patrón: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`.
     
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Citrix Netscaler](https://www.citrix.com/contact/technical-support.html) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Citrix NetScaler](https://www.citrix.com/contact/technical-support.html) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
     > [!NOTE]
     > Para que funcione el inicio de sesión único, estas direcciones URL deben ser accesibles desde sitios públicos. Deberá habilitar el firewall u otras opciones de seguridad en Netscaler para permitir que Azure AD publique el token en la dirección URL de ACS configurada.
@@ -123,7 +123,7 @@ Para configurar el inicio de sesión único de Azure AD con Citrix Netscaler, re
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-6. En la sección **Set up Citrix Netscaler** (Configurar Citrix Netscaler), copie las direcciones URL que necesite.
+6. En la sección **Set up Citrix NetScaler** (Configurar Citrix NetScaler), copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -133,9 +133,9 @@ Para configurar el inicio de sesión único de Azure AD con Citrix Netscaler, re
 
     c. URL de cierre de sesión
 
-### <a name="configure-citrix-netscaler-single-sign-on"></a>Configuración del inicio de sesión único de Citrix Netscaler
+### <a name="configure-citrix-netscaler-single-sign-on"></a>Configuración del inicio de sesión único de Citrix NetScaler
 
-1. En otra ventana del explorador web, inicie sesión en el inquilino de Citrix Netscaler como administrador.
+1. En otra ventana del explorador web, inicie sesión en el inquilino de Citrix NetScaler como administrador.
 
 2. Asegúrese de que la **versión de firmware de NetScaler = NS12.1: Build 48.13.nc**.
 
@@ -344,15 +344,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure, para lo cual le concederá acceso a Citrix Netscaler.
+En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure, para lo cual le concederá acceso a Citrix NetScaler.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Citrix Netscaler**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Citrix NetScaler**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Citrix Netscaler**.
+2. En la lista de aplicaciones, seleccione **Citrix NetScaler**.
 
-    ![Vínculo de Citrix Netscaler en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo de Citrix NetScaler en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -368,18 +368,18 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-citrix-netscaler-test-user"></a>Creación de un usuario de prueba de Citrix Netscaler
+### <a name="create-citrix-netscaler-test-user"></a>Creación de un usuario de prueba de Citrix NetScaler
 
-En esta sección, creará un usuario llamado Britta Simon en Citrix Netscaler. Citrix Netscaler admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe ya en Citrix Netscaler, se crea uno después de la autenticación.
+En esta sección, creará un usuario llamado Britta Simon en Citrix NetScaler. Citrix NetScaler admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe ya en Citrix NetScaler, se crea uno después de la autenticación.
 
 >[!NOTE]
->Si necesita crear manualmente un usuario, es preciso que se ponga en contacto con el [equipo de soporte técnico de Citrix Netscaler](https://www.citrix.com/contact/technical-support.html).
+>Si necesita crear manualmente un usuario, es preciso que se ponga en contacto con el [equipo de soporte técnico de Citrix NetScaler](https://www.citrix.com/contact/technical-support.html).
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Citrix Netscaler en el panel de acceso, debería iniciar sesión automáticamente en la versión de Citrix Netscaler para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Citrix NetScaler en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Citrix NetScaler para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

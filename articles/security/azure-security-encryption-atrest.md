@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/07/2019
+ms.date: 07/02/2019
 ms.author: barclayn
-ms.openlocfilehash: d0974b98975b8f7d09760be964024f92e9690a4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60f3bedb86304bf7d407710b07d9732afb6e8b05
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596388"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566084"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -212,7 +212,7 @@ Los clientes del software como servicio (SaaS) suelen tener el cifrado en reposo
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Cifrado en reposo para clientes PaaS
 
-Los datos del cliente de la plataforma como servicio (PaaS) normalmente residen en un entorno de ejecución de la aplicación y en cualquier proveedor de recursos de Azure utilizado para almacenar los datos del cliente. Para ver las opciones disponibles del cifrado en reposo, examine la tabla siguiente para las plataformas de aplicación y almacenamiento que utiliza. Si se admite, se proporcionan vínculos a instrucciones sobre cómo habilitar el cifrado en reposo para cada proveedor de recursos.
+Los datos del cliente de la plataforma como servicio (PaaS) residen normalmente en un servicio de almacenamiento como Blob Storage, pero también pueden estar guardados en caché o almacenados en el entorno de ejecución de la aplicación, como una máquina virtual. Para ver las opciones disponibles del cifrado en reposo, examine la tabla siguiente para las plataformas de aplicación y almacenamiento que utiliza.
 
 ### <a name="encryption-at-rest-for-iaas-customers"></a>Cifrado en reposo para clientes de IaaS
 
@@ -220,11 +220,11 @@ Los clientes de la infraestructura como servicio (IaaS) pueden tener una varieda
 
 #### <a name="encrypted-storage"></a>Almacenamiento cifrado
 
-Al igual que PaaS, las soluciones IaaS pueden sacar provecho de otros servicios de Azure que almacenan los datos que se cifran en reposo. En estos casos, puede habilitar el cifrado en el soporte del cifrado en reposo como proporciona cada servicio consumido de Azure. La siguiente tabla enumera las principales plataformas de aplicación, servicios y almacenamiento y el modelo de cifrado en reposo admitido. Si se admite, se proporcionan vínculos a instrucciones sobre cómo habilitar el cifrado en reposo.
+Al igual que PaaS, las soluciones IaaS pueden sacar provecho de otros servicios de Azure que almacenan los datos que se cifran en reposo. En estos casos, puede habilitar el cifrado en el soporte del cifrado en reposo como proporciona cada servicio consumido de Azure. La siguiente tabla enumera las principales plataformas de aplicación, servicios y almacenamiento y el modelo de cifrado en reposo admitido. 
 
 #### <a name="encrypted-compute"></a>Compute de cifrado
 
-Una solución de cifrado en reposo completo en la requiere que los datos nunca se guarden en formato descifrado. Mientras está en uso en un servidor que carga los datos en la memoria, los datos pueden conservarse localmente de varias maneras, incluido el archivo de paginación de Windows, un volcado de memoria y cualquier registro que la aplicación pueda realizar. Para asegurarse de que estos datos se cifran en reposo, las aplicaciones IaaS pueden usar Azure Disk Encryption en una máquina virtual de IaaS de Azure (Windows o Linux) y un disco virtual.
+Todos los discos, instantáneas e imágenes administrados están cifrados mediante Storage Service Encryption con una clave administrada por servicio. Una solución de cifrado en reposo más completa requiere que los datos no se conserven nunca en un formato no cifrado. Al procesar los datos en una máquina virtual, los datos se pueden conservar en el archivo de paginación de Windows o el archivo de intercambio de Linux, un archivo de volcado o en un registro de aplicaciones. Para asegurarse de que estos datos se cifran en reposo, las aplicaciones IaaS pueden usar Azure Disk Encryption en una máquina virtual de IaaS de Azure (Windows o Linux) y un disco virtual.
 
 #### <a name="custom-encryption-at-rest"></a>Cifrado de datos en reposo personalizado
 
@@ -240,7 +240,7 @@ Cualquier cliente mediante las características de la infraestructura de Azure c
 
 #### <a name="azure-storage"></a>Almacenamiento de Azure
 
-Todos los servicios de Azure Storage (Blob Storage, Queue Storage, Table Storage y Azure Files) admiten el cifrado de los datos en reposo en el lado servidor, mientras que solamente algunos servicios admiten el cifrado de las claves administradas por el cliente y el cifrado del lado cliente.  
+Todos los servicios de Azure Storage (Blob Storage, Queue Storage, Table Storage y Azure Files) admiten el cifrado en reposo en el lado servidor; algunos servicios admiten además el cifrado de las claves administradas por el cliente y el cifrado del lado cliente. 
 
 - Lado servidor: de forma predeterminada, todos los servicios de Azure Storage admiten el cifrado en el lado servidor mediante claves administradas por el servicio, lo que es transparente para la aplicación. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob Storage y Azure Files también admiten las claves RSA de 2048 bits administradas por el cliente en Azure Key Vault. Para más información, consulte [Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 - Lado cliente: Azure Blobs, Tables y Queues admiten el cifrado en el lado cliente. Cuando se usa el cifrado del lado cliente, los clientes cifran los datos y los cargan como un blob cifrado. El cliente se encarga de la administración de claves. Consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) para más información.
@@ -255,12 +255,12 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 
 |                                  |                    | **Modelo de cifrado y administración de claves** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Cifrado del lado servidor mediante claves administradas por el cliente en Key Vault**             | **Lado cliente mediante claves administradas por el cliente**      |
+|                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Lado servidor mediante claves administradas por el cliente**             | **Lado cliente mediante claves administradas por el cliente**      |
 | **Inteligencia artificial y aprendizaje automático**      |                    |                    |                    |
 | Azure Search                     | Sí                | -                  | -                  |
 | Servicio Azure Machine Learning   | Sí                | -                  | -                  |
 | Azure Machine Learning Studio    | Sí                | Versión preliminar, RSA de 2048 bits | -               |
-| Power BI                         | Sí                | -                  | -                  |
+| Power BI                         | Sí                | Versión preliminar, RSA de 2048 bits | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Sí                | -                  | -                  |
 | Event Hubs                       | Sí                | -                  | -                  |
@@ -269,12 +269,19 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | HDInsight                        | Sí                | Versión preliminar de Apache Kafka, todas las longitudes RSA | -                  |
 | Azure Data Factory               | Sí                | -                  | -                  |
 | Azure Data Lake Store            | Sí                | Sí, RSA de 2048 bits  | -                  |
+| **Contenedores**                   |                    |                    |                    |
+| Azure Kubernetes Service         | Sí                | -                  | -                  |
+| Container Registry               | Sí                | -                  | -                  |
 | **Proceso**                      |                    |                    |                    |
-| Virtual Machines                 | -                  | Sí, RSA de 2048 bits  | -                  |
-| Conjunto de escalado de máquinas virtuales        | -                  | Sí, RSA de 2048 bits  | -                  |
+| Virtual Machines                 | Sí                | Sí, RSA de 2048 bits  | -                  |
+| Conjunto de escalado de máquinas virtuales        | Sí                | Sí, RSA de 2048 bits  | -                  |
+| SAP HANA                         | Sí                | Sí, RSA de 2048 bits  | -                  |
 | **Bases de datos**                    |                    |                    |                    |
 | SQL Server en máquinas virtuales   | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Azure SQL Database               | Sí                | Sí, RSA de 2048 bits  | Sí                |
+| Azure SQL Database for MariaDB   | Sí                | -                  | -                  |
+| Azure SQL Database for MySQL     | Sí                | -                  | -                  |
+| Azure SQL Database for PostgreSQL | Sí                | -                  | -                  |
 | Azure SQL Data Warehouse         | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | SQL Server Stretch Database      | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Table Storage                    | Sí                | -                  | Sí                |
@@ -302,8 +309,9 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | File Storage                     | Sí                | Sí, RSA de 2048 bits  | -                  |
 | Queue Storage                    | Sí                | -                  | Sí                |
 | Avere vFXT                       | Sí                | -                  | -                  |
+| Azure NetApp Files               | Sí                | -                  | -                  |
 | Archive Storage                  | Sí                | Sí, RSA de 2048 bits  | -                  |
-| StorSimple                       | Sí                | -                  | Sí                |
+| StorSimple                       | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Azure Backup                     | Sí                | -                  | Sí                |
 | Data Box                         | Sí                | -                  | Sí                |
 

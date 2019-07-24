@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 468bcdb6aa688157196bb9cba8added623a857d3
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789316"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155295"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure
 
@@ -55,7 +55,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | Azure Batch |[Registros de diagnósticos de Azure Batch](../../batch/batch-diagnostics.md) |
 | Azure Database for MySQL | [Registros de diagnóstico de Azure Database for MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Registros de diagnóstico de Azure Database for PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Cognitive Services | Esquema no disponible. |
+| Cognitive Services | [Registro de diagnóstico para Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Content Delivery Network | [Registro de Azure Diagnostics para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Registro de Azure Cosmos DB](../../cosmos-db/logging.md) |
 | Data Factory | [Supervisión de factorías de datos mediante Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
@@ -209,4 +209,3 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 * [Transmisión de registros de diagnóstico a **Event Hubs**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Cambio de la configuración de diagnóstico de recursos con la API de REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Análisis de registros desde Azure Storage con Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-

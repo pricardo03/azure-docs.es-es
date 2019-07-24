@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708694"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703914"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
 
@@ -198,7 +198,7 @@ Puede especificar metadatos específicos de la aplicación adicionales en forma 
 
 El control de acceso para las claves administradas por Key Vault se proporciona en el nivel de un almacén de claves que actúa como contenedor de claves. La directiva de control de acceso para las claves es distinta de la directiva de control de acceso para los secretos en la misma instancia de Key Vault. Los usuarios pueden crear uno o varios almacenes para almacenar las claves y están obligados a mantener la segmentación adecuada del escenario y la administración de claves. El control de acceso para claves es independiente del control de acceso para secretos.  
 
-Se pueden conceder los permisos siguientes, por usuario o por entidad de servicio, en la entrada de control de acceso a las claves de un almacén. Estos permisos reflejan fielmente las operaciones permitidas en un objeto de clave:  
+Se pueden conceder los permisos siguientes, por usuario o por entidad de servicio, en la entrada de control de acceso a las claves de un almacén. Estos permisos reflejan fielmente las operaciones permitidas en un objeto de clave.  La operación para conceder acceso a una entidad de servicio del almacén de claves solo se realiza una vez, por lo que será igual en todas las suscripciones de Azure. Puede usarlo para implementar tantos certificados como desee. 
 
 - Permisos para las operaciones de administración de claves
   - *get*: leer la parte pública de una clave, además de sus atributos
@@ -476,5 +476,4 @@ Para más información, vea las [operaciones para cuentas de almacenamiento en l
 ## <a name="see-also"></a>Otras referencias
 
 - [Autenticación, solicitudes y respuestas](authentication-requests-and-responses.md)
-- [Versiones de Key Vault](key-vault-versions.md)
 - [Guía del desarrollador de Key Vault](/azure/key-vault/key-vault-developers-guide)

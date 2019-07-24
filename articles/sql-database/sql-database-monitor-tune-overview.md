@@ -13,36 +13,36 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 2fa43fcd48736a3d044deb07ed690af580c3b987
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66416278"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Optimización de la supervisión y el rendimiento
 
-Habilita la base de datos de SQL Azure supervisar con facilidad de uso, agregar o quitar recursos (CPU, memoria y E/S), solucionar los posibles problemas y buscar recomendaciones que pueden mejorar el rendimiento de la base de datos. Azure SQL Database tiene muchas características que pueden corregir automáticamente los problemas en las bases de datos si desea permitir que la base de datos de adaptarse a la carga de trabajo y optimizar el rendimiento. Sin embargo, hay algunos problemas personalizados que puede necesitar solucionar problemas. En este artículo se explica algunas prácticas recomendadas y herramientas que puede usar para solucionar los problemas de rendimiento.
+Azure SQL Database permite supervisar fácilmente el uso, agregar o quitar recursos (CPU, memoria y E/S), solucionar los posibles problemas y buscar recomendaciones que pueden mejorar el rendimiento de su base de datos. Azure SQL Database tiene muchas características que pueden corregir automáticamente los problemas en las bases de datos si desea permitir que las bases de datos se adapten a su carga de trabajo y optimicen el rendimiento automáticamente. Sin embargo, hay algunos problemas personalizados que puede que tenga que solucionar. En este artículo se describen algunas prácticas recomendadas y herramientas que puede usar para solucionar los problemas de rendimiento.
 
-Hay dos actividades principales que necesita hacer para asegurarse de que esa base de datos se está ejecutando sin problemas:
-- [Supervisión del rendimiento de la base de datos](#monitoring-database-performance) con el fin de asegurarse de que los recursos asignados a la base de datos pueden controlar la carga de trabajo. Si ve que está alcanzando los límites de recursos, necesitaría para identificar las consultas que consumen más recursos y optimizarlas o agregar más recursos mediante la actualización de nivel de servicio.
-- [Solucionar problemas de rendimiento](#troubleshoot-performance-issues) con el fin de identificar por qué se produjo algún problema, identificar la causa raíz del problema y la acción que se solucionará el problema.
+Hay dos actividades principales que tiene que realizar para asegurarse de que su base de datos se ejecuta sin problemas:
+- [Supervisar el rendimiento de la base de datos](#monitoring-database-performance) para asegurarse de que los recursos asignados a la base de datos puedan controlar la carga de trabajo. Si ve que está alcanzando los límites de los recursos, debe identificar las consultas que consumen más recursos y optimizarlas o agregar más recursos mediante la actualización del nivel de servicio.
+- [Solucionar problemas de rendimiento](#troubleshoot-performance-issues) para identificar por qué se produjo un determinado problema, su causa raíz y la acción que lo corregirá.
 
 ## <a name="monitoring-database-performance"></a>Supervisar el rendimiento de la base de datos
 
 La supervisión del rendimiento de una base de datos SQL en Azure comienza con la supervisión del uso de recursos, en relación con el nivel de rendimiento elegido para la base de datos. Debe supervisar los siguientes recursos:
- - **Uso de CPU** -deberá comprobar están llegando a 100% de uso de CPU en un período de tiempo más largo. Esto podría indicar que es posible que deba actualizar base de datos o instancia o identificar y optimizar las consultas que usan la mayoría de la capacidad de proceso.
- - **Estadísticas de espera** -deba comprobar qué por qué las consultas están esperando para algunos recursos. Queriesmig esperar que se captura o se guardan en los archivos de base de datos, porque se alcanza algún límite de recursos en espera, etcetera de datos.
- - **El uso de E/S** -deberá comprobar están llegando a los límites de E/S de almacenamiento subyacente.
- - **Uso de memoria** -es la cantidad de memoria disponible para su base de datos o la instancia es proporcional al número de núcleos virtuales, y debe comprobar lo suficiente como para la carga de trabajo. Esperanza de vida es uno de los parámetros que pueden indicar que las páginas rápidamente quitan de la memoria.
+ - **Uso de CPU**: debe comprobar si están alcanzando el 100% del uso de la CPU en un período de tiempo más prolongado. Esto puede indicar que es posible que deba actualizar su base de datos o su instancia, o identificar y optimizar las consultas que usan la mayoría de la capacidad de proceso.
+ - **Estadísticas de espera**: debe comprobar por qué las consultas esperan por determinados recursos. Es posible que las consultas esperen que los datos se capturen o guarden en los archivos de base de datos, esperen porque se ha alcanzado un determinado límite de recursos, etc.
+ - **Uso de E/S**: debe comprobar si está llegando a los límites de E/S del almacenamiento subyacente.
+ - **Uso de memoria**: la cantidad de memoria disponible para su base de datos o su instancia es proporcional al número de núcleos virtuales, y debe comprobar que sea suficiente para la carga de trabajo. La duración prevista de la página es uno de los parámetros que puede indicar si sus páginas se quitan rápidamente de la memoria.
 
-La base de datos de SQL Azure **proporciona los avisos que pueden ayudar a solución y corrección posibles problemas de rendimiento**. Puede identificar fácilmente las oportunidades para mejorar y optimizar el rendimiento de las consultas sin cambiar los recursos mediante la revisión [recomendaciones de optimización del rendimiento](sql-database-advisor.md). Los motivos comunes por los que se obtiene poco rendimiento de la base de datos son la falta de índices o la poca optimización de las consultas. Puede aplicar estas recomendaciones de optimización para mejorar el rendimiento de la carga de trabajo. También puede permitir que Azure SQL Database [optimice el rendimiento de las consultas automáticamente](sql-database-automatic-tuning.md) aplicando todas las recomendaciones identificadas y comprobando que mejoran el rendimiento de la base de datos.
+Azure SQL Database  **proporciona recomendaciones que pueden ayudarle a solucionar y corregir posibles problemas de rendimiento**. Puede identificar fácilmente oportunidades para mejorar y optimizar el rendimiento de las consultas sin cambiar los recursos si consulta las [recomendaciones para la optimización del rendimiento](sql-database-advisor.md). Los motivos comunes por los que se obtiene poco rendimiento de la base de datos son la falta de índices o la poca optimización de las consultas. Puede aplicar estas recomendaciones de optimización para mejorar el rendimiento de la carga de trabajo. También puede permitir que Azure SQL Database [optimice el rendimiento de las consultas automáticamente](sql-database-automatic-tuning.md) aplicando todas las recomendaciones identificadas y comprobando que mejoran el rendimiento de la base de datos.
 
 Dispone de las siguientes opciones para supervisar el rendimiento de la base de datos y solucionar problemas relacionados con dicho rendimiento:
 
 - En [Azure Portal](https://portal.azure.com), haga clic en **Bases de datos SQL**, seleccione la base de datos y luego use el gráfico de supervisión para buscar recursos que se acerquen a su máximo. El consumo de DTU se muestra de manera predeterminada. Haga clic en **Editar** para cambiar el intervalo de tiempo y los valores que se muestran.
-- Herramientas como SQL Server Management Studio proporcionan varios informes muy útiles, como un [panel rendimiento](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) donde puede supervisar la utilización de recursos e identificar las consultas, que consumen más recursos o [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed)donde puede identificar las consultas con peor rendimiento.
-- Use [Query Performance Insight](sql-database-query-performance.md) el [portal Azure](https://portal.azure.com) para identificar las consultas que consumen la mayoría de los recursos. Esta característica solo está disponible en la base de datos única y los grupos elásticos.
-- Usar [SQL Database Advisor](sql-database-advisor-portal.md) para ver recomendaciones para crear y quitar índices, parametrizar consultas y solucionar problemas de esquema. Esta característica solo está disponible en la base de datos única y los grupos elásticos.
+- Herramientas como SQL Server Management Studio proporcionan muchos informes útiles, como un [panel de rendimiento](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) donde puede supervisar el uso de los recursos e identificar las consultas que consumen más recursos o el [almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed), donde puede identificar las consultas con peor rendimiento.
+- Use [Información de rendimiento de consultas](sql-database-query-performance.md) en [Azure Portal](https://portal.azure.com) para identificar las consultas que consumen la mayoría de los recursos. Esta característica solo está disponible en Base de datos única y Grupos elásticos.
+- Usar [SQL Database Advisor](sql-database-advisor-portal.md) para ver recomendaciones para crear y quitar índices, parametrizar consultas y solucionar problemas de esquema. Esta característica solo está disponible en Base de datos única y Grupos elásticos.
 - Use [Intelligent Insights de Azure SQL](sql-database-intelligent-insights.md) para supervisar automáticamente el rendimiento de su base de datos. Una vez que se detecta un problema de rendimiento, se genera un registro de diagnóstico con los detalles y el análisis de la causa principal (RCA) del problema. Cuando es posible, se proporciona una recomendación para la mejora del rendimiento.
 - [Habilitar la optimización automática](sql-database-automatic-tuning-enable.md) y dejar que Azure SQL Database corrija los problemas de rendimiento automáticamente.
 - Puede usar las [vistas de administración dinámica (DMV)](sql-database-monitoring-with-dmvs.md), los [eventos extendidos](sql-database-xevent-db-diff-from-svr.md) y el [almacén de datos de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para obtener soluciones más detalladas de los problemas de rendimiento.
@@ -58,17 +58,17 @@ Para diagnosticar y resolver problemas de rendimiento, debe comprender el estado
 
 Para una carga de trabajo con problemas de rendimiento, dichos problemas pueden deberse a la contención de la CPU (una condición **relacionada con la ejecución**) o a la existencia de consultas individuales que esperan algo (una condición **relacionada con la espera**).
 
-Las causas o **relacionadas con la ejecución** problemas podrían ser:
-- **Problemas de compilación** -optimizador de consultas de SQL podría generar un plan poco óptimo debido a estadísticas obsoletas, la estimación del número de filas que se procesarán incorrecta o la estimación de memoria necesaria. Si sabe que se ha ejecutado con más rapidez en el pasado o en otra instancia (instancia de instancia administrada o SQL Server), desconecte los planes de ejecución real y comparar que vean son diferentes. Intente aplicar sugerencias de consulta o vuelve a generar estadísticas o índices que va a obtener el mejor plan. Habilitar la corrección automática de planes en Azure SQL Database para mitigar estos problemas de forma automática.
-- **Problemas de ejecución** : si el plan de consulta es óptimo, a continuación, probablemente esté alcanzando algunos límites de recursos en la base de datos, como el rendimiento de escritura de registro o podría usar desfragmentados índices que se deben volver a generar. Un gran número de consultas simultáneas que se pasan los recursos también podría ser la causa de problemas de ejecución. **Relacionadas con la espera** son problemas en la mayoría de los casos relacionados con los problemas de ejecución, ya que las consultas que no se está ejecutando eficazmente probablemente están esperando para algunos recursos.
+Las causas o los problemas **relacionados con la ejecución** pueden ser los siguientes:
+- **Problemas de compilación**: es posible que SQL Query Optimizer produzca un plan poco óptimo debido a estadísticas obsoletas o a la estimación incorrecta del número de filas que se procesarán o de la memoria necesaria. Si sabe que la consulta se ha ejecutado con más rapidez en el pasado o en otra instancia (ya sea una instancia administrada o una instancia de SQL Server), tome los planes de ejecución reales y compárelos para ver si son diferentes. Intente aplicar sugerencias de consulta o estadísticas o índices de recompilaciones para obtener un plan mejor. Habilite la corrección automática de planes en Azure SQL Database para mitigar estos problemas de forma automática.
+- **Problemas de ejecución** : si el plan de consulta es óptimo, probablemente esté alcanzando algunos límites de recursos en la base de datos, como el rendimiento de escritura de registros, o puede que use índices desfragmentados que se deben volver a generar. Los problemas de ejecución también pueden deberse a una gran cantidad de consultas simultáneas que consumen los recursos. Los problemas **relacionados con la espera** están asociados en la mayoría de los casos con los problemas de ejecución, ya que las consultas que no se ejecutan de manera eficaz probablemente esperan por determinados recursos.
 
-Las causas o **relacionadas con la espera** problemas podrían ser:
-- **Bloqueo** -una consulta es posible que mantiene el bloqueo de algunos objetos de base de datos, mientras que otros usuarios están intentando obtener acceso a los mismos objetos. Puede identificar fácilmente las consultas de bloqueo mediante la DMV o las herramientas de supervisión.
-- **Problemas de E/S** -consultas podrían estar esperando las páginas se escriban en los archivos de datos o de registro. En este caso verá `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, o `PAGEIOLATCH_*` estadísticas en la DMV de espera.
-- **Problemas de TempDB** : si está usando una gran cantidad de tablas temporales o consulte los derrames de un lote de TempDB en los planes de las consultas es posible que tenga un problema con el rendimiento de TempDB. 
-- **Problemas relacionados con la memoria** -puede que no tenga suficiente memoria para la carga de trabajo por lo que podría colocar la esperanza de vida o las consultas obtienen menos concesión de memoria que necesitan. En algunos casos, la inteligencia integrada en el optimizador de consultas soluciona estos problemas.
+Las causas o los problemas **relacionados con la espera** pueden ser los siguientes:
+- **Bloqueo**: es posible que una consulta mantenga el bloqueo de algunos objetos de la base de datos, mientras que otros intentan tener acceso a los mismos objetos. Puede identificar fácilmente las consultas de bloqueo mediante DMV o las herramientas de supervisión.
+- **Problemas de E/S**: es posible que las consultas esperen a que las páginas se escriban en los archivos de datos o registro. En este caso, verá las estadísticas de espera `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG` o `PAGEIOLATCH_*` en DMV.
+- **Problemas con TempDB** : si usa una gran cantidad de tablas temporales u observa muchas pérdidas de datos de TempDB en sus planes, es posible que las consultas tengan un problema con el rendimiento de TempDB. 
+- **Problemas relacionados con la memoria**: puede que no tenga suficiente memoria para la carga de trabajo, por lo que la duración prevista de la página podría reducirse, o que las consultas obtengan menos concesión de memoria colocar la esperanza de vida o las consultas obtienen menos concesión de memoria de la necesaria. En algunos casos, la inteligencia integrada en el optimizador de consultas corregirá estos problemas.
  
-En las secciones siguientes se explica cómo identificar y solucionar algunos de estos problemas.
+En las siguientes secciones se describe cómo identificar y solucionar algunos de estos problemas.
 
 ## <a name="running-related-performance-issues"></a>Problemas de rendimiento relacionados con la ejecución
 
@@ -89,9 +89,9 @@ Si resulta que tiene un problema de rendimiento relacionado con la ejecución, s
 > [!IMPORTANT]
 > Para obtener un conjunto de consultas de T-SQL que usan estas DMV para solucionar problemas de uso de la CPU, consulte [Identify CPU performance issues](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues) (Identificar problemas de rendimiento de la CPU).
 
-### <a name="ParamSniffing"></a> Solucionar problemas de consultas con problemas de plan de ejecución de consulta sensibles a parámetros
+### <a name="ParamSniffing"></a> Solución de problemas de las consultas en el plan de ejecución de consultas que distingue entre parámetros
 
-El problema del plan que distingue entre parámetros (PSP) se refiere a un escenario donde el optimizador de consultas genera un plan de ejecución de consultas que es óptimo solo para un valor de parámetro específico (o un conjunto de valores) y el plan almacenado en caché no es óptimo para los valores de parámetros que se usan en ejecuciones consecutivas. Los planes no óptimos pueden crear problemas de rendimiento en las consultas y resultar en una degradación general del rendimiento de la carga de trabajo. Para obtener más información sobre el procesamiento de consultas y el examen de parámetros, vea el [Guía de arquitectura de procesamiento de consultas](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
+El problema del plan que distingue entre parámetros (PSP) se refiere a un escenario donde el optimizador de consultas genera un plan de ejecución de consultas que es óptimo solo para un valor de parámetro específico (o un conjunto de valores) y el plan almacenado en caché no es óptimo para los valores de parámetros que se usan en ejecuciones consecutivas. Los planes no óptimos pueden crear problemas de rendimiento en las consultas y resultar en una degradación general del rendimiento de la carga de trabajo. Para obtener más información sobre el procesamiento de consultas y el examen de parámetros, consulte la [Guía de arquitectura de procesamiento de consultas](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
 
 Existen varias soluciones alternativas que se pueden usar para mitigar los problemas, aunque cada una cuenta con sus ventajas y desventajas correspondientes:
 
@@ -106,9 +106,9 @@ Existen varias soluciones alternativas que se pueden usar para mitigar los probl
 
 Para obtener información adicional sobre cómo resolver este tipo de problemas, consulte:
 
-- Esto [cerca un parámetro](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) entrada de blog
+- La entrada de blog [I smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) (Analizar parámetros).
 - La entrada de blog [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) (dynamic sql y la calidad del plan para consultas parametrizadas).
-- Esto [técnicas de optimización de consulta SQL en SQL Server: Examen de parámetros](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) entrada de blog
+- La entrada de blog [SQL Query Optimization Techniques in SQL Server: Parameter Sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) (Técnicas de optimización de consultas SQL en SQL Server: examen de parámetros).
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Solución de problemas de la actividad de compilación debido a una parametrización incorrecta
 
@@ -145,22 +145,22 @@ ORDER BY count (distinct p.query_id) DESC
 ```
 ### <a name="factors-influencing-query-plan-changes"></a>Factores que influyen en los cambios del plan de consulta
 
-Una recompilación de plan de ejecución de consultas puede producir un plan de consulta generado que difiere de lo que originalmente se almacenó en caché. Existen varias razones por qué podría compilarse automáticamente un plan existente original:
-- Cambios en el esquema que se hace referencia la consulta
-- Cambios de datos en las tablas que se hace referencia la consulta 
+Una recompilación del plan de ejecución de consultas puede producir un plan de consulta generado que difiera del que inicialmente se almacenó en caché. Hay varias razones por las que un plan original existente se puede recompilar automáticamente:
+- Cambios en el esquema al que la consulta hace referencia.
+- Cambios en los datos de las tablas a las que la consulta hace referencia. 
 - Cambios realizados en las opciones de contexto de consulta 
 
-Es posible que se va a expulsar un plan compilado desde la memoria caché para una variedad de motivos, incluidos se reinicia la instancia, base de datos con ámbito de los cambios de configuración, presión de memoria y las solicitudes explícitas para borrar la caché. Además, mediante una sugerencia RECOMPILE significa que no se almacena en caché un plan.
+Es posible que un plan compilado se expulse de la caché por una serie de motivos, como reinicios de instancia, cambios en la configuración con ámbito de la base de datos, presión de la memoria y solicitudes explícitas para borrar la caché. Además, el uso de una sugerencia RECOMPILE significa que un plan no se almacenará en caché.
 
-Todavía puede provocar una recompilación (o una compilación nueva después de la expulsión de caché) en la generación de un plan de ejecución de consulta idéntica de la que originalmente se observa.  Si, sin embargo, hay cambios en el plan en comparación con el plan original o anterior, estas son las explicaciones de por qué cambió un plan de ejecución de consulta más comunes:
+Una recompilación (o una compilación nueva tras la expulsión de la caché) aún puede provocar que se genere un plan de ejecución de consulta idéntico al observado inicialmente.  Si, a pesar de todo, hay cambios en el plan en comparación con el plan original o el anterior, estas son las explicaciones más comunes de por qué ha cambiado un plan de ejecución de consultas:
 
-- **Cambiar el diseño físico**. Por ejemplo, nuevos índices crean que más eficazmente cubren que los requisitos de una consulta se pueden utilizar en una nueva compilación si el optimizador de consultas decide que es más adecuada para aprovechar ese nuevo índice que usa la estructura de datos que se seleccionó originalmente para la primera versión de la ejecución de consultas.  Es posible que los cambios físicos a los objetos que se hace referencia en una nueva opción de plan en tiempo de compilación.
+- **Diseño físico cambiado**. Por ejemplo, puede que se usen nuevos índices creados que cubren con más eficacia los requisitos de una consulta en una nueva compilación si el optimizador de consultas decide que es más óptimo sacar provecho del nuevo índice que usar la estructura de datos seleccionada originalmente para la primera versión de la ejecución de la consulta.  Cualquier cambio físico en los objetos a los que se hace referencia puede dar lugar a una nueva opción de plan en el tiempo de compilación.
 
-- **Diferencias de recursos de servidor**. En un escenario donde un plan difiere del "sistema A" frente a "el sistema B": la disponibilidad de recursos, como el número de procesadores disponibles, puede influir en el plan se genera.  Por ejemplo, si un sistema tiene un mayor número de procesadores, puede elegirse un plan paralelo. 
+- **Diferencias en los recursos del servidor**. En un escenario en que un plan difiere en el "sistema A" frente al "sistema B", la disponibilidad de recursos, como el número de procesadores disponibles, puede influir en lo que el plan genera.  Por ejemplo, si un sistema tiene un mayor número de procesadores, se puede elegir un plan paralelo. 
 
-- **Estadísticas diferentes**. Las estadísticas asociadas con los objetos que se hace referencia cambiado o son significativamente diferentes de las estadísticas del sistema original.  Si cambia las estadísticas y se produce una recompilación, el optimizador de consultas usará las estadísticas a partir de ese momento concreto en el tiempo. Pueden tener las estadísticas revisadas significativamente distintas distribuciones de datos y las frecuencias que no eran el caso de la compilación original.  Estos cambios se utilizan para calcular las estimaciones de cardinalidad (número de filas que prevé que fluyen a través del árbol lógico de consulta).  Los cambios en las estimaciones de cardinalidad pueden dar lugar a nosotros para elegir diferentes operadores físicos y orden de operaciones asociadas.  Incluso los pequeños cambios en las estadísticas pueden dar lugar a un plan de ejecución de la consulta modificada.
+- **Estadísticas diferentes**. Las estadísticas asociadas a los objetos a los que se hace referencia han cambiado o son significativamente diferentes de las estadísticas originales del sistema.  Si cambian las estadísticas y se produce una recompilación, el optimizador de consultas usará las estadísticas a partir de ese momento concreto. Las estadísticas revisadas pueden tener frecuencias y distribuciones de datos significativamente distintas a las de la compilación original.  Estos cambios se usan para calcular las estimaciones de cardinalidad (número de filas que se prevé enviar a través del árbol de consulta lógico).  Los cambios en las estimaciones de cardinalidad pueden hacer que elijamos diferentes operadores físicos y un orden de operaciones asociadas distinto.  Incluso los pequeños cambios en las estadísticas pueden dar lugar a un plan de ejecución de consultas modificado.
 
-- **Versión del estimador de cardinalidad o de nivel de compatibilidad base de datos modificados**.  Pueden permitir que los cambios realizados en el nivel de compatibilidad de base de datos nuevas estrategias y las características que pueden producir un plan de ejecución de consulta diferentes.  Más allá del nivel de compatibilidad de base de datos, cómo deshabilitar o habilitar la marca de seguimiento 4199 o cambiar el estado de la configuración con ámbito de base de datos QUERY_OPTIMIZER_HOTFIXES también puede influir en las opciones del plan de ejecución en tiempo de compilación de consulta.  Las marcas de seguimiento 9481 (forzar la CE heredada) y 2312 (forzar la CE predeterminada) también son planear que afectan a. 
+- **Versión del estimador de cardinalidad o nivel de compatibilidad de la base de datos modificados**.  Los cambios en el nivel de compatibilidad de la base de datos pueden habilitar nuevas estrategias y características que pueden producir un plan de ejecución de consultas diferente.  Más allá del nivel de compatibilidad de la base de datos, la deshabilitación o habilitación de la marca de seguimiento 4199 o el cambio del estado de la configuración con ámbito de la base de datos QUERY_OPTIMIZER_HOTFIXES también pueden influir en las opciones del plan de ejecución de consultas en tiempo de compilación.  Las marcas de seguimiento 9481 (forzar CE heredada) y 2312 (forzar CE predeterminada) también afectan al plan. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Resolver consultas de problemas o proporcionar más recursos
 
@@ -220,8 +220,8 @@ Como se muestra en el gráfico anterior, las esperas más comunes son:
 > - [Identificar problemas de rendimiento de E/S](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identificar problemas de rendimiento de `tempdb` ](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identificar esperas de concesión de memoria](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
-> - [TigerToolbox - esperas y bloqueos temporales](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
-> - [TigerToolbox - usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
+> - [TigerToolbox - Waits and Latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches) (TigerToolbox: esperas y bloqueos temporales)
+> - [TigerToolbox: usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## <a name="improving-database-performance-with-more-resources"></a>Mejora del rendimiento de la base de datos con más recursos
 

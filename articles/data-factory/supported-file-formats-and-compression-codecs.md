@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
 ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165942"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
@@ -29,26 +29,26 @@ Si desea **copiar los archivos tal cual** entre los almacenes basados en archivo
 * [Formato Avro](#avro-format)
 
 > [!TIP]
-> Obtenga información sobre cómo la actividad de copia asigna los datos de origen al receptor de [asignación de esquema en la actividad de copia](copy-activity-schema-and-type-mapping.md).
+> Obtenga información sobre cómo copiar los mapas de actividad en los datos de origen para recibirlos desde [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md).
 
 ## <a name="text-format"></a>Formato de texto
 
 >[!NOTE]
->Factoría de datos introducido nuevas delimitado por conjuntos de datos de formato de texto, consulte [formato de texto delimitado](format-delimited-text.md) artículo con detalles. Todavía se admiten las siguientes configuraciones en el conjunto de datos de almacén de datos basados en archivos como-es para compabitility con versiones anteriores. Se sugieren que para usar el nuevo modelo a partir de ahora.
+>Data Factory presentó el nuevo conjunto de datos con formato de texto delimitado, consulte el artículo [Formato de texto delimitado](format-delimited-text.md) para ver detalles. Todavía se admiten las siguientes configuraciones en el conjunto de datos basado en archivo, porque cuentan con compatibilidad con versiones anteriores. Se sugiere usar el nuevo modelo de aquí en adelante.
 
 Si quiere leer un archivo de texto o escribir en él, establezca la propiedad `type` de la sección `format` del conjunto de datos en **TextFormat**. También puede especificar las siguientes propiedades **opcionales** en la sección `format`. Consulte la sección [Ejemplo de TextFormat](#textformat-example) sobre cómo realizar la configuración.
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| columnDelimiter |El carácter utilizado para separar las columnas en un archivo. Puede considerar el uso de un carácter imprimible poco frecuente que es probable que no exista en sus datos. Por ejemplo, especifique "\u0001", que representa el inicio de encabezado (SOH). |Solo se permite un carácter. El valor **predeterminado** es **coma (",")**. <br/><br/>Para usar un carácter Unicode, consulte la [lista de caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obtener el código correspondiente. |Sin  |
-| rowDelimiter |El carácter usado para separar las filas en un archivo. |Solo se permite un carácter. El valor **predeterminado** es cualquiera de los siguientes en lectura: **["\r\n", "\r", "\n"]** y **"\r\n"** en escritura. |Sin  |
-| escapeChar |El carácter especial que se usa para anular un delimitador de columna en el contenido del archivo de entrada. <br/><br/>No se puede especificar escapeChar y quoteChar para una tabla. |Solo se permite un carácter. No hay ningún valor predeterminado. <br/><br/>Ejemplo: si usa la coma (",") como delimitador de columna, pero quiere tener el carácter de coma en el texto (ejemplo: "Hello, world"), puede definir "$" como carácter de escape y usar la cadena "Hello$, world" en el origen. |Sin  |
-| quoteChar |El carácter usado para poner entre comillas un valor de cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. Esta propiedad se aplica a conjuntos de datos de entrada y salida.<br/><br/>No se puede especificar escapeChar y quoteChar para una tabla. |Solo se permite un carácter. No hay ningún valor predeterminado. <br/><br/>Por ejemplo, si tiene la coma (',') como delimitador de columna, pero quiere tener el carácter de coma en el texto (por ejemplo: <Hello, world>), puede definir " (comillas dobles) como comillas y usar la cadena "Hello, world" en el origen. |Sin  |
-| nullValue |Uno o más caracteres que se usan para representar un valor nulo. |Uno o más caracteres. Los valores **predeterminados** son **"\N" y "NULL"** en lectura y **"\N"** en escritura. |Sin  |
-| encodingName |Especifique el nombre de codificación. |Un nombre de codificación válido. Consulte la [propiedad Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es **UTF-8**. |Sin  |
-| firstRowAsHeader |Especifica si se tendrá en cuenta la primera fila como encabezado. Para un conjunto de datos de entrada, Data Factory lee la primera fila como encabezado. Para un conjunto de datos de salida, Data Factory escribe la primera fila como encabezado. <br/><br/>Consulte [Escenarios de uso `firstRowAsHeader` y `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para ver ejemplos de escenarios. |True<br/><b>False (valor predeterminado)</b> |Sin  |
-| skipLineCount |Indica el número de filas **no vacías** que se omitirán al leer datos de archivos de entrada. Si se especifican skipLineCount y firstRowAsHeader, las líneas se omiten primero y luego la información del encabezado se lee del archivo de entrada. <br/><br/>Consulte [Escenarios de uso `firstRowAsHeader` y `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para ver ejemplos de escenarios. |Entero |Sin  |
-| treatEmptyAsNull |Especifica si las cadenas null o vacías se tratarán como valores null al leer datos de un archivo de entrada. |**True (predeterminado)**<br/>False |Sin  |
+| columnDelimiter |El carácter utilizado para separar las columnas en un archivo. Puede considerar el uso de un carácter imprimible poco frecuente que es probable que no exista en sus datos. Por ejemplo, especifique "\u0001", que representa el inicio de encabezado (SOH). |Solo se permite un carácter. El valor **predeterminado** es **coma (",")** . <br/><br/>Para usar un carácter Unicode, consulte la [lista de caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obtener el código correspondiente. |Sin |
+| rowDelimiter |El carácter usado para separar las filas en un archivo. |Solo se permite un carácter. El valor **predeterminado** es cualquiera de los siguientes en lectura: **["\r\n", "\r", "\n"]** y **"\r\n"** en escritura. |Sin |
+| escapeChar |El carácter especial que se usa para anular un delimitador de columna en el contenido del archivo de entrada. <br/><br/>No se puede especificar escapeChar y quoteChar para una tabla. |Solo se permite un carácter. No hay ningún valor predeterminado. <br/><br/>Ejemplo: si usa la coma (",") como delimitador de columna, pero quiere tener el carácter de coma en el texto (ejemplo: "Hello, world"), puede definir "$" como carácter de escape y usar la cadena "Hello$, world" en el origen. |Sin |
+| quoteChar |El carácter usado para poner entre comillas un valor de cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. Esta propiedad se aplica a conjuntos de datos de entrada y salida.<br/><br/>No se puede especificar escapeChar y quoteChar para una tabla. |Solo se permite un carácter. No hay ningún valor predeterminado. <br/><br/>Por ejemplo, si tiene la coma (',') como delimitador de columna, pero quiere tener el carácter de coma en el texto (por ejemplo: <Hello, world>), puede definir " (comillas dobles) como comillas y usar la cadena "Hello, world" en el origen. |Sin |
+| nullValue |Uno o más caracteres que se usan para representar un valor nulo. |Uno o más caracteres. Los valores **predeterminados** son **"\N" y "NULL"** en lectura y **"\N"** en escritura. |Sin |
+| encodingName |Especifique el nombre de codificación. |Un nombre de codificación válido. Consulte la [propiedad Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es **UTF-8**. |Sin |
+| firstRowAsHeader |Especifica si se tendrá en cuenta la primera fila como encabezado. Para un conjunto de datos de entrada, Data Factory lee la primera fila como encabezado. Para un conjunto de datos de salida, Data Factory escribe la primera fila como encabezado. <br/><br/>Consulte [Escenarios de uso `firstRowAsHeader` y `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para ver ejemplos de escenarios. |True<br/><b>False (valor predeterminado)</b> |Sin |
+| skipLineCount |Indica el número de filas **no vacías** que se omitirán al leer datos de archivos de entrada. Si se especifican skipLineCount y firstRowAsHeader, las líneas se omiten primero y luego la información del encabezado se lee del archivo de entrada. <br/><br/>Consulte [Escenarios de uso `firstRowAsHeader` y `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para ver ejemplos de escenarios. |Entero |Sin |
+| treatEmptyAsNull |Especifica si las cadenas null o vacías se tratarán como valores null al leer datos de un archivo de entrada. |**True (predeterminado)**<br/>False |Sin |
 
 ### <a name="textformat-example"></a>Ejemplo de TextFormat
 
@@ -93,14 +93,14 @@ Si quiere analizar los archivos JSON o escribir los datos en formato JSON, estab
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| filePattern |Indica el patrón de los datos almacenados en cada archivo JSON. Estos son los valores permitidos: **setOfObjects** y **arrayOfObjects**. El valor **predeterminado** es **setOfObjects**. Consulte la sección [patrones de archivo JSON](#json-file-patterns) para obtener más información acerca de estos patrones. |Sin  |
-| jsonNodeReference | Si desea iterar y extraer datos de los objetos dentro de un campo de matriz con el mismo patrón, especifique la ruta de acceso JSON de esa matriz. Esta propiedad se admite solo cuando se copian datos **desde** los archivos JSON. | Sin  |
-| jsonPathDefinition | Especifique la expresión de ruta de acceso JSON para cada asignación de columna con un nombre de columna personalizado (que empiece con minúscula). Esta propiedad se admite solo cuando se copian datos **desde** archivos JSON y puede extraer datos del objeto o matriz. <br/><br/> Para los campos en el objeto raíz, comience por root $; para los campos dentro de la matriz elegida mediante la propiedad `jsonNodeReference`, empiece desde el elemento de matriz. Consulte la sección [Ejemplo de JsonFormat](#jsonformat-example) sobre cómo realizar la configuración. | Sin  |
-| encodingName |Especifique el nombre de codificación. Para obtener la lista de nombres de codificación válidos, consulte la propiedad [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es: **UTF-8**. |Sin  |
-| nestingSeparator |Carácter que se usa para separar los niveles de anidamiento. El valor predeterminado es '.' (punto). |Sin  |
+| filePattern |Indica el patrón de los datos almacenados en cada archivo JSON. Estos son los valores permitidos: **setOfObjects** y **arrayOfObjects**. El valor **predeterminado** es **setOfObjects**. Consulte la sección [patrones de archivo JSON](#json-file-patterns) para obtener más información acerca de estos patrones. |Sin |
+| jsonNodeReference | Si desea iterar y extraer datos de los objetos dentro de un campo de matriz con el mismo patrón, especifique la ruta de acceso JSON de esa matriz. Esta propiedad se admite solo cuando se copian datos **desde** los archivos JSON. | Sin |
+| jsonPathDefinition | Especifique la expresión de ruta de acceso JSON para cada asignación de columna con un nombre de columna personalizado (que empiece con minúscula). Esta propiedad se admite solo cuando se copian datos **desde** archivos JSON y puede extraer datos del objeto o matriz. <br/><br/> Para los campos en el objeto raíz, comience por root $; para los campos dentro de la matriz elegida mediante la propiedad `jsonNodeReference`, empiece desde el elemento de matriz. Consulte la sección [Ejemplo de JsonFormat](#jsonformat-example) sobre cómo realizar la configuración. | Sin |
+| encodingName |Especifique el nombre de codificación. Para obtener la lista de nombres de codificación válidos, consulte la propiedad [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es: **UTF-8**. |Sin |
+| nestingSeparator |Carácter que se usa para separar los niveles de anidamiento. El valor predeterminado es '.' (punto). |Sin |
 
 >[!NOTE]
->En el caso de aplicar entre datos de matriz en varias filas (caso 1 -> ejemplo de 2 en [JsonFormat ejemplos](#jsonformat-example)), solo puede elegir expandir la matriz solo mediante la propiedad `jsonNodeReference`.
+>En caso de la aplicación cruzada de los datos en la matriz en varias filas (caso 1 -> ejemplo 2 en los [ejemplos de JsonFormat](#jsonformat-example)), solo puede elegir expandir la matriz con la propiedad `jsonNodeReference`.
 
 ### <a name="json-file-patterns"></a>Patrones de archivo JSON
 
@@ -412,7 +412,7 @@ El conjunto de datos de salida con el tipo **JsonFormat** se define de la siguie
 ## <a name="parquet-format"></a>Formato Parquet
 
 >[!NOTE]
->Factoría de datos introducido nuevos conjuntos de datos de formato Parquet, consulte [formato Parquet](format-parquet.md) artículo con detalles. Todavía se admiten las siguientes configuraciones en el conjunto de datos de almacén de datos basados en archivos como-es para compabitility con versiones anteriores. Se sugieren que para usar el nuevo modelo a partir de ahora.
+>Data Factory presentó el nuevo conjunto de datos con formato Parquet. Consulte el artículo [Formato Parquet](format-parquet.md) para ver más detalles. Todavía se admiten las siguientes configuraciones en el conjunto de datos basado en archivo, porque cuentan con compatibilidad con versiones anteriores. Se sugiere usar el nuevo modelo de aquí en adelante.
 
 Si desea analizar los archivos Parquet o escribir los datos en formato Parquet, establezca la propiedad `format` `type` en **ParquetFormat**. No es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
 
@@ -460,8 +460,8 @@ Ejemplo: establecimiento de la variable `_JAVA_OPTIONS` con el valor `-Xms256m -
 | Single | Float | N/D | N/D |
 | Double | Double | N/D | N/D |
 | Decimal | Binary | Decimal | Decimal |
-| string | Binary | Utf8 | Utf8 |
-| DateTime | Int96 | N/D | N/D |
+| Cadena | Binary | Utf8 | Utf8 |
+| Datetime | Int96 | N/D | N/D |
 | TimeSpan | Int96 | N/D | N/D |
 | DateTimeOffset | Int96 | N/D | N/D |
 | ByteArray | Binary | N/D | N/D |
@@ -506,16 +506,16 @@ En el caso de las copias que se ejecutan en el IR autohospedado con la serializa
 | Int32 | Int |
 | UInt32 | long |
 | Int64 | long |
-| UInt64 | string |
+| UInt64 | Cadena |
 | Single | Float |
 | Double | Double |
 | Decimal | Decimal |
-| string | string |
-| DateTime | Timestamp |
+| Cadena | Cadena |
+| Datetime | Timestamp |
 | DateTimeOffset | Timestamp |
 | TimeSpan | Timestamp |
 | ByteArray | Binary |
-| Guid | string |
+| Guid | Cadena |
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>Formato AVRO
@@ -583,14 +583,14 @@ La sección **compression** tiene dos propiedades:
 > [!NOTE]
 > La configuración de la compresión no se admite para los datos con los formatos **AvroFormat**, **OrcFormat** o **ParquetFormat**. Al leer archivos en estos formatos, Data Factory detecta y usa el códec de compresión en los metadatos. Sin embargo, al escribir en archivos en estos formatos, Data Factory elige el códec de compresión predeterminado para ese formato. Por ejemplo, ZLIB en el caso de OrcFormat y SNAPPY en el caso de ParquetFormat.
 
-## <a name="unsupported-file-types-and-compression-formats"></a>Tipos de archivo no compatible y formatos de compresión
+## <a name="unsupported-file-types-and-compression-formats"></a>Formatos de compresión y tipos de archivo no admitidos
 
-Puede usar las características de extensibilidad de Azure Data Factory para transformar archivos que no son compatibles.
-Dos opciones incluyen funciones de Azure y tareas personalizadas mediante el uso de Azure Batch.
+Puede usar las características de extensibilidad de Azure Data Factory para transformar los archivos que no son compatibles.
+Las dos opciones incluyen Azure Functions y las tareas personalizadas con Azure Batch.
 
-Puede ver un ejemplo que usa una función de Azure para [extraer el contenido de un archivo tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Para obtener más información, consulte [actividad de Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+Puede ver un ejemplo que usa una función de Azure para [extraer el contenido de un archivo tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Para más información, consulte la [actividad de Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
 
-También puede crear esta funcionalidad mediante una actividad de dotnet personalizado. Para obtener más información está disponible [aquí](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
+También puede crear esta funcionalidad a través de una actividad de DotNet personalizada. [Aquí](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity) hay disponible más información
 
 ## <a name="next-steps"></a>Pasos siguientes
 

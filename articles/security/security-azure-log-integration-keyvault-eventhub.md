@@ -12,16 +12,16 @@ ms.date: 05/28/2019
 ms.author: Barclayn
 ms.custom: AzLog
 ms.openlocfilehash: 5614cc6fa01ddd10d670fdf429051a8e024550fc
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298204"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de Azure Log Integration: Procesamiento de eventos de Azure Key Vault mediante Event Hubs
 
 >[!IMPORTANT]
-> La característica de integración de registro de Azure dejará de utilizarse en 15/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
+> La característica Azure Log Integration dejará de utilizarse el 15/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
 
 Puede usar Azure Log Integration para recuperar los eventos registrados y hacer que estén disponibles en su sistema de información de seguridad y administración de eventos (SIEM). En este tutorial se muestra un ejemplo de cómo se puede usar Azure Log Integration para procesar registros adquiridos a través de Azure Event Hubs.
 
@@ -60,7 +60,7 @@ Necesita lo siguiente para completar los pasos de este artículo:
 
 * Azure Log Integration instalada. Para instalarla:
 
-    a. Use Escritorio remoto para conectarse al sistema mencionado en el paso 2.   
+   a. Use Escritorio remoto para conectarse al sistema mencionado en el paso 2.   
    b. Copie el instalador de la integración de registros de Azure en el sistema. c. Inicie el instalador y acepte los Términos de licencia del software de Microsoft.
 
 * Si va a proporcionar información de telemetría, deje activada la casilla. Si prefiere no enviar información de uso a Microsoft, desactive la casilla.
@@ -71,7 +71,7 @@ Necesita lo siguiente para completar los pasos de este artículo:
 
    Si tiene instalado Windows Server 2016, entonces tiene al menos PowerShell 5.0. Si usa otra versión de Windows Server, es posible que tenga instalada una versión anterior de PowerShell. Puede comprobar la versión escribiendo ```get-host``` en una ventana de PowerShell. Si no tiene PowerShell 5.0 instalado, puede [descargarlo](https://www.microsoft.com/download/details.aspx?id=50395).
 
-   Una vez que tenga al menos PowerShell 5.0, puede continuar para instalar la versión más reciente siguiendo las instrucciones de [instalar Azure PowerShell](/powershell/azure/install-az-ps).
+   Cuando ya disponga al menos de PowerShell 5.0, puede continuar con la instalación de la versión más reciente con las instrucciones de [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
 
 
 ## <a name="create-supporting-infrastructure-elements"></a>Crear los elementos de la infraestructura de soporte
@@ -86,7 +86,7 @@ Necesita lo siguiente para completar los pasos de este artículo:
    >[!NOTE]
    >Si se trata de la primera vez que inicia sesión en Azure desde este equipo, verá un mensaje que le pregunta si quiere permitir a Microsoft recopilar datos de uso de PowerShell. Es recomendable que habilite esta recopilación de datos ya que se usará para mejorar Azure PowerShell.
 
-1. Después de autenticarse correctamente, ha iniciado sesión. Tome nota del identificador y el nombre de la suscripción, ya que los necesitará para completar los pasos posteriores.
+1. Una vez que se autentique correctamente, se iniciará la sesión. Tome nota del identificador y el nombre de la suscripción, ya que los necesitará para completar los pasos posteriores.
 
 1. Cree variables para almacenar valores que se usarán más adelante. Escriba cada una de las siguientes líneas de PowerShell. Es posible que necesite ajustar los valores para que se adapten a su entorno.
     - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (El nombre de la suscripción puede ser diferente. Puede verlo como parte de la salida del comando anterior).
@@ -117,10 +117,10 @@ Necesita lo siguiente para completar los pasos de este artículo:
     ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey'```
 1. Obtenga todas las ubicaciones posibles de Azure y agregue los nombres a una variable que se puede usar en un paso posterior:
     
-     a. ```$locationObjects = Get-AzLocation```    
+    a. ```$locationObjects = Get-AzLocation```    
     b. ```$locations = @('global') + $locationobjects.location```
     
-    Si escribe `$locations` en este momento, verá los nombres de las ubicaciones sin la información adicional, devuelta por Get-AzLocation.
+    Si escribe `$locations` en este punto, verá los nombres de las ubicaciones sin la información adicional que devuelve Get-AzLocation.
 1. Cree un perfil de registro de Azure Resource Manager: 
     
     ```Add-AzLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
@@ -128,7 +128,7 @@ Necesita lo siguiente para completar los pasos de este artículo:
     Para más información sobre el perfil de registro de Azure, vea [Información general sobre el registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> Es posible que reciba un mensaje de error al intentar crear un perfil de registro. A continuación, puede revisar la documentación de Get-AzLogProfile y Remove-AzLogProfile. Si ejecuta Get-AzLogProfile, verá información sobre el perfil de registro. Puede eliminar el perfil de registro actual escribiendo el comando ```Remove-AzLogProfile -name 'Log Profile Name'```.
+> Es posible que reciba un mensaje de error al intentar crear un perfil de registro. Revise la documentación de Get-AzLogProfile y Remove-AzLogProfile. Si ejecuta Get-AzLogProfile, verá información sobre el perfil de registro. Puede eliminar el perfil de registro actual escribiendo el comando ```Remove-AzLogProfile -name 'Log Profile Name'```.
 >
 >![Error de perfil de Resource Manager](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -157,7 +157,7 @@ Las solicitudes se deben enviar a Key Vault para generar actividades de registro
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Establezca y lea un secreto para generar entradas de registro adicionales:
     
-    a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Secreto devuelto](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 

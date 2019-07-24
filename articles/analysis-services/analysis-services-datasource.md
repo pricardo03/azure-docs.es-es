@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142555"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
@@ -25,16 +25,16 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 |---------|---------|---------|
 |Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   Sí      |    Sí      |
 |Azure SQL Data Warehouse     |   Sí      |   Sí       |
-|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   Sí       |    No      |
-|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   Sí       |    No      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sí        |  No        |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sí       |    No      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sí     |   No       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sí       |   No       |
+|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   Sí       |    Sin      |
+|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   Sí       |    Sin      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sí        |  Sin        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sí       |    Sin      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sí     |   Sin       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sí       |   Sin       |
 ||||
 
 <a name="tab1400a">1</a>: Tabular 1400 y modelos posteriores solamente.   
-<a name="azsqlmanaged">2</a>: Compatible con Instancia administrada de Azure SQL Database. Dado que se ejecuta una instancia administrada dentro de la red virtual de Azure con una dirección IP privada, se requiere una puerta de enlace de datos local. Actualmente no se admite Azure base de datos de instancia administrada de SQL con un punto de conexión público.   
+<a name="azsqlmanaged">2</a>: Compatible con Instancia administrada de Azure SQL Database. Dado que se ejecuta una instancia administrada dentro de la red virtual de Azure con una dirección IP privada, se requiere una puerta de enlace de datos local. Actualmente no se admite Instancia administrada de Azure SQL Database con un punto de conexión público.   
 <a name="databricks">3</a>: Actualmente no se admite Azure Databricks con el conector de Spark.   
 <a name="gen2">4</a>: Actualmente no se admite ADLS Gen2.
 
@@ -52,7 +52,7 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Proveedor OLE DB de Microsoft para SQL Server, Proveedor de datos .NET Framework para SQL Server | Proveedor de datos .NET Framework para SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, Proveedor OLE DB de Microsoft para SQL Server, Proveedor de datos .NET Framework para SQL Server | Proveedor de datos .NET Framework para SQL Server |
-| Oracle | Proveedor OLE DB para Oracle, proveedor de datos de Oracle para .NET |Proveedor de datos de Oracle para .NET |
+| Oracle | Proveedor OLE DB para Oracle, Proveedor de datos de Oracle para .NET |Proveedor de datos de Oracle para .NET |
 | Teradata |Proveedor OLE DB para Teradata, Proveedor de datos de Teradata para .NET |Proveedor de datos de Teradata para .NET |
 | | | |
 
@@ -72,7 +72,7 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
 |Documento JSON<sup>[1](#tab1400b)</sup>     |  
 |Líneas de archivo binario<sup>[1](#tab1400b)</sup>     | 
-|MySQL Database     | 
+|Base de datos MySQL     | 
 |Fuente OData<sup>[1](#tab1400b)</sup>     |  
 |Consulta ODBC     | 
 |OLE DB     |   
@@ -81,18 +81,18 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |Informes de Salesforce<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
+|Lista de SharePoint<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Base de datos de Sybase     |  
 |Archivo TXT  |
 |Tabla XML<sup>[1](#tab1400b)</sup>    |  
 ||
  
 <a name="tab1400b">1</a>: Tabular 1400 y modelos posteriores solamente.   
-<a name="filesSP">2</a> -no se admiten archivos de SharePoint local.
+<a name="filesSP">2</a>: no se admite archivos en SharePoint en el entorno local.
 
 ## <a name="specifying-a-different-provider"></a>Especificación de un proveedor diferente
 
-Los modelos de datos de Azure Analysis Services pueden requerir distintos proveedores de datos al conectarse a algunos orígenes de datos. En algunos casos, los modelos tabulares se conectan a orígenes de datos mediante proveedores nativos como SQL Server Native Client (SQLNCLI11) pueden devolver un error. Si utiliza proveedores nativos distintos de SQLOLEDB, puede aparecer un mensaje de error similar a este: **El proveedor "SQLNCLI11.1" no está registrado**. Por otro lado, si tiene un modelo de DirectQuery que se conecta a orígenes de datos locales y utiliza proveedores nativos, puede aparecer un mensaje de error similar a este: **Error al crear el conjunto de filas OLE DB. Sintaxis incorrecta cerca de "LIMIT"**.
+Los modelos de datos de Azure Analysis Services pueden requerir distintos proveedores de datos al conectarse a algunos orígenes de datos. En algunos casos, los modelos tabulares se conectan a orígenes de datos mediante proveedores nativos como SQL Server Native Client (SQLNCLI11) pueden devolver un error. Si utiliza proveedores nativos distintos de SQLOLEDB, puede aparecer un mensaje de error similar a este: **El proveedor "SQLNCLI11.1" no está registrado**. Por otro lado, si tiene un modelo de DirectQuery que se conecta a orígenes de datos locales y utiliza proveedores nativos, puede aparecer un mensaje de error similar a este: **Error al crear el conjunto de filas OLE DB. Sintaxis incorrecta cerca de "LIMIT"** .
 
 Cuando se migra un modelo tabular de SQL Server Analysis Services local a Azure Analysis Services, puede ser necesario cambiar el proveedor.
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66256905"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory
@@ -29,7 +29,7 @@ Puede copiar los datos desde SAP Business Warehouse con Open Hub en cualquier al
 
 Concretamente, este conector de Open Hub para SAP Business Warehouse admite:
 
-- SAP Business Warehouse **versión 7.01 o superior (en una reciente SAP compatibilidad con paquete pila publicada después del año 2015)** .
+- SAP Business Warehouse **versión 7.01 o posteriores (en una pila de paquetes de soporte técnico de SAP reciente lanzada después de 2015)** .
 - Copiar datos con la tabla local del destino Open Hub que, de forma subyacente, puede ser DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copiar datos con la autenticación básica.
 - Conectarse al servidor de aplicaciones.
@@ -38,32 +38,32 @@ Concretamente, este conector de Open Hub para SAP Business Warehouse admite:
 
 El [servicio de Open Hub para SAP BW](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) es una forma eficaz de extraer datos de SAP BW. En el siguiente diagrama se muestra uno de los flujos típicos que los clientes tienen en su sistema SAP, en cuyo caso, los datos fluyen desde SAP ECC -> PSA -> DSO -> Cube.
 
-El destino Open Hub (OHD) para SAP BW define el destino al que se retransmitirán los datos de SAP. Cualquier objeto admitido por el proceso de transferir datos de SAP (DTP) puede utilizarse como orígenes de datos de concentrador abierto, por ejemplo, DSO, InfoCube, origen de datos, etcetera. Tipo de destino Open Hub: donde se almacenan los datos retransmitidos; puede tratarse de tablas de base de datos (locales o remotas) y de archivos planos. Este conector de Open Hube para SAP BW admite la copia de datos desde la tabla local de OHD a BW. Si usa otros tipos, puede conectarse directamente a la base de datos o al sistema de archivos con otros conectores.
+El destino Open Hub (OHD) para SAP BW define el destino al que se retransmitirán los datos de SAP. Todos los objetos compatibles con el proceso de transferencia de datos (DTP) de SAP pueden utilizarse como orígenes de datos de Open Hub; por ejemplo, DSO, InfoCube, DataSource, etc. Tipo de destino Open Hub: donde se almacenan los datos retransmitidos; puede tratarse de tablas de base de datos (locales o remotas) y de archivos planos. Este conector de Open Hube para SAP BW admite la copia de datos desde la tabla local de OHD a BW. Si usa otros tipos, puede conectarse directamente a la base de datos o al sistema de archivos con otros conectores.
 
 ![Open Hub para SAP BW](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
-## <a name="delta-extraction-flow"></a>Flujo de extracción de Delta
+## <a name="delta-extraction-flow"></a>Flujo de extracción diferencial
 
-Conector de concentrador abierto de ADF SAP BW ofrece dos propiedades opcionales: `excludeLastRequest` y `baseRequestId` que se puede usar para administrar la carga de delta de concentrador abierto. 
+El conector Open Hub para ADF SAP BW ofrece dos propiedades opcionales: `excludeLastRequest` y `baseRequestId`, que se pueden usar para administrar la carga diferencial de Open Hub. 
 
-- **excludeLastRequestId**: Si desea excluir los registros de la última solicitud. Valor predeterminado es true. 
-- **baseRequestId**: El identificador de la solicitud para la carga diferencial. Una vez que se establece, se recuperarán sólo los datos con Id. de solicitud mayor que el valor de esta propiedad. 
+- **excludeLastRequestId**: Si desea excluir los registros de la última solicitud. El valor predeterminado es true. 
+- **baseRequestId**: El identificador de la solicitud para la carga diferencial. Una vez establecido, solo se recuperarán los datos con el identificador de solicitud mayor que el valor de esta propiedad. 
 
-En general, la extracción de InfoProviders SAP a Azure Data Factory (ADF) consta de 2 pasos: 
+En general, la extracción de InfoProviders de SAP a Azure Data Factory (ADF) consta de 2 pasos: 
 
-1. **Proceso de transferencia de datos de SAP BW (DTP)** este paso copia los datos desde un InfoProvider de SAP BW en una tabla de concentrador abierto de SAP BW 
+1. **Proceso de transferencia de datos (DTP) de SAP BW**: en este paso se copian los datos desde InfoProvider para SAP BW a una tabla de Open Hub para SAP BW. 
 
-1. **Copia de datos ADF** en este paso, se lee la tabla de concentrador abierto por el conector de ADF 
+1. **Copia de datos ADF**: en este paso, el conector ADF lee la tabla de Open Hub. 
 
-![Flujo de extracción de Delta](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
+![Flujo de extracción diferencial](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
 
-En el primer paso, se ejecuta un DTP. Cada ejecución crea un nuevo identificador de solicitud SAP. El identificador de solicitud se almacena en la tabla de concentrador abierto y, a continuación, se usa el conector de ADF para identificar el delta. Los dos pasos se ejecutan de forma asincrónica: se desencadena el DTP que HABÍA por SAP y la copia de datos ADF se desencadena a través de ADF. 
+En el primer paso, se ejecuta un DTP. Cada ejecución crea un nuevo identificador de solicitud SAP. El identificador de solicitud se almacena en la tabla de Open Hub y, a continuación, se usa el conector de ADF para identificar la diferencia. Los dos pasos se ejecutan de forma asincrónica: SAP desencadena el DTP y la copia de datos de ADF se desencadena a través de ADF. 
 
-De forma predeterminada, ADF no está leyendo las diferencias más recientes de la tabla de concentrador abierto (opción de "última solicitud de exclusión" es true). Por el presente documento, los datos de ADF no son 100% al día con los datos en la tabla de concentrador abierto (el último delta falta). En cambio, este procedimiento garantiza que ninguna fila perderse provocado por la extracción asincrónica. Funciona bien, incluso cuando ADF está leyendo la tabla de concentrador abierto mientras el DTP que HABÍA todavía está escribiendo en la misma tabla. 
+De forma predeterminada, ADF no lee los flujos diferenciales más recientes de la tabla de Open Hub (la opción de "exclusión de última solicitud" se establece en true). De esta manera, los datos en ADF no están 100 % actualizados con los datos en la tabla de Open Hub (falta la última diferencia). A cambio, este procedimiento garantiza que no se pierden filas debido a la extracción asíncrona. Funciona correctamente incluso cuando el ADF lee la tabla de Open Hub mientras el DTP sigue escribiendo en la misma tabla. 
 
-Normalmente almacena el identificador de solicitud máximo de copiado en la última ejecución ADF en un almacén de datos provisional (como Azure BLOB Storage en el diagrama anterior). Por lo tanto, la misma solicitud no se lee una segunda vez ADF en la ejecución posterior. Mientras tanto, tenga en cuenta que los datos no se eliminan automáticamente de la tabla de concentrador abierto.
+Por lo general, el Identificador de solicitud copiado máximo se almacena en la última ejecución del ADF en un almacén de datos de prueba (como Azure Blob en el diagrama anterior). Por lo tanto, ADF no lee la misma solicitud por segunda vez en la ejecución posterior. Mientras tanto, tenga en cuenta que los datos no se eliminan automáticamente de la tabla de Open Hub.
 
-Delta adecuado manejando no se permite para que los identificadores de DTPs diferentes de la solicitud en la misma tabla de concentrador abierto. Por lo tanto, no debe crear más de un DTP para cada destino de concentrador abierto (GI). Cuando se necesite una extracción completas y diferenciales de la misma InfoProvider, debe crear dos OHDs para el mismo InfoProvider. 
+Para una correcta administración de la diferencia, no está permitido disponer de identificadores de solicitud de diferentes DTP en la misma tabla de Open Hub. Por lo tanto, no debe crear más de un DTP para cada destino de Open Hub (OHD). Cuando necesite la extracción completa y diferencial del mismo InfoProvider, debe crear dos OHD para el mismo InfoProvider. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -86,7 +86,7 @@ Para usar este conector de Open Hub para SAP Business Warehouse, necesita:
 
 > [!TIP]
 >
-> Para ver un tutorial del uso de conector de concentrador abierto de SAP BW, vea [cargar datos desde SAP Business Warehouse (BW) mediante Azure Data Factory](load-sap-bw-data.md).
+> Para ver un tutorial del uso del conector de Open Hub de SAP BW, consulte [Carga de datos desde SAP Business Warehouse (BW) mediante Azure Data Factory](load-sap-bw-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -104,7 +104,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Open Hub
 | clientId | Identificador del cliente en el sistema SAP W.<br/>Valor permitido: número decimal de tres dígitos que se representa en forma de cadena. | Sí |
 | language | Idioma que utiliza el sistema SAP. | No (el valor predeterminado es **EN**)|
 | userName | Nombre del usuario que tiene acceso al servidor SAP. | Sí |
-| password | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| contraseña | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**
@@ -134,16 +134,16 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Open Hub
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de concentrador abierto de SAP BW.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Open Hub para SAP BW.
 
 Para copiar datos desde y hacia Open Hub para SAP BW, establezca la propiedad type del conjunto de datos en **SapOpenHubTable**. Se admiten las siguientes propiedades.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en **SapOpenHubTable**.  | Sí |
+| Tipo | La propiedad type debe establecerse en **SapOpenHubTable**.  | Sí |
 | openHubDestinationName | Nombre del destino Open Hub desde el que copiar los datos. | Sí |
 | excludeLastRequest | Si desea excluir los registros de la última solicitud. | No (el valor predeterminado es **true**) |
-| baseRequestId | El identificador de la solicitud para la carga diferencial. Una vez establecido, solo se recuperarán los datos con el identificador de solicitud **mayor que** el valor de esta propiedad.  | Sin  |
+| baseRequestId | El identificador de la solicitud para la carga diferencial. Una vez establecido, solo se recuperarán los datos con el identificador de solicitud **mayor que** el valor de esta propiedad.  | Sin |
 
 >[!TIP]
 >Si la tabla de Open Hub solo contiene los datos generados por un único identificador de solicitud y, por ejemplo, siempre hace una carga completa y sobrescribe los datos existentes en la tabla o solo ejecuta el DTP una vez por cada prueba, recuerde desactivar la opción "excludeLastRequest" para poder copiar los datos.
@@ -172,7 +172,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="sap-bw-open-hub-as-source"></a>Open Hub para SAP BW como origen
 
-Para copiar datos desde Open Hub para SAP BW, establezca el tipo de origen de la actividad de copia en **SapOpenHubSource**. No hay ninguna propiedad específica del tipo adicional necesaria en la actividad de copia **origen** sección.
+Para copiar datos desde Open Hub para SAP BW, establezca el tipo de origen de la actividad de copia en **SapOpenHubSource**. No se necesitan propiedades específicas para type adicionales en la sección de **origen** de la actividad de copia.
 
 **Ejemplo:**
 
@@ -211,14 +211,14 @@ Al copiar datos desde Open Hub para SAP BW, se usan las siguientes asignaciones 
 
 | Tipo ABAP para SAP | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| C (cadena) | string |
+| C (cadena) | Cadena |
 | I (entero) | Int32 |
 | F (flotante) | Double |
-| D (fecha) | string |
-| T (hora) | string |
+| D (fecha) | Cadena |
+| T (hora) | Cadena |
 | P (BCD empaquetado, moneda, decimal, cantidad) | Decimal |
-| N (número) | string |
-| X (binario y sin procesar) | string |
+| N (número) | Cadena |
+| X (binario y sin procesar) | Cadena |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a6797c7bd0c6bd8ce8d3f51b42cb4c2b1338fd6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 1eb5600a9793963a722967e1bbe702cf3b2f670e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950481"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147110"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -38,7 +38,7 @@ No, no hay planes que admitan las identidades administradas para recursos de Azu
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>¿Funcionan las identidades administradas para recursos de Azure con la Biblioteca de autenticación de Active Directory (ADAL) o la Biblioteca de autenticación de Microsoft (MSAL)?
 
-No, las identidades administradas para recursos de Azure aún no están integradas con ADAL o MSAL. Para obtener más información acerca de cómo obtener un token para las identidades administradas para los recursos de Azure mediante el punto de conexión REST, consulte [cómo usar las identidades administradas para los recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso](how-to-use-vm-token.md).
+No, las identidades administradas para recursos de Azure aún no están integradas con ADAL o MSAL. Para obtener más información sobre la adquisición de un token para las identidades administradas para recursos de Azure mediante el punto de conexión de REST, vea [Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso](how-to-use-vm-token.md).
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>¿Cuál es el límite de seguridad de las identidades administradas para recursos de Azure?
 
@@ -50,25 +50,25 @@ El límite de seguridad de la identidad es el recurso al que está asociada. Por
 - Si la identidad administrada asignada por el sistema no está habilitada, y solo existe una identidad administrada asignada por el usuario, IMDS será la identidad administrada asignada de manera predeterminada a ese único usuario. 
 - Si la identidad administrada asignada por el sistema no está habilitada y existen varias identidades administradas asignadas por el usuario, es necesario especificar una identidad administrada en la solicitud.
 
-### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>¿Debo usar las identidades administradas para el punto de conexión IMDS de recursos de Azure o el punto de conexión de extensión de máquina virtual?
+### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>¿Debo usar el punto de conexión de IMDS de las identidades administradas para recursos de Azure, o bien el punto de conexión de la extensión de la máquina virtual?
 
-Cuando se usa identidades administradas por los recursos de Azure con máquinas virtuales, se recomienda usar el punto de conexión IMDS. Azure Instance Metadata Service es un punto de conexión REST al que pueden acceder todas las máquinas virtuales IaaS creadas a través de Azure Resource Manager. 
+Cuando se usan identidades administradas para los recursos de Azure con máquinas virtuales, se recomienda usar el punto de conexión IMDS. Azure Instance Metadata Service es un punto de conexión REST al que pueden acceder todas las máquinas virtuales IaaS creadas a través de Azure Resource Manager. 
 
 Algunas de las ventajas de usar las identidades administradas para recursos de Azure sobre IMDS son las siguientes:
 - Todos los sistemas operativos admitidos en IaaS de Azure pueden usar identidades administradas para recursos de Azure en lugar de IMDS.
 - Ya no es necesario instalar una extensión en la máquina virtual para habilitar las identidades administradas para recursos de Azure. 
 - Los certificados que usan las identidades administradas para recursos de Azure ya no están presentes en la máquina virtual.
 - El punto de conexión de IMDS es una dirección IP no enrutable conocida, que solo está disponible desde dentro de la máquina virtual.
-- identidades administradas de 1000 asignada por el usuario pueden asignarse a una sola máquina virtual. 
+- Se pueden asignar 1000 identidades administradas asignadas por el usuario a una sola máquina virtual. 
 
-Las identidades administradas de extensión de máquina virtual de los recursos de Azure sigue estando disponible; Sin embargo, ya no estamos desarrollando funcionalidad nueva en él. Se recomienda cambiar para usar el punto de conexión IMDS. 
+Las identidades administradas para la extensión de máquina virtual de los recursos de Azure siguen estando disponibles; sin embargo, ya no se desarrollan nuevas funciones. Se recomienda cambiar para usar el punto de conexión IMDS. 
 
-Algunas de las limitaciones de usar el punto de conexión de extensión de máquina virtual son:
-- Compatibilidad limitada para las distribuciones de Linux: Stable de CoreOS, CentOS 7.1, 7.2 de Red Hat, Ubuntu 16.04, Ubuntu 15.04:
-- Solo 32 identidades administradas asignada por el usuario pueden asignarse a la máquina virtual.
+Algunas de las limitaciones de usar el punto de conexión de la extensión de máquina virtual son las siguientes:
+- Compatibilidad limitada para las distribuciones de Linux: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
+- Solo se pueden asignar 32 identidades administradas asignadas por el usuario a la máquina virtual.
 
 
-Nota: Las identidades administradas de extensión de máquina virtual de los recursos de Azure estará sin soporte técnico en enero de 2019. 
+Nota: en enero de 2019 dejará de haber soporte técnico para la extensión de máquina virtual de identidades administradas para recursos de Azure. 
 
 Para obtener más información sobre Azure Instance Metadata Service, vea la [documentación de IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
@@ -84,8 +84,8 @@ No. Las identidades administradas no admiten actualmente escenarios entre direct
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>¿Qué permisos RBAC de Azure son necesarios para una identidad administrada en un recurso? 
 
-- Asignado por el sistema de identidad administrada: Se necesita permisos de escritura sobre el recurso. Por ejemplo: Microsoft.Compute/virtualMachines/write o esta acción se incluye en los roles integrados específicos, como el recurso [colaborador de máquina Virtual](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Identidad administrada asignada por el usuario: Se necesita permisos de escritura sobre el recurso. Por ejemplo: Microsoft.Compute/virtualMachines/write. Además [operador de identidad administrada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) asignación de roles a través de la identidad administrada. 
+- Identidad administrada asignada por el sistema: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Esta acción se incluye en los roles integrados específicos del recurso como, por ejemplo, [Colaborador de máquina virtual](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Identidad administrada asignada por el usuario: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Además de la asignación de roles [Operador de identidad administrada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) sobre la identidad administrada.
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>¿Cómo se reinicia la extensión de identidades administradas para recursos de Azure?
 Tanto en Windows como en algunas versiones de Linux, si la extensión se detiene, se puede utilizar el siguiente cmdlet para reiniciarla manualmente:
@@ -143,11 +143,11 @@ Se puede producir un error en el aprovisionamiento de la extensión de máquina 
 
 Las identidades administradas no se actualizan cuando una suscripción se mueve o transfiere a otro directorio. Como resultado, se interrumpe cualquier identidad administrada asignada por el sistema o por el usuario. 
 
-Solución alternativa para las identidades administradas en una suscripción que se ha movido a otro directorio:
+Solución alternativa para identidades administradas en una suscripción que se ha movido a otro directorio:
 
  - Para las identidades administradas asignadas por el sistema, tiene que desactivarlas y volver a activarlas. 
  - Para las identidades administradas asignadas por el usuario, tiene que eliminarlas, volver a crearlas y adjuntarlas de nuevo a los recursos necesarios (por ejemplo, máquinas virtuales).
 
-### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Mover una identidad administrada asignada por el usuario a un grupo de recursos diferentes y suscripción
+### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Movimiento de una identidad administrada asignada por el usuario a otro grupo de recursos o suscripción
 
-Mover una identidad administrada asignada por el usuario a otro grupo de recursos hará que la identidad se interrumpa. Como resultado, los recursos (por ejemplo, VM) mediante dicha identidad no podrá para solicitar tokens para él. 
+Mover una identidad administrada asignada por el usuario a otro grupo de recursos hará que la identidad se interrumpa. Como resultado, los recursos que usen esa identidad (por ejemplo, la máquina virtual) no podrán solicitar tokens. 

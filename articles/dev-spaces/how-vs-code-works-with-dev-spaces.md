@@ -3,19 +3,18 @@ title: Cómo funciona Visual Studio Code con Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: conceptual
 description: Cómo funciona Visual Studio Code con Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: a7ec20908b75ae07532c16daab8950ace9cd67ae
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0d80643b366b6d7313f24e73258056e492eb56fc
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711989"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297862"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Cómo funciona Visual Studio Code con Azure Dev Spaces
 

@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e8bd60eab5853b121b9c08622914b9c62449f8f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835607"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618769"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
 
@@ -155,7 +156,7 @@ Guías de procedimientos específicas del proveedor:
 * [Configuración de la aplicación para usar el inicio de sesión de Google][Google]
 * [Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft][MSA]
 * [Configuración de la aplicación para usar el inicio de sesión de Twitter][Twitter]
-* [Uso de autenticación personalizada en una aplicación][custom-auth]
+* [Uso de Uso de la autenticación personalizada en una aplicación][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

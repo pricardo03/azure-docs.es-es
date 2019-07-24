@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 6ba777754990560526d7981ef497ea7f0441e1b0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a14954de1f8ae073780098f9286aa70502472dcd
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798473"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867863"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicación de Video Search de página única
 Bing Video Search API permite buscar en la Web y obtener resultados de vídeo correspondientes a la consulta de búsqueda. En este tutorial, crearemos una aplicación web de una sola página que usa Bing Video Search API para mostrar los resultados de la búsqueda en la página. La aplicación incluye componentes HTML, CSS y JavaScript.
@@ -373,9 +373,9 @@ Función del representador:
 > * Compila etiquetas `<a>` HTML vinculadas con la imagen y la página que la contiene.
 > * Compila la descripción que muestra información sobre la imagen y el sitio en que se encuentra.
 
-El tamaño de las miniaturas se usa tanto en la etiqueta `<img>` como en los campos `h` y `w` en la dirección URL de la miniatura. El [servicio de miniaturas de Bing](resize-and-crop-thumbnails.md), a continuación, proporciona una miniatura de exactamente ese tamaño.
+El tamaño de las miniaturas se usa tanto en la etiqueta `<img>` como en los campos `h` y `w` en la dirección URL de la miniatura. Bing devolverá [una miniatura](../bing-web-search/resize-and-crop-thumbnails.md) de ese tamaño exactamente.
 
-## <a name="persisting-client-id"></a>Id. de cliente persistente
+## <a name="persisting-client-id"></a>Identificador de cliente persistente
 Las respuestas de Bing Search API pueden incluir un encabezado `X-MSEdge-ClientID` que debe devolverse a la API con las solicitudes sucesivas. Si se usan varias instancias de Bing Search API, se debe usar el mismo identificador de cliente con todas ellas, si es posible.
 
 Especificar el encabezado `X-MSEdge-ClientID` permite a las API de Bing asociar todas las búsquedas de un usuario, lo que tiene dos ventajas importantes.
@@ -389,7 +389,7 @@ Las directivas de seguridad del explorador (CORS) pueden impedir que el encabeza
 > [!NOTE]
 > En una aplicación web de producción, debe realizar la solicitud del lado servidor. En caso contrario, es necesario incluir la clave de Bing Search API en la página web, donde está disponible para cualquiera que vea el origen. Se le facturará todo el uso bajo su clave de suscripción a API, incluso las solicitudes que realicen partes no autorizadas, por lo que es importante no exponer su clave.
 
-Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que agrega los encabezados de respuesta a listas blancas y hace que estén disponibles para JavaScript.
+Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que permite los encabezados de respuesta y hace que estén disponibles para JavaScript.
 
 Es fácil instalar un proxy CORS para permitir que nuestra aplicación de tutorial acceda al encabezado de identificador de cliente. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). Escriba el comando siguiente en una ventana de comandos:
 

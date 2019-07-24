@@ -1,29 +1,29 @@
 ---
-title: 'Iniciar sesión sin contraseña con la aplicación Microsoft Authenticator (versión preliminar): Azure Active Directory'
+title: Inicio de sesión sin contraseña con la aplicación Microsoft Authenticator (versión preliminar) - Azure Active Directory
 description: Inicio de sesión en Azure AD mediante la aplicación Microsoft Authenticator sin usar la contraseña (versión preliminar pública)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 07/09/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb10378d890c2b7156b6764321e177a22ffc538a
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 3125de0d1fd784b30c000bb287b457397c0fbebb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472760"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703034"
 ---
-# <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Inicio de sesión telefónico sin contraseña con la aplicación Microsoft Authenticator (versión preliminar pública)
+# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Inicio de sesión telefónico sin contraseña con la aplicación Microsoft Authenticator (versión preliminar pública)
 
 La aplicación Microsoft Authenticator se puede utilizar para iniciar sesión en cualquier cuenta de Azure AD sin utilizar una contraseña. Similar a la tecnología de [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator usa la autenticación basada en claves para habilitar una credencial de usuario que está asociada a un dispositivo y usa un sistema biométrico o un PIN.
 
-![Ejemplo de un inicio de sesión de explorador pidiendo al usuario que apruebe el inicio de sesión](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![Ejemplo de un inicio de sesión de explorador que solicita al usuario que apruebe el inicio de sesión](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 En lugar de ver la petición de una contraseña después de escribir un nombre de usuario, una persona que ha habilitado el inicio de sesión por teléfono en la aplicación Microsoft Authenticator verá un mensaje que le solicita pulsar un número en la aplicación. En la aplicación, el usuario debe hacer coincidir el número, elegir Aprobar y, después, proporcionar el PIN o información biométrica para que la autenticación se complete.
 
@@ -39,24 +39,7 @@ En la versión preliminar pública, un administrador debe agregar una directiva 
 
 ### <a name="steps-to-enable"></a>Pasos para la habilitación
 
-1. Asegúrese de tener instalada la versión más reciente de la versión preliminar pública del módulo de PowerShell de Azure Active Directory V2. Puede que desee desinstalarla y reinstalarla para confirmarlo; para ello, ejecute los comandos siguientes:
-
-    ```powershell
-    Uninstall-Module -Name AzureADPreview
-    Install-Module -Name AzureADPreview
-    ```
-
-2. Autentíquese en el inquilino de Azure AD para usar el módulo de PowerShell de Azure AD V2. La cuenta utilizada debe ser un administrador de seguridad o un administrador global.
-
-    ```powershell
-    Connect-AzureAD
-    ```
-
-3. Cree la directiva de inicio de sesión de autenticador:
-
-    ```powershell
-    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
-    ```
+Siga los pasos descritos en el artículo [Enable passwordless sign in for Azure AD](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods) (Habilitación del inicio de sesión sin contraseña para Azure AD) para habilitar los métodos de autenticación sin contraseña en su directorio.
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>¿Cómo habilitan los usuarios finales el inicio de sesión telefónico?
 
@@ -76,7 +59,7 @@ Una vez que el usuario tiene la cuenta de MFA con notificaciones push configurad
 
 ### <a name="ad-fs-integration"></a>Integración de AD FS
 
-Cuando un usuario ha habilitado la credencial sin contraseña de Microsoft Authenticator, la autenticación predeterminada para ese usuario siempre será enviar una notificación para su aprobación. Esta lógica impide que los usuarios de un inquilino híbrido sean dirigidos a ADFS para la comprobación de inicio de sesión sin que el usuario tome un paso adicional para hacer clic en "Usar la contraseña en su lugar". En este proceso también se omitirán las directivas de acceso condicional del entorno local y los flujos de autenticación de paso a través. La excepción a este proceso se da cuando se especifica un login_hint, entonces un usuario será reenviado de manera automática a AD FS y se omitirá la opción de usar la credencial sin contraseña.
+Cuando un usuario ha habilitado la credencial sin contraseña de Microsoft Authenticator, la autenticación predeterminada para ese usuario siempre será enviar una notificación para su aprobación. Esta lógica impide que los usuarios de un inquilino híbrido sean dirigidos a ADFS para la comprobación de inicio de sesión sin que el usuario tome un paso adicional para hacer clic en "Usar la contraseña en su lugar". En este proceso también se omitirán las directivas de acceso condicional del entorno local y los flujos de autenticación de paso a través. La excepción a este proceso se da cuando se especifica login_hint: un usuario es reenviado de manera automática a AD FS y se omite la opción de usar la credencial sin contraseña.
 
 ### <a name="azure-mfa-server"></a>Servidor de Azure MFA
 
@@ -87,6 +70,8 @@ Los usuarios finales que están habilitados para MFA a través de un servidor de
 Uno de los requisitos previos para crear esta nueva credencial segura es que el dispositivo en el que reside esté registrado en el inquilino de Azure AD para un usuario individual. Debido a las restricciones del registro de dispositivos, solo se puede registrar un dispositivo en un inquilino. Este límite significa que solo se puede habilitar una cuenta profesional o educativa en la aplicación Microsoft Authenticator para el inicio de sesión telefónico.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+[What is passwordless?](concept-authentication-passwordless.md) (¿Qué quiere decir sin contraseña?)
 
 [Obtenga información sobre el registro de dispositivos](../devices/overview.md#getting-devices-in-azure-ad)
 

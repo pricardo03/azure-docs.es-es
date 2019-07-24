@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37acd88dbfe8ed1790f1bfa68d5e9762a861ddc7
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715659"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626399"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en el sector aeroespacial
 
@@ -88,7 +88,7 @@ El servicio Azure Event Hubs es genérico; los datos se pueden publicar datos en
 
 Este documento no describe cómo introducir los datos, pero puede enviar fácilmente eventos o datos a una instancia de Azure Event Hubs mediante las API de Event Hubs.
 
-### <a name="azure-stream-analytics"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 Utilice el servicio Azure Stream Analytics para proporcionar análisis casi en tiempo real mediante la lectura de flujos de datos y el envío de datos a cualquier número de orígenes.
 
 Para el mantenimiento predictivo de la plantilla de solución aeroespacial, la consulta del servicio Azure Stream Analytics consta de cuatro subconsultas, y cada una de ellas consume eventos del servicio Centro de eventos de Azure y tiene salidas a cuatro ubicaciones distintas. Estas salidas constan de tres conjuntos de datos de Power BI y una ubicación de Azure Storage.
@@ -103,7 +103,7 @@ La consulta de Azure Stream Analytics puede encontrarse al:
   * ***QUERY*** para ver la consulta en sí
   * ***OUTPUTS*** para ver las diferentes salidas
 
-Puede encontrar información acerca de la construcción de consultas de Análisis de transmisiones de Azure en [Stream Analytics Query Reference (Referencia de consultas en Análisis de transmisiones)](https://msdn.microsoft.com/library/azure/dn834998.aspx) en MSDN.
+Puede encontrar información acerca de la construcción de consultas de Análisis de transmisiones de Azure en [Stream Analytics Query Reference (Referencia de consultas en Análisis de transmisiones)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) en MSDN.
 
 En esta solución, las consultas envían tres conjuntos de datos con información de análisis casi en tiempo real acerca del flujo de datos entrante a un panel de Power BI que se proporciona como parte de esta plantilla de solución. Dado que hay un conocimiento implícito acerca del formato de datos entrantes, estas consultas deben modificarse según su formato de datos.
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 2dfe1493c6611fb69a417895aaa1028ad5881b9c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237432"
 ---
 # <a name="infrastructure-as-code"></a>Infraestructura como código
@@ -97,8 +97,8 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
 microservices_sfpkg.close()
 ```
 
-## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuración de actualización automática de máquina Virtual de Azure del sistema operativo 
-Actualizar las máquinas virtuales es una operación iniciada por el usuario y se recomienda que utilice [actualización de máquina Virtual escala establecer automáticas del sistema operativo](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para administración de revisiones de host; los clústeres de Azure Service Fabric Aplicación de orquestación de revisiones es una solución alternativa que está pensada para cuando hospedados fuera de Azure, aunque se puede usar POA en Azure, con una sobrecarga de hospedaje POA en que se va a un motivo habitual para preferir la actualización automática del sistema operativo de máquina Virtual de Azure a través de POA. Estas son las propiedades de plantilla de proceso escala de máquina Virtual establecido el Administrador de recursos para habilitar la actualización automática del sistema operativo:
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuración de actualizaciones automáticas del sistema operativo de máquinas virtuales de Azure 
+La actualización de las máquinas virtuales es una operación iniciada por el usuario y lo recomendable es usar la [actualización automática del sistema operativo del conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para la administración de revisiones del host de clústeres de Azure Service Fabric; la aplicación de orquestación de revisiones (POA) es una solución alternativa que está pensada para el hospedaje fuera de Azure, y aunque se puede usar en Azure, la sobrecarga de hospedar POA en Azure es un motivo habitual para preferir la actualización automática del sistema operativo de máquina virtual sobre POA. Estas son las propiedades de plantilla de Resource Manager del conjunto de escalado de máquinas virtuales para permitir la actualización automática del sistema operativo:
 
 ```json
 "upgradePolicy": {
@@ -109,11 +109,11 @@ Actualizar las máquinas virtuales es una operación iniciada por el usuario y s
     }
 },
 ```
-Al usar las actualizaciones automáticas del sistema operativo con Service Fabric, la nueva imagen de sistema operativo se implanta un dominio de actualización en un momento para mantener una alta disponibilidad de los servicios que se ejecutan en Service Fabric. Para utilizar las actualizaciones automáticas del sistema operativo en Service Fabric, el clúster debe estar configurado para utilizar el nivel de durabilidad Silver o superior.
+Al usar actualizaciones automáticas del sistema operativo con Service Fabric, la nueva imagen del sistema operativo se implementa en un dominio de actualización cada vez para mantener la alta disponibilidad de los servicios que se ejecutan en Service Fabric. Para utilizar las actualizaciones automáticas del sistema operativo en Service Fabric, el clúster debe estar configurado para utilizar el nivel de durabilidad Silver o superior.
 
-Asegúrese de que la siguiente clave del registro se establece en false para impedir que actualizaciones coordinadas de iniciar las máquinas host de windows: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Asegúrese de que la siguiente clave del Registro se establece en false para impedir que las máquinas del host de Windows se inicien a partir de actualizaciones no coordinadas: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
-Estas son las propiedades de plantilla de proceso escala de máquina Virtual establecido el Administrador de recursos para establecer la clave del registro de Windows Update en false:
+Estas son las propiedades de plantilla de Resource Manager del conjunto de escalado de máquinas virtuales para establecer la clave del Registro de WindowsUpdate en false:
 ```json
 "osProfile": {
         "computerNamePrefix": "{vmss-name}",
@@ -126,12 +126,12 @@ Estas son las propiedades de plantilla de proceso escala de máquina Virtual est
       },
 ```
 
-## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuración de actualización de Azure Service Fabric Cluster
-El siguiente es la propiedad de la plantilla de Resource Manager para habilitar la actualización automática del clúster de Service Fabric:
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuración de actualizaciones del clúster de Azure Service Fabric
+Esta es la propiedad de la plantilla de Resource Manager del clúster de Service Fabric para habilitar la actualización automática:
 ```json
 "upgradeMode": "Automatic",
 ```
-Para actualizar manualmente el clúster, descargue la distribución de cab/deb a una máquina virtual de clúster y, a continuación, invocar el siguiente comando de PowerShell:
+Para actualizar manualmente el clúster, descargue la distribución cab/deb en una máquina virtual de clúster y, luego, invoque el siguiente comando de PowerShell:
 ```powershell
 Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
 Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"

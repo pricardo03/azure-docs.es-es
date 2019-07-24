@@ -9,17 +9,17 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170779"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186238"
 ---
 ## <a name="os-config"></a>Incorporación de direcciones IP a un sistema operativo de la máquina virtual
 
 Conéctese e inicie sesión en una máquina virtual que creó con múltiples direcciones IP privadas. Debe agregar manualmente todas las direcciones IP privadas (incluida la principal) que ha agregado a la máquina virtual. Complete los pasos siguientes para el sistema operativo de su máquina virtual.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 1. En un símbolo del sistema, escriba *ipconfig /all*.  Solo verá la dirección IP privada *principal* (por medio de DHCP).
 2. Escriba *ncpa.cpl* en el símbolo del sistema para abrir la ventana **Conexiones de red**.
@@ -27,11 +27,11 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
 4. Haga doble clic en el Protocolo de Internet versión 4 (IPv4).
 5. Seleccione **Usar la siguiente dirección IP** y escriba los valores siguientes:
 
-    * **Dirección IP**: Escriba el *principal* dirección IP privada
-    * **Máscara de subred**: Conjunto basado en la subred. Por ejemplo, si la subred es una subred /24, la máscara de subred es 255.255.255.0.
-    * **Puerta de enlace predeterminada**: La primera dirección IP en la subred. Si la subred es 10.0.0.1/24, la dirección IP de la puerta de enlace es 10.0.0.0/24.
+    * **Dirección IP**: escriba la dirección IP privada *principal*
+    * **Máscara de subred**: establezca este valor en función de la subred. Por ejemplo, si la subred es una subred /24, la máscara de subred es 255.255.255.0.
+    * **Puerta de enlace predeterminada**: la primera dirección IP de la subred. Si la subred es 10.0.0.1/24, la dirección IP de la puerta de enlace es 10.0.0.0/24.
     * Seleccione **Usar las siguientes direcciones de servidor DNS** y escriba los valores siguientes:
-        * **Servidor DNS preferido**: Si no utiliza su propio servidor DNS, escriba 168.63.129.16.  Si usa su propio servidor DNS, escriba la dirección IP de su servidor.
+        * **Servidor DNS preferido**: escriba 168.63.129.16 si no usa un servidor DNS propio.  Si usa su propio servidor DNS, escriba la dirección IP de su servidor.
     * Seleccione el botón **Avanzadas** y agregue más direcciones IP. Agregue cada una de las direcciones IP privadas secundarias, que agregó a la interfaz de red de Azure en un paso anterior, a la interfaz de red de Windows que se asigna a la dirección IP principal asignada a la interfaz de red de Azure.
 
         No asigne manualmente la dirección IP pública asignada a una máquina virtual de Azure en el sistema operativo de la máquina virtual. Al establecer manualmente la dirección IP privada en el sistema operativo, asegúrese de que sea la misma que la asignada a la [interfaz de red](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings) de Azure; de lo contrario, perderá la conectividad a la máquina virtual. Más información sobre la configuración de la [dirección IP privada](../articles/virtual-network/virtual-network-network-interface-addresses.md#private). Nunca debe asignar una dirección IP pública de Azure dentro del sistema operativo.
@@ -52,7 +52,7 @@ ping -S 10.0.0.5 hotmail.com
 >Para las configuraciones de IP secundarias, solo se puede hacer ping a Internet si la configuración tiene una dirección IP pública asociada. Para configuraciones de IP principales, no se requiere una dirección IP pública para hacer ping a Internet.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
-Se recomienda mirar la versión más reciente de la documentación de la distribución de Linux. 
+Se recomienda revisar la documentación más reciente de la distribución de Linux. 
 
 1. Abra una ventana del terminal.
 2. Asegúrese de ser el usuario raíz. Si no lo es, escriba el siguiente comando:

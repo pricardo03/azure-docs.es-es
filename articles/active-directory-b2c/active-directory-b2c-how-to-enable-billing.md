@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2440b638a9c8eb27505b747d26917de8032e6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d3ce15ac9899fe09d907296976db15ed0babb35
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510140"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612480"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Vinculación de una suscripción de Azure a un inquilino de Azure Active Directory B2C
 
@@ -81,6 +81,14 @@ Este recurso se puede utilizar para:
 - Mover el recurso del inquilino de Azure AD B2C a otra suscripción de Azure o a otro grupo de recursos.
 
 ![Configuración de recursos de B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+
+## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Cambio de la suscripción de facturación del inquilino de Azure AD B2C
+
+Los inquilinos de Azure AD B2C se pueden mover a otra suscripción si la de origen y la de destino existen dentro del mismo inquilino de Azure Active Directory.
+
+Para aprender a mover recursos como el inquilino de Azure AD B2C a otra suscripción, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
+
+Antes de iniciar el traslado, no olvide leer el artículo completo para comprender las limitaciones y los requisitos de esta operación. Además de las instrucciones para mover los recursos, se incluye información crítica, como una lista de comprobación previa al traslado y cómo validar la operación de traslado.
 
 ## <a name="known-issues"></a>Problemas conocidos
 

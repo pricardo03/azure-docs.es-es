@@ -4,7 +4,7 @@ description: Implementa Azure Disk Encryption en una máquina virtual Windows me
 services: virtual-machines-windows
 documentationcenter: ''
 author: ejarvi
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9a3e135172f0744c053da816b3c77762dbe783c3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800049"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706113"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -41,7 +41,44 @@ Para obtener una lista de las versiones actuales de Windows, consulte [Requisito
 Azure Disk Encryption requiere conectividad a Internet para acceder a Active Directory, Azure Key Vault, Azure Storage y a los puntos de conexión de administración de paquetes.  Para más información acerca de la configuración de la seguridad de red, consulte [Requisitos previos de Azure Disk Encryption](
 ../../security/azure-security-disk-encryption-prerequisites.md).
 
-## <a name="extension-schema"></a>Esquema de extensión
+## <a name="extension-schemata"></a>Esquema de extensión
+
+Hay dos esquemas para Azure Disk Encryption: v1.1, un esquema más reciente recomendado que no usa las propiedades de Azure Active Directory (AAD), y v0.1, que es un esquema más antiguo que requiere propiedades de AAD. Debe usar la versión de esquema que corresponde a la extensión que usa: el esquema v1.1 para la versión de extensión 1.1 de AzureDiskEncryption o el esquema v0.1 para la versión extensión 0.1 de AzureDiskEncryption.
+
+### <a name="schema-v11-no-aad-recommended"></a>Esquema v1.1: Sin AAD (recomendado)
+
+Se recomienda usar el esquema v1.1 y no requiere propiedades de Azure Active Directory.
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+
+### <a name="schema-v01-with-aad"></a>Esquema v0.1: con AAD 
+
+El esquema 0.1 quiere `aadClientID` y `aadClientSecret` o `AADClientCertificate`.
+
+Uso de `aadClientSecret`:
 
 ```json
 {
@@ -51,29 +88,56 @@ Azure Disk Encryption requiere conectividad a Internet para acceder a Active Dir
   "location": "[location]",
   "properties": {
     "protectedSettings": {
-      "AADClientSecret": "[aadClientSecret]",
-    },
+      "AADClientSecret": "[aadClientSecret]"
+    },    
     "publisher": "Microsoft.Azure.Security",
     "settings": {
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-      
       "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-          "KekVaultResourceId": "[keyVaultResourceID]",
-      
+      "KekVaultResourceId": "[keyVaultResourceID]",
       "KeyVaultURL": "[keyVaultURL]",
-          "KeyVaultResourceId": "[keyVaultResourceID]",
-
-      "EncryptionOperation": "[encryptionOperation]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
     },
-    "type": "AzureDiskEncryption",
-    "typeHandlerVersion": "[extensionVersion]"
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
   }
 }
 ```
+
+Uso de `AADClientCertificate`:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "protectedSettings": {
+      "AADClientCertificate": "[aadClientCertificate]"
+    },    
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
 
 ### <a name="property-values"></a>Valores de propiedad
 
@@ -81,17 +145,17 @@ Azure Disk Encryption requiere conectividad a Internet para acceder a Active Dir
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
-| Tipo | AzureDiskEncryptionForWindows| string |
-| typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
-| (opcional) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (opcional) AADClientSecret | password | string |
-| (opcional) AADClientCertificate | thumbprint | string |
-| EncryptionOperation | EnableEncryption | string | 
-| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
+| Tipo | AzureDiskEncryptionForLinux | string |
+| typeHandlerVersion | 0.1, 1.1 | int |
+| (esquema 0.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (esquema 0.1) AADClientSecret | password | string |
+| (esquema 0.1) AADClientCertificate | thumbprint | string |
+| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Diccionario de JSON |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
-| KeyVaultResourceId | uri de recurso | string |
-| KekVaultResourceId | uri de recurso | string |
 | KeyVaultURL | url | string |
+| (opcional) Frase de contraseña | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS, Data, All | string |
 
@@ -102,7 +166,7 @@ Para ver un ejemplo de implementación de una plantilla, consulte [Create a new 
 
 Puede encontrar instrucciones en la versión más reciente de la [documentación de la CLI de Azure](/cli/azure/vm/encryption?view=azure-cli-latest). 
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
+## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

@@ -4,7 +4,7 @@ description: Obtenga información sobre la compatibilidad en versión preliminar
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: f96a1179c103dd9dfb4d358572f9a9adbe24b977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809878"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797551"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Introducción a las máquinas virtuales de la serie HC
 
@@ -31,7 +31,7 @@ La topología anterior también es aplicable a la configuración de los hipervis
 
 La máquina virtual no sabe que tiene asignados los pCores 0-1 y 24-25. Por tanto, expone cada vNUMA como si tuviera 22 núcleos de forma nativa.
 
-Las CPU Intel Xeon Platinum, Gold y Silver también cuenta con una red de malla 2D en el mismo chip para realizar las comunicaciones internas y externas con el socket de la CPU. Se recomienda encarecidamente anclar los procesos para disfrutar de una coherencia y un rendimiento óptimos. En anclaje de procesos funcionará en las máquinas virtuales de la serie HC porque el silicio subyacente se expone tal cual está a la máquina virtual invitada. Más información sobre la arquitectura de Intel Xeon SP en: https://bit.ly/2RCYkiE
+Las CPU Intel Xeon Platinum, Gold y Silver también cuenta con una red de malla 2D en el mismo chip para realizar las comunicaciones internas y externas con el socket de la CPU. Se recomienda encarecidamente anclar los procesos para disfrutar de una coherencia y un rendimiento óptimos. En anclaje de procesos funcionará en las máquinas virtuales de la serie HC porque el silicio subyacente se expone tal cual está a la máquina virtual invitada. Para más información, consulte la [arquitectura SP de Intel Xeon](https://bit.ly/2RCYkiE).
 
 En el siguiente diagrama se muestra la segregación de los núcleos reservados para el hipervisor de Azure y la máquina virtual de la serie HC.
 

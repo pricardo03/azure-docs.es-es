@@ -16,17 +16,17 @@ ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: b1df35c82ffb8b98f8b7bf86c21694b62b3804e4
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298300"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration en registros de Azure Diagnostics y reenvío de eventos de Windows
 
 
 >[!IMPORTANT]
-> La característica de integración de registro de Azure dejará de utilizarse en 15/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
+> La característica Azure Log Integration dejará de utilizarse el 15/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
 
 Solo debe usar Azure Log Integration si no se encuentra disponible un conector de [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) en el proveedor de Administración de eventos e información de seguridad (SIEM).
 
@@ -248,5 +248,5 @@ Para más información sobre Azure Log Integration, consulte los siguientes art�
 * [Introducción a Azure Log Integration](security-azure-log-integration-overview.md). Este artículo es una introducción a Azure Log Integration, sus principales funcionalidades y cómo funciona.
 * [Pasos de configuración de asociados](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Esta entrada de blog muestra cómo configurar la integración de registro de Azure para trabajar con soluciones de asociados como Splunk, HP ArcSight e IBM QRadar. Esta entrada describe la guía actual sobre cómo configurar los componentes de SIEM. Póngase en contacto con el proveedor de SIEM para obtener más detalles.
 * [Preguntas más frecuentes sobre la integración de registro de Azure (P+F)](security-azure-log-integration-faq.md). Estas preguntas frecuentes dan respuesta a las preguntas sobre Azure Log Integration.
-* [Integración de las alertas de Azure Security Center con Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). En este artículo se muestra cómo sincronizar las alertas de Security Center y los eventos de seguridad de las máquinas virtuales que recopilan Azure Diagnostics y los registros de actividades de Azure. Sincronizar los registros mediante el uso de los registros de Azure Monitor o una solución SIEM.
+* [Integración de las alertas de Azure Security Center con Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). En este artículo se muestra cómo sincronizar las alertas de Security Center y los eventos de seguridad de las máquinas virtuales que recopilan Azure Diagnostics y los registros de actividades de Azure. Puede sincronizar los registros mediante los registros de Azure Monitor o una solución de SIEM.
 * [New features for Azure Diagnostics and Azure audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Nuevas características de Azure Diagnostics y registros de auditoría de Azure). Esta entrada de blog es una introducción a los registros de auditoría de Azure y a otras características que le ayudarán a obtener información sobre las operaciones de los recursos de Azure.

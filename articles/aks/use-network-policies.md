@@ -2,17 +2,17 @@
 title: Pods seguros con directivas de redes en Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo proteger el tráfico que fluye dentro y fuera de los pods mediante directivas de red de Kubernetes en Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: c9bf2c2c459999813c7fc30f95be653168d270ad
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230013"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613952"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)
 
@@ -62,9 +62,9 @@ La directiva de red solo funciona con la opción de CNI de Azure (avanzada). La 
 | Plataformas compatibles                      | Linux                      | Linux                       |
 | Opciones de redes admitidas             | CNI de Azure                  | CNI de Azure                   |
 | Compatibilidad con la especificación de Kubernetes | Se admiten todos los tipos de directiva. |  Se admiten todos los tipos de directiva. |
-| Características adicionales                      | None                       | Modelo de directiva extendida que consta de una directiva de red global, un conjunto de red global y un punto de conexión de host. Para obtener más información sobre el uso de la CLI de `calicoctl` para administrar estas características extendidas, consulte la [referencia de usuario de calicoctl][calicoctl]. |
-| Soporte técnico                                  | Compatible con el soporte técnico de Azure y el equipo de ingeniería | Soporte técnico de la comunidad de Calico. Para obtener más información sobre el soporte técnico de pago adicional, consulte las [opciones de soporte técnico del proyecto Calico][calico-support]. |
-| Registro                                  | Las reglas agregadas o eliminadas en IPTables se registran en cada host en */var/log/azure-npm.log* | Para obtener más información, consulte los [registros de componentes de Calico][calico-logs]. |
+| Características adicionales                      | None                       | Modelo de directiva extendida que consta de una directiva de red global, un conjunto de red global y un punto de conexión de host. Para más información sobre el uso de la CLI de `calicoctl` para administrar estas características extendidas, consulte la [referencia de usuario de calicoctl][calicoctl]. |
+| Soporte técnico                                  | Compatible con el soporte técnico de Azure y el equipo de ingeniería | Soporte técnico de la comunidad de Calico. Para más información sobre el soporte técnico de pago adicional, consulte las [opciones de soporte técnico del proyecto Calico][calico-support]. |
+| Registro                                  | Las reglas agregadas o eliminadas en IPTables se registran en cada host en */var/log/azure-npm.log* | Para más información, consulte los [registros de los componentes de Calico][calico-logs]. |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creación de un clúster de AKS y habilitación de la directiva de red
 
@@ -76,7 +76,7 @@ Para ver las directivas de red en acción, vamos a crear y luego expandir una di
 
 En primer lugar, crearemos un clúster de AKS que admite la directiva de red. La característica de directiva de red solo se puede habilitar cuando se crea el clúster. No se puede habilitar la directiva de red en un clúster de AKS existente.
 
-Para usar la directiva de red con un clúster de AKS, debe usar el [complemento de CNI de Azure][azure-cni] y definir su propia red virtual y subredes. Para obtener más información sobre cómo planear los rangos de subred requeridos, consulte la sección sobre cómo [configurar redes avanzadas][use-advanced-networking].
+Para usar la directiva de red con un clúster de AKS, debe usar el [complemento de CNI de Azure][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
 
 En el ejemplo siguiente se invoca el script:
 
@@ -446,7 +446,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-En este artículo, hemos creado dos espacios de nombres y hemos aplicado una directiva de red. Para limpiar estos recursos, use el comando [kubectl delete][kubectl-delete] y especifique los nombres de recursos:
+En este artículo, hemos creado dos espacios de nombres y hemos aplicado una directiva de red. Para limpiar estos recursos, use el comando [kubectl delete][kubectl-delete] y especifique los nombres de recurso:
 
 ```console
 kubectl delete namespace production
@@ -455,9 +455,9 @@ kubectl delete namespace development
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre los recursos red, vea [Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)][concepts-network].
+Para más información sobre los recursos red, consulte [Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)][concepts-network].
 
-Para obtener más información sobre las directivas, consulte las [directivas de red de Kubernetes][kubernetes-network-policies].
+Para más información sobre las directivas, consulte las [directivas de red de Kubernetes][kubernetes-network-policies].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

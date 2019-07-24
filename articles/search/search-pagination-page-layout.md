@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 73f0dc98d7d2c3e7aa77f6414cbd58e58599eae7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb86a75be464cb78a16170626bc96778d43bb8b6
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068828"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67974618"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Uso de los resultados de búsqueda en Azure Search
 Este artículo contiene instrucciones para implementar los elementos estándar de una página de resultados de búsqueda, como los recuentos totales, la recuperación de documentos, los criterios de ordenación y la funcionalidad de navegación. Las opciones relacionadas con la página que aportan datos o información a la página de resultados de búsqueda se especifican a través de solicitudes [Buscar documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) que se envían al servicio Azure Search. 
@@ -40,15 +40,15 @@ En Azure Search se utilizan los parámetros `$count`, `$top` y `$skip` para devo
 
 Recuperar documentos en grupos de 15 y mostrar también el total de resultados, comenzando por la primera página:
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
 Paginar resultados requiere `$top` y `$skip`, donde `$top` especifica cuántos elementos se devuelven en un lote y `$skip` especifica cuántos elementos se omiten. En el ejemplo siguiente, cada página muestra los siguientes 15 elementos, indicado por los saltos incrementales en el parámetro `$skip` .
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=15&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=15&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=30&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
 ## <a name="layout"></a>Diseño
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: monhaber
-ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: e2d66db2ae3c379db86d40603d919489fdf15eed
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480543"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144258"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Características y plataformas compatibles con Azure Security Center
 
@@ -51,7 +51,7 @@ Se admiten los siguientes sistemas operativos Windows:
 Se admiten los siguientes sistemas operativos Linux:
 
 > [!NOTE]
-> Puesto que la lista de sistemas operativos Linux compatibles cambia constantemente, si lo prefiere, haga clic en [aquí](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) para ver la lista más actualizada de las versiones compatibles, en caso de que ha habido cambios desde que este tema se publicó por última vez.
+> Puesto que la lista de sistemas operativos Linux compatibles cambia constantemente, si lo prefiere, haga clic [aquí](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) para ver la lista más actualizada de las versiones compatibles por si ha habido cambios desde que este tema se publicó por última vez.
 
 64 bits
 * CentOS 6 y 7
@@ -78,27 +78,27 @@ También se admiten máquinas virtuales que se ejecuten en un servicio en la nub
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||Linux||||Precios|
+|Server|Windows|||Linux|||Precios|
 |----|----|----|----|----|----|----|----|
-|**Entorno**|**Las tablas de Azure**||**Non-Azure**|**Las tablas de Azure**||**Non-Azure**||
+|**Entorno**|**Las tablas de Azure**||**No de Azure**|**Las tablas de Azure**||**No de Azure**||
 ||**Máquina virtual**|**Conjunto de escalado de máquinas virtuales**||**Máquina virtual**|**Conjunto de escalado de máquinas virtuales**|
-|Alertas de detección de amenazas de VMBA|✔|✔|✔|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|Detección de amenazas (gratis) de las recomendaciones (estándar)|
+|Alertas de detección de amenazas de VMBA|✔|✔|✔|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|Detección de amenazas de recomendaciones (gratis) (Estándar)|
 |Alertas de detección de amenazas basadas en red|✔|✔|X|✔|✔|X|Estándar|
 |Integración con ATP de Windows Defender|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|X|X|X|Estándar|
 |Revisiones que faltan|✔|✔|✔|✔|✔|✔|Gratuito|
 |Configuraciones de seguridad|✔|✔|✔|✔|✔|✔|Gratuito|
-|Evaluación de EndPoint protection|✔|✔|✔|X|X|X|Gratuito|
+|Evaluación de EndPoint Protection|✔|✔|✔|X|X|X|Gratuito|
 |Acceso a VM JIT|✔|X|X|✔|X|X|Estándar|
 |Controles de aplicación adaptables|✔|X|✔|✔|X|✔|Estándar|
 |FIM|✔|✔|✔|✔|✔|✔|Estándar|
-|Evaluación del cifrado de disco|✔|✔|X|✔|✔|X|Gratuito|
+|Evaluación de Disk Encryption|✔|✔|X|✔|✔|X|Gratuito|
 |Implementación de aplicaciones de terceros|✔|X|X|✔|X|X|Gratuito|
 |Evaluación de NSG|✔|✔|X|✔|✔|X|Gratuito|
 |Detección de amenazas sin archivo|✔|✔|✔|X|X|X|Estándar|
 |Mapa de red|✔|✔|X|✔|✔|X|Estándar|
 |Controles de red adaptables|✔|✔|X|✔|✔|X|Estándar|
-|Informes y panel de cumplimiento normativo|✔|✔|✔|✔|✔|✔|Estándar|
-|Recomendaciones y detección de amenazas en los contenedores de Docker hospedado en IaaS|X|X|X|✔|✔|✔|Estándar|
+|Panel e informes de cumplimiento normativo|✔|✔|✔|✔|✔|✔|Estándar|
+|Recomendaciones y detección de amenazas en contenedores IaaS hospedados en Docker|X|X|X|✔|✔|✔|Estándar|
 
 ### <a name="supported-endpoint-protection-solutions"></a>Soluciones de protección de punto de conexión compatibles
 
@@ -106,17 +106,17 @@ En la tabla siguiente se proporciona una matriz de:
  - Si puede usar Azure Security Center para instalar cada solución para usted.
  - Qué soluciones de protección de punto de conexión puede detectar Security Center. Si se detecta una de estas soluciones de protección de punto de conexión, Security Center no recomendará instalar ninguna.
 
-Para obtener información acerca de cuándo se generaron las recomendaciones para cada una de estas protecciones, vea [Endpoint Protection evaluación y recomendaciones](security-center-endpoint-protection.md).
+Para más información sobre cuándo se generan recomendaciones para cada una de estas protecciones, vea [Evaluación y recomendaciones de Endpoint Protection](security-center-endpoint-protection.md).
 
 | Endpoint Protection| Plataformas | Instalación de Security Center | Detección de Security Center |
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, se integra en el sistema operativo.| Sí |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (consulte la nota que hay a continuación) | Mediante extensión | Sí |
-| Trend Micro: todas las versiones | Familia de Windows Server  | No | Sí |
+| Trend Micro: todas las versiones | Familia de Windows Server  | Sin | Sí |
 | Symantec v12.1.1100+| Familia de Windows Server  | Sin | Sí |
 | McAfee v10 o posterior | Familia de Windows Server  | Sin | Sí |
-| Kaspersky| Familia de Windows Server  | Sin | No  |
-| Sophos| Familia de Windows Server  | No | No  |
+| Kaspersky| Familia de Windows Server  | Sin | Sin  |
+| Sophos| Familia de Windows Server  | Sin | Sin  |
 
 > [!NOTE]
 > - La detección de System Center Endpoint Protection (SCEP) en una máquina virtual de Windows Server 2008 R2 requiere que SCEP se instale después de PowerShell 3.0 (o una versión superior).
@@ -124,12 +124,12 @@ Para obtener información acerca de cuándo se generaron las recomendaciones par
 ## <a name="supported-paas-features"></a>Características admitidas de PaaS
 
 
-|Servicio|Recomendaciones (gratis)|Detección de amenazas (estándar)|
+|Servicio|Recomendaciones (gratuito)|Detección de amenazas (Estándar)|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Cuentas de Azure Blob storage|✔| ✔|
+|Cuentas de Azure Blob Storage|✔| ✔|
 |App Services|✔| ✔|
 |Cloud Services|✔| X|
 |Redes virtuales|✔| N/D|
@@ -156,7 +156,7 @@ Para obtener información acerca de cuándo se generaron las recomendaciones par
 
 \* Estas características se admiten actualmente en versión preliminar pública.
 
-\*\* Recomendaciones de AAD solo están disponibles para las suscripciones estándar
+\*\* Las recomendaciones de AAD solo están disponibles en las suscripciones estándar.
 
 
 

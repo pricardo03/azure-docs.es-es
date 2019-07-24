@@ -8,26 +8,24 @@ ms.topic: include
 ms.date: 06/14/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ebea8bfd69a4df605142ab82f3efbc7d97d34529
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 4e699707db02de07f3d1ebb7d1fa8d0575a10aa3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143966"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836888"
 ---
-En Azure Cloud Shell, configure las credenciales de implementación con el comando [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Este usuario de implementación se utiliza para la implementación de FTP y Git local en una aplicación web. El nombre de usuario y la contraseña predeterminados están en el nivel de la cuenta. _No son los mismos que los de las credenciales de suscripción de Azure._
+Se puede implementar FTP y Git local en una aplicación web de Azure mediante un *usuario de implementación*. Una vez configurado este usuario de implementación, podrá usarlo en todas las implementaciones de Azure. El nombre de usuario y la contraseña en el nivel de cuenta son diferentes de las credenciales de suscripción de Azure. 
 
-En el siguiente ejemplo, reemplace *\<username>* y *\<password>* (corchetes angulares incluidos) por un nuevo nombre de usuario y contraseña. El nombre de usuario debe ser único en Azure. La contraseña debe tener al menos ocho caracteres y dos de los tres elementos siguientes: letras, números y símbolos.
+Para configurar el usuario de implementación, ejecute el comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) en Azure Cloud Shell. Reemplace \<username> y \<password> por su nombre de usuario y contraseña. 
+
+- El nombre de usuario debe ser único dentro de Azure y no debe contener el símbolo "@" para las inserciones de Git local. 
+- La contraseña debe tener al menos ocho caracteres y dos de los tres elementos siguientes: letras, números y símbolos. 
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-Se obtiene una salida de JSON y la contraseña mostrada como `null`. Si se produce un error `'Conflict'. Details: 409`, cambie el nombre de usuario. Si se produce un error `'Bad Request'. Details: 400`, use una contraseña más segura. El nombre de usuario de la implementación no debe contener el símbolo ' @' en las inserciones de Git locales.
+La salida JSON muestra la contraseña como `null`. Si se produce un error `'Conflict'. Details: 409`, cambie el nombre de usuario. Si se produce un error `'Bad Request'. Details: 400`, use una contraseña más segura. 
 
-Este usuario de implementación se configura una sola vez. Puede usarlo para todas las implementaciones de Azure.
-
-> [!NOTE]
-> Grabe el nombre de usuario y la contraseña. Los va a necesitar para implementar la aplicación web más adelante.
->
->
+Anote el nombre de usuario y la contraseña que se usarán para implementar las aplicaciones web.

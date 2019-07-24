@@ -4,7 +4,7 @@ description: Aprenda a agrupar una instancia de ASCS/SCS de SAP en un clúster d
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28b3851a52ec5fe69eaa531e2e08f66fb73cb1e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d26df6aeb09934408b9081ac077af52ffc24d66
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60936310"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709054"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -310,12 +310,12 @@ Para usar un recurso compartido de archivos de escalabilidad horizontal, el sist
 * Debe usar discos Premium de Azure.
 * Se recomienda utilizar Azure Managed Disks.
 * Se recomienda dar formato a los volúmenes con el sistema de archivos resistente (ReFS).
-    * Para más información, consulte la [Nota de SAP 1869038: compatibilidad de SAP para el sistema de archivos ReFs][1869038] y el capítulo [Elección del sistema de archivos][planning-volumes-s2d-choosing-filesystem] de artículo Planificación de volúmenes en espacios de almacenamiento directo.
+    * Para obtener más información, vea el capítulo [Nota de SAP 1869038: compatibilidad de SAP con el sistema de archivos ReFs][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] del artículo Planificar volúmenes en Espacios de almacenamiento directo.
     * Asegúrese de que ha instalado la [actualización acumulativa de Microsoft KB4025334][kb4025334].
 * Puede usar los tamaños de máquina virtual de Azure de la serie DS o la serie DSv2.
 * Para un buen rendimiento de red entre las máquinas virtuales, lo cual es necesario para la sincronización de disco de los espacios de almacenamiento directo, utilice un tipo de máquina virtual con un ancho de banda de red "alto" como mínimo.
-    Para más información, consulte las especificaciones de la [serie DSv2][dv2-series] y la [serie DS][ds-series].
-* Se recomienda reservar cierta capacidad sin asignar en el grupo de almacenamiento. Dejar cierta capacidad sin asignar en el grupo de almacenamiento da espacio a los volúmenes para una reparación "in situ" si se produce un error en una unidad. Esto mejora el rendimiento y seguridad de los datos.  Para más información, consulte [Elección del tamaño del volumen][choosing-the-size-of-volumes-s2d].
+    Para obtener más información, vea las especificaciones de la [serie DSv2][dv2-series] and [DS-Series][ds-series].
+* Se recomienda reservar cierta capacidad sin asignar en el grupo de almacenamiento. Dejar cierta capacidad sin asignar en el grupo de almacenamiento da espacio a los volúmenes para una reparación "in situ" si se produce un error en una unidad. Esto mejora el rendimiento y seguridad de los datos.  Para obtener más información, vea [Elección del tamaño del volumen][choosing-the-size-of-volumes-s2d].
 * Las máquinas virtuales del recurso compartido de archivos de escalabilidad horizontal de Azure deben implementarse en su propio conjunto de disponibilidad de Azure.
 * No es necesario configurar el equilibrador de carga interno de Azure para el nombre de red del recurso compartido de archivos de escalabilidad horizontal, como para el \<host global de SAP\>. Esto se hace para el \<nombre de host virtual ASCS/SCS\> de la instancia de ASCS/SCS de SAP o para el DBMS. Un recurso compartido de archivos de escalabilidad horizontal escala horizontalmente la carga entre todos los nodos del clúster. El \<host global de SAP\> usa la dirección IP local para todos los nodos del clúster.
 
@@ -323,7 +323,7 @@ Para usar un recurso compartido de archivos de escalabilidad horizontal, el sist
 > [!IMPORTANT]
 > No se puede cambiar el nombre del recurso compartido de archivos SAPMNT, que apunta al \<host global de SAP\>. SAP admite únicamente el nombre de recurso compartido "sapmnt."
 >
-> Para más información, consulte [Nota de SAP 2492395: ¿Se puede cambiar el nombre de recurso compartido sapmnt?][2492395]
+> Para obtener más información, vea [Nota de SAP 2492395: ¿Se puede cambiar el nombre de recurso compartido sapmnt?][2492395]
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configuración de instancias de ASCS/SCS de SAP y un recurso compartido de archivos de escalabilidad horizontal en dos clústeres
 

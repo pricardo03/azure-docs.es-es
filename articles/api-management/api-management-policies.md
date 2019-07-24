@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: e27829fe5ebf57552ef4e97a2bfc7b6aefd81dc8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254397"
 ---
 # <a name="api-management-policies"></a>Directivas de administración de API
@@ -56,7 +56,7 @@ En esta sección se proporciona una referencia para las siguientes directivas de
 -   [Directivas de autenticación](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autenticar con opción básica](api-management-authentication-policies.md#Basic) : autenticar con un servicio de back-end mediante la autenticación básica.  
     -   [Autenticar con certificado de cliente](api-management-authentication-policies.md#ClientCertificate) : autenticar con un servicio de back-end mediante certificados de cliente.  
-    -   [Autenticar con identidad administrada](api-management-authentication-policies.md#ManagedIdentity) -autenticar con un servicio back-end mediante un [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
+    -   [Autenticar con identidad administrada](api-management-authentication-policies.md#ManagedIdentity): autenticar con un servicio de back-end mediante una [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Caching policies](api-management-caching-policies.md#CachingPolicies)  
     -   [Obtener de caché](api-management-caching-policies.md#GetFromCache) : realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando esté disponible.  
     -   [Almacenar en caché](api-management-caching-policies.md#StoreToCache) : almacena en caché la respuesta de acuerdo con la configuración de control de caché especificada.  

@@ -1,19 +1,19 @@
 ---
-title: 'Script de PowerShell de Azure: actualización de Azure Cosmos DB RU/s para la API de Gremlin'
-description: 'Script de PowerShell de Azure: actualización de Azure Cosmos DB RU/s para la API de Gremlin'
+title: 'Script de Azure PowerShell: actualizar RU/s para Gremlin API en Azure Cosmos DB'
+description: 'Script de Azure PowerShell: actualizar RU/s para Gremlin API en Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 30a7b4b9151496a753d31568411e436930ec0f55
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247475"
 ---
-# <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Actualizar RU/s para un gráfico o la base de datos para Azure Cosmos DB: API de Gremlin
+# <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Actualización de RU/s para una base de datos o un grafo para Gremlin API en Azure Cosmos DB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Preguntas más frecuentes sobre Azure Application Gateway
-description: Encuentre respuestas a preguntas frecuentes sobre Azure Application Gateway.
+title: Preguntas frecuentes sobre Azure Application Gateway
+description: Encuentre respuestas a las preguntas más frecuentes sobre Azure Application Gateway.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,31 +9,31 @@ ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
 ms.openlocfilehash: 25779cd62f70df41a7734d2f8097504923dcb3a3
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430871"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Los siguientes son preguntas más frecuentes sobre Azure Application Gateway.
+Las siguientes preguntas son preguntas frecuentes sobre Azure Application Gateway.
 
 ## <a name="general"></a>General
 
 ### <a name="what-is-application-gateway"></a>¿Qué es una Puerta de enlace de aplicaciones?
 
-Azure Application Gateway proporciona un controlador de entrega de aplicaciones (ADC) como un servicio. Ofrece diversas funcionalidades de equilibrio de carga de nivel 7 para sus aplicaciones. Este servicio es de alta disponibilidad, escalable y totalmente administrado por Azure.
+Azure Application Gateway proporciona un controlador de entrega de aplicaciones (ADC) como servicio. Ofrece diversas funcionalidades de equilibrio de carga de nivel 7 para sus aplicaciones. Este servicio es altamente disponible y escalable, y está completamente administrado por Azure.
 
 ### <a name="what-features-does-application-gateway-support"></a>¿Qué características admite Application Gateway?
 
-Application Gateway admite el escalado automático, descarga de SSL y SSL de extremo a extremo, un firewall de aplicaciones web (WAF), afinidad de sesión basada en cookies, dirección URL enrutamiento basado en ruta de acceso, hospedaje de múltiples sitios y otras características. Para obtener una lista completa de las características admitidas, consulte [Introducción a Application Gateway](application-gateway-introduction.md).
+Application Gateway admite escalabilidad automática, descarga de SSL, SSL de un extremo a otro, firewall de aplicaciones web (WAF), afinidad de sesión basada en cookies, enrutamiento basado en ruta de dirección URL, hospedaje de varios sitios y otras características. Para obtener una lista completa de las características admitidas, consulte [Introducción a Application Gateway](application-gateway-introduction.md).
 
-### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>¿Cómo se diferencian los Application Gateway y Azure Load Balancer?
+### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>¿En qué se diferencian Application Gateway y Azure Load Balancer?
 
-Application Gateway es un equilibrador de carga de nivel 7, lo que significa que solo funciona con el tráfico web (HTTP, HTTPS, HTTP/2 y WebSocket). Admite funcionalidades como la terminación SSL, afinidad de sesión basada en cookies y round robin para el equilibrio de carga de tráfico. Cargar el equilibrador de carga: equilibra el tráfico en el nivel 4 (TCP o UDP).
+Application Gateway es un equilibrador de carga de nivel 7, lo que significa que solo funciona con tráfico web (HTTP, HTTPS, WebSocket y HTTP/2). Admite funcionalidades como la terminación SSL, la afinidad de sesión basada en cookies y la distribución round robin para el tráfico de equilibrio de carga. Load Balancer equilibra la carga de tráfico en el nivel 4 (TCP o UDP).
 
 ### <a name="what-protocols-does-application-gateway-support"></a>¿Qué protocolos admite Application Gateway?
 
@@ -41,65 +41,65 @@ Application Gateway admite HTTP, HTTPS, HTTP/2 y WebSocket.
 
 ### <a name="how-does-application-gateway-support-http2"></a>¿Admite Application Gateway HTTP/2?
 
-Consulte [compatibilidad con HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
+Consulte [HTTP/2 support](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support) (Compatibilidad con HTTP/2).
 
-### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>¿Qué recursos se admiten como parte de un grupo de back-end?
+### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>¿Qué recursos son compatibles como parte de un grupo de back-end?
 
-Consulte [admite recursos back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool).
+Consulte [supported backend resources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool) (recursos de back-end compatibles).
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>¿En qué regiones está disponible Application Gateway?
 
 Application Gateway está disponible en todas las regiones de Azure global. También está disponible en [Azure China 21Vianet](https://www.azure.cn/) y [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
 
-### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>¿Es esta implementación dedicada para mi suscripción o se comparte entre los clientes?
+### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>¿Se trata de una implementación dedicada para mi suscripción o compartida entre los clientes?
 
 Application Gateway es una implementación dedicada en su red virtual.
 
-### <a name="does-application-gateway-support-http-to-https-redirection"></a>¿Admite Application Gateway redirección HTTP a HTTPS?
+### <a name="does-application-gateway-support-http-to-https-redirection"></a>¿Admite Application Gateway el redireccionamiento de HTTP a HTTPS?
 
 Se admite el redireccionamiento. Consulte [Introducción a la redirección de Application Gateway](application-gateway-redirect-overview.md).
 
 ### <a name="in-what-order-are-listeners-processed"></a>¿En qué orden se procesan los agentes de escucha?
 
-Consulte la [orden de procesamiento del agente de escucha](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
+Consulte el [orden de procesamiento del agente de escucha](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
-### <a name="where-do-i-find-the-application-gateway-ip-and-dns"></a>¿Dónde se puede encontrar la IP de puerta de enlace de aplicaciones y DNS?
+### <a name="where-do-i-find-the-application-gateway-ip-and-dns"></a>¿Dónde se encuentra la dirección IP y el DNS de Application Gateway?
 
-Si usa una dirección IP pública como punto de conexión, encontrará la información de dirección IP y DNS en el recurso de dirección IP pública. O búsquelo en el portal, en la página de información general de la puerta de enlace de la aplicación. Si usa direcciones IP internas, localice la información en la página información general.
+Si usa una dirección IP pública como punto de conexión, encontrará la información de la dirección IP y del DNS en el recurso de dirección IP pública. O bien la encontrará en el portal, en la página de información general de Application Gateway. Si usa direcciones IP internas, encontrará la información en la página información general.
 
-### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>¿Cuáles son los valores de tiempo de espera de Keep-Alive y tiempo de espera de inactividad de TCP?
+### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>¿Cuáles son los valores de tiempo de espera de conexión persistente y tiempo de espera de inactividad de TCP?
 
- En la SKU de puerta de enlace de aplicación v1, el tiempo de espera de mantenimiento es de 120 segundos. El tiempo de espera de mantenimiento para la SKU v2 es 75 segundos. El tiempo de espera de inactividad de TCP es el valor predeterminado de 4 minutos a la IP virtual de front-end (VIP) de Application Gateway.
+ En la SKU v1 de Application Gateway, el tiempo de espera de conexión persistente es de 120 segundos. El tiempo de espera de conexión persistente para la SKU v2 es de 75 segundos. El tiempo de espera de inactividad de TCP es el valor predeterminado de 4 minutos en la IP virtual de front-end (VIP) de Application Gateway.
 
-### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>¿Se cambia el nombre DNS o IP durante la vigencia de la puerta de enlace de aplicaciones?
+### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>¿Cambia la dirección IP o el nombre DNS durante la vigencia de Application Gateway?
 
-La dirección VIP puede cambiar si se puede detener e iniciar la puerta de enlace de la aplicación. Pero no cambia el nombre DNS asociado con la puerta de enlace de aplicaciones durante la vigencia de la puerta de enlace. Ya que no cambia el nombre DNS, debe usar un alias CNAME y hacer que apunte a la dirección DNS de la puerta de enlace de aplicaciones.
+La dirección IP virtual puede cambiar si se detiene o inicia Application Gateway. Sin embargo, el nombre DNS asociado a Application Gateway no cambia durante la vigencia de la puerta de enlace. Como el nombre DNS no cambia, se debe usar un alias de CNAME y apuntarlo hacia la dirección DNS de Application Gateway.
 
 ### <a name="does-application-gateway-support-static-ip"></a>¿Admite Application Gateway direcciones IP estáticas?
 
-Sí, la SKU de puerta de enlace de aplicaciones v2 admite direcciones IP públicas estáticas. La SKU v1 es compatible con direcciones IP internas estáticas.
+Sí, la SKU v2 de Application Gateway es compatible con direcciones IP públicas estáticas. La SKU v1 es compatible con direcciones IP internas estáticas.
 
 ### <a name="does-application-gateway-support-multiple-public-ips-on-the-gateway"></a>¿Admite Application Gateway varias direcciones IP públicas en la puerta de enlace?
 
-Application gateway admite una única dirección IP pública.
+Solo se admite una dirección IP pública en una instancia de Application Gateway.
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>¿Cómo de grande debe ser la subred para Application Gateway?
 
-Consulte [consideraciones de tamaño de subred de Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet).
+Consulte [Application Gateway subnet size considerations](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet) (Consideraciones de tamaño de subred de Application Gateway).
 
 ### <a name="can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>¿Puedo implementar más de un recurso de Application Gateway para una sola subred?
 
-Sí. Además de varias instancias de una determinada implementación de Application Gateway, puede aprovisionar otro recurso de puerta de enlace de aplicación único a una subred existente que contiene un recurso de puerta de enlace de aplicación diferente.
+Sí. Además de tener varias instancias de una determinada implementación de Application Gateway, puede aprovisionar otro recurso de Application Gateway único para una subred existente que contenga un recurso de Application Gateway diferente.
 
-Una sola subred no puede admitir Standard_v2 y puerta de enlace de aplicaciones estándar juntos.
+Una sola subred no admite Application Gateway Standard_v2 y Standard conjuntamente.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>¿Admite Application Gateway encabezados x-forwarded-for?
 
-Sí. Consulte [modificaciones a una solicitud](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request).
+Sí. Consulte [Modifications to a request](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request) (Modificaciones a una solicitud).
 
-### <a name="how-long-does-it-take-to-deploy-an-application-gateway-will-my-application-gateway-work-while-its-being-updated"></a>¿Cuánto tarda en implementar una puerta de enlace de aplicaciones? ¿Funcionará mi puerta de enlace de la aplicación mientras se actualiza?
+### <a name="how-long-does-it-take-to-deploy-an-application-gateway-will-my-application-gateway-work-while-its-being-updated"></a>¿Cuánto tiempo se tarda en implementar Application Gateway? ¿Mi instancia de Application Gateway funcionará mientras se actualiza?
 
-Las nuevas implementaciones de SKU v1 de Application Gateway pueden tardar hasta 20 minutos en aprovisionarse. Los cambios realizados en el tamaño de la instancia o el recuento no son perjudiciales, y la puerta de enlace permanece activa durante este tiempo.
+Las nuevas implementaciones de SKU v1 de Application Gateway pueden tardar hasta 20 minutos en aprovisionarse. Los cambios de tamaño o recuento de instancias no provocan interrupciones y Application Gateway permanece activa durante este tiempo.
 
 Las implementaciones que usan la SKU v2 pueden tardar hasta 6 minutos en aprovisionarse.
 
@@ -111,71 +111,71 @@ No. Application Gateway no admite protocolos de correo electrónico como SMTP, I
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>¿Cómo admite Application Gateway la alta disponibilidad y la escalabilidad?
 
-La SKU de v1 Application Gateway admite escenarios de alta disponibilidad cuando se ha implementado dos o más instancias. Azure distribuye estas instancias entre dominios de error y actualización para asegurarse de que las instancias no todos los errores al mismo tiempo. La SKU v1 admite escalabilidad mediante la incorporación de varias instancias de la misma puerta de enlace para compartir la carga.
+La SKU v1 de Application Gateway admite escenarios de alta disponibilidad cuando se tienen implementadas dos o más instancias. Azure distribuye estas instancias entre dominios de actualización y de errores para asegurarse de que las instancias no produzcan un error todas al mismo tiempo. La SKU v1 admite escalabilidad mediante la incorporación de varias instancias de la misma puerta de enlace para compartir la carga.
 
-La SKU v2 garantiza automáticamente que las nuevas instancias se distribuyan entre dominios de error y dominios de actualización. Si elige la redundancia de zona, las instancias más recientes también se distribuyen entre las zonas de disponibilidad para ofrecer resistencia ante errores zonal.
+La SKU v2 garantiza automáticamente que las nuevas instancias se distribuyan entre dominios de error y dominios de actualización. Si elige la redundancia de zona, las instancias más recientes también se distribuyen entre las zonas de disponibilidad para ofrecer resistencia ante errores de zona.
 
-### <a name="how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway"></a>¿Cómo alcanzar un escenario de recuperación ante desastres en centros de datos mediante el uso de Application Gateway?
+### <a name="how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway"></a>¿Cómo se puede lograr un escenario de recuperación ante desastres a través de centros de datos con Application Gateway?
 
-Use Traffic Manager para distribuir el tráfico entre varias puertas de enlace de aplicaciones en distintos centros de datos.
+Use Traffic Manager para distribuir el tráfico a través de varias instancias de Application Gateway en distintos centros de datos.
 
-### <a name="does-application-gateway-support-autoscaling"></a>¿Admite Application Gateway el escalado automático?
+### <a name="does-application-gateway-support-autoscaling"></a>¿Application Gateway admite la escalabilidad automática?
 
-Sí, la SKU v2 de Application Gateway admite la escalabilidad automática. Para obtener más información, consulte [el escalado automático y la puerta de enlace de aplicaciones con redundancia de zona](application-gateway-autoscaling-zone-redundant.md).
+Sí, la SKU v2 de Application Gateway admite la escalabilidad automática. Para más información, consulte [Autoscaling and Zone-redundant Application Gateway](application-gateway-autoscaling-zone-redundant.md) (Escalabilidad automática y Application Gateway con redundancia de zona).
 
-### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>¿No escala manual de o reducir verticalmente el tiempo de inactividad de la causa?
+### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>¿El escalado o la reducción vertical provocan algún tiempo de inactividad?
 
 No. Las instancias se distribuyen entre varios dominios de actualización y dominios de error.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>¿Es compatible Application Gateway con la funcionalidad de drenaje de conexiones?
 
-Sí. Puede configurar purga para cambiar a los miembros dentro de un grupo de back-end sin interrupciones de la conexión. Esta configuración permite que continúe enviar las conexiones existentes a su destino anterior hasta que esa conexión se cierra o expira un tiempo de espera configurable. Purga de la conexión espera sólo conexiones en curso actuales finalice. Instancia de Application Gateway no tiene en cuenta el estado de sesión de la aplicación.
+Sí. Puede configurar el drenaje de conexiones para cambiar los miembros de un grupo de servidores back-end sin interrupciones. De este modo, puede seguir enviando conexiones existentes a su destino anterior hasta que se cierren o hasta que el tiempo de espera configurado se agote. El drenaje de conexiones solo espera a que finalicen las conexiones que están en tránsito actualmente. Application Gateway no conoce el estado de la sesión de la aplicación.
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>¿Puedo cambiar el tamaño de la instancia de mediano a grande sin que haya una interrupción?
 
-Sí. Azure distribuye las instancias entre dominios de error y actualización para garantizar que las instancias no todo al mismo tiempo. Application Gateway admite el escalado mediante la adición de varias instancias de la misma puerta de enlace para compartir la carga.
+Sí. Azure distribuye instancias entre dominios de actualización y de errores para asegurarse de que las instancias no produzcan un error todas al mismo tiempo. Application Gateway admite el escalado mediante la adición de varias instancias de la misma puerta de enlace para compartir la carga.
 
 ## <a name="configuration"></a>Configuración
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>¿Se implementa Application Gateway siempre en una red virtual?
 
-Sí. Puerta de enlace de aplicación siempre se implementa en una subred de red virtual. Esta subred puede contener solo puertas de enlace de aplicaciones. Para obtener más información, consulte [requisitos de red y subred virtual](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet).
+Sí. Application Gateway se implementa siempre en una subred de red virtual. Esta subred solo puede contener instancias de Application Gateway. Para más información, consulte los [requisitos de subred y red virtual](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet).
 
-### <a name="can-application-gateway-communicate-with-instances-outside-of-its-virtual-network-or-outside-of-its-subscription"></a>¿Application Gateway puede comunicarse con instancias fuera de su red virtual o fuera de su suscripción?
+### <a name="can-application-gateway-communicate-with-instances-outside-of-its-virtual-network-or-outside-of-its-subscription"></a>¿Puede Application Gateway comunicarse con instancias fuera de su red virtual o de su suscripción?
 
-Siempre que tenga conectividad IP, Application Gateway puede comunicarse con instancias fuera de la red virtual que se encuentra. Puerta de enlace de aplicación también puede comunicarse con instancias fuera de la suscripción en. Si planea usar direcciones IP internas como miembros del grupo de back-end, use [emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md) o [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Siempre que tenga conectividad IP, Application Gateway puede comunicarse con instancias fuera de la red virtual en la que se encuentra. Application Gateway también se puede comunicar con instancias fuera de la red virtual en la que se encuentra. Si planea usar direcciones IP internas como miembros de grupo de back-end, use el [emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md) o [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>¿Puedo implementar algo más en la subred de la puerta de enlace de aplicaciones?
 
-No. Pero se pueden implementar otras puertas de enlace de aplicaciones en la subred.
+No. Pero se pueden implementar otras instancias de Application Gateway en la subred.
 
-### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>¿Se admiten grupos de seguridad de red en la subred de puerta de enlace de aplicaciones?
+### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>¿Se admiten grupos de seguridad de red en la subred de Application Gateway?
 
-Consulte [grupos de seguridad de la subred de puerta de enlace de aplicaciones de red](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet).
+Consulte [Grupos de seguridad de red en la subred de Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet).
 
-### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>¿Es la subred de puerta de enlace de la aplicación es compatible con las rutas definidas por el usuario?
+### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>¿Admite la subred de Application Gateway rutas definidas por el usuario?
 
-Consulte [rutas definidas por el usuario de la subred de Application Gateway admitidas](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet).
+Consulte [User-defined routes supported in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet) (Rutas definidas por el usuario en la subred de Application Gateway).
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>¿Cuáles son los límites de Application Gateway? ¿Puedo aumentar estos límites?
 
-Consulte [límites de Application Gateway](../azure-subscription-service-limits.md#application-gateway-limits).
+Consulte [Límites de Application Gateway](../azure-subscription-service-limits.md#application-gateway-limits).
 
-### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>¿Puedo usar simultáneamente Application Gateway para tráfico interno y externo?
+### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>¿Puedo usar Application Gateway para tráfico externo e interno al mismo tiempo?
 
-Sí. Application Gateway admite una dirección IP interna y una dirección IP externa por cada instancia de application gateway.
+Sí. Application Gateway admite una dirección IP interna y una dirección IP externa por cada instancia de Application Gateway.
 
-### <a name="does-application-gateway-support-virtual-network-peering"></a>¿Admite Application Gateway emparejamiento de redes virtuales?
+### <a name="does-application-gateway-support-virtual-network-peering"></a>¿Admite Application Gateway el emparejamiento de redes virtuales?
 
-Sí. Emparejamiento de redes virtuales le ayuda a tráfico de equilibrio de carga en otras redes virtuales.
+Sí. El emparejamiento de redes virtuales ayuda a equilibrar la carga del tráfico en otras redes virtuales.
 
-### <a name="can-i-talk-to-on-premises-servers-when-theyre-connected-by-expressroute-or-vpn-tunnels"></a>¿Se puede comunicar con servidores locales cuando están conectados mediante ExpressRoute o túneles VPN?
+### <a name="can-i-talk-to-on-premises-servers-when-theyre-connected-by-expressroute-or-vpn-tunnels"></a>¿Me puedo comunicar con servidores locales cuando están conectados mediante ExpressRoute o túneles VPN?
 
 Sí, siempre que se permita el tráfico.
 
-### <a name="can-one-backend-pool-serve-many-applications-on-different-ports"></a>¿Puede actuar un grupo de back-end muchas aplicaciones en puertos diferentes?
+### <a name="can-one-backend-pool-serve-many-applications-on-different-ports"></a>¿Puede un grupo de back-end prestar servicio a muchas aplicaciones en puertos diferentes?
 
-Se admite la arquitectura de Microservicios. Para realizar sondeos en puertos diferentes, deberá configurar varias opciones de configuración de HTTP.
+Se admite la arquitectura de microservicios. Para realizar sondeos en puertos diferentes, debe establecer varias opciones de configuración de HTTP.
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>¿Admiten los sondeos personalizados caracteres comodín o regex en los datos de respuesta?
 
@@ -183,32 +183,32 @@ No.
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>¿Cómo se procesan las reglas de enrutamiento en Application Gateway?
 
-Consulte [orden de las reglas de procesamiento](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules).
+See [Order of processing rules](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules) (Orden de procesamiento de reglas).
 
-### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Para los sondeos personalizados, ¿qué el campo Host indica?
+### <a name="for-custom-probes-what-does-the-host-field-signify"></a>¿Qué significa el campo Host de los sondeos personalizados?
 
-El campo Host especifica el nombre para enviar el sondeo para que haya configurado multisitio en Application Gateway. En caso contrario, usar '127.0.0.1'. Este valor es diferente del nombre del host de máquina virtual. Su formato es \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\>.
+El campo Host especifica el nombre al que se debe enviar el sondeo cuando se ha configurado la funcionalidad de multisitio en Application Gateway. De lo contrario, use '127.0.0.1'. Este valor es distinto del nombre de host de máquina virtual. Su formato es \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\>.
 
-### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>¿Permitir que Application Gateway el acceso únicamente a unos origen direcciones IP?
+### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>¿Se puede permitir el acceso de Application Gateway a solo unas cuantas direcciones IP de origen?
 
-Sí. Consulte [restringir el acceso a direcciones IP de origen específica](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
+Sí. Consulte la [restricción del acceso a determinadas direcciones IP de origen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
-### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>¿Puedo usar el mismo puerto para acceso público y privado accesible desde los agentes de escucha?
+### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>¿Puedo usar el mismo puerto para los agentes de escucha públicos y privados?
 
 No.
 
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>¿Hay instrucciones disponibles para migrar de la SKU de v1 a la SKU v2?
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>¿Hay instrucciones disponibles para migrar de la SKU v1 a la SKU v2?
 
-Sí. Para obtener información detallada, consulte [migrar Azure Application Gateway y Firewall de aplicaciones Web de v1 a v2](migrate-v1-v2.md).
+Sí. Para más información, consulte [Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2](migrate-v1-v2.md).
 
 
-## <a name="configuration---ssl"></a>Configuración - SSL
+## <a name="configuration---ssl"></a>Configuración: SSL
 
 ### <a name="what-certificates-does-application-gateway-support"></a>¿Qué certificados admite Application Gateway?
 
-Application Gateway admite los certificados autofirmados, certificados de la entidad de certificación (CA), los certificados de validación extendida (EV) y los certificados comodín.
+Application Gateway admite certificados autofirmados, certificados de entidad de certificación (CA), certificados de validación extendida (EV) y certificados comodín.
 
-### <a name="what-cipher-suites-does-application-gateway-support"></a>¿Los conjuntos de cifrado Application Gateway admite?
+### <a name="what-cipher-suites-does-application-gateway-support"></a>¿Qué conjuntos de cifrado admite Application Gateway?
 
 Application Gateway admite los siguientes conjuntos de cifrado. 
 
@@ -241,19 +241,19 @@ Application Gateway admite los siguientes conjuntos de cifrado.
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-Para obtener información sobre cómo personalizar las opciones de SSL, consulte [versiones de directivas de configuración de SSL y conjuntos de cifrado en Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
+Para obtener información sobre cómo personalizar opciones de SSL, consulte [Configuración de versiones de directivas SSL y conjuntos de cifrado en Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
 
-### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>¿Admite Application Gateway nuevo cifrado de tráfico para el back-end?
+### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>¿Admite Application Gateway el recifrado del tráfico dirigido al back-end?
 
-Sí. Application Gateway admite la descarga SSL y SSL de extremo a otro, que cifrar de nuevo tráfico back-end.
+Sí. Application Gateway admite la descarga de SSL y SSL de un extremo a otro, lo cual permite volver a cifrar el tráfico dirigido al back-end.
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>¿Puedo configurar la directiva SSL para el control versiones del protocolo SSL?
+### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>¿Se puede configurar la directiva SSL para controlar las versiones del protocolo SSL?
 
-Sí. Puede configurar la puerta de enlace de aplicaciones para denegar TLS1.0, TLS1.1 y TLS1.2. De forma predeterminada, SSL 2.0 y 3.0 ya están deshabilitados y no son configurables.
+Sí. Puede configurar Application Gateway para denegar TLS1.0, TLS1.1 y TLS1.2. De forma predeterminada, SSL 2.0 y 3.0 ya están deshabilitadas y no se pueden configurar.
 
 ### <a name="can-i-configure-cipher-suites-and-policy-order"></a>¿Puedo configurar los conjuntos de cifrado y el orden de las directivas?
 
-Sí. En la puerta de enlace de aplicaciones, puede [configurar conjuntos de cifrado](application-gateway-ssl-policy-overview.md). Para definir una directiva personalizada, habilite al menos uno de los siguientes conjuntos de cifrado. 
+Sí. En Application Gateway, puede [configurar conjuntos de cifrado](application-gateway-ssl-policy-overview.md). Para definir una directiva personalizada, se debe habilitar al menos uno de los siguientes conjuntos de cifrado. 
 
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
@@ -262,67 +262,67 @@ Sí. En la puerta de enlace de aplicaciones, puede [configurar conjuntos de cifr
 * TLS_RSA_WITH_AES_256_CBC_SHA256
 * TLS_RSA_WITH_AES_128_CBC_SHA256
 
-Application Gateway usa SHA256 a para la administración de back-end.
+Application Gateway usa SHA256 para la administración de back-end.
 
-### <a name="how-many-ssl-certificates-does-application-gateway-support"></a>¿Cuántos certificados SSL admite Application Gateway?
+### <a name="how-many-ssl-certificates-does-application-gateway-support"></a>Cuántos certificados SSL admite Application Gateway?
 
 Application Gateway admite hasta 100 certificados SSL.
 
-### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>¿Cuántos certificados de autenticación para el back-end de nuevo cifrado se admite Application Gateway?
+### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>¿Cuántos certificados de autenticación de recifrado de back-end admite Application Gateway?
 
 Application Gateway admite hasta 10 certificados de autenticación. El valor predeterminado es 5.
 
-### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>¿Application Gateway de forma nativa se integra con Azure Key Vault?
+### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>¿Se integra Application Gateway con Azure Key Vault de forma nativa?
 
-Sí, la SKU de puerta de enlace de aplicaciones v2 es compatible con Key Vault. Para obtener más información, consulte [terminación SSL con certificados de Key Vault](key-vault-certs.md).
+Sí, la SKU v2 de Application Gateway admite Key Vault. Para más información, consulte [Terminación SSL con certificados de Key Vault](key-vault-certs.md).
 
-### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>¿Cómo se puede configurar los agentes de escucha HTTPS para sitios .com y. NET? 
+### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>¿Cómo configuro agentes de escucha HTTPS para sitios .com y .NET? 
 
-Para varios basados en dominio (basado en host) enrutamiento, puede crear agentes de escucha multisitios, configurar los agentes de escucha que usan HTTPS como el protocolo y asociar los agentes de escucha a las reglas de enrutamiento. Para obtener más información, consulte [hospedar varios sitios mediante el uso de Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
+Para el enrutamiento (basado en host) basado en varios dominios, puede crear agentes de escucha multisitio, configurar agentes de escucha que usen HTTPS como el protocolo y asociar agentes de escucha a las reglas de enrutamiento. Para más información, consulte [Hosting multiple sites by using Application Gateway ](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview)(Hospedaje de varios sitios mediante Application Gateway). 
 
-## <a name="configuration---web-application-firewall-waf"></a>-Configuración de firewall de aplicaciones web (WAF)
+## <a name="configuration---web-application-firewall-waf"></a>Configuración: firewall de aplicaciones web (WAF)
 
 ### <a name="does-the-waf-sku-offer-all-the-features-available-in-the-standard-sku"></a>¿Ofrece la SKU de WAF todas las características disponibles en la SKU estándar?
 
 Sí. WAF admite todas las características de la SKU estándar.
 
-### <a name="which-crs-versions-does-application-gateway-support"></a>¿Qué versiones CRS admite Application Gateway?
+### <a name="which-crs-versions-does-application-gateway-support"></a>¿Qué versiones de CRS admite Application Gateway?
 
 Application Gateway admite CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) y CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
 
 ### <a name="how-do-i-monitor-waf"></a>¿Cómo se supervisa el WAF?
 
-WAF de monitor a través del registro de diagnóstico. Para obtener más información, consulte [registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
+Supervise WAF a través del registro de diagnóstico. Para más información, consulte [Diagnostic logging and metrics for Application Gateway](application-gateway-diagnostics.md) (Registro de diagnóstico y métricas de Application Gateway).
 
 ### <a name="does-detection-mode-block-traffic"></a>¿Bloquea el modo de detección el tráfico?
 
-No. Modo de detección solo registra el tráfico que se desencadena una regla de WAF.
+No. El modo de detección solo registra el tráfico que desencadena una regla de WAF.
 
 ### <a name="can-i-customize-waf-rules"></a>¿Se pueden personalizan las reglas de WAF?
 
-Sí. Para obtener más información, consulte [reglas y grupos de reglas de WAF personalizar](application-gateway-customize-waf-rules-portal.md).
+Sí. Para más información, consulte [Personalización de reglas de firewall de aplicaciones web mediante Azure Portal](application-gateway-customize-waf-rules-portal.md).
 
 ### <a name="what-rules-are-currently-available-for-waf"></a>¿Qué reglas están disponibles actualmente para WAF?
 
-WAF actualmente admite CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) y [3.0](application-gateway-crs-rulegroups-rules.md#owasp30). Estas reglas proporcionan seguridad de la línea de base frente a la mayoría de las vulnerabilidades de las 10 identifica Open Web Application Security Project (OWASP): 
+Actualmente, WAF admite CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) y [3.0](application-gateway-crs-rulegroups-rules.md#owasp30). Estas reglas proporcionan seguridad de línea base frente a la mayoría de las 10 vulnerabilidades principales que Open Web Application Security Project (OWASP) identifica: 
 
 * Protección contra la inyección de código SQL
-* Protección de scripting entre sitios
-* Protección contra ataques web comunes, como inyección de comandos, contrabando de división de respuestas HTTP de solicitudes HTTP y ataque inclusión de archivos remoto
+* Protección contra ataques de scripts de sitios
+* Protección contra ataques web comunes, como la inyección de comandos, el contrabando de solicitudes HTTP, la división de respuestas HTTP y el ataque remoto de inclusión de archivos.
 * Protección contra infracciones del protocolo HTTP
 * Protección contra anomalías del protocolo HTTP, como la falta de agentes de usuario de host y encabezados de aceptación
 * Prevención contra bots, rastreadores y escáneres
-* Detección de errores comunes (es decir, Apache, IIS etc.)
+* Detección de errores de configuración comunes en aplicaciones (es decir, Apache, IIS, etc.).
 
-Para obtener más información, consulte [vulnerabilidades OWASP top 10](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013).
+Para obtener más información, consulte las [10 vulnerabilidades principales de OWASP](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013).
 
 ### <a name="does-waf-support-ddos-protection"></a>¿Admite WAF la protección contra DDoS?
 
-Sí. Puede habilitar la protección contra DDoS en la red virtual donde se implementa la puerta de enlace de la aplicación. Esta configuración garantiza que el servicio Azure DDoS Protection protege también la IP virtual (VIP) puerta de enlace de aplicaciones.
+Sí. Puede habilitar la protección contra DDos en la red virtual donde se implementa Application Gateway. Esta configuración garantiza que el servicio Azure DDoS Protection también protege la IP virtual (VIP) de Application Gateway.
 
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>¿Hay instrucciones disponibles para migrar de la SKU de v1 a la SKU v2?
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>¿Hay instrucciones disponibles para migrar de la SKU v1 a la SKU v2?
 
-Sí. Para obtener información detallada, consulte [migrar Azure Application Gateway y Firewall de aplicaciones Web de v1 a v2](migrate-v1-v2.md).
+Sí. Para más información, consulte [Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2](migrate-v1-v2.md).
 
 ## <a name="diagnostics-and-logging"></a>Diagnósticos y registro
 
@@ -330,38 +330,38 @@ Sí. Para obtener información detallada, consulte [migrar Azure Application Gat
 
 Application Gateway proporciona tres registros: 
 
-* **ApplicationGatewayAccessLog**: El registro de acceso contiene todas las solicitudes enviadas al front-end de puerta de enlace de aplicaciones. Los datos incluyen el llamador IP, dirección URL solicitada, latencia de la respuesta, código de retorno y bytes de entrada y salida. El registro de acceso se recopila cada 300 segundos. Contiene un registro por cada instancia de application gateway.
-* **ApplicationGatewayPerformanceLog**: El registro de rendimiento captura información de rendimiento para cada puerta de enlace de aplicaciones. La información incluye la capacidad de proceso en bytes, el número total de solicitudes atendidas, el recuento de solicitudes con error y el recuento de instancias de back-end positiva y negativa.
-* **ApplicationGatewayFirewallLog**: Para las puertas de enlace de aplicaciones que se configuración con WAF, el registro de firewall contiene las solicitudes que se registran con el modo de detección o modo de prevención.
+* **ApplicationGatewayAccessLog**: el registro de acceso contiene todas las solicitudes enviadas al front-end de Application Gateway. Los datos incluyen la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 300 segundos y contiene un registro por cada instancia de Application Gateway.
+* **ApplicationGatewayPerformanceLog**: el registro de rendimiento captura información de rendimiento para cada instancia de Application Gateway. La información incluye el rendimiento en bytes, el número total de solicitudes atendidas, el recuento de solicitudes con error y el recuento de instancias de back-end correctas e incorrectas.
+* **ApplicationGatewayFirewallLog**: para las instancias de Application Gateway que configure con WAF, el registro del firewall contiene las solicitudes que se registran mediante el modo de detección o el modo de prevención.
 
-Para obtener más información, consulte [back-end de estado, los registros de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
+Para más información, consulte [Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>¿Cómo se puede saber si mis miembros del grupo de back-end están en buenas condiciones?
 
-Comprobar el estado mediante el cmdlet de PowerShell `Get-AzApplicationGatewayBackendHealth` o el portal. Para más información, consulte [Diagnósticos de Application Gateway](application-gateway-diagnostics.md).
+Compruebe el estado mediante el cmdlet de PowerShell `Get-AzApplicationGatewayBackendHealth` o el portal. Para más información, consulte [Diagnósticos de Application Gateway](application-gateway-diagnostics.md).
 
 ### <a name="whats-the-retention-policy-for-the-diagnostic-logs"></a>¿Qué es la directiva de retención para los registros de diagnóstico?
 
-Flujo de registros de diagnóstico para la cuenta de almacenamiento del cliente. Los clientes pueden establecer la directiva de retención según sus preferencias. También se pueden enviar los registros de diagnóstico en un centro de eventos o registros de Azure Monitor. Para más información, consulte [Diagnósticos de Application Gateway](application-gateway-diagnostics.md).
+Los registros de diagnóstico se envían a la cuenta de almacenamiento del cliente. Los clientes pueden establecer la directiva de retención según sus preferencias. Los registros de diagnóstico también se pueden enviar a un centro de eventos o a registros de Azure Monitor. Para más información, consulte [Diagnósticos de Application Gateway](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>¿Cómo se pueden obtener los registros de auditoría de Application Gateway?
 
-En el portal, en la hoja del menú de una puerta de enlace de aplicaciones, seleccione **registro de actividad** para tener acceso al registro de auditoría. 
+En el portal, en la hoja de menú de una instancia de Application Gateway, haga clic en **Registro de actividad** para acceder al registro de auditoría. 
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>¿Se pueden establecer alertas con Application Gateway?
 
-Sí. En Application Gateway, se configuran las alertas en métricas. Para obtener más información, consulte [métricas de Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics) y [recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Sí. En Application Gateway, las alertas se configuran en métricas. Para más información, consulte [Application Gateway metrics](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics) (Métricas de Application Gateway) y [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) (Recepción de notificaciones de alerta).
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>¿Cómo se pueden analizar las estadísticas de tráfico de Application Gateway?
 
-Puede ver y analizar los registros de acceso de varias maneras. Use los registros de Azure Monitor, Excel, Power BI y así sucesivamente.
+Puede ver y analizar los registros de acceso de varias maneras. Use registros de Azure Monitor, Excel, Power BI, etc.
 
-También puede usar una plantilla de Resource Manager que se instala y ejecuta el popular [GoAccess](https://goaccess.io/) iniciar el analizador de registros de acceso de Application Gateway. GoAccess proporciona las estadísticas de tráfico HTTP valiosas como visitantes únicos, los archivos solicitados, hosts, sistemas operativos, exploradores y códigos de estado HTTP. Para obtener más información, en GitHub, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager](https://aka.ms/appgwgoaccessreadme).
+También puede usar una plantilla de Resource Manager que instala y ejecuta el popular analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP, como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores y códigos de estado HTTP. Para más información, en GitHub, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager](https://aka.ms/appgwgoaccessreadme).
 
-### <a name="what-could-cause-backend-health-to-return-an-unknown-status"></a>¿Lo que podría provocar el mantenimiento de back-end devolver un estado desconocido?
+### <a name="what-could-cause-backend-health-to-return-an-unknown-status"></a>¿Qué puede provocar que el estado del back-end devuelva un valor desconocido?
 
-Por lo general, verá un estado desconocido cuando acceso para el back-end está bloqueado por un grupo de seguridad de red (NSG), DNS personalizado o enrutamiento definido por el usuario (UDR) en la subred de puerta de enlace de aplicaciones. Para obtener más información, consulte [back-end de estado, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
+Por lo general, se ve un estado desconocido cuando el acceso al back-end está bloqueado por un grupo de seguridad de red (NSG), un DNS personalizado o un enrutamiento definido por el usuario (UDR) en la subred de Application Gateway. Para más información, consulte [Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de Application Gateway, consulte [¿qué es Azure Application Gateway?](overview.md).
+Para más información sobre Application Gateway, consulte [¿Qué es Azure Application Gateway?](overview.md).

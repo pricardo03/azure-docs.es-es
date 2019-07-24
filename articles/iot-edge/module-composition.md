@@ -10,22 +10,22 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f4828b59ffa43365f48c002262368d383dfcff05
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389366"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Obtenga información sobre cómo implementar módulos y establecer rutas en IoT Edge
 
-Cada dispositivo IoT Edge ejecuta al menos dos módulos: $edgeAgent y $edgeHub, que constituyen el entorno de ejecución de Azure IoT Edge. Dispositivo de IoT Edge puede ejecutar varios módulos adicionales para cualquier número de procesos. Use un manifiesto de implementación para indicar qué módulos para instalar a su dispositivo y cómo configurarlas para que trabajen juntos. 
+Cada dispositivo IoT Edge ejecuta al menos dos módulos: $edgeAgent y $edgeHub, que constituyen el entorno de ejecución de Azure IoT Edge. El dispositivo IoT Edge puede ejecutar varios módulos adicionales para llevar a cabo cualquier número de procesos. Use un manifiesto de implementación para indicar al dispositivo qué módulos debe instalar y cómo configurarlos para que funcionen conjuntamente. 
 
 El *manifiesto de implementación* es un documento JSON que describe lo siguiente:
 
-* El **agente de IoT Edge** módulo gemelo, que incluye tres componentes. 
-  * La imagen de contenedor para todos los módulos que se ejecuten en el dispositivo.
-  * Las credenciales para tener acceso a registros de contenedor privados que contienen imágenes del módulo.
-  * Instrucciones de cómo debe crearse y administrarse cada módulo.
+* El módulo gemelo del **agente de IoT Edge**, que incluye tres componentes. 
+  * La imagen de contenedor para cada módulo que se ejecuta en el dispositivo.
+  * Las credenciales para tener acceso a registros privados del contenedor que contienen imágenes del módulo.
+  * Instrucciones sobre cómo se debe crearse y administrar cada módulo.
 * El módulo gemelo del **centro de IoT Edge**, que incluye cómo fluyen los mensajes entre los módulos y finalmente hacia IoT Hub.
 * Opcionalmente, las propiedades deseadas de cualquier módulo gemelo adicional.
 
@@ -80,7 +80,7 @@ Los manifiestos de implementación siguen esta estructura:
 
 Defina cómo instala el entorno de ejecución de Azure IoT Edge los módulos en la implementación. El agente de IoT Edge es el componente del entorno de ejecución que administra la instalación, las actualizaciones y los informes de estado de un dispositivo IoT Edge. Por tanto, el módulo gemelo $edgeAgent requiere la información de configuración y administración de todos los módulos. Esta información incluye los parámetros de configuración para el propio agente de IoT Edge. 
 
-Para obtener una lista completa de propiedades que puede o debe incluirse, consulte [propiedades del agente de IoT Edge y centro de IoT Edge](module-edgeagent-edgehub.md).
+Para ver una lista completa de propiedades que pueden o deben incluirse, consulte [Properties of the IoT Edge agent and IoT Edge hub](module-edgeagent-edgehub.md) (Propiedades del agente de IoT Edge y del centro de IoT Edge).
 
 Las propiedades de $edgeAgent siguen esta estructura:
 
@@ -137,9 +137,9 @@ Cada ruta necesita un origen y un receptor, pero la condición es una parte opci
 
 ### <a name="source"></a>Origen
 
-El origen especifica de dónde proceden los mensajes. IoT Edge puede enrutar los mensajes de los módulos o dispositivos de hoja. 
+El origen especifica de dónde proceden los mensajes. IoT Edge puede enrutar los mensajes desde los dispositivos de hoja o desde los módulos. 
 
-Mediante el SDK de IoT, los módulos pueden declarar las colas de salida específico para sus mensajes mediante la clase ModuleClient. Las colas de salida no son necesarias, pero son útiles para administrar varias rutas. Los dispositivos de hoja pueden usar la clase DeviceClient de los SDK de IoT para enviar mensajes a dispositivos de puerta de enlace de IoT Edge en la misma manera que tendría que enviar mensajes a IoT Hub. Para obtener más información, consulte [información y uso del SDK de Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md).
+Mediante el SDK de IoT, los módulos pueden declarar colas de salida específicas para sus mensajes mediante la clase ModuleClient. Las colas de salida no son necesarias, pero son útiles para administrar varias rutas. Los dispositivos de hoja pueden usar la clase DeviceClient de los SDK de IoT para enviar mensajes a dispositivos de puerta de enlace de IoT Edge de la misma manera que enviarían mensajes a IoT Hub. Para más información, consulte [Información y uso de los SDK de Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md).
 
 La propiedad de origen puede ser cualquiera de los siguientes valores:
 
@@ -147,14 +147,14 @@ La propiedad de origen puede ser cualquiera de los siguientes valores:
 | ------ | ----------- |
 | `/*` | Todos los mensajes del dispositivo a la nube o las notificaciones de cambios de gemelos de cualquier módulo o dispositivo de hoja. |
 | `/twinChangeNotifications` | Todos los cambios de gemelos (propiedades notificadas) procedentes de todos los módulos o dispositivos de hoja. |
-| `/messages/*` | Los mensajes de dispositivo a nube enviados por un módulo con algunas o ninguna salida, o mediante un dispositivo de hoja |
+| `/messages/*` | Cualquier mensaje de dispositivo a nube que envíe un dispositivo de hoja o un módulo con alguna salida o sin ninguna. |
 | `/messages/modules/*` | Cualquier mensaje de dispositivo a nube que envíe un módulo con alguna salida o sin ninguna. |
 | `/messages/modules/<moduleId>/*` | Cualquier mensaje de dispositivo a nube que envíe un módulo específico con alguna salida o sin ninguna. |
 | `/messages/modules/<moduleId>/outputs/*` | Cualquier mensaje de dispositivo a nube que envíe un módulo específico mediante alguna salida. |
 | `/messages/modules/<moduleId>/outputs/<output>` | Cualquier mensaje de dispositivo a nube que envíe un módulo específico mediante una salida específica. |
 
 ### <a name="condition"></a>Condición
-La condición es opcional en una declaración de ruta. Si desea pasar todos los mensajes desde el origen al receptor, simplemente omita el **donde** cláusula completamente. O bien, puede usar el [lenguaje de consulta de IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) para filtrar por determinados mensajes o tipos de mensajes que cumplen la condición. Las rutas de IoT Edge no admiten mensajes de filtrado basados en etiquetas o propiedades de gemelos. 
+La condición es opcional en una declaración de ruta. Si desea pasar todos los mensajes desde el receptor al origen, omita la cláusula **WHERE** por completo. O bien, puede usar el [lenguaje de consulta de IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) para filtrar por determinados mensajes o tipos de mensajes que cumplen la condición. Las rutas de IoT Edge no admiten mensajes de filtrado basados en etiquetas o propiedades de gemelos. 
 
 Los mensajes que pasan entre módulos con IoT Edge tienen el mismo formato que los mensajes que pasan entre los dispositivos y Azure IoT Hub. Todos los mensajes tienen el formato JSON y tienen los parámetros **systemProperties**, **appProperties** y **body**. 
 
@@ -182,9 +182,9 @@ La propiedad del receptor puede ser cualquiera de los siguientes valores:
 | `$upstream` | Envía el mensaje a IoT Hub. |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Envía el mensaje a una entrada específica de un módulo específico. |
 
-IoT Edge proporciona garantías de por lo menos una vez. El centro de IoT Edge almacena los mensajes localmente en caso de una ruta no puede entregar el mensaje a su receptor. Por ejemplo, si el centro de IoT Edge no se puede conectar a IoT Hub o el módulo de destino no está conectado.
+IoT Edge proporciona garantías de por lo menos una vez. El centro de IoT Edge almacena mensajes localmente en caso de que una ruta no pueda entregar el mensaje a su receptor. Por ejemplo, si el centro de IoT Edge no se puede conectar a IoT Hub o el módulo de destino no está conectado.
 
-Centro de IoT Edge almacena los mensajes durante el tiempo especificado en el `storeAndForwardConfiguration.timeToLiveSecs` propiedad de la [propiedades deseadas del centro de IoT Edge](module-edgeagent-edgehub.md).
+El centro de IoT Edge almacena los mensajes durante el tiempo especificado en la propiedad `storeAndForwardConfiguration.timeToLiveSecs` de las [propiedades deseadas del centro de IoT Edge](module-edgeagent-edgehub.md).
 
 ## <a name="define-or-update-desired-properties"></a>Definición o actualización de las propiedades deseadas 
 
@@ -278,6 +278,6 @@ El ejemplo siguiente muestra el aspecto de un documento de manifiesto de impleme
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una lista completa de propiedades que pueden o deben incluirse en $edgeAgent y $edgeHub, consulte [propiedades del agente de IoT Edge y centro de IoT Edge](module-edgeagent-edgehub.md).
+* Para ver una lista completa de propiedades que pueden o deben incluirse en $edgeAgent y $edgeHub, consulte [Properties of the IoT Edge agent and IoT Edge hub](module-edgeagent-edgehub.md) (Propiedades del agente de IoT Edge y el centro de IoT Edge).
 
 * Ahora que sabe cómo se usan los módulos de IoT Hub, [descubra los requisitos y las herramientas para desarrollar módulos de IoT Edge](module-development.md).

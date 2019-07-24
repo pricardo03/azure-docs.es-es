@@ -9,24 +9,24 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: cdc0f189daebcda592338b463954efab4fc2db96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79288f2204030790b2308905d90ff8e035fe2dd9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864429"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621861"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub mediante .NET
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este tutorial se basa en el código de [Tutorial: cómo envío mensajes de nube a dispositivo con Azure IoT Hub](iot-hub-csharp-csharp-c2d.md) para mostrarle cómo usar las funcionalidades de carga de archivos de IoT Hub. En él se muestra cómo realizar las siguientes acciones:
+Este tutorial se basa en el código del tutorial [Envío de mensajes desde la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) para mostrarle cómo usar las funcionalidades de carga de archivos de IoT Hub. En él se muestra cómo realizar las siguientes acciones:
 
-- Proporcionar un dispositivo de forma segura con un identificador URI de blob de Azure para cargar un archivo.
+* Proporcionar un dispositivo de forma segura con un identificador URI de blob de Azure para cargar un archivo.
 
-- Usar las notificaciones de carga de archivo de IoT Hub para desencadenar el procesamiento del archivo en el back-end de aplicación.
+* Usar las notificaciones de carga de archivo de IoT Hub para desencadenar el procesamiento del archivo en el back-end de aplicación.
 
-En los artículos de [Envío de telemetría de un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md) y [Envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) se muestra cómo usar la funcionalidad básica de mensajería del dispositivo a la nube y de la nube al dispositivo de IoT Hub. En el tutorial [Configuración del enrutamiento de mensajes con IoT Hub](tutorial-routing.md) se describe una forma de almacenar de manera confiable los mensajes enviados del dispositivo a la nube en Azure Blob Storage. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Por ejemplo:
+En el inicio rápido [Envío de telemetría de un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md) y el tutorial de [Envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) se muestra cómo usar la funcionalidad básica de mensajería del dispositivo a la nube y de la nube al dispositivo de IoT Hub. En el tutorial [Configuración del enrutamiento de mensajes con IoT Hub](tutorial-routing.md) se describe una forma de almacenar de manera confiable los mensajes enviados del dispositivo a la nube en Azure Blob Storage. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Por ejemplo:
 
 * Archivos grandes con imágenes
 * Vídeos
@@ -37,7 +37,7 @@ Dichos archivos se suelen procesar por lotes en la nube mediante herramientas co
 
 Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET:
 
-* **SimulatedDevice**, una versión modificada de la aplicación que creó en el tutorial [Envío de mensajes de nube a dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md). Esta aplicación carga un archivo en el almacenamiento mediante un identificador URI de SAS proporcionado por el centro de IoT.
+* **SimulatedDevice**, una versión modificada de la aplicación que creó en el tutorial [Envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md). Esta aplicación carga un archivo en el almacenamiento mediante un identificador URI de SAS proporcionado por el centro de IoT.
 
 * **ReadFileUploadNotification**, que recibe notificaciones de carga de archivos del Centro de IoT.
 
@@ -47,13 +47,14 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET:
 Para completar este tutorial, necesitará lo siguiente:
 
 * Visual Studio
+
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 ## <a name="upload-a-file-from-a-device-app"></a>Carga de un archivo desde una aplicación de dispositivo
 
-En esta sección, modificará la aplicación de dispositivo que creó en [Envío de mensajes de nube a dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) para recibir mensajes de nube a dispositivo de IoT Hub.
+En esta sección, modificará la aplicación de dispositivo que creó en [Envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) para recibir mensajes de la nube al dispositivo de IoT Hub.
 
 1. En Visual Studio, haga clic con el botón derecho en el proyecto **SimulatedDevice**, haga clic en **Agregar** y luego haga clic en **Elemento existente**. Vaya a un archivo de imagen e inclúyalo en su proyecto. En este tutorial se supone que la imagen se llama `image.jpg`.
 
@@ -144,7 +145,7 @@ En esta sección, se escribe una aplicación de consola de .NET que recibe mensa
 
             await notificationReceiver.CompleteAsync(fileUploadNotification);
         }
-    }   
+    }
     ```
 
     Tenga en cuenta que este patrón de recepción es el mismo que se usa para recibir mensajes de nube a dispositivo desde la aplicación de dispositivo.
@@ -174,10 +175,11 @@ Ahora está preparado para ejecutar las aplicaciones.
 En este tutorial ha aprendido a usar la funcionalidad de carga de archivos de IoT Hub para simplificar la carga de archivos desde los dispositivos. Puede continuar explorando las características y los escenarios del centro de IoT con los siguientes artículos:
 
 * [Creación de un centro de IoT mediante programación](iot-hub-rm-template-powershell.md)
+
 * [Introducción a SDK para C](iot-hub-device-sdk-c-intro.md)
+
 * [SDK de IoT de Azure](iot-hub-devguide-sdks.md)
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-

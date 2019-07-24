@@ -2,17 +2,17 @@
 title: Creación de nodos virtuales mediante la CLI de Azure en Azure Kubernetes Service (AKS)
 description: Aprenda a usar la CLI de Azure para crear un clúster de Azure Kubernetes Service (AKS) que usa los nodos virtuales para ejecutar pods.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: a6acdd6255278123ff13a8597cadd2a386536bd4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742786"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613794"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales mediante la CLI de Azure
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo crear y configurar los recursos de red virtua
 
 Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en ACI y el clúster de AKS. Para proporcionar esta comunicación, se crea una subred de red virtual y se asignan permisos delegados. Los nodos virtuales solo funcionan con clústeres de AKS creados mediante redes *avanzadas*. De forma predeterminada, los clústeres de AKS se crean con redes *básicas*. En este artículo se explica cómo crear una red virtual y subredes y, después, cómo implementar un clúster de AKS que usa redes avanzadas.
 
-Si no ha utilizado anteriormente ACI, registre el proveedor de servicio con su suscripción. Puede comprobar el estado de registro del proveedor de ACI mediante el comando de [lista de proveedores de az][az-provider-list], tal como se muestra en el ejemplo siguiente:
+Si no ha utilizado anteriormente ACI, registre el proveedor de servicio con su suscripción. Puede comprobar el estado de registro del proveedor de ACI mediante el comando [az provider list][az-provider-list], tal como se muestra en el siguiente ejemplo:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -38,7 +38,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Si el proveedor se muestra como *NotRegistered*, registre el proveedor mediante el [registro de proveedor de az] [ az-provider-register] tal como se muestra en el ejemplo siguiente:
+Si el proveedor se muestra como *NotRegistered*, registre el proveedor con el comando [az provider register][az-provider-register] tal como se muestra en el siguiente ejemplo:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -214,7 +214,7 @@ aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Implementación de una aplicación de ejemplo
 
-Cree un archivo denominado `virtual-node.yaml` y cópielo en el siguiente código YAML. Para programar el contenedor en el nodo, se definen [nodeSelector][node-selector] y [toleration][toleration].
+Cree un archivo denominado `virtual-node.yaml` y cópielo en el siguiente código YAML. Para programar el contenedor en el nodo, se definen [nodeSelector][node-selector] and [toleration][toleration].
 
 ```yaml
 apiVersion: apps/v1
@@ -253,7 +253,7 @@ Ejecute la aplicación con el comando [kubectl apply][kubectl-apply].
 kubectl apply -f virtual-node.yaml
 ```
 
-Use el comando [kubectl get pods][kubectl-get] con el argumento `-o wide` para generar una lista de pods y el nodo programado. Observe que el pod `aci-helloworld` se ha programado en el nodo `virtual-node-aci-linux`.
+Use el comando [kubectl get pods][kubectl-get] con el argumento `-o wide` para generar una lista de los pods y el nodo programado. Observe que el pod `aci-helloworld` se ha programado en el nodo `virtual-node-aci-linux`.
 
 ```
 $ kubectl get pods -o wide
@@ -347,14 +347,14 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, se programó un pod en el nodo virtual y se le asignó una dirección IP privada o interna. En su lugar, podría crear una implementación de servicio y enrutar el tráfico a su pod a través de un equilibrador de carga o controlador de entrada. Para más información, vea [Create a basic ingress controller in AKS][aks-basic-ingress] (Creación de un controlador de entrada básico en AKS).
+En este artículo, se programó un pod en el nodo virtual y se le asignó una dirección IP privada o interna. En su lugar, podría crear una implementación de servicio y enrutar el tráfico a su pod a través de un equilibrador de carga o controlador de entrada. Para más información, consulte [Creación de un controlador de entrada en Azure Kubernetes Service (AKS)][aks-basic-ingress].
 
 Los nodos virtuales suelen ser un componente de una solución de escalado en AKS. Para más información sobre soluciones de escalado, consulte los siguientes artículos:
 
-- [Tutorial: Escalado de aplicaciones en Azure Kubernetes Service (AKS)][aks-hpa]
-- [Escalador automático en Azure Kubernetes Service (AKS): Versión preliminar][aks-cluster-autoscaler]
-- [Consulte el ejemplo de escalado automático para los nodos virtuales][virtual-node-autoscale].
-- [Obtenga más información acerca de la biblioteca virtual de código abierto de Kubelet][virtual-kubelet-repo].
+- [Escalador horizontal automático de pods de Kubernetes][aks-hpa]
+- [Escalador automático de clústeres de Kubernetes][aks-cluster-autoscaler]
+- [Ejemplo de escalador automático para nodos virtuales][virtual-node-autoscale]
+- [Más información sobre la biblioteca virtual de código abierto de Kubelet][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

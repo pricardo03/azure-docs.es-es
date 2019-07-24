@@ -1,6 +1,6 @@
 ---
-title: 'Aplicación de escritorio que llama a web API (llamando a una API web): la plataforma de identidad de Microsoft'
-description: Aprenda a crear una aplicación de escritorio que llama a web API (llamando a una API web)
+title: 'Aplicación de escritorio que llama a las API web: llamada a una API web - Plataforma de identidad de Microsoft'
+description: 'Obtener información sobre cómo compilar una aplicación de escritorio que llama a las API web: llamada a una API web'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fb240b54c3d698ead9d3427f603acca2b53745a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 4abaf234d3b216e0f67501e5d2f2f5c3f874c5d7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075931"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111240"
 ---
-# <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>Aplicación de escritorio que llama a web API: llamar a una API web
+# <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>Aplicación de escritorio que llama a las API web: llamada a una API web
 
-Ahora que tiene un token, puede llamar a una API web protegida.
+Ahora que dispone de un token, puede llamar a una API web protegida.
 
-## <a name="calling-a-web-api-from-net"></a>Una llamada a una API web de .NET
+## <a name="calling-a-web-api-from-net"></a>Llamada a una API web desde .NET
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
@@ -34,9 +34,9 @@ Ahora que tiene un token, puede llamar a una API web protegida.
 More includes will come later for Python and Java
 -->
 
-## <a name="calling-several-apis---incremental-consent-and-conditional-access"></a>Llamar a varias API - consentimiento Incremental y el acceso condicional
+## <a name="calling-several-apis---incremental-consent-and-conditional-access"></a>Llamada a varias API: consentimiento incremental y acceso condicional
 
-Si necesita llamar a varias API para el mismo usuario, una vez que se obtuvo un token para la primera API, simplemente puede llamar a `AcquireTokenSilent`, y obtendrá un token para las otras API de forma silenciosa la mayoría del tiempo.
+Si necesita llamar a varias API para el mismo usuario, una vez que obtenga un token para la primera API, simplemente puede llamar a `AcquireTokenSilent` y la mayoría de las veces obtendrá un token para las otras API de forma silenciosa.
 
 ```CSharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -46,10 +46,10 @@ result = await app.AcquireTokenSilent("scopeApi2")
                   .ExecuteAsync();
 ```
 
-Los casos donde no se requiere interacción es cuando:
+Los casos donde se requiere interacción son los siguientes:
 
-- El usuario dado su consentimiento para la primera API, pero ahora debe dar su consentimiento para varios ámbitos (consentimiento incremental)
-- La primera API no requiere autenticación de varios factores, pero sí de lo siguiente.
+- Cuando el usuario ha dado su consentimiento para la primera API, pero ahora debe dar su consentimiento para más ámbitos (consentimiento incremental).
+- Cuando la primera API no requería autenticación multifactor, pero la siguiente sí.
 
 ```CSharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -71,4 +71,4 @@ catch(MsalUiRequiredException ex)
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Pasar a producción](scenario-desktop-production.md)
+> [Paso a producción](scenario-desktop-production.md)

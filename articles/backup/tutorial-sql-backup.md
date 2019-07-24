@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b5e2ccef3b2a91f903706745d74a4bf16e1003d4
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203492"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305220"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -143,19 +143,19 @@ Configure la copia de seguridad de la manera siguiente:
 
     ![Habilitar la protección automática en el grupo de disponibilidad Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. En  **Elegir directiva de copia de seguridad**, seleccione una directiva y haga clic en  **Aceptar**.
+5. En **Choose backup policy** (Elegir directiva de copia de seguridad), seleccione una directiva y haga clic en **OK** (Aceptar).
 
-   - Selección de la directiva predeterminada: HourlyLogBackup.
+   - Selección de la directiva predeterminada: HourlyLogBackup.
    - Elegir una directiva de copia de seguridad existente creada previamente para SQL.
    - Defina una nueva directiva basada en el objetivo de punto de recuperación (RPO) y en la duración de retención.
 
      ![Seleccionar directiva de copia de seguridad](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. En el menú  **Copia de seguridad**, seleccione  **Habilitar copia de seguridad**.
+6. En el menú **Copia de seguridad**, seleccione **Habilitar copia de seguridad**.
 
     ![Habilitar la directiva de copia de seguridad elegida](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Realice el seguimiento del progreso de la configuración en el área de  **notificaciones**  del portal.
+7. Realice el seguimiento del progreso de la configuración en el área de **notificaciones** del portal.
 
     ![Área de notificaciones](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -245,5 +245,5 @@ Continúe con el tutorial siguiente para restaurar una máquina virtual de Azure
 
 > [!div class="nextstepaction"]
 > [Restauración de bases de datos SQL Server en máquinas virtuales de Azure](./restore-sql-database-azure-vm.md)
- 
+ 
 
