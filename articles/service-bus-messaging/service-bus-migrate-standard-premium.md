@@ -1,6 +1,6 @@
 ---
-title: Migrar existente espacios de nombres estándar de Azure Service Bus para el nivel premium | Microsoft Docs
-description: Guía para permitir la migración de Azure Service Bus estándar espacios de nombres existentes a premium
+title: Migración de espacios de nombres estándar de Azure Service Bus existentes| Microsoft Docs
+description: Guía para permitir la migración de espacios de nombre estándar de Azure Service Bus existentes al nivel premium.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,47 +14,47 @@ ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
 ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991416"
 ---
-# <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar existente espacios de nombres estándar de Azure Service Bus para el nivel premium
-Anteriormente, Azure Service Bus ofrece los espacios de nombres solo en el nivel estándar. Espacios de nombres son configuraciones de varios inquilinos que se optimizan para entornos de desarrollo y un rendimiento bajo. El nivel premium ofrece recursos dedicados por espacio de nombres para una latencia predecible y aumento del rendimiento a un precio fijo. El nivel premium está optimizado para entornos de producción que requieren características empresariales adicionales y de alto rendimiento.
+# <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migración de espacios de nombres estándar de Azure Service Bus existentes
+Anteriormente, Azure Service Bus ofrecía espacios de nombres solo en el nivel Estándar. Los espacios de nombres son configuraciones multiinquilino optimizadas para entornos de desarrollador y de rendimiento bajo. El nivel premium ofrece recursos dedicados por espacio de nombres para la latencia predecible y el rendimiento aumentado a un precio fijo. El nivel premium está optimizado para entornos de producción y de alto rendimiento que requieren características empresariales adicionales.
 
-En este artículo se describe cómo migrar espacios de nombres de nivel estándar existente al nivel premium.  
+En este artículo se describe cómo migrar los espacios de nombre de nivel Estándar existentes al nivel premium.  
 
 >[!WARNING]
-> Migración está diseñada para que espacios de nombres estándar de Service Bus para actualizarse al nivel premium. La herramienta de migración no admite la degradación.
+> La migración está pensada para que los espacios de nombres de Service Bus se actualicen al nivel premium. La herramienta de migración no permite cambiar a una versión anterior.
 
-Algunos de los puntos a tener en cuenta: 
-- Esta migración está pensada para que se producen en su lugar, lo que significa existentes aplicaciones del remitente y receptor **no requiere ningún cambio en código o configuración**. La cadena de conexión existente apuntan automáticamente al nuevo espacio de nombres premium.
-- El **premium** debe tener el espacio de nombres **ninguna entidad** en él para la migración se realice correctamente. 
-- Todos los **entidades** en el espacio de nombres estándar son **copian** al espacio de nombres premium durante el proceso de migración. 
-- Admite la migración **1.000 entidades por unidad de mensajería** en el nivel premium. Para identificar el número de unidades de mensajería que necesita, comience con el número de entidades que existen en el espacio de nombres estándar actual. 
-- No se puede migrar directamente desde **básico** a **nivel premier**, pero puede hacerlo indirectamente mediante la migración de básico a estándar primero y, a continuación, en el estándar a premium en el paso siguiente.
+Algunos de los puntos que debe tener en cuenta: 
+- La migración está pensada para realizarse en contexto, lo que significa que las aplicaciones remitente y receptora **no requieren hacer ningún cambio en el código ni en la configuración**. La cadena de conexión existente apuntará automáticamente al espacio de nombres premium nuevo.
+- El espacio de nombres **Premium** no debe tener **ninguna entidad** para que la migración se realice correctamente. 
+- Todas las **entidades** del espacio de nombres estándar se **copiar** al espacio de nombres premium durante el proceso de migración. 
+- La migración admite **1000 entidades por unidad de mensajería** en el nivel premium. Para identificar cuántas unidades de mensajería necesita, empiece con el número de entidades que tiene en el espacio de nombres estándar actual. 
+- No es posible migrar directamente desde el **nivel básico** al **nivel Premier**, pero puede hacerlo de manera indirecta si migra primero desde el nivel básico al nivel estándar y, luego, desde el nivel estándar al premium en el paso siguiente.
 
 ## <a name="migration-steps"></a>Pasos de migración
-Algunas condiciones asociadas con el proceso de migración. Familiarícese con los pasos siguientes para reducir la posibilidad de errores. Estos pasos describen el proceso de migración y se muestran los detalles de paso a paso en las secciones siguientes.
+El proceso de migración tiene asociadas algunas condiciones. Familiarícese con estos pasos para disminuir la posibilidad de errores. En estos pasos se describe el proceso de migración y los detalles paso a paso aparecen en las secciones siguientes.
 
-1. Crear un nuevo espacio de nombres premium.
+1. Cree un espacio de nombres premium nuevo.
 1. Empareje los espacios de nombres estándar y premium entre sí.
-1. Entidades de sincronización (por encima de copia) del estándar para el espacio de nombres premium.
-1. Confirmar la migración.
-1. Purgar las entidades en el espacio de nombres estándar con el nombre después de la migración del espacio de nombres.
-1. Eliminar el espacio de nombres estándar.
+1. Sincronice (copie) las entidades del espacio de nombres estándar en el espacio de nombres premium.
+1. Confirme la migración.
+1. Para purgar las entidades del espacio de nombres estándar, use el nombre del espacio de nombres posterior a la migración.
+1. Elimine el espacio de nombres estándar.
 
 >[!IMPORTANT]
-> Después de la migración se ha confirmado, tener acceso el antiguo espacio de nombres estándar y purgar las colas y suscripciones. Después de que los mensajes que se hayan descargado, se enviará al nuevo espacio de nombres premium para ser procesados por las aplicaciones de receptor. Después de las colas y suscripciones que se hayan descargado, se recomienda que elimine el antiguo espacio de nombres estándar.
+> Una vez confirmada la migración, acceda al espacio de nombres estándar anterior y purgue las colas y las suscripciones. Una vez drenados los mensajes, se pueden enviar al espacio de nombres premium nuevo para que las aplicaciones receptoras los procesen. Una vez drenadas las colas y las suscripciones, se recomienda eliminar el espacio de nombres estándar anterior.
 
-### <a name="migrate-by-using-the-azure-cli-or-powershell"></a>Migrar mediante la CLI de Azure o PowerShell
+### <a name="migrate-by-using-the-azure-cli-or-powershell"></a>Migración mediante la CLI de Azure o PowerShell
 
-Para migrar el espacio de nombres de Service Bus estándar a premium mediante la CLI de Azure o la herramienta de PowerShell, siga estos pasos.
+Para migrar el espacio de nombres estándar de Service Bus a premium mediante la herramienta de PowerShell o la CLI de Azure, siga estos pasos.
 
-1. Crear un nuevo espacio de nombres premium de Service Bus. Puede hacer referencia a la [plantillas Azure Resource Manager](service-bus-resource-manager-namespace.md) o [usar Azure portal](service-bus-create-namespace-portal.md). No olvide seleccionar **premium** para el **serviceBusSku** parámetro.
+1. Cree un espacio de nombres premium de Service Bus nuevo. Puede hacer referencia a las [plantillas de Azure Resource Manager](service-bus-resource-manager-namespace.md) o [use Azure Portal](service-bus-create-namespace-portal.md). Asegúrese de usar **Premium** para el parámetro **serviceBusSku**.
 
-1. Establezca las siguientes variables de entorno para simplificar los comandos de migración.
+1. Establezca las variables de entorno siguientes para simplificar los comandos de migración.
    ```azurecli
    resourceGroup = <resource group for the standard namespace>
    standardNamespace = <standard namespace to migrate>
@@ -63,90 +63,90 @@ Para migrar el espacio de nombres de Service Bus estándar a premium mediante la
    ```
 
     >[!IMPORTANT]
-    > Después de la migración alias/nombre (post_migration_dns_name) se usará para tener acceso a la migración de entrada de espacio de nombres estándar antiguo. Use esta opción para purgar las colas y las suscripciones y, a continuación, elimine el espacio de nombres.
+    > El alias/nombre posterior a la migración (post_migration_dns_name) se usará para acceder al espacio de nombres estándar anterior después de la migración. Úselo para purgar las colas y las suscripciones y, luego, elimine el espacio de nombres.
 
-1. Empareje los espacios de nombres estándar y premium y comience la sincronización con el comando siguiente:
+1. Empareje los espacios de nombres estándar y premium y use el comando siguiente para iniciar la sincronización:
 
     ```azurecli
     az servicebus migration start --resource-group $resourceGroup --name $standardNamespace --target-namespace $premiumNamespaceArmId --post-migration-name $postMigrationDnsName
     ```
 
 
-1. Comprobar el estado de la migración mediante el comando siguiente:
+1. Compruebe el estado de la migración con el comando siguiente:
     ```azurecli
     az servicebus migration show --resource-group $resourceGroup --name $standardNamespace
     ```
 
-    La migración se considera completada cuando vea los siguientes valores:
-    * MigrationState = "Activo"
+    La migración se considera completa cuando ve los valores siguientes:
+    * MigrationState = "Active"
     * pendingReplicationsOperationsCount = 0
     * provisioningState = "Succeeded"
 
-    Este comando también muestra la configuración de la migración. Compruebe que los valores se establecen correctamente. Compruebe también el espacio de nombres premium en el portal para asegurarse de todas las colas y temas se han creado y que coinciden con lo que ya existían en el espacio de nombres estándar.
+    Esta comando también muestra la configuración de migración. Compruebe que los valores están establecidos correctamente. Compruebe también el espacio de nombres Premium en el portal para asegurarse de que se crearon todos los temas y colas y que coinciden con el contenido que existía en el espacio de nombres estándar.
 
-1. Confirmar la migración ejecutando el siguiente comando completo:
+1. Ejecute el comando completo siguiente para confirmar la migración:
    ```azurecli
    az servicebus migration complete --resource-group $resourceGroup --name $standardNamespace
    ```
 
-### <a name="migrate-by-using-the-azure-portal"></a>Migrar mediante el portal de Azure
+### <a name="migrate-by-using-the-azure-portal"></a>Migración mediante Azure Portal
 
-Migración mediante el portal de Azure tiene el mismo flujo lógico que la migración mediante el uso de los comandos. Siga estos pasos para migrar mediante el portal de Azure.
+La migración mediante Azure Portal tiene el mismo flujo lógico que la migración con los comandos. Siga estos pasos para migrar mediante Azure Portal.
 
-1. En el **navegación** menú en el panel izquierdo, seleccione **migrar a premium**. Haga clic en el **comenzar** botón para continuar a la página siguiente.
-    ![Página de aterrizaje de migración][]
+1. En el menú de **navegación** de la izquierda, seleccione **Migrar a premium**. Haga clic en el botón **Comenzar** para pasar a la siguiente página.
+    ![Página de aterrizaje de la migración][]
 
-1. Completa **instalación**.
-   ![Espacio de nombres del programa de instalación][]
-   1. Cree y asigne el espacio de nombres para migrar el espacio de nombres estándar existente a premium.
-        ![Configuración del espacio de nombres: crear el espacio de nombres premium][]
-   1. Elija un **nombre después de la migración**. Usará este nombre para tener acceso al espacio de nombres estándar, una vez completada la migración.
-        ![Configuración del espacio de nombres: elegir el nombre de la migración de post][]
-   1. Seleccione **'Next'** para continuar.
-1. Entidades de sincronización entre los espacios de nombres estándar y premium.
-    ![Configurar el inicio del espacio de nombres - sincronización de entidades:][]
+1. Complete la **configuración**.
+   ![Configuración del espacio de nombres][]
+   1. Cree y asigne el espacio de nombres premium al que se va a migrar el espacio de nombres estándar.
+        ![Configuración del espacio de nombres: creación de un espacio de nombres premium][]
+   1. Elija un **nombre posterior a la migración**. Usará este nombre para acceder al espacio de nombres estándar una vez que se complete la migración.
+        ![Configuración del espacio de nombres: elección de un nombre posterior a la migración][]
+   1. Seleccione **"Next"** (Siguiente) para continuar.
+1. Sincronice las entidades de los espacios de nombres estándar y premium.
+    ![Configuración del espacio de nombres: sincronización de entidades, inicio][]
 
-   1. Seleccione **iniciar sincronización** para empezar a sincronizar las entidades.
-   1. Seleccione **Sí** en el cuadro de diálogo para confirmar e iniciar la sincronización.
-   1. Espere hasta que finalice la sincronización. El estado está disponible en la barra de estado.
-        ![Espacio de nombres - sincronización de entidades: progreso de la instalación][]
+   1. Seleccione **Start Sync** (Iniciar sincronización) para empezar a sincronizar las entidades.
+   1. Seleccione **Yes** (Sí) en el cuadro de diálogo para confirmar e iniciar la sincronización.
+   1. Espere hasta que se complete la sincronización. El estado está disponible en la barra de estado.
+        ![Configuración del espacio de nombres: sincronización de entidades, progreso][]
         >[!IMPORTANT]
-        > Si necesita anular la migración por cualquier motivo, revise el flujo de anulación en la sección de preguntas más frecuentes de este documento.
-   1. Una vez completada la sincronización, seleccione **siguiente** en la parte inferior de la página.
+        > Si por algún motivo tiene que anular la migración, revise el flujo de anulación en la sección de preguntas más frecuentes de este documento.
+   1. Una vez que se complete la sincronización, seleccione **Next** (Siguiente) en la parte inferior de la página.
 
-1. Revise los cambios en la página de resumen. Seleccione **completar migración** para cambiar los espacios de nombres y para completar la migración.
-    ![Cambiar el espacio de nombres - menú conmutador][] aparece la página de confirmación una vez completada la migración.
-    ![Espacio de nombres de conmutador: correcto][]
+1. Revise los cambios en la página de resumen. Seleccione **Complete Migration** (Completar migración) para cambiar los espacios de nombres y completar la migración.
+    ![Cambio de espacio de nombres: menú de cambio][] La página de confirmación aparece cuando se completa la migración.
+    ![Cambio de espacio de nombres: correcto][]
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
-### <a name="what-happens-when-the-migration-is-committed"></a>¿Qué ocurre cuando se confirma la migración?
+### <a name="what-happens-when-the-migration-is-committed"></a>¿Qué pasa cuando se confirma la migración?
 
-Una vez confirmada la migración, la cadena de conexión que señala al espacio de nombres estándar apuntará al espacio de nombres premium.
+Una vez que se confirma la migración, la cadena de conexión que apunta al espacio de nombres estándar apuntará al espacio de nombres premium.
 
-Las aplicaciones de remitente y receptor se desconecte el Namespace estándar y volver a conectar al espacio de nombres premium.
+Las aplicaciones remitente y receptora se desconectarán del espacio de nombres estándar y se reconectarán automáticamente al espacio de nombres premium.
 
-### <a name="what-do-i-do-after-the-standard-to-premium-migration-is-complete"></a>¿Qué hacer una vez completada la estándar para la migración premium?
+### <a name="what-do-i-do-after-the-standard-to-premium-migration-is-complete"></a>¿Qué se hace una vez que se completa la migración de estándar a premium?
 
-El estándar para la migración premium garantiza que los metadatos de entidad, como temas, suscripciones y los filtros se copian desde el espacio de nombres estándar en el espacio de nombres premium. Los datos del mensaje que se confirmó en el espacio de nombres estándar no se copian desde el espacio de nombres estándar en el espacio de nombres premium.
+La migración de estándar a premium garantiza que los metadatos de la entidad, como los temas, las suscripciones y los filtros, se copia del espacio de nombres estándar al espacio de nombres premium. Los datos de mensajes que se confirmaron en el espacio de nombres estándar no se copian desde ahí al espacio de nombres premium.
 
-El espacio de nombres estándar puede tener algunos mensajes que se han enviado y confirmado mientras la migración estaba en curso. Purgar manualmente estos mensajes desde el Namespace estándar y los envían manualmente a la premium Namespace. Para purgar manualmente los mensajes, utilice una aplicación de consola o un script que purga las entidades del espacio de nombres estándar con el nombre DNS de la migración de entrada que especificó en los comandos de migración. Enviar estos mensajes para el espacio de nombres premium para que se pueden procesar los receptores.
+El espacio de nombres estándar pueden tener algunos mensajes que se enviaron y confirmación mientras se realizaba la migración. Purgue manualmente estos mensajes del espacio de nombres estándar y envíelos de manera manual al espacio de nombres premium. Para purgar manualmente los mensajes, use una aplicación de consola o un script que purgue las entidades del espacio de nombres estándar mediante el uso del nombre DNS posterior a la migración que especificó en los comandos de la migración. Envíe estos mensajes al espacio de nombres premium para que los puedan procesar los receptores.
 
-Después de que los mensajes que se hayan descargado, elimine el espacio de nombres estándar.
+Una vez purgados los mensajes, elimine el espacio de nombres estándar.
 
 >[!IMPORTANT]
-> Después de que los mensajes del espacio de nombres estándar que se hayan descargado, elimine el espacio de nombres estándar. Esto es importante porque la cadena de conexión que inicialmente hacer referencia al espacio de nombres estándar ahora hace referencia al espacio de nombres premium. Ya no necesite el Namespace estándar. Eliminando el espacio de nombres estándar que se migró ayuda a reducir la confusión de versiones posterior.
+> Una vez purgados los mensajes del espacio de nombres estándar, elimine el espacio de nombres estándar. Esto es importante porque la cadena de conexión que inicialmente hacía referencia al espacio de nombres estándar ahora hace referencia al espacio de nombres premium. Ya no necesitará el espacio de nombres estándar. Eliminar el espacio de nombres estándar que migró ayuda a reducir una confusión a futuro.
 
-### <a name="how-much-downtime-do-i-expect"></a>¿Cuánto tiempo de inactividad se debe esperar?
-El proceso de migración está pensado para reducir el tiempo de inactividad previsto para las aplicaciones. Se reduce el tiempo de inactividad mediante el uso de la cadena de conexión que usan las aplicaciones del remitente y receptor para que apunte al nuevo espacio de nombres premium.
+### <a name="how-much-downtime-do-i-expect"></a>¿Cuánto tiempo de inactividad debo esperar?
+El proceso de migración está pensado para disminuir el tiempo de inactividad esperado para las aplicaciones. El tiempo de inactividad se reduce mediante el uso de la cadena de conexión que las aplicaciones remitente y receptora usan para apuntar al espacio de nombres premium nuevo.
 
-El tiempo de inactividad que se ha producido por la aplicación se limita a la hora de actualizar la entrada DNS para que apunte al espacio de nombres premium. Tiempo de inactividad es de aproximadamente 5 minutos.
+El tiempo de inactividad que experimenta la aplicación se limita al tiempo que tarda la actualización de la entrada DNS para apuntar al espacio de nombres premium. El tiempo de inactividad es de aproximadamente 5 minutos.
 
-### <a name="do-i-have-to-make-any-configuration-changes-while-doing-the-migration"></a>¿Es necesario realizar cambios de configuración mientras se realiza la migración?
-No, no hay ningún cambio de código o la configuración necesaria para realizar la migración. La cadena de conexión que las aplicaciones de remitente y receptor que se usan para tener acceso a la Namespace estándar se asigna automáticamente para actuar como un alias para el espacio de nombres premium.
+### <a name="do-i-have-to-make-any-configuration-changes-while-doing-the-migration"></a>¿Es necesario modificar la configuración mientras se realiza la migración?
+No, no es necesario ningún cambio de código ni de la configuración durante la migración. La cadena de conexión que las aplicaciones remitente y receptora usan para acceder al espacio de nombres estándar se asigna automáticamente para que actúe como alias del espacio de nombres premium.
 
-### <a name="what-happens-when-i-abort-the-migration"></a>¿Qué ocurre cuando anula la migración?
-La migración puede anularse mediante el uso de la `Abort` de comandos o mediante el portal de Azure. 
+### <a name="what-happens-when-i-abort-the-migration"></a>¿Qué pasa si anulo la migración?
+La migración se puede anular con el comando `Abort` o con Azure Portal. 
 
 #### <a name="azure-cli"></a>Azure CLI
 
@@ -154,51 +154,51 @@ La migración puede anularse mediante el uso de la `Abort` de comandos o mediant
 az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
 ```
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
-![Anular el flujo: anular sincronización][]
-![anular el flujo: anular completa][]
+![Flujo de anulación: anulación de la sincronización][]
+![Flujo de anulación: anulación completa][]
 
-Cuando se anula el proceso de migración, se anula el proceso de copiar las entidades (temas, suscripciones y filtros) del estándar en el espacio de nombres premium y el emparejamiento se interrumpe.
+Cuando se anula el proceso de migración, se anula el proceso de copiar las entidades (temas, suscripciones y filtros) del espacio de nombres estándar al espacio de nombres premium y se interrumpe el emparejamiento.
 
-La cadena de conexión no se actualiza para que apunte al espacio de nombres premium. Las aplicaciones existentes seguirán funcionando como lo hacían antes de iniciar la migración.
+La cadena de conexión no se actualiza para que apunte al espacio de nombres premium. Las aplicaciones existentes siguen funcionando como lo hacían antes de iniciar la migración.
 
-Sin embargo, no elimine las entidades en el espacio de nombres premium o eliminar el espacio de nombres premium. Si decide no continuar con la migración, elimine manualmente las entidades.
+Sin embargo, no se eliminan las entidades del espacio de nombres premium ni se elimina este espacio. Elimine manualmente las entidades si decidió no continuar con la migración.
 
 >[!IMPORTANT]
-> Si decide anular la migración, elimine la prima Namespace que había aprovisionado para la migración para que no se le cobrará por los recursos.
+> Si decide anular la migración, elimine el espacio de nombres premium que aprovisionó para la migración para que no le cobren los recursos.
 
-#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>No se desea tener que purgar los mensajes. ¿Qué puedo hacer?
+#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>No quiero purgar los mensajes. ¿Qué puedo hacer?
 
-Puede que haya mensajes que se envían por las aplicaciones del remitente y confirmados para el almacenamiento en el estándar Namespace mientras lleva a cabo la migración y justo antes de que se confirma la migración.
+Puede que haya mensajes enviados por las aplicaciones remitentes y confirmados en el almacenamiento del espacio de nombres estándar mientras se realiza la migración, justo antes de confirmarla.
 
-Durante la migración, el mensaje real/carga de datos no se copiarán del estándar en el espacio de nombres premium. Los mensajes que se purguen manualmente y, a continuación, se envían al espacio de nombres premium.
+Durante la migración, la carga o los datos de mensaje reales no se copia del espacio de nombres estándar al premium. Los mensajes se deben purgar de manera manual y, luego, se deben enviar al espacio de nombres premium.
 
-Sin embargo, si puede migrar durante una ventana de mantenimiento o mantenimiento planeado y no desea purgar manualmente y enviar los mensajes, siga estos pasos:
+Sin embargo, si puede realizar la migración durante una ventana de mantenimiento planeado y no quiere purgar manualmente los mensajes y enviarlos, siga estos pasos:
 
-1. Detenga las aplicaciones del remitente. Las aplicaciones de receptor procesará los mensajes que están actualmente en el espacio de nombres estándar y se vaciará la cola.
-1. Después de las colas y suscripciones en el estándar Namespace están vacías, siga el procedimiento descrito anteriormente para ejecutar la migración desde el estándar para el espacio de nombres premium.
-1. Una vez completada la migración, puede reiniciar las aplicaciones del remitente.
-1. Los remitentes y receptores ahora se conectarán automáticamente con el espacio de nombres premium.
+1. Detenga las aplicaciones remitentes. Las aplicaciones receptoras procesarán los mensajes que actualmente se encuentran en el espacio de nombres estándar y purgarán la cola.
+1. Una vez que las colas y las suscripciones del espacio de nombres estándar están vacías, siga el procedimiento que se describió anteriormente para ejecutar la migración desde el espacio de nombres estándar al premium.
+1. Una vez que se completa la migración, puede reiniciar las aplicaciones remitentes.
+1. Las aplicaciones remitentes y receptoras ahora se conectarán automáticamente con el espacio de nombres premium.
 
     >[!NOTE]
-    > No es necesario detener las aplicaciones de receptor para la migración.
+    > No es necesario que detenga las aplicaciones receptoras para realizar la migración.
     >
-    > Una vez completada la migración, las aplicaciones de receptor se desconecte del espacio de nombres estándar y conectarse automáticamente al espacio de nombres premium.
+    > Una vez que se complete la migración, las aplicaciones receptoras se desconectarán del espacio de nombres estándar y se conectarán automáticamente al espacio de nombres premium.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre la [diferencias entre la mensajería estándar y premium](./service-bus-premium-messaging.md).
-* Obtenga información sobre la [aspectos de recuperación ante desastres y alta disponibilidad para el Bus de servicio premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
+* Obtenga más información sobre las [diferencias entre mensajería Estándar y Premium](./service-bus-premium-messaging.md).
+* Conozca los [aspectos de alta disponibilidad y de recuperación ante desastres geográfica para el nivel premium de Service Bus](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
-[Página de aterrizaje de migración]: ./media/service-bus-standard-premium-migration/1.png
-[Espacio de nombres del programa de instalación]: ./media/service-bus-standard-premium-migration/2.png
-[Configuración del espacio de nombres: crear el espacio de nombres premium]: ./media/service-bus-standard-premium-migration/3.png
-[Configuración del espacio de nombres: elegir el nombre de la migración de post]: ./media/service-bus-standard-premium-migration/4.png
-[Configurar el inicio del espacio de nombres - sincronización de entidades:]: ./media/service-bus-standard-premium-migration/5.png
-[Espacio de nombres - sincronización de entidades: progreso de la instalación]: ./media/service-bus-standard-premium-migration/8.png
-[Cambiar el espacio de nombres - menú conmutador]: ./media/service-bus-standard-premium-migration/9.png
-[Espacio de nombres de conmutador: correcto]: ./media/service-bus-standard-premium-migration/12.png
+[Página de aterrizaje de la migración]: ./media/service-bus-standard-premium-migration/1.png
+[Configuración del espacio de nombres]: ./media/service-bus-standard-premium-migration/2.png
+[Configuración del espacio de nombres: creación de un espacio de nombres premium]: ./media/service-bus-standard-premium-migration/3.png
+[Configuración del espacio de nombres: elección de un nombre posterior a la migración]: ./media/service-bus-standard-premium-migration/4.png
+[Configuración del espacio de nombres: sincronización de entidades, inicio]: ./media/service-bus-standard-premium-migration/5.png
+[Configuración del espacio de nombres: sincronización de entidades, progreso]: ./media/service-bus-standard-premium-migration/8.png
+[Cambio del espacio de nombres: menú de cambio]: ./media/service-bus-standard-premium-migration/9.png
+[Cambio de espacio de nombres: correcto]: ./media/service-bus-standard-premium-migration/12.png
 
-[Anular el flujo: anular la sincronización]: ./media/service-bus-standard-premium-migration/abort1.png
-[Anular el flujo: anular completa]: ./media/service-bus-standard-premium-migration/abort3.png
+[Flujo de anulación: anulación de la sincronización]: ./media/service-bus-standard-premium-migration/abort1.png
+[Flujo de anulación: anulación completa]: ./media/service-bus-standard-premium-migration/abort3.png

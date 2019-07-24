@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66255284"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) supervisa los servicios back-end y componentes después de la implementación, que le ayudarán a detectar y diagnosticar rápidamente problemas de rendimiento y otros. Puede utilizar Application Insights para los servicios de Node.js que se hospedan en el centro de datos, en máquinas virtuales de Azure y aplicaciones web, e incluso en otras nubes públicas.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) supervisa los servicios back-end y componentes después de implementarlos para ayudarle a detectar y diagnosticar rápidamente problemas de rendimiento, entre otros. Puede utilizar Application Insights para los servicios de Node.js que se hospedan en el centro de datos, en máquinas virtuales de Azure y aplicaciones web, e incluso en otras nubes públicas.
 
 Para recibir, almacenar y explorar los datos de supervisión, incluya el SDK en su código y luego configure el recurso correspondiente de Application Insights en Azure. El SDK envía datos a ese recurso para realizar el análisis y la exploración posteriormente.
 

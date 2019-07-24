@@ -1,6 +1,6 @@
 ---
-title: Configure la terminación SSL con certificados de Key Vault mediante Azure PowerShell
-description: Obtenga información sobre cómo integrar Azure Application Gateway con Key Vault para certificados de servidor que se adjuntan a los agentes de escucha habilitado para HTTPS.
+title: Configuración de la terminación SSL con certificados de Key Vault mediante Azure PowerShell
+description: Obtenga información sobre cómo puede integrar Azure Application Gateway con Key Vault para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 4/22/2019
 ms.author: victorh
 ms.openlocfilehash: e011caa8c7a0c7383d16c81f4bff29d3c1c99f99
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827608"
 ---
-# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configure la terminación SSL con certificados de Key Vault mediante Azure PowerShell
+# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configuración de la terminación SSL con certificados de Key Vault mediante Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md) es un secreto administrado plataforma almacenar que puede usar para proteger los secretos, claves y certificados SSL. Azure Application Gateway admite la integración con Key Vault (en versión preliminar pública) para los certificados de servidor que se adjuntan a los agentes de escucha HTTPS habilitado. Esta compatibilidad está limitada a v2 SKU de Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-whatis.md) es un almacén de secretos administrado por la plataforma que puede usar para proteger los secretos, las claves y los certificados SSL. Azure Application Gateway admite la integración con Key Vault (en versión preliminar pública) para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado. Esta compatibilidad está limitada a la versión 2 de la SKU de Application Gateway.
 
-Para obtener más información, consulte [terminación SSL con certificados de Key Vault](key-vault-certs.md).
+Para obtener más información, consulte [Terminación SSL con certificados de Key Vault](key-vault-certs.md).
 
-Este artículo muestra cómo usar un script de PowerShell de Azure para integrar el almacén de claves con la puerta de enlace de aplicaciones para los certificados de terminación SSL.
+Este artículo muestra cómo usar un script de Azure PowerShell para integrar el almacén de claves con la puerta de enlace de aplicaciones para los certificados de terminación SSL.
 
-En este artículo requiere la versión 1.0.0 del módulo de Azure PowerShell o una versión posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Para ejecutar los comandos en este artículo, también deberá crear una conexión con Azure mediante la ejecución de `Connect-AzAccount`.
+En este artículo se requiere la versión 1.0.0 del módulo de Azure PowerShell u otra de versión posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Para ejecutar los comandos de este tutorial, también debe crear una conexión con Azure ejecutando `Connect-AzAccount`.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -55,7 +55,7 @@ $identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" `
   -Location $location -ResourceGroupName $rgname
 ```
 
-### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>Crear un almacén de claves, la directiva y el certificado que se usará la puerta de enlace de aplicaciones
+### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>Crear un almacén de claves, la directiva y el certificado que usará la puerta de enlace de aplicaciones
 
 ```azurepowershell
 $keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location -EnableSoftDelete 
@@ -78,14 +78,14 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
   -AddressPrefix "10.0.0.0/16" -Subnet @($sub1, $sub2)
 ```
 
-### <a name="create-a-static-public-virtual-ip-vip-address"></a>Cree una dirección de IP (VIP) pública virtual estática
+### <a name="create-a-static-public-virtual-ip-vip-address"></a>Crear una dirección IP virtual (VIP) pública y estática
 
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="create-pool-and-front-end-ports"></a>Crear puertos de front-end y grupo
+### <a name="create-pool-and-front-end-ports"></a>Crear un grupo y puertos de front-end
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -98,7 +98,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### <a name="point-the-ssl-certificate-to-your-key-vault"></a>Seleccione el certificado SSL al almacén de claves
+### <a name="point-the-ssl-certificate-to-your-key-vault"></a>Seleccionar el certificado SSL en el almacén de claves
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
@@ -140,4 +140,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información acerca de la terminación de SSL](ssl-overview.md)
+[Más información sobre la terminación SSL](ssl-overview.md)

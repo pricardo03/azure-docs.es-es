@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ee721558e0e643a4b5fdcfa4cf0fe9c2195fa479
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64736967"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186286"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: diseño de alto rendimiento
 
@@ -45,7 +45,7 @@ En esta sección, trataremos los indicadores de rendimiento comunes en el contex
 
 ## <a name="iops"></a>E/S
 
-IOPS, o el número de operaciones de E/S por segundo, es el número de solicitudes que la aplicación envía a los discos de almacenamiento en un segundo. Una operación de entrada y salida se puede leer o escritura, secuencial o aleatoria. Las aplicaciones de procesamiento de transacciones en línea (OLTP), como un sitio web de venta directa en línea, necesitan procesar muchas solicitudes de usuario simultáneas inmediatamente. Las solicitudes de usuario suponen insertar y actualizar transacciones con un uso intensivo de las bases de datos y que la aplicación debe procesar rápidamente. Por lo tanto, las aplicaciones OLTP requieren IOPS muy alta. Dichas aplicaciones controlan millones de solicitudes de E/S pequeñas y aleatorias. Si tiene este tipo de aplicación, debe diseñar la infraestructura de aplicaciones para optimizar la IOPS. En la sección siguiente, *Optimización del rendimiento de las aplicaciones*, analizaremos en detalle todos los factores que debe tener en cuenta para obtener una IOPS alta.
+IOPS, o el número de operaciones de E/S por segundo, es el número de solicitudes que la aplicación envía a los discos de almacenamiento en un segundo. Una operación de entrada y salida puede ser de lectura o escritura, secuencial o aleatoria. Las aplicaciones de procesamiento de transacciones en línea (OLTP), como un sitio web de venta directa en línea, necesitan procesar muchas solicitudes de usuario simultáneas inmediatamente. Las solicitudes de usuario suponen insertar y actualizar transacciones con un uso intensivo de las bases de datos y que la aplicación debe procesar rápidamente. Por lo tanto, las aplicaciones OLTP requieren IOPS muy alta. Dichas aplicaciones controlan millones de solicitudes de E/S pequeñas y aleatorias. Si tiene este tipo de aplicación, debe diseñar la infraestructura de aplicaciones para optimizar la IOPS. En la sección siguiente, *Optimización del rendimiento de las aplicaciones*, analizaremos en detalle todos los factores que debe tener en cuenta para obtener una IOPS alta.
 
 Cuando conecte un disco de Almacenamiento premium a la máquina virtual a gran escala, Azure aprovisiona automáticamente un número garantizado de IOPS según la especificación del disco. Por ejemplo, un disco P50 aprovisiona 7500 IOPS. Cada tamaño de máquina virtual a gran escala también tiene un límite de IOPS específico que puede admitir. Por ejemplo, una máquina virtual GS5 estándar tiene un límite de 80.000 IOPS.
 
@@ -67,13 +67,13 @@ La latencia es el tiempo que tarda una aplicación en recibir una sola solicitud
 
 Cuando se optimiza la aplicación para obtener un valor de IOPS y un rendimiento mayores, afectará a su latencia. Después de ajustar el rendimiento de las aplicaciones, siempre se evalúa la latencia de la aplicación para evitar un comportamiento inesperado con alta latencia.
 
-Las siguientes operaciones de plano de control en Managed Disks pueden implicar el movimiento del disco desde una ubicación de almacenamiento a otro. Esto se coordina a través de la copia en segundo plano de datos que pueden tardar varias horas en completarse, normalmente menos de 24 horas según la cantidad de datos de los discos. Durante ese tiempo la aplicación puede experimentar una cantidad superior a la latencia de lectura habitual como algunas de las lecturas se puedan redirigir a la ubicación original y pueden tardar más en completarse. No hay ningún impacto en la latencia de escritura durante este período.
+Las siguientes operaciones de plano de control en Managed Disks pueden implicar el movimiento del disco de una ubicación de almacenamiento a otra. Esto se orquesta mediante una copia en segundo plano de los datos que puede tardar varias horas en completarse, normalmente menos de 24 horas en función de la cantidad de datos en los discos. Durante ese tiempo, la aplicación puede experimentar una latencia de lectura más alta de lo habitual, ya que algunas lecturas pueden redirigirse a la ubicación original y pueden tardar más tiempo en completarse. No hay ningún impacto en la latencia de escritura durante este período.
 
 - Actualizar el tipo de almacenamiento.
-- Separar y adjuntar un disco de una máquina virtual a otro.
-- Crear un disco administrado desde un disco duro virtual.
-- Crear un disco administrado desde una instantánea.
-- Convertir discos no administrados a discos administrados.
+- Asociar o desasociar un disco de una VM a otra.
+- Crear un disco administrado a partir de un VHD.
+- Crear un disco administrado a partir de una instantánea.
+- Convertir discos no administrados en discos administrados.
 
 # <a name="performance-application-checklist-for-disks"></a>Lista de comprobación del rendimiento de las aplicaciones para los discos
 
@@ -104,23 +104,23 @@ A continuación, mida los requisitos para obtener el máximo rendimiento de sus 
 | Profundidad de la cola | | | |
 
 > [!NOTE]
->  Debe considerar la posibilidad de escalar estos números en función del crecimiento futuro previsto de la aplicación. Es buena idea para planificar el crecimiento antes de tiempo, porque podría ser más difícil cambiar la infraestructura para mejorar el rendimiento más adelante.
+> Debe considerar la posibilidad de escalar estos números en función del crecimiento futuro previsto de la aplicación. Es buena idea para planificar el crecimiento antes de tiempo, porque podría ser más difícil cambiar la infraestructura para mejorar el rendimiento más adelante.
 
 Si tiene una aplicación existente y desea cambiar a Premium Storage, primero prepare la lista de comprobación anterior para la aplicación existente. A continuación, cree un prototipo de la aplicación en Premium Storage y diseñe la aplicación de acuerdo con las directrices descritas en *Optimización del rendimiento de las aplicaciones* , en una sección posterior de este documento. En el siguiente artículo se describen las herramientas que puede usar para recopilar las mediciones de rendimiento.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>Contadores para medir los requisitos de rendimiento de las aplicaciones
 
-La mejor forma de medir los requisitos de rendimiento de las aplicaciones es usar las herramientas de supervisión del rendimiento proporcionadas por el sistema operativo del servidor. Puede usar PerfMon para Windows e iostat para Linux. Estas herramientas capturan contadores correspondientes a cada medida explicada en la sección anterior. Debe capturar los valores de estos contadores cuando la aplicación ejecuta su normales, pico y cargas de trabajo de las horas de trabajo.
+La mejor forma de medir los requisitos de rendimiento de las aplicaciones es usar las herramientas de supervisión del rendimiento proporcionadas por el sistema operativo del servidor. Puede usar PerfMon para Windows e iostat para Linux. Estas herramientas capturan contadores correspondientes a cada medida explicada en la sección anterior. Debe capturar los valores de estos contadores cuando la aplicación funciona con cargas de trabajo normales, pico y valle.
 
-Los contadores de rendimiento están disponibles para el procesador y la memoria, así como en cada disco lógico y físico del servidor. Al usar discos de Almacenamiento premium con una máquina virtual, los contadores del disco físico son para cada disco de Almacenamiento premium y los contadores del disco lógico son para cada volumen creado en los discos de Almacenamiento premium. Debe capturar los valores de los discos que hospedan la carga de trabajo de la aplicación. Si hay una asignación uno a uno entre los discos lógicos y físicos, puede hacer referencia a los contadores del disco físico; de lo contrario, haga referencia a los contadores del disco lógico. En Linux, el comando iostat genera un informe de uso de CPU y disco. El informe de uso del disco proporciona estadísticas por cada dispositivo físico o partición. Si tiene un servidor de base de datos con sus datos y los registros en discos independientes, recopilar estos datos para ambos discos. Tabla siguiente se describen los contadores de discos, procesadores y memoria:
+Los contadores de rendimiento están disponibles para el procesador y la memoria, así como en cada disco lógico y físico del servidor. Al usar discos de Almacenamiento premium con una máquina virtual, los contadores del disco físico son para cada disco de Almacenamiento premium y los contadores del disco lógico son para cada volumen creado en los discos de Almacenamiento premium. Debe capturar los valores de los discos que hospedan la carga de trabajo de la aplicación. Si hay una asignación uno a uno entre los discos lógicos y físicos, puede hacer referencia a los contadores del disco físico; de lo contrario, haga referencia a los contadores del disco lógico. En Linux, el comando iostat genera un informe de uso de CPU y disco. El informe de uso del disco proporciona estadísticas por cada dispositivo físico o partición. Si tiene un servidor de bases de datos con sus datos y registros en discos independientes, recopile estos datos para ambos discos. En la tabla siguiente se describen los contadores para discos, procesadores y memoria:
 
 | Contador | DESCRIPCIÓN | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **E/S por segundo o transacciones por segundo** |Número de solicitudes de E/S emitidas en el disco de almacenamiento por segundo. |Lecturas de disco/s  <br>  Escrituras en disco/s |tps  <br> r/s  <br>  w/s |
-| **Escrituras y lecturas de disco** |Porcentaje de operaciones de lectura y escritura realizadas en el disco. |% de tiempo de lectura de disco  <br>  % de tiempo de escritura de disco |r/s  <br>  w/s |
-| **Rendimiento** |Cantidad de datos que se leen o escriben en el disco por segundo. |Bytes de lectura de disco/s  <br>   Bytes de escritura en disco/s |kB_read/s <br> kB_wrtn/s |
-| **Latency** |Tiempo total para completar una solicitud de E/S del disco. |Promedio de segundos de disco/lectura  <br>  Promedio de segundos de disco/escritura |await  <br>  svctm |
-| **Tamaño de E/S** |El tamaño de E/S las solicitudes en los discos de almacenamiento. |Promedio de bytes de disco/lectura  <br>  Promedio de bytes de disco/escritura |avgrq-sz |
+| **E/S por segundo o transacciones por segundo** |Número de solicitudes de E/S emitidas en el disco de almacenamiento por segundo. |Lecturas de disco/s <br> Escrituras en disco/s |tps <br> r/s <br> w/s |
+| **Escrituras y lecturas de disco** |Porcentaje de operaciones de lectura y escritura realizadas en el disco. |% de tiempo de lectura de disco <br> % de tiempo de escritura de disco |r/s <br> w/s |
+| **Rendimiento** |Cantidad de datos que se leen o escriben en el disco por segundo. |Bytes de lectura de disco/s <br>  Bytes de escritura en disco/s |kB_read/s <br> kB_wrtn/s |
+| **Latency** |Tiempo total para completar una solicitud de E/S del disco. |Promedio de segundos de disco/lectura <br> Promedio de segundos de disco/escritura |await <br> svctm |
+| **Tamaño de E/S** |El tamaño de E/S las solicitudes en los discos de almacenamiento. |Promedio de bytes de disco/lectura <br> Promedio de bytes de disco/escritura |avgrq-sz |
 | **Profundidad de la cola** |Número de solicitudes de E/S pendientes de lectura de o escritura en el disco de almacenamiento. |Longitud actual de cola de disco |avgqu-sz |
 | **Máx. memoria** |Cantidad de memoria necesaria para ejecutar la aplicación sin problemas |% de bytes confirmados en uso |Use vmstat |
 | **Máx. CPU** |Cantidad de CPU necesaria para ejecutar la aplicación sin problemas |% de tiempo de procesador |%util |
@@ -131,13 +131,13 @@ Obtenga más información sobre [iostat](https://linux.die.net/man/1/iostat) y [
 
 ## <a name="optimize-application-performance"></a>Optimización del rendimiento de las aplicaciones
 
-Los principales factores que influyen en el rendimiento de una aplicación que se ejecuta en Premium Storage son las solicitudes de la naturaleza de E/S, el tamaño de máquina virtual, tamaño de disco, el número de discos, la caché de disco, subprocesamiento múltiple y la profundidad de cola. Puede controlar algunos de estos factores con mecanismos proporcionados por el sistema. Es posible que la mayoría de las aplicaciones no le de opción de modificar el tamaño de E/S y la profundidad de la cola directamente. Por ejemplo, si usa SQL Server, no puede elegir la profundidad de la cola y el tamaño de E/S. SQL Server selecciona los valores de tamaño de E/S y profundidad de la cola óptimos para obtener el máximo rendimiento. Es importante comprender los efectos de ambos tipos de factores en rendimiento de su aplicación para poder aprovisionar los recursos adecuados para satisfacer las necesidades de rendimiento.
+Los principales factores que influyen en el rendimiento de una aplicación que se ejecuta en Premium Storage son la naturaleza de las solicitudes de E/S, el tamaño de la máquina virtual, el tamaño del disco, el número de discos, la caché de disco, el multithreading y la profundidad de la cola. Puede controlar algunos de estos factores con mecanismos proporcionados por el sistema. Es posible que la mayoría de las aplicaciones no le de opción de modificar el tamaño de E/S y la profundidad de la cola directamente. Por ejemplo, si usa SQL Server, no puede elegir la profundidad de la cola y el tamaño de E/S. SQL Server selecciona los valores de tamaño de E/S y profundidad de la cola óptimos para obtener el máximo rendimiento. Es importante comprender los efectos de ambos tipos de factores en rendimiento de su aplicación para poder aprovisionar los recursos adecuados para satisfacer las necesidades de rendimiento.
 
-En esta sección, consulte la lista de comprobación de los requisitos de la aplicación que creó para averiguar la cantidad que necesita para optimizar el rendimiento de las aplicaciones. En función de ello, podrá determinar qué factores de esta sección debe optimizar. Para ver los efectos de cada factor en el rendimiento de las aplicaciones, ejecute las herramientas de pruebas comparativas en la configuración de su aplicación. Consulte la sección de pruebas comparativas al final de este artículo para conocer los pasos ejecutar herramientas de pruebas comparativas comunes en máquinas virtuales de Linux y Windows.
+En esta sección, consulte la lista de comprobación de los requisitos de la aplicación que creó para averiguar la cantidad que necesita para optimizar el rendimiento de las aplicaciones. En función de ello, podrá determinar qué factores de esta sección debe optimizar. Para ver los efectos de cada factor en el rendimiento de las aplicaciones, ejecute las herramientas de pruebas comparativas en la configuración de su aplicación. Vea la sección Pruebas comparativas al final de este artículo para conocer los pasos para ejecutar las herramientas de pruebas comparativas comunes en las máquinas virtuales de Windows y de Linux.
 
-### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Optimizar la IOPS, rendimiento y latencia de un vistazo
+### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Optimización de IOPS, rendimiento y latencia de un vistazo
 
-En la tabla siguiente se resume los factores de rendimiento y los pasos necesarios para optimizar la IOPS, rendimiento y latencia. Las secciones que siguen a este resumen describen cada factor con mucha más profundidad.
+En la tabla siguiente se resumen los factores de rendimiento y los pasos necesarios para optimizar la IOPS, el rendimiento y la latencia. Las secciones que siguen a este resumen describen cada factor con mucha más profundidad.
 
 Para obtener más información sobre los tamaños de máquina virtual y la IOPS, el rendimiento y la latencia disponibles para cada tipo de máquina virtual, vea los [tamaños de máquinas virtuales Linux](../articles/virtual-machines/linux/sizes.md) o [tamaños de máquinas virtuales Windows](../articles/virtual-machines/windows/sizes.md).
 
@@ -151,13 +151,13 @@ Para obtener más información sobre los tamaños de máquina virtual y la IOPS,
 | **Máquina virtual y límites de escala de disco** |El límite de IOPS del tamaño de la máquina virtual elegido debe ser mayor que la IOPS total controlada por los discos de almacenamiento premium conectados. |El límite de rendimiento del tamaño de la máquina virtual elegido debe ser mayor que el rendimiento total controlado por los discos de almacenamiento premium conectados. |Los límites de la escala del tamaño de la máquina virtual elegidos deben ser mayores que los límites de escala total de los discos de almacenamiento premium conectados. |
 | **Almacenamiento en caché de disco** |Habilite la caché de solo lectura en los discos de almacenamiento premium con operaciones intensivas de lectura para obtener una mayor IOPS de lectura. | &nbsp; |Habilite la caché de solo lectura en los discos de almacenamiento premium con operaciones intensivas de lectura para obtener latencias de lectura muy bajas. |
 | **Seccionamiento del disco** |Use varios discos y secciónelos conjuntamente para conseguir un límite de IOPS y rendimiento combinado superior. El límite combinado por máquina virtual debe ser mayor que los límites combinados de los discos premium conectados. | &nbsp; | &nbsp; |
-| **Tamaño de franja** |Un menor tamaño de franja para un patrón de E/S pequeño y aleatorio visto en las aplicaciones OLTP. Por ejemplo, use el tamaño de franja de 64 KB para aplicaciones OLTP de SQL Server. |Un mayor tamaño de franja para un patrón de E/ grande y secuencial visto en las aplicaciones de Almacenamiento de datos. Por ejemplo, usar el tamaño de franja de 256 KB para aplicaciones de almacenamiento de datos de SQL Server. | &nbsp; |
+| **Tamaño de franja** |Un menor tamaño de franja para un patrón de E/S pequeño y aleatorio visto en las aplicaciones OLTP. Por ejemplo, puede usar un tamaño de franja de 64 KB para aplicaciones OLTP de SQL Server. |Un mayor tamaño de franja para un patrón de E/ grande y secuencial visto en las aplicaciones de Almacenamiento de datos. Por ejemplo, puede usar un tamaño de franja de 256 KB para aplicaciones de Almacenamiento de datos de SQL Server. | &nbsp; |
 | **Multithreading** |Use el multithreading para insertar un mayor número de solicitudes en Premium Storage, lo que dará lugar a una mayor IOPS y rendimiento. Por ejemplo, en SQL Server establezca un valor MAXDOP alto para asignar más CPU a SQL Server. | &nbsp; | &nbsp; |
 | **Profundidad de la cola** |Una profundidad de la cola mayor produce una IOPS mayor. |Una profundidad de la cola mayor produce un mayor rendimiento. |Una profundidad de la cola menor produce latencias más bajas. |
 
 ## <a name="nature-of-io-requests"></a>Naturaleza de las solicitudes de E/S
 
-Una solicitud de E/S es una unidad de operación de entrada y salida que la aplicación va a realizar. La identificación de la naturaleza de las solicitudes de E/S, aleatorias o secuenciales, lectura o escritura, pequeñas o grandes, ayudará a determinar los requisitos de rendimiento de la aplicación. Es importante comprender la naturaleza de las solicitudes de E/S, para tomar las decisiones correctas al diseñar la infraestructura de aplicación.
+Una solicitud de E/S es una unidad de operación de entrada y salida que la aplicación va a realizar. La identificación de la naturaleza de las solicitudes de E/S, aleatorias o secuenciales, lectura o escritura, pequeñas o grandes, ayudará a determinar los requisitos de rendimiento de la aplicación. Es importante comprender la naturaleza de las solicitudes de E/S para tomar las decisiones correctas al diseñar la infraestructura de las aplicaciones.
 
 El tamaño de E/S es uno de los factores más importantes. El tamaño de E/S es el tamaño de la solicitud de operación de entrada/salida generada por la aplicación. El tamaño de E/S tiene una repercusión considerable en el rendimiento, especialmente en la IOPS y el ancho de banda que la aplicación es capaz de lograr. La fórmula siguiente muestra la relación entre IOPS, tamaño de E/S y ancho de banda y rendimiento.  
     ![](media/premium-storage-performance/image1.png)
@@ -166,8 +166,8 @@ Algunas aplicaciones permiten modificar su tamaño de E/S, mientras que otras ap
 
 Si usa una aplicación que no permite cambiar el tamaño de E/S, use las directrices de este artículo para optimizar el KPI de rendimiento que es más importante para su aplicación. Por ejemplo,
 
-* Una aplicación OLTP genera millones de solicitudes de E/S pequeñas y aleatorias. Para controlar estos tipos de solicitudes de E/S, debe diseñar su infraestructura de aplicación para obtener una mayor IOPS.  
-* Una aplicación de almacenamiento de datos genera solicitudes de E/S grandes y secuenciales. Para controlar estos tipos de solicitudes de E/S, debe diseñar su infraestructura de aplicación para obtener el mayor ancho de banda o el rendimiento.
+* Una aplicación OLTP genera millones de solicitudes de E/S pequeñas y aleatorias. Para controlar estos tipos de solicitudes de E/S, debe diseñar la infraestructura de la aplicación para obtener una mayor IOPS.  
+* Una aplicación de almacenamiento de datos genera solicitudes de E/S grandes y secuenciales. Para controlar estos tipos de solicitudes de E/S, debe diseñar la infraestructura de la aplicación para obtener el mayor ancho de banda o el rendimiento.
 
 Si usa una aplicación que le permite cambiar el tamaño de E/S, use esta regla general para el tamaño de E/S, además otras directrices de rendimiento.
 
@@ -178,40 +178,40 @@ Este es un ejemplo de cómo calcular la IOPS y el ancho de banda y el rendimient
 
 | Requisito de la aplicación | Tamaño de E/S | E/S | Rendimiento/ancho de banda |
 | --- | --- | --- | --- |
-| IOPS máx. |8 KB |5.000 |40 MB por segundo |
+| IOPS máx. |8 KB |5\.000 |40 MB por segundo |
 | Rendimiento máx. |1024 KB |200 |200 MB por segundo |
-| Rendimiento máx.+ IOPS alta |64 KB |3.200 |200 MB por segundo |
-| IOPS máx. + alto rendimiento |32 KB |5.000 |160 MB por segundo |
+| Rendimiento máx.+ IOPS alta |64 KB |3\.200 |200 MB por segundo |
+| IOPS máx. + alto rendimiento |32 KB |5\.000 |160 MB por segundo |
 
 Para obtener una IOPS y un ancho de banda mayores que el valor máximo de un solo disco de almacenamiento premium, use varios discos premium seccionados conjuntamente. Por ejemplo, seccione dos discos P30 para obtener una IOPS combinada de 10.000 IOPS o un rendimiento combinado de 400 MB por segundo. Como se explica en la sección siguiente, debe usar un tamaño de máquina virtual que admita la IOPS y el rendimiento de disco combinados.
 
 > [!NOTE]
->  a medida que aumente la IOPS o el rendimiento, el otro también aumenta, asegúrese de que no supera los límites de IOPS o rendimiento del disco o la máquina virtual al aumentar cualquiera de ellos.
+> a medida que aumente la IOPS o el rendimiento, el otro también aumenta, asegúrese de que no supera los límites de IOPS o rendimiento del disco o la máquina virtual al aumentar cualquiera de ellos.
 
-Para ver los efectos del tamaño de E/S en el rendimiento de las aplicaciones, puede ejecutar las herramientas de pruebas comparativas en la máquina virtual y los discos. Cree varias ejecuciones de pruebas y use un tamaño de E/S diferente para cada ejecución para ver el impacto. Consulte la sección de pruebas comparativas al final de este artículo para obtener más detalles.
+Para ver los efectos del tamaño de E/S en el rendimiento de las aplicaciones, puede ejecutar las herramientas de pruebas comparativas en la máquina virtual y los discos. Cree varias ejecuciones de pruebas y use un tamaño de E/S diferente para cada ejecución para ver el impacto. Consulte la sección Pruebas comparativas al final de este artículo para más detalles.
 
 ## <a name="high-scale-vm-sizes"></a>Tamaños de máquina virtual a gran escala
 
-Al empezar a diseñar una aplicación, una de las primeras cosas que hay que hacer es elegir una máquina virtual para hospedar la aplicación. Premium Storage viene con tamaños de máquina virtual a gran escala que pueden ejecutar aplicaciones que requieren una mayor capacidad de proceso y un alto rendimiento de E/S del disco local Estas máquinas virtuales proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco local. Ejemplos de máquinas virtuales de alta escalabilidad que admiten Premium Storage son la serie DS, DSv2 y GS de máquinas virtuales.
+Al empezar a diseñar una aplicación, una de las primeras cosas que hay que hacer es elegir una máquina virtual para hospedar la aplicación. Premium Storage viene con tamaños de máquina virtual a gran escala que pueden ejecutar aplicaciones que requieren una mayor capacidad de proceso y un alto rendimiento de E/S del disco local Estas máquinas virtuales proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco local. Algunos ejemplos de máquinas virtuales a gran escala que admiten Premium Storage son las de las series DS, DSv2 y GS.
 
-Las máquinas virtuales alta escala están disponibles en distintos tamaños con un número diferente de núcleos de CPU, memoria, sistema operativo y tamaño del disco temporal. Cada tamaño de máquina virtual también tiene el número máximo de discos de datos que se puede conectar a la máquina virtual. Por lo tanto, el tamaño de máquina virtual seleccionado afectará al procesamiento, la memoria y la capacidad de almacenamiento que están disponibles para su aplicación. También afecta al proceso y los costos de almacenamiento. Por ejemplo, a continuación se proporcionan las especificaciones del mayor tamaño de máquina virtual en una serie DS, una serie DSv2 y una serie GS:
+Las máquinas virtuales a gran escala están disponibles en distintos tamaños con un número diferente de núcleos de CPU, memoria, sistema operativo y tamaño del disco temporal. Cada tamaño de máquina virtual también tiene el número máximo de discos de datos que se puede conectar a la máquina virtual. Por lo tanto, el tamaño de máquina virtual seleccionado afectará al procesamiento, la memoria y la capacidad de almacenamiento que están disponibles para su aplicación. También afecta al proceso y los costos de almacenamiento. Por ejemplo, a continuación se proporcionan las especificaciones del mayor tamaño de máquina virtual en una serie DS, una serie DSv2 y una serie GS:
 
 | Tamaño de VM | Núcleos de CPU | Memoria | Tamaños de disco de VM | Máx. discos de datos | Tamaño de memoria caché | E/S | Límites de E/S de la memoria caché de ancho de banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |OS = 1.023 GB  <br>  SSD Local = 224 GB |32 |576 GB |50.000 E/S por segundo  <br>  512 MB por segundo |4.000 IOPS y 33 MB por segundo |
-| Standard_GS5 |32 |448 GB |OS = 1.023 GB  <br>  SSD Local = 896 GB |64 |4224 GB |80.000 E/S por segundo  <br>  2000 MB por segundo |5.000 IOPS y 50 MB por segundo |
+| Standard_DS14 |16 |112 GB |OS = 1.023 GB <br> SSD Local = 224 GB |32 |576 GB |50.000 E/S por segundo <br> 512 MB por segundo |4\.000 IOPS y 33 MB por segundo |
+| Standard_GS5 |32 |448 GB |OS = 1.023 GB <br> SSD Local = 896 GB |64 |4224 GB |80.000 E/S por segundo <br> 2000 MB por segundo |5\.000 IOPS y 50 MB por segundo |
 
 Para ver una lista completa de todos los tamaños disponibles de máquina virtual de Azure, consulte el artículo sobre [tamaños de las máquinas virtuales Windows](../articles/virtual-machines/windows/sizes.md) o [tamaños de las máquinas virtuales Linux](../articles/virtual-machines/linux/sizes.md). Elija un tamaño de máquina virtual que puede cumplir y escale a los requisitos de rendimiento de las aplicaciones que desee. Además, tenga en cuenta que debe seguir consideraciones importantes al elegir los tamaños de las máquinas virtuales.
 
 *Límites de escala*  
- Los límites máximos de IOPS por máquina virtual y por disco son diferentes e independientes entre sí. Asegúrese de que la aplicación mantiene la IOPS dentro de los límites de la máquina virtual, así como los discos de premium conectados a ella. En caso contrario, el rendimiento de las aplicaciones experimentará una limitación.
+Los límites máximos de IOPS por máquina virtual y por disco son diferentes e independientes entre sí. Asegúrese de que la aplicación mantiene la IOPS dentro de los límites de la máquina virtual, así como los discos de premium conectados a ella. En caso contrario, el rendimiento de las aplicaciones experimentará una limitación.
 
 Por ejemplo, suponga que el requisito de la aplicación es un máximo de 4.000 IOPS. Para lograrlo, aprovisiona un disco P30 en una máquina virtual DS1. El disco P30 puede proporcionar hasta 5.000 IOPS. Sin embargo, la máquina virtual DS1 está limitada a 3.200 IOPS. Por consiguiente, el rendimiento de las aplicaciones estará limitado a 3.200 IOPS por el límite de la máquina virtual y el rendimiento disminuirá. Para evitar esta situación, elija un tamaño de máquina virtual y de disco que cumplan los requisitos de la aplicación.
 
 *Costo de operación*  
 En muchos casos, es posible que el costo general de operación con Premium Storage sea inferior al uso de Standard Storage.
 
-Por ejemplo, considere una aplicación que requiere más de 16.000 IOPS. Para obtener este rendimiento, necesitará un estándar\_VM de IaaS de Azure D14, lo que puede proporcionar una IOPS máxima de 16.000 con 32 discos de 1 TB de almacenamiento estándar. Cada disco de almacenamiento estándar de 1 TB puede alcanzar un máximo de 500 IOPS. El costo estimado de esta máquina virtual por mes será de 1.570 USD. El costo mensual de 32 discos de almacenamiento estándar será de 1.638 USD. El costo mensual total estimado será de 3.208 USD.
+Por ejemplo, considere una aplicación que requiere más de 16.000 IOPS. Para obtener este rendimiento, necesitará una VM IaaS de Azure Standard\_D14, que puede proporcionar una IOPS máxima de 16.000 con 32 discos de 1 TB de almacenamiento estándar. Cada disco de almacenamiento estándar de 1 TB puede alcanzar un máximo de 500 IOPS. El costo estimado de esta máquina virtual por mes será de 1.570 USD. El costo mensual de 32 discos de almacenamiento estándar será de 1.638 USD. El costo mensual total estimado será de 3.208 USD.
 
 Sin embargo, si hospeda la misma aplicación en Premium Storage, necesitará un tamaño de máquina virtual menor y menos discos de Premium Storage, lo que reduce el costo total. Una VM Standard\_DS13 puede cumplir los requisitos de 16.000 IOPS con cuatro discos P30. La máquina virtual DS13 tiene un máximo de 25.600 IOPS y cada disco P30 tiene un máximo de 5.000 IOPS. En general, esta configuración puede lograr 5.000 x 4 = 20.000 IOPS. El costo estimado de esta máquina virtual al mes será de 1.003 USD. El costo mensual de cuatro discos P30 de almacenamiento Premium será de 544,34 USD. El costo mensual total estimado será de 1,544 USD.
 
@@ -220,8 +220,8 @@ La tabla siguiente resume el análisis de costos de este escenario de Premium St
 | &nbsp; | **Estándar** | **Premium** |
 | --- | --- | --- |
 | **Costo de máquina virtual al mes** |1570,58 USD (Standard\_D14) |1003,66 USD (Standard\_DS13) |
-| **Costo de discos al mes** |1.638,40 USD (discos de 32 x 1 TB) |544,34 USD (4 discos x P30) |
-| **Costo total al mes** |3.208,98 USD |1.544,34 USD  |
+| **Costo de discos al mes** |1638,40 USD (32 discos x 1 TB) |544,34 USD (4 discos x P30) |
+| **Costo total al mes** |3\.208,98 USD |1\.544,34 USD |
 
 *Linux Distros*  
 
@@ -231,7 +231,7 @@ Cuando ejecute Linux con Premium Storage, compruebe las actualizaciones más rec
 
 ## <a name="premium-storage-disk-sizes"></a>Tamaños de disco de Premium Storage
 
-Azure Premium Storage ofrece tres tamaños de disco que están actualmente en versión preliminar y de ocho de los tamaños de disco de GA. Tamaño de cada disco tiene un límite de escalado distinta para IOPS, ancho de banda y almacenamiento. Elija el tamaño de disco de Premium Storage adecuado según los requisitos de la aplicación y el tamaño de la máquina virtual a gran escala. La tabla siguiente muestra los tamaños de 11 discos y sus capacidades. Los tamaños de disco P4, P6, P15, P60, P70 y P80 solo se admiten actualmente para Managed Disks.
+Actualmente, Azure Premium Storage ofrece ocho tamaños de disco de GA y tres tamaños de disco que están en versión preliminar. Cada tamaño de disco tiene un límite de escala diferente de IOPS, ancho de banda y almacenamiento. Elija el tamaño de disco de Premium Storage adecuado según los requisitos de la aplicación y el tamaño de la máquina virtual a gran escala. En la tabla siguiente se muestran los 11 tamaños de disco y sus capacidades. Los tamaños de disco P4, P6, P15, P60, P70 y P80 solo se admiten actualmente para Managed Disks.
 
 | Tipo de discos Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
@@ -242,17 +242,17 @@ Azure Premium Storage ofrece tres tamaños de disco que están actualmente en ve
 El número de discos que elija depende del tamaño de disco elegido. Puede usar un único disco P50 o varios discos P10 para cubrir los requisitos de la aplicación. Tenga en cuenta las consideraciones enumeradas a continuación al realizar su elección.
 
 *Límites de escala (IOPS y rendimiento)*  
- Los límites de IOPS y rendimiento del tamaño de cada disco Premium son diferentes e independientes de los límites de escala de la máquina virtual. Asegúrese de que la IOPS y el rendimiento totales de los discos están dentro de los límites de escala del tamaño de máquina virtual elegido.
+Los límites de IOPS y rendimiento del tamaño de cada disco Premium son diferentes e independientes de los límites de escala de la máquina virtual. Asegúrese de que la IOPS y el rendimiento totales de los discos están dentro de los límites de escala del tamaño de máquina virtual elegido.
 
 Por ejemplo, si un requisito de la aplicación es un máximo de 250 MB/s de rendimiento y usa una máquina virtual DS4 con un solo disco P30. La máquina virtual DS4 puede proporcionar un máximo rendimiento de 256 MB/s. Sin embargo, un solo disco P30 tiene un límite de rendimiento de 200 MB por segundo. Por lo tanto, la aplicación se restringirá a 200 MB/s debido al límite de disco. Para superar este límite, aprovisione más de un disco de datos para la máquina virtual o cambie el tamaño de los discos a P40 o P50.
 
 > [!NOTE]
->  Las lecturas atendidas por la caché no se incluyen en la IOPS y el rendimiento del disco, por lo que no están sujetas a los límites del disco. La caché tiene su límite de IOPS y rendimiento independiente de la máquina virtual.
+> Las lecturas atendidas por la caché no se incluyen en la IOPS y el rendimiento del disco, por lo que no están sujetas a los límites del disco. La caché tiene su límite de IOPS y rendimiento independiente de la máquina virtual.
 >
 > Por ejemplo, inicialmente sus lecturas y escrituras son 60MB/s y 40MB/s respectivamente. Con el tiempo, la memoria caché se prepara y atiende cada vez más y más lecturas de la memoria caché. Entonces, puede obtener un mayor rendimiento de escritura desde el disco.
 
 *Número de discos*  
- Para determinar el número de discos que necesitará, evalúe los requisitos de la aplicación. Cada tamaño de máquina virtual también tiene un límite en el número de discos que puede conectar a la máquina virtual. Normalmente, es dos veces el número de núcleos. Asegúrese de que el tamaño de la máquina virtual que elija puede admitir el número de discos necesario.
+Para determinar el número de discos que necesitará, evalúe los requisitos de la aplicación. Cada tamaño de máquina virtual también tiene un límite en el número de discos que puede conectar a la máquina virtual. Normalmente, es dos veces el número de núcleos. Asegúrese de que el tamaño de la máquina virtual que elija puede admitir el número de discos necesario.
 
 Recuerde que los discos de Premium Storage tienen capacidades de rendimiento superiores en comparación con los discos de Standard Storage. Por tanto, si va a migrar la aplicación de la máquina virtual IaaS de Azure Standard Storage a Premium Storage, probablemente necesitará menos discos premium para conseguir un rendimiento igual o superior para la aplicación.
 
@@ -261,7 +261,7 @@ Recuerde que los discos de Premium Storage tienen capacidades de rendimiento sup
 Las máquinas virtuales a gran escala que aprovechan Azure Premium Storage tienen una tecnología de almacenamiento en caché de niveles múltiples denominada BlobCache. BlobCache usa una combinación de la RAM de máquina virtual y SSD local para almacenar en caché. Esta memoria caché está disponible para los discos de Premium Storage persistentes y los discos locales de la máquina virtual. De forma predeterminada, esta configuración de la caché se establece en lectura y escritura para los discos del sistema operativo y de solo lectura para los discos de datos hospedados en Premium Storage. Con la caché de disco habilitada en los discos de Premium Storage, la máquinas virtuales a gran escala pueden lograr niveles de rendimiento extremadamente altos que superan el rendimiento del disco subyacente.
 
 > [!WARNING]
-> No se admite el almacenamiento en caché de disco para discos de más de 4 TB. Si varios discos están conectados a la máquina virtual, cada disco que es de 4 TB o más pequeños será compatible con almacenamiento en caché.
+> No se admite el almacenamiento en caché de disco para discos de más de 4 TiB. Si varios discos están conectados a la máquina virtual, cada disco de 4 TiB o más pequeño será compatible con el almacenamiento en caché.
 >
 > Al cambiar la configuración de caché de un disco de Azure, se desconecta y se vuelve a conectar el disco de destino. Si se trata del disco del sistema operativo, se reinicia la máquina virtual. Detenga todas las aplicaciones y todos los servicios que podrían verse afectados por esta interrupción antes de cambiar la configuración de caché de disco.
 
@@ -289,15 +289,15 @@ Mediante la configuración del almacenamiento en caché ReadOnly en discos de da
 1. Premium Storage no cuenta las lecturas que se atienden desde la caché para la IOPS y el rendimiento del disco. Por lo tanto, la aplicación es capaz de lograr una IOPS y un rendimiento totales mayores.
 
 *ReadWrite*  
- De forma predeterminada, los discos del sistema operativo tienen habilitada la caché ReadWrite. Recientemente hemos agregado también compatibilidad para el almacenamiento en caché ReadWrite en los discos de datos. Si usa el almacenamiento en caché ReadWrite, debe tener una manera adecuada de escribir los datos de la memoria caché en discos persistentes. Por ejemplo, SQL Server administra por sí mismo la escritura de los datos en caché en los discos de almacenamiento persistentes. El uso de la memoria caché ReadWrite con una aplicación que no administre la persistencia de los datos necesarios puede provocar la pérdida de los datos, si se bloquea la máquina virtual.
+De forma predeterminada, los discos del sistema operativo tienen habilitada la caché ReadWrite. Recientemente hemos agregado también compatibilidad para el almacenamiento en caché ReadWrite en los discos de datos. Si usa el almacenamiento en caché ReadWrite, debe tener una manera adecuada de escribir los datos de la memoria caché en discos persistentes. Por ejemplo, SQL Server administra por sí mismo la escritura de los datos en caché en los discos de almacenamiento persistentes. El uso de la memoria caché ReadWrite con una aplicación que no administre la persistencia de los datos necesarios puede provocar la pérdida de los datos, si se bloquea la máquina virtual.
 
 Por ejemplo, puede aplicar estas directrices a un SQL Server que funciona en Premium Storage del modo siguiente:
 
 1. Configure la caché "ReadOnly" de los discos de Premium Storage que hospedan archivos de datos.  
-    a.  Las rápidas lecturas de la caché reducen el tiempo de consulta de SQL Server, ya que las páginas de datos se recuperan mucho más rápido de la memoria caché que directamente desde los discos de datos.  
+   a.  Las rápidas lecturas de la caché reducen el tiempo de consulta de SQL Server, ya que las páginas de datos se recuperan mucho más rápido de la memoria caché que directamente desde los discos de datos.  
    b.  Atender las lecturas de la caché significa que hay un rendimiento adicional de los discos de datos premium. SQL Server puede usar este rendimiento adicional para recuperar más páginas de datos y otras operaciones, como copia de seguridad/restauración, cargas por lotes y volver a generar un índice.  
 1. Configure la caché "None" en los discos de Premium Storage que hospedan los archivos de registro.  
-    a.  Los archivos de registro tienen sobre todo muchas operaciones de escritura. Por lo tanto, no se benefician de la caché ReadOnly.
+   a.  Los archivos de registro tienen sobre todo muchas operaciones de escritura. Por lo tanto, no se benefician de la caché ReadOnly.
 
 ## <a name="optimize-performance-on-linux-vms"></a>Optimización del rendimiento en máquinas virtuales Linux
 
@@ -313,7 +313,7 @@ Las distribuciones de Linux siguientes han sido validadas para discos SSD. Para 
 
 Algunas de las versiones requieren Linux Integration Services (LIS) v4.0 para Azure. Para descargar e instalar una distribución, siga el vínculo que aparece en la tabla siguiente. Agregamos imágenes a la lista cuando se completa la validación. Nuestras validaciones muestran que el rendimiento varía en cada imagen. El rendimiento depende en las características de carga de trabajo y la configuración de la imagen. Se ajustan diferentes imágenes a los distintos tipos de cargas de trabajo.
 
-| Distribución | `Version` | Kernel compatible | Detalles |
+| Distribución | Versión | Kernel compatible | Detalles |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
@@ -345,19 +345,19 @@ Cuando una máquina virtual a gran escala esté conectada a varios discos persis
 
 En Windows, puede usar espacios de almacenamiento para seccionar discos conjuntamente. Debe configurar una columna para cada disco de un grupo. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a una distribución desigual del tráfico entre los discos.
 
-Importante: Con la UI del Administrador del servidor, puede establecer el número total de columnas hasta en 8 para un volumen seccionado. Al conectar discos de más de ocho, use PowerShell para crear el volumen. Mediante PowerShell, puede establecer un número de columnas igual al número de discos. Por ejemplo, si hay 16 discos en un solo conjunto de secciones; especifique 16 columnas en el parámetro *NumberOfColumns* del cmdlet de PowerShell *New-VirtualDisk*.
+Importante: Con la UI del Administrador del servidor, puede establecer el número total de columnas hasta en 8 para un volumen seccionado. Al conectar más de ocho discos, use PowerShell para crear el volumen. Mediante PowerShell, puede establecer un número de columnas igual al número de discos. Por ejemplo, si hay 16 discos en un solo conjunto de secciones; especifique 16 columnas en el parámetro *NumberOfColumns* del cmdlet de PowerShell *New-VirtualDisk*.
 
 En Linux, use la utilidad MDADM para seccionar discos conjuntamente. Para ver los pasos detallados sobre cómo seccionar discos en Linux, consulte [Configuración del software RAID en Linux](../articles/virtual-machines/linux/configure-raid.md).
 
 *Tamaño de franja*  
- Una configuración importante en el seccionamiento del disco es el tamaño de franja. El tamaño de franja o tamaño de bloque es el fragmento de datos más pequeño que la aplicación puede manejar en un volumen seccionado. El tamaño de franja que configurar depende del tipo de aplicación y su patrón de solicitudes. Si elije un tamaño de franja incorrecto, podría provocar la desalineación de E/S, lo que conduce a una disminución del rendimiento de la aplicación.
+Una configuración importante en el seccionamiento del disco es el tamaño de franja. El tamaño de franja o tamaño de bloque es el fragmento de datos más pequeño que la aplicación puede manejar en un volumen seccionado. El tamaño de franja que configurar depende del tipo de aplicación y su patrón de solicitudes. Si elije un tamaño de franja incorrecto, podría provocar la desalineación de E/S, lo que conduce a una disminución del rendimiento de la aplicación.
 
 Por ejemplo, si una solicitud de E/S generada por la aplicación es mayor que el tamaño de franja del disco, el sistema de almacenamiento escribe a través de límites de la unidad de franja en más de un disco. Cuando llega el momento para tener acceso a esos datos, tendrá que buscar en las unidades con más de una franja para completar la solicitud. El efecto acumulativo de este comportamiento puede provocar una degradación del rendimiento considerable. Por otro lado, si el tamaño de la solicitud de E/S es menor que el tamaño de franja, y si es aleatoria por naturaleza, las solicitudes de E/S pueden acumularse en el mismo disco, causar un cuello de botella y, en última instancia, degradar el rendimiento de E/S.
 
-Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Mientras que para E/S secuenciales grandes solicitudes usan un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Premium Storage. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y 256 KB para cargas de trabajo de almacenamiento de datos. Vea [Procedimientos recomendados para SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para más información.
+Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Por otra parte, para solicitudes de E/S secuenciales grandes, use un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Premium Storage. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y de 256 KB para cargas de trabajo de almacenamiento de datos. Vea [Procedimientos recomendados para SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para más información.
 
 > [!NOTE]
->  Puede seccionar conjuntamente un máximo de 32 discos de almacenamiento premium en una serie de máquinas virtuales DS y 64 discos de almacenamiento premium en una serie de máquinas virtuales GS.
+> Puede seccionar conjuntamente un máximo de 32 discos de almacenamiento premium en una serie de máquinas virtuales DS y 64 discos de almacenamiento premium en una serie de máquinas virtuales GS.
 
 ## <a name="multi-threading"></a>Multithreading
 
@@ -375,7 +375,7 @@ Obtenga más información sobre [Grados de paralelismo](https://technet.microsof
 
 ## <a name="queue-depth"></a>Profundidad de la cola
 
-La profundidad de cola o la longitud de cola o el tamaño de cola es el número de solicitudes de E/S pendientes en el sistema. El valor de profundidad de cola determina cuántas operaciones de E/S de la aplicación, puede alinear, que los discos de almacenamiento van a procesar. Afecta a todos los indicadores de rendimiento de aplicación de tres que analizamos en este artículo:, IOPS, rendimiento y latencia.
+La profundidad de la cola, la longitud de la cola o el tamaño de la cola es el número de solicitudes de E/S pendientes en el sistema. El valor de la profundidad de la cola determina cuántas operaciones de E/S, que procesarán los discos de almacenamiento, puede alinear la aplicación. Afecta a los tres indicadores de rendimiento de las aplicaciones que analizamos en este artículo: IOPS, rendimiento y latencia.
 
 La profundidad de la cola y multi-threading están estrechamente relacionados. El valor de la profundidad de la cola indica el número de multi-threading que puede lograrse mediante la aplicación. Si la profundidad de la cola es grande, la aplicación puede ejecutar más operaciones simultáneamente, es decir, más multi-threading. Si la profundidad de la cola es pequeña, incluso si la aplicación es multiproceso, no tendrá suficientes solicitudes alineadas para la ejecución simultánea.
 
@@ -384,25 +384,25 @@ Normalmente, las aplicaciones comerciales no le permiten cambiar la profundidad 
 Algunas aplicaciones proporcionan opciones para influir en la profundidad de la cola. Por ejemplo, la configuración de MAXDOP (grado máximo de paralelismo) en SQL Server se explicó en la sección anterior. MAXDOP es una forma de influir en la profundidad de la cola y el multi-threading, aunque no cambia directamente el valor de Profundidad de la cola de SQL Server.
 
 *Profundidad de cola alta*  
- Una profundidad de la cola alta alinea más operaciones en el disco. El disco conoce la siguiente solicitud de su cola de antemano. Por lo tanto, el disco puede programar las operaciones de antemano y procesarlas en una secuencia óptima. Puesto que la aplicación está enviando solicitudes más al disco, el disco puede procesar más E/S paralelas. En última instancia, la aplicación podrá lograr una mayor IOPS. Puesto que la aplicación está procesando más solicitudes, también aumenta el rendimiento total de la aplicación.
+Una profundidad de la cola alta alinea más operaciones en el disco. El disco conoce la siguiente solicitud de su cola de antemano. Por lo tanto, el disco puede programar las operaciones de antemano y procesarlas en una secuencia óptima. Puesto que la aplicación está enviando solicitudes más al disco, el disco puede procesar más E/S paralelas. En última instancia, la aplicación podrá lograr una mayor IOPS. Puesto que la aplicación está procesando más solicitudes, también aumenta el rendimiento total de la aplicación.
 
-Normalmente, una aplicación puede lograr un rendimiento máximo con 8-16+ E/S pendientes para cada disco conectado. Si una profundidad de cola es uno, aplicación no inserta suficientes E/s en el sistema y procesará menos cantidad en un período determinado. En otras palabras, menor rendimiento.
+Normalmente, una aplicación puede lograr un rendimiento máximo con 8-16+ E/S pendientes para cada disco conectado. Si la profundidad de la cola es uno, la aplicación no inserta suficientes E/S en el sistema y procesará menos cantidad en un período determinado. En otras palabras, menor rendimiento.
 
 Por ejemplo, en SQL Server, si se establece el valor de MAXDOP en una consulta en "4", se informa a SQL Server de que puede usar un máximo de cuatro núcleos para ejecutar la consulta. SQL Server determinará el mejor valor de profundidad de la cola y el número de núcleos para la ejecución de la consulta.
 
-*Profundidad de cola óptima*  
- Un valor de profundidad de la cola muy alto también tiene sus inconvenientes. Si el valor de profundidad de la cola es demasiado alto, la aplicación intentará manejar una IOPS muy alta. A menos que la aplicación tiene discos persistentes con suficientes IOPS aprovisionada, esto puede afectar negativamente a las latencias de la aplicación. La siguiente fórmula muestra la relación entre IOPS, latencia y profundidad de cola.  
+*Profundidad de la cola óptima*  
+Un valor de profundidad de la cola muy alto también tiene sus inconvenientes. Si el valor de profundidad de la cola es demasiado alto, la aplicación intentará manejar una IOPS muy alta. A menos que la aplicación tiene discos persistentes con suficientes IOPS aprovisionada, esto puede afectar negativamente a las latencias de la aplicación. La siguiente fórmula muestra la relación entre la E/S por segundo, la latencia y la profundidad de la cola.  
     ![](media/premium-storage-performance/image6.png)
 
 No debe configurar la profundidad de la cola en cualquier valor alto, sino en un valor óptimo, que puede ofrecer suficientes IOPS para la aplicación sin afectar a las latencias. Por ejemplo, si la latencia de la aplicación debe ser 1 milisegundo, la profundidad de la cola necesaria para lograr 5.000 IOPS es QD = 5000 x 0,001 = 5.
 
 *Profundidad de la cola para un volumen seccionado*  
- Para un volumen seccionado, mantenga una profundidad de la cola lo suficientemente alta para que cada disco tenga una profundidad de la cola máxima individual. Por ejemplo, considere una aplicación que inserta una profundidad de cola de 2 y hay cuatro discos en la franja. Las dos solicitudes de E/S irán a dos discos y los dos discos restantes estarán inactivos. Por lo tanto, configure la profundidad de la cola de modo que todos los discos puedan estar ocupados. La siguiente fórmula muestra cómo determinar la profundidad de la cola de volúmenes seccionados.  
+Para un volumen seccionado, mantenga una profundidad de la cola lo suficientemente alta para que cada disco tenga una profundidad de la cola máxima individual. Por ejemplo, imagine una aplicación que inserta una profundidad de cola de 2 y hay cuatro discos en la franja. Las dos solicitudes de E/S irán a dos discos y los dos discos restantes estarán inactivos. Por lo tanto, configure la profundidad de la cola de modo que todos los discos puedan estar ocupados. La siguiente fórmula muestra cómo determinar la profundidad de la cola de volúmenes seccionados.  
     ![](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Limitaciones
 
-Azure Premium Storage aprovisiona un número especificado de IOPS y rendimiento de acuerdo con los tamaños de la máquina virtual y de disco que elija. Cada vez que la aplicación intenta que la IOPS o el rendimiento estén por encima de los límites que puede administrar la máquina virtual o el disco, Premium Storage lo limitará. Esto se manifiesta en forma de una disminución del rendimiento de la aplicación. Esto puede significar una latencia mayor, menor rendimiento o menor e/s por segundo. Si Premium Storage no lo limita, la aplicación podría fallar completamente al exceder lo que sus recursos son capaces de conseguir. Por lo tanto, para evitar problemas de rendimiento debido a la limitación,  aprovisione siempre suficientes recursos para su aplicación. Tenga en cuenta lo que hemos explicado en las secciones anteriores sobre los tamaños de la máquina virtual y el disco. Las pruebas comparativas son la mejor forma de averiguar qué recursos necesitará para hospedar su aplicación.
+Azure Premium Storage aprovisiona un número especificado de IOPS y rendimiento de acuerdo con los tamaños de la máquina virtual y de disco que elija. Cada vez que la aplicación intenta que la IOPS o el rendimiento estén por encima de los límites que puede administrar la máquina virtual o el disco, Premium Storage lo limitará. Esto se manifiesta en forma de una disminución del rendimiento de la aplicación. Esto puede significar una latencia mayor, un rendimiento menor o una IOPS menor. Si Premium Storage no lo limita, la aplicación podría fallar completamente al exceder lo que sus recursos son capaces de conseguir. Por lo tanto, para evitar problemas de rendimiento debido a la limitación,  aprovisione siempre suficientes recursos para su aplicación. Tenga en cuenta lo que hemos explicado en las secciones anteriores sobre los tamaños de la máquina virtual y el disco. Las pruebas comparativas son la mejor forma de averiguar qué recursos necesitará para hospedar su aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

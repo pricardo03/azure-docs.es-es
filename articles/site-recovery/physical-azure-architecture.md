@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 354a68d7d4d07657baa7044566dde8b7ed77ca63
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400068"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de un servidor físico en Azure
@@ -25,7 +25,7 @@ En la tabla y el gráfico siguientes se proporciona una visión general de los c
 
 **Componente** | **Requisito** | **Detalles**
 --- | --- | ---
-**Las tablas de Azure** | Una suscripción de Azure y una red de Azure. | Los datos replicados desde un entorno local se almacenan las máquinas físicas en Azure discos administran. Las máquinas virtuales de Azure se crean con los datos replicados cuando se ejecuta una conmutación por error desde el entorno local en Azure. Las máquinas virtuales de Azure se conectan a la red virtual de Azure cuando se crean.
+**Las tablas de Azure** | Una suscripción y una red de Azure. | Los datos replicados desde máquinas físicas locales se almacenan en discos administrados de Azure. Las máquinas virtuales de Azure se crean con los datos replicados cuando se ejecuta una conmutación por error desde el entorno local en Azure. Las máquinas virtuales de Azure se conectan a la red virtual de Azure cuando se crean.
 **Servidor de configuración** | Se implementa una sola máquina física local o una máquina virtual de VMware para que ejecute todos los componentes locales de Site Recovery. La máquina virtual ejecuta el servidor de configuración, el servidor de procesos y el servidor de destino maestro. | El servidor de configuración coordina la comunicación entre el entorno local y Azure, además de administrar la replicación de datos.
  **Servidor de proceso**:  | Se instala de forma predeterminada junto con el servidor de configuración. | Actúa como puerta de enlace de replicación. Recibe datos de replicación, los optimiza con almacenamiento en caché, compresión y cifrado y los envía al almacenamiento de Azure.<br/><br/> El servidor de procesos también instala Mobility Service en los servidores que desee replicar.<br/><br/> A medida que crece la implementación, puede agregar más servidores de procesos independientes para controlar mayores volúmenes de tráfico de replicación.
  **Servidor de destino principal** | Se instala de forma predeterminada junto con el servidor de configuración. | Controla los datos de replicación durante la conmutación por recuperación desde Azure.<br/><br/> En el caso de las implementaciones de gran tamaño, puede agregar un servidor de destino maestro independiente adicional para la conmutación por recuperación.

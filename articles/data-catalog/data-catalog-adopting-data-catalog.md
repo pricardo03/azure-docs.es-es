@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 3943332179a6d283a8ed3ca66ea559d5cea53a10
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953196"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Método y proceso de adopción de Azure Data Catalog
@@ -54,7 +54,7 @@ Estas son algunas sugerencias que le ayudarán a definir su visión:
 
 A continuación encontrará una visión de ejemplo para un plan de adopción de Data Catalog para una empresa ficticia llamada Adventure Works.
 
-**Azure Data Catalog** faculta al equipo de Adventure Works Finance colabore en orígenes de datos de la clave, por lo que cada miembro del equipo puede encontrar fácilmente y usar los datos que necesitan y compartan sus conocimientos con todo el equipo.
+**Azure Data Catalog** permitirá que el equipo de Adventure Works Finance colabore en orígenes de datos clave, con el fin de que todos los miembros del equipo puedan encontrar y usar fácilmente los datos que necesitan, y compartir sus conocimientos con todo el equipo.
 
 Una vez que tenga una visión nítida, debe identificar un proyecto piloto apropiado para Data Catalog. Por lo general, habrá varios escenarios para Data Catalog, por lo que en la sección siguiente se proporcionan algunas sugerencias para identificar los casos de uso relevantes.
 
@@ -91,7 +91,7 @@ Las fases del plan piloto deben realizarse gradualmente en función de los objet
 
 ### <a name="target-the-right-team"></a>Enfoque hacia el equipo correcto
 
-Cuando elija el proyecto piloto, seleccione el equipo que tenga los escenarios más atractivos y que resuelva un problema empresarial existente. Por ejemplo, un analista de negocios crea informes a partir de una base de datos de SQL Server. El problema es que dejó de tener en cuenta el origen de datos que haya hablado con varios colegas. Finalmente, después de perder tiempo intentando encontrar orígenes de datos que debe usar, descubierto un libro de Excel que contiene una descripción de cada origen de datos. Aunque el libro de Excel describe adecuadamente las tablas que necesitan, habría encontrado estos orígenes de datos si estuvieran registrados y anotados en **Azure Data Catalog**.
+Cuando elija el proyecto piloto, seleccione el equipo que tenga los escenarios más atractivos y que resuelva un problema empresarial existente. Por ejemplo, un analista de negocios crea informes a partir de una base de datos de SQL Server. El problema es que no conozca el origen de datos hasta que haya hablado con varios colegas. Finalmente, después de perder tiempo intentando encontrar los orígenes de datos que debe usar, ha descubierto un libro de Excel, que contiene una descripción de cada origen de datos. Aunque el libro de Excel describe adecuadamente las tablas que necesita, habría encontrado rápidamente estos orígenes de datos si estuvieran registrados y anotados en **Azure Data Catalog**.
 
 ### <a name="identify-data-heroes"></a>Identificación de los héroes de los datos
 
@@ -101,7 +101,7 @@ El primer proyecto piloto debe tener algunas personas que generen y consuman dat
 
 **consumidores de datos** son personas con conocimientos en el uso de los datos para resolver problemas empresariales. Por ejemplo, Nancy es que un analista de negocios que utiliza orígenes de datos de SQL Server de Adventure Works para analizar datos.
 
-Uno de los problemas empresariales que **Azure Data Catalog** afronta es conectar los **productores de datos** con los **consumidores de datos**. Lo hace actuando como repositorio central de información sobre los orígenes de datos empresariales. Con Data Catalog, David registra los orígenes de datos de Adventure Works y SQL Server. Mediante el micromecenazgo todos los usuarios que detecta este origen de datos pueden compartir sus opiniones sobre los datos, además de utilizar los datos que se hayan detectado. Por ejemplo, Nancy detecta los orígenes de datos mediante la búsqueda en el catálogo y comparte sus conocimientos especializados sobre los datos.  Ahora, otras personas de la organización se benefician de los conocimientos compartidos, y para ello basta con que realicen búsquedas en el catálogo de datos.
+Uno de los problemas empresariales que **Azure Data Catalog** afronta es conectar los **productores de datos** con los **consumidores de datos**. Lo hace actuando como repositorio central de información sobre los orígenes de datos empresariales. Con Data Catalog, David registra los orígenes de datos de Adventure Works y SQL Server. Mediante el micromecenazgo todos los usuarios que detecten este origen de datos pueden compartir sus opiniones sobre los datos, además de utilizar los datos que han detectado. Por ejemplo, Nancy detecta los orígenes de datos mediante la búsqueda en el catálogo y comparte sus conocimientos especializados sobre los datos.  Ahora, otras personas de la organización se benefician de los conocimientos compartidos, y para ello basta con que realicen búsquedas en el catálogo de datos.
 
 * Para más información acerca de cómo registrar orígenes de datos, consulte [Registro de orígenes de datos](data-catalog-get-started.md).
 * Para más información acerca de cómo detectar orígenes de datos, consulte [Detección de recursos de datos registrados](data-catalog-get-started.md).
@@ -116,7 +116,7 @@ La sección siguiente describe un proyecto de ejemplo de la compañía Adventure
 
 ### <a name="an-example-project"></a>Proyecto de ejemplo
 
-En este ejemplo, la analista de negocios, Nancy. crea informes para su equipo, para lo que usa los datos de una base de datos de SQL Server. El problema es que dejó de tener en cuenta el origen de datos que haya hablado con varios colegas. Habría encontrado estos orígenes de datos si estuvieran registrados y anotados en una ubicación central como **Azure Data Catalog**.
+En este ejemplo, la analista de negocios, Nancy. crea informes para su equipo, para lo que usa los datos de una base de datos de SQL Server. El problema es que no conozca el origen de datos hasta que haya hablado con varios colegas. Si estos orígenes de datos estuvieran registrados y anotados en una ubicación central como **Azure Data Catalog**, los habría encontrado rápidamente.
 
 Para ilustrar la facilidad con que Nancy y su equipo pueden encontrar datos de gran valor, use la herramienta de registro de orígenes de datos para rellenar el catálogo con información (metadatos) acerca de los orígenes de datos. De esta forma, la información acerca de la base de datos está disponible tanto para el equipo como para la empresa. no solo para unos pocos individuos. Una vez registrados los orígenes de datos en Data Catalog, Nancy y su equipo pueden usarlos fácilmente. El resultado es un catálogo de datos más completo y relevante tanto para su equipo como para la empresa. A medida que más equipos van adoptando Data Catalog, los orígenes de datos de la empresa resultan más fáciles de encontrar y usar, lo que favorece una cultura más centrada en datos que permite sacar más provecho de estos.
 
@@ -129,7 +129,7 @@ Como parte del proyecto piloto, el equipo de Nancy también utiliza orígenes de
 
 Cuando el proyecto piloto está en su lugar, es el momento de ejecutar el plan de adopción de Data Catalog.
 
-### <a name="execute"></a>Ejecutar
+### <a name="execute"></a>Ejecución
 
 Ya ha identificado los casos de uso para Data Catalog y su primer proyecto. Además, ha registrado los orígenes de datos clave de Adventure Works y ha agregado información del libro de Excel existente mediante la herramienta que TI creó. Ahora es el momento de trabajar con el equipo piloto para iniciar el proceso de adopción de Data Catalog.
 
@@ -165,4 +165,4 @@ Este artículo versa sobre cómo empezar con el **Azure Data Catalog** en su org
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Crear un catálogo de datos de Azure](data-catalog-get-started.md)
+[Creación de una instancia de Azure Data Catalog](data-catalog-get-started.md)

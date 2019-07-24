@@ -8,48 +8,48 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: danlep
 ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389449"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Webhooks de Azure Container Registry
 
-Un registro de contenedor de Azure almacena y administra imágenes privadas de contenedor de Docker, de una forma similar a la que Docker Hub almacena imágenes públicas. También pueden hospedar los repositorios para [gráficos de Helm](container-registry-helm-repos.md) (versión preliminar), dar formato a un paquete para implementar aplicaciones en Kubernetes. Puede usar webhooks para desencadenar eventos cuando determinadas acciones tienen lugar en uno de los repositorios de registro. Los webhooks pueden responder a eventos en el nivel de registro o pueden limitarse a una etiqueta de repositorio específica. Con un [con replicación geográfica](container-registry-geo-replication.md) registro, configura cada webhook para responder a eventos en una réplica regional específica.
+Un registro de contenedor de Azure almacena y administra imágenes privadas de contenedor de Docker, de una forma similar a la que Docker Hub almacena imágenes públicas. También puede hospedar repositorios para [gráficos de Helm](container-registry-helm-repos.md) (versión preliminar), un formato de empaquetado para implementar aplicaciones en Kubernetes. Puede usar webhooks para desencadenar eventos cuando determinadas acciones tienen lugar en uno de los repositorios de registro. Los webhooks pueden responder a eventos en el nivel de registro o pueden limitarse a una etiqueta de repositorio específica. Con un registro [con replicación geográfica](container-registry-geo-replication.md), puede configurar cada webhook para responder a eventos en una réplica regional específica.
 
 Para obtener información detallada sobre las solicitudes de webhook, consulte [Referencia de esquema de webhook de Azure Container Registry](container-registry-webhook-reference.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Registro de contenedor de Azure: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md). El [SKU de Azure Container Registry](container-registry-skus.md) tienen cuotas diferentes webhooks.
+* Registro de contenedor de Azure: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md). Las [SKU de Azure Container Registry](container-registry-skus.md) tienen cuotas de webhooks diferentes.
 * CLI de docker: para configurar el equipo local como un host de Docker y tener acceso a los comandos de la CLI de Docker, instale [Docker Engine](https://docs.docker.com/engine/installation/).
 
-## <a name="create-webhook---azure-portal"></a>Creación de webhook: portal de Azure
+## <a name="create-webhook---azure-portal"></a>Creación de webhooks: Azure Portal
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Vaya al registro de contenedor en el que desea crear un webhook.
-1. En **servicios**, seleccione **Webhooks**.
+1. En **Servicios**, seleccione **Webhooks**.
 1. Seleccione **Agregar** en la barra de herramientas del webhook.
 1. Complete el formulario *Crear webhook* con la siguiente información:
 
 | Valor | DESCRIPCIÓN |
 |---|---|
-| Nombre del Webhook | El nombre que desea dar al webhook. Puede contener solo letras y números y debe estar entre 5 y 50 caracteres de longitud. |
-| Ubicación | Para un [con replicación geográfica](container-registry-geo-replication.md) registro, especifique la región de Azure de la réplica del registro. 
+| Nombre de webhook | El nombre que desea dar al webhook. Solo puede contener letras y números, y su longitud debe oscilar entre 5 y 50 caracteres. |
+| Ubicación | Para un registro [con replicación geográfica](container-registry-geo-replication.md), especifique la región de Azure de la réplica del registro. 
 | URI de servicio | El identificador URI donde el webhook debe enviar notificaciones POST. |
 | Encabezados personalizados | Los encabezados que van a pasar junto con la solicitud POST. Deben tener el formato "clave: valor". |
-| Acciones de desencadenador | Acciones que desencadenan el webhook. Acciones incluyen la inserción de la imagen, eliminación de imágenes, inserción de gráfico de Helm, delete del gráfico de Helm y cuarentena de la imagen. Puede elegir una o varias acciones que desencadenan el webhook. |
+| Acciones de desencadenador | Acciones que desencadenan el webhook. Las acciones incluyen insertar y eliminar imágenes, insertar y eliminar gráficos de Helm, y poner imágenes en cuarentena. Puede elegir una o varias acciones para desencadenar el webhook. |
 | Status | El estado del webhook después de su creación. Esto está habilitada de manera predeterminada. |
-| Scope | El ámbito en el que trabaja el webhook. Si no se especifica, el ámbito es para todos los eventos en el registro. Puede especificar para un repositorio o etiqueta con el formato "repositorio: etiqueta" o "repositorio: *" para todas las etiquetas en un repositorio. |
+| Ámbito | El ámbito en el que trabaja el webhook. Si no se especifica, el ámbito sirve para todos los eventos del registro. Se puede especificar para un repositorio o una etiqueta con el formato "repositorio:etiqueta"o "repositorio:*" para todas las etiquetas de un repositorio. |
 
 Formulario de webhook de ejemplo:
 
 ![Interfaz de usuario de creación de webhook ACR en Azure Portal](./media/container-registry-webhook/webhook.png)
 
-## <a name="create-webhook---azure-cli"></a>Creación de webhook: CLI de Azure
+## <a name="create-webhook---azure-cli"></a>Creación de webhooks: CLI de Azure
 
-Para crear un webhook mediante la CLI de Azure, use el comando [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create). El siguiente comando crea un webhook para todos los eventos de eliminación en el registro de imagen *mycontainerregistry*:
+Para crear un webhook mediante la CLI de Azure, use el comando [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create). El siguiente comando crea un webhook para los eventos de eliminación de imágenes en el registro *mycontainerregistry*:
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -57,9 +57,9 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ## <a name="test-webhook"></a>Webhook de prueba
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
-Antes de usar el webhook, puede probarlo con el **Ping** botón. El comando Ping envía una solicitud POST genérica al punto de conexión especificado y registra la respuesta. Mediante la característica de ping puede comprobar que ha configurado correctamente el webhook.
+Antes de usar el webhook, puede probarlo con el botón **Ping**. El comando Ping envía una solicitud POST genérica al punto de conexión especificado y registra la respuesta. Mediante la característica de ping puede comprobar que ha configurado correctamente el webhook.
 
 1. Seleccione el webhook que desea probar.
 2. En la barra de herramientas superior, seleccione **Ping**.
@@ -83,7 +83,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 
 ## <a name="delete-webhook"></a>Eliminación del webhook
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Se puede eliminar cada webhook seleccionando uno y, después, con el botón **Eliminar** en Azure Portal.
 

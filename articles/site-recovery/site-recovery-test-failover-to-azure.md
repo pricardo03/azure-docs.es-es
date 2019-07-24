@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 67cbd37becb1fe87a7f4f554f574b6e5219c9243
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399934"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres en Azure 
@@ -42,7 +42,7 @@ En este procedimiento se describe cómo ejecutar una conmutación por error de p
     - Site Recovery intentará crear las máquinas virtuales de prueba en una subred con el mismo nombre y dirección IP que se proporcionaron en la configuración de **Proceso y red** de la máquina virtual.
     - Si no hay ninguna subred con el mismo nombre disponible en la red virtual de Azure utilizada para la conmutación por error de prueba, la máquina virtual de prueba se creará en la primera subred que aparezca por orden alfabético.
     - Si la misma dirección IP no está disponible en la subred, la máquina virtual recibirá otra dirección IP que sí lo esté. [Más información](#create-a-network-for-test-failover).
-4. Si realiza la conmutación por error a Azure y el cifrado de datos está habilitado, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado durante la instalación del proveedor. Puede omitir este paso si no está habilitado el cifrado.
+4. Si realiza la conmutación por error a Azure y el cifrado de datos está habilitado, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado durante la instalación del proveedor. Puede omitir este paso si el cifrado no está habilitado.
 5. Realice el seguimiento del progreso de la conmutación por error en la pestaña **Trabajos** . Debe poder ver la máquina de réplica de prueba en el Portal de Azure.
 6. Para iniciar una conexión RDP con la máquina virtual de Azure, debe [agregar una dirección IP pública](https://aka.ms/addpublicip) en la interfaz de red de la máquina virtual conmutada por error.
 7. Cuando todo funciona según lo esperado, haga clic en **Limpiar conmutación por error de prueba**. Así se eliminarán las máquinas virtuales que se crearon durante la conmutación por error de prueba.

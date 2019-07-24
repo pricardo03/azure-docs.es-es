@@ -17,24 +17,24 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f4e71bd7fd7e0ed9a220619995ba108fdccabe4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66233748"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el Proxy de aplicación de Azure AD
 
-En este artículo se describe cómo configurar una aplicación para dirigir al usuario a una página principal personalizada. Cuando se publica una aplicación con el Proxy de aplicación, establecer una dirección URL interna, pero a veces, que no es la página de que un usuario debería ver en primer lugar. Establezca una página principal personalizada para que un usuario obtiene la página correcta cuando accedan a la aplicación. El usuario verá la página principal personalizada que establezca, independientemente de si acceden a la aplicación desde el Panel de acceso de Azure Active Directory o el iniciador de aplicaciones de Office 365.
+En este artículo se explica cómo configurar una aplicación para que dirija a un usuario a una página principal personalizada. Al publicar una aplicación con el proxy de la aplicación, se establece una dirección URL interna pero, a veces, esa no es la primera página que debe ver un usuario. Establezca una página principal personalizada para que un usuario vaya a la página correcta cuando acceda a la aplicación. Un usuario verá la página principal personalizada que ha establecido, independientemente de si accede a las aplicaciones desde el Panel de acceso de Azure Active Directory o desde el iniciador de aplicaciones de Office 365.
 
-Cuando un usuario inicia la aplicación, le dirige de forma predeterminada para la dirección URL del dominio raíz de la aplicación publicada. La página de aterrizaje normalmente se establece como la dirección URL de la página principal. Usar el módulo de PowerShell de Azure AD para definir una dirección URL de la página principal personalizada cuando desee que un usuario de la aplicación lleguen a una página específica dentro de la aplicación.
+Cuando un usuario inicia la aplicación, se le dirige de manera predeterminada a la dirección URL raíz del dominio raíz de la aplicación publicada. La página de aterrizaje normalmente se establece como la dirección URL de la página principal. Use el módulo de Azure AD PowerShell para definir las direcciones URL de una página principal personalizada cuando desee que un usuario de la aplicación llegue a una página concreta de la aplicación.
 
-Este es un escenario que explica por qué su empresa establecería una página principal personalizada:
+En este escenario se explica por qué la empresa establecería una página principal personalizada:
 
-- Dentro de la red corporativa, un usuario visita `https://ExpenseApp/login/login.aspx` para iniciar sesión y acceder a la aplicación.
-- Dado que tiene otros recursos (por ejemplo, imágenes) que el Proxy de aplicación necesita obtener acceso en el nivel superior de la estructura de carpetas, publica la aplicación con `https://ExpenseApp` como la dirección URL interna.
-- La URL externa predeterminada es `https://ExpenseApp-contoso.msappproxy.net`, que no lleva a un usuario externo a la página de inicio de sesión.
-- Desea establecer `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` como la dirección URL de la página principal en su lugar, por lo que un usuario externo ve la página de inicio de sesión en primer lugar.
+- En su red corporativa, un usuario va a `https://ExpenseApp/login/login.aspx` para iniciar sesión y acceder a su aplicación.
+- Dado que tiene otros recursos, como imágenes, que el proxy de aplicación necesita para acceder al nivel superior de la estructura de carpetas, publica la aplicación con `https://ExpenseApp` como dirección URL interna.
+- La dirección URL externa predeterminada es `https://ExpenseApp-contoso.msappproxy.net`, que no lleva a un usuario externo a la página de inicio de sesión.
+- En su lugar, quiere establecer `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` como la dirección URL de la página principal para que un usuario externo vea primero la página de inicio de sesión.
 
 >[!NOTE]
 >Al proporcionar a los usuarios acceso a las aplicaciones publicadas, estas aparecen en el [panel de acceso de Azure AD](../user-help/my-apps-portal-end-user-access.md) y el [iniciador de aplicaciones de Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
@@ -43,35 +43,35 @@ Este es un escenario que explica por qué su empresa establecería una página p
 
 Antes de establecer la dirección URL de la página principal tenga en cuenta los siguientes requisitos:
 
-- La ruta de acceso que especifique debe ser una ruta de acceso de subdominio de la dirección URL raíz del dominio.
+- La ruta de acceso que especifica debe ser una ruta de acceso de subdominio de la dirección URL del dominio raíz.
 
-  Por ejemplo, si la dirección URL raíz del dominio es `https://apps.contoso.com/app1/`, la dirección URL de página principal que configure debe empezar por `https://apps.contoso.com/app1/`.
+  Por ejemplo, si la dirección URL del dominio raíz es `https://apps.contoso.com/app1/`, la dirección URL de la página principal que configure debe empezar con `https://apps.contoso.com/app1/`.
 
 - Si realiza un cambio en la aplicación publicada, este podría restablecer el valor de la dirección URL de la página principal. Si actualiza la aplicación en el futuro, debe volver a comprobar y, si es necesario, actualizar la dirección URL de la página principal.
 
-Puede establecer la dirección URL de página principal a través del portal de Azure o mediante PowerShell.
+Puede establecer la dirección URL de la página principal ya sea en Azure Portal o mediante PowerShell.
 
 ## <a name="change-the-home-page-in-the-azure-portal"></a>Vaya a la página principal de Azure Portal.
 
-Para cambiar la dirección URL de página principal de la aplicación a través del portal de Azure AD, siga estos pasos:
+Para cambiar la dirección URL de la página principal de la aplicación en el portal de Azure AD, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador.
-2. Seleccione **Azure Active Directory**y, a continuación, **registros de aplicaciones**. Aparece la lista de aplicaciones registradas.
+2. Seleccione **Azure Active Directory** y **Registros de aplicaciones**. Aparece la lista de aplicaciones registradas.
 3. Elija la aplicación en la lista. Aparece una página que muestra los detalles de la aplicación registrada.
-4. En **administrar**, seleccione **Branding**.
-5. Actualización de la **URL de página principal** con la nueva ruta de acceso.
+4. En **Administrar**, seleccione **Personalización de marca**.
+5. Actualice la dirección **URL de página principal** con la nueva ruta de acceso.
 
-   ![Página de personalización para una aplicación registrada que muestra el campo de dirección URL de la página principal](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
+   ![Página de personalización de marca para una aplicación registrada que muestra el campo URL de página principal](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
  
 6. Seleccione **Guardar**.
 
 ## <a name="change-the-home-page-with-powershell"></a>Cambio de la página principal con PowerShell
 
-Para configurar la página principal de una aplicación mediante PowerShell, deberá:
+Para configurar la página principal de una aplicación con PowerShell, necesitará lo siguiente:
 
 1. Instale el módulo de PowerShell de Azure AD.
-2. Buscar el valor de ObjectId de la aplicación.
-3. Actualizar la dirección URL de la página principal de la aplicación mediante los comandos de PowerShell.
+2. Busque el valor ObjectId de la aplicación.
+3. Actualice la dirección URL de la página principal de la aplicación con comandos de PowerShell.
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Instalación del módulo de PowerShell de Azure AD
 
@@ -89,9 +89,9 @@ Para instalar el paquete, siga estos pasos:
 
 2. Durante la instalación, seleccione **Y** para instalar dos paquetes de Nuget.org. Se requieren ambos paquetes.
 
-### <a name="find-the-objectid-of-the-app"></a>Busque el ObjectId de la aplicación
+### <a name="find-the-objectid-of-the-app"></a>Búsqueda del valor de ObjectID de la aplicación
 
-Obtenga el ObjectId de la aplicación mediante la búsqueda de la aplicación por su nombre para mostrar o la página principal.
+Puede obtener el valor de ObjectId de la aplicación si busca la aplicación por su nombre para mostrar o su página principal.
 
 1. En la misma ventana de PowerShell, importe el módulo Azure AD.
 
@@ -105,13 +105,13 @@ Obtenga el ObjectId de la aplicación mediante la búsqueda de la aplicación po
    Connect-AzureAD
    ```
 
-3. Busque la aplicación. Este ejemplo usa PowerShell para buscar el valor de ObjectId mediante la búsqueda de la aplicación con un nombre para mostrar de `SharePoint`.
+3. Busque la aplicación. En este ejemplo se usa PowerShell para buscar el valor de ObjectId buscando la aplicación con un nombre para mostrar de `SharePoint`.
 
    ```powershell
    Get-AzureADApplication | Where-Object { $_.DisplayName -eq "SharePoint" } | Format-List DisplayName, Homepage, ObjectId
    ```
 
-   Debe obtener un resultado similar al que se muestra aquí. Copie el GUID de ObjectId para usar en la sección siguiente.
+   Debe obtener un resultado similar al que se muestra aquí. Copie el GUID de ObjectId para usarlo en la siguiente sección.
 
    ```console
    DisplayName : SharePoint
@@ -119,7 +119,7 @@ Obtenga el ObjectId de la aplicación mediante la búsqueda de la aplicación po
    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
-   Como alternativa, simplemente podría extraer de la lista de todas las aplicaciones, busque en la lista de la aplicación con un nombre de pantalla específico o la página principal y copie el ObjectId de la aplicación una vez que se encuentra la aplicación.
+   También podría simplemente extraer la lista de todas las aplicaciones, buscar en ella la aplicación con determinado nombre para mostrar o página principal y copiar el valor de ObjectId de la aplicación una vez que la encuentra.
 
    ```powershell
    Get-AzureADApplication | Format-List DisplayName, Homepage, ObjectId
@@ -127,15 +127,15 @@ Obtenga el ObjectId de la aplicación mediante la búsqueda de la aplicación po
 
 ### <a name="update-the-home-page-url"></a>Actualización de la dirección URL de la página principal
 
-Cree la dirección URL de la página principal y actualiza la aplicación con ese valor. Seguir usando la misma ventana de PowerShell, o si usa una nueva ventana de PowerShell, inicie sesión en el módulo de Azure AD con `Connect-AzureAD`. A continuación, siga estos pasos:
+Cree la dirección URL de la página principal y actualice la aplicación con ese valor. Siga usando la misma ventana de PowerShell o, s usa una ventana nueva de PowerShell, vuelva a iniciar sesión en el módulo de Azure AD con `Connect-AzureAD`. A continuación, siga estos pasos:
 
-1. Cree una variable que contenga el valor de ObjectId que copió en la sección anterior. (Reemplace el valor de ObjectId utilizado para en este ejemplo de SharePoint con el valor de ObjectId de la aplicación).
+1. Cree una variable que contenga el valor de ObjectId que copió en la sección anterior. (Reemplace el valor de ObjectId que se usa para este ejemplo de SharePoint con el valor de ObjectId de la aplicación).
 
    ```powershell
    $objguid = "8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4"
    ```
 
-2. Confirme que tiene la aplicación correcta, ejecute el comando siguiente. La salida debería ser idéntica a la salida se vio en la sección anterior ([busque el ObjectId de la aplicación](#find-the-objectid-of-the-app)).
+2. Ejecute el comando siguiente para confirmar que tiene la aplicación correcta. La salida debe ser idéntica a la que vio en la sección anterior ([Búsqueda del valor de ObjectId de la aplicación](#find-the-objectid-of-the-app)).
 
    ```powershell
    Get-AzureADApplication -ObjectId $objguid | Format-List DisplayName, Homepage, ObjectId
@@ -153,19 +153,19 @@ Cree la dirección URL de la página principal y actualiza la aplicación con es
    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
    ```
 
-5. Realizar la actualización de la página principal.
+5. Actualice la página principal.
 
    ```powershell
    Set-AzureADApplication -ObjectId $objguid -Homepage $homepage
    ```
 
-6. Para confirmar que el cambio fue correcto, ejecute el siguiente comando desde el paso 2 de nuevo.
+6. Para confirmar que el cambio se realizó correctamente, vuelva a ejecutar este comando del paso 2.
 
    ```powershell
    Get-AzureADApplication -ObjectId $objguid | Format-List DisplayName, Homepage, ObjectId
    ```
 
-   En nuestro ejemplo, la salida debería aparecer ahora como sigue:
+   En nuestro ejemplo, la salida debería aparecer como se muestra a continuación:
 
    ```console
    DisplayName : SharePoint
@@ -173,7 +173,7 @@ Cree la dirección URL de la página principal y actualiza la aplicación con es
    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
-7. Reinicie la aplicación para confirmar que la página principal aparece como la primera pantalla, según lo previsto.
+7. Reinicie la aplicación para confirmar que la página principal aparece como la primera pantalla, tal como se espera.
 
 >[!NOTE]
 >Los cambios realizados en la aplicación pueden restablecer la dirección URL de la página principal. Si la dirección URL de la página principal se restablece, repita los pasos de esta sección para volver a establecerlo de nuevo.
@@ -181,4 +181,4 @@ Cree la dirección URL de la página principal y actualiza la aplicación con es
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Habilitar el acceso remoto a SharePoint con el Proxy de aplicación de Azure AD](application-proxy-integrate-with-sharepoint-server.md)
-- [Tutorial: Agregar una aplicación de forma local para el acceso remoto a través del Proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md)

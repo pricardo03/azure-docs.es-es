@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
 ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966383"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
@@ -63,70 +63,70 @@ La manera más fácil de tener acceso al servicio fuera del clúster es ejecutar
 
 Si no ve el panel de Kubernetes, compruebe que el pod `kube-proxy` se está ejecutando en el espacio de nombres `kube-system`. Si no está en estado de ejecución, elimine el pod y se reiniciará.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>No logro obtener los registros mediante kubectl logs ni puedo conectarme al servidor de API. Estoy obteniendo "Error de servidor: back-end de marcado del error: marcar tcp...". ¿Cuál debo hacer?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>No logro obtener los registros mediante kubectl logs ni puedo conectarme al servidor de API. Recibo el mensaje "Error de servidor: error de marcado al back-end: marcar tcp…" ¿Cuál debo hacer?
 
-Asegúrese de que no se modifica el grupo de seguridad de red predeterminado y que el puerto 22 está abierto para la conexión al servidor de API. Compruebe si el `tunnelfront` pod se está ejecutando en el *kube-system* espacio de nombres mediante el `kubectl get pods --namespace kube-system` comando. Si no se está ejecutando, debe forzar la eliminación del pod y se reiniciará.
+Asegúrese de que el grupo de seguridad de red predeterminado no se ha modificado y que el puerto 22 está abierto para la conexión al servidor de API. Compruebe si el pod `tunnelfront` se ejecuta en el espacio de nombres *kube-system* con el comando `kubectl get pods --namespace kube-system`. Si no se está ejecutando, debe forzar la eliminación del pod y se reiniciará.
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estoy intentando actualizar o escalar y recibo el mensaje "message: Changing property 'imageReference' is not allowed" ("mensaje: No se permite cambiar la propiedad 'imageReference'"). ¿Cómo se corrige este problema?
 
 Es posible que reciba este error porque se han modificado las etiquetas de los nodos de agente dentro del clúster de AKS. Modificar y eliminar etiquetas y otras propiedades de recursos en el grupo de recursos MC_ * puede provocar resultados inesperados. La modificación de los recursos en el grupo MC_* en el clúster de AKS interrumpe objetivo de nivel de servicio.
 
-## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Recibo errores que el clúster está en estado de error y actualización o escala no funcionará hasta que se ha corregido
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Recibo errores que indican que mi clúster presenta errores y que la actualización o el escalado no funcionarán hasta que se corrija.
 
-*Se dirige esta asistencia para solucionar problemas de https://aka.ms/aks-cluster-failed*
+*Esta ayuda para solucionar problemas se dirige desde https://aka.ms/aks-cluster-failed*
 
-Este error se produce cuando los clústeres de entrar en un estado con errores por varios motivos. Siga los pasos siguientes para resolver el estado del clúster no se pudo antes de reintentar la operación con error anteriormente:
+Este error aparece cuando los clústeres entran en un estado con errores por diversos motivos. Siga los pasos que aparecen a continuación para solucionar el estado con errores del clúster antes de reintentar la operación con errores anterior:
 
-1. Hasta que el clúster fuera de `failed` estado, `upgrade` y `scale` operaciones no se realizará correctamente. Raíz de los problemas comunes y resoluciones son:
-    * Escalado con **cuota insuficiente proceso (CRP)**. Para resolver, en primer lugar escalar el clúster a un estado estable objetivo dentro de cuota. A continuación, siga estas [pasos para solicitar una cuota de compute aumento](../azure-supportability/resource-manager-core-quotas-request.md) antes de intentar escalar verticalmente más allá de lo vuelva a unos límites de cuota inicial.
-    * Escalado de un clúster con conexiones de red avanzadas y **los recursos de subred insuficiente (redes)**. Para resolver, en primer lugar escalar el clúster a un estado estable objetivo dentro de cuota. A continuación, siga [aumentar estos pasos para solicitar una cuota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de intentar escalar verticalmente más allá de lo vuelva a unos límites de cuota inicial.
-2. Cuando se resuelva la causa subyacente de un error de actualización, el clúster debe estar en un estado correcto. Una vez que se comprueba un estado correcto, vuelva a intentar la operación original.
+1. Hasta que el clúster deje de tener el estado `failed`, las operaciones `upgrade` y `scale` no se realizarán correctamente. Los problemas y resoluciones raíz comunes incluyen:
+    * Escalado con una **cuota de proceso insuficiente (CRP)** . Para solucionarlo, primero debe escalar el clúster de vuelta a un estado objetivo estable dentro de la cuota. Luego, siga estos [pasos para solicitar un aumento de cuota de proceso](../azure-supportability/resource-manager-core-quotas-request.md) antes de intentar volver a escalar verticalmente más allá de los límites de cuota iniciales.
+    * Escalar un clúster con redes avanzadas y **recursos de subred (redes) insuficientes**. Para solucionarlo, primero debe escalar el clúster de vuelta a un estado objetivo estable dentro de la cuota. Luego, siga estos [pasos para solicitar un aumento de cuota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de intentar volver a escalar verticalmente más allá de los límites de cuota iniciales.
+2. Una vez que se resuelve la causa subyacente de un error de actualización, el clúster debería tener un estado correcto. Una vez que compruebe el estado correcto, vuelva a intentar la operación original.
 
-## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Recibo errores al intentar realizar una actualización o escala que notifican el clúster se está actualmente está actualizado o se ha producido un error de actualización
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Recibo errores cuando intento actualizar o escalar que indican que el clúster se está actualizando o que hay un error de actualización.
 
-*Se dirige esta asistencia para solucionar problemas de https://aka.ms/aks-pending-upgrade*
+*Esta ayuda para solucionar problemas se dirige desde https://aka.ms/aks-pending-upgrade*
 
-Las operaciones del clúster están limitadas cuando se producen las operaciones de actualización activas o se intentó una actualización, pero posteriormente no se pudo. Para diagnosticar el problema, ejecute `az aks show -g myResourceGroup -n myAKSCluster -o table` para recuperar el estado detallado en el clúster. En función del resultado:
+Las operaciones de los clústeres se ven limitadas cuando se realizan operaciones de actualización activas o si se intentó realizar una actualización, pero presentó errores. Para diagnosticar el problema, ejecute `az aks show -g myResourceGroup -n myAKSCluster -o table` para recuperar el estado detallado del clúster. En función del resultado:
 
-* Si el clúster se está actualizando activamente, espere hasta que finaliza la operación. Si se realiza correctamente, intentar la operación errónea anterior.
-* Si el clúster tiene un error de actualización, siga los pasos descritos arriba
+* Si el clúster se está actualizando activamente, espere hasta que finalice la operación. Si se realizó correctamente, vuelva a intentar realizar la operación que presentó errores.
+* Si el clúster no se pudo actualizar, siga los pasos descritos anteriormente.
 
-## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>¿Puedo mover mi clúster a una suscripción diferente o mi suscripción con mi clúster a un nuevo inquilino?
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>¿Puedo mover el clúster a otra suscripción o mi suscripción con mi clúster a un inquilino nuevo?
 
-Si el clúster de AKS se ha movido a otra suscripción o el propietario de la suscripción a un nuevo inquilino de clúster, el clúster perderá la funcionalidad debido a perder las asignaciones de roles y derechos de entidades de seguridad de servicio. **AKS no admite clústeres de movimiento entre suscripciones o inquilinos** debido a esta restricción.
+Si movió el clúster de AKS a otra suscripción o la suscripción propietaria del clúster a un inquilino nuevo, el clúster perderá funcionalidad debido a que perderá derechos de entidades de servicio y asignaciones de roles. Debido a esta restricción, **AKS no admite mover clústeres entre suscripciones ni inquilinos**.
 
-## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Recibo errores al intentar usar las características que requieren conjuntos de escalado de máquinas virtuales
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Recibos errores cuando intento usar características que requieren conjuntos de escalado de máquinas virtuales.
 
-*Se dirige esta asistencia para solucionar problemas de aka.ms/aks-vmss-habilitación*
+*Esta ayuda para solucionar problemas se dirige desde aka.ms/aks-vmss-enablement*
 
-Puede recibir errores que indican que el clúster de AKS no está en un conjunto de escalado de máquinas virtuales, como en el ejemplo siguiente:
+Puede recibir errores que indiquen que el clúster de AKS no se encuentra en un conjunto de escalado de máquinas virtuales, como el ejemplo siguiente:
 
-**AgentPool 'agentpool' ha establecido como habilitado el escalado automático, pero no está en Virtual Machine Scale Sets**
+**El grupo de agentes "agentpool" definió el escalado automático como habilitado, pero no se encuentra en Virtual Machine Scale Sets**
 
-Para usar características como el Escalador automático del clúster o nodo de varios grupos, se deben crear clústeres AKS que usan conjuntos de escalado de máquinas virtuales. Se devuelven errores si intenta utilizar las características que dependen de los conjuntos de escalado de máquinas virtuales y el destino un clúster de AKS del conjunto de escalado normal, el equipo no virtual. Compatibilidad con conjunto de escalado de máquina virtual está actualmente en versión preliminar de AKS.
+Para usar características como el escalador automático de clústeres o varios grupos de nodos, se deben crear clústeres de AKS que usen conjuntos de escalado de máquinas virtuales. Se devuelven errores si intenta usar características que dependen de conjuntos de escalado de máquinas virtuales y el usuario se dirige a un clúster de AKS no en un conjunto de escalado de máquinas virtuales normal. La compatibilidad del conjunto de escalado de máquinas virtuales actualmente está en versión preliminar en AKS.
 
-Siga el *antes de comenzar* pasos en el documento adecuado para registrar correctamente para el escalado de máquinas virtuales del conjunto de característica de vista previa y crear un clúster de AKS:
+Siga los pasos de *Antes de empezar* que aparecen en el documento adecuado para registrarse correctamente para obtener la versión preliminar de la característica de conjunto de escalado de máquinas virtuales y crear un clúster de AKS:
 
-* [Usar el Escalador automático de clúster](cluster-autoscaler.md)
-* [Crear y usar varios grupos de nodos](use-multiple-node-pools.md)
+* [Uso del escalador automático del clúster](cluster-autoscaler.md).
+* [Creación y uso de varios grupos de nodos](use-multiple-node-pools.md).
  
-## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>¿Se aplican las restricciones de nomenclatura para los recursos AKS y los parámetros?
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>¿Qué restricciones de nomenclatura se aplican para los parámetros y recursos de AKS?
 
-*Se dirige esta asistencia para solucionar problemas de aka.ms/aks--reglas de nomenclatura*
+*Esta ayuda para solucionar problemas se dirige desde aka.ms/aks-naming-rules*
 
-Las restricciones de nomenclatura se implementan mediante la plataforma Windows Azure y el AKS. Si un nombre de recurso o el parámetro interrumpe una de estas restricciones, se devuelve un error que le pide que proporcione una entrada distinta. Se aplican las siguientes directrices de nomenclatura comunes:
+Tanto AKS como la plataforma de Azure implementan las restricciones de nomenclatura. Si un parámetro o nombre de recurso infringe una de estas restricciones, se devuelve un error en el que se le pide brindar otra entrada. Se aplican estas directrices de nomenclatura comunes:
 
-* El AKS *MC_* nombre del grupo de recursos combina el nombre del grupo de recursos y el nombre del recurso. La sintaxis generado automáticamente de `MC_resourceGroupName_resourceName_AzureRegion` debe ser no supere los 80 caracteres. Si es necesario, reduzca la longitud del nombre del grupo de recursos o el nombre del clúster AKS.
-* El *dnsPrefix* debe empezar y terminar por valores alfanuméricos. Caracteres válidos son valores alfanuméricos y guiones (-). El *dnsPrefix* no puede incluir caracteres especiales, como un punto (.).
+* El nombre del grupo de recursos *MC_* de AKS combina el nombre del grupo de recursos y el nombre del recurso. La sintaxis generada automáticamente de `MC_resourceGroupName_resourceName_AzureRegion` no puede tener más de 80 caracteres. Si es necesario, disminuya la longitud del nombre del grupo de recursos o del nombre del clúster de AKS.
+* *dnsPrefix* debe empezar y terminar con valores alfanuméricos. Los caracteres válidos incluyen valores alfanuméricos y guiones (-). *dnsPrefix* no puede incluir caracteres especiales, como un punto (.).
 
-## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Recibo errores al intentar crear, actualizar, escalar, eliminar o actualizar el clúster, la operación no se permite porque otra operación está en curso.
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Recibo errores cuando intento crear, actualizar, escalar, eliminar o actualizar un clúster, donde se indica que no se permite la operación porque hay otra operación en curso.
 
-*Se dirige esta asistencia para solucionar problemas de aka.ms/aks-pendientes-operación*
+*Esta ayuda para solucionar problemas se dirige desde aka.ms/aks-pending-operation*
 
-Las operaciones del clúster están limitadas cuando una operación anterior aún está en curso. Para recuperar un estado detallado del clúster, use el `az aks show -g myResourceGroup -n myAKSCluster -o table` comando. Use su propio grupo de recursos y el nombre del clúster de AKS según sea necesario.
+Las operaciones del clúster se limitan cuando todavía hay en curso una operación anterior. Para recuperar un estado detallado del clúster, use el comando `az aks show -g myResourceGroup -n myAKSCluster -o table`. Use el nombre de su propio clúster de AKS y de su propio grupo de recursos, en caso de ser necesario.
 
 En función de la salida del estado del clúster:
 
-* Si el clúster está en cualquier estado de aprovisionamiento distinto *Succeeded* o *Failed*, espere hasta que la operación (*actualizar / actualizar / crear / escalado / eliminar / migración*) finaliza. Cuando haya finalizado la operación anterior, vuelva a intentar la operación de clúster más reciente.
+* Si el clúster está en cualquier estado de aprovisionamiento distinto de *Succeeded* (Correcto) o *Failed* (Con errores), espere que se termine la operación (*Actualización/Creación/Escalado/Eliminación/Migración*). Cuando finalice la operación anterior, vuelva a intentar la operación de clúster más reciente.
 
-* Si el clúster tiene un error de actualización, siga los pasos descritos [estoy recibiendo errores que el clúster está en estado de error y actualización o escalado no funcionará hasta que se solucione](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+* Si el clúster presenta errores de actualización, siga los pasos que se describen en [Recibo errores que indican que mi clúster presenta errores y que la actualización o el escalado no funcionarán hasta que se corrija](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

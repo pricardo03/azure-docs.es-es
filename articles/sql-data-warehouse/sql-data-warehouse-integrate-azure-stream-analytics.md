@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873261"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Uso de Azure Stream Analytics con SQL Data Warehouse
@@ -34,10 +34,10 @@ Luego cree una base de datos de Azure SQL Data Warehouse.
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Especificación de la salida del trabajo: Base de datos de Azure SQL Data Warehouse
 ### <a name="step-1"></a>Paso 1
-En el trabajo de Stream Analytics, haga clic en **salida** desde la parte superior de la página y, a continuación, haga clic en **agregar**.
+En el trabajo de Stream Analytics, haga clic en **SALIDA** en la parte superior de la página y luego en **AGREGAR**.
 
 ### <a name="step-2"></a>Paso 2
-Seleccione la base de datos SQL.
+Seleccione SQL Database.
 
 ### <a name="step-3"></a>Paso 3
 Escriba estos valores en la página siguiente:
@@ -57,10 +57,10 @@ Escriba estos valores en la página siguiente:
 
 ![][add-database]
 
-### <a name="step-4"></a>Paso 4
+### <a name="step-4"></a>Paso 4
 Haga clic en el botón de comprobación para agregar esta salida de trabajo y comprobar que Stream Analytics puede conectarse correctamente a la base de datos.
 
-Cuando la conexión a la base de datos se realiza correctamente, verá una notificación en el portal. Puede hacer clic en prueba para probar la conexión a la base de datos.
+Cuando la conexión a la base de datos se realice correctamente, verá una notificación en el portal. Puede hacer clic en Probar para probar la conexión a la base de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información general sobre la integración, consulte la [información general de la integración de SQL Data Warehouse][SQL Data Warehouse integration overview].

@@ -1,19 +1,19 @@
 ---
-title: 'Script de PowerShell de Azure: Azure Cosmos DB Crear gráfico y la base de datos de API de Gremlin'
-description: 'Script de PowerShell de Azure: Azure Cosmos DB Crear gráfico y la base de datos de API de Gremlin'
+title: 'Script de Azure PowerShell: Creación de un grafo y una base de datos de Gremlin API en Azure Cosmos DB'
+description: 'Script de Azure PowerShell: Creación de un grafo y una base de datos de Gremlin API en Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 9b4fecc7648d1fe19c28599be7ef2c0b5dcab423
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247820"
 ---
-# <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>Crear una base de datos y un gráfico para Azure Cosmos DB: API de Gremlin
+# <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>Creación de una base de datos y un grafo para Gremlin API en Azure Cosmos DB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

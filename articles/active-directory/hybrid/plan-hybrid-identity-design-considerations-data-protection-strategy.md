@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c1575781f280b3be1843abee0469af52baeb2d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918425"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109370"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definición de una estrategia de protección de datos para soluciones de identidad híbrida
 En esta tarea, se definirá la estrategia de protección de datos para que una solución de identidad híbrida cumpla los requisitos empresariales que se definen en:
@@ -82,14 +82,14 @@ Una parte fundamental de la administración de contenido es saber quién tiene a
 
 | Opciones de administración de contenido | Ventajas | Desventajas |
 | --- | --- | --- |
-| Centralizada localmente (servidor de Active Directory Rights Management) |Control total sobre la infraestructura de servidor responsable de clasificar los datos  <br> Funcionalidad integrada de Windows Server, sin necesidad de suscripción o de licencia adicional <br> Se puede integrar con Azure AD en un escenario híbrido. <br> Admite funcionalidades de Information Rights Management (IRM) en Microsoft Online Services como Exchange Online y SharePoint Online, así como Office 365. <br>  Admite productos de servidor de Microsoft locales, como Exchange Server , SharePoint Server y servidores de archivo que ejecutan Windows Server e infraestructura de clasificación de archivos (FCI). |Mayor mantenimiento (para estar al día de las actualizaciones, la configuración y las actualizaciones potenciales), ya que el departamento de TI posee el servidor. <br> Requiere una infraestructura de servidor local.<br> No saca provecho de las funcionalidades de Azure de forma nativa. |
-| Centralizada en la nube (Azure RMS) |Más fácil de administrar, en comparación con la solución local  <br> Se puede integrar con AD DS en un escenario híbrido. <br>  Completamente integrado con Azure AD. <br> No requiere un servidor local para implementar el servicio <br> Admite productos de servidor de Microsoft locales, como Exchange Server, SharePoint Server y servidores de archivo que ejecuten Windows Server y la infraestructura de clasificación de archivos (FCI). <br> El departamento de TI puede tener control completo sobre la clave de inquilino con funcionalidad de BYOK. |Su organización debe tener una suscripción de nube que admita RMS  <br>  Su organización debe tener un directorio de Azure AD para admitir la autenticación de usuario de RMS |
-| Híbrida (Azure RMS integrado con el servidor de Active Directory Rights Management local) |Este escenario acumula las ventajas de ambos, local centralizado y en la nube. |Su organización debe tener una suscripción de nube que admita RMS  <br> Su organización debe tener un directorio de Azure AD para admitir la autenticación de usuario de RMS. <br>  Requiere una conexión entre el servicio en la nube de Azure y la infraestructura local |
+| Centralizada localmente (servidor de Active Directory Rights Management) |Control total sobre la infraestructura de servidor responsable de clasificar los datos <br> Funcionalidad integrada de Windows Server, sin necesidad de suscripción o de licencia adicional <br> Se puede integrar con Azure AD en un escenario híbrido. <br> Admite funcionalidades de Information Rights Management (IRM) en Microsoft Online Services como Exchange Online y SharePoint Online, así como Office 365. <br> Admite productos de servidor de Microsoft locales, como Exchange Server , SharePoint Server y servidores de archivo que ejecutan Windows Server e infraestructura de clasificación de archivos (FCI). |Mayor mantenimiento (para estar al día de las actualizaciones, la configuración y las actualizaciones potenciales), ya que el departamento de TI posee el servidor. <br> Requiere una infraestructura de servidor local.<br> No saca provecho de las funcionalidades de Azure de forma nativa. |
+| Centralizada en la nube (Azure RMS) |Más fácil de administrar, en comparación con la solución local <br> Se puede integrar con AD DS en un escenario híbrido. <br>  Completamente integrado con Azure AD. <br> No requiere un servidor local para implementar el servicio <br> Admite productos de servidor de Microsoft locales, como Exchange Server, SharePoint Server y servidores de archivo que ejecuten Windows Server y la infraestructura de clasificación de archivos (FCI). <br> El departamento de TI puede tener control completo sobre la clave de inquilino con funcionalidad de BYOK. |Su organización debe tener una suscripción de nube que admita RMS <br> Su organización debe tener un directorio de Azure AD para admitir la autenticación de usuario de RMS |
+| Híbrida (Azure RMS integrado con el servidor de Active Directory Rights Management local) |Este escenario acumula las ventajas de ambos, local centralizado y en la nube. |Su organización debe tener una suscripción de nube que admita RMS <br> Su organización debe tener un directorio de Azure AD para admitir la autenticación de usuario de RMS. <br> Requiere una conexión entre el servicio en la nube de Azure y la infraestructura local |
 
 ## <a name="define-access-control-options"></a>Definición de opciones de control de acceso
 Al usar las funcionalidades de autenticación, autorización y control de acceso disponibles en Azure AD, puede permitir que su empresa use un repositorio central de identidades, al mismo tiempo que permite que los usuarios y asociados usen el inicio de sesión único (SSO), tal como se muestra en la figura siguiente:
 
-![administración centralizada](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![Administración centralizada.](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Administración centralizada e integración total con otros directorios
 
@@ -106,7 +106,7 @@ Azure Active Directory ofrece un inicio de sesión único a miles de aplicacione
 >
 >
 
-Gracias a la compatibilidad con Azure AD, las aplicaciones empresariales pueden usar la misma experiencia de autenticación fácil de Mobile Services para permitir a los empleados iniciar sesión en sus aplicaciones móviles con sus credenciales corporativas de Active Directory. Con esta característica, Azure AD se admite como proveedor de identidades en Mobile Services, junto con los otros proveedores de identidades que ya son compatibles (entre los que se incluyen las cuentas de Microsoft, el identificador de Facebook, el identificador de Google y el identificador de Twitter). Si las aplicaciones locales usan las credenciales del usuario ubicadas en el servicio AD DS de la empresa, el acceso de los asociados y los usuarios que provienen de la nube debe ser transparente. Puede administrar el control de acceso condicional del usuario a las aplicaciones web (basadas en la nube), la API web, los servicios en la nube de Microsoft, las aplicaciones SaaS de terceros y las aplicaciones cliente nativas (móviles) e igualmente obtener todas las ventajas de seguridad, auditoría y generación de informes en un mismo lugar. Sin embargo, se recomienda validar la implementación en un entorno que no sea de producción o que tenga una cantidad limitada de usuarios.
+Gracias a la compatibilidad con Azure AD, las aplicaciones empresariales pueden usar la misma experiencia de autenticación fácil de Mobile Services para permitir a los empleados iniciar sesión en sus aplicaciones móviles con sus credenciales corporativas de Active Directory. Con esta característica, Azure AD se admite como proveedor de identidades en Mobile Services, junto con los otros proveedores de identidades que ya son compatibles (entre los que se incluyen las cuentas de Microsoft, el identificador de Facebook, el identificador de Google y el identificador de Twitter). Si las aplicaciones locales usan las credenciales del usuario ubicadas en el servicio AD DS de la empresa, el acceso de los asociados y los usuarios que provienen de la nube debe ser transparente. Puede administrar el control de acceso condicional del usuario a las aplicaciones web (basadas en la nube), la API web, los Servicios en la nube de Microsoft, las aplicaciones SaaS de terceros y las aplicaciones cliente nativas (móviles) e igualmente obtener todas las ventajas de seguridad, auditoría y generación de informes en un mismo lugar. Sin embargo, se recomienda validar la implementación en un entorno que no sea de producción o que tenga una cantidad limitada de usuarios.
 
 > [!TIP]
 > Es importante mencionar que Azure AD no tiene una directiva de grupo, mientras que AD DS sí la tiene. Para aplicar una directiva a los dispositivos, es preciso tener una solución de administración de dispositivos móviles como [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
@@ -171,5 +171,5 @@ Dado que las opciones para la respuesta ante incidentes usan un enfoque multicap
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de las tareas de administración de identidades híbridas](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)

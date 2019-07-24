@@ -1,5 +1,5 @@
 ---
-title: Control de comentarios de revisión de aplicación de Azure | Azure Marketplace
+title: Administración de los comentarios de revisión de aplicaciones de Azure | Azure Marketplace
 description: Explica cómo usar Azure DevOps para administrar los comentarios de revisión de ofertas de aplicaciones de Azure para Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,25 +7,25 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pabutler
-ms.openlocfilehash: 57efbfe12df8072d619cf71f4b08da2e2e5be3ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: 1a45af2cb5eed8daa4b50bb6f0b504f9653c827a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942958"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068953"
 ---
 # <a name="handling-review-feedback"></a>Administración de los comentarios de revisión
 
 En este artículo se explica cómo acceder al entorno de Azure DevOps que usa el equipo de revisión de Microsoft Azure Marketplace.  Si se detectan problemas críticos en su oferta de la aplicación de Azure durante el paso de **revisión de Microsoft**, puede iniciar sesión en este sistema para la información detallada sobre estos problemas (comentarios de revisión).  Después de corregir todos estos problemas, debe volver a enviar la oferta para proceder a su publicación en Azure Marketplace.  En el siguiente diagrama se ilustra cómo se relacionan estos comentarios con la publicación.
 
-![Pasos de publicación con comentarios de VSTS](./media/pub-flow-vsts-access.png)
+![Pasos de publicación con comentarios de Azure DevOps](./media/pub-flow-vsts-access.png)
 
 Normalmente, a los problemas de revisión se hace referencia con solicitudes de incorporación de cambios (PR).  Cada solicitud de incorporación de cambios está vinculada a un elemento de [Azure DevOps](https://azure.microsoft.com/services/devops/) (anteriormente llamado Visual Studio Team Services) con los detalles sobre el problema.  En la siguiente imagen se muestra un ejemplo de una referencia de solicitud de incorporación de cambios de revisión.  Para situaciones complejas, los equipos de revisión y soporte técnico también pueden escribir por correo electrónico. 
 
 ![Pestaña Status (Estado) con los comentarios de revisión](./media/status-tab-ms-review.png)
 
 
-## <a name="vsts-access"></a>Acceso a VSTS
+## <a name="azure-devops-access"></a>Acceso de Azure DevOps
 
 Para ver los elementos de la solicitud de incorporación de cambios a los que se hace referencia en los comentarios de revisión, los publicadores deben primero contar con la autorización pertinente.  De lo contrario, los publicadores nuevos recibirán una página de respuesta de tipo `401 - Not Authorized` cuando intenten ver estas solicitudes.  Para solicitar el acceso a este repositorio de Azure DevOps, realice los pasos siguientes:
 
@@ -40,7 +40,7 @@ Para ver los elementos de la solicitud de incorporación de cambios a los que se
     ![Categoría de la incidencia de soporte técnico](./media/support-incident1.png)
 
 4. En la página **Step 1 of 2** (Paso 1 de 2), proporcione la información de contacto y seleccione **Continue** (Continuar).
-5. En la página **Step 2 of 2** (Paso 2 de 2), especifique un título de incidente (por ejemplo, `Request VSTS access`) y proporcione la información recopilada en el primer paso (arriba).  Lea y acepte el contrato y seleccione **Send** (Enviar).
+5. En la página **Step 2 of 2** (Paso 2 de 2), especifique un título de incidente (por ejemplo, `Request Azure DevOps access`) y proporcione la información recopilada en el primer paso (arriba).  Lea y acepte el contrato y seleccione **Send** (Enviar).
 
 Si el incidente se creó correctamente, se mostrará una página de confirmación.  Guarde la información de confirmación en esta página para consultarla en el futuro.  El equipo de soporte técnico de Microsoft debe responder a la solicitud de acceso en unos días hábiles.
 
@@ -51,14 +51,14 @@ Use el procedimiento siguiente para revisar los problemas que se documentan en l
 
 1. En la sección de **Revisión de Microsoft** del formulario **Pasos de publicación**, haga clic en un vínculo de solicitud de incorporación de cambios para iniciar el explorador e ir a la página **Información general** (página principal) de esta solicitud.  En la siguiente imagen se muestra una página principal de ejemplo de un problema crítico de una oferta de la aplicación Contoso.  Esta página contiene información resumida útil acerca de los problemas de revisión que se detectaron en la aplicación de Azure.  
 
-    [![Página de inicio de solicitud de incorporación de cambios](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
+    [![Página principal de la solicitud de incorporación de cambios](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Haga clic en la imagen para expandirla.*
     
 2. (Opcional) En el lado derecho de la ventana, en la sección **Directivas**, haga clic en el mensaje emitido (en este ejemplo: **Policy Validation failed**) (Error durante la validación de directivas) para investigar los detalles de bajo nivel del problema, incluidos los archivos de registro asociados.  Normalmente, los errores aparecen en la parte inferior de los archivos de registro.
 
 3. En el menú en el lado izquierdo de la página principal, seleccione **Archivos** para mostrar la lista de archivos que componen los recursos técnicos de esta oferta.  Los revisores de Microsoft deberían haber agregado comentarios que describen los problemas críticos detectados.  En el ejemplo siguiente, se detectaron dos problemas. 
 
-    [![Página de inicio de solicitud de incorporación de cambios](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![Página principal de la solicitud de incorporación de cambios](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Haga clic en la imagen para expandirla.*
 
 4. Haga clic en cada nodo de comentario en el árbol de la izquierda para ver el comentario en el contexto del código circundante.  Corrija el código fuente en el proyecto de equipo para corregir el problema que se describe en el comentario.

@@ -16,10 +16,10 @@ ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: 9f7d482b088003e3800debb2db9f6f26bda1672a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298183"
 ---
 # <a name="azure-log-integration-faq"></a>Preguntas más frecuentes sobre Azure Log Integration
@@ -27,7 +27,7 @@ ms.locfileid: "66298183"
 En este artículo se responden algunas preguntas frecuentes sobre Azure Log Integration.
 
 >[!IMPORTANT]
-> La característica de integración de registro de Azure dejará de utilizarse en 15/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
+> La característica Azure Log Integration dejará de utilizarse el 15/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
 
 Azure Log Integration es un servicio del sistema operativo Windows que puede usar para integrar los registros sin procesar de los recursos de Azure en los sistemas locales de administración de eventos e información de seguridad (SIEM). Esta integración le proporciona un panel unificado de todos los recursos, locales o en la nube. Puede agregar, correlacionar, analizar y alertar sobre eventos de seguridad asociados con las aplicaciones.
 
@@ -99,13 +99,13 @@ El comando **Azlog createazureid** intenta crear una entidad de servicio en todo
 
 Error:
 
-  *Advertencia al crear la asignación de rol: AuthorizationFailed: El cliente janedo\@microsoft.com' id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' con el objeto no tiene autorización para realizar la acción 'Microsoft.Authorization/roleAssignments/write' en el ámbito ' / Subscriptions / 70d 95299-d689-4c 97-b971-0d8ff0000000'.*
+  *Advertencia al crear la asignación de rol: AuthorizationFailed: el cliente janedo \@ con identificador de objeto fe9e03e4-4dad-4328-910f-fd24a9660bd2 no tiene autorización para realizar la acción Microsoft.Authorization/roleAssignments/write en el ámbito /subscriptions/70d95299-d689-4c97-b971-0d8ff0000000.*
 
 El comando **azlog authorize** asigna el rol Lector a la entidad de servicio de Azure AD (creada con **azlog createazureid**) para las suscripciones proporcionadas. Si el inicio de sesión de Azure no se realiza mediante una cuenta de coadministrador o de propietario de la suscripción, se producirá el error "Error de autorización". Se necesita el control de acceso basado en roles de Azure (RBAC) de una cuenta de coadministrador o de propietario para completar esta acción.
 
 ## <a name="where-can-i-find-the-definition-of-the-properties-in-the-audit-log"></a>¿Dónde puedo encontrar la definición de las propiedades de registro de auditoría?
 
-Vea:
+Consulte:
 
 * [Operaciones de auditoría con Azure Resource Manager](../azure-resource-manager/resource-group-audit.md)
 * [Lista de los eventos de administración de una suscripción en la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931934.aspx)

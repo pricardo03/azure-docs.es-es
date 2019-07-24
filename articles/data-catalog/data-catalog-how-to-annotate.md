@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953171"
 ---
 # <a name="how-to-annotate-data-sources"></a>Anotación de orígenes de datos
@@ -27,9 +27,9 @@ Data Catalog reconoce que distintos usuarios tienen diferentes perspectivas sobr
 * El administrador de base de datos conoce la programación de copia de seguridad de cada base de datos y las ventanas de procesamiento de ETL permitidas.
 * El propietario del sistema conoce el proceso para que los usuarios soliciten acceso al origen de datos.
 * El administrador de datos conoce cómo se asignan los recursos y atributos del origen de datos al modelo de datos empresarial.
-* El analista conoce cómo se usan los datos en el contexto de los procesos empresariales que admiten.
+* El analista conoce cómo se usan los datos en el contexto de los procesos empresariales con los que trabaja.
 
-Cada una de estas perspectivas es importante, y Data Catalog aplica un enfoque de micromecenazgo a los metadatos que permite que cada una se capture y utilice para ofrecer una visión completa de los orígenes de datos registrados. Mediante el portal de Data Catalog, cada usuario puede agregar y editar sus propias anotaciones, mientras que se puedan ver las anotaciones proporcionadas por otros usuarios.
+Cada una de estas perspectivas es importante, y Data Catalog aplica un enfoque de micromecenazgo a los metadatos que permite que cada una se capture y utilice para ofrecer una visión completa de los orígenes de datos registrados. Mediante el portal de Data Catalog, cada usuario puede agregar y modificar sus propias anotaciones, a la vez que puede ver las anotaciones que otros usuarios han proporcionado.
 
 ## <a name="different-types-of-annotations"></a>Distintos tipos de anotaciones
 La búsqueda de Data Catalog admite los siguientes tipos de anotaciones:
@@ -60,5 +60,5 @@ Al igual que los metadatos extraídos del origen de datos durante el registro se
 ## <a name="summary"></a>Resumen
 Al registrar un origen de datos con Data Catalog, se consigue que esos datos sean detectables mediante la copia de los metadatos descriptivos y estructurales del origen de datos en el servicio Catálogo. Cuando se ha registrado un origen de datos, los usuarios pueden proporcionar anotaciones para facilitar la detección y comprensión dentro del portal de Data Catalog.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Introducción a Azure Data Catalog](data-catalog-get-started.md) para obtener información paso a paso sobre cómo anotar orígenes de datos.

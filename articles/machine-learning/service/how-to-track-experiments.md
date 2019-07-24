@@ -1,7 +1,7 @@
 ---
 title: Métricas de registro durante las ejecuciones de entrenamiento
 titleSuffix: Azure Machine Learning service
-description: Aprenda a agregar el registro al script de entrenamiento, enviar el experimento, comprobar el progreso de un trabajo en ejecución y ver los resultados de una ejecución. Puede realizar un seguimiento de sus experimentos y supervisar las métricas para mejorar el proceso de creación del modelo.
+description: Aprenda a agregar el registro al script de entrenamiento, enviar el experimento, comprobar el progreso de un trabajo en ejecución y ver los resultados de una ejecución. Puede realizar un seguimiento de sus experimentos y supervisar las métricas para mejorar el proceso de creación de modelos.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297489"
 ---
-# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Las métricas de registro durante el entrenamiento se ejecuta en Azure Machine Learning
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métricas de registro durante las ejecuciones de entrenamiento en Azure Machine Learning
 
-En este artículo, aprenderá a agregar el registro para el script de entrenamiento, envía una ejecución de experimento, supervisar la ejecución y ver los resultados de una ejecución en el servicio Azure Machine Learning. Mejore el proceso de creación del modelo, realiza el seguimiento de sus experimentos y las métricas de supervisión. 
+En este artículo, aprenderá a agregar el registro a su script de entrenamiento, enviar una ejecución de experimento, supervisar la ejecución y ver los resultados de una ejecución en Azure Machine Learning Service. Realice el seguimiento de sus experimentos y supervise las métricas para mejorar el proceso de creación del modelo. 
 
 ## <a name="list-of-training-metrics"></a>Lista de métricas de entrenamiento 
 
@@ -48,7 +48,7 @@ Si quiere realizar un seguimiento del experimento o supervisarlo, debe agregar c
 ## <a name="set-up-the-workspace"></a>Configuración del área de trabajo
 Antes de agregar el registro y enviar un experimento, debe configurar el área de trabajo.
 
-1. Cargue el área de trabajo. Para más información acerca de cómo establecer la configuración de área de trabajo, siga los pasos de [crear un área de trabajo del servicio de Azure Machine Learning](setup-create-workspace.md#sdk).
+1. Cargue el área de trabajo. Para más información sobre el establecimiento de la configuración del área de trabajo, siga los pasos de [Creación de un área de trabajo de Azure Machine Learning Service](setup-create-workspace.md#sdk).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -123,7 +123,7 @@ El script finaliza con ```run.complete()```, que marca la ejecución como comple
 
 ## <a name="option-2-use-scriptrunconfig"></a>Opción 2: Usar ScriptRunConfig
 
-[**ScriptRunConfig** ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) es una clase para configurar las configuraciones para el script se ejecuta. Con esta opción, puede agregar código de supervisión para recibir una notificación al finalizar o para obtener un widget visual para supervisar.
+[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) es una clase para configurar las ejecuciones del script. Con esta opción, puede agregar código de supervisión para recibir una notificación al finalizar o para obtener un widget visual para supervisar.
 
 En este ejemplo se amplía el modelo sklearn Ridge básico anterior. Se realiza un barrido simple de parámetros sobre los valores alfa del modelo para capturar las métricas y los modelos entrenados en las ejecuciones del experimento. El ejemplo se ejecuta localmente en un entorno administrado por el usuario. 
 
@@ -217,9 +217,9 @@ En este ejemplo se amplía el modelo sklearn Ridge básico anterior. Se realiza 
    run = experiment.submit(src)
    ```
 
-## <a name="manage-a-run"></a>Administrar una ejecución
+## <a name="manage-a-run"></a>Administración de ejecuciones
 
-El [iniciar, supervisar y cancelar las ejecuciones de entrenamiento](how-to-manage-runs.md) artículo destacan los flujos de trabajo específicos de Azure Machine Learning para administrar sus experimentos.
+El artículo [Inicio, supervisión y cancelación de ejecuciones de entrenamiento](how-to-manage-runs.md) resalta los flujos de trabajo de Azure Machine Learning específicos sobre cómo administrar sus experimentos.
 
 ## <a name="view-run-details"></a>Visualización de los detalles de ejecución
 
@@ -235,7 +235,7 @@ Cuando se usa el método **ScriptRunConfig** para enviar ejecuciones, se puede v
 
    ![Captura de pantalla del widget de cuaderno de Jupyter](./media/how-to-track-experiments/widgets.PNG)
 
-2. **[Para ejecuciones de aprendizaje automático automatizado]**  Para acceder a los gráficos de una ejecución anterior. Reemplace `<<experiment_name>>` con el nombre del experimento adecuado:
+2. **[Para ejecuciones de aprendizaje automático automatizado]**  Para acceder a los gráficos de una ejecución anterior. Reemplace `<<experiment_name>>` por el nombre del experimento adecuado:
 
    ``` 
    from azureml.widgets import RunDetails
@@ -394,7 +394,7 @@ Para cada modelo de regresión que se crea usando las funcionalidades de aprendi
 
 <a name="pvt"></a>
 
-#### <a name="predicted-vs-true"></a>Predicho frente a True 
+#### <a name="predicted-vs-true"></a>Predicho frente a True
 
 Predicho frente a True (Predicho frente verdadero), muestra la relación entre un valor predicho y su valor verdadero correlacionado para un problema de regresión. Este gráfico se puede usar para medir el rendimiento de un modelo, ya que cuanto más se acerquen los valores predichos a la línea y=x, mejor será la precisión de un modelo predictivo.
 

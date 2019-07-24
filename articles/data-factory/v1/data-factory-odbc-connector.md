@@ -14,14 +14,14 @@ ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0db301109da657083d121cc8b986372adcb54171
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389044"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Movimiento de datos desde almacenes de datos ODBC mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-odbc-connector.md)
 > * [Versión 2 (versión actual)](../connector-odbc.md)
 
@@ -69,10 +69,10 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesOdbc** |Sí |
 | connectionString |La parte de la credencial de no acceso de la cadena de conexión, así como una credencial cifrada opcional. Vea ejemplos en las secciones siguientes. <br/><br/>Puede especificar la cadena de conexión con un patrón como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` o utilizar el DSN (nombre de origen de datos) de sistema que se ha configurado en la máquina de puerta de enlace con `"DSN=<name of the DSN>;"` (se necesita especificar la parte de la credencial en el servicio vinculado según corresponda). |Sí |
-| credential |La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador. Ejemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |No |
+| credential |La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador. Ejemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Sin |
 | authenticationType |Tipo de autenticación que se usa para conectarse al almacén de datos ODBC. Los valores posibles son: Anónima y básica. |Sí |
-| userName |Especifique el nombre de usuario si usa la autenticación básica. |Sin  |
-| password |Especifique la contraseña de la cuenta de usuario que ha especificado para el nombre de usuario. |No |
+| userName |Especifique el nombre de usuario si usa la autenticación básica. |Sin |
+| contraseña |Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. |Sin |
 | gatewayName |Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse al almacén de datos ODBC. |Sí |
 
 ### <a name="using-basic-authentication"></a>Uso de la autenticación básica
@@ -95,7 +95,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>Uso de la autenticación básica con credenciales cifradas
-Puede cifrar las credenciales mediante el [New AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet (1.0 versión de Azure PowerShell) o [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 versión o una anterior de Azure PowerShell).
+Las credenciales se pueden cifrar mediante el cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (versión 1.0 de Azure PowerShell) o [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versión 0.9 o una versión anterior de Azure PowerShell).
 
 ```json
 {

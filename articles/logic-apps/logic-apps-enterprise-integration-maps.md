@@ -12,15 +12,15 @@ ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
 ms.openlocfilehash: d0d40ca0ae6ccd4f709d7d94d52764d4affcc215
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244694"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformación de XML con asignaciones en Azure Logic Apps con Enterprise Integration Pack
 
-Para transferir datos XML entre los formatos para los escenarios de integración empresarial en Azure Logic Apps, puede usar la aplicación lógica mapas o más concretamente, las hojas de estilo Extensible asigna Language Transformations (XSLT). Una asignación es un documento XML que describe cómo convertir datos de un documento XML en otro formato. 
+Para transferir datos XML entre formatos en escenarios de integración empresarial en Azure Logic Apps, la aplicación lógica puede usar asignaciones o, más específicamente, asignaciones de Lenguaje de transformación basado en hojas de estilo (XSLT). Una asignación es un documento XML que describe cómo convertir datos de un documento XML en otro formato. 
 
 Por ejemplo, suponga que recibe periódicamente pedidos o facturas B2B de un cliente que usa el formato de fecha AAAMMDD, pero su organización usa el formato de fecha MMDDAAA. Puede definir y usar una asignación para transformar el formato de fecha AAAMMDD en MMDDAAA antes de almacenar los detalles de los pedidos o las facturas en la base de datos de actividades de clientes.
 
@@ -32,7 +32,7 @@ Para conocer los límites relacionados con las cuentas de integración y artefac
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) donde almacena las asignaciones y otros artefactos para soluciones negocio a negocio (B2B) y de integración empresarial.
 
-* Si la asignación hace referencia a un ensamblado externo, debe cargar *tanto el ensamblado como la asignación* en la cuenta de integración. Asegúrese de que [ *cargar primero el ensamblado*](#add-assembly)y, a continuación, cargar la asignación que hace referencia al ensamblado.
+* Si la asignación hace referencia a un ensamblado externo, debe cargar *tanto el ensamblado como la asignación* en la cuenta de integración. Asegúrese de [*cargar primero el ensamblado*](#add-assembly) y luego la asignación que hace referencia a este.
 
   Si el ensamblado es de 2 MB o menos, puede agregarlo a la cuenta de integración *directamente* desde Azure Portal. Pero si el ensamblado o la asignación tiene más de 2 MB, pero menos del [límite de tamaño de ensamblados o asignaciones](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), existen estas opciones:
 
@@ -78,7 +78,7 @@ Según el tamaño del archivo de ensamblado, siga los pasos para cargar un ensam
 Para conocer los límites de las cantidades de ensamblados en cuentas de integración, consulte [Límites y configuración de Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
 
 > [!NOTE]
-> Si cambia el ensamblado, también debe actualizar la asignación si el mapa tiene cambios o no.
+> Si cambia el ensamblado, también debe actualizar la asignación tenga o no cambios.
 
 <a name="smaller-assembly"></a>
 
@@ -104,7 +104,7 @@ Para conocer los límites de las cantidades de ensamblados en cuentas de integra
 
 ### <a name="add-assemblies-more-than-2-mb"></a>Incorporación de ensamblados de más de 2 MB
 
-Para agregar ensamblados de mayor tamaño, puede cargar el ensamblado en un contenedor de blobs de Azure de la cuenta de almacenamiento de Azure. Los pasos para agregar ensamblados varían en función de si el contenedor de blobs tiene acceso de lectura público. En primer lugar, revise si el contenedor de blobs tiene o no acceso de lectura público con estos pasos: [Establecimiento del nivel de acceso público para un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Para agregar ensamblados de mayor tamaño, puede cargar el ensamblado en un contenedor de blobs de Azure de la cuenta de almacenamiento de Azure. Los pasos que debe seguir para agregar ensamblados dependen de si el contenedor de blobs tiene acceso de lectura público. En primer lugar, revise si el contenedor de blobs tiene o no acceso de lectura público con estos pasos: [Establecimiento del nivel de acceso público para un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Comprobación del nivel de acceso de un contenedor
 

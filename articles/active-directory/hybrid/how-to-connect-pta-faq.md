@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b00afa3d1001ee7c48997e41fd6042763bcc9aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: cd41bdfb90e5e8428a747832c10fe23a2cac4560
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347624"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109398"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -37,11 +37,11 @@ La autenticación de paso a través es una característica gratuita. Por tanto, 
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>¿Está disponible la autenticación de paso a través en la [nube Microsoft Azure Alemania](https://www.microsoft.de/cloud-deutschland) y en la [nube Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
 
- No. La autenticación de paso a través solo está disponible en la instancia mundial de Azure AD.
+No. La autenticación de paso a través solo está disponible en la instancia mundial de Azure AD.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>¿Funciona el [acceso condicional](../active-directory-conditional-access-azure-portal.md) con la autenticación de paso a través?
 
-Sí. Todas las funcionalidades de acceso condicional, incluida Azure Multi-Factor Authentication, funcionan con la autenticación de paso a través.
+Sí. Todas las capacidades de acceso condicional, incluida Azure Multi-Factor Authentication, funcionan con la autenticación de paso a través.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>¿Admite la autenticación de paso a través "Alternate ID" como nombre de usuario, en lugar de "userPrincipalName"?
 
@@ -49,11 +49,11 @@ Sí, la autenticación de paso a través admite `Alternate ID` como nombre de us
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>¿Actúa la sincronización de hash de contraseña como una reserva de la autenticación de paso a través?
 
- No. La autenticación de paso a través _no_ realiza una conmutación automática por error a la sincronización de hash de contraseña. Para evitar errores de inicio de sesión de usuario, debe configurar la autenticación de paso a través para una [alta disponibilidad](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+No. La autenticación de paso a través _no_ realiza una conmutación automática por error a la sincronización de hash de contraseña. Para evitar errores de inicio de sesión de usuario, debe configurar la autenticación de paso a través para una [alta disponibilidad](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
-## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>¿Qué ocurre al salir de la sincronización de hash de contraseña para la autenticación de paso?
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>¿Qué ocurre cuando cambio de la sincronización de hash de contraseña a la autenticación de paso a través?
 
-Cuando se usa Azure AD Connect para cambiar el método de inicio de sesión de sincronización de hash de contraseña para la autenticación de paso, la autenticación de paso se convierte en el método principal de inicio de sesión de los usuarios en dominios administrados. Tenga en cuenta que los hashes de contraseña de todos los usuarios que anteriormente se sincronizaban mediante la sincronización de hash de contraseña siguen almacenados en Azure AD.
+Cuando se usa Azure AD Connect para cambiar el método de inicio de sesión de sincronización de hash de contraseña a la autenticación de paso a través, esta última se convierte en el método principal de inicio de sesión de los usuarios en dominios administrados. Tenga en cuenta que los hash de contraseña de todos los usuarios que anteriormente se han sincronizado mediante la sincronización de hash de contraseña siguen almacenados en Azure AD.
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>¿Puedo instalar un conector del [proxy de aplicación de Azure AD](../manage-apps/application-proxy.md) en el mismo servidor que un agente de autenticación de paso a través?
 

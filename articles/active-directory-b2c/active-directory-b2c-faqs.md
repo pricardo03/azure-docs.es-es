@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9198bd4f88533a8eb5817dcb6edb75931c40ec80
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: b8c649ad9bdc80f64b9c3a8ca33a544830d88d52
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66510048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116214"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes 
 Esta página responde a las preguntas más frecuentes sobre Azure Active Directory (Azure AD) B2C. Siga comprobando si hay actualizaciones.
@@ -27,7 +27,7 @@ Hay dos causas comunes de por qué la extensión de Azure AD no funciona en su c
 Azure AD y Azure AD B2C son ofertas de producto independientes y no pueden coexistir en el mismo inquilino.  Un inquilino de Azure AD representa una organización.  Un inquilino de Azure AD B2C representa una colección de identidades para su uso con aplicaciones de usuario de confianza.  Con las directivas personalizadas (en versión preliminar), Azure AD B2C puede federarse con Azure AD, lo que permite la autenticación de los empleados de una organización.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>¿Puedo usar Azure AD B2C para proporcionar un inicio de sesión social (Facebook y Google+) en Office 365?
-Azure AD B2C no se puede usar para autenticar los usuarios de Microsoft Office 365.  Azure AD es la solución de Microsoft para administrar el acceso de los empleados a las aplicaciones SaaS y tiene características diseñadas para este propósito, como el acceso condicional y las licencias.  Azure AD B2C proporciona una plataforma de administración de identidades y acceso para la creación de aplicaciones web y móviles.  Cuando Azure AD B2C está configurado para federarse con un inquilino de Azure AD, el inquilino de Azure AD administra el acceso de los empleados a las aplicaciones que se basan en Azure AD B2C.
+Azure AD B2C no se puede usar para autenticar los usuarios de Microsoft Office 365.  Azure AD es la solución de Microsoft para administrar el acceso de los empleados a las aplicaciones SaaS, y tiene características diseñadas para este propósito, como el acceso condicional y las licencias.  Azure AD B2C proporciona una plataforma de administración de identidades y acceso para la creación de aplicaciones web y móviles.  Cuando Azure AD B2C está configurado para federarse con un inquilino de Azure AD, el inquilino de Azure AD administra el acceso de los empleados a las aplicaciones que se basan en Azure AD B2C.
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>¿Qué son las cuentas locales en Azure AD B2C? ¿En qué se distinguen de las cuentas de trabajo o educativas en Azure AD?
 En un inquilino de Azure AD, los usuarios que pertenecen al inquilino inician sesión con una dirección de correo electrónico con el formato `<xyz>@<tenant domain>`.  `<tenant domain>` es uno de los dominios comprobados del inquilino o el dominio `<...>.onmicrosoft.com` inicial. Este tipo de cuenta es una cuenta profesional o educativa.
@@ -113,8 +113,8 @@ Actualmente, no. Esta característica está en nuestro mapa de ruta. Comprobar e
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>¿Cómo puedo eliminar al inquilino de Azure AD B2C?
 Siga estos pasos para eliminar al inquilino de Azure AD B2C:
 
-1. Eliminar todos los flujos de usuario (directivas) en el inquilino de Azure AD B2C.
-1. Eliminar todas las aplicaciones que registró en el inquilino de Azure AD B2C.
+1. Elimine todos los flujos de usuario (directivas) del inquilino de Azure AD B2C.
+1. Elimine todas las aplicaciones que haya registrado en el inquilino de Azure AD B2C.
 1. Ahora inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de la suscripción. (Use la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para suscribirse a Azure).
 1. Cambie al inquilino de Azure AD B2C que desea eliminar.
 2. Vaya al menú de Active Directory de la izquierda.

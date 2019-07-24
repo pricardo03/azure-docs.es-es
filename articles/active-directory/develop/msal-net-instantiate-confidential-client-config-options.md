@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f935b1b2815501710444e3f921a157ba02e3215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7814ff6b7575fedc19e63676ce3353c2a62a62b4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544082"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154430"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Creación de una instancia de una aplicación cliente confidencial con opciones de configuración mediante MSAL.NET
 
@@ -62,12 +62,12 @@ La configuración de una aplicación de ASP.NET Core se describe en un archivo *
 }
 ```
 
-A partir de MSAL.NET v3.x, puede configurar la aplicación cliente confidencial a partir del archivo de configuración. Las clases relacionadas con la configuración de la aplicación se encuentran en el espacio de nombres `Microsoft.Identity.Client.AppConfig`.
+A partir de MSAL.NET v3.x, puede configurar la aplicación cliente confidencial a partir del archivo de configuración.
 
-En la clase en la que desee configurar y crear la instancia de la aplicación, deberá declarar un objeto `ConfidentialClientApplicationOptions`.  Enlace la configuración leída a partir del origen (incluido el archivo appconfig.json) a la instancia de las opciones de la aplicación:
+En la clase en la que desee configurar y crear la instancia de la aplicación, deberá declarar un objeto `ConfidentialClientApplicationOptions`.  Enlace la configuración leída desde el origen (incluido el archivo appconfig.json) a la instancia de las opciones de la aplicación, mediante el método `IConfigurationRoot.Bind()` desde el [paquete de NuGet Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
-using Microsoft.Identity.Client.AppConfig;
+using Microsoft.Identity.Client;
 
 private ConfidentialClientApplicationOptions _applicationOptions;
 _applicationOptions = new ConfidentialClientApplicationOptions();

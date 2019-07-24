@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: b2da78f5c750dbc694085bb46a6ed43e74884d45
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66303037"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>SDK .NET de administración: Configuración y ejecución de trabajos de análisis con la API de Azure Stream Analytics para .NET
@@ -27,11 +27,11 @@ Azure Stream Analytics es un servicio totalmente administrado que proporciona un
 > El código de ejemplo de este artículo se ha actualizado con la versión v2.x del SDK de .NET de administración de Azure Stream Analytics. Para código de ejemplo con la versión heredada (1.x) del SDK, vea [Uso del SDK v1.x de .NET de administración para Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de empezar este artículo, debe tener los siguientes requisitos:
+Antes de comenzar con este artículo, debe realizar los siguientes pasos:
 
-* Instale Visual Studio de 2019 o 2015.
+* Instale Visual Studio 2019 o 2015.
 * Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/).
-* Cree un grupo de recursos de Azure en su suscripción. El ejemplo siguiente es un script de PowerShell de Azure de ejemplo. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).  
+* Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).  
 
    ```powershell
    # Log in to your Azure account
@@ -50,7 +50,7 @@ Antes de empezar este artículo, debe tener los siguientes requisitos:
 * Configure un origen de entrada y un destino de salida a los que se conectará el trabajo.
 
 ## <a name="set-up-a-project"></a>Configuración de un proyecto
-Para crear un trabajo de análisis, use la API de Stream Analytics para. NET, primero configure el proyecto.
+Para crear un trabajo de análisis que use la API de Stream Analytics para. NET, configure primero el proyecto.
 
 1. Cree una aplicación de consola .NET de Visual Studio C#.
 2. En la consola del administrador de paquetes, ejecute los siguientes comandos para instalar los paquetes NuGet. El primero es el SDK de .NET de administración de Azure Stream Analytics. El segundo corresponde a la autenticación de cliente de Azure.
@@ -211,7 +211,7 @@ El método **TestConnection** prueba si el trabajo de Stream Analytics puede con
    ```
 
 ## <a name="create-a-stream-analytics-output-target"></a>Creación de un destino de salida de Stream Analytics
-Creación de un destino de salida es similar a la creación de un origen de entrada de Stream Analytics. Al igual que los orígenes de entrada, los destinos de salida están vinculados a un trabajo específico. Para usar el mismo destino de salida para distintos trabajos, debe llamar nuevamente al método y especificar un nombre de trabajo distinto.
+La creación de un destino de salida es similar al proceso de creación de un origen de entrada de Stream Analytics. Al igual que los orígenes de entrada, los destinos de salida están vinculados a un trabajo específico. Para usar el mismo destino de salida para distintos trabajos, debe llamar nuevamente al método y especificar un nombre de trabajo distinto.
 
 El siguiente código crea un destino de salida (base de datos de Azure SQL). Puede personalizar el tipo de datos y/o el tipo de serialización del destino de salida.
 

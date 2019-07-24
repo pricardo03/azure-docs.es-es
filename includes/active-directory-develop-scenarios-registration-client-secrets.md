@@ -1,6 +1,6 @@
 ---
 title: archivo de inclusión
-description: archivo de inclusión para el escenario de cliente confidencial (demonio, aplicación Web, Web API) de páginas de aterrizaje
+description: archivo include para las páginas de aterrizaje del escenario de cliente confidencial (demonio, aplicación web, API web)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,30 +15,30 @@ ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 9ee7422b372993d60c629524eb036b9678e5776c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121848"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186497"
 ---
 ## <a name="registration-of-secrets-or-certificates"></a>Registro de certificados o secretos
 
-Al igual que para cualquier aplicación cliente confidencial, debe registrar un secreto o certificado. Puede registrar los secretos de aplicación a través de la experiencia interactiva en el [portal Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview), o mediante herramientas de línea de comandos (por ejemplo, PowerShell)
+Al igual que para cualquier aplicación cliente confidencial, debe registrar un secreto o certificado. Puede registrar los secretos de aplicación a través de la experiencia interactiva en [Azure Portal ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) o bien mediante herramientas de línea de comandos (por ejemplo, PowerShell).
 
-### <a name="registering-client-secrets-using-the-application-registration-portal"></a>Registrar los secretos de cliente mediante el portal de registro de aplicación
+### <a name="registering-client-secrets-using-the-application-registration-portal"></a>Registro de secretos de cliente con el portal de registro de aplicaciones
 
-La administración de credenciales de cliente se produce en el **certificados y secretos** página para una aplicación:
+La administración de credenciales de cliente se produce en la página **Certificados y secretos** de una aplicación:
 
-![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)
+![imagen](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)
 
-- el secreto de aplicación (también el secreto de cliente con nombre) se genera por Azure AD, durante el registro de la aplicación cliente confidencial. Esta generación ocurre cuando se selecciona **nuevo secreto de cliente**. En ese momento, debe copiar la cadena de secreto en el Portapapeles para utilizarlas en su aplicación, antes de seleccionar **guardar**. Esta cadena no aparecerá más largo.
-- el certificado se carga en el registro de aplicación mediante el **cargar certificado** botón
+- Azure AD genera el secreto de aplicación (también denominado secreto de cliente) durante el registro de la aplicación cliente confidencial. Esta generación ocurre al seleccionar **Nuevo secreto de cliente**. En ese momento, debe copiar la cadena de secreto en el Portapapeles para utilizarla en su aplicación, antes de seleccionar **Guardar**. Esta cadena no volverá a aparecer.
+- El certificado se carga en el registro de aplicación mediante el botón **Cargar certificado**.
 
-Para obtener más información, consulte [inicio rápido: Configurar una aplicación cliente para tener acceso a las API web | Agregar credenciales a la aplicación](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)
+Para más información, consulte [Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web | Adición de credenciales a la aplicación web](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)
 
-### <a name="registering-client-secrets-using-powershell"></a>Registrar los secretos de cliente mediante PowerShell
+### <a name="registering-client-secrets-using-powershell"></a>Registro de los secretos de cliente mediante PowerShell
 
-Como alternativa, puede registrar la aplicación con Azure AD mediante herramientas de línea de comandos. El [active directory dotnetcore daemon v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) ejemplo muestra cómo registrar un secreto de aplicación o un certificado con una aplicación de Azure AD:
+De forma alternativa, puede registrar la aplicación con Azure AD mediante herramientas de línea de comandos. El ejemplo [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) muestra cómo registrar un certificado o un secreto de aplicación con una aplicación de Azure AD:
 
-- Para obtener más información sobre cómo registrar un secreto de aplicación, consulte [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190)
-- Para obtener más información sobre cómo registrar un certificado con la aplicación, consulte [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178)
+- Para más información sobre cómo registrar un secreto de aplicación, consulte [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
+- Para más información sobre cómo registrar un certificado con la aplicación, consulte [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).

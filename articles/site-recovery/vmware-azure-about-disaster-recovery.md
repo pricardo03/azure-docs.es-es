@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 5/30/2019
 ms.author: raynew
 ms.openlocfilehash: a00c129126886bd71c82940aa340a8db29cf7a0e
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66417798"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Acerca de la recuperación ante desastres de máquinas virtuales de VMware en Azure
@@ -34,7 +34,7 @@ Una estrategia de continuidad empresarial y recuperación ante desastres (BCDR) 
     - El simulacro le ayuda a garantizar que la conmutación por error funcione según lo esperado cuando surja una necesidad real.
     - El simulacro realiza una conmutación por error de prueba sin afectar a su entorno de producción.
 5. Si se produce una interrupción, ejecute una conmutación por error completa en Azure. Puede conmutar por error una sola máquina o puede crear un plan de recuperación que conmute por error varias máquinas al mismo tiempo.
-6. En la conmutación por error, se crean máquinas virtuales de Azure desde los datos de la máquina virtual en discos administrados o cuentas de almacenamiento. Los usuarios pueden seguir teniendo acceso a aplicaciones y cargas de trabajo desde la máquina virtual de Azure.
+6. En una conmutación por error, se crean máquinas virtuales de Azure a partir de los datos de la máquina virtual de discos administrados o cuentas de almacenamiento. Los usuarios pueden seguir teniendo acceso a aplicaciones y cargas de trabajo desde la máquina virtual de Azure.
 7. Cuando el sitio local está disponible de nuevo, puede realizar una conmutación por recuperación desde Azure.
 8. Después de conmutar por recuperación y estar trabajando desde el sitio primario una vez más, vuelva a iniciar la replicación de máquinas virtuales locales en Azure.
 
@@ -56,12 +56,12 @@ Site Recovery puede replicar cualquier carga de trabajo que se ejecute en una m�
 En Azure, deberá preparar lo siguiente:
 
 1. Compruebe que la cuenta de Azure tiene permisos para crear máquinas virtuales en Azure.
-2. Crear una red de Azure que se unirán las máquinas virtuales de Azure cuando se crean desde las cuentas de almacenamiento o discos administrados después de la conmutación por error.
+2. Cree una red de Azure a la que se conectarán las máquinas virtuales de Azure cuando se creen desde cuentas de almacenamiento o discos administrados después de la conmutación por error.
 3. Configure un almacén de Azure Recovery Services para Site Recovery. El almacén se encuentra en Azure Portal y se usa para implementar, configurar, organizar, supervisar y solucionar problemas de implementación de Site Recovery.
 
 *¿Necesita más ayuda?*
 
-Obtenga información sobre cómo configurar Azure por [comprobar su cuenta](tutorial-prepare-azure.md#verify-account-permissions), creando un [red](tutorial-prepare-azure.md#set-up-an-azure-network), y [configurar un almacén](tutorial-prepare-azure.md#create-a-recovery-services-vault).
+Obtenga información sobre cómo configurar Azure mediante la [comprobación de su cuenta](tutorial-prepare-azure.md#verify-account-permissions), la creación de una [red](tutorial-prepare-azure.md#set-up-an-azure-network) y la configuración de un [almacén](tutorial-prepare-azure.md#create-a-recovery-services-vault).
 
 
 
@@ -93,10 +93,10 @@ Tras prepara la infraestructura local y de Azure, puede configurar la recuperaci
     - El servidor de configuración es una máquina local. En el caso de la recuperación ante desastres de VMware, se recomienda implementarla como una máquina virtual de VMware que pueda implementarse desde una plantilla de OVF descargable.
     - El servidor de configuración coordina la comunicación entre Azure y el entorno local.
     - Otro par de componentes se ejecutan en la máquina del servidor de configuración.
-        - El servidor de procesos recibe, optimiza y envía datos de replicación para la cuenta de almacenamiento en caché en Azure. También controla la instalación automática de Mobility Service en las máquinas que desea replicar, además de realizar la detección automática de máquinas virtuales en servidores de VMware.
+        - El servidor de procesos recibe, optimiza y envía datos de replicación a la cuenta de almacenamiento en caché de Azure. También controla la instalación automática de Mobility Service en las máquinas que desea replicar, además de realizar la detección automática de máquinas virtuales en servidores de VMware.
         - El servidor de destino maestro controla los datos de replicación durante la conmutación por recuperación desde Azure.
     - La configuración incluye el registro del servidor de configuración en el almacén, la descarga de MySQL Server y VMware PowerCLI y la especificación de las cuentas creadas para la detección automática y la instalación de Mobility Service.
-4. **Entorno de destino**: Configure el destino del entorno de Azure mediante la especificación de su suscripción de Azure y la configuración de red.
+4. **Entorno de destino**: debe configurar el entorno de destino de Azure mediante la especificación de la suscripción de Azure y la configuración de red.
 5. **Directiva de replicación**: debe especificar cómo realizar la replicación. La configuración incluye la frecuencia con que se crean y almacenan los puntos de recuperación, así como si deben crearse instantáneas coherentes con la aplicación.
 6. **Habilite la replicación**. Debe habilitar la replicación de máquinas locales. Si ha creado una cuenta para instalar Mobility Service, se instalará cuando se habilite la replicación de una máquina. 
 

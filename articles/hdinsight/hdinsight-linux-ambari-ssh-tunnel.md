@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
 ms.openlocfilehash: 943bf0f4bba014c31a11bb30bf8d3b6a7c11a343
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299373"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Uso de la tunelización SSH para tener acceso a la interfaz de usuario web de Apache Ambari, JobHistory, NameNode, Apache Oozie y otras interfaces de usuario web
@@ -56,7 +56,7 @@ La [tunelización Secure Shell (SSH) ](https://en.wikipedia.org/wiki/Tunneling_p
 
 ## <a name="usessh"></a>Creación de un túnel con el comando SSH
 
-Use el siguiente comando para crear un túnel SSH con el comando `ssh` . Reemplace `sshuser` con un usuario SSH para su clúster de HDInsight y reemplace `clustername` con el nombre del clúster de HDInsight:
+Use el siguiente comando para crear un túnel SSH con el comando `ssh` . Reemplace `sshuser` por un usuario SSH para su clúster de HDInsight y sustituya `clustername` por el nombre de su clúster de HDInsight.
 
 ```cmd
 ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
@@ -81,7 +81,7 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la má
 
 ### <a name="create-or-load-a-session"></a>Creación o carga de una sesión
 
-1. Abra PuTTY y asegúrese de que la opción **Sesión** está seleccionada en el menú izquierdo. Si ya ha guardado una sesión, seleccione el nombre de sesión desde el **guarda las sesiones** lista y seleccione **carga**.
+1. Abra PuTTY y asegúrese de que la opción **Sesión** está seleccionada en el menú izquierdo. Si ya ha guardado una sesión, seleccione el nombre de la sesión en la lista **Sesiones guardadas** y seleccione **Cargar**.
 
 1. Si aún no tiene una sesión guardada, escriba su información de conexión:
     * **Nombre de host (o dirección IP)** : dirección SSH para el clúster de HDInsight. Por ejemplo, **mycluster-ssh.azurehdinsight.net**
@@ -104,7 +104,7 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la má
      
      ![imagen de las opciones de tunelización](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
-1. Seleccione **agregar** para agregar la configuración y, a continuación, haga clic en **abrir** para abrir una conexión SSH.
+1. Seleccione **Agregar** para agregar la configuración y, a continuación, en **Abrir** para abrir una conexión SSH.
 
 1. Cuando se le solicite, inicie sesión en el servidor.
 
@@ -129,7 +129,7 @@ Una vez que se ha establecido el clúster, siga estos pasos para comprobar que p
 1. En el explorador, vaya a `http://headnodehost:8080`. La dirección `headnodehost` se envía al clúster a través del túnel y se resuelve en el nodo principal en el que se ejecuta Ambari. Cuando se le solicite, escriba el nombre de usuario administrador (admin) y la contraseña del clúster. Es posible que se le pida una segunda vez mediante la interfaz de usuario web de Ambari. Si es así, vuelva a escribir la información.
 
    > [!NOTE]  
-   > Si utiliza la dirección `http://headnodehost:8080` para conectarse al clúster, se estará conectando a través del túnel. La comunicación se protege si usa el túnel SSH en lugar de HTTPS. Para conectarse a través de internet mediante HTTPS, use `https://clustername.azurehdinsight.net`, donde `clustername` es el nombre del clúster.
+   > Si utiliza la dirección `http://headnodehost:8080` para conectarse al clúster, se estará conectando a través del túnel. La comunicación se protege si usa el túnel SSH en lugar de HTTPS. Para conectarse a Internet mediante HTTPS, use `https://clustername.azurehdinsight.net`, donde `clustername` es el nombre del clúster.
 
 2. En la interfaz de usuario de Ambari Web, seleccione HDFS en la lista de la izquierda de la página.
 
@@ -149,7 +149,7 @@ Una vez que se ha establecido el clúster, siga estos pasos para comprobar que p
     ![Imagen de la interfaz de usuario de NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
     > [!NOTE]  
-    > Tenga en cuenta la dirección URL de esta página. debe ser similar a `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. Este identificador URI usa el nombre de dominio completo interno (FQDN) del nodo y solo es accesible si se usa un túnel SSH.
+    > Observe la dirección URL de esta página, que debe ser similar a `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. Este identificador URI usa el nombre de dominio completo interno (FQDN) del nodo y solo es accesible si se usa un túnel SSH.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

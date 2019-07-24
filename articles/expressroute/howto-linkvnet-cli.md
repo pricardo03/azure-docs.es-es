@@ -9,10 +9,10 @@ ms.date: 05/21/2019
 ms.author: anzaman,cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 9a6f16df4b827538c1f8bdb9b7382ed06d543b62
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991512"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Conexión de una red virtual a un circuito ExpressRoute mediante la CLI
@@ -153,11 +153,11 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 
 El intervalo de *RoutingWeight* abarca de 0 a 32 000. El valor predeterminado es 0.
 
-## <a name="configure-expressroute-fastpath"></a>Configurar ExpressRoute FastPath 
-Puede habilitar [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) si el circuito de ExpressRoute se encuentra en [ExpressRoute Direct](expressroute-erdirect-about.md) y la puerta de enlace virtual newtork es Ultrarrendimiento o ErGw3AZ. FastPath mejora el rendimiento de la ruta de acceso de datos como las conexiones por segundo entre la red local y la red virtual y los paquetes por segundo. 
+## <a name="configure-expressroute-fastpath"></a>Configuración de FastPath de ExpressRoute 
+Puede habilitar [FastPath de ExpressRoute](expressroute-about-virtual-network-gateways.md) si su circuito de ExpressRoute está en [ExpressRoute Direct](expressroute-erdirect-about.md) y la puerta de enlace de red virtual es de tipo Ultra Performance o ErGw3AZ. FastPath mejora el rendimiento de la ruta de datos, como paquetes y conexiones por segundo entre la red local y la red virtual. 
 
 > [!NOTE] 
-> Si ya tiene una conexión de red virtual pero no ha habilitado FastPath deberá eliminar la conexión de red virtual y crear uno nuevo. 
+> Si ya tiene una conexión de red virtual pero no ha habilitado FastPath, debe eliminar la conexión de red virtual y crear una nueva. 
 > 
 >  
 

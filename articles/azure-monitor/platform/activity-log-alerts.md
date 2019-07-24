@@ -9,10 +9,10 @@ ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 5d0819f71405b1bf1d4bef57a8b93d57bc879087
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244978"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad 
@@ -21,14 +21,14 @@ ms.locfileid: "66244978"
 Las alertas del registro de actividad son alertas que se activan cuando un nuevo evento del registro de actividad cumple las condiciones especificadas en la alerta. Son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Seguidamente, se explica cómo usar Azure Portal para configurar alertas en eventos del registro de actividad. Para obtener más información sobre el uso, consulte la sección [Creación y administración de alertas del registro de actividades](alerts-activity-log.md).
 
 > [!NOTE]
-> Alertas **no** se crean para eventos en la categoría de alerta del registro de actividad.
+> **No se pueden** crear alertas para eventos en la categoría Alerta del registro de actividad.
 
 Por lo general, se crean alertas del registro de actividad para recibir notificaciones cuando:
 
 * Se produzcan operaciones específicas en los recursos de la suscripción de Azure, que abarcan normalmente grupos de recursos o recursos en particular. Por ejemplo, si quiere que le notifiquen cuando se elimine alguna máquina virtual de myProductionResourceGroup. O, podría querer recibir una notificación si se asigna algún rol nuevo a un usuario de la suscripción.
 * Se produce un evento de mantenimiento del servicio. Los eventos de mantenimiento del servicio incluyen la notificación de incidentes y eventos de mantenimiento que se aplican a recursos de la suscripción.
 
-Una analogía simple para las condiciones de la descripción en el que se pueden crear reglas de alerta en el registro de actividad, consiste en explorar o filtrar los eventos a través de [registro de actividad en Azure portal](activity-log-view.md#azure-portal). En Azure Monitor: registro de actividad, uno puede filtrar o buscar eventos necesario y, a continuación, crear una alerta mediante el **Agregar alerta de registro de actividad** botón.
+Una simple analogía para comprender las condiciones en las que se pueden crear reglas de alertas en el registro de actividad es explorar o filtrar eventos a través del [Registro de actividad en Azure Portal](activity-log-view.md#azure-portal). En "Azure Monitor: registro de actividad" se puede filtrar o buscar un evento necesario y crear una alerta mediante el botón **Agregar alerta de registro de actividad**.
 
 En cualquier caso, una alerta del registro de actividad solo supervisa eventos de la suscripción en la que se ha creado la alerta.
 

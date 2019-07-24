@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 7a52d05c77d0aeb8ebeba196df60e59f0647fea9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66233930"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Planes de tarifa de Azure Database for MariaDB
@@ -40,7 +40,7 @@ Después de crear un servidor, el número de núcleos virtuales y el plan de tar
 
 Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. Las CPU lógicas Gen 5 se basan en los procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz.
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 
 El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamiento disponible para el servidor de Azure Database for MariaDB. El almacenamiento se usa para los archivos de base de datos, los archivos temporales, los registros de transacciones y los registros del servidor MariaDB. La cantidad total de almacenamiento que se aprovisiona también define la capacidad de E/S disponible para su servidor.
 
@@ -51,25 +51,25 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 | Tamaño de incremento de almacenamiento | 1 GB | 1 GB | 1 GB |
 | E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. |
 
-Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor y permitir que el sistema crecer automáticamente según el consumo de almacenamiento de la carga de trabajo de almacenamiento. El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
+Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor y permitir que el sistema aumente el almacenamiento automáticamente en función del consumo de almacenamiento de su carga de trabajo. El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
 
 Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la CLI de Azure. Las métricas pertinentes que se deben supervisar son el [límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Alcance del límite de almacenamiento
 
-Servidores con menos de 100 GB aprovisionar almacenamiento son de sólo lectura si el almacenamiento disponible es inferior a 512MB o el 5% del tamaño de almacenamiento aprovisionado. Servidores con más de 100 GB aprovisionar almacenamiento están marcados como lectura sólo cuando el almacenamiento disponible es inferior a 5 GB.
+Los servidores con menos de 100 GB de almacenamiento aprovisionado se marcan como de solo lectura si el almacenamiento disponible es inferior a 512 MB o el 5 % del tamaño del almacenamiento aprovisionado. Los servidores con más de 100 GB de almacenamiento aprovisionado se marcan como solo de lectura cuando el almacenamiento libre es inferior a 5 GB.
 
-Por ejemplo, si ha aprovisionado 110 GB de almacenamiento y la utilización real se realiza a través tanto 105 GB, el servidor está marcado como de solo lectura. Como alternativa, si ha aprovisionado 5 GB de almacenamiento, el servidor está marcado como de solo lectura cuando llega el almacenamiento disponible a menos de 512 MB.
+Por ejemplo, si ha aprovisionado 110 GB de almacenamiento y el uso real supera los 105 GB, el servidor se marca como de solo lectura. O bien, si ha aprovisionado 5 GB de almacenamiento, el servidor se marca como de solo lectura cuando el almacenamiento disponible se vuelva inferior a 512 MB.
 
 Mientras el servicio intenta hacer que el servidor sea de solo lectura, se bloquean todas las nuevas solicitudes de transacción de escritura, y las transacciones activas existentes continuarán ejecutándose. Cuando el servidor se establece en solo lectura, todas las operaciones de escritura y confirmaciones de transacción posteriores generarán errores. Las consultas de lectura seguirán funcionando sin interrupciones. Después de aumentar el almacenamiento aprovisionado, el servidor estará listo para aceptar las transacciones de escritura de nuevo.
 
-Se recomienda activar almacenamiento crecimiento automático o para configurar una alerta para notificarle cuando el almacenamiento de servidor se está agotando el umbral por lo que puede evitar entrar en el estado de solo lectura. Para obtener más información, consulte la documentación sobre [cómo configurar una alerta](howto-alert-metric.md).
+Le recomendamos que active el almacenamiento automático o que configure una alerta que le envíe una notificación cada vez que su almacenamiento en servidor esté cerca del umbral para que pueda evitar entrar en el estado de solo lectura. Para obtener más información, consulte la documentación sobre [cómo configurar una alerta](howto-alert-metric.md).
 
-### <a name="storage-auto-grow"></a>Crecimiento automático de almacenamiento
+### <a name="storage-auto-grow"></a>Crecimiento automático del almacenamiento
 
-Si el crecimiento automático de almacenamiento está habilitado, el almacenamiento crece automáticamente sin que afecte a la carga de trabajo. Para los servidores con menos de 100 GB aprovisionar almacenamiento, 5 GB aumenta el tamaño de almacenamiento aprovisionado tan pronto como el almacenamiento disponible está por debajo de la mayor de 1 GB o 10% del almacenamiento aprovisionado. Para los servidores con más de 100 GB de almacenamiento aprovisionado, 5% aumenta el tamaño de almacenamiento aprovisionado cuando el espacio de almacenamiento libre está por debajo del 5% del tamaño de almacenamiento aprovisionado. Se aplican los límites de almacenamiento máximo según lo especificado anteriormente.
+Si el crecimiento automático del almacenamiento está habilitado, el almacenamiento crece automáticamente sin afectar a la carga de trabajo. Para servidores con menos de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en 5 GB tan pronto como el almacenamiento disponible se encuentre por debajo de 1 GB o el 10 % del almacenamiento aprovisionado. En cuanto a servidores con más de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en un 5 % cuando el espacio de almacenamiento disponible es inferior al 5 % del tamaño de almacenamiento aprovisionado. Se aplican los límites máximos de almacenamiento según lo especificado anteriormente.
 
-Por ejemplo, si ha aprovisionado 1000 GB de almacenamiento y la utilización real se realiza a través 950 GB, el tamaño de almacenamiento del servidor se ha aumentado hasta 1050 GB. Como alternativa, si ha aprovisionado 10 GB de almacenamiento, el tamaño de almacenamiento es aumentan hasta 15 GB cuando menos de 1 GB de almacenamiento es gratuito.
+Por ejemplo, si ha aprovisionado 1000 GB de almacenamiento y el uso real supera los 950 GB, el tamaño de almacenamiento del servidor se incrementa a 1050 GB. Como alternativa, si ha aprovisionado 10 GB de almacenamiento, el tamaño del almacenamiento aumenta a 15 GB cuando queda menos de 1 GB de almacenamiento.
 
 ## <a name="backup"></a>Copia de seguridad
 

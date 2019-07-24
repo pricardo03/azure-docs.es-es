@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
 ms.openlocfilehash: d18f8f4808d5ca9dd7eca1561b1ee08c2073f5fa
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237536"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnóstico y solución de problemas
 
 Este artículo resume varios problemas comunes que pueden surgir al trabajar con el entorno de la versión preliminar de Azure Time Series Insights. El artículo también describe posibles causas y soluciones para cada problema.
 
-## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problema: No se encuentra mi entorno en el Explorador de vista previa
+## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problema: No encuentro mi entorno en el explorador de vista previa
 
 Este problema puede producirse si no tiene los permisos necesarios para acceder al entorno de Time Series Insights. El usuario necesita un rol de acceso de nivel lector para ver su entorno de Time Series Insights. Para comprobar los niveles de acceso actuales y conceder acceso adicional, visite la sección de directivas de acceso de datos en el recurso de Time Series Insights en [Azure Portal](https://portal.azure.com/).
 
   [![Entorno](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
-## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: se ve ningún dato en el Explorador de vista previa
+## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: no se ve ningún dato en el explorador de vista previa
 
 Hay varias razones que pueden impedirle ver sus datos en el [explorador de la versión preliminar de Azure Time Series Insights](https://insights.timeseries.azure.com/preview).
 
@@ -35,7 +35,7 @@ Hay varias razones que pueden impedirle ver sus datos en el [explorador de la ve
 
     Compruebe que el origen del evento, que es un centro de eventos o un centro de IoT, está recibiendo datos de las etiquetas o las instancias. Para comprobarlo, vaya a la página de información general de Azure Portal.
 
-    [![Información de los paneles](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [![Panel con las conclusiones](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
 
 - Los datos de origen del evento no tienen formato JSON.
 
@@ -62,7 +62,7 @@ Hay varias razones que pueden impedirle ver sus datos en el [explorador de la ve
 
     Este problema puede producirse si la propiedad Time Series ID se configura incorrectamente en el momento de aprovisionamiento del entorno. Para más información, consulte [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedimientos recomendados para elegir un identificador de Time Series). En la actualidad, no se puede actualizar un entorno de Time Series Insights existente para usar un identificador de Time Series distinto.
 
-## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: algunos datos se muestra, pero algunos falta
+## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: se muestran algunos datos, pero faltan otros
 
 Podría estar enviando datos sin el identificador de Time Series.
 
@@ -73,7 +73,7 @@ Podría estar enviando datos sin el identificador de Time Series.
     > [!NOTE]
     > En este momento, Time Series Insights admite una tasa máxima de ingesta de 6 Mbps.
 
-## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: el nombre de propiedad de marca de tiempo de mi origen de evento no funciona
+## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: mi nombre de propiedad Timestamp del origen del evento no funciona
 
 Asegúrese de que el nombre y el valor se ajustan a las reglas siguientes:
 
@@ -88,7 +88,7 @@ La manera más fácil de asegurarse de que el nombre de la propiedad Timestamp s
 
 Si no se especifica explícitamente la propiedad Timestamp, se utiliza como marca de tiempo predeterminado la hora de puesta en cola de un centro de IoT o centro de eventos de un evento.
 
-## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Problema: No se puede ver o editar mi modelo de serie temporal
+## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Problema: No puedo ver ni editar mi modelo de Times Series
 
 - Puede que esté accediendo a un entorno Time Series Insights S1 o S2.
 
@@ -100,14 +100,14 @@ Si no se especifica explícitamente la propiedad Timestamp, se utiliza como marc
 
    Los usuarios necesitan acceso de nivel de colaborador para editar y ver su modelo de Time Series. Para comprobar los niveles de acceso actuales y conceder acceso adicional, visite la sección de directivas de acceso de datos en el recurso de Time Series Insights en Azure Portal.
 
-## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problema: todas las instancias de mi en el Explorador de vista previa no tienen un elemento primario
+## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problema: todas las instancias del explorador de vista previa carecen de un elemento primario
 
 Este problema puede producirse si el entorno no tiene una jerarquía de modelo de Time Series definida. Para más información, consulte el [trabajo con modelos de Time Series](./time-series-insights-update-how-to-tsm.md).
 
-  [![Modelos de serie temporal](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
+  [![Modelos de Time Series](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Lea el artículo sobre [trabajo con modelos de Time Series](./time-series-insights-update-how-to-tsm.md).
 
-- Obtenga información sobre [admite formas de JSON](./how-to-shape-query-json.md).
+- Más información sobre las [formas JSON admitidas](./how-to-shape-query-json.md).

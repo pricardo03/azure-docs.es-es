@@ -1,5 +1,5 @@
 ---
-title: Realizar operaciones en Azure Queue storage con PowerShell, Azure Storage
+title: 'Realización de operaciones en Azure Queue Storage con PowerShell: Azure Storage'
 description: Operaciones en Azure Queue Storage con PowerShell
 services: storage
 author: mhopkins-msft
@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 6e8640b136c52f500de010f842ab73678acdce4f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991352"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Operaciones en Azure Queue Storage con Azure PowerShell
@@ -22,7 +22,7 @@ Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes
 
 > [!div class="checklist"]
 >
-> * Crear una cola
+> * Creación de una cola
 > * Recuperar una cola
 > * Agregar un mensaje
 > * Leer un mensaje
@@ -35,7 +35,7 @@ No hay ningún cmdlet de PowerShell para el plano de datos de las colas. Para re
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en la suscripción a Azure con el comando `Connect-AzAccount` y siga las instrucciones de la pantalla.
 
@@ -52,7 +52,7 @@ Get-AzLocation | select Location
 $location = "eastus"
 ```
 
-## <a name="create-resource-group"></a>Crear grupo de recursos
+## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
 Cree un grupo de recursos con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
@@ -77,7 +77,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-queue"></a>Crear una cola
+## <a name="create-a-queue"></a>Creación de una cola
 
 En el siguiente ejemplo, primero se establece una conexión a Azure Storage mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación llama al cmdlet [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) para crear una cola llamada "queuename".
 
@@ -104,7 +104,7 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>un mensaje a una cola
 
-Las operaciones que afectan a los mensajes reales de la cola usan la biblioteca del cliente de Storage de .NET como se expone en PowerShell. Para agregar un mensaje a una cola, cree una nueva instancia del objeto de mensaje, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) clase. A continuación, llame al método [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) . Se puede crear un CloudQueueMessage a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
+Las operaciones que afectan a los mensajes reales de la cola usan la biblioteca del cliente de Storage de .NET como se expone en PowerShell. Para agregar un mensaje a una cola, cree una instancia del objeto de mensaje, clase [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message). A continuación, llame al método [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) . Se puede crear un CloudQueueMessage a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
 
 En el siguiente ejemplo le mostraremos cómo agregar un mensaje a la cola.
 
@@ -132,7 +132,7 @@ Los mensajes se leen, en lo posible, siguiendo un orden de tipo primero en entra
 
 Este **tiempo de expiración de invisibilidad** define cuánto tiempo permanece invisible el mensaje antes de volver a estar disponible para procesarse. El valor predeterminado es 30 segundos.
 
-El código lee un mensaje de la cola en dos pasos. Cuando se llama a la [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) método, obtendrá el siguiente mensaje en la cola. Un mensaje devuelto por **GetMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. Para terminar de quitar el mensaje de la cola, llame a la [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) método.
+El código lee un mensaje de la cola en dos pasos. Cuando llama al método [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage), verá el siguiente mensaje en la cola. Un mensaje devuelto por **GetMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. Para terminar de eliminar el mensaje de la cola, debe llamar al método [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage).
 
 En el ejemplo siguiente, leerá los tres mensajes de la cola y, después, esperará diez segundos (el tiempo de expiración de invisibilidad). A continuación, leerá los tres mensajes de nuevo, eliminando los mensajes tras leerlos mediante una llamada a **DeleteMessage**. Si intenta leer la cola después de que se eliminen los mensajes, se devolverá $queueMessage como NULL.
 
@@ -186,7 +186,7 @@ En este artículo de ayuda, ha aprendido conceptos básicos sobre la administrac
 
 > [!div class="checklist"]
 >
-> * Crear una cola
+> * Creación de una cola
 > * Recuperar una cola
 > * Agregar un mensaje
 > * Leer el siguiente mensaje

@@ -9,10 +9,10 @@ ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244935"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
@@ -120,12 +120,12 @@ Esta categoría contiene el registro de todas las operaciones de creación, actu
 | description |Descripción de texto estático de un evento. |
 | eventDataId |Identificador único de un evento. |
 | eventName | Nombre descriptivo del evento administrativo. |
-| category | Siempre "administrativo" |
+| category | Siempre "Administrativo" |
 | httpRequest |Blob que describe la solicitud HTTP. Normalmente incluye "clientRequestId", "clientIpAddress" y "method" (método HTTP). Por ejemplo, PUT). |
 | level |Nivel del evento. Uno de los valores siguientes: “Critical”, “Error”, “Warning” e “Informational” |
 | resourceGroupName |Nombre del grupo de recursos del recurso afectado. |
 | resourceProviderName |Nombre del proveedor de recursos del recurso afectado. |
-| resourceType | El tipo de recurso que se vio afectada por un evento administrativo. |
+| resourceType | Tipo de recurso que se vio afectado por un evento administrativo. |
 | resourceId |Identificador de recurso del recurso afectado. |
 | operationId |GUID compartido entre los eventos correspondientes a una sola operación. |
 | operationName |Nombre de la operación. |
@@ -358,7 +358,7 @@ Esta categoría contiene el registro de todas las activaciones de alertas de Azu
 | correlationId | GUID en formato de cadena. |
 | description |Descripción de texto estático del evento de alerta. |
 | eventDataId |Identificador único del evento de alerta. |
-| category | Siempre "alerta" |
+| category | Siempre "Alerta" |
 | level |Nivel del evento. Uno de los valores siguientes: “Critical”, “Error”, “Warning” e “Informational” |
 | resourceGroupName |Nombre del grupo de recursos del recurso afectado si se trata de una alerta de métrica. En otros tipos de alertas, es el nombre del grupo de recursos que contiene la propia alerta. |
 | resourceProviderName |Nombre del proveedor de recursos del recurso afectado si se trata de una alerta de métrica. En otros tipos de alertas, es el nombre del proveedor de recursos de la propia alerta. |
@@ -557,7 +557,7 @@ Esta categoría contiene el registro de todas las alertas generado por Azure Sec
 | description |Descripción de texto estático del evento de seguridad. |
 | eventDataId |Identificador único del evento de seguridad. |
 | eventName |Nombre descriptivo del evento de seguridad. |
-| category | Siempre "seguridad" |
+| category | Siempre "Seguridad" |
 | id |Identificador único del recurso del evento de seguridad. |
 | level |Nivel del evento. Uno de los valores siguientes: “Critical”, “Error”, “Warning” o “Informational” |
 | resourceGroupName |Nombre del grupo de recursos del recurso. |

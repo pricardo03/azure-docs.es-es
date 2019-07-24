@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62511118edb4f8b5061f90138bac2aa2b5d3cfe3
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160191"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165149"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de VMware de nube privada
 
@@ -37,7 +37,7 @@ Una pila de VMware de nube privada se implementa con la versión de software sig
 
 ## <a name="esxi"></a>ESXi
 
-VMware ESXi se instala en los nodos de CloudSimple comprados al crear una nube privada.  ESXi proporciona el hipervisor para implementar máquinas virtuales (VM) de carga de trabajo.  Los nodos proporcionan infraestructuras hiperconvergidas (proceso y almacenamiento) en la nube privada.  Los nodos forman parte del clúster de vSphere en la nube privada.  Cada nodo tiene cuatro interfaces de red físicas conectadas a la red subyacente.  Se usan dos interfaces de red físicas para crear un **conmutador distribuido de vSphere (VDS)** en vCenter y dos para crear un **conmutador virtual distribuido administrado por NSX (N-VDS)** .  Las interfaces de red se configuran en modo activa/activa para la alta disponibilidad.
+VMware ESXi se instala en los nodos de CloudSimple aprovisionados al crear una nube privada.  ESXi proporciona el hipervisor para implementar máquinas virtuales (VM) de carga de trabajo.  Los nodos proporcionan infraestructuras hiperconvergidas (proceso y almacenamiento) en la nube privada.  Los nodos forman parte del clúster de vSphere en la nube privada.  Cada nodo tiene cuatro interfaces de red físicas conectadas a la red subyacente.  Se usan dos interfaces de red físicas para crear un **conmutador distribuido de vSphere (VDS)** en vCenter y dos para crear un **conmutador virtual distribuido administrado por NSX (N-VDS)** .  Las interfaces de red se configuran en modo activa/activa para la alta disponibilidad.
 
 Más información sobre VMware ESXi
 
@@ -95,7 +95,7 @@ Los hosts de ESXi se configuran como un clúster para garantizar la alta disponi
 
 ## <a name="vmware-infrastructure-maintenance"></a>Mantenimiento de la infraestructura de VMware
 
-En ocasiones, es necesario realizar cambios en la configuración de la infraestructura de VMware. En la actualidad, estos intervalos se pueden producir cada 1-2 meses, pero se espera que la frecuencia se reduzca con el tiempo. Este tipo de mantenimiento normalmente se puede realizar sin interrumpir el consumo normal de los servicios CloudSimple. Durante un intervalo de mantenimiento de VMware, los servicios siguientes seguirán funcionando sin ningún impacto:
+En ocasiones, es necesario realizar cambios en la configuración de la infraestructura de VMware. En la actualidad, estos intervalos se pueden producir cada 1 o 2 meses, pero se espera que la frecuencia se reduzca con el tiempo. Normalmente, este tipo de mantenimiento se puede realizar sin interrumpir el consumo normal de los servicios de CloudSimple. Durante un intervalo de mantenimiento de VMware, los servicios siguientes seguirán funcionando sin ningún impacto:
 
 * Las aplicaciones y el plano de administración de VMware
 * El acceso a vCenter

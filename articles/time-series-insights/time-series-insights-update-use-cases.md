@@ -11,28 +11,28 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
 ms.openlocfilehash: 787445d5186a173b2cba674b36cd95879cc863e5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389997"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casos de uso de la versión preliminar de Azure Time Series Insights
 
-Este artículo resume varios casos de uso común para la versión preliminar de Azure tiempo Series Insights. Las recomendaciones de este artículo sirven como punto de partida para desarrollar sus aplicaciones y soluciones con Time Series Insights.
+En este artículo se resumen varios casos de uso comunes de la versión preliminar de Azure Time Series Insights. Las recomendaciones de este artículo le servirán como punto de partida para desarrollar aplicaciones y soluciones con Time Series Insights.
 
-En concreto, este artículo responden las preguntas siguientes:
+Concretamente, en este artículo se responde a las siguientes preguntas:
 
 * ¿Cuáles son los casos de uso comunes de Time Series Insights?
-* ¿Cuáles son las ventajas del uso de Time Series Insights para [exploración de datos y la detección de anomalías visual](#data-exploration-and-visual-anomaly-detection)?
-* ¿Cuáles son las ventajas del uso de Time Series Insights para [análisis operativos y la eficacia del proceso](#operational-analysis-and-driving-process-efficiency)?
-* ¿Cuáles son las ventajas del uso de Time Series Insights para [análisis avanzado](#advanced-analytics)?
+* ¿Cuáles son las ventajas de usar Time Series Insights para la [detección de anomalías visuales y la exploración de datos](#data-exploration-and-visual-anomaly-detection)?
+* ¿Cuáles son las ventajas de usar Time Series Insights para realizar [análisis operativos y garantizar la eficacia del proceso](#operational-analysis-and-driving-process-efficiency)?
+* ¿Cuáles son las ventajas de usar Time Series Insights para realizar [análisis avanzados](#advanced-analytics)?
 
-Información general de estos escenarios de uso se describe en las secciones siguientes.
+En las secciones siguientes se incluye información general de estos escenarios de uso.
 
 ## <a name="introduction"></a>Introducción
 
-Azure Time Series Insights es una oferta de plataforma como servicio-to-end. Se usa para recopilar, procesar, almacenar, analizar y consultar datos a escala de IoT optimizados para series temporales y muy contextualizados. Time Series Insights es ideal para la exploración de datos ad hoc y para el análisis operativo. Time Series Insights es una oferta que cumple la amplia necesita de las implementaciones de IoT industriales de servicio extensible de forma exclusiva y personalizado.
+Azure Time Series Insights es una oferta de plataforma como servicio de un extremo a otro. Se usa para recopilar, procesar, almacenar, analizar y consultar datos a escala de IoT optimizados para series temporales y muy contextualizados. Time Series Insights es ideal para la exploración de datos ad hoc y para el análisis operativo. Igualmente, Time Series Insights es una oferta de servicio de extensibilidad única y personalizada que satisface las amplias necesidades de las implementaciones de IoT industriales.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Exploración de datos y detección anomalías visuales
 
@@ -52,11 +52,11 @@ Existen tres formas principales de interactuar con los datos almacenados en Time
 
 - La segunda forma de comenzar es usar el SDK de JavaScript para insertar rápidamente eficaces tablas y gráficos en su aplicación web. Con solo unas pocas líneas de código, puede crear consultas realmente eficaces. Úselas para rellenar gráficos de líneas, gráficos circulares, gráficos de barras, mapas térmicos, cuadrículas de datos y muchos más. Si usa el SDK, tiene todos estos elementos listos para usar. El SDK también sintetiza las API de consulta de Time Series Insights. Puede usarlas para crear predicados similares a SQL para consultar los datos que quiera mostrar en un panel. En cuanto a las soluciones de la capa de presentación híbridas, Time Series Insights le ofrece direcciones URL con parámetros. Estas le proporcionan puntos de conexión sencillos con el explorador de versión preliminar de Time Series Insights para que pueda profundizar en los datos.
 
-    * Lectura del [biblioteca de cliente de tiempo Series Insights JS](tutorial-explore-js-client-lib.md) y [cliente Time Series Insights](https://github.com/Microsoft/tsiclient) documentación para obtener más información sobre el SDK de JavaScript.
+    * Para obtener más información sobre el SDK de JavaScript, lea la [biblioteca de cliente de JS de Time Series Insights](tutorial-explore-js-client-lib.md) y la documentación del [cliente de Time Series Insights](https://github.com/Microsoft/tsiclient).
 
-    * Más información acerca del uso compartido de las direcciones URL y la nueva interfaz de usuario mediante la revisión [visualizar datos en el Explorador de vista previa de Azure tiempo Series Insights](time-series-insights-update-explorer.md).
+    * Para obtener más información acerca del uso compartido de URL y la nueva IU, consulte [Visualize data in the Azure Time Series Insights Preview explorer](time-series-insights-update-explorer.md) (Visualizar datos en el explorador de la versión preliminar de Azure Time Series Insights).
 
-- La tercera forma de comenzar es usar las eficaces API para consultar los datos almacenados en Time Series Insights. Time Series Insights tiene los operadores temporales como `from`, `to`, `first`, y `last`. Presenta las agregaciones y las transformaciones, como `average`, `min`, `max`, `split by`, `order by`, y `DateHistogram`. También tiene el filtrado como operadores `has`, `in`, `and`, `or`, `greater than`, y `REGEX`. Todos estos operadores permiten que las aplicaciones posteriores encuentren rápidamente tendencias y patrones interesantes en sus datos. Puede usarlos para rellenar las visualizaciones locales y así poder detectar anomalías.
+- La tercera forma de comenzar es usar las eficaces API para consultar los datos almacenados en Time Series Insights. Time Series Insights tiene operadores temporales, como `from`, `to`, `first` y `last`, y tiene agregaciones y transformaciones, como `average`, `min`, `max`, `split by`, `order by` y `DateHistogram`. También tiene operadores de filtrado, como `has`, `in`, `and`, `or`, `greater than` y `REGEX`. Todos estos operadores permiten que las aplicaciones posteriores encuentren rápidamente tendencias y patrones interesantes en sus datos. Puede usarlos para rellenar las visualizaciones locales y así poder detectar anomalías.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>Análisis operativo y procesos eficientes
 
@@ -97,5 +97,5 @@ Time Series Insights cierra esta brecha entre los datos de IoT y el análisis av
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre el [explorador de la versión preliminar de Time Series Insights](./time-series-insights-update-explorer.md).
-- Lectura [planeación de la vista previa en tiempo Series Insights](./time-series-insights-update-plan.md) para planear su entorno.
+- Para planificar su entorno, lea la [planificación de la versión preliminar de Time Series Insights](./time-series-insights-update-plan.md).
 - Lea la documentación sobre el [cliente de Time Series Insights](https://github.com/Microsoft/tsiclient).

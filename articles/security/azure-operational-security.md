@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bb0726fdddf6d20a9c8c5f20d6cec0cae68322ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119261"
 ---
 # <a name="azure-operational-security"></a>Seguridad operativa de Azure
 ## <a name="introduction"></a>Introducción
@@ -55,15 +55,15 @@ En estas notas del producto se describe el enfoque de Microsoft hacia la segurid
 
 ## <a name="microsoft-azure-monitor-logs"></a>Registros de Microsoft Azure Monitor
 
-Los registros de Microsoft Azure Monitor es la solución de administración de TI para la nube híbrida. Por sí solas o para ampliar la implementación existente de System Center, registros de Azure Monitor le ofrece la máxima flexibilidad y control para la administración basada en la nube de su infraestructura.
+Los registros de Microsoft Azure Monitor son la solución de administración de TI para la nube híbrida. Si se usa de forma independiente o para extender la implementación existente de System Center, los registros de Azure Monitor ofrecen la máxima flexibilidad y control para la administración basada en la nube de su infraestructura.
 
 ![Registros de Azure Monitor](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-Con los registros de Azure Monitor, puede administrar cualquier instancia en cualquier nube, incluidas en el entorno local, Azure, AWS, Windows Server, Linux, VMware y OpenStack, con un costo menor que soluciones competitivas. Ha creado para el mundo de primero en la nube, los registros de Azure Monitor ofrece un enfoque nuevo para administrar su empresa que es la manera más rápida y más rentable para satisfacer nuevos desafíos de negocio y adaptarse a nuevas cargas de trabajo, aplicaciones y entornos de nube.
+Con los registros de Azure Monitor, puede administrar cualquier instancia en cualquier nube, incluidas instancias en entornos locales, Azure, AWS, Windows Server, Linux, VMware y OpenStack, a un costo menor que el de las soluciones de la competencia. Diseñado para el mundo que da prioridad a la nube, los registros de Azure Monitor ofrecen un nuevo método de administración empresarial, que es la forma más rápida y rentable de enfrentarse a los nuevos retos empresariales y adaptarse a nuevas cargas de trabajo, aplicaciones y entornos de nube.
 
 ### <a name="azure-monitor-services"></a>Servicios de Azure Monitor
 
-Se proporciona la funcionalidad básica de los registros de Azure Monitor mediante un conjunto de servicios que se ejecutan en Azure. Cada servicio ofrece una función de administración específica, y se pueden combinar los servicios para lograr escenarios de administración diferentes.
+Un conjunto de servicios que se ejecutan en Azure proporciona la funcionalidad principal de registros de Azure Monitor. Cada servicio ofrece una función de administración específica, y se pueden combinar los servicios para lograr escenarios de administración diferentes.
 
 | Servicio  | DESCRIPCIÓN|
 | :------------- | :-------------|
@@ -74,7 +74,7 @@ Se proporciona la funcionalidad básica de los registros de Azure Monitor median
 
 ### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-[Registros de Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics) proporciona servicios de supervisión mediante la recopilación de datos de los recursos administrados en un repositorio central. Estos datos podrían incluir eventos, datos de rendimiento o datos personalizados proporcionados a través de la API. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación.
+Los [registros de Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics) proporcionan servicios de supervisión al recopilar datos de los recursos administrados en un repositorio central. Estos datos podrían incluir eventos, datos de rendimiento o datos personalizados proporcionados a través de la API. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación.
 
 
 Este método permite consolidar los datos desde diversos orígenes, de forma que se pueden combinar datos de los servicios de Azure con el entorno local existente. También separa claramente la recopilación de los datos de la acción realizada en los datos, para que todas las acciones estén disponibles para todos los tipos de datos.
@@ -82,7 +82,7 @@ Este método permite consolidar los datos desde diversos orígenes, de forma que
 
 ![Registros de Azure Monitor](./media/azure-operational-security/azure-operational-security-fig2.png)
 
-El servicio de Azure Monitor administra los datos en la nube segura mediante el uso de los métodos siguientes:
+El servicio de Azure Monitor administra los datos basados en la nube de forma segura mediante los siguientes métodos:
 -   Segregación de datos
 -   Retención de datos
 -   Seguridad física
@@ -92,22 +92,22 @@ El servicio de Azure Monitor administra los datos en la nube segura mediante el 
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[Copia de seguridad de Azure](https://azure.microsoft.com/documentation/services/backup) proporciona datos de copia de seguridad y restauración los servicios y forman parte del conjunto de productos y servicios de Azure Monitor.
+[Azure Backup](https://azure.microsoft.com/documentation/services/backup) proporciona servicios de copia de seguridad y restauración de datos, y forma parte del conjunto de productos y servicios de Azure Monitor.
 Protege los datos de las aplicaciones y los conserva durante años sin necesidad de realizar ninguna inversión y afrontando unos costes operativos mínimos. Permite realizar la copia de seguridad de datos procedentes de servidores físicos y virtuales de Windows, además de cargas de trabajo de aplicaciones como SQL Server y SharePoint. También se puede usar en [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) para replicar datos protegidos en Azure para obtener redundancia y almacenamiento a largo plazo.
 
 
 Los datos protegidos en Azure Backup se almacenan en un almacén de copia de seguridad ubicado en una región geográfica determinada. Los datos se replican en la misma región y, según el tipo de almacén, también pueden replicarse en otra región para obtener una resistencia adicional.
 
 ### <a name="management-solutions"></a>Soluciones de administración
-[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) es en la nube TI solución de administración de Microsoft que le ayuda a administrar y proteger sus instalaciones y la infraestructura en la nube.
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) es una solución de administración de TI basada en la nube de Microsoft que lo ayuda a administrar y proteger su infraestructura local y en la nube.
 
 
-[Las soluciones de administración](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) son conjuntos de lógica preempaquetados que implementan un escenario de administración concreto usando uno o varios servicios de Azure Monitor preempaquetados. Diferentes soluciones están disponibles de Microsoft y de asociados que se puede agregar fácilmente a su suscripción de Azure para aumentar el valor de su inversión en Azure Monitor. Como asociado, puede crear sus propias soluciones para que sean compatibles con los servicios y las aplicaciones, y proporcionarlas a los usuarios a través de las plantillas de inicio rápido o Azure Marketplace.
+Las [soluciones de administración](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) son conjuntos de lógica empaquetados previamente que implementan un escenario de administración específico con uno o más servicios de Azure Monitor. Hay disponibles diferentes soluciones de Microsoft y de asociados que se pueden agregar fácilmente a la suscripción de Azure para aumentar el valor de su inversión en Azure Monitor. Como asociado, puede crear sus propias soluciones para que sean compatibles con los servicios y las aplicaciones, y proporcionarlas a los usuarios a través de las plantillas de inicio rápido o Azure Marketplace.
 
 
 ![Soluciones de administración](./media/azure-operational-security/azure-operational-security-fig4.png)
 
-Un buen ejemplo de una solución que usa varios servicios para proporcionar funcionalidad adicional es la [solución Administración de actualizaciones](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Esta solución utiliza el [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agente para Windows y Linux recopilar información acerca de las actualizaciones necesarias en cada agente. Escribe estos datos en el repositorio de registros de Azure Monitor donde puede analizarlo con un panel incluido.
+Un buen ejemplo de una solución que usa varios servicios para proporcionar funcionalidad adicional es la [solución Administración de actualizaciones](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Esta solución utiliza el agente de [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) de Windows y Linux para recopilar información acerca de las actualizaciones necesarias en cada agente. Escribe estos datos en el repositorio de registros de Azure Monitor en donde puede analizarlo con un panel incluido.
 
 Cuando se crea una implementación, se utilizan runbooks en [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) para instalar las actualizaciones necesarias. Todo este proceso se administra en el portal y no tiene que preocuparse sobre los detalles subyacentes.
 
@@ -164,7 +164,7 @@ Azure Security Center recopila copias efímeras de los archivos de volcado de me
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-El [seguridad de registros de Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) y solución permite a TI supervisar activamente todos los recursos, lo que pueden ayudar a minimizar el impacto de los incidentes de seguridad de auditoría. Registros de Monitor de Azure Security and Audit tienen dominios de seguridad que se pueden usar para la supervisión de recursos. El dominio de seguridad proporciona acceso rápido a opciones para supervisar la seguridad. Se proporciona más información de los siguientes dominios:
+La solución de [seguridad y auditoría de registros de Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) permite a TI supervisar activamente todos los recursos con el fin de minimizar el impacto de los incidentes de seguridad. La seguridad y auditoría de registros de Azure Monitor tiene dominios de seguridad que pueden usarse para la supervisión de recursos. El dominio de seguridad proporciona acceso rápido a opciones para supervisar la seguridad. Se proporciona más información de los siguientes dominios:
 
 -   Evaluación de malware
 -   Evaluación de la actualización
@@ -224,16 +224,16 @@ La auditoría de la seguridad de la red es fundamental para detectar vulnerabili
 
 En la actualidad, Network Watcher dispone de las siguientes funcionalidades:
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Registros de auditoría</a>**: se registran las operaciones realizadas como parte de la configuración de redes. Estos registros se pueden ver en Azure Portal o se pueden recuperar mediante herramientas de Microsoft como Power BI o herramientas de terceros. Los registros de auditoría están disponibles a través del portal, PowerShell, la CLI y la API de Rest. Para más información sobre los registros de auditoría, consulte Operaciones de auditoría con Resource Manager. Hay registros de auditoría disponibles para las operaciones realizadas en todos los recursos de red.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Registros de auditoría</a>** : se registran las operaciones realizadas como parte de la configuración de redes. Estos registros se pueden ver en Azure Portal o se pueden recuperar mediante herramientas de Microsoft como Power BI o herramientas de terceros. Los registros de auditoría están disponibles a través del portal, PowerShell, la CLI y la API de Rest. Para más información sobre los registros de auditoría, consulte Operaciones de auditoría con Resource Manager. Hay registros de auditoría disponibles para las operaciones realizadas en todos los recursos de red.
 
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">Comprobaciones de flujo de IP</a>**: comprueba si un paquete está permitido o no en función de los parámetros de paquete de 5-tuplas de información del flujo (IP de destino, IP de origen, puerto de destino, puerto de origen y protocolo). Si un grupo de seguridad de red deniega un paquete, se devuelven el nombre de la regla y del grupo de seguridad que lo deniega.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">Comprobaciones de flujo de IP</a>** : comprueba si un paquete está permitido o no en función de los parámetros de paquete de 5-tuplas de información del flujo (IP de destino, IP de origen, puerto de destino, puerto de origen y protocolo). Si un grupo de seguridad de red deniega un paquete, se devuelven el nombre de la regla y del grupo de seguridad que lo deniega.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Próximo salto</a>**: determina el próximo salto para los paquetes que se enrutan en el tejido de red de Azure, lo que le permite diagnosticar cualquier ruta definida por el usuario que se haya configurado incorrectamente.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Próximo salto</a>** : determina el próximo salto para los paquetes que se enrutan en el tejido de red de Azure, lo que le permite diagnosticar cualquier ruta definida por el usuario que se haya configurado incorrectamente.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview">Vista de grupos de seguridad</a>**: obtiene las reglas de seguridad eficaces que se aplican en una máquina virtual.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview">Vista de grupos de seguridad</a>** : obtiene las reglas de seguridad eficaces que se aplican en una máquina virtual.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Registro de flujo de NSG</a>**: los registros de flujo de los grupos de seguridad de red permiten capturar registros relacionados con el tráfico que están permitidos o no por las reglas de seguridad del grupo. El flujo se define mediante una información de 5-tuplas: IP de origen, IP de destino, puerto de origen, puerto de destino y protocolo.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Registro de flujo de NSG</a>** : los registros de flujo de los grupos de seguridad de red permiten capturar registros relacionados con el tráfico que están permitidos o no por las reglas de seguridad del grupo. El flujo se define mediante una información de 5-tuplas: IP de origen, IP de destino, puerto de origen, puerto de destino y protocolo.
 
 ## <a name="azure-storage-analytics"></a>Azure Storage Analytics
 
@@ -309,11 +309,11 @@ Para los clientes interesados en almacenar [eventos de auditoría](https://docs.
 
 ## <a name="summary"></a>Resumen
 
-Este artículo resume la protección de la privacidad y los datos, así como el software y los servicios que le ayudan a administrar la infraestructura de TI de su organización. Microsoft reconoce que, cuando confía sus datos a otras personas, esa confianza requiere una seguridad rigurosa. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.   La seguridad y la protección de los datos son prioritarias en Microsoft.
+Este artículo resume la protección de la privacidad y los datos, así como el software y los servicios que le ayudan a administrar la infraestructura de TI de su organización. Microsoft reconoce que, cuando confía sus datos a otras personas, esa confianza requiere una seguridad rigurosa. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.  La seguridad y la protección de los datos son prioritarias en Microsoft.
 
 Este artículo explica cómo
 
--   Cómo datos se recopila, procesa y protege en el conjunto de aplicaciones de Azure Monitor.
+-   Se recopilan, procesan y protegen los datos en el conjunto de aplicaciones de Azure Monitor.
 
 -   Analizar rápidamente eventos en distintos orígenes de datos. Identificar riesgos de seguridad y comprender el ámbito y el impacto de las amenazas y los ataques para reducir el daño de una infracción de seguridad.
 

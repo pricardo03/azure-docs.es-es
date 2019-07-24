@@ -1,5 +1,5 @@
 ---
-title: Base de datos de prácticas recomendadas de seguridad - Microsoft Azure
+title: 'Prácticas recomendadas de seguridad de base de datos: Microsoft Azure'
 description: En este artículo se proporciona un conjunto de prácticas recomendadas para la reforzar la seguridad de las bases de datos de Azure.
 services: security
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258677"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedimientos recomendados para la seguridad de las bases de datos de Azure
-En este artículo se describe los procedimientos recomendados de seguridad de base de datos.
+En este artículo se describen los procedimientos recomendados para la seguridad de base de datos.
 
-Los procedimientos recomendados se basan en un consenso de opinión y son válidos para las funcionalidades y conjuntos de características actuales de la plataforma Azure. Las opiniones y las tecnologías cambian con el tiempo y en este artículo se actualiza de forma periódica para reflejar dichos cambios.
+Los procedimientos recomendados se basan en un consenso de opinión y son válidos para las funcionalidades y conjuntos de características actuales de la plataforma Azure. Como las opiniones y las tecnologías cambian con el tiempo, este artículo se actualiza de forma periódica para reflejar dichos cambios.
 
-## <a name="secure-databases"></a>Proteger las bases de datos
+## <a name="secure-databases"></a>Seguridad de las bases de datos
 La seguridad es un aspecto importante a la hora de administrar bases de datos, y siempre ha sido una prioridad para [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Las bases de datos pueden protegerse de forma estricta para ayudar a satisfacer la mayoría de los requisitos de seguridad o legales, como HIPAA, ISO 27001/27002 y PCI DSS nivel 1. En el [sitio del Centro de confianza de Microsoft](https://azure.microsoft.com/support/trust-center/services/) hay disponible una lista actualizada de certificaciones de cumplimiento de seguridad. También puede colocar las bases de datos en centros de datos de Azure específicos en función de los requisitos normativos.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Uso de reglas de firewall para restringir el acceso de las bases de datos
@@ -71,7 +71,7 @@ Si usa autenticación de SQL Server, debe:
 
 - Administrar las credenciales seguras usted mismo.
 - Proteger las credenciales en la cadena de conexión.
-- Proteger (potencialmente) las credenciales transmitidas a través de la red desde el servidor web a la base de datos. Para obtener más información, consulte [Cómo conectar con SQL Server mediante la Autenticación de SQL en ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
+- Proteger (potencialmente) las credenciales transmitidas a través de la red desde el servidor web a la base de datos. Para obtener más información, consulte [Instrucciones: conectar con SQL Server mediante la Autenticación de SQL en ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticación de Azure Active Directory (AD)*
 La autenticación de Azure AD es un mecanismo de conexión a Azure SQL Database y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure AD. Con la autenticación de Azure AD, puede administrar las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece una ubicación única para administrar usuarios de base de datos y simplifica la administración de permisos.
@@ -166,9 +166,9 @@ La habilitación de estas funcionalidades ayuda a:
 
 Además, la detección de amenazas integra las alertas con Azure Security Center para obtener una vista centralizada del estado de seguridad de todos los recursos de Azure.
 
-## <a name="enable-feature-restrictions"></a>Habilitar restricciones de características
+## <a name="enable-feature-restrictions"></a>Habilitación de restricciones de características
 
-Los datos contenidos en las bases de datos pueden exponerse a los atacantes de usar los vectores de ataque que aprovechan los errores de base de datos y los tiempos de ejecución. La base de datos de SQL Azure proporciona una serie de mecanismos de restricción de características para proteger la base de datos. Para obtener más información, consulte [restricciones de características de base de datos de SQL](../sql-database/sql-database-feature-restrictions.md).
+Los datos contenidos en las bases de datos pueden estar expuestos a atacantes que usan vectores de ataque que aprovechan los errores de base de datos y los tiempos de ejecución de consultas. Azure SQL Database proporciona una serie de mecanismos de restricción de características para proteger su base de datos. Para obtener más información, consulte [Restricciones de las características de SQL Database](../sql-database/sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.
