@@ -4,7 +4,7 @@ description: Alta disponibilidad para NFS en máquinas virtuales de Azure en SUS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: ed92be0c1968d8f8a931d59d2dadefbbb12f2100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93644b9a3487906a27db70bfe82cceccdc7ab45c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925740"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707227"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -72,11 +72,11 @@ Lea primero las notas y los documentos de SAP siguientes:
 * La nota de SAP [1999351] contiene más soluciones de problemas de la extensión de supervisión mejorada de Azure para SAP.
 * La [WIKI de la comunidad SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene todas las notas de SAP que se necesitan para Linux.
 * [Planeación e implementación de Azure Virtual Machines para SAP en Linux][planning-guide]
-* [Implementación de Azure Virtual Machines para SAP en Linux (este artículo)][deployment-guide]
+* [Implementación de máquinas virtuales de Azure para SAP en Linux (este artículo)][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP en Linux][dbms-guide]
 * [Guía de prácticas recomendadas para la extensión de alta disponibilidad 12 SP3 para SUSE Linux Enterprise][sles-hae-guides]
   * Almacenamiento NFS de alta disponibilidad con DRBD y Pacemaker
-* [Guías de procedimientos recomendados de SUSE Linux Enterprise Server para SAP Applications 12 SP3][sles-for-sap-bp]
+* [Guías de procedimientos recomendados de SUSE Linux Enterprise Server for SAP Applications 12 SP3][sles-for-sap-bp]
 * [Notas de la versión de la Extensión 12 SP3 de alta disponibilidad para SUSE][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Información general
@@ -539,8 +539,8 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Instalación de SAP ASCS y la base de datos](high-availability-guide-suse.md)
-* [Planeación e implementación de Azure Virtual Machines para SAP][planning-guide]
+* [Planeamiento e implementación de Azure Virtual Machines para SAP][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP][dbms-guide]
 * Para obtener información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure (instancias grandes), vea [Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)](hana-overview-high-availability-disaster-recovery.md).
-* Para información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure Virtual Machines, consulte [Alta disponibilidad de SAP HANA en las máquinas virtuales (VM) de Azure][sap-hana-ha]
+* Para más información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure Virtual Machines, consulte [Alta disponibilidad de SAP HANA en las máquinas virtuales de Azure][sap-hana-ha].

@@ -13,6 +13,10 @@
   items:
     - name: Inicio del Lector inmersivo (Node.js)
       href: tutorial.md
+- name: Procedimiento
+  items:
+    - name: Autenticación con Azure Active Directory
+      href: azure-active-directory-authentication.md
 - name: Referencia
   items:
     - name: Referencia del SDK

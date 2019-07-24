@@ -13,12 +13,12 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: da4de9185ba7371281c140c5f2456d85661c0af4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fcbf181601230493dc52bde06e4f35db062f9a32
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706436"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807170"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Creación de la primera función con Java y Maven
 
@@ -72,17 +72,25 @@ Maven le pedirá los valores necesarios para acabar de generar el proyecto. Para
 Los identificadores `com.fabrikam.functions` y `fabrikam-functions` siguientes se utilizan como ejemplo y para facilitar la lectura de los pasos posteriores de esta guía de inicio rápido. En este paso, se recomienda especificar los valores propios en Maven.
 
 ```Output
-Define value for property 'groupId': com.fabrikam.functions
-Define value for property 'artifactId' : fabrikam-functions
+Define value for property 'groupId' (should match expression '[A-Za-z0-9_\-\.]+'): com.fabrikam.functions
+Define value for property 'artifactId' (should match expression '[A-Za-z0-9_\-\.]+'): fabrikam-functions
 Define value for property 'version' 1.0-SNAPSHOT : 
 Define value for property 'package': com.fabrikam.functions
 Define value for property 'appName' fabrikam-functions-20170927220323382:
+Define value for property 'appRegion' westus: :
+Define value for property 'resourceGroup' java-functions-group: :
 Confirm properties configuration: Y
 ```
 
-Maven crea los archivos del proyecto en una carpeta nueva llamada _artifactId_, en este ejemplo `fabrikam-functions`. El código generado listo para ejecutarse del proyecto es una función [desencadenada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) que devuelve el cuerpo de la solicitud:
+Maven crea los archivos del proyecto en una carpeta nueva llamada _artifactId_, en este ejemplo `fabrikam-functions`. El código generado listo para ejecutarse del proyecto es una función [desencadenada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) que devuelve el cuerpo de la solicitud. Reemplace *src/main/java/com/fabrikam/functions/Function.java* con el código siguiente: 
 
 ```java
+package com.fabrikam.functions;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
 public class Function {
     /**
      * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
@@ -206,7 +214,7 @@ return request.createResponse(200, "Hi, " + name);
 Guarde los cambios. Ejecute el paquete mvn clean y repita la implementación mediante la ejecución de `azure-functions:deploy` desde el terminal como antes. La aplicación de función se actualizará y esta solicitud:
 
 ```bash
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello
 ```
 
 tendrá una salida actualizada:

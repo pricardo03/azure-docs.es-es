@@ -5,6 +5,7 @@
     - name: Acerca de Spatial Anchors
       href: overview.md
 - name: Guías de inicio rápido
+  expanded: true
   items:
     - name: Creación de una aplicación de Unity
       href: unity-overview.yml

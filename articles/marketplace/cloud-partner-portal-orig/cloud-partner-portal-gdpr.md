@@ -1,5 +1,5 @@
 ---
-title: El cumplimiento del RGPD | Azure Marketplace
+title: Cumplimiento del RGPD | Azure Marketplace
 description: Cloud Partner Portal y RGPD.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -7,17 +7,17 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 221f559dde2017c9b5d13dd4e06a140a6bcb5e2e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: 91db369f9a2a0439bdbaf8600d1b329f0da00aa0
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935419"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786468"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Cumplimiento del RGPD de Cloud Partner Portal
 ====================================
 
-El [Reglamento general de protección de datos (GDPR)](https://ec.europa.eu/justice/data-protection/reform/index_en.htm) es una ley de privacidad y protección de datos de la Unión Europea (UE). El RGPD impone reglas sobre las empresas, agencias gubernamentales, entidades sin ánimo de lucro y otras organizaciones que ofrecen bienes y servicios a personas de la UE o que recopilan y analizan datos vinculados a residentes en la UE.
+El [Reglamento general de protección de datos (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/) es una ley de privacidad y protección de datos de la Unión Europea (UE). El RGPD impone reglas sobre las empresas, agencias gubernamentales, entidades sin ánimo de lucro y otras organizaciones que ofrecen bienes y servicios a personas de la UE o que recopilan y analizan datos vinculados a residentes en la UE.
 
 Cloud Partner Portal proporciona información detallada sobre su procesamiento de datos de clientes y las medidas de seguridad utilizadas para proteger esos datos. Esta información es accesible a través de sus experiencias en el producto.
 

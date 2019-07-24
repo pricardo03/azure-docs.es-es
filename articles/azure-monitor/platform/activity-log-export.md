@@ -114,7 +114,7 @@ Si ya existe un perfil de registro, primero debe quitarlo y luego crear uno nuev
     | Name |Sí |Nombre de su perfil de registro. |
     | StorageAccountId |Sin |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
     | serviceBusRuleId |Sin |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen centros de eventos. Se trata de una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-    | Ubicación |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
+    | Location |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
     | RetentionInDays |Sí |Número de días que deben retenerse los eventos en la cuenta de almacenamiento, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
     | Categoría |Sin |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son _Write_, _Delete_ y _Action_. |
 
@@ -154,12 +154,12 @@ Si ya existe un perfil de registro, primero debe quitar el perfil de registro ex
 
     | Propiedad | Obligatorio | DESCRIPCIÓN |
     | --- | --- | --- |
-    | Nombre |Sí |Nombre de su perfil de registro. |
+    | name |Sí |Nombre de su perfil de registro. |
     | storage-account-id |Sí |Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
-    | Ubicaciones |Sí |Lista separada por espacios de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones para la suscripción con `az account list-locations --query [].name`. |
+    | locations |Sí |Lista separada por espacios de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones para la suscripción con `az account list-locations --query [].name`. |
     | days |Sí |Número de días que deben retenerse los eventos, entre 1 y 365. Con el valor cero, se almacenarán los registros indefinidamente (de manera indefinida).  Si el valor es cero, el parámetro habilitado se debe establecer en true. |
     |Enabled | Sí |True o False.  Se usa para habilitar o deshabilitar la directiva de retención.  Si el valor es True, el parámetro de días debe ser un valor mayor que 0.
-    | Categorías |Sí |Lista separada por espacios de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
+    | categories |Sí |Lista separada por espacios de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 
 
@@ -234,7 +234,7 @@ Los elementos de este código JSON se describen en la tabla siguiente.
 | durationMs |Duración de la operación en milisegundos |
 | callerIpAddress |La dirección IP del usuario que ha realizado la operación, la notificación de UPN o la notificación de SPN basada en la disponibilidad. |
 | correlationId |Normalmente, un GUID en formato de cadena. Los eventos que comparten correlationId pertenecen a la misma acción general. |
-| identidad |Blob JSON que describe la autorización y las notificaciones. |
+| identity |Blob JSON que describe la autorización y las notificaciones. |
 | authorization |Blob de propiedades RBAC del evento. Normalmente incluye las propiedades "action", "role" y "scope". |
 | level |Nivel del evento. Uno de los valores siguientes: _Critical_, _Error_, _Warning_, _Informational_ y _Verbose_ |
 | location |Región en la que se ha producido la ubicación (o global). |

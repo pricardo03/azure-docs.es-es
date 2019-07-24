@@ -5,6 +5,7 @@
     - name: Acerca de Azure Digital Twins
       href: about-digital-twins.md
 - name: Guías de inicio rápido
+  expanded: true
   items:
     - name: Búsqueda de habitaciones disponibles
       href: quickstart-view-occupancy-dotnet.md

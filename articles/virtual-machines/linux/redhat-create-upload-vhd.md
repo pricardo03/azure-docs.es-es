@@ -4,7 +4,7 @@ description: Aprenda a crear y cargar un disco duro virtual (VHD) de Azure que c
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 6c6b8f72-32d3-47fa-be94-6cb54537c69f
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: szark
-ms.openlocfilehash: 9d5e9c6c8a104c16d1ff4e96929ff47ed6fd5ff6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: f7f9baec5421a63e46536480cde8d60d3877d4d7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966114"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670972"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparación de una máquina virtual basada en Red Hat para Azure
-En este artículo, aprenderá a preparar una máquina virtual de Red Hat Enterprise Linux (RHEL) para usarla en Azure. Las versiones de RHEL que se tratan en este artículo son 6.7 y 7.1. Los hipervisores de preparación que se tratan en este artículo son Hyper-V, máquina virtual basada en kernel (KVM) y VMware. Para más información sobre los requisitos para poder participar en el programa de acceso a la nube de Red Hat, visite el sitio [web de acceso a la nube de Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) y [Ejecución de RHEL en Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Maneras de automatizar la creación de RHEL imágenes encontrarás el [Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+En este artículo, aprenderá a preparar una máquina virtual de Red Hat Enterprise Linux (RHEL) para usarla en Azure. Las versiones de RHEL que se tratan en este artículo son 6.7 y 7.1. Los hipervisores de preparación que se tratan en este artículo son Hyper-V, máquina virtual basada en kernel (KVM) y VMware. Para más información sobre los requisitos para poder participar en el programa de acceso a la nube de Red Hat, visite el sitio [web de acceso a la nube de Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) y [Ejecución de RHEL en Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para ver cómo automatizar la creación de imágenes de RHEL, consulte [Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparación de una máquina virtual basada en Red Hat desde el Administrador de Hyper-V
 
@@ -110,7 +110,7 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
 
 1. No cree espacio de intercambio en el disco del sistema operativo.
 
-    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal y que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
+    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -195,7 +195,7 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
 
 1. No cree espacio de intercambio en el disco del sistema operativo.
 
-    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal, lo que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en `/etc/waagent.conf`:
+    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -319,7 +319,7 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
 
         # chkconfig waagent on
 
-1. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal, lo que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en **/etc/waagent.conf**:
+1. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en **/etc/waagent.conf**:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -470,7 +470,7 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
 
 1. No cree espacio de intercambio en el disco del sistema operativo.
 
-    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal, lo que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en `/etc/waagent.conf`:
+    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -601,7 +601,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMware. 
 
 1. No cree espacio de intercambio en el disco del sistema operativo.
 
-    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal, lo que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en `/etc/waagent.conf`:
+    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -717,7 +717,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMware. 
 
 1. No cree espacio de intercambio en el disco del sistema operativo.
 
-    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal, lo que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en `/etc/waagent.conf`:
+    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se adjunta a la máquina virtual, después de que la máquina virtual se aprovisione en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse si la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure en el paso anterior, modifique apropiadamente los parámetros siguientes en `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -898,7 +898,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMware. 
 
 1. Abra la configuración de la máquina virtual:
 
-     a.  Cargue un nuevo disco duro virtual en la máquina virtual. Asegúrese de seleccionar **Formato VHD** y **Tamaño fijo**.
+    a.  Cargue un nuevo disco duro virtual en la máquina virtual. Asegúrese de seleccionar **Formato VHD** y **Tamaño fijo**.
 
     b.  Adjunte la imagen ISO de instalación a la unidad de DVD.
 

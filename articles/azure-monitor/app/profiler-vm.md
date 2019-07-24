@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: ab30351bfff9c5bbf070a1e8a54a4919e4d2231a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66226267"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Generación de perfiles de aplicaciones web en ejecución en una máquina virtual o un conjunto de escalado de máquinas virtuales de Azure mediante Application Insights Profiler
@@ -31,7 +31,7 @@ También puede implementar Azure Application Insights Profiler en estos servicio
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Implementación de Profiler en una máquina virtual o un conjunto de escalado de máquinas virtuales
 En este artículo se muestran los pasos necesarios para que Application Insights Profiler se ejecute en una máquina virtual (VM) de Azure o un conjunto de escalado de máquinas virtuales de Azure. Profiler se instala con la extensión de Azure Diagnostics para VM. Configure la extensión para ejecutar Profiler y compile el SDK de Application Insights en la aplicación.
 
-1. Agregue el SDK de Application Insights a su [aplicación ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+1. Agregue el SDK de Application Insights a la [aplicación de ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
 
    Para ver los perfiles para las solicitudes, debe enviar telemetría de solicitudes a Application Insights.
 
@@ -60,7 +60,7 @@ En este artículo se muestran los pasos necesarios para que Application Insights
 
    Al aplicar las modificaciones, generalmente se realiza una implementación de plantilla completa o una publicación basada en el servicio en la nube mediante cmdlets de PowerShell o Visual Studio.  
 
-   Los siguientes comandos de PowerShell son un enfoque alternativo para las máquinas virtuales existentes que tocan solo en la extensión de diagnósticos de Azure. Agregue el ProfilerSink mencionado anteriormente para la configuración que es devuelto por el comando Get-AzVMDiagnosticsExtension. A continuación, pasar la configuración actualizada para el comando Set-AzVMDiagnosticsExtension.
+   Los siguientes comandos de PowerShell se pueden usar como un enfoque alternativo para las máquinas virtuales existentes que solo afecta a la extensión de Azure Diagnostics. Agregue el valor ProfilerSink que se mencionó anteriormente a la configuración que devuelve el comando Get-AzVMDiagnosticsExtension. Luego, pase la configuración actualizada al comando Set-AzVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -73,7 +73,7 @@ En este artículo se muestran los pasos necesarios para que Application Insights
 
 1. Si la aplicación deseada se ejecuta mediante [IIS](https://www.microsoft.com/web/downloads/platform.aspx), habilite la característica `IIS Http Tracing` de Windows.
 
-    a. Establezca el acceso remoto al entorno y, a continuación, use la ventana [Agregar características de Windows]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/). También puede ejecutar el siguiente comando en PowerShell (como administrador):  
+   a. Establezca el acceso remoto al entorno y, a continuación, use la ventana [Agregar características de Windows]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/). También puede ejecutar el siguiente comando en PowerShell (como administrador):  
 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
@@ -86,24 +86,24 @@ En este artículo se muestran los pasos necesarios para que Application Insights
 
 1. Implementación de aplicación.
 
-## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Conjunto de Profiler receptor mediante el Explorador de recursos de Azure
-Aún no tenemos una manera de configurar el receptor de Application Insights Profiler desde el portal. En lugar de usar powershell como se describió anteriormente, puede usar Azure Resource Explorer para establecer el receptor. Pero tenga en cuenta que si implementa la máquina virtual de nuevo, el receptor se perderán. Deberá actualizar la configuración que se usa al implementar la máquina virtual para mantener esta configuración.
+## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Establecimiento del receptor de Profiler con Azure Resource Explorer
+Todavía no tenemos forma de establecer el receptor de Application Insights Profiler desde el portal. En lugar de usar PowerShell como se describió anteriormente, puede usar Azure Resource Explorer para establecer el receptor. Pero tenga en cuenta que, si vuelve a implementar la máquina virtual, el receptor se perderá. Deberá actualizar la configuración que usa al implementar la VM para conservar este ajuste.
 
-1. Compruebe que la extensión de diagnósticos de Windows Azure está instalada mediante la visualización de las extensiones instaladas para la máquina virtual.  
+1. Compruebe que la extensión Windows Azure Diagnostics esté instalada. Para ello, revise las extensiones instaladas para la máquina virtual.  
 
-    ![Comprobar si está instalada la extensión WAD][wadextension]
+    ![Comprobación de la instalación de la extensión WAD.][wadextension]
 
-1. Busque la extensión de diagnósticos de máquina virtual para la máquina virtual. Expanda el grupo de recursos, virtualMachines Microsoft.Compute, nombre de máquina virtual y extensiones.  
+1. Busque la extensión de diagnóstico de VM para su máquina virtual. Expanda el grupo de recursos, Microsoft.Compute virtualMachines, el nombre de la máquina virtual y las extensiones.  
 
-    ![Vaya a configuración de WAD en el Explorador de recursos de Azure][azureresourceexplorer]
+    ![Vaya a la configuración de WAD en Azure Resource Explorer.][azureresourceexplorer]
 
-1. Adición del receptor de Application Insights Profiler en el nodo SinksConfig en WadCfg. Si aún no tiene una sección SinksConfig, deberá agregar uno. Asegúrese de especificar la clave de instrumentación de Application Insights adecuado en la configuración. Deberá cambiar el modo de exploradores a lectura/escritura en la esquina superior derecha y pulse el botón 'Editar' azul.
+1. Agregue el receptor de Application Insights Profiler al nodo SinksConfig en WadCfg. Si todavía no tiene una sección SinksConfig, es posible que tenga que agregar una. Asegúrese de especificar la iKey de Application Insights correspondiente en la configuración. Deberá cambiar el modo de los exploradores a Lectura/escritura en la esquina superior derecha y presionar el botón "Editar" azul.
 
-    ![Agregar receptor de Application Insights Profiler][resourceexplorersinksconfig]
+    ![Incorporación del receptor de Application Insights Profiler][resourceexplorersinksconfig]
 
-1. Cuando haya terminado la edición de la configuración, presione 'Put'. Si la put se realiza correctamente, aparecerá una marca de verificación verde en el medio de la pantalla.
+1. Cuando haya terminado de editar la configuración, presione "Put". Si la operación Put se realiza correctamente, aparecerá una marca verde en medio de la pantalla.
 
-    ![Enviar una solicitud put para aplicar los cambios][resourceexplorerput]
+    ![Envío de una solicitud Put para aplicar los cambios][resourceexplorerput]
 
 
 

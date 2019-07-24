@@ -4,7 +4,7 @@ description: Utilización del reinicio de VM de la infraestructura de Azure para
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cda0b1c0774ed33bf550e0edf329cc22a2807be3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d99f704d05dea88f7fa29afea99cbbdb00d09c24
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825685"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709883"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utilización del reinicio de VM de la infraestructura de Azure para lograr una "mayor disponibilidad" de un sistema de SAP
 
@@ -239,15 +239,15 @@ Hasta la fecha, en los componentes esenciales de SAP se ha conseguido lo siguien
 
 * Alta disponibilidad de los servidores de aplicaciones de SAP
 
-    Las instancias de los servidores de aplicaciones de SAP son componentes redundantes. Cada instancia del servidor de aplicaciones de SAP se implementa en su propia máquina virtual, que se ejecuta en un dominio de actualización y de error de Azure diferente. Para obtener más información, consulte las secciones [Dominios de error][planning-guide-3.2.1] y [Dominios de actualización][planning-guide-3.2.2]. 
+    Las instancias de los servidores de aplicaciones de SAP son componentes redundantes. Cada instancia del servidor de aplicaciones de SAP se implementa en su propia máquina virtual, que se ejecuta en un dominio de actualización y de error de Azure diferente. Para más información, consulte las secciones [Dominios de error][planning-guide-3.2.1] and [Upgrade domains][planning-guide-3.2.2]. 
 
-    Puede garantizar esta configuración mediante el uso de conjuntos de disponibilidad de Azure. Para obtener más información, consulte la sección [Conjuntos de disponibilidad de Azure][planning-guide-3.2.3]. 
+    Puede garantizar esta configuración mediante el uso de conjuntos de disponibilidad de Azure. Para más información, consulte la sección [Conjuntos de disponibilidad de Azure][planning-guide-3.2.3]. 
 
     La eventual indisponibilidad planeada o no de un dominio de error o de actualización de Azure hará que un número limitado de máquinas virtuales y sus respectivas instancias de servidor de aplicaciones de SAP no estén disponibles.
 
-    Cada instancia del servidor de aplicaciones de SAP se coloca en su propia cuenta de Azure Storage. La eventual indisponibilidad de una cuenta de Azure Storage hará que deje de estar disponible una sola máquina virtual con su propia instancia de servidor de aplicaciones de Azure. Sin embargo, tenga en cuenta que las suscripciones de Azure admiten un número limitado de cuentas de Azure Storage. Para garantizar el inicio automático de una instancia de ASCS/SCS después del reinicio de la máquina virtual, establezca el parámetro de inicio automático en el perfil de inicio de la instancia de ASCS/SCS como se indica en la sección [Uso del inicio automático en las instancias de SAP][planning-guide-11.5].
+    Cada instancia del servidor de aplicaciones de SAP se coloca en su propia cuenta de Azure Storage. La eventual indisponibilidad de una cuenta de Azure Storage hará que deje de estar disponible una sola máquina virtual con su propia instancia de servidor de aplicaciones de Azure. Sin embargo, tenga en cuenta que las suscripciones de Azure admiten un número limitado de cuentas de Azure Storage. Para garantizar el inicio automático de una instancia de ASCS/SCS después de reiniciar la máquina virtual, establezca el parámetro de inicio automático en el perfil de inicio de la instancia de ASCS/SCS, tal y como se indica en la sección [Uso del inicio automático en las instancias de SAP][planning-guide-11.5].
   
-    Para obtener más información, consulte [Alta disponibilidad en los servidores de aplicaciones de SAP][planning-guide-11.4.1].
+    Para más información, consulte [Alta disponibilidad en los servidores de aplicaciones de SAP][planning-guide-11.4.1].
 
     Incluso si usa discos de Managed Disks, estos también se almacenan en una cuenta de Azure Storage y pueden no estar disponibles en caso de que se produzca alguna interrupción del almacenamiento.
 
@@ -255,7 +255,7 @@ Hasta la fecha, en los componentes esenciales de SAP se ha conseguido lo siguien
 
     En este escenario, se utiliza el reinicio de VM de Azure para proteger la máquina virtual con la instancia de SAP ASCS/SCS instalada. En el caso de un tiempo de inactividad planeado o no de los servidores de Azure, las máquinas virtuales se reinician en otro servidor disponible. Como se mencionó anteriormente, el reinicio de VM de Azure protege principalmente las máquinas virtuales, pero *no* las aplicaciones (en este caso, la instancia de ASCS/SCS). Mediante el reinicio de VM, se alcanza indirectamente una "mayor disponibilidad" de la instancia de SAP ASCS/SCS. 
 
-    Para garantizar un inicio automático de la instancia de ASCS/SCS después del reinicio de la máquina virtual, establezca el parámetro de inicio automático en el perfil de inicio de la instancia de ASCS/SCS como se indica en la sección [Uso del inicio automático en las instancias de SAP][planning-guide-11.5]. Esto significa que la instancia de ASCS/SCS como único punto de error (SPOF) que se ejecuta en una sola máquina virtual determinará la disponibilidad de todo el entorno de SAP.
+    Para garantizar el inicio automático de la instancia de ASCS/SCS después de reiniciar la máquina virtual, establezca el parámetro de inicio automático en el perfil de inicio de la instancia de ASCS/SCS, tal y como se indica en la sección [Uso del inicio automático en las instancias de SAP][planning-guide-11.5]. Esto significa que la instancia de ASCS/SCS como único punto de error (SPOF) que se ejecuta en una sola máquina virtual determinará la disponibilidad de todo el entorno de SAP.
 
 * *Mayor disponibilidad* del servidor de DBMS
 
@@ -284,4 +284,4 @@ Si se presupone un escenario de Azure típico de una instancia del servidor de a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para conocer los detalles sobre la alta disponibilidad de la aplicación SAP NetWeaver, vea [SAP Application High Availability on Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha] (Alta disponibilidad de aplicaciones SAP en IaaS de Azure).
+Para más información sobre la alta disponibilidad de la aplicación SAP NetWeaver, vea [Alta disponibilidad de las aplicaciones de SAP en IaaS de Azure][sap-high-availability-architecture-scenarios-sap-app-ha].

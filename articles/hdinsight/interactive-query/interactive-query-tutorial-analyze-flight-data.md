@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: 403e165d7ebe8365ffa0fd2f5f3779d3b4fab68f
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: fbab8502c088c2ae7a4b8e87285d7e4cac1de4c0
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543628"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807398"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Interactive Query en Azure HDInsight
 
@@ -59,6 +59,8 @@ Hay muchas maneras de cargar datos en el almacenamiento asociado a un clúster d
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
+
+    Si se le pide que escriba yes o no para continuar, escriba yes en el símbolo del sistema y presione Entrar. El texto no es visible en la ventana mientras lo escribe.
 
 2. Cuando la carga haya finalizado, conéctese al clúster mediante SSH. Modifique el comando siguiente: reemplace `CLUSTERNAME` por el nombre del clúster de HDInsight. Después, escriba el comando siguiente:
 

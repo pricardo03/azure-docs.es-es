@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: cdaae4e539d5216cf4950c15349f01b54ae8acd2
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5e42c36e6a321775e6017a2318857e20b7dcaf0d
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496372"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876462"
 ---
 # <a name="what-is-application-insights"></a>¿Qué es Application Insights?
 Application Insights es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Se detectarán automáticamente las anomalías de rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación.  Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o Java EE, hospedadas en el entorno local, de forma híbrida o en cualquier nube pública. Se integra con el proceso de DevOps y tiene puntos de conexión a numerosas herramientas de desarrollo. Puede supervisar y analizar la telemetría de aplicaciones móviles mediante la integración con Visual Studio App Center.
@@ -97,14 +97,15 @@ Cuando reciba una alerta o detecte un problema:
 * Escriba datos de telemetría personalizados en el código.
 * Base el siguiente ciclo de desarrollo en pruebas contundentes de la telemetría.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 Application Insights es uno de los muchos servicios hospedados en Microsoft Azure y los datos de telemetría se envían ahí para analizarlos y mostrarlos. Por tanto, antes de nada, se necesita una suscripción a [Microsoft Azure](https://azure.com). El registro es gratuito y, si elige el [plan de precios](https://azure.microsoft.com/pricing/details/application-insights/) básico de Application Insights, no habrá cargo alguno hasta que la aplicación tenga un uso considerable. Si la organización ya tiene una suscripción, puede agregarle su cuenta de Microsoft.
 
 Hay varias formas de empezar. Comience con la que más se ajuste a sus necesidades. Puede agregar los demás posteriormente.
 
 * **En tiempo de ejecución: instrumente su aplicación web en el servidor.** Ideal para las aplicaciones ya implementadas. Evita toda actualización del código.
-  * [**Aplicaciones ASP.NET hospedadas en IIS de forma local o en una máquina virtual**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Aplicaciones ASP.NET o ASP.NET Core hospedadas en Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
+  * [**Aplicaciones ASP.NET hospedadas en IIS en una máquina virtual de Azure o un conjunto de escalado de máquinas virtuales de Azure**](../../azure-monitor/app/azure-vm-vmss-apps.md)
+  * [**Aplicaciones ASP.NET hospedadas en una máquina virtual en el entorno local de IIS**](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * **En tiempo de desarrollo: agregue Application Insights al código.** Le permite personalizar la recopilación de telemetría personalizada y enviar telemetría adicional.
   * [Aplicaciones ASP.NET](../../azure-monitor/app/asp-net.md)
   * [Aplicación ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
@@ -119,6 +120,7 @@ Hay varias formas de empezar. Comience con la que más se ajuste a sus necesidad
 ## <a name="next-steps"></a>Pasos siguientes
 Comience en el tiempo de ejecución con:
 
+* [Aplicaciones hospedadas en IIS en máquina virtual de Azure y conjunto de escalado de máquinas virtuales de Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Servidor IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 

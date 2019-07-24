@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
-ms.author: kumud;anavin
-ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: anavin
+ms.openlocfilehash: 720351463a9f8d5712c76401f3fbba64c3177e84
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694712"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871970"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Creación de un emparejamiento de red virtual: distintos modelos de implementación, la misma suscripción
 
@@ -50,7 +51,7 @@ Puede usar Azure Portal, la [interfaz de la línea de comandos](#cli) (CLI) de A
     - **Nombre de subred**: *default*
     - **Rango de direcciones de subred**: *10.0.0.0/24*
     - **Suscripción**: Seleccione su suscripción.
-    - **Grupo de recursos**: Seleccione **Crear nuevo** y escriba *myResourceGroup*
+    - **Grupo de recursos**: Seleccione Crear nuevo y escriba *myResourceGroup*
     - **Ubicación**: *Este de EE. UU.*
 4. Haga clic en **+ Nuevo**. En el campo **Buscar en el Marketplace**, escriba *Red virtual*. Haga clic en **Red virtual** cuando aparezca en los resultados de búsqueda.
 5. En la hoja **Red virtual**, seleccione **Clásica** en el cuadro **Seleccionar un modelo de implementación** y haga clic en **Crear**.
