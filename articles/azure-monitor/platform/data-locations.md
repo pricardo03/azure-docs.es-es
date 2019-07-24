@@ -1,6 +1,6 @@
 ---
-title: Supervisión de las ubicaciones de los datos en Azure Monitor | Microsoft Docs
-description: Describe las diferentes ubicaciones donde los datos de supervisión se almacenan en Azure e incluye la plataforma de datos de Azure Monitor.
+title: Ubicaciones de datos de supervisión en Azure Monitor | Microsoft Docs
+description: Se describen las diferentes ubicaciones de Azure donde se almacenan datos de supervisión, incluida la plataforma de datos de Azure Monitor.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -13,33 +13,33 @@ ms.workload: infrastructure-services
 ms.date: 05/21/2019
 ms.author: bwren
 ms.openlocfilehash: 1d92973e32e9c694b1d0488753b9a701e7d71a5d
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66416902"
 ---
-# <a name="monitoring-data-locations-in-azure-monitor"></a>Supervisión de las ubicaciones de los datos en Azure Monitor
+# <a name="monitoring-data-locations-in-azure-monitor"></a>Ubicaciones de datos de supervisión en Azure Monitor
 
-Azure Monitor se basa en un [plataforma de datos](data-platform.md) de [registros](data-platform-logs.md) y [métricas](data-platform-metrics.md) como se describe en [plataforma de datos de Azure Monitor](data-platform.md). Datos de supervisión de recursos de Azure pueden escribirse en otras ubicaciones, sin embargo, ya sea antes de que se copian en Azure Monitor o para admitir escenarios adicionales. 
+Azure Monitor se basa en una [plataforma de datos](data-platform.md) de [Registros](data-platform-logs.md) y [Métricas](data-platform-metrics.md), tal como se describe en la [plataforma de datos de Azure Monitor](data-platform.md). Sin embargo, los datos de supervisión de recursos de Azure se pueden escribirse en otras ubicaciones, ya sea antes de copiarlos en Azure Monitor o para admitir escenarios adicionales. 
 
-## <a name="monitoring-data-locations"></a>Ubicaciones de los datos de supervisión
+## <a name="monitoring-data-locations"></a>Ubicaciones de datos de supervisión
 
-En la tabla siguiente identifica las diferentes ubicaciones donde se envían datos de supervisión en Azure y los distintos métodos para tener acceso a él.
+En la siguiente tabla se identifican las diferentes ubicaciones de Azure a las que se envían datos de supervisión y los distintos métodos para tener acceso a estos.
 
 | Ubicación | DESCRIPCIÓN | Métodos de acceso |
 |:---|:---|:---|:--|
-| Métricas en Microsoft Azure | Base de datos de serie temporal que está optimizado para analizar los datos con marca de tiempo. | [Explorador de métricas](metrics-getting-started.md)<br>[API de métricas de Azure Monitor](/rest/api/monitor/metrics) |
-| Registros de Azure Monitor    | Área de trabajo de análisis que se basa en el Explorador de datos de Azure que proporciona un lenguaje de consulta enriquecidas y el motor de análisis eficaz de registros. | [Log Analytics](../log-query/portals.md)<br>[API de log Analytics](https://dev.loganalytics.io/)<br>[API de Application Insights](https://dev.applicationinsights.io/reference/get-query) |
-| Registro de actividades | Datos del registro de actividad están muy útiles cuando se envía a los registros de Azure Monitor para analizarlo con otros datos, pero también se recopilan por sí solo por lo que pueden verse directamente en el portal de Azure. | [Azure Portal](activity-log-view.md#azure-portal)<br>[API de eventos de Azure Monitor](/rest/api/monitor/eventcategories) |
-| Azure Storage | Algunos orígenes de datos escribirá directamente en Azure storage y requieren una configuración para mover datos a los registros. También puede enviar datos al almacenamiento de Azure para archivar y para la integración con sistemas externos.  | [Storage Analytics](/rest/api/storageservices/storage-analytics)<br>[Explorador de servidores](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)<br>[Explorador de Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) |
-| Event Hubs | Enviar datos a Azure Event Hubs para transmitirlo a otras ubicaciones. | [Captura de almacenamiento](../../event-hubs/event-hubs-capture-overview.md)  |
-| Azure Monitor para máquinas virtuales | Azure Monitor para las máquinas virtuales almacena los datos de estado de carga de trabajo en una ubicación personalizada que usa su experiencia de supervisión en Azure portal. | [Azure Portal](../insights/vminsights-overview.md)<br>[API de REST de monitor de carga de trabajo](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)<br>[API de REST de Azure Resource health](https://docs.microsoft.com/rest/api/resourcehealth/)  |
-| Alertas | Alertas creadas por Azure Monitor. | [Azure Portal](alerts-managing-alert-instances.md)<br>[API de REST de administración de alertas](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts) |
+| Métricas de Azure Monitor | Base de datos de serie temporal que está optimizada para el análisis de los datos con marca de tiempo. | [Explorador de métricas](metrics-getting-started.md)<br>[API de métricas de Azure Monitor ](/rest/api/monitor/metrics) |
+| Registros de Azure Monitor    | Área de trabajo de Log Analytics basada en Azure Data Explorer que proporciona un motor de análisis eficaz y un lenguaje de consulta completo. | [Log Analytics](../log-query/portals.md)<br>[API de Log Analytics](https://dev.loganalytics.io/)<br>[API de Application Insights](https://dev.applicationinsights.io/reference/get-query) |
+| Registro de actividades | Los datos del registro de actividades son muy útiles cuando se envían a registros de Azure Monitor para analizarlos con otros datos, pero también se recopilan por separado de manera que se pueden ver directamente en Azure Portal. | [Azure Portal](activity-log-view.md#azure-portal)<br>[API de eventos de Azure Monitor](/rest/api/monitor/eventcategories) |
+| Azure Storage | Algunos orígenes de datos escribirán directamente en Azure Storage y requieren una configuración para mover datos a registros. También puede enviar datos a Azure Storage para archivado e integración con sistemas externos.  | [Storage Analytics](/rest/api/storageservices/storage-analytics)<br>[Explorador de servidores](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)<br>[Explorador de Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) |
+| Event Hubs | Envíe datos a Azure Event Hubs para transmitirlos a otras ubicaciones. | [Captura en almacenamiento](../../event-hubs/event-hubs-capture-overview.md)  |
+| Azure Monitor para máquinas virtuales | Azure Monitor para VM almacena datos de estado de carga de trabajo en una ubicación personalizada que su experiencia de supervisión usa en Azure Portal. | [Azure Portal](../insights/vminsights-overview.md)<br>[API REST de monitor de carga de trabajo](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)<br>[API REST de Azure Resource Health](https://docs.microsoft.com/rest/api/resourcehealth/)  |
+| Alertas | Alertas creadas por Azure Monitor. | [Azure Portal](alerts-managing-alert-instances.md)<br>[API REST de administración de alertas](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts) |
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Vea las diferentes fuentes de [datos de supervisión recopilados por Azure Monitor](data-sources.md).
-- Obtenga información sobre la [tipos de datos de supervisión recopilados por Azure Monitor](data-platform.md) y cómo ver y analizar los datos.
+- Vea las diferentes fuentes de [datos de supervisión que recopila Azure Monitor](data-sources.md).
+- Más información sobre la [tipos de datos de supervisión recopilados por Azure Monitor](data-platform.md) y cómo ver y analizar estos datos.

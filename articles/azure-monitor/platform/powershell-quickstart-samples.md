@@ -9,10 +9,10 @@ ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: ada62fbfa51604a6b3188c27d5c14da40c8ac116
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400203"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Ejemplos de inicio rápido de PowerShell de Azure Monitor
@@ -42,7 +42,7 @@ Verá una pantalla de inicio de sesión. Una vez que inicie sesión, se muestran
 Get-AzSubscription
 ```
 
-Para ver el contexto de trabajo (qué suscripción se ejecutan los comandos en), use el siguiente comando:
+Para ver el contexto de trabajo (en qué suscripción se ejecutan los comandos), use el siguiente comando:
 
 ```powershell
 Get-AzContext
@@ -55,9 +55,9 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>Recuperación del registro de actividades para una suscripción
-Use la [Get AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet.  A continuación se muestran algunos ejemplos comunes. El registro de actividad contiene los últimos 90 días de operaciones. Uso de las fechas anteriores en este momento, se producirá en un mensaje de error.  
+Use el cmdlet [Get AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog).  A continuación se muestran algunos ejemplos comunes. El registro de actividad contiene los últimos 90 días de operaciones. El uso de las fechas anteriores a ese período provoca un mensaje de error.  
 
-Ver cuál es la fecha y hora actuales comprobar qué momento para usar en los siguientes comandos:
+Vea cuál es la fecha y hora actual para comprobar qué períodos se deben usar en el siguiente comando:
 ```powershell
 Get-Date
 ```
@@ -101,7 +101,7 @@ Get-AzLog -MaxRecord 10
 `Get-AzLog` es compatible con muchos otros parámetros. Consulte la referencia `Get-AzLog` para obtener más información.
 
 > [!NOTE]
-> `Get-AzLog` solo proporciona 15 días de historial. Mediante el **- MaxRecords** parámetro le permite consultar los últimos eventos N más allá de 15 días. Para acceder a eventos de hace más de 15 días, use el SDK o la API de REST (ejemplo de C# usando el SDK). Si no incluye **StartTime**, el valor predeterminado será **EndTime** menos una hora. Si no incluye **EndTime**, el valor predeterminado será la hora actual. Todas las horas se muestran en UTC.
+> `Get-AzLog` solo proporciona 15 días de historial. El parámetro **-MaxRecords** permite consultar los últimos eventos N más allá de 15 días. Para acceder a eventos de hace más de 15 días, use el SDK o la API de REST (ejemplo de C# usando el SDK). Si no incluye **StartTime**, el valor predeterminado será **EndTime** menos una hora. Si no incluye **EndTime**, el valor predeterminado será la hora actual. Todas las horas se muestran en UTC.
 > 
 > 
 
@@ -153,14 +153,14 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 | Parámetro | value |
 | --- | --- |
 | NOMBRE |simpletestdiskwrite |
-| Ubicación (Location) de esta regla de alerta |East US |
+| Ubicación (Location) de esta regla de alerta |Este de EE. UU |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| Nombre de la métrica (MetricName) de la alerta que se crea |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
+| Nombre de la métrica (MetricName) de la alerta que se crea |\PhysicalDisk(_Total)\Disk Writes/sec. Consulte el cmdlet `Get-MetricDefinitions` acerca de cómo recuperar los nombres exactos de las métricas |
 | operator |GreaterThan |
 | Valor de umbral (número por segundo para esta métrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |
-| aggregator (estadística de la métrica que, en este caso, usa el recuento medio) |Average |
+| aggregator (estadística de la métrica que, en este caso, usa el recuento medio) |Media |
 | mensajes de correo electrónico personalizados (matriz de cadenas) |"foo@example.com","bar@example.com" |
 | enviar correo electrónico a los propietarios, colaboradores y lectores |-SendToServiceOwners |
 

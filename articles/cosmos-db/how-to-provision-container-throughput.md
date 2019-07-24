@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: rimman
-ms.openlocfilehash: 945bff075828bdbddd2a31642b35a5c592216b93
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: f195eaa0f5d22160de8c1e9e2f429073de001828
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565884"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986023"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Aprovisionamiento del rendimiento en un contenedor de Azure Cosmos
 
@@ -80,6 +80,7 @@ Si va a aprovisionar el rendimiento del contenedor de una cuenta de Azure Cosmo
 > Use los SDK de Cosmos de la API de SQL para aprovisionar el rendimiento de todas las API de Cosmos DB, excepto Cassandra API.
 
 ### <a id="dotnet-most"></a>API de MongoDB y versiones de SQL, Gremlin y Table API
+### <a name="net-v2-sdk"></a>SDK para .NET V2
 
 ```csharp
 // Create a container with a partition key and provision throughput of 400 RU/s
@@ -92,6 +93,9 @@ await client.CreateDocumentCollectionAsync(
     myCollection,
     new RequestOptions { OfferThroughput = 400 });
 ```
+
+### <a name="net-v3-sdk"></a>SDK para .NET V3
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 

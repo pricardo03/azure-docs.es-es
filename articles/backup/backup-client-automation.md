@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
 ms.openlocfilehash: eac7f6ec7ec41d257317d9d2a62f0bacc046dbab
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400196"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
@@ -22,7 +22,7 @@ En este artículo se muestra cómo usar PowerShell para configurar Azure Backup 
 ## <a name="install-azure-powershell"></a>Instalar Azure Powershell
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para empezar a trabajar, [instalar la versión más reciente de PowerShell](/powershell/azure/install-az-ps).
+Para empezar, [instale la versión más reciente de PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
 
@@ -40,7 +40,7 @@ Los siguientes pasos le guiarán por el proceso de creación de un almacén de R
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
 
-3. Use la **New AzRecoveryServicesVault** para crear el nuevo almacén. Asegúrese de especificar para el almacén la misma ubicación del grupo de recursos.
+3. Use el cmdlet **New-AzRecoveryServicesVault** para crear el nuevo almacén. Asegúrese de especificar para el almacén la misma ubicación del grupo de recursos.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
@@ -60,9 +60,9 @@ Los siguientes pasos le guiarán por el proceso de creación de un almacén de R
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Visualización de los almacenes de una suscripción
 
-Use **Get AzRecoveryServicesVault** para ver la lista de todos los almacenes de la suscripción actual. Puede utilizar este comando para comprobar que se haya creado un nuevo almacén o a fin de ver qué almacenes están disponibles en la suscripción.
+Use **Get-AzRecoveryServicesVault** para ver la lista de todos los almacenes de la suscripción actual. Puede utilizar este comando para comprobar que se haya creado un nuevo almacén o a fin de ver qué almacenes están disponibles en la suscripción.
 
-Ejecute el comando, **Get AzRecoveryServicesVault**, y se enumeran todos los almacenes de la suscripción.
+Ejecute el comando **Get-AzRecoveryServicesVault** y se mostrarán todos los almacenes de la suscripción.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -200,7 +200,7 @@ Server properties updated successfully.
 
 Los datos de copia de seguridad enviados a Azure Backup se cifran para proteger la confidencialidad de los datos. La frase de contraseña de cifrado es la "contraseña" que permite descifrar los datos en el momento de la restauración.
 
-Debe generar un pin de seguridad seleccionando **generar**, en **configuración** > **propiedades** > **dePINdeseguridad** en el **almacén de Recovery Services** sección del portal de Azure. A continuación, úselo como el `generatedPIN` en el comando:
+Debe generar un PIN de seguridad seleccionando **Generar** en **Configuración** > **Propiedades** > **PIN de seguridad** en la sección **Almacén de Recovery Services**. A continuación, úselo como el `generatedPIN` en el comando:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -391,9 +391,9 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
-## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Realizar una copia de seguridad del estado del sistema Windows Server en el agente MABS
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Copia de seguridad del estado del sistema de Windows Server en el agente de MABS
 
-Esta sección tratan el comando de PowerShell para establecer el estado del sistema en el agente MABS
+En esta sección se describe el comando de PowerShell para configurar el estado del sistema en el agente de MABS.
 
 ### <a name="schedule"></a>Schedule
 ```powershell
@@ -406,7 +406,7 @@ $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Fri
 $rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
 ```
 
-### <a name="configuring-schedule-and-retention"></a>Configuración de retención y programación
+### <a name="configuring-schedule-and-retention"></a>Configuración de programación y retención
 
 ```powershell
 New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy

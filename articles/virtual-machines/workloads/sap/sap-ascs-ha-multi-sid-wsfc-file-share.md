@@ -4,7 +4,7 @@ description: Alta disponibilidad con varios identificadores de seguridad para la
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 32905f6d505f83ead805550205df0daf6be501e5
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60651772"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710111"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -199,7 +199,7 @@ ms.locfileid: "60651772"
 > ![Windows][Logo_Windows] Windows
 >
 
-Puede administrar varias direcciones IP virtuales mediante un [equilibrador de carga interno][load-balancer-multivip-overview]. 
+Puede administrar varias direcciones IP virtuales mediante un [equilibrador de carga interno de Azure][load-balancer-multivip-overview]. 
 
 Si tiene una implementación de SAP, puede usar un equilibrador de carga interno para crear una configuración de clúster de Windows para las instancias de SAP Central Services (ASCS/SCS).
 
@@ -256,7 +256,7 @@ Debe preparar la infraestructura del clúster de ASCS/SCS existente para un segu
 * Cree un nombre de host virtual para la instancia de ASCS/SCS de SAP en clúster en el servidor DNS.
 * Añada una dirección IP a un equilibrador de carga interno de Azure existente con PowerShell.
 
-Estos pasos se describen en [Preparación de la infraestructura para el escenario de varios identificadores de seguridad para SAP][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
+Estos pasos se describen en [Preparación de la infraestructura para un escenario de varios identificadores de seguridad de SAP][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
 
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Preparación de la infraestructura en un clúster de SOFS mediante el host global de SAP existente
@@ -465,6 +465,6 @@ Instale DBMS y los servidores de aplicaciones de SAP como se describió anterior
 
 * [Espacios de almacenamiento directo en Windows Server 2016][s2d-in-win-2016]
 
-* [Introducción al servidor de archivos de escalabilidad horizontal para datos de aplicaciones][sofs-overview]
+* [Introducción al servidor de archivos de escalabilidad horizontal para datos de aplicación][sofs-overview]
 
-* [Novedades de Storage en Windows Server 2016][new-in-win-2016-storage]
+* [Novedades de almacenamiento en Windows Server 2016][new-in-win-2016-storage]

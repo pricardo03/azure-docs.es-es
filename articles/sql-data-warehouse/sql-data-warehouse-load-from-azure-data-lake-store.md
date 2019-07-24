@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
-ms.date: 04/26/2019
+ms.subservice: load-data
+ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a706fca7f7653c6916efc72d07988e79c9015a43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbf642b47e4233cec2e2d860288b3bb35b419cf2
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244496"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304168"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Carga de datos de Azure Data Lake Storage en SQL Data Warehouse
 Use tablas externas de PolyBase para cargar datos de Azure Data Lake Storage en Azure SQL Data Warehouse. Aunque puede ejecutar consultas ad hoc en datos almacenados en Data Lake Storage, se recomienda importar los datos en SQL Data Warehouse para obtener un mejor rendimiento.
@@ -109,7 +109,7 @@ WITH (
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
 WITH (
     TYPE = HADOOP,
-    LOCATION='abfs://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
+    LOCATION='abfss://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
     CREDENTIAL = ADLSCredential
 );
 ```

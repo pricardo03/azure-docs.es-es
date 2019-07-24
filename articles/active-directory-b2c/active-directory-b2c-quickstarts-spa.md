@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dff1716e8886d1ef72f4d2ad4fbca4bcab86a348
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 47df2cbdf0b083cf672353471d1ef51e03507475
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509793"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835335"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión en una aplicación de una sola página mediante Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) B2C proporciona administración de identidades
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-1. Inicie el servidor mediante la ejecución de los siguientes comandos desde el símbolo del sistema de Node.js: 
+1. Inicie el servidor mediante la ejecución de los siguientes comandos desde el símbolo del sistema de Node.js:
 
     ```
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -56,23 +56,23 @@ Azure Active Directory (Azure AD) B2C proporciona administración de identidades
 
 1. Haga clic en **Iniciar sesión** para iniciar el flujo de trabajo.
 
-    ![Aplicación de ejemplo en el explorador](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![Aplicación de página única de ejemplo en el explorador](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    El ejemplo admite varias opciones de registro: usar un proveedor de identidades de redes sociales o crear una cuenta local con una dirección de correo electrónico. Para este tutorial rápido, use una cuenta de proveedor de identidades sociales de Facebook, Google, Microsoft o Twitter. 
+    El ejemplo admite varias opciones de registro: usar un proveedor de identidades de redes sociales o crear una cuenta local con una dirección de correo electrónico. Para este tutorial rápido, use una cuenta de proveedor de identidades sociales de Facebook, Google, Microsoft o Twitter.
 
 2. Azure AD B2C presenta una página de inicio de sesión personalizada para una marca ficticia llamada Wingtip Toys para la aplicación web de ejemplo. Para registrarse con un proveedor de identidades de redes sociales, haga clic en el botón del proveedor de identidades que desee usar.
 
-    ![Proveedor de inicio de sesión o registro](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+    ![Página de inicio de sesión o registro que muestra los botones del proveedor de identidades](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    Debe autenticarse (iniciar sesión) con las credenciales de su cuenta de redes sociales y autorizar a la aplicación para que lea la información de su cuenta de redes sociales. Al conceder acceso, la aplicación puede recuperar la información del perfil de la cuenta de redes sociales como el nombre y la ciudad. 
+    Debe autenticarse (iniciar sesión) con las credenciales de su cuenta de redes sociales y autorizar a la aplicación para que lea la información de su cuenta de redes sociales. Al conceder acceso, la aplicación puede recuperar la información del perfil de la cuenta de redes sociales como el nombre y la ciudad.
 
 3. Finalice el proceso de inicio de sesión para el proveedor de identidades.
 
 ## <a name="access-a-protected-api-resource"></a>Acceso a un recurso de API protegido
 
-Haga clic en **Llamar a API web** para obtener el nombre para mostrar de la llamada de API web como un objeto JSON. 
+Haga clic en **Llamar a API web** para obtener el nombre para mostrar de la llamada de API web como un objeto JSON.
 
-![Respuesta de la API web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
+![Aplicación de ejemplo en el explorador con la respuesta de la API web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
 La aplicación de página única de ejemplo incluye un token de acceso en la solicitud al recurso de API web protegido.
 

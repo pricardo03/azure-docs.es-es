@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ec2b974e008ea4c7e266f5ae0d46cd67d2133e54
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547311"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853997"
 ---
 # <a name="run-a-custom-linux-container-in-azure-app-service"></a>Ejecución de un contenedor Linux personalizado en Azure App Service
 
@@ -35,7 +35,7 @@ ms.locfileid: "59547311"
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
-Cree una [aplicación web](../overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). No olvide reemplazar `<app name>` por un nombre de aplicación único global.
+Cree una [aplicación web](../overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). No olvide reemplazar `<app name>` por un nombre de aplicación único global (los caracteres válidos son `a-z`, `0-9` y `-`).
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/azure-appservices-go-quickstart

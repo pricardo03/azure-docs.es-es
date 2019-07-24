@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c1317726cf29f23e4729c67a5a5794fa459220b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: fb35cc99164cc8da047e8309d63bf7909abf4815
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410856"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846027"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de una máquina virtual Windows de SQL Server 2017 en Azure Portal
 
@@ -64,7 +64,7 @@ En la pestaña **Básico**, especifique la siguiente información:
 1. En **Detalles de instancia**:
     1. Escriba _SQLVM_ para el **Nombre de la máquina virtual**. 
     1. Elija una ubicación para su **Región**. 
-    1. Para este inicio rápido, deje las **Opciones de disponibilidad** establecidas en _No se requiere redundancia de la infraestructura_. Para más información acerca de las opciones de disponibilidad, consulte [Regiones de Azure y disponibilidad](../../windows/regions-and-availability.md). 
+    1. Para este inicio rápido, deje las **Opciones de disponibilidad** establecidas en _No se requiere redundancia de la infraestructura_. Para más información acerca de las opciones de disponibilidad, consulte [Disponibilidad](../../windows/availability.md). 
     1. En la lista **Imagen** seleccione la denominada _Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016_ (Licencia gratuita de SQL Server: SQL Server 2017 Developer en Windows Server 2016). 
     1. Elija **Cambiar el tamaño** para el **Tamaño** de la máquina virtual y seleccione la oferta **Básico A2**. Asegúrese de limpiar los recursos cuando haya terminado con ellos para evitar cargos inesperados. 
 

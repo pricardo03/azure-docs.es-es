@@ -4,7 +4,7 @@ description: Implemente el cliente de Chef en una máquina virtual con la extens
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72536cc6f9ec3b94016d16de8502e70bc7107aa
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800270"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706085"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensión de máquina virtual de Chef para Linux y Windows
 
@@ -69,7 +69,7 @@ En el siguiente JSON, se muestra el esquema para la extensión de máquina virtu
 ### <a name="core-property-values"></a>Valores de propiedad básicos
 
 | NOMBRE | Valor / ejemplo | Tipo de datos
-| ---- | ---- | ---- 
+| ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient`Linux, `ChefClient` (Windows) | string |
@@ -105,7 +105,7 @@ En el siguiente JSON, se muestra el esquema para la extensión de máquina virtu
 
 Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas se pueden utilizar para implementar una o varias máquinas virtuales, instalar el cliente de Chef, conectarse al servidor de Chef y realizar la configuración inicial en el servidor tal y como se define en la [lista de ejecución](https://docs.chef.io/run_lists.html).
 
-Se puede encontrar una plantilla de Resource Manager de ejemplo que incluye la extensión de máquina virtual de Chef en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+En la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm), hay una plantilla de Resource Manager de ejemplo que incluye la extensión de máquina virtual de Chef.
 
 La configuración JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual o colocada en la raíz o nivel superior de una plantilla JSON de Resource Manager. La colocación de la configuración JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/resource-manager-template-child-resource.md).
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ffce8a2bd8a04e73acdeac037be0b10ba1a9a887
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244429"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672385"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Search 
 
@@ -42,7 +42,7 @@ Los recursos gratuitos (enriquecimientos limitados) se restringen a 20 documento
 
 1. Abra el Asistente para la importación de datos:
 
-   ![Abra el Asistente para importar datos](media/search-get-started-portal/import-data-cmd2.png "Open the Import data wizard")
+   ![Abra el Asistente para importar datos](media/search-get-started-portal/import-data-cmd.png "Open the Import data wizard")
 
 1. Elija un origen de datos y siga a **Agregar Cognitive Search (opcional)** . Para ver un tutorial paso a paso de este asistente, consulte el artículo sobre cómo [importar, indexar y consultar con las herramientas del portal](search-get-started-portal.md).
 

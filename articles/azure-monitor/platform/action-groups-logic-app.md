@@ -9,10 +9,10 @@ ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389577"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Procedimientos para desencadenar acciones complejas con alertas de Azure Monitor
@@ -26,7 +26,7 @@ El proceso general es:
 
 -   Crear la aplicación lógica para el tipo de alerta respectivo.
 
--   Importar una carga de ejemplo para el tipo de alerta correspondiente a la aplicación lógica.
+-   Importar una carga de ejemplo para el tipo de alerta respectivo en la aplicación lógica.
 
 -   Definir el comportamiento de la aplicación lógica.
 
@@ -58,7 +58,7 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
     ![Usar una carga de ejemplo](media/action-groups-logic-app/use-sample-payload-button.png "Usar una carga de ejemplo")
 
-8.  Copie y pegue la siguiente carga de ejemplo en el cuadro de diálogo:
+8.  Copie y pegue la carga de ejemplo siguiente en el cuadro de diálogo:
 
     ```json
         {
@@ -140,7 +140,7 @@ La próxima vez que una alerta llame al grupo de acciones, se llamará a la apli
 Las entradas de Azure Service Health forman parte del registro de actividad. El proceso de creación de la alerta es similar a la [creación de una alerta de registro de actividad](#create-an-activity-log-alert-administrative), pero con unos cuantos cambios:
 
 - Los pasos del 1 al 7 son iguales.
-- Paso 8, use la siguiente carga de ejemplo para el desencadenador de solicitud HTTP:
+- Para el paso 8, use la carga de ejemplo siguiente para el desencadenador de solicitud HTTP:
 
     ```json
     {
@@ -228,7 +228,7 @@ Las entradas de Azure Service Health forman parte del registro de actividad. El 
 El proceso de creación de una alerta de métrica es similar a la [creación de una alerta de registro de actividad](#create-an-activity-log-alert-administrative), pero con unos cuantos cambios:
 
 - Los pasos del 1 al 7 son iguales.
-- Paso 8, use la siguiente carga de ejemplo para el desencadenador de solicitud HTTP:
+- Para el paso 8, use la carga de ejemplo siguiente para el desencadenador de solicitud HTTP:
 
     ```json
     {

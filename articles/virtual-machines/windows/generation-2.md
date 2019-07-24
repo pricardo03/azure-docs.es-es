@@ -4,7 +4,7 @@ description: Información general de compatibilidad de Azure para máquinas virt
 services: virtual-machines-windows
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: d8991a6e3137953aae18b91f9cc19e81f0440c75
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 7abc1b7cd3be775af03aeaf558f631060cc6f81c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151214"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722734"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 (versión preliminar) en Azure
 
@@ -41,7 +41,7 @@ Las VM de generación 1 son compatibles con todos los tamaños de máquina virtu
 * [Serie Dsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) y [serie Dsv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 * [Serie Esv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
 * [Serie Fsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
-* [Serie GS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#gs-series)
+* [Serie GS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
 * [Serie Ls](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) y [serie Lsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)
 * [Serie Mv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
 

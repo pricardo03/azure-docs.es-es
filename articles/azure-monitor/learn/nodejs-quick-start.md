@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 07/12/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d92a96f928c859fba056f1d98c07ee4852aad0f1
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849398"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68002746"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Inicio de la supervisión de la aplicación web Node.js
 
@@ -45,16 +45,15 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
    ![Incorporación del recurso Application Insights](./media/nodejs-quick-start/1createresourseappinsights.png)
 
-   ![Incorporación del recurso Application Insights](./media/nodejs-quick-start/2createnodejs.png)
+   > [!NOTE]
+   >Si esta es la primera vez que crea un recurso de Application Insights, puede obtener más información visitando la documentación [Creación de recursos en Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
-
-   Aparece un cuadro de configuración, use la tabla siguiente para rellenar los campos de entrada.
+   Aparece una página de configuración, use la tabla siguiente para rellenar los campos de entrada. 
 
     | Configuración        | Valor           | DESCRIPCIÓN  |
    | ------------- |:-------------|:-----|
    | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Tipo de aplicación** | Aplicación Node.js | Tipo de aplicación que se está supervisando |
-   | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights |
    | **Ubicación** | Este de EE. UU | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
 2. Haga clic en **Create**(Crear).

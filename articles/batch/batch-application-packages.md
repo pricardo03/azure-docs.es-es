@@ -16,10 +16,10 @@ ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298748"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
@@ -114,11 +114,11 @@ Esta ventana muestra el identificador de cada aplicación en su cuenta y las pro
 * **Versión predeterminada**: la versión de la aplicación que se instala si no indica ninguna versión al especificar la aplicación para un grupo. Esta configuración es opcional.
 * **Permitir actualizaciones**: el valor que especifica si se permiten las actualizaciones, eliminaciones y adiciones en el paquete. Si se establece en **No**, las actualizaciones y eliminaciones se deshabilitan para la aplicación. Solo se pueden agregar versiones nuevas del paquete de aplicación. El valor predeterminado es **Sí**.
 
-Si gustaría ver la estructura de archivos del paquete de aplicación en el nodo de proceso, vaya a la cuenta de Batch en el portal. En su cuenta de Batch, vaya a **grupos**. Seleccione el grupo que contiene los nodos de proceso que le interesa.
+Si desea ver la estructura de archivos del paquete de aplicación en su nodo de ejecución, diríjase a su cuenta de Batch en el portal. En la cuenta de Batch, diríjase a **Grupos**. Seleccione el grupo que contiene los nodos de ejecución en los que está interesado.
 
-![Nodos de grupo][13]
+![Nodos en el grupo][13]
 
-Una vez que haya seleccionado el grupo, navegue hasta el nodo de proceso que está instalado el paquete de aplicación en. Desde allí, los detalles del paquete de aplicación se encuentran en el **aplicaciones** carpeta. Carpetas adicionales en el nodo de proceso contienen otros archivos, como las tareas de inicio, archivos de salida, la salida de errores, etcetera.
+Una vez que haya seleccionado el grupo, diríjase al nodo de ejecución que en el que está instalado el paquete de aplicación. Los detalles del paquete de aplicación se encuentran en la carpeta **aplicaciones**. Las carpetas adicionales del modo de ejecución contienen otros archivos, como las tareas de inicio, archivos de salida, salida de errores, etc.
 
 ![Archivos en el nodo][14]
 
@@ -142,7 +142,7 @@ Haga clic en **Aplicaciones** > **Agregar**.
 
 La ventana **Nueva aplicación** proporciona los siguientes campos para especificar la configuración de la nueva aplicación y del paquete de aplicación.
 
-**Id. de aplicación**
+**Identificador de la aplicación**
 
 Este campo especifica el identificador de la nueva aplicación, que está sujeto a las reglas de validación estándar de identificadores de Azure Batch. Las reglas para proporcionar un identificador de aplicación son las siguientes:
 
@@ -176,7 +176,7 @@ Para agregar una versión del paquete de aplicación de una aplicación existent
 
 ![Hoja Agregar paquete de aplicación en Azure Portal][8]
 
-Como puede ver, los campos coinciden con los de la **nueva aplicación** ventana, pero la **Id. de aplicación** casilla está deshabilitada. Como hizo para la nueva aplicación, especifique la **Versión** del paquete nuevo, vaya al archivo .zip de su **Paquete de aplicación** y haga clic en **Aceptar** para cargar el paquete.
+Como puede ver, los campos coinciden con los de la ventana **Nueva aplicación**, excepto el cuadro de texto **Id. de aplicación**, que está deshabilitado. Como hizo para la nueva aplicación, especifique la **Versión** del paquete nuevo, vaya al archivo .zip de su **Paquete de aplicación** y haga clic en **Aceptar** para cargar el paquete.
 
 ### <a name="update-or-delete-an-application-package"></a>Actualización o eliminación de un paquete de aplicación
 Para actualizar o eliminar un paquete de aplicación existente, abra los detalles de la aplicación, haga clic en **Paquetes** y en los **puntos suspensivos** de la fila del paquete de aplicación que desee modificar, y seleccione la acción que desee realizar.
@@ -379,5 +379,5 @@ Con los paquetes de aplicación puede ayudar a los clientes a seleccionar las ap
 [10]: ./media/batch-application-packages/app_pkg_10.png "Hoja Elegir de cuenta de almacenamiento en Azure Portal"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Hoja Actualizar paquete en Azure Portal"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Cuadro de diálogo de confirmación de eliminación de paquetes en Azure Portal"
-[13]: ./media/batch-application-packages/package-file-structure.png "Calcular la información del nodo en el portal de Azure"
-[14]: ./media/batch-application-packages/package-file-structure-node.png "Archivos en el nodo de proceso que se muestra en el portal de Azure"
+[13]: ./media/batch-application-packages/package-file-structure.png "Información del nodo de ejecución en Azure Portal"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "Archivos del nodo de ejecución que aparecen en Azure Portal"

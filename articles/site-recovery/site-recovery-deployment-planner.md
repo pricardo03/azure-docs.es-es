@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
 ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244322"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Información sobre Azure Site Recovery Deployment Planner para VMware en Azure
@@ -65,8 +65,8 @@ La herramienta proporciona los detalles siguientes:
 
 | | **VMware a Azure** |**Hyper-V en Azure**|**De Azure a Azure**|**De Hyper-V a un sitio secundario**|**Sitio VMware en un sitio secundario**
 --|--|--|--|--|--
-Escenarios admitidos |Sí|Sí|No|Sí*|Sin 
-Versión admitida | 6.7, 6.5, 6.0 o 5.5 de vCenter| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
+Escenarios admitidos |Sí|Sí|Sin|Sí*|Sin
+Versión admitida | vCenter 6.7, 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
 Configuración admitida|vCenter, ESXi| Clúster de Hyper-V, host de Hyper-V|N/D|Clúster de Hyper-V, host de Hyper-V|N/D|
 Número de servidores cuyo perfil puede generarse por instancia en ejecución de Site Recovery Deployment Planner |Único (los perfiles de las máquinas virtuales que pertenecen a una instancia de vCenter Server o a un servidor ESXi se pueden generar a la vez)|Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D |Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D
 
@@ -105,7 +105,7 @@ La carpeta contiene varios archivos y subcarpetas. El archivo ejecutable es ASRD
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Actualización a la versión más reciente de Deployment Planner
 
-Se resumen las actualizaciones más recientes en Deployment Planner [historial de versiones](site-recovery-deployment-planner-history.md).
+En el [historial de versiones](site-recovery-deployment-planner-history.md) se resumen las actualizaciones más recientes de Deployment Planner.
 
 Si tiene una versión anterior de Deployment Planner, realice una de las siguientes acciones:
  * Si la versión más reciente no contiene una corrección de la generación de perfiles y la generación de perfiles ya está en curso en la versión actual del programador, continúe con la generación de perfiles.
@@ -120,7 +120,7 @@ Si tiene una versión anterior de Deployment Planner, realice una de las siguien
 
 
 ## <a name="version-history"></a>Historial de versiones
-La última versión de la herramienta de Site Recovery Deployment Planner es 2.4.
+La versión más reciente de la herramienta Site Recovery Deployment Planner es la 2.4.
 Para saber qué correcciones se agregan en cada actualización, consulte [ASR Deployment Planner Version History](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) (Historial de versiones de ASR Deployment Planner).
 
 ## <a name="next-steps"></a>Pasos siguientes

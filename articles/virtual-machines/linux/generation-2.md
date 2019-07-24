@@ -4,7 +4,7 @@ description: Información general de compatibilidad de Azure para máquinas virt
 services: virtual-machines-linux
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 352df275742c38307065252d2f65bb4253d78e5d
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 653d4baa89e28255f11df1c5e2d813d37535793a
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151271"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667561"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 (versión preliminar) en Azure
 
@@ -40,7 +40,7 @@ Las VM de generación 1 son compatibles con todos los tamaños de máquina virtu
 * [Serie Dsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) y [serie Dsv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
 * [Serie Esv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
 * [Serie Fsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
-* [Serie GS](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#gs-series)
+* [Serie GS](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
 * [Serie Ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) y [serie Lsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
 * [Serie Mv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
 
@@ -127,7 +127,7 @@ También puede crear VM de generación 2 usando conjuntos de escalado de VM. En 
   1. En Azure Portal, vaya a la página de propiedades de la máquina virtual.
   1. Para apagar y desasignar la VM, haga clic en el botón **Detener**.
   1. En la sección **Discos**, seleccione el disco del SO que quiere aumentar.
-  1. En la sección **Discos**, seleccione **Configuración**y actualice el **Tamaño** con el valor que quiera.
+  1. En la sección **Discos**, seleccione **Configuración** y actualice el **Tamaño** con el valor que quiera.
   1. Vuelva a la página de propiedades de la máquina virtual e **inicie** la VM.
 
   Es posible que vea una advertencia para los discos del SO mayores de 2 TB. La advertencia no se aplica a las máquinas virtuales de generación 2. Pero *no se recomiendan* los tamaños de disco del SO de más de 4 TB.

@@ -16,17 +16,17 @@ ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58de8de9a9fab67d743d4560ccda037d8f41301b
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299000"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect Health con nuevas características y funciones. En este artículo se enumeran las versiones y características que se han publicado.  
 
 > [!NOTE]
-> Conectar los agentes se actualizan automáticamente cuando se lance una versión nueva de mantenimiento. Asegúrese de que la configuración de actualización automática está habilitada desde Azure portal. 
+> Los agentes de Connect Health se actualizan de forma automática cuando se publica una nueva versión. Asegúrese de que la configuración de actualización automática está habilitada en Azure Portal. 
 >
 
 Azure AD Connect Health para Sync se integra con la instalación de Azure AD Connect. Más información sobre el [historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history). Para enviar comentarios sobre las características, vote en el [canal de UserVoice para Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
@@ -36,24 +36,24 @@ Azure AD Connect Health para Sync se integra con la instalación de Azure AD Con
 **Actualización del agente:** 
 * Agente de Azure AD Connect Health para AD FS (versión 3.1.51.0) 
    1. Corrección de errores para distinguir entre varios inicios de sesión que comparten el mismo identificador de solicitud de cliente.
-   2. Corrección de errores para analizar los errores de nombre de usuario o contraseña incorrectos en el idioma localizado servidores.   
+   2. Corrección de errores para analizar los errores de nombre de usuario o contraseña incorrectos en los servidores traducidos.   
 
 ## <a name="april-2019"></a>Abril de 2019
 **Actualización del agente:** 
 * Agente de Azure AD Connect Health para AD FS (versión 3.1.46.0) 
-   1. Corregir proceso alerta comprobar SPN duplicados para ADFS
+   1. Corrección del proceso de alerta de SPN de duplicación de comprobación para ADFS
 
 ## <a name="march-2019"></a>Marzo de 2019
 **Actualización del agente:** 
 * Agente de Azure AD Connect Health para AD DS (versión 3.1.41.0)  
    1. Colección de la versión de .NET
-   2. Mejora de la recopilación de contadores de rendimiento cuando no tiene determinadas categorías
+   2. Mejora de la recopilación de contadores de rendimiento cuando faltan determinadas categorías
    3. Corrección de errores en la prevención de creación de varias instancias del agente de supervisión
 
 * Agente de Azure AD Connect Health para AD FS (versión 3.1.41.0) 
-   1. Integrar y actualización de scripts de prueba de AD FS mediante ADFSToolBox
-   2. Implementar la colección de la versión de .NET
-   3. Mejora de la recopilación de contadores de rendimiento cuando no tiene determinadas categorías
+   1. Integración y actualización de scripts de prueba de AD FS mediante ADFSToolBox
+   2. Implementación de la colección de la versión de .NET
+   3. Mejora de la recopilación de contadores de rendimiento cuando faltan determinadas categorías
    4. Corrección de errores en la prevención de creación de varias instancias del agente de supervisión
 
 
@@ -70,7 +70,7 @@ Azure AD Connect Health para Sync se integra con la instalación de Azure AD Con
 * Agente de Azure AD Connect Health para AD FS (versión 3.1.24.0)  
    1. Cumplimiento del protocolo de seguridad de la capa de transporte (TLS) versión 1.2
    2. Compatibilidad de Test-ADFSRequestToken para el sistema operativo localizado
-   3. Resuelve el problema de bloqueo de controlador de eventos del agente de diagnóstico
+   3. Resolución del problema de bloqueo de EventHandler en el agente de diagnóstico
    4. Correcciones de errores de registro del agente de Health
 
 ## <a name="august-2018"></a>Agosto de 2018 

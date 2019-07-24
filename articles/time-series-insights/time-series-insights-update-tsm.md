@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3e6e8ae76c0ae6f688dd4a039b34c52af16b6e0f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244022"
 ---
 # <a name="time-series-model"></a>Modelo de Time Series
@@ -25,7 +25,7 @@ Tradicionalmente, los datos que se recopilan de los dispositivos de IoT carecen 
 
 Los modelos de serie temporal desempeñan un papel vital en las consultas y la navegación, ya que contextualizan tanto las entidades del dispositivo como las que no lo son. Los datos que se conservan en el modelo de serie temporal potencian los cálculos de consulta de serie temporal aprovechando las fórmulas almacenadas en ellos.
 
-[![Información general sobre el modelo de serie de tiempo](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[![Información general sobre el modelo de serie temporal](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>Principales capacidades
 
@@ -35,15 +35,15 @@ Con el objetivo de simplificar la gestión de la contextualización de serie tem
 * Definir relaciones de tipo primario/secundario para habilitar la navegación y las referencias con el fin de proporcionar contexto a la telemetría de series temporales.
 * Defina las propiedades que están asociadas con la parte de instancias de los *campos de instancia* y utilícelas para crear jerarquías.
 
-## <a name="entity-components"></a>Componentes de entidad
+## <a name="entity-components"></a>Componentes de la entidad
 
-Modelos de serie temporal tiene tres componentes principales:
+Los modelos de serie temporal tienen tres componentes principales:
 
-* <a href="#time-series-model-types">Tipos de modelo de serie de tiempo</a>
-* <a href="#time-series-model-hierarchies">Jerarquías del modelo de serie de tiempo</a>
-* <a href="#time-series-model-instances">Instancias del modelo de serie de tiempo</a>
+* <a href="#time-series-model-types">Tipos de modelo de serie temporal</a>
+* <a href="#time-series-model-hierarchies">Jerarquías del modelo de serie temporal</a>
+* <a href="#time-series-model-instances">Instancias del modelo de serie temporal</a>
 
-Estos componentes se combinan para especificar un modelo de serie temporal y organizar los datos de Azure Time Series Insights.
+Estos componentes se combinan para especificar un modelo de serie temporal y organizar sus datos de Azure Time Series Insights.
 
 ## <a name="time-series-model-types"></a>Tipos de modelo de serie temporal
 
@@ -86,9 +86,9 @@ La siguiente matriz funciona como una leyenda para las definiciones de variables
 
 | Definición | DESCRIPCIÓN |
 | --- | ---|
-| Tipo de variable |  *Numérico* y *agregado* se admiten tipos |
+| Tipo de variable |  Se admiten los tipos *numéricos* y *agregados* |
 | Filtro de variables | Los filtros de variables especifican una cláusula de filtro opcional para restringir el número de filas que se tienen en cuenta en el cálculo, en función de las condiciones. |
-| Valor de la variable | Los valores de las variables son y deben usarse en el cálculo. El campo relevante para hacer referencia a para el punto de datos en cuestión. |
+| Valor de la variable | Los valores de las variables son y deben usarse en el cálculo. El campo pertinente que consultar para el punto de datos en cuestión. |
 | Agregación de la variable | La función de agregado de la variable permite realizar parte del cálculo. Time Series Insights admite agregados normales (a saber, *min*, *max*, *avg*, *sum* y *count*). |
 
 ## <a name="time-series-model-hierarchies"></a>Jerarquías del modelo de serie temporal
@@ -134,7 +134,7 @@ Según los *campos de instancia*, los atributos y valores de la jerarquía apare
 | ID4 | "Edificio" = "1000", "piso" = "10"  |
 | ID5 | No se establece ningún valor de "compilación", "piso" o "habitación" |
 
-En el ejemplo anterior, **ID1** y **ID4** mostrar como parte de la jerarquía H1 en el Explorador de Azure Time Series Insights, y el resto están clasificados en *instancias sin elemento primario* Dado que no se ajustan a la jerarquía de datos especificado.
+En el ejemplo anterior, **ID1** e **ID4** se muestran como parte de la jerarquía H1 en el explorador de Azure Time Series Insights, y el resto de los valores se clasifican en *instancias no primarias*, ya que no se ajustan a la jerarquía de datos especificada.
 
 ## <a name="time-series-model-instances"></a>Instancias del modelo de serie temporal
 
@@ -144,7 +144,7 @@ Las instancias se definen en función de los valores de *typeId*, *timeSeriesId*
 
 Los valores de *instanceFields* son propiedades de una instancia y cualquier dato estático que defina esa instancia. Definen valores de jerarquía o propiedades no jerárquicas a la vez que admiten la indexación para realizar operaciones de búsqueda.
 
-El *nombre* propiedad es opcional y distingue mayúsculas de minúsculas. Si *name* no está disponible, se establecerá de forma predeterminada en el identificador de serie temporal. Si se especifica un valor para *name*, el identificador de serie temporal seguirá estando disponible en la cuadrícula situada bajo los gráficos del explorador.
+La propiedad *name* es opcional y distingue mayúsculas de minúsculas. Si *name* no está disponible, se establecerá de forma predeterminada en el identificador de serie temporal. Si se especifica un valor para *name*, el identificador de serie temporal seguirá estando disponible en la cuadrícula situada bajo los gráficos del explorador.
 
 ### <a name="time-series-model-instance-json-example"></a>Ejemplo JSON de la instancia del modelo de serie temporal
 

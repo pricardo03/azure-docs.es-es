@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 07/11/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ee3c4da96629910801413cbbad69963defb87dfe
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 5a61f5476551d785f2db0ef52dff45554302fd07
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798796"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849805"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Search en Postman con las API REST
 > [!div class="op_single_selector"]
@@ -28,15 +28,17 @@ ms.locfileid: "67798796"
 
 Una de las formas más sencillas de explorar la [API REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice) es usar Postman o cualquier otra herramienta de pruebas web para formular solicitudes HTTP e inspeccionar las respuestas. Con las herramientas adecuadas y estas instrucciones, puede enviar solicitudes y ver las respuestas antes de escribir ningún código.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar y luego [regístrese en Azure Search](search-create-service-portal.md).
+En este artículo se explica cómo formular solicitudes de manera interactiva. Como alternativa, puede [descargar e importar una colección Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) para usar solicitudes predefinidas.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este inicio rápido se usan los siguientes servicios y herramientas. 
-
-+ [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
+Para este inicio rápido, se requieren los siguientes servicios y herramientas. 
 
 + La [aplicación de escritorio Postman](https://www.getpostman.com/) se usa para enviar solicitudes a Azure Search.
+
++ [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
 ## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
@@ -54,20 +56,20 @@ Todas las solicitudes requieren una clave de API en cada solicitud enviada al se
 
 En esta sección, utilice la herramienta web que prefiera para configurar las conexiones a Azure Search. Cada herramienta conserva la información de encabezado de solicitud durante la sesión, lo que significa que solo hay que especificar api-key y content-type una vez.
 
-Para cualquiera de las herramientas, tiene que elegir un comando (GET, POST, PUT, etc.), proporcionar un punto de conexión de dirección URL y, para algunas tareas, proporcionar JSON en el cuerpo de la solicitud. Reemplace el nombre de servicio de búsqueda (YOUR-SEARCH-SERVICE-NAME) por un valor válido. 
+Para cualquiera de las herramientas, tiene que elegir un comando (GET, POST, PUT, etc.), proporcionar un punto de conexión de dirección URL y, para algunas tareas, proporcionar JSON en el cuerpo de la solicitud. Reemplace el nombre de servicio de búsqueda (YOUR-SEARCH-SERVICE-NAME) por un valor válido. Agregue `$select=name` para devolver solo el nombre de cada índice. 
 
-    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06
+    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name
 
 Tenga en cuenta el prefijo HTTPS, el nombre del servicio, el nombre de un objeto (en este caso, la colección de índices) y el valor de [api-version](search-api-versions.md). La versión de la API es una cadena obligatoria en minúsculas, que se especifica como `?api-version=2019-05-06` para la versión actual. Las versiones de la API se actualizan periódicamente. La inclusión de api-version en todas las solicitudes proporciona un control total sobre la que se usa.  
 
-La composición del encabezado de solicitud incluye dos elementos, el tipo de contenido y el valor de api-key que se usa para autenticarse en Azure Search. Reemplace la clave de la API de administración (YOUR-ADMIN-API-KEY) por un valor válido. 
+La composición del encabezado de solicitud incluye dos elementos, el tipo de contenido y el valor de api-key que se usa para autenticarse en Azure Search. Reemplace la clave de la API de administración (YOUR-AZURE-SEARCH-ADMIN-API-KEY) por un valor válido. 
 
-    api-key: <YOUR-ADMIN-API-KEY>
+    api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
     Content-Type: application/json
 
 En Postman, formule una solicitud similar a la de la siguiente captura de pantalla. Elija **GET** como verbo, proporcione la dirección URL y haga clic en **Enviar**. Este comando se conecta a Azure Search, lee la colección de índices y devuelve el código de estado HTTP 200 si la conexión es correcta. Si el servicio ya tiene índices, la respuesta incluirá también las definiciones de índice.
 
-![Encabezado de solicitud de Postman][6]
+![URL y encabezado de solicitud Postman](media/search-get-started-postman/postman-url.png "Postman request URL and header")
 
 ## <a name="1---create-an-index"></a>1 - Creación de un índice
 
@@ -81,11 +83,11 @@ Para hacer esto en Postman:
 
 2. Copie esta dirección URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
 
-3. Proporcione la definición del índice (que se muestra a continuación) en el cuerpo de la solicitud.
+3. Proporcione la definición del índice (a continuación se incluye el código listo para copiar) en el cuerpo de la solicitud.
 
 4. Haga clic en **Enviar**.
 
-![Cuerpo de solicitud de Postman][8]
+![Indexar un documento JSON en el cuerpo de la solicitud](media/search-get-started-postman/postman-request.png "Index JSON document in request body")
 
 ### <a name="index-definition"></a>Definición de índice
 
@@ -93,23 +95,30 @@ La colección de campos define la estructura del documento. Cada documento debe 
 
 Los atributos del campo determinan la acción que se permite. Las API de REST permiten muchas acciones de forma predeterminada. Por ejemplo, de manera predeterminada es posible realizar búsquedas en todas las cadenas, se pueden recuperar, crear filtros y se pueden clasificar. A menudo, basta con establecer los atributos cuando haya que desactivar un comportamiento.
 
-          {
-         "name": "hotels",  
-         "fields": [
-           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
-           {"name": "baseRate", "type": "Edm.Double"},
-           {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-           {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-           {"name": "hotelName", "type": "Edm.String"},
-           {"name": "category", "type": "Edm.String"},
-           {"name": "tags", "type": "Collection(Edm.String)"},
-           {"name": "parkingIncluded", "type": "Edm.Boolean"},
-           {"name": "smokingAllowed", "type": "Edm.Boolean"},
-           {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-           {"name": "rating", "type": "Edm.Int32"},
-           {"name": "location", "type": "Edm.GeographyPoint"}
-          ]
-         }
+```json
+{
+    "name": "hotels-quickstart",  
+    "fields": [
+        {"name": "HotelId", "type": "Edm.String", "key": true, "filterable": true},
+        {"name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": true, "facetable": false},
+        {"name": "Description", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false, "analyzer": "en.lucene"},
+        {"name": "Category", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true},
+        {"name": "Tags", "type": "Collection(Edm.String)", "searchable": true, "filterable": true, "sortable": false, "facetable": true},
+        {"name": "ParkingIncluded", "type": "Edm.Boolean", "filterable": true, "sortable": true, "facetable": true},
+        {"name": "LastRenovationDate", "type": "Edm.DateTimeOffset", "filterable": true, "sortable": true, "facetable": true},
+        {"name": "Rating", "type": "Edm.Double", "filterable": true, "sortable": true, "facetable": true},
+        {"name": "Address", "type": "Edm.ComplexType", 
+        "fields": [
+        {"name": "StreetAddress", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "searchable": true},
+        {"name": "City", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true},
+        {"name": "StateProvince", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true},
+        {"name": "PostalCode", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true},
+        {"name": "Country", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true}
+        ]
+     }
+  ]
+}
+```
 
 Al enviar esta solicitud, debería aparece una respuesta HTTP 201, que indica que el índice se creó correctamente. Esta acción se puede comprobar esta acción en el portal, pero tenga en cuenta que la página del portal se actualiza periódicamente, por lo que puede tardar un minuto o dos en ponerse al día.
 
@@ -126,82 +135,102 @@ Para hacer esto en Postman:
 
 1. Cambie el verbo a **POST**.
 
-2. Copie esta dirección URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`.
+2. Copie esta dirección URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06`.
 
-3. Proporcione los documentos JSON (que se muestran a continuación) en el cuerpo de la solicitud.
+3. Proporcione los documentos JSON (a continuación se incluye el código listo para copiar) en el cuerpo de la solicitud.
 
 4. Haga clic en **Enviar**.
 
-![Carga de la solicitud de Postman][10]
+![Documentos JSON en el cuerpo de la solicitud](media/search-get-started-postman/postman-docs.png "JSON documents in request body")
 
 ### <a name="json-documents-to-load-into-the-index"></a>Documentos JSON para cargar en el índice
 
 El cuerpo de la solicitud contiene cuatro documentos que se van agregar al índice de hoteles.
 
-         {
-         "value": [
-         {
-             "@search.action": "upload",
-             "hotelId": "1",
-             "baseRate": 199.0,
-             "description": "Best hotel in town",
-             "description_fr": "Meilleur hôtel en ville",
-             "hotelName": "Fancy Stay",
-             "category": "Luxury",
-             "tags": ["pool", "view", "wifi", "concierge"],
-             "parkingIncluded": false,
-             "smokingAllowed": false,
-             "lastRenovationDate": "2010-06-27T00:00:00Z",
-             "rating": 5,
-             "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
-           },
-           {
-             "@search.action": "upload",
-             "hotelId": "2",
-             "baseRate": 79.99,
-             "description": "Cheapest hotel in town",
-             "description_fr": "Hôtel le moins cher en ville",
-             "hotelName": "Roach Motel",
-             "category": "Budget",
-             "tags": ["motel", "budget"],
-             "parkingIncluded": true,
-             "smokingAllowed": true,
-             "lastRenovationDate": "1982-04-28T00:00:00Z",
-             "rating": 1,
-             "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
-           },
-           {
-             "@search.action": "upload",
-             "hotelId": "3",
-             "baseRate": 279.99,
-             "description": "Surprisingly expensive",
-             "hotelName": "Dew Drop Inn",
-             "category": "Bed and Breakfast",
-             "tags": ["charming", "quaint"],
-             "parkingIncluded": true,
-             "smokingAllowed": false,
-             "lastRenovationDate": null,
-             "rating": 4,
-             "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
-           },
-           {
-             "@search.action": "upload",
-             "hotelId": "4",
-             "baseRate": 220.00,
-             "description": "This could be the one",
-             "hotelName": "A Hotel for Everyone",
-             "category": "Basic hotel",
-             "tags": ["pool", "wifi"],
-             "parkingIncluded": true,
-             "smokingAllowed": false,
-             "lastRenovationDate": null,
-             "rating": 4,
-             "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
-           }
-          ]
-         }
+```json
+{
+    "value": [
+    {
+    "@search.action": "upload",
+    "HotelId": "1",
+    "HotelName": "Secret Point Motel",
+    "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+    "Category": "Boutique",
+    "Tags": [ "pool", "air conditioning", "concierge" ],
+    "ParkingIncluded": false,
+    "LastRenovationDate": "1970-01-18T00:00:00Z",
+    "Rating": 3.60,
+    "Address": 
+        {
+        "StreetAddress": "677 5th Ave",
+        "City": "New York",
+        "StateProvince": "NY",
+        "PostalCode": "10022",
+        "Country": "USA"
+        } 
+    },
+    {
+    "@search.action": "upload",
+    "HotelId": "2",
+    "HotelName": "Twin Dome Motel",
+    "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+    "Category": "Boutique",
+    "Tags": [ "pool", "free wifi", "concierge" ],
+    "ParkingIncluded": false,
+    "LastRenovationDate": "1979-02-18T00:00:00Z",
+    "Rating": 3.60,
+    "Address": 
+        {
+        "StreetAddress": "140 University Town Center Dr",
+        "City": "Sarasota",
+        "StateProvince": "FL",
+        "PostalCode": "34243",
+        "Country": "USA"
+        } 
+    },
+    {
+    "@search.action": "upload",
+    "HotelId": "3",
+    "HotelName": "Triple Landscape Hotel",
+    "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+    "Category": "Resort and Spa",
+    "Tags": [ "air conditioning", "bar", "continental breakfast" ],
+    "ParkingIncluded": true,
+    "LastRenovationDate": "2015-09-20T00:00:00Z",
+    "Rating": 4.80,
+    "Address": 
+        {
+        "StreetAddress": "3393 Peachtree Rd",
+        "City": "Atlanta",
+        "StateProvince": "GA",
+        "PostalCode": "30326",
+        "Country": "USA"
+        } 
+    },
+    {
+    "@search.action": "upload",
+    "HotelId": "4",
+    "HotelName": "Sublime Cliff Hotel",
+    "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+    "Category": "Boutique",
+    "Tags": [ "concierge", "view", "24-hour front desk service" ],
+    "ParkingIncluded": true,
+    "LastRenovationDate": "1960-02-06T00:00:00Z",
+    "Rating": 4.60,
+    "Address": 
+        {
+        "StreetAddress": "7400 San Pedro Ave",
+        "City": "San Antonio",
+        "StateProvince": "TX",
+        "PostalCode": "78216",
+        "Country": "USA"
+        }
+    }
+  ]
+}
+```
 
-En unos pocos segundos debe ver una respuesta HTTP 200 en la lista de sesiones. Esto indica que los documentos se crearon correctamente. 
+En unos pocos segundos, debería ver una respuesta HTTP 201 en la lista de sesiones. Esto indica que los documentos se crearon correctamente. 
 
 Si obtiene un 207, al menos un documento no pudo cargarse. Si aparece el error 404, significa que se ha producido un error de sintaxis en el encabezado o en el cuerpo de la solicitud: compruebe que ha cambiado el punto de conexión para que incluya `/docs/index`.
 
@@ -213,30 +242,52 @@ Si obtiene un 207, al menos un documento no pudo cargarse. Si aparece el error 4
 
 Ahora que se han cargado el índice y los documentos, puede emitir consultas con ellos mediante la API REST [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Buscar documentos).
 
-La dirección URL se extiende para que incluya una cadena de consulta que se especifica mediante el operador de búsqueda.
+La dirección URL se extiende para que incluya una expresión de consulta que se especifica mediante el operador de búsqueda.
 
 Para hacer esto en Postman:
 
 1. Cambie el verbo a **GET**.
 
-2. Copie esta dirección URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`.
+2. Copie esta dirección URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2019-05-06`.
 
 3. Haga clic en **Enviar**.
 
-Esta consulta busca el término "motel" y devuelve el número de documentos en los resultados de la búsqueda. La solicitud y respuesta deben ser similares a las de la siguiente captura de pantalla de Postman tras hacer clic en **Send** (Enviar). El código de estado debe ser 200.
+Esta consulta está vacía y devuelve un número de documentos en los resultados de la búsqueda. La solicitud y respuesta deben ser similares a las de la siguiente captura de pantalla de Postman tras hacer clic en **Send** (Enviar). El código de estado debe ser 200.
 
- ![Respuesta a la consulta de Postman][11]
+ ![GET con una cadena de búsqueda en la URL](media/search-get-started-postman/postman-query.png "GET with search string on the URL")
+
+Pruebe con algunos otros ejemplos de consultas para hacerse una idea de la sintaxis. Puede efectuar una búsqueda de cadena, realizar consultas $filter textuales, limitar el conjunto de resultados, definir el ámbito de la búsqueda a campos específicos, etc.
+
+Cambie la dirección URL actual por las que se indican a continuación y haga clic en **Enviar** cada vez para ver los resultados.
+
+```
+# Query example 1 - Search on restaurant and wifi
+# Return only the HotelName, Description, and Tags fields
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=restaurant wifi&$count=true&$select=HotelName,Description,Tags&api-version=2019-05-06
+
+# Query example 2 - Apply a filter to the index to find hotels rated 4 or highter
+# Returns the HotelName and Rating. Two documents match
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$filter=Rating gt 4&$select=HotelName,Rating&api-version=2019-05-06
+
+# Query example 3 - Take the top two results, and show only HotelName and Category in the results
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=boutique&$top=2&$select=HotelName,Category&api-version=2019-05-06
+
+# Query example 4 - Sort by a specific field (Address/City) in ascending order
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2019-05-06
+```
 
 ## <a name="get-index-properties"></a>Obtención de las propiedades del índice
-También puede consultar la información del sistema para obtener recuentos de documentos y consumo de almacenamiento:`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
+También puede usar [Obtener estadísticas](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) para consultar los recuentos de documentos y el tamaño del índice: 
 
-En Postman, la solicitud debe ser similar al siguiente y la respuesta incluye el número de documentos y el espacio utilizado, en bytes.
+```
+https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2019-05-06`
+```
 
- ![Consulta del sistema de Postman][12]
+Agregar `/stats` a la dirección URL devuelve información de índice. En Postman, la solicitud debe ser similar al siguiente y la respuesta incluye el número de documentos y el espacio utilizado, en bytes.
+
+ ![Obtener información de índice](media/search-get-started-postman/postman-system-query.png "Get index information")
 
 Observe que la sintaxis de api-version es distinta. En esta solicitud, utilice `?` para anexar api-version. `?` separa la ruta de acceso de la dirección URL de la cadena de consulta, mientras que & separa cada par " nombre = valor " par en la cadena de consulta. En esta consulta, api-version es el primer y único elemento de la cadena de consulta.
-
-Para más información acerca de esta API, consulte la [API REST Get Index Statistics](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) (Obtener estadísticas de índice).
 
 ## <a name="clean-up"></a>Limpieza
 
@@ -248,21 +299,6 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los clientes de REST son muy valiosos para la exploración improvisada, pero ahora que sabe cómo funcionan las API de REST, puede avanzar en el código. Para conocer los pasos siguientes, consulte los siguientes vínculos:
+Los clientes de REST son muy valiosos para la exploración improvisada, pero ahora que sabe cómo funcionan las API de REST, puede avanzar en el código. Para conocer el paso siguiente, consulte este vínculo:
 
-+ [Inicio rápido: Creación de un índice con el SDK de .NET](search-create-index-dotnet.md)
-+ [Inicio rápido: Creación de un índice (REST) mediante PowerShell](search-create-index-rest-api.md)
-
-<!--Image References-->
-[1]: ./media/search-get-started-postman/fiddler-url.png
-[2]: ./media/search-get-started-postman/AzureSearch_Fiddler2_PostDocs.png
-[3]: ./media/search-get-started-postman/AzureSearch_Fiddler3_Query.png
-[4]: ./media/search-get-started-postman/AzureSearch_Fiddler4_QueryResults.png
-[5]: ./media/search-get-started-postman/AzureSearch_Fiddler5_QueryStats.png
-[6]: ./media/search-get-started-postman/postman-url.png
-[7]: ./media/search-get-started-postman/fiddler-request.png
-[8]: ./media/search-get-started-postman/postman-request.png
-[9]: ./media/search-get-started-postman/fiddler-docs.png
-[10]: ./media/search-get-started-postman/postman-docs.png
-[11]: ./media/search-get-started-postman/postman-query.png
-[12]: ./media/search-get-started-postman/postman-system-query.png
++ [Inicio rápido: Creación de un índice con el SDK de .NET](search-get-started-dotnet.md)

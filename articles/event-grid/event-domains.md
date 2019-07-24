@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304293"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305404"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Dominios de eventos para administrar temas de Event Grid
 
@@ -105,7 +105,7 @@ Estos son los límites y cuotas relacionados con los dominios de eventos:
 - 50 suscripciones del ámbito de dominio 
 - 5000 eventos por tasa de ingesta por segundo (en un dominio)
 
-Si estos límites no son los adecuados para usted, póngase en contacto con el equipo del producto. Para ello, abra una incidencia de soporte técnico o envíe un correo electrónico a [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com). 
+Si estos límites no son los adecuados para usted, póngase en contacto con el equipo del producto. Para ello, abra una incidencia de soporte técnico o envíe un correo electrónico a [ askgrid@microsoft.com ](mailto:askgrid@microsoft.com). 
 
 ## <a name="pricing"></a>Precios
 Los dominios de eventos usan el mismo [precio por operaciones](https://azure.microsoft.com/pricing/details/event-grid/) que el resto de características de Event Grid.

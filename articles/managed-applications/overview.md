@@ -4,14 +4,14 @@ description: Describe los conceptos de las aplicaciones administradas de Azure
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 97d6a229651f1c3fbcdbb79c7ae7d1c1f855882b
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479825"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234757"
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -68,6 +68,8 @@ El consumidor tiene acceso total al grupo de recursos y lo utiliza para administ
 ### <a name="managed-resource-group"></a>Grupo de recursos administrado
 
 Este grupo de recursos contiene todos los recursos que requiere la aplicación administrada. Por ejemplo, este grupo de recursos contiene las máquinas virtuales, cuentas de almacenamiento y redes virtuales para la solución. El consumidor tiene acceso limitado a este grupo de recursos ya que no puede administrar los recursos individuales de la aplicación administrada. El acceso del editor a este grupo de recursos se corresponde con el rol especificado en la definición de la aplicación administrada. Por ejemplo, el editor puede solicitar el rol de propietario o colaborador para este grupo de recursos. El acceso es permanente o está limitado a un momento específico.
+
+Al publicar [la aplicación administrada en Marketplace](publish-marketplace-app.md), el editor puede conceder a los consumidores la capacidad de desempeñar acciones específicas en recursos del grupo de recursos administrado. Por ejemplo, el editor puede especificar que los consumidores puedan reiniciar máquinas virtuales. Se continuarán rechazando el resto de acciones que no sean de lectura.
 
 Cuando el consumidor elimina la aplicación administrada, también se elimina el grupo de recursos administrados.
 

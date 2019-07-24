@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 19/02/2019
 ms.author: v-mohabe
 ms.openlocfilehash: fe8ceb8c196f7329027502847fba481169458d86
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966796"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Incorporación a Azure Security Center Estándar para una seguridad mejorada
@@ -33,7 +33,7 @@ Security Center Estándar incluye lo siguiente:
 ## <a name="detecting-unprotected-resources"></a>Detectar recursos sin proteger     
 Security Center detecta automáticamente las áreas de trabajo o suscripciones a Azure que no están habilitadas para Security Center Estándar. Esto engloba las suscripciones a Azure que usan Security Center gratis y las áreas de trabajo que no tiene la solución de Security habilitada.
 
-Puede actualizar toda una suscripción de Azure al nivel estándar, que es heredado por todos los recursos compatibles dentro de la suscripción. Aplicar el estándar de capa a un área de trabajo se aplica a todos los recursos que el área de trabajo.
+Puede actualizar una suscripción a Azure entera al nivel Estándar, que heredarán todos los recursos admitidos dentro de la suscripción. La aplicación del nivel Estándar a un área de trabajo se aplica a todos los recursos que dependen del área de trabajo.
 
 > [!NOTE]
 > Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes. La [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) permite aplicar un ámbito a la solución y tener como destino un subconjunto de equipos en el área de trabajo.  Si usa la selección de destino de solución, Security Center muestra el área de trabajo como si no tuviera una solución.
@@ -53,7 +53,7 @@ Para actualizar un área de trabajo o una suscripción a Estándar:
 
 
    > [!NOTE]
-   > Capacidades gratuitas de Security Center solo se aplican a las máquinas virtuales de Azure y el VMSS. Estas funciones gratuitas no se aplicarán a los equipos que no sean de Azure. Si selecciona estándar, las capacidades estándar se aplican a todos los equipos que no son de Azure al área de trabajo de informes, conjuntos de escalado de máquinas virtuales y máquinas virtuales de Azure. Se recomienda aplicar el nivel Estándar para proporcionar seguridad avanzada para los recursos tanto de Azure como distintos de Azure.
+   > Las funcionalidades gratuitas de Security Center se aplican solo a los VMSS y las VM de Azure. Estas funciones gratuitas no se aplicarán a los equipos que no sean de Azure. Si selecciona Estándar, las funciones de ese nivel se aplicarán a todas las máquinas virtuales de Azure, a los conjunto de escalado de máquina virtual y a los equipos que no sean de Azure que dependan del área de trabajo. Se recomienda aplicar el nivel Estándar para proporcionar seguridad avanzada para los recursos tanto de Azure como distintos de Azure.
    >
    >
 
@@ -69,7 +69,7 @@ Security Center puede supervisar la situación de seguridad de los equipos que n
 
 3. Haga clic en **Configurar** en **Agregar nuevos equipos que no son de Azure**. Aparecerá una lista de las áreas de trabajo de Log Analytics. La lista incluye, si procede, el área de trabajo predeterminada que Security Center crea automáticamente si el aprovisionamiento automático está habilitado. Seleccione esta área de trabajo u otra que desee usar.
 
-   ![Agregar equipo que no sea de Azure][7]
+   ![Agregar un equipo que no es de Azure][7]
 
 Si tiene áreas de trabajo existentes, se enumerarán en **Add new Non-Azure computers** (Agregar nuevos equipos que no son de Azure). Puede agregar equipos a un área de trabajo existente o crear un área de trabajo. Para crear un área de trabajo, seleccione el vínculo **add a new workspace** (agregar una nueva área de trabajo).
 

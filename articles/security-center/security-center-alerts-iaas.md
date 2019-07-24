@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 5487b4f49f5dbf7b968cd45d40555c69b54c329a
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: f23865fc0a1943a5157e4ff8eb8de10a71ef0883
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571286"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295790"
 ---
 # <a name="threat-detection-for-vms--servers-in-azure-security-center"></a>Detección de amenazas en máquinas virtuales y servidores en Azure Security Center
 

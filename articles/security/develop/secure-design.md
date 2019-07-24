@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b637f547de06d9347a1c74ad7da560be97f16881
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 12b9793cabb261368c437bd2ae2dbb39cf078bef
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144670"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653279"
 ---
 # <a name="design-secure-applications-on-azure"></a>Diseño de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al diseñar aplicaciones para la nube. Se abarcan los recursos de entrenamiento junto con los conceptos y preguntas de seguridad que se han de tener en cuenta durante las fases de diseño y requisitos del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para diseñar una aplicación más segura.
@@ -39,7 +39,7 @@ Utilice los recursos siguientes durante la fase de entrenamiento para familiariz
 
   - [SDK y herramientas](https://docs.microsoft.com/azure/index#pivot=sdkstools) describe las herramientas que están disponibles en Azure.
 
-  - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/?view=vsts#pivot=index&panel=indexA) proporciona herramientas de colaboración de desarrollo. Las herramientas incluyen canalizaciones de alto rendimiento, repositorios GIT gratuitos, paneles Kanban configurables y amplias pruebas de carga automatizadas y basadas en la nube.
+  - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) proporciona herramientas de colaboración de desarrollo. Las herramientas incluyen canalizaciones de alto rendimiento, repositorios GIT gratuitos, paneles Kanban configurables y amplias pruebas de carga automatizadas y basadas en la nube.
     El [centro de recursos de DevOps](https://docs.microsoft.com/azure/devops/learn/) combina nuestros recursos para el aprendizaje de prácticas de DevOps, control de versiones de GIT, métodos ágiles, cómo se trabaja con DevOps en Microsoft y cómo puede evaluar su progresión de DevOps.
 
   - [5 elementos de seguridad principales que deben tenerse en cuenta antes de pasar a producción](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) le muestra cómo contribuir a proteger las aplicaciones web en Azure y a proteger sus aplicaciones frente a los ataques de aplicación web más comunes y peligrosos.
@@ -157,7 +157,7 @@ El modelado del diseño de aplicaciones y la enumeración de amenazas [STRIDE](h
 | Rechazo            | No rechazo       | Habilita opciones de [supervisión y diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) de Azure.|
 | Divulgación de información | Confidencialidad       | Cifra datos confidenciales [en reposo](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) y [en tránsito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
 | Denegación de servicio      | Disponibilidad          | Supervisa las métricas de rendimiento de las posibles condiciones de denegación de servicio. Implementa filtros de conexión. [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), junto con los procedimientos recomendados de diseño de aplicaciones, constituyen una defensa frente a los ataques DDoS.|
-| Elevación de privilegios | Autorización         | Usa Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
+| Elevación de privilegios | Authorization         | Usa Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 
 ### <a name="reduce-your-attack-surface"></a>Reducción de la superficie expuesta a ataques
 

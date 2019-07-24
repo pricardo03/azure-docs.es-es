@@ -7,13 +7,13 @@ manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: swatisachdeva
-ms.openlocfilehash: 8710242e04156c8af6e5882a3cb4d42cc31e3677
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.author: vijayts
+ms.openlocfilehash: 25f23078af67b2f80f39faab975cbec54721c560
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607376"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871895"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure Backup para SQL Server que se ejecuta en la máquina virtual de Azure
 

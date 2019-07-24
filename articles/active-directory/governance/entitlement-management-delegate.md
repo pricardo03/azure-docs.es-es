@@ -3,8 +3,8 @@ title: Delegación de tareas en Administración de derechos de Azure AD (versi�
 description: Conozca los roles que puede asignar para delegar tareas de administración de derechos en Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/07/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa0be8e2af7644564ba27e6d58fda09b1ae7bc7
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: d4c4933847a39a56084894e5bbd40e166e6b73b6
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191239"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798629"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegación de tareas en Administración de derechos de Azure AD (versión preliminar)
 
@@ -64,7 +64,7 @@ Ahora los departamentos de investigación y marketing pueden utilizar la adminis
 
 La administración de derechos incluye los siguientes roles específicos de administración de derechos.
 
-| Rol | DESCRIPCIÓN |
+| Role | DESCRIPCIÓN |
 | --- | --- |
 | Creador de catálogos | Crear y administrar catálogos. Normalmente, un administrador de TI que no es administrador global o un propietario de recursos en una colección de recursos. La persona que crea un catálogo se convierte automáticamente en el primer propietario del catálogo y puede agregar otros propietarios del catálogo. |
 | Propietario del catálogo | Editar y administrar catálogos existentes. Normalmente, un administrador de TI o propietarios de recursos, o un usuario que el propietario del catálogo ha designado. |
@@ -84,7 +84,7 @@ En la tabla siguiente se muestran las tareas que pueden realizar estos roles.
 | [Edición de un catálogo](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Eliminación de un catálogo](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Adición de un propietario del catálogo o de un administrador de paquetes de acceso a un catálogo](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Creación de un paquete de acceso en un catálogo](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |  |  |
+| [Creación de un paquete de acceso en un catálogo](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [Administración de roles de recurso en un paquete de acceso](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Especificación de quién puede solicitar un paquete de acceso](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Asignación directa de un usuario a un paquete de acceso](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -136,7 +136,7 @@ Si desea delegar la creación del catálogo, agregue usuarios al rol de creador 
 
 Si desea delegar la administración de un catálogo o de paquetes de acceso del catálogo, agregue usuarios a los roles de propietario del catálogo o de administrador de paquetes de acceso. Quien crea un catálogo se convierte en el primer propietario del catálogo. Siga estos pasos para asignar un usuario al rol de propietario del catálogo o de administrador de paquetes de acceso.
 
-**Rol necesario:** Administrador de usuarios o propietario del catálogo
+**Rol necesario:** administrador de usuarios o propietario del catálogo
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobierno de identidades**.
 

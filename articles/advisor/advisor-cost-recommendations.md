@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: fef7b82e6969de16d1815250d2373c99021b0e86
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254717"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reducción de los costos de servicio con Azure Advisor
@@ -21,7 +21,7 @@ Advisor lo ayuda a optimizar y reducir el gasto global de Azure mediante la iden
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimización del gasto en máquinas virtuales mediante la adecuación del tamaño o el apagado en instancias infrautilizadas 
 
-Mientras que determinados escenarios de aplicaciones pueden dar lugar a un uso escaso debido al diseño, a menudo puede ahorrar dinero administrando el tamaño y número de máquinas virtuales. Advisor supervisa el uso de máquinas virtuales durante 7 días y, a continuación, identifica las máquinas virtuales de baja utilización. Virtual machines se consideran una utilización escasa si su utilización de CPU es del 5% o menos y su utilización de la red es menor que 2% o si se puede incluir la carga de trabajo actual por un tamaño más pequeño de máquina virtual.
+Mientras que determinados escenarios de aplicaciones pueden dar lugar a un uso escaso debido al diseño, a menudo puede ahorrar dinero administrando el tamaño y número de máquinas virtuales. Advisor supervisa el uso de las máquinas virtuales durante 7 días e identifica aquellas con un uso escaso. Se considera que las máquinas virtuales tienen un uso escaso si su uso de CPU es del 5 % o menos y su uso de red es menor que el 2 %, o si la carga de trabajo actual se puede incluir en un tamaño de máquina virtual más pequeño.
 
 Advisor muestra el costo estimado de continuar ejecutando la máquina virtual, para que puede elegir entre apagarla o cambiar su tamaño.
 
@@ -39,18 +39,18 @@ Advisor identifica las puertas de red virtual que han estado inactivas durante m
 
 Advisor revisará el uso de la máquina virtual durante los últimos 30 días y determinará si podría ahorrar dinero mediante la adquisición de una reserva de Azure. Advisor le mostrará las regiones y los tamaños en los que, potencialmente, puede ahorrar más, así como el ahorro estimado al comprar reservas. Con las reservas de Azure, puede adquirir previamente los costos de base de las máquinas virtuales. Se aplicarán descuentos automáticamente a las máquinas virtuales nuevas o existentes que tengan el mismo tamaño y la misma región que sus reservas. [Más información sobre Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
-Advisor también le notificará de las instancias reservadas que tenga que expirarán en los próximos 30 días. Le recomendará que comprar instancias reservadas nuevas para evitar pagar la tarifa de pago por uso.
+Advisor también le notificará las instancias reservadas que tenga que expiren en los próximos 30 días. Le recomendará que compre instancias reservadas nuevas para evitar pagar el precio de pago por uso.
 
-## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Eliminar no asociadas direcciones IP públicas para ahorrar dinero
+## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Eliminación de direcciones IP públicas no asociadas para ahorrar dinero
 
-Advisor identifica las direcciones IP públicas que no están asociadas actualmente a los recursos de Azure, como los equilibradores de carga o máquinas virtuales. Estas direcciones IP direcciones conlleva un cargo nominal. Si no piensa usarlas, eliminarlos pueden dar lugar a un ahorro de costos.
+Advisor identifica las direcciones IP públicas que no están asociadas actualmente a los recursos de Azure, como los equilibradores de carga o las máquinas virtuales. Estas direcciones IP públicas conllevan un cargo nominal. Si no piensa usarlas, eliminarlas pueden dar lugar a un ahorro de costos.
 
-## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Eliminar las canalizaciones de Azure Data Factory que se producen errores
+## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Eliminación de las canalizaciones de Azure Data Factory que dan error
 
-Azure Advisor detectará las canalizaciones de Azure Data Factory que se producirá un error repetidamente y recomienda resolver los problemas o eliminar las canalizaciones por error si ya no son necesarios. Se le facturará para estas canalizaciones aunque aunque no atienden a, mientras que se producen errores. 
+Azure Advisor detectará las canalizaciones de Azure Data Factory que produzcan un error repetidamente y recomienda resolver los problemas o eliminar dichas canalizaciones si ya no son necesarias. Se le facturará por estas canalizaciones aunque no le presten servicio mientras que produzcan errores. 
 
-## <a name="use-standard-snapshots-for-managed-disks"></a>Usar instantáneas estándares para discos administrados
-Para guardar el 60% del costo, se recomienda almacenar las instantáneas en el almacenamiento estándar, independientemente del tipo de almacenamiento del disco primario. Se trata de la opción predeterminada para instantáneas de discos administrados. Azure Advisor identificará las instantáneas de Premium Storage y se recomienda migrar la instantánea de Premium a Standard Storage almacenados. [Más información sobre los precios de Managed Disks](https://aka.ms/aa_manageddisksnapshot_learnmore)
+## <a name="use-standard-snapshots-for-managed-disks"></a>Uso de instantáneas estándar para Managed Disks
+Para ahorrar el 60 % del costo, se recomienda almacenar las instantáneas en Standard Storage, independientemente del tipo de almacenamiento del disco principal. Se trata de la opción predeterminada para las instantáneas de Managed Disks. Azure Advisor identificará las instantáneas de Premium Storage y se recomienda migrar la instantánea de Premium Storage a Standard Storage. [Más información sobre los precios de Managed Disks](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Obtención de acceso a las recomendaciones sobre el costo en Azure Advisor
 

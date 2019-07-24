@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 90287ab45341f203905aaf32eb6325edd3687231
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299110"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273143"
 ---
 # <a name="what-is-azure-logic-apps"></a>¿Qué es Azure Logic Apps?
 
@@ -29,7 +29,7 @@ Por ejemplo, las siguientes son algunas de las cargas de trabajo que puede autom
 * Traslado de archivos cargados de un servidor SFTP o FTP a Azure Storage. 
 * Supervisión de tweets sobre un asunto específico, análisis de opiniones y creación de alertas o tareas para los elementos que deben revisarse.
 
-Para compilar soluciones de integración empresarial con Azure Logic Apps, puede elegir entre una galería creciente con [más de 200 conectores](../connectors/apis-list.md) que incluye otros servicios de Azure, como Azure Service Bus, Functions y Storage; SQL, Office 365, Dynamics, BizTalk, Salesforce, SAP, Oracle DB, recursos compartidos de archivos y muchos más. Los [conectores](#logic-app-concepts) proporcionan [desencadenadores](#logic-app-concepts), [acciones](#logic-app-concepts) o ambos tipos de elementos para crear aplicaciones lógicas que acceden a datos y los procesan de forma segura en tiempo real.
+Para compilar soluciones de integración empresarial con Azure Logic Apps, puede elegir entre una galería creciente con [cientos de conectores listos para usar](../connectors/apis-list.md), que incluye otros servicios de Azure, como Azure Service Bus, Functions y Storage; SQL, Office 365, Dynamics, BizTalk, Salesforce, SAP, Oracle DB, recursos compartidos de archivos y muchos más. Los [conectores](#logic-app-concepts) proporcionan [desencadenadores](#logic-app-concepts), [acciones](#logic-app-concepts) o ambos tipos de elementos para crear aplicaciones lógicas que acceden a datos y los procesan de forma segura en tiempo real.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 

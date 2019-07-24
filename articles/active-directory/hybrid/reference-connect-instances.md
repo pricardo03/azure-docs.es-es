@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298830"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Consideraciones especiales para instancias
@@ -51,21 +51,21 @@ Esta nube ha sido compatible con versiones anteriores de DirSync. A partir de la
 | --- |
 | \*.microsoftonline.com |
 | \*.microsoftonline.us |
-| \*. windows.net (necesario para la detección automática de inquilino de Azure Government) |
+| \*. windows.net (se requiere para la detección automática del inquilino de Azure Government) |
 | \*.gov.us.microsoftonline.com |
 | +Listas de revocación de certificados |
 
 > [!NOTE]
-> A partir de Azure AD Connect versión 1.1.647.0, establecer el valor de AzureInstance en el registro ya no es necesario siempre que *. windows.net esté abierto en los servidores proxy. Sin embargo, para los clientes que no permiten la conectividad a Internet desde sus servidores de Azure AD Connect, se puede usar la siguiente configuración manual.
+> A partir de la versión 1.1.647.0 de Azure AD Connect, no hace falta establecer el valor de AzureInstance en el registro, siempre que *. windows.net esté abierto en los servidores proxy. Sin embargo, para los clientes que no permiten la conectividad a Internet desde sus servidores de Azure AD Connect, puede usar la siguiente configuración manual.
 
 ### <a name="manual-configuration"></a>Configuración manual
 
-Se usan los siguientes pasos de configuración manual para asegurarse de que Azure AD Connect usa puntos de conexión de sincronización de Azure Government.
+Se realizan los siguientes pasos de configuración manual para garantizar que Azure AD Connect usa puntos de conexión de sincronización de Azure Government.
 
 1. Inicie la instalación de Azure AD Connect.
 2. Cuando vea la primera página en donde se supone que tiene que aceptar el CLUF, no continúe y deje que el Asistente para instalación se continúe ejecutando.
 3. Inicie regedit y cambie la clave del registro `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` al valor `4`.
-4. Vuelva al Asistente para instalación de Azure AD Connect, acepte el CLUF y continúe. Durante la instalación, asegúrese de usar el **configuración personalizada** ruta de acceso de instalación (y no la instalación rápida), a continuación, continuar con la instalación como de costumbre.
+4. Vuelva al Asistente para instalación de Azure AD Connect, acepte el CLUF y continúe. Durante la instalación, asegúrese de usar la ruta de acceso de instalación de **configuración personalizada** (y no la instalación rápida) y, a continuación, proceda con la instalación de la forma habitual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

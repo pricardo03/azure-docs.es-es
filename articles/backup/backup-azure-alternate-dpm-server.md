@@ -6,14 +6,14 @@ author: kasinh
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/18/2017
+ms.date: 07/09/2019
 ms.author: kasinh
-ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 770baeeacb5f3808eba05f9e262bcbca75c6baad
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60650938"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705229"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperación de datos de Azure Backup Server
 Puede usar Azure Backup Server para recuperar los datos de los que creó una copia de seguridad en un almacén de Recovery Services. El proceso para hacerlo está integrado en la consola de administración de Azure Backup Server y es similar al flujo de trabajo de recuperación de otros componentes de Azure Backup.
@@ -83,21 +83,13 @@ Para recuperar datos de una instancia de Azure Backup Server:
 | No. | Mensaje de error | Pasos para solucionar problemas |
 |:---:|:--- |:--- |
 | 1. |Este servidor no está registrado en el almacén especificado por las credenciales del almacén. |**Causa:** Este error aparece cuando el archivo de credenciales del almacén seleccionado no pertenece al almacén de Recovery Services asociado al Azure Backup Server en el que se intenta la recuperación. <br> **Resolución:** Descargue el archivo de credenciales del almacén de Recovery Services en el que está registrado el Azure Backup Server. |
-| 2. |Los datos recuperables no están disponibles o el servidor seleccionado no es un servidor DPM. |**Causa:** No hay ningún otro Azure Backup Server registrado en el almacén de Recovery Services, los servidores aún no han cargado los metadatos o el servidor seleccionado no es un Azure Backup Server (también llamado servidor de Windows o cliente de Windows). <br> **Resolución:** Si hay otras instancias de Azure Backup Server registradas en el almacén de Recovery Services, asegúrese de que está instalado el agente de Azure Backup más reciente. <br>Si hay otras instancias de Azure Backup Server registradas en el almacén de Recovery Services, espere un día después de la instalación para iniciar el proceso de recuperación. Por la noche se cargarán en la nube los metadatos de todas las copias de seguridad protegidas. Los datos estarán disponibles para la recuperación. |
+| 2. |Los datos recuperables no están disponibles o el servidor seleccionado no es un servidor DPM. |**Causa:** No hay ninguna otra instancia de Azure Backup Server registrada en el almacén de Recovery Services, los servidores aún no han cargado los metadatos o el servidor seleccionado no es una instancia de Azure Backup Server (que utilice un servidor o cliente de Windows). <br> **Resolución:** Si hay otras instancias de Azure Backup Server registradas en el almacén de Recovery Services, asegúrese de que está instalado el agente de Azure Backup más reciente. <br>Si hay otras instancias de Azure Backup Server registradas en el almacén de Recovery Services, espere un día después de la instalación para iniciar el proceso de recuperación. Por la noche se cargarán en la nube los metadatos de todas las copias de seguridad protegidas. Los datos estarán disponibles para la recuperación. |
 | 3. |Ningún otro servidor DPM está registrado en este almacén. |**Causa:** No hay ningún otro Azure Backup Server registrado en el almacén desde el que se intenta realizar la recuperación.<br>**Resolución:** Si hay otras instancias de Azure Backup Server registradas en el almacén de Recovery Services, asegúrese de que está instalado el agente de Azure Backup más reciente.<br>Si hay otras instancias de Azure Backup Server registradas en el almacén de Recovery Services, espere un día después de la instalación para iniciar el proceso de recuperación. El trabajo nocturno carga los metadatos de todas las copias de seguridad protegidas en la nube. Los datos estarán disponibles para la recuperación. |
 | 4. |La frase de contraseña de cifrado especificada no coincide con la asociada al siguiente servidor: **\<nombre del servidor>** |**Causa:** La frase de contraseña de cifrado que se usa en el proceso de cifrado de los datos del Azure Backup Server que se recuperan no coincide con la proporcionada. El agente no puede descifrar los datos. Por lo tanto, se produce un error en la recuperación.<br>**Resolución:** Especifique la misma frase de contraseña de cifrado asociada al Azure Backup Server cuyos datos se recuperan. |
 
-## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>¿Por qué no puedo agregar un servidor DPM externo después de instalar el paquete acumulativo de actualizaciones 7 y el agente de Azure Backup más reciente?
+Lea las otras preguntas más frecuentes:
 
-En el caso de los servidores DPM con orígenes de datos protegidos en la nube (con un paquete acumulativo anterior al Paquete acumulativo de actualizaciones 7), debe esperar al menos un día después de instalar UR7 y el agente de Azure Backup más reciente para empezar a **agregar el servidor DPM externo**. Este período de un día es necesario para cargar los metadatos de los grupos de protección de DPM en Azure. Los metadatos del grupo de protección se cargan la primera vez a través de un trabajo nocturno.
-
-### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>¿Cuál es la versión mínima necesaria del agente de Microsoft Azure Recovery Services?
-
-La versión mínima del agente de Microsoft Azure Recovery Services, o agente de Azure Backup, que se requiere para habilitar esta característica es 2.0.8719.0.  Para ver la versión del agente, abra el Panel de control **>** Todos los elementos de Panel de control **>** Programas y características **>** Agente de Microsoft Azure Recovery Services. Si la versión es anterior a la versión 2.0.8719.0, descargue e instale el [agente de Azure Backup más reciente](https://go.microsoft.com/fwLink/?LinkID=288905).
-
-![Borrar DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
-
-## <a name="next-steps"></a>Pasos siguientes:
-•   [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md)
+- [Preguntas comunes](backup-azure-vm-backup-faq.md) sobre las copias de seguridad de máquinas virtuales de Azure
+- [Preguntas comunes](backup-azure-file-folder-backup-faq.md) sobre el agente de Azure Backup

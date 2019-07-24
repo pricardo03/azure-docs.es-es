@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f4e71bd7fd7e0ed9a220619995ba108fdccabe4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51596e4db8999de5089748e40f9b24bd46c84e56
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66233748"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807831"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el Proxy de aplicación de Azure AD
 
@@ -36,8 +36,8 @@ En este escenario se explica por qué la empresa establecería una página princ
 - La dirección URL externa predeterminada es `https://ExpenseApp-contoso.msappproxy.net`, que no lleva a un usuario externo a la página de inicio de sesión.
 - En su lugar, quiere establecer `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` como la dirección URL de la página principal para que un usuario externo vea primero la página de inicio de sesión.
 
->[!NOTE]
->Al proporcionar a los usuarios acceso a las aplicaciones publicadas, estas aparecen en el [panel de acceso de Azure AD](../user-help/my-apps-portal-end-user-access.md) y el [iniciador de aplicaciones de Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> [!NOTE]
+> Al proporcionar a los usuarios acceso a las aplicaciones publicadas, estas aparecen en el [panel de acceso de Azure AD](../user-help/my-apps-portal-end-user-access.md) y el [iniciador de aplicaciones de Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -56,22 +56,22 @@ Puede establecer la dirección URL de la página principal ya sea en Azure Porta
 Para cambiar la dirección URL de la página principal de la aplicación en el portal de Azure AD, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador.
-2. Seleccione **Azure Active Directory** y **Registros de aplicaciones**. Aparece la lista de aplicaciones registradas.
-3. Elija la aplicación en la lista. Aparece una página que muestra los detalles de la aplicación registrada.
-4. En **Administrar**, seleccione **Personalización de marca**.
-5. Actualice la dirección **URL de página principal** con la nueva ruta de acceso.
+1. Seleccione **Azure Active Directory** y **Registros de aplicaciones**. Aparece la lista de aplicaciones registradas.
+1. Elija la aplicación en la lista. Aparece una página que muestra los detalles de la aplicación registrada.
+1. En **Administrar**, seleccione **Personalización de marca**.
+1. Actualice la dirección **URL de página principal** con la nueva ruta de acceso.
 
    ![Página de personalización de marca para una aplicación registrada que muestra el campo URL de página principal](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
- 
-6. Seleccione **Guardar**.
+
+1. Seleccione **Guardar**.
 
 ## <a name="change-the-home-page-with-powershell"></a>Cambio de la página principal con PowerShell
 
 Para configurar la página principal de una aplicación con PowerShell, necesitará lo siguiente:
 
 1. Instale el módulo de PowerShell de Azure AD.
-2. Busque el valor ObjectId de la aplicación.
-3. Actualice la dirección URL de la página principal de la aplicación con comandos de PowerShell.
+1. Busque el valor ObjectId de la aplicación.
+1. Actualice la dirección URL de la página principal de la aplicación con comandos de PowerShell.
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Instalación del módulo de PowerShell de Azure AD
 
@@ -87,7 +87,7 @@ Para instalar el paquete, siga estos pasos:
 
     Si está ejecutando el comando como no administrador, use la opción `-scope currentuser`.
 
-2. Durante la instalación, seleccione **Y** para instalar dos paquetes de Nuget.org. Se requieren ambos paquetes.
+1. Durante la instalación, seleccione **Y** para instalar dos paquetes de Nuget.org. Se requieren ambos paquetes.
 
 ### <a name="find-the-objectid-of-the-app"></a>Búsqueda del valor de ObjectID de la aplicación
 
@@ -99,13 +99,13 @@ Puede obtener el valor de ObjectId de la aplicación si busca la aplicación por
    Import-Module AzureAD
    ```
 
-2. Inicie sesión como administrador de inquilinos en el módulo de Azure AD.
+1. Inicie sesión como administrador de inquilinos en el módulo de Azure AD.
 
    ```powershell
    Connect-AzureAD
    ```
 
-3. Busque la aplicación. En este ejemplo se usa PowerShell para buscar el valor de ObjectId buscando la aplicación con un nombre para mostrar de `SharePoint`.
+1. Busque la aplicación. En este ejemplo se usa PowerShell para buscar el valor de ObjectId buscando la aplicación con un nombre para mostrar de `SharePoint`.
 
    ```powershell
    Get-AzureADApplication | Where-Object { $_.DisplayName -eq "SharePoint" } | Format-List DisplayName, Homepage, ObjectId
@@ -135,31 +135,31 @@ Cree la dirección URL de la página principal y actualice la aplicación con es
    $objguid = "8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4"
    ```
 
-2. Ejecute el comando siguiente para confirmar que tiene la aplicación correcta. La salida debe ser idéntica a la que vio en la sección anterior ([Búsqueda del valor de ObjectId de la aplicación](#find-the-objectid-of-the-app)).
+1. Ejecute el comando siguiente para confirmar que tiene la aplicación correcta. La salida debe ser idéntica a la que vio en la sección anterior ([Búsqueda del valor de ObjectId de la aplicación](#find-the-objectid-of-the-app)).
 
    ```powershell
    Get-AzureADApplication -ObjectId $objguid | Format-List DisplayName, Homepage, ObjectId
    ```
 
-3. Cree un objeto de aplicación en blanco para que contenga los cambios que desea realizar.
+1. Cree un objeto de aplicación en blanco para que contenga los cambios que desea realizar.
 
    ```powershell
    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
    ```
 
-4. Establezca la dirección URL de la página principal en el valor que quiera. El valor debe ser una ruta de acceso de subdominio de la aplicación publicada. Por ejemplo, si cambia la dirección URL de página principal de `https://sharepoint-iddemo.msappproxy.net/` a `https://sharepoint-iddemo.msappproxy.net/hybrid/`, los usuarios de la aplicación pasan directamente a la página principal personalizada.
+1. Establezca la dirección URL de la página principal en el valor que quiera. El valor debe ser una ruta de acceso de subdominio de la aplicación publicada. Por ejemplo, si cambia la dirección URL de página principal de `https://sharepoint-iddemo.msappproxy.net/` a `https://sharepoint-iddemo.msappproxy.net/hybrid/`, los usuarios de la aplicación pasan directamente a la página principal personalizada.
 
    ```powershell
    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
    ```
 
-5. Actualice la página principal.
+1. Actualice la página principal.
 
    ```powershell
    Set-AzureADApplication -ObjectId $objguid -Homepage $homepage
    ```
 
-6. Para confirmar que el cambio se realizó correctamente, vuelva a ejecutar este comando del paso 2.
+1. Para confirmar que el cambio se realizó correctamente, vuelva a ejecutar este comando del paso 2.
 
    ```powershell
    Get-AzureADApplication -ObjectId $objguid | Format-List DisplayName, Homepage, ObjectId
@@ -173,10 +173,10 @@ Cree la dirección URL de la página principal y actualice la aplicación con es
    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
-7. Reinicie la aplicación para confirmar que la página principal aparece como la primera pantalla, tal como se espera.
+1. Reinicie la aplicación para confirmar que la página principal aparece como la primera pantalla, tal como se espera.
 
->[!NOTE]
->Los cambios realizados en la aplicación pueden restablecer la dirección URL de la página principal. Si la dirección URL de la página principal se restablece, repita los pasos de esta sección para volver a establecerlo de nuevo.
+> [!NOTE]
+> Los cambios realizados en la aplicación pueden restablecer la dirección URL de la página principal. Si la dirección URL de la página principal se restablece, repita los pasos de esta sección para volver a establecerlo de nuevo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

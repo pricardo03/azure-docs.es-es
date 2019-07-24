@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
 ms.openlocfilehash: 9a23f13947c4c7a77460ff389861e1dcc1de3c7f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992122"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
@@ -84,7 +84,7 @@ Ejecute los siguientes comandos en todas las **máquinas virtuales de destino iS
 
 Ejecute los siguientes comandos en todas las **máquinas virtuales de destino iSCSI** para crear los discos iSCSI para los clústeres utilizados por los sistemas SAP. En el ejemplo siguiente, se crean dispositivos SBD para varios clústeres. Se muestra cómo se podría usar un servidor de destino iSCSI para varios clústeres. Los dispositivos SBD se colocan en el disco del sistema operativo. Asegúrese de que dispone de suficiente espacio.
 
-**`nfs`** se usa para identificar el clúster NFS, **ascsnw1** se usa para identificar el clúster ASCS de **NW1**, **dbnw1** se usa para identificar el clúster de base de datos de **NW1** , **nfs 0** y **nfs 1** son los nombres de host de los nodos del clúster NFS **nw1-xscs-0** y **nw1-xscs-1**son los nombres de host de la **NW1** , los nodos de clúster de ASCS y **nw1-db-0** y **nw1-db-1** son los nombres de host de la base de datos de nodos del clúster. Sustitúyalos por los nombres de host de los nodos del clúster y el SID del sistema SAP.
+**`nfs`** se usa para identificar el clúster NFS, **ascsnw1** se usa para identificar el clúster de **NW1**, **dbnw1** se usa para identificar el clúster de base de datos de **NW1**, **nfs-0** y **nfs-1** son los nombres de host de los nodos del nodo NFS, **nw1-xscs-0** y **nw1-xscs-1** son los nombres de host de los nodos del clúster de ASCS **NW1**, y **nw1-db-0** y **nw1-db-1** son los nombres de host de los nodos del clúster de la base de datos. Sustitúyalos por los nombres de host de los nodos del clúster y el SID del sistema SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -176,7 +176,7 @@ o- / ...........................................................................
 
 Conéctese al dispositivo iSCSI que se creó en el último paso desde el clúster.
 Ejecute los siguientes comandos en los nodos del clúster nuevo que desea crear.
-Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos, **[1]**: aplicable solo al nodo 1 o **[2]**: aplicable solo al nodo 2.
+Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos, **[1]** : aplicable solo al nodo 1 o **[2]** : aplicable solo al nodo 2.
 
 1. **[A]**  Conexión a los dispositivos iSCSI
 
@@ -302,7 +302,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Crear el `softdog` archivo de configuración
+   Cree el archivo de configuración de `softdog`
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -314,14 +314,14 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
 ## <a name="cluster-installation"></a>Instalación del clúster
 
-Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos, **[1]**: aplicable solo al nodo 1 o **[2]**: aplicable solo al nodo 2.
+Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos, **[1]** : aplicable solo al nodo 1 o **[2]** : aplicable solo al nodo 2.
 
 1. **[A]** Actualice SLES
 
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]**  Configurar el sistema operativo
+1. **[A]** Configurar el sistema operativo
 
    En algunos casos, Pacemaker crea muchos procesos y, por tanto, agota al número de procesos permitidos. En tal caso, un latido entre los nodos del clúster podría producir un error y dar lugar a la conmutación por error de los recursos. Se recomienda aumentar los procesos máximos permitidos al establecer el parámetro siguiente.
 
@@ -348,9 +348,9 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]**  Configurar netconfig-en la nube de azure para el clúster de alta disponibilidad
+1. **[A]** Configure cloud-netconfig-azure para el clúster de alta disponibilidad
 
-   Cambiar el archivo de configuración para la interfaz de red, como se muestra a continuación para evitar que el complemento de red en la nube de quitar la dirección IP virtual (Pacemaker debe controlar la asignación de VIP). Para obtener más información, consulte [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+   Cambia el archivo de configuración de la interfaz de red como se muestra a continuación para evitar que el complemento de la red en la nube quite la dirección IPR virtual (Pacemaker debe controlar la asignación de VIP). Para más información, consulte [KB 7023633 de SUSE](https://www.suse.com/support/kb/doc/?id=7023633). 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -576,16 +576,16 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    op monitor interval="15" timeout="15"
 </code></pre>
 
-## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuración de pacemaker para Azure eventos programados
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuración de Pacemaker para los eventos programados de Azure
 
-Azure ofrece [eventos programados](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Eventos programados se proporcionan a través del servicio de metadatos y deje tiempo para la aplicación para prepararse para los eventos, como apagado de máquina virtual, la reimplementación de máquina virtual, etcetera. Agente de recursos **[eventos de azure](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervisa si hay eventos programados de Azure. Si se detectan los eventos, el agente intentará detener todos los recursos en la máquina virtual afectada y moverlos a otro nodo del clúster. Debe configurarse lograr que más recursos de Pacemaker. 
+Azure ofrece [eventos programados](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Se proporcionan eventos programados a través del servicio de metadatos y permiten que la aplicación tenga tiempo para preparar eventos como el apagado de una máquina virtual, la reimplementación de VM, etc. El agente de recursos **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervisa los eventos programados de Azure. Si se detectan eventos, el agente intentará detener todos los recursos de la VM afectada y los moverá a otro nodo del clúster. Para ello, deben configurarse otros recursos de Pacemaker. 
 
-1. **[A]**  Instalar el **eventos de azure** agente. 
+1. **[A]** Instale el agente **azure-events**. 
 
 <pre><code>sudo zypper install resource-agents
 </code></pre>
 
-2. **[1]**  Configurar los recursos de Pacemaker. 
+2. **[1]** Configure los recursos en Pacemaker. 
 
 <pre><code>
 #Place the cluster in maintenance mode
@@ -600,10 +600,10 @@ sudo crm configure property maintenance-mode=false
 </code></pre>
 
    > [!NOTE]
-   > Después de configurar los recursos de Pacemaker para el agente de eventos de azure, al colocar el clúster o no en modo de mantenimiento, es posible recibir mensajes de advertencia como:  
-     Advertencia: cib-bootstrap-options: atributo desconocido ' hostName_  <strong>hostname</strong>'  
-     Advertencia: cib-bootstrap-options: atributo desconocido 'azure-events_globalPullState'  
-     Advertencia: cib-bootstrap-options: atributo desconocido ' hostName_ <strong>hostname</strong>'  
+   > Después de configurar los recursos de Pacemaker para el agente de azure-events, cuando coloca el clúster dentro y fuera del modo de mantenimiento, es posible que reciba mensajes de advertencia como estos:  
+     ADVERTENCIA: cib-bootstrap-options: atributo desconocido "hostName_  <strong>hostname</strong>"  
+     ADVERTENCIA: cib-bootstrap-options: atributo desconocido "azure-events_globalPullState"  
+     ADVERTENCIA: cib-bootstrap-options: atributo desconocido "hostName_ <strong>hostname</strong>"  
    > Estos mensajes de advertencia pueden ignorarse.
 
 ## <a name="next-steps"></a>Pasos siguientes

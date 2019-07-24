@@ -10,18 +10,18 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5cceac260979b4322d41843038eab0998c8e8ba4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ca9d8a8373bd73d527862864d436319eb45b5f48
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509744"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227166"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>¿Qué es Azure Active Directory B2C?
 
 Azure Active Directory (Azure AD) B2C es un servicio de administración de identidad de negocio a consumidor. Este servicio le permite personalizar y controlar el modo en que los usuarios interactúan de forma segura con aplicaciones web, de escritorio, móviles o de página única. Con Azure AD B2C, los usuarios pueden registrarse, iniciar sesión, restablecer contraseñas y editar perfiles. Azure AD B2C implementa un formulario de los protocolos OpenID Connect y OAuth 2.0. La clave importante en la implementación de estos protocolos son los tokens de seguridad y sus notificaciones que le permiten proporcionar acceso seguro a recursos.
 
-Un *recorrido del usuario* es una solicitud que especifica una directiva, la cual controla el comportamiento de cómo interactúan el usuario y la aplicación con Azure AD B2C. Existen dos rutas de acceso para definir los recorridos del usuario en Azure AD B2C. 
+Un *recorrido del usuario* es una solicitud que especifica una directiva, la cual controla el comportamiento de cómo interactúan el usuario y la aplicación con Azure AD B2C. Existen dos rutas de acceso para definir los recorridos del usuario en Azure AD B2C.
 
 Si es un desarrollador de aplicaciones con o sin experiencia en identidad, puede definir flujos de usuario de identidad comunes mediante Azure Portal. Si es un profesional de la identidad, un integrador de sistemas, un asesor o pertenece a un equipo de identidad local, o está familiarizado con los flujos de OpenID Connect y conoce los proveedores de identidades y la autenticación basada en notificaciones, podría elegir directivas personalizadas basadas en XML.
 
@@ -29,7 +29,7 @@ Antes de empezar a definir un recorrido del usuario, debe crear un inquilino de 
 
 ## <a name="protocols-and-tokens"></a>Protocolos y tokens
 
-Azure AD B2C admite los protocolos [OpenID Connect y OAuth 2.0](active-directory-b2c-reference-protocols.md) para los recorridos del usuario. En la implementación de OpenID Connect de Azure AD B2C, su aplicación inicia este recorrido del usuario mediante la emisión de solicitudes de autenticación a Azure AD B2C. 
+Azure AD B2C admite los protocolos [OpenID Connect y OAuth 2.0](active-directory-b2c-reference-protocols.md) para los recorridos del usuario. En la implementación de OpenID Connect de Azure AD B2C, su aplicación inicia este recorrido del usuario mediante la emisión de solicitudes de autenticación a Azure AD B2C.
 
 El resultado de una solicitud a Azure AD B2C es un token de seguridad como, por ejemplo, un [token de identificador o un token de acceso](active-directory-b2c-reference-tokens.md). Este token de seguridad define la identidad del usuario. Los tokens se reciben de los puntos de conexión de Azure AD B2C como un punto de conexión `/token` o `/authorize`. A partir de estos tokens, podrá acceder a notificaciones que se pueden usar para validar una identidad y permitir el acceso a recursos seguros.
 
@@ -62,17 +62,17 @@ Los recorridos del usuario le permiten controlar comportamientos configurando lo
 - Apariencia de las páginas
 - Información que se devuelve a la aplicación
 
-Las directivas personalizadas son archivos de configuración que definen el comportamiento de [Identity Experience Framework](trustframeworkpolicy.md) en el inquilino de Azure AD B2C. Identity Experience Framework es la plataforma subyacente que establece la confianza de varias partes y completa los pasos de un recorrido del usuario. 
+Las directivas personalizadas son archivos de configuración que definen el comportamiento de [Identity Experience Framework](trustframeworkpolicy.md) en el inquilino de Azure AD B2C. Identity Experience Framework es la plataforma subyacente que establece la confianza de varias partes y completa los pasos de un recorrido del usuario.
 
-Las directivas personalizadas se pueden modificar para realizar muchas tareas. Una directiva personalizada consta de uno o varios archivos con formato XML que se hacen referencia entre sí en una cadena jerárquica. Hay un [paquete de inicio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) disponible para directivas personalizadas para que habiliten tareas comunes de identidad. 
+Las directivas personalizadas se pueden modificar para realizar muchas tareas. Una directiva personalizada consta de uno o varios archivos con formato XML que se hacen referencia entre sí en una cadena jerárquica. Hay un [paquete de inicio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) disponible para directivas personalizadas para que habiliten tareas comunes de identidad.
 
 Se usan directivas personalizadas o flujos de usuarios de diferentes tipos en el inquilino de Azure AD B2C según sea necesario y se pueden reutilizar en las aplicaciones. Esta flexibilidad le permite definir y modificar las experiencias de identidad del usuario con cambios mínimos o ningún cambio en el código. Se pueden utilizar las directivas si se agrega un parámetro de consulta especial en solicitudes de autenticación de HTTP. Para crear su propia directiva personalizada, consulte [Introducción a las directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="identity-providers"></a>Proveedores de identidades 
+## <a name="identity-providers"></a>Proveedores de identidades
 
-En las aplicaciones, es posible que quiera permitir que los usuarios inicien sesión con distintos proveedores de identidades. Un *proveedor de identidades* crea, mantiene y administra la información de identidad al tiempo que proporciona servicios de autenticación a las aplicaciones. Puede agregar proveedores de identidades compatibles con Azure AD B2C mediante Azure Portal. 
+En las aplicaciones, es posible que quiera permitir que los usuarios inicien sesión con distintos proveedores de identidades. Un *proveedor de identidades* crea, mantiene y administra la información de identidad al tiempo que proporciona servicios de autenticación a las aplicaciones. Puede agregar proveedores de identidades compatibles con Azure AD B2C mediante Azure Portal.
 
-Por lo general, solo se usa un proveedor de identidades en una aplicación, pero existe la opción de agregar más. Para configurar un proveedor de identidades en su inquilino de Azure AD B2C, primero debe crear una aplicación en el sitio para desarrolladores del proveedor de identidades, después debe registrar el identificador de aplicación o identificador de cliente, así como la contraseña o secreto de cliente desde la aplicación del proveedor de identidades que cree. Este identificador y la contraseña se utilizan entonces para configurar la aplicación. 
+Por lo general, solo se usa un proveedor de identidades en una aplicación, pero existe la opción de agregar más. Para configurar un proveedor de identidades en su inquilino de Azure AD B2C, primero debe crear una aplicación en el sitio para desarrolladores del proveedor de identidades, después debe registrar el identificador de aplicación o identificador de cliente, así como la contraseña o secreto de cliente desde la aplicación del proveedor de identidades que cree. Este identificador y la contraseña se utilizan entonces para configurar la aplicación.
 
 Los artículos siguientes describen los pasos para agregar algunos de los proveedores de identidades más habituales a los flujos de usuarios:
 
@@ -90,7 +90,7 @@ Para más información, consulte [Tutorial: Incorporación de proveedores de ide
 
 ## <a name="page-customization"></a>Personalización de una página
 
-Se puede controlar la mayor parte del contenido HTML y CSS que se presenta a los clientes en un recorrido del usuario. La característica de personalización de la página sirve para personalizar la apariencia y la experiencia de cualquier directiva personalizada o flujo de usuario. También puede mantener la coherencia visual y de la marca entre la aplicación y Azure AD B2C mediante esta característica de personalización. 
+Se puede controlar la mayor parte del contenido HTML y CSS que se presenta a los clientes en un recorrido del usuario. La característica de personalización de la página sirve para personalizar la apariencia y la experiencia de cualquier directiva personalizada o flujo de usuario. También puede mantener la coherencia visual y de la marca entre la aplicación y Azure AD B2C mediante esta característica de personalización.
 
 Azure AD B2C ejecuta código en el explorador del usuario y usa un enfoque moderno denominado Uso compartido de recursos entre orígenes (CORS). En primer lugar, especifique una dirección URL en una directiva con contenido HTML personalizado. Azure AD B2C combina elementos de la interfaz de usuario con el contenido HTML cargado desde la URL y, después, muestra la página al usuario.
 
@@ -121,7 +121,7 @@ Si es desarrollador de aplicaciones de una sola página con Node.js, configure l
 
 ### <a name="javascript"></a>JavaScript
 
-Puede agregar su propio código del lado cliente de JavaScript a las aplicaciones de Azure AD B2C. Para configurar JavaScript en la aplicación, puede definir un [contrato de página](page-contract.md) y habilitar [JavaScript](javascript-samples.md) en sus flujos de usuarios o directivas personalizadas.
+Puede agregar su propio código del lado cliente de JavaScript a las aplicaciones de Azure AD B2C. Para configurar JavaScript en la aplicación, puede definir un [diseño de página](page-layout.md) y habilitar [JavaScript](javascript-samples.md) en sus flujos de usuarios o directivas personalizadas.
 
 ### <a name="user-accounts"></a>Cuentas de usuario
 

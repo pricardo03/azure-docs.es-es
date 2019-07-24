@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 07/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3fe142439dc80af660d286e5913fee13d4de8e86
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 80ab896e1393d6c68b22a61d1b96acd507aa6994
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625659"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249904"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Ejecución de la CLI de Azure o comandos de PowerShell con credenciales de Azure AD para acceder a datos de blob o de cola
 
@@ -44,8 +44,8 @@ En el ejemplo siguiente se muestra cómo crear un contenedor en una nueva cuenta
     ```azurecli
     az login
     ```
-    
-1. Especifique la suscripción deseada. Para crear un grupo de recursos, use [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create). Cree una cuenta de almacenamiento en ese grupo de recursos mediante [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create): 
+
+1. Especifique la suscripción deseada. Para crear un grupo de recursos, use [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create). Cree una cuenta de almacenamiento en ese grupo de recursos mediante [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create):
 
     ```azurecli
     az account set --subscription <subscription-id>
@@ -61,12 +61,12 @@ En el ejemplo siguiente se muestra cómo crear un contenedor en una nueva cuenta
         --sku Standard_LRS \
         --encryption-services blob
     ```
-    
+
 1. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para obtener más información sobre la asignación de roles RBAC, consulte [Conceder acceso a datos blob y cola de Azure con RBAC en Azure Portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > La propagación de las asignaciones de roles RBAC pueden tardar unos minutos.
-    
+
 1. Llame al comando [az storage container create](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) con el parámetro `--auth-mode` establecido en `login` para crear el contenedor con sus credenciales de Azure AD:
 
     ```azurecli
@@ -91,7 +91,7 @@ En el ejemplo siguiente se muestra cómo crear un contenedor en una nueva cuenta
     ```powershell
     Connect-AzAccount
     ```
-    
+
 1. Cree un grupo de recursos de Azure mediante una llamada a [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
     ```powershell

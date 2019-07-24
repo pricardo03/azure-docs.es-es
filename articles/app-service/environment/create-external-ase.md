@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e04dfa4148213e88aa46e464a31cdd9b6125e0bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769111"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705759"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment
 
@@ -33,13 +33,13 @@ Hay dos maneras de implementar una instancia de App Service Environment (ASE):
 - Con una dirección VIP en una dirección IP externa, a la que se suele hacer referencia como instancia externa de ASE.
 - Con la dirección VIP en una dirección IP interna, llamada a menudo instancia de ASE con un ILB porque el punto de conexión interno es un equilibrador de carga interno (ILB).
 
-En este artículo se muestra cómo crear un ASE externo. Para obtener información general sobre la instancia de ASE, vea [Introducción a App Service Environment][Intro]. Para obtener información sobre cómo crear una instancia de ASE con un ILB, vea [Creación y uso de una instancia de ASE con un ILB][MakeILBASE].
+En este artículo se muestra cómo crear un ASE externo. Para obtener información general sobre ASE, consulte [Introducción a App Service Environment][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>Antes de crear su ASE
 
 Después de crear la instancia de ASE, no puede cambiar los siguientes parámetros:
 
-- Ubicación
+- Location
 - Subscription
 - Grupos de recursos
 - Red virtual usada
@@ -56,7 +56,7 @@ Hay tres formas de crear una instancia de ASE:
 
 - **Al crear un plan de App Service**. Este método crea la instancia de ASE y el plan de App Service en un solo paso.
 - **Como una acción independiente**. Este método crea una instancia de ASE independiente, es decir, que no contiene nada. Se trata de un proceso más avanzado de creación de una instancia de ASE. Úselo para crear una instancia de ASE con un ILB.
-- **A partir de una plantilla de Azure Resource Manager**. Este método es para usuarios avanzados. Para más información, vea [Creación de una instancia de ASE a partir de una plantilla][MakeASEfromTemplate].
+- **A partir de una plantilla de Azure Resource Manager**. Este método es para usuarios avanzados. Para más información, consulte [Creación de una instancia de ASE mediante el uso de una plantilla][MakeASEfromTemplate].
 
 Una instancia externa de ASE tiene una dirección VIP pública, lo que significa que todo el tráfico HTTP/HTTPS dirigido a las aplicaciones de ASE visita una dirección IP a la que se puede acceder a través de Internet. Una instancia de ASE con un ILB tiene una dirección IP de la subred utilizada por el entorno de ASE. Las aplicaciones hospedadas en una instancia de ASE con un ILB no se exponen directamente a Internet.
 
@@ -72,7 +72,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
 2. Seleccione su suscripción. La aplicación y la instancia de ASE se crean en las mismas suscripciones.
 
-3. Seleccione o cree un grupo de recursos. Con los grupos de recursos, puede administrar recursos de Azure relacionados como una unidad. Los grupos de recursos también son útiles cuando establece reglas de control de acceso basado en rol para las aplicaciones. Para más información, vea la [Información general de Azure Resource Manager][ARMOverview].
+3. Seleccione o cree un grupo de recursos. Con los grupos de recursos, puede administrar recursos de Azure relacionados como una unidad. Los grupos de recursos también son útiles cuando establece reglas de control de acceso basado en rol para las aplicaciones. Para más información, consulte [Información general de Azure Resource Manager][ARMOverview].
 
 4. Seleccione el sistema operativo (Windows, Linux o Docker). 
 
@@ -96,7 +96,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
     b. Escribir un nuevo nombre de subred.
 
-    c. Seleccionar el tamaño de la subred. *Recuerde seleccionar un tamaño de subred suficientemente grande para hospedar el crecimiento futuro de la instancia de ASE.* Se recomienda un tamaño de `/25`, que tiene ciento veintiocho direcciones y puede controlar una instancia de ASE con un tamaño máximo. No se recomienda el tamaño de `/28`, por ejemplo, porque solo tiene dieciséis direcciones disponibles. La infraestructura utiliza al menos siete direcciones, mientras que Redes de Azure utiliza otras cinco. En una subred `/28`, se quedará con un escalado máximo de cuatro instancias de planes de App Service para un ASE externo y solo tres instancias de planes de App Service para un ASE de ILB.
+    c. Seleccionar el tamaño de la subred. *Recuerde seleccionar un tamaño de subred suficientemente grande para hospedar el crecimiento futuro de la instancia de ASE.* Se recomienda un tamaño de `/24`, que tiene ciento veintiocho direcciones y puede controlar una instancia de ASE con un tamaño máximo. No se recomienda el tamaño de `/28`, por ejemplo, porque solo tiene dieciséis direcciones disponibles. La infraestructura utiliza al menos siete direcciones, mientras que Redes de Azure utiliza otras cinco. En una subred `/28`, se quedará con un escalado máximo de cuatro instancias de planes de App Service para un ASE externo y solo tres instancias de planes de App Service para un ASE de ILB.
 
     d. Seleccione el intervalo IP de subred.
 
@@ -110,7 +110,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
 1. Seleccione su suscripción. La aplicación y la instancia de ASE se crean en las mismas suscripciones.
 
-1. Seleccione o cree un grupo de recursos. Con los grupos de recursos, puede administrar recursos de Azure relacionados como una unidad. Los grupos de recursos también son útiles cuando establece reglas de control de acceso basado en rol para las aplicaciones. Para más información, vea la [Información general de Azure Resource Manager][ARMOverview].
+1. Seleccione o cree un grupo de recursos. Con los grupos de recursos, puede administrar recursos de Azure relacionados como una unidad. Los grupos de recursos también son útiles cuando establece reglas de control de acceso basado en rol para las aplicaciones. Para más información, consulte [Información general de Azure Resource Manager][ARMOverview].
 
 1. Seleccione el plan de App Service y después seleccione **Crear nuevo**. Las aplicaciones web Windows y Linux no pueden estar en el mismo plan de App Service, pero sí que pueden estar en el mismo entorno de App Service. 
 
@@ -132,7 +132,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
     b. Escribir un nuevo nombre de subred.
 
-    c. Seleccionar el tamaño de la subred. *Recuerde seleccionar un tamaño de subred suficientemente grande para hospedar el crecimiento futuro de la instancia de ASE.* Se recomienda un tamaño de `/25`, que tiene ciento veintiocho direcciones y puede controlar una instancia de ASE con un tamaño máximo. No se recomienda el tamaño de `/28`, por ejemplo, porque solo tiene dieciséis direcciones disponibles. La infraestructura utiliza al menos siete direcciones, mientras que Redes de Azure utiliza otras cinco. En una subred `/28`, se quedará con un escalado máximo de cuatro instancias de planes de App Service para un ASE externo y solo tres instancias de planes de App Service para un ASE de ILB.
+    c. Seleccionar el tamaño de la subred. *Recuerde seleccionar un tamaño de subred suficientemente grande para hospedar el crecimiento futuro de la instancia de ASE.* Se recomienda un tamaño de `/24`, que tiene ciento veintiocho direcciones y puede controlar una instancia de ASE con un tamaño máximo. No se recomienda el tamaño de `/28`, por ejemplo, porque solo tiene dieciséis direcciones disponibles. La infraestructura utiliza al menos siete direcciones, mientras que Redes de Azure utiliza otras cinco. En una subred `/28`, se quedará con un escalado máximo de cuatro instancias de planes de App Service para un ASE externo y solo tres instancias de planes de App Service para un ASE de ILB.
 
     d. Seleccione el intervalo IP de subred.
 
@@ -156,7 +156,7 @@ Si crea una instancia de ASE independiente, esta no contendrá nada. Aunque la i
 
 1. Seleccione su suscripción. Esta suscripción también es la que usan todas las aplicaciones incluidas en la instancia de ASE. No se puede colocar la instancia de ASE en una red virtual que se encuentra en otra suscripción.
 
-1. Seleccione o especifique un nuevo grupo de recursos. El grupo de recursos usado para la instancia de ASE debe ser el mismo que se utiliza para la red virtual. Si selecciona una red virtual existente, la selección del grupo de recursos para su instancia de ASE se actualiza para reflejar la red virtual. *Puede crear una instancia de ASE con un grupo de recursos distinto del grupo de recursos de la red virtual si usa una plantilla de Resource Manager.* Para crear una instancia de ASE a partir de una plantilla, vea [Creación de una instancia de App Service Environment a partir de una plantilla][MakeASEfromTemplate].
+1. Seleccione o especifique un nuevo grupo de recursos. El grupo de recursos usado para la instancia de ASE debe ser el mismo que se utiliza para la red virtual. Si selecciona una red virtual existente, la selección del grupo de recursos para su instancia de ASE se actualiza para reflejar la red virtual. *Puede crear una instancia de ASE con un grupo de recursos distinto del grupo de recursos de la red virtual si usa una plantilla de Resource Manager.* Para crear una instancia de ASE a partir de una plantilla, vea [Creación de una instancia de ASE mediante el uso de una plantilla][MakeASEfromTemplate].
 
     ![Selección de grupo de recursos][6]
 
@@ -164,19 +164,19 @@ Si crea una instancia de ASE independiente, esta no contendrá nada. Aunque la i
 
     * Si selecciona una red virtual nueva, puede especificar un nombre y una ubicación. 
     
-    * La nueva red virtual tiene el intervalo de direcciones 192.168.250.0/23 y una subred con nombre predeterminado. La subred se define como 192.168.250.0/24. Solo se puede seleccionar una red virtual de Resource Manager. La selección del **tipo de VIP** determina si es posible acceder directamente a la instancia de ASE desde Internet (externa) o si usa un ILB. Para obtener más información sobre estas opciones, vea [Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment][MakeILBASE]. 
+    * La nueva red virtual tiene el intervalo de direcciones 192.168.250.0/23 y una subred con nombre predeterminado. La subred se define como 192.168.250.0/24. Solo se puede seleccionar una red virtual de Resource Manager. La selección del **tipo de VIP** determina si es posible acceder directamente a la instancia de ASE desde Internet (externa) o si usa un ILB. Para más información sobre estas opciones, vea [Creación y uso de un entorno de una instancia de Azure App Service Environment de Load Balancer][MakeILBASE]. 
 
       * Si selecciona **Externo** en **Tipo de VIP**, puede seleccionar la cantidad de direcciones IP externas que crea el sistema con fines de SSL basados en IP. 
     
       * Si selecciona **Interno** en **Tipo de VIP**, debe especificar el dominio que la instancia de ASE utiliza. Puede implementar una instancia de ASE en una red virtual que utiliza intervalos de direcciones públicas o privadas. Para usar una red virtual con un intervalo de direcciones públicas, necesita crear la red virtual con antelación. 
     
-    * Si selecciona una red virtual existente, se crea una subred al crear la instancia de ASE. *No puede usar una subred creada previamente en el portal. Puede crear una instancia de ASE con una subred existente si usa una plantilla de Resource Manager.* Para crear una instancia de ASE a partir de una plantilla, vea [Creación de una instancia de App Service Environment a partir de una plantilla][MakeASEfromTemplate].
+    * Si selecciona una red virtual existente, se crea una subred al crear la instancia de ASE. *No puede usar una subred creada previamente en el portal. Puede crear una instancia de ASE con una subred existente si usa una plantilla de Resource Manager.* Para crear una instancia de ASE a partir de una plantilla, vea [Creación de una instancia de ASE mediante el uso de una plantilla][MakeASEfromTemplate].
 
 ## <a name="app-service-environment-v1"></a>App Service Environment v1
 
 Todavía puede crear instancias de la primera versión de App Service Environment (ASEv1). Para iniciar ese proceso, busque **App Service Environment v1** en Marketplace. Cree la instancia de ASE de la misma forma que ha creado la instancia de ASE independiente. Cuando termine, la instancia de ASEv1 tendrá dos servidores front-end y dos trabajos. Con ASEv1 necesita administrar los servidores front-end y los trabajos. No se agregan de forma automática al crear los planes de App Service. Los front-end actúan como los puntos de conexión HTTP/HTTPS y envían tráfico a los trabajos. Los trabajos son roles que hospedan las aplicaciones. Puede ajustar la cantidad de servidores front-end y de trabajos después de crear la instancia de ASE. 
 
-Para más información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro]. Para más información sobre el escalado, la administración y la supervisión de la instancia de ASEv1, vea [Configuración de App Service Environment][ConfigureASEv1].
+Para más información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro]. For more information on scaling, managing, and monitoring ASEv1, see [How to configure an App Service Environment][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

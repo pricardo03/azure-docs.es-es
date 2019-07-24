@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.openlocfilehash: 705ced82ad4edad0bb4adc057414f6b20b80d8d3
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298868"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Uso de repositorios de metadatos externos en Azure HDInsight
@@ -50,7 +50,7 @@ HDInsight también admite tiendas de metadatos personalizadas, que se recomienda
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selección de una tienda de metadatos personalizada durante la creación del clúster
 
-Puede apuntar el clúster a una base de datos de Azure SQL aprovisionada durante la creación del clúster, o puede configurar la base de datos SQL una vez creado el clúster. Esta opción se especifica con el **almacenamiento > configuración de Metastore** al crear un nuevo Hadoop, Spark o clúster de interactive Hive de Azure portal.
+Puede apuntar el clúster a una base de datos de Azure SQL aprovisionada durante la creación del clúster, o puede configurar la base de datos SQL una vez creado el clúster. Esta opción se especifica en **Almacenamiento > Tienda de metadatos** al crear un nuevo clúster de Hadoop, Spark o Hive interactivo desde Azure Portal.
 
 ![Repositorio de metadatos de Hive en HDInsight: Azure Portal](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 
@@ -67,7 +67,7 @@ Estos son algunos procedimientos recomendados para Hive Metastore en HDInsight:
 - Si tiene previsto que varios clústeres de HDInsight tengan acceso a datos separados, use una base de datos independiente para la tienda de metadatos en cada clúster. Si comparte una tienda de metadatos entre varios clústeres de HDInsight, entonces los clústeres utilizan los mismos metadatos y los mismos archivos de datos de usuario subyacentes.
 - Realice una copia de la tienda de metadatos personalizada periódicamente. Azure SQL Database genera las copias de seguridad automáticamente, pero el período de tiempo de retención de dichas copias de seguridad varía. Para más información, consulte [más información sobre copias de seguridad automáticas de SQL Database](../sql-database/sql-database-automated-backups.md).
 - Coloque la tienda de metadatos y el clúster de HDInsight en la misma región para obtener el mayor rendimiento y los cargos de salida de red más bajos.
-- Supervise su tienda de metadatos mediante herramientas de supervisión de base de datos de SQL Azure, como los registros de Azure Monitor o el portal de Azure de disponibilidad y rendimiento.
+- Supervise el rendimiento y la disponibilidad de su tienda de metadatos mediante herramientas de supervisión de Azure SQL Database, como Azure Portal o registros de Azure Monitor.
 - Cuando se crea una nueva versión de Azure HDInsight en una base de datos de tienda de metadatos personalizada ya existente, el sistema actualiza el esquema de la tienda de metadatos; esta acción es irreversible sin tener que restaurar la base de datos de la copia de seguridad.
 - Si comparte una misma tienda de metadatos entre varios clústeres, asegúrese de que todos ellos cuentan con la misma versión de HDInsight. Diferentes versiones de Hive utilizan diferentes esquemas de base de datos de tienda de metadatos. Por ejemplo, no se puede compartir una tienda de metadatos con los clústeres de las versiones Hive 1.2 y 2.1. 
 

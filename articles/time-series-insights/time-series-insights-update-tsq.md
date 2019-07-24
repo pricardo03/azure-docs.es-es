@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: bbf682df2df7a8cdc9fedb36aa4244fc5c0e9488
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243996"
 ---
 # <a name="data-querying"></a>Consultas de datos
@@ -35,7 +35,7 @@ El [lenguaje Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/t
 
 Se admiten los siguientes tipos de API principal.
 
-[![Información general de consulta de serie de tiempo](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[![Información general sobre la consulta de serie temporal](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>API de entorno
 
@@ -75,8 +75,8 @@ Las siguientes API de consulta de serie temporal están disponibles:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre [almacenamiento y la entrada](./time-series-insights-update-storage-ingress.md) en la versión preliminar de Azure tiempo Series Insights.
+- Obtenga más información sobre [el almacenamiento y la entrada](./time-series-insights-update-storage-ingress.md) en la versión preliminar de Azure Time Series Insights.
 
-- Leer la versión preliminar de tiempo Series Insights [modelado de datos](./time-series-insights-update-tsm.md) artículo.
+- Lea el artículo [Modelado de datos](./time-series-insights-update-tsm.md) de la versión preliminar de Azure Time Series Insights.
 
-- Detectar [procedimientos recomendados al elegir un identificador de la serie de tiempo](./time-series-insights-update-how-to-id.md).
+- Descubra [procedimientos recomendados al elegir un id. de serie temporal](./time-series-insights-update-how-to-id.md).

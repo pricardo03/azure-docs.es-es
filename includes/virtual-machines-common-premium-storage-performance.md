@@ -5,38 +5,16 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6cbda7d9be1617617e173c68c3d2a4a95c255ae0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186286"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673512"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: diseño de alto rendimiento
-
-Este artículo proporciona instrucciones para crear aplicaciones de alto rendimiento con Azure Premium Storage. Puede usar las instrucciones proporcionadas en este documento junto con los procedimientos recomendados de rendimiento aplicables a las tecnologías usadas por la aplicación. Para ilustrar las directrices, hemos usado SQL Server en Premium Storage como ejemplo en este documento.
-
-Si bien en este artículo se tratan los escenarios de rendimiento de la capa de almacenamiento, deberá optimizar la capa de la aplicación. Por ejemplo, si hospeda una granja de SharePoint en Azure Premium Storage, puede usar los ejemplos de SQL Server de este artículo para optimizar el servidor de bases de datos. Además, optimice el servidor web y el servidor de aplicaciones de la granja de SharePoint para obtener el máximo rendimiento.
-
-Este artículo le ayudará a responder a las siguientes preguntas habituales acerca de cómo optimizar el rendimiento de las aplicaciones en Azure Premium Storage:
-
-* ¿Cómo medir el rendimiento de las aplicaciones?  
-* ¿Por qué no se ve el alto rendimiento esperado?  
-* ¿Qué factores influyen en el rendimiento de las aplicaciones en Premium Storage?  
-* ¿Cómo influyen estos factores en el rendimiento de las aplicaciones en Premium Storage?  
-* ¿Cómo puede optimizar para IOPS, el ancho de banda y la latencia?  
-
-Proporcionamos estas directrices específicamente para Premium Storage porque las cargas de trabajo que se ejecutan en Premium Storage dependen mucho del rendimiento. Se proporcionan ejemplos donde corresponda. También puede aplicar algunas de estas instrucciones a las aplicaciones que se ejecutan en máquinas virtuales de IaaS con discos de Standard Storage.
-
-> [!NOTE]
-> A veces, lo que parece ser un problema de rendimiento del disco es realmente un cuello de botella de red. En estos casos, debería optimizarse el [rendimiento de la red](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
-> Si la VM admite redes aceleradas, debe asegurarse de que esta opción esté habilitada. Si no está habilitada, puede habilitarla en VM ya implementadas, tanto en [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) como en [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-Antes de comenzar, si no está familiarizado con Premium Storage, lea primero los artículos [Select an Azure disk type for IaaS VMs](../articles/virtual-machines/windows/disks-types.md) (Selección de un tipo de disco de Azure para las máquinas virtuales de IaaS) y [Objetivos de escalabilidad y rendimiento de Azure Storage para cuentas de almacenamiento estándar](../articles/storage/common/storage-scalability-targets.md).
-
 ## <a name="application-performance-indicators"></a>Indicadores del rendimiento de las aplicaciones
 
 Evaluamos si una aplicación tiene un buen rendimiento o no mediante indicadores de rendimiento como: la rapidez con la que una aplicación procesa una solicitud del usuario, la cantidad de datos que una aplicación procesa por solicitud, cuántas solicitudes procesa una aplicación en un determinado período, cuánto tiempo tiene que esperar un usuario para obtener una respuesta después de enviar su solicitud. Los términos técnicos para estos indicadores de rendimiento son IOPS, latencia y rendimiento o ancho de banda.
@@ -413,4 +391,4 @@ Más información sobre los tipos de disco disponibles:
 Para los usuarios de SQL Server, lea artículos sobre procedimientos recomendados para SQL Server:
 
 * [Procedimientos recomendados para SQL Server en Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Azure Premium Storage proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

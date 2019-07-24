@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966843"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guía de planeamiento y operaciones de Azure Security Center
@@ -47,7 +47,7 @@ Según el tamaño y la estructura de su organización, puede que varias personas
 
 ![Roles](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Security Center hace posible que estos usuarios cumplan estas diversas responsabilidades. Por ejemplo: 
+Security Center hace posible que estos usuarios cumplan estas diversas responsabilidades. Por ejemplo:
 
 **Jeff (Propietario de la carga de trabajo)**
 
@@ -134,7 +134,7 @@ Security Center crea automáticamente una directiva de seguridad predeterminada 
 Antes de configurar las directivas de seguridad, revise cada una de las [recomendaciones de seguridad](https://docs.microsoft.com/azure/security-center/security-center-recommendations)y determine si son adecuadas para los diversos grupos de recursos y suscripciones. También es importante entender qué acción debe realizarse para abordar las recomendaciones de seguridad y qué persona de su organización será responsable de supervisar las nuevas recomendaciones y llevar a cabo los pasos necesarios.
 
 ## <a name="data-collection-and-storage"></a>Recopilación de datos y almacenamiento
-Azure Security Center usa a Microsoft Monitoring Agent, que es el mismo agente que usa el servicio de Azure Monitor, para recopilar datos de seguridad de las máquinas virtuales. Los [datos recopilados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) por este agente se almacenan en las áreas de trabajo de Log Analytics.
+Azure Security Center usa Microsoft Monitoring Agent, que es el mismo agente que usa el servicio Azure Monitor, para recopilar datos de seguridad de las máquinas virtuales. Los [datos recopilados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) por este agente se almacenan en las áreas de trabajo de Log Analytics.
 
 ### <a name="agent"></a>Agente
 

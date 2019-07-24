@@ -1,5 +1,5 @@
 ---
-title: Mejorar el rendimiento del índice de almacén de columnas en Azure SQL Data Warehouse | Microsoft Docs
+title: Mejora del rendimiento del índice de almacén de columnas en Azure SQL Data Warehouse | Microsoft Docs
 description: Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas.
 services: sql-data-warehouse
 author: kevinvngo
@@ -11,15 +11,15 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 39d0fe06ee0e0230411024833cac7c88308f86c7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66225386"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximización de la calidad del grupo de filas del almacén de columnas
 
-El número de filas de un grupo de filas determina la calidad del grupo de filas. Aumentar la memoria disponible puede maximizar el número de filas de que un índice de almacén de columnas comprime en cada grupo de filas.  Emplee estos métodos para mejorar las tasas de compresión y el rendimiento de las consultas de los índices de almacén de columnas.
+El número de filas de un grupo de filas determina la calidad del grupo de filas. Aumentar la memoria disponible puede maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas.  Emplee estos métodos para mejorar las tasas de compresión y el rendimiento de las consultas de los índices de almacén de columnas.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Por qué importa el tamaño del grupo de filas
 Como los índices de almacén de columnas examinan una tabla mediante el examen de segmentos de columna de grupos de filas individuales, al maximizar el número de filas de cada grupo de estas, se mejora el rendimiento de las consultas. Cuando los grupos de filas presentan un gran número de filas, la compresión de datos mejora; es decir, hay menos datos que se deben leer en el disco.
@@ -39,7 +39,7 @@ Para obtener más información sobre la carga masiva, consulte [Carga de datos e
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Cómo supervisar la calidad del grupo de filas
 
-La DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contiene la definición de vista coincidente de la base de datos SQL a SQL Data Warehouse) que expone información útil Por ejemplo, el número de filas de grupos de filas y el motivo para recortar si ha habido recorte. Puede crear la siguiente vista como una forma práctica para consultar esta DMV a fin de obtener información sobre el recorte del grupo de filas.
+La vista de administración dinámica sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contiene la definición de vista que coincide con SQL Database y SQL Data Warehouse) que expone información útil, como el número de filas en los grupos de filas y el motivo del recorte (si es que se recortó). Puede crear la siguiente vista como una forma práctica para consultar esta DMV a fin de obtener información sobre el recorte del grupo de filas.
 
 ```sql
 create view dbo.vCS_rg_physical_stats

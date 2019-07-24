@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991910"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
@@ -25,7 +25,7 @@ ms.locfileid: "65991910"
 Estas notas de la versión de Azure Media Services resumen los cambios realizados desde las versiones anteriores y los problemas conocidos.
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Queremos recibir opiniones de nuestros clientes para poder centrarnos en la solución de los problemas que les afectan. Para informar de un problema o formular una pregunta, envíe su consulta al [foro de MSDN de Azure Media Services]. 
 
@@ -47,11 +47,11 @@ Para obtener información sobre el historial de versiones de la API de REST de M
 
 ## <a name="march-2019"></a>Marzo de 2019
 
-La característica de vista previa de Hyperlapse multimedia de Azure Media Services ha quedado en desuso.
+La característica Media Hyperlapse Preview de Azure Media Services entró en desuso.
 
 ## <a name="december-2018"></a>Diciembre de 2018
 
-La característica de vista previa de Hyperlapse multimedia de Azure Media Services se retirará pronto. A partir del 19 de diciembre de 2018, Media Services ya no realizará cambios ni mejoras en la característica Media Hyperlapse. El 29 de marzo de 2019 se retirará y ya no estará disponible.
+La característica Media Hyperlapse Preview de Azure Media Services se retirará en breve. A partir del 19 de diciembre de 2018, Media Services ya no realizará cambios ni mejoras en la característica Media Hyperlapse. El 29 de marzo de 2019 se retirará y ya no estará disponible.
 
 ## <a name="october-2018"></a>Octubre de 2018
 
@@ -409,7 +409,7 @@ Para más información acerca de los cambios, consulte [SDK de Media Services pa
 Se han realizado los siguientes cambios en la versión 3.0.0.3:
 
 * Se han actualizado las dependencias de Azure Storage para usar la versión 3.0.3.0.
-* Se ha corregido un problema de compatibilidad con versiones anteriores en las versiones 3.0.*.* .
+* Se ha corregido un problema de compatibilidad con versiones anteriores en las versiones 3.0. *.* .
 
 ## <a id="december_changes_13"></a>Versión de diciembre de 2013
 ### <a name="dec_13_donnet_changes"></a>SDK de Media Services para .NET 3.0.0.0
@@ -538,7 +538,7 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK:
   
     * Se ha agregado compatibilidad asincrónica a todos los métodos.
 
-## <a name="provide-feedback"></a>Proporcionar comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->

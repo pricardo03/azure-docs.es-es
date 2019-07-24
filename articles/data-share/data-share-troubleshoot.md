@@ -7,12 +7,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: ef33ff41ce78657709a497860cdbc3acb1bb24ae
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: c02f72d6a327c4dcb94ac8844005613cfe316986
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67789009"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838391"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Solución de problemas habituales de Azure Data Share, versión preliminar
 
@@ -34,6 +34,8 @@ El error anterior es un problema conocido del servicio y se está solucionando. 
 
 Es preciso que tenga el [rol RBAC Colaborador de Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) para completar estos pasos. 
 
+Si todavía no puede ver una invitación de recurso compartido de datos, póngase en contacto con el proveedor de datos y asegúrese de que ha enviado la invitación a su dirección de correo electrónico de inicio de sesión de Azure, *no* a su alias de correo electrónico. 
+
 > [!IMPORTANT]
 > Si ya ha aceptado una invitación de Azure Data Share y ha salido del servicio antes de configurar el almacenamiento, siga las instrucciones que encontrará en la guía paso a paso para [configurar una asignación de conjuntos de datos](how-to-configure-mapping.md) para aprender a finalizar la configuración del recurso compartido de datos recibidos y a empezar a recibir datos. 
 
@@ -47,12 +49,12 @@ Es preciso que tenga el [rol RBAC Colaborador de Azure](https://docs.microsoft.c
 
 ![Error de privilegios](media/error-write-privilege.png)
 
-Si aparece cualquiera de los errores anteriores tanto al crear como al recibir un recurso compartido de datos, se debe a que no hay permisos suficientes en la cuenta de almacenamiento. La acción requerida es *Microsoft.Authorization/role assignments/write*, que existe en el rol de propietario de almacenamiento o se puede asignar a un rol personalizado. Aunque haya creado la cuenta de Azure Storage, ello NO le convierte automáticamente en propietario de dicha cuenta. Siga estos pasos para concederse el rol de propietario de la cuenta de almacenamiento. También puede crear un rol personalizado con este permiso y, posteriormente, agregarse a él.  
+Si aparece cualquiera de los errores anteriores tanto al crear como al recibir un recurso compartido de datos, se debe a que no hay permisos suficientes en la cuenta de almacenamiento. El permiso requerido es *Microsoft.Authorization/role assignments/write*, que existe en el rol de propietario de almacenamiento o se puede asignar a un rol personalizado. Aunque haya creado la cuenta de Azure Storage, ello NO le convierte automáticamente en propietario de dicha cuenta. Siga estos pasos para concederse el rol de propietario de la cuenta de almacenamiento. También puede crear un rol personalizado con este permiso y, posteriormente, agregarse a él.  
 
 1. Vaya a la cuenta de Azure Storage en Azure Portal
 1. Seleccione **Access Control (IAM)**
 1. Haga clic en **Agregar**.
-1. Agréguese como propietario de los datos de Storage Blob
+1. Agréguese como propietario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

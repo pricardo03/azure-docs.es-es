@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
-ms.date: 03/25/2019
-ms.openlocfilehash: ec0007e2d53a3fd3cae158375b696379d923b4b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/11/2019
+ms.openlocfilehash: c2a468507c598c38b0b6b3b9f9c6a58a6ef4eff2
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447767"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67826965"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introducción a Instancia administrada de Azure SQL Database
 
@@ -33,12 +33,14 @@ Como primer paso, tendrá que crear su primera instancia administrada con el ent
 
 - [Cree una instancia administrada mediante Azure Portal](sql-database-managed-instance-get-started.md). En Azure Portal puede configurar los parámetros necesarios (nombre de usuario y contraseña, número de núcleos y cantidad de almacenamiento máxima) y crear automáticamente el entorno de red de Azure sin necesidad de conocer los detalles de red ni los requisitos de infraestructura. Solo debe asegurarse de que tiene un [tipo de suscripción](sql-database-managed-instance-resource-limits.md#supported-subscription-types) con un permiso actual para crear una instancia administrada. Si tiene su propia red que desea utilizar o desea personalizar la red, consulte [Configuración de una red virtual para Instancia administrada de Azure SQL Database](sql-database-managed-instance-configure-vnet-subnet.md) o [Creación de una red virtual para Instancia administrada de Azure SQL Database](sql-database-managed-instance-create-vnet-subnet.md).
 - Se crea una instancia administrada en la propia red virtual sin ningún punto de conexión público. Para acceder a la aplicación cliente, puede **crear una máquina virtual en la misma red virtual (en una subred diferente)** o **crear una conexión VPN de punto a sitio a la red virtual desde el equipo cliente** mediante uno de estos inicios rápidos:
-
+  - Habilite el [punto de conexión público](sql-database-managed-instance-public-endpoint-configure.md) en la instancia administrada para tener acceso a los datos directamente desde su entorno.
   - Cree una [máquina virtual de Azure en la red virtual de la instancia administrada](sql-database-managed-instance-configure-vm.md) para obtener conectividad con la aplicación cliente, incluido SQL Server Management Studio.
   - Configure una [conexión VPN de punto a sitio a la instancia administrada](sql-database-managed-instance-configure-p2s.md) desde el equipo cliente en el que tiene SQL Server Management Studio y otras aplicaciones de conectividad de cliente. Estas son las dos opciones de conectividad a la instancia administrada y a su red virtual.
 
   > [!NOTE]
   > También puede usar ExpressRoute o una conexión de sitio a sitio desde la red local, pero estos métodos están fuera del ámbito de estos inicios rápidos.
+
+Como alternativa a la creación manual de la instancia administrada, puede usar [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), [PowerShell con una plantilla de Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) para crear scripts y automatizar este proceso.
 
 ### <a name="migrate-your-databases"></a>Migración de las bases de datos
 
@@ -59,20 +61,17 @@ Como alternativa, puede usar el [script de PowerShell](https://www.powershellmag
 
 Como alternativa, puede usar este [script de PowerShell](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) para automatizar la creación de la red.
 
-Si ya tiene una red virtual y una subred donde le gustaría implementar la instancia administrada, deberá asegurarse de que estas satisfagan los [requisitos de red](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Use este [script de PowerShell para verificar que la subred está correctamente configurada](sql-database-managed-instance-configure-vnet-subnet.md). Este script valida la red y notifica cualquier problema, y le indica lo que se debe cambiar y, a continuación, le ofrece realizar los cambios necesarios en la red virtual o la subred. Ejecute este script si no desea configurar manualmente la red virtual o la subred. También puede ejecutarlo después de cualquier reconfiguración importante de la infraestructura de la red. Si desea crear y configurar su propia red, lea [Arquitectura de conectividad](sql-database-managed-instance-connectivity-architecture.md) y esto[guía definitiva para crear y configurar un entorno de instancia administrada](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01).
+Si ya tiene una red virtual y una subred donde le gustaría implementar la instancia administrada, deberá asegurarse de que estas satisfagan los [requisitos de red](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Use este [script de PowerShell para verificar que la subred está correctamente configurada](sql-database-managed-instance-configure-vnet-subnet.md). Este script valida la red y notifica cualquier problema, y le indica lo que se debe cambiar y, a continuación, le ofrece realizar los cambios necesarios en la red virtual o la subred. Ejecute este script si no desea configurar manualmente la red virtual o la subred. También puede ejecutarlo después de cualquier reconfiguración importante de la infraestructura de la red. Si quiere crear y configurar su propia red, lea acerca de la [arquitectura de conectividad](sql-database-managed-instance-connectivity-architecture.md) y esta [guía definitiva para crear y configurar un entorno de instancia administrada](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01).
 
-## <a name="automating-creation-of-a-managed-instance"></a>Automatización de la creación de una instancia administrada
+## <a name="migrate-to-a-managed-instance"></a>Migración a una instancia administrada
 
- Si no ha creado el entorno de red como se describe en el paso anterior, Azure Portal puede hacerlo por usted, el único inconveniente es el hecho de que se configurará con algunos parámetros predeterminados que no podrá modificar más adelante. Como alternativa, puede usar:
+Estos artículos de inicio rápido le permiten configurar una instancia administrada y mover las bases de datos rápidamente mediante la funcionalidad `RESTORE` nativa. Este es un buen punto de partida si quiere completar pruebas de concepto y comprobar que la solución puede funcionar en la instancia administrada. 
 
-- [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)
-- [PowerShell con una plantilla de Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
-- [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/).
-- [Plantilla de Resource Manager](sql-database-single-database-get-started-template.md)
+Sin embargo, para migrar la base de datos de producción o incluso las bases de datos de desarrollo y pruebas que quiera usar en alguna prueba de rendimiento, deberá considerar la posibilidad de usar algunas técnicas adicionales, como:
+- Pruebas de rendimiento: debe medir el rendimiento de línea de base en la instancia de SQL Server de origen y compararlo con el rendimiento de la instancia administrada de destino en que ha migrado la base de datos. Más información sobre los [procedimientos recomendados de comparación de rendimiento](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
+- Migración en línea: con la funcionalidad `RESTORE` nativa que se describen en este artículo, tendrá que esperar a que las bases de datos se restauren (y se copien en Azure Blob Storage si aún no están almacenadas allí). Esto produce un tiempo de inactividad de la aplicación especialmente en el caso de bases de datos grandes. Para mover la base de datos de producción, use [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) para migrar la base de datos con el menor tiempo de inactividad posible. Para hacerlo, DMS toma los cambios realizados en la base de datos de origen y los inserta incrementalmente en la base de datos de instancia administrada que se está restaurando. De este modo, puede cambiar rápidamente la aplicación de la base de datos de origen a la de destino con tiempo de inactividad mínimo.
 
-## <a name="migrating-to-a-managed-instance-with-minimal-downtime"></a>Migración a una instancia administrada con un tiempo de inactividad mínimo
-
-Estos artículos de inicio rápido le permiten configurar una instancia administrada y mover las bases de datos rápidamente mediante la funcionalidad `RESTORE` nativa. No obstante, con la funcionalidad `RESTORE` nativa, tendrá que esperar a que las bases de datos se restauren (y se copien en Azure Blob Storage si no están ya allí). Esto produce un tiempo de inactividad de la aplicación especialmente en el caso de bases de datos grandes. Para mover la base de datos de producción, use [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) para migrar la base de datos con el menor tiempo de inactividad posible. Para hacerlo, DMS toma los cambios realizados en la base de datos de origen y los inserta incrementalmente en la base de datos de instancia administrada que se está restaurando. De este modo, puede cambiar rápidamente la aplicación de la base de datos de origen a la de destino con tiempo de inactividad mínimo.
+Más información acerca del [proceso de migración recomendado](sql-database-managed-instance-migrate.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

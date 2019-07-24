@@ -1,6 +1,6 @@
 ---
-title: Instancias del conjunto de protección de la instancia de escalado de máquinas virtuales de Azure | Microsoft Docs
-description: Obtenga información sobre cómo proteger instancias del conjunto de escalado de máquina virtual de Azure de las operaciones de escalado y conjunto de escalado.
+title: Protección de instancias para las instancias del conjunto de escalado de máquinas virtuales| Microsoft Docs
+description: Obtenga información sobre cómo proteger instancias del conjunto de escalado de máquinas virtuales de Azure contra operaciones de reducción horizontal y conjunto de escalado.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -16,46 +16,46 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: manayar
 ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66416552"
 ---
-# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Protección de la instancia de escalado de máquinas virtuales de Azure establecida instances (versión preliminar)
-Conjuntos de escalado de máquina virtual de Azure permiten elasticidad mejor para sus cargas de trabajo a través de [escalado automático](virtual-machine-scale-sets-autoscale-overview.md), por lo que puede configurar cuando se escala horizontalmente la infraestructura y cuando escala en. Conjuntos de escalado también permiten administrar centralmente, configurar y actualizar un gran número de máquinas virtuales a través de diferentes [directiva de actualización](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) configuración. Puede configurar una actualización en el modelo de conjunto de escalado y la nueva configuración se aplica automáticamente a cada instancia del conjunto de escalado si ha configurado la directiva de actualización en automático o graduales.
+# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Protección de instancias para las instancias del conjunto de escalado de máquinas virtuales (versión preliminar)
+Los conjuntos de escalado de máquinas virtuales de Azure permiten una mejor elasticidad para las cargas de trabajo mediante [Escalabilidad automática](virtual-machine-scale-sets-autoscale-overview.md), de manera que puede realizar configuraciones cuando la infraestructura se escala horizontalmente y cuando se reduce horizontalmente. Los conjuntos de escalado permiten administrar, configurar y actualizar de manera central una gran cantidad de máquinas virtuales mediante distintas configuraciones de [directiva de actualización](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model). Puede configurar una actualización en el modelo del conjunto de escalado y la nueva configuración se aplica automáticamente a cada instancia del conjunto de escalado si se ha configurado la directiva de actualización en Automática o Revirtiendo.
 
-Como su aplicación procesa el tráfico, puede haber situaciones en las que desee instancias específicas que se tratan de forma distinta del resto de la escala de la instancia de conjunto. Por ejemplo, ciertas instancias del conjunto de escalado podrían realizar las operaciones de larga ejecución, y no desea que estas instancias se escalan en hasta que se completen las operaciones. También podría especializados unas cuantas instancias en el conjunto de escalado para realizar tareas adicionales o diferentes que los demás miembros del conjunto de escalado. Se requieren estas máquinas virtuales "especiales" para que no se puede modificar con las demás instancias del conjunto de escalado. Protección de la instancia proporciona los controles adicionales para habilitar estos y otros escenarios para la aplicación.
+Como la aplicación procesa el tráfico, puede haber situaciones en las que quiera que instancias específicas se tratan de forma distinta al resto de la instancia del conjunto de escalado. Por ejemplo, puede que determinadas instancias del conjunto de escalado realicen operaciones de larga duración y que no quiera que esas instancias se reduzcan horizontalmente hasta que finalicen las operaciones. Asimismo, puede que tenga unas cuantas instancias especializadas en el conjunto de escalado para realizar tareas adicionales o diferentes que otros miembros del conjunto de escalado. Necesita que esas máquinas virtuales "especiales" no se modifiquen con las demás instancias del conjunto de escalado. La protección de instancias proporciona los controles adicionales que permiten estos y otros escenarios para la aplicación.
 
-En este artículo se describe cómo puede aplicar y utilizar las capacidades de protección de la otra instancia con instancias del conjunto de escalado.
+En este artículo se describe cómo se pueden aplicar y usar las diferentes capacidades de protección de instancias con instancias del conjunto de escalado.
 
 > [!NOTE]
->Protección de la instancia está actualmente en versión preliminar pública. No es necesario ningún procedimiento opcional para usar la funcionalidad de versión preliminar pública que se describe a continuación. Vista previa de protección de instancia solo se admite con la API versión 2019-03-01 y en conjuntos de escalado con discos administrados.
+>La protección de instancias se encuentra actualmente en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de vista preliminar pública que se describe a continuación. La vista preliminar de la protección de instancias solo se admite con la versión de API 2019-03-01 y en conjuntos de escalado que usan discos administrados.
 
-## <a name="types-of-instance-protection"></a>Tipos de protección de la instancia
-Conjuntos de escalado proporcionan dos tipos de capacidades de protección de instancia:
+## <a name="types-of-instance-protection"></a>Tipos de protección de instancias
+Los conjuntos de escalado proporcionan dos tipos de capacidades de protección de instancias:
 
--   **Proteger desde la escala**
-    - Habilita a través de **protectFromScaleIn** propiedad en la escala de la instancia de conjunto
-    - Protege la instancia de la escala en escalado automático que se inició
-    - Las operaciones de la instancia iniciada por el usuario (incluida la eliminación de instancia) son **no bloqueado**
-    - Las operaciones iniciadas en el conjunto de escalado (actualizar, crear una nueva imagen, desasignar, etc.) son **no bloqueado**
+-   **Protección contra la reducción horizontal**
+    - Habilitada a través de la propiedad **protectFromScaleIn** en la instancia del conjunto de escalado.
+    - Protege la instancia contra la reducción horizontal iniciada por la escalabilidad automática.
+    - Las operaciones de instancia iniciadas por el usuario (incluida la eliminación de la instancia) **no están bloqueadas**.
+    - Las operaciones iniciadas en el conjunto de escalado (actualizar, restablecer imagen inicial, desasignar, etc.) no **están bloqueadas**.
 
--   **Proteger contra las acciones del conjunto de escalado**
-    - Habilita a través de **protectFromScaleSetActions** propiedad en la escala de la instancia de conjunto
-    - Protege la instancia de la escala en escalado automático que se inició
-    - Protege la instancia de las operaciones iniciadas en el conjunto de escalado (como la actualización, la imagen inicial, desasignar, etcetera.)
-    - Las operaciones de la instancia iniciada por el usuario (incluida la eliminación de instancia) son **no bloqueado**
-    - La eliminación del conjunto de escalado completo está **no bloqueado**
+-   **Protección contra las acciones del conjunto de escalado**
+    - Habilitada a través de la propiedad **protectFromScaleSetActions** en la instancia del conjunto de escalado.
+    - Protege la instancia contra la reducción horizontal iniciada por la escalabilidad automática.
+    - Protege la instancia contra las operaciones iniciadas en el conjunto de escalado, como actualizar, restablecer imagen inicial, desasignar, etc.
+    - Las operaciones de instancia iniciadas por el usuario (incluida la eliminación de la instancia) **no están bloqueadas**.
+    - La eliminación del conjunto de escalado completo **no está bloqueada**.
 
-## <a name="protect-from-scale-in"></a>Proteger desde la escala
-Protección de la instancia se puede aplicar para escalar las instancias del conjunto una vez creadas las instancias. Protección se aplica y modificar solo en el [modelo de instancia](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) y no en el [modelo de conjunto de escalado](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
+## <a name="protect-from-scale-in"></a>Protección contra la reducción horizontal
+La protección de instancias se puede aplicar a instancias del conjunto de escalado después de crear las instancias. La protección se aplica y modifica solo en el [modelo de la instancia](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view), no en el [modelo del conjunto de escalado](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
 
-Hay varias maneras de aplicar la protección de escala en las instancias del conjunto de escalado como se detalla en los ejemplos siguientes.
+Hay varias maneras de aplicar la protección contra la reducción horizontal en las instancias del conjunto de escalado, tal como se describe en los siguientes ejemplos.
 
 ### <a name="rest-api"></a>API DE REST
 
-El ejemplo siguiente aplica protección de escala a una instancia del conjunto de escalado.
+En el siguiente ejemplo se aplica la protección contra la reducción horizontal a una instancia del conjunto de escalado.
 
 ```
 PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instance-id}?api-version=2019-03-01`
@@ -73,13 +73,13 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 ```
 
 > [!NOTE]
->Protección de la instancia solo es compatible con la API versión 2019-03-01 y versiones posteriores
+>La protección de instancias solo se admite con la versión de API 2019-03-01 y superiores.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Use la [actualización AzVmssVM](/powershell/module/az.compute/update-azvmssvm) para aplicar protección de escala en la escala de la instancia de conjunto.
+Use el cmdlet [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) para aplicar la protección contra la reducción horizontal en su instancia del conjunto de escalado.
 
-El ejemplo siguiente aplica protección de escala a una instancia en el conjunto de escalado de Id. de instancia 0.
+En el siguiente ejemplo se aplica la protección contra la reducción horizontal a una instancia del conjunto de escalado con Id. de instancia 0.
 
 ```azurepowershell-interactive
 Update-AzVmssVM `
@@ -91,9 +91,9 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
 
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) para aplicar protección de escala a la instancia del conjunto de escalado.
+Use the [Update-AzVmssVM](/cli/azure/vmss#az-vmss-update) cmdlet to apply scale-in protection to your scale set instance.
 
-El ejemplo siguiente aplica protección de escala a una instancia en el conjunto de escalado de Id. de instancia 0.
+En el siguiente ejemplo se aplica la protección contra la reducción horizontal a una instancia del conjunto de escalado con Id. de instancia 0.
 
 ```azurecli-interactive
 az vmss update \  
@@ -103,16 +103,16 @@ az vmss update \
   --protect-from-scale-in true
 ```
 
-## <a name="protect-from-scale-set-actions"></a>Proteger contra las acciones del conjunto de escalado
-Protección de la instancia se puede aplicar para escalar las instancias del conjunto una vez creadas las instancias. Protección se aplica y modificar solo en el [modelo de instancia](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) y no en el [modelo de conjunto de escalado](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
+## <a name="protect-from-scale-set-actions"></a>Protección contra las acciones del conjunto de escalado
+La protección de instancias se puede aplicar a instancias del conjunto de escalado después de crear las instancias. La protección se aplica y modifica solo en el [modelo de la instancia](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view), no en el [modelo del conjunto de escalado](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
 
-Proteger una instancia de una acción de conjunto de escalado también protege la instancia de la escala en escalado automático que se inició.
+La protección de una instancia contra las acciones del conjunto de escalado también protege la instancia contra la reducción horizontal iniciada por la escalabilidad automática.
 
-Hay varias formas de aplicar la escala establecer protección de las acciones en su escala instancias del conjunto tal como se detalla en los ejemplos siguientes.
+Hay varias maneras de aplicar la protección contra las acciones del conjunto de escalado en las instancias del conjunto de escalado, tal como se describe en los siguientes ejemplos.
 
 ### <a name="rest-api"></a>API DE REST
 
-El ejemplo siguiente aplica la protección de las acciones del conjunto de escalado a una instancia del conjunto de escalado.
+En el siguiente ejemplo se aplica la protección contra las acciones del conjunto de escalado a una instancia del conjunto de escalado.
 
 ```
 PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vMScaleSetName}/virtualMachines/{instance-id}?api-version=2019-03-01`
@@ -131,14 +131,14 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 ```
 
 > [!NOTE]
->Protección de instancia solo es compatible con la API versión 2019-03-01 y versiones posteriores.</br>
-Proteger una instancia de una acción de conjunto de escalado también protege la instancia de la escala en escalado automático que se inició. No se puede especificar "protectFromScaleIn": false cuando se establece en "protectFromScaleSetActions": true
+>La protección de instancias solo se admite con la versión de API 2019-03-01 y superiores.</br>
+La protección de una instancia contra las acciones del conjunto de escalado también protege la instancia contra la reducción horizontal iniciada por la escalabilidad automática. No se puede especificar "protectFromScaleIn": false al configurar "protectFromScaleSetActions": true
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Use la [actualización AzVmssVM](/powershell/module/az.compute/update-azvmssvm) para aplicar la protección frente a escalado establece acciones en la instancia del conjunto de escalado.
+Use el cmdlet [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) para aplicar la protección contra las acciones del conjunto de escalado a su instancia del conjunto de escalado.
 
-El ejemplo siguiente aplica la protección de las acciones del conjunto de escalado a una instancia en el conjunto de escalado de Id. de instancia 0.
+En el siguiente ejemplo se aplica la protección contra las acciones del conjunto de escalado a una instancia del conjunto de escalado con Id. de instancia 0.
 
 ```azurepowershell-interactive
 Update-AzVmssVM `
@@ -151,9 +151,9 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
 
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) para aplicar la protección de las acciones del conjunto de escalado para la instancia del conjunto de escalado.
+Use [az vmss update](/cli/azure/vmss#az-vmss-update) para aplicar la protección contra las acciones del conjunto de escalado a su instancia del conjunto de escalado.
 
-El ejemplo siguiente aplica la protección de las acciones del conjunto de escalado a una instancia en el conjunto de escalado de Id. de instancia 0.
+En el siguiente ejemplo se aplica la protección contra las acciones del conjunto de escalado a una instancia del conjunto de escalado con Id. de instancia 0.
 
 ```azurecli-interactive
 az vmss update \  
@@ -165,16 +165,16 @@ az vmss update \
 ```
 
 ## <a name="troubleshoot"></a>Solución de problemas
-### <a name="no-protectionpolicy-on-scale-set-model"></a>No hay protectionPolicy en el modelo de conjunto de escalado
-Protección de la instancia solo es aplicable en instancias del conjunto de escalado y no en el modelo de conjunto de escalado.
+### <a name="no-protectionpolicy-on-scale-set-model"></a>No se aplica protectionPolicy en el modelo del conjunto de escalado
+La protección de instancias solo se aplica en instancias del conjunto de escalado y no en el modelo del conjunto de escalado.
 
-### <a name="no-protectionpolicy-on-scale-set-instance-model"></a>No hay protectionPolicy en el modelo de instancia del conjunto de escalado
-De forma predeterminada, la directiva de protección no se aplica a una instancia cuando se crea.
+### <a name="no-protectionpolicy-on-scale-set-instance-model"></a>No se aplica protectionPolicy en el modelo de la instancia del conjunto de escalado.
+De manera predeterminada, la directiva de protección no se aplica a una instancia cuando esta se crea.
 
-Puede aplicar protección de instancias para escalar las instancias del conjunto una vez creadas las instancias.
+Puede aplicar la protección de instancias a instancias del conjunto de escalado después de crearlas.
 
-### <a name="not-able-to-apply-instance-protection"></a>No se puede aplicar la protección de la instancia
-Protección de instancia solo es compatible con la API versión 2019-03-01 y versiones posteriores. Comprobar la versión de API que se va a usar y actualizar según sea necesario. Es posible que también deberá actualizar su PowerShell o CLI para la versión más reciente.
+### <a name="not-able-to-apply-instance-protection"></a>Not se puede aplicar la protección de instancias
+La protección de instancias solo se admite con la versión de API 2019-03-01 y superiores. Compruebe la versión de API que está usando y actualícela según sea necesario. Puede que también deba actualizar PowerShell o CLI a la versión más reciente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre cómo [implementar la aplicación](virtual-machine-scale-sets-deploy-app.md) en conjuntos de escalado de máquinas virtuales.

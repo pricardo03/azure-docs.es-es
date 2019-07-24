@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: a4ca5cba924a3269f279469f26e68acdb0ad0659
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3c23cc4fc7647cffa98cff9310498f683fda6328
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257627"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275719"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introducción a Azure Lab Services
 Azure Lab Services le permite configurar rápidamente un entorno para el equipo (por ejemplo: entorno de desarrollo, entorno de pruebas, entorno de laboratorio educativo) en la nube. El propietario de un laboratorio crea uno, aprovisiona Windows o máquinas virtuales Linux, instala el software y las herramientas que necesite y las pone a disposición de los usuarios del laboratorio. Los usuarios del laboratorio se conectan a las máquinas virtuales (VM) del laboratorio y las usan para trabajos cotidianos, proyectos a corto plazo o ejercicios de clase. Cuando los usuarios empiecen a usar los recursos del laboratorio, el administrador podrá analizar el coste y uso entre varios laboratorios y establecer directivas exhaustivas para optimizar los costos de la organización o el equipo.
