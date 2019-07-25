@@ -19,7 +19,7 @@
       href: sql-database-managed-instance-quickstart-guide.md
     - name: Crear
       items:
-        - name: 'Base de datos única: Portal'
+        - name: Base de datos única
           href: sql-database-single-database-get-started.md
         - name: 'Base de datos única: Plantilla'
           displayName: 'Azure Resource Manager template, ARM'
@@ -87,14 +87,22 @@
           href: sql-database-design-first-database.md
         - name: Diseño de base de datos con .NET
           href: sql-database-design-first-database-csharp.md
-    - name: Base de datos singleton
+    - name: Base de datos única
       items:
         - name: Migración a una base de datos única o agrupada mediante DMS
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
+        - name: Agregar a un grupo de conmutación por error
+          href: sql-database-single-database-failover-group-tutorial.md
         - name: Implementar una base de datos distribuida geográficamente
           href: sql-database-implement-geo-distributed-database.md
+        - name: Configuración de replicación geográfica activa
+          href: sql-database-active-geo-replication-portal.md
         - name: Configuración de Azure SQL Data Sync
           href: sql-database-get-started-sql-data-sync.md
+    - name: Grupo elástico
+      items:
+        - name: Agregar a un grupo de conmutación por error
+          href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: Instancia administrada
       items:
         - name: Migración en línea mediante DMS
@@ -245,8 +253,6 @@
               href: sql-database-active-geo-replication.md
             - name: Grupos de conmutación por error automática
               href: sql-database-auto-failover-group.md
-            - name: 'Configuración de replicación geográfica activa: Portal'
-              href: sql-database-active-geo-replication-portal.md
             - name: Configuración de la seguridad de las réplicas
               href: sql-database-geo-replication-security-config.md
         - name: Opciones de recuperación de base de datos
@@ -516,6 +522,8 @@
           href: sql-database-managed-instance-connect-app.md
     - name: Carga y movimiento de datos
       items:
+        - name: Traslado de recursos a una nueva región
+          href: sql-database-move-resources-across-regions.md
         - name: Copia de una base de datos en Azure
           href: sql-database-copy.md
         - name: Importación de una base de datos desde un archivo BACPAC

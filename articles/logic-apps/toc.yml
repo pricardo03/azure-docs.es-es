@@ -303,10 +303,12 @@
           href: test-logic-apps-mock-data-static-results.md
     - name: Implementación
       items:
+        - name: 'Introducción: Automatización de la implementación de aplicaciones lógicas'
+          href: logic-apps-azure-resource-manager-templates-overview.md
         - name: Creación de plantillas de aplicaciones lógicas
-          href: logic-apps-create-deploy-template.md
+          href: logic-apps-create-azure-resource-manager-templates.md
         - name: Implementación de plantillas de aplicaciones lógicas
-          href: logic-apps-create-deploy-azure-resource-manager-templates.md
+          href: logic-apps-deploy-azure-resource-manager-templates.md
     - name: Supervisión
       items:
         - name: Supervisión de aplicaciones lógicas
@@ -377,7 +379,7 @@
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Foro de MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelogicapps'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-logic-apps'
     - name: Twitter

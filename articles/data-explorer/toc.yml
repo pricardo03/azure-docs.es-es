@@ -98,8 +98,6 @@
           href: sisense.md
     - name: administración
       items:
-        - name: Administración de permisos de la base de datos
-          href: manage-database-permissions.md
         - name: Comprobación del estado del clúster
           href: check-cluster-health.md
         - name: Selección de SKU de máquina virtual de clúster
@@ -108,6 +106,10 @@
           href: manage-cluster-horizontal-scaling.md
         - name: Administración del escalado vertical de clústeres
           href: manage-cluster-vertical-scaling.md
+        - name: Administración de la seguridad del clúster
+          href: manage-cluster-security.md
+        - name: Administración de permisos de la base de datos
+          href: manage-database-permissions.md
         - name: Eliminación de datos
           href: delete-data.md
         - name: Tratamiento de datos duplicados

@@ -27,6 +27,8 @@
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
 - name: Conceptos
   items:
+    - name: Planeación de una implementación de informes y supervisión
+      href: plan-monitoring-and-reporting.md
     - name: Registros de auditoría
       href: concept-audit-logs.md
     - name: Registros de inicio de sesión

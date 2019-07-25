@@ -83,7 +83,7 @@
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Publicar aplicaciones de HDInsight en Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
-    - name: Protección
+    - name: Seguridad
       items:
         - name: Uso de SSH con HDInsight
           href: ../hdinsight-hadoop-linux-use-ssh-unix.md
@@ -254,10 +254,14 @@
       items:
         - name: Arquitectura de red virtual de HDInsight
           href: ../hdinsight-virtual-network-architecture.md
+        - name: Planeación de redes virtuales para HDInsight
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: Creación de redes virtuales para HDInsight
+          href: ../hdinsight-create-virtual-network.md
+        - name: Direcciones IP necesarias para grupos de seguridad de red y rutas definidas por el usuario
+          href: ../hdinsight-management-ip-addresses.md
         - name: Uso del firewall para restringir el tráfico de salida
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: HDInsight en redes virtuales de Azure
-          href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: Conexión de HDInsight con la red local
           href: ../connect-on-premises-network.md
     - name: Supervisión mediante registros de Azure Monitor

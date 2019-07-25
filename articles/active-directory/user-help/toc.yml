@@ -74,6 +74,8 @@
           href: security-info-setup-text-msg.md
         - name: Configuración de llamadas telefónicas
           href: security-info-setup-phone-number.md
+        - name: Configuración de claves de seguridad
+          href: security-info-setup-security-key.md
         - name: Configuración del correo electrónico
           href: security-info-setup-email.md
         - name: Configuración de preguntas de seguridad

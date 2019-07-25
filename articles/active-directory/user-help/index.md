@@ -11,16 +11,16 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e73e089f0753f49233c75a5e55513ebaf7bf9c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a6908a26e1d513261094be28620c3c9a2d86b48
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861810"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383100"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Ayuda para usuarios sobre autenticación, aplicaciones y administración de dispositivos
 
-Hemos creado este contenido para ayudarle a configurar y usar la información de seguridad, la verificación en dos pasos, para aprender a restablecer sus propias contraseñas, para configurar y unir los dispositivos de Azure Active Directory, y para configurar y usar la aplicación Microsoft Authenticator y el portal Mis aplicaciones.
+Hemos creado este contenido para ayudarle a configurar y usar la información de seguridad, la verificación en dos pasos, el restablecimiento de sus propias contraseñas, la configuración y unión de los dispositivos de Azure Active Directory, y la configuración y uso de la aplicación Microsoft Authenticator y el portal Mis aplicaciones.
 
 |  |
 |--|
@@ -77,6 +77,7 @@ Hemos creado este contenido para ayudarle a configurar y usar la información de
                         <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Configuración de una aplicación autenticadora</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Configuración de mensajería de texto</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-phone-number">Configuración de llamadas telefónicas</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-security-key">Configuración de una clave de seguridad</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">Cómo iniciar sesión</a>
                         </p>
                     </div>
