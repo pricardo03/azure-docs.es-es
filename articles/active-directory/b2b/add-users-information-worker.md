@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e8606a0d4e203e1a910a5cd15ca83a622f5286bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65812537"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>¿Cómo pueden los usuarios de la organización invitar a usuarios invitados a una aplicación?
@@ -35,17 +35,17 @@ Una vez que se haya agregado un usuario invitado al directorio en Azure AD, un p
 Después de configurar una aplicación para el autoservicio, los propietarios de la aplicación pueden usar su propio panel de acceso para invitar a un usuario invitado a la aplicación que desean compartir. No es necesario que se agregue el usuario invitado a Azure AD con antelación. 
 
 1. Para abrir el panel de acceso, vaya a `https://myapps.microsoft.com`.
-2. Apunte a la aplicación, seleccione el icono de puntos suspensivos (**...**) y, a continuación, seleccione **Administrar aplicación**.
+2. Apunte a la aplicación, seleccione el icono de puntos suspensivos ( **...** ) y, a continuación, seleccione **Administrar aplicación**.
  
-   ![Captura de pantalla muestra el menú secundario de administrar aplicaciones de la aplicación de Salesforce](media/add-users-iw/access-panel-manage-app.png)
+   ![Captura de pantalla que muestra el menú secundario Administrar aplicación de la aplicación de Salesforce](media/add-users-iw/access-panel-manage-app.png)
  
-3. En la parte superior de la lista de usuarios, seleccione **+**.
+3. En la parte superior de la lista de usuarios, seleccione **+** .
    
-   ![Captura de pantalla muestra el signo más para agregar miembros a la aplicación](media/add-users-iw/access-panel-manage-app-add-user.png)
+   ![Captura de pantalla que muestra el signo más para agregar miembros a la aplicación](media/add-users-iw/access-panel-manage-app-add-user.png)
    
 4. En el cuadro de búsqueda **Agregar miembros**, escriba la dirección de correo electrónico para el usuario invitado. Opcionalmente, puede incluir un mensaje de bienvenida.
    
-   ![Captura de pantalla muestra el Agregar ventana miembros para agregar un invitado](media/add-users-iw/access-panel-invitation.png)
+   ![Captura de pantalla que muestra la ventana Agregar miembros para agregar un invitado](media/add-users-iw/access-panel-invitation.png)
    
 5. Seleccione **Agregar** para enviar una invitación al usuario invitado. Después de enviar la invitación, la cuenta de usuario se agrega automáticamente al directorio como invitado.
 
@@ -56,19 +56,19 @@ Después de configurar una aplicación para el autoservicio, los propietarios de
 2. Para abrir el panel de acceso, vaya a `https://myapps.microsoft.com`.
 3. Seleccione la aplicación **Grupos**.
    
-   ![Captura de pantalla muestra la aplicación de grupos en el Panel de acceso](media/add-users-iw/access-panel-groups.png)
+   ![Captura de pantalla que muestra la aplicación Grupos en el Panel de acceso](media/add-users-iw/access-panel-groups.png)
    
 4. En **Grupos de mi propiedad**, seleccione el grupo que tiene acceso a la aplicación que desea compartir.
    
    ![Captura de pantalla que muestra dónde debe seleccionar un grupo en los grupos de mi propiedad](media/add-users-iw/access-panel-groups-i-own.png)
    
-5. En la parte superior de la lista de miembros de grupos, seleccione **+**.
+5. En la parte superior de la lista de miembros de grupos, seleccione **+** .
    
-   ![Captura de pantalla muestra el signo más para agregar miembros al grupo](media/add-users-iw/access-panel-groups-add-member.png)
+   ![Captura de pantalla que muestra el signo más para agregar miembros al grupo](media/add-users-iw/access-panel-groups-add-member.png)
    
 6. En el cuadro de búsqueda **Agregar miembros**, escriba la dirección de correo electrónico para el usuario invitado. Opcionalmente, puede incluir un mensaje de bienvenida.
    
-   ![Captura de pantalla muestra el Agregar ventana miembros para agregar un invitado](media/add-users-iw/access-panel-invitation.png)
+   ![Captura de pantalla que muestra la ventana Agregar miembros para agregar un invitado](media/add-users-iw/access-panel-invitation.png)
    
 7. Seleccione **Agregar** para enviar automáticamente la invitación al usuario invitado. Después de enviar la invitación, la cuenta de usuario se agrega automáticamente al directorio como invitado.
 

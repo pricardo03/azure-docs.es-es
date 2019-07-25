@@ -14,12 +14,12 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 5f2627932eb2fd427d934eba322230222b5e6958
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc880885777cbca67d6fb39b90feadc889339f76
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002948"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836174"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solución de problemas de la factoría de datos
 > [!NOTE]
@@ -119,14 +119,14 @@ Consulte [Debug a pipeline with custom activity](data-factory-use-custom-activit
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Uso del Portal de Azure para solucionar problemas
 ### <a name="using-portal-blades"></a>Uso de hojas del Portal
-Consulte [Supervisión de la canalización](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) para ver los pasos.
+Consulte [Supervisión de la canalización](data-factory-monitor-manage-pipelines.md) para ver los pasos.
 
 ### <a name="using-monitor-and-manage-app"></a>Uso de la aplicación de supervisión y administración
 Consulte [Monitor and manage data factory pipelines using Monitor and Manage App](data-factory-monitor-manage-app.md) (Supervisar y administrar canalizaciones de Data Factory con una aplicación de supervisión y administración) para obtener más información.
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Usar Azure PowerShell para solucionar problemas
 ### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Usar Azure PowerShell para solucionar un error
-Consulte [Monitor Data Factory pipelines using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) (Supervisar canalizaciones de Data Factory con Azure PowerShell) para obtener más información.
+Consulte [Monitor Data Factory pipelines using Azure PowerShell](data-factory-monitor-manage-pipelines.md) (Supervisar canalizaciones de Data Factory con Azure PowerShell) para obtener más información.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

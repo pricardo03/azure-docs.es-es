@@ -1,6 +1,6 @@
 ---
-title: Usar servicios de plataforma como-servicio (PaaS) en Azure DevTest Labs | Microsoft Docs
-description: Obtenga información sobre cómo usar los servicios de plataforma como-servicio (Pass) en Azure DevTest Labs.
+title: Uso de servicios de plataforma como servicio (PaaS) en Azure DevTest Labs | Microsoft Docs
+description: Obtenga información sobre cómo usar los servicios de plataforma como servicio (PaaS) en Azure DevTest Labs.
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,79 +13,79 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833911"
 ---
-# <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Usar servicios de plataforma como-servicio (PaaS) en Azure DevTest Labs
-PaaS se admite en DevTest Labs a través de la característica de entornos. Se admiten los entornos en DevTest Labs mediante plantillas preconfiguradas de Azure Resource Manager en un repositorio Git. Los entornos pueden contener recursos de IaaS y PaaS. Le permiten crear sistemas complejos que pueden incluir recursos de Azure como máquinas virtuales, bases de datos, las redes virtuales y aplicaciones Web, que se personalizan para que trabajen juntos. Estas plantillas permiten una implementación coherente y mejor administración de entornos con control de código fuente. 
+# <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Uso de servicios de plataforma como servicio (PaaS) en Azure DevTest Labs
+PaaS se admite en DevTest Labs a través de la característica de entornos. Los entornos en DevTest Labs se admiten mediante plantillas preconfiguradas de Azure Resource Manager en un repositorio de Git. Los entornos pueden contener recursos de IaaS y PaaS. Le permiten crear sistemas complejos que pueden incluir recursos de Azure, como máquinas virtuales, bases de datos, redes virtuales y aplicaciones web, que se personalizan para que trabajen en conjunto. Estas plantillas permiten una implementación coherente y una mejor administración de entornos con control de código fuente. 
 
-Una correcta configuración de sistema permite los siguientes escenarios: 
+Una correcta configuración del sistema permite los siguientes escenarios: 
 
-- A los desarrolladores tener varios entornos e independiente
-- Pruebas en diferentes configuraciones de forma asincrónica
-- Integración en las canalizaciones de ensayo y producción sin realizar ningún cambio de plantilla
-- Tiene equipos de desarrollo y entornos en el mismo laboratorio aumenta la facilidad de administración e informes de costo.  
+- La posibilidad de que los desarrolladores tengan varios entornos, incluidos entornos independientes.
+- Pruebas en diferentes configuraciones de forma asincrónica.
+- Integración en las canalizaciones de ensayo y producción sin realizar ningún cambio en la plantilla.
+- La posibilidad de tener entornos y máquinas de desarrollo en el mismo laboratorio mejora la facilidad de administración e informes de costo.  
 
-El proveedor de recursos de DevTest Labs crea recursos en nombre del usuario de laboratorio, por lo que no se necesita ningún permiso adicional que se asignará a los usuarios de laboratorio para habilitar el uso de los recursos de PaaS. La siguiente imagen muestra un clúster de Service Fabric como un entorno en el laboratorio.
+El proveedor de recursos de DevTest Labs crea recursos en nombre del usuario del laboratorio, por lo que no es necesario asignar ningún permiso adicional a los usuarios del laboratorio para habilitar el uso de los recursos de PaaS. La siguiente imagen muestra un clúster de Service Fabric como entorno en el laboratorio.
 
-![Clúster de Service Fabric como un entorno](./media/create-environment-service-fabric-cluster/cluster-created.png)
+![Clúster de Service Fabric como entorno](./media/create-environment-service-fabric-cluster/cluster-created.png)
 
-Para obtener más información acerca de cómo configurar entornos, encontrarás [crear entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md). DevTest Labs tiene un repositorio público de plantillas de Azure Resource Manager que puede usar para crear entornos sin tener que conectarse a un origen externo de GitHub por sí mismo. Para obtener más información en entornos públicos, consulte [configurar y usar entornos públicos de Azure DevTest Labs](devtest-lab-configure-use-public-environments.md).
+Para obtener más información sobre cómo configurar los entornos, consulte [Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md) (Creación de entornos de varias VM y recursos de PaaS con las plantillas de Azure Resource Manager). DevTest Labs tiene un repositorio público de plantillas de Azure Resource Manager que puede usar para crear entornos sin tener que conectarse a un origen externo de GitHub por sí mismo. Para más información sobre los entornos públicos, consulte [Configuración y uso de entornos públicos en Azure DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
-En organizaciones grandes, los equipos de desarrollo suelen proporcionan entornos, como entornos de prueba aislada y personalizada. Puede haber entornos que se utilizan por todos los equipos de una división o una unidad de negocio. El grupo de TI puede proporcionar sus entornos que pueden usarse por todos los equipos de la organización.  
+En organizaciones grandes, los equipos de desarrollo suelen proporcionan entornos, como entornos de prueba aislados y personalizados. Puede haber entornos usados por todos los equipos de una división o unidad de negocio. El grupo de TI puede proporcionar sus entornos, que pueden usarlos todos los equipos de la organización.  
 
 ## <a name="customizations"></a>Personalizaciones
 
 #### <a name="sandbox"></a>Espacio aislado 
-El propietario de laboratorio puede personalizar los entornos de laboratorio para cambiar el rol del usuario de **lector** a **colaborador** dentro del grupo de recursos. Esta funcionalidad está en el **configuración del laboratorio** página bajo el **configuración y directivas** del laboratorio. Este cambio en el rol permite al usuario agregar o quitar recursos dentro de ese entorno. Si desea restringir aún más el acceso, use las directivas de Azure. Esta funcionalidad le permite personalizar la configuración sin el acceso en el nivel de suscripción o los recursos.
+El propietario del laboratorio puede personalizar los entornos de laboratorio para cambiar el rol del usuario de **lector** a **colaborador** dentro del grupo de recursos. Esta funcionalidad está en la página **Configuración del laboratorio** en **Configuración y directivas** del laboratorio. Este cambio en el rol permite que el usuario agregue o quite recursos dentro de ese entorno. Si quiere restringir aún más el acceso, use las directivas de Azure. Esta funcionalidad le permite personalizar los recursos o la configuración sin el acceso en el nivel de suscripción.
 
 #### <a name="custom-tokens"></a>Tokens personalizados
-Hay cierta información de laboratorio personalizado que está fuera del grupo de recursos y es específica para los entornos que puede tener acceso la plantilla. Estos son algunos de ellos: 
+Hay cierta información de laboratorio personalizada que está fuera del grupo de recursos y es específica para los entornos a los que puede tener acceso la plantilla. Esta información incluye lo siguiente: 
 
-- Identificación de la red de laboratorio
+- Identificación de la red del laboratorio
 - Ubicación
-- Cuenta de almacenamiento en el que se almacenan los archivos de plantillas de Resource Manager. 
+- Cuenta de Storage donde se almacenan los archivos de plantilla de Resource Manager. 
  
-#### <a name="lab-virtual-network"></a>Red virtual de laboratorio
-El [conectar entornos a red virtual del laboratorio](connect-environment-lab-virtual-network.md) artículo describe cómo modificar la plantilla de Resource Manager para usar el `$(LabSubnetId)` token. Cuando se crea un entorno, el `$(LabSubnetId)` símbolo (token) se reemplaza por la primera marca de la subred donde la **utilizar en la máquina virtual para crear** opción está establecida en **true**. Permite que nuestro entorno de redes ha creado anteriormente. Si desea utilizar las mismas plantillas de Resource Manager en entornos de prueba como ensayo y producción, use `$(LabSubnetId)` como valor predeterminado en un parámetro de plantilla de Resource Manager. 
+#### <a name="lab-virtual-network"></a>Red virtual del laboratorio
+En el artículo [Conexión de entornos a la red virtual del laboratorio](connect-environment-lab-virtual-network.md) se describe cómo modificar la plantilla de Resource Manager para usar el token `$(LabSubnetId)`. Cuando se crea un entorno, el token `$(LabSubnetId)` se reemplaza por la primera marca de la subred donde la opción **use in virtual machine create** (utilizar en la máquina virtual para crear) está establecida en **true**. Permite que nuestro entorno use redes creadas anteriormente. Si quiere usar las mismas plantillas de Resource Manager en entornos de prueba como ensayo y producción, use `$(LabSubnetId)` como valor predeterminado en un parámetro de plantilla de Resource Manager. 
 
-#### <a name="environment-storage-account"></a>Cuenta de almacenamiento del entorno
-DevTest Labs admite el uso de [plantillas de Resource Manager anidadas](../azure-resource-manager/resource-group-linked-templates.md). El [[implementar plantillas de Azure Resource Manager anidadas para entornos de prueba](deploy-nested-template-environments.md) artículo explica cómo usar `_artifactsLocation` y `_artifactsLocationSasToken` muestras para crear un URI a una plantilla de Resource Manager en la misma carpeta que o en un anidados carpeta de la plantilla principal. Para obtener más información acerca de estos dos tokens, consulte el **artefactos de implementación** sección de [Azure Resource Manager: Guía de mejores prácticas](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+#### <a name="environment-storage-account"></a>Cuenta de Storage del entorno
+DevTest Labs admite el uso de [plantillas anidadas de Resource Manager](../azure-resource-manager/resource-group-linked-templates.md). En el artículo [Deploy nested Azure Resource Manager templates for testing environments](deploy-nested-template-environments.md) (Implementación de plantillas anidadas de Resource Manager para ambientes de prueba) se explica cómo usar los tokens `_artifactsLocation` y `_artifactsLocationSasToken` para crear un URI para una plantilla de Resource Manager en la misma carpeta que la de la plantilla principal o en una carpeta anidada de esta. Para obtener más información sobre estos dos tokens, consulte la sección **Deployment artifacts** (Artefactos de implementación) de [Azure Resource Manager – Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md) (Azure Resource Manager: guía de procedimientos recomendados).
 
 ## <a name="user-experience"></a>Experiencia del usuario
 
-## <a name="developer"></a>Desarrollador
-Los desarrolladores usar el mismo flujo de trabajo para crear una máquina virtual para crear un entorno específico. Seleccionan el entorno frente a la imagen de máquina y escriba la información necesaria mediante la plantilla. Cada desarrollador que tenga un entorno permite la implementación de cambios y depuración mejorado bucle interno. El entorno se puede crear en cualquier momento mediante la plantilla más reciente.  Esta característica permite a los entornos se destruye y volver a crear para ayudar a reducir el tiempo de inactividad de tener que crear el sistema de forma manual o recuperarse de pruebas de errores.  
+## <a name="developer"></a>Developer
+Los desarrolladores usan el mismo flujo de trabajo para crear una VM que para crear un entorno específico. Seleccionan el entorno frente a la imagen de la máquina y escriben la información necesaria requerida por la plantilla. Cada desarrollador que tenga un entorno permite la implementación de cambios y una depuración mejorada del bucle interno. El entorno se puede crear en cualquier momento mediante la plantilla más reciente.  Esta característica permite destruir los entornos y volver a crearlos para ayudar a reducir el tiempo de inactividad al tener que crear el sistema de forma manual o recuperarse de pruebas de errores.  
 
-### <a name="testing"></a>Pruebas
-Los entornos de DevTest Labs permiten para las comprobaciones independientes de las configuraciones y código específico de forma asincrónica. Lo más habitual es configurar el entorno con el código de la solicitud de incorporación de cambios individuales e iniciar las pruebas automatizadas. Una vez que las pruebas automatizadas se ejecutan hasta completarse, se puede ejecutar el ninguna prueba manual en el entorno específico. Normalmente, este proceso se realiza como parte de la canalización de CI/CD. 
+### <a name="testing"></a>Prueba
+Los entornos de DevTest Labs permiten comprobaciones independientes de configuraciones y código específicos de forma asincrónica. Lo más habitual es configurar el entorno con el código de la solicitud de incorporación de cambios individuales e iniciar las pruebas automatizadas. Una vez que las pruebas automatizadas se ejecutan hasta completarse, se pueden ejecutar prueba manuales en el entorno específico. Normalmente, este proceso se realiza como parte de la canalización de CI/CD. 
 
 ## <a name="management-experience"></a>Experiencia de administración
 
 ### <a name="cost-tracking"></a>Seguimiento de costos
-La característica de seguimiento del costo incluye recursos de Azure en los distintos entornos como parte del total tendencia de costos. El costo por los recursos no se interrumpe los distintos recursos dentro del entorno, pero muestra el entorno como un solo costo.
+La característica de seguimiento de costos incluye recursos de Azure en los distintos entornos como parte de la tendencia de costos total. El costo por recursos no interrumpe los distintos recursos dentro del entorno, pero muestra el entorno como un solo costo.
 
 ### <a name="security"></a>Seguridad
-Una suscripción de Azure configurada correctamente con DevTest Labs puede [limitar el acceso a recursos de Azure solo a través de la práctica](devtest-lab-add-devtest-user.md). Con los entornos, un propietario de laboratorio puede permitir que los usuarios accedan a los recursos de PaaS con configuraciones aprobadas sin permitir el acceso a otros recursos de Azure. En el escenario donde los usuarios del laboratorio personalización entornos, el propietario de laboratorio puede permitir el acceso de colaborador. Acceso de colaborador permite al usuario de laboratorio agregar o quitar recursos de Azure solo dentro del grupo de recursos administrados. Permite para facilitar el seguimiento y administración y permitir al usuario acceso de colaborador a la suscripción.
+Una suscripción a Azure configurada correctamente con DevTest Labs puede [limitar el acceso a recursos de Azure solo a través del laboratorio](devtest-lab-add-devtest-user.md). Con los entornos, un propietario de laboratorio puede permitir que los usuarios tengan acceso a los recursos de PaaS con configuraciones aprobadas sin permitir el acceso a otros recursos de Azure. En el caso en que los usuarios del laboratorio personalizan entornos, el propietario del laboratorio puede permitir el acceso de colaborador. El acceso de colaborador permite que el usuario del laboratorio agregue o quite recursos de Azure solo dentro del grupo de recursos administrados. Permite un seguimiento y una administración más fáciles en relación con el permiso de acceso de colaborador usuario a la suscripción.
 
 ### <a name="automation"></a>Automation
-La automatización es un componente clave para una gran escala, un ecosistema eficaz. La automatización es necesaria controlar la administración o para varios entornos de seguimiento a través de suscripciones y laboratorios.
+Automation es un componente clave para una gran escala y un ecosistema eficaz. Automation es necesaria para controlar la administración o el seguimiento de varios entornos a través de suscripciones y laboratorios.
 
 ### <a name="cicd-pipeline"></a>Canalización de CI/CD
-Servicios de PaaS en DevTest Labs pueden ayudar a mejorar la canalización de CI/CD por tener centrado implementaciones donde el acceso se controla el laboratorio.
+Los servicios de PaaS en DevTest Labs pueden ayudar a mejorar la canalización de CI/CD centrándose en las implementaciones en las que el acceso lo controla el laboratorio.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los siguientes artículos para obtener más información acerca de los entornos: 
+Consulte estos artículos para obtener detalles sobre los entornos: 
 
 - 
 - [Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
-- [Configurar y usar entornos públicos en Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
-- [Crear un entorno con clúster de Service Fabric independiente en Azure DevTest Labs](create-environment-service-fabric-cluster.md)
-- [Conectar un entorno a red virtual de su laboratorio en Azure DevTest Labs](connect-environment-lab-virtual-network.md)
-- [Integrar entornos en las canalizaciones de CI/CD de Azure DevOps](integrate-environments-devops-pipeline.md)
+- [Configuración y uso de entornos públicos en Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
+- [Creación de un entorno con un clúster de Service Fabric independiente en Azure DevTest Labs](create-environment-service-fabric-cluster.md)
+- [Conexión de un entorno a la red virtual del laboratorio en Azure DevTest Labs](connect-environment-lab-virtual-network.md)
+- [Integración de entornos en las canalizaciones CI/CD de Azure DevOps](integrate-environments-devops-pipeline.md)
  
 
 

@@ -1,5 +1,5 @@
 ---
-title: Uso de plantillas de aplicación en Azure IoT Central | Microsoft Docs
+title: Uso de las plantillas de aplicación en Azure IoT Central | Microsoft Docs
 description: Como operador, cómo usar conjuntos de dispositivos en la aplicación de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
@@ -9,64 +9,64 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a26f70c5a61f3855a3de991072a7e84103e87b69
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66499225"
 ---
 # <a name="use-application-templates"></a>Uso de plantillas de aplicación
 
-Este artículo se describe cómo, como un administrador de soluciones, crear y utilizar plantillas de aplicación.
+En este artículo se describe cómo puede crear y utilizar plantillas de aplicación si es administrador de soluciones.
 
-Cuando se crea una aplicación de Azure IoT Central, tendrá la opción de plantillas de ejemplo integrados. También puede crear sus propias plantillas de aplicación de las aplicaciones existentes de IoT Central. A continuación, puede usar sus propias plantillas de aplicación al crear nuevas aplicaciones.
+Cuando crea una aplicación de Azure IoT Central, tiene la posibilidad de usar plantillas de ejemplo integradas. También puede crear sus propias plantillas de aplicación a partir de las aplicaciones existentes de IoT Central. A continuación, puede usar sus propias plantillas de aplicación al crear nuevas aplicaciones.
 
-Cuando se crea una plantilla de aplicación, incluye los siguientes elementos de la aplicación existente:
+Cuando crea una plantilla de aplicación, esta incluye los siguientes elementos de su aplicación existente:
 
-- El panel de la aplicación de forma predeterminada, incluidos el diseño del panel y todos los iconos que ha definido.
-- Plantillas de dispositivo, incluidas las medidas, configuración, propiedades, comandos y panel.
-- Reglas. Se incluyen todas las definiciones de regla. Sin embargo, las acciones, excepto por las acciones de correo electrónico, no se incluyen.
-- Conjuntos de dispositivos, incluidos sus condiciones y los paneles.
+- El panel de la aplicación predeterminado, incluidos el diseño del panel y todos los iconos que ha definido.
+- Las plantillas del dispositivo, incluidas las medidas, la configuración, las propiedades, los comandos y el panel.
+- Las reglas. Se incluyen todas las definiciones de las reglas. Sin embargo, no se incluyen las acciones, excepto las de correo electrónico.
+- Los conjuntos de dispositivos, incluidas sus condiciones y paneles.
 
 > [!WARNING]
-> Si un panel incluye iconos que muestran información acerca de dispositivos específicos, estos iconos muestran **no se encontró el recurso solicitado** en la nueva aplicación. Debe volver a configurar estos iconos para mostrar información acerca de los dispositivos en la nueva aplicación.
+> Si un panel incluye iconos que muestran información acerca de dispositivos específicos, estos iconos muestran el mensaje **No se encontró el recurso solicitado** en la nueva aplicación. Debe volver a configurar estos iconos para mostrar información acerca de los dispositivos en la nueva aplicación.
 
-Cuando se crea una plantilla de aplicación, no incluye los siguientes elementos:
+Cuando crea una plantilla de aplicación, no incluye los siguientes elementos:
 
 - Dispositivos
 - Usuarios
 - Definiciones de trabajos
-- Definiciones de exportación continua de datos
+- Definiciones de exportaciones de datos continuas
 
-Agregar estos elementos manualmente a las aplicaciones que se crea a partir de una plantilla de aplicación.
+Agregue estos elementos manualmente a cualquier aplicación creada a partir de una plantilla de aplicación.
 
-## <a name="create-an-application-template"></a>Crear una plantilla de aplicación
+## <a name="create-an-application-template"></a>Elija una plantilla de aplicación.
 
-Para crear una plantilla de aplicación de una aplicación IoT Central existente:
+Para crear una plantilla de aplicación a partir de una aplicación existente de IoT Central:
 
-1. Vaya a la **administración** sección en la aplicación.
-1. Seleccione **exportación de la plantilla de aplicación**.
-1. En el **Exportar plantilla de aplicación** , escriba un nombre y una descripción para la plantilla.
-1. Seleccione el **exportar** botón para crear la plantilla de aplicación. Ahora puede copiar el **vínculo compartible** que permite a alguien crear una nueva aplicación de la plantilla:
+1. Vaya a la sección **Administración** en su aplicación.
+1. Seleccione **Application Template Export** (Exportación de la plantilla de aplicación).
+1. En la página **Application Template Export** (Exportación de la plantilla de aplicación), escriba un nombre y una descripción para la plantilla.
+1. Seleccione el botón **Exportar** para crear la plantilla de aplicación. Ahora puede copiar el **vínculo que se puede compartir** que permite que otras personas puedan crear una nueva aplicación a partir de la plantilla:
 
-![Crear una plantilla de aplicación](media/howto-use-app-templates/create-template.png)
+![Elija una plantilla de aplicación.](media/howto-use-app-templates/create-template.png)
 
-## <a name="use-an-application-template"></a>Usar una plantilla de aplicación
+## <a name="use-an-application-template"></a>Uso de una plantilla de aplicación
 
-Para usar una plantilla de aplicación para crear una nueva aplicación de IoT Central, debe creado anteriormente **que se pueda compartir vínculo**. Pegar la **vínculo compartible** en la barra de direcciones del explorador. El **crear una aplicación** página se muestra con la plantilla de aplicación personalizada seleccionada:
+Para usar una plantilla de aplicación para crear una nueva aplicación de IoT Central, necesita un **vínculo que se puede compartir** que haya creado anteriormente. Pegue el **vínculo que se puede compartir** en la barra de direcciones de su explorador. La página **Crear una aplicación**  se muestra con su plantilla de aplicación personalizada seleccionada:
 
-![Crear una aplicación desde una plantilla](media/howto-use-app-templates/create-app.png)
+![Crear una aplicación a partir de una plantilla](media/howto-use-app-templates/create-app.png)
 
-Seleccione el plan de pago y rellene los demás campos del formulario. A continuación, seleccione **crear** para crear una nueva aplicación de IoT Central desde la plantilla de aplicación.
+Seleccione el plan de pago y rellene los demás campos del formulario. A continuación, seleccione **Crear** para crear una nueva aplicación de IoT Central a partir de la plantilla de aplicación.
 
-## <a name="manage-application-templates"></a>Administrar plantillas de aplicación
+## <a name="manage-application-templates"></a>Administración de las plantillas de aplicaciones
 
-En el **Exportar plantilla de aplicación** página, puede eliminar o actualizar la plantilla de aplicación.
+En la página **Application Template Export** (Exportación de la plantilla de aplicación), puede eliminar o actualizar la plantilla de aplicación.
 
-Si elimina una plantilla de aplicación, ya no se puede usar el vínculo que se pueda compartir generado anteriormente para crear nuevas aplicaciones.
+Si elimina una plantilla de aplicación, ya no podrá usar el vínculo que se puede compartir generado anteriormente para crear nuevas aplicaciones.
 
-Para actualizar la plantilla de aplicación, cambie el nombre de la plantilla o la descripción en el **Exportar plantilla de aplicación** página. A continuación, seleccione el **exportar** nuevamente en el botón. Esta acción genera un nuevo **que se pueda compartir vínculo** e invalida cualquier anterior **que se pueda compartir vínculo** dirección URL.
+Para actualizar la plantilla de aplicación, cambie el nombre o la descripción de la plantilla en la página **Application Template Export** (Exportación de la plantilla de aplicación). A continuación, vuelva a seleccionar el botón **Exportar**. Esta acción genera un nuevo **vínculo que se puede compartir** e invalida cualquier URL anterior de **vínculo que se puede compartir vínculo**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a usar plantillas de aplicación, el siguiente paso sugerido es obtener información sobre cómo [administrar IoT Central desde el portal de Azure](howto-manage-iot-central-from-portal.md)
+Ahora que ha aprendido a usar las plantillas de aplicaciones, le sugerimos el paso siguiente para aprender a [administrar IoT Central desde Azure Portal](howto-manage-iot-central-from-portal.md).

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 783cef6ff4e107838bb3ff7502fb4a8e9189ec3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c6e947dfed3169f346f43ab08225056815e8b487
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60897749"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061201"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de rendimiento de Linux en Application Insights
 
@@ -91,7 +91,7 @@ Configure otros [complementos de collectd](https://collectd.org/wiki/index.php/T
 Reinicie collectd según su [manual](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Visualización de los datos en Application Insights
-En el recurso de Application Insights, abra [métricas y agregue gráficos][metrics], seleccionando las métricas que desea ver en la categoría personalizado.
+En el recurso de Application Insights, abra [Métricas y agregue gráficos][metrics]. Para ello, seleccione las métricas que quiere ver en la categoría Personalizado.
 
 De forma predeterminada, las métricas se agregan en todos los equipos host desde los que se recopilaron estas. Para ver las métricas por host, en la hoja Detalles del gráfico, active Agrupación y elija Agrupar por CollectD-Host.
 

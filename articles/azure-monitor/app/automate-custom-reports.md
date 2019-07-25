@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: f22cb620bf8cf56110bec60a4dd809066393a8ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067658"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar informes personalizados con datos de Azure Application Insights
 
@@ -92,10 +92,10 @@ availabilityResults
 
    ![Captura de pantalla para crear una nueva función](./media/automate-custom-reports/function-app-03.png)
 
-5. Seleccione la **_plantilla de resumen programada de Application Insights_**.
+5. Seleccione la **_plantilla de resumen programada de Application Insights_** .
 
      > [!NOTE]
-     > De forma predeterminada, se crean instancias de function App con en tiempo de ejecución versión 2.x. Debe [versión de target Azure Functions runtime](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x a usar Application Insights programada de plantilla de texto implícita.
+     > De forma predeterminada, las aplicaciones de función se crean con la versión 2.x del entorno en tiempo de ejecución. Debe [orientarse a la versión del tiempo de ejecución de Azure Functions](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x para usar la plantilla de resumen de programación de Application Insights.
 
    ![Captura de pantalla de la plantilla de Application Insights de la nueva función](./media/automate-custom-reports/function-app-04.png)
 
@@ -120,7 +120,7 @@ availabilityResults
      > [!NOTE]
      > Si no tiene ninguna cuenta en SendGrid, puede crear una. Puede encontrar la documentación de SendGrid para Azure Functions [aquí](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Si solo quiere una explicación básica sobre cómo configurar SendGrid y generar una clave de API, se proporciona una al final de este artículo. 
 
-9. Seleccione **Integrar** y, en Salidas, haga clic en **SendGrid ($return)**.
+9. Seleccione **Integrar** y, en Salidas, haga clic en **SendGrid ($return)** .
 
      ![Captura de pantalla de salida](./media/automate-custom-reports/function-app-09.png)
 

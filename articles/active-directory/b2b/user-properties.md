@@ -1,6 +1,6 @@
 ---
-title: Propiedades de un B2B invitados usuario - Azure Active Directory | Microsoft Docs
-description: Propiedades de usuario de invitado de B2B de Active Directory de Azure y los Estados antes y después del canje de invitación
+title: 'Propiedades de usuario invitado B2B: Azure Active Directory | Microsoft Docs'
+description: Estados y propiedades de usuario invitado B2B de Azure Active Directory antes y después del canje de invitación
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -13,15 +13,15 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1416dacd65024457e713547223f5c35290b3d15
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65768165"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propiedades de un usuario de colaboración B2B de Azure Active Directory
 
-En este artículo se describe las propiedades y los Estados del objeto de usuario invitado B2B en Azure Active Directory (Azure AD) antes y después del canje de invitación. Un usuario de colaboración de Azure AD negocio a negocio (B2B) es un usuario con UserType = invitado. Dicho usuario suele ser de una organización asociada y tiene, de forma predeterminada, privilegios limitados en el directorio de la invitación.
+En este artículo se describen las propiedades y los estados del objeto de usuario invitado B2B en Azure Active Directory (Azure AD) antes y después del canje de invitación. Un usuario de colaboración de negocio a negocio (B2B) de Azure AD es un usuario con UserType = Guest. Dicho usuario suele ser de una organización asociada y tiene, de forma predeterminada, privilegios limitados en el directorio de la invitación.
 
 En función de las necesidades de la organización invitadora, un usuario de colaboración de B2B de Azure AD puede tener cualquiera de los siguientes estados de cuenta:
 
@@ -33,7 +33,7 @@ En función de las necesidades de la organización invitadora, un usuario de col
 
 - Estado 4: alojado en la instancia de Azure AD de la organización host con UserType = Invitado y credenciales que administra dicha organización.
 
-  ![Diagrama que ilustra los Estados de cuatro usuario](media/user-properties/redemption-diagram.png)
+  ![Diagrama que ilustra los cuatro estados del usuario](media/user-properties/redemption-diagram.png)
 
 
 Ahora, veamos cómo es un usuario de colaboración de B2B de Azure AD en Azure AD.
@@ -42,7 +42,7 @@ Ahora, veamos cómo es un usuario de colaboración de B2B de Azure AD en Azure A
 
 Las cuentas de estado 1 y estado 2 resultan de los usuarios invitados que invitan a colaborar con el uso de las propias credenciales de los usuarios invitados. Cuando se envía inicialmente la invitación al usuario invitado, se crea una cuenta en el directorio. Esta cuenta no tiene ninguna credencial asociada, ya que la autenticación la realiza el proveedor de identidades del usuario invitado. La propiedad **Origen** de la cuenta de usuario invitado del directorio se establece en **Usuario invitado**. 
 
-![Captura de pantalla que muestra las propiedades de usuario antes del canje de la oferta](media/user-properties/before-redemption.png)
+![Captura de pantalla que muestra las propiedades del usuario antes del canje de la oferta](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>Después del canje de la invitación
 
@@ -98,7 +98,7 @@ Puede haber casos en los que desee ofrecer a los usuarios invitados privilegios 
 
 Se pueden desactivar las limitaciones predeterminadas para que un usuario invitado del directorio de la empresa tenga los mismos permisos que un usuario que sea miembro.
 
-![Captura de pantalla muestra a los usuarios externos de opción en la configuración de usuario](media/user-properties/remove-guest-limitations.png)
+![Captura de pantalla que muestra la opción de usuarios externos en la configuración del usuario](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>¿Puedo hacer visibles a los usuarios invitados en la lista global de direcciones de Exchange?
 Sí. De forma predeterminada, los objetos de invitado no aparecen en la lista global de direcciones de la organización, pero puede usar Azure Active Directory PowerShell para que figuren. Para obtener más información, consulte **Can I make guest objects visible in the global address list?** (¿Puedo hacer visibles los objetos de invitado de la lista global de direcciones?) en [Manage guest access in Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq) (Administrar el acceso de invitados en Grupos de Office 365). 

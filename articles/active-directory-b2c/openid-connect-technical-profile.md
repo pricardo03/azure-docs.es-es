@@ -1,6 +1,6 @@
 ---
-title: Definir un perfil técnico de OpenId Connect en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
-description: Definir un perfil técnico de OpenId Connect en una directiva personalizada en Azure Active Directory B2C.
+title: Definición de un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C | Microsoft Docs
+description: Defina un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,19 +11,19 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 6d16415aa5111388ec2d2a1009ff477574ae42c5
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512910"
 ---
-# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir un perfil técnico de OpenId Connect en una directiva personalizada de Azure Active Directory B2C
+# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C ofrece compatibilidad con el proveedor de identidades del protocolo [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/). OpenID Connect 1.0 define un nivel de identidad sobre OAuth 2.0 y representa la tecnología más avanzada en los protocolos de autenticación moderna. Con un perfil técnico OpenId Connect, puede federar con un proveedor de identidades basado en OpenId Connect, como Azure AD. Federación con un proveedor de identidades permite a los usuarios iniciar sesión con sus actuales social o identidades de empresa.
+Azure Active Directory (Azure AD) B2C ofrece compatibilidad con el proveedor de identidades del protocolo [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/). OpenID Connect 1.0 define un nivel de identidad sobre OAuth 2.0 y representa la tecnología más avanzada en los protocolos de autenticación moderna. Con un perfil técnico de OpenId Connect, puede realizar la federación con un proveedor de identidades basado en OpenId Connect, como Azure AD. Esta federación con un proveedor de identidades permite a los usuarios iniciar sesión con sus identidades de redes sociales o de empresa existentes.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocolo
 
 El atributo **Name** del elemento **Protocol** tiene que establecerse en `OpenIdConnect`. Por ejemplo, el protocolo del perfil técnico **MSA-OIDC** es `OpenIdConnect`:
 
@@ -52,7 +52,7 @@ El elemento **OutputClaimsTransformations** puede contener una colección de ele
 
 En el ejemplo siguiente, se muestran las notificaciones proporcionadas por el proveedor de identidades de cuentas Microsoft:
 
-- El **sub** notificación que se asigna a la **issuerUserId** de notificación.
+- La notificación **sub** que se asigna a la notificación **issuerUserId**.
 - La notificación **name** que se asigna a la notificación **displayName**.
 - El **correo electrónico** sin asignación de nombre.
 
@@ -76,16 +76,16 @@ El perfil técnico también muestra la notificaciones no proporcionadas por el p
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | client_id | Sí | El identificador de la aplicación del proveedor de identidades. |
-| IdTokenAudience | No | El público de id_token. Si se especifica, Azure AD B2C comprueba si el token se encuentra en una notificación proporcionada por el proveedor de identidades y si es igual al especificado. |
+| IdTokenAudience | Sin | El público de id_token. Si se especifica, Azure AD B2C comprueba si el token se encuentra en una notificación proporcionada por el proveedor de identidades y si es igual al especificado. |
 | METADATOS | Sí | URL que apunta a un documento de configuración JSON con un formato que se corresponde con la especificación Detección de OpenID Connect, que también se conoce como punto de conexión de configuración de OpenID conocido. |
 | ProviderName | Sin | Nombre del proveedor de identidades. |
 | response_types | Sin | Tipo de respuesta según la especificación OpenID Connect Core 1.0. Valores posibles: `id_token`, `code` o `token`. |
 | response_mode | Sin | Método que usará el proveedor de identidades para enviar de vuelta el resultado Azure AD B2C. Valores posibles: `query`, `form_post` (predeterminado) o `fragment`. |
-| scope | Sin | El ámbito de la solicitud que se define según la especificación de OpenID Connect Core 1.0. Por ejemplo, `openid`, `profile` y `email`. |
+| scope | Sin | Ámbito de la solicitud definida según la especificación OpenID Connect Core 1.0. Por ejemplo, `openid`, `profile` y `email`. |
 | HttpBinding | Sin | Enlace HTTP esperado al token de acceso y los puntos de conexión del token de notificaciones. Valores posibles: `GET` o `POST`.  |
 | ValidTokenIssuerPrefixes | Sin | Clave que puede usarse para iniciar sesión en todos los inquilinos al usar un proveedor de identidades multiinquilino, como Azure Active Directory. |
 | UsePolicyInRedirectUri | Sin | Indica si se usará una directiva al crear el URI de redireccionamiento. Al configurar la aplicación en el proveedor de identidades, necesita especificar el URI de redireccionamiento. El URI de redireccionamiento apunta a Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com se puede cambiar por your-tenant-name.b2clogin.com).  Si especifica `false`, tendrá que agregar un URI de redireccionamiento por cada directiva que use. Por ejemplo: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
-| MarkAsFailureOnStatusCode5xx | No | Indica si una solicitud a un servicio externo tiene que marcarse como un error si el código de estado HTTP se encuentra en el intervalo 5xx. El valor predeterminado es `false`. |
+| MarkAsFailureOnStatusCode5xx | Sin | Indica si una solicitud a un servicio externo tiene que marcarse como un error si el código de estado HTTP se encuentra en el intervalo 5xx. El valor predeterminado es `false`. |
 | DiscoverMetadataByTokenIssuer | Sin | Indica si los metadatos de OIDC tienen que detectarse con el emisor en el token JWT. |
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
@@ -98,7 +98,7 @@ El elemento **CryptographicKeys** contiene el atributo siguiente:
 
 ## <a name="redirect-uri"></a>URI de redireccionamiento
  
-Al configurar el URI de redireccionamiento del proveedor de identidades, escriba `https://login.microsoftonline.com/te/tenant/oauth2/authresp`. No olvide reemplazar **inquilino** con el nombre del inquilino (por ejemplo, contosob2c.onmicrosoft.com) o el identificador. del inquilino El URI de redireccionamiento necesita estar escrito todo en minúsculas.
+Al configurar el URI de redireccionamiento del proveedor de identidades, escriba `https://login.microsoftonline.com/te/tenant/oauth2/authresp`. Asegúrese de reemplazar **tenant** por el nombre del inquilino (por ejemplo, contosob2c.onmicrosoft.com) o por el id. del inquilino. El URI de redireccionamiento necesita estar escrito todo en minúsculas.
 
 Si usa el dominio **b2clogin.com** en lugar de **login.microsoftonline.com**, asegúrese de usar b2clogin.com en lugar de login.microsoftonline.com.
 

@@ -1,5 +1,5 @@
 ---
-title: Asociados que se integren con Azure Monitor
+title: Asociados que se integran con Azure Monitor
 description: Obtenga información sobre los asociados de Azure Monitor y sobre cómo puede acceder a documentación para integrarlos.
 author: rboucher
 services: azure-monitor
@@ -9,15 +9,15 @@ ms.date: 03/14/2019
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: fae8e80c6fa94c3581de3038399ef031506b2f55
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65774242"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
-Se muestran en orden alfabético. 
+Se enumeran en orden alfabético. 
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
 
@@ -31,7 +31,7 @@ Alert Logic Log Manager recopila registros de la plataforma de Azure, aplicacion
 
 ## <a name="appdynamics"></a>AppDynamics
 
-![AppDynamics Logo](./media/partners/appdynamics.png)
+![Logotipo de AppDynamics](./media/partners/appdynamics.png)
 
 Application Performance Management (APM) de AppDynamics permite a los propietarios de aplicaciones solucionar rápidamente los cuellos de botella de rendimiento y optimizar el rendimiento de las aplicaciones en ejecución en el entorno de Azure. Puede supervisar Azure Cloud Services (PaaS), los roles web y de trabajo, Virtual Machines (IaaS), Detección de servicios remotos (Microsoft Azure Service Bus), Servicios remotos de Microsoft Azure y Colas de Microsoft Azure (Blob de Azure), Cola de Azure (Microsoft Service Bus), Almacenamiento de datos y Microsoft Azure Blob Storage. AppDynamics APM ya está disponible en Azure Marketplace.
 
@@ -57,7 +57,7 @@ Puede crear incidencias JIRA de alertas de Azure Monitor.
 
 ## <a name="circonus"></a>Circonus
 
-![Circonus logotipo](./media/partners/circonus.png)
+![Logotipo de Circonus](./media/partners/circonus.png)
 
 Circonus es una plataforma de análisis y supervisión de microservicios integrada para la implementación en SaaS o local. Su plataforma centrada en la API totalmente automatizable es más escalable y confiable que los sistemas que supervisa. Desarrollada para satisfacer los requisitos de DevOps, Circonus ofrece alertas basadas en el percentil, gráficos, paneles e inteligencia de aprendizaje automático que permiten la optimización empresarial. Circonus supervisa los recursos en la nube de Microsoft Azure y sus aplicaciones en tiempo real. Puede usar Circonus para recopilar y realizar un seguimiento de las métricas de las variables que desee medir para las aplicaciones y los recursos. Con Circonus, consigue visibilidad en todo el sistema con respecto a la utilización de los recursos, el rendimiento de las aplicaciones y el estado de funcionamiento de Azure.
 
@@ -74,7 +74,7 @@ Una y automatice la nube con una plataforma creada para ahorrar tiempo y dinero.
 
 ## <a name="cloudmonix"></a>CloudMonix
 
-![CloudMonix Logo](./media/partners/cloudmonix.png)
+![Logotipo de CloudMonix](./media/partners/cloudmonix.png)
 
 CloudMonix ofrece servicios de supervisión, automatización y recuperación automática para la Plataforma Microsoft Azure.
 
@@ -82,7 +82,7 @@ CloudMonix ofrece servicios de supervisión, automatización y recuperación aut
 
 ## <a name="datadog"></a>Datadog
 
-![Logotipo de DataDog](./media/partners/datadog.png)
+![Logotipo de Datadog](./media/partners/datadog.png)
 
 Datadog es el servicio de supervisión líder mundial para aplicaciones de escala en la nube. Agrupa datos de servidores, bases de datos, herramientas y servicios para presentar una vista unificada de toda la pila. Estas funcionalidades se proporcionan en una plataforma de análisis de datos basada en SaaS. Este servicio permite a los equipos de desarrollo y operaciones trabajar en colaboración para evitar tiempos de inactividad, resolver problemas de rendimiento y asegurarse de que los ciclos de desarrollo e implementación finalizan a tiempo. Con la integración de Datadog y Azure, puede recopilar y ver las métricas de toda la infraestructura. Correlacione las métricas de máquina virtual con las del nivel de aplicación. Segmente y desglose las métricas mediante cualquier combinación de propiedades y etiquetas personalizadas.
 
@@ -90,15 +90,15 @@ Datadog es el servicio de supervisión líder mundial para aplicaciones de escal
 
 ## <a name="dynatrace"></a>Dynatrace
 
-![DynaTrace Logo](./media/partners/dynatrace.png)
+![Logotipo de Dynatrace](./media/partners/dynatrace.png)
 
 Dynatrace OneAgent se integra con máquinas virtuales Azure y App Services a través del mecanismo de extensión de Azure. De esta forma, Dynatrace OneAgent puede recopilar métricas de rendimiento sobre los hosts, la red y los servicios. Además de simplemente mostrar las métricas, Dynatrace permite visualizar entornos de un extremo a otro. Muestra las transacciones desde el lado cliente a la capa de base de datos. Dynatrace proporciona una correlación de problemas basada en inteligencia artificial y un análisis de las causas principales totalmente integrado para proporcionar información en el nivel de método sobre el código y la base de datos. Esto facilita bastante la solución de problemas y las optimizaciones de rendimiento.
 
 [Vaya a la documentación.][dynatrace-doc]
 
-## <a name="elastic"></a>Elástica
+## <a name="elastic"></a>Elastic
 
-![Logotipo elástico](./media/partners/elastic.png)
+![Logotipo de Elastic](./media/partners/elastic.png)
 
 Elastic es una empresa de búsquedas. Como creadores de Elastic Stack (Elasticsearch, Kibana, Beats, y Logstash), Elastic crea ofertas autoadministradas y de SaaS que permiten usar los datos en tiempo real y a escala, para casos de uso de búsqueda, registro, seguridad y análisis.
 
@@ -186,7 +186,7 @@ ScienceLogic ofrece la plataforma de seguridad del servicio de TI de próxima ge
 
 ![Logotipo de Serverless360](./media/partners/serverless360.png)
 
-Serverless360 es una herramienta de una plataforma para operar, administrar y supervisar los componentes de Azure sin servidor. Facilidad de uso es uno de los principales retos con implementaciones sin servidor. Cientos de servicios sin servidor discretos pequeños están dispersas en varios lugares: administración y funcionamiento de estas soluciones son complejo. Serverless360 resuelve estos desafíos con amplio conjunto de herramientas sofisticadas. Puede supervisar servicios sin servidor, como Azure Functions, Logic Apps, cuadrículas de eventos, colas de Service Bus, temas, retransmisiones, Event Hubs, almacenamiento colas, archivos, blobs y tablas. Serverless360 está disponible en Azure Marketplace. Estas funcionalidades están disponibles en el hospedaje privado (hospedado en su propio entorno) y SaaS.  
+Serverless360 es una herramienta de plataforma para operar, administrar y supervisar los componentes sin servidor de Azure. La facilidad de uso es uno de los principales desafíos de las implementaciones sin servidor. Existen cientos de pequeños y discretos servicios sin servidor dispersos en varios lugares; la administración y el funcionamiento de estas soluciones son complejos. Serverless360 resuelve estos desafíos con un amplio conjunto de herramientas sofisticadas. Puede supervisar servicios sin servidor como Azure Functions, Logic Apps, Event Grids, colas de Service Bus, temas, Relays, Event Hubs, colas de Storage, archivos, blobs y tablas. Serverless360 está disponible en Azure Marketplace. Estas funcionalidades están disponibles en el hospedaje privado (hospedado en su propio entorno) y de SaaS.  
 
 [Obtenga más información.][serverless360-doc]
 
@@ -194,7 +194,7 @@ Serverless360 es una herramienta de una plataforma para operar, administrar y su
 
 ![Logotipo de SignalFX](./media/partners/signalfx.png)
 
-SignalFx es el líder en inteligencia operativa en tiempo real para DevOps controlado por datos. El servicio detecta y recopila métricas de todos los componentes en la nube. Reemplaza las tradicionales herramientas puntuales y proporciona visibilidad en tiempo real de los actuales entornos dinámicos. El aprovechamiento de la plataforma SignalFx, que es altamente escalable, hace que la plataforma de SaaS esté optimizada para infraestructuras basadas en contenedor y microservicios y proporcione eficaces funcionalidades de visualización, generación proactiva de alertas y evaluación de prioridades durante la colaboración en organizaciones de todos los tamaños. SignalFx se integra directamente con Azure Monitor, así como a través de conectores de código abierto como *Telegraf*, *statsD*, y *collectd* para ofrecer la mejor en clase los paneles, análisis y alertas de Azure.
+SignalFx es el líder en inteligencia operativa en tiempo real para DevOps controlado por datos. El servicio detecta y recopila métricas de todos los componentes en la nube. Reemplaza las tradicionales herramientas puntuales y proporciona visibilidad en tiempo real de los actuales entornos dinámicos. El aprovechamiento de la plataforma SignalFx, que es altamente escalable, hace que la plataforma de SaaS esté optimizada para infraestructuras basadas en contenedor y microservicios y proporcione eficaces funcionalidades de visualización, generación proactiva de alertas y evaluación de prioridades durante la colaboración en organizaciones de todos los tamaños. SignalFx se integra directamente con Azure Monitor, así como a través de conectores de código abierto como *Telegraf*, *statsD* y *collectd*, con el fin de proporcionar los mejores paneles, análisis y alertas para Azure.
 
 [Vaya a la documentación.][signalfx-doc]
 
@@ -219,7 +219,7 @@ El complemento Azure Monitor para Splunk está [disponible en Splunkbase aquí](
 
 ## <a name="sumo-logic"></a>Sumo Logic
 
-![Sumo Logic logotipo](./media/partners/SumoLogic.png)
+![Logotipo de Sumo Logic](./media/partners/SumoLogic.png)
 
 Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en la nube, dado que ofrece inteligencia continua en tiempo real a partir de datos estructurados, semiestructurados y no estructurados desde la pila y el ciclo de vida de toda la aplicación. Más de mil clientes de todo el mundo confían en Sumo Logic para las tareas de análisis y recopilación de datos relevantes con el objetivo de generar, ejecutar y proteger sus aplicaciones e infraestructuras en la nube. Con Sumo Logic, los clientes obtienen una ventaja basada en un modelo de servicio y multiinquilino para aumentar la ventaja competitiva, el valor del negocio y el crecimiento.
 
@@ -227,7 +227,7 @@ Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en 
 
 ## <a name="turbonomic"></a>Turbonomic
 
-![Turbonomic logotipo](./media/partners/Turbonomic.png)
+![Logotipo de Turbonomic](./media/partners/Turbonomic.png)
 
 Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya que optimiza simultáneamente el rendimiento, costo y cumplimiento en tiempo real. Turbonomic ayuda a aumentar la elasticidad del estado de Azure de las organizaciones mediante la optimización continua del estado para garantizar que las aplicaciones obtienen constantemente los recursos que necesitan para cumplir su Acuerdo de Nivel de Servicio y nada más en relación con el proceso, el almacenamiento y la red para la capa de IaaS y PaaS. Las organizaciones pueden simular migraciones, escalar cargas de trabajo correctamente y retirar recursos del centro de datos para realizar responsablemente la migración a Azure de forma puntual y sin salirse del presupuesto, al mismo tiempo que se garantizan el rendimiento y el cumplimiento. Turbonomic es un producto controlado por API y se ejecuta como una VM sin agente en Azure y en local.
 
@@ -254,7 +254,7 @@ Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya qu
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Documentación de Dynatrace."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Documentación de Elastic."
 [grafana-doc]: ./grafana-plugin.md "Integración de Grafana y Azure Monitor."
-[influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Datos de Azure Monitor influjo Telegraf integración."
+[influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Integración de Telegraf InfluxData de Azure Monitor."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Documentación de Logic Monitor."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Documentación de Moogsoft."
 [newrelic-doc]: https://newrelic.com/azure "Documentación de NewRelic."

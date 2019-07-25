@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002243"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxis de consulta de Lucene en Azure Search
@@ -79,7 +79,7 @@ El ejemplo anterior es la tilde (~), pero el mismo principio se aplica a todos l
  Los caracteres especiales se deben escapar para poder usarse como parte del texto de búsqueda. Para ello, deben ir prefijados con una barra diagonal inversa (\\). Los caracteres especiales que se deben escapar son los siguientes:  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Por ejemplo, un carácter comodín de escape, use \\ \*.
+ Por ejemplo, para escapar un carácter comodín, use \\\*.
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codificación de caracteres reservados y no seguros en las direcciones URL
 
@@ -121,8 +121,8 @@ El uso de `searchMode=all` aumenta la precisión de las consultas al incluirse m
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Puntuación de consultas de caracteres comodín y expresiones regulares
  Azure Search usa la puntuación basada en la frecuencia ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para las consultas de texto. Sin embargo, para consultas con caracteres comodín y expresiones regulares donde el ámbito de los términos puede ser posiblemente amplio, se omite el factor de frecuencia para evitar que la clasificación se desvíe hacia las coincidencias de términos menos frecuentes. Todas las coincidencias se tratan por igual en las búsquedas con caracteres comodín y expresiones regulares.
 
-##  <a name="bkmk_fields"></a> Clasificada por campos de búsqueda  
-Puede definir una operación de búsqueda clasificada por campos con el `fieldName:searchExpression` sintaxis, donde la expresión de búsqueda puede ser una sola palabra o una frase o una expresión más compleja entre paréntesis, opcionalmente con operadores booleanos. Estos son algunos ejemplos:  
+##  <a name="bkmk_fields"></a> Búsqueda clasificada por campos  
+Puede definir una operación de búsqueda clasificada por campos con la sintaxis `fieldName:searchExpression`, donde la expresión de búsqueda puede ser una sola palabra, una frase o una expresión más compleja entre paréntesis, opcionalmente con operadores booleanos. Estos son algunos ejemplos:  
 
 - genre:jazz NOT history  
 
@@ -133,14 +133,14 @@ Asegúrese de colocar varias cadenas entre comillas si quiere que las dos cadena
 El campo especificado en `fieldName:searchExpression` debe ser un campo `searchable`.  Consulte [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Crear índice) para más información sobre cómo se usan los atributos de índice en las definiciones de campo.  
 
 > [!NOTE]
-> Al usar responderán a las expresiones de búsqueda, no es necesario usar el `searchFields` parámetro porque cada responderán expresión de búsqueda tiene un nombre de campo especificado explícitamente. Sin embargo, todavía puede usar el `searchFields` parámetro si desea ejecutar una consulta donde algunas partes se limitan a un campo específico y el resto se podría aplicar a varios campos. Por ejemplo, la consulta `search=genre:jazz NOT history&searchFields=description` coincidiría con `jazz` únicamente a la `genre` campo mientras coincidiría con `NOT history` con el `description` campo. El nombre de campo proporcionado en `fieldName:searchExpression` siempre tiene prioridad sobre la `searchFields` parámetro, que es por eso que en este ejemplo, no es necesario incluir `genre` en el `searchFields` parámetro.
+> Al usar expresiones de búsqueda clasificada por campos, no es necesario usar el parámetro `searchFields` porque cada expresión de búsqueda clasificada por campos tiene un nombre de campo especificado explícitamente. Pero tenga en cuenta que todavía puede usar el parámetro `searchFields` si quiere ejecutar una consulta donde algunas partes se limitan a un campo específico y el resto se podría aplicar a varios campos. Por ejemplo, la consulta `search=genre:jazz NOT history&searchFields=description` coincidiría con `jazz` únicamente con el campo `genre`, aunque coincidiría con `NOT history` con el campo `description`. El nombre de campo proporcionado en `fieldName:searchExpression` siempre tiene prioridad sobre el parámetro `searchFields`. Por eso en este ejemplo no es necesario incluir `genre` en el parámetro `searchFields`.
 
 ##  <a name="bkmk_fuzzy"></a> Búsqueda aproximada  
  Una búsqueda aproximada busca coincidencias en términos que tienen una construcción similar. Según la [documentación de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), las búsquedas aproximadas se basan en la [distancia Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Las búsquedas aproximadas pueden expandir un término hasta un máximo de 50 términos que satisfagan los criterios de distancia. 
 
  Para realizar una búsqueda aproximada, use el símbolo "~" de tilde de la Ñ al final de una sola palabra con un parámetro opcional, un número entre 0 y 2, que especifica la distancia de edición. Por ejemplo, "blue~" o "blue~1" devolvería "blue", "blues" y "glue".
 
- Búsqueda aproximada sólo puede aplicarse a los términos, no frases, pero no se puede anexar la tilde para cada término individualmente en un nombre de varias partes o frase. Por ejemplo, "Unviersty ~ de ~" Wshington ~ "coincidiría con"Universidad de Zaragoza".
+ La búsqueda aproximada solo puede aplicarse a términos, no a frases, pero se puede anexar la tilde a cada término individualmente en un nombre de varias partes o frase. Por ejemplo, "Unviersdad~ de~ "Zragoza~" coincidiría con "Universidad de Zaragoza".
  
 
 ##  <a name="bkmk_proximity"></a> Búsqueda por proximidad  
@@ -168,7 +168,7 @@ En el siguiente ejemplo se muestran las diferencias. Suponga que hay un perfil d
 >  ¿No puede utilizar un símbolo * o ? como primer carácter de la búsqueda.  
 >  No se realiza ningún análisis de texto en consultas de búsqueda con caracteres comodín. En tiempo de consulta, los términos de consulta con caracteres comodín se comparan con los términos analizados en el índice de búsqueda y expandidos.
 
-## <a name="see-also"></a>Vea también  
+## <a name="see-also"></a>Otras referencias  
 
 + [Buscar en documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [OData expression syntax for filters and sorting](query-odata-filter-orderby-syntax.md) (Sintaxis de expresiones de OData para filtros y ordenación)   

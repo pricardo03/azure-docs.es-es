@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2b55fea69fe1affb6cab5d360f1e8355c3bb720d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015440"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementación local del acelerador de soluciones de supervisión remota: IntelliJ
@@ -91,7 +91,7 @@ Si aún no ha creado los recursos de Azure necesarios, siga estos pasos:
 
      El script crea el grupo de recursos en Azure con el nombre de la solución. Este grupo de recursos contiene los recursos de Azure que usa el acelerador de soluciones. Puede eliminar este grupo de recursos cuando ya no necesite los recursos correspondientes.
 
-     El script también agrega un conjunto de variables de entorno con un prefijo **PCS** en el equipo local. Estas variables de entorno proporcionan los detalles de supervisión remota poder leer desde un recurso de Azure Key Vault. Este recurso de Key Vault es que la supervisión remota leerán sus valores de configuración de.
+     El script también agrega un conjunto de variables de entorno con un prefijo **PCS** en el equipo local. Estas variables de entorno proporcionan los detalles de supervisión remota para poder leer desde un recurso de Azure Key Vault. Este recurso de Key Vault es desde donde la supervisión remota leerá sus valores de configuración.
 
      > [!TIP]
      > Cuando se completa el script, también guarda las variables de entorno en un archivo denominado  **\<la carpeta principal\>\\.pcs\\\<nombre de la solución\>.env**. Puede usarlos para las implementaciones del acelerador de soluciones futuras. Tenga en cuenta que cualquier variable de entorno establecida en el equipo local invalida los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
@@ -102,13 +102,13 @@ Si aún no ha creado los recursos de Azure necesarios, siga estos pasos:
 
 Si ya ha creado los recursos de Azure necesarios, cree las variables de entorno correspondientes en el equipo local.
 Establezca las variables de entorno para lo siguiente:
-* **PCS_KEYVAULT_NAME** -nombre del recurso de Azure Key Vault
-* **PCS_AAD_APPID** -AAD el Id. de aplicación
-* **PCS_AAD_APPSECRET** -secreto de AAD de la aplicación
+* **PCS_KEYVAULT_NAME**: nombre del recurso de Azure Key Vault
+* **PCS_AAD_APPID**: id. de aplicación de AAD
+* **PCS_AAD_APPSECRET**: secreto de aplicación de AAD
 
-Se leerán los valores de configuración de este recurso de Azure Key Vault. Estas variables de entorno pueden guardarse en el  **\<la carpeta principal\>\\.pcs\\\<nombre de la solución\>.env** archivos de la implementación. Tenga en cuenta que las variables de entorno establecidas en el equipo local invalidan los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
+Los valores de configuración se leerán desde este recurso de Azure Key Vault. Estas variables de entorno pueden guardarse en el archivo **\<carpeta particular\>\\.pcs\\\<nombre de la solución\>.env** de la implementación. Tenga en cuenta que las variables de entorno establecidas en el equipo local invalidan los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
 
-Parte de la configuración necesaria para el microservicio se almacena en una instancia de **Key Vault** que se creó en la implementación inicial. Las variables correspondientes en el almacén de claves deben modificarse según sea necesario.
+Parte de la configuración necesaria para el microservicio se almacena en una instancia de **Key Vault** que se ha creado en la implementación inicial. Las variables correspondientes del almacén de claves deben modificarse según sea necesario.
 
 ## <a name="run-the-microservices"></a>Ejecución de los microservicios
 
@@ -162,7 +162,7 @@ En los pasos siguientes se muestra cómo ejecutar los microservicios de Supervis
     * WebService (services\iothub-manager)
     * WebService (services\storage-adapter)
 
-Por ejemplo, la siguiente imagen muestra cómo agregar la configuración de un servicio:
+Como ejemplo, la siguiente imagen muestra cómo agregar la configuración de un servicio:
 
 [![Agregar configuración](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
@@ -173,7 +173,7 @@ Por ejemplo, la siguiente imagen muestra cómo agregar la configuración de un s
 1. Escriba el **nombre** y **agregue tareas sbt**
 1. Haga clic en **Apply > OK** (Aplicar > Aceptar) para guardar las opciones.
 
-Por ejemplo, la siguiente imagen muestra la adición de todas las tareas de sbt a configuración única:
+Como ejemplo, en la siguiente imagen se muestra cómo se agregan todas las tareas sbt a una sola configuración:
 
 [![Agregar todos los servicios](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
@@ -207,7 +207,7 @@ npm install
 npm start
 ```
 
-Una vez completado el inicio, el explorador muestra la página **http:\//localhost:3000 / panel**. Los errores de esta página son de esperar. Para ver la aplicación sin errores, complete el paso siguiente.
+Una vez completado el inicio, aparecerá en el explorador la página **http:\//localhost:3000/dashboard**. Los errores de esta página son de esperar. Para ver la aplicación sin errores, complete el paso siguiente.
 
 ### <a name="configure-and-run-nginx"></a>Configuración y ejecución de NGINX
 
@@ -220,7 +220,7 @@ Para obtener más información acerca de cómo ejecutar **nginx**, consulte [ngi
 
 ### <a name="connect-to-the-dashboard"></a>Conexión al panel
 
-Para acceder al panel de solución de supervisión remota, vaya a http:\//localhost:9000 en el explorador.
+Para acceder al panel de soluciones de supervisión remota, vaya a http:\//localhost:9000 en el explorador.
 
 ## <a name="clean-up"></a>Limpieza
 

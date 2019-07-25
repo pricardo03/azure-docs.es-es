@@ -9,11 +9,11 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428021"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64715792"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Envío de mensajes EDI por lotes a socios comerciales con Azure Logic Apps
 
@@ -65,7 +65,7 @@ Para la receptora de lotes, especifique el modo del lote, el nombre, los criteri
 
 4. Establezca las propiedades de la receptora de lotes: 
 
-   | Propiedad | Value | Notas | 
+   | Propiedad | Valor | Notas | 
    |----------|-------|-------|
    | **Batch Mode** | En línea |  |  
    | **Batch Name** | TestBatch | Disponible solo con Batch Mode **Inline** | 
@@ -84,7 +84,7 @@ Para la receptora de lotes, especifique el modo del lote, el nombre, los criteri
 
    1. En el desencadenador de lotes, elija **Nuevo paso**.
 
-   2. En el cuadro de búsqueda, escriba "Lote X 12" como filtro y seleccione esta acción (cualquier versión): **Batch permite codificar <*versión*>-X12** 
+   2. En el cuadro de búsqueda, escriba "X12 batch" como filtro y seleccione esta acción (para cualquier versión): **Batch encode <*versión*> - X12** 
 
       ![Seleccione la acción de codificación por lotes X12.](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 

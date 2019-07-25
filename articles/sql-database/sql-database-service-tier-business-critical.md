@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 90989a9105405f1784b3be9ab59f55cd3433feaf
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479233"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Nivel de servicio Crítico para la empresa: Azure SQL Database
@@ -49,7 +49,7 @@ El nivel de servicio Crítico para la empresa está diseñado para las aplicacio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Encontrar recursos características (número de memoria de núcleos, E/S,) de nivel crítico para la empresa en [instancia administrada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), único en la base de datos [modelo de núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) o [modelo DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), o elásticas grupo en [modelo de núcleos virtuales](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) y [modelo DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
+- Encontrar características de recursos (número de núcleos, E/S, memoria) del nivel crítico para la empresa en la [instancia administrada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), la base de datos única en el [modelo de núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) o el [modelo DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), o en el grupo elástico en el [modelo de núcleos virtuales](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) y el [modelo DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Obtenga información sobre los niveles [De uso general](sql-database-service-tier-general-purpose.md) e [Hiperescala](sql-database-service-tier-hyperscale.md).
 - Obtenga información sobre [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Para conocer más opciones de alta disponibilidad y recuperación ante desastres, consulte [Continuidad del negocio](sql-database-business-continuity.md).

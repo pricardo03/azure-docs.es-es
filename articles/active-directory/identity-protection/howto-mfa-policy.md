@@ -11,27 +11,27 @@ manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f4083ddf849842358f7699badca6598e56e4dee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 434d07163713a139b42a5dbe1664f81dafc2a1ca
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139383"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108940"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Instrucciones: Configurar la directiva de registro de Azure Multi-factor Authentication
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Instrucciones: Configuración de la directiva de registro de Azure Multi-Factor Authentication
 
-Azure AD Identity Protection ayuda a administrar la puesta en servicio de registro de la autenticación multifactor (MFA) mediante la configuración de directiva de acceso condicional para requerir MFA registro independientemente de qué aplicaciones están iniciando sesión. Este artículo explica lo que puede usarse la directiva y cómo configurarlo.
+Azure AD Identity Protection le ayuda a administrar la puesta en servicio del registro de Multi-Factor Authentication (MFA) mediante la configuración de una directiva de acceso condicional para requerir el registro de MFA, independientemente de la aplicación en que inicie sesión. En este artículo se explica para qué se puede usar la directiva y cómo configurarla.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>¿Qué es la directiva de registro de Azure Multi-factor Authentication?
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>¿Qué es la directiva de registro de la autenticación multifactor de Azure?
 
-Azure Multi-factor Authentication proporciona un medio para comprobar que usan más de un nombre de usuario y contraseña. Proporciona una segunda capa de seguridad para inicios de sesión de usuario. En el orden de los usuarios puedan responder a las solicitudes MFA, primero debe registrar para la autenticación multifactor de Azure.
+Azure Multi-factor Authentication proporciona un medio para verificar su identidad más allá del nombre de usuario y la contraseña. Proporciona una segunda capa de seguridad a los inicios de sesión de los usuarios. Para que los usuarios puedan responder a las solicitudes MFA, primero debe registrarse para Azure Multi-Factor Authentication.
 
-Se recomienda requerir Azure Multi-factor Authentication para inicios de sesión de usuario porque lo:
+Se recomienda requerir Azure Multi-Factor Authentication en los inicios de sesión de usuario por los siguientes motivos:
 
 - Ofrece autenticación segura con una gama de opciones de comprobación sencillas.
-- Desempeña un papel fundamental en la preparación de su organización para protegerse y recuperarse de eventos de riesgo en Identity Protection
+- Desempeña un papel fundamental en la preparación de su organización para protegerse y recuperarse en caso de eventos de riesgo en Identity Protection
 
-Para obtener más detalles sobre la MFA, consulte [¿qué es Azure Multi-factor Authentication?](../authentication/howto-mfa-getstarted.md)
+Para obtener más información sobre MFA, consulte [Qué es Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
 ## <a name="how-do-i-access-the-registration-policy"></a>¿Cómo puedo acceder a la directiva de registro?
 
@@ -43,19 +43,19 @@ En la hoja **Azure AD Identity Protection**, en la sección [Configurar](https:/
 
 Al configurar la directiva de registro de MFA, deberá realizar los siguientes cambios de configuración:
 
-- Los usuarios y grupos que se aplica la directiva. No olvide excluir de la organización [cuentas de acceso de emergencia](../users-groups-roles/directory-emergency-access.md).
+- Usuarios y grupos a los que se aplica la directiva. Recuerde excluir las [cuentas de acceso de emergencia](../users-groups-roles/directory-emergency-access.md) de la organización.
 
     ![Usuarios y grupos](./media/howto-mfa-policy/11.png)
 
-- El control que desea aplicar - **registro requiere Azure MFA**
+- El control que quiere aplicar: **se requiere registro en Azure MFA**
 
     ![Access](./media/howto-mfa-policy/12.png)
 
-- Aplicar la directiva debe establecerse en **en**.
+- La opción Aplicar directiva debe establecerse en **Activado**.
 
     ![Aplicar directiva](./media/howto-mfa-policy/14.png)
 
-- **Guardar** la directiva
+- **Guarde** la directiva
 
 ## <a name="user-experience"></a>Experiencia del usuario
 

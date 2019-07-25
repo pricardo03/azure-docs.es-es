@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d31a6ee13965aa326ab8a71b5b5435025bc26057
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139715"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705740"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonación de aplicaciones de Azure App Service mediante PowerShell
 
@@ -28,7 +28,7 @@ ms.locfileid: "66139715"
 
 Con el lanzamiento de Microsoft Azure PowerShell versión 1.1.0, se ha agregado una nueva opción a `New-AzWebApp` que permite clonar una aplicación de App Service existente en una aplicación nueva que se crea en una región diferente o en la misma región. Esta opción permitirá que los clientes implementen varias aplicaciones en diferentes regiones de una forma rápida y sencilla.
 
-La clonación de aplicaciones actualmente solo se admite para los planes de Servicio de aplicaciones de nivel Premium. La nueva característica cuenta con las mismas limitaciones que la copia de seguridad de App Service; consulte [Realización de una copia de seguridad de una aplicación en Azure App Service](manage-backup.md).
+La clonación de aplicaciones se admite para los planes de App Service Estándar, Premium, Premium V2 y Aislado. La nueva característica cuenta con las mismas limitaciones que la copia de seguridad de App Service; consulte [Realización de una copia de seguridad de una aplicación en Azure App Service](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Clonación de una aplicación existente
 Escenario: tiene una aplicación web existente de la región Centro-sur de EE. UU. y desea clonar el contenido en una nueva aplicación web de la región Centro-norte de EE. UU. Para ello, puede utilizar la versión para Azure Resource Manager del cmdlet de PowerShell y crear una nueva aplicación web con la opción `-SourceWebApp`.
@@ -130,6 +130,7 @@ Estas son las restricciones conocidas de la clonación de aplicaciones:
 * No se clonan las reglas de TiP.
 * No se clona el contenido de la base de datos.
 * Las direcciones IP de salida cambiarán si la clonación se realiza en una unidad de escalado distinta.
+* No está disponible para las aplicaciones de Linux.
 
 ### <a name="references"></a>Referencias
 * [Clonación de App Service](app-service-web-app-cloning.md)

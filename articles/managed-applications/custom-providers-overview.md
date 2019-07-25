@@ -6,12 +6,12 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: f418cd6c5470740ce123448ddbbe54cb6e89dabe
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d25ef00adc307bae57da2c04d4472874f8d67bcd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67475964"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796081"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Información general sobre los proveedores de recursos personalizados de Azure
 
@@ -56,7 +56,7 @@ Punto de conexión de ejemplo:
 
 Propiedad | Obligatorio | DESCRIPCIÓN
 ---|---|---
-Nombre | *sí* | La definición del nombre del punto de conexión. Azure expondrá este nombre a través de su API en '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
+Nombre | *sí* | El nombre de la definición del punto de conexión. Azure expondrá este nombre a través de su API en "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}"
 routingType | *no* | Determina el tipo de contrato con el **punto de conexión**. Si no se especifica, el valor predeterminado será "Proxy".
 punto de conexión | *sí* | El punto de conexión al que enrutar las solicitudes. Esto controlará la respuesta, así como los efectos secundarios de la solicitud.
 
@@ -125,6 +125,7 @@ Si tiene preguntas sobre el desarrollo del proveedor de recursos personalizados 
 
 En este artículo, ha obtenido información sobre los proveedores personalizados. Vaya al artículo siguiente para crear un proveedor personalizado.
 
-- [Tutorial: Creación de un proveedor de recursos personalizados de Azure e implementación de recursos personalizados](./create-custom-provider.md)
-- [How To: Adición de acciones personalizadas a la API de REST de Azure](./custom-providers-action-endpoint-how-to.md)
-- [How To: Adición de recursos personalizados a la API de REST de Azure](./custom-providers-resources-endpoint-how-to.md)
+- [Inicio rápido: Creación de un proveedor de recursos personalizados de Azure e implementación de recursos personalizados](./create-custom-provider.md)
+- [Tutorial: Creación de acciones y recursos personalizados en Azure](./tutorial-custom-providers-101.md)
+- [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md) (Procedimientos: Adición de acciones personalizadas a la API REST de Azure)
+- [How To: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md) (Procedimientos: Adición de recursos personalizados a la API REST de Azure)

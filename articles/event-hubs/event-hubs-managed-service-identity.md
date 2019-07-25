@@ -12,10 +12,10 @@ ms.custom: seodec18
 ms.date: 05/20/2019
 ms.author: shvija
 ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978461"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identidades administradas para recursos de Azure con Event Hubs
@@ -27,28 +27,28 @@ Con las identidades administradas, la plataforma Azure administra esta identidad
 Una vez creada la asociación con una identidad administrada, un cliente de Event Hubs puede realizar todas las operaciones autorizadas. La autorización se concede mediante la asociación de una identidad administrada con los roles de Event Hubs. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Roles y permisos de Event Hubs
-Puede agregar una identidad administrada para el **propietario de los datos de Event Hubs** rol de un espacio de nombres de Event Hubs. Este rol concede la identidad, control total (para la administración y operaciones de datos) en todas las entidades en el espacio de nombres.
+Puede agregar una identidad administrada al rol **Event Hubs Data Owner** (Propietario de los datos de Event Hubs) de un espacio de nombres de Event Hubs. Este rol concede la identidad, el control total (para las operaciones de administración y de datos) en todas las entidades del espacio de nombres.
 
 >[!IMPORTANT]
-> Anteriormente, se admite agregar una identidad administrada para el **propietario** o **colaborador** rol. Sin embargo, los datos de acceso privilegios para **propietario** y **colaborador** rol ya no se respetan. Si usas el **propietario** o **colaborador** rol, el conmutador a utilizar el **propietario de los datos de Event Hubs** rol.
+> Antes se podía agregar una identidad administrada a los roles **Propietario** o **Colaborador**, pero los privilegios de acceso a datos de los roles **Propietario** y **Colaborador** ya no están en vigor. Si está usando el rol **Propietario** o **Colaborador**, cambie al rol **Event Hubs Data Owner** (Propietario de los datos Event Hubs).
 
 Para usar el nuevo rol integrado, siga estos pasos: 
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Navegue hasta el espacio de nombres de Event Hubs.
-3. En el **Event Hubs Namespace** página, seleccione **acceso (IAM)** en el menú izquierdo.
-4. En el **Access Control (IAM)** página, seleccione **agregar** en el **agregar una asignación de roles** sección. 
+3. En la página **Espacio de nombres de Event Hubs**, seleccione **Control de acceso (IAM)** en el menú de la izquierda.
+4. En la página **Control de acceso (IAM)** , seleccione **Agregar** en la sección **Agregar una asignación de roles**. 
 
-    ![Agregue un botón de la asignación de rol](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
-5. En el **Agregar asignación de roles** página, realice los pasos siguientes: 
-    1. Para **rol**, seleccione **propietario de datos de Azure Event Hubs**. 
-    2. Seleccione el **identidad** agregarse al rol.
+    ![Botón Agregar asignación de roles](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. En la página **Agregar asignación de roles**, siga estos pasos: 
+    1. Para **Rol**, seleccione **Azure Event Hubs Data Owner** (Propietario de los datos Event Hubs). 
+    2. Seleccione la **identidad** que se va a agregar al rol.
     3. Seleccione **Guardar**. 
 
-        ![Rol de propietario de datos de centros de eventos](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
-6. Cambie a la **las asignaciones de roles** página y confirme que el usuario se agrega a la **propietario de datos de Azure Event Hubs** rol. 
+        ![Rol Propietario de los datos de Event Hubs](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. Cambie a la página **Asignaciones de roles** y confirme que el usuario se agrega al rol **Azure Event Hubs Data Owner** (Propietario de los datos de Event Hubs). 
 
-    ![Confirme el usuario se agrega a la función](./media/event-hubs-managed-service-identity/role-assignments.png)
+    ![Confirmación de que el usuario se agrega al rol](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Uso de Event Hubs con identidades administradas para recursos de Azure
 
@@ -74,7 +74,7 @@ Una vez habilitada la característica, se crea una identidad de servicio en Azur
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 
-A continuación, [crear un espacio de nombres de Event Hubs](event-hubs-create.md). 
+A continuación, [cree un espacio de nombres de Event Hubs](event-hubs-create.md). 
 
 Vaya a la página **Control de acceso (IAM)** del espacio de nombres en el portal y, después, haga clic en **Agregar asignación de roles** para agregar la identidad administrada al rol **Propietario**. Para ello, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**. La identidad administrada de la aplicación web ya tiene acceso al espacio de nombres de Event Hubs y al centro de eventos que creó anteriormente. 
 

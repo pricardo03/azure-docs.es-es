@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e88863fbbc29287baaf1c3c98dbdae04539e08e5
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: d0a81d5d7ce8e7569b77007b6ad9c322cf626f16
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542593"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670702"
 ---
 # <a name="assets"></a>Recursos
 
@@ -93,7 +93,7 @@ En la tabla siguiente se muestra cómo las propiedades de los [recursos](https:/
 
 |Propiedades de v3|Propiedades de v2|
 |---|---|
-|id: (único) la ruta de acceso completa de Azure Resource Manager<br/>`"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan"`||
+|Id.: (único) la ruta de acceso completa de Azure Resource Manager; consulte ejemplos en el artículo sobre [recursos](https://docs.microsoft.com/rest/api/media/assets/createorupdate).||
 |name: (único) consulte [Convenciones de nomenclatura](media-services-apis-overview.md#naming-conventions) ||
 |alternateId|AlternateId|
 |assetId|Id: (único) valor que empieza por el prefijo `nb:cid:UUID:`.|
@@ -101,7 +101,7 @@ En la tabla siguiente se muestra cómo las propiedades de los [recursos](https:/
 |description|NOMBRE|
 |lastModified|LastModified|
 |storageAccountName|StorageAccountName|
-|storageEncryptionFormat| Options - opciones de creación|
+|storageEncryptionFormat| Opciones (opciones de creación)|
 |Tipo||
 
 ## <a name="storage-side-encryption"></a>Cifrado del lado de almacenamiento

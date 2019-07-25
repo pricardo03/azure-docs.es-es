@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.openlocfilehash: 100bbb6e0ed8e2ea5b35e30e7759a3b11c169b60
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919306"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077626"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
-Emparejamiento de redes virtuales permite conectar fácilmente Azure [redes virtuales](virtual-networks-overview.md). Una vez emparejadas, a efectos de conectividad las redes virtuales aparecen como una sola. El tráfico entre las máquinas virtuales de las redes virtuales emparejadas se enruta a través de la infraestructura de la red troncal de Microsoft, de forma muy parecida a como se enruta el tráfico entre máquinas virtuales de la misma red virtual a través únicamente de direcciones IP *privadas*. Azure admite:
+El emparejamiento de redes virtuales permite conectar sin problemas [redes virtuales](virtual-networks-overview.md) de Azure. Una vez emparejadas, a efectos de conectividad las redes virtuales aparecen como una sola. El tráfico entre las máquinas virtuales de las redes virtuales emparejadas se enruta a través de la infraestructura de la red troncal de Microsoft, de forma muy parecida a como se enruta el tráfico entre máquinas virtuales de la misma red virtual a través únicamente de direcciones IP *privadas*. Azure admite:
 * Emparejamiento de redes virtuales: conexión de redes virtuales dentro de la misma región de Azure
 * Emparejamiento de redes virtuales globales: conexión de redes virtuales por regiones de Azure
 
@@ -63,7 +63,7 @@ Cuando las redes virtuales están emparejadas, también puede configurar la puer
 
 ![tránsito de emparejamiento de redes virtuales](./media/virtual-networks-peering-overview/figure04.png)
 
-Se admite el tránsito de puerta de enlace para el emparejamiento de VNet y emparejamiento de VNet Global. Se admite el tránsito de puerta de enlace entre redes virtuales creadas mediante diferentes modelos de implementación (Resource Manager y clásica) solo si la puerta de enlace está en la red virtual (Resource Manager). Para más información sobre el uso de una puerta de enlace de tránsito, consulte [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Configuración de una puerta de enlace de VPN de tránsito en un emparejamiento de red virtual).
+Se admite el tránsito de puerta de enlace tanto para el emparejamiento de VNet como para el emparejamiento de VNet global. El tránsito de puerta de enlace entre las redes virtuales creadas mediante diferentes modelos de implementación (Resource Manager y clásico) solo se admite si la puerta de enlace está en la red virtual (Resource Manager). Para más información sobre el uso de una puerta de enlace de tránsito, consulte [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Configuración de una puerta de enlace de VPN de tránsito en un emparejamiento de red virtual).
 
 Cuando las redes virtuales que comparten una única conexión de Azure ExpressRoute están emparejadas, el tráfico entre ellas atraviesa la relación de emparejamiento (es decir, la red troncal de Azure). Puede seguir usando las puertas de enlace locales de cada red virtual para conectarse al circuito local. Como alternativa, puede utilizar una puerta de enlace compartida y configurar el tránsito para la conectividad local.
 
@@ -78,7 +78,7 @@ También puede probar el [Solucionador de los problemas de emparejamiento de red
 ## <a name="requirements-and-constraints"></a>Requisitos y restricciones
 
 Cuando las redes virtuales están emparejadas globalmente, se aplican las siguientes restricciones:
-- Los recursos en una red virtual no pueden comunicarse con la dirección IP front-end de un equilibrador de carga interno básico en una red virtual emparejada globalmente. Compatibilidad con Load Balancer básico solo existe en la misma región. Compatibilidad con Load Balancer estándar existe para, el emparejamiento de VNet y emparejamiento de VNet Global. Servicios que usan un equilibrador de carga básico que no funcionará a través de emparejamiento de VNet Global se documentan [aquí.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
+- Los recursos de una red virtual no pueden comunicarse con la dirección IP de front-end de un equilibrador de carga interno básico en una red virtual emparejada globalmente. La compatibilidad con el equilibrador de carga básico solo existe dentro de la misma región. Hay compatibilidad con Standard Load Balancer para Emparejamiento de VNet y Emparejamiento de VNet Global. Los servicios que usan un equilibrador de carga básico que no funcionarán a través de Emparejamiento de VNet global se documentan [aquí](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 Para más información acerca de los requisitos y restricciones, consulte [Requisitos y restricciones del emparejamiento de redes virtuales](virtual-network-manage-peering.md#requirements-and-constraints). Para más información acerca de los límites para el número de emparejamientos que puede crear para una red virtual, consulte [Límites de red de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
@@ -90,7 +90,7 @@ Para más información acerca de los permisos necesarios para crear un emparejam
 
 Hay un cargo nominal para el tráfico de entrada y salida que utiliza una conexión de emparejamiento de red virtual. Para más información acerca del emparejamiento de VNet y los precios del emparejamiento de VNet global, consulte la [página de precios](https://azure.microsoft.com/pricing/details/virtual-network).
 
-El tránsito de puerta de enlace es una propiedad del emparejamiento que permite que una red virtual utilice una puerta de enlace de VPN de una red virtual emparejada para la conectividad entre locales o entre redes virtuales. El tráfico que atraviesa de una puerta de enlace remota en este escenario está sujeto a [cargos de la puerta de enlace VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/), pero no acarrea [los cargos de emparejamiento de VNet.](https://azure.microsoft.com/pricing/details/virtual-network) Por ejemplo, si VNetA tiene una puerta de enlace VPN para conectividad local y VNetB está emparejada a VNetA con las propiedades adecuadas configuradas, tráfico desde VNetB en el entorno local se cobra solo salida por los precios de puerta de enlace VPN. No se aplican cargos de emparejamiento de VNet. Aprenda a [configurar el tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+El tránsito de puerta de enlace es una propiedad del emparejamiento que permite que una red virtual utilice una puerta de enlace de VPN/ExpressRoute de una red virtual emparejada para la conectividad entre entornos locales o entre redes virtuales. El tráfico que pasa por una puerta de enlace remota en este escenario está sujeto a [cargos de la puerta de enlace de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) o cargos de la puerta de enlace de ExpressRoute, pero no acarrea [los cargos de emparejamiento de VNet.](https://azure.microsoft.com/pricing/details/virtual-network) Por ejemplo, si VNetA tiene una puerta de enlace de VPN para la conectividad local y VNetB está emparejada a VNetA con las propiedades adecuadas configuradas, el tráfico desde VNetB al entorno local se cobra solo de salida, en función de los precios de la puerta de enlace de VPN o ExpressRoute. No se aplican cargos de emparejamiento de VNet. Aprenda a [configurar el tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

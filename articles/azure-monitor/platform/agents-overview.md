@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977584"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Introducción a los agentes de supervisión de Azure 
@@ -30,7 +30,7 @@ Microsoft Azure ofrece varias maneras de recopilar diferentes tipos de datos de 
 En este artículo se describen las diferencias entre ellos y sus funcionalidades para poder determinar cuál será el adecuado para la administración de servicios de TI y los requisitos de supervisión generales.  
 
 ## <a name="azure-diagnostic-extension"></a>Extensión Azure Diagnostics
-La [extensión Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-overview.md) [a la que normalmente se hace referencia como extensión Azure Diagnostics para Windows (WAD) o Azure Diagnostics para Linux (LAD)], incluida en Azure Cloud Services desde que empezó a estar disponible con carácter general en 2010, es un agente que ofrece una colección simple de datos de diagnóstico de un recurso de procesos de Azure, como una VM, y almacena los datos en Azure Storage. Una vez en el almacenamiento, elija ver con una de las diversas herramientas disponibles, como [Explorador de servidores en Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) y [Explorador de Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+La [extensión Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-overview.md) [a la que normalmente se hace referencia como extensión Azure Diagnostics para Windows (WAD) o Azure Diagnostics para Linux (LAD)], incluida en Azure Cloud Services desde que empezó a estar disponible con carácter general en 2010, es un agente que ofrece una colección simple de datos de diagnóstico de un recurso de procesos de Azure, como una VM, y almacena los datos en Azure Storage. Una vez en el almacenamiento, puede verlos con una de las diversas herramientas disponibles, como el [Explorador de servidores en Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) y el [Explorador de Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Ahora puede elegir recopilar:
 
@@ -49,17 +49,17 @@ El agente de Azure Diagnostics se debe usar cuando quiera realizar alguna de las
 * Escalar automáticamente conjuntos de escalado de máquinas virtuales y Cloud Services clásicos en función de las métricas de SO invitado.
 * Investigar los problemas de arranque de VM con [diagnósticos de arranque](../../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Comprender cómo funcionan las aplicaciones e identificar de manera proactiva los problemas que les afectan con [Application Insights](../../azure-monitor/overview.md).
-* Configure Azure Monitor para importar las métricas y registrar los datos recopilados de los servicios en la nube, máquinas virtuales clásicas, y nodos de Service Fabric se almacenan en una cuenta de almacenamiento de Azure.
+* Configurar Azure Monitor para importar las métricas y registrar los datos recopilados de Cloud Services, las VM clásicas y los nodos de Service Fabric que se almacenan en una cuenta de almacenamiento de Azure.
 
 ## <a name="log-analytics-agent"></a>Agente de Log Analytics
-Para la supervisión avanzada donde tiene que recopilar más de un subconjunto de registros y métricas, se necesita el agente de Log Analytics para Windows (también conocido como Microsoft Monitoring Agent (MMA)) y Linux. El agente de Log Analytics se desarrolló para la administración integral en máquinas virtuales y físicas en el entorno local, equipos supervisados por System Center Operations Manager y VM hospedadas en otras nubes. Los agentes de Windows y Linux se conectan a un área de trabajo de Log Analytics en Azure Monitor para recopilar datos basados en soluciones de supervisión así como orígenes de datos personalizados que configure.
+Para realizar una supervisión avanzada en la que deba hacer algo más que recopilar métricas y un subconjunto de registros, se necesita el agente de Log Analytics para Windows [al que también se hace referencia como Microsoft Monitoring Agent (MMA)] y Linux. El agente de Log Analytics se desarrolló para la administración integral en máquinas virtuales y físicas en el entorno local, equipos supervisados por System Center Operations Manager y VM hospedadas en otras nubes. Los agentes de Windows y Linux se conectan a un área de trabajo de Log Analytics en Azure Monitor para recopilar datos basados en soluciones de supervisión, así como los orígenes de datos personalizados que configure.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 El agente de Log Analytics se debe usar cuando quiera realizar alguna de las siguientes acciones:
 
 * Recopilar datos de diversos orígenes, tanto en Azure como en otros proveedores de servicios en la nube o recursos locales. 
-* Use una de las soluciones de supervisión, como de Azure Monitor [Azure Monitor para las máquinas virtuales](../insights/vminsights-overview.md), [Azure Monitor para contenedores](../insights/container-insights-overview.md), etcetera.  
+* Use una de las soluciones de supervisión de Azure Monitor, como [Azure Monitor para VM](../insights/vminsights-overview.md), [Azure Monitor para contenedores](../insights/container-insights-overview.md), etc.  
 * Usar uno de los otros servicios de administración de Azure, como [Azure Security Center](../../security-center/security-center-intro.md), [Azure Automation](../../automation/automation-intro.md), etc.
 
 Anteriormente, se agruparon varios servicios de Azure como *Operations Management Suite*, y, como resultado, el agente de Log Analytics se compartió entre los servicios, como Azure Security Center y Azure Automation.  Esto incluye el conjunto completo de características que proporcionan, ofreciendo la administración integral de las VM de Azure a través de su ciclo de vida.  A continuación se indican algunos ejemplos:
@@ -70,7 +70,7 @@ Anteriormente, se agruparon varios servicios de Azure como *Operations Managemen
 * Servicios de Azure como [Application Insights](https://docs.microsoft.com/azure/application-insights/) y [Azure Security Center](https://docs.microsoft.com/azure/security-center/), que almacenan de forma nativa sus datos directamente en Log Analytics sin necesidad de ninguna configuración.  
 
 ## <a name="dependency-agent"></a>Dependency Agent
-El agente de dependencia se desarrolló como parte de la solución Service Map, que no fue desarrollada originalmente por Microsoft. [Service Map](../insights/service-map.md) y [Azure Monitor para las máquinas virtuales](../insights/vminsights-overview.md) requiere un agente de dependencia en Windows y Linux virtual machines y se integra con el agente de Log Analytics para recopilar datos detectados acerca de los procesos que se ejecutan en virtual máquina y dependencias de procesos externos. Almacena estos datos en un área de trabajo de Log Analytics y visualiza los componentes interconectados detectados.
+Dependency Agent se desarrolló como parte de la solución Service Map, que no fue desarrollada originalmente por Microsoft. [Service Map](../insights/service-map.md) y [Azure Monitor para VM](../insights/vminsights-overview.md) requieren una instancia de Dependency Agent en las máquinas virtuales de Windows y Linux que se integra con el agente de Log Analytics para recopilar datos detectados acerca de los procesos que se ejecutan en la máquina virtual y en las dependencias de procesos externos. Almacena estos datos en un área de trabajo de Log Analytics y visualiza los componentes interconectados detectados.
 
 Puede que necesite una combinación de estos agentes para supervisar la VM. Los agentes se pueden instalar en paralelo como extensiones de Azure, sin embargo, en Linux, el agente de Log Analytics *debe* instalarse primero o la instalación producirá un error. 
 

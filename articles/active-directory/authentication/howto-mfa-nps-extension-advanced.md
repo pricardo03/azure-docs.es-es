@@ -1,5 +1,5 @@
 ---
-title: Configurar la extensión de NPS de Azure MFA, Azure Active Directory
+title: 'Configurar la extensión NPS de Azure MFA: Azure Active Directory'
 description: Después de instalar la extensión NPS, siga estos pasos para la configuración avanzada como la creación de listas blancas de direcciones IP y el reemplazo de UPN.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ac0497b13dad6795e8dc7ffaf761fe887a9953
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65988622"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opciones de configuración avanzada para la extensión NPS para Multi-Factor Authentication
@@ -42,13 +42,13 @@ Para solucionar problemas con identificadores de inicio de sesión alternativos,
 
 Si necesita supervisar la disponibilidad del servidor, como si los equilibradores de carga comprueban qué servidores se ejecutan antes de enviar cargas de trabajo, no deseará que las solicitudes de verificación bloqueen estas comprobaciones. En su lugar, cree una lista de direcciones IP que sepa que las cuentas de servicio las utilizan y deshabilite los requisitos de Multi-Factor Authentication en esa lista.
 
-Para configurar una dirección de IP a la lista de permitidos, vaya a `HKLM\SOFTWARE\Microsoft\AzureMfa` y configurar el valor del registro siguiente:
+Para configurar una lista de direcciones IP permitidas, vaya a `HKLM\SOFTWARE\Microsoft\AzureMfa` y configure el siguiente valor del Registro:
 
 | NOMBRE | Type | Valor predeterminado | DESCRIPCIÓN |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | string | Vacío | Proporcione una lista separada por puntos y coma de direcciones IP. Incluya las direcciones IP de las máquinas donde se originan las solicitudes de servicio, como el servidor NAS/VPN. No se admiten los intervalos de direcciones IP y subredes. <br><br> Por ejemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | string | Vacío | Proporcione una lista separada por puntos y coma de direcciones IP. Incluya las direcciones IP de las máquinas donde se originan las solicitudes de servicio, como el servidor NAS/VPN. Los intervalos de direcciones IP y las subredes no se admiten. <br><br> Por ejemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-Cuando llega una solicitud desde una dirección IP que existe en el `IP_WHITELIST`, se omite la verificación en dos pasos. La lista de IP se compara con la dirección IP que se proporciona en el *ratNASIPAddress* atributo de la solicitud RADIUS. Si llega una solicitud RADIUS sin el atributo ratNASIPAddress, se registra la siguiente advertencia: "La lista blanca P_WHITE_LIST_WARNING::IP se ha omitido porque la dirección IP de origen falta en la solicitud RADIUS en el atributo NasIpAddress".
+Cuando llega una solicitud procedente de una dirección IP que existe en `IP_WHITELIST`, se omite la verificación en dos pasos. La lista de direcciones IP se compara con la dirección IP que se proporciona en el atributo *ratNASIPAddress* de la solicitud RADIUS. Si llega una solicitud RADIUS sin el atributo ratNASIPAddress, se registra la siguiente advertencia: "La lista blanca P_WHITE_LIST_WARNING::IP se ha omitido porque la dirección IP de origen falta en la solicitud RADIUS en el atributo NasIpAddress".
 
 ## <a name="next-steps"></a>Pasos siguientes
 

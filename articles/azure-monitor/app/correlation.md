@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 030259f7773435760c09afd25ca674b63bb1b3ca
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901126"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073238"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
@@ -35,7 +35,7 @@ La [telemetría de dependencias](../../azure-monitor/app/data-model-dependency-t
 
 Puede crear una vista de la operación lógica distribuida usando `operation_Id`, `operation_parentId` y `request.id` con `dependency.id`. Estos campos también definen el orden de causalidad de las llamadas de telemetría.
 
-En el entorno de los microservicios, los seguimientos de componentes pueden ir a distintos elementos de almacenamiento. Cada componente puede tener su propia clave de instrumentación en Application Insights. Para obtener la telemetría de la operación lógica, es necesario consultar los datos de cada elemento de almacenamiento. Si el número de elementos de almacenamiento es enorme, necesitará una pista para saber dónde debe mirar a continuación. El modelo de datos de Application Insights define dos campos, `request.source` y `dependency.target`, para solucionar este problema. El primer campo identifica el componente que inició la solicitud de dependencia y, el segundo, el componente que devolvió la respuesta de la llamada de dependencia.
+En el entorno de los microservicios, los seguimientos de componentes pueden ir a distintos elementos de almacenamiento. Cada componente puede tener su propia clave de instrumentación en Application Insights. Para obtener la telemetría de la operación lógica, la experiencia del usuario de Application Insights consulta los datos de cada elemento de almacenamiento. Si el número de elementos de almacenamiento es enorme, necesitará una pista para saber dónde debe mirar a continuación. El modelo de datos de Application Insights define dos campos, `request.source` y `dependency.target`, para solucionar este problema. El primer campo identifica el componente que inició la solicitud de dependencia y, el segundo, el componente que devolvió la respuesta de la llamada de dependencia.
 
 ## <a name="example"></a>Ejemplo
 
@@ -184,9 +184,9 @@ El [SDK de Application Insights para Java](../../azure-monitor/app/java-get-star
 
 En la actualidad, no se admite la propagación automática de contextos entre tecnologías de mensajería (como Kafka, RabbitMQ o Azure Service Bus). Sin embargo, es posible codificar estos escenarios manualmente utilizando las API `trackDependency` y `trackRequest`. En estas API, la telemetría de dependencias representa un mensaje agregado a una cola por un productor, mientras que la solicitud representa un mensaje procesado por el consumidor. En este caso, tanto `operation_id` como `operation_parentId` deben propagarse en las propiedades del mensaje.
 
-### <a name="telemetry-correlation-in-asynchronous-java-application"></a>Correlación de telemetría en la aplicación de Java asincrónico
+### <a name="telemetry-correlation-in-asynchronous-java-application"></a>Correlación de la telemetría en una aplicación de Java asincrónica
 
-Para establecer la correlación de telemetría en la aplicación asincrónica Spring Boot, siga [esto](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) artículo en profundidad. Proporciona orientación para la instrumentación del muelle [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) como [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+Para establecer la correlación de la telemetría en la aplicación asincrónica Spring Boot, siga [este](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) artículo detallado. Proporciona orientación para la instrumentación de [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) y [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html) en Spring. 
 
 
 <a name="java-role-name"></a>

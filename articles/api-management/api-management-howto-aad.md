@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
 ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956308"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
@@ -38,31 +38,31 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
 3. En el cuadro de búsqueda, escriba **api**.
 4. Seleccione **Servicios API Management**.
 5. Seleccione su instancia de servicio API Management.
-6. En **seguridad**, seleccione **identidades**.
+6. En **Seguridad**, seleccione **Identidades**.
 7. Haga clic en **+ Agregar** en la parte superior.
 
     Aparece el panel **Agregar proveedor de identidades** a la derecha.
 8. En **Tipo de proveedor**, seleccione **Azure Active Directory**.
 
     En el panel aparecen controles que le permiten escribir otra información necesaria. Los controles incluyen **Id. de cliente** y **Secreto de cliente**. (Más adelante en el artículo obtendrá información sobre estos controles).
-9. Tome nota del contenido de **dirección URL de redireccionamiento**.
+9. Anote el contenido de **Dirección URL de redireccionamiento**.
     
    ![Pasos para agregar un proveedor de identidades en Azure Portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. En el explorador, abra una pestaña diferente. 
-11. Navegue hasta la [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) para registrar una aplicación en Active Directory.
-12. En **administrar**, seleccione **registros de aplicaciones**.
-13. Seleccione **Nuevo registro**. En el **registrar una aplicación** página, establezca los valores como sigue:
+11. Navegue hasta [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) para registrar una aplicación en Active Directory.
+12. En **Administrar**, seleccione **Registros de aplicaciones**.
+13. Seleccione **Nuevo registro**. En la página **Registrar una aplicación**, establezca los valores de la manera siguiente:
     
-* Establecer **nombre** a un nombre significativo. e.g., *developer-portal*
-* Establecer **admite tipos de cuenta** a **cuentas en este directorio organizativa solo**. 
-* Establecer **URI de redireccionamiento** en el valor obtenido en el paso 9. 
-* Elija **registrar**. 
+* Establezca **Nombre** en un nombre con sentido; por ejemplo, *portal-desarrollador*
+* Establezca **Tipos de cuenta admitidos** en **Solo las cuentas de este directorio organizativo**. 
+* Establezca **URI de redirección** en el valor obtenido en el paso 9. 
+* Elija **Registro**. 
 
-14.  Una vez registrada la aplicación, copie el **Id. de aplicación (cliente)** desde el **Introducción** página. 
-15. Vuelva a la instancia de API Management. En el **Agregar proveedor de identidades** ventana, pegue el **Id. de aplicación (cliente)** valor en el **Id. de cliente** cuadro.
-16. Volver a la configuración de Azure AD, seleccione **certificados y secretos** en **administrar**. Seleccione el **nuevo secreto de cliente** botón. Escriba un valor en **descripción**, seleccione cualquier opción de **Expires** y elija **agregar**. Copie el valor de secreto de cliente antes de salir de la página. Esta información la necesitará en el siguiente paso. 
-17. En **administrar**, seleccione **autenticación** y, a continuación, seleccione **los tokens de identificador** en **concesión implícita**
-18. Vuelva a la instancia de API Management, pegue el secreto en el **secreto de cliente** cuadro.
+14.  Una vez registrada la aplicación, copie el **Id. de aplicación (cliente)** de la página **Información general**. 
+15. Vuelva a la instancia de API Management. En la ventana **Agregar proveedor de identidades**, pegue el valor de **Id. de aplicación (cliente)** en el cuadro **Id. de cliente**.
+16. Vuelva a la configuración de Azure AD, seleccione **Certificados y secretos** en **Administrar**. Seleccione el botón **Nuevo secreto de cliente**. Escriba un valor en **Descripción**, seleccione cualquier opción para **Expira** y elija **Agregar**. Copie el valor del secreto del cliente antes de salir de la página. Esta información la necesitará en el siguiente paso. 
+17. En **Administrar**, seleccione **Autenticación** y luego **Tokens de id.** en **Concesión implícita**
+18. Vuelva a la instancia de API Management, pegue el secreto en el cuadro **Secreto de cliente**.
 
     > [!IMPORTANT]
     > Asegúrese de actualizar el **secreto de cliente** antes de que expire la clave. 
@@ -72,7 +72,7 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
 19. La ventana **Add identity provider** (Agregar proveedor de identidades) también contiene el cuadro de texto **Allowed Tenants** (Inquilinos permitidos). Ahí, especifique los dominios de las instancias de Azure AD a las que quiere conceder acceso a las API de la instancia de servicio API Management. Puede separar varios dominios mediante nuevas líneas, espacios o comas.
 
 > [!NOTE]
-> Puede especificar varios dominios en la sección **Allowed Tenants** (Inquilinos permitidos). Para que un usuario pueda iniciar sesión desde otro dominio distinto al dominio original donde se registró la aplicación, un administrador global de ese otro dominio debe conceder antes a la aplicación permiso de acceso a los datos del directorio. Para conceder permiso, el administrador global debe: una. Ir a `https://<URL of your developer portal>/aadadminconsent` (por ejemplo, https://contoso.portal.azure-api.net/aadadminconsent)).
+> Puede especificar varios dominios en la sección **Allowed Tenants** (Inquilinos permitidos). Para que un usuario pueda iniciar sesión desde otro dominio distinto al dominio original donde se registró la aplicación, un administrador global de ese otro dominio debe conceder antes a la aplicación permiso de acceso a los datos del directorio. Para conceder permiso, el administrador global debe: a. Ir a `https://<URL of your developer portal>/aadadminconsent` (por ejemplo, https://contoso.portal.azure-api.net/aadadminconsent) ).
 > b. Escribir el nombre de dominio del inquilino de Azure AD al que desea dar acceso.
 > c. Seleccione **Submit** (Enviar). 
 
@@ -85,7 +85,7 @@ Después de guardar los cambios, los usuarios de la instancia de Azure AD especi
 Después de permitir el acceso para los usuarios en una instancia de Azure AD, puede agregar grupos de Azure AD en API Management. Luego, puede administrar de manera más fácil la asociación de los desarrolladores del grupo con los productos deseados.
 
  > [!IMPORTANT]
- > Para agregar una referencia externa grupo de Azure AD, primero debe configurar la instancia de Azure AD en el **identidades** pestaña siguiendo el procedimiento descrito en la sección anterior. Además, la aplicación se debe conceder acceso a la API de Azure AD Graph con `Directory.Read.All` permiso. 
+ > Para agregar un grupo externo de Azure AD, primero debe configurar la instancia de Azure AD en la pestaña **Identidades** mediante el procedimiento de la sección anterior. Además, la aplicación se debe conceder acceso a Azure AD Graph API con el permiso `Directory.Read.All`. 
 
 Los grupos externos de Azure AD se agregan desde la pestaña **Grupos** de la instancia de API Management.
 

@@ -6,14 +6,14 @@ manager: vicenterivera
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 58d3b3e3da518c9f6c32924ec29fbec3c810b58e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9638c96c06c06bd92690e568364551bdc299c80
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242338"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672038"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-objective-c"></a>Creación y localización de anclajes mediante Azure Spatial Anchors en Objective-C
 
@@ -28,9 +28,9 @@ ms.locfileid: "66242338"
 Azure Spatial Anchors permite compartir delimitadores entre diferentes dispositivos de todo el mundo. Admite varios entornos de desarrollo diferentes. En este artículo, se examinará en profundidad cómo usar el SDK de Azure Spatial Anchors, en Objective-C, para:
 
 - Configurar y administrar correctamente una sesión de Azure Spatial Anchors.
-- Crear y establecer propiedades en los delimitadores.
-- Cargarlas en la nube.
-- Localizar y eliminar los delimitadores espaciales en la nube.
+- Crear y establecer propiedades en los anclajes locales.
+- Cargarlos en la nube.
+- Localizar y eliminar los anclajes espaciales en la nube.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

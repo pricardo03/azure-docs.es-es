@@ -13,17 +13,17 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: 627b29018afff2adb57b3b8b5c816bea9c421f68
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236860"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migración a los nuevos trabajos de Elastic Database
 
 Está disponible una versión actualizada de los [Trabajos de Elastic Database ](elastic-jobs-overview.md).
 
-Si tiene un cliente existente hospedada la versión de trabajos elásticos de base de datos, los cmdlets de migración y se proporcionan scripts para migrar fácilmente a la versión más reciente.
+Si tiene una versión existente hospedada en el cliente de trabajos de Elastic Database, se proporcionan cmdlets y scripts para una fácil migración a la última versión.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -32,7 +32,7 @@ La versión actualizada de los trabajos de Elastic Database tiene un nuevo conju
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Instalación de los últimos cmdlets de trabajos elásticos
 
-Si aún no tiene una suscripción de Azure, [crear una cuenta gratuita](https://azure.microsoft.com/free/) antes de comenzar.
+Si aún no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de comenzar.
 
 Instale el módulo **Az.Sql** 1.1.1-preview para obtener los cmdlets de trabajos elásticos más recientes. Ejecute los comandos siguientes en PowerShell con acceso administrativo.
 

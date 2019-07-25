@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65910821"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-use-custom-activities.md)
 > * [Versión 2 (versión actual)](../transform-data-using-dotnet-custom-activity.md)
 
@@ -103,7 +103,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
      <li>Inicie Visual Studio.</li>
      <li>Haga clic en <b>Archivo</b>, seleccione <b>Nuevo</b> y, luego, haga clic en <b>Proyecto</b>.</li>
      <li>Expanda <b>Plantillas</b> y seleccione <b>Visual C#</b>. En este tutorial se usa C#, pero puede usar cualquier lenguaje .NET para desarrollar la actividad personalizada.</li>
-     <li>Seleccione <b>Biblioteca de clases</b> en la lista de tipos de proyecto de la derecha. En Visual Studio, elija <b>biblioteca de clases (.NET Framework)</b> </li>
+     <li>Seleccione <b>Biblioteca de clases</b> en la lista de tipos de proyecto de la derecha. En Visual Studio, elija <b>Biblioteca de clases (.NET Framework)</b> </li>
      <li>Escriba <b>MyDotNetActivity</b> for the <b>Nombre</b>.</li>
      <li>Seleccione <b>C:\ADFGetStarted</b> como <b>Ubicación</b>.</li>
      <li>Haga clic en <b>Aceptar</b> para crear el proyecto.</li>

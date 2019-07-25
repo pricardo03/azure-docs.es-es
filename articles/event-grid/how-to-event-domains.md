@@ -7,16 +7,16 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: 73c837897f4a104fabb4143d4b49fa3fbc258bb4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: 0042b0bd8c6ed9e9d253c44151dcf0588c742b48
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305027"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137846"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Administrar temas y publicar eventos con dominios de eventos
 
-Este artículo se muestra cómo:
+En este artículo se muestra cómo:
 
 * Crear un dominio de Event Grid
 * Suscribirse a temas de Event Grid
@@ -192,13 +192,13 @@ Get-AzureRmEventGridDomainKey `
 
 Después, use su método favorito para crear una solicitud HTTP POST para publicar los eventos en el dominio de Event Grid.
 
-## <a name="search-lists-of-topics-or-subscriptions"></a>Listas de búsqueda de temas o suscripciones
+## <a name="search-lists-of-topics-or-subscriptions"></a>Buscar listas de temas o suscripciones
 
-Con el fin de que la búsqueda y administración de un gran número de temas o suscripciones, las API de Event Grid admiten una paginación de la lista.
+Para poder buscar y administrar un gran número de temas o suscripciones, las API de Event Grid admiten las listas y la paginación.
 
 ### <a name="using-cli"></a>Uso de CLI
 
-Para usar Asegúrese de que usa la versión de extensión de la CLI de Azure Event Grid 0.4.1 o más reciente.
+Para usarla, compruebe que está usando la versión de extensión de Event Grid de la CLI de 0.4.1 o posterior.
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

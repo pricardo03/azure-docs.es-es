@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
-ms.translationtype: MT
+ms.openlocfilehash: 6a25444f0207ec5eceb029c5d31d222a31813e22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066831"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilite prácticas de desarrollo seguro con Azure Deployment Manager (versión preliminar)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilitar prácticas de implementación segura con Azure Deployment Manager (versión preliminar pública)
 
 Para implementar un servicio en varias regiones y asegurarse de que se ejecuta según lo previsto en todas ellas, puede usar Azure Deployment Manager para coordinar su lanzamiento por fases. Igual que haría en cualquier implementación de Azure, los recursos del servicio se definen en las [plantillas de Resource Manager](resource-group-authoring-templates.md). Después de crear las plantillas, use Deployment Manager para describir la topología del servicio y cómo se debe lanzar.
 
-Deployment Manager es una característica de Resource Manager. Amplía sus funcionalidades durante la implementación. Use Deployment Manager cuando tenga un implementar un servicio complejo en varias regiones. Mediante el establecimiento de fases en el lanzamiento del servicio, puede encontrar posibles problemas antes de que se haya implementado en todas las regiones. Si no necesita las precauciones adicionales de un lanzamiento por fases, use las [opciones de implementación](resource-group-template-deploy-portal.md) estándar para Resource Manager. Deployment Manager se integra perfectamente con todas las herramientas de terceros existentes que admiten las implementaciones de Resource Manager, como las ofertas de integración continua y entrega continua (CI/CD). 
+Deployment Manager es una característica de Resource Manager. Amplía sus funcionalidades durante la implementación. Use Deployment Manager cuando tenga un implementar un servicio complejo en varias regiones. Mediante el establecimiento de fases en el lanzamiento del servicio, puede encontrar posibles problemas antes de que se haya implementado en todas las regiones. Si no necesita las precauciones adicionales de un lanzamiento por fases, use las [opciones de implementación](resource-group-template-deploy-portal.md) estándar para Resource Manager. Deployment Manager se integra perfectamente con todas las herramientas de terceros existentes que admiten las implementaciones de Resource Manager, como las ofertas de integración continua y entrega continua (CI/CD).
 
-Azure Deployment Manager está en versión preliminar. Ayúdenos a mejorar la característica proporcionando [comentarios](https://aka.ms/admfeedback).
+Azure Deployment Manager está en versión preliminar. Sus [comentarios](https://aka.ms/admfeedback) pueden ayudarnos a mejorar la característica.
 
 Para usar Deployment Manager, es preciso crear cuatro archivos:
 
@@ -31,13 +31,18 @@ Para usar Deployment Manager, es preciso crear cuatro archivos:
 
 La plantilla de topología se implementar antes que la de lanzamiento.
 
-Puede encontrar la referencia de la API REST de Azure Deployment Manager [aquí](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Recursos adicionales:
+
+- La [referencia de API REST de Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager](./deployment-manager-tutorial.md).
+- [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+- [Un ejemplo de Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identidad y acceso
 
 Con Deployment Manager, una [identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/overview.md) realiza las acciones de implementación. Cree dicha identidad antes de iniciar la implementación. Debe tener acceso a la suscripción de Azure en la que va a implementar el servicio y debe tener permisos suficientes para completar dicha implementación. Para obtener información acerca de las acciones que se otorgan a través de los roles, consulte [Roles integrados en los recursos de Azure](../role-based-access-control/built-in-roles.md).
 
-La identidad debe residir en la misma ubicación que la implementación.
+La identidad debe residir en la misma ubicación que el lanzamiento.
 
 ## <a name="topology-template"></a>Plantilla de topología
 
@@ -110,7 +115,7 @@ En el siguiente ejemplo se muestra el formato general del recurso de la topolog�
 
 Para más información, consulte la [referencia de la plantilla serviceTopologies](/azure/templates/Microsoft.DeploymentManager/serviceTopologies).
 
-### <a name="services"></a>Servicios
+### <a name="services"></a>Services
 
 En el siguiente ejemplo se muestra el formato general del recurso de los servicios. En cada servicio, especifique la ubicación y el identificador de la suscripción de Azure que se usan para implementar el servicio. Para realizar la implementación en varias regiones, defina un servicio para cada una de ellas. El servicio depende de la topología del servicio.
 
@@ -191,7 +196,7 @@ En la plantilla de lanzamiento, cree un origen de artefacto para los archivos bi
 
 ### <a name="steps"></a>Pasos
 
-Puede definir que se realice un paso antes o después de la operación de implementación. Actualmente, solo el `wait` paso y el 'healthCheck' están disponibles. 
+Puede definir que se realice un paso antes o después de la operación de implementación. Actualmente, solo están disponibles los pasos `wait` y "healthCheck".
 
 El paso de espera detiene la implementación antes de continuar. Permite comprobar que el servicio se ejecuta según lo esperado antes de implementar la siguiente unidad de servicio. En el siguiente ejemplo se muestra el formato general de un paso de espera.
 
@@ -212,7 +217,7 @@ El paso de espera detiene la implementación antes de continuar. Permite comprob
 
 La propiedad duration usa el [estándar ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). El ejemplo anterior especifica una espera un minuto.
 
-Para obtener más información sobre el paso de comprobación de mantenimiento, consulte [introducir el lanzamiento de la integración de estado a Azure Deployment Manager](./deployment-manager-health-check.md) y [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+Para obtener más información sobre el paso de comprobación de estado, consulte [Introducción de la implementación de integración de mantenimiento en Azure Deployment Manager (versión preliminar pública)](./deployment-manager-health-check.md) y [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Para más información, consulte la [referencia de la plantilla de pasos](/azure/templates/Microsoft.DeploymentManager/steps).
 
@@ -262,13 +267,13 @@ Para más información, consulte la [referencia de la plantilla de lanzamientos]
 
 ## <a name="parameter-file"></a>Archivo de parámetros
 
-Cree dos archivos de parámetros. Uno de los archivos de parámetros se utiliza al implementar la topología del servicio, mientras que el otro se usa para la implementación del lanzamiento. Hay algunos valores que es preciso estar seguro de que son iguales en ambos archivos de parámetros.  
+Cree dos archivos de parámetros. Uno de los archivos de parámetros se utiliza al implementar la topología del servicio, mientras que el otro se usa para la implementación del lanzamiento. Hay algunos valores que es preciso estar seguro de que son iguales en ambos archivos de parámetros.
 
 ## <a name="containerroot-variable"></a>Variable containerRoot
 
 Con las implementaciones con control de versiones, la ruta de acceso a los artefactos cambia con cada nueva versión. La primera vez que se ejecuta una implementación la ruta de acceso puede ser `https://<base-uri-blob-container>/binaries/1.0.0.0`. La segunda vez puede ser `https://<base-uri-blob-container>/binaries/1.0.0.1`. Deployment Manager simplifica la obtención de la ruta de acceso raíz correcta para la implementación actual mediante el uso de la variable `$containerRoot`. Este valor cambia con cada versión y no se conoce antes de la implementación.
 
-Use la variable `$containerRoot` en el archivo de parámetros de la plantilla para implementar los recursos de Azure. En el momento de la implementación, esta variable se reemplaza por los valores reales del lanzamiento. 
+Use la variable `$containerRoot` en el archivo de parámetros de la plantilla para implementar los recursos de Azure. En el momento de la implementación, esta variable se reemplaza por los valores reales del lanzamiento.
 
 Por ejemplo, durante el lanzamiento crea un origen de artefacto para los artefactos de binarios.
 

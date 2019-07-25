@@ -1,6 +1,6 @@
 ---
-title: 'Aplicación móvil que llama a web API: configuración de la aplicación de código | Plataforma de identidad de Microsoft'
-description: Aprenda a crear una aplicación móvil que llama a web API (configuración de código de la aplicación)
+title: Aplicación móvil que llama a las API web (configuración del código de la aplicación) | Plataforma de identidad de Microsoft
+description: Obtenga información sobre cómo compilar una aplicación móvil que llama a las API web (configuración del código de la aplicación)
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -17,35 +17,35 @@ ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2b6ebab0eeca6895e1c7a0f6008972030d81da42
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962398"
 ---
-# <a name="mobile-app-that-calls-web-apis---app-registration"></a>Aplicación móvil que llama a web API: registro de la aplicación
+# <a name="mobile-app-that-calls-web-apis---app-registration"></a>Aplicación móvil que llama a las API web: registro de la aplicación
 
-En este artículo contiene las instrucciones de registro de aplicación para crear una aplicación móvil.
+En este artículo se incluyen las instrucciones del registro de la aplicación para crear una aplicación móvil.
 
-## <a name="supported-account-types"></a>Tipos de cuenta compatibles
+## <a name="supported-account-types"></a>Tipos de cuenta admitidos
 
-Los tipos de cuenta que se admiten en aplicaciones móviles dependen de la experiencia que desea habilitar y los usuarios que se destina la aplicación.
+Los tipos de cuenta que se admiten en aplicaciones móviles dependen de la experiencia que se quiere habilitar y los usuarios a los que se dirige la aplicación.
 
-## <a name="platform-configuration-and-redirect-uris"></a>Configuración de la plataforma y el URI de redireccionamiento  
+## <a name="platform-configuration-and-redirect-uris"></a>Configuración de la plataforma e identificadores URI de redirección  
 
-Al compilar una aplicación móvil, el paso de registro más importante es el URI de redireccionamiento. Esto se puede establecer a través de la [configuración de la plataforma en la hoja autenticación](https://aka.ms/MobileAppReg).
+Al compilar una aplicación móvil, el paso de registro más importante es el URI de redirección. Este se puede establecer a través de la [configuración de la plataforma en la hoja Autenticación](https://aka.ms/MobileAppReg).
 
-Esta experiencia permitirá a la aplicación para obtener el inicio de sesión único (SSO) a través de Microsoft Authenticator (y el Portal de empresa de Intune en Android), así como compatibilidad con las directivas de administración de dispositivos.
+Esta experiencia permitirá a la aplicación obtener el inicio de sesión único (SSO) a través de Microsoft Authenticator (y el Portal de empresa de Intune en Android), así como las directivas de administración de dispositivos de soporte técnico.
 
 Si prefiere configurar manualmente el URI de redirección, puede hacerlo mediante el manifiesto de aplicación. El formato recomendado es el siguiente:
 
 - ***iOS***: `msauth.<BUNDLE_ID>://auth`
 - ***Android***: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
-  - El hash de firma de Android puede generarse utilizando las teclas de lanzamiento o depuración a través del comando KeyTool.
+  - El hash de firma de Android puede generarse utilizando la combinación de teclas de liberación o de depuración a través del comando KeyTool.
 
 ## <a name="api-permissions"></a>Permisos de API
 
-Aplicaciones móviles, llamar a las API en nombre del usuario con sesión iniciada. La aplicación debe solicitar permisos delegados, que también se denomina ámbitos. Dependiendo de la experiencia deseada, esto puede hacerse estáticamente a través del portal de Azure o dinámicamente en tiempo de ejecución. Registrar estáticamente permisos permite a los administradores aprobar fácilmente su aplicación y se recomienda.
+Las aplicaciones móviles llaman a las API en nombre del usuario con sesión iniciada. La aplicación debe solicitar permisos delegados, que también se denominan ámbitos. En función de la experiencia deseada, puede hacerse estáticamente a través de Azure Portal o dinámicamente en tiempo de ejecución. El registro estático de permisos permite a los administradores aprobar fácilmente su aplicación y se recomienda.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e9e790ac8ac67478a0e7b5143a5b2f1fdd9c790c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449867"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798677"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -69,23 +69,10 @@ La nube por niveles es una característica opcional de Azure File Sync por la qu
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisitos del sistema de Azure File Sync e interoperabilidad 
 En esta sección se tratan los requisitos del sistema del agente de Azure File Sync y la interoperabilidad con las características y roles de Windows Server y las soluciones de terceros.
 
-### <a name="evaluation-tool"></a>Herramienta de evaluación
-Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Tenga en cuenta que las comprobaciones incluyen la mayoría de las características que se mencionan a continuación, pero no todas; se recomienda que lea el resto de esta sección detenidamente para asegurarse de que la implementación se realiza sin problemas. 
+### <a name="evaluation-cmdlet"></a>Cmdlet de evaluación
+Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante el cmdlet de evaluación de Azure File Sync. Este cmdlet busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Tenga en cuenta que las comprobaciones incluyen la mayoría de las características que se mencionan a continuación, pero no todas; se recomienda que lea el resto de esta sección detenidamente para asegurarse de que la implementación se realiza sin problemas. 
 
-#### <a name="download-instructions"></a>Instrucciones de descarga
-1. Asegúrese de que tiene las versiones más recientes de PackageManagement y PowerShellGet instaladas (esto le permite instalar módulos de versión preliminar).
-    
-    ```powershell
-        Install-Module -Name PackageManagement -Repository PSGallery -Force
-        Install-Module -Name PowerShellGet -Repository PSGallery -Force
-    ```
- 
-2. Reinicie PowerShell.
-3. Instalación de los módulos
-    
-    ```powershell
-        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
-    ```
+El cmdlet de evaluación se puede instalar mediante el módulo Az de PowerShell, que se puede instalar siguiendo estas instrucciones: [Instale y configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 #### <a name="usage"></a>Uso  
 Puede invocar la herramienta de evaluación de varias maneras diferentes: puede realizar las comprobaciones del sistema, las comprobaciones del conjunto de datos o ambas. Para realizar las comprobaciones del sistema y el conjunto de datos: 
@@ -115,11 +102,11 @@ Para mostrar los resultados en CSV:
 
     | Versión | SKU compatibles | Opciones de implementación compatibles |
     |---------|----------------|------------------------------|
-    | Windows Server 2019 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
-    | Windows Server 2016 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
-    | Windows Server 2012 R2 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
+    | Windows Server 2019 | Datacenter y Standard | Full y Core |
+    | Windows Server 2016 | Datacenter y Standard | Full y Core |
+    | Windows Server 2012 R2 | Datacenter y Standard | Full y Core |
 
-    Las versiones futuras de Windows Server se agregarán tan pronto como se publiquen. Las versiones anteriores de Windows podrían agregarse en función de los comentarios del usuario.
+    Las versiones futuras de Windows Server se agregarán tan pronto como se publiquen.
 
     > [!Important]  
     > Se recomienda mantener sincronizadas todas las instancias que use con Azure File Sync con las actualizaciones más recientes de Windows Update. 
@@ -169,8 +156,12 @@ La característica de clústeres de conmutación por error de Windows es compati
 > El agente de Azure File Sync debe estar instalado en cada nodo de un clúster de conmutación por error para que la sincronización funcione correctamente.
 
 ### <a name="data-deduplication"></a>Desduplicación de datos
-**Versión del agente 5.0.2.0**   
-La desduplicación de datos ahora es compatible en volúmenes con la nube por niveles habilitada en Windows Server 2016 y Windows Server 2019. Habilitar la desduplicación en un volumen con la nube por niveles habilitada, le permite almacenar en caché más archivos en el entorno local sin necesidad de aprovisionar más almacenamiento. Tenga en cuenta que este ahorro por volumen solo se aplica de forma local; la desduplicación no afectará a sus datos en Azure Files. 
+**Versión 5.0.2.0 del agente, o posterior**   
+La desduplicación de datos ahora es compatible en volúmenes con la nube por niveles habilitada en Windows Server 2016 y Windows Server 2019. Habilitar la desduplicación de datos en un volumen con la nube por niveles habilitada, le permite almacenar en caché más archivos en el entorno local sin necesidad de aprovisionar más almacenamiento. 
+
+Cuando la desduplicación de datos está habilitada en un volumen con la nube por niveles habilitada, los archivos optimizados para desduplicación dentro de la ubicación del punto de conexión del servidor se organizan en niveles de forma similar a un archivo normal en función de la configuración de la directiva de la nube por niveles. Una vez que los archivos optimizados para la desduplicación se han organizado en niveles, el trabajo de recolección de elementos no utilizados de desduplicación de datos se ejecutará automáticamente para recuperar el espacio en disco mediante la eliminación de fragmentos innecesarios a los que ya no hacen referencia otros archivos del volumen.
+
+Tenga en cuenta que el ahorro de volumen solo se aplica al servidor; los datos del recurso compartido de Azure no se desduplicarán.
 
 **Windows Server 2012 R2 o versiones anteriores del agente**  
 En el caso de volúmenes que no tengan habilitada la característica de niveles de nube, Azure File Sync admite la habilitación de la desduplicación de datos de Windows Server en el volumen.
@@ -220,7 +211,7 @@ Dado que un antivirus funciona examinando los archivos en busca de código malin
 Las soluciones de antivirus internas de Microsoft, Windows Defender y System Center Endpoint Protection (SCEP), omiten de forma automática la lectura de archivos que tienen establecido dicho atributo. Hemos probado ambas soluciones e identificamos un problema menor: al agregar un servidor a un grupo de sincronización existente, se recuperan (descargan) los archivos de menos de 800 bytes en el nuevo servidor. Estos archivos permanecerán en el nuevo servidor y no se organizarán en niveles ya que no cumplen con el requisito de tamaño de niveles (>64 kb).
 
 > [!Note]  
-> Los proveedores de software antivirus pueden comprobar la compatibilidad entre sus productos y Azure File Sync con [Azure File Sync Antivirus Compatibility Test Suite] (https://www.microsoft.com/download/details.aspx?id=58322), que está disponible para su descarga en el Centro de descarga de Microsoft.
+> Los proveedores de software antivirus pueden comprobar la compatibilidad entre sus productos y Azure File Sync con [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), que está disponible para su descarga en el Centro de descarga de Microsoft.
 
 ### <a name="backup-solutions"></a>Soluciones de copia de seguridad
 Al igual que sucede con las soluciones antivirus, las soluciones de backup pueden provocar la recuperación de archivos con niveles. Se recomienda usar una solución de backup en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure en lugar de usar un producto de backup local.
@@ -263,6 +254,7 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Asia oriental | RAE de Hong Kong |
 | Este de EE. UU | Virginia |
 | Este de EE. UU. 2 | Virginia |
+| Centro de Francia | París |
 | Corea Central| Seúl |
 | Corea del Sur| Busán |
 | Este de Japón | Tokio, Saitama |
@@ -304,6 +296,7 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 | Asia oriental           | Sudeste asiático     |
 | Este de EE. UU             | Oeste de EE. UU.            |
 | Este de EE. UU. 2           | Centro de EE. UU.         |
+| Centro de Francia      | Sur de Francia       |
 | Este de Japón          | Oeste de Japón         |
 | Oeste de Japón          | Este de Japón         |
 | Corea Central       | Corea del Sur        |

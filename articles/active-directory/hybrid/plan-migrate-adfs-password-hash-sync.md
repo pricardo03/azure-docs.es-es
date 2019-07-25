@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migrar de federación a PHS para Azure AD | Microsoft Docs'
+title: 'Azure AD Connect: Migración de Federación a PHS para Azure AD | Microsoft Docs'
 description: Este artículo contiene información acerca de cómo mover un entorno de identidades híbrido a la sincronización de hash de contraseña.
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1d2c587129f9f9f09c8f3871748449dc7b1755b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 9ce9c0c6d4f9002b061afd2ad09f02266d452979
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474026"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109265"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migración de la federación a la sincronización de hash de contraseña para Azure Active Directory
 
@@ -113,7 +113,7 @@ Para obtener más información, consulte estos artículos:
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Si el valor **SupportsMfa** está establecido en **True**, está usando una solución de autenticación multifactor local para insertar un segundo factor en el flujo de autenticación del usuario. Esta configuración ya no funciona para los escenarios de autenticación de Azure AD después de convertir este dominio de federado a administrado la autenticación. Después de deshabilitar la federación, interrumpe la relación con la federación en el entorno local y esto incluye los adaptadores MFA en el entorno local. 
+> Si el valor **SupportsMfa** está establecido en **True**, está usando una solución de autenticación multifactor local para insertar un segundo factor en el flujo de autenticación del usuario. Esta configuración ya no funciona para los escenarios de autenticación de Azure AD después de convertir este dominio de la autenticación federada a la administrada. Después de deshabilitar la federación, interrumpe la relación con la federación en el entorno local y esto incluye los adaptadores MFA en el entorno local. 
 >
 > Use en su lugar el servicio en la nube de Azure Multi-factor Authentication para realizar la misma función. Valore detenidamente los requisitos de la autenticación multifactor antes de continuar. Antes de convertir los dominios, asegúrese de que sabe cómo usar Azure Multi-factor Authentication, las implicaciones en cuanto a licencias y el proceso de registro del usuario.
 
@@ -141,7 +141,7 @@ Antes de realizar la conversión de identidad federada a identidad administrada,
 | La instancia de AD FS está muy personalizada y depende de valores de configuración concretos del archivo onload.js (por ejemplo, ha cambiado la forma en que se inicia sesión para que los usuarios solo especifiquen un formato **SamAccountName** para su nombre de usuario, en lugar de un nombre principal de usuario, o su organización ha personalizado con marca la experiencia de inicio de sesión). El archivo onload.js no se puede duplicar en Azure AD. | Antes de continuar, debe comprobar que Azure AD puede cumplir los requisitos de personalización actuales. Para más información e instrucciones, consulte las secciones sobre personalización de marca de AD FS y personalización de AD FS.|
 | Usará AD FS para bloquear las versiones anteriores de clientes de autenticación.| Considere la posibilidad de reemplazar los controles de AD FS que bloquean las versiones anteriores de clientes de autenticación mediante una combinación de [controles de acceso condicionales](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) y [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR). |
 | Necesita que los usuarios realicen la autenticación multifactor en una solución de servidor de autenticación multifactor local cuando los usuarios se autentican en AD FS.| En un dominio de identidad administrada, no puede insertar un desafío de autenticación multifactor a través de la solución de autenticación multifactor local en el flujo de autenticación. Sin embargo, puede usar el servicio Azure Multi-factor Authentication para la autenticación multifactor después de convertir el dominio.<br /><br /> Si los usuarios no usan actualmente Azure Multi-factor Authentication, es necesario un paso de registro puntual del usuario. Debe prepararse para el registro planeado y comunicárselo a los usuarios. |
-| Actualmente usa directivas de control de acceso (reglas de AuthZ) en AD FS para controlar el acceso a Office 365.| Considere la posibilidad de reemplazarlas por las [directivas de acceso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) de Azure AD equivalentes y las [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR).|
+| Actualmente usa directivas de control de acceso (reglas de AuthZ) en AD FS para controlar el acceso a Office 365.| Considere la posibilidad de reemplazarlas por las [directivas de acceso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) de Azure AD equivalentes y las [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR).|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizaciones de AD FS comunes
 
@@ -151,7 +151,7 @@ En esta sección se describen las personalizaciones de AD FS comunes.
 
 AD FS emite la notificación **InsideCorporateNetwork** si el usuario que realiza la autenticación está dentro de la red corporativa. Esta notificación se puede transmitir entonces a Azure AD. La notificación se utiliza para omitir la autenticación multifactor basada en la ubicación de red del usuario. Para obtener información sobre cómo determinar si esta funcionalidad actualmente está habilitada en AD FS, consulte [Direcciones IP de confianza para usuarios federados](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud).
 
-La notificación **InsideCorporateNetwork** dejará de estar estará disponible cuando los dominios se conviertan a la sincronización de hash de contraseña. Se pueden utilizar las [ubicaciones con nombre en Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) para reemplazar esta funcionalidad.
+La notificación **InsideCorporateNetwork** dejará de estar estará disponible cuando los dominios se conviertan a la sincronización de hash de contraseña. Se pueden usar las [ubicaciones con nombre de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) para reemplazar esta funcionalidad.
 
 Una vez que se han configurado las ubicaciones con nombre, debe actualizar todas las directivas de acceso condicional que se configuraron para incluir o excluir los valores de red **Todas las ubicaciones de confianza** o **IP de confianza de MFA** para reflejar las ubicaciones con nombre recién creadas.
 
@@ -337,7 +337,7 @@ Use esta opción si no configuró inicialmente los dominios federados con Azure 
 
    Antes de habilitar la sincronización de hash de contraseña: ![Captura de pantalla que muestra la opción No configurar en la página Inicio de sesión de usuario](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   Después de habilitar la sincronización de hash de contraseña: ![Captura de pantalla que muestra las nuevas opciones en la página de inicio de sesión de usuario](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   Después de habilitar la sincronización de hash de contraseña: ![Captura de pantalla que muestra las nuevas opciones en la página Inicio de sesión de usuario](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > A partir de la versión 1.1.880.0 de Azure AD Connect, la casilla **Inicio de sesión único de conexión directa** está activa de forma predeterminada.

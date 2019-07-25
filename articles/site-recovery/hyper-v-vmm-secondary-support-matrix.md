@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: e8b8f9856fe7e0fa591ceb42aab97e92642b6098
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399365"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
 
-En este artículo se resume lo que se admite cuando se usa el [Azure Site Recovery](site-recovery-overview.md) service para replicar máquinas virtuales de Hyper-V administradas en nubes de System Center Virtual Machine Manager (VMM) en un sitio secundario. Si quiere replicar máquinas virtuales de Hyper-V en Azure, consulte [esta matriz de compatibilidad](hyper-v-azure-support-matrix.md).
+En este artículo se resume lo que se admite cuando usa el servicio [Azure Site Recovery](site-recovery-overview.md) para replicar las VM de Hyper-V administradas en las nubes de System Center Virtual Machine Manager (VMM) a un sitio secundario. Si quiere replicar máquinas virtuales de Hyper-V en Azure, consulte [esta matriz de compatibilidad](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
 > Solo puede replicar en un sitio secundario si los hosts de Hyper-V se administran en nubes de VMM.
@@ -58,15 +58,15 @@ Solo se pueden replicar máquinas Linux con el almacenamiento siguiente:
 Host: formación de equipos NIC | Sí 
 Host: VLAN | Sí 
 Host: IPv4 | Sí 
-Host: IPv6 | No 
-VM invitada: formación de equipos NIC | No
+Host: IPv6 | Sin 
+VM invitada: formación de equipos NIC | Sin
 VM invitada: IPv4 | Sí
-VM invitada: IPv6 | Sin 
+VM invitada: IPv6 | Sin
 VM invitada: Windows/Linux - dirección IP estática | Sí
 VM invitada: múltiples NIC | Sí
 
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 
 ### <a name="host-storage"></a>Almacenamiento de host
 
@@ -84,16 +84,16 @@ Varias rutas (MPIO) | Sí
 VMDK |  N/D
 VHD/VHDX | Sí (hasta 16 discos)
 VM de 2 generación | Sí
-Disco en clúster compartido | Sin 
-Disco cifrado | Sin 
+Disco en clúster compartido | Sin
+Disco cifrado | Sin
 UEFI| N/D
-NFS | Sin 
-SMB 3.0 | No
+NFS | Sin
+SMB 3.0 | Sin
 RDM | N/D
 Disco > 1 TB | Sí
 Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí
 Espacios de almacenamiento | Sí
-Agregar/quitar disco en caliente | No
+Agregar/quitar disco en caliente | Sin
 Excluir el disco | Sí
 Varias rutas (MPIO) | Sí
 
@@ -101,8 +101,8 @@ Varias rutas (MPIO) | Sí
 
 **Acción** | **Compatible**
 --- | --- 
-Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) |  No
-Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin 
+Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) |  Sin
+Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin
 
 ## <a name="azure-site-recovery-provider"></a>Proveedor de Azure Site Recovery
 

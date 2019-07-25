@@ -1,45 +1,45 @@
 ---
-title: Habilitar y solicitar acceso just-in-time para aplicaciones administradas de Azure
-description: Describe cómo los editores de aplicaciones administradas de Azure solicitan acceso just-in-time a una aplicación administrada.
+title: Habilitación y solicitud de acceso Just-In-Time para Azure Managed Applications
+description: Describe cómo los editores de Azure Managed Applications solicitan acceso Just-In-Time a una aplicación administrada.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: ea933f5382cb42c01de523326b094c1813401132
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481780"
 ---
-# <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Habilitar y solicitar acceso just-in-time para aplicaciones administradas de Azure
+# <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Habilitación y solicitud de acceso Just-In-Time para Azure Managed Applications
 
-Los consumidores de la aplicación administrada pueden ser reacios a conceder acceso permanente al grupo de recursos administrados. Como publicador de una aplicación de administrador, es preferible que los consumidores saben exactamente cuando lo necesita tener acceso a los recursos administrados. Para ofrecer a los clientes mayor control sobre la concesión de acceso a los recursos administrados, Azure Managed Applications proporciona una característica denominada acceso de just-in-time (JIT), que se encuentra actualmente en versión preliminar.
+Los consumidores de la aplicación administrada pueden ser reacios a concederle acceso permanente al grupo de recursos administrados. Como editor de una aplicación administrada, es preferible que los consumidores sepan exactamente cuando necesita acceder a los recursos administrados. Para ofrecer a los consumidores mayor control sobre la concesión de acceso a los recursos administrados, Azure Managed Applications proporciona una característica denominada acceso Just-In-Time (JIT), que se encuentra actualmente en versión preliminar.
 
-Acceso JIT le permite solicitar acceso con privilegios elevados a recursos de la aplicación administrada para solucionar problemas o mantenimiento. Siempre tendrá acceso de solo lectura a los recursos, pero puede tener mayor acceso durante un período de tiempo específico.
+El acceso JIT permite solicitar acceso con privilegios elevados a recursos de la aplicación administrada con fines de solución de problemas o mantenimiento. Siempre tendrá acceso de solo lectura a los recursos, pero puede tener mayor acceso durante un período de tiempo específico.
 
-El flujo de trabajo de concesión de acceso es:
+El flujo de trabajo de concesión de acceso es el siguiente:
 
-1. Agregar una aplicación administrada en marketplace y especificar que el acceso JIT está disponible.
+1. Agrega una aplicación administrada en Marketplace y especifica que el acceso JIT esté disponible.
 
 1. Durante la implementación, el consumidor permite el acceso JIT a esa instancia de la aplicación administrada.
 
-1. Después de la implementación, el consumidor puede cambiar la configuración para el acceso JIT.
+1. Después de la implementación, el consumidor puede cambiar la configuración del acceso JIT.
 
-1. Enviar una solicitud de acceso cuando se necesita solucionar problemas o actualizar los recursos administrados.
+1. Envía una solicitud de acceso cuando se necesita para solucionar problemas o actualizar los recursos administrados.
 
-1. El consumidor aprueba su solicitud.
+1. El consumidor aprueba la solicitud.
 
-En este artículo se centra en las acciones que realizar los publicadores para habilitar el acceso JIT y enviar las solicitudes. Para obtener información acerca de la aprobación de solicitudes de acceso JIT, consulte [aprobar el acceso just-in-time en aplicaciones administradas de Azure](approve-just-in-time-access.md).
+Este artículo se centra en las acciones que los editores llevan a cabo para habilitar el acceso JIT y enviar solicitudes. Para obtener información acerca de la aprobación de solicitudes de acceso JIT, consulte el tema sobre la [aprobación del acceso Just-In-Time en Azure Managed Applications](approve-just-in-time-access.md).
 
-## <a name="add-jit-access-step-to-ui"></a>Agregar paso de acceso JIT a la interfaz de usuario
+## <a name="add-jit-access-step-to-ui"></a>Agregar el paso de acceso JIT a la interfaz de usuario
 
-El archivo CreateUiDefinition.json es exactamente igual que el archivo de interfaz de usuario que cree para el acceso permanente, excepto que debe incluir un paso que permite a los consumidores habilitar acceso JIT. Para más información sobre la publicación de su primera aplicación administrada que ofrece en Azure Marketplace, consulte [aplicaciones administradas de Azure en Marketplace](publish-marketplace-app.md).
+El archivo CreateUiDefinition.json es exactamente igual que el archivo de interfaz de usuario que crea para el acceso permanente, excepto en que debe incluir un paso que permita a los consumidores habilitar el acceso JIT. Para más información sobre cómo publicar su primera oferta de aplicaciones administradas en Azure Marketplace, consulte [Aplicaciones administradas de Azure en Marketplace](publish-marketplace-app.md).
 
-Para admitir la funcionalidad JIT de la oferta, agregue el siguiente contenido al archivo CreateUiDefinition.json:
+Para admitir la funcionalidad JIT para la oferta, agregue el siguiente contenido al archivo CreateUiDefinition.json:
 
-En "pasos":
+En "steps":
 
 ```json
 {
@@ -67,50 +67,50 @@ En "outputs":
 ```
 
 > [!NOTE]
-> Acceso JIT está en versión preliminar. El esquema de configuración de JIT podría cambiar en futuras iteraciones.
+> El acceso JIT está en versión preliminar. El esquema de configuración de JIT podría cambiar en futuras iteraciones.
 
-## <a name="enable-jit-access"></a>Habilitar acceso JIT
+## <a name="enable-jit-access"></a>Habilitar el acceso JIT
 
-Al definir su oferta en marketplace, asegúrese de que habilitar acceso JIT.
+Al definir su oferta en Marketplace, asegúrese de habilitar el acceso JIT.
 
-1. Inicie sesión en el [Cloud Partner portal de publicación](https://cloudpartner.azure.com).
+1. Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com).
 
-1. Proporcione valores para publicar la aplicación administrada en marketplace. ¿Seleccione **Sí** para **habilitar acceso JIT?**
+1. Proporcione valores para publicar la aplicación administrada en Marketplace. Seleccione **Sí** en **Enable JIT Access?** (¿Habilitar el acceso JIT?)
 
    ![Habilitar acceso Just-In-Time](./media/request-just-in-time-access/marketplace-enable.png)
 
-Se ha agregado un paso de configuración JIT a la interfaz de usuario y se ha habilitado el acceso JIT en la oferta de marketplace. Cuando los consumidores de implementación la aplicación administrada, pueden [activar el acceso JIT para su instancia](approve-just-in-time-access.md#enable-during-deployment).
+Ha agregado un paso de configuración JIT a la interfaz de usuario y habilitado el acceso JIT en la oferta de Marketplace. Cuando los consumidores implementen la aplicación administrada, pueden [activar el acceso JIT para su instancia](approve-just-in-time-access.md#enable-during-deployment).
 
 ## <a name="request-access"></a>Solicitar acceso
 
-Cuando necesite tener acceso a los recursos administrados del consumidor, enviar una solicitud para un rol específico, el tiempo y la duración. El consumidor, a continuación, debe aprobar la solicitud.
+Cuando necesite acceder a los recursos administrados del consumidor, envíe una solicitud para un rol, una hora y una duración específicos. A continuación, el consumidor debe aprobar la solicitud.
 
 Para enviar una solicitud de acceso JIT:
 
-1. Seleccione **acceso JIT** para la aplicación administrada que necesite tener acceso.
+1. Seleccione **Acceso de JIT** para la aplicación administrada a la que necesita acceder.
 
-1. Seleccione **Roles elegibles**y seleccione **activar** en la columna de acción para el rol que desea.
+1. Seleccione **Roles elegibles** y, a continuación, **Activar** en la columna ACCIÓN del rol deseado.
 
    ![Activar la solicitud de acceso](./media/request-just-in-time-access/send-request.png)
 
-1. En el **activar rol** formulario, seleccione una hora de inicio y la duración de su rol para que estén activos. Seleccione **Activate** para enviar la solicitud.
+1. En el formulario **Activar rol**, seleccione una hora de inicio y la duración que el rol deberá estar activo. Seleccione **Activar** para enviar la solicitud.
 
-   ![Activar acceso](./media/request-just-in-time-access/activate-access.png) 
+   ![Activar el acceso](./media/request-just-in-time-access/activate-access.png) 
 
-1. Ver las notificaciones para ver que la nueva solicitud JIT se ha enviado correctamente al consumidor.
+1. Consulte las notificaciones para ver que la nueva solicitud de JIT se ha enviado correctamente al consumidor.
 
-   ![Notification](./media/request-just-in-time-access/in-progress.png)
+   ![Notificación](./media/request-just-in-time-access/in-progress.png)
 
-   Ahora, debe esperar para que el consumidor [aprobar su solicitud](approve-just-in-time-access.md#approve-requests).
+   Ahora, debe esperar a que el consumidor [apruebe su solicitud](approve-just-in-time-access.md#approve-requests).
 
-1. Para ver el estado de todas las solicitudes JIT para una aplicación administrada, seleccione **acceso JIT** y **historial solicitar**.
+1. Para ver el estado de todas las solicitudes JIT de una aplicación administrada, seleccione **Acceso de JIT** e **Historial de solicitudes**.
 
    ![Ver estado](./media/request-just-in-time-access/view-status.png)
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-El identificador de entidad de seguridad de la cuenta que solicita acceso JIT debe incluirse explícitamente en la definición de aplicación administrada. La cuenta no puede incluirse solo a través de un grupo que se especifica en el paquete. Esta limitación se corregirá en una versión futura.
+El identificador de entidad de seguridad de la cuenta que solicita acceso JIT debe incluirse explícitamente en la definición de la aplicación administrada. La cuenta no puede incluirse solo a través de un grupo especificado en el paquete. Esta limitación se corregirá en una versión futura.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información acerca de la aprobación de solicitudes para el acceso JIT, consulte [aprobar el acceso just-in-time en aplicaciones administradas de Azure](approve-just-in-time-access.md).
+Para obtener información acerca de la aprobación de solicitudes de acceso JIT, consulte el tema sobre la [aprobación del acceso Just-In-Time en Azure Managed Applications](approve-just-in-time-access.md).

@@ -14,10 +14,10 @@ ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
 ms.openlocfilehash: a9b75c3454c67112b0e00c7ea4b4e8c676ebcc97
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65949474"
 ---
 # <a name="manage-multiple-tenants"></a>Administración de varios inquilinos
@@ -68,7 +68,7 @@ Al [cargar vídeos](https://api-portal.videoindexer.ai/docs/services/operations/
 
 ## <a name="azure-subscription-per-tenant"></a>Una suscripción de Azure por cada inquilino 
 
-Cuando se usa esta arquitectura, cada inquilino tendrá su propia suscripción de Azure. Para cada usuario, creará una nueva cuenta de Video Indexer en la suscripción del inquilino.
+Si se usa esta arquitectura, cada inquilino tiene su propia suscripción de Azure. Para cada usuario, creará una nueva cuenta de Video Indexer en la suscripción del inquilino.
 
 ![Una suscripción de Azure por cada inquilino](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 

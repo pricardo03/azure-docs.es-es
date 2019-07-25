@@ -9,10 +9,10 @@ ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 30c7c1c50e59162817d7cfab0d852d8e034457d0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969411"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
@@ -46,7 +46,7 @@ En la tabla siguiente se compara Azure Files con Azure Blobs.
 |Throughput|Hasta 60 MiB/s por blob en bloques|Hasta 60 MiB/s por recurso compartido|  
 |Tamaño de objeto|Hasta aproximadamente 4,75 TiB por blob en bloques|Hasta 1 TiB por archivo|  
 |Capacidad facturada|En función de los bytes escritos|Según el tamaño de archivo|  
-|Bibliotecas de cliente|Lenguajes múltiples|Lenguajes múltiples|  
+|Bibliotecas de clientes|Varios idiomas|Varios idiomas|  
   
 ## <a name="comparison-files-and-disks"></a>Comparación: Files y Disks
 
@@ -57,13 +57,13 @@ En la tabla siguiente se compara Azure Files con Azure Disks.
 ||||  
 |-|-|-|  
 |**Atributo**|**Azure Disks**|**Archivos de Azure**|  
-|Scope|Exclusivo para una máquina virtual individual|Acceso compartido entre varias máquinas virtuales|  
+|Ámbito|Exclusivo para una máquina virtual individual|Acceso compartido entre varias máquinas virtuales|  
 |Instantáneas y copia|Sí|Sí|  
 |Configuración|Se conecta al iniciarse la máquina virtual|Se conecta una vez iniciada la máquina virtual|  
-|Authentication|Integrado|Configurar con el uso de la red|  
+|Authentication|Característica integrada|Configurar con el uso de la red|  
 |Acceso con REST|No se puede acceder a archivos dentro del VHD|Se puede acceder a archivos almacenados en un recurso compartido|  
-|Tamaño máximo|32 discos TiB|Recurso compartido de archivos de 5 TiB y archivo de 1 TiB dentro del recurso compartido|  
-|IOPS máx.|20 000 e/s por segundo|1000 IOPS|  
+|Tamaño máximo|Disco de 32 TiB|Recurso compartido de archivos de 5 TiB y archivo de 1 TiB dentro del recurso compartido|  
+|IOPS máx.|20 000 IOPS|1000 IOPS|  
 |Throughput|Hasta 900 MiB/s por disco|El objetivo es 60 MiB/s por recurso compartido de archivos (puede ser mayor para tamaños de IO superiores)|  
 
 ## <a name="next-steps"></a>Pasos siguientes

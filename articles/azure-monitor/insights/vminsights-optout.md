@@ -1,6 +1,6 @@
 ---
-title: Deshabilitación de la supervisión con Azure Monitor para VM (versión preliminar) | Microsoft Docs
-description: En este artículo se describe cómo puede interrumpir la supervisión de máquinas virtuales con Azure Monitor para VM.
+title: Deshabilitación de la supervisión en Azure Monitor para VM (versión preliminar) | Microsoft Docs
+description: En este artículo se describe cómo puede interrumpir la supervisión de las máquinas virtuales en Azure Monitor para VM.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,61 +13,66 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb667486a6e3279cb78fefe02723f14d9f7c9b4f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522117"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155700"
 ---
-# <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Deshabilitación de la supervisión de las máquinas virtuales con Azure Monitor para VM (versión preliminar)
+# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Deshabilitación de la supervisión de las VM en Azure Monitor para VM (versión preliminar)
 
-Si después de habilitar la supervisión de las máquinas virtuales decide que ya no desea supervisarlas con Azure Monitor para VM, puede deshabilitar la supervisión. En este artículo se muestra cómo realizar esta tarea para una o varias máquinas virtuales.  
+Después de habilitar la supervisión de las máquinas virtuales (VM), más adelante puede elegir deshabilitar la supervisión en Azure Monitor para VM. En este artículo se muestra cómo deshabilitar la supervisión de una o más VM.  
 
-Actualmente, Azure Monitor para VM no permite deshabilitar de forma selectiva la supervisión de las máquinas virtuales. Si el área de trabajo de Log Analytics está configurada para admitir esta solución y otras soluciones, así como para recopilar otros datos de supervisión, es importante que comprenda el impacto y los métodos descritos a continuación antes de continuar.
+Actualmente, Azure Monitor para VM no permite deshabilitar de forma selectiva la supervisión de VM. Puede que el área de trabajo de Log Analytics admita Azure Monitor para VM y otras soluciones. También puede recopilar otros datos de supervisión. Si el área de trabajo de Log Analytics proporciona estos servicios, debe entender el efecto y métodos de la deshabilitación de la supervisión antes de empezar.
 
 Azure Monitor para VM se basa en los siguientes componentes para ofrecer su experiencia:
 
-* Un área de trabajo de Log Analytics, que almacena los datos de supervisión recogidos de las máquinas virtuales y otros orígenes.
-* La colección de contadores de rendimiento configurados en el área de trabajo, que actualiza la configuración de supervisión de todas las máquinas virtuales conectadas al área de trabajo.
-* Dos soluciones de supervisión configuradas en el área de trabajo, **InfrastructureInsights** y **ServiceMap**, que actualizan la configuración de supervisión en todas las máquinas virtuales conectadas al área de trabajo.
-* Dos extensiones de máquinas virtuales de Azure, **MicrosoftMonitoringAgent** y **DependencyAgent**, que recopilan y envían datos al área de trabajo.
+* Un área de trabajo de Log Analytics, que almacena los datos de supervisión de las máquinas virtuales y otros orígenes.
+* Una colección de contadores de rendimiento configurados en el área de trabajo. La colección actualiza la configuración de supervisión en todas las VM conectadas al área de trabajo.
+* `InfrastructureInsights` y `ServiceMap`, que son soluciones de supervisión configuradas en el área de trabajo. Estas soluciones actualizan la configuración de supervisión en todas las VM conectadas al área de trabajo.
+* `MicrosoftMonitoringAgent` y `DependencyAgent`, que son extensiones de Azure VM. Estas extensiones recopilan y envían datos al área de trabajo.
 
-Considere lo siguiente al preparar la deshabilitación de la supervisión de las máquinas virtuales con Azure Monitor para VM:
+Cuando se prepare para deshabilitar la supervisión de las VM, tenga en cuenta estas consideraciones:
 
-* Si realiza la evaluación con una sola máquina virtual y ha aceptado el área de trabajo de Log Analytics predeterminada preseleccionada, puede deshabilitar la supervisión mediante la desinstalación del agente de dependencia de la máquina virtual y la desconexión del agente de Log Analytics de esta área de trabajo. Este enfoque es adecuado si tiene la intención de utilizar la máquina virtual para otros fines y decide posteriormente volver a conectarla a un área de trabajo diferente.
-* Si utiliza el área de trabajo de Log Analytics para admitir otras soluciones de supervisión y recopilación de datos de otros orígenes, puede quitar los componentes de la solución Azure Monitor para VM del área de trabajo sin interrupción ni impacto en el área de trabajo.  
-
->[!NOTE]
-> Después de quitar los componentes de la solución del área de trabajo, puede continuar viendo el estado de mantenimiento de las máquinas virtuales de Azure; específicamente, datos de rendimiento y de mapa cuando se desplaza a cualquiera de las dos vistas en el portal. Eventualmente, los datos dejarán de aparecer en la vista de rendimiento y mapa después de algún tiempo; sin embargo, la vista de mantenimiento continuará mostrando el estado de mantenimiento de las máquinas virtuales. La opción **Probar ahora** estará disponible en la máquina virtual de Azure seleccionada para que pueda volver a habilitar la supervisión en el futuro.  
-
-## <a name="complete-removal-of-azure-monitor-for-vms"></a>Eliminación completa de Azure Monitor para VM
-
-Los pasos siguientes describen cómo quitar por completo Azure Monitor para VM si aún necesita el área de trabajo de Log Analytics. Va a quitar las soluciones **InfrastructureInsights** y **ServiceMap** del área de trabajo.  
+* Si realizó la evaluación con una sola VM y usó el área de trabajo de Log Analytics predeterminada preseleccionada, puede deshabilitar la supervisión mediante la desinstalación del agente de dependencia de la máquina virtual y la desconexión del agente de Log Analytics de esta área de trabajo. Este enfoque es adecuado si tiene la intención de utilizar la máquina virtual para otros fines y decide posteriormente volver a conectarla a un área de trabajo diferente.
+* Si seleccionó un área de trabajo de Log Analytics existente que admite otras soluciones de supervisión y recopilación de datos de otros orígenes, puede quitar los componentes de la solución del área de trabajo sin que el área de trabajo se vea afectada.  
 
 >[!NOTE]
->Si estaba usando la solución de supervisión de Service Map antes de habilitar Azure Monitor para VM y todavía confía en ella, no quite esa solución como se describe en el paso 6 siguiente.  
+> Después de quitar los componentes de la solución del área de trabajo, puede continuar viendo el estado de mantenimiento de las VM de Azure; específicamente, verá los datos de rendimiento y de mapa cuando vaya a cualquiera de las dos vistas en el portal. Los datos, finalmente, dejarán de aparecer en las vistas **Rendimiento** y **Mapa**. Pero la vista **Estado** seguirá mostrando el estado de mantenimiento para las VM. La opción **Probar ahora** estará disponible en la VM de Azure seleccionada para que pueda volver a habilitar la supervisión en el futuro.  
+
+## <a name="remove-azure-monitor-for-vms-completely"></a>Quitar completamente Azure Monitor para VM
+
+Si aún necesita el área de trabajo de Log Analytics, siga estos pasos para quitar por completo Azure Monitor para VM. Va a quitar las soluciones `InfrastructureInsights` y `ServiceMap` del área de trabajo.  
+
+>[!NOTE]
+>Si usó la solución de supervisión de Service Map antes de habilitar Azure Monitor para VM y todavía confía en ella, no la quite como se describe en el último paso del procedimiento siguiente.  
 >
 
-1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-2. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba Log Analytics. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
-3. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo que ha elegido al incorporarse a Azure Monitor para VM.
-4. En el panel izquierdo, seleccione **Soluciones**.  
-5. En la lista de soluciones, seleccione **InfrastructureInsights(nombre del área de trabajo)** y, después, en la página **Información general** para la solución, haga clic en **Eliminar**.  Cuando se le solicite confirmar, haga clic en **Sí**.  
-6. En la lista de soluciones, seleccione **ServiceMap(nombre del área de trabajo)** y, después, en la página **Información general** para la solución, haga clic en **Eliminar**.  Cuando se le solicite confirmar, haga clic en **Sí**.  
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista filtrará las sugerencias en función de la entrada. Seleccione **Log Analytics**.
+3. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo que eligió al incorporarse a Azure Monitor para VM.
+4. A la izquierda, seleccione **Soluciones**.  
+5. En la lista de soluciones, seleccione **InfrastructureInsights (nombre de área de trabajo)** . En la página **Introducción** de la solución, seleccione **Eliminar**. Cuando se le solicite confirmación, haga clic en **Sí**.  
+6. En la lista de soluciones, seleccione **ServiceMap (nombre de área de trabajo)** . En la página **Introducción** de la solución, seleccione **Eliminar**. Cuando se le solicite confirmación, haga clic en **Sí**.  
 
-Si antes de incorporarse a Azure Monitor para VM, no estaba [recopilando los contadores de rendimiento habilitados](vminsights-enable-overview.md#performance-counters-enabled) para las máquinas virtuales basadas en Windows o Linux en el área de trabajo, necesita deshabilitar esas reglas siguiendo los pasos descritos [aquí](../platform/data-sources-performance-counters.md#configuring-performance-counters) para Windows y para Linux.
+Antes de habilitar Azure Monitor para VM, si no [recopilaba contadores de rendimiento](vminsights-enable-overview.md#performance-counters-enabled) para las VM basadas en Windows o Linux en el área de trabajo, [deshabilite esas reglas](../platform/data-sources-performance-counters.md#configuring-performance-counters) para Windows y Linux.
 
-## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Deshabilitación de la supervisión de una máquina virtual de Azure y conservación del área de trabajo  
+## <a name="disable-monitoring-and-keep-the-workspace"></a>Deshabilitar la supervisión y conservar el área de trabajo  
 
-Los pasos siguientes describen cómo deshabilitar la supervisión de una máquina virtual que se habilitó para evaluar Azure Monitor para VM, pero el área de trabajo de Log Analytics sigue siendo necesario para admitir la supervisión desde otros orígenes. Si se trata de una máquina virtual de Azure, va a quitar la extensión de máquina virtual del agente de dependencias y la extensión de máquina virtual del agente de Log Analytics para Windows o Linux directamente de la máquina virtual. 
+Si el área de trabajo de Log Analytics aún debe admitir la supervisión de otros orígenes, siga estos pasos para deshabilitar la supervisión en la VM que usó para evaluar Azure Monitor para VM. Para las VM de Azure, quitará la extensión de VM del agente de dependencias y la extensión de VM del agente de Log Analytics para Windows o Linux directamente de la VM. 
 
 >[!NOTE]
->Si la máquina virtual la administra Azure Automation para orquestar los procesos, administrar la configuración o administrar las actualizaciones, o la administra Azure Security Center para la administración de seguridad y detección de amenazas, no se debe quitar el agente de Log Analytics. De lo contrario, evitará que esos servicios y soluciones administren de forma proactiva la máquina virtual. 
+>No quite el agente de Log Analytics si: 
+>
+> * Azure Automation administra la VM para orquestar los procesos o para administrar la configuración o las actualizaciones. 
+> * Azure Security Center administra la VM para la seguridad y la detección de amenazas. 
+>
+> Si quita el agente de Log Analytics, impedirá que esos servicios y soluciones administren de forma proactiva la VM. 
 
-1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com). 
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 2. En Azure Portal, seleccione **Virtual Machines**. 
 3. En la lista, seleccione una máquina virtual. 
-4. En el panel izquierdo, seleccione **Extensiones** y en la página **Extensiones**, seleccione **DependencyAgent**.
-5. En la página de propiedades de la extensión, haga clic en **Desinstalar**.
-6. En la página **Extensiones**, seleccione **MicrosoftMonitoringAgent** y, en la página de propiedades de la extensión, haga clic en **Desinstalar**.  
+4. En el panel izquierdo, seleccione **Extensiones**. En la página **Extensiones**, seleccione **DependencyAgent**.
+5. En la página de propiedades de la extensión, seleccione **Desinstalar**.
+6. En la página **Extensiones**, seleccione **MicrosoftMonitoringAgent**. En la página de propiedades de la extensión, seleccione **Desinstalar**.  

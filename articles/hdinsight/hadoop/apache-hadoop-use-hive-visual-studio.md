@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
 ms.openlocfilehash: 7480dafe435e555bfba81ebd9242bb5724c0bf3f
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65861592"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Ejecución de las consultas de Apache Hive mediante las herramientas de Data Lake para Visual Studio
@@ -21,7 +21,7 @@ Aprenda a usar las herramientas de Data Lake para Visual Studio a fin de realiza
 
 ## <a id="prereq"></a>Requisitos previos
 
-* Un clúster de Apache Hadoop en HDInsight. Consulte [empezar a trabajar con HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Un clúster de Apache Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * Visual Studio (una de las siguientes versiones):
 
@@ -39,49 +39,49 @@ Para crear y ejecutar consultas de Hive, tiene dos opciones:
 
 ### <a name="ad-hoc"></a>Ad hoc
 
-Las consultas ad hoc se pueden ejecutar en cualquiera **Batch** o **interactivo** modo.
+Las consultas ad hoc se pueden ejecutar en el modo **Lotes** o **Interactivo**.
 
 1. Abra **Visual Studio**.
 
-2. Desde **Explorador de servidores**, vaya a **Azure** > **HDInsight**.
+2. En el **Explorador de servidores**, vaya a **Azure** > **HDInsight**.
 
-3. Expanda **HDInsight**y haga clic en el clúster donde desea ejecutar la consulta y, a continuación, seleccione **escribir una consulta de Hive**.
+3. Expanda **HDInsight**, haga clic con el botón derecho en el clúster donde quiere ejecutar la consulta y luego seleccione **Escribir una consulta de Hive**.
 
-4. Escriba la siguiente consulta de hive:
+4. Especifique esta consulta de Hive:
 
     ```hql
     SELECT * FROM hivesampletable;
     ```
 
-5. Seleccione **Execute**(Ejecutar). Tenga en cuenta que es el predeterminado para el modo de ejecución **interactivo**.
+5. Seleccione **Execute**(Ejecutar). Tenga en cuenta que el modo de ejecución está predeterminado en **Interactivo**.
 
     ![Captura de pantalla de ejecución de consultas interactivas de Hive](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
-6. Para ejecutar la misma consulta en **Batch** modo, la lista de la lista desplegable del botón de alternancia de **interactivo** a **Batch**. Tenga en cuenta que el botón de ejecución cambia de **Execute** a **enviar**.
+6. Para ejecutar la misma consulta en el modo **Lotes**, cambie la lista desplegable de **Interactivo** a **Lotes**. Tenga en cuenta que el botón de ejecución cambia de **Ejecutar** a **Enviar**.
 
     ![Captura de pantalla del envío de una consulta de Hive](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
 
-    El editor de Hive es compatible con IntelliSense. Data Lake Tools para Visual Studio es compatible con la carga de metadatos remotos cuando se edita un script de Hive. Por ejemplo, si escribe `SELECT * FROM`, IntelliSense muestra todos los nombres de tabla sugeridos. Cuando se especifica un nombre de tabla, IntelliSense enumera los nombres de columna. Las herramientas admiten casi todas las instrucciones DML de Hive, subconsultas y UDF integradas. IntelliSense solo sugiere los metadatos del clúster que se seleccionan en la barra de herramientas de HDInsight.
+    El editor de Hive es compatible con IntelliSense. Data Lake Tools para Visual Studio es compatible con la carga de metadatos remotos cuando se edita un script de Hive. Por ejemplo, si escribe `SELECT * FROM`, IntelliSense enumera todos los nombres de tabla sugeridos. Cuando se especifica un nombre de tabla, IntelliSense enumera los nombres de columna. Las herramientas admiten casi todas las instrucciones DML de Hive, subconsultas y UDF integradas. IntelliSense solo sugiere los metadatos del clúster que se seleccionan en la barra de herramientas de HDInsight.
 
     ![Captura de pantalla del ejemplo 1 de Visual Studio Tools en HDInsight: IntelliSense](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "IntelliSense en U-SQL")
    
     ![Captura de pantalla del ejemplo 2 de Visual Studio Tools en HDInsight: IntelliSense](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "IntelliSense en U-SQL")
 
-7. Seleccione **Enviar** o **Enviar (avanzado)**.
+7. Seleccione **Enviar** o **Enviar (avanzado)** .
 
    Si selecciona la opción de envío avanzado, configure las opciones **Nombre del trabajo**, **argumentos**, **Configuraciones adicionales** y **Estado de directorio** del script:
 
     ![Captura de pantalla de consulta de Hive para Hadoop en HDInsight](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Envío de consultas")
 
-### <a name="hive-application"></a>Aplicación de Hive
+### <a name="hive-application"></a>Aplicación Hive
 
 1. Abra **Visual Studio**.
 
-2. En la barra de menús, vaya a **archivo** > **New** > **proyecto**.
+2. En la barra de menús, vaya a **Archivo** > **Nuevo** > **Proyecto**.
 
-3. Desde el **nuevo proyecto** ventana, vaya a **plantillas** > **Azure Data Lake** > **HIVE (HDInsight)**  >  **Hive aplicación**. 
+3. En la ventana **Proyecto nuevo**, vaya a **Plantillas** > **Azure Data Lake** > **HIVE (HDInsight)**  > **Aplicación Hive**. 
 
-4. Proporcione un nombre para este proyecto y, a continuación, seleccione **Aceptar**.
+4. Escriba un Nombre para el proyecto y, a continuación, seleccione **Aceptar**.
 
 5. Abra el archivo **Script.hql** creado con este proyecto y péguelo en las siguientes instrucciones de HiveQL:
 
@@ -125,11 +125,11 @@ Las consultas ad hoc se pueden ejecutar en cualquiera **Batch** o **interactivo*
 
 ### <a name="additional-example"></a>Ejemplo adicional
 
-En este ejemplo se basa en el `log4jLogs` tabla creada en el paso anterior.
+Este ejemplo se basa en la tabla `log4jLogs` creada en el paso anterior.
 
-1. Desde **Explorador de servidores**, haga clic en el clúster y seleccione **escribir una consulta de Hive**.
+1. En el **Explorador de servidores**, haga clic con el botón derecho en el clúster y seleccione **Escribir una consulta de Hive**.
 
-2. Escriba la siguiente consulta de hive:
+2. Especifique esta consulta de Hive:
 
     ```hql
     set hive.execution.engine=tez;
@@ -148,7 +148,7 @@ En este ejemplo se basa en el `log4jLogs` tabla creada en el paso anterior.
     
     * `INSERT OVERWRITE ... SELECT`: selecciona filas de la tabla `log4jLogs` que contienen `[ERROR]` y luego inserta los datos en la tabla `errorLogs`.
 
-3. Ejecutar la consulta en **Batch** modo.
+3. Ejecute la consulta en modo **Lotes**.
 
 4. Para comprobar que el trabajo ha creado la tabla, utilice el **Explorador de servidores** y expanda **Azure** > **HDInsight** > el clúster de HDInsight > **Bases de datos de Hive** > **predeterminado**. La tabla **errorLogs** y la tabla **log4jLogs** aparecen en la lista.
 

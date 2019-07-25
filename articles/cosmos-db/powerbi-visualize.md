@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979004"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar datos de Azure Cosmos DB mediante el conector de Power BI
@@ -48,7 +48,7 @@ Antes de seguir las instrucciones de este tutorial de Power BI, asegúrese de qu
 
 Para compartir los informes en PowerBI.com, debe tener una cuenta en PowerBI.com.  Para más información sobre Power BI y Power BI Pro, visite [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
-## <a name="lets-get-started"></a>Comencemos
+## <a name="lets-get-started"></a>Comencemos.
 En este tutorial, imaginemos que usted es un geólogo que estudia los volcanes de todo el mundo. Los datos de los volcanes se almacenan en una cuenta de Azure Cosmos DB y el formato de documento JSON tiene este aspecto:
 
     {
@@ -122,7 +122,7 @@ Recuperará los datos de los volcanes de la cuenta de Azure Cosmos DB y visualiz
 8. Dele un nombre a la nueva columna, por ejemplo, LatLong.
 9. Después, especifique la fórmula personalizada para la nueva columna.  En nuestro ejemplo, concatenaremos los valores de latitud y longitud separados por comas, como se muestra a continuación mediante la fórmula siguiente: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Haga clic en **OK**.
    
-    Para obtener más información sobre las expresiones de análisis de datos (DAX) incluidas las funciones DAX, visite [aspectos básicos de DAX en Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
+    Para más información sobre las expresiones de análisis de datos (DAX), incluidas las funciones DAX, visite [Aspectos básicos de DAX en Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
     ![Tutorial de Power BI para conector de Power BI de Azure Cosmos DB - Agregar columna personalizada](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 

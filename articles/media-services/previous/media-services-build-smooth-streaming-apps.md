@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65949631"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Generación de una aplicación de la Tienda Windows de Smooth Streaming  
@@ -60,7 +60,7 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
 3. Modificación del archivo de código subyacente
 4. Compilación y prueba de la aplicación
 
-### <a name="to-create-a-windows-store-project"></a>Para crear un proyecto de Windows Store
+### <a name="to-create-a-windows-store-project"></a>Para crear un proyecto de Tienda Windows
 
 1. Ejecute Visual Studio; se admiten las versiones 2012 a 2015.
 1. En el menú **ARCHIVO**, haga clic en **Nuevo** y en **Proyecto**.
@@ -77,7 +77,7 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
 
 1. Haga clic en **OK**.
 
-### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Para agregar una referencia para el SDK de cliente Smooth Streaming
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Para agregar una referencia al SDK de cliente Smooth Streaming
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **SSPlayer** y haga clic en **Agregar referencia**.
 1. Escriba o seleccione los valores siguientes:
@@ -91,7 +91,7 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
 
 Después de agregar las referencias, debe seleccionar la plataforma de destino (x64 o x86), ya que en ninguna configuración de la plataforma de la CPU funciona la incorporación de las referencias.  En el Explorador de soluciones, verá una marca de advertencia amarilla en estas referencias agregadas.
 
-### <a name="to-design-the-player-user-interface"></a>Para diseñar la interfaz de usuario del Reproductor
+### <a name="to-design-the-player-user-interface"></a>Para diseñar la interfaz de usuario del reproductor
 
 1. En el Explorador de soluciones, haga doble clic en **MainPage.xaml** para abrirlo en la vista de diseño.
 2. Busque las etiquetas **&lt;Grid&gt;** y **&lt;/Grid&gt;** del archivo XAML y pegue el código siguiente entre ellas:
@@ -239,7 +239,7 @@ Esta lección contiene los procedimientos siguientes:
 5. Incorporación de código relacionado con la barra deslizante
 6. Compilación y prueba de la aplicación
 
-### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Para registrar el controlador de flujo de bytes de Smooth Streaming y pasar el conjunto de propiedades
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Para registrar el controlador de esquema de bytes de Smooth Streaming y pasar el conjunto de propiedades
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Al principio del archivo, agregue las siguientes instrucciones using:
@@ -284,7 +284,7 @@ Esta lección contiene los procedimientos siguientes:
    ```
 6. Presione **CTRL+S** para guardar el archivo.
 
-### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Para agregar el controlador de eventos de nivel de administrador de origen adaptativo
+### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Para agregar el controlador de eventos de nivel de administrador de orígenes adaptativo
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Dentro de la clase **MainPage** , agregue el siguiente miembro de datos:
@@ -312,7 +312,7 @@ Esta lección contiene los procedimientos siguientes:
    ```
 5. Presione **CTRL+S** para guardar el archivo.
 
-### <a name="to-add-adaptive-source-level-event-handlers"></a>Para agregar controladores de eventos en el nivel de origen adaptativo
+### <a name="to-add-adaptive-source-level-event-handlers"></a>Para agregar los controladores de eventos de nivel de origen adaptativo
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Dentro de la clase **MainPage** , agregue el siguiente miembro de datos:
@@ -363,7 +363,7 @@ Esta lección contiene los procedimientos siguientes:
 
 También están disponibles los mismos eventos en el nivel de administrador de origen adaptativo, que se pueden usar para administrar la funcionalidad común a todos los elementos multimedia de la aplicación. Cada AdaptiveSource incluye sus propios eventos y todos los eventos AdaptiveSource se aplicarán en cascada debajo de AdaptiveSourceManager.
 
-### <a name="to-add-media-element-event-handlers"></a>Para agregar controladores de eventos del elemento multimedia
+### <a name="to-add-media-element-event-handlers"></a>Para agregar controladores de eventos de elementos multimedia
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Al final de la clase **MainPage** , agregue los siguientes controladores de eventos:
@@ -399,7 +399,7 @@ También están disponibles los mismos eventos en el nivel de administrador de o
    ```
 4. Presione **CTRL+S** para guardar el archivo.
 
-### <a name="to-add-slider-bar-related-code"></a>Para agregar el control deslizante código relacionado
+### <a name="to-add-slider-bar-related-code"></a>Para agregar código relacionado con la barra deslizante
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Al principio del archivo, agregue las siguientes instrucciones using:
@@ -507,7 +507,7 @@ También están disponibles los mismos eventos en el nivel de administrador de o
    ```
 
    > [!NOTE]
-   > Se usa CoreDispatcher para realizar cambios en el subproceso de interfaz de usuario desde un subproceso no perteneciente a la interfaz de usuario. En el caso de cuello de botella en el subproceso de distribuidor, el desarrollador puede decidir usar distribuidor proporcionado por el elemento de interfaz de usuario que se va a actualizar.  Por ejemplo:
+   > Se usa CoreDispatcher para realizar cambios en el subproceso de interfaz de usuario desde un subproceso no perteneciente a la interfaz de usuario. En caso de que se produzca un cuello de botella en el subproceso de distribuidor, el desarrollador puede optar por usar el distribuidor proporcionado por el elemento de interfaz de usuario que pretende actualizar.  Por ejemplo:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -1027,7 +1027,7 @@ Ha completado la lección 4.  En esta lección ha agregado la funcionalidad para
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Proporcionar comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Otros recursos:

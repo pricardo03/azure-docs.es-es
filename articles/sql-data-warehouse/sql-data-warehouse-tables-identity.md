@@ -11,17 +11,17 @@ ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 19a06d0fdff324dc3bee246ef7a5a7011c089872
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851596"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Uso de IDENTITY para crear claves suplentes en Azure SQL Data Warehous
 
 Recomendaciones y ejemplos de uso de la propiedad IDENTITY para crear claves suplentes en tablas de Azure SQL Data Warehouse.
 
-## <a name="what-is-a-surrogate-key"></a>¿Qué es una clave suplente.
+## <a name="what-is-a-surrogate-key"></a>¿Qué es una clave suplente?
 
 Una clave suplente en una tabla es una columna con un identificador único para cada fila. La clave no se genera desde los datos de la tabla. A los modeladores de datos les gusta crear claves suplentes en las tablas cuando diseñan modelos de almacenamiento de datos. Puede usar la propiedad IDENTITY para lograr este objetivo de manera sencilla y eficaz sin afectar al rendimiento de carga.  
 
@@ -122,7 +122,7 @@ FROM    dbo.T1
 ;
 ```
 
-## <a name="loading-data"></a>Cargando datos
+## <a name="loading-data"></a>Carga de datos
 
 La presencia de la propiedad IDENTITY tiene algunas implicaciones en el código de carga de datos. En esta sección se resaltan algunos patrones básicos para cargar datos en tablas mediante IDENTITY.
 

@@ -1,6 +1,6 @@
 ---
-title: Actualización con aplicaciones lógicas para los modelos de Azure Analysis Services | Microsoft Docs
-description: Obtenga información sobre cómo programar la actualización asincrónica mediante el uso de Azure Logic Apps.
+title: Actualización con Logic Apps para los modelos de Azure Analysis Services | Microsoft Docs
+description: Aprenda a programar la actualización asincrónica de código mediante Azure Logic Apps.
 author: chrislound
 manager: kfile
 ms.service: analysis-services
@@ -8,103 +8,103 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
 ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142466"
 ---
 # <a name="refresh-with-logic-apps"></a>Actualización con Logic Apps
 
-Mediante el uso de Logic Apps y llamadas de REST, puede realizar operaciones de actualización de datos automatizada en los modelos tabulares de análisis de Azure, incluida la sincronización de réplicas de solo lectura para el escalado horizontal de la consulta.
+Al usar Logic Apps y llamadas de REST, puede realizar operaciones de actualización de datos automatizadas en los modelos tabulares de Azure Analysis, incluida la sincronización de réplicas de solo lectura para el escalado horizontal de la consulta.
 
-Para más información sobre cómo usar las API de REST con Azure Analysis Services, consulte [asincrónico de actualización con la API de REST](analysis-services-async-refresh.md).
+Para información sobre cómo usar las API de REST con Azure Analysis Services, consulte [Actualización asincrónica con la API de REST](analysis-services-async-refresh.md).
 
 ## <a name="authentication"></a>Authentication
 
-Todas las llamadas deben autenticarse con un token válido de Azure Active Directory (OAuth 2).  Los ejemplos de este artículo usará un Principal de servicio (SPN) para autenticarse en Azure Analysis Services. Para obtener más información, consulte [crear una entidad de servicio mediante Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
+Todas las llamadas se deben autenticar con un token válido de Azure Active Directory (OAuth 2).  En los ejemplos de este artículo se usará una entidad de servicio (SPN) para la autenticación en Azure Analysis Services. Para más información, consulte [Creación de una aplicación mediante Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-## <a name="design-the-logic-app"></a>Diseñar la aplicación lógica
+## <a name="design-the-logic-app"></a>Diseño de la aplicación lógica
 
 > [!IMPORTANT]
-> Los ejemplos siguientes se supone que el firewall de Azure Analysis Services está deshabilitado.  Si el firewall está habilitado, la dirección IP pública del iniciador de la solicitud debe ser la lista de permitidos en firewall de Azure Analysis Services. Para más información acerca de los intervalos de IP de la aplicación lógica por región, consulte [límites y la información de configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
+> En los ejemplos siguientes, se supone que el firewall de Azure Analysis Services está deshabilitado.  Si el firewall está habilitado, la dirección IP pública del iniciador de la solicitud debe figurar en la lista blanca del firewall de Azure Analysis Services. Para información sobre los intervalos de IP de Logic Apps por región, consulte [Información de límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-#### <a name="create-a-service-principal-spn"></a>Crear a una entidad de servicio (SPN)
+#### <a name="create-a-service-principal-spn"></a>Creación de una entidad de servicio (SPN)
 
-Para obtener información acerca de cómo crear una entidad de servicio, consulte [crear una entidad de servicio mediante Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
+Para obtener información sobre cómo crear una entidad de servicio, consulte [Creación de una entidad de servicio mediante Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-#### <a name="configure-permissions-in-azure-analysis-services"></a>Configurar permisos en Azure Analysis Services
+#### <a name="configure-permissions-in-azure-analysis-services"></a>Configuración de permisos en Azure Analysis Services
  
-La entidad de servicio que cree debe tener permisos de administrador del servidor en el servidor. Para más información, vea [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md).
+La entidad de servicio que cree debe tener permisos de administrador de servidor. Para más información, vea [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md).
 
-### <a name="configure-the-logic-app"></a>Configurar la aplicación lógica
+### <a name="configure-the-logic-app"></a>Configuración de la aplicación lógica
 
-En este ejemplo, la aplicación lógica está diseñada para desencadenar cuando se recibe una solicitud HTTP. Esto permitirá el uso de una herramienta de orquestación, como Azure Data Factory, para desencadenar la actualización del modelo de Azure Analysis Services.
+En este ejemplo, la aplicación lógica está diseñada para desencadenarse cuando se recibe una solicitud HTTP. De este modo, se podrá usar una herramienta de orquestación, como Azure Data Factory, para desencadenar la actualización del modelo de Azure Analysis Services.
 
-Una vez haya creado una aplicación lógica:
+Una vez que haya creado una aplicación lógica:
 
-1. En el Diseñador de aplicación lógica, elija la primera acción como **cuando recibe una solicitud HTTP es**.
+1. En el diseñador de aplicación lógica, elija la primera acción como **Cuando se recibe una solicitud HTTP**.
 
-   ![Agregar actividad HTTP recibido](./media/analysis-services-async-refresh-logic-app/1.png)
+   ![Adición de la actividad recibida HTTP](./media/analysis-services-async-refresh-logic-app/1.png)
 
-Este paso se rellena con la dirección URL de POST de HTTP una vez que se guarda la aplicación lógica.
+Con este paso, se rellena con la dirección URL de HTTP POST después de que se guarde la aplicación lógica.
 
-2. Agregar un nuevo paso y busque **HTTP**.  
+2. Agregue un nuevo paso y busque **HTTP**.  
 
-   ![Agregar actividad HTTP](./media/analysis-services-async-refresh-logic-app/9.png)
+   ![Adición de actividad HTTP](./media/analysis-services-async-refresh-logic-app/9.png)
 
-   ![Agregar actividad HTTP](./media/analysis-services-async-refresh-logic-app/10.png)
+   ![Adición de actividad HTTP](./media/analysis-services-async-refresh-logic-app/10.png)
 
 3. Seleccione **HTTP** para agregar esta acción.
 
-   ![Agregar actividad HTTP](./media/analysis-services-async-refresh-logic-app/2.png)
+   ![Adición de actividad HTTP](./media/analysis-services-async-refresh-logic-app/2.png)
 
-Configurar la actividad HTTP como sigue:
+Configure la actividad HTTP tal como se indica abajo:
 
 |Propiedad  |Valor  |
 |---------|---------|
 |**Método**     |POST         |
-|**URI**     | https://*su región de servidor*/Servers /*nombre del servidor aas*/models/*su nombre de la base de datos*/ <br /> <br /> Por ejemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
-|**Encabezados**     |   Content-Type, application/json <br /> <br />  ![Encabezados](./media/analysis-services-async-refresh-logic-app/6.png)    |
-|**Cuerpo**     |   Para obtener más información acerca de que forman el cuerpo de solicitud, vea [asincrónico de actualización con la API de REST, / refreshes POST](analysis-services-async-refresh.md#post-refreshes). |
+|**URI**     | https://*región del servidor*/servers/*nombre del servidor aas*/models/*nombre de la base de datos*/ <br /> <br /> Por ejemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
+|**Encabezados**     |   Content-Type, application/json <br /> <br />  ![encabezados](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**Cuerpo**     |   Para más información sobre la forma del cuerpo de la solicitud, consulte [Actualización asincrónica con la API de REST: POST o actualizaciones](analysis-services-async-refresh.md#post-refreshes). |
 |**Autenticación**     |Active Directory OAuth         |
-|**Tenant**     |Rellene el valor de TenantId de Azure Active Directory         |
+|**Inquilino**     |Especifique el id. de inquilino de Azure Active Directory         |
 |**Audiencia**     |https://*.asazure.windows.net         |
-|**Id. de cliente**     |Especifique el ClientID de nombre de entidad de servicio         |
-|**Tipo de credencial**     |`Secret`         |
-|**Secreto**     |Escriba el secreto del nombre de entidad de servicio         |
+|**Id. de cliente**     |Especifique el id. de cliente del nombre de entidad de servicio         |
+|**Tipo de credencial**     |Secret         |
+|**Secreto**     |Especifique el secreto del nombre de entidad de servicio         |
 
 Ejemplo:
 
-![Actividad completada de HTTP](./media/analysis-services-async-refresh-logic-app/7.png)
+![Actividad de HTTP completada](./media/analysis-services-async-refresh-logic-app/7.png)
 
-Probar ahora la aplicación lógica.  En el Diseñador de aplicación lógica, haga clic en **ejecutar**.
+Ahora pruebe la aplicación lógica.  En el diseñador de aplicación lógica, haga clic en **Ejecutar**.
 
-![Probar la aplicación lógica](./media/analysis-services-async-refresh-logic-app/8.png)
+![Prueba de la aplicación lógica](./media/analysis-services-async-refresh-logic-app/8.png)
 
-## <a name="consume-the-logic-app-with-azure-data-factory"></a>Utilizar la aplicación lógica con Azure Data Factory
+## <a name="consume-the-logic-app-with-azure-data-factory"></a>Consumo de la aplicación lógica con Azure Data Factory
 
-Una vez que se guarda la aplicación lógica, revise el **cuando recibe una solicitud HTTP es** actividad y a continuación, copie el **URL de HTTP POST** que ahora se genera.  Se trata de la dirección URL que puede usarse con Azure Data Factory para realizar la llamada asincrónica a la aplicación lógica del desencadenador.
+Después de guardar la aplicación lógica, consulte la actividad **Cuando se recibe una solicitud HTTP** y luego copie la **URL de HTTP POST** que se habrá generado.  Se trata de la dirección URL que Azure Data Factory puede usar para realizar la llamada asincrónica que desencadenará la aplicación lógica.
 
-Este es un ejemplo de actividad Azure Data Factory Web que realiza esta acción.
+A continuación proporcionamos un ejemplo de actividad web de Azure Data Factory que realiza esta acción.
 
-![Actividad Web de Data Factory](./media/analysis-services-async-refresh-logic-app/11.png)
+![Actividad web de Azure Data Factory](./media/analysis-services-async-refresh-logic-app/11.png)
 
-## <a name="use-a-self-contained-logic-app"></a>Usar una aplicación lógica independiente
+## <a name="use-a-self-contained-logic-app"></a>Uso de una aplicación lógica autocontenida
 
-Si no tiene pensado sobre el uso de una herramienta de orquestación como Data Factory para desencadenar la actualización del modelo, puede establecer la aplicación lógica para desencadenar la actualización según una programación.
+Si no tiene pensado usar una herramienta de orquestación, como Azure Data Factory, para desencadenar la actualización del modelo, puede establecer la aplicación lógica para que desencadene la actualización según una programación.
 
-Mediante el ejemplo anterior, elimine la primera actividad y reemplazarlo con un **programación** actividad.
+Con el ejemplo anterior, elimine la primera actividad y reemplácela por una actividad de **programación**.
 
 ![Actividad de programación](./media/analysis-services-async-refresh-logic-app/12.png)
 
 ![Actividad de programación](./media/analysis-services-async-refresh-logic-app/13.png)
 
-Este ejemplo usaremos **periodicidad**.
+En este ejemplo, usaremos **Periodicidad**.
 
-Una vez que se ha agregado la actividad, configurar el intervalo y la frecuencia, a continuación, agregue un nuevo parámetro y elija **a estas horas**.
+Cuando se haya agregado la actividad, configure el intervalo y la frecuencia, agregue un nuevo parámetro y elija **A estas horas**.
 
 ![Actividad de programación](./media/analysis-services-async-refresh-logic-app/16.png)
 

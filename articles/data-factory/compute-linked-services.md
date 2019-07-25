@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 0e7405e48307091ff5df12096d49a00c011e2de3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480435"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
@@ -98,7 +98,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 ### <a name="properties"></a>Properties (Propiedades)
 | Propiedad                     | DESCRIPCIÓN                              | Obligatorio |
 | ---------------------------- | ---------------------------------------- | -------- |
-| type                         | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí      |
+| Tipo                         | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí      |
 | clusterSize                  | Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con 4 núcleos, por lo que un clúster de nodos de 4 trabajos necesitará 24 núcleos (4\*4 = 16 para nodos de trabajo, más 2\*4 = 8 para nodos principales). Consulte [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para detalles. | Sí      |
 | linkedServiceName            | El servicio vinculado de Azure Storage que usará el clúster a petición para almacenar y procesar datos. El clúster de HDInsight se crea en la misma región que esta cuenta de Azure Storage. Azure HDInsight tiene limitaciones en el número total de núcleos que se pueden utilizar en cada región de Azure que admite. Asegúrese de que dispone de suficientes cuotas de núcleo en esa región de Azure para cumplir la propiedad clusterSize necesaria. Para detalles, consulte [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).<p>Actualmente, no se puede crear un clúster de HDInsight a petición que utilice una instancia de Azure Data Lake Store como almacenamiento. Si desea almacenar los datos de resultados del procesamiento de HDInsight en una instancia de Azure Data Lake Store, utilice una actividad de copia para copiar los datos desde Azure Blob Storage a Azure Data Lake Store. </p> | Sí      |
 | clusterResourceGroup         | El clúster de HDInsight se crea en este grupo de recursos. | Sí      |
@@ -286,7 +286,7 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
 ### <a name="properties"></a>Properties (Propiedades)
 | Propiedad          | DESCRIPCIÓN                                                  | Obligatorio |
 | ----------------- | ------------------------------------------------------------ | -------- |
-| type              | La propiedad type se debe establecer en **HDInsight**.            | Sí      |
+| Tipo              | La propiedad type se debe establecer en **HDInsight**.            | Sí      |
 | clusterUri        | El URI del clúster de HDInsight.                            | Sí      |
 | nombre de usuario          | Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
 | contraseña          | Especifique la contraseña para la cuenta de usuario.                       | Sí      |
@@ -311,8 +311,8 @@ Puede crear un servicio vinculado de Azure Batch para registrar un grupo de lote
 Consulte los temas siguientes si no está familiarizado con el servicio Azure Batch:
 
 * [Aspectos básicos de Azure Batch](../batch/batch-technical-overview.md) para información general del servicio Azure Batch.
-* [Nuevo AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para crear una cuenta de Azure Batch (o) [portal Azure](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure portal. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
-* [Nuevo AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para crear un grupo de Batch de Azure.
+* Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para crear una cuenta de Azure Batch, o [Azure Portal](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure Portal. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
+* [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para crear un grupo de Azure Batch.
 
 ### <a name="example"></a>Ejemplo
 
@@ -346,7 +346,7 @@ Consulte los temas siguientes si no está familiarizado con el servicio Azure Ba
 ### <a name="properties"></a>Properties (Propiedades)
 | Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
-| type              | La propiedad type se debe establecer en **AzureBatch**. | Sí      |
+| Tipo              | La propiedad type se debe establecer en **AzureBatch**. | Sí      |
 | accountName       | Nombre de la cuenta de Azure Batch.         | Sí      |
 | accessKey         | Clave de acceso de la cuenta de Azure Batch.  | Sí      |
 | batchUri          | Dirección URL a la cuenta de Azure Batch, con el formato https://*nombrecuentabatch.región*.batch.azure.com. | Sí      |
@@ -425,7 +425,7 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 
 | Propiedad             | DESCRIPCIÓN                              | Obligatorio                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| type                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí                                      |
+| Tipo                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí                                      |
 | accountName          | Nombre de la cuenta de Análisis de Azure Data Lake  | Sí                                      |
 | dataLakeAnalyticsUri | Identificador URI de Análisis de Azure Data Lake.           | Sin                                       |
 | subscriptionId       | Identificador de suscripción de Azure                    | Sin                                       |
@@ -494,7 +494,7 @@ Puede crear un **servicio vinculado de Azure Databricks** para registrar el áre
 | newClusterNumOfWorker| Número de nodos de trabajo que debería tener este clúster. Los clústeres tienen un controlador de Spark y num_workers ejecutores para un total de num_workers + 1 nodos de Spark. Una cadena con formato Int32, como "1" significa que numOfWorker es 1 o que "1:10" significa que la escala automática va de 1 como mínimo a 10 como máximo.  | Sin                |
 | newClusterNodeType   | Este campo codifica, mediante un solo valor, los recursos disponibles para cada uno de los nodos de Spark de este clúster. Por ejemplo, los nodos de Spark se pueden aprovisionar y optimizar para cargas de trabajo intensivas de memoria o proceso. Este campo es obligatorio para el nuevo clúster                | Sin               |
 | newClusterSparkConf  | Conjunto de pares de clave-valor de configuración de Spark opcionales especificado por el usuario. Los usuarios también pueden pasar una cadena de opciones adicionales de JVM al controlador y los ejecutores con spark.driver.extraJavaOptions y spark.executor.extraJavaOptions respectivamente. | Sin  |
-| newClusterInitScripts| un conjunto de scripts de inicialización opcional y definido por el usuario para el nuevo clúster. Especifica la ruta de acceso DBFS a los scripts de init. | No  |
+| newClusterInitScripts| Conjunto de scripts de inicialización opcional definido por el usuario para el nuevo clúster. Especificación de la ruta de acceso DBFS a los scripts init. | Sin  |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Servicio vinculado de Azure SQL Database

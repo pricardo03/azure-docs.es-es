@@ -1,20 +1,21 @@
 ---
-title: 'Instalación y ejecución de contenedores: Anomaly Detector'
+title: Instalación y ejecución de contenedores para usar Anomaly Detector API
 titleSuffix: Azure Cognitive Services
 description: Use algoritmos avanzados de Anomaly Detector API para identificar anomalías en datos de serie temporal.
 services: cognitive-services
 author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-detection
+ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 704ea3ecbc309c2328e120d5b6776e659944d254
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: f84f1bab048630d6dd45085b3d082004d10bb6a8
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275030"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721710"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Instalación y ejecución de contenedores de Anomaly Detector
 

@@ -1,43 +1,43 @@
 ---
-title: 'Conectarse a la vista previa de Escritorio Virtual de Windows desde un explorador web: Azure'
-description: Cómo conectarse a la vista previa de Escritorio Virtual de Windows desde un explorador web.
+title: 'Conexión a Windows Virtual Desktop, versión preliminar, desde un explorador web: Azure'
+description: Procedimiento para conectarse a Windows Virtual Desktop, versión preliminar, desde un explorador web.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
-ms.translationtype: MT
+ms.openlocfilehash: 4f6bb7c414c38eaa605d259195218c461ddb0ca7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834010"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620162"
 ---
 # <a name="connect-from-a-web-browser"></a>Conexión desde un explorador web
 
-El cliente web le permite acceder a los recursos de la vista previa de Escritorio Virtual Windows desde un explorador web sin el proceso de instalación largas.
+El cliente web le permite acceder a los recursos de Windows Virtual Desktop, versión preliminar, desde un explorador web sin el largo proceso de instalación.
 
 >[!NOTE]
->El cliente web actualmente no tiene compatibilidad con SO móvil.
+>El cliente web no tiene compatibilidad con SO móvil actualmente.
 
-## <a name="supported-operating-systems-and-browsers"></a>Sistemas operativos y exploradores
+## <a name="supported-operating-systems-and-browsers"></a>Exploradores y sistemas operativos compatibles
 
-Aunque debería funcionar cualquier explorador compatible con HTML5, admitimos oficialmente los siguientes sistemas operativos y exploradores.
+Aunque debería funcionar cualquier explorador compatible con HTML5, oficialmente se admiten los siguientes sistemas operativos y exploradores.
 
 | Browser           | SO admitido                     | Notas               |
 |-------------------|----------------------------------|---------------------|
-| Microsoft Edge    |  Windows                          |                     |
-| Internet Explorer |  Windows                          |                     |
+| Microsoft Edge    | Windows                          |                     |
+| Internet Explorer | Windows                          |                     |
 | Apple Safari      | macOS                            |                     |
-| Mozilla Firefox   | Windows, macOS, Linux            | Versión 55 o versiones posterior |
+| Mozilla Firefox   | Windows, macOS, Linux            | Versión 55 o posterior |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
 
-## <a name="access-remote-resources-feed"></a>Obtener acceso a recursos remotos de fuente
+## <a name="access-remote-resources-feed"></a>Acceso remoto a la fuente de recursos
 
-En un explorador, vaya a la [cliente web de Escritorio Virtual de Windows](https://rdweb.wvd.microsoft.com/webclient) e inicie sesión con su cuenta de usuario.
+En un explorador, vaya al [cliente web de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient) e inicie sesión con su cuenta de usuario.
 
 >[!NOTE]
->Si ya ha iniciado sesión con una cuenta de Azure Active Directory diferente a la que desea usar para el escritorio Virtual de Windows, debe cerrar la sesión o utilizar una ventana privada del explorador.
+>Si ya ha iniciado sesión con una cuenta de Azure Active Directory diferente a la que quiere usar para Windows Virtual Desktop, debe cerrar la sesión o usar una ventana privada del explorador.
 
-Después de iniciar sesión, ahora debería ver una lista de recursos. Puede iniciar los recursos seleccionando como lo haría con una aplicación normal en el **todos los recursos** ficha.
+Después de iniciar sesión, debería ver una lista de recursos. Puede iniciar los recursos seleccionándolos de la misma forma en que lo haría con una aplicación normal en la pestaña **Todos los recursos**.

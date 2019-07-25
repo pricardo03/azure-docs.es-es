@@ -13,10 +13,10 @@ ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
 ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978521"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementación y exploración de una aplicación multiinquilino con particiones
@@ -58,7 +58,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 ### <a name="plan-the-names"></a>Planeamiento de los nombres
 
 En los pasos de esta sección, proporciona un valor de *usuario* que se utiliza para garantizar que los nombres de recursos sean globalmente únicos, y un nombre para el *grupo de recursos* que contiene todos los recursos creados mediante una implementación de la aplicación. Para una persona llamada *Ann Finley*, sugerimos:
-- *Usuario:* **af1***(sus iniciales más un dígito.   Use un valor diferente (por ejemplo, af2) si implementa la aplicación una segunda vez).*
+- *Usuario:* **af1** *(sus iniciales más un dígito. Use un valor diferente (por ejemplo, af2) si implementa la aplicación una segunda vez).*
 - *Grupo de recursos:* **wingtip-mt-af1**  *(wingtip-mt indica que esta es la aplicación multiinquilino con particiones. Anexar el nombre de usuario af1 correlaciona el nombre del grupo de recursos con los nombres del recurso que contiene).*
 
 Elija los nombres ahora y escríbalos. 
@@ -104,7 +104,7 @@ Durante la implementación de la aplicación, descargue el código fuente y los 
 6. Haga clic en **OK**.
 7. Extraiga los archivos.
 
-Los scripts se encuentra en la carpeta *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\*.
+Los scripts se encuentra en la carpeta *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\* .
 
 ## <a name="update-the-configuration-file-for-this-deployment"></a>Actualizar el archivo de configuración para esta implementación
 
@@ -125,7 +125,7 @@ Cada ubicación obtiene una aplicación web personalizada para mostrar los event
 Una página web central de **Event Hubs** proporciona una lista de vínculos a los inquilinos de la implementación concreta. Siga estos pasos para conocer la página web del **centro de eventos** y una aplicación web individual:
 
 1. Abra **Events Hub** en el explorador web:
-   - http://events.wingtip-mt.&lt;usuario&gt;.trafficmanager.net &nbsp; *(sustituya &lt;usuario&gt; por el valor del usuario de la implementación).*
+   - http://events.wingtip-mt.&lt ;usuario&gt;.trafficmanager.net &nbsp; *(sustituya &lt; usuario&gt; por el valor del usuario de la implementación).*
 
      ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -137,7 +137,7 @@ Una página web central de **Event Hubs** proporciona una lista de vínculos a l
 
 Para controlar la distribución de las solicitudes entrantes, la aplicación Wingtip usa [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). La página de eventos de cada inquilino incluye el nombre del inquilino en la dirección URL. La dirección URL también incluye el valor del usuario en cuestión. Cada dirección URL sigue el formato que se muestra mediante los siguientes pasos:
 
-- http://events.wingtip-mt.&lt;usuario&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt ;usuario&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. La aplicación de eventos analiza el nombre del inquilino de la dirección URL. Este nombre del inquilino es *fabrikamjazzclub* en la dirección URL del ejemplo anterior.
 2. A continuación, la aplicación analiza el nombre del inquilino para crear una clave de acceso a un catálogo mediante [Shard Map Management](sql-database-elastic-scale-shard-map-management.md).
@@ -210,9 +210,9 @@ Veamos ahora algunos de los recursos que se implementaron:
 
 1. En [Azure portal](https://portal.azure.com), navegue a la lista de los grupos de recursos. Abra el grupo de recursos que creó cuando implementó la aplicación.
 
-   ![grupo de recursos](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
+   ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Haga clic en el servidor **catalog-mt&lt;usuario&gt;**. El servidor del catálogo contiene dos bases de datos denominadas *tenantcatalog* y *basetenantdb*. La base de datos *basetenantdb* es una base de datos de plantilla vacía. Se copia para crear una base de datos de inquilino nueva, ya sea para que la usen muchos inquilinos o solo uno.
+2. Haga clic en el servidor **catalog-mt&lt;usuario&gt;** . El servidor del catálogo contiene dos bases de datos denominadas *tenantcatalog* y *basetenantdb*. La base de datos *basetenantdb* es una base de datos de plantilla vacía. Se copia para crear una base de datos de inquilino nueva, ya sea para que la usen muchos inquilinos o solo uno.
 
    ![Servidor de catálogo](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 

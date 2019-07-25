@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240146"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Apertura de una incidencia de soporte técnico en Azure Data Box 
 
-En este artículo se aplica a Azure Data Box, cuadro intensivo de datos de Azure y discos de Azure Data Box, que son administrados por el servicio de Azure Data Box. Si tiene algún problema con el servicio Azure Data Box, puede crear una solicitud de servicio de soporte técnico. Este artículo le enseñará a:
+Este artículo se aplica a Azure Data Box, Azure Data Box Heavy y Azure Data Box Disk, todos ellos administrados por el servicio Azure Data Box. Si tiene algún problema con el servicio Azure Data Box, puede crear una solicitud de servicio de soporte técnico. Este artículo le enseñará a:
 
 * Crear una solicitud de soporte.
 * Administrar el ciclo de vida de una solicitud de soporte técnico desde dentro del portal.
@@ -56,7 +56,7 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 4. En **Nueva solicitud de soporte**, haga clic en **Paso 3: Información de contacto**. En **Información de contacto**, siga estos pasos:
 
    1. En **Opciones de contacto**, especifique el método de contacto preferido (teléfono o correo electrónico) y el idioma. El tiempo de respuesta se selecciona automáticamente en función del plan de suscripción.
-   2. En el **información de contacto**, proporcione su nombre, correo electrónico, póngase en contacto con opcional, país o región. Active **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
+   2. En **Información de contacto**, proporcione su nombre, correo electrónico, contacto opcional y país o región. Active **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
    3. Haga clic en **Create**(Crear).
    
        ![Información de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
@@ -84,5 +84,5 @@ Después de crear una incidencia de soporte técnico, puede administrar el ciclo
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a [solucionar problemas relacionados con Data Box Disk](data-box-disk-troubleshoot.md).
-Obtenga información sobre cómo [solucionar problemas relacionados con Data Box](data-box-troubleshoot.md).
-Obtenga información sobre cómo [solucionar problemas relacionados con el almacenamiento de blobs de datos cuadro](data-box-troubleshoot-rest.md).
+Aprenda a [solucionar problemas relacionados con Data Box](data-box-troubleshoot.md).
+Aprenda a [solucionar problemas relacionados con el almacenamiento de blobs de Data Box](data-box-troubleshoot-rest.md).

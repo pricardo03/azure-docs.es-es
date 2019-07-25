@@ -9,15 +9,15 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: c4bb06bd4c75dfeb164341d8cc5084030d3a08a7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979312"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creación de directivas mediante programación y visualización de datos de cumplimiento
 
-Este artículo le guiará a través de la creación y administración de directivas mediante programación. Definiciones de directiva de Azure aplican distintas reglas y efectos sobre los recursos. Su aplicación garantiza que los recursos cumplan los estándares corporativos y los acuerdos de nivel de servicio.
+Este artículo le guiará a través de la creación y administración de directivas mediante programación. Las definiciones de Azure Policy aplican reglas y efectos diferentes sobre los recursos. Su aplicación garantiza que los recursos cumplan los estándares corporativos y los acuerdos de nivel de servicio.
 
 Para información sobre el cumplimiento, consulte cómo [obtener datos de cumplimiento](getting-compliance-data.md).
 
@@ -31,7 +31,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de empezar:
 
 1. Actualice el módulo de Azure PowerShell a la versión más reciente. Consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps) para más información. Para más información acerca de la versión más reciente, consulte [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Registrar el proveedor de recursos de Azure Policy Insights mediante Azure PowerShell para validar que la suscripción funciona con el proveedor de recursos. Para registrar un proveedor de recursos, debe tener permiso para ejecutar la operación de registro de una acción para él. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
+1. Registre el proveedor de recursos de Azure Policy Insights con Azure PowerShell para validar que la suscripción funciona con el proveedor de recursos. Para registrar un proveedor de recursos, debe tener permiso para ejecutar la operación de registro de una acción para él. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
@@ -94,7 +94,7 @@ El primer paso hacia una mejor visibilidad de los recursos es crear y asignar di
 
    Reemplace _ContosoRG_ por el nombre del grupo de recursos que desee.
 
-   El **ámbito** parámetro en `New-AzPolicyAssignment` funciona con el grupo de administración, suscripción, grupo de recursos o un único recurso. El parámetro utiliza una ruta de acceso de recurso completo, que devuelve la propiedad **ResourceId** en `Get-AzResourceGroup`. El patrón de **Scope** para cada contenedor es como sigue. Reemplace `{rName}`, `{rgName}`, `{subId}` y `{mgName}` por el nombre del recurso, el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente.
+   El parámetro **Scope** de `New-AzPolicyAssignment` funciona con un grupo de administración, una suscripción, un grupo de recursos o un único recurso. El parámetro utiliza una ruta de acceso de recurso completo, que devuelve la propiedad **ResourceId** en `Get-AzResourceGroup`. El patrón de **Scope** para cada contenedor es como sigue. Reemplace `{rName}`, `{rgName}`, `{subId}` y `{mgName}` por el nombre del recurso, el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente.
    `{rType}` se reemplazaría por el **tipo de recurso** del recurso como, por ejemplo, `Microsoft.Compute/virtualMachines` para una máquina virtual.
 
    - Recurso `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
@@ -148,7 +148,7 @@ Use el procedimiento siguiente para crear una definición de directiva.
 
    Sustituya el valor de {subscriptionId} anterior por el identificador de su suscripción o {managementGroupId} por el identificador de su [grupo de administración](../../management-groups/overview.md).
 
-   Para obtener más información sobre la estructura de la consulta, vea [definiciones de directiva de Azure: creación o actualización](/rest/api/resources/policydefinitions/createorupdate) y [definiciones de directiva: creación o actualización en el grupo de administración](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Para más información acerca de la estructura de la consulta, consulte [Azure Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate) (Definiciones de Azure Policy: creación o actualización) y [Policy Definitions – Create or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) (Definiciones de directiva: creación o actualización en el grupo de administración).
 
 Utilice el procedimiento siguiente para crear una asignación de directiva y asignar la definición de directiva en el nivel de grupo de recursos.
 
@@ -230,7 +230,7 @@ Use el procedimiento siguiente para crear una definición de directiva:
    - Suscripción `/subscriptions/{subID}`
    - Grupo de administración `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Puede obtener el identificador de definición de directiva de Azure mediante el uso de PowerShell con el siguiente comando:
+Puede obtener el id. de definición de Azure Policy si usa PowerShell con el comando siguiente:
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -251,5 +251,5 @@ Revise los artículos siguientes para más información sobre los comandos y las
 - [Recursos de la API de REST de Azure](/rest/api/resources/)
 - [Módulos de Azure PowerShell](/powershell/module/az.resources/#policies)
 - [Comandos de directiva de la CLI de Azure](/cli/azure/policy?view=azure-cli-latest)
-- [Proveedor de recursos de Policy Insights referencia de API de REST de Azure](/rest/api/policy-insights)
-- [Organizar los recursos con grupos de administración de Azure](../../management-groups/overview.md).
+- [Referencia de API de REST de proveedor de recursos de Azure Policy Insights](/rest/api/policy-insights)
+- [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md).

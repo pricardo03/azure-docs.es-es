@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: alavital
 ms.custom: ''
 ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002092"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Uso de alertas de costes para supervisar el uso y el gasto
@@ -35,21 +35,21 @@ Las alertas de crédito le envían una notificación cuando se consumen los comp
 
 Las alertas de cuota de gasto de departamento le informan del momento en que el gasto del departamento alcanza un umbral fijo de la cuota. Las cuotas de gastos se configuran en el portal del contrato Enterprise. Cada vez que se alcanza un umbral, se genera un correo electrónico para los propietarios del departamento y se muestra en las alertas de costes. Por ejemplo, al 50 % o el 75 % de la cuota.
 
-## <a name="supported-alert-features-by-offer-categories"></a>Admite características de alerta por categorías de oferta
+## <a name="supported-alert-features-by-offer-categories"></a>Características de alertas compatibles por categorías de ofertas
 
-Compatibilidad con tipos de alerta depende del tipo de cuenta de Azure que tiene (Microsoft) de la oferta. En la tabla siguiente se muestra las características de alerta que se admiten por varias ofertas de Microsoft. Puede ver la lista completa de ofertas de Microsoft en [datos comprender Cost Management](understand-cost-mgt-data.md).
+La compatibilidad de tipos de alertas depende del tipo de cuenta de Azure que se tiene (oferta de Microsoft). En la tabla siguiente se muestran las características de alerta que varias ofertas de Microsoft admiten. Puede ver la lista completa de ofertas de Microsoft en [Descripción de los datos de Cost Management](understand-cost-mgt-data.md).
 
-| Tipo de alerta | Contrato Enterprise | Contrato de cliente de Microsoft | Web direct/pago por uso-As-You-implementación |
+| Tipo de alerta | Contrato Enterprise | Contrato de cliente de Microsoft | Web directa/Pago por uso |
 |---|---|---|---|
 | Presupuesto | ✔ | ✔ | ✔ |
-| Crédito | ✔ |✘ | ✘ |
+| Créditos | ✔ |✘ | ✘ |
 | Cuota de gasto de departamento | ✔ | ✘ | ✘ |
 
 
 
 ## <a name="view-cost-alerts"></a>Visualización de alertas de costes
 
-Para ver las alertas de costo, abra el ámbito deseado en Azure portal y seleccione **presupuestos** en el menú. Use la **ámbito** pastilla para cambiar a un ámbito diferente. Seleccione **costo alertas** en el menú. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
+Para ver las alertas sobre los costos, abra el ámbito deseado en Azure Portal y seleccione **Presupuestos** en el menú. Use la píldora **Ámbito** para cambiar a un ámbito diferente. Seleccione **Alertas sobre los costos** en el menú. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 ![Imagen de ejemplo de alertas que se muestran en Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -67,6 +67,6 @@ Al ver los detalles de una alerta descartada, puede reactivarla si es necesario 
 
 ![Imagen de ejemplo que muestra las opciones de descartar y reactivar](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - Si aún no ha creado un presupuesto ni ha establecido condiciones de alerta para un presupuesto, complete el tutorial [Creación y administración de presupuestos](tutorial-acm-create-budgets.md).

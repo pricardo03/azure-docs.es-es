@@ -9,20 +9,20 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752974"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074940"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo 
 
-Con el servicio Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-target). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
+Con el servicio Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-targets). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
 
-Puede crear y administrar un destino de proceso mediante el SDK de aprendizaje de máquina de Azure, portal de Azure, la extensión de la CLI de Azure o Azure Machine Learning VS Code. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo del servicio Azure Machine Learning.
+Los destinos de proceso se pueden crear y administrar mediante el SDK de Azure Machine Learning, Azure Portal, la CLI de Azure o la extensión de VS Code de Azure Machine Learning. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo del servicio Azure Machine Learning.
  
 En este artículo, aprenderá a usar diversos destinos de proceso para el entrenamiento de modelos.  Los pasos para todos los destinos de proceso siguen el mismo flujo de trabajo:
 1. __Crear__ un destino de proceso si aún no tiene uno.
@@ -31,7 +31,7 @@ En este artículo, aprenderá a usar diversos destinos de proceso para el entren
 
 
 >[!NOTE]
-> Código de este artículo se ha probado con Azure Machine Learning SDK versión 1.0.39.
+> El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 1.0.39.
 
 ## <a name="compute-targets-for-training"></a>Destinos de proceso para entrenamiento
 
@@ -75,7 +75,7 @@ El código siguiente muestra un ejemplo de configuración de ejecuciones de entr
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## <a name="set-up-compute-targets-with-python"></a>Configuración de los destinos de proceso con Python
+## <a name="set-up-in-python"></a>Configuración en Python
 
 Use las secciones siguientes para configurar estos destinos de proceso:
 
@@ -111,7 +111,7 @@ Puede crear un entorno de Proceso de Azure Machine Learning a petición al progr
 Puede crear una instancia de Proceso de Azure Machine Learning como un destino de proceso en tiempo de ejecución. El proceso se crea automáticamente para la ejecución. El proceso se elimina automáticamente una vez completada la ejecución. 
 
 > [!NOTE]
-> Para especificar el número máximo de nodos que usará, establecería normalmente `node_count` al número de nodos. Actualmente no hay (04/04/2019) un error que impide que esto funcione. Como alternativa, use el `amlcompute._cluster_max_node_count` propiedad de la configuración de ejecución. Por ejemplo, `run_config.amlcompute._cluster_max_node_count = 5`.
+> Para especificar el número máximo de nodos que se usará, normalmente establecería `node_count` en el número de nodos. Actualmente (04/04/2019), hay un error que impide que esto funcione. Como alternativa, use la propiedad `amlcompute._cluster_max_node_count` de la configuración de ejecución. Por ejemplo, `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > La creación basada en ejecución de una instancia de Proceso de Azure Machine Learning está actualmente en versión preliminar. No use la creación basada en la ejecución si usa el ajuste de hiperparámetros o el aprendizaje automático automatizado. Para utilizar la optimización de hiperparámetros o el aprendizaje automático automatizado, cree en su lugar un [destino de proceso persistente](#persistent).
@@ -237,15 +237,15 @@ Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente pa
 
 ### <a id="azbatch"></a>Azure Batch 
 
-Azure Batch se utiliza para ejecutar aplicaciones a gran escala paralelas y de alto rendimiento informática (HPC) de manera eficaz en la nube. AzureBatchStep puede utilizarse en una canalización de aprendizaje automático de Azure para enviar trabajos a un grupo de Azure Batch de máquinas.
+Azure Batch se usa para ejecutar aplicaciones de informática de alto rendimiento (HPC) en paralelo y a gran escala de manera eficaz en la nube. AzureBatchStep se puede usar en una canalización de Azure Machine Learning para enviar trabajos al grupo de máquinas de Azure Batch.
 
-Para asociar el lote de Azure como un destino de proceso, debe usar el SDK de Azure Machine Learning y proporcione la siguiente información:
+Para adjuntar Azure Batch como destino de proceso, debe usar el SDK de Azure Machine Learning y proporcionar la siguiente información:
 
--   **Nombre de la ejecución de Azure Batch**: Un nombre descriptivo que se usará para el proceso en el área de trabajo
--   **Nombre de cuenta de Azure Batch**: El nombre de la cuenta de Azure Batch
--   **Grupo de recursos**: El grupo de recursos que contiene la cuenta de Azure Batch.
+-   **Nombre de proceso de Azure Batch**: nombre descriptivo que se usará para el proceso en el área de trabajo.
+-   **Nombre de cuenta de Azure Batch**: nombre de la cuenta de Azure Batch.
+-   **Grupo de recursos**: grupo de recursos que contiene la cuenta de Azure Batch.
 
-El código siguiente muestra cómo conectar Azure Batch como un destino de proceso:
+El código siguiente muestra cómo asociar Azure Batch como destino de proceso:
 
 ```python
 from azureml.core.compute import ComputeTarget, BatchCompute
@@ -271,7 +271,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-compute-in-the-azure-portal"></a>Configuración de proceso en Azure Portal
+## <a name="set-up-in-azure-portal"></a>Configuración en Azure Portal
 
 Desde Azure Portal, puede acceder a destinos de proceso que están asociados con el área de trabajo.  Puede usar el portal para:
 
@@ -357,7 +357,7 @@ Siga los pasos descritos previamente para ver la lista de destinos de proceso. L
 1. Seleccione __Adjuntar__. 
 1. Consulte el estado de la operación de adjuntar seleccionando el destino de proceso en la lista.
 
-## <a name="set-up-compute-with-the-cli"></a>Configuración de proceso con la CLI
+## <a name="set-up-with-cli"></a>Configuración con la CLI
 
 Puede acceder a los destinos de proceso asociados con el área de trabajo mediante la [extensión de la CLI](reference-azure-machine-learning-cli.md) para el servicio Azure Machine Learning.  Puede usar la CLI para:
 
@@ -367,9 +367,9 @@ Puede acceder a los destinos de proceso asociados con el área de trabajo median
 
 Para más información, consulte el artículo sobre la [administración de recursos](reference-azure-machine-learning-cli.md#resource-management).
 
-## <a name="set-up-compute-with-vs-code"></a>Configuración de proceso con VS Code
+## <a name="set-up-with-vs-code"></a>Configuración con VS Code
 
-Puede tener acceso, crear y administrar los destinos de proceso que están asociados con el área de trabajo mediante el [extensión de VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) para el servicio Azure Machine Learning.
+Puede crear y administrar los destinos de proceso asociados con el área de trabajo, así como acceder a ellos, mediante la [extensión de VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) para el servicio Azure Machine Learning.
 
 ## <a id="submit"></a>Envío de una ejecución de entrenamiento
 
@@ -380,11 +380,11 @@ Después de crear una configuración de ejecución, se utiliza para ejecutar el 
 1. Espere a que la ejecución se complete.
 
 > [!IMPORTANT]
-> Al enviar la ejecución de formación, una instantánea del directorio que contiene los scripts de entrenamiento se crean y envían al destino de proceso. También se almacena como parte del experimento en el área de trabajo. Si cambia los archivos y enviar la ejecución de nuevo, se cargará solo los archivos cambiados.
+> Cuando envía la ejecución de entrenamiento, se crea una instantánea del directorio que contiene los scripts de entrenamiento y se envía al destino de proceso. También se almacena como parte del experimento del área de trabajo. Si cambia los archivos y vuelve a enviar la ejecución, solo se cargarán los archivos cambiados.
 >
-> Para evitar que los archivos que se incluye en la instantánea, cree un [.gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` en el directorio y agréguele los archivos. El `.amlignore` archivo usa la misma sintaxis y patrones como la [.gitignore](https://git-scm.com/docs/gitignore) archivo. Si ambos archivos se encuentran el `.amlignore` archivo tiene prioridad.
+> Para evitar que los archivos se incluyan en la instantánea, cree un archivo [.gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` en el directorio y agréguelos. El archivo `.amlignore` usa la misma sintaxis y patrones que el archivo [.gitignore](https://git-scm.com/docs/gitignore). Si ambos archivos existen, el archivo `.amlignore` tiene prioridad.
 > 
-> Para más información, consulte [Instantánea](concept-azure-machine-learning-architecture.md#snapshot).
+> Para más información, consulte [Instantánea](concept-azure-machine-learning-architecture.md#snapshots).
 
 ### <a name="create-an-experiment"></a>Creación de un experimento
 
@@ -412,11 +412,11 @@ También puede:
 
 * Enviar el experimento con un objeto `Estimator`, tal como se muestra en [Entrenamiento de modelos de aprendizaje automático con estimadores](how-to-train-ml-models.md).
 * Envíe un experimento [mediante la extensión de la CLI](reference-azure-machine-learning-cli.md#experiments).
-* Enviar un experimento a través de la [extensión de VS Code](how-to-vscode-tools.md#train-and-tune-models).
+* Enviar un experimento mediante la [extensión de VS Code](how-to-vscode-tools.md#train-and-tune-models).
 
 ## <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
 
-Cuando se inicia un entrenamiento que se ejecute, donde el directorio de origen es un repositorio Git local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
+Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
 
 ## <a name="notebook-examples"></a>Ejemplos de cuadernos
 
@@ -429,7 +429,7 @@ Consulte estos cuadernos para ver ejemplos de entrenamiento con varios destinos 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Tutorial: Entrenamiento de un modelo](tutorial-train-models-with-aml.md) utiliza un destino de proceso administrado para entrenar un modelo.
-* Obtenga información sobre cómo [eficazmente ajustar los hiperparámetros](how-to-tune-hyperparameters.md) para crear modelos mejores.
+* Obtenga información sobre cómo [ajustar los hiperparámetros eficazmente](how-to-tune-hyperparameters.md) para crear modelos mejores.
 * Cuando tenga un modelo entrenado, aprenda [cómo y dónde implementar los modelos](how-to-deploy-and-where.md).
 * Consulte la referencia del SDK de la [clase RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
 * [Uso de Azure Machine Learning Service con Azure Virtual Network](how-to-enable-virtual-network.md)

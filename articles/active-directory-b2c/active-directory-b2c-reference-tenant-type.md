@@ -11,10 +11,10 @@ ms.date: 04/10/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 30f13a3b85e68babcaef62b9200a296105b3ce83
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509002"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidad de región y residencia de datos
@@ -45,7 +45,7 @@ Los datos residen en Estados Unidos para los países o regiones siguientes:
 
 Los datos residen en Europa para los países o regiones siguientes:
 
-> Argelia, Austria, Azerbaiyán, Bahréin, Belarús, Bélgica, Bulgaria, Croacia, Chipre, República Checa, Dinamarca, Egipto, Estonia, Finlandia, Francia, Alemania, Grecia, Hungría, Islandia, Irlanda, Israel, Italia, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Líbano, Liechtenstein, Lituania, Luxemburgo, Macedonia del Norte, Malta, Montenegro, Marruecos, países bajos, Nigeria, Noruega, Omán, Pakistán, Polonia, Portugal, Qatar, Rumanía, Rusia, Arabia Saudí, Serbia, Eslovaquia, Eslovenia, Sudáfrica, España, Suecia, Suiza, Túnez, Turquía, Ucrania, Emiratos Árabes Unidos y Reino Unido.
+> Alemania, Arabia Saudí, Argelia, Austria, Azerbaiyán, Bahréin, Belarús, Bélgica, Bulgaria, Chipre, Croacia, Dinamarca, Egipto, Emiratos Árabes Unidos Eslovaquia, Eslovenia, España, Estonia, Finlandia, Francia, Grecia, Hungría, Irlanda, Islandia, Israel, Italia, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Líbano, Liechtenstein, Lituania, Luxemburgo, Macedonia del Norte, Malta, Marruecos, Montenegro, Nigeria, Noruega, Omán, Países Bajos, Pakistán, Polonia, Portugal, Qatar, Reino Unido, República Checa, Rumanía, Rusia, Serbia, Sudáfrica, Suecia, Suiza, Túnez, Turquía y Ucrania.
 
 Los países o regiones restantes están a punto de agregarse a la lista.  De momento, todavía puede usar Azure AD B2C escogiendo cualquiera de los países o regiones anteriores.
 

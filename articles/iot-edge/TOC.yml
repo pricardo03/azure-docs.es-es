@@ -119,13 +119,11 @@
           href: how-to-register-device-vscode.md
     - name: Instalación y administración de IoT Edge
       items:
-        - name: Linux X64
+        - name: Linux
           href: how-to-install-iot-edge-linux.md
-        - name: Linux ARM32
-          href: how-to-install-iot-edge-linux-arm.md
-        - name: Windows X64
+        - name: Windows
           href: how-to-install-iot-edge-windows.md
-        - name: Contenedores de Linux en Windows X64
+        - name: Contenedores de Linux en Windows
           href: how-to-install-iot-edge-windows-with-linux.md
         - name: Máquina virtual Windows Server
           href: how-to-install-iot-edge-windows-server-vm.md

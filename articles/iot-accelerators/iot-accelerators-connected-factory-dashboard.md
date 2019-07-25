@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: 05befc72f512f502456f798f25b6c72571451363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 82045ddcc204fe369b7330fe9b3c2a8cadd56d88
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451045"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067927"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Uso de las características del panel del acelerador de soluciones de Connected Factory
 
@@ -42,7 +42,7 @@ Puede filtrar la información que se muestra en el panel, ya sea en el panel **F
 
 ## <a name="browse-an-opc-ua-server"></a>Examinar un servidor de OPC UA
 
-Al implementar el acelerador de soluciones, se aprovisiona automáticamente un conjunto de servidores de agente de usuario de OPC simulados que se pueden examinar desde el panel. Los servidores simulados facilitan la experimentación con el acelerador de soluciones sin necesidad de implementar servidores reales. Si desea conectar un servidor de agente de usuario de OPC real a la solución, consulte el tutorial [Conexión de un dispositivo de agente de usuario de OPC al acelerador de soluciones de Connected Factory](iot-accelerators-connected-factory-gateway-deployment.md).
+Al implementar el acelerador de soluciones, se aprovisiona automáticamente un conjunto de servidores de agente de usuario de OPC simulados que se pueden examinar desde el panel. Los servidores simulados facilitan la experimentación con el acelerador de soluciones sin necesidad de implementar servidores reales.
 
 1. Haga clic en el **icono del explorador** de la barra de navegación del panel:
 
@@ -111,6 +111,5 @@ Cuando haya terminado, puede eliminar el acelerador de soluciones de la suscripc
 
 Ahora que ha implementado un acelerador de soluciones activo, puede continuar la introducción a los aceleradores de soluciones de IoT con la lectura de los artículos siguientes:
 
-* [Tutorial del acelerador de soluciones de Connected Factory](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [Conexión de un dispositivo al acelerador de soluciones de Connected Factory](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Configuración del acelerador de soluciones de factoría conectada](iot-accelerators-connected-factory-configure.md)
 * [Permisos en el sitio azureiotsolutions.com](iot-accelerators-permissions.md)

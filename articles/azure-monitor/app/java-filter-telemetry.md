@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/23/2016
+ms.date: 3/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: ee50a0e9c7fca8f01f12b3508c86d901b5315120
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9cf939b241da01be55c1b2ba5f00a5131ab94c06
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60897121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061163"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrado de telemetría en la aplicación web de Java
 
@@ -256,7 +256,7 @@ En ApplicationInsights.xml:
 
 ### <a name="3-invoke-your-filter-java-spring"></a>3. Invocación del filtro (Java Spring)
 
-Para aplicaciones basadas en Spring framework, los procesadores de telemetría personalizada deben registrarse en la clase principal de la aplicación como un bean. A continuación, estarán autoconectados cuando se inicia la aplicación.
+En el caso de las aplicaciones basadas en el marco Spring, los procesadores de telemetría personalizados deben registrarse en la clase principal de la aplicación como un bean. A continuación, cuando se inicie la aplicación, se conectarán automáticamente.
 
 ```Java
 @Bean
@@ -265,7 +265,7 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-Deberá crear sus propios parámetros de filtro en `application.properties` y aprovechar el marco de configuración externalizados de Spring Boot para pasar los parámetros en el filtro personalizado. 
+Deberá crear sus propios parámetros de filtro en `application.properties` y aprovechar el marco de configuración externalizado de Spring Boot para pasar los parámetros al filtro personalizado. 
 
 
 ## <a name="troubleshooting"></a>solución de problemas

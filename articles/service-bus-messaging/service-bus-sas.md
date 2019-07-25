@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258812"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
@@ -88,7 +88,7 @@ El token contiene los valores sin el hash para que el destinatario pueda volver 
 
 El URI de recurso es el URI completo del recurso de Service Bus al que se solicita el acceso. Por ejemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`; es decir, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**El URI debe ser [codificados con porcentaje](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**El URI debe estar [codificado por porcentaje](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 La regla de autorización de acceso compartido usada para firmar debe configurarse en la entidad especificada por este URI, o uno de sus primarios jerárquicos. Por ejemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` o `http://contoso.servicebus.windows.net` en el ejemplo anterior.
 
@@ -185,7 +185,7 @@ En la sección anterior, vimos cómo usar el token SAS con una solicitud HTTP PO
 
 Antes de comenzar a enviar datos a Service Bus, el publicador debe enviar el token de SAS de un mensaje de AMQP a un nodo de AMQP bien definido con el nombre **$cbs** (puede verlo como una cola especial usada por el servicio para adquirir y validar todos los tokens de SAS). El publicador debe especificar el campo **ReplyTo** en el mensaje de AMQP. Este es el nodo en el que el servicio contestará al publicador con el resultado de la validación del token (un patrón sencillo de solicitud/respuesta entre el publicador y el servicio). Este nodo de respuesta se crea "sobre la marcha" en lo que respecta a la "creación dinámica de nodo remoto", tal como describe la especificación de AMQP 1.0. Después de comprobar que el token SAS es válido, el publicador puede avanzar y comenzar a enviar datos al servicio.
 
-Los pasos siguientes muestran cómo enviar el token de SAS con protocolo AMQP mediante la [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) biblioteca. Esto es útil si no se puede usar el desarrollo de SDK de Service Bus (por ejemplo, en WinRT, .NET Compact Framework, .NET Micro Framework y Mono) oficial en C\#. Por supuesto, esta biblioteca es útil para comprender cómo funciona la seguridad basada en notificaciones en el nivel AMQP, como pudo observar en el nivel HTTP (con una solicitud HTTP POST y el token de SAS enviado en el encabezado "Autorización"). Si no necesita un conocimiento tan profundo sobre AMQP, puede usar el SDK oficial de Service Bus con aplicaciones de .NET Framework, lo hará por usted.
+Los pasos siguientes muestran cómo enviar el token de SAS con protocolo AMQP mediante la biblioteca [AMQP.NET Lite](https://github.com/Azure/amqpnetlite). Esto es útil si no puede usar el SDK oficial de Service Bus (por ejemplo, en WinRT, .NET Compact Framework, .NET Micro Framework y Mono) al desarrollar en C\#. Por supuesto, esta biblioteca es útil para comprender cómo funciona la seguridad basada en notificaciones en el nivel AMQP, como pudo observar en el nivel HTTP (con una solicitud HTTP POST y el token de SAS enviado en el encabezado "Autorización"). Si no necesita un conocimiento tan profundo sobre AMQP, puede usar el SDK oficial de Service Bus con aplicaciones de .NET Framework, que lo hará por usted.
 
 ### <a name="c35"></a>C&#35;
 

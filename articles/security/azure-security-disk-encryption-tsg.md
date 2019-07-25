@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
 ms.openlocfilehash: 35d494702673d59290a0073c55135138f533b8bf
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956698"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
@@ -52,11 +52,11 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Actualizar el agente de máquina Virtual de Azure y las versiones de extensión
 
-Operaciones de Azure Disk Encryption pueden producir un error en las imágenes de máquina virtual con las versiones no compatibles del agente de máquina Virtual de Azure. Las imágenes de Linux con versiones anteriores a 2.2.38 del agente deben actualizarse antes de habilitar el cifrado. Para obtener más información, consulte [cómo actualizar el agente de Linux de Azure en una máquina virtual](../virtual-machines/extensions/update-linux-agent.md) y [soporte de versión mínima para los agentes de máquina virtual en Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Las operaciones de Azure Disk Encryption pueden producir un error en las imágenes de máquina virtual que utilizan versiones no compatibles del agente de máquina virtual de Azure. Las imágenes de Linux con versiones de agente anteriores a 2.2.38 deben actualizarse antes de habilitar el cifrado. Para obtener más información, consulte [Actualización del agente Linux de Azure en una máquina virtual](../virtual-machines/extensions/update-linux-agent.md) y [Soporte de versión mínima para los agentes de la máquina virtual en Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
-La versión correcta de la extensión del agente invitado Microsoft.Azure.Security.AzureDiskEncryption o Microsoft.Azure.Security.AzureDiskEncryptionForLinux también es necesaria. Las versiones de extensión se mantienen y actualizan automáticamente por la plataforma cuando se cumplen los requisitos previos del agente de máquina Virtual de Azure y se usa una versión compatible del agente de máquina virtual.
+También es necesaria la versión correcta de la extensión del agente invitado Microsoft.Azure.Security.AzureDiskEncryption o Microsoft.Azure.Security.AzureDiskEncryptionForLinux. La plataforma mantiene y actualiza automáticamente las versiones de extensión cuando se cumplen los requisitos previos del agente de máquina virtual de Azure y se usa una versión compatible del agente de máquina virtual.
 
-La extensión Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux está desusada y ya no se admite.  
+La extensión Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux está en desuso y ya no se admite.  
 
 ## <a name="unable-to-encrypt-linux-disks"></a>No se pueden cifrar los discos de Linux
 
@@ -64,7 +64,7 @@ En algunos casos, parece que el cifrado del disco de Linux se atasca en el mensa
 
 La secuencia de cifrado del disco del sistema operativo Linux desmonta la unidad del sistema operativo temporalmente. A continuación, realiza el cifrado de bloque a bloque de todo el disco del sistema operativo, antes de que vuelva a montarse en su estado cifrado. A diferencia de Azure Disk Encryption en Windows, el cifrado del disco de Linux no permite el uso simultáneo de la máquina virtual mientras el cifrado está en curso. Las características de rendimiento de la máquina virtual pueden suponer una diferencia significativa en el tiempo necesario para el cifrado completo. Estas características incluyen el tamaño del disco y si la cuenta de almacenamiento es almacenamiento premium (SSD) o estándar.
 
-Para comprobar el estado de cifrado, sondee el **ProgressMessage** los campos devueltos desde el [Get AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) comando. Mientras se cifra la unidad del sistema operativo, la máquina virtual entra en estado de mantenimiento y deshabilita SSH para evitar cualquier interrupción en el proceso en curso. El mensaje **EncryptionInProgress** aparece la mayoría del tiempo mientras el cifrado está en curso. Varias horas después, se muestra un mensaje **VMRestartPending** que le pide que reinicie la máquina virtual. Por ejemplo:
+Para comprobar el estado de cifrado, sondee el campo **ProgressMessage** devuelto por el comando [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus). Mientras se cifra la unidad del sistema operativo, la máquina virtual entra en estado de mantenimiento y deshabilita SSH para evitar cualquier interrupción en el proceso en curso. El mensaje **EncryptionInProgress** aparece la mayoría del tiempo mientras el cifrado está en curso. Varias horas después, se muestra un mensaje **VMRestartPending** que le pide que reinicie la máquina virtual. Por ejemplo:
 
 
 ```azurepowershell
@@ -100,7 +100,7 @@ Parte de la configuración del grupo de seguridad de red que se aplica debe perm
 Cuando se está habilitando el cifrado con [credenciales de Azure AD](azure-security-disk-encryption-prerequisites-aad.md), la máquina virtual de destino debe permitir la conectividad a los puntos de conexión de Azure Active Directory y Key Vault. Los puntos de conexión de autenticación actuales de Azure Active Directory se mantienen en las secciones 56 y 59 de la documentación sobre los [intervalos de direcciones IP y direcciones URL de Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). En la documentación sobre cómo [acceder a Azure Key Vault detrás de un firewall](../key-vault/key-vault-access-behind-firewall.md) se proporcionan instrucciones de Key Vault.
 
 ### <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure 
-La máquina virtual debe poder acceder al punto de conexión de [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) que utiliza una dirección IP no enrutable conocida (`169.254.169.254`) a la que solo se puede acceder desde la máquina virtual.  No se admiten las configuraciones de proxy que modifican el tráfico HTTP local a esta dirección (por ejemplo, agregando un encabezado X-Forwarded-For).
+La máquina virtual debe poder acceder al punto de conexión de [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) que utiliza una dirección IP no enrutable conocida (`169.254.169.254`) a la que solo se puede acceder desde la máquina virtual.  No se admiten las configuraciones de proxy que modifican el tráfico HTTP local hacia esta dirección (por ejemplo, agregando un encabezado X-Forwarded-For).
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Administración de paquetes de Linux detrás de un firewall
 
@@ -148,11 +148,11 @@ If the expected encryption state does not match what is being reported in the po
 
 ## <a name="troubleshooting-encryption-status"></a>Solución de problemas de estado del cifrado 
 
-El portal es posible que muestre un disco cifrado incluso después de haber sido sin cifrar en la máquina virtual.  Esto puede ocurrir cuando se usan comandos de bajo nivel para descifrar directamente el disco de la máquina virtual, en lugar de usar los comandos de administración de Azure Disk Encryption de nivel superior.  Los comandos del nivel superior no solo descifrar el disco de la máquina virtual, pero fuera de la máquina virtual también actualizan configuración de cifrado de nivel de plataforma importante y configuración de la extensión asociada con la máquina virtual.  Si estos no se mantienen en la alineación, la plataforma no podrá informar del estado de cifrado ni aprovisionar la máquina virtual correctamente.   
+Es posible que el portal muestre que un disco está cifrado incluso después de haberse descifrado en la máquina virtual.  Esto puede ocurrir cuando se usan comandos de nivel inferior para descifrar directamente el disco de la máquina virtual, en lugar de usar los comandos de administración de Azure Disk Encryption de nivel superior.  Los comandos del nivel superior no solo descifran el disco de la máquina virtual, sino fuera de la máquina virtual también actualizan configuración importante de cifrado de nivel de plataforma y configuración de extensión asociada con la máquina virtual.  Si estos no se mantienen en la alineación, la plataforma no podrá informar del estado de cifrado ni aprovisionar la máquina virtual correctamente.   
 
-Para deshabilitar el cifrado de disco de Azure con PowerShell, use [Disable AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguido [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Ejecute Remove-AzVMDiskEncryptionExtension antes de deshabilita el cifrado se producirá un error.
+Para deshabilitar Azure Disk Encryption con PowerShell, use [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguido de [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Si se ejecuta Remove-AzVMDiskEncryptionExtension antes de deshabilitar el cifrado, se producirá un error.
 
-Para deshabilitar Azure Disk Encryption con la CLI, utilice [deshabilitar el cifrado de máquinas virtuales de az](/cli/azure/vm/encryption). 
+Para deshabilitar Azure Disk Encryption con la CLI, use [az vm encryption disable](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

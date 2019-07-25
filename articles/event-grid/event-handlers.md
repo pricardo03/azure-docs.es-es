@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: 6093e1017af2fb8c54eaf1c3192f937172567982
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305041"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080554"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Controladores de eventos de Azure Event Grid
 
@@ -74,13 +74,49 @@ Use Logic Apps para automatizar los procesos de negocios para responder a evento
 
 ## <a name="service-bus-queue-preview"></a>Cola de Service Bus (versión preliminar)
 
-Usar Service Bus como un controlador de eventos para enrutar los eventos de Event Grid directamente a las colas de Service Bus para su uso en escenarios de almacenamiento en búfer o comando y control de aplicaciones empresariales. La versión preliminar no funciona con los temas de Service Bus y las sesiones, pero funciona con todos los niveles de colas de Service Bus.
+Use Service Bus como controlador de eventos para redirigir los eventos de Event Grid directamente a las colas de Service Bus para usarlos en escenarios de almacenamiento en búfer o comando y control en aplicaciones empresariales. La versión preliminar no funciona con los temas y las sesiones de Service Bus, pero sí con todos los niveles de las colas de Service Bus.
 
-Tenga en cuenta, al Bus de servicio como un controlador se encuentra en versión preliminar pública, debe instalar la extensión de CLI o PowerShell cuando las usa para crear las suscripciones de eventos.
+Tenga en cuenta que, aunque Service Bus como controlador se encuentra en versión preliminar pública, debe instalar la extensión de la CLI o PowerShell si las usa para crear nuevas suscripciones de eventos.
 
-### <a name="using-cli"></a>Uso de CLI
+### <a name="install-extension-for-azure-cli"></a>Instalación de la extensión para la CLI de Azure
 
-Para la CLI de Azure, el ejemplo siguiente se suscribirá un se conecta y tema de Event Grid a una cola de Service Bus:
+Para la CLI de Azure, necesita la [extensión de Event Grid](/cli/azure/azure-cli-extensions-list).
+
+En [CloudShell](/azure/cloud-shell/quickstart):
+
+* Si ha instalado la extensión anteriormente, actualícela con `az extension update -n eventgrid`.
+* Si no ha instalado la extensión anteriormente, instálela mediante `az extension add -n eventgrid`.
+
+Para una instalación local:
+
+1. [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Asegúrese de que tiene la última versión. Para ello, debe comprobarlo con `az --version`.
+1. Desinstale las versiones anteriores de la extensión con `az extension remove -n eventgrid`.
+1. Instale la extensión `eventgrid` con `az extension add -n eventgrid`.
+
+### <a name="install-module-for-powershell"></a>Instalación del módulo para PowerShell
+
+Para PowerShell, necesita el [módulo AzureRM.EventGrid](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
+
+En [CloudShell](/azure/cloud-shell/quickstart-powershell):
+
+* Instalación del módulo con `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+Para una instalación local:
+
+1. Abra una consola de PowerShell como administrador.
+1. Instalación del módulo con `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+Si el parámetro `-AllowPrerelease` no está disponible, siga estos pasos:
+
+1. Ejecute `Install-Module PowerShellGet -Force`.
+1. Ejecute `Update-Module PowerShellGet`.
+1. Cierre la consola de PowerShell.
+1. Reinicie PowerShell como administrador.
+1. Instalación del módulo`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+### <a name="using-cli-to-add-a-service-bus-handler"></a>Uso de la CLI para agregar un controlador de Service Bus
+
+Para la CLI de Azure, en el siguiente ejemplo, se suscribe un tema y conecta un tema de Event Grid a una cola de Service Bus:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

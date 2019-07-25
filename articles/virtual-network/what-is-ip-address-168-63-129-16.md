@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
 ms.openlocfilehash: acfd5230d1bd572ea5179651558e3f736a8570af
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833132"
 ---
 # <a name="what-is-ip-address-1686312916"></a>¿Qué es la dirección IP 168.63.129.16?
@@ -28,17 +28,17 @@ La dirección IP 168.63.129.16 es una dirección IP pública virtual que se usa 
 
 - Permite al agente de VM comunicarse con la plataforma Azure para indicar que se encuentra en estado "Listo".
 - Permite la comunicación con el servidor DNS virtual para proporcionar resolución de nombres filtrada a los recursos (como una máquina virtual) que no tienen un servidor DNS personalizado. Este filtrado garantiza que los clientes puedan resolver solo los nombres de host de sus recursos.
-- Permite [sondeos de estado del equilibrador de carga Azure](../load-balancer/load-balancer-custom-probe-overview.md) para determinar el estado de mantenimiento de máquinas virtuales.
+- Permite que los [sondeos de estado de Azure Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md) determinen el estado de mantenimiento de las VM.
 - Permite que la máquina virtual obtenga una dirección IP dinámica desde el servicio DHCP en Azure.
 - Habilita los mensajes de latido del agente invitado para el rol PaaS.
 
 ## <a name="scope-of-ip-address-1686312916"></a>Ámbito de la dirección IP 168.63.129.16
 
-La dirección IP 168.63.129.16 se utiliza en todas las regiones y todas las nubes nacionales. Esta dirección IP pública especial es propiedad de Microsoft y no cambiará. La regla del grupo de seguridad de red predeterminado la admite. Le recomendamos que permita esta dirección IP en cualquiera de las directivas de firewall local. La comunicación entre esta dirección IP especial y los recursos es segura porque solo la plataforma interna de Azure puede originar un mensaje desde esta dirección IP. Si esta dirección se bloquea, puede producirse un comportamiento inesperado en una variedad de escenarios.
+La dirección IP pública 168.63.129.16 se utiliza en todas las regiones y en todas las nubes nacionales. Esta dirección IP pública especial es propiedad de Microsoft y no se cambiará. La regla del grupo de seguridad de red predeterminado la admite. Le recomendamos que permita esta dirección IP en cualquiera de las directivas de firewall local. La comunicación entre esta dirección IP especial y los recursos es segura porque solo la plataforma interna de Azure puede originar un mensaje desde esta dirección IP. Si esta dirección se bloquea, puede producirse un comportamiento inesperado en una variedad de escenarios.
 
-[Sondeos de estado de equilibrador de carga Azure](../load-balancer/load-balancer-custom-probe-overview.md) se origina desde esta dirección IP. Si bloquea esta dirección IP, se producirá un error en los sondeos.
+Los [sondeos de estado de Azure Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md) se originan desde esta dirección IP. Si bloquea esta dirección IP, se producirá un error en los sondeos.
 
-En un escenario de red que no sea virtual (clásica), el sondeo de estado se origina en una dirección IP privada y no se utiliza 168.63.129.16.
+En un escenario de red que no es virtual (clásica), el sondeo de estado se origina desde una dirección IP privada y 168.63.129.16 no se usa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

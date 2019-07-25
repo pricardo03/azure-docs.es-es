@@ -12,10 +12,10 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957395"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Administración de una Function App en Azure Portal 
@@ -26,21 +26,21 @@ Para comenzar, vaya a [Azure Portal](https://portal.azure.com) e inicie sesión 
 
 ![Información general sobre Function App en Azure Portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-Puede ir a todo lo que necesita para administrar la aplicación de función desde la página información general, en particular el **[configuración de la aplicación](#settings)** y **[característicasdelaplataforma](#platform-features)**.
+Puede navegar a todo lo que necesita para administrar Function App desde la página de información general, en particular la **[Configuración de la aplicación](#settings)** y las **[Características de la plataforma](#platform-features)** .
 
 ## <a name="settings"></a>Configuración de la aplicación
 
-El **configuración de la aplicación** ficha mantiene la configuración de la aplicación de función.
+La pestaña **Configuración de la aplicación** mantiene la configuración de la aplicación que Function App utiliza.
 
-![Configuración de Function app en Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+![Configuración de Function App en Azure Portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-Esta configuración se almacena cifrada y debe seleccionar **mostrar valores** para ver los valores en el portal.
+Esta configuración se almacena cifrada y debe seleccionar **Mostrar valores** para ver los valores en el portal.
 
-Para agregar una configuración, seleccione **nueva configuración de la aplicación** y agregue el nuevo par clave-valor.
+Para agregar una configuración, seleccione **Nueva configuración de la aplicación** y agregue el nuevo par clave-valor.
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-Al desarrollar una aplicación de función localmente, estos valores se mantienen en el archivo del proyecto local.settings.json.
+Al desarrollar una instancia de Function App localmente, estos valores se mantienen en el archivo del proyecto local.settings.json.
 
 ## <a name="platform-features"></a>Características de la plataforma
 
