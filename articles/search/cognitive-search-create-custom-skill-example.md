@@ -11,27 +11,27 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: efa85491f4b183a044ec5d9e5e6e3d11eebedbe3
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428441"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Ejemplo: crear una aptitud personalizada mediante Text Translate API
 
-En este ejemplo, obtenga información sobre cómo crear una aptitud personalizado de API web. Esta habilidad aceptará texto en cualquier idioma y lo traduce al inglés. Este ejemplo usa una [Función de Azure ](https://azure.microsoft.com/services/functions/) para encapsular [Translate Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) para que pueda implementar la interfaz de la aptitud personalizada.
+En este ejemplo, obtiene información sobre cómo crear una aptitud personalizada de la API web. Esta aptitud aceptará texto en cualquier idioma y lo traducirá al inglés. Este ejemplo usa una [Función de Azure ](https://azure.microsoft.com/services/functions/) para encapsular [Translate Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) para que pueda implementar la interfaz de la aptitud personalizada.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-+ Obtenga información sobre [interfaz habilidades personalizadas](cognitive-search-custom-skill-interface.md) artículo si no está familiarizado con la interfaz de entrada y salida que debe implementar una habilidad personalizada.
++ Si no está familiarizado con la interfaz de entrada o salida que debe implementar una aptitud personalizada, lea el artículo sobre la [interfaz de aptitud personalizada](cognitive-search-custom-skill-interface.md).
 
 + [Regístrese para usar Translator Text API](../cognitive-services/translator/translator-text-how-to-signup.md) y obtenga una clave de API para consumirla.
 
-+ Instalar [2019 de Visual Studio](https://www.visualstudio.com/vs/) o versiones posteriores, incluidas la carga de trabajo de desarrollo de Azure.
++ Instale [Visual Studio 2019](https://www.visualstudio.com/vs/) o posterior, incluida la carga de trabajo de desarrollo de Azure.
 
 ## <a name="create-an-azure-function"></a>Creación de una Función de Azure
 
-Aunque este ejemplo usa una función de Azure para hospedar una API web, no es necesario.  Siempre que cumpla con los [requisitos de interfaz de una aptitud cognitiva](cognitive-search-custom-skill-interface.md), no importa el enfoque que quiera usar. Sin embargo, Azure Functions facilita la creación de una aptitud personalizada.
+Aunque este ejemplo utiliza una función de Azure para hospedar una API web, esta acción no es necesaria.  Siempre que cumpla con los [requisitos de interfaz de una aptitud cognitiva](cognitive-search-custom-skill-interface.md), no importa el enfoque que quiera usar. Sin embargo, Azure Functions facilita la creación de una aptitud personalizada.
 
 ### <a name="create-a-function-app"></a>Creación de una aplicación de función
 
@@ -39,7 +39,7 @@ Aunque este ejemplo usa una función de Azure para hospedar una API web, no es n
 
 1. En el cuadro de diálogo Nuevo proyecto, seleccione **Instalado**, expanda **Visual C#**  > **Nube**, seleccione **Azure Functions**, escriba un nombre para el proyecto y haga clic en **Aceptar**. El nombre de la aplicación de función debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones u otros caracteres no alfanuméricos.
 
-1. Seleccione **v2 de Azure Functions (.NET Core)** . También puede hacerlo con la versión 1, pero el código que se escribe a continuación utiliza la plantilla de la versión 2.
+1. Seleccione **Azure Functions v2 (.NET Core)** . También puede hacerlo con la versión 1, pero el código que se escribe a continuación utiliza la plantilla de la versión 2.
 
 1. Asegúrese de que el tipo es **Desencadenador HTTP**.
 
@@ -195,7 +195,7 @@ Este ejemplo es una simple opción de enriquecimiento que solo funciona en un re
 
 ## <a name="test-the-function-from-visual-studio"></a>Pruebe la función desde Visual Studio
 
-Presione **F5** para ejecutar el programa y probar los comportamientos de la función. En este caso, vamos a usar la siguiente función para traducir un texto en español a inglés. Use Postman o Fiddler para emitir una llamada como la que se muestra a continuación:
+Presione **F5** para ejecutar el programa y probar los comportamientos de la función. En este caso, vamos a usar la siguiente función para traducir un texto de español a inglés. Use Postman o Fiddler para emitir una llamada como la que se muestra a continuación:
 
 ```http
 POST https://localhost:7071/api/Translate
@@ -241,9 +241,9 @@ Cuando esté satisfecho con el comportamiento de la función, puede publicarla.
 
 1. Si todavía no tiene conectado Visual Studio a la cuenta de Azure, seleccione **Agregar una cuenta...**
 
-1. Siga las instrucciones que aparecen en pantalla. Se le pide que especifique la cuenta de Azure, el grupo de recursos, el plan de hospedaje y la cuenta de almacenamiento que desea usar. Puede crear un nuevo grupo de recursos, un nuevo plan de hospedaje y una cuenta de almacenamiento si aún no los tiene. Cuando haya terminado, seleccione **Crear**.
+1. Siga las instrucciones que aparecen en pantalla. Se le pedirá que especifique la cuenta de Azure, el grupo de recursos, el plan de hospedaje y la cuenta de almacenamiento que quiera usar. Puede crear un nuevo grupo de recursos, un nuevo plan de hospedaje y una cuenta de almacenamiento si aún no los tiene. Cuando haya terminado, seleccione **Crear**.
 
-1. Una vez completada la implementación, tenga en cuenta la dirección URL del sitio. Es la dirección de la aplicación de función en Azure. 
+1. Una vez completada la implementación, fíjese en la dirección URL del sitio. Es la dirección de la aplicación de función en Azure. 
 
 1. En [Azure Portal](https://portal.azure.com), vaya al grupo de recursos y busque la función de traducción que publicó. En la sección **Administrar**, verá las claves de host. Seleccione el ícono **Copiar** de la clave de host *predeterminada*.  
 
@@ -270,7 +270,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 }
 ```
 
-En este ejemplo debe producir un resultado similar a la que ha visto anteriormente cuando se ejecuta la función en el entorno local.
+Este ejemplo debería producir un resultado similar al que vio anteriormente al ejecutar la función en el entorno local.
 
 ## <a name="connect-to-your-pipeline"></a>Conéctese a la canalización
 Ahora que tiene una nueva aptitud personalizada, puede agregarla al conjunto de aptitudes. En el siguiente ejemplo se muestra cómo llamar a la aptitud. Como la aptitud no maneja los lotes, agregue una instrucción para que el tamaño máximo de lote sea de ```1``` y así enviar documentos de uno en uno.
@@ -307,7 +307,7 @@ Ahora que tiene una nueva aptitud personalizada, puede agregarla al conjunto de 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Felicidades. Ha creado su primera enricher personalizado. Si quiere agregar su propia funcionalidad personalizada, puede seguir el mismo patrón. 
+Felicidades. Acaba de crear su primera opción de enriquecimiento personalizada. Si quiere agregar su propia funcionalidad personalizada, puede seguir el mismo patrón. 
 
 + [Agregar una aptitud personalizada a una canalización de Cognitive Search](cognitive-search-custom-skill-interface.md)
 + [Cómo definir un conjunto de aptitudes](cognitive-search-defining-skillset.md)

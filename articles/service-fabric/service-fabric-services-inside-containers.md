@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
-ms.author: aljo, anmola
-ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: anmola
+ms.openlocfilehash: 1210b34590484379ae487ad1b87e76a433e4582a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837528"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621813"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Inclusión de Reliable Services y Reliable Actors de Service Fabric en contenedores en Windows
 
@@ -119,6 +119,16 @@ Este documento ofrece una guía para que el servicio se ejecute dentro de un con
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> De manera predeterminada, las aplicaciones de Service Fabric tienen acceso al entorno de ejecución de Service Fabric en forma de punto de conexión que acepta solicitudes específicas de la aplicación. Considere la posibilidad de deshabilitar este acceso cuando la aplicación hospede código que no sea de confianza. Para obtener más información, consulte los [Procedimientos recomendados de seguridad de Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Para deshabilitar el acceso al entorno de ejecución de Service Fabric, agregue la siguiente configuración en la sección Directivas del manifiesto de la aplicación correspondiente al manifiesto del servicio importado, como se muestra a continuación:
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. Para probar esta aplicación, debe implementarla en un clúster que esté ejecutando la versión 5.7 o posterior. Para las versiones 6.1 o posteriores del entorno de ejecución, debe editar y actualizar la configuración del clúster para habilitar esta característica en vista previa. Siga los pasos de este [artículo](service-fabric-cluster-fabric-settings.md) para agregar la configuración que se muestra a continuación.
     ```

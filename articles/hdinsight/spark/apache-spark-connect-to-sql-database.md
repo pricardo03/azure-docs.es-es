@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: 3812cf55a26a12ef110b8acf14edd0e8bfd36851
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236532"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Uso del clúster de HDInsight Spark para leer y escribir datos en la base de datos de Azure SQL
@@ -23,7 +23,7 @@ Aprenda a conectar un clúster de Apache Spark en Azure HDInsight con una base d
 
 * **Clúster de Azure HDInsight Spark**.  Siga las instrucciones de [Creación de un clúster de Apache Spark en HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* **Base de datos SQL de Azure** Siga las instrucciones de [Creación de una base de datos de Azure SQL en Azure Portal](../../sql-database/sql-database-get-started-portal.md). Asegúrese de crear una base de datos con los datos y el esquema del ejemplo **AdventureWorksLT**. Además, asegúrese de crear una regla de firewall a nivel de servidor para permitir que la dirección IP del cliente acceda a la base de datos SQL en el servidor. Las instrucciones para agregar la regla de firewall están disponibles en el mismo artículo. Una vez que haya creado la base de datos de Azure SQL, asegúrese de conservar los siguientes valores a mano. Los necesitará para conectarse a la base de datos desde un clúster de Spark.
+* **Azure SQL Database**. Siga las instrucciones de [Creación de una base de datos de Azure SQL en Azure Portal](../../sql-database/sql-database-get-started-portal.md). Asegúrese de crear una base de datos con los datos y el esquema del ejemplo **AdventureWorksLT**. Además, asegúrese de crear una regla de firewall a nivel de servidor para permitir que la dirección IP del cliente acceda a la base de datos SQL en el servidor. Las instrucciones para agregar la regla de firewall están disponibles en el mismo artículo. Una vez que haya creado la base de datos de Azure SQL, asegúrese de conservar los siguientes valores a mano. Los necesitará para conectarse a la base de datos desde un clúster de Spark.
 
     * Nombre del servidor que hospeda Azure SQL Database.
     * Nombre de la base de datos de Azure SQL
@@ -36,7 +36,7 @@ Aprenda a conectar un clúster de Apache Spark en Azure HDInsight con una base d
 Comience con la creación de un cuaderno de [Jupyter Notebook](https://jupyter.org/) asociado al clúster de Spark. Utilice ese cuaderno para ejecutar los fragmentos de código que se utilizan en este artículo. 
 
 1. En [Azure Portal](https://portal.azure.com/), abra el clúster.
-1. Seleccione **Cuaderno de Jupyter** debajo de **Paneles de clúster** en el lado derecho.  Si no ve **paneles de clúster**, seleccione **Introducción** en el menú izquierdo. Cuando se le pida, escriba las credenciales del clúster.
+1. Seleccione **Cuaderno de Jupyter** debajo de **Paneles de clúster** en el lado derecho.  Si no ve **paneles de clúster**, seleccione **Introducción** del menú izquierdo. Cuando se le pida, escriba las credenciales del clúster.
 
     ![Jupyter Notebook en Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter Notebook en Spark")
    
@@ -146,7 +146,7 @@ En esta sección, utilizamos un archivo CSV de ejemplo disponible en el clúster
 
 1. Conéctese a la base de datos de Azure SQL con SSMS y compruebe que ve una `dbo.hvactable` allí.
 
-     a. Inicie SSMS y conéctese a la base de datos de Azure SQL proporcionando los detalles de conexión, tal como se muestra en la captura de pantalla siguiente.
+    a. Inicie SSMS y conéctese a la base de datos de Azure SQL proporcionando los detalles de conexión, tal como se muestra en la captura de pantalla siguiente.
 
     ![Conexión a una base de datos SQL con SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Connect to SQL database using SSMS")
 
@@ -174,7 +174,7 @@ En esta sección, vamos a transmitir los datos a la tabla **hvactable** que ha c
        import org.apache.spark.sql.streaming._
        import java.sql.{Connection,DriverManager,ResultSet}
 
-1. Vamos a transmitir los datos desde **HVAC.csv** a hvactable. Archivo HVAC.csv está disponible en el clúster en `/HdiSamples/HdiSamples/SensorSampleData/HVAC/`. En el fragmento de código siguiente, obtenemos primero el esquema de los datos que se van a transmitir. Después, creamos una trama de datos de streaming con ese esquema. Pegue el fragmento de código en una celda de código y presione **MAYÚS + ENTRAR** para ejecutarlo.
+1. Vamos a transmitir los datos desde **HVAC.csv** a hvactable. El archivo HVAC.csv está disponible en el clúster en `/HdiSamples/HdiSamples/SensorSampleData/HVAC/`. En el fragmento de código siguiente, obtenemos primero el esquema de los datos que se van a transmitir. Después, creamos una trama de datos de streaming con ese esquema. Pegue el fragmento de código en una celda de código y presione **MAYÚS + ENTRAR** para ejecutarlo.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 

@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70ca1e2f4fd831619cc3cd443d98018a35f4e1ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963081"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
@@ -43,7 +43,7 @@ En este artículo se utilizan los términos que se definen a continuación:
 
 * **Sistema de origen**: el repositorio de usuarios desde el que se sincroniza el servicio de aprovisionamiento de Azure AD. Azure Active Directory es el sistema de origen para la mayoría de los conectores de aprovisionamiento integrados previamente, sin embargo, hay algunas excepciones (ejemplo: Sincronización de entrada de Workday).
 
-* **Sistema de destino**: el repositorio de usuarios al que se sincroniza el servicio de aprovisionamiento de Azure AD. Esto suele ser una aplicación SaaS (ejemplos: Salesforce, ServiceNow, G Suite, Dropbox para empresas), pero en algunos casos puede ser un sistema local como Active Directory (ejemplo: Sincronización de entrada de Workday a Active Directory).
+* **Sistema de destino**: el repositorio de usuarios al que se sincroniza el servicio de aprovisionamiento de Azure AD. Esto suele ser una aplicación SaaS (ejemplos: Salesforce, ServiceNow, G Suite, Dropbox Business), pero en algunos casos puede ser un sistema local como Active Directory (ejemplo: Sincronización de entrada de Workday a Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Obtención de informes de aprovisionamiento desde el Portal de administración de Azure

@@ -1,5 +1,5 @@
 ---
-title: 'Contraseñas: Azure Active Directory prohibidas dinámicamente'
+title: 'Contraseñas prohibidas dinámicamente: Azure Active Directory'
 description: Prohibición de contraseñas no seguras del entorno con las contraseñas prohibidas dinámicamente de Azure AD
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977301"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine las contraseñas incorrectas de su organización
@@ -32,11 +32,11 @@ Puede que algunas organizaciones quieran ir un paso más allá y agregar sus pro
 
 La lista personalizada de contraseñas prohibidas y la posibilidad de habilitar la integración local de Active Directory se administra mediante Azure Portal.
 
-![Modificar la lista personalizada de contraseñas prohibidas en métodos de autenticación](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![Modifique la lista personalizada de contraseñas prohibidas en Métodos de autenticación](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="on-premises-hybrid-scenarios"></a>Escenarios híbridos locales
 
-La protección de cuentas que están solo en la nube es muy útil, pero muchas organizaciones conservan escenarios híbridos que incluyen implementaciones locales de Windows Server Active Directory. Es posible instalar protección con contraseña para Windows Server Active Directory agentes locales ampliar las listas de contraseñas prohibidas en su infraestructura de Azure AD. Ahora es obligatorio que los usuarios y administradores que cambien, establezcan o restablezcan contraseñas locales cumplan con la misma directiva de contraseñas que los usuarios que solo están en la nube.
+La protección de cuentas que están solo en la nube es muy útil, pero muchas organizaciones conservan escenarios híbridos que incluyen implementaciones locales de Windows Server Active Directory. Es posible instalar la protección con contraseña de Azure AD para agentes de Windows Server Active Directory de forma local para ampliar las listas de contraseñas prohibidas para la infraestructura existente. Ahora es obligatorio que los usuarios y administradores que cambien, establezcan o restablezcan contraseñas locales cumplan con la misma directiva de contraseñas que los usuarios que solo están en la nube.
 
 ## <a name="how-are-passwords-evaluated"></a>Cómo se evalúan las contraseñas
 
@@ -54,7 +54,7 @@ La normalización consta de dos partes.  En primer lugar, todas las letras mayú
 | --- | --- |
 | "0"  | "o" |
 | '1'  | "l" |
-| "$"  | 's' |
+| "$"  | "s" |
 | "\@"  | "a" |
 
 Ejemplo: suponga que está prohibida la contraseña "blank" y que un usuario intenta cambiar su contraseña a "Bl@nK". Aunque "Bl@nk" no está expresamente prohibida, el proceso de normalización convierte esta contraseña a "blank", que es una contraseña no permitida.
@@ -75,7 +75,7 @@ Ninguna de las contraseñas anteriores coincide específicamente con la contrase
 
 La coincidencia de subcadenas se utiliza en la contraseña normalizada para comprobar el nombre y apellido del usuario, así como el nombre del inquilino (tenga en cuenta que no se realiza la coincidencia de nombres de inquilino cuando se validan contraseñas en un controlador de dominio de Active Directory).
 
-Ejemplo: suponga que tenemos que un usuario, Pol, que desea restablecer su contraseña para "P0l123fb". Después de la normalización, esta contraseña convertiría en "pol123fb". Coincidencia de subcadena busca que la contraseña contiene el nombre del usuario "Pol". Aunque no era "P0l123fb" específicamente en cualquiera de las listas de contraseñas prohibidas, coincidencia de subcadena encuentra "Pol" en la contraseña. Por lo tanto, esta contraseña se rechazaría.
+Ejemplo: suponga que tenemos un usuario llamado Pol que desea restablecer su contraseña a "P0l123fb". Después de la normalización, esta contraseña se convertiría en "pol123fb". La coincidencia de subcadenas detecta que la contraseña contiene el nombre del usuario "Pol". Aunque "P0l123fb" no se encontraba específicamente en ninguna lista de contraseñas prohibidas, la coincidencia de subcadenas encontró "Pol" en la contraseña. Por lo tanto, esta contraseña se rechazaría.
 
 #### <a name="score-calculation"></a>Cálculo de puntuación
 
@@ -91,7 +91,7 @@ Ejemplo: un usuario cambia su contraseña a "C0ntos0Blank12".
 
 Después de la normalización, esta contraseña se convierte en "contosoblank12". El proceso de coincidencia encuentra que esta contraseña contiene dos contraseñas prohibidas: contoso y blank. La puntuación entonces sería la siguiente:
 
-[contoso] + [en blanco] + [1] + [2] = 4 puntos puesto que esta contraseña es en 5 puntos, se rechazarán.
+[contoso] + [blank] = [1] + [2] = 4 puntos. Como la contraseña está por debajo de 5 puntos, se rechazará.
 
 Ejemplo: Un usuario cambia su contraseña a "ContoS0Bl@nkf9!".
 
@@ -100,17 +100,17 @@ Después de la normalización, esta contraseña se convierte en "contosoblankf9!
 [contoso] + [blank] + [f] + [9] + [!] = 5 puntos. Como esta contraseña tiene al menos 5 puntos, se acepta.
 
    > [!IMPORTANT]
-   > Tenga en cuenta que el algoritmo de contraseñas prohibidas, junto con la lista global, puede cambiar (y de hecho cambia) en cualquier momento en Azure en función de la investigación y el análisis de seguridad en curso. Para el servicio de agente del controlador de dominio local, algoritmos actualizados solo tendrá efecto después de volver a instalar el software del agente de controlador de dominio.
+   > Tenga en cuenta que el algoritmo de contraseñas prohibidas, junto con la lista global, puede cambiar (y de hecho cambia) en cualquier momento en Azure en función de la investigación y el análisis de seguridad en curso. En el caso del servicio de agente del controlador de dominio local, los algoritmos actualizados solo surtirán efecto después de volver a instalar el software del agente del controlador de dominio.
 
 ## <a name="license-requirements"></a>Requisitos de licencia
 
 |   | Protección con contraseña de Azure AD con la lista global de contraseñas prohibidas | Protección con contraseña de Azure AD con la lista personalizada de contraseñas prohibidas|
 | --- | --- | --- |
-| Usuarios solo en la nube | Azure AD Gratis | Azure AD Premium (P1 o P2) |
+| Usuarios solo en la nube | Azure AD Free | Azure AD Premium (P1 o P2) |
 | Usuarios sincronizados desde un entorno local de Windows Server Active Directory | Azure AD Premium (P1 o P2) | Azure AD Premium (P1 o P2) |
 
 > [!NOTE]
-> Los usuarios de Windows Server Active Directory local que no se sincronizan con Azure Active Directory también aprovechar las ventajas de protección de contraseña de Azure AD basados en licencia existente para los usuarios sincronizados.
+> Los usuarios de Windows Server Active Directory local que no se sincronizaron con Azure Active Directory también aprovechan las ventajas de la protección con contraseña de Azure AD según la licencia existente para los usuarios sincronizados.
 
 Puede encontrar información adicional sobre licencias, incluidos los costos, en la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

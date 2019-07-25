@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 235877ac8f84e695e5f81770d33b6fed89a5f241
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.openlocfilehash: fafd853250ed76b49b66b86ffda9c91240c8ce48
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109155"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -39,17 +39,17 @@ Permisos necesarios | Para más información sobre los permisos necesarios para 
 Descarga | [Descargar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
->Lanzar una versión nueva de Azure AD Connect es un proceso que requiere varios paso de control de calidad para garantizar la funcionalidad de la operación del servicio y, mientras que se van a través de este proceso se actualizará el número de versión de una nueva versión, así como el estado de lanzamiento para reflejar el estado más reciente.
-Aunque vamos a través de este proceso, el número de versión de la versión se mostrará con una "X" en la posición de número de versión secundaria, como se muestra en "1.3.X.0" - Esto indica que las notas de la versión de este documento son válidas para todas las versiones a partir de "1.3.". Tan pronto como se ha finalizado el proceso de lanzamiento se actualizará el número de versión de lanzamiento para la versión más reciente y se actualizará el estado de lanzamiento a "Emitido para la descarga y la actualización automática".
+>Lanzar una versión nueva de Azure AD Connect es un proceso que requiere varios pasos de control de calidad para garantizar la funcionalidad operativa del servicio y, mientras realizamos este proceso, tanto el número de cada versión nueva como su estado se actualizan para reflejar los cambios más recientes.
+Mientras realizamos este proceso, el número de la versión se mostrará con una "X" en la posición del número de versión secundaria; por ejemplo, "1.3.X.0". Esto indica que las notas de la versión de este documento son válidas para todas las versiones que empiezan por "1.3". En cuanto finalice el proceso de lanzamiento, se actualizará el número de versión a la versión publicada más reciente y el estado de la versión se actualizará a "publicado para descarga y actualización automática".
 No todas las versiones de Azure AD Connect estarán disponibles para la actualización automática. El estado de lanzamiento indicará si una versión está disponible para la actualización automática o solo para la descarga. Si la actualización automática estaba habilitada en el servidor de Azure AD Connect, dicho servidor se actualizará automáticamente a la versión más reciente de Azure AD Connect que se lanza para la actualización automática. Tenga en cuenta que no todas las configuraciones de Azure AD Connect son aptas para la actualización automática. Siga este vínculo para más información acerca de la [actualización automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="13210"></a>1.3.21.0
 >[!IMPORTANT]
->Hay un problema conocido con la actualización de Azure AD Connect desde una versión anterior a 1.3.21.0 donde el portal de Office 365 no refleja la versión actualizada, aunque Azure AD Connect se actualizó correctamente.
+>Hay un problema conocido con la actualización de Azure AD Connect desde una versión anterior a 1.3.21.0, donde el portal de Office 365 no refleja la versión actualizada, aunque Azure AD Connect se actualizara correctamente.
 >
-> Para resolver esto deberá importar el **AdSync** módulo y vuelva a ejecutar el`Set-ADSyncDirSyncConfiguration` cmdlet de powershell en el servidor de Azure AD Connect.  Puede usar los pasos siguientes:
+> Para resolver esto, deberá importar el módulo **AdSync** y ejecutar el cmdlet `Set-ADSyncDirSyncConfiguration` de PowerShell en el servidor de Azure AD Connect.  Puede usar los pasos siguientes:
 >
->1. Abra Powershell en modo de administrador
+>1. Abra PowerShell en modo de administrador
 >2. Ejecute `Import-Module "ADSync"`
 >3. Ejecute `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
  
@@ -57,12 +57,12 @@ No todas las versiones de Azure AD Connect estarán disponibles para la actualiz
 
 ### <a name="release-status"></a>Estado de la versión 
 
-05/14/2019: publicado para descarga.
+14/05/2019: publicado para descarga.
 
 
 ### <a name="fixed-issues"></a>Problemas corregidos 
 
-- Se ha corregido una vulnerabilidad de elevación de privilegios que existe en la compilación de Microsoft Azure Active Directory Connect 1.3.20.0.  Esta vulnerabilidad, bajo ciertas condiciones, puede permitir que un atacante ejecute dos cmdlets de powershell en el contexto de una cuenta con privilegios y realizar acciones con privilegios.  Actualización de seguridad soluciona el problema al deshabilitar estos cmdlets. Para obtener más información, consulte [actualización de seguridad](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000).
+- Se ha corregido una vulnerabilidad de elevación de privilegios que existe en la compilación de Microsoft Azure Active Directory Connect 1.3.20.0.  Esta vulnerabilidad, bajo ciertas condiciones, puede permitir que un atacante ejecute dos cmdlets de PowerShell en el contexto de una cuenta con privilegios y realizar acciones con privilegios.  Esta actualización de seguridad inhabilita estos cmdlets para solucionar el problema. Para obtener más información, consulte la [actualización de seguridad](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000).
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -72,42 +72,42 @@ No todas las versiones de Azure AD Connect estarán disponibles para la actualiz
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras 
 
-- Agregar compatibilidad para la actualización de dominio 
-- La característica carpetas públicas de correo de Exchange deja de GA 
-- Mejorar el Asistente para control de errores para errores de servicio 
-- Agregó un vínculo advertencia para la interfaz de usuario anterior en la página de propiedades del conector. 
-- La característica de reescritura de grupos unificados está ahora GA 
-- Mensaje de error SSPR mejorada cuando el controlador de dominio no tiene un control LDAP 
-- Mejorar el diagnóstico de errores del registro DCOM durante la instalación  
+- Agregar compatibilidad con la actualización de dominios 
+- La característica Carpetas públicas de correo de Exchange pasa a GA 
+- Mejorar el control de errores del asistente para los errores de servicio 
+- Se agregó un vínculo de advertencia para la antigua UI en la página de propiedades del conector. 
+- Ahora, la característica de escritura diferida de grupos unificados es de GA 
+- Mensaje de error de SSPR mejorado cuando falta un control LDAP en el controlador de dominio 
+- Se agregó el diagnóstico para los errores de registro de DCOM durante la instalación  
 - Seguimiento de errores de RPC PHS mejorado 
 - Permitir credenciales EA desde un dominio secundario 
-- Permitir que se especificó durante la instalación (nombre predeterminado ADSync) el nombre de base de datos
-- Actualizar a ADAL 3.19.8 para recoger una corrección de WS-Trust de Ping y agregar compatibilidad para nuevas instancias de Azure 
-- Las reglas de sincronización Modificar grupo de flujo de samAccountName, DomainNetbios y DomainFQDN en la nube: es necesario para las notificaciones 
-- Modificar control de regla de sincronización predeterminado: más [aquí](how-to-connect-fix-default-rules.md).
-- Agrega a un nuevo agente que se ejecuta como un servicio de windows. Este agente, llamado a "Agente de administración", permite un diagnóstico más detallado remoto del servidor de Azure AD Connect para solucionar Microsoft Engineers al abrir una incidencia de soporte técnico. Este agente no está instalado y habilitado de forma predeterminada.  Para obtener más información sobre cómo instalar y habilitar el agente consulte [¿qué es el agente Azure AD Connect Admin?](whatis-aadc-admin-agent.md). 
-- Actualiza el contrato de licencia de usuario final (CLUF) 
-- Agrega compatibilidad con la actualización para implementaciones que usan AD FS como su tipo de inicio de sesión automático.  Esto también quita el requisito de actualizar el AD FS Azure AD de confianza como parte del proceso de actualización. 
-- Agrega una tarea de administración de confianza de Azure AD que proporciona dos opciones: analizar o actualizar la confianza y restablecer la confianza. 
-- Puede cambiar el comportamiento de la confianza de AD FS Azure AD de confianza para que siempre use el modificador - SupportMultipleDomain (incluye el dominio de Azure AD y de confianza actualizaciones). 
-- Puede cambiar el comportamiento de granja de servidores de instalación nuevo AD FS para que requiera un certificado pfx mediante la eliminación de la opción de usar un certificado instalado previamente.
-- Actualiza el flujo de trabajo de granja de servidores de instalación de nuevo AD FS para que solo permite la implementación de ADFS de 1 y 1 servidor WAP.  Todos los servidores adicionales se realizará después de la instalación inicial. 
+- Permitir que se especifique el nombre de la base de datos durante la instalación (el nombre predeterminado es ADSync)
+- Actualizar a ADAL 3.19.8 para recoger una corrección de WS-Trust de Ping y agregar compatibilidad con nuevas instancias de Azure 
+- Modificar las reglas de sincronización de grupos para proveer samAccountName, DomainNetbios y DomainFQDN en la nube (es necesario para las notificaciones) 
+- Control de regla de sincronización predeterminado modificado: más información [aquí](how-to-connect-fix-default-rules.md).
+- Se agregó un nuevo agente que se ejecuta como servicio de Windows. Este agente, llamado "Agente de administración", permite un diagnóstico remoto más detallado del servidor de Azure AD Connect para ayudar a los ingenieros de Microsoft a solucionar un problema cuando se abre un caso de soporte técnico. De forma predeterminada, este agente no está instalado y habilitado.  Para obtener más información sobre cómo instalar y habilitar el agente, consulte [¿Qué es el agente de administración de Azure AD Connect?](whatis-aadc-admin-agent.md). 
+- Se ha actualizado el contrato de licencia para el usuario final (CLUF) 
+- Se ha agregado compatibilidad con la actualización automática para las implementaciones que usan AD FS como tipo de inicio de sesión.  Esto también quita el requisito de actualizar la confianza del usuario de confianza de Azure AD de AD FS como parte del proceso de actualización. 
+- Se ha agregado una tarea de administración de confianza de Azure AD que proporciona dos opciones: analizar o actualizar la confianza y restablecerla. 
+- Se ha cambiado el comportamiento de confianza del usuario de confianza de Azure AD de AD FS para que siempre use el modificador SupportMultipleDomain (incluye actualizaciones de dominio de Azure AD y de confianza). 
+- Se cambió el comportamiento de la instalación de nueva granja de AD FS para que requiera un certificado .pfx mediante la eliminación de la opción para usar un certificado instalado previamente.
+- Se actualizó el flujo de trabajo de instalación de nueva granja de AD FS para que solo permita implementar un servidor de AD FS y un servidor WAP.  Todos los servidores adicionales se completarán después de la instalación inicial. 
 
 ### <a name="fixed-issues"></a>Problemas corregidos 
 
 
-- Corrección de SQL lógica para el servicio ADSync de reconexión 
-- Corrección para permitir el uso de una base de datos de AOA de SQL vacía una instalación limpia 
-- Corrija los permisos de PS script para restringir permisos GWB 
-- Corregir errores VSS con LocalDB  
-- Corregir el mensaje de error engañoso cuando el tipo de objeto no está en ámbito 
-- Se ha corregido un problema donde la instalación de PowerShell de Azure AD en un servidor podría ocasionar un conflicto de ensamblado con Azure AD Connect. 
-- Se corrigió el error PHS en el servidor de ensayo cuando se actualizan las credenciales del conector en la interfaz de usuario anterior. 
-- Se ha corregido algunas pérdidas de memoria 
-- Varias correcciones de Autoupgrade 
-- Varias correcciones de exportación e importación sin confirmar de procesamiento 
-- Se ha corregido un error con el control de una barra diagonal inversa en dominios y unidades Organizativas filtrado 
-- Se ha corregido un problema cuando el servicio ADSync tarda más de 2 minutos para detener y provoca un problema durante la actualización. 
+- Se corrigió la lógica de reconexión SQL para el servicio ADSync 
+- Se corrigió para permitir una instalación limpia con una base de datos AOA de SQL 
+- Se corrigió el script de permisos para refinar los permisos GWB 
+- Se corrigieron los errores de VSS con LocalDB  
+- Se corrigió un mensaje de error confuso que aparecía cuando el tipo de objeto no estaba en el ámbito 
+- Se corrigió un problema que provocaba que la instalación de Azure AD PowerShell en un servidor pudiera ocasionar un conflicto de ensamblado con Azure AD Connect. 
+- Se corrigió un error de PHS del servidor de almacenamiento provisional al actualizar las credenciales del conector en la UI anterior. 
+- Se corrigieron algunas fugas de memoria 
+- Se aplicaron varias correcciones de actualización automática 
+- Se aplicaron varias correcciones para el procesamiento de exportaciones e importaciones sin confirmar 
+- Se corrigió un error con el control de una barra diagonal inversa en el filtrado de unidades organizativas y dominios 
+- Se corrigió un problema que provocaba que el servicio ADSync tardara más de 2 minutos en detenerse y provocara un problema durante la actualización. 
 
 
 
@@ -206,7 +206,7 @@ La actualización de Azure AD Connect genera un error si la disponibilidad Alway
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 
 - La integración de PingFederate en Azure AD Connect ya tiene disponibilidad general. [Más información sobre cómo realizar la federación de Azure AD con PingFederate](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
-- Ahora, Azure AD Connect crea la copia de seguridad de confianza de Azure AD en AD FS cada vez que se realiza una actualización, y la almacena en un archivo independiente para una sencilla restauración, si esta fuese necesaria. [Obtener más información acerca de la nueva funcionalidad y Azure AD confía en la administración en Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
+- Ahora, Azure AD Connect crea la copia de seguridad de confianza de Azure AD en AD FS cada vez que se realiza una actualización, y la almacena en un archivo independiente para una sencilla restauración, si esta fuese necesaria. [Más información sobre la nueva funcionalidad y la administración de confianza de Azure AD en Azure AD Connect ](https://aka.ms/fedtrustinaadconnect).
 - Las nuevas herramientas de solución de problemas le ayudan a resolver los problemas relacionados con el cambio de dirección de correo electrónico principal y la ocultación de la cuenta de la lista global de direcciones
 - Azure AD Connect se ha actualizado para incluir al cliente nativo más reciente de SQL Server 2012
 - Al cambiar del inicio de sesión de usuario a la sincronización de hash de contraseña o la autenticación de paso a través, en la tarea "Cambio de inicio de sesión de usuario", la casilla de verificación Inicio de sesión único de conexión directa está habilitada de forma predeterminada.
@@ -220,12 +220,12 @@ La actualización de Azure AD Connect genera un error si la disponibilidad Alway
 
 ### <a name="fixed-issues"></a>Problemas corregidos 
 
-- Se ha corregido un error en el servidor de AAD Connect mostraría uso elevado de CPU después de actualizar a .NET 4.7.2
+- Se ha corregido un error en el servidor de AAD Connect que mostraba un uso elevado de CPU después de actualizar a .NET 4.7.2
 - Se ha corregido un error que de forma intermitente producía un mensaje de error para un problema de interbloqueo de SQL de resolución automática
 - Se han corregido varios problemas de accesibilidad del editor de reglas de sincronización y el servicio de administrador de sincronización  
 - Se ha corregido un error en Azure AD Connect por el que no se podía obtener información de configuración del registro
 - Se ha corregido un error que creaba problemas cuando el usuario va hacia delante y hacia atrás en el asistente
-- Se ha corregido un error para evitar un error que se produce debido a incorrecto multiproceso detenida en el Asistente
+- Se ha realizado una corrección para evitar un error que se produce debido a un control incorrecto de varios subprocesos en el asistente
 - Cuando la página Group Sync Filtering (filtros de sincronización de grupos) encuentra un error LDAP al resolver los grupos de seguridad, Azure AD Connect devuelve ahora la excepción con fidelidad total.  La causa raíz de la excepción de referencia aún no se conoce y se tratará en un error diferente.
 -  Se ha corregido un error en el que los permisos para las claves STK y NGC (atributo ms-DS-KeyCredentialLink en objetos de usuario o dispositivo para WHfB) no se establecían correctamente.     
 - Se ha corregido un error en el que no se llamaba correctamente a "Set-ADSyncRestrictedPermissions"
@@ -904,7 +904,7 @@ Fecha de publicación: Marzo de 2017
 Sincronización de Azure AD Connect
 * Se ha corregido un problema que hace el Asistente para Azure AD Connect deje de funcionar si el nombre para mostrar del conector de Azure AD no contiene el dominio inicial onmicrosoft.com que se asignan al inquilino de Azure AD.
 * Se ha corregido un problema que hace que el Asistente para Azure AD Connect genere un error al realizar la conexión a la base de datos SQL cuando la contraseña de la cuenta de servicio de sincronización tenga caracteres especiales, como un apóstrofo, una coma y un espacio.
-* Se corrigió un problema que genera el error "la imagen tiene un delimitador que es diferente de la imagen" que se produzca en un servidor de Azure AD Connect en modo de ensayo después de que ha excluido temporalmente un uso local de la sincronización de objetos de AD y, a continuación, lo incluye de nuevo para la sincronización.
+* Se corrigió un problema que hace que el error que indica que dimage tiene un delimitador que es diferente de la imagen se produzca en un servidor de Azure AD Connect en modo de almacenamiento provisional, una vez que ha excluido temporalmente un objeto AD de sincronización local de la sincronización y, luego, lo incluye de nuevo para realizar la sincronización.
 * Se corrigió un problema que hace que el error que indica que el objeto que ha localizado DN es un fantasma se produzca en un servidor de Azure AD Connect en modo de almacenamiento provisional, una vez que ha excluido temporalmente un objeto AD de sincronización local de la sincronización y, luego, lo incluye de nuevo para realizar la sincronización.
 
 Administración de AD FS

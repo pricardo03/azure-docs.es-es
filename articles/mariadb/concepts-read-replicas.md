@@ -1,0 +1,135 @@
+---
+title: Réplicas de lectura en Azure Database for MariaDB
+description: En este artículo se describen las réplicas de lectura para Azure Database for MariaDB.
+author: ajlam
+ms.author: andrela
+ms.service: mariadb
+ms.topic: conceptual
+ms.date: 06/10/2019
+ms.openlocfilehash: 8abe257090b5159053a37350c9e24cc27073679b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67081749"
+---
+# <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de lectura en Azure Database for MariaDB
+
+La característica de réplica de lectura permite replicar datos de un servidor Azure Database for MariaDB en un servidor de solo lectura. Puede crear réplicas desde el servidor maestro hasta cinco réplicas dentro de la misma región que el maestro. Las réplicas se actualizan asincrónicamente mediante la tecnología de replicación basada en la posición de los archivos del registro binario (binlog) del motor de MariaDB. Para obtener más información sobre la replicación de binlog, consulte la [introducción a la replicación de binlog](https://mariadb.com/kb/en/library/replication-overview/).
+
+> [!IMPORTANT]
+> Las réplicas de lectura de la misma región se encuentran actualmente en versión preliminar pública.
+
+Las réplicas son nuevos servidores que se administran de forma similar a los servidores de Azure Database for MariaDB normales. En cada réplica de lectura, se le cobra por el proceso aprovisionado en núcleos virtuales y el almacenamiento aprovisionado en GB/mes.
+
+Para obtener más información acerca de la replicación de GTID, consulte la [documentación de replicación de MariaDB](https://mariadb.com/kb/en/library/gtid/).
+
+## <a name="when-to-use-a-read-replica"></a>Casos en los que utilizar las réplicas de lectura
+
+La finalidad de la característica de réplica de lectura es ayudar a mejorar el rendimiento y la escala de las cargas de trabajo que conllevan un gran número de operaciones de lectura. Las cargas de trabajo de lectura se pueden aislar en las réplicas, mientras que las cargas de trabajo de escritura se pueden dirigir al servidor maestro.
+
+Un caso habitual es que las cargas de trabajo de análisis e inteligencia empresarial utilicen la réplica de lectura como origen de datos para los informes.
+
+Dado que las réplicas son de solo lectura, no reducen directamente las cargas de capacidad de escritura en el servidor maestro. Esta característica no está destinada a cargas de trabajo intensivas de escritura.
+
+Esta característica de réplica de lectura utiliza la replicación asincrónica nativa. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el servidor maestro y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor maestro. Use esta característica con cargas de trabajo que puedan admitir este retraso.
+
+Las réplicas de lectura pueden mejorar el plan de recuperación ante desastres. Si hay un desastre regional y el servidor maestro no está disponible, puede dirigir la carga de trabajo a una réplica de otra región. Para ello, primero permita a la réplica aceptar operaciones de escritura mediante la función de replicación de detención. A continuación, puede redirigir la aplicación mediante la actualización de la cadena de conexión. Obtenga más información en la sección sobre cómo [detener la replicación](#stop-replication).
+
+## <a name="create-a-replica"></a>Creación de una réplica
+
+Si un servidor maestro no tiene ningún servidor de réplica existente, el maestro se reiniciará en primer lugar para prepararse para la replicación.
+
+Cuando se inicia el flujo de trabajo de creación de la réplica, se crea un servidor de Azure Database for MariaDB en blanco. El nuevo servidor se rellena con los datos que estaban en el servidor maestro. El tiempo que se tarda en crear la réplica depende de la cantidad de datos en el servidor maestro y del tiempo desde la última copia de seguridad completa semanal. Puede oscilar desde unos minutos hasta varias horas.
+
+> [!NOTE]
+> Si no tiene alertas de almacenamiento en sus servidores, se recomienda que lo haga. La alerta le informa cuando un servidor está alcanzando el límite de almacenamiento, lo que afectará a la replicación.
+
+Aprenda a [crear una réplica de lectura en Azure Portal](howto-read-replicas-portal.md).
+
+## <a name="connect-to-a-replica"></a>Conexión a una réplica
+
+Al crear una réplica, no se heredan las reglas de firewall o el punto de conexión de servicio de red virtual del servidor maestro. Estas reglas se deben configurar de forma independiente para la réplica.
+
+La réplica hereda su cuenta de administrador del servidor maestro. Todas las cuentas de usuario existentes en el servidor se replican en las réplicas de lectura. Solo se puede conectar a una réplica de lectura utilizando las cuentas de usuario disponibles en el servidor maestro.
+
+Puede conectarse a la réplica mediante su nombre de host y una cuenta de usuario válida, igual que haría en un servidor Azure Database for MariaDB normal. En un servidor denominado **myreplica** con el nombre de usuario administrador **myadmin**, puede conectarse a la réplica mediante la CLI de mysql:
+
+```bash
+mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
+```
+
+Cuando se le solicite, escriba la contraseña de la cuenta de usuario.
+
+## <a name="monitor-replication"></a>Supervisión de la replicación
+
+Azure Database for MariaDB proporciona la métrica de **retraso de replicación en segundos** en Azure Monitor. Esta métrica está disponible únicamente para las réplicas.
+
+Esta métrica se calcula utilizando la métrica `seconds_behind_master` disponible en el comando `SHOW SLAVE STATUS` de MariaDB.
+
+Establezca una alerta que le informe cuando el retraso de replicación alcance un valor que no sea aceptable para la carga de trabajo.
+
+## <a name="stop-replication"></a>Detención replicación
+
+Puede decidir detener la replicación entre un servidor maestro y una réplica. Una vez que se ha detenido la replicación entre un servidor maestro y una réplica de lectura, la réplica se convierte en un servidor independiente. Los datos del servidor independiente son los datos que estaban disponibles en la réplica en el momento en que se inició el comando para detener la replicación. El servidor independiente no alcanza al servidor maestro.
+
+Si decide detener la replicación en una réplica, perderá todos los vínculos con su servidor maestro anterior y otras réplicas. No se produce ninguna conmutación por error automatizada entre un servidor maestro y su réplica.
+
+> [!IMPORTANT]
+> Este servidor independiente no puede volver a convertirse en una réplica.
+> Asegúrese de que la réplica tenga todos los datos que necesita antes de detener la replicación en una réplica de lectura.
+
+Aprenda a [detener la replicación en una réplica](howto-read-replicas-portal.md).
+
+## <a name="considerations-and-limitations"></a>Consideraciones y limitaciones
+
+### <a name="pricing-tiers"></a>Planes de tarifa
+
+Actualmente, las réplicas de lectura solo están disponibles en los planes de tarifa de uso general y optimizados para memoria.
+
+### <a name="master-server-restart"></a>Reinicio del servidor maestro
+
+Cuando se crea una réplica para un servidor maestro que no tiene réplicas existentes, el maestro se reiniciará en primer lugar para prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
+
+### <a name="new-replicas"></a>Nuevas réplicas
+
+Las réplicas de lectura se crean como nuevos servidores Azure Database for MariaDB. Un servidor no puede volver a convertirse en una réplica. No se puede crear una réplica de otra réplica de lectura.
+
+### <a name="replica-configuration"></a>Configuración de réplicas
+
+Las réplicas se crean con la misma configuración de servidor que el servidor maestro. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento, período de retención de copia de seguridad y versión del motor de MariaDB. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
+
+> [!IMPORTANT]
+> Antes de actualizar la configuración de un servidor maestro con nuevos valores, actualice la configuración de las réplicas a valores iguales o mayores. Esta acción garantiza que la réplica puede hacer frente a los cambios realizados en el servidor maestro.
+
+### <a name="stopped-replicas"></a>Réplicas detenidas
+
+Si detiene la replicación entre un servidor maestro y una réplica de lectura, la réplica detenida se convierte en un servidor independiente que acepta operaciones de lectura y escritura. Este servidor independiente no puede volver a convertirse en una réplica.
+
+### <a name="deleted-master-and-standalone-servers"></a>Servidores maestro e independiente eliminados
+
+Al eliminar el servidor maestro, la replicación se detiene en todas las réplicas de lectura. Estas réplicas se convierten en servidores independientes. El propio servidor maestro se elimina.
+
+### <a name="user-accounts"></a>Cuentas de usuario
+
+Los usuarios del servidor principal se replican en las réplicas de lectura. Solo se puede conectar a una réplica de lectura utilizando las cuentas de usuario disponibles en el servidor maestro.
+
+### <a name="server-parameters"></a>Parámetros del servidor
+
+Para evitar que los datos dejen de estar sincronizados y evitar posibles pérdidas o daños en los datos, se bloquean algunos parámetros del servidor para que no se actualicen mientras se usan réplicas de lectura.
+
+Los siguientes parámetros de servidor están bloqueados tanto en el servidor maestro como en los de réplica:
+- [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
+- [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
+
+El parámetro [`event_scheduler` ](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) está bloqueado en los servidores de réplica.
+
+### <a name="other"></a>Otros
+
+- No permite crear réplicas de réplicas.
+- Las tablas en memoria pueden provocar que las réplicas dejen de sincronizarse. Esto es una limitación de la tecnología de replicación de MariaDB.
+- Asegúrese de que las tablas del servidor maestro tienen claves principales. La falta de claves principales puede generar una latencia de replicación entre la tabla principal y la réplica.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Obtenga información sobre cómo [crear y administrar réplicas de lectura mediante Azure Portal](howto-read-replicas-portal.md).

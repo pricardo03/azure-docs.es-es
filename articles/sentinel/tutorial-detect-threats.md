@@ -1,5 +1,5 @@
 ---
-title: Investigar alertas con la versión preliminar de Azure Sentinel | Microsoft Docs
+title: Investigar alertas con Azure Sentinel, versión preliminar | Microsoft Docs
 description: Use este tutorial para aprender a investigar alertas con Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -7,53 +7,54 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: b5fbc5ac-68b2-4024-9c1b-bd3cc41a66d0
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
-ms.translationtype: MT
+ms.openlocfilehash: e20f6fc0dc8dbe02b09490f62ce84af12aa31b87
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921815"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621232"
 ---
-# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Tutorial: Detecte amenazas con vista previa de Centinela de Azure
+# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Tutorial: Detección de amenazas con la versión preliminar de Azure Sentinel
 
 > [!IMPORTANT]
 > Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Después de [los orígenes de datos conectados](quickstart-onboard.md) a Sentinel, Azure, que desea recibir una notificación cuando ocurre algo sospechoso. Para poder hacer esto, Sentinel Azure permite que crear reglas de alerta, que generan los casos que se pueden asignar y avanzadas uso profundamente investigar las anomalías y las amenazas en su entorno. 
+Después de [conectar los orígenes de datos](quickstart-onboard.md) a Azure Sentinel, querrá recibir una notificación cuando suceda algo sospechoso. Para ello, Azure Sentinel le permite crear reglas de alerta avanzadas, que generan casos que se pueden asignar y usar para investigar las anomalías y las amenazas del entorno de manera exhaustiva. 
 
-Este tutorial le ayudará a detectar amenazas con Azure Sentinel.
+Este tutorial ayuda a detectar amenazas con Azure Sentinel.
 > [!div class="checklist"]
 > * Crear reglas de detección
 > * Respuesta a amenazas
 
 ## <a name="create-detection-rules"></a>Crear reglas de detección
 
-Para investigar los casos, primero debe crear reglas de detección. 
+Para investigar los casos, primero debe crear las reglas de detección. 
 
 > [!NOTE]
-> Están disponibles a través de las alertas generadas en Azure Sentinel [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Hacer referencia a la [documentación de alertas de seguridad de Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs) para obtener más detalles y asociados de integración.
+> Las alertas generadas en Azure Sentinel están disponibles a través de [Seguridad de Microsoft Graph](https://aka.ms/securitygraphdocs). Consulte la [documentación de alertas de seguridad de Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs) para obtener más detalles y asociados de integración.
 
-Reglas de detección se basan en los tipos de amenazas y anomalías que podrían ser sospechosas en su entorno que desea saber acerca de inmediato, asegurarse de aparece, investigar y corregir. 
+Las reglas de detección se basan en los tipos de amenazas y anomalías que quiere detectar de inmediato y que pueden resultar sospechosas en su entorno; gracias a ello, puede asegurarse de detectarlas, investigarlas y corregirlas. 
 
-1. En el portal de Azure en Azure Sentinel, seleccione **Analytics**.
+1. En Azure Portal en Azure Sentinel, seleccione **Analytics**.
 
    ![Análisis](./media/tutorial-detect-threats/alert-rules.png)
 
-2. En la barra de menús superior, haga clic en **+ agregar**.  
+2. En la barra de menú de la parte superior, haga clic en **+ Agregar**.  
 
    ![Crear regla de alertas](./media/tutorial-detect-threats/create-alert-rule.png)
 
-3. En **crear regla de alertas**, proporcione un nombre descriptivo y establecer el **gravedad** según sea necesario. 
+3. En **Crear regla de alerta**, proporcione un nombre descriptivo y establezca la **Gravedad** según sea necesario. 
 
-4. Crear la consulta de Log Analytics y, a continuación, péguelo en el **regla de alerta conjunto** campo. Esta es una consulta de ejemplo que podría generar alertas cuando se crea un número anómalo de recursos en la actividad de Azure.
+4. Cree la consulta en Log Analytics y péguela en el campo **Establecer regla de alerta**. Aquí tiene una consulta de ejemplo que le alertará cuando se cree una cantidad anómala de recursos en Azure Activity.
 
         AzureActivity
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
@@ -61,42 +62,42 @@ Reglas de detección se basan en los tipos de amenazas y anomalías que podrían
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
 
    > [!NOTE]
-   > La longitud de la consulta debe tener entre 1 a 10000 caracteres y no puede contener "search *" y "union *".
+   > La longitud de la consulta debe estar entre 1 y 10 000 caracteres y no puede contener las palabras "buscar *" y "unión *".
 
 
-5. En el **asignación de entidad** sección, utilice los campos de **tipo de entidad** para asignar las columnas de la consulta a los campos de entidad reconocidos por Azure Sentinel. Para cada campo, asigne la columna correspondiente en la consulta que creó en Log Analytics, en el campo de entidad correspondiente. Seleccione el nombre de columna correspondiente en el **propiedad**. Cada entidad incluye varios campos, por ejemplo, SID, GUID, etcetera. Puede asignar la entidad de acuerdo con los de los campos, no solo la entidad de nivel superior.
+5. En la sección **Asignación de entidades**, use los campos del **tipo de entidad** para asignar las columnas en su consulta a los campos de entidades que reconozca Azure Sentinel. Para cada campo, asigne la columna relevante en la consulta que creó en Log Analytics, al campo de entidad apropiado. Seleccione el nombre de la columna correspondiente en la **propiedad**. Cada entidad incluye varios campos, por ejemplo SID, GUID, etc. Puede asignar la entidad a cualquiera de los campos, y no solo a la entidad de nivel superior.
 
-6. Definir condiciones de desencadenador de la alerta en **desencadenador alerta**. Esto define las condiciones que desencadenan la alerta. 
+6. Defina las condiciones de activación de las alertas en **Activación de alertas**. Esta opción definirá las condiciones que activarán las alertas. 
 
-7. Establecer el **frecuencia** con qué frecuencia se ejecuta la consulta - como con frecuencia cada 5 minutos o tan pocas veces como una vez al día. 
+7. Establezca la **frecuencia** para ejecutar la consulta; puede establecer frecuencias de 5 minutos o una vez al día. 
 
-8. Establecer el **período** para controlar el período de tiempo para la cantidad de datos se ejecuta la consulta-por ejemplo, se puede ejecutar cada hora en 60 minutos de datos.
+8. Establezca el **período** para controlar la ventana de tiempo correspondiente a la cantidad de datos en los que se ejecuta la consulta; por ejemplo, puede ejecutarse cada hora en 60 minutos de datos.
 
-9. También puede establecer el **supresión**. Supresión es útil cuando desea detener las alertas duplicadas se desencadene para el mismo incidente. De esta manera, puede detener las alertas se desencadene durante un período específico. Esto puede ayudar a evitar alertas duplicadas para el mismo incidente y permiten Suprimir alertas consecutivas durante un período de tiempo. Por ejemplo, si la **la programación de alerta** **frecuencia** se establece en 60 minutos y el **período de programación de alerta** se establece en dos horas, y los resultados de consulta supera el definido umbral, desencadenará una alerta dos veces, una vez cuando se detecta en primer lugar en los últimos 60 minutos, y otra vez cuando se encuentra en los primeros 60 minutos de 2 horas de datos que se va a muestrear. Se recomienda que, si se desencadena una alerta, la supresión debe ser para la cantidad de tiempo establecido en el periodo de alerta. En nuestro ejemplo, es posible que desea establecer supresión durante 60 minutos, por lo que solo se desencadenan alertas para eventos que se produjeron durante la hora más reciente.
+9. También puede configurar la **supresión**. La supresión es útil cuando quiere evitar que se activen alertas duplicadas del mismo incidente. De esta manera, puede evitar que las alertas se activen durante un período específico. Esto puede ayudarle a evitar alertas duplicadas del mismo incidente y permitirle suprimir alertas consecutivas durante un período de tiempo. Por ejemplo, si la opción **Programación de alertas**  **Frecuencia** se establece en 60 minutos, el **período de programación de alertas** se establece en dos horas y los resultados de la consulta superan el umbral definido, se activará una alerta dos veces: una vez que se detecte por primera vez en los últimos 60 minutos y nuevamente cuando se encuentre en los primeros 60 minutos de las 2 horas de los datos que se van a muestrear. Le recomendamos que, si se activa una alerta, la supresión debe ser en función de la cantidad de tiempo establecida en el período de alerta. En nuestro ejemplo, es posible que quiera establecer la supresión durante 60 minutos, de modo que las alertas solo se activarán para los eventos que ocurrieron durante la hora más reciente.
 
-8. Después de pegar la consulta en el **regla de alerta conjunto** campo, puede ver inmediatamente una simulación de la alerta en **simulación alert Logic** para que pueda obtener la descripción de la cantidad de datos será se genera en un intervalo de tiempo específico para la alerta que creó. Esto dependerá de lo que ha establecido para **frecuencia** y **umbral**. Si ve que en promedio, la alerta se desencadena con demasiada frecuencia, desea establecer el número de resultados mayor para que esté por encima de la línea de base promedio.
+8. Después de pegar su consulta en el campo para **establecer la regla de alerta**, puede ver inmediatamente una simulación de la alerta en **Simulación de alerta lógica** y que así pueda comprobar la cantidad de datos que se generarán durante un intervalo de tiempo específico para la alerta que creó. Esto dependerá de lo que establezca en **Frecuencia** y en **Umbral**. Si ve que su alerta se activa con demasiada frecuencia, le recomendamos que establezca un número mayor de resultados para que esté por encima de la línea de base promedio.
 
-9. Haga clic en **crear** para inicializar la regla de alerta. Una vez creada la alerta, se crea un caso de que contiene la alerta. Puede ver las reglas de detección definidos como filas en el **análisis de seguridad** ficha. También puede ver el número de coincidencias para cada regla: las alertas activadas. En esta lista que puede habilitar, deshabilitar o eliminar cada regla. Puede también derecho de seleccionar el botón de puntos suspensivos (...) al final de la fila para cada alerta editar, deshabilitar, clonar, mostrar a coincidencias o eliminar una regla. El **Analytics** página es una galería de todas las reglas de alertas activas, incluidas plantillas habilita y se crea en función de las plantillas de reglas de alerta.
+9. Haga clic en **Crear** para inicializar la regla de alerta. Después de crearla, se crea un caso que contiene la alerta. Puede ver las reglas de detección definidas como filas en la pestaña de **Security Analytics**. También puede ver el número de coincidencias de cada regla: las alertas activadas. Desde esta lista puede habilitar, deshabilitar o eliminar cada regla. También puede seleccionar los puntos suspensivos (...) que están a la derecha y al final de la fila para que cada alerta edite, deshabilite, clone, muestre coincidencias o elimine una regla. La página **Analytics** es una galería de todas sus reglas de alerta activas, incluidas las plantillas que habilite y las reglas de alerta que cree basándose en ellas.
 
-1. Se pueden ver los resultados de las reglas de alerta en el **casos** página, donde puede clasificarlo, [investigar casos](tutorial-investigate-cases.md), y solucionar tales amenazas.
+1. Los resultados de las reglas de alerta se pueden ver en la página **Casos**, donde puede clasificar, [investigar casos](tutorial-investigate-cases.md) y solucionar las amenazas.
 
 
 
 ## <a name="respond-to-threats"></a>Respuesta a amenazas
 
-Sentinel Azure ofrece dos opciones principales para responder a amenazas con cuadernos de estrategias. Puede establecer un cuaderno de estrategias para ejecutar automáticamente cuando se desencadena una alerta, o puede ejecutar manualmente un guión de procedimientos como respuesta a una alerta.
+Azure Sentinel ofrece dos opciones principales para responder a amenazas con cuadernos de estrategias. Puede establecer un cuaderno de estrategias para que se ejecute automáticamente cuando se desencadene una alerta, o bien ejecutar un cuaderno de estrategias manualmente como respuesta a una alerta.
 
-- Establezca un cuaderno de estrategias para ejecutar automáticamente cuando se desencadena una alerta cuando se configura el cuaderno de estrategias. 
+- Establezca un cuaderno de estrategias para que se ejecute automáticamente cuando se desencadene una alerta al configurar ese cuaderno de estrategias. 
 
-- Ejecutar manualmente un cuaderno de estrategias desde dentro de la alerta, haciendo clic en **ver playbooks** y, a continuación, seleccionando un cuaderno de estrategias de ejecución.
+- Ejecute un cuaderno de estrategias manualmente desde la propia alerta; para ello, haga clic en **View playbooks** (Ver cuadernos de estrategias) y, después, seleccione un cuaderno de estrategias para ejecutarlo.
 
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido cómo comenzar a detectar amenazas mediante Azure Sentinel. 
+En este tutorial ha aprendido a detectar amenazas casos mediante Azure Sentinel. 
 
-Para obtener información sobre cómo automatizar sus respuestas a las amenazas, [cómo responder a amenazas mediante guiones de procedimientos automatizados](tutorial-respond-threats-playbook.md).
+Para aprender a automatizar sus respuestas a las amenazas, consulte [cómo responder a las amenazas mediante los cuadernos de estrategias automáticos](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
-> [Responder a amenazas](tutorial-respond-threats-playbook.md) para automatizar sus respuestas a las amenazas.
+> [Responda a amenazas](tutorial-respond-threats-playbook.md) para automatizar sus respuestas a estas.
 

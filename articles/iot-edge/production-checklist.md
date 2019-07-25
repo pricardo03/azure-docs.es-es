@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: cb72949c0bb543885498b1b997fa0b4a644c204a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956974"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
@@ -134,7 +134,7 @@ En los tutoriales y otra documentación, le indicamos que utilice las mismas cre
 
 ### <a name="use-tags-to-manage-versions"></a>Usar etiquetas para administrar versiones
 
-Una etiqueta es un concepto de docker que puede usar para distinguir entre las versiones de los contenedores de docker. Las etiquetas son sufijos como **1.0** que van al final de un repositorio de contenedores. Por ejemplo, **mcr.microsoft.com/azureiotedge-agent:1.0**. Las etiquetas son mutables y pueden cambiarse para que apunten a otro contenedor en cualquier momento, por lo que su equipo debe acordar una convención a seguir a medida que actualice las imágenes de sus módulos. 
+Una etiqueta es un concepto de Docker que puede utilizar para distinguir entre versiones de contenedores Docker. Las etiquetas son sufijos como **1.0** que van al final de un repositorio de contenedores. Por ejemplo, **mcr.microsoft.com/azureiotedge-agent:1.0**. Las etiquetas son mutables y pueden cambiarse para que apunten a otro contenedor en cualquier momento, por lo que su equipo debe acordar una convención a seguir a medida que actualice las imágenes de sus módulos. 
 
 Las etiquetas también le ayudan a aplicar las actualizaciones en sus dispositivos IoT Edge. Cuando inserte una versión actualizada de un módulo en el registro de contenedor, aumente la etiqueta. A continuación, inserte una nueva implementación a sus dispositivos con la etiqueta incrementada. El motor de contenedor reconocerá la etiqueta de incremento como una nueva versión y extraerá la versión más reciente del módulo en el dispositivo. 
 
@@ -172,7 +172,7 @@ Esta lista de comprobación es un punto de partida para las reglas de firewall:
    | \*.azurecr.io | 443 | Registros de contenedor personal y de terceros |
    | \*blob.core.windows.net | 443 | Descarga de deltas de imágenes | 
    | \*.azure-devices.net | 5671, 8883, 443 | Acceso de IoT Hub |
-   | \*.docker.io  | 443 | Acceso de docker Hub (opcional) |
+   | \*.docker.io  | 443 | Acceso a Docker Hub (opcional) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Configurar la comunicación a través un servidor proxy
 
@@ -186,7 +186,7 @@ Si sus dispositivos se van a implementar en una red que utiliza un servidor prox
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurar los registros y diagnósticos
 
-En Linux, el demonio de IoT Edge utiliza diarios como el controlador de registro predeterminado. Puede usar la herramienta de línea de comandos `journalctl` para consultar los registros del demonio. En Windows, el demonio de IoT Edge utiliza diagnósticos de PowerShell. Use `Get-IoTEdgeLog` para consultar los registros del demonio. Módulos de IoT Edge usan el controlador JSON para el registro, que es el valor predeterminado.  
+En Linux, el demonio de IoT Edge utiliza journals como controlador de registro predeterminado. Puede usar la herramienta de línea de comandos `journalctl` para consultar los registros del demonio. En Windows, el demonio de IoT Edge utiliza diagnósticos de PowerShell. Use `Get-IoTEdgeLog` para consultar los registros del demonio. Los módulos de IoT Edge utilizan el controlador JSON para el registro, que es el valor predeterminado.  
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
@@ -194,13 +194,13 @@ En Linux, el demonio de IoT Edge utiliza diarios como el controlador de registro
 
 Cuando está probando una implementación de IoT Edge, normalmente puede acceder a sus dispositivos para recuperar registros y solucionar problemas. En un escenario de implementación, es posible que no tenga esa opción. Considere cómo va a recopilar información sobre los dispositivos en producción. Una opción es usar un módulo de registro que recoge información de los otros módulos y la envía a la nube. Un ejemplo de un módulo de registro es [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics) o puede diseñar el suyo propio. 
 
-### <a name="place-limits-on-log-size"></a>Impone límites en el tamaño del registro
+### <a name="place-limits-on-log-size"></a>Colocar límites en el tamaño de registro
 
-De forma predeterminada el motor de contenedor Moby no establece los límites de tamaño de registro de contenedor. Con el tiempo, esto puede llevar al dispositivo llenando con registros y se está quedando sin espacio en disco. Tenga en cuenta las siguientes opciones para evitar que esto:
+De forma predeterminada el motor del contenedor Moby no establece límites de tamaño de registro de contenedor. Con el tiempo, puede que el dispositivo se llene con registros y se quede sin espacio en disco. Considere las opciones siguientes para evitarlo:
 
-**Opción: Establecer límites globales que se aplican a todos los módulos de contenedor**
+**Opción: establecer límites globales que se aplican a todos los módulos del contenedor**
 
-Puede limitar el tamaño de todos los archivos de registro de contenedor en las opciones de registro del motor de contenedor. En el ejemplo siguiente se establece el controlador de registro `json-file` (recomendado) con los límites de tamaño y número de archivos:
+Puede limitar el tamaño de todos los archivos de registro del contenedor en las opciones de registro del motor del contenedor. En el ejemplo siguiente se establece el controlador de registro en `json-file` (recomendado) con límites de tamaño y número de archivos:
 
     {
         "log-driver": "json-file",
@@ -210,18 +210,18 @@ Puede limitar el tamaño de todos los archivos de registro de contenedor en las 
         }
     }
 
-Agregar (o anexar) esta información en un archivo denominado `daemon.json` y colóquelo en la ubicación adecuada para su plataforma de dispositivo.
+Agregue (o anexe) esta información a un archivo denominado `daemon.json` y colóquelo en la ubicación adecuada para su plataforma del dispositivo.
 
 | Plataforma | Ubicación |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
-|  Windows | `C:\ProgramData\iotedge-moby\config\` |
+| Windows | `C:\ProgramData\iotedge-moby\config\` |
 
-El motor de contenedor debe reiniciarse para que los cambios surtan efecto.
+El motor del contenedor debe reiniciarse para que los cambios surtan efecto.
 
-**Opción: Ajustar la configuración de registro para cada módulo contenedor**
+**Opción: ajustar la configuración de registro para cada módulo del contenedor**
 
-Puede hacer en el **createOptions** de cada módulo. Por ejemplo:
+Puede hacerlo en el elemento **createOptions** de cada módulo. Por ejemplo:
 
     "createOptions": {
         "HostConfig": {
@@ -238,9 +238,9 @@ Puede hacer en el **createOptions** de cada módulo. Por ejemplo:
 
 **Opciones adicionales en los sistemas Linux**
 
-* Configurar el motor de contenedor para enviar registros a `systemd` [diario](https://docs.docker.com/config/containers/logging/journald/) estableciendo `journald` como el controlador de registro predeterminado. 
+* Configure el motor del contenedor para enviar registros al [diario](https://docs.docker.com/config/containers/logging/journald/) de `systemd` estableciendo `journald` como el controlador de registro predeterminado. 
 
-* Quitar periódicamente los registros antiguos del dispositivo mediante la instalación de una herramienta logrotate. Utilice la siguiente especificación de archivo: 
+* Quite periódicamente los registros antiguos del dispositivo mediante la instalación de una herramienta de logrotate. Utilice la siguiente especificación de archivo: 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

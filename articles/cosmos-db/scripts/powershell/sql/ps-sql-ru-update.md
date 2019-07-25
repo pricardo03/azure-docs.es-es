@@ -1,19 +1,19 @@
 ---
-title: Script de Azure PowerShell - RU/s de actualización de Azure Cosmos DB para SQL API (principal)
-description: Script de Azure PowerShell - RU/s de actualización de Azure Cosmos DB para SQL API (principal)
+title: 'Script de Azure PowerShell: Actualizar RU/s para SQL API (Core) en Azure Cosmos DB'
+description: 'Script de Azure PowerShell: Actualizar RU/s para SQL API (Core) en Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9558579fbdbd2185f6de650547863361ff2b80a4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: fae1e7946905a96fbbf00909c96dd3aa99d766d5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247340"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603831"
 ---
-# <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Actualizar RU/s para una base de datos o un contenedor para Azure Cosmos DB: SQL API (principal)
+# <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Actualización RU/s para una base de datos o un contenedor para SQL (Core) API en Azure Cosmos DB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

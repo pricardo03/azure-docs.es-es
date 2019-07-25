@@ -11,10 +11,10 @@ ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.openlocfilehash: f470670ae3d526f3b66badf219a01a471c24db0d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242233"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Análisis de la carga de trabajo en Azure SQL Data Warehouse
@@ -23,7 +23,7 @@ Técnicas para analizar la carga de trabajo en Azure SQL Data Warehouse.
 
 ## <a name="resource-classes"></a>Clases de recursos
 
-SQL Data Warehouse proporciona las clases de recursos para asignar los recursos del sistema a las consultas.  Para obtener más información sobre las clases de recursos, consulte [administración de recursos de las clases de & carga de trabajo](resource-classes-for-workload-management.md).  Las consultas esperará si la clase de recursos asignada a una consulta necesita más recursos que están disponibles actualmente.
+SQL Data Warehouse proporciona las clases de recursos para asignar los recursos del sistema a las consultas.  Para más información acerca de las clases de recursos, consulte [Clases de recursos y administración de cargas de trabajo](resource-classes-for-workload-management.md).  Las consultas esperarán si la clase de recursos asignada a una consulta necesita más recursos de los que están disponibles actualmente.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Detección de consulta en cola y otras DMV
 
@@ -67,7 +67,7 @@ SQL Data Warehouse tiene los siguientes tipos de espera:
 * **LocalQueriesConcurrencyResourceType**: se refiere a las consultas que residen fuera del marco del espacio de simultaneidad. Las funciones del sistema y las consultas DMV como `SELECT @@VERSION` son ejemplos de consultas locales.
 * **UserConcurrencyResourceType**: se refiere a las consultas que residen dentro del marco del espacio de simultaneidad. Las consultas en tablas de usuario final representan ejemplos que usarían este tipo de recurso.
 * **DmsConcurrencyResourceType**: se refiere a las esperas que son el resultado de operaciones de movimiento de datos.
-* **BackupConcurrencyResourceType**: se refiere a una espera que indica que se está creando la copia de seguridad de una base de datos. El valor máximo para este tipo de recurso es 1. Si varias copias de seguridad se solicitaron al mismo tiempo, las demás se pondrán en la cola. En general, se recomienda un tiempo mínimo entre instantáneas consecutivas de 10 minutos. 
+* **BackupConcurrencyResourceType**: se refiere a una espera que indica que se está creando la copia de seguridad de una base de datos. El valor máximo para este tipo de recurso es 1. Si varias copias de seguridad se solicitaron al mismo tiempo, las demás se pondrán en la cola. En general, se recomienda un tiempo mínimo de 10 minutos entre instantáneas consecutivas. 
 
 La DMV `sys.dm_pdw_waits` puede utilizarse para ver por qué recursos está esperando una solicitud.
 
@@ -106,7 +106,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-El `sys.dm_pdw_resource_waits` DMV muestra la información de espera para una consulta determinada. Recursos esperar el tiempo de espera para que los recursos que se proporcione de medidas de tiempo. Tiempo de espera de señal es el tiempo necesario para que los servidores SQL subyacentes programar la consulta en la CPU.
+La DMV `sys.dm_pdw_resource_waits` muestra la información de espera para una consulta determinada. El tiempo de espera del recurso mide el tiempo de espera para que se proporcionen recursos. El tiempo de espera de la señal es el tiempo que tardan los servidores SQL subyacentes en programar la consulta en la CPU.
 
 ```sql
 SELECT  [session_id]

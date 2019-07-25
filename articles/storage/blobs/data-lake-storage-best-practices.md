@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 8b39866b990812913924118c564a5e93f898b1cb
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: 7cfe19614b2107161dcce9c80690333212162045
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939465"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061316"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen2
 
@@ -32,15 +32,15 @@ Una vez que se asignan permisos a un grupo de seguridad, agregar o quitar usuari
 
 ### <a name="security-for-groups"></a>Seguridad de los grupos
 
-Cuando usted o sus usuarios necesitan tener acceso a los datos en una cuenta de almacenamiento con el espacio de nombres jerárquico habilitado, es mejor usar grupos de seguridad de Azure Active Directory. Algunos se recomienda comenzar con grupos pueden ser **ReadOnlyUsers**, **WriteAccessUsers**, y **FullAccessUsers** para la raíz del sistema de archivos e incluso otros aparte para subdirectorios de clave. Si prevé que habrá más grupos que se tendrán que agregar posteriormente, pero aún no se han identificado, puede considerar la opción de crear grupos de seguridad ficticios que tengan acceso a determinadas carpetas. El uso de grupos de seguridad garantiza que se pueda evitar un tiempo de procesamiento largo al asignar nuevos permisos a miles de archivos.
+Cuando usted o sus usuarios necesitan tener acceso a los datos en una cuenta de almacenamiento con el espacio de nombres jerárquico habilitado, es mejor usar grupos de seguridad de Azure Active Directory. Algunos grupos recomendados para empezar a trabajar pueden ser **ReadOnlyUsers**, **WriteAccessUsers** y **FullAccessUsers** para la raíz del sistema de archivos e incluso otros aparte para los subdirectorios principales. Si prevé que habrá más grupos que se tendrán que agregar posteriormente, pero aún no se han identificado, puede considerar la opción de crear grupos de seguridad ficticios que tengan acceso a determinadas carpetas. El uso de grupos de seguridad garantiza que se pueda evitar un tiempo de procesamiento largo al asignar nuevos permisos a miles de archivos.
 
 ### <a name="security-for-service-principals"></a>Seguridad de las entidades de servicio
 
-Servicios como Azure Databricks suelen usar entidades de servicio de Azure Active Directory para acceder a datos de Data Lake Storage Gen2. Para muchos clientes, una entidad de servicio de Azure Active Directory solo puede resultar adecuada, y puede tener permisos completos en la raíz del sistema de archivos de Data Lake Storage Gen2. Puede que otros clientes requieran varios clústeres con diferentes entidades de servicio donde uno de los clústeres tenga acceso total a los datos y otro tenga solo acceso de lectura. 
+Servicios como Azure Databricks suelen usar entidades de servicio de Azure Active Directory para acceder a datos de Data Lake Storage Gen2. Para muchos clientes, es posible que una única entidad de servicio de Azure Active Directory sea suficiente, y esta puede contener permisos completos en la raíz del sistema de archivos de Data Lake Storage Gen2. Puede que otros clientes requieran varios clústeres con diferentes entidades de servicio donde uno de los clústeres tenga acceso total a los datos y otro tenga solo acceso de lectura. 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Habilitación del firewall de Data Lake Storage Gen2 para el acceso de servicios de Azure
 
-Data Lake Storage Gen2 admite la opción de activar un firewall y limitar el acceso solo a los servicios de Azure, lo que se recomienda para reducir los vectores de ataques externos. El firewall se puede habilitar en la cuenta de almacenamiento en Azure Portal con las opciones **Firewall** > **Habilitar firewall (ON)** > **Allow access to Azure services** (Permitir acceso a servicios de Azure).
+Data Lake Storage Gen2 admite la opción de activar un firewall y limitar el acceso solo a los servicios de Azure, lo que se recomienda para reducir los vectores de ataques externos. El firewall se puede habilitar en la cuenta de almacenamiento en Azure Portal con las opciones **Firewall** > **Habilitar firewall (ON)**  > **Allow access to Azure services** (Permitir acceso a servicios de Azure).
 
 La adición de clústeres de Azure Databricks a una red virtual que puede tener acceso a través del firewall de almacenamiento requiere el uso de una característica en vista previa de Databricks. Para habilitar esta característica, realice una solicitud de soporte técnico.
 

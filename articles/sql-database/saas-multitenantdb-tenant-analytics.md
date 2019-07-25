@@ -13,10 +13,10 @@ ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
 ms.openlocfilehash: 4bf97c0c447bfabc1454959d457bbd50f3490299
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242795"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación multiinquilino
@@ -92,9 +92,9 @@ En los pasos siguientes, se implementa el almacén de análisis, que se denomina
 2. Establezca la variable $DemoScenario en el script para que coincida con el almacén de análisis elegido. Con fines de aprendizaje, se recomienda la base de datos SQL sin almacén de columnas.
     - Para usar la base de datos SQL sin almacén de columnas, establezca **$DemoScenario** = **2**.
     - Para usar la base de datos SQL con almacén de columnas, establezca **$DemoScenario** = **3**.  
-3. Presione **F5** para ejecutar el script de demostración (que llama el *Deploy-TenantAnalytics\<XX >. ps1* script) que crea el almacén de análisis de inquilino. 
+3. Presione **F5** para ejecutar el script de demostración (que llama al script *Deploy-TenantAnalytics\<XXX>.ps1*) que crea el almacén de análisis de inquilino. 
 
-Ahora que ha implementado la aplicación y se rellena con datos de inquilino interesantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) conectar **tenants1-mt -\<usuario\>**  y **catalog-mt -\<usuario\>**  servidores mediante inicio de sesión = *developer*, contraseña = *P\@ssword1*.
+Ahora que ya ha implementado la aplicación y la ha completado con datos de inquilino interesantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectar los servidores **tenants1-mt-\<Usuario\>** y **catalog-mt-\<Usuario\>** con las credenciales Login = *developer* y Password = *P\@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -170,13 +170,13 @@ Los datos de las tablas de un esquema de estrella proporcionan todos los datos d
 Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteriormente:
 
 1. Lance Power BI Desktop.
-2. En la cinta de opciones de Inicio, seleccione **Obtener datos** y, después, seleccione **Más…**  en el menú.
+2. En la cinta de opciones de Inicio, seleccione **Obtener datos** y, después, seleccione **Más…** en el menú.
 3. En la ventana **Obtener datos**, seleccione Azure SQL Database.
 4. En la ventana de inicio de sesión de la base de datos, escriba el nombre del servidor (catalog-mt-\<Usuario\>.database.windows.net). Seleccione **Importar** en **Modo Conectividad de datos** y después haga clic en Aceptar. 
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Seleccione **base de datos** en el panel izquierdo, a continuación, escriba el nombre de usuario = *developer*y escriba la contraseña = *P\@ssword1*. Haga clic en **Conectar**.  
+5. Seleccione **Base de datos** en el panel izquierdo y escriba los valores de user name = *developer* y password = *P\@ssword1*. Haga clic en **Conectar**.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 

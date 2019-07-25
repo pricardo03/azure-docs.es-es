@@ -11,32 +11,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/11/2019
 ms.author: juliako
-ms.openlocfilehash: 041a73cd2840e0b6a1840e15629d9c0e284e9890
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: ab07b87d724f2006b6b5c0e4f472140f92230dea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225520"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080393"
 ---
-# <a name="pre-filtering-manifests-with-dynamic-packager"></a>Manifiestos de un filtrado previo con el empaquetador dinámico
+# <a name="pre-filtering-manifests-with-dynamic-packager"></a>Manifiestos de filtrado previo con el empaquetador dinámico
 
-Cuando se entrega contenido a los dispositivos de streaming adaptable, a menudo necesitará publicar varias versiones de un manifiesto para funciones específicas del dispositivo de destino o el ancho de banda de red disponible. El [empaquetador dinámico](dynamic-packaging-overview.md) le permite especificar filtros que pueden filtrar los códecs específicos, audio, resoluciones y velocidades de bits realizar un seguimiento de las combinaciones en la marcha eliminando la necesidad de crear varias copias. Simplemente necesita publicar una nueva dirección URL con un conjunto específico de los filtros configurados para los dispositivos de destino (iOS, Android, SmartTV o exploradores) y las funcionalidades de red (escenarios de gran ancho de banda, móviles o ancho de banda bajo). En este caso, los clientes pueden manipular el streaming de contenido a través de la cadena de consulta (mediante la especificación disponible [filtros de recursos o filtros de cuenta](filters-concept.md)) y usar filtros para el streaming de secciones específicas de una secuencia.
+Cuando se entrega contenido de streaming con velocidad de bits adaptable, es necesario publicar varias versiones de un manifiesto para orientarse a funciones específicas del dispositivo o el ancho de banda de red disponible. El [empaquetador dinámico](dynamic-packaging-overview.md) le permite especificar filtros que pueden filtrar códecs, resoluciones y velocidades de bits y combinaciones de pistas de audio específicos sobre la marcha y, de este modo, eliminar la necesidad de crear varias copias. Solo necesita publicar una nueva dirección URL con un conjunto específico de filtros configurados para los dispositivos de destino (iOS, Android, SmartTV o exploradores) y las funcionalidades de red (escenarios de ancho de banda alto o bajo o móviles). En este caso, los clientes pueden manipular el streaming de contenido mediante la cadena de consulta (mediante la especificación de los [filtros de recursos o de cuenta](filters-concept.md) disponibles) y usar filtros para el streaming de secciones específicas de una secuencia.
 
-Algunos escenarios de entrega requieren que asegurarse de que un cliente no puede tener acceso a pistas específicas. Por ejemplo, es posible que no desea publicar un manifiesto que contiene las pistas de HD a un nivel de suscriptor específico. O bien, es posible que desea quitar pistas específico velocidad de bits adaptable (ABR) para reducir el costo de entrega a un dispositivo específico que no se benefician de las pistas adicionales. En este caso, puede asociar una lista de filtros creadas previamente con su [localizador de Streaming](streaming-locators-concept.md) durante la creación. En este caso, los clientes no pueden manipular cómo se transmite por secuencias el contenido, se define mediante el **localizador de Streaming**.
+Algunos escenarios de entrega requieren que se asegure de que un cliente no puede acceder a pistas específicas. Por ejemplo, es posible que no quiera publicar un manifiesto que contenga las pistas de HD en un nivel de suscriptor específico. O bien es posible que quiera quitar pistas con velocidad de bits adaptable (ABR) para reducir el costo de entrega a un dispositivo específico que no se beneficiaría de las pistas adicionales. En este caso, puede asociar una lista de filtros creados previamente con su [localizador de streaming](streaming-locators-concept.md) durante la creación. En este caso, los clientes no pueden manipular cómo se hace streaming del contenido, ya que lo define el **localizador de streaming**.
 
-Puede combinar el filtrado mediante la especificación de [filtros en el localizador de Streaming](filters-concept.md#associating-filters-with-streaming-locator) + filtros específicos de dispositivo adicionales que el cliente se especifica en la dirección URL. Esto puede ser útil para restringir las pistas adicionales como secuencias de metadatos o el evento, idiomas de audio o descriptivas pistas de audio. 
+Puede combinar el filtrado mediante la especificación de [filtros en el localizador de streaming](filters-concept.md#associating-filters-with-streaming-locator) y filtros específicos de dispositivo adicionales que el cliente especifique en la dirección URL. Esto puede ser útil para restringir las pistas adicionales, como secuencias de metadatos o eventos, idiomas de audio o pistas de audio descriptivas. 
 
-Esta capacidad para especificar filtros diferentes en la secuencia, proporciona una potente **manifiesto dinámico** solución de manipulación tenga como destino varios escenarios de casos de uso para los dispositivos de destino. En este tema se explican los conceptos relacionados con los **manifiestos dinámicos** y proporciona ejemplos de escenarios en los que podría desear utilizar esta característica.
+Esta capacidad para especificar filtros diferentes en la secuencia proporciona una eficaz solución de manipulación del **manifiesto dinámico** para orientarse a distintos escenarios de casos de uso para los dispositivos de destino. En este tema se explican los conceptos relacionados con los **manifiestos dinámicos** y proporciona ejemplos de escenarios en los que podría desear utilizar esta característica.
 
 > [!NOTE]
 > Los manifiestos dinámicos no cambian el recurso y el manifiesto predeterminado para ese recurso. 
 > 
 
-## <a name="manifests-overview"></a>Información general de manifiestos
+## <a name="manifests-overview"></a>Información general de los manifiestos
 
-Media Services admite HLS, MPEG DASH, protocolos de transmisión por secuencias suave. Como parte de [empaquetado dinámico](dynamic-packaging-overview.md), los manifiestos de cliente de streaming (HLS Master Playlist, descripción guión de presentación multimedia (MPD) y Smooth Streaming) se generarán dinámicamente basándose en el selector de formato en la dirección URL. Consulte los protocolos de entrega en [en esta sección](dynamic-packaging-overview.md#delivery-protocols). 
+Media Services admite los protocolos HLS, MPEG DASH y Smooth Streaming. Como parte del [empaquetado dinámico](dynamic-packaging-overview.md), los manifiestos de cliente de streaming (HLS Master Playlist, DASH Media Presentation Description [MPD] y Smooth Streaming), se generan dinámicamente a partir del selector de formato de la dirección URL. Consulte los protocolos de entrega en [esta sección](dynamic-packaging-overview.md#delivery-protocols). 
 
 ### <a name="get-and-examine-manifest-files"></a>Obtención y examen de archivos de manifiesto
 
@@ -52,11 +52,11 @@ Puede utilizar la [página de demostración de Azure Media Player](https://aka.m
 
 ![Diagnósticos de Azure Media Player][amp_diagnostics]
  
-### <a name="examples-urls-with-filters-in-query-string"></a>Ejemplos: Direcciones URL con los filtros en la cadena de consulta
+### <a name="examples-urls-with-filters-in-query-string"></a>Ejemplos: Direcciones URL con filtros en la cadena de consulta
 
 Se podrían aplicar filtros a protocolos de streaming con velocidad de bits adaptable: HLS, MPEG-DASH y Smooth Streaming. En la tabla siguiente se muestran algunos ejemplos de direcciones URL con filtros:
 
-|Protocol|Ejemplo|
+|Protocolo|Ejemplo|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
@@ -70,7 +70,7 @@ Con el manifiesto dinámico, puede crear perfiles de dispositivo como móvil, co
 
 ![Ejemplo de filtrado de representaciones][renditions2]
 
-En el ejemplo siguiente, se usó un codificador para codificar un recurso intermedio en siete representaciones de vídeo MP4 ISO (de 180p a 1080p). El recurso codificado puede ser [empaqueta dinámicamente](dynamic-packaging-overview.md) en cualquiera de los protocolos de streaming siguientes: HLS, MPEG DASH y Smooth.  En la parte superior del diagrama, se muestra el manifiesto HLS para el activo sin filtros (contiene las siete representaciones).  En la parte inferior izquierda, se muestra el manifiesto HLS al que se aplicó un filtro denominado "ott". El filtro de "ott" especifica la eliminación de todas las velocidades de bits por debajo de 1 Mbps, lo que dio lugar a que se quitaran los dos niveles de calidad inferiores en la respuesta. En la parte inferior derecha se muestra el manifiesto HLS al que se aplicó un filtro denominado "móvil". El filtro "móvil" especifica la eliminación de las representaciones donde la resolución es mayor que 720p, lo que hizo que se quitaran las dos representaciones de 1080p.
+En el ejemplo siguiente, se usó un codificador para codificar un recurso intermedio en siete representaciones de vídeo MP4 ISO (de 180p a 1080p). El recurso codificado puede [empaquetarse dinámicamente](dynamic-packaging-overview.md) en cualquiera de los siguientes protocolos de transmisión: HLS, MPEG DASH y Smooth.  En la parte superior del diagrama, se muestra el manifiesto HLS para el activo sin filtros (contiene las siete representaciones).  En la parte inferior izquierda, se muestra el manifiesto HLS al que se aplicó un filtro denominado "ott". El filtro de "ott" especifica la eliminación de todas las velocidades de bits por debajo de 1 Mbps, lo que dio lugar a que se quitaran los dos niveles de calidad inferiores en la respuesta. En la parte inferior derecha se muestra el manifiesto HLS al que se aplicó un filtro denominado "móvil". El filtro "móvil" especifica la eliminación de las representaciones donde la resolución es mayor que 720p, lo que hizo que se quitaran las dos representaciones de 1080p.
 
 ![Filtrado de representaciones][renditions1]
 
@@ -133,7 +133,7 @@ Para más información, consulte [este blog](https://azure.microsoft.com/blog/az
 - Los valores de **forceEndTimestamp**, **presentationWindowDuration** y **liveBackoffDuration** no deben establecerse para un filtro de vídeo bajo demanda. Sólo se utilizan para escenarios de filtro en vivo. 
 - El manifiesto dinámico funciona en los límites GOP (fotogramas clave), por lo que el recorte tiene precisión GOP. 
 - Puede usar el mismo nombre de filtro para los filtros de cuentas y recursos. Los filtros de recurso tienen una mayor prioridad e invalidarán los filtros de cuenta.
-- Si actualiza un filtro, se pueden tardar hasta 2 minutos para el extremo de Streaming actualice las reglas. Si el contenido se suministró con algunos filtros (y se almacenó en caché en servidores proxy y cachés CDN), la actualización de  estos filtros puede generar errores del reproductor. Se recomienda borrar la memoria caché después de actualizar el filtro. Si esta opción no es posible, piense en usar un filtro diferente.
+- Si actualiza un filtro, se pueden tardar hasta 2 minutos en que el extremo de streaming actualice las reglas. Si el contenido se suministró con algunos filtros (y se almacenó en caché en servidores proxy y cachés CDN), la actualización de  estos filtros puede generar errores del reproductor. Se recomienda borrar la memoria caché después de actualizar el filtro. Si esta opción no es posible, piense en usar un filtro diferente.
 - Los clientes necesitan descargar manualmente el manifiesto y analizar la marca de hora de inicio exacta y la escala temporal.
     
     - Para determinar las propiedades de las pistas de un recurso, [obtenga y examine el archivo de manifiesto](#get-and-examine-manifest-files).

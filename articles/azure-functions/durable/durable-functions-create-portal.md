@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.author: azfuncdf, glenga
-ms.openlocfilehash: 705a43f1ef35f953d1b87c7c44bbc45fcb4334be
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.author: glenga
+ms.reviewer: azfuncdf
+ms.openlocfilehash: 4670dd37facf341e355d736a72b4d71f27237fda
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872860"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612905"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creación de Durable Functions mediante Azure Portal
 
@@ -23,7 +24,7 @@ La extensión [Durable Functions](durable-functions-overview.md) para Azure Func
 
 > [!NOTE]
 > 
-> * Si está desarrollando durable functions en C#, debería considerar [desarrollo de Visual Studio de 2019](durable-functions-create-first-csharp.md).
+> * Si está desarrollando Durable Functions en C#, debería tener en cuenta el [desarrollo de Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Si está desarrollando Durable Functions en JavaScript, debería tener en cuenta el [desarrollo de Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
@@ -38,7 +39,7 @@ De forma predeterminada, la aplicación de función creada utiliza la versión 2
 
 Si va a crear Durable Functions de JavaScript, deberá instalar el [`durable-functions`paquete npm](https://www.npmjs.com/package/durable-functions).
 
-1. Seleccione el nombre de la aplicación de función, seguido de **Características de la plataforma** y después de **Herramientas avanzadas (Kudu)**.
+1. Seleccione el nombre de la aplicación de función, seguido de **Características de la plataforma** y después de **Herramientas avanzadas (Kudu)** .
 
    ![Selección de Kudu en las características de la plataforma de funciones](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
 
@@ -64,7 +65,7 @@ Si va a crear Durable Functions de JavaScript, deberá instalar el [`durable-fun
 
 ## <a name="create-an-orchestrator-function"></a>Creación de una función de orquestador
 
-1. Expanda su instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal** y, después, **Continuar**. En caso contrario, vaya al paso tres.
+1. Expanda su instancia de Function App y haga clic en el botón **+** , que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal** y, después, **Continuar**. En caso contrario, vaya al paso tres.
 
    ![Página de inicio rápido de Functions en Azure Portal](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 

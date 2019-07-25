@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956935"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108883"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>¿Qué es Azure Active Directory Identity Protection (actualizado)?
 
@@ -56,7 +56,7 @@ Para responder a estas amenazas, Azure AD Identity Protection le permite:
 
  
 
-Azure AD Identity Protection es una característica de Azure Active Directory Premium P2 que le permite configurar directivas para responder automáticamente cuando se pone en peligro la identidad de un usuario o cuando alguien que no sea el propietario de la cuenta intente iniciar sesión con su identidad. Estas directivas, además de otros controles de acceso condicional proporcionados por Azure AD, pueden bloquear el acceso automáticamente o iniciar acciones de mitigación, como el restablecimiento de contraseñas o el cumplimiento de la autenticación multifactor. Además, Identity Protection proporciona funcionalidades de supervisión e informes para obtener información más detallada sobre el riesgo y los posibles peligros de la organización. 
+Azure AD Identity Protection es una característica de Azure Active Directory Premium P2 que le permite configurar directivas para responder automáticamente cuando se pone en peligro la identidad de un usuario o cuando alguien que no sea el propietario de la cuenta intente iniciar sesión con su identidad. Estas directivas, además de otros controles de acceso condicional proporcionados por Azure AD, pueden bloquear el acceso automáticamente o iniciar acciones de mitigación, como el restablecimiento de contraseñas o el cumplimiento de la autenticación multifactor. Además, Identity Protection proporciona funcionalidades de supervisión e informes para obtener información más detallada sobre el riesgo y los posibles peligros de la organización. 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
@@ -93,9 +93,9 @@ Un inicio de sesión de riesgo representa la probabilidad de que el propietario 
 
 Hay dos evaluaciones de riesgo de inicio de sesión: 
 
-- **Riesgo de inicio de sesión (en tiempo real)**: el riesgo de inicio de sesión (en tiempo real) se basa en todas las detecciones en tiempo real que se desencadenan durante el procesamiento del inicio de sesión.  
+- **Riesgo de inicio de sesión (en tiempo real)** : el riesgo de inicio de sesión (en tiempo real) se basa en todas las detecciones en tiempo real que se desencadenan durante el procesamiento del inicio de sesión.  
 
-- **Riesgo de inicio de sesión (agregado)**: el riesgo de inicio de sesión (agregado) es el riesgo total de un inicio de sesión. Lo calcula un modelo de Machine Learning que tiene en cuenta los aspectos siguientes:
+- **Riesgo de inicio de sesión (agregado)** : el riesgo de inicio de sesión (agregado) es el riesgo total de un inicio de sesión. Lo calcula un modelo de Machine Learning que tiene en cuenta los aspectos siguientes:
 
     - Detecciones en tiempo real (descritas anteriormente)
     
@@ -147,44 +147,44 @@ En el gráfico anterior se resumen el flujo de línea de base para la detección
 
 ## <a name="common-scenarios"></a>Escenarios comunes 
 
-Veamos el ejemplo de un empleado de Contoso. 
+Echemos un vistazo al ejemplo de un empleado de Contoso. 
 
 1. Un empleado intenta iniciar sesión en Exchange Online desde el explorador Tor. En el momento de inicio de sesión, Azure AD detecta eventos de riesgo en tiempo real. 
 
-2. Azure AD detecta que el empleado inicia sesión desde una dirección IP anónima, desencadenar un nivel de riesgo de inicio de sesión medio. 
+2. Azure AD detecta que el empleado inicia sesión desde una dirección IP anónima, lo que desencadena un nivel de riesgo de inicio de sesión medio. 
 
-3. El empleado se enfrenta un símbolo del sistema MFA, porque el Administrador de TI de Contoso configura la directiva de acceso condicional de inicio de sesión de riesgo de Identity Protection. La directiva requiere MFA para un riesgo de inicio de sesión medio o superior. 
+3. El empleado encuentra un símbolo del sistema de MFA, ya que el administrador de TI de Contoso configuró la directiva de acceso condicional de riesgo de inicio de sesión de Identity Protection. La directiva requiere MFA para un riesgo de inicio de sesión medio o superior. 
 
-4. El empleado pasa el aviso de MFA y tiene acceso a Exchange Online, y no se puede cambiar su nivel de riesgo del usuario. 
+4. El empleado supera la autenticación multifactor del símbolo del sistema y obtiene acceso a Exchange Online, y no se cambia su nivel de riesgo de usuario. 
 
-¿Qué ha ocurrido en segundo plano? El intento de inicio de sesión desde el explorador Tor desencadena un riesgo de inicio de sesión en tiempo real en Azure AD para la dirección IP anónima. Cuando Azure AD procesa la solicitud, aplica la directiva de inicio de sesión de riesgo en Identity Protection puede configurada porque el nivel del empleado riesgo de inicio de sesión cumple el umbral (medio). Puesto que el empleado tenía registró anteriormente para MFA, fueron capaces de responder y pase el desafío de MFA. Su capacidad para pasar correctamente el desafío de MFA señala a Azure AD que se encontraban es probable que el propietario legítimo de identidad y no aumentar su nivel de riesgo del usuario. 
+¿Qué ha ocurrido en segundo plano? El intento de inicio de sesión desde el explorador Tor desencadena un riesgo de inicio de sesión en tiempo real en Azure AD para la dirección IP anónima. Cuando Azure AD procesa la solicitud, aplica la directiva de riesgo de inicio de sesión configurada en Identity Protection porque el nivel de riesgo de inicio de sesión del empleado cumple el umbral (medio). El empleado pudo responder al desafío de MFA y superarlo porque se había registrado anteriormente para MFA. Su capacidad de superar el desafío de MFA correctamente indicó a Azure AD que probablemente era el dueño legítimo de la identidad y su nivel de riesgo de usuario no aumentó. 
 
 
-Pero ¿qué ocurre si el empleado no era el uno intentando iniciar sesión? 
+Pero ¿y si no fuese el empleado quien intentase iniciar sesión? 
 
-1. Con las credenciales del empleado de un individuo malintencionado intenta iniciar sesión en su cuenta de Exchange Online desde el explorador Tor, puesto que intentan ocultar su dirección IP. 
+1. Un individuo malintencionado con las credenciales del empleado intenta iniciar sesión en la cuenta de Exchange Online del empleado desde el explorador Tor, puesto que intenta ocultar su dirección IP. 
 
 2. Azure AD detecta que el intento de inicio de sesión proviene de una dirección IP anónima, lo que desencadena un nivel de riesgo de inicio de sesión en tiempo real. 
 
 3. El individuo malintencionado encuentra un símbolo del sistema de MFA, ya que el administrador de TI de Contoso configuró la directiva de acceso condicional de riesgo de inicio de sesión de Identity Protection para que requiera MFA con riesgo de inicio de sesión medio o superior. 
 
-4. El actor malintencionado produce un error en el desafío de MFA y no puede obtener acceso a la cuenta de Exchange Online del empleado. 
+4. El individuo malintencionado no supera el desafío de MFA y no puede obtener acceso a la cuenta de Exchange Online del empleado. 
 
-5. El error MFA símbolo del sistema desencadena un evento de riesgo que se registren, elevar su riesgo de usuario para futuros inicios de sesión. 
+5. El símbolo del sistema desencadena un evento de riesgo que se va a registrar, lo que aumenta el riesgo de usuario del empleado para futuros inicios de sesión. 
 
-Ahora que un individuo malintencionado ha intentado obtener acceso a la cuenta de Sarah, veamos lo que sucede la próxima vez que el empleado intenta iniciar sesión. 
+Ahora que un individuo malintencionado ha intentado obtener acceso a la cuenta de Sara, veamos lo que sucede la próxima vez que el empleado intenta iniciar sesión. 
 
 1. El empleado intenta iniciar sesión en Exchange Online desde Outlook. En el momento de inicio de sesión, Azure AD detecta eventos de riesgo en tiempo real, así como los riesgos de usuario anteriores. 
 
 2. Azure AD no detecta ningún riesgo de inicio de sesión en tiempo real, pero detecta un riesgo de usuario alto debido a la actividad de riesgo precedente en los escenarios anteriores.  
 
-3. El empleado se somete a una solicitud de restablecimiento de contraseña, porque Contoso del Administrador de TI configura la directiva de riesgo del usuario de Identity Protection para requerir cambio de contraseña cuando un usuario con alto riesgo inicia sesión. 
+3. El empleado encuentra un símbolo de sistema de solicitud de restablecimiento de contraseña, ya que el administrador de TI de Contoso configuró la directiva de riesgo de usuario de Identity Protection para requerir un cambio de contraseña cuando un usuario con riesgo alto inicia sesión. 
 
-4. Puesto que el empleado se registra para SSPR y MFA, restablece correctamente su contraseña. 
+4. Puesto que el empleado está registrado para SSPR y MFA, restablece correctamente su contraseña. 
 
-5. Al restablecer su contraseña, ya no están en peligro las credenciales del empleado y devuelve su identidad a un estado seguro. 
+5. Al restablecer la contraseña, las credenciales del empleado ya no están en peligro y su identidad vuelve a un estado seguro. 
 
-6. Los eventos de riesgo anteriores del empleado se resuelven y se restablece automáticamente su nivel de riesgo de usuario como respuesta a mitigar el riesgo de credenciales. 
+6. Los eventos de riesgo anteriores del empleado están resueltos y su nivel de riesgo de usuario se restablece automáticamente como respuesta a la mitigación de riesgo de las credenciales. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Cómo configurar Identity Protection 
 
@@ -203,20 +203,20 @@ Identity Protection es compatible con 3 roles de Azure AD para equilibrar las ac
 Para obtener más detalles, consulte [Asignación de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
 
  
-## <a name="licensing"></a>Licencia
+## <a name="licensing"></a>Licencias
 
 >[!NOTE]
 > Durante la versión preliminar pública de Identity Protection (actualizado), solo los clientes de Azure AD Premium P2 tendrán acceso a los informes de usuarios de riesgo e inicios de sesión de riesgo.
 
 
 
-| Funcionalidad | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| Capacidad | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- |
-| Directiva de riesgo de usuario | Sí | No | No |
-| Directiva de riesgo de inicio de sesión | Sí | No | No |
+| Directiva de riesgo de usuario | Sí | No | Sin |
+| Directiva de riesgo de inicio de sesión | Sí | No | Sin |
 | Informe de usuarios de riesgo | Acceso total | Información limitada | Información limitada |
 | Informe de inicios de sesión peligrosos | Acceso total | Información limitada | Información limitada |
-| Directiva de registro de MFA | Sí | No | No |
+| Directiva de registro de MFA | Sí | No | Sin |
 
 
 

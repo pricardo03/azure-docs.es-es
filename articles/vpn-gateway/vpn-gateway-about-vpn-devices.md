@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: yushwang
 ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388849"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
@@ -68,7 +68,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 |  | [Guía de configuración](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [BGP a través de IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI a través de IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |Todo |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guía de configuración](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guía de configuración](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
-| Zyxel |Serie ZyWALL USG<br>Serie ZyWALL ATP<br>Serie ZyWALL VPN | ZLD v4.32 + | | [VTI a través de IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br>[BGP a través de IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
+| Zyxel |Serie ZyWALL USG<br>Serie ZyWALL ATP<br>Serie ZyWALL VPN | ZLD v4.32+ | | [VTI a través de IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br>[BGP a través de IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
 >
@@ -141,9 +141,9 @@ En las tablas siguientes:
 | ---                           | ---           | ---                                         |
 | Versión de IKE                   |IKEv1          |IKEv2                                        |
 | Algoritmos de cifrado y hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
-| Vigencia de SA (tiempo)            |3.600 segundos  |27 000 segundos                                |
+| Vigencia de SA (tiempo)            |3\.600 segundos  |27 000 segundos                                |
 | Vigencia de SA (bytes)           |102.400.000 KB | -                                           |
-| Confidencialidad directa perfecta (PFS) |No             |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
+| Confidencialidad directa perfecta (PFS) |Sin             |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |No compatible  |Compatible                                    |
 
 

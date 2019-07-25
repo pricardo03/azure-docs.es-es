@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35dad420aa004e27ec974c494dc66e9b8e13c733
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65811938"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configuración de aplicaciones de SaaS para la colaboración B2B
@@ -79,9 +79,9 @@ Puede permitir que los usuarios autentiquen usuarios invitados de Box con su cue
 
 2. Configure el inicio de sesión único en el orden siguiente:
 
-   ![Captura de pantalla muestra los valores de configuración de inicio de sesión único](media/configure-saas-apps/configure-box-sso.png)
+   ![Captura de pantalla que muestra los valores de configuración de inicio de sesión único](media/configure-saas-apps/configure-box-sso.png)
 
-    a. En el cuadro **URL de inicio de sesión**, asegúrese de que la dirección URL de inicio de sesión se ha establecido correctamente para Box en Azure Portal. Esta es la dirección URL de su inquilino de Box.com. Debe seguir la convención de nomenclatura *https://.box.com*.  
+   a. En el cuadro **URL de inicio de sesión**, asegúrese de que la dirección URL de inicio de sesión se ha establecido correctamente para Box en Azure Portal. Esta es la dirección URL de su inquilino de Box.com. Debe seguir la convención de nomenclatura *https://.box.com* .  
    **Identificador** no se aplica a esta aplicación, pero sigue apareciendo como campo obligatorio.
 
    b. En el cuadro **Identificador de usuario**, escriba **user.mail** (para el SSO de las cuentas de invitado).

@@ -1,19 +1,19 @@
 ---
-title: 'Script de PowerShell de Azure: Azure Cosmos DB enumerar y obtener las operaciones de Table API'
-description: 'Script de PowerShell de Azure: Azure Cosmos DB enumerar y obtener las operaciones de Table API'
+title: 'Script de Azure PowerShell: Operaciones de lista y obtención para Table API en Azure Cosmos DB'
+description: 'Script de Azure PowerShell: Operaciones de lista y obtención para Table API en Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 320d2ff57275648657a15f843a2f32dcb6722bf9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247055"
 ---
-# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Enumerar y obtener las tablas de Azure Cosmos DB: Table API
+# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Enumerar y obtener tablas de Table API de Azure Cosmos DB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

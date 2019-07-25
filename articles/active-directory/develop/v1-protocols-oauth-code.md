@@ -18,10 +18,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e05d79773cfd2ebae8047e75d41684de9101787a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962185"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorización del acceso a aplicaciones web de Azure Active Directory mediante el flujo de concesión de código OAuth 2.0
@@ -62,8 +62,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |recomendado |El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. En el caso de las aplicaciones nativas y móviles, es preciso usar el valor predeterminado, `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |opcional |Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación. Puede ser `query`, `fragment` o `form_post`. `query` proporciona el código como un parámetro de cadena de consulta en el URI de redirección. Si solicita un token de identificador con el flujo implícito, no puede usar `query` según lo indicado en la [especificación de OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Si solicita solo el código, puede usar `query`, `fragment` o `form_post`. `form_post` ejecuta una prueba POST que contiene el código para el URI de redirección. El valor predeterminado es `query` para un flujo de código.  |
 | state |recomendado |Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Normalmente se usa un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
-| Recurso | recomendado |URI del identificador de la aplicación de la API web de destino (recurso seguro). Para buscar el URI del identificador de la aplicación, en Azure Portal, haga clic en **Azure Active Directory** y en **Application registrations** (Registros de aplicaciones), abra la página de **Configuración** de la aplicación y, a continuación, haga clic en **Propiedades**. También puede ser un recurso externo, como `https://graph.microsoft.com`. Esto es necesario en una de las solicitudes de la autorización o del token. A fin de realizar menos solicitudes de confirmación de autenticación, colóquelo en la solicitud de autorización para asegurarse de que se recibe el consentimiento del usuario. |
-| ámbito | **ignorado** | En el caso de las aplicaciones de Azure AD v1, los ámbitos se deben configurar estáticamente en Azure Portal en las aplicaciones **Configuración** y **Permisos necesarios**. |
+| resource | recomendado |URI del identificador de la aplicación de la API web de destino (recurso seguro). Para buscar el URI del identificador de la aplicación, en Azure Portal, haga clic en **Azure Active Directory** y en **Application registrations** (Registros de aplicaciones), abra la página de **Configuración** de la aplicación y, a continuación, haga clic en **Propiedades**. También puede ser un recurso externo, como `https://graph.microsoft.com`. Esto es necesario en una de las solicitudes de la autorización o del token. A fin de realizar menos solicitudes de confirmación de autenticación, colóquelo en la solicitud de autorización para asegurarse de que se recibe el consentimiento del usuario. |
+| scope | **ignorado** | En el caso de las aplicaciones de Azure AD v1, los ámbitos se deben configurar estáticamente en Azure Portal en las aplicaciones **Configuración** y **Permisos necesarios**. |
 | símbolo del sistema |opcional |Indica el tipo de interacción necesaria con el usuario.<p> Los valores válidos son: <p> *login*: se le solicitará al usuario que vuelva a autenticarse. <p> *select_account*: se solicita al usuario seleccionar una cuenta e interrumpir el inicio de sesión único. El usuario puede seleccionar una cuenta existente en la que ya se haya iniciado sesión, escribir las credenciales de una cuenta guardada o decidir usar una cuenta diferente por completo. <p> *consent*: se le ha concedido el consentimiento al usuario, pero debe actualizarse. Se le solicitará al usuario consentimiento. <p> *admin_consent*: se le solicitará al administrador que dé consentimiento en nombre de todos los usuarios de su organización. |
 | login_hint |opcional |Puede usarse para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe su nombre de usuario con antelación. A menudo las aplicaciones usan este parámetro durante la reautenticación, dado que ya han extraído el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`. |
 | domain_hint |opcional |Proporciona una sugerencia sobre el inquilino o dominio que el usuario debe utilizar para iniciar sesión. El valor de domain_hint es un dominio registrado para el inquilino. Si el inquilino está federado en un directorio local, AAD le redirige al servidor de federación del inquilino especificado. |
@@ -145,9 +145,9 @@ grant_type=authorization_code
 | client_id |requerido |Identificador de aplicación asignado a la aplicación cuando se registra en Azure AD. Puede encontrarlo en Azure Portal. El identificador de aplicación se muestra en la configuración del registro de la aplicación. |
 | grant_type |requerido |Debe ser `authorization_code` para el flujo de código de autorización. |
 | código |requerido |El elemento `authorization_code` que obtuvo en la sección anterior. |
-| redirect_uri |requerido | Un `redirect_uri`registrado en la aplicación cliente. |
+| redirect_uri |requerido | Un elemento `redirect_uri` registrado en la aplicación cliente. |
 | client_secret |necesario para aplicaciones web, no se permite para clientes públicos |Secreto de la aplicación que creó en Azure Portal para su aplicación en **Claves**. No puede utilizarse en una aplicación nativa (cliente público), porque los client_secrets no se pueden almacenar de forma confiable en los dispositivos. Es necesario para aplicaciones y API web (todos los clientes confidenciales), que tienen la capacidad de almacenar `client_secret` de forma segura en el servidor. El secreto de cliente debería codificarse como dirección URL antes de enviarse. |
-| Recurso | recomendado |URI del identificador de la aplicación de la API web de destino (recurso seguro). Para buscar el URI del identificador de la aplicación, en Azure Portal, haga clic en **Azure Active Directory** y en **Application registrations** (Registros de aplicaciones), abra la página de **Configuración** de la aplicación y, a continuación, haga clic en **Propiedades**. También puede ser un recurso externo, como `https://graph.microsoft.com`. Esto es necesario en una de las solicitudes de la autorización o del token. A fin de realizar menos solicitudes de confirmación de autenticación, colóquelo en la solicitud de autorización para asegurarse de que se recibe el consentimiento del usuario. Si está tanto en la solicitud de autorización como en la solicitud de token, los parámetros del recurso deben coincidir. | 
+| resource | recomendado |URI del identificador de la aplicación de la API web de destino (recurso seguro). Para buscar el URI del identificador de la aplicación, en Azure Portal, haga clic en **Azure Active Directory** y en **Application registrations** (Registros de aplicaciones), abra la página de **Configuración** de la aplicación y, a continuación, haga clic en **Propiedades**. También puede ser un recurso externo, como `https://graph.microsoft.com`. Esto es necesario en una de las solicitudes de la autorización o del token. A fin de realizar menos solicitudes de confirmación de autenticación, colóquelo en la solicitud de autorización para asegurarse de que se recibe el consentimiento del usuario. Si está tanto en la solicitud de autorización como en la solicitud de token, los parámetros del recurso deben coincidir. | 
 | code_verifier | opcional | El mismo valor de code_verifier que usó para obtener el valor de authorization_code. Se requiere si PKCE se utilizó en la solicitud de concesión de código de autorización. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636).   |
 
 Para buscar el URI del identificador de la aplicación, en Azure Portal, haga clic en **Azure Active Directory** y en **Application registrations** (Registros de aplicaciones), abra la página de **Configuración** de la aplicación y, a continuación, haga clic en **Propiedades**.
@@ -179,8 +179,8 @@ Una respuesta correcta podría tener el siguiente aspecto:
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es portador. Para más información sobre los tokens de portador, consulte [The OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
 | expires_in |Durante cuánto tiempo es válido el token de acceso (en segundos). |
 | expires_on |La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché. |
-| Recurso |El URI del identificador de la aplicación de la API web (recurso seguro). |
-| ámbito |Permisos de suplantación concedidos a la aplicación cliente. El permiso predeterminado es `user_impersonation`. El propietario del recurso protegido puede registrar valores adicionales en Azure AD. |
+| resource |El URI del identificador de la aplicación de la API web (recurso seguro). |
+| scope |Permisos de suplantación concedidos a la aplicación cliente. El permiso predeterminado es `user_impersonation`. El propietario del recurso protegido puede registrar valores adicionales en Azure AD. |
 | refresh_token |Un token de actualización de OAuth 2.0. La aplicación puede utilizar este token para obtener más tokens de acceso una vez que expire el token de acceso actual. Los tokens de actualización son de larga duración y pueden usarse para conservar el acceso a los recursos durante largos periodos. |
 | ID_token |Un JSON Web Token (JWT) sin signo que representa un [identificador de token](id-tokens.md). La aplicación puede descodificar base64Url en los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad. |
 
@@ -209,7 +209,7 @@ Una respuesta de error de ejemplo podría tener este aspecto:
 | error |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error_description |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
 | error_codes |Una lista de los códigos de error específicos de STS que pueden ayudar en los diagnósticos. |
-|  timestamp |La hora a la que se produjo el error. |
+| timestamp |La hora a la que se produjo el error. |
 | trace_id |Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos. |
 | correlation_id |Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos entre componentes. |
 
@@ -258,7 +258,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="error-parameters"></a>Parámetros de error
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
-| authorization_uri |URI (punto de conexión físico) del servidor de autorización. Este valor también se utiliza como clave de búsqueda con el fin de obtener más información del servidor a partir de un punto de conexión de detección. <p><p>  El cliente debe validar que el servidor de autorización sea de confianza. Cuando el recurso está protegido por Azure AD, basta con comprobar que la dirección URL comienza por https://login.microsoftonline.com u otro nombre de host que admita Azure AD. Los recursos específicos del inquilino siempre deben devolver un URI de autorización exclusivo del inquilino. |
+| authorization_uri |URI (punto de conexión físico) del servidor de autorización. Este valor también se utiliza como clave de búsqueda con el fin de obtener más información del servidor a partir de un punto de conexión de detección. <p><p> El cliente debe validar que el servidor de autorización sea de confianza. Cuando el recurso está protegido por Azure AD, basta con comprobar que la dirección URL comienza por https://login.microsoftonline.com u otro nombre de host que admita Azure AD. Los recursos específicos del inquilino siempre deben devolver un URI de autorización exclusivo del inquilino. |
 | error |Valor de código de error definido en la sección 5.2 del [marco de autorización de OAuth 2.0](https://tools.ietf.org/html/rfc6749). |
 | error_description |Descripción más detallada del error. Este mensaje no está diseñado para que el usuario final lo comprenda sin problemas. |
 | resource_id |Devuelve el identificador único del recurso. La aplicación cliente puede utilizar este identificador como valor del parámetro `resource` cuando se solicita un token para el recurso. <p><p> Es importante para la aplicación cliente comprobar este valor; de lo contrario, un servicio malintencionado puede inducir un ataque por **elevación de privilegios**. <p><p> La estrategia recomendada para prevenir ataques consiste en comprobar que `resource_id` coincide con la base de la dirección URL de la API web que tiene acceso. Por ejemplo, si se accede a https://service.contoso.com/data, `resource_id` puede ser https://service.contoso.com/. La aplicación cliente debe rechazar un parámetro `resource_id` que no empiece por la dirección URL base, salvo que exista una alternativa confiable para comprobar el id. |
@@ -315,8 +315,8 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | token_type |El tipo de token. El único valor admitido es **bearer**. |
 | expires_in |Duración restante del token en segundos. Un valor típico es 3600 (una hora). |
 | expires_on |La fecha y hora en que expira el token. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. |
-| Recurso |Identifica el recurso protegido que el token de acceso puede utilizar para acceder. |
-| ámbito |Permisos de suplantación concedidos a la aplicación cliente nativa. El permiso predeterminado es **user_impersonation**. El propietario del recurso de destino puede registrar valores alternativos en Azure AD. |
+| resource |Identifica el recurso protegido que el token de acceso puede utilizar para acceder. |
+| scope |Permisos de suplantación concedidos a la aplicación cliente nativa. El permiso predeterminado es **user_impersonation**. El propietario del recurso de destino puede registrar valores alternativos en Azure AD. |
 | access_token |El nuevo token de acceso que se solicitó. |
 | refresh_token |Nuevo refresh_token de OAuth 2.0 que puede usarse para solicitar nuevos tokens de acceso cuando expira en esta respuesta. |
 
@@ -341,7 +341,7 @@ Una respuesta de error de ejemplo podría tener este aspecto:
 | error |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error_description |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
 | error_codes |Una lista de los códigos de error específicos de STS que pueden ayudar en los diagnósticos. |
-|  timestamp |La hora a la que se produjo el error. |
+| timestamp |La hora a la que se produjo el error. |
 | trace_id |Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos. |
 | correlation_id |Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos entre componentes. |
 

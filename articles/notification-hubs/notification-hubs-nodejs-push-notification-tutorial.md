@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457878"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061599"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envío de notificaciones push seguras con Azure Notification Hubs y Node.js
 
@@ -80,7 +80,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 Obtenga el valor de conexión `connectionstring` de [Azure Portal] mediante los siguientes pasos:
 
 1. En el panel de navegación izquierdo, haga clic en **Examinar**.
-2. Seleccione **Notification Hubs**y, a continuación, elija el centro que desea usar para el ejemplo. Puede hacer referencia a la [Windows Store Getting Started tutorial](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) si necesita ayuda con la creación de un nuevo centro de notificaciones.
+2. Seleccione **Notification Hubs**y, a continuación, elija el centro que desea usar para el ejemplo. Puede consultar el tutorial [Introducción a Microsoft Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) si necesita ayuda para crear un nuevo Centro de notificaciones.
 3. Seleccione **Configuración**.
 4. Haga clic en **Directivas de acceso**. Verá las cadenas de conexión de acceso, tanto las compartidas como las de acceso completo.
 
@@ -106,7 +106,7 @@ El objeto `GcmService` proporciona un método `send` que se puede usar para envi
 - **Payload** : el código JSON del mensaje o la carga útil de la cadena sin formato.
 - **Callback** : función de devolución de llamada.
 
-Para más información sobre el formato de carga útil, consulte la sección dedicada a la **carga útil** del documento sobre [implementación del servidor de GCM](https://developer.android.com/google/gcm/server.html#payload) .
+Para más información sobre el formato de carga útil, consulte la sección dedicada a la **carga útil** del documento sobre [implementación del servidor de GCM](https://developers.google.com/cloud-messaging/) .
 
 El código siguiente usa la instancia `GcmService` expuesta por `NotificationHubService` para enviar una notificación push a todos los clientes registrados.
 

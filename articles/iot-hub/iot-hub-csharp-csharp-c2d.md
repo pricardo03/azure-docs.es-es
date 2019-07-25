@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
 ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864448"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
@@ -36,7 +36,7 @@ Este tutorial se basa en la guía de inicio rápido [Enviar datos de telemetría
 
 Encontrará más información sobre los mensajes de nube a dispositivo en [Mensajería de dispositivo a nube y de nube a dispositivo con IoT Hub](iot-hub-devguide-messaging.md).
 
-Al final de este tutorial, ejecutará dos aplicaciones de consola. NET.
+Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET.
 
 * **SimulatedDevice**, una versión modificada de la aplicación que se creó en [Enviar datos de telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md), que se conecta a IoT Hub y recibe mensajes de la nube al dispositivo.
 
@@ -95,50 +95,50 @@ En esta sección, modificará la aplicación de dispositivo que creó en [Enviar
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obtener la cadena de conexión de IoT Hub
 
-En primer lugar, recupere la cadena de conexión de IoT Hub desde el portal.
+En primer lugar, recupere la cadena de conexión de IoT Hub del portal.
 
-1. Inicie sesión en el [portal Azure](https://portal.azure.com), seleccione **grupos de recursos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Grupos de recursos**.
 
-2. Seleccione el grupo de recursos que se usa para este procedimiento.
+2. Seleccione el grupo de recursos que esté usando en este procedimiento.
 
-3. Seleccione el centro de IoT que está usando.
+3. Seleccione el IoT Hub que esté usando.
 
-4. En el panel del centro, seleccione **directivas de acceso compartido**.
+4. En el panel del centro, seleccione **Directivas de acceso compartido**.
 
-5. seleccione **iothubowner**. Muestra las cadenas de conexión en el **iothubowner** panel. Seleccione el icono de copia de la **cadena de conexión: clave principal**. Guarde la cadena de conexión para usarla más adelante.
+5. seleccione **iothubowner**. Muestra las cadenas de conexión en el panel **iothubowner**. Seleccione el icono de copia para la **cadena de conexión - clave principal**. Guarde la cadena de conexión para usarla más adelante.
 
-   ![Obtener cadena de conexión de IoT Hub](./media/iot-hub-csharp-csharp-c2d/get-iot-hub-connection-string.png)
+   ![Obtener la cadena de conexión de IoT Hub](./media/iot-hub-csharp-csharp-c2d/get-iot-hub-connection-string.png)
 
 ## <a name="send-a-cloud-to-device-message"></a>Envío de mensajes de nube a dispositivo
 
-Ahora escribe una aplicación de consola .NET que envía mensajes de nube a dispositivo a la aplicación de dispositivo.
+Ahora debe escribir una aplicación de consola de .NET que envía mensajes de la nube al dispositivo a la aplicación de dispositivo.
 
-1. En la solución actual de Visual Studio, haga doble clic en la solución y seleccione Agregar > Nuevo proyecto. Seleccione **Windows Desktop** y, a continuación, **aplicación de consola (.NET Framework)**. Denomine el proyecto **SendCloudToDevice** y seleccione la versión más reciente de .NET Framework, a continuación, seleccione **Aceptar** para crear el proyecto.
+1. En la solución actual de Visual Studio, haga clic con el botón derecho en la solución y seleccione Agregar> Nuevo proyecto. Seleccione el **escritorio de Windows** y luego **Aplicación de consola (.NET Framework)** . Nombre el proyecto **SendCloudToDevice** y seleccione la versión más reciente de .NET Framework; a continuación, seleccione **Aceptar** para crear el proyecto.
 
    ![Nuevo proyecto en Visual Studio](./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png)
 
-2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y luego haga clic en **Administrar paquetes de NuGet para la solución...**.
+2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y luego haga clic en **Administrar paquetes de NuGet para la solución...** .
 
    Esta acción abre la ventana **Administrar paquetes NuGet**.
 
-3. Busque **Microsoft.Azure.Devices**, seleccione la pestaña Examinar. Cuando encuentre el paquete, haga clic en **instalar**y acepte los términos de uso.
+3. Busque **Microsoft.Azure.Devices** y seleccione la pestaña Examinar. Cuando encuentre el paquete, haga clic en **Instala** y acepte las condiciones de uso.
 
    De esta forma, se descarga, instala y agrega una referencia al [paquete NuGet del SDK de Servicios IoT de Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
-4. Agregue el siguiente `using` instrucción en la parte superior de la **Program.cs** archivo.
+4. Agregue la instrucción `using` en la parte superior del archivo **Program.cs**.
 
    ``` csharp
    using Microsoft.Azure.Devices;
    ```
 
-5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor de marcador de posición por la cadena de conexión de IoT hub que guardó anteriormente en esta sección. 
+5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor del marcador de posición con la cadena de conexión de IoT Hub que guardó anteriormente en esta sección. 
 
    ``` csharp
    static ServiceClient serviceClient;
    static string connectionString = "{iot hub connection string}";
    ```
 
-6. Agregue el método siguiente a la clase **Program**. Establece el nombre del dispositivo al que usa al definir el dispositivo en [enviar telemetría desde un dispositivo a IoT hub... ](quickstart-send-telemetry-dotnet.md).
+6. Agregue el método siguiente a la clase **Program**. Escriba el nombre del dispositivo que usó al definir el dispositivo en [Enviar telemetría desde un dispositivo a IoT Hub...](quickstart-send-telemetry-dotnet.md).
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -200,13 +200,13 @@ En esta sección, modificará la aplicación **SendCloudToDevice** para solicita
 
     Tenga en cuenta que este patrón de recepción es el mismo que se usa para recibir mensajes de nube a dispositivo desde la aplicación de dispositivo.
 
-2. Agregue el siguiente método en el **Main** inmediatamente después la `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)` línea.
+2. Agregue el siguiente método en **Main** inmediatamente después de la línea `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)`.
 
    ``` csharp
    ReceiveFeedbackAsync();
    ```
 
-3. Para solicitar comentarios de la entrega del mensaje de la nube a un dispositivo, debe especificar una propiedad en el método **SendCloudToDeviceMessageAsync** . Agregue la siguiente línea, justo después de la `var commandMessage = new Message(...);` línea.
+3. Para solicitar comentarios de la entrega del mensaje de la nube a un dispositivo, debe especificar una propiedad en el método **SendCloudToDeviceMessageAsync** . Agregue la línea siguiente, inmediatamente después de la línea `var commandMessage = new Message(...);`.
 
    ``` csharp
    commandMessage.Ack = DeliveryAcknowledgement.Full;

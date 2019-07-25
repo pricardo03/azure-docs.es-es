@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956476"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
@@ -21,13 +21,13 @@ Un volumen persistente representa un fragmento de almacenamiento aprovisionado p
 > [!NOTE]
 > Solo se puede montar un disco de Azure con el tipo de *modo de acceso* *ReadWriteOnce*, que lo pone a disposición de un único pod en AKS. Si tiene que compartir un volumen persistente en varios pods, use [Azure Files][azure-files-pvc].
 
-Para obtener más información sobre los volúmenes de Kubernetes, consulte [opciones de almacenamiento para las aplicaciones en AKS][concepts-storage].
+Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de almacenamiento para aplicaciones en AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También necesita la CLI de Azure versión 2.0.59 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Clases de almacenamiento integradas
 
@@ -40,7 +40,7 @@ Cada clúster de AKS incluye dos clases de almacenamiento creadas previamente y 
 * La clase de almacenamiento *Premium administrada* aprovisiona un disco de Azure premium.
     * Los discos Premium están respaldados por un disco de latencia reducida y alto rendimiento basado en SSD. Es perfecto para máquinas virtuales que ejecutan cargas de trabajo de producción. Si los nodos de AKS del clúster usan almacenamiento Premium, seleccione la clase *administrada Premium*.
     
-Estas clases de almacenamiento predeterminado no permiten actualizar el tamaño del volumen una vez creado. Para habilitar esta capacidad, agregue el *allowVolumeExpansion: true* línea a una de las clases de almacenamiento predeterminada o crear clase de almacenamiento personalizada propia. Puede editar una clase de almacenamiento existente mediante el `kubectl edit sc` comando. Para obtener más información sobre las clases de almacenamiento y crear youor propio, consulte [opciones de almacenamiento para las aplicaciones en AKS][storage-class-concepts].
+Estas clases de almacenamiento predeterminadas no permiten actualizar el tamaño del volumen una vez creado. Para habilitar esta capacidad, agregue la línea *allowVolumeExpansion: true* a una de las clases de almacenamiento predeterminadas o cree su propia clase de almacenamiento personalizada. Puede editar una clase de almacenamiento existente con el comando `kubectl edit sc`. Para obtener más información sobre las clases de almacenamiento y la creación de la suya propia, consulte [Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)][storage-class-concepts].
 
 Use el comando [kubectl get sc][kubectl-get] para ver las clases de almacenamiento que se crearon previamente. El ejemplo siguiente muestra las clases de almacenamiento creadas previamente disponibles dentro de un clúster de AKS:
 
@@ -53,7 +53,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Las notificaciones de volumen persistente se especifican en GiB, pero los discos administrados de Azure se facturan por SKU para un tamaño específico. Estas van de SKU de 32GiB para discos de S4 o P4 a 32TiB S80 o P80 discos (en versión preliminar). El rendimiento de transferencia de datos de red y el rendimiento IOPS de un disco administrado Premium depende de la SKU y del tamaño de instancia de los nodos en el clúster de AKS. Para más información, consulte [Pricing and Performance of Managed Disks][managed-disk-pricing-performance] (Precios y rendimiento de los discos administrados).
+> Las notificaciones de volumen persistente se especifican en GiB, pero los discos administrados de Azure se facturan por SKU para un tamaño específico. Estas SKU varían de 32 GiB para discos S4 o P4 a 32 TiB para discos S80 o P80 (en versión preliminar). El rendimiento de transferencia de datos de red y el rendimiento IOPS de un disco administrado Premium depende de la SKU y del tamaño de instancia de los nodos en el clúster de AKS. Para más información, consulte [Pricing and Performance of Managed Disks][managed-disk-pricing-performance] (Precios y rendimiento de los discos administrados).
 
 ## <a name="create-a-persistent-volume-claim"></a>Creación de una notificación de volumen persistente
 
@@ -88,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Uso del volumen persistente
 
-Una vez que se haya creado la notificación de volumen persistente y tras el aprovisionamiento correcto del disco, se puede crear un pod con acceso al disco. El siguiente manifiesto crea un pod NGINX básico que utiliza la notificación de volumen persistente *azure-managed-disk* para montar el disco de Azure en la ruta de acceso `/mnt/azure`. Para Windows Server containers (actualmente en versión preliminar de AKS), especifique un *mountPath* con la convención de ruta de acceso de Windows, como *'D:'*.
+Una vez que se haya creado la notificación de volumen persistente y tras el aprovisionamiento correcto del disco, se puede crear un pod con acceso al disco. El siguiente manifiesto crea un pod NGINX básico que utiliza la notificación de volumen persistente *azure-managed-disk* para montar el disco de Azure en la ruta de acceso `/mnt/azure`. Para los contenedores de Windows Server (actualmente en versión preliminar en AKS), especifique un elemento *mountPath* utilizando la convención de ruta de acceso de Windows, como *"D:"* .
 
 Cree un archivo denominado `azure-pvc-disk.yaml` y cópielo en el siguiente código manifiesto.
 
@@ -253,7 +253,7 @@ Volumes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para las prácticas recomendadas asociadas, consulte [procedimientos recomendados para el almacenamiento y copias de seguridad en AKS][operator-best-practices-storage].
+Para consultar los procedimientos recomendados, vea [Procedimientos recomendados para el almacenamiento y las copias de seguridad en AKS][operator-best-practices-storage].
 
 Obtenga más información sobre los volúmenes persistentes de Kubernetes con discos de Azure.
 

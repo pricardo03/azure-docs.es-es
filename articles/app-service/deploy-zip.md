@@ -15,10 +15,10 @@ ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
 ms.openlocfilehash: aac60d3d4fd154847bdfae3dfb590b947e861e9e
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978813"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implementación de una aplicación en Azure App Service con un archivo ZIP o WAR
@@ -81,7 +81,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 Este comando implementa los archivos y directorios del archivo ZIP en la carpeta predeterminada de la aplicación App Service (`\home\site\wwwroot`) y reinicia la aplicación.
 
-De forma predeterminada, el motor de implementación se da por supuesto que está listo para ejecutarse como un archivo ZIP-es y no se ejecuta cualquier cliente de automatización de compilación. Para habilitar la misma automatización de la compilación como en un [la implementación de Git](deploy-local-git.md), establezca el `SCM_DO_BUILD_DURING_DEPLOYMENT` configuración de la aplicación ejecutando el siguiente comando en el [Cloud Shell](https://shell.azure.com):
+De forma predeterminada, el motor de implementación da por supuesto que un archivo ZIP está listo para ejecutarse tal cual y no ejecuta ninguna automatización de la compilación. Para habilitar la misma automatización de la compilación que en una [implementación de Git](deploy-local-git.md), establezca la configuración de la aplicación `SCM_DO_BUILD_DURING_DEPLOYMENT` ejecutando el siguiente comando en [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true

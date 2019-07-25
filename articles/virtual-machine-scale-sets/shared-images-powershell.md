@@ -17,10 +17,10 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
 ms.openlocfilehash: 055242c3118ce9d972d55cdc6a21bf623679a0c1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242051"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Creación y uso de imágenes compartidas personalizada para conjuntos de escalado de máquinas virtuales con Azure PowerShell
@@ -48,7 +48,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Los siguientes pasos explican cómo tomar una máquina virtual existente y convertirla en una imagen personalizada reutilizable que puede usar para crear nuevas instancias de máquinas virtuales.
 
-Para completar el ejemplo de este artículo, debe tener una imagen administrada existente. Puede seguir [Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con Azure PowerShell](tutorial-use-custom-image-powershell.md) para crear una si es necesario. Si la imagen administrada contiene un disco de datos, el tamaño del disco de datos no puede tener más de 1 TB.
+Para completar el ejemplo de este artículo, debe tener una imagen administrada existente. Puede seguir [Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con Azure PowerShell](tutorial-use-custom-image-powershell.md) para crear una si es necesario. Si la imagen administrada contiene un disco de datos, el tamaño de este no puede ser mayor de 1 TB.
 
 Al trabajar en el artículo, reemplace los nombres de grupo de recursos y máquina virtual cuando proceda.
 
@@ -57,7 +57,7 @@ Al trabajar en el artículo, reemplace los nombres de grupo de recursos y máqui
 
 ## <a name="create-a-scale-set-from-the-shared-image-version"></a>Creación de un conjunto de escalado desde la versión de la imagen compartida
 
-Cree un conjunto de escalado de máquinas virtuales con [New-AzVmss](/powershell/module/az.compute/new-azvmss). En el ejemplo siguiente se crea un conjunto de escalado desde la nueva versión de imagen en el *South Central US* centro de datos. Cuando se le solicite, establezca sus propias credenciales administrativas para las instancias de máquina virtual del conjunto de escalado:
+Cree un conjunto de escalado de máquinas virtuales con [New-AzVmss](/powershell/module/az.compute/new-azvmss). En el ejemplo siguiente se crea un conjunto de escalado a partir de la imagen de la versión nueva en el centro de datos de *Centro y Sur de EE. UU.* . Cuando se le solicite, establezca sus propias credenciales administrativas para las instancias de máquina virtual del conjunto de escalado:
 
 
 ```azurepowershell-interactive

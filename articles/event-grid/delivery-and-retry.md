@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
 ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952887"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
@@ -24,7 +24,7 @@ Actualmente, Event Grid envía cada evento individualmente a los suscriptores. E
 
 ## <a name="retry-schedule-and-duration"></a>Programación y duración de los reintentos
 
-Event Grid espera 30 segundos para una respuesta después de entregar un mensaje. Después de 30 segundos, el punto de conexión no ha respondido, el mensaje se pone en cola de reintento. Event Grid usa una directiva de reintentos de retroceso exponencial para la entrega de eventos. Event Grid reintenta la entrega en la siguiente programación en base al mejor esfuerzo:
+Event Grid espera 30 segundos para obtener una respuesta después de entregar un mensaje. Después de 30 segundos, si el punto de conexión no ha respondido, el mensaje se pone en cola para volver a intentarlo. Event Grid usa una directiva de reintentos de retroceso exponencial para la entrega de eventos. Event Grid reintenta la entrega en el siguiente horario y cuando sea el mejor momento:
 
 - 10 segundos
 - 30 segundos
@@ -33,13 +33,13 @@ Event Grid espera 30 segundos para una respuesta después de entregar un mensaje
 - 10 minutos
 - 30 minutos
 - 1 hora
-- Cada hora de hasta 24 horas
+- Cada hora, hasta 24 horas
 
-Si el punto de conexión responde a los 3 minutos, Event Grid intentará quitar el evento de la cola de reintento en base al mejor esfuerzo, pero todavía es posible que reciba los duplicados.
+Si el punto de conexión responde en 3 minutos, Event Grid intentará eliminar el evento de la cola de reintentos en el mejor momento posible, pero aún se pueden recibir duplicados.
 
-Event Grid agrega una pequeña selección aleatoria a todos los pasos de reintento y según la ocasión puede omitir ciertas reintentos si un punto de conexión está constantemente en mal estado, inactivo durante un largo período, o aparece verse desbordados.
+Event Grid agrega una pequeña selección aleatoria en todos los pasos de reintento y puede omitir oportunamente ciertos reintentos si un punto de conexión es incorrecto, está inactivo durante un largo período o parece estar demasiado ocupado.
 
-Para un comportamiento determinista, establezca la hora del evento en directo y los intentos de entrega máxima en la [directivas de reintento de suscripción](manage-event-delivery.md).
+Para un comportamiento determinista, establezca el tiempo que estará activo el evento y los intentos de entrega máximos en las [directivas de reintentos de suscripción](manage-event-delivery.md).
 
 De forma predeterminada, Event Grid expira todos los eventos que no se entregan en 24 horas. Puede [personalizar la directiva de reintentos](manage-event-delivery.md) al crear una suscripción al evento. Proporcione el número máximo de intentos de entrega (el valor predeterminado es 30) y el periodo de vida de los eventos (el valor predeterminado es 1440 minutos).
 
@@ -74,7 +74,7 @@ Los siguientes códigos de respuesta HTTP indican que el intento de entrega de u
 
 - 400 - Solicitud incorrecta
 - 401 No autorizado
-- 405 No encontrado
+- 404 No encontrado
 - 408 - Tiempo de espera de solicitud
 - 413 Entidad de solicitud demasiado larga
 - 414 - URI de solicitud demasiado largo

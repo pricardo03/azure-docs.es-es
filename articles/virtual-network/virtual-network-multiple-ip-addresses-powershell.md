@@ -1,6 +1,6 @@
 ---
 title: 'Varias direcciones IP para máquinas virtuales de Azure: PowerShell | Microsoft Docs'
-description: Obtenga información sobre cómo asignar varias direcciones IP a una máquina virtual mediante PowerShell. | Administrador de recursos
+description: Aprenda a asignar varias direcciones IP a una máquina virtual con PowerShell. | Resource Manager
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: kumud;annahar
-ms.openlocfilehash: ee6a2d36d88d9a80ba7e64819344f6cca56e47cd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: f4ecc9a0b41cf3b287f7601101de3aa9d077b0d5
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64730435"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Asignación de varias direcciones IP a máquinas virtuales mediante PowerShell
@@ -96,7 +96,7 @@ En los pasos siguientes se explica cómo crear una VM de ejemplo con varias dire
 
 6. Defina la configuración de la dirección IP principal para la NIC. Cambie 10.0.0.4 a una dirección válida en la subred que creó, si no usó el valor definido anteriormente. Antes de asignar una dirección IP estática, se recomienda que primero confirme que no está en uso. Escriba el comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Si la dirección está disponible, la salida devuelve *True*. Si no está disponible, la salida devuelve *False* y una lista de direcciones que están disponibles. 
 
-    En los siguientes comandos, **reemplazar \<replace-con-your-único-name > con el nombre DNS único para usarlo.** El nombre debe ser único en todas las direcciones IP públicas dentro de una región de Azure. Se trata de un parámetro opcional. Se puede quitar si solo desea conectarse a la máquina virtual con la dirección IP pública.
+    En los comandos siguientes, **reemplace \<<reemplace por su nombre único> por el nombre DNS único que se va a usar.** El nombre debe ser único en todas las direcciones IP públicas dentro de una región de Azure. Se trata de un parámetro opcional. Se puede quitar si solo desea conectarse a la máquina virtual con la dirección IP pública.
 
     ```powershell
     

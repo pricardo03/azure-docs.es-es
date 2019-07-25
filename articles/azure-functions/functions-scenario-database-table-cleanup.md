@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
 ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65908113"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 
-En este artículo se indica cómo usar Azure Functions para crear un trabajo programado que se conecte a una base de datos de Azure SQL. El código de función limpia las filas de una tabla de la base de datos. El nuevo C# función se crea a partir de una plantilla de desencadenador de temporizador predefinida de 2019 de Visual Studio. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
+En este artículo se indica cómo usar Azure Functions para crear un trabajo programado que se conecte a una base de datos de Azure SQL. El código de función limpia las filas de una tabla de la base de datos. La nueva función de C# se crea a partir de una plantilla de desencadenador del temporizador predefinida de Visual Studio 2019. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
 
 Si es la primera vez que trabaja con funciones de C#, debe leer la [referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md).
 
@@ -50,7 +50,7 @@ Una aplicación de función hospeda la ejecución de sus funciones en Azure. Com
 
 Anteriormente debe haber publicado la aplicación en Azure. Si todavía no lo ha hecho, [publique la aplicación de función en Azure](functions-develop-vs.md#publish-to-azure).
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de aplicación de función y elija **Publicar** > **Administrar configuración de la aplicación...**. Seleccione **Agregar configuración**, en **Nuevo nombre de configuración de aplicación**, escriba `sqldb_connection` y seleccione **Aceptar**.
+1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de aplicación de función y elija **Publicar** > **Administrar configuración de la aplicación...** . Seleccione **Agregar configuración**, en **Nuevo nombre de configuración de aplicación**, escriba `sqldb_connection` y seleccione **Aceptar**.
 
     ![Configuración de la aplicación para la aplicación de función.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -64,7 +64,7 @@ Anteriormente debe haber publicado la aplicación en Azure. Si todavía no lo ha
 
 Necesita agregar el paquete NuGet que contiene la biblioteca de SqlClient. Esta biblioteca de acceso de datos es necesaria para conectarse a una base de datos SQL.
 
-1. Abra el proyecto de aplicación de función local en Visual Studio de 2019.
+1. Abra el proyecto de aplicación de funciones local en Visual Studio 2019.
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en proyecto de la aplicación de función y elija **Administrar paquetes NuGet**.
 
@@ -139,6 +139,6 @@ A continuación, obtenga información sobre cómo usar Functions con Logic Apps 
 Para más información sobre Functions, vea los siguientes artículos:
 
 + [Referencia para desarrolladores de Azure Functions](functions-reference.md)  
-   contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
+  contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
 + [Prueba de Azure Functions](functions-test-a-function.md)  
-   describe las diversas herramientas y técnicas para probar sus funciones.  
+  describe las diversas herramientas y técnicas para probar sus funciones.  

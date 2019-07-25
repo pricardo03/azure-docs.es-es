@@ -11,10 +11,10 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851589"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Diseño de tablas en Azure SQL Data Warehouse
@@ -32,7 +32,7 @@ Un [esquema de estrella](https://en.wikipedia.org/wiki/Star_schema) organiza los
 - Las **tablas de integración** proporcionan un lugar para integración o almacenamiento provisional de datos. Puede crear una tabla de integración como una tabla normal, una tabla externa o una tabla temporal. Por ejemplo, puede cargar datos a una tabla de almacenamiento provisional, realizar transformaciones en los datos en el almacenamiento provisional y luego insertar dichos datos en una tabla de producción.
 
 ## <a name="schema-and-table-names"></a>Nombres de esquema y tabla
-Los esquemas son una buena manera de agrupar las tablas usan de forma similar, juntos.  Si va a migrar varias bases de datos desde una solución local a SQL Data Warehouse, funciona mejor para migrar todos los hechos, dimensiones y tablas de integración a un esquema en SQL Data Warehouse. Por ejemplo, podría almacenar todas las tablas en el almacenamiento de datos de ejemplo [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) dentro de un esquema denominado wwi. El siguiente código crea un [esquema definido por el usuario](/sql/t-sql/statements/create-schema-transact-sql) denominado wwi.
+Los esquemas son una buena manera de agrupar tablas que se usan de manera similar.  Si está migrando varias bases de datos de una solución local a SQL Data Warehouse, lo mejor es migrar todas las tablas de hechos, dimensiones e integración a un esquema en SQL Data Warehouse. Por ejemplo, podría almacenar todas las tablas en el almacenamiento de datos de ejemplo [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) dentro de un esquema denominado wwi. El siguiente código crea un [esquema definido por el usuario](/sql/t-sql/statements/create-schema-transact-sql) denominado wwi.
 
 ```sql
 CREATE SCHEMA wwi;
@@ -42,7 +42,7 @@ Para mostrar la organización de las tablas en SQL Data Warehouse, puede utiliza
 
 | Tabla WideWorldImportersDW  | Tipo de tabla | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| Ciudad | Dimensión | wwi.DimCity |
+| City | Dimension Data | wwi.DimCity |
 | Orden | Hechos | wwi.FactOrder |
 
 
@@ -59,7 +59,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### <a name="temporary-table"></a>Tabla temporal
-Una tabla temporal solo existe mientras dura la sesión. Puede usar una tabla temporal para impedir que otros usuarios vean los resultados temporales y también para reducir la necesidad de limpieza.  Las tablas temporales utilizan el almacenamiento local para ofrecer un rendimiento rápido.  Para más información, consulte [Tablas temporales](sql-data-warehouse-tables-temporary.md).
+Una tabla temporal solo existe mientras dura la sesión. Una tabla temporal se puede usar para evitar que otros usuarios vean los resultados temporales y también para reducir la necesidad de limpieza.  Las tablas temporales usan el almacenamiento local para ofrecer un rendimiento más rápido.  Para más información, consulte [Tablas temporales](sql-data-warehouse-tables-temporary.md).
 
 ### <a name="external-table"></a>Tabla externa
 Una tabla externa apunta a datos ubicados en Azure Storage Blob o Azure Data Lake Store. Cuando se utiliza en combinación con la instrucción CREATE TABLE AS SELECT, la selección de una tabla externa importa datos en SQL Data Warehouse. Las tablas externas, por tanto, son útiles para cargar datos. Para un tutorial sobre la carga, consulte [Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
@@ -68,10 +68,10 @@ Una tabla externa apunta a datos ubicados en Azure Storage Blob o Azure Data Lak
 SQL Data Warehouse admite los tipos de datos usados más frecuentemente. Para obtener una lista de los tipos de datos admitidos, consulte los [tipos de datos en la referencia de CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) de la instrucción CREATE TABLE. Para una guía sobre el uso de los tipos de datos, vea [Guía para definir los tipos de datos para las tablas en SQL Data Warehouse](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Tablas distribuidas
-Una característica fundamental de SQL Data Warehouse es la manera en que puede almacenar y operar en las tablas entre [distribuciones](massively-parallel-processing-mpp-architecture.md#distributions).  SQL Data Warehouse admite tres métodos para la distribución de datos, round robin (valor predeterminado), hash y se replican.
+Una característica fundamental de SQL Data Warehouse es la forma en que puede almacenar y operar en tablas de varias [distribuciones](massively-parallel-processing-mpp-architecture.md#distributions).  SQL Data Warehouse admite tres métodos para distribuir datos: round-robin (predeterminado), hash y replicado.
 
 ### <a name="hash-distributed-tables"></a>Tablas distribuidas mediante una función hash
-Una tabla con distribución hash distribuye filas basándose en el valor de la columna de distribución. Una tabla con distribución hash está diseñada para lograr un alto rendimiento para las consultas en tablas grandes. Hay varios factores que considerar al elegir una columna de distribución. 
+La distribución hash de la tabla distribuye las filas en función del valor de la columna de distribución. La tabla distribuida de hash está diseñada para lograr un alto rendimiento para consultas en tablas grandes. Hay varios factores que debe tener en cuenta al elegir una columna de distribución. 
 
 Para más información, vea [Distribución de tablas en SQL Data Warehouse](sql-data-warehouse-tables-distribute.md).
 
@@ -91,23 +91,23 @@ La categoría de tabla a menudo determina qué opción elegir para distribuir la
 | Categoría de tabla | Opción de distribución recomendada |
 |:---------------|:--------------------|
 | Hechos           | Utilice la distribución por hash con el índice de almacén de columnas agrupado. El rendimiento mejora cuando se combinan dos tablas hash en la misma columna de distribución. |
-| Dimensión      | Use la distribución replicada para tablas más pequeñas. Si las tablas son demasiado grandes para almacenar en cada nodo de proceso, utilice la distribución por hash. |
-| Ensayo        | Use round robin para la tabla de almacenamiento provisional. La carga con CTAS es rápida. Una vez que los datos están en la tabla de ensayo, utilice INSERT... Seleccione esta opción para mover los datos a tablas de producción. |
+| Dimension Data      | Use la distribución replicada para tablas más pequeñas. Si las tablas son demasiado grandes para almacenar en cada nodo de proceso, utilice la distribución por hash. |
+| Ensayo        | Use round robin para la tabla de almacenamiento provisional. La carga con CTAS es rápida. Una vez que los datos estén en la tabla de almacenamiento provisional, use INSERT... SELECT para mover los datos a las tablas de producción. |
 
 ## <a name="table-partitions"></a>Particiones de tabla
-Una tabla con particiones almacena y realiza operaciones en las filas de la tabla según los intervalos de datos. Por ejemplo, una tabla puede tener particiones por día, mes o año. Puede mejorar el rendimiento de las consultas mediante la eliminación de particiones, ya que limita el examen de una consulta a los datos dentro de una partición. También puede mantener los datos a través de modificación de particiones. Puesto que los datos de SQL Data Warehouse ya están distribuidos, demasiadas particiones pueden ralentizar el rendimiento de las consultas. Para más información, consulte [Creación de particiones de tablas en SQL Data Warehouse](sql-data-warehouse-tables-partition.md).  Cuando crea particiones de modificación en la tabla de particiones que no están vacías, considere la posibilidad de usar la opción TRUNCATE_TARGET en su [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) instrucción si se trunquen los datos existentes. Los siguientes modificadores de código en los datos transformados diarios en el SalesFact sobrescribir los datos existentes. 
+Una tabla con particiones almacena y realiza operaciones en las filas de la tabla según los intervalos de datos. Por ejemplo, una tabla puede tener particiones por día, mes o año. Puede mejorar el rendimiento de las consultas mediante la eliminación de particiones, ya que limita el examen de una consulta a los datos dentro de una partición. También puede mantener los datos a través de modificación de particiones. Puesto que los datos de SQL Data Warehouse ya están distribuidos, demasiadas particiones pueden ralentizar el rendimiento de las consultas. Para más información, consulte [Creación de particiones de tablas en SQL Data Warehouse](sql-data-warehouse-tables-partition.md).  Cuando cambie de partición a otras particiones de tabla que no estén vacías, puede usar la opción TRUNCATE_TARGET en la instrucción [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) si se deben truncar los datos existentes. El siguiente código cambia los datos diarios transformados en SalesFact y sobrescribe cualquier información existente. 
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
 ```
 
 ## <a name="columnstore-indexes"></a>Índices de almacén de columnas
-De forma predeterminada, SQL Data Warehouse almacena una tabla como índice de almacén de columnas agrupado. Esta forma de almacenamiento de datos logra una compresión de datos y rendimiento de las consultas altos en tablas grandes.  El índice de almacén de columnas agrupado suele ser la mejor opción, pero en algunos casos un índice agrupado o un montón es la estructura de almacenamiento adecuada.  Una tabla de montón puede ser especialmente útil para cargar los datos transitorios, como una tabla de ensayo que se transforma en una tabla final.
+De forma predeterminada, SQL Data Warehouse almacena una tabla como índice de almacén de columnas agrupado. Esta forma de almacenamiento de datos logra una compresión de datos y rendimiento de las consultas altos en tablas grandes.  El índice de almacén de columnas agrupado suele ser la mejor opción, pero en algunos casos un índice agrupado o un montón es la estructura de almacenamiento adecuada.  Una tabla de montón puede ser especialmente útil para cargar datos transitorios, como una tabla de almacenamiento provisional que se transforma en una tabla final.
 
 Para una lista de características de almacén de columnas, vea [Novedades de los índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Para mejorar el rendimiento del índice de almacén de columnas, vea [Maximización de la calidad del grupo de filas del almacén de columnas](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Estadísticas
-El optimizador de consultas utiliza estadísticas de columna cuando crea el plan de ejecución de una consulta. Para mejorar el rendimiento de las consultas, es importante disponer de estadísticas en columnas individuales, especialmente las columnas que se usan en combinaciones de consultas. [Creación de estadísticas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics) lleva a cabo automáticamente.  Sin embargo, actualizar las estadísticas no se realiza automáticamente. Actualice las estadísticas cuando se agregue o cambie un número significativo de filas. Por ejemplo, actualice las estadísticas después de una carga. Para más información, consulte [Administración de estadísticas en tablas en SQL Data Warehouse](sql-data-warehouse-tables-statistics.md).
+El optimizador de consultas utiliza estadísticas de columna cuando crea el plan de ejecución de una consulta. Para mejorar el rendimiento de las consultas, es importante crear estadísticas en columnas individuales, especialmente en las columnas que se usan en combinaciones de consultas. La [creación de estadísticas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics) se lleva a cabo automáticamente.  Sin embargo, la actualización de estadísticas no se realiza automáticamente. Actualice las estadísticas cuando se agregue o cambie un número significativo de filas. Por ejemplo, actualice las estadísticas después de una carga. Para más información, consulte [Administración de estadísticas en tablas en SQL Data Warehouse](sql-data-warehouse-tables-statistics.md).
 
 ## <a name="commands-for-creating-tables"></a>Comandos para la creación de tablas
 Puede crear una tabla como una nueva tabla vacía. También puede crear y rellenar una tabla con los resultados de una instrucción SELECT. A continuación se muestran los comandos de T-SQL para crear una tabla.

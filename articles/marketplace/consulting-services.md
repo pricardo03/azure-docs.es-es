@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964117"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servicios de consultoría de Azure Marketplace y AppSource
@@ -41,7 +41,7 @@ Las ofertas de servicios basadas en Microsoft Dynamics 365, Office 365 y Power B
 > [!TIP]
 > Para publicar en el escaparate de Azure Marketplace, esto se selecciona al elegir "Azure" en el menú desplegable "Primary Product" (Producto principal) en Cloud Partner Portal. Para publicar en AppSource, esto se selecciona al elegir "Dynamics 365", "Power BI" o "Power Apps" en el menú desplegable "Primary Product" (Producto principal) en Cloud Partner Portal.
 
-## <a name="eligible-partners-and-supported-countriesregions"></a>Los socios elegibles y países o regiones admitidas
+## <a name="eligible-partners-and-supported-countriesregions"></a>Asociados aptos y países o regiones admitidos
 
 Los asociados deben tener una **competencia Silver o Gold** en el área pertinente de su servicio. 
 
@@ -67,17 +67,17 @@ Los asociados deben tener una **competencia Silver o Gold** en el área pertinen
 <b> Para más información, consulte las [competencias a través de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).</b>
  
 
-**Los asociados de SI pueden enviar ofertas de servicios de consultoría para los siguientes 18 países**
+**Los asociados de SI pueden enviar ofertas de servicios de consultoría para los siguientes 18 países o regiones**
 
-|Países o regiones aptas |   |   |   |
+|Países y regiones aptos |   |   |   |
 |---------|----------|----------|----------|
 |Australia |Francia  |     México          |España       |
-|Bélgica   |Alemania |     Países bajos     |Suecia       |
+|Bélgica   |Alemania |     Países Bajos     |Suecia       |
 |Canadá    |India   |     Nueva Zelanda     |Reino Unido  |
 |Dinamarca   |Italia   |     Noruega          |Estados Unidos |
 |Finlandia   |Japón   |     Polonia          
 
-El lanzamiento de los servicios de consultoría se realizará en la región geográfica específica. El primer lanzamiento se realizará en: Estados Unidos, Canadá, Reino Unido y Australia. Los catálogos para otros países empezarán a funcionar después de un número significativo y atractiva selección, de ofertas de servicio se han enviado por los asociados y aprobados por Microsoft.
+El lanzamiento de los servicios de consultoría se realizará en la región geográfica específica. El primer lanzamiento se realizará en: Estados Unidos, Canadá, Reino Unido y Australia. Los catálogos para otros países o regiones empezarán a funcionar una vez que los asociados hayan enviado un número significativo, y una atractiva selección, de ofertas de servicios, y Microsoft las haya aprobado.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Procedimientos para registrar los servicios de consultoría en Azure Marketplace y AppSource
 Empiece por [registrar](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) la información de su empresa en Marketplace. Los anunciantes pueden hacer referencia a [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos del registro. 
@@ -92,7 +92,7 @@ Antes del registro, puede empezar a recopilar y preparar el contenido que ayudar
 
 |Configuración para nuevos anunciantes  |
 |---------|
-|Id. de MPN     |
+|Identificador de MPN     |
 |Logotipos de compañía (48 x 48, 216 x 216)     |
 |Destino de clientes potenciales     |
 
@@ -117,7 +117,7 @@ Anunciar la oferta de servicio de consultoría en Azure Marketplace y AppSource 
 3. **Envío**: proporcione la información necesaria recogida en las instrucciones. Todo el contenido y material complementario deben enviarse en inglés. 
 4. **Revisión**: nuestro equipo de marketing y editorial revisa su envío y lo optimiza a fin de mejorar la legibilidad, la gramática y la eficacia. 
 5. **Almacenamiento provisional**: su envío se almacena de forma provisional para su revisión. 
-6. **Publicación**: una vez que usted y Microsoft estén satisfechos con el contenido del almacenamiento provisional, su anuncio estará listo para publicarse en Marketplace. La fecha de publicación de su anuncio depende el país o región que se especifica en la oferta. Si el catálogo para su país o región seleccionado ya está publicado en Azure Marketplace o AppSource, su anuncio aparecerá en unas pocas horas. De lo contrario, el anuncio aparecerá tan pronto como se publique el catálogo.
+6. **Publicación**: una vez que usted y Microsoft estén satisfechos con el contenido del almacenamiento provisional, su anuncio estará listo para publicarse en Marketplace. La fecha de publicación de su anuncio depende del país o región especificado en la oferta. Si el catálogo del país o región seleccionado ya está publicado en Azure Marketplace o AppSource, su anuncio aparecerá al cabo de unas horas. De lo contrario, el anuncio aparecerá tan pronto como se publique el catálogo.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Lista de ofertas y criterios de revisión de contenido
 Las ofertas deben incluirse en uno de los siguientes cinco tipos de servicios (puede indicar más de una): 
@@ -149,7 +149,7 @@ Ejemplos:
 
 Al revisar las descripciones y los resúmenes de las ofertas, el equipo seguirá los siguientes criterios:
 
-|Tipo de oferta  |Obligatorio |Recomendada  |
+|Tipo de oferta  |Obligatorio |Recomendado  |
 |---------|---------|---------|
 |**Valoración**    |   Incluir una agenda detallada para las evaluaciones de varios días o varias semanas y explicar lo que el cliente puede esperar      |    Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda     |
 |**Sesión informativa**    |   Explicar lo que el cliente puede esperar. Recuerde: La sesión informativa se debe ofrecer en persona. Si va a proporcionar un servicio virtual, elija un tipo de oferta diferente    |  Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda       |
@@ -166,7 +166,7 @@ En Cloud Partner Portal, puede aplicar formato al anuncio mediante [Markdown](ht
 * ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>espacio para el encabezado (p. ej.: ###(espacio)Agenda/Objetivos)
 * Salto de línea después del título
 * ** = negrita 
-* * Incluya el resumen de la oferta en cursiva
+* \* Incluya el resumen de la oferta en cursiva
 
 
 ## <a name="next-steps"></a>Pasos siguientes

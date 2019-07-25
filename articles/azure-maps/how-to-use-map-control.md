@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: aa923fa7e2d5e673e6a2db2b349e54d433d1817b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957277"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Uso del Control de mapa de Azure Maps
@@ -27,7 +27,7 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
 
 2. Cárguelo en el SDK web de Azure Maps. Esto se puede hacer mediante una de estas dos opciones.
 
-     a. Use la versión de CDN hospedada globalmente del SDK web de Azure Maps mediante la adición de los puntos de conexión de direcciones URL a las referencias de script y de hojas de estilo en el elemento `<head>` del archivo:
+    a. Use la versión de CDN hospedada globalmente del SDK web de Azure Maps mediante la adición de los puntos de conexión de direcciones URL a las referencias de script y de hojas de estilo en el elemento `<head>` del archivo:
 
     ```HTML
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
@@ -68,7 +68,7 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
     </body>
     ```
 
-5. Para inicializar el control de mapa, defina una nueva sección en el cuerpo HTML y cree un script. Pase el `id` del mapa `<div>` o un `HTMLElement` (por ejemplo, `document.getElementById('myMap')`) como primer parámetro al crear una instancia de la `Map` clase. Use su propia clave de cuenta de Azure Maps o las credenciales de Azure Active Directory (AAD) para autenticar el mapa mediante las [opciones de autenticación](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Si necesita crear una cuenta o buscar la clave, consulte [Cómo administrar su cuenta y claves de Azure Maps](how-to-manage-account-keys.md). La opción de **idioma** especifica el idioma que se usará para las etiquetas de mapa y los controles. Para información sobre los idiomas admitidos, consulte [Idiomas admitidos en Azure Maps](supported-languages.md). Si usa una clave de suscripción para la autenticación.
+5. Para inicializar el control de mapa, defina una nueva sección en el cuerpo HTML y cree un script. Pase el `id` del mapa `<div>` o un `HTMLElement` (por ejemplo, `document.getElementById('myMap')`) como primer parámetro al crear una instancia de la clase `Map`. Use su propia clave de cuenta de Azure Maps o las credenciales de Azure Active Directory (AAD) para autenticar el mapa mediante las [opciones de autenticación](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Si necesita crear una cuenta o buscar la clave, consulte [Cómo administrar su cuenta y claves de Azure Maps](how-to-manage-account-keys.md). La opción de **idioma** especifica el idioma que se usará para las etiquetas de mapa y los controles. Para información sobre los idiomas admitidos, consulte [Idiomas admitidos en Azure Maps](supported-languages.md). Si usa una clave de suscripción para la autenticación.
 
     ```HTML
     <script type="text/javascript">
@@ -102,7 +102,7 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
     </script>
     ```
 
-    Para obtener más información, consulte [autenticación con Azure Maps](azure-maps-authentication.md) para obtener más detalles.
+    Para obtener más información, consulte [Autenticación con Azure Maps](azure-maps-authentication.md) para obtener más detalles.
 
 6. Opcionalmente, puede que agregar los siguientes elementos de la etiqueta meta al encabezado de la página le resulte útil:
 
@@ -114,7 +114,7 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-7. Combinarlo todo el archivo HTML debe tener un aspecto similar al código siguiente:
+7. Si combina todo, el archivo HTML debería ser parecido al código siguiente:
 
     ```HTML
     <!DOCTYPE html>
@@ -164,9 +164,9 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
     </html>
     ```
 
-8. Abra el archivo en el explorador web y vea el mapa representado. Debe ser similar al código siguiente:
+8. Abra el archivo en el explorador web y vea el mapa representado. Debería ser similar al código siguiente:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="Uso del control de mapa" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consulte el Pen <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>cómo usar el control de mapa</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Uso del control de mapa" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consulte el Pen <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>How to use the map control</a> (Uso del control de mapa) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
 ## <a name="next-steps"></a>Pasos siguientes

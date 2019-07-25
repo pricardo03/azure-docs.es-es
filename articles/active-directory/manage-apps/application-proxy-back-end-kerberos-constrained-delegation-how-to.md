@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0cfaea53156b78fad024046bb6f55229f8ad6536
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236264"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas de las configuraciones de delegación restringida de Kerberos para el proxy de aplicación
@@ -177,7 +177,7 @@ Si aún no puede realizar ningún progreso, póngase en contacto con el servicio
 
 ## <a name="other-scenarios"></a>Otros escenarios
 
-- El proxy de aplicación de Azure solicita un vale de Kerberos antes de enviar su solicitud a una aplicación. Algunas aplicaciones de terceros no le gusta de este método de autenticación. Estas aplicaciones esperan que se lleven a cabo negociaciones más convencionales. La primera solicitud es anónima, lo que permite que la aplicación responda con los tipos de autenticación que admite mediante un error 401.
+- El proxy de aplicación de Azure solicita un vale de Kerberos antes de enviar su solicitud a una aplicación. Algunas aplicaciones de terceros no permiten este método de autenticación. Estas aplicaciones esperan que se lleven a cabo negociaciones más convencionales. La primera solicitud es anónima, lo que permite que la aplicación responda con los tipos de autenticación que admite mediante un error 401.
 
 - La autenticación de varios saltos se usa normalmente en escenarios con una aplicación en niveles y con un back-end y un front-end, los cuales requieren realizar una autenticación, como SQL Server Reporting Services. Para configurar el escenario de múltiples saltos, consulte el artículo de soporte técnico [Kerberos Constrained Delegation May Require Protocol Transition in Multi-hop Scenarios](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul) (La delegación restringida de Kerberos puede requerir una transición de protocolo en escenarios de varios saltos).
 

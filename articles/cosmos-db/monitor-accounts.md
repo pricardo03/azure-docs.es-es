@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 02bbde9a2d744c79cc8a7e95b0732b775c4dc695
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241621"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Supervisión de las métricas de rendimiento y almacenamiento en Azure Cosmos DB
@@ -50,7 +50,7 @@ Las métricas pueden revisarse en la página Cuenta, en la nueva página Métric
 ## <a name="set-up-alerts-in-the-portal"></a>Configuración de alertas en el portal
 1. En [Azure Portal](https://portal.azure.com/), haga clic en **Todos los servicios**, **Azure Cosmos DB** y en el nombre de la cuenta de Azure Cosmos DB para la que quiere configurar las alertas de las métricas de rendimiento.
 2. En el menú de recursos, haga clic en **Reglas de alerta** para abrir la página Reglas de alerta.  
-   ![Captura de pantalla de la parte de las reglas de alerta seleccionado](./media/monitor-accounts/madocdb10.5.png)
+   ![Captura de pantalla de la parte de reglas de alerta seleccionada](./media/monitor-accounts/madocdb10.5.png)
 3. En la página **Reglas de alerta**, haga clic en **Agregar alerta**.  
    ![Captura de pantalla de la página Reglas de alerta, con el botón Agregar alerta resaltado](./media/monitor-accounts/madocdb11.png)
 4. En la página **Agregar una regla de alerta**, especifique:
@@ -61,7 +61,7 @@ Las métricas pueden revisarse en la página Cuenta, en la nueva página Métric
    * La condición, el umbral y el período que determinan cuándo se activa la alerta. Por ejemplo, un número de errores de servidor mayor que cinco durante los últimos 15 minutos.
    * Si se envía un correo electrónico al administrador del servicio y a los coadministradores cuando la alerta de dispara.
    * Direcciones de correo electrónico adicionales para las notificaciones de alerta.  
-     ![Captura de pantalla de la adición de una página de la regla de alerta](./media/monitor-accounts/madocdb12.png)
+     ![Captura de pantalla de la página Agregar una regla de alerta](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Supervisión de Azure Cosmos DB mediante programación
 Las métricas de nivel de cuenta disponibles en el portal, como el uso de almacenamiento de cuenta y el total de solicitudes, no están disponibles mediante las API de SQL. Sin embargo, puede recuperar datos de uso en el nivel de colección mediante las API de SQL. Para recuperar datos de nivel de colección, haga lo siguiente:

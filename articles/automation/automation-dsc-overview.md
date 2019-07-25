@@ -11,10 +11,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235943"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Introducción a Azure Automation State Configuration
@@ -37,15 +37,15 @@ Desde Azure Portal o desde PowerShell, puede administrar todas las configuracion
 
 ![Captura de pantalla de la página de Azure Automation](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importar datos de informes en los registros de Azure Monitor
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importación de datos de informes en los registros de Azure Monitor
 
-Los nodos que se administran con Azure Automation State Configuration envían datos de informe de estado detallados al servidor de extracción integrado. Puede configurar Azure Automation State Configuration para que envíe estos datos a su área de trabajo de Log Analytics. Para obtener información sobre cómo enviar datos de estado de configuración de estado para el área de trabajo de Log Analytics, consulte [reenviar estado de configuración de Azure Automation datos del informe a los registros de Azure Monitor](automation-dsc-diagnostics.md).
+Los nodos que se administran con Azure Automation State Configuration envían datos de informe de estado detallados al servidor de extracción integrado. Puede configurar Azure Automation State Configuration para que envíe estos datos a su área de trabajo de Log Analytics. Para obtener información sobre cómo enviar datos de estado de State Configuration al área de trabajo de Log Analytics, consulte [Reenvío de datos de informes de Azure Automation State Configuration a los registros de Azure Monitor](automation-dsc-diagnostics.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Tenga en cuenta los siguientes requisitos cuando se usa la configuración de estado de Azure Automation (DSC).
+Tenga en cuenta los siguientes requisitos al usar Azure Automation State Configuration (DSC).
 
-### <a name="operating-system-requirements"></a>Requisitos del sistema operativo
+### <a name="operating-system-requirements"></a>Requisitos de sistema operativo
 
 Para nodos que ejecutan Windows, se admiten las siguientes versiones:
 
@@ -60,37 +60,37 @@ Para nodos que ejecutan Windows, se admiten las siguientes versiones:
 
 Para los nodos que ejecutan Linux, se admiten las siguientes versiones o distribuciones:
 
-La extensión DSC Linux es compatible con todas las distribuciones de Linux [aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) excepto:
+La extensión DSC de Linux admite todas las distribuciones de Linux [aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), excepto:
 
-Distribución | Version
+Distribución | Versión
 -|-
 Debian  | Todas las versiones
 Ubuntu  | 18,04
 
 ### <a name="dsc-requirements"></a>Requisitos de DSC
 
-Para todos los nodos de Windows que se ejecuta en Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) se instalará durante la incorporación.  Para nodos que ejecutan Windows Server 2012 y Windows 7, [WinRM se habilitarán](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Para todos los nodos de Windows que se ejecutan en Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) se instalará durante la incorporación.  Para nodos que ejecutan Windows Server 2012 y Windows 7, [se habilitará WinRM](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
-Para todos los nodos de Linux que se ejecuta en Azure, [PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) se instalará durante la incorporación.
+Para todos los nodos de Linux que se ejecutan en Azure, [PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) se instalará durante la incorporación.
 
-### <a name="network-planning"></a>Configurar las redes privadas
+### <a name="network-planning"></a>Configuración de redes privadas
 
-Si los nodos se encuentran en una red privada, los siguientes puertos y direcciones URL son necesarias para estado Configuration (DSC) para comunicarse con Automation:
+Si los nodos se encuentran en una red privada, los siguientes puertos y direcciones URL son necesarias para que State Configuration (DSC) se comunique con Automation:
 
 * Puerto: solo se requiere el puerto TCP 443 para el acceso a Internet.
 * URL global: *.azure-automation.net
 * Direcciones URL globales de US Gov Virginia: *.azure-automation.us
 * Servicio de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-#### <a name="proxy-support"></a>Compatibilidad con servidores proxy
+#### <a name="proxy-support"></a>Compatibilidad con proxy
 
-Compatibilidad con el proxy para el agente DSC está disponible en Windows 1809 y versiones posteriores.
-Para configurar esta opción, establezca el valor de **ProxyURL** y **ProxyCredential** en el [metaconfiguración script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) usa para registrar los nodos.
-Proxy no está disponible en DSC para versiones anteriores de Windows.
+La compatibilidad con proxy para el agente DSC está disponible en Windows, versión 1809 y posteriores.
+Para configurar esta opción, establezca el valor de **ProxyURL** y **ProxyCredential** en el [script de metaconfiguración](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) que se usa para registrar los nodos.
+El proxy no está disponible en DSC para versiones anteriores de Windows.
 
-Para los nodos de Linux, el agente de DSC es compatible con proxy y utilizará la variable http_proxy para determinar la dirección url.
+Para los nodos de Linux, el agente de DSC admite proxy y utilizará la variable http_proxy para determinar la dirección URL.
 
-#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Espacio de nombres e intervalos de red de configuración de estado de azure
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Rangos y espacios de nombre de red de Azure State Configuration
 
 Se recomienda utilizar las direcciones mostradas al definir las excepciones. Puede descargar los [intervalos de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Este archivo se actualiza semanalmente y tiene los intervalos implementados en ese momento y los próximos cambios en los intervalos de direcciones IP.
 

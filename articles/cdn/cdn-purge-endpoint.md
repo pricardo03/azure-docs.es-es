@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
 ms.openlocfilehash: 94d9fb0878458f3de0a64fac57af4a70e1875112
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65909688"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgar un punto de conexión de Azure CDN
@@ -52,7 +52,7 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
    > 
    > 
 4. Seleccione los activos que quiera purgar de los nodos perimetrales.  Si quiere borrar todos los recursos, haga clic en la casilla **Purgar todo** .  De lo contrario, escriba la ruta de acceso completa de cada recurso que quiera purgar en el cuadro de texto **Ruta de acceso**. Los siguientes formatos se pueden usar en las rutas de acceso.
-    1. **Purga con una sola URL**: Purgue el recurso individual especificando la dirección URL completa, con o sin la extensión de archivo, por ejemplo,`/pictures/strasbourg.png`; `/pictures/strasbourg`
+    1. **Purga con una sola URL**: purgue recursos concretos especificando la URL completa, con o sin la extensión de archivo; por ejemplo,`/pictures/strasbourg.png`; `/pictures/strasbourg`.
     2. **Purga con carácter comodín**: se puede usar el asterisco (\*) como carácter comodín. Purgue todas las carpetas, subcarpetas y archivos de un punto de conexión con `/*` en la ruta de acceso o todas las subcarpetas y archivos de una carpeta concreta especificando la carpeta seguido de `/*`; por ejemplo, `/pictures/*`.  Tenga en cuenta que, en estos momentos, la purga de carácter comodín no es compatible con Azure CDN de Akamai. 
     3. **Purga de dominio raíz**: purgue la raíz del punto de conexión con "/" en la ruta de acceso.
    
@@ -69,11 +69,11 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
     ![Botón Purgar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Las solicitudes de purga tardan aproximadamente 2 minutos en procesarse con **Azure CDN de Microsoft** y **Azure CDN de Verizon** (estándar y premium) y unos 10 segundos con **CDN de Azure de Akamai**.  Azure CDN tiene un límite de 50 solicitudes de purga simultáneas en un momento dado en el nivel de perfil. 
+> Las solicitudes de purga tardan aproximadamente dos minutos en procesarse con **Azure CDN de Microsoft** y **Azure CDN de Verizon** (estándar y prémium), y unos 10 segundos con **Azure CDN de Akamai**.  Azure CDN tiene un límite de 50 solicitudes de purga simultáneas en un momento dado en el nivel de perfil. 
 > 
 > 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Carga previa de activos en un punto de conexión de Azure CDN](cdn-preload-endpoint.md)
 * [Referencia de la API REST de Azure CDN - purgar o cargar previamente un punto de conexión](/rest/api/cdn/endpoints)
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: b015b52e3fc806834f12e98c30b6b4e53cb6d659
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: d9390323a5a1af7a5b8ef1a3d0b5f87c27a42c7c
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/14/2019
 ms.locfileid: "64726253"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creación de una VM de Windows desde un disco especializado mediante PowerShell
@@ -205,7 +205,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Para usar esta instantánea para crear una máquina virtual que debe ser de alto rendimiento, agregue el parámetro `-AccountType Premium_LRS` para el comando New-AzSnapshotConfig. Este parámetro crea la instantánea para que se almacene como disco administrado Prémium. Los discos administrados Prémium son más caros que los Estándar, así que asegúrese de que necesita Prémium antes de usar este parámetro.
+Para usar esta instantánea para crear una VM que precisa de un alto rendimiento, agregue el parámetro `-AccountType Premium_LRS` al comando New-AzSnapshotConfig. Este parámetro crea la instantánea para que se almacene como disco administrado Prémium. Los discos administrados Prémium son más caros que los Estándar, así que asegúrese de que necesita Prémium antes de usar este parámetro.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Creación de un disco a partir de la instantánea
 

@@ -1,11 +1,11 @@
 ---
 title: Escalado y hospedaje de Azure Functions | Microsoft Docs
-description: Obtenga información sobre cómo elegir entre el plan de consumo de Azure Functions y Premium.
+description: Aprenda a elegir entre el plan de consumo de Azure Functions y el plan Prémium.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: Azure functions, funciones, plan de consumo, plan premium, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
+keywords: azure functions, functions, plan de consumo, plan prémium, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
@@ -13,93 +13,114 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05fb277564f72e62a4cdacc12a16cce229b2befc
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.openlocfilehash: 3253cc7e379ae63880d533f14bc76e7af5a4425a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872737"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050558"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
-Las funciones de Azure se ejecuta en dos planes distintos: Plan de consumo y plan Premium (versión preliminar pública). El plan de consumo agrega automáticamente la capacidad de proceso cuando se ejecuta el código. La aplicación se escala horizontalmente cuando es necesario para administrar la carga y reducir verticalmente cuando se detiene la ejecución de código. No tiene que pagar por VM inactivas ni reservar capacidad de antemano.  El plan Premium también automáticamente escalar y agregar capacidad de proceso adicional cuando se ejecuta el código.  El plan Premium incluye características adicionales, como instancias de proceso premium, la capacidad de conservar las instancias semiactiva indefinidamente y conectividad de red virtual.  Si tiene un Plan de App Service, también puede ejecutar las aplicaciones de función dentro de ellos.
+Cuando crea una aplicación de funciones en Azure, debe elegir un plan de hospedaje para su aplicación. Hay tres planes de hospedaje disponibles para Azure Functions: [Plan de consumo](#consumption-plan), [plan Prémium](#premium-plan) y [plan de App Service](#app-service-plan).
 
-> [!NOTE]  
-> Ambos [plan Premium](https://aka.ms/functions-premiumplan) y [plan de consumo para Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) están actualmente en versión preliminar.
+El plan de hospedaje que elija determina los comportamientos siguientes:
 
-Si todavía no está familiarizado con Azure Functions, vea la [Información general sobre Azure Functions](functions-overview.md).
+* Cómo se escala la aplicación de funciones.
+* Los recursos disponibles para cada instancia de aplicación de funciones.
+* Compatibilidad con características avanzadas, como la conectividad de red virtual.
 
-Cuando crea una aplicación de función, elige un plan de hospedaje para las funciones en la aplicación. En ambos planes, las funciones se ejecutan en una instancia del *host de Azure Functions*. El tipo de plan controla:
+Los planes de consumo y Prémium agregan automáticamente la capacidad de proceso cuando se ejecuta su código. La aplicación se escala horizontalmente cuando es necesario para administrar la carga, y se reduce verticalmente cuando el código se deja de ejecutar. En el caso del plan de consumo, tampoco tiene que pagar para las VM inactivas ni la capacidad reservada de antemano.  
 
-* Cómo se escalan horizontalmente las instancias de host.
-* Los recursos que están disponibles para cada host.
-* Características de instancia como conectividad de red virtual.
+El plan Prémium proporciona características adicionales, como instancias de proceso prémium, la capacidad de conservar las instancias semiactivas indefinidamente y la conectividad de red virtual.
+
+El plan de App Service le permite aprovechar la infraestructura dedicada que administra. Su aplicación de funciones no se escala en función de los eventos, lo que significa que nunca se reduce verticalmente a cero. (Requiere que la configuración [Always On](#always-on) está habilitada).
 
 > [!NOTE]
-> Puede cambiar entre los planes de consumo y Premium cambiando la propiedad del plan del recurso de aplicación de función.
+> Para cambiar entre los planes de consumo y Prémium, modifique la propiedad del plan del recurso de la aplicación de funciones.
+
+## <a name="hosting-plan-support"></a>SKU del plan de hospedaje
+
+La compatibilidad con las características se divide en las dos categorías siguientes:
+
+* _Disponibilidad general (GA)_ : significa que es totalmente compatible y está aprobada para su uso en producción.
+* _Versión preliminar_: significa que aún no es totalmente compatible ni está aprobada para su uso en producción.
+
+En la tabla siguiente se indica el nivel actual de la compatibilidad con los tres planes de hospedaje, cuando se usa Windows o Linux:
+
+| | Plan de consumo | Plan Premium | Plan dedicado |
+|-|:----------------:|:------------:|:----------------:|
+| Windows | GA | Vista previa | GA |
+| Linux | Vista previa | N/D | GA |
 
 ## <a name="consumption-plan"></a>Plan de consumo
 
-Cuando se usa el plan de consumo, las instancias del host de Azure Functions se agregan dinámicamente y se quitan en función del número de eventos de entrada. Este plan sin servidor se escala automáticamente y solo se le cobra por los recursos de proceso cuando se ejecutan las funciones. En un plan de consumo, se agota el tiempo de espera de una ejecución de función tras un período de tiempo configurable.
+Cuando se usa el plan de consumo, las instancias del host de Azure Functions se agregan y quitan de forma dinámica según el número de eventos entrantes. Este plan sin servidor se escala automáticamente y solo se le cobra por los recursos de proceso cuando se ejecutan las funciones. En un plan de consumo, se agota el tiempo de espera de una ejecución de función tras un período de tiempo configurable.
 
-La facturación se basa en el número de ejecuciones, el tiempo de ejecución y el uso de la memoria. La facturación es un agregado de todas las funciones dentro de la aplicación de función. Para más información, consulte la [página de precios de Azure Functions].
+La facturación se basa en el número de ejecuciones, el tiempo de ejecución y el uso de la memoria. La facturación es un agregado de todas las funciones dentro de la aplicación de función. Para más información, consulte la [página de precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 El plan de consumo es el plan de hospedaje predeterminado y ofrece las siguientes ventajas:
 
-* Pague solo cuando se ejecutan las funciones.
-* Escale horizontalmente de forma automática, incluso durante períodos de gran carga.
+* Pague solo cuando se ejecutan las funciones
+* Escale horizontalmente de forma automática, incluso durante períodos de gran carga
 
-## <a name="premium-plan-public-preview"></a>Plan Premium (versión preliminar)
+Las aplicaciones de funciones de la misma región se pueden asignar al mismo plan de consumo. No hay ningún inconveniente ni problema en el hecho de tener varias aplicaciones ejecutándose en el mismo plan de consumo. La asignación de varias aplicaciones al mismo plan de consumo no tiene ningún impacto en la resistencia, la escalabilidad o la confiabilidad de cada aplicación.
 
-Cuando se usa el plan Premium, las instancias del host de Azure Functions se agregan rápidamente y se quitan en función del número de eventos de entrada al igual que el plan de consumo.  Sin embargo, el plan Premium también ofrece:
+## <a name="premium-plan"></a>Plan Prémium (versión preliminar)
 
-* Instancias siempre activos para evitar cualquier inicio en frío.
-* Conectividad de red virtual.
-* Duración de ejecución ilimitado.
-* Tamaños de instancia Premium (un núcleo, cuatro instancias de núcleo y dos núcleos).
-* Opciones de precios de predicción.
-* Asignación de aplicación de alta densidad para los planes con varias aplicaciones de función.
+Cuando se usa el plan Prémium, las instancias del host de Azure Functions se agregan y quitan según el número de eventos entrantes al igual que con el plan de consumo.  El plan Prémium admite las características siguientes:
 
-Puede encontrar información sobre cómo configurar estas opciones en el [plan premium de Azure Functions](functions-premium-plan.md).
+* Instancias permanentemente semiactivas para evitar cualquier inicio en frío
+* Conectividad de red virtual
+* Duración de la ejecución ilimitada
+* Tamaños de la instancia Prémium (un núcleo, dos núcleos y cuatro instancias de núcleo)
+* Precios más previsibles
+* Asignación de aplicaciones de alta densidad para planes con varias aplicaciones de funciones
 
-En lugar de facturación por ejecución y memoria utilizada, la facturación se basa en el número de núcleos por segundo y GB-segundos usar entre las instancias reservadas y necesarias.  Al menos una instancia es necesaria que sea caliente en todo momento, existe un costo mensual fijo por plan que está activo (independientemente del número de ejecuciones).
+Puede encontrar información sobre cómo configurar estas opciones en el [documento del plan prémium de Azure Functions](functions-premium-plan.md).
 
-Tenga en cuenta el plan premium de Azure Functions en los casos siguientes:
-* La aplicación de función se ejecuta de forma continua, o casi continua. En este caso, un plan de App Service puede ser más rentable.
-* Necesita más opciones de CPU o memoria que las que proporciona el plan de consumo.
-* El código necesita ejecuciones que superan el [tiempo de ejecución máximo permitido](#timeout) en el plan de consumo.
-* Necesita características que solo están disponibles en un plan de App Service, como la compatibilidad con el entorno de App Service, la conectividad VNET/VPN y mayores tamaños de máquina virtual.
+En lugar de la facturación por ejecución y la memoria consumida, la facturación del plan Prémium se basa en la cantidad de núcleos por segundo, el tiempo de ejecución y la memoria utilizada en las instancias necesarias y reservadas.  Al menos debe haber una instancia semiactiva en todo momento. Esto significa que hay un costo mensual fijo por plan activo, independientemente del número de ejecuciones.
+
+Considere la posibilidad de elegir el plan Prémium de Azure Functions en las siguientes situaciones:
+
+* La aplicación de función se ejecuta de forma continua, o casi continua.
+* Necesita más opciones de CPU o memoria de las que proporciona el plan de consumo.
+* Su código debe ejecutarse durante más tiempo del [máximo permitido](#timeout) en el plan de consumo.
+* Necesita características que solo están disponibles en un plan Prémium, como conectividad de red virtual o VPN.
 
 > [!NOTE]
-> La vista previa del plan premium admite actualmente las funciones que se ejecutan en. NET, nodo o Java a través de la infraestructura de Windows.
+> Actualmente, la versión preliminar del plan Prémium solo admite Azure Functions en Windows.
 
-Al ejecutar las funciones de JavaScript en un plan Premium, debe elegir una instancia con menos vCPU. Para obtener más información, consulte el [elija los planes Premium de núcleo único](functions-reference-node.md#considerations-for-javascript-functions).  
+Al ejecutar las funciones de JavaScript en un plan Prémium, debe elegir una instancia que tenga menos vCPU. Para obtener más información, consulte [Elección de los planes de App Service de un solo núcleo](functions-reference-node.md#considerations-for-javascript-functions).  
 
-## <a name="app-service-plan"></a>Plan del servicio de aplicaciones
+## <a name="app-service-plan"></a>Plan dedicado (App Service)
 
-También pueden ejecutar las aplicaciones de función en las mismas de máquinas virtuales dedicadas como otras aplicaciones de App Service (Basic, Standard, Premium y las SKU aisladas). Los planes de App Service admiten Linux.
+Sus aplicaciones de funciones también pueden ejecutarse en las mismas máquinas virtuales dedicadas que otras aplicaciones de App Service (SKU básica, estándar, prémium y aislada).
 
-Considere el plan de App Service en los casos siguientes:
+Considere el plan de App Service en las situaciones siguientes:
 
 * Tiene máquinas virtuales infrautilizadas que ya ejecutan otras instancias de App Service.
-* Quiere ejecutar la aplicación de función en Linux o quiere proporcionar una imagen personalizada en la cual ejecutar las funciones.
+* Quiere proporcionar una imagen personalizada en la que ejecutar sus funciones.
 
-Se paga el mismo para las aplicaciones de función en un Plan de App Service como lo haría para otros recursos de App Service, como aplicaciones web. Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/overview-hosting-plans.md). 
+Paga lo mismo por las aplicaciones de funciones en un plan de App Service que por otros recursos de App Service, como las aplicaciones web. Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/overview-hosting-plans.md).
 
-Con un plan de App Service, se puede escalar horizontalmente de forma manual mediante la incorporación de más instancias de máquina virtual o se puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). También puede escalar verticalmente eligiendo un plan de App Service diferente. Vea [Escalado vertical de aplicaciones en Azure](../app-service/web-sites-scale.md) para obtener más información. 
+Con un plan de App Service, para escalar horizontalmente de forma manual, puede agregar más instancias de máquina virtual. También puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). También puede escalar verticalmente eligiendo un plan de App Service diferente. Vea [Escalado vertical de aplicaciones en Azure](../app-service/web-sites-scale.md) para obtener más información. 
 
-Al ejecutar funciones de JavaScript en un plan de App Service, debe elegir un plan con menos vCPU. Para obtener más información, consulte [elija planes de App Service solo núcleo](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
+Al ejecutar funciones de JavaScript en un plan de App Service, debe elegir un plan con menos vCPU. Para obtener más información, consulte [Elección de los planes de App Service de un solo núcleo](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-### <a name="always-on"></a> Siempre activado
+### <a name="always-on"></a> Always On
 
 Si se ejecuta en un plan de App Service, debe habilitar la configuración **Always On** para que la aplicación de función se ejecute correctamente. En un plan de App Service, el tiempo de ejecución de las funciones queda inactivo después de unos minutos de inactividad, por lo que solo los desencadenadores HTTP podrán "reactivar" las funciones. Always On solo está disponible en un plan de App Service. En un plan de consumo, la plataforma activa automáticamente las aplicaciones de función.
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
-## <a name="what-is-my-hosting-plan"></a>¿Cuál es mi plan de hospedaje?
 
-Para determinar el plan de hospedaje utilizado por la aplicación de función, consulte **Plan de App Service/plan de tarifa** en la pestaña **Introducción** para la aplicación de función en [Azure Portal](https://portal.azure.com). Los planes de App Service, también se indica el plan de tarifa. 
+Incluso con Always On habilitado, el tiempo de espera de ejecución para las funciones individuales se controla mediante la opción `functionTimeout` en el archivo de proyecto [host.json](functions-host-json.md#functiontimeout).
+
+## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Determinación del plan de hospedaje de una aplicación existente
+
+Para determinar el plan de hospedaje utilizado por la aplicación de función, consulte **Plan de App Service/plan de tarifa** en la pestaña **Introducción** para la aplicación de función en [Azure Portal](https://portal.azure.com). Los planes de App Service, también se indica el plan de tarifa.
 
 ![Vista del plan de escalado en el portal](./media/functions-scale/function-app-overview-portal.png)
 
@@ -110,42 +131,40 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-Cuando el resultado de este comando es `dynamic`, la aplicación de función está en el plan de consumo. Cuando el resultado de este comando es `ElasticPremium`, la aplicación de función está en el plan Premium.  Todos los demás valores indican los niveles de un plan de App Service.
-
-Incluso con Always On habilitado, el tiempo de espera de ejecución para las funciones individuales se controla mediante la opción `functionTimeout` en el archivo de proyecto [host.json](functions-host-json.md#functiontimeout).
+Cuando el resultado de este comando es `dynamic`, la aplicación de función está en el plan de consumo. Cuando la salida de este comando es `ElasticPremium`, su aplicación de funciones está en el plan Prémium. Todos los demás valores indican los distintos niveles de un plan de App Service.
 
 ## <a name="storage-account-requirements"></a>Requisitos de la cuenta de almacenamiento
 
-En cualquier plan, una aplicación de función requiere una cuenta de Azure Storage general que admite el almacenamiento de Azure Blob, cola, tabla y archivos. Esto es porque las funciones basan en el almacenamiento de Azure para operaciones como la administración de desencadenadores y las ejecuciones de la función de registro, pero algunas cuentas de almacenamiento no admiten las colas y tablas. Estas cuentas, que incluyen las cuentas de almacenamiento solo para blobs (incluido almacenamiento Premium) y las cuentas de almacenamiento de uso general con replicación de almacenamiento con redundancia de zona, se filtran horizontalmente de las selecciones de **Cuenta de almacenamiento** existentes cuando se crea una aplicación de función.
+En cualquier plan, una aplicación de funciones requiere una cuenta de Azure Storage general que admita almacenamiento de Azure en blobs, colas, archivos y tablas. Esto se debe a que Functions se basa en Azure Storage para operaciones como la administración de desencadenadores y el registro de las ejecuciones de funciones, pero algunas cuentas de almacenamiento no admiten colas y tablas. Estas cuentas, que incluyen las cuentas de almacenamiento solo para blobs (incluido almacenamiento Premium) y las cuentas de almacenamiento de uso general con replicación de almacenamiento con redundancia de zona, se filtran horizontalmente de las selecciones de **Cuenta de almacenamiento** existentes cuando se crea una aplicación de función.
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 Para obtener más información sobre los tipos de cuenta de almacenamiento, vea [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#azure-storage-services).
 
-## <a name="how-the-consumption-and-premium-plans-work"></a>Cómo funcionan los planes de consumo y premium
+## <a name="how-the-consumption-and-premium-plans-work"></a>Cómo funcionan los planes de consumo y Prémium
 
-En el consumo y los planes premium, el controlador de escalado escala automáticamente recursos de CPU y memoria mediante la adición de instancias adicionales de lo host de Functions, en función del número de eventos desencadenados por sus funciones. Cada instancia del host de funciones en el plan de consumo se limita a 1,5 GB de memoria y 1 CPU.  Una instancia del host es la aplicación de función completa, lo que significa que todas las funciones dentro de un recurso compartido de aplicación de función en una instancia y escala al mismo tiempo. Aplicaciones de función que comparten el mismo plan de consumo se escalan de forma independiente.  En el plan premium, el tamaño de plan determinará la memoria disponible y la CPU para todas las aplicaciones de ese plan en esa instancia.  
+En los planes de consumo y Prémium, la infraestructura de Azure Functions escala automáticamente los recursos de CPU y memoria. Para ello, agrega instancias adicionales del host de Functions, según el número de eventos en los que se desencadenan sus funciones. Cada instancia del host de Functions del plan de consumo tiene una limitación de 1,5 GB de memoria y una CPU.  Una instancia del host es la aplicación de funciones completa, lo que significa que todas las funciones de una aplicación de funciones comparten recursos al mismo tiempo en una instancia y escala determinadas. Las aplicaciones de funciones que comparten el mismo plan de consumo se escalan de manera independiente.  En el plan Prémium, el tamaño de plan determinará la memoria disponible y la CPU para todas las aplicaciones de ese plan en esa instancia.  
 
-Los archivos de código de función se almacenan en recursos compartidos de archivos de Azure en la cuenta de almacenamiento principal de la función. Al eliminarse la cuenta de almacenamiento principal de la aplicación de función, los archivos de código de función también se eliminan y no se pueden recuperar.
+Los archivos de código de función se almacenan en recursos compartidos de Azure Files en la cuenta de almacenamiento principal de la función. Al eliminarse la cuenta de almacenamiento principal de la aplicación de función, los archivos de código de función también se eliminan y no se pueden recuperar.
 
 > [!NOTE]
-> Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs. Este retraso se produce cuando una aplicación de función ha quedado inactiva. Después de que se ejecute la aplicación de función, los blobs se procesan inmediatamente. Para evitar este retraso de inicio en frío, use el plan Premium, o usar el [desencadenador de Event Grid](functions-bindings-event-grid.md). Para más información, consulte [el artículo de referencia sobre los enlaces del desencadenador de blob](functions-bindings-storage-blob.md#trigger).
+> Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs. Este retraso se produce cuando una aplicación de función ha quedado inactiva. Después de que se ejecute la aplicación de función, los blobs se procesan inmediatamente. Para evitar este retraso de inicio en frío, use el plan Prémium o el [desencadenador de Event Grid](functions-bindings-event-grid.md). Para más información, consulte [el artículo de referencia sobre los enlaces del desencadenador de blob](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Escalado del entorno de tiempo de ejecución
 
 Azure Functions usa un componente denominado *controlador de escala* para supervisar la tasa de eventos y determinar si se debe escalar o reducir horizontalmente. El controlador de escala usa la heurística para cada tipo de desencadenador. Por ejemplo, al usar un desencadenador de Azure Queue Storage, se escala en función de la longitud de la cola y la antigüedad del mensaje más antiguo de la cola.
 
-La unidad de escalado es la aplicación de función. Al escalar horizontalmente la aplicación de función, se asignan recursos adicionales para ejecutar varias instancias del host de Azure Functions. Por el contrario, si la demanda se reduce, el controlador de escala elimina instancias del host de la función. El número de instancias se reduce verticalmente hasta cero cuando no se ejecuta ninguna función en la aplicación de función.
+La unidad de escala de Azure Functions es la aplicación de funciones. Al escalar horizontalmente la aplicación de función, se asignan recursos adicionales para ejecutar varias instancias del host de Azure Functions. Por el contrario, si la demanda se reduce, el controlador de escala elimina instancias del host de la función. El número de instancias se reduce verticalmente hasta cero cuando no se ejecuta ninguna función en la aplicación de función.
 
 ![Controlador de escala que supervisa los eventos y la creación de instancias](./media/functions-scale/central-listener.png)
 
 ### <a name="understanding-scaling-behaviors"></a>Descripción de los comportamientos de escalado
 
-El escalado puede variar en función de varios factores, y realizarse de forma diferente según el desencadenador y el idioma seleccionados. No obstante, hay algunos aspectos del escalado que existen actualmente en el sistema:
+El escalado puede variar en función de varios factores, y realizarse de forma diferente según el desencadenador y el idioma seleccionados. Hay algunas complejidades de los comportamientos del escalado que hay que tener en cuenta:
 
 * Una aplicación de función única solo se escala verticalmente hasta un máximo de 200 instancias. Una única instancia puede procesar más de un mensaje o solicitud a la vez, por lo que no hay un límite establecido en el número de ejecuciones simultáneas.
-* Para los desencadenadores HTTP, nuevas instancias solo se asignarán a lo sumo una vez cada segundo.
-* Para los desencadenadores que no son HTTP, nuevas instancias solo se asignarán a lo sumo una vez cada 30 segundos.
+* En el caso de los desencadenadores HTTP, solo se asignarán nuevas instancias como máximo una vez cada segundo.
+* Para los desencadenadores que no son HTTP, solo se asignarán nuevas instancias como máximo una vez cada 30 segundos.
 
 Diferentes desencadenadores pueden también tener distintos límites de escalado como se describe a continuación:
 
@@ -157,17 +176,17 @@ Hay muchos aspectos de una aplicación de función que afectarán a cómo se esc
 
 ### <a name="billing-model"></a>Modelo de facturación
 
-La facturación del plan de consumo se describe de manera detallada en la [página de precios de Azure Functions]. El uso se agrega en el nivel de la aplicación de función, y solo se cuenta el tiempo que el código de la función está en ejecución. Estas son las unidades de facturación:
+La facturación de los diferentes planes se describe en detalle en la [página de precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/). El uso se agrega en el nivel de la aplicación de función, y solo se cuenta el tiempo que el código de la función está en ejecución. Estas son las unidades de facturación:
 
-* **Consumo de recursos en gigabytes-segundo (GB-s)**. Se calcula como una combinación del tamaño de la memoria y el tiempo de ejecución de todas las funciones de una aplicación de función. 
+* **Consumo de recursos en gigabytes-segundo (GB-s)** . Se calcula como una combinación del tamaño de la memoria y el tiempo de ejecución de todas las funciones de una aplicación de función. 
 * **Ejecuciones**. Se cuenta cada vez que se ejecuta una función en respuesta a un desencadenador de eventos.
 
-Puede encontrar consultas útiles y obtener información sobre cómo comprender la factura de consumo [en las preguntas más frecuentes de facturación](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
+Puede encontrar consultas útiles y obtener información sobre cómo comprender la factura de consumo [en las P+F sobre facturación](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
-[Página de precios de Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[Azure Functions pricing page]: https://azure.microsoft.com/pricing/details/functions
 
 ## <a name="service-limits"></a>Límites de servicio
 
-En la tabla siguiente indica los límites que se aplican a las aplicaciones de función cuando se ejecuta en los diversos planes de hospedaje:
+En la tabla siguiente se indican los límites que se aplican a las aplicaciones de funciones cuando se ejecutan en los distintos planes de hospedaje:
 
 [!INCLUDE [functions-limits](../../includes/functions-limits.md)]

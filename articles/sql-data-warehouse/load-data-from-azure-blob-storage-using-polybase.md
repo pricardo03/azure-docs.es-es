@@ -11,10 +11,10 @@ ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242959"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse
@@ -67,7 +67,7 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 
 4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
 
-    | Configuración | Valor sugerido | Description | 
+    | Configuración | Valor sugerido | DESCRIPCIÓN | 
     | ------- | --------------- | ----------- |
     | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
@@ -80,7 +80,7 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 
 6. Haga clic en **Nivel de rendimiento** para especificar si el almacenamiento de datos es Gen1 o Gen2 y especificar el número de unidades de almacenamiento de datos. 
 
-7. Para este tutorial, seleccione **Gen2** de SQL Data Warehouse. El control deslizante se establece en **DW1000c** de forma predeterminada.  Intente moverlo hacia arriba y hacia abajo para ver cómo funciona. 
+7. En este tutorial, seleccione el nivel **Gen2** de SQL Data Warehouse. El control deslizante se establece de forma predeterminada en **DW1000c**.  Intente moverlo hacia arriba y hacia abajo para ver cómo funciona. 
 
     ![configuración del rendimiento](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -151,8 +151,8 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
     | Nombre de servidor | Nombre completo del servidor | Este nombre debería parecerse al siguiente: **mynewserver-20180430.database.windows.net**. |
     | Authentication | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
-    | Inicio de sesión | La cuenta de administrador del servidor | Se trata de la cuenta que especificó cuando creó el servidor. |
-    | Contraseña | Contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
+    | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
+    | Contraseña | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 
     ![conectar con el servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
@@ -561,8 +561,8 @@ El script utiliza la instrucción de T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/
 
     ![Visualización de tablas cargadas](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autenticarse con identidades administradas de carga (opcional)
-Cargar con PolyBase y autentican a través de las identidades administradas es el mecanismo más seguro y le permite aprovechar los puntos de conexión de servicio de red virtual con almacenamiento de Azure. 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autenticación con identidades administradas para cargar (opcional)
+La carga con PolyBase y la autenticación mediante identidades administradas es el mecanismo más seguro y le permite aprovechar los puntos de conexión de servicio de red virtual con almacenamiento de Azure. 
 
 ### <a name="prerequisites"></a>Requisitos previos
 1.  Instale Azure PowerShell mediante esta [guía](https://docs.microsoft.com/powershell/azure/install-az-ps).
@@ -583,27 +583,27 @@ Cargar con PolyBase y autentican a través de las identidades administradas es e
    > [!NOTE]
    > - Si tiene una cuenta de uso general v1 o de Blob Storage, **primero debe actualizar a Uso general v2** mediante esta [guía](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     
-1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y haga clic en **Agregar asignación de roles**. Asignar **colaborador de datos de almacenamiento Blob** rol RBAC a su servidor de base de datos SQL.
+1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y haga clic en **Agregar asignación de roles**. Asigne el rol RBAC **Colaborador de datos de Storage Blob** al servidor de SQL Database.
 
    > [!NOTE] 
    > Solo los miembros con el privilegio Propietario pueden realizar este paso. Para obtener los distintos roles integrados para los recursos de Azure, consulte esta [guía](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Conectividad de PolyBase a la cuenta de Azure Storage:**
     
-   1. Crear la credencial con ámbito de base de datos con **IDENTITY = 'Managed Service Identity'** :
+   1. Cree la credencial con ámbito de base de datos con **IDENTITY = "Managed Service Identity"** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
        ```
        > [!NOTE] 
        > - No es necesario especificar SECRET con la clave de acceso de Azure Storage porque este mecanismo usa la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) en segundo plano.
-       > - Nombre de identidad debe ser **'Managed Service Identity'** para la conectividad de PolyBase trabajar con la cuenta de almacenamiento de Azure.
+       > - El nombre de IDENTITY debe ser **"Managed Service Identity"** para que la conectividad de PolyBase funcione con la cuenta de Azure Storage.
     
-   1. Crear el origen de datos externo especifica la credencial de ámbito de base de datos con Managed Service Identity.
+   1. Cree el origen de datos externo mediante la especificación de la credencial con ámbito de base de datos con Managed Service Identity.
         
    1. Realice una consulta normal con las [tablas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-Consulte las siguientes [documentación] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) si desea configurar los puntos de conexión de servicio de red virtual para SQL Data Warehouse. 
+Si quiere configurar los puntos de conexión de servicio de red virtual para SQL Data Warehouse, consulte la siguiente [documentación] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ). 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -640,7 +640,7 @@ Hizo todo esto:
 > * Vio el progreso de los datos a medida que se cargaban
 > * Creó estadísticas de los datos recién cargados
 
-Vaya a la información general de desarrollo para obtener información sobre cómo migrar una base de datos a SQL Data Warehouse.
+Avance a la introducción al desarrollo para obtener información sobre cómo migrar una base de datos existente a SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Decisiones de diseño para migrar una base de datos a SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Decisiones de diseño y técnicas de codificación para SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)

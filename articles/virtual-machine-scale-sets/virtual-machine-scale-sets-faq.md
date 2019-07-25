@@ -17,10 +17,10 @@ ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
 ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258284"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
@@ -134,7 +134,7 @@ Para configurar el escalado automático en un conjunto de escalado de máquinas 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>¿Si he detenido (desasignado) una máquina virtual, esa máquina virtual se inicia como parte de una operación de escalado automático?
 
- No. Si las reglas de escalado automático requieren instancias adicionales de máquina virtual como parte de un conjunto de escalado, se crea una nueva instancia de máquina virtual. Las instancias de máquina virtual detenidas (desasignadas) no se inician como parte de un evento de escalado automático. Sin embargo, es posible que esas máquinas virtuales detenidas (desasignadas) se eliminen como parte de un evento de escalado automático que escala en el número de instancias, del mismo modo que se puede eliminar cualquier instancia de máquina virtual según el orden del identificador de instancia de máquina virtual.
+No. Si las reglas de escalado automático requieren instancias adicionales de máquina virtual como parte de un conjunto de escalado, se crea una nueva instancia de máquina virtual. Las instancias de máquina virtual detenidas (desasignadas) no se inician como parte de un evento de escalado automático. Sin embargo, es posible que esas máquinas virtuales detenidas (desasignadas) se eliminen como parte de un evento de escalado automático que escala en el número de instancias, del mismo modo que se puede eliminar cualquier instancia de máquina virtual según el orden del identificador de instancia de máquina virtual.
 
 
 
@@ -167,7 +167,7 @@ El código admite Windows y Linux.
 Para más información, consulte el artículo sobre la [creación o actualización de un conjunto de escalado de máquinas virtuales](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>¿Cómo se puede usar certificados autofirmados aprovisionados para clústeres de Azure Service Fabric?
+### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>¿Cómo uso certificados autofirmados aprovisionados para clústeres de Azure Service Fabric?
 Para el último ejemplo, utilice la siguiente instrucción de la CLI de Azure en el shell de Azure, lea la documentación de ejemplo del módulo de la CLI de Service Fabrics, que se imprimirá en stdout:
 
 ```bash
@@ -208,7 +208,7 @@ Para más información, consulte el artículo sobre la [creación o actualizaci�
 
 Para quitar certificados en desuso, quite el certificado antiguo de la lista de certificados del almacén. Deje en la lista todos los certificados que desee que permanezcan en el equipo. Esto no quita el certificado de todas las máquinas virtuales. Tampoco agrega el certificado a las nuevas máquinas virtuales que se creen en el conjunto de escalado de máquinas virtuales.
 
-Para quitar el certificado de las máquinas virtuales existentes, utilice una extensión de script personalizado para quitar manualmente los certificados del almacén de certificados.
+Para quitar el certificado de las máquinas virtuales existentes, tiene que usar una extensión de script personalizado que quite manualmente los certificados del almacén de certificados.
 
 ### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning"></a>¿Cómo puedo inyectar una clave pública SSH existente en la capa SSH del conjunto de escalado de máquinas virtuales durante el aprovisionamiento?
 
@@ -231,15 +231,15 @@ Puede proporcionar claves públicas SSH en texto sin formato al crear una máqui
 
 Nombre del elemento de linuxConfiguration | Obligatorio | Type | DESCRIPCIÓN
 --- | --- | --- | ---
-ssh | Sin  | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
-path | Sí | String | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
-keyData | Sí | String | Especifica una clave pública SSH codificada en base64
+ssh | Sin | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
+path | Sí | Cadena | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
+keyData | Sí | Cadena | Especifica una clave pública SSH codificada en base64
 
 Para ver un ejemplo, consulte [la plantilla de inicio rápido de GitHub 101-vm-sshkey ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Cuando ejecuto `Update-AzVmss` después de agregar más de un certificado desde el mismo almacén de claves, me aparece el mensaje siguiente:
 
->Update-AzVmss: Secreto de la lista que contienen instancias repetidas de/subscriptions /\<my-subscription-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, lo que no se permite.
+>Update-AzVmss: muestra secretos que contienen instancias repetidas de /subscriptions/\<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, lo que no se permite.
 
 Esto puede ocurrir si se intenta volver a agregar el mismo almacén en lugar de utilizar un nuevo certificado de almacén para el almacén de origen existente. El comando `Add-AzVmssSecret` no funciona correctamente si agrega secretos adicionales.
 
@@ -311,7 +311,7 @@ Para implementar el conjunto de claves públicas .cer en un conjunto de escalado
 
 Para más información, consulte [Método X509Certificate.Export (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
-### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>¿Cómo pasar en certificados como cadenas base64?
+### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>¿Cómo pasar certificados como cadenas base64?
 
 Para emular el pase de un certificado como una cadena base64, puede extraer la última dirección URL con versiones en una plantilla de Resource Manager. Incluya la siguiente propiedad JSON en la plantilla de Resource Manager:
 
@@ -341,7 +341,7 @@ Para más información, consulte el [Centro de confianza de Microsoft](https://w
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>¿Las [identidades administradas para los recursos de Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funcionan con los conjuntos de escalado de máquinas virtuales?
 
-Sí. Puede ver algunas plantillas MSI de ejemplo en las plantillas de inicio rápido de Azure para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) y [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
+Sí. Puede ver algunas plantillas MSI de ejemplo en las plantillas de inicio rápido de Azure para  [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) y [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
 
 ## <a name="extensions"></a>Extensiones
@@ -360,9 +360,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 Puede encontrar el valor extensionName en `$vmss`.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>¿Tiene algún que ejemplo de plantilla que se integra con los registros de Azure Monitor de conjunto de escalado de máquinas virtuales?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>¿Hay algún ejemplo de una plantilla del conjunto de escalado de máquinas virtuales que se integre con los registros de Azure Monitor?
 
-Ejemplo de plantilla que se integra con los registros de Azure Monitor de conjunto de escalado de máquinas virtuales, vea el segundo ejemplo de [implementar un clúster de Azure Service Fabric y habilitar la supervisión mediante el uso de los registros de Azure Monitor](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Para ver un ejemplo de una plantilla del conjunto de escalado de máquinas virtuales que se integre con registros de Azure Monitor, vea el segundo ejemplo de [Deploy an Azure Service Fabric cluster and enable monitoring by using Azure Monitor logs](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric) (Implementar un clúster de Azure Service Fabric y habilitar la supervisión mediante el uso de registros de Azure Monitor).
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>¿Cómo agrego una extensión a todas las máquinas virtuales del conjunto de escalado de máquinas virtuales?
 
@@ -374,9 +374,9 @@ Si la directiva de actualización se establece en **manual**, actualice primero 
 
 Si la definición de extensión en el modelo del conjunto de escalado de máquinas virtuales se actualiza y se establece la propiedad upgradePolicy en **automática**, actualiza las máquinas virtuales. Si se establece la propiedad upgradePolicy en **manual**, las extensiones se marcan como que no coinciden con el modelo.
 
-### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>¿Las extensiones de volver a ejecutar cuando una máquina existente se restablece su imagen inicial o recuperan los servicios?
+### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>¿Vuelven a ejecutarse las extensiones cuando una máquina existente restablece su imagen inicial o recupera servicios?
 
-Si una máquina virtual existente se recuperan los servicios, aparece como un reinicio y las extensiones no se vuelven a ejecutar. Si se está restableciendo imagen inicial de una máquina virtual, el proceso es similar de sustituir el disco de sistema operativo con la imagen de origen. Cualquier especialización del modelo más reciente, como las extensiones, se vuelven a ejecutar.
+Si se ha recuperado el servicio de una máquina virtual existente, aparece como un reinicio y las extensiones no se ejecutan de nuevo. Si una VM restablece su imagen inicial, el proceso es como sustituir el disco de sistema operativo con la imagen de origen. Cualquier especialización del modelo más reciente, como las extensiones, se ejecuta de nuevo.
 
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>¿Cómo puedo unir un conjunto de escalado de máquinas virtuales a un dominio de Active Directory?
 
@@ -432,9 +432,9 @@ Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publi
 Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
-### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>¿Cómo se puede ejecutar un script personalizado que se hospeda en una cuenta de almacenamiento privada?
+### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>¿Cómo ejecuto un script personalizado hospedado en una cuenta de almacenamiento privada?
 
-Para ejecutar un script personalizado que está hospedado en una cuenta de almacenamiento privado, establezca una configuración protegida con el nombre y la clave de la cuenta de almacenamiento. Para obtener más información, consulte [extensión de Script personalizado](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Para ejecutar un script personalizado que está hospedado en una cuenta de almacenamiento privado, establezca una configuración protegida con el nombre y la clave de la cuenta de almacenamiento. Para más información, consulte la sección sobre la [Extensión del script personalizado](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 ## <a name="passwords"></a>Contraseñas
 
@@ -442,7 +442,7 @@ Para ejecutar un script personalizado que está hospedado en una cuenta de almac
 
 Hay dos formas principales de cambiar la contraseña de las máquinas virtuales en conjuntos de escalado.
 
-- Crear directamente un modelo de conjunto de escalado de máquinas virtuales. Disponible con la API 2017-12-01 y versiones posteriores.
+- Crear directamente un modelo de conjunto de escalado de máquinas virtuales. Disponible con API 2017-12-01 y versiones posteriores.
 
     Actualizar las credenciales de administrador directamente en el modelo del conjunto de escalado (por ejemplo, mediante Azure Resource Explorer, PowerShell o CLI). Una vez que el conjunto de escalado está actualizado, todas las nuevas máquinas virtuales tienen nuevas credenciales. Las máquinas virtuales existentes solo tienen las nuevas credenciales si se restablece la imagen inicial.
 
@@ -562,7 +562,7 @@ Para crear un conjunto de escalado de máquina virtual que asigne una dirección
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>¿Puedo configurar un conjunto de escalado para trabajar con varias instancias de Application Gateway?
 
-Sí. Puede agregar los identificadores de recursos para varios grupos de direcciones de back-end de Application Gateway para la _applicationGatewayBackendAddressPools_ lista en el _ipConfigurations_ sección de la escala del conjunto de red perfil.
+Sí. Puede agregar los id. de recurso de varios grupos de direcciones back-end de Application Gateway a la lista _applicationGatewayBackendAddressPools_ de la sección _ipConfigurations_, en el perfil de red del conjunto de escalado.
 
 ## <a name="scale"></a>Escala
 
@@ -637,16 +637,16 @@ Para actualizar su conjunto de escalado de máquinas virtuales con una nueva ima
 
 Sí, puede usar la operación de restablecimiento de la imagen inicial para restablecer una máquina virtual sin cambiar la imagen. Sin embargo, si el conjunto de escalado de máquinas virtuales hace referencia a una imagen de plataforma con `version = latest`, la máquina virtual se puede actualizar a una imagen del SO posterior cuando llame a `reimage`.
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>¿Es posible integrar conjuntos de escalado con registros de Azure Monitor?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>¿Es posible integrar conjuntos de escalado con los registros de Azure Monitor?
 
-Sí, se pueden instalar la extensión de Azure Monitor en la escala de máquinas virtuales del conjunto. A continuación se ofrece un ejemplo de CLI de Azure:
+Sí, puede hacerlo instalando la extensión de Azure Monitor en las máquinas virtuales del conjunto de escalado. A continuación se ofrece un ejemplo de CLI de Azure:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 Puede encontrar los elementos workspaceId y workspaceKey requeridos en el área de trabajo de Log Analytics de Azure Portal. En la página Información general, haga clic en el icono Configuración. Haga clic en la pestaña Orígenes conectados en la parte superior.
 
 > [!NOTE]
-> Si el conjunto de escalado _upgradePolicy_ está establecido en Manual, debe aplicar la extensión a la todas las máquinas virtuales en el conjunto mediante una llamada de actualización en ellos. En CLI, esto sería _az vmss update-instances_.
+> Si establece _upgradePolicy_ del conjunto de escalado en Manual, debe aplicar la extensión a todas las máquinas virtuales del conjunto mediante una llamada a la actualización. En CLI, esto sería _az vmss update-instances_.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -686,7 +686,7 @@ Para informarse sobre propiedad de cada máquina virtual sin realizar varias lla
 
 No, no puede pasar diferentes argumentos de extensión a diferentes máquinas virtuales de un conjunto de escalado de máquinas virtuales. De todas formas, las extensiones pueden actuar en función de propiedades únicas de la máquina virtual en la que se ejecutan, como el nombre de la máquina. Además, las extensiones pueden consultar metadatos de instancias en http://169.254.169.254 para más información sobre la máquina virtual.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>¿Por qué hay huecos entre los nombres de máquina virtual de mi conjunto de escalado de máquinas virtuales y los identificadores de máquina virtual? Por ejemplo: 0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>¿Por qué hay huecos entre los nombres de máquina virtual de mi conjunto de escalado de máquinas virtuales y los identificadores de máquina virtual? Por ejemplo:  0, 1, 3...
 
 Hay huecos entre los nombres de máquina virtual del conjunto de escalado de máquinas virtuales y el identificador de la máquina virtual porque la propiedad **overprovision** del conjunto de escalado de máquinas virtuales está establecida en el valor predeterminado de **true**. Si la propiedad overprovision se establece en **true**, se crean más máquinas de las solicitadas. Las máquinas virtuales adicionales se eliminan a continuación. En este caso, lo que consigue es una mayor confiabilidad en la implementación a cambio de reglas de traducción de direcciones de red (NAT) contiguas y de nomenclatura contiguas.
 
@@ -701,8 +701,8 @@ La principal diferencia entre eliminar una máquina virtual en un conjunto de es
   - Relacionado con este escenario, puede haber creado su propio motor de escalado automático y quiere un escalado completo más rápido.
 - Tiene un conjunto de escalado de máquinas virtuales que se distribuye de forma irregular a través de dominios de error o dominios de actualización. Esto puede ser porque eliminó de forma selectiva las máquinas virtuales, o porque se eliminaron las máquinas virtuales después proveer en exceso. Ejecutar `stop deallocate` seguido de `start` en el conjunto de escalado de máquinas virtuales distribuye de manera uniforme las máquinas virtuales a través de dominios de error o dominios de actualización.
 
-### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>¿Cómo se puede crear una instantánea de una instancia de conjunto de escalado de máquinas virtuales?
-Crear una instantánea de una instancia de un conjunto de escalado de máquinas virtuales.
+### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>¿Cómo se puede crear una instantánea de una instancia de un conjunto de escalado de máquinas virtuales?
+Cree una instantánea de una instancia de un conjunto de escalado de máquinas virtuales.
 
 ```azurepowershell-interactive
 $rgname = "myResourceGroup"
@@ -715,7 +715,7 @@ $snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard
 New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
 ```
 
-Crear un disco administrado desde la instantánea.
+Cree un nuevo disco administrado a partir de la instantánea.
 
 ```azurepowershell-interactive
 $snapshotName = "myShapshot"

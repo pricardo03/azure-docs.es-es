@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015470"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
@@ -112,7 +112,7 @@ Permita el acceso a las siguientes direcciones URL:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure utiliza estas direcciones URL para verificar los certificados. |
 | login.windows.net<br>login.microsoftonline.com | El conector utiliza estas direcciones URL durante el proceso de registro. |
 
-Si el firewall o proxy le permite configurar listas de permitidos de DNS, puede permitir que las conexiones a \*. msappproxy.net y \*. servicebus.windows.net. Si no, deberá permitir el acceso a los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Los intervalos IP se actualizan cada semana.
+Si el firewall o proxy le permite configurar listas de DNS permitidos, puede permitir conexiones a \*.msappproxy.net y \*.servicebus.windows.net. Si no, deberá permitir el acceso a los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Los intervalos IP se actualizan cada semana.
 
 
 Si no puede permitir la conectividad mediante el FQDN y debe especificar intervalos de direcciones IP en su lugar, use estas opciones:

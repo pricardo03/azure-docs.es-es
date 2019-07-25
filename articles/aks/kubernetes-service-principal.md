@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: d8a8a2f005a92988158b3f9c36ce24936fb020b4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 82ceb332ca377da1953908abba3f7c52874b995e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475627"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066786"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
@@ -24,9 +24,9 @@ En este artículo se muestra cómo crear y usar una entidad de servicio para los
 
 Para crear una entidad de servicio de Azure AD, es preciso tener los permisos suficientes para registrar una aplicación en un inquilino de Azure AD y asignarle un rol en una suscripción. Si no tiene los permisos necesarios, es posible que tenga que pedir al administrador de Azure AD o de la suscripción que asigne los permisos necesarios o crear previamente una entidad de servicio para su uso con el clúster de AKS.
 
-Si usa una entidad de servicio desde un Azure AD diferente de inquilinos, hay consideraciones adicionales en torno a los permisos disponibles al implementar el clúster. Puede que no tenga los permisos adecuados para leer y escribir información de directorio. ¿Para obtener más información, consulte [cuáles son los permisos de usuario de forma predeterminada en Azure Active Directory?][azure-ad-permissions]
+Si usa una entidad de servicio de otro inquilino de Azure AD, hay consideraciones adicionales en torno a los permisos disponibles al implementar el clúster. Puede que no tenga los permisos adecuados para leer y escribir datos del directorio. Para obtener más información, consulte [¿Cuáles son los permisos de usuario predeterminados en Azure Active Directory?][azure-ad-permissions]
 
-También necesita la CLI de Azure versión 2.0.59 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Creación y uso de una entidad de servicio automáticamente
 
@@ -79,9 +79,9 @@ Si implementa un clúster de AKS mediante Azure Portal, en la página *autentica
 
 ## <a name="delegate-access-to-other-azure-resources"></a>Delegación del acceso a otros recursos de Azure
 
-La entidad de servicio del clúster de AKS se puede utilizar para acceder a otros recursos. Por ejemplo, si desea implementar el clúster AKS en una subred de red virtual de Azure existente o conectarse a Azure Container Registry (ACR), debe delegar el acceso a esos recursos para la entidad de servicio.
+La entidad de servicio del clúster de AKS se puede utilizar para acceder a otros recursos. Por ejemplo, si quiere implementar el clúster de AKS en una subred de red virtual de Azure o conectarse a Azure Container Registry (ACR), debe delegar el acceso a estos recursos a la entidad de servicio.
 
-Para delegar permisos, crear una asignación de rol mediante la [crear asignación de roles az] [ az-role-assignment-create] comando. Asignar el `appId` a un ámbito determinado, como un grupo de recursos o recurso de red virtual. Un rol define qué permisos tiene la entidad de servicio en el recurso, como se muestra en el ejemplo siguiente:
+Para delegar permisos, cree una asignación de roles mediante el comando [az role assignment create][az-role-assignment-create]. Asigne el elemento `appId` a un ámbito determinado, como un grupo de recursos o un recurso de red virtual. Un rol define qué permisos tiene la entidad de servicio en el recurso, como se muestra en el ejemplo siguiente:
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -102,12 +102,13 @@ Puede usar redes avanzadas en las que la red virtual y la subred o las direccion
 - Cree un [rol personalizado][rbac-custom-role] y defina los siguientes permisos de rol:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/virtualNetworks/subnets/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
-  - *Microsoft.Network/publicIPAddresses/join/action*
 - O bien, asigne el rol integrado [Colaborador de la red][rbac-network-contributor] en la subred dentro de la red virtual
 
-### <a name="storage"></a>Almacenamiento
+### <a name="storage"></a>Storage
 
 Es posible que necesite acceder a los recursos de disco existentes en otro grupo de recursos. Asigne uno de los siguientes conjuntos de permisos de rol:
 
@@ -125,10 +126,10 @@ Si usa Virtual Kubelet para la integración con AKS y elige ejecutar Azure Conta
 Cuando use entidades de servicio de AKS y Azure AD, tenga en cuenta lo siguiente.
 
 - La entidad de servicio para Kubernetes forma parte de la configuración del clúster. Sin embargo, no use la identidad para implementar el clúster.
-- De forma predeterminada, las credenciales de la entidad de servicio son válidas durante un año. También puede [actualizar o rotar las credenciales de la entidad de servicio] [ update-credentials] en cualquier momento.
+- De forma predeterminada, las credenciales de la entidad de servicio son válidas durante un año. Puede [actualizar o girar las credenciales de la entidad de servicio] [ update-credentials] en cualquier momento.
 - Cada entidad de servicio está asociada a una aplicación de Azure AD. La entidad de servicio de un clúster de Kubernetes puede asociarse con cualquier nombre de aplicación de Azure AD válido (por ejemplo, *https://www.contoso.org/example* ). La dirección URL de la aplicación no tiene por qué ser un punto de conexión real.
 - Al especificar el **identificador de cliente**, utilice el valor de `appId`.
-- En el nodo de agente las máquinas virtuales del clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo `/etc/kubernetes/azure.json`
+- En las VM del nodo de agente del clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo `/etc/kubernetes/azure.json`.
 - Cuando use el comando [az aks create][az-aks-create] para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo `~/.azure/aksServicePrincipal.json` de la máquina que se usa para ejecutar el comando.
 - Al eliminar un clúster de AKS creado mediante [az aks create][az-aks-create], no se elimina la entidad de servicio que se creó automáticamente.
     - Para eliminar la entidad de servicio, consulte el clúster *servicePrincipalProfile.clientId* y, a continuación, elimínelo con [az ad app delete][az-ad-app-delete]. Reemplace los nombres de clúster y del grupo de recursos siguientes con los suyos propios.
@@ -139,7 +140,7 @@ Cuando use entidades de servicio de AKS y Azure AD, tenga en cuenta lo siguiente
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-Se almacenan en caché las credenciales de la entidad de servicio para un clúster de AKS mediante la CLI de Azure. Si estas credenciales han expirado, encontrar errores al implementar clústeres AKS. El siguiente mensaje de error al ejecutar [crear az aks] [ az-aks-create] puede indicar un problema con las credenciales de la entidad de servicio almacenado en caché:
+La CLI de Azure almacena en caché las credenciales de la entidad de servicio para un clúster de AKS. Si estas credenciales han expirado, encontrará errores al implementar clústeres de AKS. El siguiente mensaje de error al ejecutar [az aks create][ az-aks-create] puede indicar un problema con las credenciales de la entidad de servicio almacenadas en caché:
 
 ```console
 Operation failed with status: 'Bad Request'.
@@ -153,13 +154,13 @@ Compruebe la antigüedad del archivo de credenciales con el comando siguiente:
 ls -la $HOME/.azure/aksServicePrincipal.json
 ```
 
-El tiempo de expiración predeterminado para las credenciales de la entidad de servicio es un año. Si su *aksServicePrincipal.json* archivo es anterior a un año, elimine el archivo e intente volver a implementar un clúster de AKS.
+El tiempo de expiración predeterminado para las credenciales de la entidad de servicio es de un año. Si el archivo *aksServicePrincipal.json* tiene más de un año, elimine el archivo e intente volver a implementar un clúster de AKS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de las entidades de servicio de Azure Active Directory, consulte [Application y objetos de entidad de servicio][service-principal].
+Para obtener más información acerca de las entidades de servicio de Azure Active Directory, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory][service-principal].
 
-Para obtener información sobre cómo actualizar las credenciales, vea [actualizar o rotar las credenciales de una entidad de servicio en AKS][update-credentials].
+Para obtener información sobre cómo actualizar las credenciales, vea [Update or rotate the credentials for a service principal in AKS][update-credentials] (Actualizar o girar las credenciales para una entidad de servicio en AKS).
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md

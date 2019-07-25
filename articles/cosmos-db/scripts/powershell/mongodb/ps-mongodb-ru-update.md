@@ -1,19 +1,19 @@
 ---
-title: 'Script de PowerShell de Azure: actualización de Azure Cosmos DB RU/s para la API de MongoDB'
-description: 'Script de PowerShell de Azure: actualización de Azure Cosmos DB RU/s para la API de MongoDB'
+title: 'Script de Azure PowerShell: Actualizar RU/s para MongoDB API en Azure Cosmos DB'
+description: 'Script de Azure PowerShell: Actualizar RU/s para MongoDB API en Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4fc8a8c8cc8e5d516ace4a1523a0d1845b6f7edf
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 517857116bf077814b936e5d7ecb54d841959657
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247430"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603884"
 ---
-# <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Actualización de RU/s para una base de datos o una colección para Azure Cosmos DB: API de MongoDB
+# <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Actualizar RU/s para una base de datos o una colección para MongoDB API en Azure Cosmos DB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

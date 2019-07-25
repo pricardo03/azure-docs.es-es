@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 44343f6bc6f48a6caa056f3336af55613a1e74d0
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476803"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Administrar el acceso, power y modo de conectividad para la puerta de enlace del cuadro de datos de Azure
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Administración del acceso, encendido y modo de conectividad de Azure Data Box Gateway
 
 En este artículo se describe cómo administrar el acceso, encendido y modo de conectividad de Azure Data Box Gateway. Estas operaciones se realizan mediante la interfaz de usuario web local o en Azure Portal.
 
@@ -28,7 +28,7 @@ En este artículo, aprenderá a:
 
 ## <a name="manage-device-access"></a>Administración del acceso al dispositivo
 
-El acceso al dispositivo de puerta de enlace de datos cuadro se controla mediante el uso de una contraseña del dispositivo. Puede cambiar la contraseña a través de la interfaz de usuario web local. También puede restablecer la contraseña del dispositivo en el portal de Azure.
+El acceso al dispositivo Data Box Gateway se controla mediante una contraseña de dispositivo. Puede cambiar la contraseña mediante la interfaz de usuario web local. También puede restablecer la contraseña del dispositivo en Azure Portal.
 
 ### <a name="change-device-password"></a>Cambiar la contraseña del dispositivo
 
@@ -41,7 +41,7 @@ Siga estos pasos en la interfaz de usuario local para cambiar la contraseña del
 
 3. Haga clic en **Cambiar contraseña**.
  
-### <a name="reset-device-password"></a>Restablecer la contraseña del dispositivo
+### <a name="reset-device-password"></a>Restablecimiento de la contraseña del dispositivo
 
 El flujo de trabajo de restablecimiento no requiere que el usuario recupere la contraseña antigua y es útil cuando se pierde la contraseña. Este flujo de trabajo se realiza en Azure Portal.
 
@@ -54,47 +54,47 @@ El flujo de trabajo de restablecimiento no requiere que el usuario recupere la c
 
     ![Restablecimiento de contraseña](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
-## <a name="manage-resource-access"></a>Administrar el acceso a los recursos
+## <a name="manage-resource-access"></a>Administración del acceso a recursos
 
-Para crear la puerta de enlace de datos de cuadro de Edge/Data cuadro, IoT Hub y el recurso de almacenamiento de Azure, necesitará permisos como colaborador o superior en un nivel de grupo de recursos. También necesita los proveedores de recursos correspondiente que se registrarán. Para las operaciones que implican las credenciales y la clave de activación, también se necesitan permisos para Azure Active Directory Graph API. Estos métodos se describen en las secciones siguientes.
+Para crear un recurso de Data Box Edge o Data Box Gateway, IoT Hub y Azure Storage, necesita permisos de colaborador o superiores en el nivel del grupo de recursos. También debe registrar los proveedores de recursos correspondientes. Para las operaciones que implican credenciales y claves de activación, también se necesitan permisos para la Graph API de Azure Active Directory. Estos se describen en las secciones siguientes.
 
-### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Administrar permisos de Microsoft Azure Active Directory Graph API
+### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Administración de los permisos de Graph API de Azure Active Directory
 
-Al generar la clave de activación para el dispositivo de borde del cuadro de datos o realizar cualquier operación que requiera credenciales, necesitará permisos para la API Graph de Azure Active Directory. Las operaciones que se necesitan credenciales podrían ser:
+Cuando genere la clave de activación para el dispositivo de Data Box Edge o realice cualquier operación que requiera credenciales, necesitará permisos para la Graph API de Azure Active Directory. Las operaciones que podrían necesitar credenciales son:
 
 -  Crear un recurso compartido con una cuenta de almacenamiento asociada.
--  Creación de un usuario que puede tener acceso a los recursos compartidos en el dispositivo.
+-  Crear un usuario que puede tener acceso a los recursos compartidos en el dispositivo.
 
-Debe tener un `User` tener acceso a los inquilinos de Active Directory como sea necesario poder `Read all directory objects`. No puede ser un usuario invitado ya que no tienen permisos para `Read all directory objects`. Si es un invitado, entonces las operaciones como la generación de una clave de activación, creación de un recurso compartido en el dispositivo de borde del cuadro de datos, creación de un usuario se todos producirá un error.
+Debe tener acceso de `User` en el inquilino de Active Directory, ya que necesita la capacidad de `Read all directory objects`. No puede ser un usuario invitado, ya que estos no tienen permisos para `Read all directory objects`. Si es un invitado, se producirán errores en operaciones como la generación de una clave de activación, la creación de un recurso compartido en el dispositivo Data Box Edge o la creación de un usuario.
 
-Para obtener más información sobre cómo proporcionar acceso a los usuarios a Azure Active Directory Graph API, consulte [predeterminado de acceso para los administradores, usuarios y usuarios invitados](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+Para obtener más información sobre cómo permitir que los usuarios tengan acceso a la Graph API de Azure Active Directory, consulte [Acceso predeterminado para los administradores, usuarios y usuarios invitados](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
 ### <a name="register-resource-providers"></a>Registro de proveedores de recursos
 
-Para aprovisionar un recurso de Azure (en el modelo de Azure Resource Manager), necesita un proveedor de recursos que admite la creación de ese recurso. Por ejemplo, para aprovisionar una máquina virtual, debe tener un proveedor de recursos "Microsoft.Compute" disponible en la suscripción.
+Para aprovisionar un recurso de Azure (en el modelo de Azure Resource Manager), necesita un proveedor de recursos que sea compatible con la creación de ese recurso. Por ejemplo, para aprovisionar una máquina virtual, debe tener un proveedor de recursos "Microsoft.Compute" disponible en la suscripción.
  
-Los proveedores de recursos se registran en el nivel de la suscripción. De forma predeterminada, cualquier nueva suscripción de Azure es registrado previamente con una lista de proveedores de recursos usados. El proveedor de recursos para 'Microsoft.DataBoxEdge' no se incluye en esta lista.
+Los proveedores de recursos se registran en el nivel de la suscripción. De forma predeterminada, cualquier nueva suscripción a Azure se registra previamente con una lista de proveedores de recursos usados con frecuencia. El proveedor de recursos para "Microsoft.DataBoxEdge" no se incluye en esta lista.
 
-No es necesario conceder permisos de acceso para el nivel de suscripción para los usuarios puedan crear recursos como 'Microsoft.DataBoxEdge' dentro de sus grupos de recursos que tienen derechos de propietario, siempre y cuando los proveedores de recursos para estos recursos ya está registrado.
+No necesita conceder permisos de acceso en el nivel de suscripción para que los usuarios puedan crear recursos como "Microsoft.DataBoxEdge" dentro de los grupos de recursos para los que tienen derechos de propietario, siempre y cuando los proveedores de recursos para estos recursos ya estén registrados.
 
-Antes de intentar crear cualquier recurso, asegúrese de que está registrado el proveedor de recursos en la suscripción. Si no está registrado el proveedor de recursos, deberá asegurarse de que el usuario que crea el nuevo recurso tiene derechos suficientes para registrar el proveedor de recursos necesarios en el nivel de suscripción. Si aún no lo ha hecho así, verá el siguiente error:
+Antes de que intente crear cualquier recurso, asegúrese de que el proveedor de recursos está registrado en la suscripción. Si el proveedor de recursos no está registrado, deberá asegurarse de que el usuario que crea el nuevo recurso tiene derechos suficientes para registrar al proveedor de recursos necesarios en el nivel de suscripción. Si aún no lo ha hecho, verá el siguiente error:
 
-*La suscripción <Subscription name> no tiene permisos para registrar los proveedores de recursos: Microsoft.DataBoxEdge.*
+*La suscripción <Subscription name> no tiene permisos para registrar a los siguientes proveedores de recursos: Microsoft.DataBoxEdge.*
 
 
-Para obtener una lista de proveedores de recursos registrado en la suscripción actual, ejecute el siguiente comando:
+Para obtener una lista de los proveedores de recursos registrados en la suscripción actual, ejecute el siguiente comando:
 
 ```PowerShell
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Para el dispositivo de borde del cuadro de datos, `Microsoft.DataBoxEdge` debe registrarse. Para registrar `Microsoft.DataBoxEdge`, Administrador de suscripciones debe ejecutar el comando siguiente:
+Para el dispositivo de Data Box Edge, `Microsoft.DataBoxEdge` debe registrarse. Para registrar `Microsoft.DataBoxEdge`, el administrador de suscripciones debe ejecutar el siguiente comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Para obtener más información sobre cómo registrar un proveedor de recursos, consulte [resolución de errores de registro del proveedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+Para obtener más información sobre cómo registrar un proveedor de recursos, consulte [Resolución de errores del registro del proveedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
 ## <a name="manage-connectivity-mode"></a>Administración del modo de conectividad
 

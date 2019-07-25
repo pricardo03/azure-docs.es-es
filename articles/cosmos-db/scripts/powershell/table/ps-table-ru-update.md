@@ -1,19 +1,19 @@
 ---
-title: Script de Azure PowerShell - RU/s de actualización de Azure Cosmos DB para Table API
-description: Script de Azure PowerShell - RU/s de actualización de Azure Cosmos DB para Table API
+title: 'Script de Azure PowerShell: Actualizar RU/s para Table API en Azure Cosmos DB'
+description: 'Script de Azure PowerShell: Actualizar RU/s para Table API en Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 21f17267954ed471024ff0e6e0c1893daee5f6dd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247085"
 ---
-# <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>RU/s de actualización para una tabla de Azure Cosmos DB: Table API
+# <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Actualizar RU/s para una tabla de Table API de Azure Cosmos DB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

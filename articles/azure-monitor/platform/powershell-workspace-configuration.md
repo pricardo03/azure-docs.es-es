@@ -1,6 +1,6 @@
 ---
 title: Uso de PowerShell para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs
-description: Áreas de trabajo de log Analytics en Azure Monitor almacenan datos de servidores en local o en la nube de infraestructura. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure.
+description: Las áreas de trabajo de Log Analytics en Azure Monitor almacenan datos de servidores en su infraestructura local o en la nube. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure.
 services: log-analytics
 author: bwren
 ms.service: log-analytics
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
 ms.openlocfilehash: 36cb2462a47f9d175ca25bbbde46a14009637db0
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65907874"
 ---
-# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Administrar el área de trabajo de Log Analytics en Azure Monitor con PowerShell
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Administre el área de trabajo de Log Analytics en Azure Monitor con PowerShell
 
-Puede usar el [cmdlets de PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para realizar varias funciones en un área de Log Analytics en Azure Monitor desde una línea de comandos o como parte de una secuencia de comandos.  A continuación se indican algunos ejemplos de las tareas que puede realizar con PowerShell:
+Puede usar los [cmdlets de PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para realizar varias funciones en un área de trabajo de Log Analytics en Azure Monitor desde una línea de comandos o como parte de un script.  A continuación se indican algunos ejemplos de las tareas que puede realizar con PowerShell:
 
 * Crear un área de trabajo
 * Agregar o quitar una solución
@@ -39,7 +39,7 @@ Este artículo proporciona dos ejemplos de código que muestran algunas de las f
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
-Estos ejemplos funcionan con la versión 1.0.0 o versiones posteriores del módulo Az.OperationalInsights.
+Estos ejemplos funcionan con la versión 1.0.0 o posterior del módulo Az.OperationalInsights.
 
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Creación y configuración de un área de trabajo de Log Analytics
@@ -195,7 +195,7 @@ En el ejemplo anterior, regexDelimiter se definió como "\\n" para la nueva lín
 | `yyyy-MM-ddTHH:mm:ss` <br> La T es una letra T literal | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configuración de Log Analytics para enviar diagnósticos de Azure
-Para la supervisión de recursos de Azure sin agente, los recursos necesitan tener Diagnósticos de Azure habilitado y configurado para escribir en un área de trabajo de Log Analytics. Este método envía los datos directamente al área de trabajo y no requiere datos se escriban en una cuenta de almacenamiento. Los recursos admitidos son los siguientes:
+Para la supervisión de recursos de Azure sin agente, los recursos necesitan tener Diagnósticos de Azure habilitado y configurado para escribir en un área de trabajo de Log Analytics. Este método envía los datos directamente al área de trabajo y no requiere que los datos se escriban en una cuenta de almacenamiento. Los recursos admitidos son los siguientes:
 
 | Tipo de recurso | Registros | Métricas |
 | --- | --- | --- |
@@ -233,15 +233,15 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 También puede usar el cmdlet anterior para recopilar registros de recursos que se encuentran en distintas suscripciones. El cmdlet funciona en suscripciones distintas porque se proporciona tanto el identificador del recurso que crea los registros como del área de trabajo a la que se envían los registros.
 
 
-## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configuración de área de trabajo de Log Analytics para recopilar diagnósticos de Azure de almacenamiento
-Para recopilar datos de registro desde una instancia en ejecución de un servicio en la nube clásico o un clúster de Service Fabric, tiene que escribir primero los datos en Azure Storage. A continuación, se configura un área de trabajo de Log Analytics para recopilar los registros de la cuenta de almacenamiento. Los recursos admitidos son los siguientes:
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configuración del área de trabajo de Log Analytics para recopilar los diagnósticos de Azure desde el almacenamiento
+Para recopilar datos de registro desde una instancia en ejecución de un servicio en la nube clásico o un clúster de Service Fabric, tiene que escribir primero los datos en Azure Storage. El área de trabajo de Log Analytics se puede configurar para recopilar los registros de la cuenta de almacenamiento. Los recursos admitidos son los siguientes:
 
 * Servicios en la nube clásicos (roles web y de trabajo)
 * Clústeres de Service Fabric
 
 El ejemplo siguiente muestra cómo:
 
-1. Enumerar las cuentas de almacenamiento existentes y las ubicaciones que el área de trabajo indizará datos desde
+1. Enumerar las cuentas de almacenamiento existentes y las ubicaciones desde las que el área de trabajo indexará los datos
 2. Crear una configuración para leer desde una cuenta de almacenamiento
 3. Actualizar la configuración recién creada para indizar datos desde ubicaciones adicionales
 4. Eliminar la configuración recién creada

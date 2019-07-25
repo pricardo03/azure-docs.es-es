@@ -14,10 +14,10 @@ ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964029"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
@@ -36,7 +36,7 @@ Los componentes son partes que se pueden implementar independientemente de su ap
 
 Puede ver la topología de aplicación completa a lo largo de varios niveles de componentes de aplicación relacionados. Los componentes podrían ser diferentes recursos de Application Insights o distintos roles de un único recurso. Para encontrar componentes, el mapa de aplicación sigue las llamadas de dependencia HTTP entre los servidores con el SDK de Application Insights instalado. 
 
-Esta experiencia comienza con la detección progresiva de los componentes. Cuando se carga primero el mapa de aplicación, se desencadena un conjunto de consultas para detectar los componentes relacionados con este componente. Un botón en la esquina superior izquierda se actualiza con el número de componentes de la aplicación a medida que se detectan. 
+Esta experiencia comienza con la detección progresiva de los componentes. La primera vez que carga el mapa de aplicación, se desencadena un conjunto de consultas para detectar los componentes relacionados con este componente. Un botón en la esquina superior izquierda se actualiza con el número de componentes de la aplicación a medida que se detectan. 
 
 Al hacer clic en "Update map components" (Actualizar componentes del mapa), el mapa se actualiza con todos los componentes detectados hasta ese momento. Según la complejidad de la aplicación, esta operación puede tardar un minuto en cargarse.
 
@@ -68,7 +68,7 @@ Para solucionar problemas de rendimiento haga clic en **Investigar el rendimient
 
 ### <a name="go-to-details"></a>Ir a los detalles
 
-Seleccione **vaya a detalles** para explorar la experiencia de transacción to-end, que puede ofrecer vistas hasta el nivel de la pila de llamadas.
+Haga clic en **Ir a los detalles** para explorar una experiencia de transacción completa, que puede ofrecer las vistas hasta el nivel de la pila de llamadas.
 
 ![Captura de pantalla del botón Ir a los detalles](media/app-map/go-to-details.png)
 
@@ -90,13 +90,13 @@ Para ver las alertas activas y las reglas subyacentes que provocan el desencaden
 
 ![Captura de pantalla de la experiencia con Analytics](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>Nombre del conjunto de roles en la nube
+## <a name="set-cloud-role-name"></a>Establecer nombre de rol en la nube
 
-Mapa de aplicación usa el **nombre de rol en la nube** propiedad para identificar los componentes en el mapa. El SDK de Application Insights agrega automáticamente la propiedad de nombre de rol en la nube a la telemetría que se generen los componentes. Por ejemplo, el SDK agregará un nombre de rol de servicio o sitio web a la propiedad de nombre de rol en la nube. Pero hay casos en los que le interesará reemplazar el valor predeterminado. Para invalidar el nombre de rol en la nube y cambiar lo que se muestra en el mapa de aplicación:
+El mapa de aplicación usa la propiedad **nombre de rol en la nube** para identificar los componentes en el mapa. El SDK de Application Insights agrega de forma automática la propiedad de nombre de rol en la nube a la telemetría emitida por los componentes. Por ejemplo, el SDK agregará un nombre de sitio web o un nombre de rol de servicio a la propiedad. Pero hay casos en los que le interesará reemplazar el valor predeterminado. Para reemplazar el nombre de rol en la nube y cambiar lo que se muestra en el mapa de aplicación:
 
 ### <a name="netnet-core"></a>.NET/.NET Core
 
-**Escribir TelemetryInitializer personalizada como sigue.**
+**Escriba un elemento TelemetryInitializer personalizado como el siguiente.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -119,7 +119,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Inicializador de carga para el valor de TelemetryConfiguration activo**
+**Cargue el inicializador al elemento TelemetryConfiguration activo**
 
 En ApplicationInsights.config:
 
@@ -134,9 +134,9 @@ En ApplicationInsights.config:
 ```
 
 > [!NOTE]
-> Agregar inicializador mediante `ApplicationInsights.config` no es válida para las aplicaciones de ASP.NET Core.
+> La adición del inicializador mediante `ApplicationInsights.config` no es válida para las aplicaciones de ASP.NET Core.
 
-Es un método alternativo para las aplicaciones Web de ASP.NET crear instancias del inicializador en el código, por ejemplo en Global.aspx.cs:
+Un método alternativo para las aplicaciones web de ASP.NET consiste en crear una instancia del inicializador en el código, por ejemplo, en Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -149,7 +149,7 @@ Es un método alternativo para las aplicaciones Web de ASP.NET crear instancias 
     }
 ```
 
-Para [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) aplicaciones, agregar un nuevo `TelemetryInitializer` se realiza agregando al contenedor de inserción de dependencias, como se muestra a continuación. Esto se hace en `ConfigureServices` método de su `Startup.cs` clase.
+Para aplicaciones de [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers), la adición de un nuevo elemento `TelemetryInitializer` se realiza agregándolo al contenedor de inserción de dependencias, como se muestra a continuación. Esto se hace en el método `ConfigureServices` de la clase `Startup.cs`.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -187,9 +187,9 @@ Si usa Spring Boot con el iniciador de Spring Boot de Application Insights, el �
 
 `spring.application.name=<name-of-app>`
 
-El iniciador de Spring Boot asignará automáticamente el nombre de rol en la nube para el valor proporcionado para la propiedad spring.application.name.
+El iniciador de Spring Boot asignará de forma automática el nombre de rol en la nube al valor proporcionado para la propiedad spring.application.name.
 
-Para obtener más información sobre Java correlación y cómo configurar el rol en la nube nombre para la extracción de las aplicaciones que no sean SpringBoot este [sección](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) sobre la correlación.
+Para obtener más información sobre la correlación de Java y cómo configurar el nombre de rol en la nube para aplicaciones que no sean de SpringBoot, consulte esta [sección](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) sobre la correlación.
 
 ### <a name="clientbrowser-side-javascript"></a>JavaScript del lado cliente o explorador
 
@@ -202,17 +202,17 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
-### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Nombre de rol en la nube de comprensión dentro del contexto de la asignación de aplicaciones
+### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Comprensión del nombre de rol en la nube dentro del contexto del mapa de aplicación
 
-En cuanto a cómo pensar sobre **nombre de rol en la nube**, puede ser útil ver un mapa de aplicación que tiene varios nombres de rol en la nube que presente:
+Para comprender el **nombre de rol en la nube**, puede ser útil consultar un mapa de aplicación que tenga presentes varios nombres de rol en la nube:
 
 ![Captura de pantalla de mapa de aplicación](media/app-map/cloud-rolename.png)
 
-En el mapa de aplicación encima de cada uno de los nombres de los cuadros verdes es nube valores de nombre de rol para los distintos aspectos de esta aplicación distribuida. Por lo que para esta aplicación, sus roles constan de: `Authentication`, `acmefrontend`, `Inventory Management`, un `Payment Processing Worker Role`. 
+En el mapa de aplicación de arriba, cada uno de los nombres de los cuadros verdes son valores de nombre de rol en la nube para distintos aspectos de esta aplicación distribuida. Por lo que, para esta aplicación, sus roles constan de: `Authentication`, `acmefrontend`, `Inventory Management` y `Payment Processing Worker Role`. 
 
-En el caso de esta aplicación de cada uno de esos nombres de rol en la nube también representa un único recurso de Application Insights diferente con sus propias claves de instrumentación. Puesto que el propietario de esta aplicación tiene acceso a cada uno de los cuatro recursos de Application Insights dispares, mapa de aplicación es capaz de unir un mapa de las relaciones subyacentes.
+En el caso de esta aplicación, cada uno de esos nombres de rol en la nube también representa un único recurso de Application Insights diferente con sus propias claves de instrumentación. Puesto que el propietario de esta aplicación tiene acceso a cada uno de estos cuatro recursos de Application Insights, el mapa de aplicación es capaz de unir un mapa de las relaciones subyacentes.
 
-Para el [definiciones oficiales](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+Para las [definiciones oficiales](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
 
 ```
    [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
@@ -224,11 +224,11 @@ Para el [definiciones oficiales](https://github.com/Microsoft/ApplicationInsight
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-Como alternativa, **instancia de rol en la nube** puede ser muy útil en escenarios donde **nombre de rol en la nube** indica el problema en algún lugar en el front-end web, pero podría estar ejecutándose el front-end a través de web varios con equilibrio de carga servidores tan permitirle profundizar en un nivel más profundo a través de las consultas de Kusto y saber si el problema afecta a todas las web front-end servidores o instancias, o solo uno puede ser muy importante.
+Como alternativa, la **instancia de rol en la nube** puede ser muy útil para escenarios donde el **nombre de rol en la nube** indica que el problema se encuentra en algún lugar en el front-end web, pero puede que ejecute el front-end web en varios servidores de carga equilibrada, por lo que poder profundizar a un nivel más profundo a través de las consultas de Kusto y saber si el problema afecta a todos los servidores o instancias de front-end web o solo a uno puede ser muy importante.
 
-Un escenario donde desea invalidar el valor de la instancia de rol en la nube podría ser si la aplicación se ejecuta en un entorno en contenedor que simplemente saber el servidor individual podría no ser suficiente información para localizar un problema determinado.
+Un escenario en el que podría querer reemplazar el valor de la instancia de rol en la nube podría ser si la aplicación se ejecutara en un entorno en contenedor donde simplemente conocer el servidor individual no sería suficiente información para localizar un problema determinado.
 
-Para obtener más información acerca de cómo invalidar la propiedad de nombre de rol en la nube con los inicializadores de telemetría, consulte [agregar propiedades: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Para obtener más información sobre cómo reemplazar la propiedad de nombre de rol en la nube con inicializadores de telemetría, vea [Agregar propiedades: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>solución de problemas
 
@@ -244,23 +244,23 @@ Si tiene dificultades para conseguir que el mapa de aplicación funcione según 
 
 3. Si usa Azure Functions con C#, actualice a [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Confirmar [nombre de rol en la nube](#set-cloud-role-name) está configurado correctamente.
+4. Confirme que el [nombre de rol en la nube](#set-cloud-role-name) está configurado correctamente.
 
 5. Si falta una dependencia, asegúrese de que se encuentra en la lista de [dependencias recopiladas automáticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). De lo contrario, todavía puede realizar su seguimiento de forma manual con una [llamada de seguimiento de dependencia](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
-### <a name="too-many-nodes-on-the-map"></a>Hay demasiados nodos del mapa
+### <a name="too-many-nodes-on-the-map"></a>Hay demasiados nodos en el mapa
 
-Mapa de aplicación construye un nodo de aplicación para cada nombre de rol en la nube único presente en los datos de telemetría de solicitud y un nodo de dependencia para cada combinación única de tipo de destino y nombre de rol en la nube en la telemetría de dependencia. Si hay más de 10.000 nodos en los datos de telemetría, el mapa de aplicación no podrá capturar todos los nodos y vínculos, por lo que la asignación sea incompleta. Si esto ocurre, aparecerá un mensaje de advertencia al ver el mapa.
+El mapa de aplicación construye un nodo de aplicación para cada nombre de rol en la nube único presente en la telemetría de solicitud y un nodo de dependencia para cada combinación única de tipo, destino y nombre de rol en la nube en la telemetría de dependencia. Si hay más de 10 000 nodos en la telemetría, el mapa de aplicación no podrá capturar todos los nodos y vínculos, por lo que la asignación será incompleta. Si ocurre esto, aparecerá un mensaje de advertencia al visualizar el mapa.
 
-Además, el mapa de aplicación solo admite hasta 1000 nodos sin agrupar independientes representados a la vez. Mapa de aplicación reduce la complejidad visual agrupando las dependencias que tengan el mismo tipo y los autores de llamadas, pero si los datos de telemetría tiene demasiados nombres de rol en la nube único o demasiados tipos de dependencia, esa agrupación será suficiente y la asignación no se puede representar.
+Además, el mapa de aplicación solo admite hasta 1000 nodos sin agrupar independientes representados a la vez. El mapa de aplicación reduce la complejidad visual agrupando las dependencias que tengan el mismo tipo y llamadores, pero si la telemetría tiene demasiados nombres de rol en la nube únicos o demasiados tipos de dependencia, esa agrupación será insuficiente y el mapa no se podrá representar.
 
-Para solucionar este problema, deberá cambiar la instrumentación para establecer correctamente el nombre de rol en la nube, tipo de dependencia y los campos de destino de dependencia.
+Para solucionar este problema, deberá cambiar la instrumentación para establecer correctamente el nombre de rol en la nube, el tipo de dependencia y los campos de destino de dependencia.
 
-* Destino de dependencia debe representar el nombre lógico de una dependencia. En muchos casos, es equivalente al servidor o el nombre de recurso de la dependencia. Por ejemplo, en el caso de las dependencias HTTP se establece en el nombre de host. No debe contener los identificadores únicos o parámetros que cambian de una solicitud a otro.
+* El destino de dependencia debe representar el nombre lógico de una dependencia. En muchos casos, es equivalente al servidor o el nombre de recurso de la dependencia. Por ejemplo, en el caso de las dependencias HTTP se establece en el nombre de host. No debe contener id. exclusivos o parámetros que cambian de una solicitud a otra.
 
-* Tipo de dependencia debe representar el tipo lógico de una dependencia. Por ejemplo, HTTP, SQL o Azure Blob son tipos de dependencia típica. No debe contener los identificadores únicos.
+* El tipo de dependencia debe representar el tipo lógico de una dependencia. Por ejemplo, HTTP, SQL o Azure Blob son tipos de dependencia típicos. No debe contener id. exclusivos.
 
-* El propósito de nombre de rol en la nube se describe en el [por encima de la sección](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
+* El propósito de nombre de rol en la nube se describe en la [sección anterior](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Comentarios del portal
 

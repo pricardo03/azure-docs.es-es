@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7499dbe1f3f0b89a11814ad1b65a52bb9ba9fd05
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66016075"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Error "Can't Access this Corporate Application" al usar una aplicación de Proxy de aplicación
@@ -69,7 +69,7 @@ Si confirma que el usuario está asignado a la aplicación en Azure, compruebe l
 
 ## <a name="check-the-applications-internal-url"></a>Comprobación de la dirección URL interna de la aplicación
 
-Como primer paso rápido, vuelva a comprobar y corrija la dirección URL interna. Para ello, abra la aplicación a través de **Aplicaciones empresariales** y seleccione el menú **Proxy de aplicación**. Compruebe que la dirección URL interna es el utilizado en la red local para tener acceso a la aplicación.
+Como primer paso rápido, vuelva a comprobar y corrija la dirección URL interna. Para ello, abra la aplicación a través de **Aplicaciones empresariales** y seleccione el menú **Proxy de aplicación**. Compruebe que la dirección URL interna es la que se usa en la red local para acceder a la aplicación.
 
 ## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Comprobación de que la aplicación está asignada a un grupo de conectores en funcionamiento
 
@@ -77,7 +77,7 @@ Para comprobar que la aplicación está asignada a un grupo de conectores en fun
 
 1. Abra la aplicación en el portal; para ello, vaya a **Azure Active Directory**, haga clic en **Aplicaciones empresariales** y en **Todas las aplicaciones**. Abra la aplicación y seleccione **Proxy de aplicación** en el menú izquierdo.
 
-2. Fíjese en el campo Grupo de conectores. Si no hay ningún conector activo en el grupo, verá una advertencia. Si no ve las advertencias, mover comprobar que se permiten todos los puertos necesarios.
+2. Fíjese en el campo Grupo de conectores. Si no hay ningún conector activo en el grupo, verá una advertencia. Si no ve advertencias, pase a comprobar que todos los puertos necesarios están permitidos.
 
 3. Si se muestra el grupo de conectores incorrecto, seleccione el correcto en la lista desplegable y confirme que ya no ve las advertencias. Si se muestra el grupo de conectores previsto, haga clic en el mensaje de advertencia para abrir la página de administración del conector.
 
@@ -85,13 +85,13 @@ Para comprobar que la aplicación está asignada a un grupo de conectores en fun
 
    * Mueva un conector activo al grupo: si tiene un conector activo que debería pertenecer a este grupo y tiene línea de visión a la aplicación back-end de destino, puede moverlo al grupo asignado. Para ello, haga clic en el conector. En el campo "Grupo de conectores", seleccione el grupo correcto en la lista desplegable y haga clic en Guardar.
 
-   * Descargue un conector nuevo para ese grupo: en esta página, puede obtener el vínculo para [descargar un conector nuevo](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale el conector en una máquina con línea directa de visión a la aplicación de back-end. Normalmente, el conector está instalado en el mismo servidor que la aplicación. Utilice el vínculo de descarga del conector para descargarlo en la máquina de destino. A continuación, haga clic en el conector y compruebe en la lista desplegable "Grupo de conectores" que pertenece al grupo adecuado.
+   * Descargue un conector nuevo para ese grupo: en esta página, puede obtener el vínculo para [descargar un conector nuevo](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale el conector en una máquina con línea directa de visión a la aplicación de back-end. Normalmente, el conector se instala en el mismo servidor que la aplicación. Utilice el vínculo de descarga del conector para descargarlo en la máquina de destino. A continuación, haga clic en el conector y compruebe en la lista desplegable "Grupo de conectores" que pertenece al grupo adecuado.
 
-   * Investigue un conector inactivo: si un conector aparece como inactivo, no puede conectarse con el servicio. Este error suele deberse al bloqueo de algunos puertos necesarios. Para solucionar este problema, pase a comprobar que se permiten todos los puertos necesarios.
+   * Investigue un conector inactivo: si un conector aparece como inactivo, no puede conectarse con el servicio. Este error suele deberse al bloqueo de algunos puertos necesarios. Para solucionar este problema, pase a comprobar que todos los puertos necesarios están permitidos.
 
 Después de seguir estos pasos para asegurarse de que la aplicación está asignada a un grupo de conectores que funcionan, vuelva a probar la aplicación. Si sigue sin funcionar, continúe con la siguiente sección.
 
-## <a name="check-all-required-ports-are-open"></a>Compruebe que todos los puertos necesarios están abiertos
+## <a name="check-all-required-ports-are-open"></a>Comprobar que todos los puertos necesarios están abiertos
 
 Para comprobar que todos los puertos necesarios están abiertos, consulte la documentación sobre cómo abrir los puertos. Si todos los puertos necesarios están abiertos, vaya a la sección siguiente.
 

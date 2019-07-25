@@ -15,10 +15,10 @@ ms.reviewer: maghan
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 5f2627932eb2fd427d934eba322230222b5e6958
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002948"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solución de problemas de la factoría de datos
@@ -48,9 +48,9 @@ Si recibe este error, el proveedor de recursos de Azure Data Factory no se ha re
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: error no autorizado al ejecutar un cmdlet de Data Factory.
 Probablemente no está usando la cuenta o suscripción de Azure correctas con Azure PowerShell. Use los cmdlets siguientes para seleccionar la cuenta y la suscripción de Azure correctas que se usarán con Azure PowerShell.
 
-1. Connect-AzAccount - Use el identificador de usuario correcto y la contraseña
-2. Get-AzSubscription - ver todas las suscripciones para la cuenta.
-3. Seleccione AzSubscription &lt;nombre de la suscripción&gt; -seleccione la suscripción correcta. Use la misma que usó para crear una factoría de datos en el Portal de Azure.
+1. Connect-AzAccount: use el id. de usuario y la contraseña correctos
+2. Get-AzureRmSubscription: consulte todas las suscripciones de la cuenta.
+3. Select-AzSubscription &lt;nombre de la suscripción&gt;: seleccione la suscripción correcta. Use la misma que usó para crear una factoría de datos en el Portal de Azure.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: no se pudo iniciar la configuración rápida de la puerta de enlace de administración de datos desde Azure Portal.
 La configuración rápida de Data Management Gateway requiere Internet Explorer o un explorador web compatible con Microsoft ClickOnce. Si no se puede iniciar la configuración rápida, realice una de las siguientes acciones:

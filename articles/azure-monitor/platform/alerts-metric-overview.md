@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: ce65d87142df64a9f0c27f3acdb4d6f25e86fb8a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244904"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071621"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -29,13 +29,15 @@ Supongamos que ha creado una regla de alerta de métrica de umbral estático sim
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: estática
-- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Agregaciones en tiempo admitidos son Min, Max, Avg, Total, Count): Media
+- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Las agregaciones de tiempo compatibles son Min, Max, Avg, Total y Count): Media
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que
 - Umbral: 70
 
 Desde el momento en que se crea la regla de alerta, el proceso de supervisión se ejecuta cada minuto y examina los valores métricos de los últimos 5 minutos; además, comprueba si el promedio de esos valores es superior a 70. Si se cumple la condición, es decir, si el porcentaje medio de la CPU supera el valor de 70 durante los últimos 5 minutos, la regla de alerta desencadena una notificación activada. Si configuró un correo electrónico o una acción de webhook en el grupo de acciones asociado a la regla de alerta, recibirá una notificación activada en ambos recursos.
+
+Si utiliza varias condiciones en una regla, la regla une las condiciones.  Es decir, la alerta se desencadena cuando todas las condiciones de la alerta se evalúan como true y se resuelve cuando una de las condiciones deja de ser true. Un ejemplo de este tipo de alerta sería: "CPU superior al 90 %" y "longitud de cola de más de 300 elementos". 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Regla de alerta con el tipo de condición dinámica
 
@@ -44,7 +46,7 @@ Supongamos que ha creado una regla de alerta de métrica simple de umbrales din�
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: Dinámica
-- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Agregaciones en tiempo admitidos son Min, Max, Avg, Total, Count): Media
+- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Las agregaciones de tiempo compatibles son Min, Max, Avg, Total y Count): Media
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que
@@ -98,7 +100,7 @@ Supongamos que tiene una aplicación web con una demanda masiva y es necesario a
 - Operador: GreaterThan
 - Umbral: 70
 
-Esta regla supervisará automáticamente todos los valores de la instancia, es decir,  puede supervisar sus instancias a medida que aparecen sin necesidad de modificar su regla de alerta de métrica nuevamente.
+Esta regla supervisará automáticamente todos los valores de la instancia, es decir, puede supervisar sus instancias a medida que aparecen sin necesidad de modificar su regla de alerta de métrica nuevamente.
 
 Al supervisar varias dimensiones, las reglas de alertas de umbrales dinámicos pueden crear umbrales personalizados para cientos de series de métricas a la vez. Los umbrales dinámicos dan como resultado menos reglas de alertas que administrar y un ahorro de tiempo significativo en la administración y creación de reglas de alertas.
 
@@ -148,16 +150,16 @@ Si ya utiliza alertas de métricas clásicas y desea ver si las alertas de métr
 | Microsoft.ApiManagement/service | Sí |
 | Microsoft.Batch/batchAccounts| Sí|
 |Microsoft.Cache/redis| Sí |
-|Microsoft.ClassicCompute/virtualMachines | Sin  |
-|Microsoft.ClassicCompute/domainNames/slots/roles | Sin |
-|Microsoft.CognitiveServices/accounts | No |
+|Microsoft.ClassicCompute/virtualMachines | Sin |
+|Microsoft.ClassicCompute/domainNames/slots/roles | Sin|
+|Microsoft.CognitiveServices/accounts | Sin |
 |Microsoft.Compute/virtualMachines | Sí|
 |Microsoft.Compute/virtualMachineScaleSets| Sí|
-|Microsoft.ClassicStorage/storageAccounts| Sin  |
+|Microsoft.ClassicStorage/storageAccounts| Sin |
 |Microsoft.DataFactory/datafactories | Sí|
 |Microsoft.DBforMySQL/servers| Sí|
 |Microsoft.DBforPostgreSQL/servers| Sí|
-|Microsoft.Devices/IotHubs | Sin |
+|Microsoft.Devices/IotHubs | Sin|
 |Microsoft.DocumentDB/databaseAccounts| Sí|
 |Microsoft.EventHub/namespaces | Sí|
 |Microsoft.Logic/workflows | Sí|
@@ -173,9 +175,9 @@ Si ya utiliza alertas de métricas clásicas y desea ver si las alertas de métr
 |Microsoft.TimeSeriesInsights/environments | Sí|
 |Microsoft. Web/serverfarms | Sí |
 |Microsoft. Web/sites (se excluyen funciones) | Sí|
-|Microsoft. Web/hostingEnvironments/multiRolePools | No|
-|Microsoft. Web/hostingEnvironments/workerPools| Sin  |
-|Microsoft.SQL/Servers | No |
+|Microsoft. Web/hostingEnvironments/multiRolePools | Sin|
+|Microsoft. Web/hostingEnvironments/workerPools| Sin |
+|Microsoft.SQL/Servers | Sin |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

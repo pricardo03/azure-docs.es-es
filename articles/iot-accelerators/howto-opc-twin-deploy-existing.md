@@ -1,6 +1,6 @@
 ---
-title: Cómo implementar un módulo gemelo de OPC en un proyecto existente de Azure | Microsoft Docs
-description: Cómo implementar a OPC gemelo a un proyecto existente.
+title: Implementación de un módulo de OPC Twin en un proyecto existente de Azure | Microsoft Docs
+description: Implementación de OPC Twin en un proyecto existente.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,136 +8,138 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6eeca062bdc17ec207910b9ba4aa8cea4048f849
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451316"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080501"
 ---
-# <a name="deploy-opc-twin-to-an-existing-project"></a>Implementar a OPC gemelo a un proyecto existente
+# <a name="deploy-opc-twin-to-an-existing-project"></a>Implementación de OPC Twin en un proyecto existente
 
-El módulo gemelo de OPC se ejecuta en IoT Edge y proporciona varios servicios de borde para el gemelo de OPC y servicios de registro. 
+El módulo OPC Twin se ejecuta en IoT Edge y proporciona varios servicios perimetrales para los servicios de registro y OPC Twin.
 
-El servicio de micro OPC gemelo facilita la comunicación entre los operadores de fábrica y los dispositivos de servidor de OPC UA en la fábrica a través de un módulo gemelo IoT Edge de OPC. El servicio micro expone servicios de OPC UA (Examinar, lectura, escritura y ejecución) a través de su API de REST. 
+El microservicio OPC Twin facilita la comunicación entre los operadores de fábrica y los dispositivos de servidor de OPC UA en la fábrica a través de un módulo de IoT Edge de OPC Twin. El microservicio expone servicios de OPC UA (examinar, leer, escribir y ejecutar) mediante su API REST. 
 
-El microservicio del registro de dispositivos de OPC UA proporciona acceso a las aplicaciones registradas de OPC UA y sus puntos de conexión. Operadores y administradores pueden registrar y anular el registro de nuevas aplicaciones de OPC UA y examinar los existentes, incluidos sus puntos de conexión. Además de la aplicación y administración de extremos, el servicio de registro también cataloga módulos registrados de OPC gemelo IoT Edge. Le ofrece la API del servicio de control de la funcionalidad de módulo para edge, por ejemplo, iniciar o detener la detección de servidores (servicios de análisis) o activar nuevos gemelos de punto de conexión que se pueden acceder mediante el servicio micro gemelo OPC.
+El microservicio de registro de dispositivos de OPC UA proporciona acceso a las aplicaciones registradas de OPC UA y sus puntos de conexión. Los operadores y administradores pueden registrar y anular el registro de nuevas aplicaciones de OPC UA y examinar los existentes, incluidos sus puntos de conexión. Además de la administración de aplicaciones y puntos de conexión, el servicio de registro también cataloga los módulos registrados de IoT Edge de OPC Twin. La API del servicio le ofrece el control de la funcionalidad del módulo perimetral; por ejemplo, iniciar o detener la detección de servidores (servicios de análisis) o activar nuevos gemelos de punto de conexión a los que se puede acceder mediante el microservicio de OPC Twin.
 
-El núcleo del módulo es la identidad de Supervisor. El supervisor administra a gemelo de punto de conexión, que corresponde a los puntos de conexión de servidor de OPC UA que se activan mediante el registro de OPC UA API correspondiente. Este gemelos extremo traducen OPC UA JSON recibido del servicio micro gemelo OPC que se ejecutan en la nube en los mensajes binarios de OPC UA, que se envían a través de un canal seguro con estado al punto de conexión administrado. El supervisor también proporciona servicios de detección que envían eventos de detección de dispositivo para el servicio de incorporación de dispositivos de OPC UA para su procesamiento, donde estos eventos son el resultado de las actualizaciones en el registro de OPC UA.  Este artículo muestra cómo implementar el módulo gemelo de OPC en un proyecto existente. 
+El núcleo del módulo es la identidad de supervisor. El supervisor administra el gemelo del punto de conexión, que corresponde a los puntos de conexión de servidor de OPC UA que se activan mediante la API de registro de OPC UA correspondiente. Este gemelo de punto de conexión traduce el código JSON de OPC UA recibido del microservicio de OPC Twin que se ejecuta en la nube en mensajes binarios de OPC UA, que se envían a través de un canal seguro con estado al punto de conexión administrado. El supervisor también proporciona servicios de detección que envían eventos de detección de dispositivo para el servicio de incorporación de dispositivos OPC UA para su procesamiento y estos eventos generan actualizaciones del registro de OPC UA.  En este artículo se muestra cómo implementar el módulo de OPC Twin en un proyecto existente.
 
 > [!NOTE]
-> Para obtener más información sobre los detalles de implementación e instrucciones, vea GitHub [repositorio](https://github.com/Azure/azure-iiot-opc-twin-module).
+> Para obtener más información sobre las instrucciones y los detalles de la implementación, vea el [repositorio](https://github.com/Azure/azure-iiot-opc-twin-module) de GitHub.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Asegúrese de que tiene PowerShell y [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) extensiones instaladas.   Si no lo ha hecho todavía, clone este repositorio de GitHub.  Abra un símbolo del sistema o terminal y ejecute:
+Asegúrese de que tiene las extensiones de PowerShell y [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) instaladas. Si aún no lo ha hecho, clone este repositorio de GitHub. Ejecute los siguientes comandos en PowerShell:
 
-```bash
-git clone --recursive https://github.com/Azure/azure-iiot-components 
+```powershell
+git clone --recursive https://github.com/Azure/azure-iiot-components.git
 cd azure-iiot-components
 ```
 
-## <a name="deploy-industrial-iot-services-to-azure"></a>Implementar Servicios industriales de IoT en Azure
+## <a name="deploy-industrial-iot-services-to-azure"></a>Implementar servicios industriales de IoT en Azure
 
-1. En el comando Abrir símbolo del sistema o terminal, ejecute:
+1. En una sesión PowerShell, ejecute:
 
-   ```bash
-   deploy
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy.cmd
+    ```
 
-2. Siga las indicaciones para asignar un nombre al grupo de recursos de la implementación y un nombre para el sitio Web.   El script implementa los microservicios y sus dependencias de plataforma de Azure en el grupo de recursos en su suscripción de Azure.  El script también registra una aplicación en el inquilino de Azure Active Directory (AAD) para admitir la autenticación basada en OAUTH.  Implementación tardará varios minutos.  Un ejemplo de lo que vería una vez implementada correctamente la solución:
+2. Siga las indicaciones para asignar un nombre al grupo de recursos de la implementación y un nombre al sitio web.   El script implementa los microservicios y sus dependencias de la plataforma de Azure en el grupo de recursos de la suscripción de Azure.  El script también registra una aplicación en el inquilino de Azure Active Directory (AAD) para admitir la autenticación basada en OAUTH.  La implementación puede tardar varios minutos.  Un ejemplo de lo que vería una vez implementada correctamente la solución:
 
-   ![Implementar el gemelo de OPC IoT industrial al proyecto existente](media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
+   ![Implementación de OPC Twin de IoT en un proyecto existente](media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
 
    La salida incluye la dirección URL del punto de conexión público. 
 
-3. Una vez que el script se completa correctamente, seleccione si desea guardar el archivo env.  Necesita el archivo de entorno .env si desea conectarse al punto de conexión en la nube con herramientas como la consola o implementar módulos para el desarrollo y depuración.
+3. Una vez que el script se complete correctamente, seleccione si quiere guardar el archivo .env.  Necesita el archivo de entorno .env si quiere conectarse al punto de conexión en la nube con herramientas como la consola o implementar módulos para el desarrollo y la depuración.
 
-## <a name="troubleshooting-deployment-failures"></a>Solución de problemas de implementación
+## <a name="troubleshooting-deployment-failures"></a>Solución de problemas con errores de implementación
 
 ### <a name="resource-group-name"></a>Definición de un nombre de grupo de recursos
 
-Asegúrese de que usar un nombre de grupo de recursos a corto y sencillo.  El nombre se usa también para recursos de nombre de tal modo que debe cumplir con los requisitos de nomenclatura de recursos.  
+Asegúrese de usar un nombre de grupo de recursos corto y sencillo.  El nombre se usa también para denominar recursos y debe cumplir los requisitos de nomenclatura de los recursos.  
 
-### <a name="website-name-already-in-use"></a>Nombre del sitio Web ya está en uso
+### <a name="website-name-already-in-use"></a>El nombre del sitio web ya está en uso
 
-Es posible que el nombre del sitio Web ya está en uso.  Si experimenta este error, deberá usar un nombre de aplicación diferente.
+Es posible que el nombre del sitio web ya esté en uso.  Si experimenta este error, deberá usar un nombre de aplicación diferente.
 
-### <a name="azure-active-directory-aad-registration"></a>Registro de Azure Active Directory (AAD)
+### <a name="azure-active-directory-aad-registration"></a>Registro de Azure Active Directory (AAD)
 
-El script de implementación intenta registrar dos aplicaciones de AAD en Azure Active Directory.  Dependiendo de sus derechos para el inquilino de AAD seleccionado, puede producir un error en la implementación. Hay dos opciones:
+El script de implementación intenta registrar dos aplicaciones de AAD en Azure Active Directory.  En función de sus derechos para el inquilino de AAD seleccionado, podría producirse en error de implementación. Hay dos opciones:
 
-1. Si ha elegido a un inquilino de AAD de una lista de los inquilinos, reinicie la secuencia de comandos y elija otro nombre de la lista.
-2. Como alternativa, implementar a un inquilino AAD privado en otra suscripción, reinicie la secuencia de comandos y seleccione esta opción para usarlo.
+1. Si ha elegido un inquilino de AAD de una lista de inquilinos, reinicie el script y elija otro de la lista.
+2. Como alternativa, implemente un inquilino de AAD privado en otra suscripción, reinicie el script y selecciónelo para usarlo.
 
 > [!WARNING]
-> NUNCA continúan sin autenticación.  Si decide hacerlo, cualquier persona puede acceder a los puntos de conexión de OPC gemelo desde Internet no autenticado.   Siempre puede elegir el [opción de implementación "local"](howto-opc-twin-deploy-dependencies.md) a comprar.
+> No continúe nunca sin autenticación.  Si decide hacerlo, cualquier persona puede acceder a los puntos de conexión de OPC Twin desde Internet sin autenticar.   Siempre puede elegir la [opción de implementación "local"](howto-opc-twin-deploy-dependencies.md) para probar.
 
-## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Implementar una demostración de servicios IoT industrial de all-in-one
+## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Implementar una demostración de servicios de IoT industriales integrados
 
-En lugar de simplemente los servicios y las dependencias también puede implementar una demostración en uno.  Todos en una demostración contiene tres servidores OPC UA, el módulo gemelo OPC, todos los microservicios y un ejemplo de aplicación Web.  Se está diseñado para fines de demostración.
+En lugar de los servicios y las dependencias, puede implementar una demostración integrada.  La demostración integrada contiene tres servidores OPC UA, el módulo OPC Twin, todos los microservicios y una aplicación web de ejemplo.  Tiene una finalidad de demostración.
 
-1. Asegúrese de que tiene un clon del repositorio (véase más arriba). Abra un símbolo del sistema o terminal en la raíz del repositorio y ejecute:
+1. Asegúrese de que tiene un clon del repositorio (consulte más arriba). Abra un símbolo del sistema de PowerShell en la raíz del repositorio y ejecute:
 
-   ```bash
-   deploy -type demo
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy -type demo
+    ```
 
-2. Siga las indicaciones para asignar un nombre nuevo para el grupo de recursos y un nombre para el sitio Web.  Una vez que haya implementado correctamente, el script mostrará la dirección URL del extremo de aplicación web.
+2. Siga las indicaciones para asignar un nombre al grupo de recursos y al sitio web.  Una vez que se haya implementado correctamente, el script mostrará la dirección URL del punto de conexión de la aplicación web.
 
-## <a name="deployment-script-options"></a>Opciones de script de implementación
+## <a name="deployment-script-options"></a>Opciones del script de implementación
 
-El script toma los parámetros siguientes:
+El script usa los parámetros siguientes:
 
-```bash
+```powershell
 -type
 ```
 
-El tipo de implementación (demostración de máquina virtual, local)
+Tipo de implementación (VM, local, demostración)
 
-```bash
+```powershell
 -resourceGroupName
 ```
 
 Puede ser el nombre de un grupo de recursos nuevo o existente.
 
-```bash
+```powershell
 -subscriptionId
 ```
 
-Opcional, el identificador de suscripción que se implementarán los recursos.
+Opcional: identificador de suscripción en que se implementarán los recursos.
 
-```bash
+```powershell
 -subscriptionName
 ```
 
 O el nombre de la suscripción.
 
-```bash
+```powershell
 -resourceGroupLocation
 ```
 
-Opcional, una ubicación del grupo de recursos. Si se especifica, intentará crear un nuevo grupo de recursos en esta ubicación.
+Opcional: ubicación del grupo de recursos. Si se especifica, intentará crear un nuevo grupo de recursos en esta ubicación.
 
-```bash
+```powershell
 -aadApplicationName
 ```
 
-Un nombre para la aplicación de AAD registrar con. 
+Nombre de la aplicación de AAD en que se registra.
 
-```bash
+```powershell
 -tenantId
 ```
 
-Inquilino de AAD para usarlo.
+Inquilino de AAD que se usará.
 
-```bash
+```powershell
 -credentials
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido cómo implementar a OPC gemelo a un proyecto existente, aquí es el siguiente paso sugerido:
+Ahora que ha aprendido cómo implementar OPC Twin en un proyecto existente, este es el siguiente paso que se le sugiere:
 
 > [!div class="nextstepaction"]
-> [Proteger la comunicación de cliente de OPC y PLC OPC](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Protección de la comunicación entre OPC Client y OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)

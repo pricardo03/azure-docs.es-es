@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
 ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235098"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Aprovisionamiento de una instancia de Data Science Virtual Machine de Windows en Azure
@@ -106,7 +106,7 @@ Para crear una instancia de DSVM:
 
 Una vez creada y aprovisionada la máquina virtual, puede usar el escritorio remoto con las credenciales de la cuenta del administrador que configuró en la sección **Aspectos básicos** anterior. Ya está listo para empezar a usar las herramientas que están instaladas y configuradas en la máquina virtual. Se puede acceder a muchas de las herramientas a través de los iconos del menú de inicio y de los iconos de escritorio.
 
-También puede adjuntar una máquina virtual de ciencia de datos a Azure Notebooks para ejecutar cuadernos de Jupyter en la máquina virtual y omitir las limitaciones del nivel de servicio gratuito. Para obtener más información, consulte [administrar y configurar proyectos de blocs de notas: nivel de proceso](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+También puede conectar una Data Science VM a Azure Notebooks y ejecutar cuadernos de Jupyter en la VM y omitir las limitaciones del nivel de servicio gratuito. Para más información, consulte [Administración y configuración de proyectos de Azure Notebooks - Nivel de proceso](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Herramientas instaladas en Microsoft Data Science Virtual Machine
 

@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240093"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
@@ -21,11 +21,11 @@ Use Azure File Sync para centralizar los recursos compartidos de archivos de su 
 Se recomienda encarecidamente leer [Planeamiento de una implementación de Azure Files](storage-files-planning.md) y [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md) antes de seguir los pasos que se describen en este artículo.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Un archivo de Azure recurso compartido en la misma región que desee implementar Azure File Sync. Para más información, consulte:
+* Un recurso compartido de archivos de Azure en la misma región en la que quiere implementar Azure File Sync. Para más información, consulte:
     - [Disponibilidad en regiones](storage-sync-files-planning.md#region-availability) de Azure File Sync.
     - [Creación de un recurso compartido de archivos](storage-how-to-create-file-share.md) para obtener una descripción paso a paso sobre cómo crear un recurso compartido de archivos.
 * Al menos una instancia de Windows Server o un clúster de Windows Server compatible para la sincronización con Azure File Sync. Para obtener más información acerca de las versiones compatibles de Windows Server, consulte [Interoperabilidad con Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
-* El módulo de PowerShell de Az puede utilizarse con PowerShell 5.1 o PowerShell 6 +. Puede usar el módulo de PowerShell de Az para Azure File Sync en cualquier sistema compatible, incluidos los sistemas que no sean Windows, sin embargo, el cmdlet de registro de servidor siempre se debe ejecutar directamente en la instancia de Windows Server que se va a registrar. En Windows Server 2012 R2, puede comprobar que se está ejecutando al menos PowerShell 5.1. \* examinando el valor de la **PSVersion** propiedad de la **$PSVersionTable** objeto:
+* El módulo Az PowerShell puede usarse con PowerShell 5.1 o PowerShell 6 +. Aunque puede usar el módulo Az PowerShell para Azure File Sync en cualquier sistema compatible, incluidos los sistemas que no son Windows, el cmdlet de registro de servidor siempre se debe ejecutar directamente en la instancia de Windows Server que se va a registrar. En Windows Server 2012 R2, para comprobar que se ejecuta al menos PowerShell 5.1.\* es preciso examinar el valor de la propiedad **PSVersion** del objeto **$PSVersionTable**:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -33,14 +33,14 @@ Se recomienda encarecidamente leer [Planeamiento de una implementación de Azure
 
     Si el valor de PSVersion es menor que 5.1.\*, como sucede con la mayoría de las instalaciones nuevas de Windows Server 2012 R2, puede realizar la actualización fácilmente si descarga e instala [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). El paquete adecuado que hay que descargar e instalar para Windows Server 2012 R2 es **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
 
-    PowerShell 6 + se puede usar con cualquier sistema compatible y puede descargarse a través de su [página GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
+    PowerShell 6 + se puede usar con cualquier sistema compatible y puede descargarse mediante su [página de GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
     > [!Important]  
     > Si tiene previsto usar la interfaz de usuario de registro del servidor, en lugar de registrar directamente desde PowerShell, debe usar PowerShell 5.1.
 
-* Si ha optado por usar PowerShell 5.1, asegúrese de que al menos .NET 4.7.2 está instalado. Obtenga más información sobre [versiones de .NET Framework y las dependencias](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) en el sistema.
-* El módulo de PowerShell de Az, que se puede instalar siguiendo estas instrucciones: [Instale y configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
-* El módulo Az.StorageSync, que actualmente se instala independientemente del módulo de Az:
+* Si ha optado por usar PowerShell 5.1, asegúrese de que al menos .NET 4.7.2 esté instalado. Más información sobre las [versiones y dependencias de .NET Framework](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) en el sistema.
+* El módulo Az PowerShell, que se puede instalar siguiendo estas instrucciones: [Instale y configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+* El módulo Az.StorageSync, que actualmente se instala independientemente del módulo Az:
 
     ```PowerShell
     Install-Module Az.StorageSync -AllowClobber
@@ -85,7 +85,7 @@ La implementación de Azure File Sync comienza por situar un recurso del **servi
 > El servicio de sincronización de almacenamiento hereda los permisos de acceso de la suscripción y el grupo de recursos en los que se ha implementado. Se recomienda que compruebe cuidadosamente quién tiene acceso al mismo. Las entidades con acceso de escritura pueden empezar a sincronizar nuevos conjuntos de archivos de servidores registrados en este servicio de sincronización de almacenamiento y hacer que los datos fluyan al almacenamiento de Azure al que tengan acceso.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Para implementar un servicio de sincronización de almacenamiento, vaya a la [portal Azure](https://portal.azure.com/), haga clic en *crear un recurso* y, a continuación, busque Azure File Sync. En los resultados de la búsqueda, seleccione **Azure File Sync** y, a continuación, seleccione **Crear** para abrir la pestaña **Implementar la sincronización del almacenamiento**.
+Para implementar un servicio de sincronización de almacenamiento, vaya a [Azure Portal](https://portal.azure.com/), haga clic en *Crear un recurso* y busque Azure File Sync. En los resultados de la búsqueda, seleccione **Azure File Sync** y, a continuación, seleccione **Crear** para abrir la pestaña **Implementar la sincronización del almacenamiento**.
 
 En el panel que se abre, escriba la siguiente información:
 
@@ -97,7 +97,7 @@ En el panel que se abre, escriba la siguiente información:
 Cuando haya terminado, seleccione **Crear** para implementar el servicio de sincronización de almacenamiento.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-Reemplace **< Az_Region >** , **< RG_Name >** , y **< my_storage_sync_service >** con sus propios valores, a continuación, use los comandos siguientes para crear e implementar un Servicio de sincronización de almacenamiento:
+Reemplace **<Az_Region>** , **<RG_Name>** y **<my_storage_sync_service>** por sus propios valores y, luego, use los comandos siguientes para crear e implementar un servicio de sincronización de almacenamiento:
 
 ```powershell
 Connect-AzAccount

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66135460"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048700"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -61,7 +61,7 @@ Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupNa
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
 ```
 
-### <a name="results"></a>Resultados
+### <a name="results"></a>Results
 
 El siguiente fragmento de código muestra un ejemplo de la respuesta:
 
@@ -131,7 +131,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Habilitación del registro mediante Azure Portal
 
-1. En Azure portal, busque el recurso y seleccione **configuración de diagnóstico**.
+1. En Azure Portal, busque el recurso y seleccione **Configuración de diagnóstico**.
 
    Hay tres registros de auditoría disponibles para Application Gateway:
 
@@ -139,7 +139,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
    * Registro de rendimiento
    * Registro de firewall
 
-2. Para iniciar la recopilación de datos, seleccione **Activar diagnósticos**.
+2. Para empezar a recopilar los datos, haga clic en **Activar diagnóstico**.
 
    ![Activación de los diagnósticos][1]
 
@@ -147,7 +147,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
    ![Inicio del proceso de configuración][2]
 
-5. Escriba un nombre para la configuración, confirme la configuración y seleccione **guardar**.
+5. Escriba un nombre para la configuración, confírmelo y seleccione **Guardar**.
 
 ### <a name="activity-log"></a>Registro de actividades
 
@@ -155,8 +155,7 @@ Azure genera el registro de actividad de forma predeterminada. Los registros se 
 
 ### <a name="access-log"></a>Registro de acceso
 
-El registro de acceso solo se genera si lo habilitó para cada instancia de Application Gateway, tal y como se indicó en los pasos anteriores. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Cada acceso de Application Gateway se registra en formato JSON, tal y como se muestra en el ejemplo siguiente:
-
+El registro de acceso solo se genera si lo habilitó para cada instancia de Application Gateway, tal y como se indicó en los pasos anteriores. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Cada acceso de Application Gateway se registra en formato JSON, tal y como se muestra en el ejemplo siguiente para v1:
 
 |Valor  |DESCRIPCIÓN  |
 |---------|---------|
@@ -196,6 +195,58 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
     }
 }
 ```
+En el caso de Application Gateway y WAF v2, los registros muestran un poco más información:
+
+|Valor  |DESCRIPCIÓN  |
+|---------|---------|
+|instanceId     | Instancia de Application Gateway que atendió la solicitud.        |
+|clientIP     | IP de origen de la solicitud.        |
+|clientPort     | Puerto de origen de la solicitud.       |
+|httpMethod     | Método HTTP utilizado por la solicitud.       |
+|requestUri     | URI de la solicitud recibida.        |
+|RequestQuery     | **Server-Routed**: instancia del grupo de back-end a la que se ha enviado la solicitud.</br>**X-AzureApplicationGateway-LOG-ID**: identificador de correlación que se ha usado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. </br>**SERVER-STATUS**: código de respuesta HTTP que Application Gateway ha recibido del back-end.       |
+|UserAgent     | Agente de usuario del encabezado de solicitud HTTP.        |
+|httpStatus     | Código de estado HTTP que se devuelve al cliente desde Application Gateway.       |
+|HttpVersion     | Versión HTTP de la solicitud.        |
+|receivedBytes     | Tamaño de paquete recibido, en bytes.        |
+|sentBytes| Tamaño de paquete enviado, en bytes.|
+|timeTaken| Período de tiempo (en milisegundos) que se tarda en procesar una solicitud y en enviar la respuesta. Esto se calcula como el intervalo desde el momento en que Application Gateway recibe el primer byte de una solicitud HTTP hasta el momento en que termina la operación de envío de la respuesta. Es importante tener en cuenta que el campo Time-Taken normalmente incluye la hora a la que los paquetes de solicitud y respuesta se desplazan a través de la red. |
+|sslEnabled| Indica si la comunicación con los grupos de back-end utilizaron SSL. Los valores válidos son on y off.|
+|sslCipher| Conjunto de cifrado que se usa para la comunicación SSL (si SSL está habilitado).|
+|sslProtocol| Protocolo SSL que se usa (si se ha habilitado SSL).|
+|serverRouted| Servidor back-end al que Application Gateway redirige la solicitud.|
+|serverStatus| Código de estado HTTP del servidor back-end.|
+|serverResponseLatency| Latencia de la respuesta del servidor back-end.|
+|host| Dirección que aparece en el encabezado de host de la solicitud.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off"
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "52.231.230.101"
+    }
+}
+```
 
 ### <a name="performance-log"></a>Registro de rendimiento
 
@@ -208,7 +259,7 @@ El registro de rendimiento solo se genera si lo habilitó para cada instancia de
 |healthyHostCount     | Número de hosts con un mantenimiento correcto en el grupo de back-end.        |
 |unHealthyHostCount     | Número de hosts con un mantenimiento incorrecto en el grupo de back-end.        |
 |requestCount     | Número de solicitudes atendidas.        |
-|latencia | Latencia media (en milisegundos) de las solicitudes desde la instancia hasta el back-end que atiende las solicitudes. |
+|latency | Latencia media (en milisegundos) de las solicitudes desde la instancia hasta el back-end que atiende las solicitudes. |
 |failedRequestCount| Número de solicitudes con error.|
 |throughput| Rendimiento medio desde el último registro, medido en bytes por segundo.|
 
@@ -249,7 +300,7 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 |ruleSetVersion     | Versión utilizada del conjunto de reglas. Los valores disponibles son 2.2.9 y 3.0.     |
 |ruleId     | Identificador de regla del evento desencadenador.        |
 |message     | Mensaje descriptivo para el evento desencadenador. En la sección de detalles se proporciona más información.        |
-|acción     |  Acción realizada en la solicitud. Los valores disponibles son Blocked y Allowed.      |
+|action     |  Acción realizada en la solicitud. Los valores disponibles son Blocked y Allowed.      |
 |site     | Sitio para el que se generó el registro. Actualmente, solo se incluye Global porque las reglas son globales.|
 |details     | Detalles del evento desencadenador.        |
 |details.message     | Descripción de la regla.        |
@@ -328,7 +379,7 @@ Las métricas son una característica de determinados recursos de Azure en los q
 
    También puede filtrar en función de grupos de back-end para mostrar hosts en buen/mal estado en un grupo de back-end específico.
 
-Vaya a una instancia de application gateway en **supervisión** seleccione **métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
+Navegue a una instancia de Application Gateway y, en **Supervisión**, seleccione **Métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
 
 En la siguiente imagen, verá un ejemplo con tres métricas que se muestran para los últimos 30 minutos:
 
@@ -336,17 +387,17 @@ En la siguiente imagen, verá un ejemplo con tres métricas que se muestran para
 
 Para ver una lista de métricas actuales, consulte el artículo de [métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
-### <a name="alert-rules"></a>Reglas de alerta
+### <a name="alert-rules"></a>Reglas de alertas
 
 Puede iniciar las reglas de alerta en función de las métricas de un recurso. Por ejemplo, una alerta puede llamar a un webhook o enviar un correo electrónico a un administrador si el rendimiento de la puerta de enlace de aplicaciones es superior, igual o inferior a un umbral durante un período especificado.
 
 En el ejemplo siguiente, se explica paso a paso cómo crear una regla de alerta que envía un correo electrónico a un administrador cuando el rendimiento supera un umbral:
 
-1. Seleccione **Agregar alerta de métrica** para abrir el **Agregar regla** página. También puede tener acceso a esta página desde la página de métricas.
+1. Seleccione **Agregar alerta de métrica** para abrir la hoja **Agregar regla**. También puede acceder a esta página desde la página de métricas.
 
    ![Botón “Agregar alerta de métrica”][6]
 
-2. En el **Agregar regla** página, rellene el nombre, condición y notificar a las secciones y seleccione **Aceptar**.
+2. En la página **Agregar regla**, rellene las secciones de nombre, condición y notificación, y seleccione **Aceptar**.
 
    * En el selector **Condición**, seleccione uno de los cuatro valores: **Mayor que**, **Mayor o igual que**, **Menor que** o **Menor o igual que**.
 
@@ -354,7 +405,7 @@ En el ejemplo siguiente, se explica paso a paso cómo crear una regla de alerta 
 
    * Al seleccionar **Lectores, colaboradores y propietarios de correo electrónico**, el correo electrónico puede ser dinámico según los usuarios que tengan acceso a ese recurso. De lo contrario, puede proporcionar una lista separada por comas de los usuarios en el cuadro de texto **Correos electrónicos de administrador adicionales**.
 
-   ![Agregar página de reglas][7]
+   ![Página Agregar regla][7]
 
 Si se supera el umbral, llegará un correo electrónico similar al que se muestra en la siguiente imagen:
 

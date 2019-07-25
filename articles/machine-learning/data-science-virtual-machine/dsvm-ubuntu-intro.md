@@ -17,10 +17,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236488"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)
@@ -89,7 +89,7 @@ A continuación le indicamos los pasos para crear una instancia de Data Science 
 1. Haga clic en **Crear** (botón ubicado en la parte inferior) para acceder al asistente.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. En las secciones siguientes se proporcionan las entradas para cada uno de los pasos del asistente (enumerados a la derecha de la figura anterior) que se siguieron para crear la Microsoft Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
 
-    a. **Aspectos básicos**:
+   a. **Aspectos básicos**:
 
    * **Nombre**: nombre del servidor de ciencia de datos que está creando.
    * **Tipo de disco de máquina virtual**: elija **SSD Premium** si prefiere una unidad de estado sólido (SSD). De lo contrario, elija **HDD estándar**. 
@@ -101,7 +101,7 @@ A continuación le indicamos los pasos para crear una instancia de Data Science 
 
    b. **Tamaño**:
 
-   * Seleccione uno de los tipos de servidor que cumpla sus requisitos funcionales y las restricciones de costo. Seleccione un NC o ND clase VM para las instancias de máquina virtual basada en GPU. La página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) muestra las regiones con GPU.
+   * Seleccione uno de los tipos de servidor que cumpla sus requisitos funcionales y las restricciones de costo. Seleccione una VM de clase NC o ND para instancias de VM basadas en GPU. La página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) muestra las regiones con GPU.
 
    c. **Configuración**:
 
@@ -121,7 +121,7 @@ Puede tener acceso a la DSVM Ubuntu mediante tres métodos:
 1. X2Go para sesiones de gráficas
 1. JupyterHub y JupyterLab para instancias de Jupyter Notebook
 
-También puede adjuntar una máquina virtual de ciencia de datos a Azure Notebooks para ejecutar cuadernos de Jupyter en la máquina virtual y omitir las limitaciones del nivel de servicio gratuito. Para obtener más información, consulte [administrar y configurar proyectos de blocs de notas: nivel de proceso](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+También puede conectar una Data Science VM a Azure Notebooks y ejecutar cuadernos de Jupyter en la VM y omitir las limitaciones del nivel de servicio gratuito. Para más información, consulte [Administración y configuración de proyectos de Azure Notebooks - Nivel de proceso](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ### <a name="ssh"></a>SSH
 
@@ -148,9 +148,9 @@ Una vez que inicie sesión en la máquina virtual mediante el cliente SSH o el e
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub y JupyterLab
 
-La DSVM DE Ubuntu ejecuta [JupyterHub](https://github.com/jupyterhub/jupyterhub), un servidor de Jupyter multiusuario. Para conectarse, vaya a https:\// su-vm-ip:8000 en su equipo portátil o escritorio, escriba el nombre de usuario y la contraseña que usó para crear la máquina virtual e inicie sesión. Puede elegir algún cuaderno de ejemplo (hay muchos disponibles) y probar.
+La DSVM DE Ubuntu ejecuta [JupyterHub](https://github.com/jupyterhub/jupyterhub), un servidor de Jupyter multiusuario. Para conectarse, vaya a https:\//your-vm-ip:8000 en su equipo de escritorio o portátil, escriba el nombre de usuario y la contraseña que usó para crear la VM e inicie sesión. Puede elegir algún cuaderno de ejemplo (hay muchos disponibles) y probar.
 
-JupyterLab, la siguiente generación de los cuadernos de Jupyter y JupyterHub, también está disponible. Para acceder a ella, inicie sesión en JupyterHub y, a continuación, vaya a la dirección URL https:\// su-vm-ip:8000/usuario/your-nombre de usuario/laboratorio. Puede establecer JupyterLab como servidor de cuadernos predeterminado agregando esta línea a */etc/jupyterhub/jupyterhub_config.py*:
+JupyterLab, la siguiente generación de los cuadernos de Jupyter y JupyterHub, también está disponible. Para acceder a ella, inicie sesión en JupyterHub y luego vaya a la dirección URL https:\//your-vm-ip:8000/user/su nombre de usuario/lab. Puede establecer JupyterLab como servidor de cuadernos predeterminado al agregar esta línea a */etc/jupyterhub/jupyterhub_config.py*:
 
 ```python
 c.Spawner.default_url = '/lab'
@@ -225,7 +225,7 @@ PyTorch también está disponible en el entorno raíz Anaconda. Puede encontrar 
 
 R es uno de los lenguajes más conocidos para el análisis de datos y el aprendizaje automático. Si quiere usar R para el análisis, la máquina virtual incluye Microsoft R Server (MRS) con Microsoft R Open (MRO) y la biblioteca Math Kernel Library (MKL). MKL optimiza las operaciones matemáticas comunes en algoritmos de análisis. MRO es totalmente compatible con CRAN-R; cualquiera de las bibliotecas de R publicadas en CRAN puede instalarse en MRO. MRS ofrece el escalado y la operacionalización de los modelos de R en servicios web. Puede editar los programas de R en uno de los editores predeterminados, como RStudio, vi o Emacs. Si prefiere usar el editor Emacs, ya está instalado. El paquete de Emacs ESS (Emacs Speaks Statistics) simplifica el trabajo con los archivos de R en el editor Emacs.
 
-Para iniciar la consola de R, simplemente escriba **R** en el shell. Este comando le lleva a un entorno interactivo. Para desarrollar el programa de R, se suele usar un editor como Emacs o vi, y se ejecutan los scripts en R. Con RStudio, tendrá un entorno de IDE gráfico completo para desarrollar su programa de R.
+Para iniciar la consola de R, simplemente escriba **R** en el shell. Este comando lo dirigirá a un entorno interactivo. Para desarrollar el programa de R, se suele usar un editor como Emacs o vi, y se ejecutan los scripts en R. Con RStudio, tendrá un entorno de IDE gráfico completo para desarrollar su programa de R.
 
 También hay un script de R para que pueda instalar los [20 paquetes principales de R](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) si lo desea. Este script se puede ejecutar una vez que esté en la interfaz interactiva de R, a la que se puede acceder (como se mencionó anteriormente) escribiendo **R** en el shell.  
 
@@ -286,11 +286,11 @@ Hemos empaquetado algunos cuadernos de ejemplo (uno en Python y otro en R). Pued
 
 ### <a name="apache-spark-standalone"></a>Apache Spark Standalone
 
-Una instancia independiente de Apache Spark está preinstalada en la DSVM de Linux para ayudarlo a desarrollar aplicaciones de Spark localmente antes de probarlas e implementarlas en clústeres de gran tamaño. Puede ejecutar programas PySpark mediante el kernel de Jupyter. Al abrir Jupyter, haga clic en el botón **Nuevo**. Debería ver una lista de los kernels disponibles. "Spark - Python" es el kernel de PySpark que le permite compilar aplicaciones Spark mediante el lenguaje Python. También puede usar un IDE de Python, como PyCharm o Spyder para compilar el programa de Spark. En esta instancia independiente, la pila de Spark se ejecuta el programa cliente que realiza la llamada, que hace que sea más rápido y más fácil solucionar problemas en comparación con el desarrollo en un clúster de Spark.
+Una instancia independiente de Apache Spark está preinstalada en la DSVM de Linux para ayudarlo a desarrollar aplicaciones de Spark localmente antes de probarlas e implementarlas en clústeres de gran tamaño. Puede ejecutar programas PySpark mediante el kernel de Jupyter. Al abrir Jupyter, haga clic en el botón **Nuevo**. Debería ver una lista de los kernels disponibles. "Spark - Python" es el kernel de PySpark que le permite compilar aplicaciones Spark mediante el lenguaje Python. También puede usar un IDE de Python, como PyCharm o Spyder, para compilar el programa Spark. En esta instancia independiente, la pila de Spark se ejecuta en el programa cliente que realiza la llamada, lo que acelera y facilita la solución de problemas en comparación con el desarrollo en un clúster de Spark.
 
 Se proporciona un bloc de notas de PySpark de ejemplo en Jupyter que puede encontrar en el directorio "SparkML" dentro del directorio particular de Jupyter ($HOME/notebooks/SparkML/pySpark). 
 
-Si está programando en R para Spark, puede usar Microsoft R Server, SparkR o sparklyr. 
+Si programa en R para Spark, puede usar Microsoft R Server, SparkR o sparklyr. 
 
 Antes de ejecutar en el contexto de Spark en Microsoft R Server, debe llevar a cabo un paso de configuración por una sola vez a fin de habilitar un HDFS de Hadoop de un solo nodo y una instancia de Yarn. De manera predeterminada, los servicios de Hadoop están instalados pero deshabilitados en la DSVM. Para habilitarlos, debe ejecutar los comandos siguientes como raíz la primera vez:
 
@@ -304,13 +304,13 @@ chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
 systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 ```
 
-Puede detener el Hadoop relacionados con los servicios cuando no necesite mediante la ejecución ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
+Puede detener los servicios de Hadoop relacionados cuando no los necesite al ejecutar ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
 
-Un ejemplo que demuestra cómo desarrollar y probar MRS en el contexto de Spark remoto (que es la instancia independiente de Spark en DSVM) se proporciona y disponibles en el */dsvm/samples/MRS* directory.
+En el directorio */dsvm/samples/MRS* se proporciona un ejemplo en el que se muestra cómo desarrollar y probar MRS en el contexto de Spark remoto (que es la instancia independiente de Spark en DSVM).
 
 ### <a name="ides-and-editors"></a>IDE y editores
 
-Tiene la opción de varios editores de código incluidos vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio y PyCharm son editores gráficos y necesitará iniciar sesión en un escritorio gráfico para poder usarlos. Puede iniciar estos editores desde los accesos directos del menú de aplicaciones y el escritorio.
+Tiene la opción de usar varios editores de código, como por ejemplo, vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio y PyCharm son editores gráficos y necesitará iniciar sesión en un escritorio gráfico para poder usarlos. Puede iniciar estos editores desde los accesos directos del menú de aplicaciones y el escritorio.
 
 **VIM** y **Emacs** son editores basados en texto. En Emacs, hemos instalado un paquete de complementos denominado Emacs Speaks Statistics (ESS) que facilita el trabajo con R en el editor de Emacs. Puede obtener más información en [ESS](https://ess.r-project.org/).
 
@@ -320,7 +320,7 @@ Tiene la opción de varios editores de código incluidos vi/VIM, Emacs, PyCharm,
 
 #### <a name="graphical-sql-client"></a>Cliente SQL gráfico
 
-**SQuirrel SQL**, un cliente SQL gráfico, se proporciona para conectarse a bases de datos diferentes (Microsoft SQL Server y MySQL) y ejecutar consultas SQL. Puede ejecutar SQL SQuirrel desde una sesión de escritorio gráfico (mediante el cliente X2Go, por ejemplo) mediante un icono del escritorio, o mediante el siguiente comando en el shell:
+**SQuirrel SQL**, un cliente SQL gráfico, se proporciona para conectarse a bases de datos diferentes (Microsoft SQL Server y MySQL) y ejecutar consultas SQL. Puede ejecutar SQuirrel SQL desde una sesión de escritorio gráfico (mediante el cliente X2Go, por ejemplo) a través de un icono de escritorio o mediante el siguiente comando en el shell:
 
 ```bash
 /usr/local/squirrel-sql-3.7/squirrel-sql.sh
@@ -359,7 +359,7 @@ Hay bibliotecas disponibles en Python y en R para acceder a bases de datos.
 En la VM se instalan las siguientes herramientas de Azure:
 
 * **Interfaz de línea de comandos de Azure**: la CLI de Azure permite crear y administrar recursos de Azure mediante comandos de shell. Para invocar las herramientas de Azure, escriba **azure help**. Para obtener más información, consulte la [página de documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Explorador de Microsoft Azure Storage**: el Explorador de Microsoft Azure Storage es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Azure Storage y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de Storage desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Debe haber iniciado sesión desde un cliente X2Go o tener X11 configuración de reenvío.
+* **Explorador de Microsoft Azure Storage**: el Explorador de Microsoft Azure Storage es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Azure Storage y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de Storage desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Debe haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
 * **Bibliotecas de Azure**: a continuación, figuran algunas de las bibliotecas preinstaladas.
   
   * **Python**: las bibliotecas relacionadas con Azure en Python que están instaladas son **azure**, **azureml**, **pydocumentdb** y **pyodbc**. Las tres primeras bibliotecas permiten acceder a los servicios de Azure Storage, a Azure Machine Learning y a Azure Cosmos DB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a SQL Server, Azure SQL Database y Azure SQL Data Warehouse desde Python mediante una interfaz ODBC. Escriba **pip list** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en los entornos de Python 2.7 y 3.5.
@@ -372,7 +372,7 @@ Puede acceder a [Azure Portal](https://portal.azure.com) desde el explorador Fir
 
 Azure Machine Learning es un servicio en la nube totalmente administrado que permite crear, implementar y compartir soluciones de análisis predictivo. Puede crear sus experimentos y modelos desde Azure Machine Learning Studio. Puede acceder a él desde un explorador web en la máquina virtual de ciencia de datos si visita la página de [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Una vez que inicie sesión en Azure Machine Learning Studio, tendrá acceso a un lienzo de experimentación donde puede crear un flujo lógico para los algoritmos de aprendizaje automático. También tiene acceso a Jupyter Notebook hospedado en Azure Machine Learning, que puede funcionar perfectamente con los experimentos de Azure Machine Learning Studio. Haga que los modelos de aprendizaje automático que ha creado estén operativos encapsulándolos en una interfaz de servicio web. Operacionalización de modelos de aprendizaje automático permite a los clientes escritos en cualquier lenguaje invocar predicciones a partir de esos modelos. Para obtener más información, consulte la [documentación sobre Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+Una vez que inicie sesión en Azure Machine Learning Studio, tendrá acceso a un lienzo de experimentación donde puede crear un flujo lógico para los algoritmos de aprendizaje automático. También tiene acceso a Jupyter Notebook hospedado en Azure Machine Learning, que puede funcionar perfectamente con los experimentos de Azure Machine Learning Studio. Haga que los modelos de aprendizaje automático que ha creado estén operativos encapsulándolos en una interfaz de servicio web. El funcionamiento de modelos de aprendizaje automático permite a los clientes escritos en cualquier lenguaje invocar predicciones a partir de esos modelos. Para obtener más información, consulte la [documentación sobre Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 También puede crear los modelos en R o en Python en la máquina virtual y, después, implementarlos en la producción en Azure Machine Learning. Hemos instalado bibliotecas en R (**AzureML**) y en Python (**azureml**) para habilitar esta funcionalidad.
 
@@ -455,7 +455,7 @@ library(rattle)
 rattle()
 ```
 
-Se abrirá una interfaz gráfica con un conjunto de pestañas. Estos son los pasos de inicio rápido en Rattle para usar un conjunto de datos meteorológicos de ejemplo y generar un modelo. En algunos de los pasos siguientes, se le solicitará que instale y cargue automáticamente cualquier paquete de R necesario que todavía no esté en el sistema.
+Se abrirá una interfaz gráfica con un conjunto de pestañas. Siga estos pasos de inicio rápido en Rattle para usar un conjunto de datos de meteorología de ejemplo y crear un modelo. En algunos de los pasos siguientes, se le solicitará que instale y cargue automáticamente cualquier paquete de R necesario que todavía no esté en el sistema.
 
 > [!NOTE]
 > Si no tiene acceso para instalar el paquete en el directorio del sistema (valor predeterminado), puede ver un símbolo del sistema en la ventana de la consola de R para instalar paquetes en su biblioteca personal. Si ve estos avisos, responda *y* .

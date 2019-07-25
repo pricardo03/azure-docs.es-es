@@ -1,6 +1,6 @@
 ---
-title: 'Configurar una regla de límite de tasa de web application firewall para la puerta delantera: Azure PowerShell'
-description: Obtenga información sobre cómo configurar una regla de límite de velocidad para un punto de conexión de puerta de entrada existente.
+title: 'Configuración de una regla de limitación de volumen del firewall de aplicaciones web para Front Door: Azure PowerShell'
+description: Aprenda a configurar una regla de limitación de volumen para un punto de conexión de Front Door existente.
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -10,26 +10,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 903405c8fada6165b79e780a7828c6de3b95163e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 99af39e996aaadd572603f63d019ff929b679550
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478927"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846242"
 ---
-# <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurar una regla de límite web application firewall frecuencia mediante Azure PowerShell
-La regla de límites de velocidad de web de Azure aplicación firewall (WAF) para el acceso de principal de Azure controla el número de solicitudes permitidas desde una dirección IP de cliente único durante una duración de un minuto.
-En este artículo se muestra cómo configurar una regla de límite de tasa de WAF que controla el número de solicitudes permitidas desde un solo cliente para una aplicación web que contenga */promo* en la dirección URL con Azure PowerShell.
+# <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configuración de una regla de limitación de volumen del firewall de aplicaciones web mediante Azure PowerShell
+La regla de limitación de volumen del firewall de aplicaciones web (WAF) de Azure para Azure Front Door controla el número de solicitudes permitidas desde una IP de un solo cliente durante un minuto.
+En este artículo se muestra cómo configurar una regla de limitación de volumen de WAF que controla el número de solicitudes permitidas desde un solo cliente a una aplicación web que contiene */promo*  en la URL mediante Azure PowerShell.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de empezar a configurar una directiva de límite de velocidad, configure el entorno de PowerShell y crear un perfil de la puerta delantera.
+Antes de empezar a configurar una directiva de limitación de volumen, configure el entorno de PowerShell y cree un perfil de Front Door.
 ### <a name="set-up-your-powershell-environment"></a>Configuración del entorno de PowerShell
 Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para administrar los recursos de Azure. 
 
-Puede instalar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) en el equipo local y usarlo en cualquier sesión de PowerShell. Siga las instrucciones en la página, inicie sesión con sus credenciales de Azure e instale el módulo de PowerShell de Az.
+Puede instalar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) en el equipo local y usarlo en cualquier sesión de PowerShell. Siga las instrucciones de la página para iniciar sesión con sus credenciales de Azure e instalar el módulo Az de PowerShell.
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Conexión a Azure con un cuadro de diálogo interactivo para el inicio de sesión
 ```
@@ -48,11 +49,11 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 ### <a name="create-a-front-door-profile"></a>Creación de un perfil de Front Door
-Para crear un perfil de Front Door siga las instrucciones que se describen en [Inicio rápido: Crear un perfil de la puerta delantera](quickstart-create-front-door.md)
+Para crear un perfil de Front Door siga las instrucciones que se describen en [Inicio rápido: Creación de un perfil de Front Door](quickstart-create-front-door.md)
 
-## <a name="define-url-match-conditions"></a>Definir condiciones de coincidencia url
-Definir una condición de coincidencia de dirección URL (dirección URL contiene /promo) mediante [New AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
-En el ejemplo siguiente se buscan */promo* como el valor de la *RequestUri* variable:
+## <a name="define-url-match-conditions"></a>Definición de condiciones de coincidencia de URL
+Defina una condición de coincidencia de URL (la URL contiene /promo) mediante [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
+En el ejemplo siguiente se define el elemento */promo* con el valor de la variable *RequestUri*:
 
 ```powershell-interactive
    $promoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
@@ -60,8 +61,8 @@ En el ejemplo siguiente se buscan */promo* como el valor de la *RequestUri* vari
      -OperatorProperty Contains `
      -MatchValue "/promo"
 ```
-## <a name="create-a-custom-rate-limit-rule"></a>Crear una regla de límite de velocidad personalizada
-Establecer un límite de velocidad mediante [New AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). En el ejemplo siguiente, el límite se establece en 1000. Las solicitudes desde cualquier cliente a la página de promoción superior a 1000 durante un minuto se bloquean hasta que se inicie el siguiente minuto.
+## <a name="create-a-custom-rate-limit-rule"></a>Creación de una regla de limitación de volumen personalizada
+Establezca un límite de volumen mediante [New AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). En el ejemplo siguiente, el límite se establece en 1000. Las solicitudes desde cualquier cliente a la página de promoción que superan el valor de 1000 durante un minuto se bloquean hasta que se inicia el siguiente minuto.
 
 ```powershell-interactive
    $promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
@@ -73,13 +74,13 @@ Establecer un límite de velocidad mediante [New AzFrontDoorWafCustomRuleObject]
 ```
 
 
-## <a name="configure-a-security-policy"></a>Configurar una directiva de seguridad
+## <a name="configure-a-security-policy"></a>Configuración de la directiva de seguridad
 
-Busque el nombre del grupo de recursos que contiene el perfil de Front Door que usan `Get-AzureRmResourceGroup`. A continuación, configure una directiva de seguridad con una regla de límite de velocidad personalizada mediante [New AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) en el grupo de recursos especificado que contiene el perfil de la puerta de entrada.
+Busque el nombre del grupo de recursos que contiene el perfil de Front Door que usan `Get-AzureRmResourceGroup`. A continuación, configure una directiva de seguridad con una regla de limitación de volumen personalizada mediante [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) en el grupo de recursos especificado que contiene el perfil de Front Door.
 
 En el ejemplo siguiente se usa el nombre de grupo de recursos *myResourceGroupFD1* con la suposición de que ha creado el perfil de Front Door mediante las instrucciones proporcionadas en el artículo [Inicio rápido: Creación de una instancia de Front Door](quickstart-create-front-door.md).
 
- uso de [New AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+ mediante [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
    $ratePolicy = New-AzFrontDoorWafPolicy `
@@ -89,11 +90,11 @@ En el ejemplo siguiente se usa el nombre de grupo de recursos *myResourceGroupFD
      -Mode Prevention `
      -EnabledState Enabled
 ```
-## <a name="link-policy-to-a-front-door-front-end-host"></a>Directiva de vínculo a un host de front-end de puerta de entrada
-Vincular el objeto de directiva de seguridad a un host de front-end de puerta principal existente y actualizar las propiedades de la puerta de entrada. Primero recupere el objeto de la puerta delantera con [Get AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor) comando.
-A continuación, establezca el front-end *WebApplicationFirewallPolicyLink* propiedad a la *resourceId* de creado en el paso anterior mediante "$ratePolicy" [conjunto AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) comando. 
+## <a name="link-policy-to-a-front-door-front-end-host"></a>Vinculación de una directiva a un host de front-end de Front Door
+Vincule el objeto de directiva de seguridad a un host de front-end de Front Door existente y actualice las propiedades de Front Door. En primer lugar, recupere el objeto de Front Door mediante el comando [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor).
+A continuación, establezca la propiedad *WebApplicationFirewallPolicyLink* de front-end en el valor de *resourceId* del elemento "$ratePolicy" creado en el paso anterior, mediante el uso del comando [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor). 
 
-En el ejemplo siguiente se usa el nombre de grupo de recursos *myResourceGroupFD1* con la suposición de que ha creado el perfil de Front Door mediante las instrucciones proporcionadas en el artículo [Inicio rápido: Creación de una instancia de Front Door](quickstart-create-front-door.md). Además, en el ejemplo siguiente, reemplace $frontDoorName con el nombre de su perfil de la puerta de entrada. 
+En el ejemplo siguiente se usa el nombre de grupo de recursos *myResourceGroupFD1* con la suposición de que ha creado el perfil de Front Door mediante las instrucciones proporcionadas en el artículo [Inicio rápido: Creación de una instancia de Front Door](quickstart-create-front-door.md). Además, en el ejemplo siguiente, reemplace $frontDoorName por el nombre de su perfil de Front Door. 
 
 ```powershell-interactive
    $FrontDoorObjectExample = Get-AzFrontDoor `
@@ -104,10 +105,10 @@ En el ejemplo siguiente se usa el nombre de grupo de recursos *myResourceGroupFD
  ```
 
 > [!NOTE]
-> Deberá establecer *WebApplicationFirewallPolicyLink* propiedad una vez para vincular una directiva de seguridad a una puerta de front-end. Las actualizaciones posteriores de las directivas se aplican automáticamente para el front-end.
+> Solo necesita establecer la propiedad *WebApplicationFirewallPolicyLink* una vez para vincular una directiva de seguridad a un front-end de Front Door. Las posteriores actualizaciones de la directiva se aplican al front-end automáticamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre [puerta delantera](front-door-overview.md) 
+- Más información sobre [Front Door](front-door-overview.md) 
 
 

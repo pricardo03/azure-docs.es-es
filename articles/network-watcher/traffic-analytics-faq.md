@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: e4e9ef4f3a50aeac4db4d2cc2f2b6cbafcc47268
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939906"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051627"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -54,11 +54,11 @@ Debe cumplir alguno de los siguientes requisitos para habilitar Análisis de tr�
         
 Para comprobar los roles asignados a un usuario para una suscripción:
 
-1. Inicie sesión en Azure mediante el uso de **AzAccount de inicio de sesión**. 
+1. Inicie sesión en Azure mediante **Login-AzAccount**. 
 
-2. Seleccione la suscripción necesaria mediante el uso de **seleccione AzSubscription**. 
+2. Seleccione la suscripción necesaria con **Select-AzSubscription**. 
 
-3. Para enumerar todos los roles que están asignados a un usuario específico, use **AzRoleAssignment de Get - SignInName [correo electrónico del usuario] - IncludeClassicAdministrators**. 
+3. Para enumerar todos los roles asignados a un usuario específico, use **Get-AzRoleAssignment -SignInName [correo electrónico del usuario] -IncludeClassicAdministrators**. 
 
 Si no se muestra ninguna salida, póngase en contacto con el administrador de la suscripción correspondiente para acceder para ejecutar los comandos. Para más información, consulte [Administración del control de acceso basado en rol con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -95,12 +95,19 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
 El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 - Centro de Canadá
 - Centro occidental de EE.UU.
+- Oeste de EE. UU.
 - Oeste de EE. UU. 2
+- Centro-Sur de EE. UU
+- Centro de EE. UU.
 - Este de EE. UU
+- Este de EE. UU. 2
 - Centro de Francia
 - Europa occidental
+- Europa del Norte
 - Sur de Reino Unido 2
+- Este de Australia
 - Sudeste de Australia
+- Asia oriental
 - Sudeste asiático 
 - Corea Central
 - India Central
@@ -117,7 +124,7 @@ Sí.
 
 ## <a name="can-i-use-an-existing-workspace"></a>¿Puedo usar un área de trabajo existente?
 
-Sí. Si selecciona un área de trabajo existente, asegúrese de que se ha migrado al nuevo lenguaje de consulta. Si no quiere actualizar el área de trabajo, debe crear una nueva. Para obtener más información sobre el nuevo lenguaje de consulta, vea [Azure Monitor registra la actualización a la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md).
+Sí. Si selecciona un área de trabajo existente, asegúrese de que se ha migrado al nuevo lenguaje de consulta. Si no quiere actualizar el área de trabajo, debe crear una nueva. Para más información acerca del nuevo lenguaje de consulta, consulte el tema sobre la [actualización de registros de Azure Monitor para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>¿La cuenta de Azure Storage y el área de trabajo de Log Analytics pueden estar en suscripciones diferentes?
 
@@ -167,7 +174,7 @@ Puede ver información sobre los recursos en el panel; sin embargo, no aparece n
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>¿Puedo configurar Análisis de tráfico mediante PowerShell o una plantilla o cliente de Azure Resource Manager?
 
-Puede configurar Análisis de tráfico con Windows PowerShell desde la versión 6.2.1 en adelante. Para configurar registros de flujo y análisis de tráfico con un NSG específico mediante el cmdlet Set, consulte [conjunto AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obtener los registros de flujo y el estado de análisis de tráfico de un NSG específico, vea [Get AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+Puede configurar Análisis de tráfico con Windows PowerShell desde la versión 6.2.1 en adelante. Para configurar un registro de flujo y Análisis de tráfico para un grupo de seguridad de red específico mediante el cmdlet Set, consulte [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obtener el estado de un registro de flujo y Análisis de tráfico de un grupo de seguridad de red específico, consulte [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 En la actualidad, no puede usar una plantilla de Azure Resource Manager para configurar Análisis de tráfico.
 
@@ -239,28 +246,28 @@ Análisis de tráfico se puede medir. La medición se basa en el procesamiento d
 
 Por ejemplo, según el [plan de precios](https://azure.microsoft.com/pricing/details/network-watcher/), teniendo en cuenta la región Centro-oeste de EE. UU., si los registros de flujo de datos almacenados en una cuenta de almacenamiento procesada por Análisis de tráfico son de 10 GB y los registros mejorados ingeridos en el área de trabajo de Log Analytics son de 1 GB, los cargos aplicables son: 10 x 2.3 $ + 1 x 2,76 $ = 25,76 $
 
-## <a name="how-frequently-does-traffic-analytics-process-data"></a>¿Con qué frecuencia el análisis de tráfico procesar los datos?
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>¿Con qué frecuencia procesa datos Análisis de tráfico?
 
-Hacer referencia a la [sección de datos de agregación](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) en el esquema de análisis de tráfico y documento de agregación de datos
+Consulte la [sección de agregación de datos](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) en el documento Esquema y agregación de datos de Análisis de tráfico.
 
-## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>¿Cómo decide el análisis de tráfico que una dirección IP es malintencionada? 
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>¿Cómo decide Análisis de tráfico si una dirección IP es malintencionada? 
 
-Análisis de tráfico se basa en los sistemas de inteligencia de amenazas internas de Microsoft para considerar una dirección IP como malintencionada. Estos sistemas aprovechan telemetría diversas fuentes, como productos de Microsoft y servicios, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) y otras fuentes externas y compilación un montón de inteligencia en la parte superior. Algunos de estos datos es interno de Microsoft. Si una dirección IP conocida introducción se marca como malicios, genere una incidencia de soporte técnico para conocer los detalles.
+Análisis de tráfico se basa en los sistemas de inteligencia de amenazas internos de Microsoft para considerar una dirección IP como malintencionada. Estos sistemas aprovechan diversos orígenes de telemetría, como los productos y servicios de Microsoft, la Unidad de crímenes digitales de Microsoft, el Centro de respuestas de seguridad de Microsoft (MSRC) y fuentes externas, sobre les que crean una gran cantidad de inteligencia. Algunos de estos datos son internos de Microsoft. Si una dirección IP conocida se marca como malintencionada, genere una incidencia de soporte técnico para conocer los detalles.
 
-## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>¿Cómo puedo establecer alertas en los datos de análisis de tráfico?
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>¿Cómo puedo establecer alertas en los datos Análisis de tráfico?
 
-Análisis de tráfico no tiene compatibilidad integrada para las alertas. Sin embargo, dado que se almacenan los datos de análisis de tráfico de Log Analytics puede escribir consultas personalizadas y establecer alertas en ellos. Pasos siguientes:
-- Puede usar el vínculo corto de Log Analytics en el análisis de tráfico. 
-- Use la [esquema se documenta aquí](traffic-analytics-schema.md) para escribir las consultas 
-- Haga clic en "Nueva regla de alerta" para crear la alerta
-- Consulte [documentación de alertas de registro](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para crear la alerta
+Análisis de tráfico no ofrece compatibilidad integrada para las alertas. Sin embargo, dado que los datos de Análisis de tráfico se almacenan en Log Analytics, puede escribir consultas personalizadas y establecer alertas en estas. Pasos:
+- Puede usar el vínculo corto de Log Analytics en Análisis de tráfico. 
+- Use el [esquema que se documenta aquí](traffic-analytics-schema.md) para escribir las consultas. 
+- Haga clic en "Nueva regla de alertas" para crear una nueva alerta.
+- Consulte la [documentación de alertas de registro](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para crear la alerta.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>¿Cómo puedo navegar con el teclado en la vista del mapa geográfico?
 
 La página del mapa geográfico se compone de dos secciones principales:
     
-- **Banner**: El banner en la parte superior del mapa geográfico proporciona botones para seleccionar filtros de distribución de tráfico (por ejemplo, implementación, el tráfico de países o regiones y malintencionados). Si selecciona un botón, se aplica el filtro correspondiente en el mapa. Por ejemplo, si selecciona el botón Activo, el mapa resalta los centros de datos activos de la implementación.
-- **Mapa**: Debajo del banner, la sección de mapa muestra la distribución del tráfico entre los centros de datos de Azure y países o regiones.
+- **Banner**: el banner de la parte superior del mapa geográfico proporciona botones para seleccionar los filtros de distribución de tráfico (por ejemplo, Implementación, Tráfico de países o regiones y Malintencionado). Si selecciona un botón, se aplica el filtro correspondiente en el mapa. Por ejemplo, si selecciona el botón Activo, el mapa resalta los centros de datos activos de la implementación.
+- **Mapa**: la sección del mapa situada bajo el banner muestra la distribución del tráfico entre los centros de datos y los países o regiones de Azure.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegación por el banner con el teclado
     

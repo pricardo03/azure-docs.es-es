@@ -13,10 +13,10 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002722"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integración y entrega continuas (CI/CD) en Azure Data Factory
@@ -101,7 +101,7 @@ Estos son los pasos para configurar una versión de Azure Pipelines para que pue
 
 1.  Añada una tarea de implementación de Azure Resource Manager:
 
-     a.  Cree una nueva tarea, busque **Implementación de un grupo de recursos de Azure** y añádalo.
+    a.  Cree una nueva tarea, busque **Implementación de un grupo de recursos de Azure** y añádalo.
 
     b.  En la tarea de implementación, elija la suscripción, el grupo de recursos y la ubicación de la instancia de Data Factory de destino y proporcione las credenciales si es necesario.
 
@@ -164,7 +164,7 @@ Hay dos formas de administrar los secretos:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concesión de permisos al agente de Azure Pipelines
-La tarea de Azure Key Vault puede producir un error de tiempo de ejecución de fIntegration con un error acceso denegado. Descargue los registros de la versión y busque el archivo `.ps1` con el comando para conceder permisos al agente de Azure Pipelines. Puede ejecutar el comando directamente o bien copiar el identificador de entidad de seguridad del archivo y añadir la directiva de acceso manualmente en Azure Portal (*Get* y *List* son los permisos mínimos necesarios).
+Puede que se produzca un error de Integration Runtime de acceso denegado al ejecutar la tarea de Azure Key Vault. Descargue los registros de la versión y busque el archivo `.ps1` con el comando para conceder permisos al agente de Azure Pipelines. Puede ejecutar el comando directamente o bien copiar el identificador de entidad de seguridad del archivo y añadir la directiva de acceso manualmente en Azure Portal (*Get* y *List* son los permisos mínimos necesarios).
 
 ### <a name="update-active-triggers"></a>Actualización de desencadenadores activos
 Puede producirse un error en la implementación si intenta actualizar desencadenadores activos. Para actualizar desencadenadores activos, debe detenerlos manualmente e iniciarlos después de la implementación. Puede añadir una tarea de Azure Powershell para este propósito, como se muestra en el ejemplo siguiente:
@@ -850,31 +850,31 @@ else {
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usar parámetros personalizados con la plantilla de Resource Manager
 
-Si está en modo GIT, puede invalidar las propiedades predeterminadas en la plantilla de Resource Manager para establecer las propiedades que incluyen parámetros en la plantilla y las propiedades que están codificados. Es posible que desee reemplazar la plantilla de parametrización predeterminada en estos escenarios:
+Si está en modo GIT, puede reemplazar las propiedades predeterminadas en la plantilla de Resource Manager para establecer propiedades que están parametrizadas en la plantilla y propiedades que están codificadas de forma rígida. Es posible que desee reemplazar la plantilla de parametrización predeterminada en estos escenarios:
 
-* Usar CI/CD automatizada y desea cambiar algunas propiedades durante la implementación de Resource Manager, pero las propiedades no son parámetros de forma predeterminada.
-* La fábrica es tan grande que la plantilla de Resource Manager de forma predeterminada no es válida porque contiene más que el máximo permitido de parámetros (256).
+* Se usa CI/CD automatizada y se quieren cambiar algunas propiedades durante la implementación de Resource Manager, pero las propiedades no están parametrizadas de forma predeterminada.
+* La fábrica es tan grande que la plantilla de Resource Manager predeterminada no es válida porque contiene más parámetros que el número máximo permitido (256).
 
-En estas condiciones, para reemplazar la plantilla predeterminada de la parametrización, cree un archivo denominado *arm-plantillas-parámetros-definition.json* en la carpeta raíz del repositorio. Debe coincidir exactamente con el nombre de archivo. Factoría de datos intenta leer este archivo desde cualquier rama está actualmente en el portal de Azure Data Factory, no solo desde la rama de colaboración. Puede crear o editar el archivo desde una bifurcación privada, donde puede probar los cambios mediante el uso de la **plantilla ARM exportar** en la interfaz de usuario. A continuación, puede combinar el archivo en la rama de colaboración. Si se encuentra ningún archivo, se usa la plantilla predeterminada.
+En estas condiciones, para reemplazar la plantilla predeterminada de parametrización, cree un archivo denominado *arm-template-parameters-definition.json* en la carpeta raíz del repositorio. El nombre de archivo debe coincidir exactamente. Data Factory intenta leer el archivo de la rama en la que está actualmente en el portal de Azure Data Factory, no solo de la rama de colaboración. Puede crear o editar el archivo desde una rama privada, donde pueda probar los cambios usando la **plantilla de exportación de ARM** en la interfaz de usuario. A continuación, puede combinar el archivo en la rama de colaboración. Si no se encuentra ningún archivo, se usa la plantilla predeterminada.
 
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintaxis de un archivo de parámetros personalizados
 
-Estas son algunas directrices que se usará al crear el archivo de parámetros personalizados. El archivo consta de una sección para cada tipo de entidad: desencadenador, canalización, linkedservice, dataset, integrationruntime y así sucesivamente.
-* Escriba la ruta de acceso de propiedad en el tipo de entidad correspondiente.
-* Cuando se establece un nombre de propiedad en '\*'', indica que desea parametrizar todas las propiedades en él (sólo en el primer nivel, no de forma recursiva). También puede proporcionar las excepciones a esto.
+Estas son algunas directrices para usar durante la creación del archivo de parámetros personalizados. El archivo consta de una sección para cada tipo de entidad: trigger, pipeline, linkedservice, dataset, integrationruntime, etcétera.
+* Escriba la ruta de acceso de la propiedad en el tipo de entidad correspondiente.
+* Cuando se establece un nombre de propiedad en '\*'', indica que quiere parametrizar todas las propiedades que incluye (solo en el primer nivel, no de forma recursiva). También puede proporcionar excepciones.
 * Al establecer el valor de una propiedad como una cadena, indica que desea parametrizar la propiedad. Use el formato `<action>:<name>:<stype>`.
    *  `<action>` puede ser uno de los siguientes caracteres:
-      * `=` significa mantener el valor actual como el valor predeterminado para el parámetro.
-      * `-` significa que no tenga el valor predeterminado para el parámetro.
-      * `|` es un caso especial para los secretos de Azure Key Vault para las cadenas de conexión o las claves.
-   * `<name>` Es el nombre del parámetro. Si está en blanco, toma el nombre de la propiedad. Si el valor empieza por un `-` carácter, el nombre se ha reducido. Por ejemplo, `AzureStorage1_properties_typeProperties_connectionString` podría reducirse a `AzureStorage1_connectionString`.
-   * `<stype>` es el tipo de parámetro. Si `<stype>` está en blanco, el tipo predeterminado es `string`. Valores admitidos: `string`, `bool`, `number`, `object`, y `securestring`.
-* Cuando se especifica una matriz en el archivo de definición, se indica que la propiedad coincidente en la plantilla es una matriz. Factoría de datos recorre en iteración todos los objetos de la matriz mediante el uso de la definición que se especifica en el objeto en tiempo de ejecución de integración de la matriz. El segundo objeto, una cadena, se convierte en el nombre de la propiedad, que se utiliza como el nombre del parámetro para cada iteración.
-* No es posible tener una definición que es específica para una instancia de recursos. Cualquier definición se aplica a todos los recursos de ese tipo.
-* De forma predeterminada, todas las cadenas seguras, como secretos de Key Vault y cadenas seguras, como las cadenas de conexión, las claves y tokens, incluyen parámetros.
+      * `=` significa que el valor actual debe conservarse como el valor predeterminado para el parámetro.
+      * `-` significa que no se debe conservar el valor predeterminado para el parámetro.
+      * `|` es un caso especial para los secretos de Azure Key Vault para una cadena de conexión o claves.
+   * `<name>` es el nombre del parámetro. Si está en blanco, toma el nombre de la propiedad. Si el valor empieza por un carácter `-`, el nombre está abreviado. Por ejemplo, `AzureStorage1_properties_typeProperties_connectionString` se abreviará a `AzureStorage1_connectionString`.
+   * `<stype>` es el tipo del parámetro. Si `<stype>` está en blanco, el tipo predeterminado es `string`. Los valores admitidos son: `string`, `bool`, `number`, `object` y `securestring`.
+* Cuando especifica una matriz en el archivo de definición, se indica que la propiedad coincidente en la plantilla es una matriz. Data Factory recorre en iteración todos los objetos de la matriz utilizando la definición especificada en el objeto del entorno de ejecución de integración de la matriz. El segundo objeto, una cadena, se convierte en el nombre de la propiedad, que se utiliza como el nombre del parámetro para cada iteración.
+* No es posible una definición que sea específica para una instancia de recursos. Cualquier definición se aplica a todos los recursos de ese tipo.
+* De forma predeterminada, todas las cadenas seguras, como los secretos de Key Vault, y las cadenas seguras, como las cadenas de conexión, las claves y los tokens, están parametrizadas.
  
-## <a name="sample-parameterization-template"></a>Plantilla de ejemplo de parametrización
+## <a name="sample-parameterization-template"></a>Plantilla de parametrización de ejemplo
 
 ```json
 {
@@ -940,29 +940,29 @@ Estas son algunas directrices que se usará al crear el archivo de parámetros p
 
 #### <a name="pipelines"></a>Procesos
     
-* Cualquier propiedad de la ruta de acceso actividades/typeProperties/waitTimeInSeconds tiene parámetros. Esto significa que cualquier actividad en una canalización que tiene una propiedad de nivel de código denominada `waitTimeInSeconds` (por ejemplo, el `Wait` actividad) tiene parámetros como un número con un nombre predeterminado. Sin embargo, no tendrá un valor predeterminado en la plantilla de Resource Manager. Durante la implementación de Resource Manager será una entrada obligatoria.
-* De forma similar, una propiedad denominada `headers` (por ejemplo, en un `Web` actividad) tiene parámetros con tipo `object` (JObject). Tiene un valor predeterminado, que es el mismo valor que en el generador del origen.
+* Cualquier propiedad de la ruta de acceso activities/typeProperties/waitTimeInSeconds está parametrizada. Esto significa que cualquier actividad en una canalización que tiene una propiedad de nivel de código denominada `waitTimeInSeconds` (por ejemplo, la actividad `Wait`) está parametrizada como un número, con un nombre predeterminado. Sin embargo, no tendrá un valor predeterminado en la plantilla de Resource Manager. Será una entrada obligatoria durante la implementación de Resource Manager.
+* De forma similar, una propiedad denominada `headers` (por ejemplo, en una actividad `Web`) está parametrizada con el tipo `object` (JObject). Tiene un valor predeterminado, que es el mismo valor que en la fábrica de origen.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Solo las propiedades y todas las propiedades, en la ruta de acceso `typeProperties` parametrizada, con sus valores predeterminados correspondientes. Por ejemplo, a partir del esquema de hoy en día, hay dos propiedades en **IntegrationRuntimes** propiedades de tipo: `computeProperties` y `ssisProperties`. Ambos tipos de propiedad se crean con sus valores respectivos predeterminados y tipos (objeto).
+* Solo las propiedades, y todas las propiedades, en la ruta de acceso `typeProperties` están parametrizadas, con sus valores predeterminados correspondientes. Por ejemplo, en el esquema actual, hay dos propiedades en las propiedades de tipo **IntegrationRuntimes**: `computeProperties` y `ssisProperties`. Ambos tipos de propiedades se crean con sus valores predeterminados y tipos (objeto) respectivos.
 
 #### <a name="triggers"></a>Desencadenadores
 
-* En `typeProperties`, dos propiedades parametrizadas. La primera de ellas es `maxConcurrency`, que se especifica para tener un valor predeterminado y el tipo sería `string`. Tiene el nombre de parámetro predeterminado de `<entityName>_properties_typeProperties_maxConcurrency`.
-* El `recurrence` propiedad también tiene parámetros. En ella, todas las propiedades de ese nivel se especifican que se parametrice como cadenas con valores predeterminados y los nombres de parámetro. Una excepción es el `interval` propiedad, que es parametrizar como tipo de número y con el nombre del parámetro con el sufijo `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. De forma similar, la `freq` propiedad es una cadena y tiene parámetros como una cadena. Sin embargo, el `freq` se parametriza la propiedad sin un valor predeterminado. El nombre se ha reducido y el sufijo. Por ejemplo, `<entityName>_freq`.
+* En `typeProperties`, hay dos propiedades parametrizadas. La primera de ellas es `maxConcurrency`, que tiene especificado un valor predeterminado y el tipo sería `string`. Tiene el nombre de parámetro predeterminado de `<entityName>_properties_typeProperties_maxConcurrency`.
+* La propiedad `recurrence` también está parametrizada. En ella, se especifica que todas las propiedades de ese nivel están parametrizadas como cadenas, con valores predeterminados y los nombres de parámetro. Una excepción es la propiedad `interval`, que está parametrizada como tipo de número y con el nombre de parámetro con el sufijo `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. De forma similar, la propiedad `freq` es una cadena y está parametrizada como una cadena. Sin embargo, la propiedad `freq` está parametrizada sin un valor predeterminado. El nombre está abreviado y con un sufijo. Por ejemplo, `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* Servicios vinculados es único. Dado que los servicios vinculados y conjuntos de datos pueden ser de varios tipos, puede proporcionar personalización específicos del tipo. Por ejemplo, podría decir que para todos los servicios de tipo vinculados `AzureDataLakeStore`, será una plantilla específica aplicada y para todos los demás (a través de \*) se aplicará una plantilla diferente.
-* En el ejemplo anterior, el `connectionString` propiedad será parametrizada como una `securestring` valor, no tendrá un valor predeterminado, y tendrá un nombre de parámetro abreviado que tiene el sufijo `connectionString`.
-* La propiedad `secretAccessKey`, sin embargo, resulta ser una `AzureKeyVaultSecret` (por ejemplo, un `AmazonS3` servicio vinculado). Por lo tanto, se parametriza automáticamente como un secreto de Azure Key Vault y se captura desde el almacén de claves que se configura con en el generador del origen. También puede parametrizar el almacén de claves, sí.
+* Los servicios vinculados son únicos. Dado que los servicios vinculados y los conjuntos de datos pueden ser de varios tipos, puede proporcionar una personalización específica de tipo. Por ejemplo, podría indicar que para todos los servicios vinculados de tipo `AzureDataLakeStore`, se aplicará una plantilla específica y para todos los demás (a través de \*) se aplicará otra plantilla.
+* En el ejemplo anterior, la propiedad `connectionString` se parametrizará como un valor `securestring`, no tendrá un valor predeterminado y tendrá un nombre de parámetro abreviado con el sufijo `connectionString`.
+* Sin embargo, la propiedad `secretAccessKey` resulta ser `AzureKeyVaultSecret` (por ejemplo, un servicio vinculado `AmazonS3`). Por lo tanto, se parametriza automáticamente como un secreto de Azure Key Vault y se captura desde el almacén de claves que se configura con en la fábrica de origen. También puede parametrizar el propio almacén de claves.
 
 #### <a name="datasets"></a>Conjuntos de datos
 
-* Aunque personalización específicos del tipo está disponible para conjuntos de datos, se puede proporcionar la configuración sin necesidad de forma explícita un \*-configuración de nivel. En el ejemplo anterior, todas las propiedades del conjunto de datos de `typeProperties` incluyen parámetros.
+* Aunque la personalización específica de tipo está disponible para conjuntos de datos, se puede proporcionar configuración sin necesidad de una configuración de nivel \* explícita. En el ejemplo anterior, todas las propiedades del conjunto de datos de `typeProperties` están parametrizadas.
 
-Puede cambiar la plantilla predeterminada de la parametrización, pero se trata de la plantilla actual. Esto será útil si desea agregar una propiedad adicional como un parámetro, sino también si no desea perder las parametrizaciones automáticas existentes y deberá volver a crearlos.
+Puede cambiar la plantilla predeterminada de parametrización, pero se trata de la plantilla actual. Será útil si solo desea agregar una propiedad adicional como parámetro, pero también si no desea perder las parametrizaciones existentes y tener que volver a crearlas.
 
 
 ```json
@@ -1070,7 +1070,7 @@ Puede cambiar la plantilla predeterminada de la parametrización, pero se trata 
 }
 ```
 
-**Ejemplo**: Agregar un identificador de clúster Databricks interactiva (desde un servicio vinculado de Databricks) al archivo de parámetros:
+**Ejemplo**: agregar un id. de clúster Databricks interactivo (desde un servicio vinculado de Databricks) al archivo de parámetros:
 
 ```
 {

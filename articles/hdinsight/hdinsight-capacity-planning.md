@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
 ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237153"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
@@ -105,8 +105,8 @@ Para identificar el problema en un clúster local de un solo nodo, puede volver 
 Después de determinar el tamaño, la escala y el tipo de la máquina virtual del clúster de destino, compruebe los límites de capacidad de cuota actual de la suscripción. Cuando alcance un límite de cuota, puede que no sea capaz de implementar clústeres nuevos o de escalar horizontalmente los clústeres con la adición de más nodos de trabajo. El límite de cuota única es la cuota de núcleos de CPU que existe en el nivel de región para cada suscripción. Por ejemplo, la suscripción puede tener el límite de 30 núcleos en la región Este de EE. UU. Si fuera necesario solicitar un aumento de la cuota, siga estos pasos:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-1. Seleccione **ayuda y soporte técnico** en la parte inferior izquierda de la página.
-1. Seleccione en **nueva solicitud de soporte técnico**.
+1. Seleccione **Ayuda y soporte técnico** de la parte inferior izquierda de la página.
+1. Seleccione **Nueva solicitud de soporte técnico**.
 1. En la página **Nueva solicitud de soporte técnico**, en la pestaña **Fundamentos**, seleccione las opciones siguientes:
    - **Tipo de problema**: **Límites de servicio y suscripción (cuotas)**
    - **Suscripción**: la suscripción que desea modificar.
@@ -115,9 +115,9 @@ Después de determinar el tamaño, la escala y el tipo de la máquina virtual de
      ![Creación de una solicitud de soporte técnico para aumentar la cuota de núcleos de HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Seleccione **Siguiente: Soluciones >>** .
-1. En el **detalles** página, escriba una descripción del problema, seleccione la gravedad del problema, el método de contacto preferido y otros campos obligatorios.
+1. En la página **Detalles**, escriba una descripción del problema, seleccione su gravedad y método de contacto preferido, y complete los demás campos obligatorios.
 1. Seleccione **Siguiente: Revisar y crear >>** .
-1. En el **revisión + crear** ficha, seleccione **crear**.
+1. En la pestaña **Revisar y crear**, seleccione **Crear**.
 
 > [!NOTE]  
 > Si necesita aumentar la cuota de núcleos de HDInsight en una región privada, [envíe una solicitud de lista de permitidos](https://aka.ms/canaryintwhitelist).

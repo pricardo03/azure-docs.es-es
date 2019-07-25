@@ -1,6 +1,6 @@
 ---
-title: 'Referencia de API v2 de Azure Monitor de estado: Deshabilitar la supervisión | Microsoft Docs'
-description: Referencia de API v2 de Monitor de estado. Disable-ApplicationInsightsMonitoring. Supervisar el rendimiento del sitio Web sin volver a implementar el sitio Web. Funciona con las aplicaciones web ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
+title: 'Referencia de la API del Monitor de estado de Azure v2: Deshabilitación de la supervisión | Microsoft Docs'
+description: Referencia de la API del Monitor de estado de Azure v2. Disable-ApplicationInsightsMonitoring. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -13,25 +13,25 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ms.openlocfilehash: 201c5cc251896efae6b9f4639818471c0f011afe
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66514404"
 ---
-# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>API de v2 del Monitor de estado: Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>API del Monitor de estado v2: Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-Este artículo describe un cmdlet que forme parte del [módulo de Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
-> V2 de Monitor de estado está actualmente en versión preliminar pública.
-> Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no es aconsejable para cargas de trabajo de producción. Podrían no admitir algunas características, y algunas pueden tener funcionalidades limitadas.
+> Monitor de estado v2 está actualmente en la versión preliminar pública.
+> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>DESCRIPCIÓN
 
 Deshabilita la supervisión en el equipo de destino.
-Este cmdlet quitará las modificaciones realizadas en applicationHost.config IIS y quitar claves del registro.
+Este cmdlet quitará los cambios realizados en el archivo applicationHost.config de IIS y eliminará las claves del Registro.
 
 > [!IMPORTANT] 
 > Este cmdlet requiere una sesión de PowerShell con permisos de administrador.
@@ -45,12 +45,12 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ## <a name="parameters"></a>Parámetros 
 
 ### <a name="-verbose"></a>-Verbose
-**Parámetro común.** Utilice este modificador para mostrar los registros detallados.
+**Parámetro común.** Utilice este modificador para mostrar registros detallados.
 
 ## <a name="output"></a>Salida
 
 
-#### <a name="example-output-from-successfully-disabling-monitoring"></a>Ejemplo de salida de deshabilitar correctamente la supervisión
+#### <a name="example-output-from-successfully-disabling-monitoring"></a>Salida de ejemplo al deshabilitar correctamente la supervisión
 
 ```
 Initiating Disable Process
@@ -76,5 +76,5 @@ Successfully disabled Application Insights Status Monitor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- Hacer más con el Monitor de estado v2:
- - Use nuestra guía para [solucionar](status-monitor-v2-troubleshoot.md) v2 del Monitor de estado.
+ Hacer más con el Monitor de estado v2:
+ - Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) del Monitor de estado v2.
