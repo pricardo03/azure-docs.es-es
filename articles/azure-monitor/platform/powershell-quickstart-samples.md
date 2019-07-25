@@ -153,10 +153,10 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 | Parámetro | value |
 | --- | --- |
 | NOMBRE |simpletestdiskwrite |
-| Ubicación (Location) de esta regla de alerta |Este de EE. UU |
+| Ubicación (Location) de esta regla de alerta |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| Nombre de la métrica (MetricName) de la alerta que se crea |\PhysicalDisk(_Total)\Disk Writes/sec. Consulte el cmdlet `Get-MetricDefinitions` acerca de cómo recuperar los nombres exactos de las métricas |
+| Nombre de la métrica (MetricName) de la alerta que se crea |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
 | operator |GreaterThan |
 | Valor de umbral (número por segundo para esta métrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |
