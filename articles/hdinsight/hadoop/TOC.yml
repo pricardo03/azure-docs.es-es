@@ -397,7 +397,7 @@
     - name: Seguridad de la empresa
       items:
         - name: Información general
-          href: ../domain-joined/apache-domain-joined-introduction.md
+          href: ../domain-joined/hdinsight-security-overview.md
           maintainContext: true
         - name: Plan de seguridad de la empresa
           href: ../domain-joined/apache-domain-joined-architecture.md
