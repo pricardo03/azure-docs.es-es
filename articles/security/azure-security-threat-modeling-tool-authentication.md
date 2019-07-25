@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 3b170a214c7c3c464f7ea645fa1dc42cce0a0580
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951718"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Marco de seguridad: autenticación | Mitigaciones 
@@ -41,7 +41,7 @@ ms.locfileid: "65951718"
 
 ## <a id="standard-authn-web-app"></a>Consideración sobre el uso de un mecanismo de autenticación estándar para autenticarse en la aplicación web
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
 | **Fase de SDL**               | Compilación |  
@@ -52,7 +52,7 @@ ms.locfileid: "65951718"
 
 ## <a id="handle-failed-authn"></a>Las aplicaciones deben administrar escenarios de errores de autenticación de forma segura
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
 | **Fase de SDL**               | Compilación |  
@@ -63,7 +63,7 @@ ms.locfileid: "65951718"
 
 ## <a id="step-up-adaptive-authn"></a>Habilitación de la autenticación adicional o adaptable
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
 | **Fase de SDL**               | Compilación |  
@@ -74,7 +74,7 @@ ms.locfileid: "65951718"
 
 ## <a id="admin-interface-lockdown"></a>Asegurarse de que las interfaces administrativas estén correctamente bloqueadas
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
 | **Fase de SDL**               | Compilación |  
@@ -85,7 +85,7 @@ ms.locfileid: "65951718"
 
 ## <a id="forgot-pword-fxn"></a>Implementación de funcionalidades de contraseña olvidada de forma segura
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
 | **Fase de SDL**               | Compilación |  
@@ -96,18 +96,18 @@ ms.locfileid: "65951718"
 
 ## <a id="pword-account-policy"></a>Asegurarse de que se implementen directivas de cuenta y contraseña
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
-| Detalles | <p>Se deben implementar directivas de cuenta y contraseña en conformidad con la política de la organización y los procedimientos recomendados.</p><p>Para defenderse contra ataques por fuerza bruta y adivinación por diccionario, se debe implementar una directiva de contraseñas seguras que garantice que los usuarios crean contraseñas complejas (por ejemplo, con una longitud mínima de doce caracteres, que incluyan alfanuméricos y especiales).</p><p>Se pueden implementar directivas de bloqueo de la cuenta de la siguiente manera:</p><ul><li>**Bloqueo temporal:** puede ser una buena opción para proteger a los usuarios contra ataques por fuerza bruta. Por ejemplo, cada vez que el usuario escribe una contraseña errónea tres veces, la aplicación podría bloquear la cuenta durante un minuto con el fin de ralentizar el proceso de forzar su contraseña de forma que el atacante ceje. Si fuera a implementar contramedidas de disco duras de espera de bloqueo para este ejemplo conseguiría un "DoS" al bloquear las cuentas de forma permanente. Como alternativa, puede generar una contraseña de un solo uso (OTP) y enviarla al usuario fuera de banda (por correo electrónico, SMS, etc.). Otro enfoque podría ser implementar CAPTCHA después de alcanzar un umbral de intentos erróneos.</li><li>**Bloqueo permanente:** Este tipo de bloqueo se debe aplicar cada vez que detecte un usuario ataca su aplicación y el contador de ellos por medio de bloqueo permanente de su cuenta hasta que un equipo de respuesta tenían tiempo para realizar el análisis forense. Después de este proceso, puede decidir para proporcionar al usuario realizar una copia de su cuenta o tomar medidas legales contra ellas. Este tipo de enfoque impide que el atacante penetre aún más en la aplicación y la infraestructura.</li></ul><p>Para defenderse contra ataques en cuentas predeterminadas y predecibles, compruebe que todas las claves y contraseñas sean reemplazables y que se generen o reemplacen después del tiempo de instalación.</p><p>Si la aplicación tiene que generar automáticamente contraseñas, asegúrese de que las contraseñas generadas sean aleatorias y tengan una alta entropía.</p>|
+| Detalles | <p>Se deben implementar directivas de cuenta y contraseña en conformidad con la política de la organización y los procedimientos recomendados.</p><p>Para defenderse contra ataques por fuerza bruta y adivinación por diccionario, se debe implementar una directiva de contraseñas seguras que garantice que los usuarios crean contraseñas complejas (por ejemplo, con una longitud mínima de doce caracteres, que incluyan alfanuméricos y especiales).</p><p>Se pueden implementar directivas de bloqueo de la cuenta de la siguiente manera:</p><ul><li>**Bloqueo temporal:** puede ser una buena opción para proteger a los usuarios contra ataques por fuerza bruta. Por ejemplo, cada vez que el usuario escribe una contraseña errónea tres veces, la aplicación puede bloquear la cuenta durante un minuto con el fin de ralentizar el proceso de forzar su contraseña de forma que el atacante ceje en su empeño y abandone. Si fuera a implementar contramedidas de bloqueo permanente, en este ejemplo conseguiría un "DoS" al bloquear las cuentas de forma permanente. Como alternativa, puede generar una contraseña de un solo uso (OTP) y enviarla al usuario fuera de banda (por correo electrónico, SMS, etc.). Otro enfoque podría ser implementar CAPTCHA después de alcanzar un umbral de intentos erróneos.</li><li>**Bloqueo permanente:** este tipo de bloqueo se debe aplicar cada vez que detecte que un usuario ataca su aplicación. El contraataque consiste en el bloqueo permanente de su cuenta hasta que el equipo de respuesta tenga tiempo de realizar el análisis forense. Después de este proceso, puede decidir devolver la cuenta al usuario o tomar medidas legales contra él. Este tipo de enfoque impide que el atacante penetre aún más en la aplicación y la infraestructura.</li></ul><p>Para defenderse contra ataques en cuentas predeterminadas y predecibles, compruebe que todas las claves y contraseñas sean reemplazables y que se generen o reemplacen después del tiempo de instalación.</p><p>Si la aplicación tiene que generar automáticamente contraseñas, asegúrese de que las contraseñas generadas sean aleatorias y tengan una alta entropía.</p>|
 
 ## <a id="controls-username-enum"></a>Implementación de controles para impedir la enumeración de nombres de usuario
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
 | **Fase de SDL**               | Compilación |  
@@ -118,7 +118,7 @@ ms.locfileid: "65951718"
 
 ## <a id="win-authn-sql"></a>Cuando sea posible, usar la autenticación de Windows para conectarse a SQL Server
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de datos | 
 | **Fase de SDL**               | Compilación |  
@@ -129,7 +129,7 @@ ms.locfileid: "65951718"
 
 ## <a id="aad-authn-sql"></a>Cuando sea posible, usar la autenticación de Azure Active Directory para conectarse a SQL Database
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de datos | 
 | **Fase de SDL**               | Compilación |  
@@ -140,7 +140,7 @@ ms.locfileid: "65951718"
 
 ## <a id="authn-account-pword"></a>Cuando se use el modo de autenticación de SQL, asegurarse de que se apliquen directivas de cuenta y contraseña en SQL Server
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de datos | 
 | **Fase de SDL**               | Compilación |  
@@ -151,7 +151,7 @@ ms.locfileid: "65951718"
 
 ## <a id="autn-contained-db"></a>No usar la autenticación SQL en bases de datos independientes
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de datos | 
 | **Fase de SDL**               | Compilación |  
@@ -162,7 +162,7 @@ ms.locfileid: "65951718"
 
 ## <a id="authn-sas-tokens"></a>Uso de las credenciales de autenticación por dispositivo mediante tokens SaS
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Centro de eventos de Azure | 
 | **Fase de SDL**               | Compilación |  
@@ -173,7 +173,7 @@ ms.locfileid: "65951718"
 
 ## <a id="multi-factor-azure-admin"></a>Habilitación de Azure Multi-Factor Authentication para administradores de Azure
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Límites de confianza de Azure | 
 | **Fase de SDL**               | Implementación |  
@@ -184,7 +184,7 @@ ms.locfileid: "65951718"
 
 ## <a id="anon-access-cluster"></a>Restricción del acceso anónimo al clúster de Service Fabric
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Límites de confianza de Service Fabric | 
 | **Fase de SDL**               | Implementación |  
@@ -195,7 +195,7 @@ ms.locfileid: "65951718"
 
 ## <a id="fabric-cn-nn"></a>Asegurarse de que el certificado de cliente a nodo de Service Fabric sea diferente del certificado de nodo a nodo
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Límites de confianza de Service Fabric | 
 | **Fase de SDL**               | Implementación |  
@@ -206,7 +206,7 @@ ms.locfileid: "65951718"
 
 ## <a id="aad-client-fabric"></a>Uso de AAD para autenticar a los clientes en los clústeres de Service Fabric
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Límites de confianza de Service Fabric | 
 | **Fase de SDL**               | Implementación |  
@@ -217,7 +217,7 @@ ms.locfileid: "65951718"
 
 ## <a id="fabric-cert-ca"></a>Asegurarse de que los certificados de Service Fabric se obtienen de una entidad de certificación (CA) aprobada
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Límites de confianza de Service Fabric | 
 | **Fase de SDL**               | Implementación |  
@@ -228,7 +228,7 @@ ms.locfileid: "65951718"
 
 ## <a id="standard-authn-id"></a>Uso de escenarios de autenticación estándar admitidos por Identity Server
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Identity Server | 
 | **Fase de SDL**               | Compilación |  
@@ -239,7 +239,7 @@ ms.locfileid: "65951718"
 
 ## <a id="override-token"></a>Reemplazo de la caché de tokens predeterminada de Identity Server por una alternativa escalable
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Identity Server | 
 | **Fase de SDL**               | Implementación |  
@@ -250,7 +250,7 @@ ms.locfileid: "65951718"
 
 ## <a id="binaries-signed"></a>Asegurarse de que los archivos binarios de la aplicación implementada están firmados digitalmente
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Límite de confianza de la máquina | 
 | **Fase de SDL**               | Implementación |  
@@ -261,7 +261,7 @@ ms.locfileid: "65951718"
 
 ## <a id="msmq-queues"></a>Habilitación de la autenticación al conectarse a las colas MSMQ en WCF
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase de SDL**               | Compilación |  
@@ -301,7 +301,7 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 ## <a id="message-none"></a>No establecer clientCredentialType de WCF en Ninguno
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase de SDL**               | Compilación |  
@@ -317,7 +317,7 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 ## <a id="transport-none"></a>No establecer Transport clientCredentialType de WCF en Ninguno
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase de SDL**               | Compilación |  
@@ -333,9 +333,9 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 ## <a id="authn-secure-api"></a>Asegurarse de que se usan técnicas de autenticación estándar para proteger las API web
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | API web | 
+| **Componente**               | API Web | 
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
@@ -344,7 +344,7 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 ## <a id="authn-aad"></a>Uso de escenarios de autenticación estándar compatibles con Azure Active Directory
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
 | **Fase de SDL**               | Compilación |  
@@ -355,7 +355,7 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 ## <a id="adal-scalable"></a>Reemplazo de la caché de tokens predeterminada de ADAL por una alternativa escalable
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
 | **Fase de SDL**               | Compilación |  
@@ -366,7 +366,7 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 
 ## <a id="tokenreplaycache-adal"></a>Asegurarse de que TokenReplayCache se usa para impedir la reproducción de tokens de autenticación de ADAL
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
 | **Fase de SDL**               | Compilación |  
@@ -427,7 +427,7 @@ Tenga en cuenta que para probar la eficacia de esta configuración, debe iniciar
 
 ## <a id="adal-oauth2"></a>Uso de bibliotecas de ADAL para administrar las solicitudes de token de clientes de OAuth2 a AAD (o AD local)
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
 | **Fase de SDL**               | Compilación |  
@@ -438,7 +438,7 @@ Tenga en cuenta que para probar la eficacia de esta configuración, debe iniciar
 
 ## <a id="authn-devices-field"></a>Autenticación de los dispositivos que se conectan a la puerta de enlace de campo
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Puerta de enlace de campo de IoT | 
 | **Fase de SDL**               | Compilación |  
@@ -449,13 +449,13 @@ Tenga en cuenta que para probar la eficacia de esta configuración, debe iniciar
 
 ## <a id="authn-devices-cloud"></a>Asegurarse de que se autentican los dispositivos que se conectan a la puerta de enlace de nube
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Puerta de enlace de la nube de IoT | 
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico, C#, Node.JS,  |
 | **Atributos**              | N/D, opción de puerta de enlace: Azure IoT Hub |
-| **Referencias**              | N/D, [Azure IoT hub con .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Introducción a IoT hub y Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [protección de IoT con SAS y certificados](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [repositorio de Git](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **Referencias**              | N/D, [Introducción a Azure IoT Hub (.NET)](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Introducción a Azure IoT Hub (Node)](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Protección de IoT con SAS y certificados](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Repositorio de GIT](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
 | **Pasos** | <ul><li>**Genérico:** autenticación del dispositivo mediante Seguridad de la capa de transporte (TLS) o IPSec. La infraestructura debe admitir el uso de una clave precompartida (PSK) en los dispositivos que no pueden controlar la criptografía asimétrica completa. Aprovechamiento de Azure AD, OAuth</li><li>**C#:** al crear una instancia de DeviceClient, el método Create crea de forma predeterminada una instancia de DeviceClient que usa el protocolo AMQP para comunicarse con IoT Hub. Para usar el protocolo HTTPS, utilice la invalidación del método Create que permite especificar el protocolo. Si usa el protocolo HTTPS, también debe agregar el paquete NuGet `Microsoft.AspNet.WebApi.Client` al proyecto para incluir el espacio de nombres `System.Net.Http.Formatting`.</li></ul>|
 
 ### <a name="example"></a>Ejemplo
@@ -476,7 +476,7 @@ await deviceClient.SendEventAsync(message);
 ### <a name="example"></a>Ejemplo
 **Node.JS: autenticación**
 #### <a name="symmetric-key"></a>Clave simétrica
-* Crear un IoT hub en azure
+* Cree un centro de IoT en Azure.
 * Cree una entrada en el Registro de identidad de dispositivo:
     ```javascript
     var device = new iothub.Device(null);
@@ -549,7 +549,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="authn-cred"></a>Uso de credenciales de autenticación por dispositivo
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Puerta de enlace de la nube de IoT  | 
 | **Fase de SDL**               | Compilación |  
@@ -560,7 +560,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="req-containers-anon"></a>Asegurarse de que solo los contenedores y blobs requeridos reciben acceso anónimo de lectura
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure Storage | 
 | **Fase de SDL**               | Compilación |  
@@ -571,7 +571,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="limited-access-sas"></a>Concesión de acceso limitado a objetos de Azure Storage mediante SAS o SAP
 
-| Puesto                   | Detalles      |
+| Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure Storage | 
 | **Fase de SDL**               | Compilación |  

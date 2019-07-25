@@ -1,5 +1,5 @@
 ---
-title: Cómo cambiar, eliminar o administrar los grupos de administración - gobierno de Azure
+title: 'Cambio, eliminación o administración de los grupos de administración: Gobernanza de Azure'
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
 author: rthorn17
 ms.service: governance
@@ -7,10 +7,10 @@ ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: 028b4cbf62bf9ed0b3b38f54d3b787a8c1368da0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242949"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
@@ -35,11 +35,11 @@ Puede cambiar el nombre del grupo de administración mediante el portal, PowerSh
 
 1. Seleccione el grupo de administración cuyo nombre quiere cambiar.
 
-1. Seleccione **detalles**.
+1. Seleccione **Detalles**.
 
 1. Seleccione la opción **Cambiar nombre de grupo** en la parte superior de la página.
 
-   ![Opción de cambiar nombre de grupo en la página del grupo de administración](./media/detail_action_small.png)
+   ![Opción Cambiar nombre de grupo en la página del grupo de administración](./media/detail_action_small.png)
 
 1. Cuando se abra el menú, escriba el nuevo nombre que desea mostrar.
 
@@ -49,7 +49,7 @@ Puede cambiar el nombre del grupo de administración mediante el portal, PowerSh
 
 ### <a name="change-the-name-in-powershell"></a>Cambiar el nombre en PowerShell
 
-Para actualizar el nombre para mostrar, use **actualización AzManagementGroup**. Por ejemplo, para cambiar una administración de grupos de mostrar el nombre de "Contoso TI" a "Grupo de Contoso", ejecute el siguiente comando:
+Para actualizar el nombre para mostrar, use **Update-AzManagementGroup**. Por ejemplo, para cambiar el nombre para mostrar de un grupo de administración de "Contoso TI" a "Grupo de Contoso", ejecute el siguiente comando:
 
 ```azurepowershell-interactive
 Update-AzManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
@@ -73,7 +73,7 @@ Para eliminar un grupo de administración, deben cumplirse los siguientes requis
 
    - Para mover un grupo de administración a otro grupo de administración, consulte [Mover grupos de administración en la jerarquía](#move-management-groups-in-the-hierarchy).
 
-1. Tener permisos de escritura en el grupo de administración ("Owner", "Colaborador" o "Colaborador de grupo de administración"). Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../../role-based-access-control/overview.md).  
+1. Tiene permisos de escritura sobre el grupo de administración (propietario, colaborador o colaborador de grupo de administración). Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Eliminar en el portal
 
@@ -83,7 +83,7 @@ Para eliminar un grupo de administración, deben cumplirse los siguientes requis
 
 1. Seleccione el grupo de administración que desea eliminar.
 
-1. Seleccione **detalles**.
+1. Seleccione **Detalles**.
 
 1. Seleccionar **Eliminar**
 
@@ -100,7 +100,7 @@ Para eliminar un grupo de administración, deben cumplirse los siguientes requis
 
 ### <a name="delete-in-powershell"></a>Eliminar en PowerShell
 
-Use la **Remove-AzManagementGroup** comando de PowerShell para eliminar grupos de administración.
+Use el comando **Remove-AzManagementGroup** de PowerShell para eliminar grupos de administración.
 
 ```azurepowershell-interactive
 Remove-AzManagementGroup -GroupName 'Contoso'
@@ -124,7 +124,7 @@ Puede ver cualquier grupo de administración sobre el que tenga un rol de RBAC d
 
 1. Seleccione **Todos los servicios** > **Grupos de administración**.
 
-1. Se cargará la página de jerarquía de grupo de administración. Esta página es donde puede explorar todos los grupos de administración y las suscripciones tiene acceso a. Si selecciona el nombre del grupo, descenderá un nivel en la jerarquía. La navegación funciona de la misma forma que un explorador de archivos.
+1. Se cargará la página de la jerarquía de grupos de administración. En esta página puede explorar todos los grupos de administración y las suscripciones a los que tiene acceso. Si selecciona el nombre del grupo, descenderá un nivel en la jerarquía. La navegación funciona de la misma forma que un explorador de archivos.
 
 1. Para ver los detalles del grupo de administración, seleccione el vínculo **(detalles)** situado junto al título de este. Si este vínculo no está disponible, no tiene permisos para ver ese grupo de administración.
 
@@ -132,7 +132,7 @@ Puede ver cualquier grupo de administración sobre el que tenga un rol de RBAC d
 
 ### <a name="view-in-powershell"></a>Ver en PowerShell
 
-Utilice el comando Get-AzManagementGroup para recuperar todos los grupos.  Consulte [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) módulos para la lista completa de la administración de agrupar los comandos de Powershell GET.  
+Use el comando Get-AzManagementGroup para recuperar todos los grupos.  Consulte los módulos [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) para ver la lista completa de comandos GET de PowerShell del grupo de administración.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -144,7 +144,7 @@ Para obtener información de un único grupo de administración, use el parámet
 Get-AzManagementGroup -GroupName 'Contoso'
 ```
 
-Para devolver todos los niveles de la jerarquía debajo de él y de un grupo de administración específico, use **-expanda** y **-Recurse** parámetros.  
+Para devolver un grupo de administración específico y todos los niveles de la jerarquía que hay debajo, use los parámetros **-Expand** y **-Recurse**.  
 
 ```azurepowershell-interactive
 PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
@@ -193,7 +193,7 @@ Para obtener información de un único grupo de administración, use el comando 
 az account management-group show --name 'Contoso'
 ```
 
-Para devolver todos los niveles de la jerarquía debajo de él y de un grupo de administración específico, use **-expanda** y **-Recurse** parámetros.
+Para devolver un grupo de administración específico y todos los niveles de la jerarquía que hay debajo, use los parámetros **-Expand** y **-Recurse**.
 
 ```azurecli-interactive
 az account management-group show --name 'Contoso' -e -r
@@ -203,17 +203,17 @@ az account management-group show --name 'Contoso' -e -r
 
 Uno de los motivos de crear un grupo de administración es agrupar las suscripciones. Solo los grupos de administración y las suscripciones pueden convertirse en secundarios de otro grupo de administración. Una suscripción que se mueve a un grupo de administración hereda todas las directivas y accesos de usuario del grupo de administración primario.
 
-Para mover la suscripción, todos los permisos RBAC siguientes deben ser true:
+Para mover la suscripción, deben cumplirse todos los permisos RBAC siguientes:
 
 - Rol de "propietario" en la suscripción secundaria.
-- Rol "Propietario", "Colaborador" o "Colaborador de grupo de administración" en el grupo de administración de destino primario.
-- Rol "Propietario", "Colaborador" o "Colaborador de grupo de administración" en el grupo de administración primario existente.
+- Rol de "propietario", "colaborador" o "colaborador de grupo de administración" en el grupo de administración primario de destino.
+- Rol de "propietario", "colaborador" o "colaborador de grupo de administración" en el grupo de administración primario existente.
 
-Si el destino o el grupo de administración primario existente es el grupo de administración raíz, no se aplican los requisitos de permisos. Puesto que el grupo de administración raíz es la zona para todos los nuevos grupos de administración y suscripciones de aterrizaje predeterminada, no necesita los permisos sobre él para mover un elemento.
+Si el grupo de administración primario existente o de destino es el grupo de administración raíz, no se aplican los requisitos de permisos. Puesto que el grupo de administración raíz es la zona de aterrizaje predeterminada de todos los nuevos grupos de administración y suscripciones, no necesita permisos sobre él para mover un elemento.
 
-Si el rol de propietario de la suscripción se hereda el grupo de administración actual, los destinos de movimiento están limitados. Sólo puede mover la suscripción a otro grupo de administración que tiene el rol de propietario. No se puede mover a un grupo de administración que sea un colaborador porque se perdería la propiedad de la suscripción. Si está directamente asignado al rol de propietario de la suscripción (no se hereda del grupo de administración), puede moverlo a cualquier grupo de administración que sea un colaborador.
+Si el rol de propietario de la suscripción se hereda del grupo de administración actual, los destinos de movimiento están limitados. Solo puede mover la suscripción a otro grupo de administración en el que tenga el rol de propietario. No puede moverla a un grupo de administración en el que sea colaborador porque perdería la propiedad de la suscripción. Si se le asigna directamente el rol de propietario de la suscripción (no se hereda del grupo de administración), puede moverlo a cualquier grupo de administración donde sea colaborador.
 
-Para ver qué permisos tiene en Azure portal, seleccione la administración de grupo y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../../role-based-access-control/overview.md).
+Para ver qué permisos tiene en Azure Portal, seleccione el grupo de administración y, luego, **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../../role-based-access-control/overview.md).
 
 ### <a name="move-subscriptions-in-the-portal"></a>Mover las suscripciones en el portal
 
@@ -243,13 +243,13 @@ Para ver qué permisos tiene en Azure portal, seleccione la administración de g
 
 1. Seleccione los puntos suspensivos al final de la fila correspondiente a la suscripción de la lista que quiere mover.
 
-   ![Opción Move en un grupo de administración](./media/move_small.png)
+   ![Opción Mover en un grupo de administración](./media/move_small.png)
 
 1. Seleccione **Mover**.
 
 1. En el menú que se abre, seleccione el **grupo de administración primario**.
 
-   ![Panel de movimiento para cambiar el grupo primario](./media/move_small_context.png)
+   ![Panel Mover para cambiar el grupo primario](./media/move_small_context.png)
 
 1. Seleccione **Guardar**.
 
@@ -261,7 +261,7 @@ Para mover una suscripción en PowerShell, use el comando New-AzManagementGroupS
 New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-Para quitar el vínculo entre y suscripción y el grupo de administración usan el comando Remove-AzManagementGroupSubscription.
+Para quitar el vínculo entre la suscripción y el grupo de administración, use el comando Remove-AzManagementGroupSubscription.
 
 ```azurepowershell-interactive
 Remove-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -283,7 +283,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>Movimiento de grupos de administración en la jerarquía  
 
-Al mover un grupo de administración principal, la jerarquía de ese grupo se mueve con él. Para el acceso necesita mover grupos de administración, consulte [acceso al grupo de administración](index.md#management-group-access).
+Al mover un grupo de administración primario, la jerarquía de ese grupo se mueve con él. Para acceder a él, debe mover los grupos de administración; consulte [Acceso al grupo de administración](index.md#management-group-access).
 
 ### <a name="move-management-groups-in-the-portal"></a>Mover grupos de administración en el portal
 
@@ -300,13 +300,13 @@ Al mover un grupo de administración principal, la jerarquía de ese grupo se mu
    - Al seleccionar Nuevo se crea un grupo de administración.
    - Al seleccionar un grupo existente se mostrará una lista desplegable de todos los grupos de administración que se pueden mover a este grupo de administración.  
 
-   ![Mover un grupo de administración al grupo nuevo o existente](./media/add_context_MG.png)
+   ![Movimiento de un grupo de administración a un grupo nuevo o existente](./media/add_context_MG.png)
 
 1. Seleccione **Guardar**.
 
 ### <a name="move-management-groups-in-powershell"></a>Mover grupos de administración en PowerShell
 
-Utilice el comando Update-AzManagementGroup en PowerShell para mover un grupo de administración en un grupo diferente.
+Use el comando Update-AzManagementGroup de PowerShell para mover un grupo de administración a un grupo diferente.
 
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName ContosoIT
@@ -323,25 +323,25 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditoría de los grupos de administración mediante registros de actividad
 
-Se admiten grupos de administración en el [registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md). Puede consultar todos los eventos que se producen en un grupo de administración en la misma ubicación central como otros recursos de Azure.  Por ejemplo, puede ver todos los cambios de asignaciones de roles o de asignación de directiva efectuados en un grupo de administración concreto.
+Se admiten grupos de administración en el [registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md). Puede consultar todos los eventos que se producen en un grupo de administración en la misma ubicación central que otros recursos de Azure.  Por ejemplo, puede ver todos los cambios de asignaciones de roles o de asignación de directiva efectuados en un grupo de administración concreto.
 
-![Registros de actividad con grupos de administración](media/al-mg.png)
+![Registros de actividades con grupos de administración](media/al-mg.png)
 
 Si observa las consultas en los grupos de administración fuera de Azure Portal, el ámbito de destino de los grupos de administración se parece a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 
-## <a name="referencing-management-groups-from-other-resource-providers"></a>Hacer referencia a grupos de administración de otros proveedores de recursos
+## <a name="referencing-management-groups-from-other-resource-providers"></a>Referencia a grupos de administración de otros proveedores de recursos
 
-Al hacer referencia a grupos de administración de las acciones del otro proveedor de recursos, use la siguiente ruta de acceso como el ámbito. Esta ruta de acceso se utiliza cuando se usa PowerShell, CLI de Azure y las API de REST.  
+Al hacer referencia a grupos de administración desde las acciones de otro proveedor de recursos, use la siguiente ruta de acceso como ámbito. Esta ruta de acceso se usa cuando se utiliza PowerShell, la CLI de Azure y las API REST.  
 
 >"/providers/Microsoft.Management/managementGroups/{yourMgID}"
 
-Un ejemplo del uso de esta ruta de acceso es al asignar una nueva asignación de roles a un grupo de administración en PowerShell
+Un ejemplo de uso de esta ruta de acceso es cuando se realiza una nueva asignación de roles a un grupo de administración en PowerShell.
 
 ```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
-La misma ruta de ámbito se utiliza al recuperar una definición de directiva en un grupo de administración.
+La misma ruta de acceso al ámbito se usa al recuperar una definición de directiva en un grupo de administración.
 
 ```http
 GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01

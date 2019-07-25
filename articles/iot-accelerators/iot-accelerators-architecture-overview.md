@@ -1,6 +1,6 @@
 ---
 title: 'Arquitectura de referencia de aceleradores de soluciones de IoT: Azure | Microsoft Docs'
-description: Obtenga información sobre la arquitectura de referencia de los aceleradores de soluciones de IoT de Azure. Los aceleradores de soluciones existentes aprovechan esta arquitectura de referencia. También puede usar la arquitectura de referencia al crear sus propias soluciones de IoT personalizadas.
+description: Obtenga información sobre la arquitectura de referencia de los aceleradores de soluciones de Azure IoT. Los aceleradores de soluciones existentes aprovechan esta arquitectura de referencia. También puede usar la arquitectura de referencia al crear sus propias soluciones de IoT personalizadas.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/04/2018
@@ -9,18 +9,18 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.openlocfilehash: 01349dbc5fe98fd69ce7219ef6f2029d7bb815d0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466458"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067911"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Introducción a la arquitectura de referencia de Azure IoT
 
 En este artículo, se presenta la [arquitectura de referencia de Azure IoT](https://aka.ms/iotrefarchitecture) y se proporcionan ejemplos sobre cómo los [aceleradores de soluciones de Azure IoT](about-iot-accelerators.md) siguen sus recomendaciones.
 
-Los aceleradores de soluciones de código abierto [Remote Monitoring](iot-accelerators-remote-monitoring-sample-walkthrough.md) y [Connected Factory](iot-accelerators-connected-factory-sample-walkthrough.md) siguen muchas de las recomendaciones de la arquitectura de referencia. Puede usar los aceleradores de soluciones como punto de inicio para su propia solución de IoT o como herramientas de aprendizaje.
+Los aceleradores de soluciones de código abierto [Remote Monitoring](iot-accelerators-remote-monitoring-sample-walkthrough.md) y [Connected Factory](iot-accelerators-connected-factory-features.md) siguen muchas de las recomendaciones de la arquitectura de referencia. Puede usar los aceleradores de soluciones como punto de inicio para su propia solución de IoT o como herramientas de aprendizaje.
 
 ## <a name="overview"></a>Información general
 
@@ -42,7 +42,7 @@ La arquitectura de referencia identifica los subsistemas principales que se mues
 
 En las secciones siguientes, se describe cómo se asignan los componentes del acelerador de soluciones de supervisión remota a los subsistemas principales.
 
-### <a name="iot-devices"></a>Dispositivos de IoT
+### <a name="iot-devices"></a>Dispositivos IoT
 
 Una solución de IoT tiene que habilitar una comunicación segura, eficiente y sólida entre prácticamente cualquier tipo de dispositivo y una puerta de enlace de nube. Los dispositivos son activos empresariales que varían desde sencillos sensores de temperatura a complejas líneas de producción de fábrica con cientos de componentes y sensores.
 
@@ -81,7 +81,7 @@ El enrutamiento puede enviar la telemetría a uno o más puntos de conexión de 
 
 La solución de supervisión remota usa [Azure Stream Analytics](/azure/stream-analytics/) para el procesamiento de flujos de datos. El motor de reglas de la solución usa las consultas de Stream Analytics para generar alertas y acciones. Por ejemplo, la solución puede usar una consulta para identificar el momento en que la temperatura media del compartimiento de almacenamiento de un camión sea inferior a 36 grados durante más de cinco minutos.
 
-### <a name="storage"></a>Almacenamiento
+### <a name="storage"></a>Storage
 
 Las soluciones de IoT pueden generar grandes cantidades de datos que, con frecuencia, son datos de series temporales. Es necesario almacenar estos datos en una ubicación donde puedan usarse con fines de visualización y generación de informes. Una solución también puede que necesite acceder a datos más tarde para su análisis o procesamiento adicional. Es habitual dividir datos en almacenes de datos activos e inactivos. El almacén de datos activos contiene datos recientes para el acceso con baja latencia. El almacén de datos inactivos suele almacenar datos históricos.
 

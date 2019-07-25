@@ -1,6 +1,6 @@
 ---
 title: Atributos comunes de seguridad para Azure Event Hubs
-description: Una lista de comprobación de los atributos de seguridad comunes para evaluar Azure Event Hubs
+description: Lista de comprobación de los atributos de seguridad que se utilizan habitualmente para evaluar Azure Event Hubs
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 50f19d50f211972c2042c69a1e3177ffb4a47624
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247205"
 ---
 # <a name="common-security-attributes-for-azure-event-hubs"></a>Atributos comunes de seguridad para Azure Event Hubs
 
-Este artículo documenta los atributos comunes de seguridad integrados en Azure Event Hubs.
+En este artículo, se explican los atributos de seguridad comunes integrados en Azure Event Hubs.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -28,7 +28,7 @@ Este artículo documenta los atributos comunes de seguridad integrados en Azure 
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>|  Sí | |
 | Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | |
-| Control de claves de cifrado (CMK, BYOK, etcetera.)| Sin  |  |
+| Control de clave de cifrado (CMK, BYOK, etc.)| Sin |  |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí |  |
 
@@ -36,16 +36,16 @@ Este artículo documenta los atributos comunes de seguridad integrados en Azure 
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad de punto de conexión de servicio| Sí |  |
-| compatibilidad con inserción de redes virtuales| Sin  | |
-| Aislamiento de red y la compatibilidad con Firewall| Sí |  |
-| Fuerza la tunelización de soporte técnico| No |  |
+| Compatibilidad con punto de conexión de servicio| Sí |  |
+| Compatibilidad con inserción de red virtual| Sin | |
+| Compatibilidad con aislamiento de red y firewalls| Sí |  |
+| Compatibilidad con la tunelización forzada| Sin |  |
 
 ## <a name="detection"></a>Detección
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Supervisión de soporte técnico (Log analytics, Application insights, etcetera) de Azure| Sí | |
+| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | |
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso
 
@@ -59,11 +59,11 @@ Este artículo documenta los atributos comunes de seguridad integrados en Azure 
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Auditoría y registro del plano de control y administración| Sí |  |
-| Auditoría y registro del plano de datos| Sí |   |
+| Registro y auditoría del plano de administración y de control| Sí |  |
+| Registro y auditoría del plano de datos| Sí |   |
 
 ## <a name="configuration-management"></a>Administración de configuración
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la administración de configuración (control de versiones de configuración, etcetera.)| Sí | |
+| Compatibilidad con la administración de configuración (control de versiones de configuración, etc.)| Sí | |

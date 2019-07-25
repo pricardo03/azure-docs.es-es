@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
 ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66478596"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuales
@@ -29,7 +29,7 @@ Crear una red virtual con la cual experimentar es bastante sencillo, pero es pro
 
 Todos los recursos de Azure tienen un nombre. El nombre debe ser único dentro de un ámbito, que puede variar para cada tipo de recurso. Por ejemplo, el nombre de una red virtual debe ser único dentro de un [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), pero puede haber duplicados del nombre dentro de una [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) o [región](https://azure.microsoft.com/regions/#services) de Azure. Definir una convención de nomenclatura que pueda usar de forma consistente al asignar nombres a recursos le será de utilidad al administrar varios recursos de red con el tiempo. Consulte [Naming conventions](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking) (Convenciones de nomenclatura) para obtener sugerencias.
 
-## <a name="regions"></a>Regiones
+## <a name="regions"></a>Regions
 
 Todos los recursos de Azure se crean en una suscripción y una región de Azure. Un recurso solo se puede crear en una red virtual que exista en la misma región y suscripción de ese recurso. No obstante, puede conectar redes virtuales que ya existan a diferentes suscripciones y regiones. Para obtener más información, consulte[Conectividad](#connectivity). Al decidir en qué regiones implementar los recursos, debe tener en cuenta dónde se encuentran físicamente los consumidores de esos recursos:
 
@@ -77,7 +77,7 @@ Puede filtrar el tráfico de red hacia y desde los recursos en una red virtual m
 - Si debe aplicar reglas de seguridad a varias máquinas virtuales de una subred, puede asociar la interfaz de red en la máquina virtual a uno o varios grupos de seguridad de aplicaciones. Una regla de seguridad puede especificar un grupo de seguridad de aplicaciones en el origen, en el destino o en ambos. A continuación, solo se aplica dicha regla a las interfaces de red que forman parte del grupo de seguridad de aplicaciones. Obtenga más información sobre los [grupos de seguridad de red](security-overview.md) y los [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups).
 - Azure crea de forma predeterminada varias reglas de seguridad en cada grupo de seguridad de red. Una regla predeterminada permite que todo el tráfico fluya entre todos los recursos de una red virtual. Para invalidar este comportamiento, use los grupos de seguridad de red, el enrutamiento personalizado para enrutar el tráfico a una NVA o ambas opciones. Le recomendamos que se familiarice con todas las [reglas de seguridad predeterminadas](security-overview.md#default-security-rules) de Azure, y con la forma de aplicar las reglas del grupo de seguridad de red a un recurso.
 
-Puede ver los diseños de ejemplo para implementar una red perimetral (también conocida como DMZ) entre Azure e internet utilizando un [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+Puede ver los diseños de ejemplo para implementar una red perimetral (también conocida como DMZ) entre Azure e Internet mediante [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 ### <a name="traffic-routing"></a>Enrutamiento del tráfico
 

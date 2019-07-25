@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 356af6567cea96efc7edbe8bc4932182d35ebc07
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963945"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configuración de GitHub para aprovisionar usuarios automáticamente
@@ -32,10 +32,10 @@ En la situación descrita en este tutorial se supone que ya cuenta con los eleme
 
 * Un inquilino de Azure Active Directory
 * Una organización GitHub creada en [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), que requiere el [plan de facturación de GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
-* Una cuenta de usuario de GitHub con permisos de administrador a la organización
+* Una cuenta de usuario de GitHub con permisos de administrador para la organización
 
 > [!NOTE]
-> La integración del aprovisionamiento de Azure AD se basa en el [API de GitHub SCIM](https://developer.github.com/v3/scim/), que está disponible para [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) a los clientes en la [plan de facturación de GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
+> La integración del aprovisionamiento de Azure AD se basa en la [API de GitHub SCIM](https://developer.github.com/v3/scim/), que está disponible para los clientes de la [nube de GitHub Enterprise](https://help.github.com/articles/github-s-products/#github-enterprise) en el [plan de facturación de GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
 
 ## <a name="assigning-users-to-github"></a>Asignación de usuarios a GitHub
 

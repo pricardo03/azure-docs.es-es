@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
 ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258663"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Administración de aplicaciones y servicios como recursos de Azure Resource Manager
@@ -28,8 +28,8 @@ Puede implementar aplicaciones y servicios en el clúster de Service Fabric medi
 Esta es la manera recomendada de implementar cualquier aplicación de administración, configuración o gobernanza del clúster que necesite en el clúster. Aquí se incluyen la [aplicación de orquestación de revisiones](service-fabric-patch-orchestration-application.md), los guardianes o cualquier aplicación que se deba ejecutar en el clúster antes de implementar otras aplicaciones o servicios. 
 
 Cuando sea aplicable, administre las aplicaciones como recursos de Resource Manager para mejorar:
-* Traza de auditoría: Resource Manager audita las operaciones y mantiene una detallada *registro de actividad* que puede ayudar a los cambios realizados en estas aplicaciones y el clúster de seguimiento.
-* Control de acceso basado en roles (RBAC): Administrar el acceso a los clústeres, así como las aplicaciones implementadas en el clúster puede realizarse a través de la misma plantilla de Resource Manager.
+* Registro de auditoría: Resource Manager audita las operaciones y mantiene un *registro de actividad* detallado que puede ayudarle a realizar el seguimiento de los cambios realizados en estas aplicaciones y en el clúster.
+* Control de acceso basado en rol (RBAC): la administración del acceso a los clústeres, así como a las aplicaciones implementadas en el clúster, puede realizarse mediante la misma plantilla de Resource Manager.
 * Azure Resource Manager (mediante Azure Portal) se convierte en el lugar central para administrar el clúster y las implementaciones de aplicaciones críticas.
 
 En el siguiente fragmento se muestran los diferentes tipos de recursos que se pueden administrar mediante una plantilla:
@@ -259,15 +259,15 @@ En el siguiente fragmento se muestran los diferentes tipos de recursos que se pu
 
 5. Así que, implemente. 
 
-## <a name="remove-service-fabric-resource-provider-application-resource"></a>Quitar recursos de la aplicación de proveedor de recursos de Service Fabric
-Los siguientes desencadenará el paquete de aplicación para que sea no aprovisionado del clúster y limpiará el espacio en disco utilizado:
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Quitar el recurso de la aplicación de proveedor de recursos de Service Fabric
+Lo siguiente desencadenará el paquete de la aplicación para que sea no aprovisionado desde el clúster y limpiará el espacio usado en el disco:
 ```powershell
 Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
 ```
-Basta con quitar Microsoft.ServiceFabric/clusters/application de la plantilla ARM no anula la provisión de la aplicación
+Quitar Microsoft.ServiceFabric/clusters/application de la plantilla ARM no anulará el aprovisionamiento de la aplicación
 
 >[!NOTE]
-> Una vez completada la eliminación no debería ver ya la versión del paquete en SFX o ARM. No se puede eliminar el recurso de versión del tipo de aplicación que se ejecuta la aplicación con; ARM/SFRP evitar que esto. Si se intenta deshacer el aprovisionamiento de la ejecución del paquete, se evitará SF en tiempo de ejecución.
+> Una vez completada la eliminación ya no debería ver la versión del paquete en SFX ni en ARM. No puede eliminar el recurso de la versión del tipo de aplicación con el que se está ejecutando la aplicación; ARM/SFRP evitará esto. Si intenta anular el aprovisionamiento del paquete en ejecución, el tiempo de ejecución de SF lo evitará.
 
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Administración de una aplicación existente mediante Resource Manager
@@ -275,7 +275,7 @@ Basta con quitar Microsoft.ServiceFabric/clusters/application de la plantilla AR
 Si el clúster ya está activo y algunas de las aplicaciones que le gustaría administrar como recursos de Resource Manager ya están implementadas en él, en lugar de quitar las aplicaciones y volver a implementarlas, puede usar una llamada PUT con las mismas API para que las aplicaciones se confirmen como recursos de Resource Manager. 
 
 > [!NOTE]
-> Para permitir una actualización de clúster para pasar por alto las aplicaciones en mal estado en el cliente puede especificar "maxPercentUnhealthyApplications: 100" en la sección" upgradeDescription/healthPolicy"; descripciones detalladas de todas las configuraciones están en [documentación de la directiva de actualización de servicio tejidos REST API clúster](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Para permitir una actualización del clúster para ignorar las aplicaciones en mal estado, el cliente puede especificar "maxPercentUnhealthyApplications: 100" en la sección "upgradeDescription/healthPolicy"; encontrará descripciones detalladas de todas las opciones de configuración en la [documentación de la directiva de actualización del clúster de la API de REST de Service Fabrics](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

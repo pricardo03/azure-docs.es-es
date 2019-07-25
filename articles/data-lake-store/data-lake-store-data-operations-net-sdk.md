@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65908059"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operaciones del sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso del SDK de .NET
 > [!div class="op_single_selector"]
-> * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
+> * [SDK de .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
 > * [API DE REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
@@ -32,7 +32,7 @@ Con este artículo aprenderá a realizar operaciones del sistema de archivos en 
 Para instrucciones sobre cómo realizar operaciones de administración de cuentas en Data Lake Storage Gen1 con el SDK de .NET, consulte [Operaciones de administración de cuentas en Data Lake Storage Gen1 con el SDK de .NET](data-lake-store-get-started-net-sdk.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Visual Studio 2013 o versiones posteriores**. Las instrucciones siguientes usan Visual Studio de 2019.
+* **Visual Studio 2013 o superior**. En las instrucciones siguientes se usa Visual Studio 2019.
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -41,9 +41,9 @@ Para instrucciones sobre cómo realizar operaciones de administración de cuenta
 ## <a name="create-a-net-application"></a>Creación de una aplicación .NET
 El ejemplo de código disponible [en GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) le guía a través del proceso de creación de archivos en el almacén, concatenación de archivos, descarga de un archivo y eliminación de algunos archivos en el almacén. Esta sección del artículo le guía a través de las principales partes del código.
 
-1. En Visual Studio, seleccione el **archivo** menú, **New**y, a continuación, **proyecto**.
-2. Elija **aplicación de consola (.NET Framework)** y, a continuación, seleccione **siguiente**.
-3. En **nombre del proyecto**, escriba `CreateADLApplication`y, a continuación, seleccione **crear**.
+1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y, a continuación, **Proyecto**.
+2. Elija **Aplicación de consola (.NET Framework)** y, a continuación, seleccione **Siguiente**.
+3. En el **nombre del proyecto**, escriba `CreateADLApplication` y, a continuación, seleccione **Crear**.
 
 4. Agregue los paquetes NuGet al proyecto.
 
@@ -131,7 +131,7 @@ El fragmento de código siguiente lee el contenido de un archivo en Data Lake St
         }
     }
 
-## <a name="get-file-properties"></a>Obtener propiedades del archivo
+## <a name="get-file-properties"></a>Obtención de las propiedades del archivo
 El fragmento de código siguiente devuelve las propiedades asociadas a un archivo o un directorio.
 
     // Get file properties
@@ -169,7 +169,7 @@ Aquí se muestran un par de ejemplos sobre cómo usar el SDK del sistema de arch
 * [Ejemplo básico en GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Ejemplo avanzado en GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Operaciones de administración de cuentas en Data Lake Storage Gen1 con el SDK de .NET](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK Reference](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet) (Referencia del SDK de .NET de Data Lake Storage Gen1)
 

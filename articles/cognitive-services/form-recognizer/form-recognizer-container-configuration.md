@@ -1,20 +1,20 @@
 ---
-title: Configuración de contenedor (Form Recognizer)
+title: Configuración de un contenedor para Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Vea cómo configurar el contenedor Form Recognizer para analizar los datos de formularios y tablas.
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 7e8e7a13cd02a6f3b109a84829dba2a81fd36aaa
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 7752b09dd1bf20d796b19d03e62426b098486c39
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296248"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718452"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configuración de contenedores de Form Recognizer
 

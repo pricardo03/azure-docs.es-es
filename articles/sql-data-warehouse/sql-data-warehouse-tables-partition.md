@@ -11,10 +11,10 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: af9fa49d274036888fd266f8983c523a3b077cbd
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851523"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Creación de particiones de tablas en SQL Data Warehouse
@@ -225,8 +225,8 @@ Una vez que haya completado el movimiento de los datos, es una buena idea actual
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
-### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Cargar nuevos datos en particiones que contienen datos en un solo paso
-Cargar datos en particiones con conmutación de particiones es una manera cómoda de almacenar provisionalmente nuevos datos en una tabla que no es visible para los usuarios del conmutador en los nuevos datos.  Puede ser un desafío en sistemas ocupados para tratar con la contención de bloqueos asociada con la modificación de particiones.  Para borrar los datos existentes en una partición, una `ALTER TABLE` solía ser necesario cambiar los datos.  A continuación, otra `ALTER TABLE` necesitó para cambiar los datos nuevos.  En SQL Data Warehouse, la `TRUNCATE_TARGET` opción se admite en el `ALTER TABLE` comando.  Con `TRUNCATE_TARGET` el `ALTER TABLE` comando sobrescribe los datos existentes en la partición con nuevos datos.  A continuación es un ejemplo que usa `CTAS` crear una nueva tabla con los datos existentes, inserta nuevos datos, a continuación, hacer una copia de todos los datos de modificadores en la tabla de destino, sobrescribiendo los datos existentes.
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Cargar en un solo paso datos nuevos en particiones que ya contienen datos
+La carga de datos en particiones mediante el cambio de partición es una forma muy útil de organizar nuevos datos en una tabla que no es visible para los usuarios al cambiar los nuevos datos.  Puede un desafío para los sistemas ocupados tratar con la contención de bloqueo asociada con el cambio de partición.  Para borrar los datos existentes en una partición, solía requerirse un `ALTER TABLE` para cambiar los datos.  Luego se requería otro `ALTER TABLE` para cambiar a los nuevos datos.  En SQL Data Warehouse, la opción `TRUNCATE_TARGET` es compatible con el comando `ALTER TABLE`.  Con `TRUNCATE_TARGET` el comando `ALTER TABLE` sobrescribe los datos existentes en la partición con datos nuevos.  A continuación se muestra un ejemplo que usa `CTAS` para crear una nueva tabla con los datos existentes, inserta datos nuevos y luego cambia todos los datos de nuevo a la tabla de destino, sobrescribiendo los datos existentes.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

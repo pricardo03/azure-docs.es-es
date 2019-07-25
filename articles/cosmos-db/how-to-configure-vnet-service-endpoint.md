@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.openlocfilehash: 375e79d2fe70e0988d8c58997a746f77b21d7f50
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241997"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configuración del acceso desde redes virtuales (VNET)
@@ -53,7 +53,7 @@ En las secciones siguientes se describe cómo configurar un punto de conexión d
 > Para habilitar los puntos de conexión de servicio de red virtual, necesitará los siguientes permisos de suscripción:
 >   * Suscripción con red virtual: colaborador de red
 >   * Suscripción con cuenta de Azure Cosmos DB: colaborador de cuenta de DocumentDB
->   * Si la red virtual y la cuenta de Azure Cosmos DB se encuentran en distintas suscripciones, asegúrese de que también tiene la suscripción que tiene una red virtual `Microsoft.DocumentDB` registrado el proveedor de recursos. Para registrar un proveedor de recursos, consulte [tipos y proveedores de recursos de Azure](../azure-resource-manager/resource-manager-supported-services.md) artículo. 
+>   * Si la red virtual y su cuenta de Azure Cosmos DB están en suscripciones diferentes, asegúrese de que la suscripción que tiene la red virtual también tiene el proveedor de recursos `Microsoft.DocumentDB` registrado. Para registrar un proveedor de recursos, vea el artículo [Tipos y proveedores de recursos de Azure](../azure-resource-manager/resource-manager-supported-services.md). 
 
 Estas son las instrucciones para registrar la suscripción con el proveedor de recursos.
 
@@ -215,7 +215,7 @@ Use los pasos siguientes para configurar un punto de conexión de servicio de un
     --virtual-network-rules "/subscriptions/testsub/resourceGroups/testRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/default"
    ```
 
-## <a id="migrate-from-firewall-to-vnet"></a>Migración de una regla de firewall de dirección IP a una ACL de red virtual 
+## <a id="migrate-from-firewall-to-vnet"></a>Migración desde una regla de firewall de IP a una lista de control de acceso de red virtual 
 
 Use los pasos siguientes solo para las cuentas de Azure Cosmos DB con reglas de firewall de IP existentes que permiten una subred cuando quiera usar las ACL basadas en la red virtual y la subred en lugar de la regla de firewall de IP.
 

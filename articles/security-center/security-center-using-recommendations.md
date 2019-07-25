@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 3/26/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 60bb1c3b81ef990993a2ce659a2b189c9d8a0eba
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967974"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso de las recomendaciones de Azure Security Center para mejorar la seguridad
 Puede reducir las posibilidades de que se produzca un incidente de seguridad importante configurando una directiva de seguridad y, luego, implementando las recomendaciones de Azure Security Center. En este artículo se muestra cómo usar las recomendaciones y directivas de seguridad de Security Center para ayudar a mitigar un ataque de seguridad. 
 
-Security Center se ejecuta automáticamente un análisis continuo para analizar el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles de seguridad necesarios. Security Center actualiza sus recomendaciones dentro de 24 horas, con las siguientes excepciones:
+Security Center ejecuta automáticamente un análisis continuo para analizar el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles de seguridad necesarios. Security Center actualiza sus recomendaciones en el plazo de 24 horas, con las siguientes excepciones:
 
-- Las recomendaciones de configuración de seguridad del sistema operativo se actualizan en 48 horas
-- Recomendaciones de problemas de protección de puntos de conexión se actualizan en 8 horas
+- Las recomendaciones de la configuración de seguridad del sistema operativo se actualizan en un plazo de 48 horas.
+- Las recomendaciones de los problemas de Endpoint Protection se actualizan en un plazo de 8 horas.
 
 ## <a name="scenario"></a>Escenario
 Este escenario muestra cómo usar Security Center para ayudar a reducir las posibilidades de que se produzca un incidente de seguridad al supervisar las recomendaciones de Security Center y tomar medidas. El escenario utiliza la compañía ficticia Contoso y los roles de la [Guía de planeamiento y operaciones](security-center-planning-and-operations-guide.md#security-roles-and-access-controls) de Security Center. En este escenario, nos centraremos en los roles siguientes:

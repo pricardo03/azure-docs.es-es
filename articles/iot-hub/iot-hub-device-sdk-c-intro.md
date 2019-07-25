@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: yizhon
 ms.openlocfilehash: d758d761e560642de76e149c83fc6898aa78bafb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65910326"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
@@ -111,7 +111,7 @@ En esta pestaña se administran los dispositivos registrados en IoT Hub.
 
 1. Si elige la opción **Copy connection string for selected device** (Copiar cadena de conexión de dispositivo seleccionado), la cadena de conexión del dispositivo se copia en el Portapapeles. Mantenga una copia de la cadena de conexión de dispositivo, ya que se necesita al ejecutar las aplicaciones de ejemplo que se describen en las secciones siguientes.
 
-Cuando haya completados los pasos anteriores, estará listo para empezar a ejecutar código. La mayoría de los ejemplos tienen una constante en la parte superior del archivo de código fuente principal, que permite especificar una cadena de conexión. Por ejemplo, la línea correspondiente de la **iothub_client\_ejemplos\_iothub_convenience_sample** aplicación aparece como sigue.
+Cuando haya completados los pasos anteriores, estará listo para empezar a ejecutar código. La mayoría de los ejemplos tienen una constante en la parte superior del archivo de código fuente principal, que permite especificar una cadena de conexión. Por ejemplo, la línea correspondiente de la aplicación **iothub_client\_samples\_iothub_convenience_sample** aparece de la siguiente manera.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -121,12 +121,12 @@ static const char* connectionString = "[device connection string]";
 
 Dentro de la carpeta **iothub\_client**, en el repositorio [azure-iot-sdks](https://github.com/azure/azure-iot-sdk-c), hay una carpeta **samples** que contiene una aplicación denominada **iothub\_client\_sample\_mqtt**.
 
-La versión de Windows de la **iothub_client\_ejemplos\_iothub_convenience_sample** aplicación incluye la solución de Visual Studio siguiente:
+La versión de Windows para la aplicación **iothub_client\_samples\_iothub_convenience_sample** incluye la siguiente solución de Visual Studio:
 
   ![Explorador de soluciones de Visual Studio](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
-> Si Visual Studio le pide que redestinar el proyecto a la última versión, acepte el mensaje.
+> Si Visual Studio le solicita que redestine el proyecto a la última versión, acepte la solicitud.
 
 Esta solución contiene un proyecto. En esta solución hay cuatro paquetes de NuGet instalados:
 
@@ -137,7 +137,7 @@ Esta solución contiene un proyecto. En esta solución hay cuatro paquetes de Nu
 
 El paquete **Microsoft.Azure.C.SharedUtility** siempre es necesario al trabajar con el SDK. Este ejemplo usa el protocolo MQTT, por lo que es necesario incluir los paquetes **Microsoft.Azure.umqtt** y **Microsoft.Azure.IoTHub.MqttTransport** (hay paquetes equivalentes para AMQP y HTTPS). Como en el ejemplo se usa la biblioteca **IoTHubClient**, se debe incluir también el paquete **Microsoft.Azure.IoTHub.IoTHubClient** en la solución.
 
-Puede encontrar la implementación para la aplicación de ejemplo en el **iothub_client\_ejemplos\_iothub_convenience_sample** archivo de código fuente.
+La implementación de la aplicación de ejemplo en se encuentra en el archivo de código fuente **iothub_client\_samples\_iothub_convenience_sample**.
 
 En los siguientes pasos se usa esta aplicación de ejemplo para guiarle por los requisitos necesarios para usar la biblioteca **IoTHubClient**.
 
@@ -339,7 +339,7 @@ Dentro de la carpeta **serializer**, en el repositorio [azure-iot-sdks](https://
   ![Solución de Visual Studio para ejemplo de mqtt](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
-> Si Visual Studio le pide que redestinar el proyecto a la última versión, acepte el mensaje.
+> Si Visual Studio le solicita que redestine el proyecto a la última versión, acepte la solicitud.
 
 Al igual que con el ejemplo anterior, esta incluye varios paquetes de NuGet:
 
@@ -351,7 +351,7 @@ Al igual que con el ejemplo anterior, esta incluye varios paquetes de NuGet:
 
 La mayoría de estos paquetes los ha visto en el ejemplo anterior, pero **Microsoft.Azure.IoTHub.Serializer** es nuevo. Este paquete se requiere cuando se usa la biblioteca **serializer**.
 
-Puede encontrar la implementación de la aplicación de ejemplo en el **iothub_client\_ejemplos\_iothub_convenience_sample** archivo.
+La implementación de la aplicación de ejemplo se encuentra en el archivo **iothub_client\_samples\_iothub_convenience_sample**.
 
 Las secciones siguientes le guiarán por las partes principales de este ejemplo.
 
@@ -392,7 +392,7 @@ Por último, llame a la función **CREATE\_MODEL\_INSTANCE**. **WeatherStation**
 
 ### <a name="define-the-model"></a>Definición del modelo
 
-Un modelo de la biblioteca **serializer** define los mensajes que el dispositivo puede enviar a IoT Hub y los mensajes, denominados *acciones* en el lenguaje de modelado, que puede recibir. Definir un modelo con un conjunto de macros de C como en el **iothub_client\_ejemplos\_iothub_convenience_sample** aplicación de ejemplo:
+Un modelo de la biblioteca **serializer** define los mensajes que el dispositivo puede enviar a IoT Hub y los mensajes, denominados *acciones* en el lenguaje de modelado, que puede recibir. Defina un modelo usando un conjunto de macros C como en la aplicación de ejemplo **iothub_client\_samples\_iothub_convenience_sample**:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);
@@ -414,7 +414,7 @@ En este ejemplo, hay un único modelo denominado **ContosoAnemometer**. Este mod
 
 Los datos y las acciones definidos en el modelo definen una superficie de API que se puede usar para enviar mensajes a IoT Hub y para responder a los mensajes que se envían al dispositivo. El uso de este modelo se entiende mejor con un ejemplo.
 
-### <a name="send-messages"></a>Enviar mensajes
+### <a name="send-messages"></a>Envío de mensajes
 
 El modelo define los datos que puede enviar a IoT Hub. En este ejemplo, eso significa que uno de los dos elementos de datos se define mediante la macro **WITH_DATA**. Para enviar los valores **DeviceId** y **WindSpeed** a IoT Hub, es preciso seguir varios pasos. El primero es establecer los datos que se desean enviar:
 
@@ -483,7 +483,7 @@ El segundo parámetro es un puntero que lleva al contexto de usuario, el mismo p
 
 Eso es todo lo necesario para enviar mensajes del dispositivo a la nube. Lo único que queda describir es cómo recibir mensajes.
 
-### <a name="receive-messages"></a>Recibir mensajes
+### <a name="receive-messages"></a>Recepción de mensajes
 
 La recepción de un mensaje es similar a cómo funcionan los mensajes en la biblioteca **IoTHubClient** . En primer lugar, se registra una función de devolución de llamada de mensaje:
 

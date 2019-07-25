@@ -11,10 +11,10 @@ ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: 9e0a864019c2940ba7b5188ea43e9bbae484178d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241979"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
@@ -41,7 +41,7 @@ Puede crear el grupo de administración mediante el portal, PowerShell o la CLI 
 
 1. Rellene el campo de identificador de grupo de administración.
 
-   - El **identificador de grupo de administración** es el identificador único de directorio que se usa para enviar comandos en este grupo de administración. Este identificador no es editable una vez creado, dado que se usa en todo el sistema de Azure para identificar este grupo. El [grupo de administración raíz](index.md#root-management-group-for-each-directory) se crean automáticamente con un identificador que es el identificador de Azure Active Directory. Para todos los grupos de administración, asignar un identificador único.
+   - El **identificador de grupo de administración** es el identificador único de directorio que se usa para enviar comandos en este grupo de administración. Este identificador no es editable una vez creado, dado que se usa en todo el sistema de Azure para identificar este grupo. El [grupo de administración raíz](index.md#root-management-group-for-each-directory) se crea automáticamente con un ID que es el identificador de Azure Active Directory. Para el resto de grupos de administración, asigne un identificador único.
    - El campo de nombre para mostrar es el nombre que se muestra en Azure Portal. Un nombre para mostrar independiente es un campo opcional al crear el grupo de administración y se puede cambiar en cualquier momento.  
 
    ![Panel de opciones para crear un nuevo grupo de administración](./media/create_context_menu.png)  
@@ -50,21 +50,21 @@ Puede crear el grupo de administración mediante el portal, PowerShell o la CLI 
 
 ### <a name="create-in-powershell"></a>Crear en PowerShell
 
-Para PowerShell, use el [New AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) para crear un nuevo grupo de administración.
+Para PowerShell, use el cmdlet [New AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) para crear un nuevo grupo de administración.
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'
 ```
 
-**GroupName** es un identificador único que se crea. Este identificador se usa por otros comandos para hacer referencia a este grupo y no puede cambiarse más adelante.
+**GroupName** es un identificador único que se crea. Este identificador lo usan otros comandos para hacer referencia a este grupo y no se puede cambiar más adelante.
 
-Si desea que el grupo de administración para mostrar un nombre diferente en el portal de Azure, agregue el **DisplayName** parámetro. Por ejemplo, para crear un grupo de administración con el nombre del grupo de Contoso y el nombre para mostrar del grupo de"Contoso", use el siguiente cmdlet:
+Si quiere que el grupo de administración muestre un nombre diferente en Azure Portal, agregue el parámetro **DisplayName**. Por ejemplo, para crear un grupo de administración con el nombre de grupo de Contoso y el nombre para mostrar de "Grupo de Contoso", use el siguiente cmdlet:
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group'
 ```
 
-En los ejemplos anteriores, se crea el nuevo grupo de administración en el grupo de administración raíz. Para especificar otro grupo de administración como el elemento primario, utilice el **ParentId** parámetro.
+En los ejemplos anteriores, se crea el nuevo grupo de administración en el grupo de administración raíz. Para especificar otro grupo de administración como el elemento primario, use el parámetro **ParentId**.
 
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName Contoso
@@ -73,21 +73,21 @@ New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
 
 ### <a name="create-in-azure-cli"></a>Crear en la CLI de Azure
 
-CLI de Azure, use el [crear grupo de administración de cuenta az](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) comando para crear un nuevo grupo de administración.
+Para la CLI de Azure, use el comando [az account management-group create](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) para crear un nuevo grupo de administración.
 
 ```azurecli-interactive
 az account management-group create --name Contoso
 ```
 
-El **nombre** es un identificador único que se va a crear. Este identificador se usa por otros comandos para hacer referencia a este grupo y no puede cambiarse más adelante.
+El **nombre** es un identificador único que se crea. Este identificador lo usan otros comandos para hacer referencia a este grupo y no se puede cambiar más adelante.
 
-Si desea que el grupo de administración para mostrar un nombre diferente en el portal de Azure, agregue el **nombre_para_mostrar** parámetro. Por ejemplo, para crear un grupo de administración con el nombre del grupo de Contoso y el nombre para mostrar del grupo de"Contoso", use el comando siguiente:
+Si quiere que el grupo de administración muestre un nombre diferente en Azure Portal, agregue el parámetro **display-name**. Por ejemplo, para crear un grupo de administración con el nombre de grupo de Contoso y el nombre para mostrar de "Grupo de Contoso", use el siguiente comando:
 
 ```azurecli-interactive
 az account management-group create --name Contoso --display-name 'Contoso Group'
 ```
 
-En los ejemplos anteriores, se crea el nuevo grupo de administración en el grupo de administración raíz. Para especificar otro grupo de administración como el elemento primario, utilice el **primario** parámetro y proporcione el nombre del grupo primario.
+En los ejemplos anteriores, se crea el nuevo grupo de administración en el grupo de administración raíz. Para especificar otro grupo de administración como el elemento primario, use el parámetro **parent** y proporcione el nombre del grupo principal.
 
 ```azurecli-interactive
 az account management-group create --name ContosoSubGroup --parent Contoso

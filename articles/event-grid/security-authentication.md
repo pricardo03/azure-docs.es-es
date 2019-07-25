@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117024"
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
@@ -35,18 +35,18 @@ Al igual que muchos otros servicios que admiten webhooks, EventGrid requiere que
 
 Si utiliza cualquier otro tipo de punto de conexión, como una función de Azure basada en un desencadenador HTTP, el código del punto de conexión debe participar en un protocolo de enlace de validación con EventGrid. Event Grid admite dos formas de validar la suscripción.
 
-1. **Protocolo de enlace ValidationCode (mediante programación)**: Si se controla el código fuente para el punto de conexión, se recomienda este método. En el momento de crear la suscripción a eventos, Event Grid envía un evento de validación de suscripción en su punto de conexión. El esquema de este evento es similar a cualquier otro evento de Event Grid. La parte de datos de este evento incluye una propiedad `validationCode`. La aplicación comprueba que la solicitud de validación es para una suscripción a un evento esperado, y devuelve el código de validación a Event Grid. Este mecanismo del protocolo de enlace se admite en todas las versiones de EventGrid.
+1. **Protocolo de enlace ValidationCode (mediante programación)** : Si se controla el código fuente para el punto de conexión, se recomienda este método. En el momento de crear la suscripción a eventos, Event Grid envía un evento de validación de suscripción en su punto de conexión. El esquema de este evento es similar a cualquier otro evento de Event Grid. La parte de datos de este evento incluye una propiedad `validationCode`. La aplicación comprueba que la solicitud de validación es para una suscripción a un evento esperado, y devuelve el código de validación a Event Grid. Este mecanismo del protocolo de enlace se admite en todas las versiones de EventGrid.
 
-2. **Protocolo de enlace ValidationURL (manual)**: En algunos casos, no puede acceder al código fuente del punto de conexión para implementar el protocolo de enlace ValidationCode. Por ejemplo, si usa un servicio de terceros (como [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/)), no puede responder con el código de validación mediante programación.
+2. **Protocolo de enlace ValidationURL (manual)** : En algunos casos, no puede acceder al código fuente del punto de conexión para implementar el protocolo de enlace ValidationCode. Por ejemplo, si usa un servicio de terceros (como [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/)), no puede responder con el código de validación mediante programación.
 
    A partir de la versión 2018-05-01-preview, EventGrid admite un protocolo de enlace de validación manual. Si va a crear una suscripción de eventos mediante el SDK o la herramienta que usa la versión de API 2018-05-01-preview, EventGrid envía una propiedad `validationUrl` en los datos del evento de validación de suscripción. Para completar el protocolo de enlace, busque esa dirección URL en los datos del evento y envíele manualmente una solicitud GET. Puede usar un cliente de REST o el explorador web.
 
-   La dirección URL proporcionada es válida durante 5 minutos. Durante ese tiempo, el estado de aprovisionamiento de la suscripción al eventos es `AwaitingManualAction`. Si no ha completado la validación manual de intervalos de 5 minutos, el estado de aprovisionamiento se establece en `Failed`. Tendrá que crear la suscripción de eventos de nuevo antes de intentar la validación manual.
+   La dirección URL proporcionada es válida durante 5 minutos. Durante ese tiempo, el estado de aprovisionamiento de la suscripción al eventos es `AwaitingManualAction`. Si no ha completado la validación manual en 5 minutos, el estado de aprovisionamiento se establece en `Failed`. Tendrá que crear la suscripción de eventos de nuevo antes de intentar la validación manual.
 
-    Este mecanismo de autenticación también requiere el punto de conexión de webhook para devolver un código de estado HTTP 200 para que sepa que se aceptó la publicación para el evento de validación antes de se puede colocar en el modo de validación manual. En otras palabras, si el punto de conexión devuelve 200, pero no devolver una respuesta de validación mediante programación, el modo de la transición al modo de validación manual. Si hay una operación GET en la dirección URL de validación dentro de 5 minutos, se considera el protocolo de enlace de validación se realice correctamente.
+    Este mecanismo de autenticación también requiere el punto de conexión de webhook para devolver un código de estado HTTP de 200 para que sepa que se aceptó el objeto POST para el evento de validación antes de se pueda colocar en el modo de validación manual. Es decir, si el punto de conexión devuelve 200, pero no devuelve una respuesta de validación mediante programación, el modo se cambia al modo de validación manual. Si hay una operación GET en la dirección URL de validación dentro de un plazo de 5 minutos, se considera el protocolo de enlace de validación se realizó correctamente.
 
 > [!NOTE]
-> No se admite el uso de certificados autofirmados para la validación. Use un certificado firmado de una entidad de certificación (CA) en su lugar.
+> Para la validación no se admite el uso de certificados autofirmados. En su lugar, use un certificado firmado de una entidad de certificación (CA).
 
 ### <a name="validation-details"></a>Detalles de la validación
 
@@ -93,7 +93,7 @@ Para ver un ejemplo del tratamiento del protocolo de enlace de validación de su
 
 ### <a name="checklist"></a>Lista de comprobación
 
-Durante la creación de suscripción del evento, si ve un mensaje de error, como "el intento para validar la https de punto de conexión proporcionado:\//your-endpoint-here error. Para obtener más información, visite https:\//aka.ms/esvalidation ", indica que hay un error en el protocolo de enlace de validación. Para resolver este error, compruebe los siguientes aspectos:
+Durante la creación de la suscripción a eventos, si ve un mensaje de error, parecido a "Error al intentar validar el punto de conexión proporcionado https:\//your-endpoint-here failed. Para más información, visite https:\//aka.ms/esvalidation", indica que hay un error en el protocolo de enlace de validación. Para resolver este error, compruebe los siguientes aspectos:
 
 * ¿Tiene control sobre el código de aplicación en punto de conexión de destino? Por ejemplo, si está escribiendo un desencadenador HTTP basado en Azure Function, ¿tiene acceso al código de aplicación para realizar cambios en él?
 * Si tiene acceso al código de aplicación, implemente el mecanismo del protocolo de enlace basado en ValidationCode como se muestra en el ejemplo anterior.
@@ -204,7 +204,7 @@ Event Grid proporciona dos roles integrados para administrar las suscripciones d
 
 También puede [asignar estos roles a un usuario o grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**Colaborador de EventGrid EventSubscription (versión preliminar)**: administre las operaciones de suscripción de Event Grid
+**Colaborador de EventGrid EventSubscription (versión preliminar)** : administre las operaciones de suscripción de Event Grid
 
 ```json
 [
@@ -240,7 +240,7 @@ También puede [asignar estos roles a un usuario o grupo](../role-based-access-c
 ]
 ```
 
-**Lector de EventGrid EventSubscription (versión preliminar)**: lea las suscripciones de Event Grid
+**Lector de EventGrid EventSubscription (versión preliminar)** : lea las suscripciones de Event Grid
 
 ```json
 [

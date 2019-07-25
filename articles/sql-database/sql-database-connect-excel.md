@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a6e0adc6b4abbb58504b6f56c8def72440ad370d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61414376"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061402"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Conectar Excel a una base de datos única de Azure SQL Database y crear un informe
 
@@ -37,9 +37,9 @@ También necesitará una copia de Excel. Este artículo usa [Microsoft Excel 201
    ![Selección de origen de datos: Conexión de Excel a SQL Database.](./media/sql-database-connect-excel/excel_data_source.png)
 
    Se abre el Asistente para la conexión de datos.
-3. En el cuadro de diálogo **Conectar con el servidor de la base de datos**, escriba el **nombre del servidor** de SQL Database al que quiere conectarse con el formato <*nombreDeServidor*>**.database.windows.net**. Por ejemplo, **msftestserver.database.windows.net**. También puede escribir el nombre de la base de datos. Seleccione **Aceptar** para abrir la ventana de credenciales. 
+3. En el cuadro de diálogo **Conectar con el servidor de la base de datos**, escriba el **nombre del servidor** de SQL Database al que quiere conectarse con el formato <*nombreDeServidor*> **.database.windows.net**. Por ejemplo, **msftestserver.database.windows.net**. También puede escribir el nombre de la base de datos. Seleccione **Aceptar** para abrir la ventana de credenciales. 
 
-   ![server-name.png](media/sql-database-connect-excel/server-name.png)
+   ![Cuadro de diálogo Conectar con el servidor de la base de datos](media/sql-database-connect-excel/server-name.png)
 
 4. En el cuadro de diálogo **Base de datos de SQL Server**, seleccione **Base de datos** en el lado izquierdo y luego escriba el **Nombre de usuario** y la **Contraseña** del servidor de SQL Database al que se quiere conectar. Seleccione **Conectar** para abrir el **navegador**. 
 
@@ -68,7 +68,7 @@ Ahora que ha establecido la conexión, tiene varias opciones para cargar los dat
 
 > [!TIP]
 > Si quiere conectar otros libros y hojas de cálculo de Excel a la base de datos, seleccione la pestaña **Datos** y luego **Orígenes recientes** para iniciar el cuadro de diálogo **Orígenes recientes**. Desde allí, elija la conexión que ha creado en la lista y luego haga clic en **Abrir**.
-> ![Conexiones recientes](media/sql-database-connect-excel/recent-connections.png)
+> ![Cuadro de diálogo Orígenes recientes](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>Crear una conexión permanente con el archivo .odc
 
@@ -78,7 +78,7 @@ Para guardar los detalles de conexión de forma permanente, puede crear un archi
    1. Seleccione **Buscar más** para abrir el cuadro de diálogo **Seleccionar origen de datos**.   
    2. Seleccione el archivo **+NewSqlServerConnection.odc** y luego **Abrir** para abrir el **Asistente para la conexión de datos**.
 
-      ![Nueva conexión](media/sql-database-connect-excel/new-connection.png)
+      ![Cuadro de diálogo Nueva conexión](media/sql-database-connect-excel/new-connection.png)
 
 2. En el **Asistente para la conexión de datos**, escriba el nombre del servidor y las credenciales de SQL Database. Seleccione **Next** (Siguiente). 
    1. Seleccione la base de datos que contiene los datos en la lista desplegable. 

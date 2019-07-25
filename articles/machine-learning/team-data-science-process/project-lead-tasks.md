@@ -11,15 +11,15 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 00b1b58a39724951f2d5e4e688df8eb178654bbb
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952844"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Tareas para el líder del proyecto en el proceso de ciencia de datos en equipo
 
-Este tutorial describe las tareas que un responsable de proyecto debe completar para su proyecto de equipo. El objetivo es establecer el entorno de colaboración de equipo que se estandariza en el [proceso de ciencia de datos en equipo](overview.md) (TDSP). El proceso de ciencia de datos en equipo es una plataforma desarrollada por Microsoft que proporciona una secuencia estructurada de actividades para ejecutar de forma eficaz soluciones de análisis predictivos y basadas en la nube. Puede encontrar un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso en [Roles y tareas del Proceso de ciencia de datos en equipo](roles-tasks.md).
+Este tutorial describe las tareas que el responsable de proyecto debe completar para su equipo de proyecto. El objetivo es establecer el entorno de colaboración de equipo que se estandariza en el [proceso de ciencia de datos en equipo](overview.md) (TDSP). El proceso de ciencia de datos en equipo es una plataforma desarrollada por Microsoft que proporciona una secuencia estructurada de actividades para ejecutar de forma eficaz soluciones de análisis predictivos y basadas en la nube. Puede encontrar un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso en [Roles y tareas del Proceso de ciencia de datos en equipo](roles-tasks.md).
 
 Un **responsable de proyecto** administra las actividades diarias de los científicos de datos en un proyecto de ciencia de datos específico. El flujo de trabajo de las tareas que van a realizar los responsables de equipo para configurar este entorno se representa en la figura siguiente:
 
@@ -150,7 +150,7 @@ Si se utiliza Azure DevOps como plataforma de hospedaje de código, por lo gener
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Si usa DevOps de Azure como plataforma de hospedaje de código, por lo general, el _dirección URL SSH del repositorio del proyecto_ es _ssh: / / < nombre de los servicios de Azure DevOps\>@< nombre de los servicios de Azure DevOps\>.visualstudio.com:22/ < nombre de proyecto de\>/\_git / < su nombre de repositorio del proyecto\>. En este ejemplo, tenemos ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+Si se utiliza Azure DevOps como plataforma de hospedaje de código, por lo general, la _dirección URL SSH del repositorio del proyecto_ es _ssh://<Nombre de Azure DevOps Services\>@<Nombre de Azure DevOps Services\>.visualstudio.com:22/<Your Project Name\>/\_git/<Nombre del repositorio del proyecto\>. En este ejemplo, tenemos ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>Copia del contenido de D3 a D5 
 

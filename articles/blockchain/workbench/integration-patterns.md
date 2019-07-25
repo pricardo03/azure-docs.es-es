@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
 ms.openlocfilehash: bd53ae3346882cf20ae7464548fa9ef2c0329f05
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957014"
 ---
 # <a name="smart-contract-integration-patterns"></a>Patrones de integración de contratos inteligentes
@@ -180,7 +180,7 @@ En este modelo, en el que no se puede enviar un mensaje directamente en un forma
 
 Un escenario de integración habitual es la inclusión de datos de telemetría que se recuperan a partir de los sensores de un contrato inteligente. Según los datos entregados por los sensores, los contratos inteligentes pueden realizar acciones basadas en la información y alterar el estado del contrato.
 
-Por ejemplo, si un camión de reparto de medicamentos experimenta una subida de temperatura de 110 grados, esta puede afectar a la eficacia del medicamento y provocar un problema de seguridad pública si no se detecta y se retira de la cadena de suministro. Si un conductor acelera el coche a 100 millas por hora, la información del sensor resultante podría desencadenar una cancelación del seguro por su proveedor de seguros. Si el coche era uno de alquiler, los datos del GPS podrían indicar si el conductor se salió del área geográfica cubierta por el contrato de alquiler y, en consecuencia, aplicar una penalización.
+Por ejemplo, si un camión de reparto de medicamentos experimenta una subida de temperatura de 110 grados, esta puede afectar a la eficacia del medicamento y provocar un problema de seguridad pública si no se detecta y se retira de la cadena de suministro. O si un conductor acelera el coche a más de 160 kilómetros por hora, la información resultante del sensor puede desencadenar la cancelación del seguro por parte de la empresa aseguradora. Si el coche era uno de alquiler, los datos del GPS podrían indicar si el conductor se salió del área geográfica cubierta por el contrato de alquiler y, en consecuencia, aplicar una penalización.
 
 El desafío es que estos sensores pueden entregar datos de forma constante pero no es adecuado enviar todos los datos a un contrato inteligente. Un enfoque habitual consiste en limitar el número de mensajes que se envían a la cadena de bloques, aunque se siguen entregando todos los mensajes a un almacenamiento secundario. Por ejemplo, entregar los mensajes que se reciban solamente en un intervalo específico como, por ejemplo, una vez cada hora, o si uno de los valores que contiene está fuera de un intervalo previamente acordado para un contrato inteligente. Comprobar los valores que se encuentran fuera de las tolerancias, garantiza que los datos relevantes para la lógica de negocios de los contratos se reciben y ejecutan. Comprobar el valor a intervalos permite confirmar que el sensor sigue informando. Todos los datos se envían a un almacén de informes secundario que permite más informes, análisis y aprendizaje automático. Por ejemplo, puede que no sea necesario obtener las lecturas del sensor GPS cada minuto para un contrato inteligente, pero estas lecturas podrían proporcionar datos interesantes para su uso en informes o rutas de asignación.
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 31d77b4ea6e7594cd3ed4dba264f9ea6db4ca290
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813400"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155214"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados 
 
@@ -28,22 +28,22 @@ Cuando se aplica un bloqueo en un ámbito primario, todos los recursos heredan e
 
 Al diferencia del control de acceso basado en rol, los bloqueos de administración se usan para aplicar una restricción a todos los usuarios y roles. Para obtener información sobre cómo establecer permisos para usuarios y roles, vea [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md).
 
-Los bloqueos de Resource Manager solo se aplican a las operaciones que se producen en el plano de la administración, que consta de las operaciones enviadas a `https://management.azure.com`. Los bloqueos no restringen cómo los recursos realizan sus propias funciones. Los cambios de recursos están restringidos, pero no así las operaciones de recursos. Por ejemplo, un bloqueo ReadOnly en una instancia de SQL Database impide que elimine o modifique la base de datos. Pero no le impide crear, actualizar o eliminar datos de la base de datos. Las transacciones de datos se permiten porque esas operaciones no se envían a `https://management.azure.com`.
+Los bloqueos de Resource Manager solo se aplican a las operaciones que se producen en el plano de la administración, que consta de las operaciones enviadas a `https://management.azure.com`. Los bloqueos no restringen cómo los recursos realizan sus propias funciones. Los cambios de recursos están restringidos, pero no así las operaciones de recursos. Por ejemplo, un bloqueo ReadOnly en una instancia de SQL Database impide que elimine o modifique la base de datos. Pero no le impide crear, actualizar o eliminar datos de la base de datos. Se permiten las transacciones de datos porque esas operaciones no se envían a `https://management.azure.com`.
 
-Aplicar **ReadOnly** puede provocar resultados inesperados ya que algunas operaciones que no parecen modificar el recurso realmente requieren acciones que están bloqueadas por el bloqueo. El **ReadOnly** bloqueo puede aplicarse en el recurso o en el grupo de recursos que contiene el recurso. Algunos ejemplos comunes de las operaciones que están bloqueadas por un **ReadOnly** bloqueo son:
+Aplicar **ReadOnly** puede provocar resultados inesperados, ya que algunas operaciones que no parecen modificar el recurso realmente requieren acciones que el bloqueo ha bloqueado. El bloqueo **ReadOnly** se puede aplicar al recurso o el grupo de recursos que contiene el recurso. Algunos ejemplos comunes de las operaciones que bloquea el bloqueo **ReadOnly** son:
 
-* Un **ReadOnly** bloqueo en una cuenta de almacenamiento impide que todos los usuarios muestren las claves. La operación de visualización claves se administra mediante solicitudes POST debido a que las claves devueltas están disponibles para las operaciones de escritura.
+* Un bloqueo **ReadOnly** en una cuenta de almacenamiento impide que todos los usuarios muestren las claves. La operación de visualización claves se administra mediante solicitudes POST debido a que las claves devueltas están disponibles para las operaciones de escritura.
 
 * Un bloqueo **ReadOnly** en un recurso de App Service evita que el Explorador de servidores de Visual Studio muestre los archivos del recurso, ya que esa interacción requiere acceso de escritura.
 
-* Un **ReadOnly** bloqueo en un grupo de recursos que contiene una máquina virtual, impide que todos los usuarios de iniciar o reiniciar la máquina virtual. Estas operaciones requieren una solicitud POST.
+* Un bloqueo **ReadOnly** en un grupo de recursos que contiene una máquina virtual impide que todos los usuarios inicien o reinicien la máquina virtual. Estas operaciones requieren una solicitud POST.
 
 ## <a name="who-can-create-or-delete-locks"></a>Quién puede crear o eliminar bloqueos
 Para crear o eliminar bloqueos de administración, debe tener acceso a las acciones `Microsoft.Authorization/*` o `Microsoft.Authorization/locks/*`. Entre los roles integrados, solamente se conceden esas acciones al **propietario** y al **administrador de acceso de usuarios**.
 
-## <a name="managed-applications-and-locks"></a>Las aplicaciones y bloqueos
+## <a name="managed-applications-and-locks"></a>Bloqueos y aplicaciones administradas
 
-Algunos servicios de Azure, como Azure Databricks, utilizan [aplicaciones administradas](../managed-applications/overview.md) para implementar el servicio. En ese caso, el servicio crea dos grupos de recursos. Un grupo de recursos contiene información general sobre el servicio y no está bloqueado. Otro grupo de recursos contiene la infraestructura para el servicio y está bloqueado.
+Algunos servicios de Azure, como Azure Databricks, utilizan [aplicaciones administradas](../managed-applications/overview.md) para implementar el servicio. En ese caso, el servicio crea dos grupos de recursos. Un grupo de recursos contiene información general sobre el servicio y no está bloqueado. El otro grupo de recursos contiene la infraestructura para el servicio y está bloqueado.
 
 Si intenta eliminar el grupo de recursos de infraestructura, obtendrá un error que indica que el grupo de recursos está bloqueado. Si intenta eliminar el bloqueo para el grupo de recursos de infraestructura, obtendrá un error que indica que el bloqueo no puede eliminarse porque pertenece a una aplicación del sistema.
 
@@ -53,30 +53,30 @@ Para las aplicaciones administradas, seleccione el servicio implementado.
 
 ![Seleccionar servicio](./media/resource-group-lock-resources/select-service.png)
 
-Tenga en cuenta el servicio incluye un vínculo para un **el grupo de recursos administrado**. Ese grupo de recursos contiene la infraestructura y se bloquea. No se puede eliminar directamente.
+Tenga en cuenta que el servicio incluye un vínculo para un **Grupo de recursos administrado**. Ese grupo de recursos contiene la infraestructura y está bloqueado. No se puede eliminar directamente.
 
-![Mostrar el grupo administrado](./media/resource-group-lock-resources/show-managed-group.png)
+![Mostrar grupo administrado](./media/resource-group-lock-resources/show-managed-group.png)
 
-Para eliminar todo el contenido para el servicio, incluido el grupo de recursos de infraestructura bloqueado, seleccione **eliminar** para el servicio.
+Para eliminar todo el contenido para el servicio, incluido el grupo de recursos de infraestructura bloqueado, seleccione **Eliminar** para el servicio.
 
-![Eliminar el servicio](./media/resource-group-lock-resources/delete-service.png)
+![Eliminar servicio](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Plantilla
 
-Al usar una plantilla de Resource Manager para implementar un bloqueo, utilice valores diferentes para el nombre y tipo según el ámbito del bloqueo.
+Al usar una plantilla de Resource Manager para implementar un bloqueo, se usan valores diferentes para el nombre y el tipo, según el ámbito del bloqueo.
 
-Al aplicar un bloqueo a una **recursos**, use los siguientes formatos:
+Al aplicar un bloqueo a un **recurso**, use los siguientes formatos:
 
 * nombre: `{resourceName}/Microsoft.Authorization/{lockName}`
-* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+* tipo: `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
-Al aplicar un bloqueo a una **grupo de recursos** o **suscripción**, use los siguientes formatos:
+Al aplicar un bloqueo a un **grupo de recursos** o **suscripción**, use los siguientes formatos:
 
 * nombre: `{lockName}`
-* type - `Microsoft.Authorization/locks`
+* tipo: `Microsoft.Authorization/locks`
 
 En el ejemplo siguiente se muestra una plantilla que crea un plan de App Service, un sitio web y un bloqueo en el sitio web. El tipo de recurso del bloqueo es el tipo de recurso del recurso que se bloqueará y **/providers/locks**. El nombre del bloqueo se crea mediante la concatenación del nombre del recurso con **/Microsoft.Authorization/** y el propio nombre del bloqueo.
 
@@ -135,7 +135,7 @@ En el ejemplo siguiente se muestra una plantilla que crea un plan de App Service
 }
 ```
 
-Para obtener un ejemplo de establecer un bloqueo en un grupo de recursos, consulte [crear un grupo de recursos y bloquearla](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+Para obtener un ejemplo sobre cómo establecer un bloqueo en un grupo de recursos, consulte [Crear un grupo de recursos y bloquearlo](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
 
 ## <a name="powershell"></a>PowerShell
 Bloquee recursos implementados con Azure PowerShell mediante el comando [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
@@ -152,7 +152,7 @@ Para bloquear un grupo de recursos, proporcione el nombre del grupo de recursos.
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-Para obtener información sobre un bloqueo, use [Get-AzureRmResourceLock](/powershell/module/az.resources/get-azresourcelock). Para obtener todos los bloqueos en su suscripción, use:
+Para obtener información sobre un bloqueo, use [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock). Para obtener todos los bloqueos en su suscripción, use:
 
 ```azurepowershell-interactive
 Get-AzResourceLock
@@ -225,7 +225,7 @@ Para crear un bloqueo, ejecute:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-El ámbito puede ser una suscripción, un grupo de recursos o un recurso. El nombre del bloqueo es el nombre con el que desee llamar al bloqueo. Versión de api, use **2016-09-01**.
+El ámbito puede ser una suscripción, un grupo de recursos o un recurso. El nombre del bloqueo es el nombre con el que desee llamar al bloqueo. Como versión de la API, use **2016-09-01**.
 
 En la solicitud, incluya un objeto JSON que especifique las propiedades para el bloqueo.
 

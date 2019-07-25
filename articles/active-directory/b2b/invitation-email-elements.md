@@ -1,5 +1,5 @@
 ---
-title: Los elementos del mensaje de correo de invitación de B2B - Azure Active Directory | Microsoft Docs
+title: 'Elementos del correo electrónico de invitación de B2B: Azure Active Directory | Microsoft Docs'
 description: Plantilla de correo electrónico de invitación de colaboración B2B de Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65768364"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
@@ -28,11 +28,11 @@ Los correos electrónicos de invitación son un componente fundamental para inco
 ## <a name="explaining-the-email"></a>Explicación del correo electrónico
 Se van a tratar algunos elementos del correo electrónico para saber cómo hacer el mejor uso de estas funcionalidades.
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Asunto
 El asunto del correo electrónico sigue este patrón: está invitado a la organización de &lt;nombreInquilino&gt;.
 
-### <a name="from-address"></a>Dirección de origen
-Se usa un patrón similar a LinkedIn para la dirección De.  Es necesario tener claro quién es el invitador y a qué empresa pertenece y también aclarar que el correo electrónico procede de una dirección de correo electrónico de Microsoft. El formato es: Microsoft Invitations <invites@microsoft.com> o &lt;nombre para mostrar del invitador&gt; desde &lt;tenantname&gt; (a través de Microsoft) <invites@microsoft.com>.
+### <a name="from-address"></a>Dirección De
+Se usa un patrón similar a LinkedIn para la dirección De.  Es necesario tener claro quién es el invitador y a qué empresa pertenece y también aclarar que el correo electrónico procede de una dirección de correo electrónico de Microsoft. El formato es: Invitaciones de Microsoft<invites@microsoft.com> o &lt;Nombre para mostrar del invitador&gt; de &lt;tenantname&gt; (a través de Microsoft) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Responder a
 En la respuesta al correo electrónico se indica el correo electrónico del invitador si está disponible, para que al responder al correo electrónico se vuelva a enviar un correo al invitador.
@@ -51,12 +51,12 @@ El nombre para mostrar del invitador se incluye en el correo electrónico. Y, ad
 
 Si aún no ha configurado la imagen del perfil, se muestra un icono con las iniciales del invitador en lugar de la imagen:
 
-  ![Captura de pantalla muestra la invitación con el invitador iniciales que se muestran](media/invitation-email-elements/inviters-initials.png)
+  ![Captura de pantalla que muestra la invitación con las iniciales del invitador](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Cuerpo
 El cuerpo contiene el mensaje que el invitador redacta al [invitar a un usuario invitado al directorio, grupo o aplicación](add-users-administrator.md) o al [usar la API de invitación](customize-invitation-api.md). Al ser un área de texto, por motivos de seguridad no se procesan las etiquetas HTML.
 
-  ![Captura de pantalla muestra el cuerpo del correo electrónico de invitación](media/invitation-email-elements/invitation-email-body.png)
+  ![Captura de pantalla que muestra el cuerpo del correo electrónico de invitación](media/invitation-email-elements/invitation-email-body.png)
 
 ### <a name="footer-section"></a>Sección de pie de página
 El pie de página contiene la marca de empresa de Microsoft y permite que el destinatario sepa si el correo electrónico se envía desde un alias no supervisado. 
@@ -65,12 +65,12 @@ Casos especiales:
 
 - El invitador no tiene una dirección de correo electrónico en el espacio empresarial invitador.
 
-  ![Captura de pantalla cuando un autor de la invitación no tiene el correo electrónico en el espacio empresarial invitador.](media/invitation-email-elements/inviter-no-email.png)
+  ![Captura de pantalla que muestra cuando un invitador no tiene un correo electrónico en el inquilino invitador](media/invitation-email-elements/inviter-no-email.png)
 
 
 - El destinatario no necesita canjear la invitación.
 
-  ![Captura de pantalla cuando el destinatario no necesita canjear la invitación](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![Captura de pantalla que muestra cuando el destinatario no necesita canjear la invitación](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## <a name="how-the-language-is-determined"></a>Cómo se determina el idioma
 Las opciones siguientes determinan el idioma que el usuario invitado ve en el correo electrónico de invitación. Estas opciones de configuración se muestran en el siguiente orden de prioridad. Si una opción no está configurada, la siguiente de la lista será la que determine el idioma. 

@@ -14,10 +14,10 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243274"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Una su dispositivo de trabajo a la red de su organización
@@ -26,7 +26,7 @@ Una su dispositivo Windows 10 de trabajo a la red de su organización para poder
 ## <a name="what-happens-when-you-join-your-device"></a>Qué ocurre al unir su dispositivo
 Durante la unión de su dispositivo Windows 10 a la red de su organización, se producirán las acciones siguientes:
 
-- Windows registra el dispositivo a la red de su organización, lo que le permite tener acceso a los recursos mediante su cuenta personal. Una vez registrado su dispositivo, Windows une su dispositivo a la red para que pueda usar el nombre de usuario y la contraseña de su organización para iniciar sesión y tener acceso a recursos restringidos.
+- Windows registra su dispositivo en la red de su organización, lo que le permite tener acceso a sus recursos con su cuenta personal. Una vez registrado su dispositivo, Windows une su dispositivo a la red para que pueda usar el nombre de usuario y la contraseña de su organización para iniciar sesión y tener acceso a recursos restringidos.
 
 - Opcionalmente, en función de las opciones de su organización, puede que se le pida configurar una verificación en dos pasos a través de [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) o [información de seguridad](user-help-security-info-overview.md).
 
@@ -62,7 +62,7 @@ Puede asegurarse de que se ha unido fijándose en su configuración.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Seleccione **acceso profesional o educativo**y asegúrese de que se ve texto que dice algo parecido a, **conectado a  *\<your_organization >* Azure AD**.
+2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que dice algo como **Conectado a Azure AD de *\<su_organización>*** .
 
     ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ Puede asegurarse de que se ha unido fijándose en su configuración.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Seleccione **acceso profesional o educativo**y asegúrese de que se ve texto que dice algo parecido a, **conectado a  *\<your_organization >* Azure AD**.
+2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que dice algo como **Conectado a Azure AD de *\<su_organización>*** .
 
     ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
@@ -116,4 +116,4 @@ Después de unir su dispositivo a la red de su organización, debe poder tener a
 
 - Si su organización quiere que registre su dispositivo personal, por ejemplo, su teléfono, consulte [Register your personal device on your organization's network](user-help-register-device-on-network.md) (Registre su dispositivo personal en la red de su organización).
 
-- Si su organización se administra con Microsoft Intune y tiene alguna pregunta sobre la inscripción, inicio de sesión, o cualquier otro problema relacionado con Intune, consulte el [contenido de Ayuda de usuario de Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).
+- Si su organización se administra con Microsoft Intune y tiene alguna pregunta sobre la inscripción, el inicio de sesión o cualquier otro problema relacionado con Intune, consulte el [contenido de la Ayuda de usuario de Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

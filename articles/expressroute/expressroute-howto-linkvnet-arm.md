@@ -9,10 +9,10 @@ ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 620eff5468d7d3b4bf8ddeea62fa67b39609fce6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65950371"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conexión de una red virtual a un circuito ExpressRoute
@@ -176,11 +176,11 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 El intervalo de *RoutingWeight* abarca de 0 a 32 000. El valor predeterminado es 0.
 
-## <a name="configure-expressroute-fastpath"></a>Configurar ExpressRoute FastPath 
-Puede habilitar [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) si el circuito de ExpressRoute se encuentra en [ExpressRoute Direct](expressroute-erdirect-about.md) y la puerta de enlace virtual newtork es Ultrarrendimiento o ErGw3AZ. FastPath mejora el rendimiento de la ruta de acceso de datos como las conexiones por segundo entre la red local y la red virtual y los paquetes por segundo. 
+## <a name="configure-expressroute-fastpath"></a>Configure ExpressRoute FastPath 
+Puede habilitar [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) si su circuito de ExpressRoute está en [ExpressRoute Direct](expressroute-erdirect-about.md) y la puerta de enlace de red virtual es de tipo Ultra Performance o ErGw3AZ. FastPath mejora el rendimiento de la ruta de datos, como paquetes y conexiones por segundo entre la red local y la red virtual. 
 
 > [!NOTE] 
-> Si ya tiene una conexión de red virtual pero no ha habilitado FastPath deberá eliminar la conexión de red virtual y crear uno nuevo. 
+> Si ya tiene una conexión de red virtual pero no ha habilitado FastPath, debe eliminar la conexión de red virtual y crear una nueva. 
 > 
 >  
 

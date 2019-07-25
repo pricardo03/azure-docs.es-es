@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 4a90195a2d0899b0a157cc67badd2f9873164987
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108962"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Instrucciones: Investigación sobre usuarios e inicios de sesión de riesgo 
 
@@ -46,7 +46,7 @@ El primer punto de entrada de este informe es la sección **Investigar** de la p
 
 El informe de usuarios de riesgo tiene una vista predeterminada que muestra lo siguiente:
 
-- Name
+- NOMBRE
 
 - Estado de riesgo
 
@@ -105,7 +105,7 @@ Además, puede:
 
 Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de los usuarios de riesgo con los siguientes campos predeterminados:
 
-- Name
+- NOMBRE
 
 - Nombre de usuario
 
@@ -151,7 +151,7 @@ El filtro **Estado** le permite seleccionar:
 
 ### <a name="download-risky-users-data"></a>Descargar los datos de los usuarios de riesgo
 
-Puede descargar los datos de usuarios de riesgo si desea trabajar con ellos fuera del portal de Azure. Al hacer clic en descarga crea un archivo CSV de los registros de 2.500 más recientes. 
+Puede descargar los datos de los usuarios de riesgo si quiere trabajar con ellos fuera de Azure Portal. Si hace clic en Descargar, se crea un archivo CSV con los 2 500 registros más recientes. 
 
 ![Informe de usuarios de riesgo](./media/howto-investigate-risky-users-signins/07.png)
 
@@ -320,7 +320,7 @@ Los valores posibles son:
 
 ### <a name="download-risky-sign-ins-data"></a>Descargar los datos de inicios de sesión de riesgo
 
-Puede descargar los datos de inicios de sesión si desea trabajar con ellos fuera del portal de Azure. Al hacer clic en descarga crea un archivo CSV de los registros de 2.500 más recientes. 
+Puede descargar los datos de los inicios de sesión de riesgo si quiere trabajar con ellos fuera de Azure Portal. Si hace clic en Descargar, se crea un archivo CSV con los 2 500 registros más recientes. 
 
 ![Informe de usuarios de riesgo](./media/howto-investigate-risky-users-signins/15.png)
 

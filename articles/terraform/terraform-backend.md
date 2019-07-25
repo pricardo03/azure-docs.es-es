@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
 ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693297"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Estado de Terraform en Azure Storage
@@ -79,7 +79,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 Para configurar Terraform para usar el back-end, incluya una configuración de *back-end* con un tipo de *azurerm* dentro de la configuración de Terraform. Agregue los valores *storage_account_name*, *container_name* y *key* al bloque de configuración.
 
-El ejemplo siguiente configura un back-end de Terraform y crea un grupo de recursos de Azure. Reemplace los valores por los de su entorno.
+En el ejemplo siguiente se configura un back-end de Terraform y se crea un grupo de recursos de Azure. Reemplace los valores por los de su entorno.
 
 ```json
 terraform {
@@ -102,7 +102,7 @@ Ahora, inicialice la configuración con *Terraform init* y, después, ejecute la
 
 Cuando se usa una instancia de Azure Storage Blob para el almacenamiento de estados, el blob se bloquea automáticamente antes de cualquier operación que escriba el estado. Esta configuración evita varias operaciones de estado simultáneas que pueden causar daños. Para obtener más información sobre Terraform, consulte la sección acerca del [estado bloqueado][terraform-state-lock] en la documentación de Terraform.
 
-El bloqueo puede verse al examinar el blob mediante el portal de Azure o de otras herramientas de administración de Azure.
+El bloqueo puede verse al examinar el blob a través de Azure Portal o cualquier otra herramienta de administración de Azure.
 
 ![Blob de Azure con bloqueo](media/terraform-backend/lock.png)
 

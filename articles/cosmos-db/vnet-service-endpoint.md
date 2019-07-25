@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: dfc3ebc0274c87466d6dc27c93880483df023085
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242473"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acceso a Azure Cosmos DB desde redes virtuales (VNET)
@@ -36,7 +36,7 @@ Hay dos pasos necesarios para limitar el acceso a la cuenta de Azure Cosmos desd
 
 Cuando se agregan reglas de acceso al firewall para direcciones IP o a la red virtual, solo aquellas solicitudes procedentes de orígenes permitidos obtendrán respuestas válidas. Las demás solicitudes se rechazan con un error 403 (Prohibido). Es importante distinguir entre el firewall de la cuenta de Azure Cosmos y un firewall de un nivel de conexión. Todavía se puede conectar el origen al servicio y no se rechazan las conexiones.
 
-### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Mis solicitudes se empezaron a bloquear cuando habilité el punto de conexión de servicio para Azure Cosmos DB en la subred. ¿Qué ocurre?
+### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Mis solicitudes se empezaron a bloquear cuando habilité el punto de conexión de servicio para Azure Cosmos DB en la subred. ¿Qué ha ocurrido?
 
 Una vez que se habilita el punto de conexión de servicio para Azure Cosmos DB en una subred, el origen del tráfico que llega a Azure Cosmos DB cambia de una dirección IP pública a la red virtual y la subred. Si la cuenta de Azure Cosmos tiene solo un firewall basado en IP, el tráfico de la subred habilitada para el servicio ya no coincidirá con las reglas de firewall de IP y, por tanto, se rechazará. Recorra cada uno de los pasos para migrar fácilmente desde un firewall basado en IP a un control de acceso basado en redes virtuales.
 
@@ -44,10 +44,10 @@ Una vez que se habilita el punto de conexión de servicio para Azure Cosmos DB e
 Solo la red virtual y las subredes que se agregaron a la cuenta de Azure Cosmos tienen acceso. Las redes virtuales del mismo nivel no podrán acceder a la cuenta hasta que las subredes dentro de ellas se agreguen a la cuenta.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>¿Cuál es el número máximo de subredes a las que se permite acceder a una sola cuenta de Cosmos? 
-Actualmente, puede tener como máximo 64 subredes permitidas para una cuenta de Azure Cosmos.
+Actualmente, se permite un máximo de 64 subredes para una cuenta de Azure Cosmos.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>¿Puedo habilitar el acceso desde VPN y ExpressRoute? 
-Para obtener acceso a la cuenta de Azure Cosmos a través de expressroute desde local, deberá habilitar el emparejamiento de Microsoft. Una vez que pone reglas de acceso para el firewall de direcciones IP o la red virtual, puede agregar las direcciones IP públicas usadas para el emparejamiento de Microsoft al firewall de direcciones IP de la cuenta de Azure Cosmos para permitir que los servicios locales accedan a esta. 
+Para acceder a una cuenta de Azure Cosmos a través de ExpressRoute desde una ubicación local, necesita habilitar el emparejamiento de Microsoft. Una vez que pone reglas de acceso para el firewall de direcciones IP o la red virtual, puede agregar las direcciones IP públicas usadas para el emparejamiento de Microsoft al firewall de direcciones IP de la cuenta de Azure Cosmos para permitir que los servicios locales accedan a esta. 
 
 ### <a name="do-i-need-to-update-the-network-security-groups-nsg-rules"></a>¿Es necesario actualizar las reglas de los grupos de seguridad de red? 
 Las reglas de los grupos de seguridad de red se usan para limitar la conectividad hacia una subred y desde esta con una red virtual. Cuando agrega el punto de conexión de servicio de Azure Cosmos DB a la subred, no es necesario abrir una conectividad de salida en el grupo de seguridad de red para la cuenta de Azure Cosmos. 

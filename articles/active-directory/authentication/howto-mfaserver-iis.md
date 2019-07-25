@@ -1,5 +1,5 @@
 ---
-title: 'Autenticación de IIS y servidor Azure MFA: Azure Active Directory'
+title: 'Autenticación de IIS y Servidor Azure MFA: Azure Active Directory'
 description: Implementación de Autenticación de IIS y Servidor Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a019aaec270fe1beb3914e7ab388fce9a701bcc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: 2b7f76211fe810ce1db53e5afaa307d90317464a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057390"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS
 
 Use la sección Autenticación de IIS del Servidor Azure Multi-Factor Authentication (MFA) para habilitar y configurar la autenticación de IIS para la integración con aplicaciones web de Microsoft IIS. El Servidor Azure MFA instala un complemento que puede filtrar las solicitudes realizadas al servidor web IIS para agregar Azure Multi-Factor Authentication. El complemento IIS proporciona compatibilidad para la autenticación basada en formularios y la autenticación HTTP de Windows integrada. También se pueden configurar IP de confianza para eximir direcciones IP internas de la autenticación en dos fases.
 
-![Autenticación de IIS en el servidor MFA](./media/howto-mfaserver-iis/iis.png)
+> [!IMPORTANT]
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deben usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación, como de costumbre.
+
+![Autenticación de IIS en el Servidor MFA](./media/howto-mfaserver-iis/iis.png)
 
 ## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>Mediante la autenticación IIS basada en formularios con el servidor Azure Multi-Factor Authentication
 
@@ -31,7 +34,7 @@ Para proteger una aplicación web IIS que usa la autenticación basada en formul
 1. En Servidor Azure Multi-Factor Authentication, haga clic en el icono Autenticación de IIS en el menú izquierdo.
 2. Haga clic en la pestaña **Basados en formularios**.
 3. Haga clic en **Agregar**.
-4. Para detectar automáticamente las variables de nombre de usuario, contraseña y dominio, escriba la dirección URL de inicio de sesión (como `https://localhost/contoso/auth/login.aspx`) en el cuadro de diálogo sitio Web basado en formularios y haga clic en **Aceptar**.
+4. Para detectar automáticamente el nombre de usuario, la contraseña y las variables de dominio, escriba la dirección URL de inicio de sesión (como `https://localhost/contoso/auth/login.aspx`) en el cuadro de diálogo Configuración automática de sitio web basado en formularios y haga clic en **Aceptar**.
 5. Active la casilla **Requerir coincidencia de usuario de Multi-Factor Authentication** si todos los usuarios se importaron o importarán al Servidor y están sujetos a la autenticación multifactor. Si aún no se importó al Servidor un número significativo de usuarios o se van a excluir de la autenticación multifactor, deje la casilla desactivada.
 6. Si no se pueden detectar automáticamente las variables de página, haga clic en **Especificar manualmente** en el cuadro de diálogo Configuración automática de sitio web basado en formularios.
 7. En el cuadro de diálogo Agregar sitio web basado en formularios, escriba la dirección URL en la página de inicio de sesión en el campo URL de envío y escriba un nombre de aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
@@ -55,7 +58,7 @@ Para proteger una aplicación web IIS que usa la autenticación integrada HTTP d
 1. En Servidor Azure Multi-Factor Authentication, haga clic en el icono Autenticación de IIS en el menú izquierdo.
 2. Haga clic en la pestaña **HTTP**.
 3. Haga clic en **Agregar**.
-4. En el cuadro de diálogo Agregar URL Base, escriba la dirección URL del sitio Web donde se realiza la autenticación HTTP (como <http://localhost/owa>) y proporcione un nombre de aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
+4. En el cuadro de diálogo Agregar URL base, escriba la dirección URL para el sitio web donde se realiza la autenticación HTTP (como <http://localhost/owa>) y proporcione un nombre de aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
 5. Ajuste el tiempo de espera de inactividad y los tiempos de sesión máximos si el valor predeterminado no es suficiente.
 6. Active la casilla **Requerir coincidencia de usuario de Multi-Factor Authentication** si todos los usuarios se importaron o importarán al Servidor y están sujetos a la autenticación multifactor. Si aún no se importó al Servidor un número significativo de usuarios o se van a excluir de la autenticación multifactor, deje la casilla desactivada.
 7. Active la casilla **Caché de cookies** si lo desea.
@@ -76,4 +79,4 @@ Las IP de confianza permiten a los usuarios omitir Azure Multi-Factor Authentica
 1. En la sección Autenticación de IIS, haga clic en la pestaña **IP de confianza**.
 2. Haga clic en **Agregar**.
 3. Cuando aparezca el cuadro de diálogo Agregar IP de confianza, seleccione el botón de radio **IP única**, **Intervalo IP** o **Subred**.
-4. Escriba la dirección IP, intervalo de direcciones IP o subred que se debe permitir. Si especifica una subred, seleccione la máscara de red adecuada y haga clic en **Aceptar**.
+4. Escriba la dirección IP, el intervalo de direcciones IP o la subred que deban permitirse. Si especifica una subred, seleccione la máscara de red adecuada y haga clic en **Aceptar**.

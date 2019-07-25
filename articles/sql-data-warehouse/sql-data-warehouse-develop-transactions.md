@@ -11,16 +11,16 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: b6f95607c7cfc574d647be3046cef4a4b61906f6
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65861747"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Uso de transacciones en SQL Data Warehouse
 Sugerencias para implementar transacciones en Azure SQL Data Warehouse para el desarrollo de soluciones.
 
-## <a name="what-to-expect"></a>Lo que puede esperar
+## <a name="what-to-expect"></a>Qué esperar
 Como cabría esperar, SQL Data Warehouse admite transacciones como parte de la carga de trabajo de dicho servicio. Sin embargo, para garantizar que se mantiene a escala el rendimiento de SQL Data Warehouse, algunas características están limitadas en comparación con SQL Server. En este artículo se destacan las diferencias entre las características y se enumeran las demás. 
 
 ## <a name="transaction-isolation-levels"></a>Niveles de aislamiento de transacciones
@@ -36,31 +36,31 @@ En la tabla siguiente se han considerado estas hipótesis:
 
 ## <a name="gen2"></a>Gen2
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Extremo por distribución (GB) | Número de distribuciones | Tamaño máximo de transacciones (GB) | N-º de filas por distribución | Máximo de filas por transacción |
+| [DWU](sql-data-warehouse-overview-what-is.md) | Extremo por distribución (GB) | Número de distribuciones | Tamaño de la transacción MAX (GB) | N-º de filas por distribución | Máximo de filas por transacción |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4 000 000 |240 000 000 |
-| DW200c |1.5 |60 |90 |6.000.000 |360 000 000 |
+| DW200c |1.5 |60 |90 |6\.000.000 |360 000 000 |
 | DW300c |2.25 |60 |135 |9 000 000 |540 000 000 |
 | DW400c |3 |60 |180 |12 000 000 |720 000 000 |
 | DW500c |3,75 |60 |225 |15 000 000 |900 000 000 |
 | DW1000c |7.5 |60 |450 |30 000 000 |1 800 000 000 |
 | DW1500c |11,25 |60 |675 |45 000 000 |2 700 000 000 |
 | DW2000c |15 |60 |900 |60 000 000 |3 600 000 000 |
-| DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
+| DW2500c |18,75 |60 |1125 |75 000 000 |4 500 000 000 |
 | DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
-| DW5000c |37.5 |60 |2,250 |150,000,000 |9,000,000,000 |
+| DW5000c |37,5 |60 |2250 |150 000 000 |9 000 000 000 |
 | DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
-| DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
-| DW10000c |75 |60 |4,500 |300.000.000 |18,000,000,000 |
-| DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
-| DW30000c |225 |60 |13,500 |900 000 000 |54,000,000,000 |
+| DW7500c |56,25 |60 |3375 |225 000 000 |13 500 000 000 |
+| DW10000c |75 |60 |4500 |300.000.000 |18 000 000 000 |
+| DW15000c |112,5 |60 |6750 |450 000 000 |27 000 000 000 |
+| DW30000c |225 |60 |13 500 |900 000 000 |54 000 000 000 |
 
 ## <a name="gen1"></a>Gen1
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Extremo por distribución (GB) | Número de distribuciones | Tamaño máximo de transacciones (GB) | N-º de filas por distribución | Máximo de filas por transacción |
+| [DWU](sql-data-warehouse-overview-what-is.md) | Extremo por distribución (GB) | Número de distribuciones | Tamaño de la transacción MAX (GB) | N-º de filas por distribución | Máximo de filas por transacción |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4 000 000 |240 000 000 |
-| DW200 |1.5 |60 |90 |6.000.000 |360 000 000 |
+| DW200 |1.5 |60 |90 |6\.000.000 |360 000 000 |
 | DW300 |2.25 |60 |135 |9 000 000 |540 000 000 |
 | DW400 |3 |60 |180 |12 000 000 |720 000 000 |
 | DW500 |3,75 |60 |225 |15 000 000 |900 000 000 |

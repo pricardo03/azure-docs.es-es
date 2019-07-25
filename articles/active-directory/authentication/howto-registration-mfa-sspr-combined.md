@@ -1,6 +1,6 @@
 ---
-title: 'Introducción al registro combinado para SSPR de Azure AD y Multi-factor Authentication (versión preliminar): Azure Active Directory'
-description: Habilitar combina autenticación multifactor de Azure AD y restablecimiento de contraseña de registro (versión preliminar)
+title: Introducción al registro combinado para Azure AD SSPR y Multi-Factor Authentication (versión preliminar) (Azure Active Directory)
+description: Habilite el registro de autoservicio de restablecimiento de contraseña y Multi-Factor Authentication de Azure AD (versión preliminar) combinados
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,41 +11,41 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: d006bd36cc8f8c84fb13bae43702a3e472f8876a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119375"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113297"
 ---
-# <a name="enable-combined-security-information-registration-preview"></a>Información de seguridad permiten combinar del registro (versión preliminar)
+# <a name="enable-combined-security-information-registration-preview"></a>Habilitar el registro de información de seguridad combinado (vista preliminar)
 
-Antes de habilitar la nueva experiencia, revise el artículo [combinar información de registro de seguridad (versión preliminar)](concept-registration-mfa-sspr-combined.md) para asegurarse de que entiende la funcionalidad y los efectos de esta característica.
+Antes de habilitar la nueva experiencia, revise el artículo [Registro de información de seguridad combinado (vista preliminar)](concept-registration-mfa-sspr-combined.md) para asegurarse de que entiende la funcionalidad y los efectos de esta característica.
 
-![Información del registro de seguridad combinada una experiencia mejorada](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![Experiencia mejorada del registro de información de seguridad combinado](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
-| Información del registro de seguridad combinada para Azure Multi-factor Authentication y restablecimiento de contraseña de autoservicio de Azure Active Directory (Azure AD) es una característica de versión preliminar pública de Azure AD. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| El registro de información de seguridad combinado para el autoservicio de restablecimiento de contraseña de Azure Active Directory (Azure AD) y Azure Multi-Factor Authentication es una característica en vista previa pública de Azure AD. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 ## <a name="enable-combined-registration"></a>Habilitar registro combinado
 
 Siga estos pasos para habilitar el registro combinado:
 
-1. Inicie sesión en el portal de Azure como un usuario administrador o administrador global.
-2. Vaya a **Azure Active Directory** > **configuración de usuario** > **administrar la configuración de características de vista previa del panel de acceso**.
-3. En **los usuarios pueden usar características para registrar y administrar información de seguridad de vista previa: actualiza**, optar por habilitar para una **seleccionados** grupo de usuarios o para **todas** a los usuarios.
+1. Inicie sesión en Azure Portal como administrador de usuarios o administrador global.
+2. Vaya a **Azure Active Directory** > **Configuración de usuario** > **Administrar la configuración de las características en vista previa del panel de acceso**.
+3. En **Los usuarios pueden utilizar las características en versión preliminar para registrar y administrar la información de seguridad - actualizar**, elija habilitar un grupo de usuarios **Seleccionados** o **Todos** los usuarios.
 
    ![Habilitar la experiencia de versión preliminar de información de seguridad combinada para todos los usuarios](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
-> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para la autenticación multifactor y los usuarios SSPR en inquilinos de Azure AD gratuito de prueba. Mensajes SMS no se ven afectados por este cambio. Las opciones de llamada de teléfono aún estará disponibles para los usuarios de inquilinos de Azure AD de pago.
+> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios de Multi-Factor Authentication y SSPR en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las opciones de llamada de teléfono seguirán disponibles para los usuarios de inquilinos de Azure AD de pago.
 
 > [!NOTE]
-> Después de habilitar el registro combinado, los usuarios que registran o confirme el número de teléfono o aplicación móvil a través de la nueva experiencia puede usarlas para autenticación multifactor y SSPR, si estos métodos están habilitados en la autenticación multifactor y SSPR directivas. Si, a continuación, se deshabilita esta experiencia, los usuarios que vaya al registro SSPR anterior página en `https://aka.ms/ssprsetup` le pedirá que realicen autenticación multifactor para poder tener acceso a la página.
+> Después de habilitar el registro combinado, los usuarios que registren o confirmen su número de teléfono o aplicación móvil a través de la nueva experiencia pueden usarlos para Multi-Factor Authentication y SSPR, si estos métodos están habilitados en las directivas de Multi-Factor Authentication y SSPR. Si luego deshabilita esta experiencia, los usuarios que vayan a la página de registro de SSPR anterior en `https://aka.ms/ssprsetup` deberán realizar la autenticación multifactor para poder acceder a la página.
 
-Si ha configurado el sitio de la lista de asignación de zona de Internet Explorer, visite los sitios siguientes deben estar en la misma zona:
+Si ha configurado el sitio para la lista de asignación de zonas en Internet Explorer, los sitios siguientes deben estar en la misma zona:
 
 * [https://login.microsoftonline.com](https://login.microsoftonline.com)
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
@@ -53,43 +53,43 @@ Si ha configurado el sitio de la lista de asignación de zona de Internet Explor
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Directivas de acceso condicional para el registro combinado
 
-Protección de cuándo y cómo registrar usuarios para autenticación multifactor de Azure y restablecimiento de contraseña de autoservicio ahora es posible con las acciones del usuario en la directiva de acceso condicional. Esta característica de vista previa está disponible para organizaciones que han activado el [combina la vista previa del registro](../authentication/concept-registration-mfa-sspr-combined.md). Esta funcionalidad puede habilitarse en las organizaciones que desean los usuarios se registren para Azure Multi-factor Authentication y SSPR desde una ubicación central, como una ubicación de red de confianza durante la incorporación de recursos humanos. Para obtener más información acerca de cómo crear ubicaciones de confianza en el acceso condicional, consulte el artículo [¿qué es la condición de ubicación en el acceso condicional de Azure Active Directory?](../conditional-access/location-condition.md#named-locations)
+Proteger cuándo y cómo se registran los usuarios para Azure Multi-Factor Authentication y el restablecimiento de contraseñas de autoservicio ya es posible con las acciones del usuario en la directiva de acceso condicional. Esta característica de versión preliminar está disponible para organizaciones que han habilitado la [vista previa del registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Esta funcionalidad se puede habilitar en las organizaciones que quieren que los usuarios se registren para Azure Multi-factor Authentication y SSPR desde una ubicación central, como una ubicación de red de confianza durante la incorporación de recursos humanos. Para obtener más información sobre la creación de ubicaciones de confianza en el acceso condicional, consulte el artículo [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations) (¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory?)
 
-### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Crear una directiva para requerir registro desde una ubicación de confianza
+### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Crear una directiva para requerir el registro desde una ubicación de confianza
 
-La siguiente directiva se aplica a todos los usuarios seleccionados, que intentan registrar con la experiencia de registro combinado y bloquea el acceso a menos que se está conectando desde una ubicación marcada como red de confianza.
+La siguiente directiva se aplica a todos los usuarios seleccionados, que intentan registrarse con la experiencia de registro combinado, y bloquea su acceso a menos que se conecten desde una ubicación marcada como red de confianza.
 
 ![Crear una directiva de acceso condicional para controlar el registro de información de seguridad](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
 
-1. En el **portal Azure**, vaya a **Azure Active Directory** > **acceso condicional**
+1. En **Azure Portal**, vaya a **Azure Active Directory** > **Acceso condicional**
 1. Seleccione **Nueva directiva**
-1. En nombre, escriba un nombre para esta directiva. Por ejemplo, **combinada de registro de información de seguridad en redes de confianza**
-1. En **asignaciones**, haga clic en **usuarios y grupos**y seleccione los usuarios y grupos que desee aplicar esta directiva
+1. En Nombre, escriba un nombre para la directiva. Por ejemplo, **Registro de información de seguridad combinada en redes de confianza**
+1. En **Asignaciones**, haga clic en **Usuarios y grupos** y seleccione los usuarios y grupos a los que quiera aplicar esta directiva
 
    > [!WARNING]
-   > Los usuarios deben estar habilitados para el [combina la vista previa del registro](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Los usuarios deben estar habilitados para la [versión preliminar del registro combinado](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. En **en la nube aplicaciones o acciones**, seleccione **las acciones del usuario**, comprobar **registrar información de seguridad (versión preliminar)**
-1. En **condiciones** > **ubicaciones**
-   1. Configurar **sí**
-   1. Incluir **cualquier ubicación**
-   1. Excluir **todas las ubicaciones de confianza**
-   1. Haga clic en **realiza** en la hoja de ubicaciones
-   1. Haga clic en **realiza** en la hoja de condiciones
-1. En **controles de acceso** > **Grant**
-   1. Haga clic en **bloquear el acceso**
-   1. A continuación, haga clic en **seleccionar**
-1. Establecer **Habilitar directiva** a **en**
-1. A continuación, haga clic en **Create**
+1. En **Aplicaciones en la nube o acciones**, seleccione **Acciones del usuario** y marque **Registrar la información de seguridad (versión preliminar)**
+1. En **Condiciones** > **Ubicaciones**
+   1. Configure **Sí**
+   1. Incluya **Cualquier ubicación**
+   1. Excluya **Todas las ubicaciones de confianza**
+   1. Haga clic en **Hecho** en la hoja de ubicaciones
+   1. Haga clic en **Listo** en la hoja Condiciones
+1. En **Controles de acceso** > **Conceder**
+   1. Haga clic en **Bloquear acceso**
+   1. Después, haga clic en **Seleccionar**
+1. Establezca **Habilitar directiva** en **Activado**
+1. A continuación, haga clic en **Crear**
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Métodos disponibles para la autenticación multifactor y SSPR](concept-authentication-methods.md)
+[Métodos disponibles para Multi-Factor Authentication y SSPR](concept-authentication-methods.md)
 
-[Configuración del restablecimiento de contraseña de autoservicio](howto-sspr-deployment.md)
+[Configuración del autoservicio de restablecimiento de contraseña](howto-sspr-deployment.md)
 
-[Configurar Azure Multi-factor Authentication](howto-mfa-getstarted.md)
+[Configuración de Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 
-[Solución de problemas de combina el registro de información de seguridad](howto-registration-mfa-sspr-combined-troubleshoot.md)
+[Solución de problemas de registro de información de seguridad combinado](howto-registration-mfa-sspr-combined-troubleshoot.md)
 
-[¿Qué es la condición de ubicación en el acceso condicional de Azure Active Directory?](../conditional-access/location-condition.md)
+[¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory?](../conditional-access/location-condition.md)

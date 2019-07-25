@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 3/20/2018
 ms.author: v-mohabe
 ms.openlocfilehash: 4592caacf7f73e4bce9f974fb3bb2ab3ed1a89ff
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968363"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Comprensión de las alertas de seguridad en Azure Security Center
@@ -93,7 +93,7 @@ Security Center utiliza análisis avanzado para identificar los recursos en peli
 * **Todas las copias shadow de archivos que se han eliminado**: esta alerta indica que se han eliminado copias shadow.
 * **Comandos de limpieza de archivos sospechosos**: esta alerta indica una combinación de comandos systeminfo que se usaron para realizar una actividad de autolimpieza después de estar en peligro.  Aunque *systeminfo.exe* es una herramienta legítima de Windows, ejecutarla dos veces consecutivas, seguida de un comando de eliminación en la forma en que se ha producido aquí es poco frecuente.
 * **Cuenta sospechosa creada**: esta alerta indica que se ha creado una cuenta con un cierto parecido a una cuenta con privilegios administrativos integrada existente. Los atacantes pueden usar esta técnica para crear una cuenta no autorizada sin ser detectados.
-* **Actividad de instantánea de volumen sospechosa**: esta alerta indica una actividad de eliminación de instantánea en el recurso. Instantáneas de volumen (VSC) es un artefacto importante que almacena instantáneas de datos. Esta actividad está asociada con el Ransomware, pero también podría ser legítima.
+* **Actividad de instantánea de volumen sospechosa**: esta alerta indica una actividad de eliminación de instantánea en el recurso. Instantáneas de volumen (VSC) es un artefacto importante que almacena instantáneas de datos. Esta actividad está asociada a ransomware, pero también podría ser legítima.
 * **Método de persistencia del Registro de Windows**: esta alerta indica un intento de conservar un archivo ejecutable en el registro de Windows. El malware suele utilizar esta técnica para sobrevivir a un reinicio.
 * **Nueva regla de firewall sospechosa**: esta alerta indica que se ha agregado una nueva regla de firewall a través de *netsh.exe* para permitir el tráfico desde un archivo ejecutable de una ubicación sospechosa.
 * **Ejecuciones de XCOPY sospechosas**: esta alerta indica una serie de ejecuciones de XCOPY que podría indicar que una de las máquinas se ha puesto en peligro y se ha utilizado para propagar malware.

@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65911253"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
@@ -31,9 +31,9 @@ Antes de completar los pasos de este tutorial, inicie sesión en Azure Portal en
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="create-a-ddos-protection-plan"></a>Crear un plan de DDoS Protection
+## <a name="create-a-ddos-protection-plan"></a>Creación de un plan de protección contra DDoS
 
-Un plan de protección contra DDoS define un conjunto de redes virtuales que tiene habilitada la protección contra DDoS estándar en distintas suscripciones. Puede configurar un plan de protección contra DDoS para la organización y vincular redes virtuales de distintas suscripciones al mismo plan. El propio plan de protección contra DDoS también está asociado a una suscripción, la que selecciona durante la creación del plan. El Plan de DDoS Protection funciona entre regiones y suscripciones. Ejemplo: puede crear el plan en la región East-US y vínculo a la suscripción #1 en el inquilino. El mismo plan se puede vincular a las redes virtuales de otras suscripciones en distintas regiones, en todo el inquilino. La suscripción a la que está asociado el plan incurre en la factura mensual recurrente del plan, además de cargos de uso por encima del límite, en caso de que la cantidad de direcciones IP públicas protegidas supere las 100. Para más información sobre los precios de DDoS, consulte los [detalles de precios](https://azure.microsoft.com/pricing/details/ddos-protection/).
+Un plan de protección contra DDoS define un conjunto de redes virtuales que tiene habilitada la protección contra DDoS estándar en distintas suscripciones. Puede configurar un plan de protección contra DDoS para la organización y vincular redes virtuales de distintas suscripciones al mismo plan. El propio plan de protección contra DDoS también está asociado a una suscripción, la que selecciona durante la creación del plan. El plan de DDoS Protection funciona en todas las regiones y suscripciones. Ejemplo: puede crear el plan en la Región Este de EE. UU. y vincularlo a la suscripción número 1 en su inquilino. El mismo plan se puede vincular a las redes virtuales de otras suscripciones en diferentes regiones, a través de su inquilino. La suscripción a la que está asociado el plan incurre en la factura mensual recurrente del plan, además de cargos de uso por encima del límite, en caso de que la cantidad de direcciones IP públicas protegidas supere las 100. Para más información sobre los precios de DDoS, consulte los [detalles de precios](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 En la mayoría de las organizaciones, no es necesario crear más de un plan. Un plan no puede moverse entre suscripciones. Si desea cambiar la suscripción en que se encuentra un plan, debe [eliminar el plan existente](#work-with-ddos-protection-plans) y crear uno nuevo.
 
@@ -127,7 +127,7 @@ La telemetría para un ataque se proporciona a través de Azure Monitor en tiemp
 4. Seleccione la **suscripción** y el **grupo de recursos** que contienen la dirección IP pública para la que desea la telemetría.
 5. Seleccione la **dirección IP pública** para el **tipo de recurso**, luego seleccione la dirección IP pública específica para la que desea la telemetría.
 6. En el lado izquierdo de la pantalla se muestra una serie de **métricas disponibles**. Cuando se seleccionan estas métricas, se representan en el **gráfico de métricas de Azure Monitor**, en la pantalla de información general.
-7. Seleccione el **agregación** escriba como **máx.**
+7. Seleccione el tipo de **agregación** como **Máximo**.
 
 Los nombres de las métricas presentan distintos tipos de paquetes y bytes frente a paquetes, con una construcción básica de nombres de etiqueta en cada métrica, como se muestra aquí:
 
@@ -139,7 +139,7 @@ Para simular un ataque de DDoS para validar la telemetría, consulte [Validació
 
 ## <a name="view-ddos-mitigation-policies"></a>Visualización de las directivas de mitigación de DDoS
 
-DDoS Protection Standard aplica tres directivas de mitigación de ajuste automático (TCP SYN, TCP y UDP) a cada dirección IP pública del recurso protegido, en la red virtual que tiene habilitado DDoS. Puede ver los umbrales de directiva seleccionando el **paquetes entrantes TCP para desencadenar la mitigación de DDoS** y **paquetes entrantes UDP para desencadenar la mitigación de DDoS** métricas con **agregación** tipo como 'Max', como se muestra en la siguiente imagen:
+DDoS Protection Standard aplica tres directivas de mitigación de ajuste automático (TCP SYN, TCP y UDP) a cada dirección IP pública del recurso protegido, en la red virtual que tiene habilitado DDoS. Puede ver los umbrales de directiva si selecciona las métricas **Paquetes entrantes TCP para desencadenar la mitigación de DDoS** y **Paquetes entrantes UDP para desencadenar la mitigación de DDoS** con el tipo de **agregación** como "Máximo", tal como se muestra en la siguiente imagen:
 
 ![Vista de directivas de mitigación](./media/manage-ddos-protection/view-mitigation-policies.png)
 
@@ -160,7 +160,7 @@ Los informes de mitigación de ataques usan los datos del protocolo Netflow que 
 
     - **Archivar en una cuenta de almacenamiento**: los datos se escriben en una cuenta de Azure Storage. Para más información sobre esta opción, consulte [Archivo de registros de diagnósticos](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Transmisión a un centro de eventos**: permite que un receptor de registros seleccione los registros mediante una instancia de Azure Event Hub. Los centros de eventos habilitan la integración con Splunk y otros sistemas SIEM. Para más información sobre esta opción, consulte [Transmisión de registros de diagnóstico a un centro de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Enviar a Log Analytics**: Escribe registros en el servicio Azure Monitor. Para obtener más información acerca de esta opción, vea [recopilar registros para su uso en los registros de Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Enviar a Log Analytics**: Escribe registros en el servicio Azure Monitor. Para obtener más información sobre esta opción, consulte [Recopilación de registros para su uso en los registros de Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Tanto los informes de mitigación incremental como los posteriores a los ataques incluyen los siguientes campos:
 - Vectores de ataque
@@ -182,13 +182,13 @@ Los registros de flujo de mitigación de ataques le permiten revisar casi en tie
 
     - **Archivar en una cuenta de almacenamiento**: los datos se escriben en una cuenta de Azure Storage. Para más información sobre esta opción, consulte [Archivo de registros de diagnósticos](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Transmisión a un centro de eventos**: permite que un receptor de registros seleccione los registros mediante una instancia de Azure Event Hub. Los centros de eventos habilitan la integración con Splunk y otros sistemas SIEM. Para más información sobre esta opción, consulte [Transmisión de registros de diagnóstico a un centro de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Enviar a Log Analytics**: Escribe registros en el servicio Azure Monitor. Para obtener más información acerca de esta opción, vea [recopilar registros para su uso en los registros de Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Enviar a Log Analytics**: Escribe registros en el servicio Azure Monitor. Para obtener más información sobre esta opción, consulte [Recopilación de registros para su uso en los registros de Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Para ver los datos de registros de flujo en el panel de análisis de Azure, puede importar el panel de ejemplo desde https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip.
 
 Los registros de flujo tienen los siguientes campos: 
 - IP de origen
 - IP de destino
-- puerto de origen 
+- Puerto de origen 
 - Puerto de destino 
 - Tipo de protocolo 
 - Acción realizada durante la mitigación
@@ -204,18 +204,18 @@ Microsoft se ha asociado con [BreakingPoint Cloud](https://www.ixiacom.com/produ
 - Documentar el cumplimiento normativo de DDoS.
 - Enseñar a los equipos de seguridad de red.
 
-## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Ver las alertas de protección de DDoS en Azure Security Center
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Ver las alertas de protección DDoS en Azure Security Center
 
-Azure Security Center proporciona una lista de [las alertas de seguridad](/azure/security-center/security-center-managing-and-responding-alerts), con información para ayudar a investigar y solucionar los problemas. Con esta característica, obtenga una vista unificada de las alertas, incluidas las alertas relacionadas con el ataque de DDoS y las acciones realizadas para mitigar el ataque casi en tiempo.
-Hay dos alertas específicas que aparece para cualquier DDoS detección y mitigación de ataque:
+Azure Security Center proporciona una lista de [alertas de seguridad](/azure/security-center/security-center-managing-and-responding-alerts), que cuentan con información para ayudarle a investigar y solucionar problemas. Gracias a esta característica, obtendrá una vista unificada de las alertas, incluyendo las alertas relacionadas con los ataques DDoS y las acciones que se tomaron para mitigar el ataque a corto plazo.
+Hay dos alertas específicas que verá en cualquier mitigación y detección de ataques DDoS:
 
-- **Ataque de DDoS detecta direcciones IP públicas de**: Esta alerta se genera cuando el servicio DDoS protection detecta que una de las direcciones IP públicas es el destino de un ataque DDoS.
-- **Mitigar el ataque de DDoS de dirección IP pública**: Esta alerta se genera cuando se ha mitigado un ataque contra la dirección IP pública.
-Para ver las alertas, abrir **Security Center** en Azure portal. En **protección contra amenazas**, seleccione **las alertas de seguridad**. Captura de pantalla siguiente muestra un ejemplo de las alertas de ataque DDoS.
+- **Ataque DDoS detectado para IP pública**: Esta alerta se genera cuando el servicio de protección contra DDoS detecta que una de sus direcciones IP públicas es el objetivo de un ataque DDoS.
+- **Ataque DDoS mitigado para IP pública**: Esta alerta se genera cuando se ha mitigado un ataque a la dirección IP pública.
+Para ver las alertas, abra el **Centro de seguridad** en Azure Portal. En **Protección contra amenazas**, seleccione **Alertas de seguridad**. La siguiente captura de pantalla muestra un ejemplo de las alertas de ataques DDoS.
 
-![Alerta de DDoS en Azure Security Center](./media/manage-ddos-protection/ddos-alert-asc.png)
+![Alerta de ataque DDoS en Azure Security Center](./media/manage-ddos-protection/ddos-alert-asc.png)
 
-Las alertas incluyen información general acerca de la dirección IP pública que está por debajo del ataque, geográfica e información sobre amenazas y pasos de correcciones.
+Las alertas incluyen información general sobre la dirección IP pública que está bajo ataque, información de inteligencia geográfica y de amenazas y los pasos para solucionar el problema.
 
 ## <a name="permissions"></a>Permisos
 

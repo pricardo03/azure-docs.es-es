@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
 ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952686"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creación, modificación o eliminación del prefijo de una dirección IP pública
 
-Obtenga información sobre el prefijo de una dirección IP pública y cómo crearlo, modificarlo y eliminarlo. El prefijo de una dirección IP pública es un intervalo contiguo de direcciones basado en el número de direcciones IP públicas que especifique. Las direcciones se asignan a su suscripción. Cuando se crea un recurso de dirección IP pública, puede asignar una dirección IP pública estática desde el prefijo y asociar la dirección de las máquinas virtuales, equilibradores de carga u otros recursos, para habilitar la conectividad a internet. Si no está familiarizado con los prefijos de las direcciones IP públicas, consulte [Información general sobre el prefijo de una dirección IP pública](public-ip-address-prefix.md)
+Obtenga información sobre el prefijo de una dirección IP pública y cómo crearlo, modificarlo y eliminarlo. El prefijo de una dirección IP pública es un intervalo contiguo de direcciones basado en el número de direcciones IP públicas que especifique. Las direcciones se asignan a su suscripción. Al crear un recurso de dirección IP pública, puede asignar una dirección IP pública estática a partir del prefijo y asociar la dirección a máquinas virtuales, equilibradores de carga u otros recursos para habilitar la conectividad a Internet. Si no está familiarizado con los prefijos de las direcciones IP públicas, consulte [Información general sobre el prefijo de una dirección IP pública](public-ip-address-prefix.md)
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -50,12 +50,12 @@ Los prefijos de las direcciones IP públicas tienen un cargo. Para obtener infor
    |Subscription|Sí|Debe existir en la misma [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que el recurso al cual desee asociar la dirección IP pública.|
    |Grupos de recursos|Sí|Puede existir en la misma suscripción que el [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) al cual desee asociar la dirección IP pública o en otra diferente.|
    |NOMBRE|Sí|El nombre debe ser único dentro del grupo de recursos que seleccione.|
-   |Área|Sí|Debe existir en la misma [región](https://azure.microsoft.com/regions) que las direcciones IP públicas que asignará a direcciones del intervalo.|
+   |Region|Sí|Debe existir en la misma [región](https://azure.microsoft.com/regions) que las direcciones IP públicas que asignará a direcciones del intervalo.|
    |Tamaño del prefijo|Sí| El tamaño del prefijo que necesita. A/28 o 16 direcciones IP es el valor predeterminado.
 
 **Comandos**
 
-|Tool|Get-Help|
+|Herramienta|Get-Help|
 |---|---|
 |CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
@@ -71,12 +71,12 @@ Una vez que cree un prefijo, debe crear las direcciones IP estáticas a partir d
    |Configuración|¿Necesario?|Detalles|
    |---|---|---|
    |NOMBRE|Sí|El nombre de la dirección IP pública debe ser único dentro del grupo de recursos que seleccione.|
-   |Tiempo de espera de inactividad (minutos)|No|Cantidad de minutos para mantener una conexión TCP o HTTP abierta sin que dependa del envío de mensajes de mantenimiento de los clientes. |
-   |Etiqueta de nombre DNS|No|Debe ser único dentro de la región de Azure en la que cree el nombre (entre todas las suscripciones y todos los clientes). Azure registra automáticamente el nombre y la dirección IP en el DNS para que pueda conectarse a un recurso con el nombre. Azure anexa una subred predeterminada, como *location.cloudapp.azure.com* (en que location es la ubicación seleccionada), al nombre que proporcione para crear el nombre DNS cualificado completo. Para obtener más información, consulte [Utilizar Azure DNS con una dirección IP pública de Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+   |Tiempo de espera de inactividad (minutos)|Sin|Cantidad de minutos para mantener una conexión TCP o HTTP abierta sin que dependa del envío de mensajes de mantenimiento de los clientes. |
+   |Etiqueta de nombre DNS|Sin|Debe ser único dentro de la región de Azure en la que cree el nombre (entre todas las suscripciones y todos los clientes). Azure registra automáticamente el nombre y la dirección IP en el DNS para que pueda conectarse a un recurso con el nombre. Azure anexa una subred predeterminada, como *location.cloudapp.azure.com* (en que location es la ubicación seleccionada), al nombre que proporcione para crear el nombre DNS cualificado completo. Para obtener más información, consulte [Utilizar Azure DNS con una dirección IP pública de Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
-También puede usar la CLI y comandos de PS a continuación con--public-ip-prefix (CLI) y recurso de dirección de los parámetros - PublicIpPrefix (PS), para crear una dirección IP pública. 
+También puede usar los comandos CLI y PS que tiene a continuación con los parámetros --public-ip-prefix (CLI) y -PublicIpPrefix (PS), para crear un recurso de dirección IP pública. 
 
-|Tool|Get-Help|
+|Herramienta|Get-Help|
 |---|---|
 |CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
 |PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
@@ -91,10 +91,10 @@ También puede usar la CLI y comandos de PS a continuación con--public-ip-prefi
 
 **Comandos**
 
-|Tool|Get-Help|
+|Herramienta|Get-Help|
 |---|---|
 |CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) para mostrar las direcciones IP públicas, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) para mostrar la configuración, [az network public-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) para actualizar, [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) para eliminar|
-|PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) para recuperar un objeto de dirección IP pública y ver su configuración, [conjunto AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) para actualizar la configuración; [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) para eliminar|
+|PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) para recuperar un objeto de dirección IP pública y ver su configuración, [Set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) para actualizar la configuración, [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) para eliminar.|
 
 ## <a name="permissions"></a>Permisos
 

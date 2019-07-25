@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242788"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Administración de esquema en una aplicación SaaS que usa bases de datos SQL multiinquilino particionadas
@@ -53,7 +53,7 @@ En este tutorial, aprenderá a:
 - Azure PowerShell debe estar instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> En este tutorial se usan características del servicio Azure SQL Database que se encuentran en una versión preliminar limitada ([trabajos de Elastic Database](sql-database-elastic-database-client-library.md)). Si desea realizar este tutorial, envíe su identificador de suscripción a *SaaSFeedback\@microsoft.com* con el asunto = Elastic Jobs Preview. Después de recibir la confirmación de que se ha habilitado su suscripción, [descargue e instale los cmdlets de trabajos de versión preliminar más recientes](https://github.com/jaredmoo/azure-powershell/releases). Esta versión preliminar es limitada, así que póngase en contacto con *SaaSFeedback\@microsoft.com* para preguntas relacionadas o soporte técnico.
+> En este tutorial se usan características del servicio Azure SQL Database que se encuentran en una versión preliminar limitada ([trabajos de Elastic Database](sql-database-elastic-database-client-library.md)). Si desea seguir este tutorial, envíe su identificador de suscripción a *SaaSFeedback\@microsoft.com* con el asunto Elastic Jobs Preview. Después de recibir la confirmación de que se ha habilitado su suscripción, [descargue e instale los cmdlets de trabajos de versión preliminar más recientes](https://github.com/jaredmoo/azure-powershell/releases). Esta versión preliminar es limitada, por lo que debe ponerse en contacto con *SaaSFeedback\@microsoft.com* para realizar preguntas u obtener soporte técnico relacionados.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introducción a los patrones de administración de esquema de SaaS
 
@@ -172,5 +172,5 @@ En este tutorial, ha aprendido cómo:
 > * Actualizar los datos de referencia en todas las bases de datos de inquilino
 > * Crear un índice en una tabla en todas las bases de datos de inquilino
 
-A continuación, pruebe el [notificación Ad hoc tutorial](saas-multitenantdb-adhoc-reporting.md) para explorar la ejecución de consultas distribuidas a través de inquilino bases de datos.
+A continuación, pruebe el [tutorial de notificaciones ad hoc](saas-multitenantdb-adhoc-reporting.md) para explorar la ejecución de consultas distribuidas en las bases de datos de inquilino.
 

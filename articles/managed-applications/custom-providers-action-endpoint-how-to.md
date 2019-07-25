@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: 1bfc0be81d42e922c47755543fb65aa413ec73a9
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6fbd20c201e1b141b7276e3283599b00cdefd118
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67479061"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795296"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Incorporación de acciones personalizadas a la API REST de Azure
 
@@ -195,5 +195,6 @@ functionValues | *no* | El cuerpo de la solicitud que se enviará al **punto de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción a los proveedores de recursos personalizados de Azure](./custom-providers-overview.md)
-- [Tutorial: Creación de un proveedor de recursos personalizados de Azure e implementación de recursos personalizados](./create-custom-provider.md)
+- [Inicio rápido: Creación de un proveedor de recursos personalizados de Azure e implementación de recursos personalizados](./create-custom-provider.md)
+- [Tutorial: Creación de acciones y recursos personalizados en Azure](./tutorial-custom-providers-101.md)
 - [How To: Incorporación de recursos personalizados a la API REST de Azure](./custom-providers-resources-endpoint-how-to.md)

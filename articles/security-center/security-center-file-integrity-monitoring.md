@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: v-mohabe
 ms.openlocfilehash: cc0c319357b39ddb3e88d515613273a6f7dc0867
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968803"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisar la integridad de los archivos en Azure Security Center
@@ -38,10 +38,10 @@ Security Center recomienda entidades para supervisar, en las que se pueda habili
 > [!NOTE]
 > La característica de supervisión de la integridad de los archivos (FIM) funciona con equipos y máquinas virtuales Windows y Linux y está disponible en el nivel Estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md). FIM carga datos en el área de trabajo de Log Analytics. Se aplican cargos de datos, según la cantidad de datos que cargue. Para más información, consulte [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-FIM emplea la solución Azure Change Tracking para realizar el seguimiento de los cambios e identificarlos en su entorno. Cuando se habilita la supervisión de integridad de los archivos, tendrá un **Change Tracking** recurso de tipo **solución**. Para detalles de la frecuencia de recopilación de datos, vea [detalles de recopilación de datos de seguimiento de cambios](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para seguimiento de cambios de Azure.
+FIM emplea la solución Azure Change Tracking para realizar el seguimiento de los cambios e identificarlos en su entorno. Cuando la supervisión de la integridad de los archivos está habilitada, tendrá un recurso **Change Tracking** de tipo **Solución**. Para obtener detalles sobre la frecuencia de recopilación de datos, vea [Detalles de la recopilación de datos de seguimiento de cambios](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para Azure Change Tracking.
 
 > [!NOTE]
-> Si quita el **Change Tracking** recursos, también deshabilitará la integridad del archivo de supervisión de la característica en Security Center.
+> Si quita el recurso **Change Tracking**, deshabilitará también la característica de supervisión de la integridad de los archivos en Security Center.
 
 ## <a name="which-files-should-i-monitor"></a>¿Qué archivos se deben supervisar?
 Al elegir los archivos que quiere supervisar, es conveniente que piense en los archivos que son críticos para su sistema y aplicaciones. Considere la posibilidad de elegir archivos que no espera que cambien sin haberlo planeado. Al elegir archivos que las aplicaciones o el sistema operativo cambian con frecuencia (por ejemplo, archivos de registro y archivos de texto) se genera mucho ruido que dificulta la identificación de un ataque.
@@ -137,7 +137,7 @@ Se abre la hoja **Cambiar detalles** al escribir un cambio en el campo de búsqu
 
    ![Configuración del área de trabajo][12]
 
-2. Seleccione una protección de identidad. En este ejemplo se selecciona un elemento en el Registro de Windows. Se abre la hoja **Edit for Change Tracking** (Editar para Change Tracking).
+2. Seleccione una protección de identidades. En este ejemplo se selecciona un elemento en el Registro de Windows. Se abre la hoja **Edit for Change Tracking** (Editar para Change Tracking).
 
    ![Editar para Change Tracking][13]
 

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952848"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticación con código de acceso de un solo uso de correo electrónico (versión preliminar)
@@ -26,7 +26,7 @@ ms.locfileid: "65952848"
 | El código de acceso de un solo uso de correo electrónico es una característica en vista previa pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-En este artículo se describe cómo habilitar la autenticación de correo electrónico única del código de acceso para los usuarios invitados de B2B. La característica de código de acceso de un solo uso de correo electrónico autentica los usuarios invitados de B2B cuando no pueden autenticarse a través de otros medios, como Azure AD, una cuenta de Microsoft (MSA) o federación de Google. Con la autenticación por código de acceso de un solo uso, no hay necesidad de crear una cuenta de Microsoft. Cuando el usuario invitado canjea una invitación o accede a un recurso compartido, puede solicitar un código temporal, que se envía a su dirección de correo electrónico. A continuación, escribe este código para continuar con el inicio de sesión.
+En este artículo se describe cómo habilitar la autenticación del código de acceso único del correo electrónico para usuarios invitados de B2B. La característica de código de acceso de un solo uso de correo electrónico autentica los usuarios invitados de B2B cuando no pueden autenticarse a través de otros medios, como Azure AD, una cuenta de Microsoft (MSA) o federación de Google. Con la autenticación por código de acceso de un solo uso, no hay necesidad de crear una cuenta de Microsoft. Cuando el usuario invitado canjea una invitación o accede a un recurso compartido, puede solicitar un código temporal, que se envía a su dirección de correo electrónico. A continuación, escribe este código para continuar con el inicio de sesión.
 
 Esta característica está disponible actualmente en versión preliminar (consulte [Participación en la versión preliminar](#opting-in-to-the-preview) a continuación). Después de la versión preliminar, esta característica se activará de forma predeterminada para todos los inquilinos.
 
@@ -36,11 +36,11 @@ Esta característica está disponible actualmente en versión preliminar (consul
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Experiencia de usuario para los usuarios invitados de código de acceso de un solo uso
 Con la autenticación de código de acceso de un solo uso, el usuario invitado puede canjear su invitación haciendo clic en un vínculo directo o mediante el correo electrónico de invitación. En cualquier caso, un mensaje en el explorador indica que se enviará un código a la dirección de correo electrónico del usuario invitado. El usuario invitado selecciona **Enviar código**:
  
-   ![Captura de pantalla que muestra el botón de código de envío](media/one-time-passcode/otp-send-code.png)
+   ![Captura de pantalla que muestra el botón Enviar código.](media/one-time-passcode/otp-send-code.png)
  
 Se envía un código de acceso a la dirección de correo electrónico del usuario. El usuario recupera el código de acceso del correo electrónico y lo escribe en la ventana del explorador:
  
-   ![Captura de pantalla muestra la página de códigos ENTRAR](media/one-time-passcode/otp-enter-code.png)
+   ![Captura de pantalla que muestra la página Escribir código.](media/one-time-passcode/otp-enter-code.png)
  
 Ahora el usuario invitado se ha autenticado y puede ver el recurso compartido o continuar con el inicio de sesión. 
 
@@ -58,13 +58,13 @@ En el momento de la invitación, no hay ninguna indicación de que el usuario al
 
 Puede ver los usuarios invitados que se autentican con códigos de acceso de un solo uso en Azure Portal, en **Azure Active Directory** > **Relaciones organizativas** > **Usuarios de otras organizaciones**.
 
-![Captura de pantalla con un usuario de código de acceso de un solo uso con el valor de origen de OTP](media/one-time-passcode/otp-users.png)
+![Captura de pantalla que muestra un usuario de código de acceso único con el valor origen de OTP.](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > Cuando un usuario canjea un código de acceso de un solo uso y más adelante obtiene una MSA, una cuenta de Azure AD u otra cuenta federada, seguirá autenticándose con un código de acceso de un solo uso. Si quiere actualizar el método de autenticación, puede eliminar la cuenta de usuario invitado y volver a invitarlo.
 
 ### <a name="example"></a>Ejemplo
-Se invita al usuario invitado alexdoe@gmail.com a Fabrikam, que no tiene configurada la federación de Google. Alex no tiene una cuenta de Microsoft. Recibirá un código de acceso de un solo uso para la autenticación.
+Se invita al usuario invitado alexdoe@gmail.com a Fabrikam, que no tiene configurada la federación de Google. Alex no tiene una cuenta de Microsoft. Recibe un código de acceso de un solo uso para la autenticación.
 
 ## <a name="opting-in-to-the-preview"></a>Participación en la versión preliminar 
 Es posible que tarde unos minutos para que la acción de participación surta efecto. Después de eso, solo los usuarios recién invitados que cumplan las condiciones anteriores usarán la autenticación de código de acceso de un solo uso. Los usuarios invitados que anteriormente canjearon una invitación seguirán usando el mismo método de autenticación.
@@ -74,7 +74,7 @@ Es posible que tarde unos minutos para que la acción de participación surta ef
 2.  En el panel de navegación, seleccione **Azure Active Directory**.
 3.  En **Administrar**, seleccione **Relaciones organizativas**.
 4.  Seleccione **Configuración**.
-5.  En **Habilitar el código de acceso de un solo uso de correo electrónico para invitados (versión preliminar)**, seleccione **Sí**.
+5.  En **Habilitar el código de acceso de un solo uso de correo electrónico para invitados (versión preliminar)** , seleccione **Sí**.
  
 ### <a name="to-opt-in-using-powershell"></a>Para participar con PowerShell
 
@@ -141,7 +141,7 @@ Es posible que tarde unos minutos para que la acción de dejar de participar sur
 2.  En el panel de navegación, seleccione **Azure Active Directory**.
 3.  En **Administrar**, seleccione **Relaciones organizativas**.
 4.  Seleccione **Configuración**.
-5.  En **Habilitar el código de acceso de un solo uso de correo electrónico para invitados (versión preliminar)**, seleccione **No**.
+5.  En **Habilitar el código de acceso de un solo uso de correo electrónico para invitados (versión preliminar)** , seleccione **No**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Para desactivar la versión preliminar con PowerShell
 Instale el módulo más reciente de AzureADPreview si aún no lo ha hecho (consulte [Requisitos previos: Instalación del último módulo de AzureADPreview](#prerequisite-install-the-latest-azureadpreview-module) más arriba). A continuación, para verificar que la directiva de versión preliminar del código de acceso de un solo uso exista actualmente, ejecute lo siguiente:

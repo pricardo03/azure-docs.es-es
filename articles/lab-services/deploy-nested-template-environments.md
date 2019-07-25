@@ -1,6 +1,6 @@
 ---
-title: Implementar entornos de plantilla de Resource Manager anidadas en Azure DevTest Labs | Microsoft Docs
-description: Obtenga información sobre cómo implementar las plantillas de Azure Resource Manager anidadas para proporcionar entornos con Azure DevTest Labs.
+title: Implementar entornos de plantillas de Resource Manager anidados en Azure DevTest Labs | Microsoft Docs
+description: Aprenda a implementar plantillas anidadas de Azure Resource Manager para proporcionar entornos con Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,22 +13,22 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: spelluru
 ms.openlocfilehash: eec0cde4a36449f85998bfb04d16f1d52c68bb19
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65835291"
 ---
-# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Implementar las plantillas de Azure Resource Manager anidadas para entornos de prueba
-Una implementación anidada le permite ejecutar otras plantillas de Azure Resource Manager desde una plantilla de Resource Manager principal. Permite descomponer la implementación en un conjunto de plantillas específicas y propósito específico. Proporciona ventajas en cuanto a las pruebas, la reutilización y la legibilidad. El artículo [uso de plantillas vinculadas al implementar recursos de Azure](../azure-resource-manager/resource-group-linked-templates.md) proporciona una buena descripción general de esta solución con varios ejemplos de código. En este artículo se proporciona un ejemplo que es específico de Azure DevTest Labs. 
+# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Implementar plantillas anidadas de Azure Resource Manager para probar entornos
+Una implementación anidada le permite ejecutar otras plantillas de Azure Resource Manager desde una plantilla principal de Resource Manager. Igualmente, le permite descomponer su implementación en un conjunto de plantillas de destino y de propósito específico. Proporciona ventajas en cuanto a las pruebas, la reutilización y la legibilidad. El artículo [Uso de plantillas vinculadas al implementar recursos de Azure](../azure-resource-manager/resource-group-linked-templates.md) le proporciona una buena descripción general de esta solución con varios ejemplos de código. En este artículo se proporciona un ejemplo que es específico de Azure DevTest Labs. 
 
-## <a name="key-parameters"></a>Parámetros de clave
-Si bien puede crear su propia plantilla de Resource Manager desde el principio, se recomienda usar la [proyecto del grupo de recursos de Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) en Visual Studio, lo que facilita a desarrollar y depurar las plantillas. Al agregar un recurso de la implementación anidada a azuredeploy.json, Visual Studio agrega varios elementos para que la plantilla más flexible. Estos elementos incluyen la subcarpeta con el archivo de plantilla y parámetros secundaria, los nombres de variable dentro del archivo de plantilla principal y dos parámetros para la ubicación de almacenamiento para los nuevos archivos. El **_artifactsLocation** y **_artifactsLocationSasToken** son los parámetros claves que se usa DevTest Labs. 
+## <a name="key-parameters"></a>Parámetros clave
+Si bien puede crear su propia plantilla de Resource Manager desde cero, le recomendamos que use el [proyecto del grupo de recursos de Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) en Visual Studio, lo que facilitará el desarrollo y la depuración de plantillas. Cuando agrega un recurso de implementación anidado a azuredeploy.json, Visual Studio agrega varios elementos para hacer que la plantilla sea más flexible. Estos elementos incluyen la subcarpeta con la plantilla secundaria y el archivo de parámetros, los nombres de las variables dentro del archivo de la plantilla principal y dos parámetros para la ubicación de almacenamiento de los nuevos archivos. **_artifactsLocation** y **_artifactsLocationSasToken** son los parámetros clave que usa DevTest Labs. 
 
-Si no está familiarizado con el funcionamiento de DevTest Labs con entornos, consulte [crear entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md). Las plantillas se almacenan en el repositorio vinculado al laboratorio en DevTest Labs. Cuando se crea un nuevo entorno con esas plantillas, los archivos se mueven a un contenedor de almacenamiento de Azure en el laboratorio. Para poder identificar y copiar los archivos anidados, DevTest Labs identifica los parámetros _artifactsLocation y _artifactsLocationSasToken y las subcarpetas hasta el contenedor de almacenamiento de copia. A continuación, insertan automáticamente la ubicación y el token de firma de acceso compartido (SaS) en los parámetros. 
+Si no está familiarizado con el funcionamiento de DevTest Labs con los entornos, consulte [Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md) (Crear entornos de varias VM y recursos de PaaS con las plantillas de Azure Resource Manager). Sus plantillas se almacenan en el repositorio vinculado al laboratorio en DevTest Labs. Cuando crea un nuevo entorno con esas plantillas, los archivos se mueven a un contenedor de Azure Storage en el laboratorio. Para poder identificar y copiar los archivos anidados, DevTest Labs identifica los parámetros _artifactsLocation y _artifactsLocationSasToken y copia las subcarpetas hasta el contenedor de almacenamiento. A continuación, inserta automáticamente la ubicación y el token de firma de acceso compartido (SaS) en los parámetros. 
 
-## <a name="nested-deployment-example"></a>Ejemplo de la implementación anidada
-Este es un ejemplo sencillo de una implementación anidada:
+## <a name="nested-deployment-example"></a>Ejemplo de implementación anidada
+Aquí tiene un ejemplo simple de una implementación anidada:
 
 ```json
 
@@ -66,17 +66,17 @@ Este es un ejemplo sencillo de una implementación anidada:
 "outputs": {}
 ```
 
-La carpeta en el repositorio que contiene esta plantilla tiene una subcarpeta `nestedtemplates` con los archivos **NestOne.json** y **NestOne.parameters.json**. En el **azuredeploy.json**, URI de la plantilla se ha creado mediante la ubicación de artefactos, la carpeta de la plantilla anidada, anidados nombre de archivo de plantilla. De forma similar, el URI para los parámetros se compila con la ubicación de artefactos, la carpeta de la plantilla anidada y el archivo de parámetros para la plantilla anidada. 
+La carpeta del repositorio que contiene esta plantilla tiene una subcarpeta `nestedtemplates` con los archivos **NestOne.json** y **NestOne.parameters.json**. En **azuredeploy.json**, el URI para la plantilla se compila usando la ubicación de los artefactos, la carpeta de plantillas anidadas y el nombre del archivo de la plantilla anidada. De manera similar, el URI de los parámetros se crea mediante la ubicación de los artefactos, la carpeta de plantillas anidadas y el archivo de parámetros para la plantilla anidada. 
 
-Aquí es la imagen de la misma estructura de proyecto en Visual Studio: 
+Aquí está la imagen de la misma estructura del proyecto en Visual Studio: 
 
 ![Estructura del proyecto en Visual Studio](./media/deploy-nested-template-environments/visual-studio-project-structure.png)
 
-Puede agregar carpetas adicionales en la carpeta principal, pero no los más de un solo nivel. 
+Puede agregar carpetas adicionales en la carpeta principal, pero no puede ir más allá de un solo nivel. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los siguientes artículos para obtener más información acerca de los entornos: 
+Consulte estos artículos para obtener detalles sobre los entornos: 
 
 - [Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
-- [Configurar y usar entornos públicos en Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
-- [Conectar un entorno a red virtual de su laboratorio en Azure DevTest Labs](connect-environment-lab-virtual-network.md)
+- [Configuración y uso de entornos públicos en Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
+- [Conexión de un entorno a la red virtual del laboratorio en Azure DevTest Labs](connect-environment-lab-virtual-network.md)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 37227b7d0ea1b3630a3c2ce991a61543e6a1503d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428252"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introducción a las solicitudes HTTP de Conexiones híbridas de Relay en .NET
@@ -67,7 +67,7 @@ En Visual Studio, escriba una aplicación de consola en C# para enviar mensajes 
 1. Ejecute la aplicación cliente. Verá `hello!` en la ventana cliente. El cliente envió una solicitud HTTP al servidor y este respondió con `hello!`. 
 3. Ahora, para cerrar las ventanas de la consola, presione **ENTRAR** en ambas ventanas de la consola. 
 
-Enhorabuena, ha creado una aplicación completa de las conexiones híbridas.
+Enhorabuena, ha creado una aplicación de Conexiones híbridas completa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

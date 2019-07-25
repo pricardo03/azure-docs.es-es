@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: afd43bbf6f52f498ad8f56d5a48b960d45d84137
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243254"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Suscripciones en Azure API Management
@@ -42,7 +42,7 @@ Las suscripciones se pueden asociar a diversos ámbitos: producto, todas las API
 
 ### <a name="subscriptions-for-a-product"></a>Suscripciones para un producto
 
-Tradicionalmente, las suscripciones en API Management se han asociado siempre a un solo ámbito del [producto de API](api-management-terminology.md). Los desarrolladores encontraron la lista de productos en el Portal para desarrolladores. A continuación, enviarían las solicitudes de suscripción para los productos que deseaban usar. Cuando se aprueba una solicitud de suscripción, ya sea automáticamente o por los publicadores de API, el desarrollador puede usar las claves en él para tener acceso a todas las API del producto. En la actualidad, portal para desarrolladores solo muestra las suscripciones de ámbito del producto en la sección de perfil de usuario. 
+Tradicionalmente, las suscripciones en API Management se han asociado siempre a un solo ámbito del [producto de API](api-management-terminology.md). Los desarrolladores encontraron la lista de productos en el Portal para desarrolladores. A continuación, enviarían las solicitudes de suscripción para los productos que deseaban usar. Una vez aprobada una solicitud de suscripción, bien de forma automática o por parte de los publicadores de API, el desarrollador puede usar las claves de esta para acceder a todas las API del producto. Por el momento, el portal para desarrolladores solo muestra las suscripciones de ámbito de producto de la sección del perfil de usuario. 
 
 ![Suscripciones de producto](./media/api-management-subscriptions/product-subscription.png)
 

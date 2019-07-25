@@ -10,10 +10,10 @@ ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779476"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desarrollo para Azure Files con .NET
@@ -46,20 +46,20 @@ API | Cuándo se deben usar | Notas
 En Visual Studio, cree una nueva aplicación de consola de Windows. Los pasos siguientes muestran cómo crear una aplicación de consola en Visual Studio 2017; sin embargo, en otras versiones de Visual Studio los pasos son similares.
 
 1. Seleccione **Archivo** > **Nuevo** > **Proyecto**
-2. Seleccione **Instalado** > **Plantillas** > **Visual C#** > **Escritorio clásico de Windows**
+2. Seleccione **Instalado** > **Plantillas** > **Visual C#**  > **Escritorio clásico de Windows**
 3. Seleccione **Aplicación de consola (.NET Framework)**
-4. Escriba el nombre de la aplicación en el campo **Nombre:**.
+4. Escriba el nombre de la aplicación en el campo **Nombre:** .
 5. Seleccione **Aceptar**.
 
 Todos los ejemplos de código de este tutorial se pueden agregar al método `Main()` del archivo `Program.cs` de la aplicación de consola.
 
-Puede usar la biblioteca de cliente de Azure Storage en cualquier tipo de aplicación. NET, incluida una aplicación web o servicio de nube de Azure y aplicaciones de escritorio y móviles. En esta guía, usamos una aplicación de consola para hacerlo más sencillo.
+La biblioteca cliente de Azure Storage se puede usar en cualquier tipo de aplicación. NET, incluidos cualquier servicio en la nube o aplicación web de Azure, y aplicaciones de escritorio o móviles. En esta guía, usamos una aplicación de consola para hacerlo más sencillo.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Uso de NuGet para instalar los paquetes necesarios
 Para completar este tutorial, es preciso que haga referencia a dos paquetes en el proyecto:
 
-* [Biblioteca común de Microsoft Azure Storage para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este paquete proporciona acceso mediante programación a los recursos comunes en la cuenta de almacenamiento.
-* [Biblioteca de Microsoft Azure Storage Blob para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Este paquete proporciona acceso mediante programación a los recursos de Blob en la cuenta de almacenamiento.
+* [Biblioteca común de Microsoft Azure Storage para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este paquete proporciona acceso mediante programación a los recursos comunes de la cuenta de almacenamiento.
+* [Biblioteca de Microsoft Azure Storage Blob para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Este paquete proporciona acceso mediante programación a los recursos de blob de la cuenta de almacenamiento.
 * [Biblioteca del Administrador de configuración de Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Este paquete proporciona una clase para analizar una cadena de conexión en un archivo de configuración, independientemente del lugar en que se ejecute la aplicación.
 
 Puede usar NuGet para obtener ambos paquetes. Siga estos pasos:
@@ -402,7 +402,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Solución de problemas de Azure Files mediante métricas
 Azure Storage Analytics ahora admite métricas para Azure Files. Con los datos de las métricas, es posible seguir paso a paso las solicitudes y diagnosticar problemas.
 
-Puede habilitar las métricas para Azure Files mediante el [portal Azure](https://portal.azure.com). La métrica también se puede habilitar mediante programación. Para ello, hay que llamar a la operación Set File Service Properties a través de la API de REST, o de una de sus análogas de la Biblioteca del cliente de Storage.
+Puede habilitar las métricas para Azure Files mediante [Azure Portal](https://portal.azure.com). La métrica también se puede habilitar mediante programación. Para ello, hay que llamar a la operación Set File Service Properties a través de la API de REST, o de una de sus análogas de la Biblioteca del cliente de Storage.
 
 En el siguiente ejemplo de código se muestra cómo usar la Biblioteca del cliente de almacenamiento para .NET a fin de habilitar las métricas para Azure Files.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 144fd11e9c1ee3e00412320840e864a3190ccdb0
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833978"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
@@ -54,7 +54,7 @@ Hay un par de reglas que seguir para organizar las plantillas de Azure Resource 
     ![Archivos de plantilla principal de Azure Resource Manager](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Si desea usar valores de parámetro definidos en un archivo de parámetros, este debe llamarse `azuredeploy.parameters.json`.
-- Puede usar los parámetros `_artifactsLocation` y `_artifactsLocationSasToken` para construir el valor de identificador URI parametersLink y permitir a DevTest Labs administrar automáticamente las plantillas anidadas. Para obtener más información, consulte [implementar plantillas de Azure Resource Manager anidadas para entornos de prueba](deploy-nested-template-environments.md).
+- Puede usar los parámetros `_artifactsLocation` y `_artifactsLocationSasToken` para construir el valor de identificador URI parametersLink y permitir a DevTest Labs administrar automáticamente las plantillas anidadas. Para obtener más información, consulte [Implementar plantillas anidadas de Azure Resource Manager para probar entornos](deploy-nested-template-environments.md).
 - Los metadatos pueden definirse para especificar el nombre para mostrar y la descripción de la plantilla. Estos metadatos deben estar en un archivo denominado `metadata.json`. El archivo de metadatos de ejemplo siguiente muestra cómo especificar el nombre para mostrar y la descripción: 
 
     ```json
@@ -130,23 +130,23 @@ Una vez configurado un repositorio de plantillas de Azure Resource Manager en el
     ![Acciones de entorno](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
 
 ## <a name="automate-deployment-of-environments"></a>Automatizar la implementación de entornos
-Azure DevTest Labs ofrece la posibilidad de usar un [plantilla de administración de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para crear un entorno con un conjunto de recursos en el laboratorio. Estos entornos pueden contener los recursos de Azure que se pueden crear mediante plantillas de Resource Manager. Los entornos de DevTest Labs permiten a los usuarios implementar fácilmente infraestructuras complejas de forma coherente dentro de los confines del laboratorio. Actualmente, es posible agregar un entorno a un laboratorio mediante el portal de Azure cuando se crea una vez, pero en un desarrollo o una situación de pruebas, donde se producen varias creaciones, permite que una implementación automatizada para una mejor experiencia.
+Azure DevTest Labs ofrece la posibilidad de usar una [plantilla de administración de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para crear un entorno con un conjunto de recursos en el laboratorio. Estos entornos pueden contener los recursos de Azure que se pueden crear mediante plantillas de Resource Manager. Los entornos de DevTest Labs permiten a los usuarios implementar fácilmente infraestructuras complejas de forma coherente dentro de los confines del laboratorio. Actualmente, es posible agregar un entorno a un laboratorio mediante Azure Portal una vez creado, pero en una situación de desarrollo o de pruebas, donde se producen varias creaciones, una implementación automatizada permite una mejor experiencia.
 
-Complete los siguientes pasos el [configurar sus propios repositorios plantilla](#configure-your-own-template-repositories) sección antes de continuar: 
+Complete los siguientes pasos de la sección [Configurar sus propios repositorios de plantilla](#configure-your-own-template-repositories) antes de continuar: 
 
-1. Cree la plantilla de Resource Manager que define los recursos que se va a crear. 
-2. Configuración de la plantilla de Resource Manager en Git un repositorio. 
+1. Cree la plantilla de Resource Manager que define los recursos que se van a crear. 
+2. Configure la plantilla de Resource Manager en un repositorio de Git. 
 3. Conecte el repositorio de Git al laboratorio. 
 
 ### <a name="powershell-script-to-deploy-the-resource-manager-template"></a>Script de PowerShell para implementar la plantilla de Resource Manager
-Guardar el script de PowerShell en la siguiente sección en el disco duro (por ejemplo: deployenv.ps1) y ejecute el script después de especificar valores para SubscriptionId, ResourceGroupName, LabName, RepositoryName, TemplateName (carpeta) en el repositorio de Git, EnvironmentName.
+Guarde el script de PowerShell en la siguiente sección del disco duro (por ejemplo: deployenv.ps1) y ejecute el script después de especificar valores para SubscriptionId, ResourceGroupName, LabName, RepositoryName y TemplateName (carpeta) en el repositorio de Git, EnvironmentName.
 
 ```powershell
 ./deployenv.ps1 -SubscriptionId "000000000-0000-0000-0000-0000000000000" -LabName "mydevtestlab" -ResourceGroupName "mydevtestlabRG994248" -RepositoryName "SP Repository" -TemplateName "My Environment template name" -EnvironmentName "SPResourceGroupEnv"  
 ```
 
 #### <a name="sample-script"></a>Script de ejemplo
-Este es el script de ejemplo para crear un entorno de laboratorio. Los comentarios de la secuencia de comandos ayudan a comprender mejor la secuencia de comandos. 
+Este es el script de ejemplo para crear un entorno en el laboratorio. Los comentarios del script ayudan a comprender mejor la secuencia de comandos. 
 
 ```powershell
 #Requires -Module Az.Resources
@@ -240,7 +240,7 @@ New-AzResource -Location $Lab.Location `
 Write-Output "Environment $EnvironmentName completed."
 ```
 
-También puede utilizar la CLI de Azure para implementar recursos con plantillas de Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli).
+También puede usar la CLI de Azure para implementar recursos con plantillas de Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli).
 
 > [!NOTE]
 > Solo un usuario con permisos de propietario de laboratorio puede crear máquinas virtuales desde una plantilla de Resource Manager con Azure PowerShell. Si desea automatizar la creación de máquinas virtuales mediante una plantilla de Resource Manager y solo tiene permisos de usuario, puede usar el comando [ **az lab vm create** de la CLI ](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create).

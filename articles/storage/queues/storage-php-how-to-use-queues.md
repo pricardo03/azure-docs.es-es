@@ -1,5 +1,5 @@
 ---
-title: Uso de almacenamiento de colas de PHP - almacenamiento de Azure
+title: Uso de Queue Storage de PHP- Azure Storage
 description: Aprenda a usar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en C++.
 services: storage
 author: mhopkins-msft
@@ -11,10 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 4ff54f9ca20c101de55bec2c7acf914c17bd7709
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951198"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Uso del almacenamiento de colas de PHP
@@ -99,7 +99,7 @@ $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>
 $queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
-## <a name="create-a-queue"></a>Crear una cola
+## <a name="create-a-queue"></a>Creación de una cola
 Un objeto **QueueRestProxy** le permite crear una cola con el método **createQueue**. Al crear una cola, puede establecer opciones en ella, aunque no es obligatorio. El ejemplo siguiente muestra cómo configurar metadatos en una cola.
 
 ```php
