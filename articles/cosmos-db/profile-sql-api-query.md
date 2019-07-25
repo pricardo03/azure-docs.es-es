@@ -1,6 +1,6 @@
 ---
-title: Obtener métricas de rendimiento y la ejecución de consultas SQL
-description: Obtenga información sobre cómo recuperar las métricas de ejecución de consulta SQL y rendimiento de las consultas SQL de Azure Cosmos DB solicitudes de perfil.
+title: Obtención de métricas de rendimiento y ejecución de consultas SQL
+description: Obtenga información sobre cómo recuperar las métricas de ejecución de consultas SQL y generar perfiles de rendimiento de las consultas SQL de las solicitudes de Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: girobins
 ms.openlocfilehash: b4017666956d0e01ea19781fb4f1ce2dde15fff5
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481570"
 ---
-# <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Obtener métricas de ejecución de consulta SQL y analizar el rendimiento de consulta mediante el SDK de .NET
+# <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Obtención de métricas de ejecución de consultas SQL y análisis del rendimiento de las consultas mediante el SDK de .NET
 
-En este artículo se presenta cómo generar perfiles de rendimiento de las consultas SQL en Azure Cosmos DB. Esta generación de perfiles puede realizarse mediante `QueryMetrics` recuperan desde el SDK de .NET y se detalla aquí. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) es un objeto fuertemente tipado con información sobre la ejecución de consultas de back-end. Estas métricas se documentan con más detalle en la [ajustar el rendimiento de las consultas](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) artículo.
+En este artículo se presenta cómo generar perfiles de rendimiento de las consultas SQL en Azure Cosmos DB. Esta generación de perfiles puede realizarse mediante el objeto `QueryMetrics` recuperado del SDK de .NET y se detalla aquí. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) es un objeto fuertemente tipado con información sobre la ejecución de consultas de back-end. Estas métricas se documentan con más detalle en el artículo [Ajuste el rendimiento de las consultas](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics).
 
-## <a name="set-the-feedoptions-parameter"></a>Establezca el parámetro FeedOptions
+## <a name="set-the-feedoptions-parameter"></a>Establecer el parámetro FeedOptions
 
-Todas las sobrecargas [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) tomar opcional [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) parámetro. Esta opción es lo que permite la ejecución de consultas se optimizan y con parámetros. 
+Todas las sobrecargas de [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) toman un parámetro [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) opcional. Esta opción es la que permite ajustar y parametrizar la ejecución de consultas. 
 
-Para recopilar las métricas de ejecución de consulta Sql, debe establecer el parámetro [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) en el [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) a `true`. Establecer `PopulateQueryMetrics` a true hará que para que la `FeedResponse` contendrá la correspondiente `QueryMetrics`. 
+Para recopilar las métricas de ejecución de consultas SQL, debe establecer el parámetro [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) de [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) en `true`. Si `PopulateQueryMetrics` se establece en true, `FeedResponse` contendrá el objeto `QueryMetrics` pertinente. 
 
-## <a name="get-query-metrics-with-asdocumentquery"></a>Obtiene las métricas de consulta con AsDocumentQuery()
-Ejemplo de código siguiente muestra cómo recuperar las métricas cuando se usa [AsDocumentQuery()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) método:
+## <a name="get-query-metrics-with-asdocumentquery"></a>Obtención de métricas de consulta con AsDocumentQuery()
+El ejemplo de código siguiente muestra cómo recuperar las métricas cuando se usa el método [AsDocumentQuery()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx):
 
 ```csharp
 // Initialize this DocumentClient and Collection
@@ -60,9 +60,9 @@ while (documentQuery.HasMoreResults)
     }
 }
 ```
-## <a name="aggregating-querymetrics"></a>QueryMetrics agregación
+## <a name="aggregating-querymetrics"></a>Agregación de QueryMetrics
 
-En la sección anterior, tenga en cuenta que había varias llamadas a [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) método. Cada llamada devuelve un `FeedResponse` objeto que tiene un diccionario de `QueryMetrics`; una para todas las continuaciones de la consulta. El ejemplo siguiente muestra cómo se agregan estos `QueryMetrics` mediante LINQ:
+En la sección anterior, observe que había varias llamadas al método [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx). Cada llamada devolvió un objeto `FeedResponse` que tiene un diccionario de `QueryMetrics`; uno para cada continuación de la consulta. En el ejemplo siguiente se muestra cómo agregar estos objetos `QueryMetrics` mediante LINQ:
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -82,9 +82,9 @@ QueryMetrics aggregatedQueryMetrics = queryMetricsList.Aggregate((curr, acc) => 
 Console.WriteLine(aggregatedQueryMetrics);
 ```
 
-## <a name="grouping-query-metrics-by-partition-id"></a>Agrupar las métricas de consulta por Id. de partición
+## <a name="grouping-query-metrics-by-partition-id"></a>Agrupación de métricas de consulta por el identificador de la partición
 
-Puede agrupar el `QueryMetrics` mediante el identificador de partición. La agrupación por Id. de partición permite ver si una partición específica está causando problemas de rendimiento en comparación con otros usuarios. El ejemplo siguiente muestra cómo agrupar `QueryMetrics` con LINQ:
+Puede agrupar el objeto `QueryMetrics` por el id. de la partición. La agrupación por el id. de la partición permite ver si una partición específica está causando problemas de rendimiento en comparación con otras. En el ejemplo siguiente se muestra cómo agrupar `QueryMetrics` con LINQ:
 
 ```csharp
 List<KeyValuePair<string, QueryMetrics>> partitionedQueryMetrics = new List<KeyValuePair<string, QueryMetrics>>();
@@ -115,7 +115,7 @@ foreach(IGrouping<string, KeyValuePair<string, QueryMetrics>> grouping in groupe
 
 ## <a name="linq-on-documentquery"></a>LINQ en DocumentQuery
 
-También puede obtener el `FeedResponse` desde una consulta de LINQ mediante la `AsDocumentQuery()` método:
+También puede obtener el objeto `FeedResponse` de una consulta LINQ usando el método `AsDocumentQuery()`:
 
 ```csharp
 IDocumentQuery<Document> linqQuery = client.CreateDocumentQuery(collection.SelfLink, feedOptions)
@@ -129,7 +129,7 @@ IReadOnlyDictionary<string, QueryMetrics> queryMetrics = feedResponse.QueryMetri
 
 ## <a name="expensive-queries"></a>Consultas costosas
 
-Puede capturar las unidades de solicitud consumidas por cada consulta para investigar consultas costosas o consultas que consumen un alto rendimiento. Puede obtener el cargo de solicitud mediante la [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) propiedad `FeedResponse`. Para obtener más información acerca de cómo obtener el cargo de solicitud mediante el portal de Azure y los diferentes SDK, vea [encontrar el cargo de unidad de solicitud](find-request-unit-charge.md) artículo.
+Puede capturar las unidades de solicitud consumidas por cada consulta para investigar consultas costosas o consultas que consumen un alto rendimiento. Puede obtener el cargo de la solicitud mediante la propiedad [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) de `FeedResponse`. Para obtener más información acerca de cómo obtener el cargo de la solicitud mediante Azure Portal y los diferentes SDK, consulte el artículo sobre la [búsqueda del cargo de la unidad de solicitud](find-request-unit-charge.md).
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -148,7 +148,7 @@ while (documentQuery.HasMoreResults)
 
 ## <a name="get-the-query-execution-time"></a>Obtener el tiempo de ejecución de consulta
 
-Al calcular el tiempo necesario para ejecutar una consulta del lado cliente, asegúrese de que solo incluyen el tiempo para llamar a la `ExecuteNextAsync` método y no en otras partes del código base. Estas llamadas le ayudarán a calcular el tiempo en que la ejecución de la consulta tardó tal como se muestra en el ejemplo siguiente:
+Al calcular el tiempo necesario para ejecutar una consulta del cliente, asegúrese de incluir solo el tiempo para llamar al método `ExecuteNextAsync` y no otras partes del código base. Estas llamadas le ayudarán a calcular el tiempo que tardó la ejecución de la consulta, tal como se muestra en el ejemplo siguiente:
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -166,11 +166,11 @@ while (documentQuery.HasMoreResults)
 DoSomeLogging(queryExecutionTimeEndToEndTotal.Elapsed);
 ```
 
-## <a name="scan-queries-commonly-slow-and-expensive"></a>Analizar las consultas (normalmente lento y costosas)
+## <a name="scan-queries-commonly-slow-and-expensive"></a>Consultas de examen (normalmente lento y costoso)
 
-Una consulta de recorrido hace referencia a una consulta que no se ha atendido por el índice, por lo que, muchos documentos se cargan antes de devolver el conjunto de resultados.
+Una consulta de examen hace referencia a una consulta que no sirve el índice, motivo por el que muchos documentos se cargan antes de devolver el conjunto de resultados.
 
-A continuación es un ejemplo de una consulta de análisis:
+Aquí tiene un ejemplo de una consulta de examen:
 
 ```sql
 SELECT VALUE c.description 
@@ -178,7 +178,7 @@ FROM   c
 WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
 ```
 
-Filtro de la consulta usa la función de sistema superior, que no se sirve desde el índice. Ejecutar esta consulta en una colección grande genera las siguientes métricas de consulta para la primera continuación:
+El filtro de esta consulta usa la función del sistema UPPER, que no se sirve desde el índice. La ejecución de esta consulta en una colección grande genera las siguientes métricas de consulta para la primera continuación:
 
 ```
 QueryMetrics
@@ -206,22 +206,22 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-Tenga en cuenta los siguientes valores de la salida de las métricas de consulta:
+Observe los siguientes valores de la salida de las métricas de consulta:
 
 ```
 Retrieved Document Count                 :          60,951
 Retrieved Document Size                  :     399,998,938 bytes
 ```
 
-Esta consulta carga 60,951 documentos, que suman 399,998,938 bytes. Al cargar este número de bytes da lugar a cargo de alto costo o la solicitud de la unidad. También lleva mucho tiempo para ejecutar la consulta, que es clara con la propiedad de tiempo total transcurrido:
+Esta consulta cargó 60 951 documentos, que sumaban un total de 399 998 938 bytes. La carga de este número de bytes da lugar a un alto costo o cargo de unidad de solicitud. También se tarda mucho tiempo en ejecutar la consulta, lo que se ve claramente con la propiedad de tiempo total transcurrido:
 
 ```
 Total Query Execution Time               :        4,500.34 milliseconds
 ```
 
-Lo que significa que la consulta tardó 4.5 segundos en ejecutarse (y esto era solo una continuación).
+Esto significa que la consulta tardó 4,5 segundos en ejecutarse (y solo era una continuación).
 
-Para optimizar esta consulta de ejemplo, evite el uso de superior en el filtro. En su lugar, cuando se crean o actualizan, documentos la `c.description` se deben insertar valores en todos los caracteres en mayúsculas. A continuación, se convierte en la consulta: 
+Para optimizar esta consulta de ejemplo, evite el uso de UPPER en el filtro. En su lugar, cuando se crean o actualizan los documentos, los valores `c.description` se deben insertar completamente en mayúsculas. La consulta se convierte en lo siguiente: 
 
 ```sql
 SELECT VALUE c.description 
@@ -229,19 +229,19 @@ FROM   c
 WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
 ```
 
-Esta consulta es ahora capaz se sirven desde el índice.
+Ahora esta consulta puede servirse desde el índice.
 
-Para más información acerca de cómo ajustar el rendimiento de las consultas, consulte el [ajustar el rendimiento de las consultas](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) artículo.
+Para más información acerca de cómo ajustar el rendimiento de las consultas, consulte el artículo [Ajuste del rendimiento de las consultas](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics).
 
 ## <a id="References"></a>Referencias
 
 - [Especificación de SQL de Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+- [SQL ANSI 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Optimizar el rendimiento de las consultas](sql-api-query-metrics.md)
+- [Ajuste del rendimiento de las consultas](sql-api-query-metrics.md)
 - [Introducción a la indexación](index-overview.md)
 - [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)

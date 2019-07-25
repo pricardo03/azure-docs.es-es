@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
 ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306910"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Agregar o quitar certificados para un clúster de Service Fabric de Azure
 Se recomienda leer [Escenarios de seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md) para familiarizarse con cómo Service Fabric usa los certificados X.509. Debe entender qué es un certificado de clúster y para qué se usa antes de seguir avanzando.
 
-El comportamiento de carga de certificado predeterminado del SDK de Azure Service Fabric consiste en implementar y usar un certificado definido con un plazo de validez muy amplio; independientemente de la definición de configuración principal o secundaria. Revirtiendo al comportamiento clásico es no avanzada acción recomendada y requiere establecer el valor del parámetro de configuración "UseSecondaryIfNewer" en false en la configuración de Fabric.Code.
+El comportamiento de carga de certificado predeterminado del SDK de Azure Service Fabric consiste en implementar y usar un certificado definido con un plazo de validez muy amplio; independientemente de la definición de configuración principal o secundaria. Volver al comportamiento clásico no es una acción avanzada recomendada y requiere establecer el valor del parámetro de configuración "UseSecondaryIfNewer" en false en la configuración de Fabric.Code.
 
 Además de los certificados de client, al configurar la seguridad mediante certificados durante la creación del clúster, Service Fabric le permite especificar dos certificados de clúster: uno principal y uno secundario. Consulte el artículo sobre la [creación de un clúster de Service Fabric en Azure Portal](service-fabric-cluster-creation-via-portal.md) o la [creación de un clúster de Azure a través de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para más información sobre cómo configurarlos en tiempo de creación. Si se especifica un único certificado de clúster en tiempo de creación, este se utilizará como el certificado principal. Después de la creación del clúster, puede agregar un nuevo certificado como elemento secundario.
 
@@ -48,7 +48,7 @@ Si su intención es eliminar el certificado marcado como principal, deberá impl
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Incorporación de un certificado secundario mediante Powershell para Resource Manager
 > [!TIP]
-> Hay ahora una manera mejor y más fácil agregar un certificado secundario mediante la [agregar AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. No es necesario que siga el resto de los pasos descritos en esta sección.  Además, no es necesario en la plantilla usada originalmente para crear e implementar el clúster cuando se usa el [agregar AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
+> Ahora disponemos de una forma mejorada y más simplificada de agregar un certificado secundario mediante el cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate). No es necesario que siga el resto de los pasos descritos en esta sección.  Además, al usar el cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) no necesita la plantilla usada originalmente para implementar el clúster.
 
 En estos pasos se da por hecho que está familiarizado con el funcionamiento de Resource Manager, que ha implementado al menos un clúster de Service Fabric mediante una plantilla de Resource Manager, y que tiene a mano la plantilla que utilizó para configurar el clúster. También se da por hecho que está familiarizado con el uso de JSON.
 
@@ -117,7 +117,7 @@ Para facilitar las siguientes tareas, el ejemplo 5-VM-1-NodeTypes-Secure_Step2.J
          }
     ``` 
 
-4. Modifique **todas** las definiciones del recurso **Microsoft.Compute/virtualMachineScaleSets**; busque la definición del recurso Microsoft.Compute/virtualMachineScaleSets. Desplácese hasta la sección "publisher": Valor "Microsoft.Azure.ServiceFabric", en "virtualMachineProfile".
+4. Modifique **todas** las definiciones del recurso **Microsoft.Compute/virtualMachineScaleSets**; busque la definición del recurso Microsoft.Compute/virtualMachineScaleSets. Desplácese hasta el valor "publisher": "Microsoft.Azure.ServiceFabric" en "virtualMachineProfile".
 
     En la configuración de publicador de Service Fabric, verá algo parecido a esto.
     
@@ -195,7 +195,7 @@ Modifique el parámetro File de la plantilla de Resource Manager, y agregue los 
 ### <a name="deploy-the-template-to-azure"></a>Implementación de la plantilla en Azure
 
 - Ahora está preparado para implementar la plantilla en Azure. Abra un símbolo del sistema de Azure PS versión 1 o superior.
-- Inicie sesión en su cuenta de Azure y seleccione la suscripción de azure específica. Este es un paso importante para personas que tienen acceso a más de una suscripción.
+- Inicie sesión en su cuenta de Azure y seleccione la suscripción a Azure específica. Este es un paso importante para personas que tienen acceso a más de una suscripción.
 
 ```powershell
 Connect-AzAccount
@@ -262,7 +262,7 @@ Como referencia rápida, este es el comando para obtener el estado del clúster
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-client-certificates-to-the-cluster"></a>Implementación de certificados de cliente en el clúster.
+## <a name="deploying-client-certificates-to-the-cluster"></a>Implementación de certificados de cliente en el clúster
 
 Puede usar los mismos pasos descritos en el paso 5 anterior para implementar los certificados en los nodos desde un almacén de claves. Solo necesita definir y usar parámetros diferentes.
 

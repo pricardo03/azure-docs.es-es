@@ -9,17 +9,17 @@ ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243421"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene los miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico, los ingenieros de DevOps) o si usa un proveedor de servicios administrados, es posible que desee concederles acceso a datos de supervisión solo mientras restringe su capacidad para crear, modificar, o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
+Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de DevOps) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
 
 ## <a name="built-in-monitoring-roles"></a>Roles de supervisión integrados
 Los roles integrados en Azure Monitor están diseñados para ayudar a limitar el acceso a recursos de una suscripción, sin impedir que los responsables de la infraestructura de supervisión obtengan y configuren los datos que necesitan. Azure Monitor proporciona dos roles de fábrica: un lector de supervisión y un colaborador de supervisión.
@@ -39,9 +39,9 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 * Buscar datos del área de trabajo de Log Analytics, incluidos los datos de uso del área de trabajo.
 * Ver grupos de administración de Log Analytics.
 * Recuperar el esquema de búsqueda en el área de trabajo de Log Analytics.
-* Lista de módulos de supervisión en el área de trabajo de Log Analytics.
-* Recuperar y ejecutar búsquedas guardadas en el área de trabajo de Log Analytics.
-* Recupere la configuración de almacenamiento del área de trabajo de Log Analytics.
+* Enumerar los paquetes de supervisión en el área de trabajo de Log Analytics.
+* Recuperar y ejecutar las búsquedas guardadas en el área de trabajo de Log Analytics.
+* Recuperar la configuración de almacenamiento del área de trabajo de Log Analytics.
 
 > [!NOTE]
 > Este rol no otorga acceso de lectura a los datos de registro que se han transmitido a un centro de eventos o que están almacenados en una cuenta de almacenamiento. [Vea la información a continuación](#security-considerations-for-monitoring-data) para saber cómo configurar el acceso a estos recursos.
@@ -52,16 +52,16 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 Las personas asignadas al rol Colaborador de supervisión pueden ver todos los datos de supervisión en una suscripción y crear o modificar la configuración de supervisión, pero no pueden modificar los demás recursos. Este rol es un superconjunto del rol Lector de supervisión y es adecuado para los miembros del equipo de supervisión de una administración o los proveedores de servicios administrados que, además de los permisos anteriores, también necesitan tener la capacidad de:
 
 * Publicar paneles de supervisión como un panel compartido.
-* Establecer [configuración de diagnóstico](diagnostic-logs-overview.md#diagnostic-settings) para un recurso.\*
-* Establecer el [perfil de registro](activity-log-export.md) para una suscripción.\*
+* Determinar la [configuración de diagnóstico](diagnostic-logs-overview.md#diagnostic-settings) de un recurso.\*
+* Establecer el [perfil de registro](activity-log-export.md) de una suscripción.\*
 * Establecer la configuración y la actividad de las reglas de alertas a través de [Alertas de Azure](alerts-overview.md).
 * Crear componentes y pruebas web de Application Insights.
 * Mostrar las claves compartidas del área de trabajo de Log Analytics.
-* Habilitar o deshabilitar los módulos de supervisión en el área de trabajo de Log Analytics.
-* Crear y eliminar y ejecutar búsquedas guardadas en el área de trabajo de Log Analytics.
+* Habilitar o deshabilitar los paquetes de supervisión en el área de trabajo de Log Analytics.
+* Crear, eliminar y ejecutar las búsquedas guardadas en el área de trabajo de Log Analytics.
 * Crear y eliminar la configuración de almacenamiento del área de trabajo de Log Analytics.
 
-\*usuario debe también por separado tener el permiso ListKeys en el recurso de destino (almacenamiento cuenta o event hub espacio de nombres) para establecer un perfil de registro o la configuración de diagnóstico.
+\*Al usuario también se le debe conceder el permiso ListKeys por separado en el recurso de destino (cuenta de almacenamiento o espacio de nombres del centro de eventos) para definir la configuración del diagnóstico o el perfil de registros.
 
 > [!NOTE]
 > Este rol no otorga acceso de lectura a los datos de registro que se han transmitido a un centro de eventos o que están almacenados en una cuenta de almacenamiento. [Vea la información a continuación](#security-considerations-for-monitoring-data) para saber cómo configurar el acceso a estos recursos.
@@ -160,7 +160,7 @@ New-AzRoleDefinition -Role $role
 Se puede seguir un patrón similar con los centros de eventos, pero primero debe crear una regla de autorización de escucha dedicada. Si desea conceder acceso a una aplicación que solo necesita escuchar a centros de eventos relacionados con la supervisión, haga lo siguiente:
 
 1. Cree una directiva de acceso compartido en los centros de eventos que se crearon para streaming de datos de supervisión con notificaciones de escucha exclusivamente. Esto se puede hacer en el portal. Por ejemplo, podría llamarlo "monitoringReadOnly." Si es posible, debe proporcionar la clave directamente al consumidor y omitir el paso siguiente.
-2. Si el consumidor debe ser capaz de obtener la clave de ad hoc, conceda al usuario la acción ListKeys para ese centro de eventos. Esto es necesario para los usuarios que necesitan tener la capacidad de definir una configuración de diagnóstico o un perfil de registro para realizar transmisiones a los centros de eventos. Por ejemplo, podría crear una regla de RBAC:
+2. Si el consumidor debe tener la capacidad de obtener la clave ad hoc, conceda al usuario la acción ListKeys para ese centro de eventos. Esto es necesario para los usuarios que necesitan tener la capacidad de definir una configuración de diagnóstico o un perfil de registro para realizar transmisiones a los centros de eventos. Por ejemplo, podría crear una regla de RBAC:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"

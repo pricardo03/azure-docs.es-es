@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399591"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
@@ -68,7 +68,7 @@ Esto es lo que va a necesitar para configurar este escenario.
 **Requisito** | **Detalles**
 --- | ---
 **Cuenta de suscripción de Azure** | Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-**Permisos de cuenta de Azure** | La cuenta de Azure que use necesita permisos para:<br/><br/> - Crear un almacén de Recovery Service<br/><br/> - Crear una máquina virtual en el grupo de recursos y la red virtual que se utiliza para el escenario<br/><br/> - Escribir en la cuenta de almacenamiento que especifique<br/><br/> Observe lo siguiente:<br/><br/> - Si crea una cuenta gratuita, será el administrador de la suscripción y podrá realizar todas las acciones.<br/><br/> - Si usa una suscripción existente y no es el administrador, tendrá que solicitar al administrador que le asigne permisos de propietario o colaborador.<br/><br/> - Si necesita permisos más específicos, consulte [este artículo](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
+**Permisos de cuenta de Azure** | La cuenta de Azure que use necesita permisos para:<br/><br/> - Crear un almacén de Recovery Service<br/><br/> - Crear una máquina virtual en el grupo de recursos y la red virtual que se utiliza para el escenario<br/><br/> - Escribir en la cuenta de almacenamiento que especifique<br/><br/> Observe lo siguiente:<br/><br/> \- Si crea una cuenta gratuita, será el administrador de la suscripción y podrá realizar todas las acciones.<br/><br/> - Si usa una suscripción existente y no es el administrador, tendrá que solicitar al administrador que le asigne permisos de propietario o colaborador.<br/><br/> - Si necesita permisos más específicos, consulte [este artículo](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
 **Máquina virtual de Azure Stack** | Necesita una máquina virtual de Azure Stack en la suscripción de inquilino, que se implementará como servidor de configuración de Site Recovery. 
 
 
@@ -214,7 +214,7 @@ Seleccione y compruebe los recursos de destino.
 4. En **Retención de punto de recuperación**, especifique cuánto tiempo se conserva cada punto de recuperación. Las máquinas virtuales replicadas se pueden recuperar a cualquier momento de una ventana de tiempo especificada.
 5. En **Frecuencia de instantánea coherente con la aplicación**, especifique la frecuencia (en minutos) con la que se crearán instantáneas coherentes con la aplicación.
 
-    - Una instantánea coherente con la aplicación es una instantánea de punto en el tiempo de los datos de aplicación dentro de la máquina virtual.
+    - Una instantánea coherente con la aplicación es una instantánea de un momento dado de los datos de la aplicación dentro de la máquina virtual.
     - El Servicio de instantáneas de volumen (VSS) garantiza que las aplicaciones en la máquina virtual se encuentre en un estado coherente cuando se toma la instantánea.
 6. Seleccione **Aceptar** para crear la directiva.
 

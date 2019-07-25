@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257572"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticación de dispositivos mediante certificados de entidades de certificación X.509
@@ -40,7 +40,7 @@ Para un entorno de producción, se recomienda adquirir un certificado de entidad
 
 También puede crear un certificado autofirmado de entidad de certificación X.509 para experimentación o para usarla en redes de IoT cerradas.
 
-Independientemente de cómo obtener el certificado de entidad de certificación X.509, asegúrese de mantener su secreto de la clave privada correspondiente y protegidos en todo momento.  Esto es necesario para fomentar la confianza en la autenticación con la entidad de certificación X.509.
+Independientemente de cómo obtenga el certificado de entidad de certificación X.509, asegúrese de que la clave privada correspondiente es secreta y está protegida en todo momento.  Esto es necesario para fomentar la confianza en la autenticación con la entidad de certificación X.509.
 
 Obtenga información sobre cómo [crear un certificado autofirmado de entidad de certificación](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), que puede usar para experimentación a través de la descripción de esta característica.
 
@@ -50,7 +50,7 @@ El propietario de un certificado de entidad de certificación X.509 puede firmar
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-El certificado de dispositivo (también denominado un certificado de hoja) debe tener la *nombre de sujeto* establecido en el **Id. de dispositivo** que se usó al registrar el dispositivo de IoT en IoT Hub de Azure. Esta configuración es necesaria para la autenticación.
+El certificado del dispositivo (también denominado certificado de hoja) debe tener *Nombre de sujeto* definido en el **Id. de dispositivo** que se usó al registrar el dispositivo de IoT en Azure IoT Hub. Esta opción de configuración es necesaria para la autenticación.
 
 Obtenga información aquí sobre cómo [crear una cadena de certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) tal y como se hace cuando se firman los dispositivos.
 
@@ -62,7 +62,7 @@ El proceso de carga implica cargar un archivo que contiene el certificado.  Este
 
 El paso de la prueba de posesión implica un desafío criptográfico y un proceso de respuesta entre el usuario y IoT Hub.  Dado que el contenido de los certificados digitales es público y, por tanto, susceptible a interceptaciones, es conveniente que IoT Hub confirme que realmente posee el certificado de entidad de certificación.  Esto se debe hacer mediante la generación de un desafío aleatorio que se debe firmar con la clave privada correspondiente del certificado de entidad de certificación.  Si mantiene la clave privada en secreto y protegida como se aconsejó anteriormente, lo único que necesitará son los conocimientos necesarios para completar este paso. La confidencialidad de las claves privadas es el origen de confianza en este método.  Después de firmar el desafío, complete este paso mediante la carga de un archivo que contiene los resultados.
 
-Obtenga información aquí sobre cómo [registrar su certificado de CA](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
+Obtenga información aquí sobre cómo [registrar su certificado de entidad de certificación](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Cómo crear un dispositivo en IoT Hub
 

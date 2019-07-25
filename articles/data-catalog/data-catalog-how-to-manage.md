@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953117"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Administración de recursos de datos en Azure Data Catalog
@@ -52,7 +52,7 @@ Si un recurso de datos ya tiene propietario, los demás usuarios simplemente no 
 ### <a name="remove-owners"></a>Eliminación de propietarios
 Al igual que un propietario de recursos puede agregar copropietarios, cualquier propietario de recursos puede quitar a un copropietario.
 
-Un propietario de recursos que se quita a sí mismos como propietario ya no puede administrar el recurso. Si el propietario del recurso se quita como propietario y no hay ningún otro copropietario, el recurso se revertirá a un estado no poseído.
+Un propietario de recursos que se quita a sí mismo como propietario ya no podrá administrar el recurso. Si el propietario de recursos se quita a sí mismo como propietario y no hay ningún otro copropietario, el recurso se revertirá a un estado de sin propietario.
 
 ## <a name="control-visibility"></a>Control de la visibilidad
 Los propietarios de recursos de datos pueden controlar la visibilidad de los recursos de datos que poseen. Para restringir la visibilidad del valor predeterminado, según el cual todos los usuarios de Data Catalog pueden detectar y ver el recurso de datos, el propietario del recurso puede cambiar la configuración de visibilidad de **Todos** a **Propietarios y estos usuarios** en las propiedades del recurso. Los propietarios pueden después agregar usuarios y grupos de seguridad específicos.

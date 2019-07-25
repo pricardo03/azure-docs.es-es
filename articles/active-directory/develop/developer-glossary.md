@@ -1,6 +1,6 @@
 ---
-title: Guía del desarrollador de Microsoft identity platform | Azure
-description: Una lista de términos frecuente de las características y conceptos para desarrolladores de Microsoft identity platform.
+title: Guía del desarrollador de la plataforma de identidad de Microsoft | Azure
+description: Una lista de términos para conceptos frecuentes de desarrollador de la plataforma de identidad de Microsoft.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -19,15 +19,15 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235351"
 ---
-# <a name="microsoft-identity-platform-developer-glossary"></a>Guía del desarrollador de plataforma de identidad de Microsoft
+# <a name="microsoft-identity-platform-developer-glossary"></a>Glosario para desarrolladores de la plataforma de identidad de Microsoft
 
-En este artículo contiene las definiciones de algunos de los conceptos clave para desarrolladores y la terminología, que son útiles para obtener información sobre el desarrollo de aplicaciones con la plataforma Microsoft identity.
+En este artículo se incluye definiciones de terminología y algunos de los conceptos clave para desarrolladores, que son útiles para aprender sobre el desarrollo de aplicaciones mediante la plataforma de identidad de Microsoft.
 
 ## <a name="access-token"></a>de la aplicación Twitter
 
@@ -38,11 +38,11 @@ A veces se conoce a los tokens de acceso como "Aplicación y usuario" o "Solo ap
 * La [concesión de autorización del "código de autorización"](#authorization-grant), el usuario final se autentica primero como propietario del recurso, delegando la autorización al cliente para acceder al recurso. Después, el cliente se autentica al obtener el token de acceso. El token a veces se conoce más específicamente como token "Aplicación y usuario", ya que representa tanto al usuario que ha autorizado la aplicación cliente como a la aplicación.
 * [La concesión de autorización de "Credenciales de cliente"](#authorization-grant), el cliente proporciona la autenticación única, que funciona sin la autorización o autenticación del propietario del recurso, por lo que a veces el token puede conocerse como un token "Solo aplicación".
 
-Consulte [plataforma Microsoft identity: referencia de tokens] [ AAD-Tokens-Claims] para obtener más detalles.
+Para más información, consulte la referencia [Tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
 
-## <a name="application-id-client-id"></a>Id. de aplicación (Id. de cliente)
+## <a name="application-id-client-id"></a>Identificador de aplicación (id. del cliente)
 
-El identificador único que Azure AD emite para un registro de la aplicación que identifica una aplicación específica y las configuraciones asociadas. Este identificador de aplicación ([Id. de cliente](https://tools.ietf.org/html/rfc6749#page-15)) se usa al realizar la autenticación de solicitudes y es proporciona a las bibliotecas de autenticación en tiempo de desarrollo. El identificador de aplicación (Id. de cliente) no es un secreto.
+El identificador único que Azure AD emite para un registro de la aplicación que identifica una aplicación específica y las configuraciones asociadas. Este identificador de aplicación ([Id. del cliente](https://tools.ietf.org/html/rfc6749#page-15)) se usa al realizar solicitudes de autenticación y se proporciona a las bibliotecas de autenticación en el tiempo de desarrollo. El identificador de aplicación (id. del cliente) no es un secreto.
 
 ## <a name="application-manifest"></a>manifiesto de aplicación
 
@@ -59,7 +59,7 @@ Para más información, consulte [Objetos de aplicación y de entidad de servici
 Para permitir que una aplicación integre y delegue las funciones de administración de identidades y acceso a Azure AD, debe registrarse con el [inquilino](#tenant)de Azure AD. Al registrar la aplicación con Azure AD, se proporciona una configuración de identidad para la aplicación, lo que le permite integrarla con Azure AD y usar características tales como:
 
 * Administración sólida de inicio de sesión único mediante la administración de identidades de Azure AD y la implementación del protocolo [OpenID Connect][OpenIDConnect]
-* Acceso con intermediación a [recursos protegidos](#resource-server) por [las aplicaciones cliente](#client-application), a través de OAuth 2.0 [servidor de autorización](#authorization-server)
+* Acceso asincrónico a [recursos protegidos](#resource-server) por [aplicaciones cliente](#client-application), a través del [servidor de autorización](#authorization-server) de OAuth 2.0
 * [Marco de consentimiento](#consent) para administrar el acceso del cliente a los recursos protegidos, en función de la autorización del propietario del recurso.
 
 Para más información, consulte [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps].
@@ -93,13 +93,13 @@ Una credencial que representa la [autorización](#authorization) del [propietari
 
 Tal como se define en la [plataforma de autorización de OAuth2][OAuth2-Role-Def], el servidor responsable de emitir los tokens de acceso al [cliente](#client-application) después de autenticar correctamente al [propietario del recurso](#resource-owner) y obtener su autorización. Un [aplicación cliente](#client-application) interactúa con el servidor de autorización en tiempo de ejecución por medio de sus puntos de conexión de [autorización](#authorization-endpoint) y [token](#token-endpoint), con arreglo a las [concesiones de autorización](#authorization-grant) definidas en OAuth2.
 
-En el caso de integración de aplicaciones de plataforma de identidad de Microsoft, la plataforma de identidad de Microsoft implementa el rol de servidor de autorización para aplicaciones de Azure AD y el servicio de Microsoft de las API, por ejemplo [Microsoft Graph API] [Microsoft-Graph].
+En el caso de la integración de aplicaciones de la plataforma de identidad de Microsoft, esta última implementa el rol de servidor de autorización para aplicaciones de Azure AD y las API de servicio de Microsoft, por ejemplo las [API de Microsoft Graph][Microsoft-Graph].
 
 ## <a name="claim"></a>notificación
 
 Un [token de seguridad](#security-token) contiene notificaciones, que proporcionan aserciones acerca de una entidad (como una [aplicación cliente](#client-application) o un [propietario del recurso](#resource-owner)) a otra entidad (como el [servidor de recursos](#resource-server)). Las notificaciones son pares de nombre/valor que retransmiten datos sobre el asunto del token (por ejemplo, la entidad de seguridad que autenticó el [servidor de autorización](#authorization-server)). Las notificaciones presentes en cualquier token dependen de varias variables, como el tipo de token, el tipo de credencial que se usa para autenticar al usuario y la configuración de la aplicación, entre otras.
 
-Consulte [referencia de token de plataforma de identidad de Microsoft] [ AAD-Tokens-Claims] para obtener más detalles.
+Para más información, consulte la referencia [Tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
 
 ## <a name="client-application"></a>aplicación cliente
 
@@ -117,7 +117,7 @@ Consulte el [marco de consentimiento](consent-framework.md) para más informaci�
 
 Un [token de seguridad](#security-token) de [OpenID Connect][OpenIDConnect-ID-Token] proporcionado por un [punto de conexión de autorización](#authorization-endpoint) del [servidor de autorización](#authorization-server), que contiene las [notificaciones](#claim) que pertenecen a la autenticación de un [propietario de recursos](#resource-owner) de usuario final. Al igual que un token de acceso, los tokens de identificador también se representan como [JSON Web Token (JWT)][JWT] firmados digitalmente. Sin embargo, a diferencia de un token de acceso, las notificaciones de token de identificador no se usan para fines relacionados con el acceso a los recursos y específicamente con el control de acceso.
 
-Consulte [referencia de token de plataforma de identidad de Microsoft] [ AAD-Tokens-Claims] para obtener más detalles.
+Para más información, consulte la referencia [Tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
 
 ## <a name="microsoft-identity-platform"></a>Plataforma de identidad de Microsoft
 
@@ -142,7 +142,7 @@ Una [aplicación cliente](#client-application) obtiene acceso a un [servidor de 
 
 También se revelan durante el proceso de [consentimiento](#consent) , ya que proporciona al administrador o al propietario del recurso la oportunidad de conceder o denegar el acceso de cliente a los recursos en su inquilino.
 
-Las solicitudes de permiso se configuran en el **permisos de API** página para una aplicación en el [portal de Azure][AZURE-portal], seleccionando los deseado "permisos delegados" y " Permisos de aplicación"(el último requiere la pertenencia al rol Administrador Global). Dado que un [cliente público](#client-application) no puede mantener credenciales con seguridad, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar permisos tanto delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
+Las solicitudes de permisos se configuran en la pestaña **Permisos de API**  de [Azure Portal][AZURE-portal] al seleccionar los permisos delegados y permisos de la aplicación deseados (estos últimos requiere la pertenencia al rol de administrador global). Dado que un [cliente público](#client-application) no puede mantener credenciales con seguridad, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar permisos tanto delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>propietario del recurso
 
@@ -220,7 +220,7 @@ Un tipo de [aplicación cliente](#client-application) que ejecuta todo el códig
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El [Guía del desarrollador de Microsoft identity platform] [ AAD-Dev-Guide] es la página de inicio que se usará para todos los Microsoft identity platform relacionadas con el desarrollo temas, incluida una descripción general de [aplicación integración] [ AAD-How-To-Integrate] y los conceptos básicos de [autenticación de plataforma de identidad de Microsoft y escenarios de autenticación admitidos][AAD-Auth-Scenarios]. También puede encontrar ejemplos de código y tutoriales sobre cómo empezar a trabajar en [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+La [Guía del desarrollador de la plataforma de identidad de Microsoft identity][AAD-Dev-Guide] es la página de aterrizaje que se usar para todos los temas relacionados con el desarrollo de la plataforma de identidad de Microsoft, que incluyen una introducción a la [integración de aplicaciones][AAD-How-To-Integrate], así como los conceptos básicos de la [autenticación de la plataforma de identidad de Microsoft y escenarios de autenticación admitidos][AAD-Auth-Scenarios]. También puede encontrar ejemplos de código y tutoriales sobre cómo empezar a trabajar en [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Use la siguiente sección de comentarios para proporcionar comentarios y ayudarnos a mejorar y a dar forma a nuestro contenido. Puede incluir solicitudes de nuevas definiciones o de actualización de las existentes.
 

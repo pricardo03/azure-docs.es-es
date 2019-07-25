@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
 ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/14/2019
 ms.locfileid: "65073772"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Comprobación de los procedimientos recomendados de Kubernetes en el clúster
@@ -22,7 +22,7 @@ Hay varios procedimientos recomendados que debería seguir en las implementacion
 
 La [herramienta kube-advisor][kube-advisor-github] es un contenedor único diseñado para ejecutarse en el clúster. Consulta el servidor de API de Kubernetes para obtener información acerca de las implementaciones y devuelve un conjunto de mejoras sugeridas.
 
-La herramienta Asesor de kube puede informar sobre la solicitud de recurso y los límites que no se encuentra en las aplicaciones PodSpecs para Windows, así como las aplicaciones de Linux, pero la propia herramienta de kube-advisor debe programarse en un pod de Linux. Puede programar un pod para ejecutarse en un grupo de nodos con un sistema operativo específico mediante un [selector del nodo] [ k8s-node-selector] en configuración del pod.
+La herramienta kube-advisor puede informar sobre la solicitud de recursos y la falta de límites en PodSpecs para las aplicaciones Windows, así como las aplicaciones de Linux, pero la propia herramienta kube-advisor debe programarse en un pod de Linux. Puede programar un pod para que se ejecute en un grupo de nodos con un sistema operativo específico mediante un [selector de nodo][k8s-node-selector] en la configuración del pod.
 
 > [!NOTE]
 > La herramienta kube-advisor es compatible con Microsoft dentro de lo posible. Los problemas y las sugerencias deben presentarse en GitHub.

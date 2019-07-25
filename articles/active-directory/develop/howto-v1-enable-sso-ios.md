@@ -17,10 +17,10 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962627"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedimientos para: Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
@@ -44,7 +44,7 @@ Esta guía se aplica a:
 
 En esta guía se supone que sabe cómo:
 
-* Aprovisionar la aplicación mediante el portal heredado para Azure AD. Para obtener más información, consulte [registrar una aplicación](quickstart-register-app.md)
+* Aprovisionar la aplicación mediante el portal heredado para Azure AD. Para obtener más información, consulte [Registro de una aplicación](quickstart-register-app.md)
 * Integrar la aplicación con el [SDK iOS de Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Conceptos relativos al inicio de sesión único
@@ -165,7 +165,7 @@ En el caso del SSO entre aplicaciones no asistido por agente, los SDK administra
 
 Para habilitar el SSO entre aplicaciones de las que es el propietario debe hacer lo siguiente:
 
-1. Asegúrese de que todas las aplicaciones usan el mismo Id. de cliente o identificador de aplicación.
+1. Garantizar que todas las aplicaciones utilizan el mismo identificador de cliente o aplicación.
 2. Garantizar que todas las aplicaciones comparten el mismo certificado de firma de Apple para que sea posible compartir las cadenas de claves.
 3. Solicitar los mismos permisos de llaveros para cada una de las aplicaciones.
 4. Indicar a los SDK cuál es la cadena de claves compartida que quiere que utilicemos.
@@ -231,7 +231,7 @@ Cuando haya configurado los derechos correctamente, verá un archivo en el direc
 </plist>
 ```
 
-Una vez que tiene los derechos del llavero habilitado en cada una de las aplicaciones, y está listo para usar el inicio de sesión único, proporcione la identidad del SDK sobre la cadena de claves mediante la siguiente configuración su `ADAuthenticationSettings` con la siguiente configuración:
+Una vez que haya habilitado los derechos de la cadena de claves en cada una de las aplicaciones y esté preparado para usar el SSO, informe al SDK de identidad acerca de la cadena de claves usando el siguiente valor en `ADAuthenticationSettings`:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

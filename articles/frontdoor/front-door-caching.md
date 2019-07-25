@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962916"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Almacenamiento en caché con Azure Front Door Service
@@ -26,7 +26,7 @@ Azure Front Door Service proporciona archivos grandes sin un límite en el tama�
 
 </br>Una vez que el fragmento llega al entorno de Front Door, se almacena en caché y se sirve inmediatamente al usuario. Después, Front Door realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se solicita), todos los intervalos de bytes están disponibles (si se solicitan) o el cliente finaliza la conexión.
 
-</br>Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
+</br>Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Front Door almacena en caché los fragmentos cuando se reciben, por lo que no es necesario poner todo el archivo en la caché de Front Door. Las solicitudes posteriores para el archivo o los intervalos de bytes se sirven desde la caché. Si no se almacenan en caché todos los fragmentos, se usa la captura previa para solicitar fragmentos del back-end. Esta optimización se basa en la capacidad del servidor de origen para admitir solicitudes de intervalo de bytes; si no las admite, esta optimización no es efectiva.
 
 ## <a name="file-compression"></a>Compresión de archivos
@@ -100,11 +100,11 @@ La purga de la memoria caché en Front Door distingue mayúsculas de minúsculas
 
 ## <a name="cache-expiration"></a>Expiración de la caché
 El siguiente orden de encabezados se usa para determinar cuánto tiempo se almacenará un elemento en la memoria caché:</br>
-1. Cache-Control: s-maxage =\<segundos >
+1. Cache-Control: s-maxage=\<seconds>
 2. Cache-Control: max-age=\<seconds>
-3. Expira: \<http-date >
+3. Expires: \<http-date>
 
-Los encabezados de respuesta Cache-Control que indican que la respuesta no se almacena en caché como Cache-Control: private, Cache-Control: no-cache y Cache-Control: no-store se respetan. Sin embargo, si hay varias solicitudes en lucha en un servidor POP por la misma dirección URL, es posible que compartan la respuesta. Si ningún Control de caché está presente el comportamiento predeterminado es que AFD almacenará en caché el recurso para X cantidad de tiempo donde X se elige aleatoriamente entre 1 y 3 días.
+Los encabezados de respuesta Cache-Control que indican que la respuesta no se almacena en caché como Cache-Control: private, Cache-Control: no-cache y Cache-Control: no-store se respetan. Sin embargo, si hay varias solicitudes en lucha en un servidor POP por la misma dirección URL, es posible que compartan la respuesta. Si no hay ningún control de caché presente, el comportamiento predeterminado es que AFD almacenará en caché el recurso durante un tiempo X, donde X se elige aleatoriamente entre 1 y 3 días.
 
 
 ## <a name="request-headers"></a>Encabezados de solicitud

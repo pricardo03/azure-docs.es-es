@@ -8,37 +8,37 @@ ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
 ms.openlocfilehash: 376df206d75780a4b814873d72d9c56554f6b0b8
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956616"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Habilitación de Azure Disk Encryption para máquinas virtuales IaaS Windows
 
-Este artículo proporcionan instrucciones sobre cómo habilitar el cifrado del disco de Azure de Microsoft para Windows IaaS virtual machines (VM). Para poder usar el cifrado de disco, primero debe completar el [requisitos previos de Azure Disk Encryption](../security/azure-security-disk-encryption-prerequisites.md). 
+En este artículo se proporcionan instrucciones sobre cómo habilitar Microsoft Azure Disk Encryption para máquinas virtuales (VM) IaaS de Windows. Para poder usar el cifrado de disco, debe completar primero los [requisitos previos de Azure Disk Encryption](../security/azure-security-disk-encryption-prerequisites.md). 
 
-Se recomienda encarecidamente que [crear una instantánea](../virtual-machines/windows/snapshot-copy-managed-disk.md) o copia de seguridad de los discos antes del cifrado. Las copias de seguridad garantizan que, en caso de un error inesperado durante el cifrado, sea posible una opción de recuperación. Las máquinas virtuales con discos administrados requieren una copia de seguridad antes del cifrado. Una vez que se realiza una copia de seguridad, puede usar el [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para cifrar los discos administrados especificando el parámetro - skipVmBackup. Para obtener más información acerca de cómo realizar copias de seguridad y restauración de máquinas virtuales cifradas, vea [copia de seguridad y restaurar la máquina virtual de Azure cifrada](../backup/backup-azure-vms-encryption.md) artículo.
+Se recomienda encarecidamente que [cree una instantánea](../virtual-machines/windows/snapshot-copy-managed-disk.md) o que haga una copia de seguridad de los discos antes del cifrado. Las copias de seguridad garantizan que, en caso de un error inesperado durante el cifrado, sea posible una opción de recuperación. Las máquinas virtuales con discos administrados requieren una copia de seguridad antes del cifrado. Una vez realizada la copia de seguridad, puede usar el [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para cifrar los discos administrados mediante la especificación del parámetro -skipVmBackup. Para más información sobre cómo realizar la copia de seguridad y la restauración de máquinas virtuales cifradas, consulte el artículo [Copia de seguridad y restauración de máquinas virtuales de Azure cifradas](../backup/backup-azure-vms-encryption.md).
 
 >[!WARNING]
-> - Si ha usado anteriormente [Azure Disk Encryption con la aplicación Azure AD](azure-security-disk-encryption-prerequisites-aad.md) para cifrar esta VM, tendrá que seguir usando esta opción para cifrar la VM. No puede usar [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) en esta máquina virtual cifrada como esto no es un escenario admitido, significado salir de aplicación de AAD para esta máquina virtual cifrada no se admite aún. 
+> - Si ha usado anteriormente [Azure Disk Encryption con la aplicación Azure AD](azure-security-disk-encryption-prerequisites-aad.md) para cifrar esta VM, tendrá que seguir usando esta opción para cifrar la VM. No puede usar [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) en esta VM cifrada ya que no es un escenario compatible, lo que significa que el cambio desde la aplicación de AAD para esta VM cifrada aún no es compatible. 
 > - Azure Disk Encryption requiere que Key Vault y las máquinas virtuales se coloquen en la misma región. Cree y use una instancia de Key Vault que se encuentre en la misma región que la máquina virtual que se va a cifrar. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="bkmk_RunningWinVM"></a> Habilitación del cifrado en máquinas virtuales IaaS de Windows existentes o en ejecución
-Puede habilitar el cifrado mediante una plantilla, los cmdlets de PowerShell o comandos de CLI. Si necesita información de esquema para la extensión de máquina virtual, consulte el artículo sobre la [extensión de Azure Disk Encryption para Windows](../virtual-machines/extensions/azure-disk-enc-windows.md).
+Puede habilitar el cifrado mediante una plantilla, los cmdlets de PowerShell o los comandos de la CLI. Si necesita información de esquema para la extensión de máquina virtual, consulte el artículo sobre la [extensión de Azure Disk Encryption para Windows](../virtual-machines/extensions/azure-disk-enc-windows.md).
 
 >[!IMPORTANT]
- > Es obligatorio crear una instantánea o una copia de seguridad de una instancia de máquina virtual basada en un disco administrado fuera de Azure Disk Encryption y antes de habilitar esta característica. Puede tomar una instantánea del disco administrado desde el portal o se puede usar [Azure Backup](../backup/backup-azure-vms-encryption.md). Las copias de seguridad garantizan que es posible disponer de una opción de recuperación en el caso de que se produzca un error inesperado durante el cifrado. Una vez que se realiza una copia de seguridad, se puede usar el cmdlet Set-AzVMDiskEncryptionExtension para cifrar los discos administrados especificando el parámetro - skipVmBackup. El comando Set-AzVMDiskEncryptionExtension se producirá un error en máquinas virtuales basadas en el disco administrado hasta que se ha realizado una copia de seguridad y se ha especificado este parámetro. 
+ > Es obligatorio crear una instantánea o una copia de seguridad de una instancia de máquina virtual basada en un disco administrado fuera de Azure Disk Encryption y antes de habilitar esta característica. Puede tomar una instantánea del disco administrado desde el portal o se puede usar [Azure Backup](../backup/backup-azure-vms-encryption.md). Las copias de seguridad garantizan que es posible disponer de una opción de recuperación en el caso de que se produzca un error inesperado durante el cifrado. Una vez que se realiza una copia de seguridad, el cmdlet Set-AzVMDiskEncryptionExtension puede usarse para cifrar los discos administrados mediante la especificación del parámetro -skipVmBackup. El comando Set-AzVMDiskEncryptionExtension produce un error en las máquinas virtuales basadas en un disco administrado hasta que se realice una copia de seguridad y se especifique este parámetro. 
 >
 > Cifrar o deshabilitar el cifrado puede provocar el reinicio de la máquina virtual. 
 >
 
 ### <a name="bkmk_RunningWinVMPSH"></a> Habilitación del cifrado en máquinas virtuales existentes o en ejecución con Azure PowerShell 
-Use la [conjunto AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet para habilitar el cifrado en una máquina virtual IaaS en ejecución en Azure. 
+Use el cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para habilitar el cifrado en una máquina virtual IaaS en ejecución en Azure. 
 
--  **Cifrado de una máquina virtual en ejecución:** El script siguiente inicializa las variables y ejecuta el cmdlet Set-AzVMDiskEncryptionExtension. Ya se deben haber satisfecho los requisitos previos de crear el grupo de recursos, la máquina virtual y el almacén de claves. Reemplace MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM y MySecureVault por sus valores.
+-  **Cifrado de una máquina virtual en ejecución:** el siguiente script inicializa las variables y ejecuta el cmdlet Set-AzVMDiskEncryptionExtension. Ya se deben haber satisfecho los requisitos previos de crear el grupo de recursos, la máquina virtual y el almacén de claves. Reemplace MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM y MySecureVault por los valores deseados.
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -71,12 +71,12 @@ Use la [conjunto AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-
    >[!NOTE]
    > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> La sintaxis del valor del parámetro key-encryption-key es el URI completo de KEK como en: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Comprobar que los discos están cifrados:** Para comprobar el estado de cifrado de una VM IaaS, use el [Get AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) cmdlet. 
+- **Comprobar que los discos están cifrados:** para comprobar el estado de cifrado de una máquina virtual de IaaS, use el cmdlet [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus). 
      ```azurepowershell-interactive
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
     
-- **Deshabilitar el cifrado de disco:** Para deshabilitar el cifrado, use el [Disable AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. Deshabilitar cifrado de disco de datos en la máquina virtual de Windows cuando se han cifrado los discos de datos y de sistema operativo no funciona según lo previsto. Deshabilite del cifrado en todos los discos en su lugar.
+- **Deshabilitar el cifrado de disco:** para deshabilitar el cifrado, use el cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). La deshabilitación del cifrado de disco de datos en la VM de Windows cuando se han cifrado tanto los discos de datos como del SO no funciona según lo previsto. Deshabilite del cifrado en todos los discos en su lugar.
 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
@@ -100,20 +100,20 @@ Use el comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encrypti
      >[!NOTE]
      > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name] </br> La sintaxis del valor del parámetro key-encryption-key es el URI completo de KEK como en: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Comprobar que los discos están cifrados:** Para comprobar el estado de cifrado de una VM IaaS, use el [show de az vm encryption](/cli/azure/vm/encryption#az-vm-encryption-show) comando. 
+- **Comprobar que los discos están cifrados:** para comprobar el estado de cifrado de una máquina virtual IaaS, use el comando [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Deshabilitar el cifrado:** para deshabilitar el cifrado, use el comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). Deshabilitar cifrado de disco de datos en la máquina virtual de Windows cuando se han cifrado los discos de datos y de sistema operativo no funciona según lo previsto. Deshabilite del cifrado en todos los discos en su lugar.
+- **Deshabilitar el cifrado:** para deshabilitar el cifrado, use el comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). La deshabilitación del cifrado de disco de datos en la VM de Windows cuando se han cifrado tanto los discos de datos como del SO no funciona según lo previsto. Deshabilite del cifrado en todos los discos en su lugar.
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
  
   > [!NOTE]
-  >Es obligatorio crear una instantánea o una copia de seguridad de una instancia de máquina virtual basada en un disco administrado fuera de Azure Disk Encryption y antes de habilitar esta característica. Puede tomar una instantánea del disco administrado desde el portal o se puede usar [Azure Backup](../backup/backup-azure-vms-encryption.md). Las copias de seguridad garantizan que es posible disponer de una opción de recuperación en el caso de que se produzca un error inesperado durante el cifrado. Una vez que se realiza una copia de seguridad, se puede usar el cmdlet Set-AzVMDiskEncryptionExtension para cifrar los discos administrados especificando el parámetro - skipVmBackup. Este comando producirá un error en las máquinas virtuales basadas en un disco administrado hasta que se realice una copia de seguridad y se especifique este parámetro. 
+  >Es obligatorio crear una instantánea o una copia de seguridad de una instancia de máquina virtual basada en un disco administrado fuera de Azure Disk Encryption y antes de habilitar esta característica. Puede tomar una instantánea del disco administrado desde el portal o se puede usar [Azure Backup](../backup/backup-azure-vms-encryption.md). Las copias de seguridad garantizan que es posible disponer de una opción de recuperación en el caso de que se produzca un error inesperado durante el cifrado. Una vez que se realiza una copia de seguridad, el cmdlet Set-AzVMDiskEncryptionExtension puede usarse para cifrar los discos administrados mediante la especificación del parámetro -skipVmBackup. Este comando producirá un error en las máquinas virtuales basadas en un disco administrado hasta que se realice una copia de seguridad y se especifique este parámetro. 
   >
   >Cifrar o deshabilitar el cifrado puede provocar el reinicio de la máquina virtual. 
 
@@ -137,7 +137,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_, _Datos_ y _Todo_. 
 | forceUpdateTag | Cada vez que la operación tenga que ejecutarse, pase un valor único como GUID. |
 | resizeOSDisk | Si se debería cambiar el tamaño de la partición del sistema operativo para ocupar el VHD del sistema operativo completo antes de dividir el volumen del sistema. |
-| ubicación | Ubicación para todos los recursos. |
+| location | Ubicación para todos los recursos. |
 
 ## <a name="encrypt-virtual-machine-scale-sets"></a>Cifrado de conjuntos de escalado de máquinas virtuales
 
@@ -145,7 +145,7 @@ Los [conjuntos de escalado de máquinas virtuales de Azure](../virtual-machine-s
 
 ### <a name="encrypt-virtual-machine-scale-sets-with-azure-powershell"></a>Cifrado de conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
-Use la [conjunto AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) cmdlet para habilitar el cifrado en un conjunto de escalado de máquinas virtuales de Windows. El grupo de recursos, el conjunto de escalado de máquinas virtuales y el almacén de claves deben haber sido creados como requisitos previos.
+Use el cmdlet [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) para habilitar el cifrado en un conjunto de escalado de máquinas virtuales Windows. Ya se deben haber satisfecho los requisitos previos de crear el grupo de recursos, el conjunto de escalado de máquinas virtuales y el almacén de claves.
 
 -  **Cifrado de un conjunto de escalado de máquinas virtuales en ejecución**:
     ```azurepowershell
@@ -177,13 +177,13 @@ Use la [conjunto AzVmssDiskEncryptionExtension](/powershell/module/az.compute/se
    >[!NOTE]
    > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> La sintaxis del valor del parámetro key-encryption-key es el URI completo de KEK como en: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Obtener el estado de cifrado para un conjunto de escalado de máquinas virtuales:** Use la [Get AzVmssDiskEncryption](/powershell/module/az.compute/get-azvmssdiskencryption) cmdlet.
+- **Obtener el estado de cifrado para un conjunto de escalado de máquinas virtuales:** Use el cmdlet [Get-AzVmssDiskEncryption](/powershell/module/az.compute/get-azvmssdiskencryption).
     
     ```azurepowershell-interactive
     get-AzVmssVMDiskEncryption -ResourceGroupName "MyVMScaleSetResourceGroup" -VMScaleSetName "MySecureVmss"
     ```
 
-- **Deshabilitar el cifrado en un conjunto de escalado de máquinas virtuales**: Use la [Disable AzVmssDiskEncryption](/powershell/module/az.compute/disable-azvmssdiskencryption) cmdlet. 
+- **Deshabilitar el cifrado en un conjunto de escalado de máquinas virtuales**: Use el cmdlet [Disable-AzVmssDiskEncryption](/powershell/module/az.compute/disable-azvmssdiskencryption). 
 
     ```azurepowershell-interactive
     Disable-AzVmssDiskEncryption -ResourceGroupName "MyVMScaleSetResourceGroup" -VMScaleSetName "MySecureVmss"
@@ -191,7 +191,7 @@ Use la [conjunto AzVmssDiskEncryptionExtension](/powershell/module/az.compute/se
 
 ### <a name="encrypt-virtual-machine-scale-sets-with-azure-cli"></a>Cifrado de conjuntos de escalado de máquinas virtuales con la CLI de Azure
 
-Use [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable) para habilitar el cifrado en un conjunto de escalado de máquinas virtuales Windows. Si establece en manual la directiva de actualización en el conjunto de escalado, inicie el cifrado con [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). El grupo de recursos, el conjunto de escalado de máquinas virtuales y el almacén de claves deben haber sido creados como requisitos previos.
+Use [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable) para habilitar el cifrado en un conjunto de escalado de máquinas virtuales Windows. Si establece en manual la directiva de actualización en el conjunto de escalado, inicie el cifrado con [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). Ya se deben haber satisfecho los requisitos previos de crear el grupo de recursos, el conjunto de escalado de máquinas virtuales y el almacén de claves.
 
 -  **Cifrado de un conjunto de escalado de máquinas virtuales en ejecución**
     ```azurecli-interactive
@@ -223,7 +223,7 @@ Use [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-en
 Para cifrar o descifrar conjuntos de escalado de máquinas virtuales Windows, use las plantillas de Azure Resource Manager y las instrucciones siguientes:
 
 - [Habilitación del cifrado en conjuntos de escalado de máquinas virtuales Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-- [Deshabilitación del cifrado en un conjunto de escalado de máquinas virtuales de Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- [Deshabilitación del cifrado en conjuntos de escalado de máquinas virtuales Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
      1. Haga clic en **Implementar en Azure**.
      2. Rellene los campos obligatorios y acepte los términos y condiciones.
@@ -239,13 +239,13 @@ Use las instrucciones del apéndice para preparar imágenes previamente cifradas
 * [Preparación de un VHD con Linux precifrado](azure-security-disk-encryption-appendix.md#bkmk_preLinux)
 
 >[!IMPORTANT]
- >Es obligatorio crear una instantánea o una copia de seguridad de una instancia de máquina virtual basada en un disco administrado fuera de Azure Disk Encryption y antes de habilitar esta característica. Puede tomar una instantánea del disco administrado desde el portal o se puede usar [Azure Backup](../backup/backup-azure-vms-encryption.md). Las copias de seguridad garantizan que es posible disponer de una opción de recuperación en el caso de que se produzca un error inesperado durante el cifrado. Una vez que se realiza una copia de seguridad, se puede usar el cmdlet Set-AzVMDiskEncryptionExtension para cifrar los discos administrados especificando el parámetro - skipVmBackup. El comando Set-AzVMDiskEncryptionExtension se producirá un error en máquinas virtuales basadas en el disco administrado hasta que se ha realizado una copia de seguridad y se ha especificado este parámetro. 
+ >Es obligatorio crear una instantánea o una copia de seguridad de una instancia de máquina virtual basada en un disco administrado fuera de Azure Disk Encryption y antes de habilitar esta característica. Puede tomar una instantánea del disco administrado desde el portal o se puede usar [Azure Backup](../backup/backup-azure-vms-encryption.md). Las copias de seguridad garantizan que es posible disponer de una opción de recuperación en el caso de que se produzca un error inesperado durante el cifrado. Una vez que se realiza una copia de seguridad, el cmdlet Set-AzVMDiskEncryptionExtension puede usarse para cifrar los discos administrados mediante la especificación del parámetro -skipVmBackup. El comando Set-AzVMDiskEncryptionExtension produce un error en las máquinas virtuales basadas en un disco administrado hasta que se realice una copia de seguridad y se especifique este parámetro. 
 >
 >Cifrar o deshabilitar el cifrado puede provocar el reinicio de la máquina virtual. 
 
 
 ### <a name="bkmk_VHDprePSH"> </a> Cifrado de máquinas virtuales con discos duros virtuales previamente cifrados con Azure PowerShell
-Puede habilitar el cifrado de disco en el VHD cifrado mediante el cmdlet de PowerShell [conjunto AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). En el ejemplo siguiente se proporcionan algunos parámetros comunes. 
+Puede habilitar el cifrado de disco en el disco duro virtual cifrado mediante el cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples) de PowerShell. En el ejemplo siguiente se proporcionan algunos parámetros comunes. 
 
 ```azurepowershell
 $VirtualMachine = New-AzVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
@@ -257,11 +257,11 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 También puede [agregar un nuevo disco a una máquina virtual Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md) o [mediante Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md). 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Habilitación del cifrado en un disco recién agregado con Azure PowerShell
- Al usar PowerShell para cifrar un nuevo disco para máquinas virtuales Windows, se debe especificar una nueva versión de secuencia. La versión de secuencia debe ser única. El siguiente script genera un GUID para la versión de secuencia. En algunos casos, un disco de datos recién agregado se podría cifrar automáticamente mediante la extensión Azure Disk Encryption. El cifrado automático suele producirse cuando se reinicia la máquina virtual después de que el nuevo disco se pone en línea. Esto se suele producir porque se especificó "All" para el tipo de volumen cuando el cifrado de disco se ejecutó anteriormente en la máquina virtual. Si se produce cifrado automático en un disco de datos recién agregada, se recomienda ejecutar el cmdlet Set-AzVmDiskEncryptionExtension nuevo con la nueva versión de la secuencia. Si el nuevo disco de datos es de cifrado automático y no desea cifrarlo, descifre todas las unidades en primer lugar y, a continuación, vuelva a cifrarlas con una nueva versión de secuencia que especifique el sistema operativo para el tipo de volumen. 
+ Al usar PowerShell para cifrar un nuevo disco para máquinas virtuales Windows, se debe especificar una nueva versión de secuencia. La versión de secuencia debe ser única. El siguiente script genera un GUID para la versión de secuencia. En algunos casos, un disco de datos recién agregado se podría cifrar automáticamente mediante la extensión Azure Disk Encryption. El cifrado automático suele producirse cuando se reinicia la máquina virtual después de que el nuevo disco se pone en línea. Esto se suele producir porque se especificó "All" para el tipo de volumen cuando el cifrado de disco se ejecutó anteriormente en la máquina virtual. Si el cifrado automático se produce en un disco de datos recién agregado, se recomienda volver a ejecutar el cmdlet Set-AzVmDiskEncryptionExtension con la nueva versión de secuencia. Si el nuevo disco de datos es de cifrado automático y no desea cifrarlo, descifre todas las unidades en primer lugar y, a continuación, vuelva a cifrarlas con una nueva versión de secuencia que especifique el sistema operativo para el tipo de volumen. 
   
  
 
--  **Cifrado de una máquina virtual en ejecución:** El script siguiente inicializa las variables y ejecuta el cmdlet Set-AzVMDiskEncryptionExtension. Ya se deben haber satisfecho los requisitos previos de crear el grupo de recursos, la máquina virtual y el almacén de claves. Reemplace MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM y MySecureVault por sus valores. Este ejemplo utiliza "All" para el parámetro -VolumeType, que incluye los volúmenes de sistema operativo y de datos. Si solo quiere cifrar el volumen del sistema operativo, use "OS" para el parámetro VolumeType. 
+-  **Cifrado de una máquina virtual en ejecución:** el siguiente script inicializa las variables y ejecuta el cmdlet Set-AzVMDiskEncryptionExtension. Ya se deben haber satisfecho los requisitos previos de crear el grupo de recursos, la máquina virtual y el almacén de claves. Reemplace MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM y MySecureVault por los valores deseados. Este ejemplo utiliza "All" para el parámetro -VolumeType, que incluye los volúmenes de sistema operativo y de datos. Si solo quiere cifrar el volumen del sistema operativo, use "OS" para el parámetro VolumeType. 
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -313,9 +313,9 @@ También puede [agregar un nuevo disco a una máquina virtual Windows con PowerS
 
 
 ## <a name="disable-encryption"></a>Deshabilitación del cifrado
-Puede deshabilitar el cifrado con Azure PowerShell, la CLI de Azure o una plantilla de Resource Manager. Deshabilitar cifrado de disco de datos en la máquina virtual de Windows cuando se han cifrado los discos de datos y de sistema operativo no funciona según lo previsto. Deshabilite del cifrado en todos los discos en su lugar.
+Puede deshabilitar el cifrado con Azure PowerShell, la CLI de Azure o una plantilla de Resource Manager. La deshabilitación del cifrado de disco de datos en la VM de Windows cuando se han cifrado tanto los discos de datos como del SO no funciona según lo previsto. Deshabilite del cifrado en todos los discos en su lugar.
 
-- **Deshabilitar el cifrado de disco con Azure PowerShell:** Para deshabilitar el cifrado, use el [Disable AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. 
+- **Deshabilitar el cifrado de disco con Azure PowerShell:** para deshabilitar el cifrado, use el cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' -VolumeType "all"
      ```

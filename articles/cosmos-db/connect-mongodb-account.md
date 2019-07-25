@@ -9,14 +9,14 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: dabce19d60a380b47d3583dedb5c11303f416ce7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978723"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar una aplicación de MongoDB a Azure Cosmos DB
-Aprenda a conectar su aplicación de MongoDB a una instancia de Azure Cosmos DB mediante una cadena de conexión de MongoDB. A continuación, puede usar una base de datos de Azure Cosmos como datos de almacén para la aplicación de MongoDB. 
+Aprenda a conectar su aplicación de MongoDB a una instancia de Azure Cosmos DB mediante una cadena de conexión de MongoDB. Después, puede usar una base de datos de Azure Cosmos como almacén de datos de la aplicación MongoDB. 
 
 En este tutorial se proporcionan dos maneras de recuperar información de la cadena de conexión:
 
@@ -32,7 +32,7 @@ En este tutorial se proporcionan dos maneras de recuperar información de la cad
 1. En un explorador de Internet, inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la hoja **Azure Cosmos DB**, seleccione la API. 
 3. En el panel izquierdo de la hoja de la cuenta, haga clic en **Inicio rápido**. 
-4. Elija la plataforma (**.NET**, **Node.js**, **Shell de MongoDB**, **Java**, **Python**). Si no ve el controlador o la herramienta en la lista, no se preocupe, documentamos constantemente más fragmentos de código de conexión. Comente a continuación lo que le gustaría ver. Para aprender a crear su propia conexión, lea la sección sobre cómo [obtener información de la cadena de conexión de la cuenta](#GetCustomConnection).
+4. Elija la plataforma ( **.NET**, **Node.js**, **Shell de MongoDB**, **Java**, **Python**). Si no ve el controlador o la herramienta en la lista, no se preocupe, documentamos constantemente más fragmentos de código de conexión. Comente a continuación lo que le gustaría ver. Para aprender a crear su propia conexión, lea la sección sobre cómo [obtener información de la cadena de conexión de la cuenta](#GetCustomConnection).
 5. Copie y pegue el fragmento de código en la aplicación MongoDB.
 
     ![Hoja de inicio rápido](./media/connect-mongodb-account/QuickStartBlade.png)

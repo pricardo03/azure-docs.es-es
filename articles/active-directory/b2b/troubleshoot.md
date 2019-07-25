@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de colaboración de B2B - Azure Active Directory | Microsoft Docs
+title: 'Solución de problemas de colaboración B2B: Azure Active Directory | Microsoft Docs'
 description: Recursos para solucionar problemas comunes con la colaboración B2B de Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4185d29ff1770ed9549b4b63a2e5da579bcf054f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65767156"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solución de problemas de colaboración B2B de Azure Active Directory
@@ -37,7 +37,7 @@ Para habilitarla, use la configuración "ShowPeoplePickerSuggestionsForGuestUser
 
 Si recibe una notificación de que no tiene permisos para invitar a usuarios, vaya a User Settings (Configuración de usuario) y compruebe que la cuenta de usuario está autorizada para invitar a usuarios externos.
 
-![Captura de pantalla que muestra los valores de los usuarios externos](media/troubleshoot/external-user-settings.png)
+![Captura de pantalla que muestra la configuración de los usuarios externos](media/troubleshoot/external-user-settings.png)
 
 Si hace poco ha modificado estos valores o asignado el rol de invitador invitado a un usuario, podría haber un retraso de 15 a 60 minutos para que los cambios surtan efecto.
 
@@ -49,7 +49,7 @@ Estos son algunos de los errores comunes:
 
 Cuando se invita a usuarios cuya organización usa Azure Active Directory, pero donde no existe la cuenta de usuario en concreto (por ejemplo, el usuario no existe en Azure AD contoso.com). El administrador de contoso.com puede tener una directiva en lugar de evitar que se creen usuarios. El usuario debe consultar al administrador y determinar si se permiten los usuarios externos. Es posible que el administrador del usuario externo necesite permitir usuarios comprobados por correo electrónico en el dominio (consulte este [artículo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) sobre cómo permitir usuarios comprobados por correo electrónico).
 
-![Los usuarios comprobados de error que indica que el inquilino no permite el correo electrónico](media/troubleshoot/allow-email-verified-users.png)
+![Error que indica que el inquilino no permite usuarios comprobado por correo electrónico](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>El usuario externo no se encuentra ya en un dominio federado
 
@@ -78,15 +78,15 @@ Para cumplir con las leyes de privacidad, nuestras API no incluye mensajes perso
 
 Si este escenario es importante para usted, puede suprimir nuestro correo electrónico de invitación de API y enviarlo a través del mecanismo de correo electrónico de su elección. Consulte al asesor legal de su organización para asegurarse de que cualquier correo electrónico que envíe de esta forma también cumple las leyes de privacidad.
 
-## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Recibirá un error de "AADSTS65005" cuando intenta iniciar sesión en un recurso de Azure
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Se produce un error "AADSTS65005" al intentar iniciar sesión en un recurso de Azure
 
-Un usuario que tenga una cuenta de invitado no puede iniciar sesión y recibe el mensaje de error siguiente:
+Un usuario con una cuenta de invitado no puede iniciar sesión y recibe el mensaje de error siguiente:
 
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 
-El usuario tiene una cuenta de usuario de Azure y es un inquilino viral que se ha abandonado o no administrados. Además, hay no globales o administradores en el inquilino de la empresa.
+El usuario tiene una cuenta de usuario de Azure y es un inquilino viral no administrado o que se ha abandonado. Además, no hay administradores globales o de la empresa en el inquilino.
 
-Para resolver este problema, debe asumir el inquilino abandonado. Consulte [adquirir un directorio no administrado como administrador en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). También debe tener acceso el DNS con conexión a internet para el sufijo de dominio en cuestión con el fin de proporcionar evidencia directo que se encuentra el control del espacio de nombres. Después de que el inquilino se devuelve a un estado administrado, por favor, hable con el cliente si se deja a los usuarios y nombre de dominio comprobado es la mejor opción para su organización.
+Para resolver este problema, debe asumir el inquilino abandonado. Consulte [Adquisición de un directorio no administrado como administrador en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). También debe tener acceso al DNS accesible desde Internet para el sufijo de dominio en cuestión con el fin de proporcionar pruebas directas de que controla el espacio de nombres. Después de que el inquilino se devuelva a un estado administrado, hable con el cliente para ver si abandonar a los usuarios y al nombre de dominio comprobado es la mejor opción para su organización.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Un usuario invitado con un inquilino Just-In-Time o "viral" no puede restablecer su contraseña
 

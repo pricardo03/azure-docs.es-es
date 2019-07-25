@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
 ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66003133"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Información general de colas de mensajes fallidos de Service Bus
@@ -103,15 +103,15 @@ while(true)
 }
 ```
 
-## <a name="path-to-the-dead-letter-queue"></a>Ruta de acceso a la cola
-Puede tener acceso a la cola mediante la sintaxis siguiente:
+## <a name="path-to-the-dead-letter-queue"></a>Ruta de acceso para la cola de mensajes fallidos
+Puede tener acceso a la cola de mensajes fallidos mediante la sintaxis siguiente:
 
 ```
 <queue path>/$deadletterqueue
 <topic path>/Subscription/<subscription path>/$deadletterqueue
 ```
 
-Si usa el SDK. NET, puede obtener la ruta de acceso a la cola mediante el método SubscriptionClient.FormatDeadLetterPath(). Este método toma el nombre del nombre o una suscripción de tema y sufijos con **/$DeadLetterQueue**.
+Si usa el SDK de .NET, puede obtener la ruta de acceso para la cola de mensajes fallidos mediante el método SubscriptionClient.FormatDeadLetterPath(). Este método toma el nombre del tema o suscripción y le agrega el sufijo **/$DeadLetterQueue**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

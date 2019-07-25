@@ -18,10 +18,10 @@ ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235332"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opciones de ayuda y soporte técnico para desarrolladores
@@ -62,7 +62,7 @@ Stack Overflow es el canal preferido para las preguntas relacionadas con el desa
 
 Si no encuentra una respuesta a su pregunta a través de la búsqueda, envíe una nueva pregunta a Stack Overflow. Use una de las siguientes etiquetas cuando formule preguntas para ayudar a la comunidad a identificar y responder su pregunta más rápidamente:
 
-|Componente o área  | `Tags` |
+|Componente o área  | Etiquetas |
 |---------|---------|
 | Biblioteca ADAL | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | Biblioteca MSAL     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
@@ -81,10 +81,10 @@ Las siguientes publicaciones de Stack Overflow contienen sugerencias sobre cómo
 
 Si encuentra un error o un problema relacionado con nuestras bibliotecas, genere un problema en los repositorios de GitHub. Dado que nuestra bibliotecas son de código abierto, también puede enviar una solicitud de incorporación de cambios.
 
-Para obtener una lista de bibliotecas y sus repositorios de GitHub, consulte lo siguiente:
+Para ver una lista de bibliotecas y sus repositorios de GitHub, consulte lo siguiente:
 
 * Bibliotecas [ADAL](active-directory-authentication-libraries.md) y repositorios de GitHub
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), y [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) bibliotecas y repositorios de GitHub
+* Bibliotecas y repositorios de GitHub [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) y [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc)
 
 ## <a name="open-a-support-request"></a>Apertura de una solicitud de soporte técnico
 

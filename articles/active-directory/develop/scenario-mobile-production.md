@@ -1,6 +1,6 @@
 ---
-title: 'Aplicación móvil que llama a las API web (pasar a producción): la plataforma de identidad de Microsoft'
-description: Aprenda a crear una aplicación móvil que llama a web API (pasar a producción)
+title: 'Aplicación móvil que llama a las API web (paso a producción): plataforma de identidad de Microsoft'
+description: Obtenga información sobre cómo compilar una aplicación móvil que llama a las API web (paso a producción)
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -17,32 +17,32 @@ ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d8b6a5c2a29228de806088ea93e197d42bf1ab47
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962353"
 ---
-# <a name="mobile-app-that-calls-web-apis---move-to-production"></a>Aplicación móvil que llama a web API: pasar a producción
+# <a name="mobile-app-that-calls-web-apis---move-to-production"></a>Aplicación móvil que llama a las API web: paso a producción
 
-Este artículo proporciona detalles sobre cómo mejorar la calidad y la confiabilidad de la aplicación antes de moverla a producción.
+En este artículo se proporcionan detalles sobre cómo mejorar la calidad y la confiabilidad de la aplicación antes de moverla a producción.
 
 ## <a name="handling-errors-in-mobile-applications"></a>Control de errores en aplicaciones móviles
 
-Una serie de condiciones de error puede producirse en la aplicación en este momento. Los escenarios principales para controlar son errores silenciosos y reservas de interacción. Otras condiciones que se deben considerar para la producción incluyen situaciones sin red, interrupciones de servicio, los requisitos de consentimiento del administrador y otros casos específicos del escenario.
+En este punto, pueden producirse una serie de condiciones de error en la aplicación. Los escenarios principales que se deben controlar son errores silenciosos y retrocesos de interacción. Otras condiciones que se deben considerar para la producción incluyen situaciones sin red, interrupciones de servicio, requisitos para el consentimiento del administrador y otros casos específicos del escenario.
 
-Cada biblioteca MSAL tiene contenido wiki y de código de ejemplo que se describe cómo administrar estas condiciones:
+En cada biblioteca MSAL se incluye contenido wiki y de código de ejemplo en los que se describe cómo administrar estas condiciones:
 
 - [MSAL Android Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android)
 - [MSAL iOS Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
 - [MSAL.NET Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
-## <a name="mitigating-and-investigating-issues"></a>Mitigar e investigar los problemas
+## <a name="mitigating-and-investigating-issues"></a>Mitigación e investigación de problemas
 
-Para diagnosticar problemas en su aplicación, lo ayuda a recopilar datos. Para obtener información sobre los tipos de datos puede recopilar, ver los wikis de plataforma MSAL.
+Para diagnosticar problemas en su aplicación, la recopilación de datos sirve de ayuda. Para obtener información sobre los tipos de datos que puede recopilar, consulte las wikis de la plataforma MSAL.
 
-- Podrían pedir ayuda a los usuarios cuando tienen problemas. Es una práctica recomendada capturar y temporalmente almacenar los registros y proporcione una ubicación donde los usuarios pueden cargarlos. MSAL proporciona extensiones de registro para capturar información detallada acerca de la autenticación.
-- Si está disponible, habilitar la telemetría a través de MSAL para recopilar datos acerca de cómo los usuarios inician sesión en la aplicación.
+- Los usuarios pueden pedir ayuda cuando encuentran problemas. Es una práctica recomendada capturar registros, almacenarlos temporalmente y proporcionar una ubicación donde los usuarios puedan cargarlos. MSAL proporciona extensiones de registro para capturar información detallada acerca de la autenticación.
+- Si está disponible, habilite la telemetría a través de MSAL para recopilar datos acerca de cómo los usuarios inician sesión en la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

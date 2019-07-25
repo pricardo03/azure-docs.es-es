@@ -13,10 +13,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
 ms.openlocfilehash: eb461367d58f7cadeccd434c0e4ab452b7fc640e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241910"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Administración del esquema en una aplicación SaaS con el patrón base de datos por inquilino con Azure SQL Database
@@ -73,7 +73,7 @@ El script *Demo-SchemaManagement.ps1* llama al script *Deploy-SchemaManagement.p
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Creación de un trabajo para implementar nuevos datos de referencia en todos los inquilinos
 
-En la aplicación Wingtip Tickets, cada base de datos de inquilino incluye un conjunto de tipos de ubicación admitidos. Cada ubicación corresponde a un tipo de ubicación específico, que define la clase de eventos que se puede organizar y determina la imagen de fondo que se usa en la aplicación. Para que la aplicación admita nuevas clases de eventos, estos datos de referencia se deben actualizar y se deben agregar nuevos tipos de ubicación.  En este ejercicio, se implementa una actualización para todas las bases de datos de inquilino para agregar dos tipos de ubicación adicionales: *Motorcycle Racing* (motociclismo) y *Swimming Club* (club de natación).
+En la aplicación Wingtip Tickets, cada base de datos de inquilino incluye un conjunto de tipos de ubicación admitidos. Cada ubicación corresponde a un tipo de ubicación específico, que define la clase de eventos que se puede organizar y determina la imagen de fondo que se usa en la aplicación. Para que la aplicación admita nuevas clases de eventos, estos datos de referencia se deben actualizar y se deben agregar nuevos tipos de ubicación.  En este ejercicio, se implementa una actualización en todas las bases de datos del inquilino para agregar dos tipos de ubicación adicionales: *Motorcycle Racing* (motociclismo) y *Swimming Club* (club de natación).
 
 En primer lugar, revise los tipos de ubicación que se incluyen en cada base de datos de inquilino. Conéctese a una de las bases de datos de inquilino en SQL Server Management Studio (SSMS) y revise la tabla VenueTypes.  También puede consultar esta tabla en el Editor de consultas de Azure Portal, al que se accede desde la página de la base de datos. 
 
@@ -86,8 +86,8 @@ Para crear un trabajo nuevo, se usa un conjunto de procedimientos almacenados en
 
 1. En SSMS, conéctese al servidor del catálogo: servidor *catalog-dpt-&lt;usuario&gt;.database.windows.net* 
 1. En SSMS, abra el archivo …\\Learning Modules\\Schema Management\\DeployReferenceData.sql.
-1. Modifique la instrucción: ESTABLECER @wtpUser = &lt;usuario&gt; y sustituya el valor de usuario utilizado cuando implementó la aplicación Wingtip Tickets SaaS Database Per Tenant
-1. Asegúrese de que está conectado a la _jobagent_ base de datos del sistema y presione **F5** para ejecutar el script
+1. Modifique la instrucción: SET @wtpUser = &lt;usuario&gt; y sustituya el valor de usuario utilizado al implementar la aplicación Wingtip Tickets SaaS Database Per Tenant.
+1. Asegúrese de estar conectado a la base de datos _jobagent_ y presione  **F5**  para ejecutar el script
 
 Observe los elementos siguientes en el script *DeployReferenceData.sql*:
 * **sp\_add\_target\_group** crea el nombre del grupo de destino DemoServerGroup.
@@ -127,7 +127,7 @@ En este tutorial, ha aprendido cómo:
 > * Actualizar los datos de referencia en todas las bases de datos de inquilino
 > * Crear un índice en una tabla en todas las bases de datos de inquilino
 
-A continuación, pruebe el [notificación Ad hoc tutorial](saas-tenancy-cross-tenant-reporting.md) para explorar la ejecución de consultas distribuidas a través de inquilino bases de datos.
+A continuación, pruebe el [tutorial de notificaciones ad hoc](saas-tenancy-cross-tenant-reporting.md) para explorar la ejecución de consultas distribuidas en las bases de datos de inquilino.
 
 
 ## <a name="additional-resources"></a>Recursos adicionales

@@ -1,5 +1,5 @@
 ---
-title: 'Introducción a servidor Azure Multi-factor Authentication: Azure Active Directory'
+title: Introducción al Servidor Azure Multi-Factor Authentication | Microsoft Docs
 description: Introducción paso a paso del Servidor Azure MFA local
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,25 +11,28 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa3d7d22ed032379f452eb4648c9a1cf87293df9
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 15900758945fd5c97198caf47ff01fcfb5a6a794
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057412"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introducción a Servidor Azure Multi-Factor Authentication
 
 <center>
 
-![Introducción a servidor MFA local](./media/howto-mfaserver-deploy/server2.png)</center>
+![Introducción al Servidor MFA local](./media/howto-mfaserver-deploy/server2.png)</center>
 
-Ahora que hemos determinado que se usa una instancia local del Servidor Multi-Factor Authentication, vayamos al paso siguiente. Esta página describe una nueva instalación del servidor y su configuración con una instancia loal de Active Directory. Si ya tiene instalado el servidor MFA y desea actualizarlo, consulte [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md) (Actualización a la versión más reciente del Servidor Microsoft Azure Multi-Factor Authentication). Para más información sobre cómo instalar solo el servicio web, consulte [Implementación del servicio web móvil de la aplicación móvil del Servidor Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
+Esta página describe una nueva instalación del servidor y su configuración con una instancia loal de Active Directory. Si ya tiene instalado el servidor MFA y desea actualizarlo, consulte [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md) (Actualización a la versión más reciente del Servidor Microsoft Azure Multi-Factor Authentication). Para más información sobre cómo instalar solo el servicio web, consulte [Implementación del servicio web móvil de la aplicación móvil del Servidor Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
+
+> [!IMPORTANT]
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deben usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación, como de costumbre.
 
 ## <a name="plan-your-deployment"></a>Planeamiento de la implementación
 
 > [!WARNING]
-> A partir de marzo de 2019 MFA Server descargas sólo estará disponibles para los inquilinos de pago. Los inquilinos de gratis o de evaluación ya no podrán descargar o generar y usar las credenciales de activación.
+> A partir de marzo de 2019, las descargas del Servidor MFA solo estarán disponibles para los inquilinos con versiones de pago. Los inquilinos con versiones de prueba o gratuitas ya no podrán descargar ni generar y usar credenciales de activación.
 
 Antes de descargar el servidor Azure Multi-Factor Authentication, piense cuáles son sus requisitos de alta disponibilidad y carga. Use esta información para decidir cómo y dónde realizar la implementación.
 
@@ -77,7 +80,7 @@ Cada servidor MFA debe ser capaz de comunicarse en el puerto 443 de salida a las
 
 Si los firewalls de salida están restringidos en el puerto 443, deberán abrirse los siguientes intervalos de direcciones IP:
 
-| Subred IP | Máscara de red | Intervalo de IP |
+| Subred IP | Máscara de red | Rango de direcciones IP |
 |:---: |:---: |:---: |
 | 134.170.116.0/25 |255.255.255.128 |134.170.116.1 – 134.170.116.126 |
 | 134.170.165.0/25 |255.255.255.128 |134.170.165.1 – 134.170.165.126 |
@@ -94,7 +97,7 @@ Si no está usando la característica de confirmación de eventos y los usuarios
 ## <a name="download-the-mfa-server"></a>Descarga del servidor MFA
 
 > [!WARNING]
-> A partir de marzo de 2019 MFA Server descargas sólo estará disponibles para los inquilinos de pago. Los inquilinos de gratis o de evaluación ya no podrán descargar o generar y usar las credenciales de activación.
+> A partir de marzo de 2019, las descargas del Servidor MFA solo estarán disponibles para los inquilinos de pago. Los inquilinos de prueba o evaluación ya no podrán descargar ni generar y usar credenciales de activación.
 
 Para descargar el Servidor Azure Multi-Factor Authentication desde Azure Portal, siga estos pasos:
 
@@ -103,7 +106,7 @@ Para descargar el Servidor Azure Multi-Factor Authentication desde Azure Portal,
 3. Seleccione **Configuración del servidor**.
 4. Seleccione **Descargar** y siga las instrucciones que aparecen en la página de descarga para guardar el programa de instalación. 
 
-   ![Descargar servidor MFA desde el portal de Azure](./media/howto-mfaserver-deploy/downloadportal.png)
+   ![Descargar el Servidor MFA desde Azure Portal](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. Mantenga esta página abierta ya que habrá que consultarla después de ejecutar el programa de instalación.
 
@@ -136,7 +139,7 @@ Haga clic en el icono de correo electrónico situado a la izquierda para configu
 
 En la pestaña Contenido del mensaje de correo electrónico, verá las plantillas de correo electrónico que hay disponibles. Elija la plantilla más adecuada según cómo haya configurado la verificación en dos pasos para los usuarios.
 
-![Plantillas de correo electrónico del servidor MFA en la consola](./media/howto-mfaserver-deploy/email2.png)
+![Plantillas de correo electrónico del Servidor MFA en la consola](./media/howto-mfaserver-deploy/email2.png)
 
 ## <a name="import-users-from-active-directory"></a>Importación de usuarios desde Active Directory
 
@@ -149,7 +152,7 @@ Ahora que está instalado el servidor, probablemente querrá agregar usuarios. P
 3. Ahora puede buscar usuarios individuales o buscar en el directorio de AD las unidades organizativas con usuarios en ellas. En este caso, se especifican las unidades organizativas de los usuarios.
 4. Resalte todos los usuarios de la derecha y haga clic en **Importar**. Debe aparecer una ventana emergente que le indica que la operación se realizó correctamente. Cierre la ventana de importación.
 
-   ![Importación de usuarios de servidor MFA de Active Directory](./media/howto-mfaserver-deploy/import2.png)
+   ![Importación de usuarios del Servidor MFA desde Active Directory](./media/howto-mfaserver-deploy/import2.png)
 
 ### <a name="automated-synchronization-with-active-directory"></a>Sincronización automática con Active Directory
 
@@ -177,7 +180,7 @@ Cuando se usa Servidor Azure Multi-Factor Authentication (MFA) local, los datos 
 Además de los campos anteriores, el resultado (éxito o denegación) de la verificación y el motivo de las denegaciones también se almacenan con los datos de autenticación y están disponibles en informes de uso y autenticación.
 
 > [!IMPORTANT]
-> A partir de marzo de 2019 las opciones de llamada de teléfono no estará disponible para los usuarios de servidor MFA de inquilinos de Azure AD gratuito de prueba. Mensajes SMS no se ven afectados por este cambio. Llamada de teléfono seguirá estando disponible para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratuito de prueba.
+> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios del Servidor MFA en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las llamadas de teléfono seguirán estando disponibles para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratis o de evaluación.
 
 ## <a name="back-up-and-restore-azure-mfa-server"></a>Copia de seguridad y restauración del servidor Azure MFA
 

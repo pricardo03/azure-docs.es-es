@@ -1,5 +1,5 @@
 ---
-title: '.NET SDK: Operaciones de administración en Azure Data Lake Storage Gen1 cuentas | Microsoft Docs'
+title: '.NET SDK: operaciones de administración de cuentas en Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Con Azure Data Lake Storage Gen1 y el SDK de .NET se realizan operaciones de administración de cuentas en Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65900881"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operaciones de administración de cuentas en Azure Data Lake Storage Gen1 mediante el SDK de .NET.
 > [!div class="op_single_selector"]
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
+> * [SDK de .NET](data-lake-store-get-started-net-sdk.md)
 > * [API DE REST](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -32,14 +32,14 @@ En este artículo aprenderá a realizar operaciones de administración de cuenta
 Para obtener instrucciones sobre cómo realizar operaciones de administración de datos en Data Lake Storage Gen1 con el SDK de .NET, consulte [Filesystem operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-data-operations-net-sdk.md) (Operaciones de sistema de archivos en Azure Data Lake Storage Gen1 con el SDK de .NET).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Visual Studio 2013 o versiones posteriores**. Las instrucciones siguientes usan Visual Studio de 2019.
+* **Visual Studio 2013 o superior**. En las instrucciones siguientes se usa Visual Studio 2019.
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>Creación de una aplicación .NET
-1. En Visual Studio, seleccione el **archivo** menú, **New**y, a continuación, **proyecto**.
-2. Elija **aplicación de consola (.NET Framework)** y, a continuación, seleccione **siguiente**.
-3. En **nombre del proyecto**, escriba `CreateADLApplication`y, a continuación, seleccione **crear**.
+1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y, a continuación, **Proyecto**.
+2. Elija **Aplicación de consola (.NET Framework)** y, a continuación, seleccione **Siguiente**.
+3. En el **nombre del proyecto**, escriba `CreateADLApplication` y, a continuación, seleccione **Crear**.
 
 4. Agregue los paquetes NuGet al proyecto.
 
@@ -135,7 +135,7 @@ En el siguiente fragmento de código se elimina la cuenta de Data Lake Storage G
     // Delete Data Lake Storage Gen1 account
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Filesystem operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-data-operations-net-sdk.md) (Operaciones del sistema de archivos en Data Lake Storage Gen1 mediante el SDK de .NET).
 * [Data Lake Storage Gen1 .NET SDK Reference](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet) (Referencia del SDK de .NET de Data Lake Storage Gen1)
 

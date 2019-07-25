@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65860844"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Análisis de datos con Azure Machine Learning
@@ -42,9 +42,9 @@ Para seguir paso a paso este tutorial, necesita:
 Los datos están en la vista dbo.vTargetMail en la base de datos AdventureWorksDW. Para leer estos datos:
 
 1. Inicie sesión en [Azure Machine Learning Studio][Azure Machine Learning studio] y haga clic en mis experimentos.
-2. Haga clic en **+ nuevo** en la parte inferior izquierda de la pantalla y seleccione **experimento en blanco**.
+2. Haga clic en **+ NUEVO** en la parte inferior izquierda de la pantalla y seleccione **Experimento en blanco**.
 3. Escriba un nombre para el experimento: Marketing dirigido.
-4. Arrastre el **importar datos** módulo en **datos de entrada y salida** desde el panel módulos al lienzo.
+4. Arrastre el módulo **Importar datos** de **Entrada y salida de datos** desde el panel de módulos hasta el lienzo.
 5. Especifique los detalles de la base de datos de SQL Data Warehouse en el panel Propiedades.
 6. Especifique la **consulta** de la base de datos para leer los datos de interés.
 
@@ -75,9 +75,9 @@ Cuando el experimento haya terminado de ejecutarse correctamente, haga clic en e
 ![Ver los datos importados][3]
 
 ## <a name="2-clean-the-data"></a>2. Limpiar los datos
-Para limpiar los datos, se quitarán algunas columnas que no son relevantes para el modelo. Para ello:
+Para limpiar los datos, se quitarán algunas columnas que no son relevantes para el modelo. Para ello, siga estos pasos:
 
-1. Arrastre el **Select Columns in Dataset** módulo en **transformación de datos < manipulación** al lienzo. Conecte este módulo para el **importar datos** módulo.
+1. Arrastre el módulo **Seleccionar columnas en el conjunto de datos** bajo la opción **Transformación de datos < Manipulación** en el lienzo. Conecte este módulo al módulo **Importar datos**.
 2. Haga clic en **Iniciar selector de columnas** en el panel Propiedades para especificar las columnas que desea quitar.
    ![Columnas del proyecto][4]
 3. Excluya dos columnas: CustomerAlternateKey y GeographyKey.
@@ -87,10 +87,10 @@ Para limpiar los datos, se quitarán algunas columnas que no son relevantes para
 Dividiremos los datos en 80-20: 80 % para entrenar un modelo de aprendizaje automático y un 20 % para probar el modelo. Usaremos los algoritmos de "dos clases" para este problema de clasificación binaria.
 
 1. Arrastre el módulo **Dividir** al lienzo.
-2. En el panel Propiedades, escriba 0,8 en fracción de filas del primer conjunto de datos de salida.
+2. En el panel de propiedades, escriba 0,8 en la fracción de filas del primer conjunto de datos de salida.
    ![Dividir los datos en conjunto de entrenamiento y prueba][6]
 3. Arrastre el módulo **Árbol de decisión aumentado de dos clases** al lienzo.
-4. Arrastre el **entrenar modelo** módulo al lienzo y especifique las entradas mediante la conexión a la **Two-Class Boosted Decision Tree** (algoritmo de aprendizaje automático) y **división** (datos para entrenar el módulos de algoritmo en). 
+4. Arrastre el módulo **Modelo de entrenamiento** al lienzo y especifique las entradas conectándolo a los módulos **Árbol de decisiones mejorado de dos clases** (algoritmo ML) y **Dividir** (datos para entrenar el algoritmo). 
      ![Conectar el módulo Entrenar modelo][7]
 5. Luego, haga clic en **Iniciar el selector de columnas** en el panel Propiedades. Seleccione la columna **BikeBuyer** como columna de predicción.
    ![Seleccionar columna de predicción][8]
@@ -98,7 +98,7 @@ Dividiremos los datos en 80-20: 80 % para entrenar un modelo de aprendizaje auto
 ## <a name="4-score-the-model"></a>4. Puntuación del modelo
 Ahora, probaremos cómo funciona el modelo con datos de prueba. Compararemos el algoritmo que elijamos con otro algoritmo para comprobar cuál funciona mejor.
 
-1. Arrastre **Score Model** módulo al lienzo y conéctelo al **Train Model** y **dividir datos** módulos.
+1. Arrastre el módulo **Modelo de puntuación** al lienzo y conéctelo a los módulos **Modelo de entrenamiento** y **Datos divididos**.
    ![Puntuación del modelo][9]
 2. Arrastre **Máquina del punto de Bayes de dos clases** al lienzo del experimento. Compararemos cómo funciona este algoritmo en comparación con el Árbol de decisión aumentado de dos clases.
 3. Copie y pegue los módulos Entrenar modelo y Puntuar modelo en el lienzo.

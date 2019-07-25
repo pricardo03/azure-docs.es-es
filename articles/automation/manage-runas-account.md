@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6fceee819762e10809a94f72d944e7625cb7e67c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 49b8554f6064f036d4305cf7a5c1450c2f18c48d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478564"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798477"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
 
@@ -104,7 +104,7 @@ Este script de PowerShell incluye compatibilidad con las siguientes configuracio
 
 1. Guarde el script siguiente en el equipo. En este ejemplo, guárdelo con el nombre *New-RunAsAccount.ps1*.
 
-   El script usa varios cmdlets de Azure Resource Manager para crear recursos. La siguiente tabla muestra los cmdlets y los permisos necesarios.
+   El script usa varios cmdlets de Azure Resource Manager para crear recursos. En la tabla de [permisos](#permissions) anterior se muestran los cmdlets y los permisos necesarios.
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -370,13 +370,35 @@ Para renovar el certificado, realice estos pasos:
 
 ## <a name="limiting-run-as-account-permissions"></a>Limitación de los permisos de las cuentas de ejecución
 
-Para controlar el destino de la automatización en los recursos de Azure Automation, a la cuenta de ejecución se le concede de forma predeterminada derechos de colaborador en la suscripción. Si tiene que restringir lo que puede hacer la entidad de servicio de ejecución, puede quitar la cuenta del rol de colaborador de la suscripción y agregarla como colaborador a los grupos de recursos que quiere especificar.
+Para controlar el destino de la automatización en los recursos de Azure, puede ejecutar el script [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) en la galería de PowerShell para cambiar la entidad de servicio de la cuenta de ejecución existente para crear y usar una definición de roles personalizada. Este rol tendrá permisos para todos los recursos excepto para [Key Vault](https://docs.microsoft.com/azure/key-vault/). 
 
-En Azure Portal, seleccione **Suscripciones** y elija la suscripción de su cuenta de Automation. Seleccione **Control de acceso (IAM)** y después la pestaña **Asignaciones de roles**. Busque la entidad de servicio de su cuenta de Automation (se parece a \<AutomationAccountName\>_unique identifier). Seleccione la cuenta y haga clic en **Quitar** para quitarla de la suscripción.
+> [!IMPORTANT]
+> Después de ejecutar el script `Update-AutomationRunAsAccountRoleAssignments.ps1`, los runbooks que acceden a Key Vault mediante el uso de cuentas de ejecución dejarán de funcionar. Debe revisar los runbooks de su cuenta para las llamadas a Azure Key Vault.
+>
+> Para permitir el acceso a Key Vault desde runbooks de Azure Automation, deberá [agregar la cuenta de ejecución a los permisos de Key Vault](#add-permissions-to-key-vault).
 
-![Colaboradores de suscripción](media/manage-runas-account/automation-account-remove-subscription.png)
+Si necesita restringir lo que la entidad de servicio de ejecución puede hacer aún más, puede agregar otros tipos de recursos a `NotActions` de la definición de roles personalizada. El siguiente ejemplo restringe el acceso a `Microsoft.Compute`. Si agrega esto a **NotActions** de la definición de roles, este rol no podrá tener acceso a ningún recurso Compute. Para más información sobre las definiciones de roles, consulte [Descripción de definiciones de roles para los recursos de Azure](../role-based-access-control/role-definitions.md).
 
-Para agregar la entidad de servicio a un grupo de recursos, seleccione el grupo de recursos en Azure Portal y elija **Control de acceso (IAM)** . Seleccione **Agregar asignación de roles** para abrir la página **Agregar asignación de roles**. En **Rol**, seleccione **Colaborador**. En el cuadro de texto **Seleccionar**, escriba el nombre de la entidad de servicio de la cuenta de ejecución y selecciónela de la lista. Haga clic en **Guardar** para guardar los cambios. Siga estos pasos con todos los grupos de recursos a los que desee dar acceso a la entidad de servicio de ejecución de Azure Automation.
+```powershell
+$roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
+$roleDefinition.NotActions.Add("Microsoft.Compute/*")
+$roleDefinition | Set-AzureRMRoleDefinition
+```
+
+Para determinar si la entidad de servicio que la cuenta de ejecución usa está en el rol **Colaborador** o en una definición de roles personalizada, vaya a su cuenta de Automation y, en **Configuración de la cuenta**, seleccione **Cuentas de ejecución** > **Cuenta de ejecución de Azure**. En **Rol** encontrará la definición de roles que se está usando. 
+
+[![](media/manage-runas-account/verify-role.png "Comprobación del rol de la cuenta de ejecución")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+
+Para determinar la definición de roles que las cuentas de ejecución de Automation utilizan para varias suscripciones o cuentas de Automation, puede usar el script [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) en la Galería de PowerShell.
+
+### <a name="add-permissions-to-key-vault"></a>Incorporación de permisos a Key Vault
+
+Si desea permitir que Azure Automation administre Key Vault y que la entidad de servicio de la cuenta de ejecución use una definición de roles personalizada, deberá realizar pasos adicionales para permitir este comportamiento:
+
+* Conceder permisos a Key Vault
+* Establecer una directiva de acceso
+
+Puede usar el script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) en el Galería de PowerShell para asignar sus permisos de la cuenta de ejecución a KeyVault, o bien, visite [Concesión de acceso a varias aplicaciones a un almacén de claves](../key-vault/key-vault-group-permissions-for-apps.md) para más información sobre los permisos de configuración en Key Vault.
 
 ## <a name="misconfiguration"></a>Error de configuración
 

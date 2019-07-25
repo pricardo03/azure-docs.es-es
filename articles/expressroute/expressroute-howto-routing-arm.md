@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: d59a26184cac8df31fd16637d538c1eb45d947df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: e2f38671910be2c7300f39fcbca32e8a1ccd9891
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64716136"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute mediante PowerShell
@@ -177,7 +177,7 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
    Install-Module Az
    ```
 
-   Importar todos los AZ.\* módulos dentro del intervalo de versiones semánticas conocidas.
+   Importe todos los módulos de Az.\* dentro del intervalo de versiones semánticas conocidas.
 
    ```azurepowershell-interactive
    Import-Module Az
@@ -303,7 +303,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración de emparejamiento público de Azure para un circuito ExpressRoute.
 
 > [!Note]
-> Emparejamiento público de Azure está en desuso para los circuitos nuevo. Para obtener más información, consulte [emparejamiento de ExpressRoute](expressroute-circuit-peerings.md).
+> El emparejamiento público de Azure está en desuso para circuitos nuevos. Para obtener más información, consulte el artículo sobre [emparejamiento de ExpressRoute](expressroute-circuit-peerings.md).
 >
 
 ### <a name="to-create-azure-public-peering"></a>Creación de un emparejamiento público de Azure
@@ -316,7 +316,7 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
    Install-Module Az
    ```
 
-   Importar todos los AZ.\* módulos dentro del intervalo de versiones semánticas conocidas.
+   Importe todos los módulos de Az.\* dentro del intervalo de versiones semánticas conocidas.
 
    ```azurepowershell-interactive
    Import-Module Az

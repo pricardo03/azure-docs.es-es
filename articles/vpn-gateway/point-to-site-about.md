@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f1e014bb14b2b5c1ae924f4371e08aa8bf8698f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679414"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056475"
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca de las conexiones VPN de punto a sitio
 
@@ -22,9 +22,9 @@ Una conexión de puerta de enlace de VPN de punto a sitio (P2S) permite crear un
 
 La conexión VPN de punto a sitio usa uno de los siguientes protocolos:
 
-* **Protocolo de OpenVPN®**, un SSL/TLS en función de protocolo VPN. Una solución de VPN basada en SSL puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443, que utiliza SSL. OpenVPN puede utilizarse para conectarse desde Android, iOS (versiones 11.0 y versiones posteriores), los dispositivos de Windows, Linux y Mac (versión de OSX 10.13 y versiones posteriores).
+* **Protocolo OpenVPN®**, un protocolo VPN basado en SSL/TLS. Una solución de VPN basada en SSL puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que utiliza SSL. OpenVPN puede utilizarse para la conexión desde dispositivos Android, iOS (11.0 y versiones posteriores), Windows, Linux y Mac (OSX 10.13 y versiones posteriores).
 
-* El protocolo de túnel de sockets seguro (SSTP), que es un protocolo VPN propio basado en SSL. Una solución de VPN basada en SSL puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443, que utiliza SSL. El protocolo SSTP solo se admite en dispositivos Windows. Azure es compatible con todas las versiones de Windows que tienen SSTP (Windows 7 y versiones posteriores).
+* El protocolo de túnel de sockets seguro (SSTP), que es un protocolo VPN propio basado en SSL. Una solución de VPN basada en SSL puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que utiliza SSL. El protocolo SSTP solo se admite en dispositivos Windows. Azure es compatible con todas las versiones de Windows que tienen SSTP (Windows 7 y versiones posteriores).
 
 * La conexión VPN IKEv2, una solución de VPN con protocolo de seguridad de Internet basada en estándares. La conexión VPN IKEv2 puede utilizarse para la conexión desde dispositivos Mac (versión de OSX 10.11 y versiones posteriores).
 
@@ -54,7 +54,7 @@ El servidor RADIUS también se integra con los servicios de certificados de AD. 
 Los servidores RADIUS también se integran con otros sistemas de identidad externos. Esto abre una gran cantidad de opciones de autenticación para VPN P2S, incluidas las opciones de multifactor.
 
 >[!NOTE]
->**Protocolo de OpenVPN®** no es compatible con la autenticación RADIUS.
+>No se admite el **protocolo OpenVPN®** con la autenticación RADIUS.
 >
 
 ![punto a sitio](./media/point-to-site-about/p2s.png "Punto a sitio")
@@ -86,6 +86,68 @@ El archivo zip también proporciona los valores de algunas de las opciones de co
 >La SKU básica no admite la autenticación de IKEv2 o RADIUS.
 >
 
+## <a name="IKE/IPsec policies"></a>¿Qué directivas IPsec/IKE se configuran en las puertas de enlace de VPN de P2S?
+
+
+**IKEv2**
+
+|**Cifrado** | **Integridad** | **PRF** | **Grupo DH** |
+|---        | ---           | ---       | ---   |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_24 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_14 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_ECP384 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_ECP256 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_24 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_14 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_ECP384 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_ECP256 |
+|AES256     |   SHA384      | SHA384    | GROUP_24 |
+|AES256     |   SHA384      | SHA384    | GROUP_14 |
+|AES256     |   SHA384      | SHA384    | GROUP_ECP384 |
+|AES256     |   SHA384      | SHA384    | GROUP_ECP256 |
+|AES256     |   SHA256      | SHA256    | GROUP_24 |
+|AES256     |   SHA256      | SHA256    | GROUP_14 |
+|AES256     |   SHA256      | SHA256    | GROUP_ECP384 |
+|AES256     |   SHA256      | SHA256    | GROUP_ECP256 |
+|AES256     |   SHA256      | SHA256    | GROUP_2 |
+
+**IPsec**
+
+|**Cifrado** | **Integridad** | **Grupo PFS** |
+|---        | ---           | ---       |
+|GCM_AES256 | GCM_AES256 | GROUP_NONE |
+|GCM_AES256 | GCM_AES256 | GROUP_24 |
+|GCM_AES256 | GCM_AES256 | GROUP_14 |
+|GCM_AES256 | GCM_AES256 | GROUP_ECP384 |
+|GCM_AES256 | GCM_AES256 | GROUP_ECP256 |
+| AES256    | SHA256 | GROUP_NONE |
+| AES256    | SHA256 | GROUP_24 |
+| AES256    | SHA256 | GROUP_14 |
+| AES256    | SHA256 | GROUP_ECP384 |
+| AES256    | SHA256 | GROUP_ECP256 |
+| AES256    | SHA1 | GROUP_NONE |
+
+## <a name="TLS policies"></a>¿Qué directivas TLS se configuran en las puertas de enlace de VPN para P2S?
+**TLS**
+
+|**Directivas** |
+|---| 
+|TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 |
+|TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 |
+|TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 |
+|TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 |
+|TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 |
+|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 |
+|TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 |
+|TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
+|TLS_RSA_WITH_AES_128_GCM_SHA256 |
+|TLS_RSA_WITH_AES_256_GCM_SHA384 |
+|TLS_RSA_WITH_AES_128_CBC_SHA256 |
+|TLS_RSA_WITH_AES_256_CBC_SHA256 |
+
+
+
+
 ## <a name="configure"></a>¿Cómo se puede configurar una conexión de P2S?
 
 En una configuración de P2S es necesario realizar unos pocos pasos específicos. En los siguientes artículos encontrará los pasos necesarios para realizar una configuración de P2S, así como vínculos para configurar los dispositivos de cliente VPN:
@@ -96,6 +158,12 @@ En una configuración de P2S es necesario realizar unos pocos pasos específicos
 
 * [Configuración de OpenVPN](vpn-gateway-howto-openvpn.md)
 
+## <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a>¿Cómo se puede quitar la configuración de una conexión P2S?
+
+Una configuración P2S se puede quitar mediante az cli y el comando siguiente: 
+
+`az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"`
+ 
 ## <a name="faqcert"></a>Preguntas más frecuentes acerca de la autenticación de certificado nativa de Azure
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
@@ -110,4 +178,4 @@ En una configuración de P2S es necesario realizar unos pocos pasos específicos
 
 * [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md) (Configurar una conexión P2S: autenticación de certificados nativos de Azure)
 
-**"OpenVPN" es una marca de OpenVPN Inc.**
+**"OpenVPN" es una marca comercial de OpenVPN Inc.**

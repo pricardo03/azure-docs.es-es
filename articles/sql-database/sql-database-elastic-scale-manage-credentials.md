@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 8a62ec95c715c08a8fddc09f0c8e5f5bba368556
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241756"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciales usadas para acceder a la biblioteca de cliente de Elastic Database
@@ -73,12 +73,12 @@ En este ejemplo, el elemento **smmUserConnectionString** contiene la cadena de c
 
 Al igual que con las credenciales de administración, no use valores que tengan el formato "username@server". En su lugar, use aquellos que tengan el formato "username".  Tenga en cuenta también que la cadena de conexión no contiene un nombre de servidor y de base de datos. Esto se debe a que la llamada **OpenConnectionForKey** dirige automáticamente la conexión a la partición correcta según la clave. Por lo tanto, no se proporcionan ni el nombre de la base de datos ni el del servidor.
 
-## <a name="see-also"></a>Consulte, asimismo, 
+## <a name="see-also"></a>Consulte, asimismo,
 
-[Administrar bases de datos e inicios de sesión en Azure SQL Database](sql-database-manage-logins.md)
+[Administración de bases de datos e inicios de sesión en Azure SQL Database](sql-database-manage-logins.md)
 
 [Protección de SQL Database](sql-database-security-overview.md)
 
-[Trabajos de elastic Database](elastic-jobs-overview.md)
+[Trabajos de Elastic Database](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

@@ -1,5 +1,5 @@
 ---
-title: 'Configurar Azure Multi-factor Authentication: Azure Active Directory'
+title: Configurar Azure Multi-Factor Authentication - Azure Active Directory
 description: En este artículo se describe cómo configurar Azure Multi-Factor Authentication en Azure Portal
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: 618377d532dc932eb21f282ac8ba7f6c07df16f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496747"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113452"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
-Este artículo le ayuda a administrar la configuración de Multi-Factor Authentication en Azure Portal. Abarca varios temas que le permitirán sacar el máximo partido de Azure Multi-Factor Authentication. No todas las características están disponibles en todas las versiones de Azure Multi-factor Authentication.
+Este artículo le ayuda a administrar la configuración de Multi-Factor Authentication en Azure Portal. Abarca varios temas que le permitirán sacar el máximo partido de Azure Multi-Factor Authentication. No todas estas características están disponibles en cada una de las versiones de Azure Multi-Factor Authentication.
 
-Puede tener acceso a la configuración relacionada con la autenticación multifactor de Azure desde Azure portal, vaya a **Azure Active Directory** > **MFA**.
+Puede acceder a la configuración relacionada con Azure Multi-Factor Authentication desde Azure Portal; para ello, vaya a **Azure Active Directory** > **MFA**.
 
 ![Azure Portal: Configuración de Multi-Factor Authentication de Azure AD](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -33,8 +33,8 @@ Algunas de estas opciones se aplican al Servidor MFA, Azure MFA o ambos.
 | Característica | DESCRIPCIÓN |
 | ------- | ----------- |
 | Bloqueo de cuenta | Bloquea temporalmente las cuentas del servicio de autenticación multifactor si hay demasiados intentos de autenticación denegados en una fila. Esta característica solo se aplica a los usuarios que escriben un PIN para autenticarse. (Servidor MFA) |
-| [Bloqueo y desbloqueo de usuarios](#block-and-unblock-users) | Se utiliza para bloquear a usuarios específicos puedan recibir las solicitudes de autenticación multifactor. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen. |
-| [Alerta de fraude](#fraud-alert) | Configurar valores relacionados con la capacidad de los usuarios para notificar las solicitudes de comprobación fraudulento |
+| [Bloqueo y desbloqueo de usuarios](#block-and-unblock-users) | Se usa para impedir que usuarios específicos puedan recibir solicitudes de Multi-Factor Authentication. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen. |
+| [Alerta de fraude](#fraud-alert) | Configure valores relacionados con la capacidad de los usuarios para notificar solicitudes de comprobación fraudulentas. |
 | Notificaciones | Permite notificaciones de eventos desde el Servidor MFA. |
 | [Tokens OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Se usa en entornos de Azure MFA basados en la nube para administrar tokens de OATH para los usuarios. |
 | [Configuración de las llamadas telefónicas](#phone-call-settings) | Configure valores relacionados con llamadas de teléfono y saludos para entornos locales y en la nube. |
@@ -64,7 +64,7 @@ Utilice la característica de _bloqueo y desbloqueo de usuarios_ para impedirles
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
 2. Vaya a **Azure Active Directory** > **MFA** > **Bloquear o desbloquear usuarios**.
 3. Seleccione **Agregar** para bloquear a un usuario.
-4. Seleccione el **Grupo de replicación**. Escriba el nombre de usuario para el usuario bloqueado como **username\@dominio.com**. Escriba un comentario en el campo **Motivo**.
+4. Seleccione el **Grupo de replicación**. Escriba el nombre de usuario del usuario bloqueado como **nombre de usuario\@dominio.com**. Escriba un comentario en el campo **Motivo**.
 5. Seleccione **Agregar** para acabar de bloquear al usuario.
 
 ### <a name="unblock-a-user"></a>Desbloquear a un usuario
@@ -154,7 +154,7 @@ La característica de _omisión por única vez_ permite a un usuario autenticars
 2. Vaya a **Azure Active Directory** > **MFA** > **Omisión por única vez**.
 3. Seleccione **Agregar**.
 4. Si es necesario, seleccione el grupo de replicación para esta omisión.
-5. Escriba el nombre de usuario **username\@dominio.com**. Escriba el número de segundos que debería durar la omisión. Escriba el motivo de la omisión.
+5. Escriba el nombre de usuario como **nombre de usuario\@dominio.com**. Escriba el número de segundos que debería durar la omisión. Escriba el motivo de la omisión.
 6. Seleccione **Agregar**. El límite de tiempo entra en vigor inmediatamente. El usuario tiene que iniciar sesión antes de que expire la omisión por única vez.
 
 ### <a name="view-the-one-time-bypass-report"></a>Visualización del informe de omisión por única vez
@@ -191,7 +191,7 @@ Algunas aplicaciones, como Office 2010 o versiones anteriores y Apple Mail anter
 La autenticación moderna se admite en los clientes de Microsoft Office 2013 y versiones posteriores. Los clientes de Office 2013 (incluido Outlook), admiten protocolos de autenticación modernos y se pueden habilitar para que funcionen con la comprobación en dos pasos. Después de que se habilite el cliente, las contraseñas de aplicación no le serán necesarias.
 
 >[!NOTE]
->Las contraseñas de aplicación no funcionan con directivas de autenticación multifactor basadas en acceso condicional y autenticación moderna.
+>Las contraseñas de aplicación no funcionan con directivas de autenticación multifactor basadas en el acceso condicional y la autenticación moderna.
 
 ### <a name="considerations-about-app-passwords"></a>Consideraciones acerca de las contraseñas de aplicación
 
@@ -283,7 +283,7 @@ Independientemente de si la característica de la IP de confianza está habilita
 ### <a name="enable-named-locations-by-using-conditional-access"></a>Habilitación de las ubicaciones con nombre mediante el acceso condicional
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En el lado izquierdo, seleccione **Azure Active Directory** > **Acceso condicional** > **Ubicaciones con nombre**.
+2. En el lado izquierdo, seleccione **Azure Active Directory** > **Acceso condicional** > **Ubicaciones con nombre**.
 3. Seleccione **Nueva ubicación**.
 4. Escriba un nombre para la ubicación.
 5. Seleccione **Marcar como ubicación de confianza**.
@@ -293,7 +293,7 @@ Independientemente de si la característica de la IP de confianza está habilita
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Habilite la característica de direcciones IP de confianza mediante el acceso condicional
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En el lado izquierdo, seleccione **Azure Active Directory** > **Acceso condicional** > **Ubicaciones con nombre**.
+2. En el lado izquierdo, seleccione **Azure Active Directory** > **Acceso condicional** > **Ubicaciones con nombre**.
 3. Seleccione **Configurar IP de confianza de MFA**.
 4. En la página **Configuración del servicio**, en **IP de confianza**, seleccione una de las dos opciones siguientes:
 

@@ -13,15 +13,15 @@ ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
 ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240371"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Los grupos elásticos pueden ayudarle a administrar y escalar varias bases de datos de Azure SQL
 
-Los grupos elásticos de SQL Database son una solución simple y rentable para la administración y escalado de varias bases de datos que tienen distintas e imprevisibles demandas de uso. Las bases de datos de un grupo elástico se encuentran en un servidor único de Azure SQL Database y comparten un número establecido de recursos a un precio establecido. Los grupos elásticos en Azure SQL Database permiten a los desarrolladores de SaaS optimizar el rendimiento del precio para un grupo de bases de datos dentro de un presupuesto prescrito a la vez que se ofrece elasticidad de rendimiento para cada base de datos.
+Los grupos elásticos de SQL Database son una solución simple y rentable para la administración y escalado de varias bases de datos que tienen distintas e imprevisibles demandas de uso. En un grupo elástico, las bases de datos se encuentran en un único servidor de Azure SQL Database y comparten un número establecido de recursos a un precio establecido. Los grupos elásticos en Azure SQL Database permiten a los desarrolladores de SaaS optimizar el rendimiento del precio para un grupo de bases de datos dentro de un presupuesto prescrito a la vez que se ofrece elasticidad de rendimiento para cada base de datos.
 
 ## <a name="what-are-sql-elastic-pools"></a>¿Qué son los grupos elásticos de SQL?
 
@@ -205,15 +205,15 @@ Para más información, consulte cómo [crear alertas de SQL Database en Azure P
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  SnelStart usa grupos elásticos con Azure SQL Database para expandir rápidamente sus servicios empresariales con una tasa de 1000 nuevas de Azure SQL Database al mes.
+  SnelStart usó grupos elásticos con Azure SQL Database para expandir rápidamente sus servicios de negocio a una velocidad de 1000 nuevas bases de datos de Azure SQL cada mes.
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  Umbraco utiliza grupos elásticos con Azure SQL Database para aprovisionar y escalar rápidamente servicios para miles de inquilinos en la nube.
+  Umbraco usa grupos elásticos con Azure SQL Database para aprovisionar y escalar rápidamente servicios para miles de inquilinos en la nube.
 
 - [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
 
-  Daxko y CSI utilizan los grupos elásticos con Azure SQL Database para acelerar su ciclo de desarrollo y a mejorar sus servicios al cliente y el rendimiento.
+  Daxko/CSI usa grupos elásticos con Azure SQL Database para acelerar su ciclo de desarrollo y mejorar sus servicios al cliente y el rendimiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
 title: puntos de conexión de servicio de red virtual - Azure Event Hubs | Microsoft Docs
-description: En este artículo se proporciona información sobre cómo agregar un punto de conexión de servicio de Microsoft.EventHub a una red virtual.
+description: En este artículo se proporciona información sobre cómo agregar el punto de conexión de servicio de Microsoft.EventHub a una red virtual.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,20 +11,20 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 15912ce2e100a4317e775d72972ca6eacfac0d42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343450"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080536"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar puntos de conexión de servicio de red virtual con Azure Event Hubs
 
 La integración de Event Hubs con los [puntos de conexión de servicio de Virtual Network (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería de cargas de trabajo tales como las máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos.
 
-Una vez configurado que va a enlazar al menos un extremo de servicio de subred de red virtual, lo respectivo Event Hubs espacio de nombres ya no acepta el tráfico desde cualquier lugar pero autorizado de las subredes de redes virtuales. Desde la perspectiva de la red virtual, el enlace de un espacio de nombres de Event Hubs a un punto de conexión de servicio configura un túnel de redes aislado desde la subred de la red virtual al servicio de mensajería. 
+Una vez realizada la configuración para enlazarse con al menos un punto de conexión de servicio de subred de red virtual, el espacio de nombres respectivo de Event Hubs ya solo aceptará el tráfico procedente de redes virtuales autorizadas. Desde la perspectiva de la red virtual, el enlace de un espacio de nombres de Event Hubs a un punto de conexión de servicio configura un túnel de redes aislado desde la subred de la red virtual al servicio de mensajería. 
 
-El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Event Hubs, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público. Hay una excepción a este comportamiento. Habilitación de un extremo de servicio, de forma predeterminada, habilita la regla de denyall en el firewall IP asociada con la red virtual. Puede agregar direcciones IP específicas en el firewall para permitir el acceso al punto de conexión público de centro de eventos. 
+El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Event Hubs, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público. Hay una excepción a este comportamiento. Al habilitar un punto de conexión de servicio, de forma predeterminada, se habilita la regla denyall en el firewall de IP asociado con la red virtual. Puede agregar direcciones IP específicas en el firewall de IP para habilitar el acceso al punto de conexión público del centro de eventos. 
 
 
 >[!WARNING]
@@ -49,7 +49,7 @@ El resultado es una relación privada y aislada entre las cargas de trabajo enla
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Escenarios de seguridad avanzados que habilita la integración de VNet 
 
-Las soluciones que requieren seguridad estricta y compartimentada y donde subredes de redes virtuales proporcionan la segmentación entre los servicios compartimentadas, seguirá necesitan rutas de comunicación entre los servicios que residen en los compartimientos.
+En el caso de soluciones que requieren una estricta seguridad compartimentalizada y en las que las subredes de redes virtuales proporcionan la segmentación entre los servicios compartimentalizados, estas siguen necesitando rutas de comunicación entre los servicios que residen en esos compartimentos.
 
 Cualquier ruta IP inmediata entre compartimientos, incluidos aquellos que transportan HTTPS a través de TCP/IP, tienen el riesgo de sufrir ataques por puntos vulnerables en la capa de red o en capas superiores. Los servicios de mensajería proporcionan rutas de comunicación completamente aisladas, donde los mensajes incluso se escriben en discos cuando se trasladan entre entidades. Las cargas de trabajo de dos redes virtuales distintas enlazadas a la misma instancia de Event Hubs pueden comunicarse de forma eficaz y fiable mediante mensajes, al tiempo que se preserva la integridad de los respectivos límites de aislamiento de red.
  
@@ -71,10 +71,10 @@ Parámetros de plantilla:
 
 * **namespaceName**: espacio de nombres de Event Hubs.
 * **vnetRuleName**: nombre de la regla de red virtual que se va a crear.
-* **virtualNetworkingSubnetId**: ruta de acceso completa de Resource Manager para la subred de la red virtual; por ejemplo, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para la subred predeterminada de una red virtual.
+* **virtualNetworkingSubnetId**: ruta de acceso completa de Resource Manager para la subred de la red virtual; por ejemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para la subred predeterminada de una red virtual.
 
 > [!NOTE]
-> Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"**, lo que no restringe las conexiones.
+> Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"** , lo que no restringe las conexiones.
 > Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor ***"defaultAction"***
 > 
 > De
@@ -191,7 +191,7 @@ Para implementar la plantilla, siga las instrucciones relativas a [Azure Resourc
 
 Para obtener más información acerca de las redes virtuales, consulte los siguientes vínculos:
 
-- [Puntos de conexión del servicio Azure Virtual Network][vnet-sep]
+- [Punto de conexión de servicio de red virtual de Azure][vnet-sep]
 - [Filtrado de IP de Azure Event Hubs][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md

@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952039"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Aptitud cognitiva Reconocimiento de entidades con nombre
@@ -23,7 +23,7 @@ ms.locfileid: "65952039"
 La habilidad **Reconocimiento de entidades con nombre** extrae entidades con nombre del texto. Las entidades disponibles incluyen los tipos `person`, `location` y `organization`.
 
 > [!IMPORTANT]
-> Reconocimiento de entidades con nombre ya no está disponible la aptitud reemplazado por [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Soporte técnico se detiene en el 15 de febrero de 2019 y la API se ha quitado del producto en el 2 de mayo de 2019. Siga las recomendaciones de [en desuso habilidades de búsqueda cognitiva](cognitive-search-skill-deprecated.md) para migrar a una aptitud admitida.
+> La aptitud de reconocimiento de entidades con nombre ya no está disponible y se ha reemplazado por [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). El soporte técnico se detuvo el 15 de febrero de 2019 y la API se eliminó del producto el 2 de mayo de 2019. Siga las recomendaciones de las [Aptitudes de Cognitive Search en desuso](cognitive-search-skill-deprecated.md) para migrar a una aptitud admitida.
 
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
@@ -43,13 +43,13 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de parámetro     | DESCRIPCIÓN |
 |--------------------|-------------|
-| categorías    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"` y `"Organization"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
+| Categorías    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"` y `"Organization"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
 |defaultLanguageCode |  Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `de, en, es, fr, it`|
 | minimumPrecision  | Número comprendido entre 0 y 1. Si la precisión es inferior a este valor, no se devuelve la entidad. El valor predeterminado es 0.|
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
-| Indicar nombre      | DESCRIPCIÓN                   |
+| Nombre de entrada      | DESCRIPCIÓN                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. El valor predeterminado es `"en"`.  |
 | text          | Texto que se analizará.          |
@@ -59,7 +59,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Nombre de salida     | DESCRIPCIÓN                   |
 |---------------|-------------------------------|
 | persons      | Una matriz de cadenas donde cada cadena representa el nombre de una persona. |
-| ubicaciones  | Una matriz de cadenas donde cada cadena representa una ubicación. |
+| Ubicaciones  | Una matriz de cadenas donde cada cadena representa una ubicación. |
 | organizations  | Una matriz de cadenas donde cada cadena representa una organización. |
 | entities | Una matriz de tipos complejos. Cada tipo complejo incluye los siguientes campos: <ul><li>categoría (`"person"`, `"organization"` o `"location"`)</li> <li>valor (el nombre de entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confianza (un valor entre 0 y 1 que representa esa confianza de que el valor es una entidad real)</li></ul> |
 
@@ -156,7 +156,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 ## <a name="error-cases"></a>Casos de error
 Si no se admite el código de idioma del documento, se devuelve un error y no se extrae ninguna entidad.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

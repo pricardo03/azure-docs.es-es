@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3ae87523e66ae49d17f198a1f70b0f449ca0a713
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60950387"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080418"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carga de archivos con IoT Hub
 
-Tal como se detalla en el artículo [Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md), un dispositivo puede iniciar cargas de archivos mediante el envío de una notificación a través de un punto de conexión accesible desde el dispositivo (**/devices/{deviceId}/files**). Cuando un dispositivo notifica a IoT Hub que se ha completado una carga, este envía un mensaje de notificación de carga a través del punto de conexión accesible desde el servicio (**/messages/servicebound/filenotifications**).
+Tal como se detalla en el artículo [Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md), un dispositivo puede iniciar cargas de archivos mediante el envío de una notificación a través de un punto de conexión accesible desde el dispositivo ( **/devices/{deviceId}/files**). Cuando un dispositivo notifica a IoT Hub que se ha completado una carga, este envía un mensaje de notificación de carga a través del punto de conexión accesible desde el servicio ( **/messages/servicebound/filenotifications**).
 
 En lugar de servir de intermediario de los mensajes, IoT Hub actúa como distribuidor a una cuenta de Azure Storage asociada. Un dispositivo solicita un token de almacenamiento de IoT Hub que es específico del archivo que el dispositivo quiere cargar. El dispositivo usa el URI de SAS para cargar el archivo en el almacenamiento y, cuando la carga ha finalizado, envía una notificación de finalización a IoT Hub. IoT Hub comprueba que la carga del archivo está completa y agrega después un mensaje de notificación de carga de archivo al nuevo punto de conexión de notificaciones de archivos accesible desde el servicio.
 
@@ -95,7 +95,7 @@ Los siguientes temas de referencia proporcionan más información sobre la carga
 
 Opcionalmente, cuando un dispositivo notifica a IoT Hub que la carga está completa, IoT Hub genera un mensaje de notificación. Este mensaje contiene el nombre y ubicación de almacenamiento del archivo.
 
-Como se ha explicado en [Puntos de conexión](iot-hub-devguide-endpoints.md), IoT Hub entrega notificaciones de carga de archivos a través de un punto de conexión accesible desde el servicio (**/messages/servicebound/fileuploadnotifications**) en forma de mensajes. La semántica de recepción de las notificaciones de carga de archivos es la misma que para los mensajes de nube a dispositivo y tiene el mismo [ciclo de vida del mensaje](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Cada mensaje recuperado del punto de conexión de notificación de carga de archivos es un registro JSON con las siguientes propiedades:
+Como se ha explicado en [Puntos de conexión](iot-hub-devguide-endpoints.md), IoT Hub entrega notificaciones de carga de archivos a través de un punto de conexión accesible desde el servicio ( **/messages/servicebound/fileuploadnotifications**) en forma de mensajes. La semántica de recepción de las notificaciones de carga de archivos es la misma que para los mensajes de nube a dispositivo y tiene el mismo [ciclo de vida del mensaje](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Cada mensaje recuperado del punto de conexión de notificación de carga de archivos es un registro JSON con las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |

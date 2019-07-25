@@ -1,5 +1,5 @@
 ---
-title: Sincronizar cuentas de asociado local a la nube como usuarios de B2B - Azure Active Directory | Microsoft Docs
+title: 'Sincronización de cuentas de asociado local en la nube como usuarios de B2B: Azure Active Directory | Microsoft Docs'
 description: Proporcione a los asociados externos administrados localmente acceso a recursos locales y en la nube con las mismas credenciales mediante la colaboración B2B de Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2ae75311ab61449f37ccea15a0bcb88fed80c3ed
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65767354"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Conceder a las cuentas de asociado administradas localmente acceso a los recursos en la nube mediante la colaboración B2B de Azure AD
@@ -32,7 +32,7 @@ Antes de permitir la sincronización del atributo UserType, primero debe decidir
 Los dos enfoques comunes para ello son los siguientes:
 
 - Designe un atributo de Active Directory local sin usar (por ejemplo, Atributodeextensión1) que se usará como el atributo de origen. 
-- Como alternativa, obtenga el valor del atributo UserType de otras propiedades. Por ejemplo, desea sincronizar todos los usuarios como invitado si su atributo de UserPrincipalName de Active Directory local finaliza con el dominio  *\@partners.contoso.com*.
+- Como alternativa, obtenga el valor del atributo UserType de otras propiedades. Por ejemplo, querrá sincronizar todos los usuarios como Invitado si su atributo UserPrincipalName de Active Directory local finaliza con el dominio *\@partners.contoso.com*.
  
 Para conocer los requisitos detallados de atributos, consulte [Habilitar la sincronización de UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 

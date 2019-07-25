@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dd800c0eeb18fe45b44a72aeb58b500623b2b366
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514453"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705091"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas
 
@@ -88,9 +88,19 @@ Esta advertencia puede aparecer aunque se haya configurado una directiva de copi
 El tamaño de la carpeta de caché determina la cantidad de datos de los que se realiza la copia de seguridad.
 - Los volúmenes de la carpeta de caché deben tener un espacio libre equivalente, al menos, al 5-10 % del tamaño total de datos de copia de seguridad.
 - Si el volumen tiene menos del 5 % de espacio libre, aumente el tamaño del volumen o mueva la carpeta de caché a un volumen que tenga suficiente espacio libre.
-- Si se realiza una copia de seguridad del estado del sistema Windows, se necesitan 30-35 GB adicionales de espacio libre en el volumen que contiene la carpeta de caché
-### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>¿Cómo se cambia la ubicación de la caché del agente de MARS?
+- Si se realiza una copia de seguridad del estado del sistema Windows, se necesitan 30-35 GB adicionales de espacio libre en el volumen que contiene la carpeta de caché.
 
+### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>¿Cómo se puede comprobar si la carpeta temporal es válida y accesible?
+
+1. De forma predeterminada, la carpeta temporal se encuentra en `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`.
+2. Asegúrese de que la ruta de acceso de la ubicación de la carpeta temporal coincide con los valores de las entradas de clave del Registro que se muestran a continuación:
+
+  | Ruta de acceso del Registro | Clave del Registro | Valor |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
+
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>¿Cómo se cambia la ubicación de la caché del agente de MARS?
 
 1. Ejecute este comando en un símbolo del sistema con privilegios elevados para detener el motor de Azure Backup:
 

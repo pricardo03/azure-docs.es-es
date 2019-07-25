@@ -10,17 +10,17 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 93386bd1fa3be88cbcdfab3d59ae07d3eb2b046d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65911931"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Información general
-El [biblioteca de cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client) admite el cifrado de datos dentro de las aplicaciones cliente antes de cargarlos en Azure Storage y descifrar los datos mientras se descargan al cliente. Asimismo, la biblioteca también admite la integración con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
+La [Biblioteca de cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en Azure Storage, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
 
 Para ver un tutorial paso a paso que le guíe por el proceso de cifrado de blobs mediante el cifrado de cliente y Azure Key Vault, consulte [Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
@@ -52,7 +52,7 @@ El descifrado mediante la técnica de sobres funciona de la siguiente manera:
 La biblioteca de cliente de almacenamiento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para cifrar los datos del usuario. En concreto, emplea el modo [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Cada servicio funciona de forma ligeramente diferente, por lo que describiremos aquí cada uno de ellos.
 
 ### <a name="blobs"></a>Blobs
-La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. En concreto, se admite el cifrado cuando los usuarios usen el **UploadFrom** métodos o **OpenWrite** método. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas.
+La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. Precisamente, se admite el cifrado cuando los usuarios emplean los métodos **UploadFrom** u **OpenWrite**. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas.
 
 Durante el cifrado, la biblioteca de cliente generará un vector de inicialización (IV) aleatorio de 16 bytes, junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes, y realiza el cifrado de sobres de los datos de blob con esta información. Posteriormente, la CEK encapsulada y algunos metadatos de cifrado adicionales se almacenan como metadatos de blob junto con el objeto blob cifrado en el servicio.
 
@@ -61,9 +61,9 @@ Durante el cifrado, la biblioteca de cliente generará un vector de inicializaci
 > 
 > 
 
-Descargar un blob cifrado implica recuperar el contenido del blob completo mediante la **DownloadTo**/**BlobReadStream** métodos útiles. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
+Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los cómodos métodos **DownloadTo**/**BlobReadStream**. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
 
-Descargar un intervalo arbitrario (**DownloadRange** métodos) en el objeto blob cifrado implica ajustar el intervalo proporcionado por los usuarios con el fin de obtener una pequeña cantidad de datos adicionales que pueden usarse para descifrar correctamente solicitado intervalo.
+Descargar un intervalo arbitrario (métodos**DownloadRange**) en el blob cifrado, implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que puedan usarse para descifrar correctamente el intervalo solicitado.
 
 Todos los tipos de blobs (blobs en bloques, blobs de anexión) se pueden cifrar y descifrar usando este esquema.
 

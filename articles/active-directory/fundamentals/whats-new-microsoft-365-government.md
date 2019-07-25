@@ -1,6 +1,6 @@
 ---
 title: Novedades de Azure Active Directory en Microsoft 365 Government - Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre algunos cambios a Azure Active Directory (Azure AD) en la instancia de la nube de Microsoft 365 Government, que podría afectar al.
+description: Obtenga información sobre algunos cambios de Azure Active Directory (Azure AD) en la instancia en la nube de Microsoft 365 Government, que podrían afectarle.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,53 +14,53 @@ ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b077c7b5efbad2add971d42ff31938b56f6bc33
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258900"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novedades de Azure Active Directory en Microsoft 365 Government
 
-Hemos realizado algunos cambios a Azure Active Directory (Azure AD) en la instancia de nube de Microsoft 365 Government, que es aplicable a los clientes que usan los siguientes servicios:
+Hemos realizado algunos cambios en Azure Active Directory (Azure AD) en la instancia en la nube de Microsoft 365 Government, que es aplicable a los clientes que usan los siguientes servicios:
 
 - Microsoft Azure Government
 
 - Microsoft 365 Government – GCC High
 
-- Microsoft 365 – DoD del gobierno de
+- Microsoft 365 Government – DoD
 
-En este artículo no se aplica a Microsoft 365 Government: los clientes GCC.
+Este artículo no se aplica a los clientes de Microsoft 365 Government – GCC.
 
 ## <a name="changes-to-the-initial-domain-name"></a>Cambios realizados en el nombre de dominio inicial
 
-Durante la suscripción para un servicio en línea de Microsoft 365 Government la inicial de su organización, se le pidió que elija el nombre de dominio de su organización, `<your-domain-name>.onmicrosoft.com`. Si ya tiene un nombre de dominio con el sufijo .com, nada cambiará.
+Durante la suscripción inicial de su organización a un servicio en línea de Microsoft 365 Government, se le pidió que eligiera el nombre de dominio de su organización, `<your-domain-name>.onmicrosoft.com`. Si ya tiene un nombre de dominio con el sufijo .com, nada cambiará.
 
-Sin embargo, si es registrarse para un nuevo servicio de Microsoft 365 Government, le pedirá que elija un nombre de dominio mediante la `.us` sufijo. Por lo tanto, será `<your-domain-name>.onmicrosoft.us`.
+Sin embargo, si está registrándose para un nuevo servicio de Microsoft 365 Government, le pedirá que elija un nombre de dominio con el sufijo `.us`. Por lo tanto, será `<your-domain-name>.onmicrosoft.us`.
 
 >[!Note]
->Este cambio no se aplica a todos los clientes que están administrados por proveedores de servicios en la nube (CSP).
+>Este cambio no se aplica a todos los clientes que están administrados por los proveedores de servicios en la nube (CSP).
 
 ## <a name="changes-to-portal-access"></a>Cambios realizados en el acceso al portal
 
-Hemos actualizado los extremos del portal de Microsoft Azure Government, Microsoft 365 Government – GCC High y Microsoft 365 Government – DoD, como se muestra en el [tabla de asignación de punto de conexión](#endpoint-mapping).
+Hemos actualizado los puntos de conexión del portal de Microsoft Azure Government, Microsoft 365 Government – GCC High y Microsoft 365 Government – DoD, como se muestra en la [tabla de asignación de puntos de conexión](#endpoint-mapping).
 
-Previamente los clientes podrían iniciar sesión con el portal (portal.azure.com) de Azure en todo el mundo y portal de Office 365 (portal.office.com). Con esta actualización, los clientes ahora deben iniciar sesión con el Microsoft Azure Government, Microsoft 365 Government - GCC High y Microsoft 365 Government - portales de DoD específicos.
+Antes, los clientes podían iniciar sesión en cualquier parte del mundo con el portal de Azure (portal.azure.com) y con el portal de Office 365 (portal.office.com). Con esta actualización, ahora los clientes deben iniciar sesión con los portales específicos de Microsoft Azure Government, Microsoft 365 Government - GCC High y Microsoft 365 Government - DoD.
 
 ## <a name="endpoint-mapping"></a>Asignación de puntos de conexión
 
-La siguiente tabla muestra los puntos de conexión para todos los clientes:
+En la siguiente tabla se muestran los puntos de conexión para todos los clientes:
 
 | NOMBRE | Detalles del punto de conexión |
 |------|------------------|
-| Portales |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 Government – GCC alta: https://portal.office365.us<p>Microsoft 365 – DoD del gobierno: https://portal.apps.mil |
-| Extremo de la autoridad de Azure Active Directory | https://login.microsoftonline.us |
+| Portales |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 Government – GCC High: https://portal.office365.us<p>Microsoft 365 Government – DoD: https://portal.apps.mil |
+| Punto de conexión de Azure Active Directory Authority | https://login.microsoftonline.us |
 | Graph API de Azure Active Directory | https://graph.windows.net |
-| Microsoft Graph API de Microsoft 365 Government - GCC High | https://graph.microsoft.us |
-| Microsoft Graph API de Microsoft 365 Government - DoD | https://dod-graph.microsoft.us |
-| Los puntos de conexión de servicios de Azure Government | Para obtener más información, consulte [Guía del desarrollador de Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Microsoft 365 Government - puntos de conexión de GCC High | Para obtener más información, consulte [Office 365 EE. UU. Puntos de conexión de GCC High de gobierno](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
-| Microsoft 365 Government - DoD | Para obtener más información, consulte [Office 365 EE. UU. Extremos de DoD del gobierno](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
+| Microsoft Graph API para Microsoft 365 Government - GCC High | https://graph.microsoft.us |
+| Microsoft Graph API para Microsoft 365 Government - DoD | https://dod-graph.microsoft.us |
+| Puntos de conexión de servicio de Azure Government | Para obtener más información, vea [Guía para desarrolladores de Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
+| Puntos de conexión de Microsoft 365 Government - GCC High | Para obtener más información, consulte [Office 365 U.S. Government GCC High endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) (Puntos de conexión de Office 365 U.S. Government GCC High) |
+| Microsoft 365 Government - DoD | Para obtener más información, consulte [Office 365 U.S. Government DoD endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) (Puntos de conexión de Office 365 U.S. Government DoD) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -68,7 +68,7 @@ Para obtener más información, consulte estos artículos:
 
 - [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 
-- [Actualización de punto de conexión de Azure Government AAD autoridad](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
+- [Azure Government AAD Authority Endpoint Update](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/) (Actualización del punto de conexión de la entidad de AAD de Azure Government)
 
 - [Puntos de conexión de Microsoft Graph en la nube del gobierno de Estados Unidos](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 

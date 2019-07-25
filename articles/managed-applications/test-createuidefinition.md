@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/26/2019
 ms.author: tomfitz
 ms.openlocfilehash: 99ca319910be2cb20214172826eb40361abe72f0
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257669"
 ---
-# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Probar la interfaz del portal de Azure Managed Applications
+# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Prueba de la interfaz de su portal para Azure Managed Applications
 
-Después de [crear el archivo createUiDefinition.json](create-uidefinition-overview.md) de la aplicación administrada, debe probar la experiencia del usuario. Para simplificar las pruebas, use un entorno de recinto de seguridad que se carga el archivo en el portal. No es necesario implementar la aplicación administrada. El espacio aislado presenta la interfaz de usuario en la experiencia del portal actual, pantalla completa. O bien, puede usar un script de PowerShell para probar la interfaz, pero utiliza una vista del portal heredada. En este artículo se muestran ambos enfoques. El recinto de seguridad es la manera recomendada para obtener una vista previa de la interfaz.
+Después de [crear el archivo createUiDefinition.json](create-uidefinition-overview.md) para la aplicación administrada, debe probar la experiencia del usuario. Para simplificar las pruebas, use un entorno de espacio aislado que cargue el archivo en el portal. No es necesario implementar la aplicación administrada. El espacio aislado presenta la interfaz de usuario en la experiencia del portal actual y en pantalla completa. O bien, puede usar un script de PowerShell para probar la interfaz, pero usa una vista del portal heredada. En este artículo se muestran ambos enfoques. El espacio aislado es la manera recomendada de obtener una vista previa de la interfaz.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -23,31 +23,31 @@ Después de [crear el archivo createUiDefinition.json](create-uidefinition-overv
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="use-sandbox"></a>Uso de espacio aislado
+## <a name="use-sandbox"></a>Uso de un espacio aislado
 
-1. Abra el [crear espacio aislado de definición de interfaz de usuario](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
+1. Abra el [espacio aislado de Crear definición de UI](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
 
    ![Mostrar espacio aislado](./media/test-createuidefinition/show-sandbox.png)
 
-1. Reemplace la definición vacía con el contenido del archivo createUiDefinition.json. Seleccione **Preview**.
+1. Reemplace la definición vacía con el contenido del archivo createUiDefinition.json. Seleccione **Vista previa**.
 
-   ![Seleccione Vista previa](./media/test-createuidefinition/select-preview.png)
+   ![Selección de vista previa](./media/test-createuidefinition/select-preview.png)
 
-1. Se muestra el formulario creado. Puede recorrer la experiencia del usuario y rellene los valores.
+1. Se muestra el formulario creado. Puede recorrer la experiencia del usuario y rellenar los valores.
 
    ![Mostrar formulario](./media/test-createuidefinition/show-ui-form.png)
 
 ### <a name="troubleshooting"></a>solución de problemas
 
-Si no se muestra el formulario después de seleccionar **Preview**, puede tener un error de sintaxis. Busque el indicador rojo en la barra de desplazamiento a la derecha y navegar hasta él.
+Si no se muestra el formulario después de seleccionar **Versión preliminar**, es posible que haya un error de sintaxis. Busque el indicador rojo en la barra de desplazamiento a la derecha y navegue hasta él.
 
-![Mostrar error de sintaxis](./media/test-createuidefinition/show-syntax-error.png)
+![Mostrar errores de sintaxis](./media/test-createuidefinition/show-syntax-error.png)
 
-Si no se muestra el formulario y, en su lugar, verá un icono de una nube con la colocación de anulación, el formulario tiene un error, como una propiedad que falta. Abra las herramientas de desarrollo Web en el explorador. La **consola** muestra mensajes importantes sobre la interfaz.
+Si no se muestra el formulario y, en su lugar, ve un icono de una nube con una gota, esto significa que el formulario tiene un error, como una propiedad que falta. Abra Web Developer Tools en el explorador. La **consola** muestra mensajes importantes sobre la interfaz.
 
 ![Mostrar error](./media/test-createuidefinition/show-error.png)
 
-## <a name="use-test-script"></a>Usar script de prueba
+## <a name="use-test-script"></a>Uso del script de prueba
 
 Para probar la interfaz en el portal, copie uno de los siguientes scripts en la máquina local:
 
@@ -98,7 +98,7 @@ Proporcione los valores para los campos. Cuando termine, verá los valores que s
 
 Puede utilizar estos valores como el archivo de parámetros para probar la plantilla de implementación.
 
-Si el portal se bloquea en la pantalla de resumen, podría haber un error en la sección de salida. Por ejemplo, puede que haya hecho referencia un control que no existe. Si un parámetro en la salida está vacío, el parámetro es posible que se hace referencia a una propiedad que no existe. Por ejemplo, la referencia al control es válida, pero la referencia de propiedad no es válida.
+Si el portal se bloquea en la pantalla de resumen, es posible que haya un error en la sección de salida. Por ejemplo, puede que haya hecho referencia un control que no existe. Si el parámetro en la salida está vacío, puede que dicho parámetro haya hecho referencia a una propiedad que no existe. Por ejemplo, la referencia al control es válida, pero la referencia de propiedad no es válida.
 
 ## <a name="test-your-solution-files"></a>Prueba de los archivos de la solución
 

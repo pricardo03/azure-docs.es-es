@@ -12,10 +12,10 @@ author: shivp950
 ms.date: 05/10/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7f0806a1d68cd2cede1ae51f0a50a8125c1e7c8b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66016531"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Creación y administración de áreas de trabajo del servicio Azure Machine Learning
@@ -28,15 +28,15 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="view"></a>Ver un área de trabajo
+## <a name="view"></a>Vista de un área de trabajo
 
 1. En la esquina superior izquierda del portal, seleccione **Todos los servicios**.
 
-1. En el **todos los servicios** campo de filtro, escriba **service de aprendizaje automático**.  
+1. En el campo de filtro **Todos los servicios**, escriba **servicio Machine Learning**.  
 
-1. Seleccione **las áreas de trabajo del servicio de Machine Learning**.
+1. Seleccione **Áreas de trabajo del servicio Machine Learning**.
 
-   ![Busque el área de trabajo de servicio de Azure Machine Learning](media/how-to-manage-workspace/all-services.png)
+   ![Búsqueda del área de trabajo de Azure Machine Learning Service](media/how-to-manage-workspace/all-services.png)
 
 1. Examine la lista de áreas de trabajo encontradas. Puede filtrar en función de suscripción, grupos de recursos y ubicaciones.  
 

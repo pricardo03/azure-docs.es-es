@@ -3,15 +3,15 @@ title: 'Script de Azure PowerShell: Operaciones de lista y obtención para Cassa
 description: 'Script de Azure PowerShell: Operaciones de lista y obtención para Cassandra API en Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e275f0e1ca90a1d9385784bebcef9c70ffe6cdcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f426afee2ab5635cf29ee5a48a6e11e1f6d10f4e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247265"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604011"
 ---
 # <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Enumerar y obtener espacios de claves y tablas de Azure Cosmos DB: Cassandra API
 

@@ -7,23 +7,23 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.openlocfilehash: 633d0f619132ee93951cfe0dc329a7514a38ef57
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240735"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: Introducción
+# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
 
-Azure Cosmos DB es una base de datos independiente del esquema que le permite realizar una iteración en la aplicación sin tener que tratar con la administración de esquemas o índices. De forma predeterminada, Azure Cosmos DB indexa automáticamente todas las propiedades para todos los elementos de su [contenedor](databases-containers-items.md#azure-cosmos-containers) sin tener que definir ningún esquema ni configurar índices secundarios.
+Azure Cosmos DB es una base de datos independiente del esquema que le permite iterar en la aplicación sin tener que tratar con la administración de esquemas o índices. De forma predeterminada, Azure Cosmos DB indexa automáticamente todas las propiedades de todos los elementos de su [contenedor](databases-containers-items.md#azure-cosmos-containers) sin tener que definir ningún esquema ni configurar índices secundarios.
 
-El objetivo de este artículo es explicar cómo Azure Cosmos DB indexa datos y cómo utiliza los índices para mejorar el rendimiento de las consultas. Se recomienda para ir a través de esta sección antes de explorar cómo personalizar [directivas de indexación](index-policy.md).
+El objetivo de este artículo es explicar cómo Azure Cosmos DB indexa datos y cómo usa índices para mejorar el rendimiento de las consultas. Se recomienda revisar esta sección antes de explorar cómo personalizar las [directivas de indexación](index-policy.md).
 
-## <a name="from-items-to-trees"></a>De árboles de artículos
+## <a name="from-items-to-trees"></a>De elementos a árboles
 
-Cada vez que un elemento se almacena en un contenedor, su contenido se puede proyectar como un documento JSON y luego se convierte en una representación de árbol. Eso significa que todas las propiedades de ese elemento se representan como un nodo en un árbol. Se crea un nodo raíz de pseudo como primario de todas las propiedades de primer nivel del elemento. Los nodos hoja contienen los valores escalares reales pertenecientes a un elemento.
+Cada vez que un elemento se almacena en un contenedor, su contenido se proyecta como un documento JSON y luego se convierte en una representación de árbol. Eso significa que todas las propiedades de ese elemento se representan como nodos de un árbol. Para todas las propiedades de primer nivel del elemento, se crea un pseudonodo raíz como elemento primario. Los nodos hoja contienen los valores escalares reales pertenecientes a un elemento.
 
-Por ejemplo, considere la posibilidad de este elemento:
+Por ejemplo, considere este elemento:
 
     {
         "locations": [
@@ -37,17 +37,17 @@ Por ejemplo, considere la posibilidad de este elemento:
         ]
     }
 
-Se podrían estar representado por el árbol de la siguiente:
+Se podría representar mediante el árbol siguiente:
 
 ![El elemento anterior representado como un árbol](./media/index-overview/item-as-tree.png)
 
-Tenga en cuenta cómo se codifican las matrices en el árbol: cada entrada en una matriz Obtiene un nodo intermedio con la etiqueta con el índice de esa entrada dentro de la matriz (0, 1 etcetera.).
+Observe cómo se codifican las matrices en el árbol: cada entrada de una matriz obtiene un nodo intermedio etiquetado con el índice de esa entrada dentro de la matriz (0, 1, etc.).
 
-## <a name="from-trees-to-property-paths"></a>De árboles a rutas de acceso de propiedad
+## <a name="from-trees-to-property-paths"></a>De árboles a rutas de acceso de propiedades
 
-El motivo por qué Azure Cosmos DB transforma los elementos en árboles es porque permite que las propiedades hacer referencia a sus rutas de acceso dentro de esos árboles. Para obtener la ruta de acceso para una propiedad, podemos recorrer el árbol desde el nodo raíz a esa propiedad y concatenar las etiquetas de cada nodo del recorrido.
+El motivo por el que Azure Cosmos DB transforma los elementos en árboles es porque permite hacer referencia a las propiedades mediante sus rutas de acceso dentro de esos árboles. Para obtener la ruta de acceso de una propiedad, podemos recorrer el árbol desde el nodo raíz hasta esa propiedad y concatenar las etiquetas de cada nodo recorrido.
 
-Estas son las rutas de acceso para cada propiedad del elemento de ejemplo que se ha descrito anteriormente:
+Estas son las rutas de acceso de cada propiedad del elemento de ejemplo descrito anteriormente:
 
     /locations/0/country: "Germany"
     /locations/0/city: "Berlin"
@@ -58,60 +58,60 @@ Estas son las rutas de acceso para cada propiedad del elemento de ejemplo que se
     /exports/0/city: "Moscow"
     /exports/1/city: "Athens"
 
-Cuando se escribe un elemento, Azure Cosmos DB indexa eficazmente ruta de acceso de cada propiedad y su valor correspondiente.
+Cuando se escribe un elemento, Azure Cosmos DB indexa eficazmente la ruta de acceso de cada propiedad y su valor correspondiente.
 
-## <a name="index-kinds"></a>Tipos de índice
+## <a name="index-kinds"></a>Tipos de índices
 
 Actualmente, Azure Cosmos DB admite dos tipos de índices:
 
-El **intervalo** variante de índice se utiliza para:
+El tipo de índice de **rango** se usa con:
 
-- consultas de igualdad: 
+- Consultas de igualdad: 
 
    ```sql SELECT * FROM container c WHERE c.property = 'value'```
 
 - Consultas por rango: 
 
-   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (funciona para `>`, `<`, `>=`, `<=`, `!=`)
+   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (funciona con `>`, `<`, `>=`, `<=`, `!=`)
 
-- `ORDER BY` consultas:
+- Consultas `ORDER BY`:
 
    ```sql SELECT * FROM container c ORDER BY c.property```
 
-- `JOIN` consultas: 
+- Consultas `JOIN`: 
 
    ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
 
-Los índices de intervalo se pueden usar en valores escalares (cadena o número).
+Los índices de rango se pueden usar en valores escalares (cadena o número).
 
-El **espacial** variante de índice se utiliza para:
+El tipo de índice **espacial** se usa con:
 
-- consultas de distancia geoespaciales: 
+- Consultas de distancia geoespaciales: 
 
    ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
 
-- geoespacial dentro de consultas: 
+- Información geoespacial dentro de consultas: 
 
    ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
 
-Los índices espaciales pueden usarse en el formato correcto [GeoJSON](geospatial.md) objetos. Actualmente se admiten puntos, LineStrings y polígonos.
+Los índices espaciales pueden usarse en objetos [GeoJSON](geospatial.md) con un formato correcto. Actualmente se admiten puntos, LineStrings y polígonos.
 
-El **compuesto** variante de índice se utiliza para:
+El tipo de índice **compuesto** se usa con:
 
-- `ORDER BY` consultas en varias propiedades: 
+- Consultas `ORDER BY` en varias propiedades: 
 
    ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
 
 ## <a name="querying-with-indexes"></a>Consultas con índices
 
-Las rutas de acceso extraídos al indizar datos facilitan la tarea buscar el índice al procesar una consulta. Comparando la `WHERE` cláusula de una consulta con la lista de rutas de acceso indizadas, es posible identificar los elementos que coinciden con el predicado de consulta muy rápidamente.
+Las rutas de acceso extraídas al indexar datos facilitan la tarea de buscar el índice al procesar una consulta. Al comparar la cláusula `WHERE` de una consulta con la lista de rutas de acceso indexadas, es posible identificar rápidamente los elementos que coinciden con el predicado de consulta.
 
-Por ejemplo, considere la siguiente consulta: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. El predicado de consulta (filtrado de elementos, donde cualquier ubicación tiene "Francia" como su país) coincidiría con la ruta de acceso que se resaltan en rojo a continuación:
+Por ejemplo, considere la consulta siguiente: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. El predicado de consulta (filtrado por elementos, donde cualquier ubicación tiene "France" como su país) coincidiría con la ruta de acceso resaltada en rojo a continuación:
 
-![Coincidencia de una ruta de acceso específica dentro de un árbol](./media/index-overview/matching-path.png)
+![Coincidencia con una ruta de acceso específica dentro de un árbol](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Un `ORDER BY` cláusula que se ordena por una sola propiedad *siempre* necesita un rango de índice y se producirá un error si no tiene la ruta de acceso hace referencia a uno. De forma similar, una con varias `ORDER BY` consulta *siempre* necesita un índice compuesto.
+> Una cláusula `ORDER BY` que ordena por una sola propiedad *siempre* necesita un índice de rango y dará error si la ruta de acceso a la que hace referencia no tiene uno. De forma similar, una consulta con varias cláusulas `ORDER BY`*siempre* necesita un índice compuesto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

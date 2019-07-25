@@ -1,6 +1,6 @@
 ---
 title: 'Configuración de ExpressRoute Direct: Azure | Microsoft Docs'
-description: Esta página le ayuda a configurar ExpressRoute Direct.
+description: En esta página aprenderá a configurar ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964250"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Cómo configurar ExpressRoute Direct
@@ -224,11 +224,11 @@ ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red
 
 De forma predeterminada, puede crear 10 circuitos en la suscripción donde se encuentra el recurso ExpressRoute Direct. Si desea aumentar este número, puede ponerse en contacto con el soporte técnico. Recuerde que debe realizar usted mismo el seguimiento tanto del ancho de banda aprovisionado como el del utilizado. El ancho de banda aprovisionado es la suma del ancho de banda de todos los circuitos en el recurso ExpressRoute Direct, y el ancho de banda utilizado corresponde al uso físico de las interfaces físicas subyacentes.
 
-Asimismo, existen anchos de banda de circuito adicionales que se pueden utilizar en ExpressRoute Direct solo para admitir los escenarios descritos anteriormente. Estos son: 40 Gbps y 100 Gbps.
+Asimismo, existen anchos de banda de circuito adicionales que se pueden utilizar en ExpressRoute Direct solo para admitir los escenarios descritos anteriormente. Dichos componentes son: 40 Gbps y 100 Gbps.
 
-**SkuTier** puede ser Local, estándar o Premium.
+**SkuTier** puede ser Local, Estándar o Premium.
 
-**SkuFamily** debe ser MeteredData solo como ilimitado no es compatible con ExpressRoute Direct.
+**SkuFamily** deben ser datos limitados solo, ya los ilimitados no son compatibles con ExpressRoute Direct.
 
 Cree un circuito en el recurso ExpressRoute Direct.
 

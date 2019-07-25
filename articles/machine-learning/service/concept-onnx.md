@@ -1,7 +1,7 @@
 ---
-title: Alto rendimiento, entre la inferencia de plataforma con ONNX
+title: Alto rendimiento, inferencia entre plataformas con ONNX
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre ONNX y el tiempo de ejecución ONNX para acelerar los modelos
+description: Obtenga información sobre ONNX y ONNX Runtime para acelerar modelos
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,45 +12,45 @@ author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65849726"
 ---
-# <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX y Azure Machine Learning: Crear y acelerar los modelos de aprendizaje automático
+# <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX y Azure Machine Learning: Crear y acelerar modelos de ML
 
-Obtenga información sobre cómo usar el [intercambio de red neuronal abierta](https://onnx.ai) (ONNX) puede ayudar a optimizar la inferencia de su modelo de aprendizaje automático. Inferencia o modelo de puntuación, es la fase donde se usa el modelo implementado para la predicción, con más frecuencia en los datos de producción. 
+Aprenda a usar [Open Neural Network Exchange](https://onnx.ai) (ONNX) y optimice la inferencia de su modelo de Machine Learning. Inferencia o modelo de puntuación, es la fase donde se usa el modelo implementado para la predicción, frecuentemente en datos de producción. 
 
-Optimizar modelos de machine learning para inferencia (o modelo de puntuación) es difícil, ya que necesita optimizar el modelo y la biblioteca de inferencia para aprovechar al máximo las capacidades de hardware. El problema se vuelve extremadamente difícil si desea obtener un rendimiento óptimo en diferentes tipos de plataformas (en la nube o edge, CPU/GPU, etc.), puesto que cada uno tenga características y capacidades diferentes. La complejidad aumenta si tiene modelos desde una variedad de marcos de trabajo que se debe ejecutar en una variedad de plataformas. Es muy lento para optimizar las distintas combinaciones de marcos de trabajo y hardware. Se necesita una solución para entrenar una vez en su marco preferido y ejecutar en cualquier lugar en la nube o perimetral. Esto es donde entra en juego ONNX.
+La optimización de los modelos de Machine Learning para la inferencia (o puntuación del modelo) es difícil, ya que necesita ajustar el modelo y la biblioteca de inferencia para aprovechar al máximo las capacidades del hardware. El problema se vuelve extremadamente difícil si quiere obtener un rendimiento óptimo en diferentes tipos de plataformas (nube/edge, CPU/GPU, etc.), ya que cada una tiene diferentes capacidades y características. La complejidad aumenta si tiene modelos de una variedad de marcos que necesitan ejecutarse en ciertas plataformas. Se necesita mucho tiempo para optimizar todas las combinaciones diferentes de marcos y hardware. Igualmente, se necesita una solución para entrenar una vez en su marco preferido y ejecutarlo en cualquier lugar de la nube o Edge. Aquí es donde ONNX entra en juego.
 
-Microsoft y una comunidad de asociados crean ONNX como un estándar abierto para representar modelos de aprendizaje automático. Modelos de [muchos marcos](https://onnx.ai/supported-tools) incluidos TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet y MATLAB pueden exportar o convertir al formato ONNX estándar. Una vez que los modelos tienen el formato ONNX, se puede ejecutar en una variedad de plataformas y dispositivos.
+Microsoft y una comunidad de asociados crearon ONNX como un estándar abierto para representar modelos de Machine Learning. Los modelos de [varios marcos](https://onnx.ai/supported-tools), incluidos TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet y MATLAB se pueden exportar o convertir al formato ONNX estándar. Una vez que los modelos están en el formato ONNX, se pueden ejecutar en varias plataformas y dispositivos.
 
-[En tiempo de ejecución ONNX](https://github.com/Microsoft/onnxruntime) es un motor de inferencia de alto rendimiento para la implementación de modelos ONNX a producción. Se está optimizado para la nube y perimetrales y funciona en Linux, Windows y Mac. Escrito en C++, también tiene C, Python, y C# API. En tiempo de ejecución ONNX proporciona soporte técnico para todos los de la especificación ONNX ML y también se integra con los aceleradores en un hardware diferente como TensorRT en GPU de NVidia.
+[ONNX Runtime](https://github.com/Microsoft/onnxruntime) es un motor de inferencia de alto rendimiento que sirve para implementar modelos ONNX en la producción. Está optimizado tanto para la nube como para Edge y funciona en Linux, Windows y Mac. Escrito en C++, también tiene API de C, Python y C#. Asimismo, ONNX Runtime proporciona soporte técnico para todas las especificaciones de ONNX-ML y también se integra con aceleradores en hardware diferente, como TensorRT en GPU NVidia.
 
-El tiempo de ejecución ONNX se usa en servicios de Microsoft de gran escala, como Bing, Office y Cognitive Services. Mejoras de rendimiento dependen de una serie de factores, pero estos servicios de Microsoft han visto un __promedio de 2 x ganancia de rendimiento de CPU__. También se utiliza en tiempo de ejecución ONNX como parte del aprendizaje automático de Windows en cientos de millones de dispositivos. Puede usar el tiempo de ejecución con los servicios de Azure Machine Learning. Mediante el uso de ONNX en tiempo de ejecución, puede beneficiarse de las optimizaciones amplias de producción, mejoras de pruebas y en curso.
+ONNX Runtime se usa en servicios de Microsoft a gran escala, como Bing, Office y Cognitive Services. Las mejoras en el rendimiento dependen de una serie de factores, pero estos servicios de Microsoft han __mejorado el doble el rendimiento de la CPU__. ONNX Runtime también se usa como parte de Windows ML en cientos de millones de dispositivos. Puede usar el tiempo de ejecución con los servicios de Azure Machine Learning. Al utilizar ONNX Runtime, puede beneficiarse de las amplias optimizaciones, pruebas y mejoras de producción.
 
-[![Diagrama de flujo ONNX que muestra el entrenamiento, los convertidores de tipos y la implementación](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
+[![Diagrama de flujo de ONNX que muestra el entrenamiento, los convertidores y la implementación](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Obtención de modelos de ONNX
 
 Puede obtener modelos de ONNX de varias maneras:
-+ Entrenar un modelo ONNX nuevo en el servicio de Azure Machine Learning (vea los ejemplos en la parte inferior de este artículo)
-+ Convertir el modelo existente de otro formato a ONNX (consulte la [tutoriales](https://github.com/onnx/tutorials)) 
-+ Obtener un modelo previamente entrenado de ONNX desde el [Zoo de modelo ONNX](https://github.com/onnx/models) (vea los ejemplos en la parte inferior de este artículo)
++ Entrene un nuevo modelo de ONNX en Azure Machine Learning Service (consulte el ejemplo al final de este artículo).
++ Convierta el modelo existente de otro formato a ONNX (consulte los [tutoriales](https://github.com/onnx/tutorials)). 
++ Obtenga un modelo previamente entrenado de ONNX desde [ONNX Model Zoo](https://github.com/onnx/models) (consulte el ejemplo al final de este artículo).
 + Genere un modelo de ONNX personalizado desde [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/). 
 
-Muchos modelos, incluida la clasificación de imágenes, detección de objetos y el procesamiento de texto pueden representarse como modelos ONNX. Sin embargo es posible que algunos modelos no pueda convertirse correctamente. Si experimenta esta situación, registre un problema en GitHub del convertidor correspondiente que ha usado. Puede seguir usando el modelo de formato existente hasta que se solucione el problema.
+Muchos modelos, incluidos la clasificación de imágenes, la detección de objetos y el procesamiento de texto, se pueden representar como modelos de ONNX. Sin embargo, es posible que algunos modelos no puedan convertirse correctamente. Si se encuentra en esta situación, registre un problema en GitHub acerca del convertidor que usó. Puede continuar usando su modelo de formato existente hasta que se resuelva el problema.
 
 ## <a name="deploy-onnx-models-in-azure"></a>Implementación de modelos de ONNX en Azure
 
-Con el servicio Azure Machine Learning, puede implementar, administrar y supervisar sus modelos de ONNX. Mediante el [flujo de trabajo de implementación](concept-model-management-and-deployment.md) estándar y ONNX Runtime, puede crear un punto de conexión REST hospedado en la nube. Consulte cuadernos de Jupyter de ejemplo al final de este artículo para probarlo usted mismo. 
+Con el servicio Azure Machine Learning, puede implementar, administrar y supervisar sus modelos de ONNX. Mediante el [flujo de trabajo de implementación](concept-model-management-and-deployment.md) estándar y ONNX Runtime, puede crear un punto de conexión REST hospedado en la nube. Vea un ejemplo de un cuaderno de Jupyter Notebook al final de este artículo para probarlo usted mismo. 
 
-### <a name="install-and-use-onnx-runtime-with-python"></a>Instalar y usar en tiempo de ejecución ONNX con Python
+### <a name="install-and-use-onnx-runtime-with-python"></a>Instalar y usar ONNX Runtime con Python
 
-Están disponibles en paquetes de Python para el tiempo de ejecución ONNX [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)). Lea [requisitos del sistema](https://github.com/Microsoft/onnxruntime#system-requirements) antes de la instalación. 
+Los paquetes de Python para ONNX Runtime están disponibles en [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)). Lea los [requisitos del sistema](https://github.com/Microsoft/onnxruntime#system-requirements) antes de la instalación. 
 
- Para instalar ONNX en tiempo de ejecución para Python, use uno de los siguientes comandos: 
+ Para instalar ONNX Runtime para Python, use uno de los siguientes comandos: 
 ```python   
 pip install onnxruntime       # CPU build
 pip install onnxruntime-gpu   # GPU build

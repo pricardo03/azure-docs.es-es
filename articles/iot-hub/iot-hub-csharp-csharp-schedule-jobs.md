@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: robinsh
 ms.openlocfilehash: f21f1eed6babee52f30c6eccc79f88dc7bee5d58
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864478"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Programación y difusión de trabajos (.NET/.NET)
@@ -29,9 +29,9 @@ Los trabajos contienen una de estas acciones y realizan el seguimiento de la eje
 
 Para más información sobre estas funcionalidades, vea:
 
-* Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-csharp-csharp-twin-getstarted.md) y [Tutorial: Cómo usar las propiedades del dispositivo gemelo](tutorial-device-twins.md)
+* Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-csharp-csharp-twin-getstarted.md) y [Tutorial: uso de las propiedades de dispositivos gemelos](tutorial-device-twins.md)
 
-* Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: Uso de métodos directos](quickstart-control-device-dotnet.md)
+* Métodos directos: [Guía para desarrolladores de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: Uso de métodos directos](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -72,7 +72,7 @@ En esta sección, creará una aplicación de consola de .NET que responderá a u
    
     ![Nueva aplicación para dispositivo de Windows clásico de Visual C#](./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png)
     
-2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **SimulateDeviceMethods** y luego haga clic en **Administrar paquetes NuGet...**.
+2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **SimulateDeviceMethods** y luego haga clic en **Administrar paquetes NuGet...** .
 
 3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar** y busque **Microsoft.Azure.Devices.Client**. Seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices.Client** y acepte las condiciones de uso. Este procedimiento descarga, instala y agrega una referencia al paquete NuGet del [SDK de dispositivo IoT de Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) y sus dependencias.
    
@@ -159,7 +159,7 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que u
 
     ![Nuevo proyecto de escritorio clásico de Windows de Visual C#](./media/iot-hub-csharp-csharp-schedule-jobs/createnetapp.png)
 
-2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ScheduleJob** y luego haga clic en **Administrar paquetes NuGet...**.
+2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ScheduleJob** y luego haga clic en **Administrar paquetes NuGet...** .
 
 3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar**, busque **Microsoft.Azure.Devices**, seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso. Este paso permite descargar, instalar y agregar una referencia al paquete NuGet del [SDK de servicio IoT de Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices/) y sus dependencias.
 
@@ -291,6 +291,6 @@ Ya está preparado para ejecutar las aplicaciones.
 
 En este tutorial, ha utilizado un trabajo para programar un método directo para un dispositivo y la actualización de las propiedades del dispositivo gemelo.
 
-Para continuar la introducción a IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, leer [Tutorial: Cómo realizar una actualización de firmware](tutorial-firmware-update.md).
+Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos, como la actualización de firmware remota de forma inalámbrica, consulte [Tutorial: cómo realizar una actualización de firmware](tutorial-firmware-update.md).
 
 Para más información sobre cómo implementar AI en dispositivos perimetrales con Azure IoT Edge, consulte [Introducción a IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

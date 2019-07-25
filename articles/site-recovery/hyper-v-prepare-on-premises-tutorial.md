@@ -9,26 +9,26 @@ ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: aec5632b5ea29d52426c5d065ca41e18573fd5b9
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399385"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparación de servidores de Hyper-V locales para la recuperación ante desastres en Azure
 
-En este artículo se describe cómo preparar la infraestructura de Hyper-V local cuando desea configurar la recuperación ante desastres de máquinas virtuales Hyper-a Azure, mediante [Azure Site Recovery](site-recovery-overview.md).
+En este artículo se describe cómo debe preparar la infraestructura de Hyper-V local cuando quiere configurar la recuperación ante desastres de máquinas virtuales de Hyper-V en Azure, mediante [Azure Site Recovery](site-recovery-overview.md).
 
 
-Este es el segundo tutorial de una serie que se muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V locales. En el primer tutorial, nos [configurar los componentes de Azure](tutorial-prepare-azure.md) necesarias para la recuperación ante desastres de Hyper-V.
+Este es el segundo tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de Hyper-V. En el primer tutorial, [configuramos los componentes de Azure](tutorial-prepare-azure.md) necesarios para la recuperación ante desastres de Hyper-V.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Revise los requisitos de Hyper-V y los requisitos de VMM si los hosts de Hyper-V administrados por System Center VMM.
+> * Revisar los requisitos de Hyper-V y los de VMM si System Center VMM administra los hosts de Hyper-V.
 > * Preparar VMM si corresponde.
-> * Compruebe el acceso a internet para las ubicaciones de Azure.
-> * Preparar las máquinas virtuales de modo que puede tener acceso a ellas después de la conmutación por error a Azure.
+> * Verificar el acceso a través de Internet a las ubicaciones de Azure.
+> * Preparar las máquinas virtuales para que pueda acceder a ellas después de realizar la conmutación por error en Azure.
 
 > [!NOTE]
 > Los tutoriales muestran la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para obtener instrucciones detalladas, consulte el artículo de la sección de procedimientos de la tabla de contenido de Site Recovery.

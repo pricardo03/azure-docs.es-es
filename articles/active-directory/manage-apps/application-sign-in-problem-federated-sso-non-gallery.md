@@ -17,22 +17,22 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825438"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación que no es de la galería configurada para inicio de sesión único federado
 
 Para solucionar los problemas de inicio de sesión, se recomienda que siga estas sugerencias para obtener un mejor diagnóstico y automatizar los pasos de resolución:
 
-- Instalar el [extensión de explorador seguro de mis aplicaciones](access-panel-extension-problem-installing.md) para ayudar a Azure Active Directory (Azure AD) para proporcionar un mejor diagnóstico y resoluciones al usar las pruebas de experimentan en el portal de Azure.
-- Reproducir el error mediante la experiencia de prueba en la página de configuración de la aplicación en Azure portal. Obtenga más información en [basado en SAML depurar únicas inicio de sesión en aplicaciones](../develop/howto-v1-debug-saml-sso-issues.md)
+- Instale la [extensión del explorador seguro de Mis aplicaciones](access-panel-extension-problem-installing.md) para ayudar a Azure Active Directory (Azure AD) a proporcionar mejores diagnósticos y resoluciones al usar la experiencia de pruebas en Azure Portal.
+- Reproduzca el error mediante la experiencia de pruebas en la página de configuración de aplicaciones en Azure Portal. Obtenga más información en [Depuración del inicio de sesión único basado en SAML en aplicaciones](../develop/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="application-not-found-in-directory"></a>No se encontró la aplicación en el directorio
 
-*Error AADSTS70001: Aplicación con el identificador `https://contoso.com` no se encontró en el directorio*.
+*Error AADSTS70001: No se encontró la aplicación con el identificador `https://contoso.com` en el directorio* .
 
 **Causa posible**
 
@@ -40,7 +40,7 @@ El atributo Issuer que se envía de la aplicación a Azure AD en la solicitud SA
 
 **Resolución**
 
-Asegúrese de que el `Issuer` atributo en la solicitud SAML coincide con el valor de identificador configurado en Azure AD. Si usas el [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en el portal de Azure con la extensión de explorador seguro de aplicaciones de mi, no deberá manualmente, siga estos pasos.
+Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente.
 
 1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
@@ -58,11 +58,11 @@ Asegúrese de que el `Issuer` atributo en la solicitud SAML coincide con el valo
 
 7. Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
-8. Cuando se carga la aplicación, abra **Configuración básica de SAML**. Compruebe que el valor en el cuadro de texto identificador coincide con el valor para el valor del identificador mostrado en el error.
+8. Cuando se carga la aplicación, abra **Configuración básica de SAML**. Compruebe que el valor del cuadro de texto Identificador coincide con el valor del identificador mostrado en el error.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>La dirección de respuesta no coincide con las direcciones de respuesta configuradas para la aplicación. 
 
-*Error AADSTS50011: La dirección de respuesta `https://contoso.com` no coincide con las direcciones de respuesta configuradas para la aplicación* 
+*Error AADSTS50011: La dirección de respuesta `https://contoso.com` no coincide con las direcciones de respuesta configuradas para la aplicación*. 
 
 **Causa posible** 
 
@@ -70,7 +70,7 @@ El valor de AssertionConsumerServiceURL en la solicitud SAML no coincide con el 
 
 **Resolución** 
 
-Asegúrese de que el `Issuer` atributo en la solicitud SAML coincide con el valor de identificador configurado en Azure AD. Si usas el [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en el portal de Azure con la extensión de explorador seguro de aplicaciones de mi, no deberá manualmente, siga estos pasos.
+Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente.
  
 1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.** 
 
@@ -88,13 +88,13 @@ Asegúrese de que el `Issuer` atributo en la solicitud SAML coincide con el valo
 
 7. Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
-8. Cuando se carga la aplicación, abra **Configuración básica de SAML**. Compruebe o actualice el valor en el cuadro de texto dirección URL de respuesta para que coincida con el `AssertionConsumerServiceURL` valor en la solicitud SAML.    
+8. Cuando se carga la aplicación, abra **Configuración básica de SAML**. Compruebe o actualice el valor en el cuadro de texto Dirección URL de respuesta para que coincida con el valor de `AssertionConsumerServiceURL` en la solicitud SAML.    
     
-Después de que ha actualizado el valor de dirección URL de respuesta de Azure AD y coincide con el valor enviado por la aplicación en la solicitud SAML, debe poder iniciar sesión en la aplicación.
+Después de actualizar el valor de la dirección URL de respuesta en Azure AD y de comprobar que coincide con el valor enviado por la aplicación en la solicitud SAML, podrá iniciar sesión en la aplicación.
 
 ## <a name="user-not-assigned-a-role"></a>Usuario no asignado a un rol
 
-*Error AADSTS50105: El usuario con sesión iniciada `brian\@contoso.com` no está asignado a un rol de la aplicación*
+*Error AADSTS50105: El usuario con sesión iniciada `brian\@contoso.com` no está asignado a un rol de la aplicación*.
 
 **Causa posible**
 
@@ -102,7 +102,7 @@ El usuario no tiene acceso a la aplicación en Azure AD.
 
 **Resolución**
 
-Para asignar a uno o varios usuarios a una aplicación directamente, siga estos pasos. Si usas el [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en el portal de Azure con la extensión de explorador seguro de aplicaciones de mi, no deberá manualmente, siga estos pasos.
+Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente.
 
 1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
@@ -160,27 +160,27 @@ Azure AD no admite la solicitud SAML enviada por la aplicación para el inicio d
 
     -   [Los requisitos del protocolo SAML de inicio de sesión único de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
 
-El proveedor de la aplicación debe validar que admiten la implementación de SAML de Azure AD para inicio de sesión único.
+El proveedor de la aplicación debe validar que admite la implementación de SAML de Azure AD para inicio de sesión único.
 
 ## <a name="misconfigured-application"></a>Aplicación mal configurada
 
-*Error AADSTS650056: Aplicación mal configurado. Esto puede deberse a uno de los siguientes motivos: El cliente no enumeró a ningún permiso para "AAD Graph" en los permisos solicitados en el registro de la aplicación del cliente. O bien, el administrador no ha dado su consentimiento en el inquilino. O bien, compruebe el identificador de aplicación en la solicitud para asegurarse de coincide con el identificador de aplicación de cliente configurado. Póngase en contacto con su administrador para corregir la configuración o dar su consentimiento en nombre del inquilino.* .
+*Error AADSTS650056: Aplicación mal configurada. Esto puede deberse a uno de los siguientes motivos: El cliente no ha enumerado ningún permiso para "AAD Graph" en los permisos solicitados en el registro de aplicaciones del cliente. O bien el administrador no ha dado su consentimiento en el inquilino. Compruebe también el identificador de la aplicación en la solicitud para asegurarse de que coincide con el identificador de la aplicación cliente configurada. Póngase en contacto con su administrador para corregir la configuración o dar su consentimiento en nombre del inquilino.* .
 
 **Causa posible**
 
-El `Issuer` atributo enviado desde la aplicación a Azure AD en la solicitud SAML no coincide con el valor de identificador configurado para la aplicación en Azure AD.
+El atributo `Issuer` que se envía de la aplicación a Azure AD en la solicitud SAML no coincide con el valor de identificador configurado para la aplicación de Azure AD.
 
 **Resolución**
 
-Asegúrese de que el `Issuer` atributo en la solicitud SAML coincide con el valor de identificador configurado en Azure AD. Si usas el [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en el portal de Azure con la extensión de explorador seguro de aplicaciones de mi, no deberá manualmente, siga estos pasos:
+Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valor del identificador configurado en Azure AD. Si usa la [experiencia de pruebas](../develop/howto-v1-debug-saml-sso-issues.md) en Azure Portal con la extensión del explorador seguro de Mis aplicaciones, no tiene que seguir estos pasos manualmente:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
 
-1.  Abra el **extensión de Azure Active Directory** seleccionando **todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+1.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-1.  Tipo **"Azure Active Directory"** en el cuadro de búsqueda y seleccione el **Azure Active Directory** elemento.
+1.  Escriba **"Azure Active Directory"** en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-1.  Seleccione **aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+1.  Seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
 1.  Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
@@ -188,7 +188,7 @@ Asegúrese de que el `Issuer` atributo en la solicitud SAML coincide con el valo
 
 1.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
-1.  Cuando se carga la aplicación, abra **Configuración básica de SAML**. Compruebe que el valor en el cuadro de texto identificador coincide con el valor para el valor del identificador mostrado en el error.
+1.  Cuando se carga la aplicación, abra **Configuración básica de SAML**. Compruebe que el valor del cuadro de texto Identificador coincide con el valor del identificador mostrado en el error.
 
 ## <a name="certificate-or-key-not-configured"></a>Certificado o clave no configurados
 
@@ -232,31 +232,31 @@ Para eliminar y crear un nuevo certificado, siga estos pasos:
 
 **Causa posible**
 
-Azure AD no podía identificar la solicitud SAML dentro de los parámetros de dirección URL en la solicitud HTTP. Esto puede ocurrir si la aplicación no usa al enviar la solicitud SAML a Azure AD de enlace de redirección HTTP.
+Azure AD no podía identificar la solicitud SAML dentro de los parámetros de dirección URL en la solicitud HTTP. Esto puede ocurrir si la aplicación no usa el enlace de redirección HTTP para enviar la solicitud SAML a Azure AD.
 
 **Resolución**
 
-La aplicación debe enviar la solicitud SAML que se codifican en el encabezado de ubicación mediante HTTP redirigir el enlace. Para más información sobre cómo implementarla, lea la sección Enlace de redirección HTTP del [documento de especificaciones del protocolo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+La aplicación debe enviar la solicitud SAML codificada en el encabezado de ubicación mediante el enlace de redirección HTTP. Para más información sobre cómo implementarla, lea la sección Enlace de redirección HTTP del [documento de especificaciones del protocolo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
 ## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD envía el token a un punto de conexión incorrecto
 
 **Causa posible**
 
-Durante el inicio de sesión único, si la solicitud de inicio de sesión no contiene una dirección URL de respuesta explícito (URL del servicio de consumidor de aserciones), a continuación, Azure AD seleccionará cualquiera de los protocolos se basan las direcciones URL para esa aplicación. Incluso si la aplicación tiene una dirección URL de respuesta explícito configurada, el usuario puede ser redirigido https://127.0.0.1:444. 
+Durante el inicio de sesión único, si la solicitud de inicio de sesión no contiene una dirección URL de respuesta explícita (URL del Servicio de consumidor de aserciones), Azure AD seleccionará cualquiera de las direcciones URL configuradas para esa aplicación. Incluso si la aplicación tiene una dirección URL de respuesta explícita configurada, el usuario puede ser redirigido a https://127.0.0.1:444. 
 
 Cuando la aplicación se agregó como una aplicación que no es de la galería, Azure Active Directory creó esta dirección URL de respuesta como un valor predeterminado. Este comportamiento ha cambiado y Azure Active Directory ya no agrega esta dirección URL de forma predeterminada. 
 
 **Resolución**
 
-Elimine las URL de respuesta no usados para la aplicación.
+Elimine las direcciones URL de respuesta no utilizadas configuradas para la aplicación.
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
 
-2.  Abra el **extensión de Azure Active Directory** seleccionando **todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Tipo **"Azure Active Directory"** en el cuadro de búsqueda y seleccione el **Azure Active Directory** elemento.
+3.  Escriba **"Azure Active Directory"** en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Seleccione **aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+4.  Seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
 5.  Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
@@ -264,7 +264,7 @@ Elimine las URL de respuesta no usados para la aplicación.
 
 6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
-7.  Cuando se carga la aplicación, abra **Configuración básica de SAML**. En el **dirección URL de respuesta (URL del servicio de consumidor de aserciones)**, delete sin usar o direcciones URL de respuesta predeterminada creada por el sistema. Por ejemplo, `https://127.0.0.1:444/applications/default.aspx`.
+7.  Cuando se carga la aplicación, abra **Configuración básica de SAML**. En **URL de respuesta (URL del Servicio de consumidor de aserciones)** , elimine las direcciones URL de respuesta no utilizadas o predeterminadas creadas por el sistema. Por ejemplo, `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

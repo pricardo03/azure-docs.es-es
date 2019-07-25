@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
 ms.openlocfilehash: b2ae24c0449b009db6fcecdd8a1366ea5154629a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257818"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook en clústeres Apache Spark en Azure HDInsight 
@@ -32,9 +32,9 @@ Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creac
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Creación de un cuaderno de Jupyter Notebook en clústeres Spark de HDInsight
 
-1. Desde el [portal Azure](https://portal.azure.com/), seleccione el clúster de Spark.  Consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. El **Introducción** abre la vista.
+1. En [Azure Portal](https://portal.azure.com/), seleccione el clúster Spark.  Consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. Se abre la vista **Introducción**.
 
-2. Desde el **Introducción** ver, en el **paneles de clúster** cuadro, seleccione **cuaderno de Jupyter notebook**. Cuando se le pida, escriba las credenciales del clúster.
+2. Desde la vista **Introducción**, en el cuadro **Paneles de clúster**, seleccione **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
     ![Jupyter Notebook en Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook en Spark") 
   
@@ -43,7 +43,7 @@ Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creac
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. Seleccione **New**y, a continuación, seleccione **Pyspark**, **PySpark3**, o **Spark** para crear un bloc de notas. Utilice el kernel de Spark para las aplicaciones de Scala, kernel PySpark para aplicaciones de Python2 y kernel PySpark para3 aplicaciones de Python3.
+3. Seleccione **Nuevo** y, después, seleccione **Pyspark**, **PySpark3** o **Spark** para crear un cuaderno. Utilice el kernel de Spark para las aplicaciones de Scala, kernel PySpark para aplicaciones de Python2 y kernel PySpark para3 aplicaciones de Python3.
    
     ![Kernels de Jupyter Notebook en Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels de Jupyter Notebook en Spark") 
 
@@ -75,7 +75,7 @@ Estas son algunas ventajas de usar los kernels nuevo con el cuaderno de Jupyter 
    | info |`%%info` |Produce información de sesión del punto de conexión actual de Livy. |
    | CONFIGURAR |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura los parámetros para crear una sesión. El marcador de fuerza (-f) es obligatorio si ya se ha creado una sesión, lo que garantiza que la sesión se elimina y se vuelve a crear. Consulte [Livy's POST /sessions Request Body (Cuerpo de la solicitud de sesiones o POST de Livy)](https://github.com/cloudera/livy#request-body) para obtener una lista de parámetros válidos. Los parámetros deben pasarse como una cadena JSON y deben estar en la siguiente línea después de la instrucción mágica, como se muestra en la columna de ejemplo. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Ejecuta una consulta de Hive en el sqlContext. Si se pasa el parámetro `-o` , el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos [Pandas](https://pandas.pydata.org/) . |
-   | local |`%%local`<br>`a=1` |Todo el código de las líneas siguientes se ejecuta localmente. El código debe ser código Python2 válido, independientemente del kernel que se utilice. Es así, incluso si se selecciona **PySpark3** o **Spark** kernels al crear el Bloc de notas, si usa el `%%local` mágico en una celda, que solo debe tener código Python2 válido. |
+   | local |`%%local`<br>`a=1` |Todo el código de las líneas siguientes se ejecuta localmente. El código debe ser código Python2 válido, independientemente del kernel que se utilice. Por tanto, aunque haya seleccionado los kernels **PySpark3** o **Spark** al crear el cuaderno, si usa el comando mágico `%%local` en una celda, esta solo debe tener código Python2 válido. |
    | logs |`%%logs` |Genera los registros de la sesión actual de Livy. |
    | delete |`%%delete -f -s <session number>` |Elimina una sesión específica del punto de conexión actual de Livy. No se puede eliminar la sesión iniciada en el propio kernel. |
    | cleanup |`%%cleanup -f` |Elimina todas las sesiones del punto de conexión actual de Livy, incluida la sesión de este cuaderno. La marca force -f es obligatoria. |
@@ -83,7 +83,7 @@ Estas son algunas ventajas de usar los kernels nuevo con el cuaderno de Jupyter 
    > [!NOTE]  
    > Además de las instrucciones mágicas agregadas mediante el kernel PySpark, también puede utilizar las [instrucciones integradas de IPython](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), como `%%sh`. Puede usar la instrucción mágica `%%sh` para ejecutar scripts y el bloque de código en el nodo principal del clúster.
 
-- **Visualización automática**. El kernel de Pyspark visualiza automáticamente el resultado de las consultas de Hive y SQL. Puede elegir entre diferentes tipos de visualizaciones, como tabla, circular, línea, área o barra.
+- **Visualización automática**. El kernel Pyspark visualiza automáticamente el resultado de las consultas de Hive y SQL. Puede elegir entre diferentes tipos de visualizaciones, como tabla, circular, línea, área o barra.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parámetros compatibles con la instrucción mágica %%sql
 El comando mágico `%%sql` es compatible con distintos parámetros que se pueden usar para controlar el tipo de resultado que se obtiene al ejecutar consultas. En la tabla siguiente se muestra el resultado.
@@ -91,7 +91,7 @@ El comando mágico `%%sql` es compatible con distintos parámetros que se pueden
 | Parámetro | Ejemplo | DESCRIPCIÓN |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Use este parámetro para conservar el resultado de la consulta en el contexto %%local de Python como trama de datos [Pandas](https://pandas.pydata.org/) . El nombre de la variable de la trama de datos es el nombre de variable que especifique. |
-| -q |`-q` |Úselo para desactivar visualizaciones de la celda. Si no desea autovisualize el contenido de una celda y simplemente quiere capturarlo como una trama de datos, a continuación, utilice `-q -o <VARIABLE>`. Si quiere desactivar visualizaciones sin capturar los resultados (por ejemplo, para ejecutar una consulta de SQL, como una instrucción `CREATE TABLE`), use `-q` sin especificar un argumento `-o`. |
+| -q |`-q` |Úselo para desactivar visualizaciones de la celda. Si no quiere visualizar de forma automática el contenido de una celda y simplemente quiere capturarlo como una trama de datos, use `-q -o <VARIABLE>`. Si quiere desactivar visualizaciones sin capturar los resultados (por ejemplo, para ejecutar una consulta de SQL, como una instrucción `CREATE TABLE`), use `-q` sin especificar un argumento `-o`. |
 | -m |`-m <METHOD>` |Donde **METHOD** puede ser **take** o **sample** (el valor predeterminado es **take**). Si el método es **take**, el kernel toma elementos de la parte superior del conjunto de datos de resultados especificado por MAXROWS (se describe más adelante en esta tabla). Si el método es **sample**, el kernel toma como muestra los elementos del conjunto de datos de forma aleatoria en función del parámetro `-r`, que se describe a continuación en esta tabla. |
 | -r |`-r <FRACTION>` |Aquí **FRACTION** es un número de punto flotante entre 0,0 y 1,0. Si el método sample de la consulta SQL es `sample`, el kernel muestrea de forma aleatoria la fracción especificada de los elementos del conjunto de resultados establecido. Por ejemplo, si ejecuta una consulta SQL con los argumentos `-m sample -r 0.01`, el 1 % de las filas del resultados se muestrean de forma aleatoria. |
 | -n |`-n <MAXROWS>` |**MAXROWS** es un valor entero. El kernel limita el número de filas de salida a **MAXROWS**. Si **MAXROWS** tiene un valor negativo (por ejemplo, **-1**), no se limita el número de filas del conjunto de resultados. |
@@ -104,7 +104,7 @@ El comando mágico `%%sql` es compatible con distintos parámetros que se pueden
 La instrucción anterior hace lo siguiente:
 
 * Selecciona todos los registros de **hivesampletable**.
-* Dado que se usa - q, desactiva autovisualization.
+* Dado que se usa -q, desactiva la visualización automática.
 * Dado que se usa `-m sample -r 0.1 -n 500` , toma como muestra de forma aleatoria el 10 % de las filas de hivesampletable y limita el tamaño del conjunto de resultados a 500 filas.
 * Por último, dado que se ha usado `-o query2` , también guarda el resultado en una trama de datos denominada **query2**.
 
@@ -133,7 +133,7 @@ Los cuadernos de Jupyter Notebook que se ejecutan en clústeres Spark de HDInsig
 
 ## <a name="feedback"></a>Comentarios
 
-El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo. También podría significar que las API podrían cambiar a medida que estos kernels maduran. Agradecemos cualquier comentario que tenga al utilizar estos nuevos kernels. Esto resulta muy útil para dar forma a la versión final de estos kernels. Puede dejar sus comentarios en el **comentarios** en la parte inferior de este artículo.
+El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo. También podría significar que las API podrían cambiar a medida que estos kernels maduran. Agradecemos cualquier comentario que tenga al utilizar estos nuevos kernels. Esto resulta muy útil para dar forma a la versión final de estos kernels. Puede dejar sus comentarios la sección **Comentarios** al final de este artículo.
 
 ## <a name="seealso"></a>Consulte también
 * [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)

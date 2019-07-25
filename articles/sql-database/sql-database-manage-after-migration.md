@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357329"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de las bases de datos únicas o agrupadas en Azure SQL Database
@@ -29,7 +29,7 @@ El cambio del entorno autocontrolado y autoadministrado tradicional a un entorno
 
 En este artículo se tratan algunas de las características básicas de Azure SQL Database como una plataforma que puede aprovechar fácilmente al trabajar con bases de datos únicas y agrupadas en grupos elásticos. Son las siguientes:
 
-- Supervisar la base de datos mediante el portal de Azure
+- Supervisión de la base de datos mediante Azure Portal
 - Recuperación ante desastres y continuidad empresarial (BCDR)
 - Seguridad y cumplimiento normativo
 - Supervisión y mantenimiento inteligentes de la base de datos
@@ -40,7 +40,7 @@ En este artículo se tratan algunas de las características básicas de Azure SQ
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Supervisión de bases de datos mediante el Portal de Azure
 
-En el [portal Azure](https://portal.azure.com/), puede supervisar una utilización de la base de datos individual s seleccionando la base de datos y haga clic en el **supervisión** gráfico. Al hacer esto, se abrirá la ventana **Métrica** que se puede cambiar haciendo clic en el botón **Editar gráfico**. Agregue las siguientes métricas:
+En [Azure Portal](https://portal.azure.com/), puede supervisar el uso de una base de datos individual; para ello, debe seleccionar la base de datos y hacer clic en el gráfico **Supervisión**. Al hacer esto, se abrirá la ventana **Métrica** que se puede cambiar haciendo clic en el botón **Editar gráfico**. Agregue las siguientes métricas:
 
 - Porcentaje de CPU
 - Porcentaje de DTU
@@ -172,7 +172,7 @@ Para proteger los datos confidenciales en curso y en reposo, SQL Database propor
 |**Características**|**Always Encrypted**|**Cifrado de datos transparente**|
 |---|---|---|
 |**Cifrado**|Completa|Datos en reposo|
-|**El servidor de bases de datos puede acceder a datos confidenciales**|Sin |Sí, ya que el cifrado es para los datos en reposo|
+|**El servidor de bases de datos puede acceder a datos confidenciales**|Sin|Sí, ya que el cifrado es para los datos en reposo|
 |**Operaciones permitidas de T-SQL**|Comparación de igualdad|Toda el área expuesta de T-SQL está disponible|
 |**Cambios de aplicación necesarios para usar la característica**|Mínimo|Muy mínimo|
 |**Granularidad de cifrado**|Nivel de columna|Nivel de base de datos|
@@ -180,7 +180,7 @@ Para proteger los datos confidenciales en curso y en reposo, SQL Database propor
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Cómo se limita el acceso a la información confidencial en mi base de datos
 
-Cada aplicación tiene cierta información confidencial en la base de datos debe protegerse para que no sea visible para todos los usuarios. Determinados empleados de la organización necesitan ver estos datos, pero otros no deberían poder verlos. Un ejemplo es el salario de los empleados. Un administrador debe poder acceder a la información de salario para sus informes directos sin embargo, los miembros del equipo individuales no deben tener acceso a la información de salario de sus compañeros. Otro escenario es el de los desarrolladores de datos, que pueden interactuar con datos confidenciales durante las fases de desarrollo o pruebas, por ejemplo, los números de la seguridad social de los clientes. Una vez más, no es necesario exponer esta información a los desarrolladores. En estos casos, los datos confidenciales deben enmascararse o no exponerse en absoluto. SQL Database ofrece dos enfoques para impedir que usuarios no autorizados puedan ver datos confidenciales:
+Cada aplicación tiene cierta información confidencial en la base de datos debe protegerse para que no sea visible para todos los usuarios. Determinados empleados de la organización necesitan ver estos datos, pero otros no deberían poder verlos. Un ejemplo es el salario de los empleados. Aunque un administrador debe poder acceder a la información de salario de sus subordinados directos, los miembros del equipo individuales no deben tener acceso a la información de salario de sus compañeros. Otro escenario es el de los desarrolladores de datos, que pueden interactuar con datos confidenciales durante las fases de desarrollo o pruebas, por ejemplo, los números de la seguridad social de los clientes. Una vez más, no es necesario exponer esta información a los desarrolladores. En estos casos, los datos confidenciales deben enmascararse o no exponerse en absoluto. SQL Database ofrece dos enfoques para impedir que usuarios no autorizados puedan ver datos confidenciales:
 
 [Enmascaramiento dinámico de datos](sql-database-dynamic-data-masking-get-started.md) es una característica de enmascaramiento de datos que permite limitar la exposición de información confidencial ocultándola a los usuarios sin privilegios en el nivel de aplicación. Debe definir una regla de enmascaramiento que pueda crear un patrón de enmascaramiento (por ejemplo, mostrar solo los cuatro últimos dígitos de un número del seguro social de identificación nacional: XXX-XX-0000 y marcar la mayoría como Xs) e identificar qué usuarios se excluirán de la regla de enmascaramiento. El enmascaramiento ocurre sobre la marcha y hay varias funciones de enmascaramiento disponibles para las distintas categorías de datos. El enmascaramiento dinámico de datos permite detectar datos confidenciales en la base de datos y aplicarles el enmascaramiento automáticamente.
 
@@ -227,7 +227,7 @@ ExpressRoute permite ampliar el límite de ancho de banda que adquiere hasta el 
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database cumple con los requisitos de regulación y cómo ayuda eso con el cumplimiento de mi propia organización
 
-SQL Database cumple con una variedad de regulaciones de cumplimiento. Para ver el conjunto más reciente de cumplimientos que se hayan cumplido por base de datos SQL, visite la [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) y profundizar en los cumplimientos que son importantes para su organización para ver si la base de datos de SQL se incluye en el compatibles Servicios de Azure. Es importante tener en cuenta que aunque SQL Database puede estar certificada como un servicio conforme, contribuye al cumplimiento del servicio en la organización pero no lo garantiza automáticamente.
+SQL Database cumple con una variedad de regulaciones de cumplimiento. Para ver el conjunto más reciente de cumplimientos que ha alcanzado SQL Database, visite [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) y profundice en los cumplimientos que son importantes para su organización para ver si SQL Database se incluye en los servicios de Azure compatibles. Es importante tener en cuenta que aunque SQL Database puede estar certificada como un servicio conforme, contribuye al cumplimiento del servicio en la organización pero no lo garantiza automáticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Supervisión y mantenimiento inteligentes de la base de datos después de la migración
 
@@ -261,7 +261,7 @@ También puede ver este análisis en la sección "Advisor":
 
 En SQL Database puede aprovechar la información inteligente de la plataforma para supervisar el rendimiento y ajustarlo en consecuencia. Puede supervisar el rendimiento y la utilización de recursos en SQL Database utilizando los métodos siguientes:
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 Azure Portal muestra el uso de una base de datos al seleccionar la base de datos y hacer clic en el gráfico del panel Información general. Puede modificar el gráfico para mostrar varias métricas, incluido el porcentaje de CPU, el porcentaje de DTU, el porcentaje de E/S de datos, el porcentaje de las sesiones y el porcentaje de tamaño de base de datos.
 
@@ -281,9 +281,9 @@ puede consultar la vista de administración dinámica [sys.dm_db_resource_stats]
 
 ![Información de rendimiento de consultas](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Los registros de Azure SQL Analytics (versión preliminar) en Azure Monitor
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL Analytics (versión preliminar) en registros de Azure Monitor
 
-[Registros de Azure Monitor](../azure-monitor/insights/azure-sql.md) le permite recopilar y visualizar las métricas clave de rendimiento de Azure SQL Azure, permitiendo hasta 150.000 bases de datos de SQL y 5.000 grupos elásticos de SQL por área de trabajo. Puede utilizarlo para supervisar y recibir notificaciones. Puede supervisar SQL Database y las métricas de los grupos elásticos de varias suscripciones de Azure y puede utilizar los grupos elásticos para identificar problemas en cada capa de un pila de aplicación.
+Los [registros de Azure Monitor](../azure-monitor/insights/azure-sql.md) le permiten recopilar y visualizar las métricas de rendimiento clave de SQL Azure, que admiten hasta 150 000 instancias de SQL Database y 5000 grupos elásticos de SQL por área de trabajo. Puede utilizarlo para supervisar y recibir notificaciones. Puede supervisar SQL Database y las métricas de los grupos elásticos de varias suscripciones de Azure y puede utilizar los grupos elásticos para identificar problemas en cada capa de un pila de aplicación.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Estoy observando problemas de rendimiento: En qué se diferencia la metodología para solucionar problemas de SQL Database de la de SQL Server
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
 ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978793"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identidades administradas para recursos de Azure con Service Bus 
@@ -29,23 +29,23 @@ Con las identidades administradas, la plataforma Azure administra esta identidad
 
 ## <a name="service-bus-roles-and-permissions"></a>Roles y permisos de Service Bus
 
-Puede agregar una identidad administrada para el rol "Propietario de datos de Service Bus" del espacio de nombres de Service Bus. Concede la identidad, control total (para la administración y operaciones de datos) en todas las entidades en el espacio de nombres.
+Puede agregar una identidad administrada al rol "Propietario de los datos de Service Bus" de un espacio de nombres de Service Bus. Esto concede la identidad, el control total (para las operaciones de administración y de datos) en todas las entidades del espacio de nombres.
 
 >[!IMPORTANT]
-> Anteriormente, se admite agregar una identidad administrada para el **"Propietario"** o **"Colaborador"** rol.
+> Antes, se podía agregar una identidad administrada a los roles **"Propietario"** o **"Colaborador"** ,
 >
-> Sin embargo, los datos de acceso privilegios para **"Propietario"** y **"Colaborador"** ya no se respetará el rol. Si usaba la **"Propietario"** o **"Colaborador"** rol y, después, los que deberá ser adaptado para utilizar el **"Propietario de datos de Service Bus"** rol.
+> pero los privilegios de acceso a datos de los roles **"Propietario"** y **"Colaborador"** ya no tienen vigor. Si usaba los roles **"Propietario"** o **"Colaborador"** , deberá adaptarlos para usar el rol **"Propietario de datos de Service Bus"** .
 
 Para usar el nuevo rol integrado, complete los siguientes pasos:
 
-1. Continúe con el [portal de Azure](https://portal.azure.com)
-2. Navegue hasta el espacio de nombres de Service Bus donde tiene actualmente el programa de instalación del rol "Propietario" o "Colaborador".
-3. En el menú del panel izquierdo, haga clic en se ("acceso IAM").
-4. Continuar para agregar una nueva asignación de roles como aparece a continuación
+1. Vaya al [Azure Portal](https://portal.azure.com).
+2. Navegue hasta el espacio de nombres de Service Bus donde tiene actualmente configurado el rol "Propietario" o "Colaborador".
+3. Seleccione "Control de acceso (IAM)" en el menú del panel izquierdo.
+4. Agregue una nueva asignación de roles como se indica a continuación
 
     ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
 
-5. Pulse "Guardar" para guardar la nueva asignación de roles.
+5. Pulse en "Guardar" para guardar la nueva asignación de roles.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Usar Services Bus con identidades administradas para recursos de Azure
 
@@ -67,7 +67,7 @@ Una vez habilitada la característica, se crea una identidad de servicio en Azur
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Creación de un espacio de nombres de mensajería de Service Bus
 
-A continuación, [crear un espacio de nombres de mensajería de Service Bus](service-bus-create-namespace-portal.md). 
+Después, [cree un espacio de nombres de mensajería de Service Bus](service-bus-create-namespace-portal.md). 
 
 Vaya a la página **Control de acceso (IAM)** del espacio de nombres en el portal y, después, haga clic en **Agregar asignación de roles** para agregar la identidad administrada al rol **Propietario**. Para ello, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**.
 

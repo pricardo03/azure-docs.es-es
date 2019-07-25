@@ -1,7 +1,7 @@
 ---
-title: 'Configuración de aplicaciones en el portal: Azure App Service'
-description: Aprenda a configurar la configuración común para una aplicación de App Service en Azure portal.
-keywords: servicio de aplicación de Azure, aplicación web, configuración de la aplicación, las variables de entorno
+title: 'Configurar aplicaciones en el portal: Azure App Service'
+description: Aprenda a configurar las opciones comunes para una aplicación de App Service en Azure Portal.
+keywords: servicio de aplicación de Azure, aplicación web, configuración de la aplicación, variables de entorno
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -17,25 +17,25 @@ ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: bcc970375120f76e4ec8a90f487d251296f92dba
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957916"
 ---
-# <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure portal
+# <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
-En este tema se explica cómo configurar las opciones comunes para aplicaciones web, back-end móvil o aplicación de API mediante el [Azure Portal].
+En este tema se explica cómo configurar las opciones comunes para aplicaciones web, back-end para dispositivos móviles o aplicación de API con [Azure Portal].
 
 ## <a name="configure-app-settings"></a>Configuración de aplicaciones
 
-En App Service, use la configuración de la aplicación como variables de entorno. En el [Azure Portal], vaya a la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **configuración** > **configuración de la aplicación**.
+En App Service, se usa la configuración de aplicación como variables de entorno. En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Configuración de la aplicación**.
 
 ![Configuración de la aplicación](./media/configure-common/open-ui.png)
 
-Para los desarrolladores ASP.NET y ASP.NET Core, configuración de la aplicación de configuración de App Service es como configurarlos en `<appSettings>` en *Web.config*, pero los valores de App Service invalidan la de *Web.config*. Puede mantener la configuración de desarrollo (por ejemplo, contraseña de MySQL local) en *Web.config*, pero los secretos de producción (por ejemplo, contraseña de base de datos de Azure para MySQL) seguros en App Service. El mismo código usa la configuración de desarrollo cuando se depura localmente, y utiliza los secretos de producción cuando se implementa en Azure.
+Para los desarrolladores de ASP.NET y ASP.NET Core, la configuración de las opciones de aplicación en App Service es como configurarlas en `<appSettings>` en *Web.config*, pero los valores de App Service reemplazan a los de *Web.config*. Puede mantener segura la configuración de desarrollo (por ejemplo, la contraseña de MySQL local) en *Web.config*, excepto los secretos de producción (por ejemplo, la contraseña de base de datos de Azure MySQL) en App Service. El mismo código usa la configuración de desarrollo cuando se depura localmente, y utiliza los secretos de producción cuando se implementa en Azure.
 
-Otras pilas de lenguaje, del mismo modo, obtención la configuración de la aplicación como variables de entorno en tiempo de ejecución. Para obtener pasos específicos de la pila de lenguaje, consulte:
+Del mismo modo, otras pilas de lenguaje obtienen la configuración de la aplicación como variables de entorno en tiempo de ejecución. Para obtener pasos específicos de la pila de lenguaje, consulte:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
@@ -48,29 +48,29 @@ Otras pilas de lenguaje, del mismo modo, obtención la configuración de la apli
 La configuración de la aplicación siempre se cifra cuando se almacena (cifrado en reposo).
 
 > [!NOTE]
-> Configuración de la aplicación también se puede resolver desde [Key Vault](/azure/key-vault/) mediante [hace referencia Key Vault](app-service-key-vault-references.md).
+> La configuración de la aplicación también se puede resolver desde [Key Vault](/azure/key-vault/) mediante las [referencias de Key Vault](app-service-key-vault-references.md).
 
-### <a name="show-hidden-values"></a>Mostrar los valores ocultos
+### <a name="show-hidden-values"></a>Mostrar valores ocultos
 
-De forma predeterminada, los valores de configuración de la aplicación se ocultan en el portal para la seguridad. Para ver un valor oculto de una configuración de aplicación, haga clic en el **valor** campo de dicha configuración. Para ver los valores de todas las configuraciones de aplicación, haga clic en el **Mostrar valor** botón.
+De forma predeterminada, los valores de configuración de la aplicación están ocultos en el portal por motivos de seguridad. Para ver un valor oculto de la configuración de una aplicación, haga clic en el campo **Valor** de dicha configuración. Para ver los valores de todas las configuraciones de aplicación, haga clic en el botón **Mostrar valor**.
 
 ### <a name="add-or-edit"></a>Agregar o editar
 
-Para agregar una nueva configuración de aplicación, haga clic en **nueva configuración de la aplicación**. En el cuadro de diálogo, puede [seguir la configuración a la ranura actual](deploy-staging-slots.md#which-settings-are-swapped).
+Para agregar una nueva configuración de aplicación, haga clic en **Nueva configuración de la aplicación**. En el cuadro de diálogo, puede [fijar la configuración a la ranura actual](deploy-staging-slots.md#which-settings-are-swapped).
 
-Para editar una configuración, haga clic en el **editar** situado a la derecha.
+Para editar una configuración, haga clic en el **Editar** situado a la derecha.
 
-Cuando termine, haga clic en **actualización**. No olvide hacer clic en **guardar** en el **configuración** página.
+Cuando termine, haga clic en **Actualizar**. No olvide hacer clic en **Guardar** en la página **Configuración**.
 
 > [!NOTE]
-> En un contenedor de Linux personalizado o en un contenedor de Linux de forma predeterminada, al igual que cualquier estructura de clave de JSON anidado en el nombre de la configuración de aplicación `ApplicationInsights:InstrumentationKey` debe configurarse en App Service como `ApplicationInsights__InstrumentationKey` para el nombre de clave. En otras palabras, cualquier `:` deben reemplazarse por `__` (subrayado doble).
+> En contenedores de Linux predeterminados o personalizados, cualquier estructura de clave JSON anidada en el nombre de configuración de la aplicación `ApplicationInsights:InstrumentationKey` debe configurarse en App Service como `ApplicationInsights__InstrumentationKey` para el nombre de clave. Es decir, los símbolos `:` deben reemplazarse por `__` (doble subrayado).
 >
 
 ### <a name="edit-in-bulk"></a>Editar en masa
 
-Para agregar o editar la configuración de la aplicación en masa, haga clic en el **Advanced edit** botón. Cuando termine, haga clic en **actualización**. No olvide hacer clic en **guardar** en el **configuración** página.
+Para agregar o editar la configuración de la aplicación en masa, haga clic en el botón **Edición avanzada**. Cuando termine, haga clic en **Actualizar**. No olvide hacer clic en **Guardar** en la página **Configuración**.
 
-Configuración de la aplicación tiene el formato JSON siguiente:
+La configuración de la aplicación tiene el formato JSON siguiente:
 
 ```json
 [
@@ -90,22 +90,22 @@ Configuración de la aplicación tiene el formato JSON siguiente:
 
 ## <a name="configure-connection-strings"></a>Configurar cadenas de conexión
 
-En el [Azure Portal], vaya a la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **configuración** > **configuración de la aplicación**.
+En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Configuración de la aplicación**.
 
 ![Configuración de la aplicación](./media/configure-common/open-ui.png)
 
-Para los desarrolladores ASP.NET y ASP.NET Core, las cadenas de conexión de configuración en App Service son como configurarlos en `<connectionStrings>` en *Web.config*, pero los valores establecidos en App Service invalidan la de *Web.config*. Puede mantener la configuración de desarrollo (por ejemplo, un archivo de base de datos) en *Web.config* y secretos de producción (por ejemplo, credenciales de base de datos SQL) seguros en App Service. El mismo código usa la configuración de desarrollo cuando se depura localmente, y utiliza los secretos de producción cuando se implementa en Azure.
+Para los desarrolladores de ASP.NET y ASP.NET Core, la configuración de las cadenas de conexión en App Service es como configurarlas en `<connectionStrings>` en *Web.config*, pero los valores establecidos en App Service reemplazan a los de *Web.config*. Puede mantener la configuración de desarrollo (por ejemplo, un archivo de base de datos) en *Web.config* y los secretos de producción (por ejemplo, credenciales de SQL Database) seguros en App Service. El mismo código usa la configuración de desarrollo cuando se depura localmente, y utiliza los secretos de producción cuando se implementa en Azure.
 
-Para otras pilas de idioma, es mejor usar [configuración de la aplicación](#configure-app-settings) en su lugar, dado que las cadenas de conexión requieren un formato especial en las claves de la variable a fin de acceder a los valores. Aquí es una excepción, sin embargo: determinados tipos de base de datos de Azure son una copia de seguridad junto con la aplicación si configura sus cadenas de conexión en la aplicación. Para obtener más información, consulte [lo que obtiene una copia de seguridad](manage-backup.md#what-gets-backed-up). Si no necesita esta copia de seguridad automatizada, a continuación, use la configuración de la aplicación.
+En cambio, para otras pilas de lenguaje es mejor usar la [configuración de la aplicación](#configure-app-settings), dado que las cadenas de conexión requieren un formato especial en las claves de variable para acceder a los valores. Sin embargo, existe la excepción siguiente: se realiza la copia de seguridad de determinados tipos de base de datos de Azure junto con la aplicación si configura sus cadenas de conexión en la aplicación. Para obtener más información, consulte [¿Qué se incluye en la copia de seguridad?](manage-backup.md#what-gets-backed-up) Si no necesita esta copia de seguridad automatizada, use la configuración de la aplicación.
 
-En tiempo de ejecución, las cadenas de conexión están disponibles como variables de entorno, el prefijo con los siguientes tipos de conexión:
+En tiempo de ejecución, las cadenas de conexión están disponibles como variables de entorno, con los siguientes tipos de conexión como prefijo:
 
 * SQL Server: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
 * SQL Database: `SQLAZURECONNSTR_`
 * Personalizado: `CUSTOMCONNSTR_`
 
-Por ejemplo, una cadena de conexión de MySql llamado *connectionstring1* posible tener acceso a la variable de entorno `MYSQLCONNSTR_connectionString1`. Para obtener pasos específicos de la pila de lenguaje, consulte:
+Por ejemplo, se puede obtener acceso a una cadena de conexión de MySQL denominada *connectionstring1* como la variable de entorno `MYSQLCONNSTR_connectionString1`. Para obtener pasos específicos de la pila de lenguaje, consulte:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
@@ -118,23 +118,23 @@ Por ejemplo, una cadena de conexión de MySql llamado *connectionstring1* posibl
 Las cadenas de conexión siempre se cifran cuando se almacenan (cifrado en reposo).
 
 > [!NOTE]
-> Las cadenas de conexión también se pueden resolver desde [Key Vault](/azure/key-vault/) mediante [hace referencia Key Vault](app-service-key-vault-references.md).
+> Las cadenas de conexión se pueden resolver desde [Key Vault](/azure/key-vault/) mediante las [referencias de Key Vault](app-service-key-vault-references.md).
 
-### <a name="show-hidden-values"></a>Mostrar los valores ocultos
+### <a name="show-hidden-values"></a>Mostrar valores ocultos
 
-De forma predeterminada, los valores para las cadenas de conexión están ocultos en el portal para la seguridad. Para ver un valor de una cadena de conexión oculto, simplemente haga clic en el **valor** campo de esa cadena. Para ver los valores de todas las cadenas de conexión, haga clic en el **Mostrar valor** botón.
+De forma predeterminada, los valores de las cadenas de conexión están ocultos en el portal por motivos de seguridad. Para ver un valor oculto de una cadena de conexión, simplemente haga clic en el campo **Valor** de esa cadena. Para ver los valores de todas las cadenas de conexión, haga clic en el botón **Mostrar valor**.
 
 ### <a name="add-or-edit"></a>Agregar o editar
 
-Para agregar una nueva cadena de conexión, haga clic en **nueva cadena de conexión**. En el cuadro de diálogo, puede [ajustarse la cadena de conexión a la ranura actual](deploy-staging-slots.md#which-settings-are-swapped).
+Para agregar una nueva cadena de conexión, haga clic en **Nueva cadena de conexión**. En el cuadro de diálogo, puede [fijar la cadena de conexión a la ranura actual](deploy-staging-slots.md#which-settings-are-swapped).
 
-Para editar una configuración, haga clic en el **editar** situado a la derecha.
+Para editar una configuración, haga clic en el **Editar** situado a la derecha.
 
-Cuando termine, haga clic en **actualización**. No olvide hacer clic en **guardar** en el **configuración** página.
+Cuando termine, haga clic en **Actualizar**. No olvide hacer clic en **Guardar** en la página **Configuración**.
 
 ### <a name="edit-in-bulk"></a>Editar en masa
 
-Para agregar o editar las cadenas de conexión de forma masiva, haga clic en el **Advanced edit** botón. Cuando termine, haga clic en **actualización**. No olvide hacer clic en **guardar** en el **configuración** página.
+Para agregar o editar las cadenas de conexión en masa, haga clic en el botón **Edición avanzada**. Cuando termine, haga clic en **Actualizar**. No olvide hacer clic en **Guardar** en la página **Configuración**.
 
 Las cadenas de conexión tienen el formato JSON siguiente:
 
@@ -161,79 +161,79 @@ Las cadenas de conexión tienen el formato JSON siguiente:
 
 ## <a name="configure-general-settings"></a>Configurar las opciones generales
 
-En el [Azure Portal], vaya a la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **configuración** > **configuración de la aplicación**.
+En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Configuración de la aplicación**.
 
 ![Configuración general](./media/configure-common/open-general.png)
 
-En este caso, puede configurar algunas opciones comunes para la aplicación. Algunas configuraciones requieren le [escala hasta los planes de tarifa superior](web-sites-scale.md).
+En este caso, puede configurar algunas opciones comunes para la aplicación. Algunas configuraciones requieren [escalar verticalmente hasta los planes de tarifa superiores](web-sites-scale.md).
 
-- **Configuración de la pila**: La pila de software para ejecutar la aplicación, incluidos el idioma y las versiones del SDK. Para aplicaciones de Linux y aplicaciones de contenedor personalizado, también puede establecer un archivo o un comando de inicio opcional.
-- **Configuración de plataforma**: Le permite configurar opciones para la plataforma de hospedaje, incluidos:
+- **Configuración de pila**: La pila de software para ejecutar la aplicación, incluidos el lenguaje y las versiones del SDK. Para aplicaciones de Linux y aplicaciones de contenedor personalizadas, también puede establecer un archivo o un comando de inicio opcional.
+- **Configuración de plataforma**: Le permite configurar opciones para la plataforma de alojamiento, incluidas:
     - **Valor de bits**: 32 bits o 64 bits.
-    - **Protocolo WebSocket**: Para [ASP.NET SignalR] o [socket.io](https://socket.io/), por ejemplo.
-    - **AlwaysOn**: Mantenga la aplicación cargada incluso cuando no hay ningún tráfico. Deberá habilitarlo para WebJobs continuos o WebJobs que se desencadenan mediante una expresión CRON.
-    - **Versión de canalización administrada**: IIS [modo de canalización]. Establézcalo en **clásico** si tiene una aplicación heredada que requiere una versión anterior de IIS.
-    - **Versión HTTP**: Establézcala en **2.0** para habilitar la compatibilidad con el protocolo [HTTPS/2](https://wikipedia.org/wiki/HTTP/2).
+    - **Protocolo Websocket**: para [ASP.NET SignalR] o [socket.io](https://socket.io/), por ejemplo.
+    - **Always On**: mantenga cargada la aplicación, incluso cuando no hay tráfico. Deberá habilitarla para los WebJobs continuos o WebJobs que se desencadenan mediante una expresión CRON.
+    - **Versión de canalización administrada**: el [modo de canalización] IIS. Establézcalo en **Clásico** si tiene una aplicación heredada que requiere una versión anterior de IIS.
+    - **Versión de HTTP**: Establézcala en **2.0** para habilitar la compatibilidad con el protocolo [HTTPS/2](https://wikipedia.org/wiki/HTTP/2).
     > [!NOTE]
-    > Los exploradores más modernos admiten el protocolo HTTP/2 sobre TLS únicamente, mientras que el tráfico no cifrado sigue usando HTTP/1.1. Para asegurarse de que el cliente exploradores conexión a la aplicación con HTTP/2, ya sea [comprar un certificado de App Service](web-sites-purchase-ssl-web-site.md) para el dominio personalizado de la aplicación o [enlazar un certificado de terceros](app-service-web-tutorial-custom-ssl.md).
-    - **Afinidad ARR**: En una implementación de instancias múltiples, asegúrese de que el cliente se enrute a la misma instancia de la vida de la sesión. Puede establecer esta opción en **desactivar** para las aplicaciones sin estado.
-- **Depuración**: Habilitar la depuración remota para [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), o [Node.js](containers/configure-language-nodejs.md#debug-remotely) aplicaciones. Esta opción se desactiva automáticamente después de 48 horas.
-- **Certificados de cliente entrantes**: requerir certificados de cliente en [autenticación mutua](app-service-web-configure-tls-mutual-auth.md).
+    > Los exploradores más modernos admiten el protocolo HTTP/2 sobre TLS únicamente, mientras que el tráfico no cifrado sigue usando HTTP/1.1. Para asegurarse de que los exploradores del cliente se conectan a la aplicación con HTTP/2, [compre un certificado App Service Certificate](web-sites-purchase-ssl-web-site.md) para el dominio personalizado de la aplicación o [enlace con un certificado de terceros](app-service-web-tutorial-custom-ssl.md).
+    - **Afinidad ARR**: en una implementación de varias instancias, asegúrese de que el cliente esté enrutado a la misma instancia de la vida de la sesión. Puede establecer esta opción en **Desactivada** para las aplicaciones sin estado.
+- **Depuración**: habilite la depuración remota para las aplicaciones [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) o [Node.js](containers/configure-language-nodejs.md#debug-remotely). Esta opción se desactiva automáticamente después de 48 horas.
+- **Certificados de cliente entrantes**: requiera certificados de cliente en [autenticación mutua](app-service-web-configure-tls-mutual-auth.md).
 
-## <a name="configure-default-documents"></a>Configurar los documentos predeterminados
+## <a name="configure-default-documents"></a>Configurar documentos predeterminados
 
-Esta configuración es solo para las aplicaciones de Windows.
+Esta configuración solo es para las aplicaciones de Windows.
 
-En el [Azure Portal], vaya a la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **configuración** > **documentos predeterminados**.
+En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Documentos predeterminados**.
 
 ![Configuración general](./media/configure-common/open-documents.png)
 
-El documento predeterminado es la página web que se muestra en la dirección URL raíz de un sitio Web. Se usa el primer archivo coincidente en la lista. Para agregar un nuevo documento predeterminado, haga clic en **nuevo documento**. No olvide hacer clic en **guardar**.
+El documento predeterminado es la página web que se muestra en la dirección URL raíz de un sitio web. Se usa el primer archivo coincidente en la lista. Para agregar un nuevo documento predeterminado, haga clic en **Nuevo documento**. Recuerde hacer clic en **Guardar**.
 
-Si la aplicación usa módulos que enruten basados en dirección URL en lugar de usar contenido estático, no hay ninguna necesidad de documentos predeterminados.
+Si la aplicación usa módulos que se enrutan en función de la dirección URL en lugar de servir contenido estático, no hay necesidad de documentos predeterminados.
 
 ## <a name="configure-path-mappings"></a>Configurar asignaciones de ruta de acceso
 
-En el [Azure Portal], vaya a la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **configuración** > **asignaciones de ruta**.
+En [Azure Portal], navegue hasta la página de administración de la aplicación. En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Asignaciones de ruta de acceso**.
 
 ![Configuración general](./media/configure-common/open-path.png)
 
-El **asignaciones de ruta** página muestra diferentes significados según el tipo de sistema operativo.
+En la página **Asignaciones de ruta de acceso** se muestran diferentes elementos en función del tipo de sistema operativo.
 
-### <a name="windows-apps-uncontainerized"></a>Aplicaciones de Windows (uncontainerized)
+### <a name="windows-apps-uncontainerized"></a>Aplicaciones de Windows (sin contenedor)
 
-Para las aplicaciones de Windows, puede personalizar las asignaciones de controlador IIS y las aplicaciones virtuales y directorios.
+Para aplicaciones de Windows, puede personalizar las asignaciones de controlador de IIS, así como las aplicaciones y directorios virtuales.
 
-Asignaciones de controlador permiten agregar procesadores de script personalizado para controlar las solicitudes de determinadas extensiones de archivo. Para agregar un controlador personalizado, haga clic en **nuevo controlador**. Configure el controlador de la manera siguiente:
+Las asignaciones de controlador permiten agregar procesadores de script personalizados para controlar solicitudes de extensiones de archivo específicas. Para agregar un controlador personalizado, haga clic en **Nuevo controlador**. Configure el controlador de la manera siguiente:
 
-- **Extensión**. La extensión de archivo que desee controlar, como  *\*.php* o *handler.fcgi*.
-- **Procesador de script**. La ruta de acceso absoluta del procesador de script para usted. Se procesan las solicitudes de archivos que coinciden con la extensión de archivo mediante el procesador de script. Utilice la ruta de acceso `D:\home\site\wwwroot` para hacer referencia al directorio raíz de la aplicación.
-- **Argumentos**. Argumentos de línea de comandos opcionales para el procesador de script.
+- **Extensión**. La extensión de archivo que quiere gestionar, por ejemplo, *\*.php* o *handler.fcgi*.
+- **Procesador de script**. La ruta de acceso absoluta del procesador de script. El procesador de script procesa las solicitudes a archivos que coincidan con esta extensión de archivo. Utilice la ruta de acceso `D:\home\site\wwwroot` para hacer referencia al directorio raíz de la aplicación.
+- **Argumentos**. Argumentos opcionales de la línea de comandos para el procesador de script.
 
-Cada aplicación tiene la ruta de acceso predeterminada (`/`) asignado a `D:\home\site\wwwroot`, donde el código se implementa de forma predeterminada. Si es la raíz de la aplicación en una carpeta diferente, o si el repositorio tiene más de una aplicación, puede editar o agregar aplicaciones virtuales y directorios aquí. Haga clic en **nueva aplicación o directorio virtual**.
+Cada aplicación tiene la ruta de acceso de la raíz predeterminada (`/`) asignada a `D:\home\site\wwwroot`, donde el código se implementa de forma predeterminada. Si es la raíz de la aplicación está en una carpeta diferente, o si el repositorio tiene más de una aplicación, puede editar o agregar aplicaciones y directorios virtuales aquí. Haga clic en **Nueva aplicación o directorio virtual**.
 
-Para configurar aplicaciones virtuales y directorios, especifique cada directorio virtual y su correspondiente ruta física relativa a la raíz del sitio Web (`D:\home`). De manera opcional, puede activar la casilla **Aplicación** para marcar un directorio virtual como una aplicación.
+Para configurar las aplicaciones y los directorios virtuales, especifique cada directorio virtual y su ruta de acceso física correspondiente en relación con la raíz del sitio web (`D:\home`). De manera opcional, puede activar la casilla **Aplicación** para marcar un directorio virtual como una aplicación.
 
 ### <a name="containerized-apps"></a>Aplicaciones en contenedores
 
-También puede [agregar almacenamiento personalizado para la aplicación en contenedor](containers/how-to-serve-content-from-azure-storage.md). Aplicaciones en contenedores incluyen todas las aplicaciones de Linux y también los contenedores personalizados de Windows y Linux que se ejecuta en App Service. Haga clic en **nuevo almacenamiento de Azure montar** y configure el almacenamiento personalizado como sigue:
+También puede [agregar almacenamiento personalizado para la aplicación en contenedor](containers/how-to-serve-content-from-azure-storage.md). Las aplicaciones en contenedores incluyen todas las aplicaciones de Linux y también los contenedores personalizados de Windows y Linux que se ejecutan en App Service. Haga clic en **Nuevo montaje de Azure Storage** y configure el almacenamiento personalizado como sigue:
 
-- **Nombre**: El nombre para mostrar.
-- **Las opciones de configuración**: **Básico** o **avanzada**.
-- **Cuentas de almacenamiento**: La cuenta de almacenamiento con el contenedor que desee.
-- **Storage type** (Tipo de almacenamiento): **Los Blobs de Azure** o **archivos Azure**.
+- **Nombre**: nombre para mostrar.
+- **Opciones de configuración**: **Básica** o **Avanzada**.
+- **Cuentas de almacenamiento**: cuenta de almacenamiento con el contenedor que quiere.
+- **Storage type** (Tipo de almacenamiento): **Azure Blobs** o **Azure Files**
   > [!NOTE]
-  > Aplicaciones de contenedor de Windows solo admiten archivos de Azure.
-- **Contenedor de almacenamiento**: Configuración básica, el contenedor que desee.
-- **Nombre del recurso compartido**: Para la configuración avanzada, el archivo comparten el nombre.
-- **Clave de acceso**: Para la configuración avanzada, la clave de acceso.
+  > Las aplicaciones de contenedor de Windows solo admiten Azure Files.
+- **Contenedor de almacenamiento**: para la configuración básica, el contenedor que quiera.
+- **Nombre del recurso compartido**: para la configuración avanzada, el nombre del recurso compartido.
+- **Clave de acceso**: para la configuración avanzada, la clave de acceso.
 - **Ruta de acceso de montaje**: La ruta de acceso absoluta en el contenedor para montar el almacenamiento personalizado.
 
-Para obtener más información, consulte [servir contenido desde el almacenamiento de Azure en App Service en Linux](containers/how-to-serve-content-from-azure-storage.md).
+Para obtener más información consulte [Servicio de contenido desde Azure Storage en App Service en Linux](containers/how-to-serve-content-from-azure-storage.md).
 
-## <a name="configure-language-stack-settings"></a>Configurar la configuración de idioma de pila
+## <a name="configure-language-stack-settings"></a>Configurar las opciones de pila de lenguaje
 
-Las aplicaciones de Linux, consulte:
+Para las aplicaciones de Linux, consulte:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md)
 - [Node.js](containers/configure-language-nodejs.md)
@@ -244,24 +244,24 @@ Las aplicaciones de Linux, consulte:
 
 ## <a name="configure-custom-containers"></a>Configurar contenedores personalizados
 
-Consulte [configurar un contenedor de Linux personalizado para Azure App Service](containers/configure-custom-container.md)
+Consulte [Configuración de un contenedor de Linux personalizado para Azure App Service](containers/configure-custom-container.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Configuración de un nombre de dominio personalizado en Azure App Service]
-- [Configurar entornos de ensayo en Azure App Service]
+- [Configuración de entornos de ensayo en Azure App Service]
 - [Habilitación de HTTPS para una aplicación en Azure App Service]
 - [Habilitar los registros de diagnóstico](troubleshoot-diagnostic-logs.md)
 - [Escalado de una aplicación en Azure App Service]
 - [Aspectos básicos de supervisión en Azure App Service]
-- [Cambiar la configuración applicationHost.config con applicationHost.xdt](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
+- [Cambiar la configuración applicationHost.config por applicationHost.xdt](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Configuración de un nombre de dominio personalizado en Azure App Service]: ./app-service-web-tutorial-custom-domain.md
-[Configurar entornos de ensayo en Azure App Service]: ./deploy-staging-slots.md
+[Configuración de entornos de ensayo en Azure App Service]: ./deploy-staging-slots.md
 [Habilitación de HTTPS para una aplicación en Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Aspectos básicos de supervisión en Azure App Service]: ./web-sites-monitor.md

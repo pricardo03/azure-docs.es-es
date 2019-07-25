@@ -16,10 +16,10 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: adefb0c88e88a8bfb4b896c0788654e478ff4555
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963694"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configuración de LinkedIn Elevate para aprovisionar usuarios automáticamente
@@ -84,7 +84,7 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
 5. Haga clic en **Generar token**. El token de acceso debería aparecer en el campo **Token de acceso**.
 
-6. Guarde el token de acceso en el Portapapeles o el equipo antes de salir de la página.
+6. Guarde el token de acceso en el Portapapeles o en el equipo antes de abandonar la página.
 
 7. Después, inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
 

@@ -1,5 +1,5 @@
 ---
-title: Los datos de supervisión remotos obtener acceso a controlar - Azure | Microsoft Docs
+title: 'Control de acceso a datos de supervisión remota: Azure | Microsoft Docs'
 description: En este artículo se proporciona información sobre cómo puede configurar controles de acceso para el explorador de telemetría de Time Series Insights en el acelerador de soluciones de supervisión remota
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827171"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Configurar controles de acceso para el explorador de telemetría de Time Series Insights

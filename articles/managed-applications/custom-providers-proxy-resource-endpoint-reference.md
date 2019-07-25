@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: bbb907a7d73036352d4f5b8f36ccefacd89681ae
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: fe470165d11b24ffb1df704ecaa9804663fc9e5c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67479093"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796027"
 ---
 # <a name="custom-resource-proxy-reference"></a>Referencia de proxy de recurso personalizado
 
@@ -323,6 +323,7 @@ Content-Type: application/json; charset=utf-8
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción a los proveedores de recursos personalizados de Azure](./custom-providers-overview.md)
-- [Tutorial: Creación de un proveedor de recursos personalizados de Azure e implementación de recursos personalizados](./create-custom-provider.md)
+- [Inicio rápido: Creación de un proveedor de recursos personalizados de Azure e implementación de recursos personalizados](./create-custom-provider.md)
+- [Tutorial: Creación de acciones y recursos personalizados en Azure](./tutorial-custom-providers-101.md)
 - [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md) (Adición de acciones personalizadas a la API REST de Azure)
 - [Referencia: Custom Resource Cache Reference](./custom-providers-proxy-cache-resource-endpoint-reference.md) (Referencia: Referencia de caché de recurso personalizado)

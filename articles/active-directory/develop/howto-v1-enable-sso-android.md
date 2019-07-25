@@ -18,10 +18,10 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb11a4a926c676d37a0bf6be456e3b831a5d8357
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962645"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedimientos para: Habilitación de SSO entre aplicaciones en Android mediante ADAL
@@ -38,7 +38,7 @@ En esta guía de procedimientos aprenderá a configurar el SDK dentro de la apli
 
 En esta guía se supone que sabe cómo:
 
-- Aprovisionar la aplicación mediante el portal heredado para Azure Active Directory (Azure AD). Para obtener más información, consulte [registrar una aplicación](quickstart-register-app.md)
+- Aprovisionar la aplicación mediante el portal heredado para Azure Active Directory (Azure AD). Para obtener más información, consulte [Registro de una aplicación](quickstart-register-app.md).
 - Integrar la aplicación con el [SDK de Azure AD para Android](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## <a name="single-sign-on-concepts"></a>Conceptos relativos al inicio de sesión único
@@ -118,7 +118,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Paso 2: Establecer un nuevo URI de redirección con el esquema de dirección URL
 
-Con el fin de asegurarse de que la aplicación correcta recibe el valor devuelto de tokens la credencial, existe una necesidad para asegurarse de que la llamada a su aplicación de forma que el sistema operativo Android pueda verificarla. El sistema operativo Android utiliza el hash del certificado en Google Play Store. Este hash del certificado no puede suplantarlo ninguna aplicación no autorizada. Junto con el identificador URI de la aplicación de agente, Microsoft garantiza que los tokens se devuelven a la aplicación correcta. Es preciso registrar un identificador URI de redirección único en la aplicación.
+Para garantizar que la aplicación correcta recibe los tokens de credencial devueltos, es preciso asegurarse de que se llama a la aplicación de forma que el sistema operativo Android pueda verificarla. El sistema operativo Android utiliza el hash del certificado en Google Play Store. Este hash del certificado no puede suplantarlo ninguna aplicación no autorizada. Junto con el identificador URI de la aplicación de agente, Microsoft garantiza que los tokens se devuelven a la aplicación correcta. Es preciso registrar un identificador URI de redirección único en la aplicación.
 
 Para ser correcto, el URI de redirección debe presentar el formato siguiente:
 

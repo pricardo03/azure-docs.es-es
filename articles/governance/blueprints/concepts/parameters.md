@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66356983"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
@@ -40,12 +40,12 @@ Esta medida de seguridad impide el procedimiento no seguro de almacenar secretos
 - Nombre del secreto de Key Vault
 - Versión del secreto de Key Vault
 
-Si usa la asignación del plano técnico un **asignado por el sistema de identidad administrada**, hace referencia a Key Vault _debe_ existe en la misma suscripción que la definición del plano técnico está asignada a.
+Si la asignación del plano técnico utiliza una **identidad administrada asignada por el sistema** , la instancia de Key Vault asignada _debe_ estar en la misma suscripción a la que está asignada la definición del plano técnico.
 
-Si usa la asignación del plano técnico un **asignada por el usuario de la identidad administrada**, la hace referencia a Key Vault _puede_ existe en una suscripción centralizada. La identidad administrada debe tener los derechos correspondientes en el almacén de claves antes de la asignación del plano técnico.
+Si usa la asignación del plano técnico un **asignada por el usuario de la identidad administrada**, la hace referencia a Key Vault _puede_ existe en una suscripción centralizada. Se deben conceder los derechos adecuados a la identidad administrada en Key Vault antes de la asignación del plano técnico.
 
 > [!IMPORTANT]
-> En ambos casos, debe tener el almacén de claves **habilitar el acceso a Azure Resource Manager para la implementación de plantilla** configurado en el **las directivas de acceso** página. Para obtener instrucciones sobre cómo habilitar esta característica, consulte [Key Vault: Habilitar la implementación de plantillas](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> En ambos casos, Key Vault debe tener configurada la opción **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** en la página **Directivas de acceso**. Para obtener instrucciones sobre cómo habilitar esta característica, consulte [Key Vault: Habilitar la implementación de plantillas](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
 Para más información sobre Azure Key Vault, consulte [Introducción a Key Vault](../../../key-vault/key-vault-overview.md).
 
@@ -61,7 +61,7 @@ Un valor de parámetro definido en la definición de un plano técnico se denomi
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
-1. Haga clic en un proyecto existente y, a continuación, haga clic en **Editar plano** o haga clic en **+ crear instancia de blueprint** y rellene la información en el **Fundamentos** ficha.
+1. Haga clic en un plano técnico ya existente y, a continuación, haga clic en **Editar plano técnico** o en **+ Crear plano técnico** y rellene la información de la pestaña **Aspectos básicos**.
 
 1. Haga clic en **Siguiente: Artefactos** o haga clic en la pestaña **Artefactos**.
 
@@ -71,7 +71,7 @@ Un valor de parámetro definido en la definición de un plano técnico se denomi
 
 1. En la página **Editar artefacto** aparecen las opciones de valor adecuadas para el artefacto en el que se hace clic. Cada parámetro del artefacto tiene un título, un cuadro de valor y una casilla. Desactive la casilla para hacer que sea un **parámetro estático**. En el ejemplo siguiente, solo la _ubicación_ es un **parámetro estático** ya que está desactivada y la opción _Nombre del grupo de recursos_ está activada.
 
-   ![Instancia de blueprint parámetros estáticos en un artefacto de plano técnico](../media/parameters/static-parameter.png)
+   ![Parámetros estáticos de plano técnico en un artefacto de plano técnico](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Establecimiento de parámetros estáticos desde la API REST
 
@@ -170,7 +170,7 @@ La creación de **parámetros estáticos** en un artefacto es parecida, pero tom
 
 ### <a name="dynamic-parameters"></a>Parámetros dinámicos
 
-Lo contrario de un parámetro estático es un **parámetro dinámico**. Este parámetro no se define en el plano técnico, sino que se define durante cada asignación del mismo. En el ejemplo de grupo de recursos, el uso de un **parámetro dinámico** tiene sentido para el nombre del grupo de recursos. Proporciona un nombre diferente para cada asignación del plano técnico. Para obtener una lista de funciones de plano técnico, consulte el [blueprint funciones](../reference/blueprint-functions.md) referencia.
+Lo contrario de un parámetro estático es un **parámetro dinámico**. Este parámetro no se define en el plano técnico, sino que se define durante cada asignación del mismo. En el ejemplo de grupo de recursos, el uso de un **parámetro dinámico** tiene sentido para el nombre del grupo de recursos. Proporciona un nombre diferente para cada asignación del plano técnico. Para obtener una lista de funciones de plano técnico, consulte la referencia sobre [funciones de plano técnico](../reference/blueprint-functions.md).
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Establecimiento de parámetros dinámicos en el portal
 
@@ -178,9 +178,9 @@ Lo contrario de un parámetro estático es un **parámetro dinámico**. Este par
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
-1. Haga clic con el botón derecho clic en el plano técnico que desee asignar. Seleccione **asignar blueprint** o haga clic en el proyecto que desea asignar, a continuación, haga clic en el **asignar blueprint** botón.
+1. Haga clic con el botón derecho clic en el plano técnico que desee asignar. Seleccione **Asignar plano técnico** o haga clic en el plano técnico que quiera asignar y, después, haga clic en el botón **Asignar plano técnico**.
 
-1. En el **asignar blueprint** página, busque el **parámetros de artefacto** sección. Cada artefacto que tiene al menos un **parámetro dinámico** muestra el artefacto y las opciones de configuración. Proporcione los valores necesarios para los parámetros antes de asignar el plano técnico. En el ejemplo siguiente, _Name_ es un **parámetro dinámico** que se debe definir para completar la asignación del plano técnico.
+1. En la página **Asignar plano técnico**, busque la sección **Parámetros del artefacto**. Cada artefacto que tiene al menos un **parámetro dinámico** muestra el artefacto y las opciones de configuración. Proporcione los valores necesarios para los parámetros antes de asignar el plano técnico. En el ejemplo siguiente, _Name_ es un **parámetro dinámico** que se debe definir para completar la asignación del plano técnico.
 
    ![Parámetro dinámico del plano técnico durante la asignación del plano técnico](../media/parameters/dynamic-parameter.png)
 
@@ -239,7 +239,7 @@ Para establecer **parámetros dinámicos** durante la asignación, debe escribir
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Ver la lista de [blueprint funciones](../reference/blueprint-functions.md).
+- Vea la lista de [funciones de plano técnico](../reference/blueprint-functions.md).
 - Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md).

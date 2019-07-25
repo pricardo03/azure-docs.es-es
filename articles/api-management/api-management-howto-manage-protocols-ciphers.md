@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
 ms.openlocfilehash: f809aaf872607e7fa61368832a3df74318f2a858
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141499"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Administración de protocolos y cifrados en Azure API Management
@@ -37,7 +37,7 @@ Para seguir los pasos de este artículo, debe tener:
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>Cómo administrar protocolos TLS y el cifrado 3DES
 
 1. Vaya a la instancia de **API Management** en Azure Portal.
-2. Seleccione **configuración del protocolo** en el menú.  
+2. Seleccione **Configuración del protocolo** en el menú.  
 3. Habilite o deshabilite los protocolos o los cifrados que quiera.
 4. Haga clic en **Save**(Guardar). Los cambios se aplicarán en el plazo de una hora.  
 

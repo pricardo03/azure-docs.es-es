@@ -15,10 +15,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859533"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de aplicación y Qlik Sense 
@@ -56,13 +56,13 @@ Siga los mismos pasos que para la aplicación n.º 1, con las siguientes excepci
 **Paso 10:** no configure SSO y deje el **Inicio de sesión único deshabilitado**
  
  
-## <a name="testing"></a>Pruebas 
+## <a name="testing"></a>Prueba 
 La aplicación ya se puede probar. Acceda a la dirección URL externa que usó para publicar QlikSense en la aplicación n.º 1 e inicie sesión como usuario asignado a ambas aplicaciones.  
 
 ## <a name="additional-references"></a>Referencias adicionales
-Para obtener más información acerca de la publicación de Qlik Sense con el Proxy de aplicación, consulte a los siguientes artículos de la Comunidad de Qlik: 
-- [Azure AD con la autenticación integrada de Windows mediante una delegación restringida de Kerberos con Qlik Sense](https://community.qlik.com/docs/DOC-20183)
-- [Integración de Qlik Sense con Azure AD Application Proxy](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
+Para obtener más información acerca de la publicación de Qlik Sense con el proxy de aplicación, consulte los artículos de Qlik Community: 
+- [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183) (Azure AD con autenticación integrada de Windows con una delegación limitada de kerberos con Qlik Sense)
+- [Qlik Sense integration with Azure AD Application Proxy](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396) (Integración de Qlik Sense con el proxy de aplicación de Azure AD)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
-title: 'Revisión de acceso de grupos o aplicaciones: Azure Active Directory | Microsoft Docs'
-description: Obtenga información sobre cómo realizar una revisión de acceso de los miembros del grupo o el acceso a la aplicación de revisiones de acceso de Azure Active Directory.
+title: 'Creación de una revisión de acceso de grupos o aplicaciones: Azure Active Directory | Microsoft Docs'
+description: Obtenga información sobre cómo completar una revisión de acceso de los miembros del grupo o de la aplicación en las revisiones de acceso de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,72 +17,72 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec3909ffbb624284f999360140b7454098643062
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473372"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Revisión de acceso de los grupos o las revisiones de acceso de las aplicaciones de Azure AD
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos o las aplicaciones en las revisiones de acceso de Azure AD
 
-Como administrador, [crear una revisión de acceso de grupos o aplicaciones](create-access-review.md) y revisores [realizar la revisión de acceso](perform-access-review.md). En este artículo se describe cómo ver los resultados de la revisión de acceso y se aplican los resultados.
+Como administrador, [debe crear una revisión de acceso de grupos o aplicaciones](create-access-review.md). Los revisores se encargan de [realizar la revisión de acceso](perform-access-review.md). En este artículo se describe cómo ver los resultados de la revisión de acceso y se aplican los resultados.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Azure AD Premium P2
-- Administrador global, Administrador de usuarios, Administrador de seguridad o lector de seguridad
+- Administrador global, administrador de usuarios, administrador de seguridad o lector de seguridad
 
-Para obtener más información, consulte [qué usuarios deben tener licencias?](access-reviews-overview.md#which-users-must-have-licenses).
+Para más información, consulte [¿Qué usuarios deben tener licencias?](access-reviews-overview.md#which-users-must-have-licenses).
 
-## <a name="view-an-access-review"></a>Ver una revisión de acceso
+## <a name="view-an-access-review"></a>Visualización de una revisión de acceso
 
-Puede seguir el progreso como los revisores las realizan.
+Puede hacer un seguimiento del progreso de las revisiones a medida que los revisores las completan.
 
-1. Inicie sesión en Azure portal y abra el [página del gobierno de identidades](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Inicie sesión en Azure Portal y abra la [página de Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. En el menú izquierdo, haga clic en **las revisiones de acceso**.
+1. En el menú izquierdo, haga clic en **Revisiones de acceso**.
 
 1. En la lista, haga clic en una revisión de acceso.
 
-    Para ver una serie de acceso revisiones, vaya a la revisión de acceso y encontrará futuras repeticiones en las revisiones programada.
+    Para ver una serie de revisiones de acceso, vaya a la revisión de acceso y encontrará los próximos eventos en Revisiones programadas.
 
-    En el **Introducción** página, puede ver el progreso. Derechos de acceso no se cambian en el directorio hasta que se complete la revisión.
+    En la página **Información general**, puede ver el progreso. Los derechos de acceso no se cambian en el directorio hasta que la revisión finaliza.
 
-    ![Progreso de revisiones de acceso](./media/complete-access-review/overview-progress.png)
+    ![Progreso de las revisiones de acceso](./media/complete-access-review/overview-progress.png)
 
-1. Si desea detener una revisión de acceso antes ha alcanzado la fecha de finalización programada, haga clic en el **detener** botón.
+1. Si quiere detener una revisión de acceso antes de que alcance la fecha de finalización programada, haga clic en el botón **Detener**.
 
     Al detener una revisión, los revisores ya no podrán proporcionar respuestas. No puede reiniciar una revisión una vez detenida.
 
-1. Si ya no está interesado en la revisión de acceso, puede eliminarlo haciendo clic en el **eliminar** botón.
+1. Si ya no está interesado en la revisión de acceso, puede hacer clic en el botón **Eliminar** para eliminarla.
 
 ## <a name="apply-the-changes"></a>Aplicación de cambios
 
-Si **aplicar automáticamente los resultados al recurso** estuviera habilitado y según las selecciones realizadas en **configuración de finalización**, auto-aplicar will se ejecutará después de la fecha de finalización de la revisión o al detener manualmente la revisión.
+Si la opción **Aplicar automáticamente los resultados al recurso** estaba habilitado y basada en sus selecciones de **Configuración de finalización**, la aplicación automática se ejecutará después de la fecha de finalización de la revisión o cuando esta se detenga manualmente.
 
-Si **aplicar automáticamente los resultados al recurso** no estaba habilitado para la revisión, haga clic en **aplicar** para aplicar los cambios manualmente. Si se denegó el acceso de un usuario en la revisión, al hacer clic en **aplicar**, Azure AD quitará la asignación de pertenencia o aplicación.
+Si **Aplicar automáticamente los resultados al recurso** no estaba habilitado para la revisión, haga clic en **Aplicar** para aplicar los cambios manualmente. Si el acceso de un usuario se denegó en la revisión, al hacer clic en **Aplicar**, Azure AD quita la asignación de pertenencia o de la aplicación.
 
-![Aplicar cambios de la revisión de acceso](./media/complete-access-review/apply-changes.png)
+![Aplicación de cambios de la revisión de acceso](./media/complete-access-review/apply-changes.png)
 
-El estado de la revisión cambiará de **completado** a través de los estados intermedios como **Applying** y, finalmente, al estado **resultado aplicado**. Debería esperar ver a los usuarios denegados, si es que los hay, eliminados de la pertenencia al grupo o la asignación de aplicaciones en unos minutos.
+El estado de la revisión cambiará de **Completado** a estados intermedios como **Aplicando** y, por último, a **Resultado aplicado**. Debería esperar ver a los usuarios denegados, si es que los hay, eliminados de la pertenencia al grupo o la asignación de aplicaciones en unos minutos.
 
 Una revisión de aplicación automática configurada o la selección de **Aplicar** no tiene ningún efecto en un grupo que se origina en un directorio local o en un grupo dinámico. Si desea cambiar un grupo que se origina en un directorio local, descargue los resultados y aplique esos cambios a la representación del grupo en ese directorio.
 
 ## <a name="retrieve-the-results"></a>Recuperación de los resultados
 
-Para ver los resultados de una revisión de acceso de un solo uso, haga clic en el **resultados** página. Para ver solo acceso de un usuario, en el cuadro de búsqueda, escriba el nombre para mostrar o nombre principal de usuario de un usuario cuyo acceso se ha revisado.
+Para ver los resultados de una revisión de acceso de un solo uso, haga clic en la página **Resultados**. Para ver solo el acceso de un usuario, en el cuadro Buscar escriba el nombre para mostrar o el nombre principal de usuario de un usuario cuyo acceso se ha revisado.
 
-![Recuperar los resultados de una revisión de acceso](./media/complete-access-review/retrieve-results.png)
+![Recuperación de los resultados de una revisión de acceso](./media/complete-access-review/retrieve-results.png)
 
-Para ver el progreso de una revisión de acceso activa que se repite, haga clic en el **resultados** página.
+Para ver el progreso de una revisión de acceso activa que es periódica, haga clic en la página **Resultados**.
 
-Para ver los resultados de una instancia completada de una revisión de acceso que se repite, haga clic en **revisar el historial**, a continuación, seleccione la instancia específica de la lista de instancias de revisiones de acceso completa, en función de inicio de la instancia y la fecha de finalización. Los resultados de esta instancia pueden obtenerse a partir del **resultados** página.
+Para ver los resultados de una instancia finalizada de una revisión de acceso que sea recurrente, haga clic en **Historial de revisiones** y, a continuación, seleccione la instancia específica de la lista de instancias de la revisión de acceso finalizada, en función de las fechas inicial y final de la instancia. Se pueden obtener los resultados de esta instancia en la página **Resultados**.
 
-Para recuperar todos los resultados de una revisión de acceso, haga clic en el **descargar** botón. El archivo CSV resultante puede verse en Excel o en otros programas que abren archivos CSV codificados en UTF-8.
+Para recuperar todos los resultados de una revisión de acceso, haga clic en el botón **Descargar**. El archivo CSV resultante puede verse en Excel o en otros programas que abren archivos CSV codificados en UTF-8.
 
-## <a name="remove-users-from-an-access-review"></a>Quitar usuarios de una revisión de acceso
+## <a name="remove-users-from-an-access-review"></a>Eliminación de usuarios de una revisión de acceso
 
  De forma predeterminada, un usuario eliminado permanecerá eliminado en Azure AD durante 30 días, tiempo durante el cual un administrador puede restaurarlo si es necesario.  Después de 30 días, ese usuario se eliminará definitivamente.  Además, mediante el portal de Azure Active Directory, un administrador global puede [eliminar permanentemente un usuario eliminado recientemente](../fundamentals/active-directory-users-restore.md) explícitamente antes de que se alcance ese período de tiempo.  Una vez que un usuario se ha eliminado permanentemente, los datos posteriores sobre ese usuario se eliminarán de las revisiones de acceso activas.  La información de auditoría de los usuarios eliminados se conserva en el registro de auditoría.
 

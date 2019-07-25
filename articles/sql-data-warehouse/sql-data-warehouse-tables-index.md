@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
 ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851648"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexación de tablas en SQL Data Warehouse
@@ -52,9 +52,9 @@ Hay algunos escenarios en los que un almacén de columnas en clúster puede que 
 
 ## <a name="heap-tables"></a>Tablas de montón
 
-Cuando almacene datos temporalmente en SQL Data Warehouse, es posible que usar una tabla de montón hace agilizar el proceso global. Esto se debe a que las cargas en montones son más rápidas que la indexación de tablas y, en algunos casos, la posterior lectura se puede realizar desde la memoria caché.  Si solo carga datos para transformarlos después, cargar la tabla de apilamiento es mucho más rápido que cargar los datos en una tabla de almacén de columnas agrupadas. Además, la carga de datos en una [tabla temporal](sql-data-warehouse-tables-temporary.md) es una operación mucho más rápida que la carga de una tabla en un almacenamiento permanente.  
+Cuando almacene datos temporalmente en SQL Data Warehouse, las tablas de apilamiento pueden agilizar el proceso global. Esto se debe a que las cargas en montones son más rápidas que la indexación de tablas y, en algunos casos, la posterior lectura se puede realizar desde la memoria caché.  Si solo carga datos para transformarlos después, cargar la tabla de apilamiento es mucho más rápido que cargar los datos en una tabla de almacén de columnas agrupadas. Además, la carga de datos en una [tabla temporal](sql-data-warehouse-tables-temporary.md) es una operación mucho más rápida que la carga de una tabla en un almacenamiento permanente.  
 
-Para las tablas de búsqueda pequeño, menos de 60 millones de filas, a menudo las tablas de montón que tenga sentido.  Las tablas de almacén de columnas clúster empiezan a lograr una compresión óptima cuando hay más de 60 millones de filas.
+En cuanto a las tablas de búsqueda pequeñas, que tienen menos de 60 millones de filas, a menudo tiene sentido usar tablas de montón.  Las tablas de almacén de columnas en clúster empiezan a lograr una compresión óptima cuando hay más de 60 millones de filas.
 
 Para crear una tabla de montón, solo es preciso especificar HEAP en la cláusula WITH:
 
@@ -154,7 +154,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 Una vez ejecutada la consulta, puede empezar a examinar los datos y analizar los resultados. En esta tabla se explica lo que hay que buscar en el análisis de los grupos de filas.
 
-| columna | Uso de estos datos |
+| Columna | Uso de estos datos |
 | --- | --- |
 | [table_partition_count] |Si la tabla tiene particiones, puede que vea mayores recuentos de grupos de filas abiertos. En teoría, cada una de las particiones de la distribución puede tener asociado un grupo de filas abierto. Incluir esto en el análisis. Una tabla pequeña con particiones se puede optimizar eliminando por completo todas las particiones, ya que esto mejoraría la compresión. |
 | [row_count_total] |Número total de filas de la tabla. Por ejemplo, puede usar este valor para calcular el porcentaje de filas en estado comprimido. |
@@ -200,7 +200,7 @@ Un alto volumen de operaciones de DML que actualizan y eliminan filas puede intr
 - La inserción de una fila agrega la fila a una tabla de almacén de filas interna denominada grupo de filas delta. La fila insertada no se convierte en almacén de columnas hasta que el grupo de filas delta está lleno y marcado como cerrado. Los grupos de filas se cierran cuando alcanzan la capacidad máxima de 1 048 576 filas.
 - La actualización de una fila en formato de almacén de columnas se procesa como eliminación lógica y luego como inserción. La fila insertada se puede guardar en el almacén delta.
 
-Las operaciones de actualización e inserción por lotes que superen el umbral en masa de 102 400 filas por distribución de particiones alineada se escriben directamente en formato de almacén de columnas. Pero para ello, suponiendo una distribución uniforme, tendría que estar modificando más de 6.144 millones de filas en una sola operación. Si el número de filas para una determinada distribución alineadas de partición es inferior a 102 400, a continuación, las filas van al almacén delta y permanecen allí hasta que se han insertado o modificado para cerrar el grupo de filas suficiente de filas o se ha recompilado el índice.
+Las operaciones de actualización e inserción por lotes que superen el umbral en masa de 102 400 filas por distribución de particiones alineada se escriben directamente en formato de almacén de columnas. Pero para ello, suponiendo una distribución uniforme, tendría que estar modificando más de 6.144 millones de filas en una sola operación. Si el número de filas de una determinada distribución de particiones alineada es inferior a 102 400, las filas van al almacén delta y permanecen allí hasta que se hayan insertado o modificado un número suficiente de filas para cerrar el grupo de filas o hasta que se haya recompilado el índice.
 
 ### <a name="small-or-trickle-load-operations"></a>Operaciones de carga pequeña o lenta
 
@@ -210,7 +210,7 @@ En estas situaciones, a menudo es preferible que los datos vayan primero a Almac
 
 ### <a name="too-many-partitions"></a>Demasiadas particiones
 
-Otra cosa que se debe tener en cuenta es el impacto de la creación de particiones en las tablas de almacén de columnas en clúster.  Antes de crear particiones, SQL Data Warehouse ya divide los datos en 60 bases de datos.  La creación de particiones divide aún más los datos.  Si crea particiones de los datos, debe considerar que **cada** partición debe tener un mínimo de un millón de filas para beneficiarse de un índice de almacén de columnas en clúster.  Si particionar la tabla en 100 particiones, la tabla tiene al menos 6 mil millones de filas para beneficiarse de un índice agrupado (60 distribuciones *100 particiones* 1 millón de filas). Si la tabla de 100 particiones no tiene 6000 millones de filas, reduzca el número de particiones o considere la posibilidad de usar una tabla de montón en su lugar.
+Otra cosa que se debe tener en cuenta es el impacto de la creación de particiones en las tablas de almacén de columnas en clúster.  Antes de crear particiones, SQL Data Warehouse ya divide los datos en 60 bases de datos.  La creación de particiones divide aún más los datos.  Si crea particiones de los datos, debe considerar que **cada** partición debe tener un mínimo de un millón de filas para beneficiarse de un índice de almacén de columnas en clúster.  Si crea 100 particiones en una tabla, esta deberá tener al menos 6000 millones de filas para beneficiarse de un índice de almacén de columnas en clúster (60 distribuciones *100 particiones* 1 millón de filas). Si la tabla de 100 particiones no tiene 6000 millones de filas, reduzca el número de particiones o considere la posibilidad de usar una tabla de montón en su lugar.
 
 Una vez que las tablas se hayan cargado las tablas con datos, siga los pasos que se indican a continuación para identificar las tablas y volver a crearlas con índices de almacén de columnas agrupadas que no llegan a ser óptimas.
 
@@ -228,7 +228,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Paso 2: Recompilación de índices de almacén de columnas en clúster con un usuario de clase de recurso mayor
 
-Inicie sesión como el usuario del paso 1 (por ejemplo, LoadUser), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
+Inicie sesión como el usuario del paso 1 (p. ej., LoadUser), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
 
 Como alternativa, en lugar de volver a crear el índice, se puede copiar la tabla en otra tabla nueva con [CTAS](sql-data-warehouse-develop-ctas.md). ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, CTAS suele ser más rápido que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Sin embargo, en el caso de volúmenes menores de datos, ALTER INDEX es más fácil de usar y no requerirá el intercambio de la tabla.
 

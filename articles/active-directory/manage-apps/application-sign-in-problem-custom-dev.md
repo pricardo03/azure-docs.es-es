@@ -1,6 +1,6 @@
 ---
 title: Problemas de inicio de sesión en una aplicación desarrollada personalizada | Microsoft Docs
-description: Errores comunes que pueden provocar que no pueda iniciar sesión en una aplicación desarrollada con Azure AD
+description: Errores comunes que pueden causar la imposibilidad de iniciar sesión en una aplicación desarrollada con Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,13 +17,13 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ad2499aea8bf4e41ca00d6c78d76e112f0493e
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825231"
 ---
-# <a name="problems-signing-in-to-a-custom-developed-application"></a>Problemas al iniciar sesión una aplicación personalizada
+# <a name="problems-signing-in-to-a-custom-developed-application"></a>Problemas de inicio de sesión en una aplicación desarrollada personalizada
 
 Hay varios errores que pueden provocar que no pueda iniciar sesión en una aplicación. El principal motivo por el que los usuarios encuentran este problema son las aplicaciones mal configuradas.
 

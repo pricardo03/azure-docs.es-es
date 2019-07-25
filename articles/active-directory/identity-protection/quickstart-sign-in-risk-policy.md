@@ -1,8 +1,8 @@
 ---
 title: 'Inicio rápido: bloquear el acceso cuando se detecta riesgo en una sesión con Azure Active Directory Identity Protection | Microsoft Docs'
-description: En esta guía de inicio rápido aprenderá a configurar una directiva de acceso condicional por riesgo de inicio de sesión de Azure Active Directory (Azure AD) Identity Protection para bloquear inicios de sesión en función de los riesgos de la sesión.
+description: En esta guía de inicio rápido aprenderá a configurar una directiva de acceso condicional por riesgo de inicio de sesión de Azure Active Directory (Azure AD) Identity Protection para bloquear inicios de sesión en función de los riesgos de la sesión.
 services: active-directory
-keywords: protección de identidad, acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
+keywords: protección de identidad, acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -17,12 +17,12 @@ ms.date: 09/13/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5127342f97a90103ef56efbd7465832440ec0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c04d1a01c0ffd69e70dfa3b88b4f3c7f4b3576d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381823"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108802"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Inicio rápido: Bloqueo del acceso cuando se detecta riesgo en una sesión con Azure Active Directory Identity Protection  
 
@@ -67,7 +67,7 @@ El escenario de esta guía de inicio rápido usa un inicio de sesión desde Tor 
 
 En esta sección se muestra cómo crear la directiva de acceso condicional por riesgo de inicio de sesión que se requiere. En la directiva, establezca:
 
-|Configuración |Value|
+|Configuración |Valor|
 |---     | --- |
 | Usuarios  | Alain Charon  |
 | Condiciones | Riesgo de inicio de sesión, medio y superior |

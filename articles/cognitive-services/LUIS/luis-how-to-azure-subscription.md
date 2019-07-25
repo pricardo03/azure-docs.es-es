@@ -9,29 +9,30 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198653"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797948"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Uso de claves de suscripción con la aplicación de LUIS
 
-No es necesario crear claves de suscripción para usar las primeras 1000 consultas de punto de conexión. Una vez que se usan esas consultas de punto de conexión, cree un recurso de Azure en [Azure Portal](https://portal.azure.com) y luego asigne ese recurso a una aplicación de LUIS en el [portal de LUIS](https://www.luis.ai).
-
-Si recibe un error de que se ha quedado _sin cuota_ como un error HTTP 403 o 429, debe crear una clave y asignarla a la aplicación. 
+La primera vez que use Language Understanding (LUIS), no es necesario crear claves de suscripción. Se le proporcionarán 1000 consultas de punto de conexión para empezar. 
 
 Para pruebas y prototipos solo, use el plan gratuito (F0). Para los sistemas de producción, use un plan de [pago](https://aka.ms/luis-price-tier). No use la [clave de creación](luis-concept-keys.md#authoring-key) para las consultas de punto de conexión en producción.
+
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
 ## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Creación del recurso del entorno de ejecución de punto de conexión de predicción en Azure Portal
 
-Obtenga más información con el inicio rápido sobre [compilación de una aplicación](get-started-portal-build-app.md).
+Cree el [recurso del punto de conexión de predicción](get-started-portal-deploy-app.md#create-the-endpoint-resource) en Azure Portal. Dicho recurso solo se debe usar para las consultas de predicción de punto de conexión. No se debe usar para la creación de los cambios en la aplicación.
+
+Puede crear un recurso de Language Understanding o de Cognitive Services. Si va a crear un recurso de Language Understanding, se recomienda posponer el tipo de recurso al nombre del recurso. 
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -46,10 +47,19 @@ Obtenga más información con el inicio rápido sobre [compilación de una aplic
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### <a name="using-resource-from-luis-portal"></a>Uso de un recurso del portal de LUIS
+
+Si usa el recurso del portal de LUIS, no necesita conocer la clave y la ubicación. En su lugar, debe conocer el inquilino del recurso, la suscripción y el nombre del recurso.
+
+Una vez que [asigne](#assign-resource-key-to-luis-app-in-luis-portal) el recurso a la aplicación de LUIS en el portal de LUIS, la clave y la ubicación se proporcionan como parte de la dirección URL del punto de conexión de predicción de consulta en la página **Configuración de claves y puntos de conexión** de la sección Administrar.
+ 
+### <a name="using-resource-from-rest-api-or-sdk"></a>Uso de un recurso de API REST o del SDK
+
+Si usa el recurso de API REST o del SDK, necesita conocer la clave y la ubicación. Esta información se proporciona como parte de la dirección URL del punto de conexión de predicción de consulta en la página **Configuración de claves y puntos de conexión** de la sección Administrar, así como en Azure Portal, en las páginas Información general y Claves del recurso.
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Asignación de la clave de recurso a la aplicación de LUIS en el portal de LUIS
 
-Obtenga más información con el inicio rápido sobre [implementación](get-started-portal-deploy-app.md).
+Cada vez que crea un recurso para LUIS, será preciso que lo [asigne a la aplicación de LUIS](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). Una vez que lo asigne, no tendrá que volver a realizar este paso, a menos que cree otro recurso. Puede crear un recurso para expandir las regiones de la aplicación o para admitir un mayor número de consultas de predicción.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -133,7 +143,7 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
 
     Esta API POST requiere la siguiente configuración:
 
-    |Type|Configuración|Valor|
+    |type|Configuración|Valor|
     |--|--|--|
     |Encabezado|`Authorization`|El valor de `Authorization` es `Bearer {token}`. Tenga en cuenta que el valor del token debe ir precedido de la palabra `Bearer` y un espacio.|
     |Encabezado|`Ocp-Apim-Subscription-Key`|Su [clave de creación](luis-how-to-account-settings.md).|
@@ -155,10 +165,30 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
     ![Comprobar el plan de pago de LUIS](./media/luis-usage-tiers/updated.png)
 1. No olvide [asignar esta clave de punto de conexión](#assign-endpoint-key) en la página **Publicar** y usarla en todas las consultas de punto de conexión. 
 
-## <a name="how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage"></a>Solución de los errores por quedarse sin cuota cuando la clave excede el uso permitido por el plan de tarifa
-Cada plan permite solicitudes de punto de conexión a la cuenta de LUIS a una tasa específica. Si la tasa de solicitudes es mayor que la permitida para la cuenta de uso medido por minuto o por mes, las solicitudes reciben un error HTTP de "429: demasiadas solicitudes".
+## <a name="fix-http-status-code-403-and-429"></a>Corrección de los códigos de estado HTTP 403 y 429
 
-Cada plan permite solicitudes acumulativas por mes. Si el número total de solicitudes es más alto que la tasa permitida, las solicitudes reciben un error HTTP "403: prohibido".  
+Recibirá los códigos de estado HTTP 403 y 429 cuando supere las transacciones por segundo o las transacciones al mes del plan de tarifa.
+
+### <a name="when-you-receive-an-http-403-error-status-code"></a>Cuando reciba un código de estado de error HTTP 403
+
+Al usar las 1000 consultas de punto de conexión gratuitas o al superar la cuota mensual de transacciones de su plan de tarifa, recibirá un código de estado de error HTTP 403. 
+
+Para corregir este error, tendrá que [cambiar su plan de tarifa](luis-how-to-azure-subscription.md#change-pricing-tier) a un nivel superior o [crear un nuevo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) y [asignarlo a la aplicación](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Las soluciones para este error incluyen:
+
+* En [Azure Portal](https://portal.azure.com), en su recurso Language Understanding, en **Administración de recursos -> Plan de tarifa**, cambie su plan de tarifa a un nivel superior de TPS. No es necesario hacer nada en el portal de Language Understanding si el recurso ya está asignado a la aplicación Language Understanding.
+*  Si el uso supera el plan de tarifa más alto, agregue más recursos de Language Understanding con un equilibrador de carga delante. El [contenedor de Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose puede ayudarle en esto.
+
+### <a name="when-you-receive-an-http-429-error-status-code"></a>Cuando reciba un código de estado de error HTTP 429
+
+Este código de estado se devuelve cuando las transacciones por segundo superan su plan de tarifa.  
+
+Entre las soluciones, se incluyen las siguientes:
+
+* También puede [aumentar el plan de tarifa](#change-pricing-tier), si no está en el nivel más alto.
+* Si el uso supera el plan de tarifa más alto, agregue más recursos de Language Understanding con un equilibrador de carga delante. El [contenedor de Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose puede ayudarle en esto.
+* También puede programar las solicitudes de la aplicación cliente con una [directiva de reintentos](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que implemente al recibir este código de estado. 
 
 ## <a name="viewing-summary-usage"></a>Ver uso de resumen
 En Azure puede ver la información de uso de LUIS. En la página **Información general** se muestra información de resumen reciente incluidos los errores y las llamadas. Si realiza una solicitud de punto de conexión de LUIS, consulte inmediatamente la **página Información general**, y deje que pasen hasta cinco minutos hasta que se muestre el uso.

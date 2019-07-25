@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: cfa6a363725c35083b32d6de1dd1371777f91907
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240299"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Control de versiones de cliente y servidor en Mobile Apps y Mobile Services
@@ -29,7 +29,7 @@ Es decir, debe usar el SDK de cliente de *Mobile Apps* con un SDK de servidor de
 
 Nota: cada vez que este documento hace referencia a un back-end de *Mobile Services* , no es necesario que esté hospedado en Mobile Services. Ahora es posible migrar un servicio móvil para que se ejecute en App Service sin realizar ningún cambio en el código, pero el servicio seguirá usando versiones de SDK de *Mobile Services*.
 
-Para más información sobre cómo migrar a App Service sin realizar ningún cambio en el código, vea el artículo [migrar un servicio móvil en Azure App Service].
+Para más información sobre la migración a App Service sin realizar ningún cambio en el código, consulte el artículo [Migración del servicio móvil de Azure existente a App Service].
 
 ## <a name="header-specification"></a>Especificación del encabezado
 La clave `ZUMO-API-VERSION` se puede especificar en el encabezado HTTP o en la cadena de consulta. El valor es una cadena de versión con el formato **x.y.z**.
@@ -52,7 +52,7 @@ Para anular la comprobación de la versión, establezca el valor **true** en la 
 ### <a name="MobileAppsClients"></a> SDK de cliente de *Aplicaciones* móviles
 La comprobación de versión se introdujo a partir de las siguientes versiones del SDK de cliente de **Azure Mobile Apps**:
 
-| Plataforma de cliente | Version | Valor de encabezado de versión |
+| Plataforma de cliente | Versión | Valor de encabezado de versión |
 | --- | --- | --- |
 | Cliente administrado (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |
@@ -69,7 +69,7 @@ La comprobación de versión se incluye en las siguientes versiones del SDK de s
 ### <a name="behavior-of-mobile-apps-backends"></a>Comportamiento de back-ends de Mobile Apps
 | ZUMO-API-VERSION | Valor de MS_SkipVersionCheck | Response |
 | --- | --- | --- |
-| x.y.z o Null |True  |200 - CORRECTO |
+| x.y.z o Null |True |200 - CORRECTO |
 | Null |False/Sin especificar |400 - Solicitud incorrecta |
 | 1.x.y |False/Sin especificar |400 - Solicitud incorrecta |
 | 2.0.0-2.x.y |False/Sin especificar |200 - CORRECTO |

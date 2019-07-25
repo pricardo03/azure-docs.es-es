@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859621"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación
@@ -30,15 +30,15 @@ Puede proporcionar un inicio de sesión único para las aplicaciones locales pub
 Puede habilitar el inicio de sesión único a sus aplicaciones mediante la autenticación integrada de Windows (IWA) dando permiso a los conectores del proxy de aplicación en Active Directory para suplantar a los usuarios. Los conectores usan este permiso para enviar y recibir tokens en su nombre.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>Cómo funciona el inicio de sesión único con KCD
-Este diagrama explica el flujo cuando un usuario intenta tener acceso a una aplicación local que usa IWA.
+En este diagrama se explica el flujo que se crea cuando un usuario intenta tener acceso a una aplicación local que usa IWA.
 
 ![Diagrama de flujos de autenticación de Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. El usuario escribe la dirección URL para tener acceso a la aplicación local a través del Proxy de aplicación.
+1. El usuario escribe la dirección URL para tener acceso a la aplicación local mediante Application Proxy.
 2. Proxy de aplicación redirige la solicitud a los servicios de autenticación de Azure AD para realizar la autenticación previa. En este momento, Azure AD aplica cualquier autenticación correspondiente, así como directivas de autorización, como la autenticación multifactor. Si se valida el usuario, Azure AD crea un token y lo envía al usuario.
 3. El usuario pasa el token a Proxy de aplicación.
-4. Proxy de aplicación valida el token y recupera el nombre Principal de usuario (UPN) y, a continuación, el conector extrae el UPN y el nombre Principal de servicio (SPN) a través de un canal seguro doblemente autenticado.
-5. El conector realiza la negociación de la delegación limitada de Kerberos (KCD) con la de AD local, suplantando al usuario para obtener un token de Kerberos para la aplicación.
+4. El proxy de aplicación valida el token y recupera el nombre principal del usuario (UPN); a continuación, el conector extrae el UPN y el nombre de entidad de seguridad de servicio (SPN) a través de un canal seguro con autenticación dual.
+5. El conector realiza la negociación de la delegación limitada de Kerberos (KCD) con AD local, suplantando al usuario para obtener un token de Kerberos para la aplicación.
 6. Active Directory envía el token de Kerberos para la aplicación al conector.
 7. El conector envía la solicitud original al servidor de aplicaciones, con el token de Kerberos que recibió de AD.
 8. La aplicación envía la respuesta al conector y, después, se devuelve al servicio Application Proxy y, por último, al usuario.
@@ -59,7 +59,7 @@ La configuración de Active Directory varía, en función de si el conector de P
 2. Seleccione el servidor que ejecuta el conector.
 3. Haga clic en el botón derecho y seleccione **Propiedades** > **Delegación**.
 4. Seleccione **Confiar en este equipo para la delegación solo a los servicios especificados**. 
-5. Seleccione **usar cualquier protocolo de autenticación**.
+5. Seleccione **Usar cualquier protocolo de autenticación**.
 6. En **Servicios a los que esta cuenta puede presentar credenciales delegadas**, agregue el valor de la identidad SPN del servidor de aplicaciones. Esto permite al conector del proxy de aplicación suplantar a los usuarios en AD en las aplicaciones definidas en la lista.
 
    ![Captura de pantalla de ventana Conector-Propiedades SVR](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
@@ -119,7 +119,7 @@ Esta funcionalidad permite a muchas organizaciones que tienen identidades locale
 * Tienen varios dominios internamente (joe@us.contoso.com, joe@eu.contoso.com) y un único dominio en la nube (joe@contoso.com).
 * Tienen un nombre de dominio no enrutable internamente (joe@contoso.usa) y uno legal en la nube.
 * No utilizan nombres de dominio internamente (joe)
-* Utilice un alias diferente en el entorno local y en la nube. Por ejemplo, joe-johns@contoso.com en comparación con joej@contoso.com  
+* Usan distintos alias locales y en la nube. Por ejemplo, joe-johns@contoso.com en comparación con joej@contoso.com  
 
 Con el proxy de aplicación, puede seleccionar qué identidad utilizar para obtener el vale de Kerberos. Esta configuración es por aplicación. Algunas de estas opciones son adecuadas para los sistemas que no aceptan el formato de dirección de correo electrónico, otras están pensadas para el inicio de sesión alternativo.
 

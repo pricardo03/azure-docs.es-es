@@ -12,82 +12,82 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
 ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851537"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Estadísticas de tabla en Azure SQL Data Warehouse
 
 Recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas en las tablas de Azure SQL Data Warehouse.
 
-## <a name="why-use-statistics"></a>¿Por qué usar estadísticas
+## <a name="why-use-statistics"></a>¿Por qué usar estadísticas?
 
-Cuanto más sepa Azure SQL Data Warehouse acerca de los datos, más rápido podrá ejecutar consultas en ellos. Después de cargar datos en SQL Data Warehouse, la recopilación de estadísticas sobre los datos es una de las cosas más importantes que puede hacer para optimizar las consultas. El optimizador de consultas de SQL Data Warehouse se basa en costos. Compara el costo de varios planes de consulta y, a continuación, elige el plan con el costo más bajo. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente. Por ejemplo, si el optimizador estima que la fecha que está filtrando la consulta devolverá una fila elegirá un plan. Si lo estima que la fecha seleccionada devolverá 1 millón de filas, devolverá un plan diferente.
+Cuanto más sepa Azure SQL Data Warehouse acerca de los datos, más rápido podrá ejecutar consultas en ellos. Después de cargar datos en SQL Data Warehouse, la recopilación de estadísticas sobre los datos es una de las cosas más importantes que puede hacer para optimizar sus consultas. El optimizador de consultas de SQL Data Warehouse se basa en costos. Compara el costo de varios planes de consulta y elige el menor de ellos. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente. Por ejemplo, si el optimizador estima que la fecha en que se filtra la consulta devolverá una fila, se elegirá un plan. Si estima que la fecha seleccionada devolverá 1 millón de filas, devolverá un plan diferente.
 
 ## <a name="automatic-creation-of-statistic"></a>Creación automática de estadísticas
 
-Cuando la base de datos de la opción AUTO_CREATE_STATISTICS está activada, SQL Data Warehouse analiza las consultas de usuario entrantes para las estadísticas que faltan. Si faltan estadísticas, el optimizador de consultas crea las estadísticas en columnas individuales de la condición de combinación o predicado de consulta para mejorar las estimaciones de cardinalidad para el plan de consulta. Actualmente, la creación automática de estadísticas está activada de forma predeterminada.
+Cuando la opción de base de datos AUTO_CREATE_STATISTICS está activada, SQL Data Warehouse analiza las consultas entrantes de los usuarios en busca de las estadísticas faltantes. Si faltan las estadísticas, el optimizador de consultas crea las estadísticas en columnas individuales en el predicado de consulta o en la condición de combinación para mejorar las estimaciones de cardinalidad del plan de consulta. Actualmente, la creación automática de estadísticas está activada de forma predeterminada.
 
-Puede comprobar si el almacenamiento de datos tiene AUTO_CREATE_STATISTICS configurado, ejecute el comando siguiente:
+Puede comprobar si su almacenamiento de datos tiene configurado AUTO_CREATE_STATISTICS; para ello, ejecute el siguiente comando:
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-Si el almacenamiento de datos no tiene AUTO_CREATE_STATISTICS configurado, se recomienda que habilitar esta propiedad, ejecute el comando siguiente:
+Si el almacenamiento de datos no tiene configurado AUTO_CREATE_STATISTICS, se recomienda habilitar esta propiedad con el siguiente comando:
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
 SET AUTO_CREATE_STATISTICS ON
 ```
 
-Estas instrucciones desencadenarán la creación automática de estadísticas:
+Estas instrucciones activarán la creación automática de estadísticas:
 
-- SELECCIONAR
+- SELECT
 - INSERT-SELECT
 - CTAS
 - UPDATE
 - DELETE
-- EXPLIQUE cuando se detecta que contiene una combinación o la presencia de un predicado
+- EXPLAIN, cuando contienen una combinación o se ha detectado la presencia de un predicado.
 
 > [!NOTE]
 > La creación automática de estadísticas no funciona en tablas temporales o externas.
 
-Creación automática de estadísticas se realiza de forma sincrónica lo puede suponer el rendimiento de las consultas ligeramente degradado si las columnas faltan las estadísticas. El tiempo para crear estadísticas de una sola columna depende del tamaño de la tabla. Para evitar la degradación del rendimiento cuantificable, especialmente en las pruebas comparativas de rendimiento, debe asegurarse de estadísticas se crearon en primer lugar mediante la ejecución de la carga de trabajo de pruebas comparativas antes que el sistema de generación de perfiles.
+La creación automática de estadísticas se realiza de forma sincrónica, por lo que puede suponer una ligera degradación del rendimiento de consulta si a las columnas les faltan estadísticas. El tiempo para crear estadísticas de una sola columna depende del tamaño de la tabla. Para evitar la degradación del rendimiento cuantificable, especialmente en pruebas comparativas de rendimiento, debe asegurarse de que las estadísticas se hayan creado primero mediante la ejecución de la carga de trabajo de la prueba comparativa antes de la generación de perfiles del sistema.
 
 > [!NOTE]
-> La creación de estadísticas se registrarán [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) bajo un contexto de usuario diferente.
+> La creación de estadísticas también se registrará en [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) en un contexto de usuario diferente.
 
-Cuando se crean las estadísticas automáticas, estas adoptarán la forma de: _WA_Sys_<identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Puede ver las estadísticas que ya se han creado mediante la ejecución de la [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) comando:
+Cuando se crean las estadísticas automáticas, estas adoptarán la forma de: _WA_Sys_<identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas que ya se han creado, ejecute el comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest):
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
 ```
 
-Table_name es el nombre de la tabla que contiene las estadísticas que mostrar. No puede ser una tabla externa. El destino es el nombre del índice de destino, las estadísticas o columna que se va a mostrar información estadística.
+El valor de table_name es el nombre de la tabla que contiene las estadísticas para mostrar. No puede ser una tabla externa. El destino es el nombre del índice, de las estadísticas o de la columna de destino para los que se va a mostrar información estadística.
 
 ## <a name="updating-statistics"></a>Actualización de estadísticas
 
-Uno de los procedimientos recomendados es la actualización diaria de estadísticas en columnas de fecha al agregarse nuevas fechas. Cada fila nueva de tiempo se carga en el almacenamiento de datos, se agregan nuevas fechas de carga o de transacción. Estas cambian la distribución de los datos y hacen que las estadísticas se queden obsoletas. Por el contrario, las estadísticas en una columna de país o región en una tabla de clientes nunca deba actualizarse, ya que no suelen cambia la distribución de valores. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos. Sin embargo, si el almacenamiento de datos solo contiene un país o región y aparezca los datos de un nuevo país o región, lo que en los datos de varios países o regiones que se almacena, deberá actualizar las estadísticas en la columna de país o región.
+Uno de los procedimientos recomendados es la actualización diaria de estadísticas en columnas de fecha al agregarse nuevas fechas. Cada fila nueva de tiempo se carga en el almacenamiento de datos, se agregan nuevas fechas de carga o de transacción. Estas cambian la distribución de los datos y hacen que las estadísticas se queden obsoletas. Por el contrario, es posible que las estadísticas de una columna de un país o región en una tabla de clientes nunca tengan que actualizarse, pues la distribución de valores no suele cambiar. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos. Sin embargo, si su almacenamiento de datos solo contiene un país o región y trae datos de un nuevo país o región, y esto da lugar al almacenamiento de datos de varios países o regiones, debe actualizar las estadísticas en la columna de país o región.
 
 Las siguientes son recomendaciones para actualizar las estadísticas:
 
 |||
 |-|-|
-| **Frecuencia de actualizaciones de estadísticas**  | Conservadora: Diariamente </br> Después de cargar o transformar los datos |
-| **Muestreo** |  Menor que 1 millones de filas, use el muestreo predeterminado (20 por ciento). </br> Con más de 1 millones de filas, use el muestreo de dos por ciento. |
+| **Frecuencia de actualizaciones de estadísticas**  | Conservadora: Diario </br> Después de cargar o transformar los datos |
+| **Muestreo** |  Con menos de mil millones de filas, use el muestreo predeterminado (20 por ciento) </br> Con más de mil millones de filas, use el muestreo del dos por ciento. |
 
 Una de las primeras preguntas que se deben formular para la solución de problemas de una consulta es **"¿Están actualizadas las estadísticas?"**
 
 No se trata de una pregunta que se pueda responder por la antigüedad de los datos. Un objeto de estadísticas actualizadas podría ser antiguo si no ha habido ningún cambio material en los datos subyacentes. Si el número de filas ha cambiado significativamente o hay un cambio material en la distribución de valores para una columna, *entonces* es el momento de actualizar las estadísticas.
 
-No hay ninguna vista de administración dinámica para determinar si los datos dentro de la tabla ha cambiado desde que se actualizaron las estadísticas de tiempo de último. Conocer la antigüedad de las estadísticas puede proporcionarle con parte de la imagen. Puede usar la siguiente consulta para determinar la última vez que se actualizaron las estadísticas en cada tabla.
+No hay una vista de administración dinámica para determinar si los datos de la tabla han cambiado desde la última vez que se actualizaron las estadísticas. Conocer la antigüedad de sus estadísticas puede proporcionarle parte de la totalidad de la imagen. Puede usar la siguiente consulta para determinar la última vez que se actualizaron las estadísticas en cada tabla.
 
 > [!NOTE]
-> Si hay un cambio material en la distribución de valores para una columna, debe actualizar las estadísticas independientemente de la última vez que se actualizaron.
+> Recuerde que, si hay un cambio material en la distribución de valores para una columna, debe actualizar las estadísticas independientemente de la última vez que se actualizaran.
 
 ```sql
 SELECT
@@ -332,7 +332,7 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-Para crear estadísticas en todas las columnas en la tabla con los valores predeterminados, ejecute el procedimiento almacenado.
+Para crear estadísticas de todas las columnas de la tabla mediante los valores predeterminados, ejecute el procedimiento almacenado.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
@@ -377,7 +377,7 @@ Al actualizar los objetos de estadísticas específicos, puede minimizar el tiem
 
 ### <a name="update-all-statistics-on-a-table"></a>Actualizar todas las estadísticas de una tabla
 
-Es un método sencillo para actualizar todos los objetos de estadísticas en una tabla:
+Un método sencillo para actualizar todos los objetos de estadísticas de una tabla es el siguiente:
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name];
@@ -389,7 +389,7 @@ Por ejemplo:
 UPDATE STATISTICS dbo.table1;
 ```
 
-Es fácil de usar la instrucción UPDATE STATISTICS. Solo tiene que recordar que se actualizan *todas* las estadísticas de la tabla y, por tanto, puede realizar más trabajo del necesario. Si el rendimiento no es un problema, esta es la forma más fácil y más completa de garantizar que las estadísticas estén actualizadas.
+Es fácil usar la instrucción UPDATE STATISTICS. Solo tiene que recordar que se actualizan *todas* las estadísticas de la tabla y, por tanto, puede realizar más trabajo del necesario. Si el rendimiento no es un problema, es la forma más fácil y completa de garantizar que las estadísticas están actualizadas.
 
 > [!NOTE]
 > Al actualizar todas las estadísticas de una tabla, SQL Data Warehouse realiza un análisis para crear muestras de la tabla para cada objeto de estadística. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.

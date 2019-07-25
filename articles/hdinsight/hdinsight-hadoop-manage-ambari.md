@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
 ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257995"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifica la administración y la supervisión de un clúster de Apache Hadoop al brindar una API de REST y una interfaz de usuario web fácil de usar. Ambari se incluye en los clústeres de HDInsight y se usa para supervisar el clúster y realizar cambios de configuración.
+Apache Ambari simplifica la administración y la supervisión de un clúster de Apache Hadoop al brindar una API de REST y una interfaz de usuario web fácil de usar. Ambari se incluye en los clústeres de HDInsight y, además, se usa para supervisar el clúster y realizar cambios en la configuración.
 
 Con este documento aprende a usar la interfaz de usuario web de Ambari con un clúster de HDInsight.
 
@@ -29,7 +29,7 @@ Con este documento aprende a usar la interfaz de usuario web de Ambari con un cl
 
 ## <a name="connectivity"></a>Conectividad
 
-La interfaz de usuario de Web de Ambari está disponible en el clúster de HDInsight en `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster.
+La interfaz de usuario web de Ambari está disponible en el clúster de HDInsight en `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster.
 
 > [!IMPORTANT]  
 > La conexión a Ambari en HDInsight requiere HTTPS. Cuando se le solicite autenticación, use el nombre de la cuenta de administrador y la contraseña que proporcionó cuando se creó el clúster.
@@ -52,14 +52,14 @@ Cuando se abra la página, observe la barra que se encuentra en la parte superio
 |item |DESCRIPCIÓN |
 |---|---|
 |Logotipo de Ambari|Abre el panel, que puede usarse para supervisar el clúster.|
-|# Ops de nombre del clúster|Muestra el número de operaciones de Ambari en curso. Seleccione el nombre del clúster o **# ops** para ver una lista de las operaciones en segundo plano.|
-|# alerts|Muestra las advertencias o alertas críticas, si existe, para el clúster.|
+|Cluster name # ops|Muestra el número de operaciones de Ambari en curso. Seleccione el nombre del clúster o **# ops** para ver una lista de las operaciones en segundo plano.|
+|# alerts|Muestra alertas de advertencia o alertas críticas del clúster, si las hay.|
 |panel|Muestra el panel.|
-|Servicios|Configuración de información y configuración para los servicios del clúster.|
-|Hosts|Valores de configuración y la información de los nodos del clúster.|
+|Services|Información y ajustes de configuración de los servicios en el clúster.|
+|Hosts|Información y ajustes de configuración de los nodos del clúster.|
 |Alertas|Un registro de información, advertencias y alertas críticas.|
-|Administración|Pila/servicios de software que están instalados en el clúster, la información de la cuenta de servicio y la seguridad de Kerberos.|
-|Botón Administrador|Administración de Ambari, la configuración de usuario y cierre de sesión.|
+|Administración|Servicios/pila de software que están instalados en el clúster, información de la cuenta de servicio y seguridad Kerberos.|
+|Botón Admin|Administración de Ambari, configuración del usuario y cierre de sesión.|
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -102,7 +102,7 @@ Para más información sobre los nodos del clúster, seleccione **Hosts**. A con
 
 ![detalles del host](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
-### <a name="services"></a>Servicios
+### <a name="services"></a>Services
 
 La barra lateral **Services** (Servicios) del panel proporciona información rápida del estado de los servicios que se ejecutan en el clúster. Se usan varios iconos para indicar el estado o las acciones que se deben realizar. Por ejemplo, si es necesario reciclar un servicio, se muestra un símbolo de reciclaje amarillo.
 
@@ -153,16 +153,16 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
 
     |item |DESCRIPCIÓN |
     |---|---|
-    |Iniciar todos los componentes|Inicie todos los componentes en el host.|
-    |Detener todos los componentes|Detenga todos los componentes en el host.|
-    |Reinicie todos los componentes|Detener e iniciar todos los componentes en el host.|
-    |Activar el modo de mantenimiento|Suprime las alertas para el host. Este modo se debería habilitar si va a realizar acciones que generan alertas. Por ejemplo, detener e iniciar un servicio.|
-    |Desactivar el modo de mantenimiento|Devuelve el host de alerta normal.|
+    |Iniciar todos los componentes|Inicia todos los componentes en el host.|
+    |Detener todos los componentes|Detiene todos los componentes en el host.|
+    |Reiniciar todos los componentes|Detiene e inicia todos los componentes en el host.|
+    |Activar el modo de mantenimiento|Suprime las alertas del host. Este modo se debería habilitar si va a realizar acciones que generan alertas. Por ejemplo, detener e iniciar un servicio.|
+    |Desactivar el modo de mantenimiento|Devuelve el host al modo de alertas normal.|
     |Stop|Detiene DataNode o NodeManagers en el host.|
-    |Iniciar|Inicia DataNode o NodeManagers en el host.|
+    |Start|Inicia DataNode o NodeManagers en el host.|
     |Reinicio|Detiene e inicia DataNode o NodeManagers en el host.|
     |Dar de baja|Quita un host del clúster. **No use esta acción en clústeres de HDInsight.**|
-    |Recommission|Agrega un host anteriormente retirado al clúster. **No use esta acción en clústeres de HDInsight.**|
+    |Dar de alta|Agrega un host anteriormente retirado al clúster. **No use esta acción en clústeres de HDInsight.**|
 
 ### <a id="service"></a>Servicios
 

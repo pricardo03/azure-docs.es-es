@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: cc6f822f20da55488c559c081129c3f177367123
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60295794"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108970"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instrucciones: Configuración de las directivas de riesgo en Azure Active Directory Identity Protection (actualizado)
 
@@ -41,7 +41,7 @@ AD Azure analiza cada inicio de sesión de un usuario. El objetivo del análisis
 
 La directiva de riesgo de inicio de sesión es una respuesta automatizada que puede configurar para un nivel de riesgo de inicio de sesión específico. En la respuesta, puede bloquear el acceso a los recursos o enviar un desafío de autenticación multifactor (MFA) para obtener acceso.
 
-Cuando un usuario completa correctamente un mensaje de AMF activado por la directiva de inicio de sesión de riesgo, proporciona comentarios a la protección de identidad que el inicio de sesión se originaron desde un usuario legítimo. Por lo tanto, el evento de inicio de sesión de riesgo que desencadenó el aviso de MFA se cerrará automáticamente y protección de identidad impedirá que este evento que contribuyen a la elevación de riesgo del usuario. Habilitación de la directiva de inicio de sesión de riesgo puede reducir noisiness en la vista de inicios de sesión permitiendo a los usuarios a corregir cuando se le pida MFA y posteriormente automáticamente cerrando el asociado inicio de sesión peligroso.
+Cuando un usuario completa correctamente un mensaje de AMF activado por la directiva de riesgo de inicio de sesión, proporciona comentarios a Identity Protection que indican que el inicio de sesión procede de un usuario legítimo. Por lo tanto, el evento de riesgo de inicio de sesión que desencadenó el aviso de MFA se cerrará automáticamente y Identity Protection impedirá que este evento contribuya a la elevación del riesgo del usuario. La habilitación de la directiva de riesgo de inicio de sesión puede reducir el ruido de la vista de inicios de sesión de riesgo permitiendo a los usuarios solucionarlo cuando se les pida MFA y, posteriormente, cerrar el inicio de sesión de riesgo asociado.
 
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>¿Cómo puedo acceder a la directiva de riesgo de inicio de sesión?
    

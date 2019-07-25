@@ -11,10 +11,10 @@ ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: f3621b176e4bbfdfbd171339d6d01a1f91ed0ae7
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509297"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Administración de SSO y personalización de tokens con directivas personalizadas en Azure Active Directory B2C
@@ -25,7 +25,7 @@ Este artículo proporciona información acerca de cómo puede administrar las co
 
 Para cambiar la configuración de la duración del token, debe agregar un elemento [ClaimsProviders](claimsproviders.md) en el archivo de usuario de confianza de la directiva que quiere modificar.  **ClaimsProviders** es un elemento secundario del elemento [TrustFrameworkPolicy](trustframeworkpolicy.md). 
 
-Insertar el elemento ClaimsProviders entre el elemento BasePolicy y el elemento RelyingParty del archivo de usuario de confianza.
+Inserte el elemento ClaimsProviders entre el elemento BasePolicy y el elemento RelyingParty del archivo del usuario de confianza.
 
 En el parámetro, deberá colocar la información que afecta a la duración del token. El XML es similar al de este ejemplo:
 

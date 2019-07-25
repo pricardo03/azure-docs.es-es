@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d6753b319bc5bc4cbda18fe486695e5b0266acae
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: ba015a1d5183fcf27cfcc05ef1d0cd838201e91e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66169648"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077116"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
-Los recursos que no son conformes para un directiva **deployIfNotExists** se pueden colocar en un estado conforme a través de **Corrección**. Se realiza la corrección indicando a Azure Policy para ejecutar el **deployIfNotExists** efecto de la directiva asignada en los recursos existentes. Este artículo muestra los pasos necesarios para comprender y realizar la corrección con Azure Policy.
+Los recursos que no son conformes para un directiva **deployIfNotExists** se pueden colocar en un estado conforme a través de **Corrección**. La corrección se lleva a cabo indicando a Azure Policy que ejecute el efecto **deployIfNotExists** de la directiva asignada en los recursos existentes. En este artículo se muestran los pasos necesarios para comprender y realizar correcciones con Azure Policy.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Cómo funciona la seguridad de corrección
 
-Cuando la directiva de Azure se ejecuta la plantilla el **deployIfNotExists** definición de directiva, lo hace mediante una [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md).
-Directiva de Azure crea una identidad administrada para cada asignación, pero debe tener información sobre los roles para conceder a la identidad administrada. Si faltan roles en la identidad administrada, este error se muestra durante la asignación de la directiva o una iniciativa. Al usar el portal, Azure Policy concederá automáticamente la identidad administrada los roles enumerados una vez que se inició la asignación.
+Cuando Azure Policy ejecuta la plantilla en la definición de directiva **deployIfNotExists**, lo hace mediante una [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md).
+Azure Policy crea una identidad administrada para cada asignación, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si faltan roles en la identidad administrada, este error se muestra durante la asignación de la directiva o una iniciativa. Al usar el portal, Azure Policy concederá automáticamente a la identidad administrada los roles enumerados una vez que se inicie la asignación.
 
 ![Identidad administrada - función ausente](../media/remediate-resources/missing-role.png)
 
@@ -49,10 +49,6 @@ El primer paso es definir los roles que **deployIfNotExists** necesita en la def
 
 ```azurecli-interactive
 az role definition list --name 'Contributor'
-```
-
-```azurepowershell-interactive
-Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## <a name="manually-configure-the-managed-identity"></a>Configurar manualmente la identidad administrada
@@ -131,7 +127,7 @@ Para agregar un rol a la identidad administrada de la asignación, siga estos pa
 
 ## <a name="create-a-remediation-task"></a>Crear una tarea de corrección
 
-### <a name="create-a-remediation-task-through-portal"></a>Crear una tarea de corrección a través del portal
+### <a name="create-a-remediation-task-through-portal"></a>Creación de una tarea de corrección a través del portal
 
 Durante la evaluación, el efecto de asignación de directiva con **deployIfNotExists** determina si hay recursos no conformes. Cuando se encuentran los recursos no conformes, se proporcionan los detalles en la página **Corrección**. La opción para desencadenar una **tarea de corrección** está junto a la lista de directivas que tienen recursos no página. Esta opción crea una implementación desde la plantilla **deployIfNotExists**.
 
@@ -143,7 +139,7 @@ Para crear un **tarea de corrección**, siga estos pasos:
 
 1. Seleccione **Corrección** en el lado izquierdo de la página Azure Policy.
 
-   ![Seleccione la corrección en la página de directiva](../media/remediate-resources/select-remediation.png)
+   ![Seleccione Corrección en la página Directiva](../media/remediate-resources/select-remediation.png)
 
 1. Todas las asignaciones de directivas **deployIfNotExists** con recursos no conformes se incluyen en la tabla de datos y la pestaña **Directivas para resolver**. Haga clic en una directiva con recursos que no son conformes. Se abre la página **Nueva tarea de corrección**.
 
@@ -152,7 +148,7 @@ Para crear un **tarea de corrección**, siga estos pasos:
 
 1. En la página **Nueva tarea de corrección**, filtre los recursos para corregir mediante la elipse **Ámbito** para seleccionar los recursos secundarios a partir de los cuales se asignó la directiva (incluidos los objetos de recursos individuales). Además, utilice la lista desplegable **Ubicaciones** para filtrar más los recursos. Solo los recursos enumerados en la tabla se corregirán.
 
-   ![Corrección: seleccione los recursos que corregir](../media/remediate-resources/select-resources.png)
+   ![Corrección: seleccione los recursos que quiere corregir](../media/remediate-resources/select-resources.png)
 
 1. Inicie la tarea de corrección cuando se hayan filtrado los recursos, para ello, haga clic en **Corregir**. Se abrirá la página de cumplimiento de directivas en la pestaña **Tareas de corrección** para mostrar el estado del progreso de las tareas.
 
@@ -166,9 +162,9 @@ Para crear un **tarea de corrección**, siga estos pasos:
 
 Los recursos implementados mediante una **tarea de corrección** se agregan a la pestaña **Recursos implementados** en la página de cumplimiento de la directiva.
 
-### <a name="create-a-remediation-task-through-azure-cli"></a>Crear una tarea de corrección a través de la CLI de Azure
+### <a name="create-a-remediation-task-through-azure-cli"></a>Creación de una tarea de corrección a través de la CLI de Azure
 
-Para crear un **tareas de corrección** con la CLI de Azure, use el `az policy remediation` comandos. Reemplace `{subscriptionId}` con el identificador de suscripción y `{myAssignmentId}` con su **deployIfNotExists** identificador de asignación de directiva.
+Para crear una **tarea de corrección** con la CLI de Azure, use los comandos `az policy remediation`. Reemplace `{subscriptionId}` por el id. de suscripción y `{myAssignmentId}` por el id. de asignación de la directiva **deployIfNotExists**.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -177,11 +173,11 @@ Para crear un **tareas de corrección** con la CLI de Azure, use el `az policy r
 az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
-Para otros comandos de corrección y ejemplos, vea el [corrección de directivas az](/cli/azure/policy/remediation) comandos.
+Para obtener otros comandos de corrección y ejemplos, consulte los comandos [az policy remediation](/cli/azure/policy/remediation).
 
-### <a name="create-a-remediation-task-through-azure-powershell"></a>Crear una tarea de corrección a través de PowerShell de Azure
+### <a name="create-a-remediation-task-through-azure-powershell"></a>Creación de una tarea de corrección a través de Azure PowerShell
 
-Para crear un **tareas de corrección** con Azure PowerShell, use el `Start-AzPolicyRemediation` comandos. Reemplace `{subscriptionId}` con el identificador de suscripción y `{myAssignmentId}` con su **deployIfNotExists** identificador de asignación de directiva.
+Para crear una **tarea de corrección** con Azure PowerShell, use los comandos `Start-AzPolicyRemediation`. Reemplace `{subscriptionId}` por el id. de suscripción y `{myAssignmentId}` por el id. de asignación de la directiva **deployIfNotExists**.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -190,13 +186,13 @@ Para crear un **tareas de corrección** con Azure PowerShell, use el `Start-AzPo
 Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
-Para otros cmdlets de corrección y ejemplos, vea el [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) módulo.
+Para obtener otros cmdlets de corrección y ejemplos, consulte el módulo [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise los ejemplos en [ejemplos de Azure Policy](../samples/index.md).
+- Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md).
 - Revise la [estructura de definición de Azure Policy](../concepts/definition-structure.md).
 - Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
-- Comprender cómo [crear mediante programación las directivas](programmatically-create.md).
+- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](programmatically-create.md).
 - Obtenga información sobre cómo [obtener datos de cumplimiento](getting-compliance-data.md).
-- Compruebe que un grupo de administración con [organizar los recursos con grupos de administración de Azure](../../management-groups/overview.md).
+- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
 ms.openlocfilehash: bd19aba68f8b847e8f4800d348197f9c2b1c1289
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428233"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedaje de una aplicación de Node.js en Azure Service Fabric
@@ -27,7 +27,7 @@ Esta guía de inicio rápido le ayudará a implementar una aplicación existente
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, asegúrese de haber [configurado el entorno de desarrollo](service-fabric-get-started.md). Se incluye la instalación del SDK de Service Fabric y Visual Studio de 2019 o 2015.
+Antes de comenzar, asegúrese de haber [configurado el entorno de desarrollo](service-fabric-get-started.md). Esto también incluye la instalación del SDK de Service Fabric y Visual Studio 2019 o 2015.
 
 También es preciso que tenga una aplicación de Node.js existente para la implementación. Esta guía de rápido usa un sitio Web en Node.js simple que se puede descargar [aquí][download-sample]. Extraiga este archivo en su carpeta `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` después de crear el proyecto en el paso siguiente.
 
@@ -66,7 +66,7 @@ Presione **Aceptar**.
 
 Visual Studio crea el proyecto de la aplicación y el proyecto de servicio de actor y los muestra en el Explorador de soluciones.
 
-El proyecto de aplicación (**MyGuestApp**) no contiene ningún código directamente. El proyecto hace referencia a un conjunto de proyectos de servicio. Además, contiene otros tres tipos de contenido:
+El proyecto de la aplicación (**MyGuestApp**) no contiene código directamente. En su lugar, hace referencia a un conjunto de proyectos de servicio. Además, contiene otros tres tipos de contenido:
 
 * **Perfiles de publicación**  
 Preferencias en cuanto a las herramientas para los diferentes entornos.
@@ -83,7 +83,7 @@ Para obtener información general del contenido del proyecto de servicio, consul
 
 La aplicación de Node.js de ejemplo que estamos implementando utiliza el puerto **80** y necesitamos indicar a Service Fabric que el puerto está expuesto.
 
-Abra el archivo **ServiceManifest.xml** en el proyecto. En la parte inferior del manifiesto, hay un `<Resources> \ <Endpoints>` con una entrada ya definida. Modifique dicha entrada para agregar `Port`, `Protocol` y `Type`. 
+Abra el archivo **ServiceManifest.xml** en el proyecto. En la parte inferior del manifiesto, hay un conjunto `<Resources> \ <Endpoints>` con una entrada ya definida. Modifique dicha entrada para agregar `Port`, `Protocol` y `Type`. 
 
 ```xml
   <Resources>
@@ -98,7 +98,7 @@ Abra el archivo **ServiceManifest.xml** en el proyecto. En la parte inferior del
 
 ## <a name="deploy-to-azure"></a>Implementar en Azure
 
-Si presiona **F5** y ejecute el proyecto, se implementa en el clúster local. Sin embargo, vamos a implementarlo en Azure.
+Si presiona **F5** y ejecuta el proyecto, este se implementa en el clúster local. Sin embargo, vamos a implementarlo en Azure.
 
 Haga clic con el botón derecho en el proyecto y elija **Publicar...** , lo que abre un cuadro de diálogo para publicar en Azure.
 
@@ -108,7 +108,7 @@ Seleccione el perfil de destino **PublishProfiles\Cloud.xml**.
 
 Si no lo ha hecho aún, elija la cuenta de Azure en la que va a realizar la implementación. Si aún no tiene ninguno, [regístrese para obtenerlo][create-account].
 
-En **Punto de conexión**, seleccione el clúster de Service Fabric en que se va a realizar la implementación. Si no tiene uno, seleccione **&lt;crear un nuevo clúster... &gt;** que abre una ventana del explorador web al portal de Azure. Para más información, consulte [Creación de un clúster en Azure Portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+En **Punto de conexión**, seleccione el clúster de Service Fabric en que se va a realizar la implementación. Si no tiene ninguno, seleccione **&lt;Crear nuevo clúster... &gt;** y se abrirá una ventana del explorador en Azure Portal. Para más información, consulte [Creación de un clúster en Azure Portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Al crear el clúster de Service Fabric, asegúrese de establecer la opción **Puntos de conexión personalizados** en **80**.
 
@@ -130,11 +130,11 @@ Compruebe la hoja de información general de la dirección del servicio. Use el 
 
 ![Hoja de información general de Service Fabric en Azure Portal][overview]
 
-Vaya a esta dirección donde verá el `HELLO WORLD` respuesta.
+Navegue hasta esta dirección, donde verá la respuesta de `HELLO WORLD`.
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 
-No olvide eliminar todos los recursos que haya creado para este inicio rápido, porque se le cobrará por esos recursos.
+No olvide eliminar todos los recursos que haya creado para este inicio rápido, ya que se le cobran.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre [ejecutables de invitado](service-fabric-guest-executables-introduction.md).

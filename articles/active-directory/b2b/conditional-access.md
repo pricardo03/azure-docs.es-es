@@ -1,5 +1,5 @@
 ---
-title: 'Acceso condicional para usuarios de colaboración B2B: Azure Active Directory | Microsoft Docs'
+title: Acceso condicional para usuarios de colaboración B2B (Azure Active Directory) | Microsoft Docs
 description: La colaboración B2B de Azure Active Directory admite Multi-Factor Authentication (MFA) para poder acceder de manera selectiva a las aplicaciones corporativas.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3bfe067b7a927f800f88958ee2ffca09711c10
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113156"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acceso condicional para usuarios de colaboración B2B
 
@@ -46,7 +46,7 @@ Consulte la siguiente animación para ver la experiencia de canje:
 ### <a name="mfa-reset-for-b2b-collaboration-users"></a>Restablecimiento de la MFA para los usuarios de colaboración B2B
 Actualmente, el administrador puede requerir que se vuelvan a probar los usuarios de colaboración B2B solo mediante los siguientes cmdlets de PowerShell.
 
-1. Conectar con Azure AD
+1. Conectarse a Azure
 
    ```
    $cred = Get-Credential

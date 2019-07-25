@@ -11,10 +11,10 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 050a0183fd73e64a08550fede440a9bce138a98c
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65850571"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Instrucciones de diseño para el uso de tablas replicadas en Azure SQL Data Warehouse
@@ -32,13 +32,13 @@ Como parte del diseño de tablas, comprenda tanto como sea posible sobre los dat
 - ¿Tiene tablas de hechos y dimensiones en un almacenamiento de datos?   
 
 ## <a name="what-is-a-replicated-table"></a>¿Qué es una tabla replicada?
-Una tabla replicada tiene una copia completa de la tabla a la que se puede tener acceso en cada nodo de proceso. Al replicar una tabla se elimina la necesidad de transferir sus datos de un nodo de proceso a otro antes de una combinación o agregación. Como la tabla tiene varias copias, las tablas replicadas funcionan mejor cuando el tamaño de la tabla es inferior a 2 GB comprimido.  2 GB no es un límite máximo.  Si los datos son estáticos y no cambian, puede replicar tablas más grandes.
+Una tabla replicada tiene una copia completa de la tabla a la que se puede tener acceso en cada nodo de proceso. Al replicar una tabla se elimina la necesidad de transferir sus datos de un nodo de proceso a otro antes de una combinación o agregación. Como la tabla tiene varias copias, las tablas replicadas funcionan mejor cuando el tamaño de la tabla es inferior a 2 GB comprimido.  2 GB no es un límite máximo.  Si los datos son estáticos y no cambian, puede replicar tablas más grandes.
 
 En el diagrama siguiente se muestra una tabla replicada a la que se puede tener acceso en cada nodo de proceso. En SQL Data Warehouse, la tabla replicada se copia completa en una base de datos de distribución en cada nodo de proceso. 
 
 ![Tabla replicada](media/guidance-for-using-replicated-tables/replicated-table.png "Tabla replicada")  
 
-Las tablas replicadas funcionan bien para las tablas de dimensiones en un esquema de estrella. Las tablas de dimensiones suelen unirse a las tablas de hechos que se distribuyen de manera diferente a la tabla de dimensiones.  Las dimensiones son normalmente de un tamaño que resulta adecuado para almacenar y mantener varias copias. Las dimensiones almacenan datos descriptivos que cambian lentamente, como el nombre y la dirección del cliente, y detalles del producto. La naturaleza de los datos de variación lenta genera menos mantenimiento de la tabla replicada. 
+Las tablas replicadas funcionan correctamente para tablas de dimensiones de un esquema de estrella. Las tablas de dimensiones suelen unirse a las tablas de hechos que se distribuyen de manera diferente a la tabla de dimensiones.  Las dimensiones suelen tener un tamaño que resulta adecuado para almacenar y mantener varias copias. Las dimensiones almacenan datos descriptivos que cambian lentamente, como el nombre y la dirección del cliente, y detalles del producto. La naturaleza de cambio lento de los datos genera menos tareas de mantenimiento de la tabla replicada. 
 
 Considere la posibilidad de usar una tabla replicada cuando:
 
@@ -48,7 +48,7 @@ Considere la posibilidad de usar una tabla replicada cuando:
 Es posible que las tablas replicadas no produzcan el mejor rendimiento de las consultas cuando:
 
 - La tabla tiene operaciones frecuentes de inserción, actualización y eliminación. Estas operaciones de lenguaje de manipulación de datos (DML) requieren una recompilación de la tabla replicada. La recompilación puede provocar con frecuencia un rendimiento más lento.
-- El almacenamiento de datos se escala con frecuencia. Escalar un almacenamiento de datos, cambia el número de nodos de proceso, lo que conlleva la regeneración de la tabla replicada.
+- El almacenamiento de datos se escala con frecuencia. El escalado de un almacenamiento de datos cambia el número de nodos de proceso, lo que produce una recompilación de la tabla replicada.
 - La tabla tiene un gran número de columnas, pero las operaciones de datos normalmente solo tienen acceso a un número de columnas reducido. En este escenario, en lugar de replicar toda la tabla, podría ser más eficaz distribuir la tabla y después crear un índice en las columnas a las que se tiene acceso con frecuencia. Cuando una consulta necesita el movimiento de datos, SQL Data Warehouse solo mueve los datos de las columnas solicitadas. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Usar tablas replicadas con predicados de consulta simples
@@ -59,7 +59,7 @@ Antes de elegir entre distribuir o duplicar una tabla, piense en los tipos de co
 
 Las consultas que consumen más CPU ofrecen un mejor comportamiento cuando el trabajo se distribuye entre todos los nodos de proceso. Por ejemplo, las consultas que ejecutan cálculos en todas las filas de una tabla funcionan mejor en tablas distribuidas que en tablas replicadas. Como una tabla replicada se almacena por completo en cada nodo de proceso, se ejecuta una consulta con gran consumo de CPU sobre una tabla replicada en toda la tabla en cada nodo de proceso. El cálculo adicional puede ralentizar el rendimiento de la consulta.
 
-Por ejemplo, esta consulta tiene un predicado complejo.  Se ejecuta con mayor rapidez cuando los datos están en una tabla distribuida en lugar de una tabla replicada. En este ejemplo, los datos pueden ser la distribución round robin.
+Por ejemplo, esta consulta tiene un predicado complejo.  Se ejecuta con mayor rapidez cuando los datos están en una tabla distribuida en lugar de en una tabla replicada. En este ejemplo, los datos se pueden distribuir mediante el método round robin.
 
 ```sql
 
@@ -70,7 +70,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Convertir tablas Round Robin existentes en tablas replicadas
-Si ya tiene tablas round robin, se recomienda convertirlas en tablas replicadas si cumplen los criterios descritos en este artículo. Las tablas replicadas mejoran el rendimiento con respecto a las tablas Round Robin porque eliminan la necesidad del movimiento de datos.  Una tabla Round Robin siempre requiere movimiento de datos para las combinaciones. 
+Si ya tiene tablas Round Robin, se recomienda convertirlas en tablas replicadas si cumplen con los criterios que se describen en este artículo. Las tablas replicadas mejoran el rendimiento con respecto a las tablas Round Robin porque eliminan la necesidad del movimiento de datos.  Una tabla Round Robin siempre requiere movimiento de datos para las combinaciones. 
 
 En este ejemplo se usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para convertir la tabla DimSalesTerritory en una tabla replicada. Este ejemplo funciona independientemente de si DimSalesTerritory se distribuye por hash o Round Robin.
 

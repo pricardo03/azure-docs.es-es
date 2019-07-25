@@ -10,10 +10,10 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.openlocfilehash: b0a647fe3499590c0307b89d45d662ecf7e53392
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827783"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Creación de un centro de IoT con una plantilla de Azure Resource Manager (.NET)
@@ -38,7 +38,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## <a name="prepare-your-visual-studio-project"></a>Preparar su proyecto de Visual Studio
 
-1. En Visual Studio, cree un proyecto de escritorio clásico de Windows de Visual C# usando la plantilla de proyecto **Aplicación de consola (.NET Framework)**. Asigne al proyecto el nombre **CreateIoTHub**.
+1. En Visual Studio, cree un proyecto de escritorio clásico de Windows de Visual C# usando la plantilla de proyecto **Aplicación de consola (.NET Framework)** . Asigne al proyecto el nombre **CreateIoTHub**.
 
 2. En el Explorador de soluciones, haga clic con el botón secundario en su proyecto y luego haga clic en **Administrar paquetes de NuGet**.
 
@@ -195,10 +195,10 @@ Ahora puede completar la aplicación llamando al método **CreateIoTHub** antes 
 
 3. Haga clic en **Depurar** y luego en **Iniciar depuración** para ejecutar la aplicación. La ejecución de la implementación puede tardar varios minutos en completarse.
 
-4. Para comprobar que la aplicación ha agregado el nuevo centro de IoT, visite [Azure Portal][lnk-azure-portal] y vea la lista de recursos. También puede usar el **Get AzResource** cmdlet de PowerShell.
+4. Para comprobar que la aplicación ha agregado el nuevo centro de IoT, visite [Azure Portal][lnk-azure-portal] y vea la lista de recursos. Como alternativa, use el cmdlet de PowerShell **Get-AzResource**.
 
 > [!NOTE]
-> Esta aplicación de ejemplo agrega un centro de IoT estándar S1 por el que se le cobrará. Puede eliminar el centro de IoT a través de la [portal de Azure] [ lnk-azure-portal] o mediante el **Remove-AzResource** cmdlet de PowerShell cuando haya terminado.
+> Esta aplicación de ejemplo agrega un centro de IoT estándar S1 por el que se le cobrará. Cuando haya terminado, podrá eliminar el centro de IoT Hub a través de [Azure Portal][lnk-azure-portal] o mediante el cmdlet **Remove-AzResource** de PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha implementado un centro de IoT mediante una plantilla de Azure Resource Manager con un programa de C#, quizá desee seguir explorando:

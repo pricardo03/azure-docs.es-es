@@ -10,10 +10,10 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
 ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66239071"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Realización de preguntas que pueden responderse con datos
@@ -48,7 +48,7 @@ Hemos hablado de que la ciencia de datos es el proceso de usar nombres (llamados
 
 Una pregunta vaga no se tiene que responder con un nombre o un número. Una pregunta directa sí.
 
-Imagine que encuentra una lámpara mágica con un genio que responde de forma veraz a cualquier pregunta que formule. Pero es un genio travieso, que intentará establecer su respuesta vaga y confusa, tal como puede superar. Quiere precisar una pregunta tan hermética que no ayuda, pero saber qué desea saber.
+Imagine que encuentra una lámpara mágica con un genio que responde de forma veraz a cualquier pregunta que formule. Pero este genio es travieso, e intentará responder de forma tan vaga y confusa mientras pueda salirse con la suya. Quiere precisar una pregunta de forma tan irrefutable que a la fuerza le diga lo que quiere saber.
 
 Si formulara una pregunta vaga como "¿Qué va a pasar con mis acciones?", el genio podría responder: "El precio cambiará". Es una respuesta veraz, pero no sirve de mucha ayuda.
 

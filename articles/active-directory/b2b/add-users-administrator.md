@@ -12,15 +12,15 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66b3e68ff2199c6a8bf4da9e02caaf93ee69342b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65812824"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal
 
-Como un usuario que se le asignan cualquiera de los roles de directorio administrador limitado, puede usar el portal de Azure para invitar a usuarios de colaboración B2B. Puede invitar a usuarios invitados al directorio, a un grupo o a una aplicación. Después de invitar a un usuario mediante cualquiera de estos métodos, la cuenta del usuario invitado se agrega a Azure Active Directory (Azure AD), con *invitado* como tipo de usuario. El usuario invitado deberá canjear después su invitación para acceder a los recursos.
+Como usuario al que se le asignan cualquiera de los roles limitados de directorio de administradores, puede usar Azure Portal para invitar a los usuarios de colaboración B2B. Puede invitar a usuarios invitados al directorio, a un grupo o a una aplicación. Después de invitar a un usuario mediante cualquiera de estos métodos, la cuenta del usuario invitado se agrega a Azure Active Directory (Azure AD), con *invitado* como tipo de usuario. El usuario invitado deberá canjear después su invitación para acceder a los recursos.
 
 Después de agregar un usuario invitado al directorio, puede enviarle un vínculo directo a una aplicación compartida o bien, el propio usuario invitado puede hacer clic en la dirección URL de canje del correo electrónico de invitación. Para más información sobre el proceso de canje, consulte [Canje de invitación de colaboración B2B](redemption-experience.md).
 
@@ -29,13 +29,13 @@ Después de agregar un usuario invitado al directorio, puede enviarle un víncul
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Asegúrese de que la configuración de colaboración externa de su organización se configura de forma que le permite invitar a otros usuarios. De forma predeterminada, todos los usuarios y administradores pueden invitar a otros usuarios. Pero las directivas de colaboración externa de su organización se pueden configurar para evitar que determinados tipos de los usuarios o administradores inviten a otros usuarios. Para obtener información sobre cómo ver y establecer estas directivas, consulte [permiten la colaboración de B2B externo y administrar quién puede invitar a otros usuarios](delegate-invitations.md).
+Asegúrese de que la configuración de colaboración externa de la organización se configure de forma que le permita invitar a otros usuarios. De manera predeterminada, todos los usuarios y administradores pueden invitar a otros usuarios. Sin embargo, las directivas de colaboración externa de la organización pueden estar configuradas para impedir que determinados tipos de usuarios o administradores inviten a otros usuarios. Para obtener información sobre cómo ver y establecer estas directivas, consulte [Enable B2B external collaboration and manage who can invite guests](delegate-invitations.md) (Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios).
 
 ## <a name="add-guest-users-to-the-directory"></a>Adición de usuarios invitados al directorio
 
 Para agregar usuarios de colaboración B2B al directorio, siga estos pasos:
 
-1. Inicie sesión en el [portal Azure](https://portal.azure.com) como un usuario que se haya asignado un rol de directorio administrador limitado o el rol de Invitador invitado.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como usuario que tiene asignado un rol de directorio administrador limitado o el rol de invitador de usuarios invitados.
 2. En el panel de navegación, seleccione **Azure Active Directory**.
 3. En **Administrar**, seleccione **Usuarios**.
 4. Seleccione **Nuevo usuario invitado**.
@@ -60,7 +60,7 @@ Después de enviar la invitación, la cuenta de usuario se agrega automáticamen
 ![Muestra el usuario de B2B con el tipo de usuario de invitado.](./media/add-users-administrator/GuestUserType.png)  
 
 ## <a name="add-guest-users-to-a-group"></a>Adición de usuarios invitados a un grupo
-Si tiene que agregar manualmente usuarios de colaboración B2B a un grupo, siga estos pasos:
+Si necesita agregar manualmente usuarios de colaboración B2B a un grupo, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
 2. En el panel de navegación, seleccione **Azure Active Directory**.

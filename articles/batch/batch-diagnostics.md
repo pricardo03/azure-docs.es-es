@@ -16,10 +16,10 @@ ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242634"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
@@ -91,7 +91,7 @@ Otros destinos opcionales de los registros de diagnóstico:
 
 * Transmita los eventos de registro de diagnóstico de Batch a un [centro de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs puede ingerir millones de eventos por segundo, que posteriormente se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real. 
 
-* Enviar registros de diagnóstico a [registros de Azure Monitor](../log-analytics/log-analytics-overview.md), donde puede analizarlos o exportarlos para su análisis en Power BI o Excel.
+* Envíe los registros de diagnóstico a los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md), donde puede analizarlos o exportarlos para su análisis en Power BI o Excel.
 
 > [!NOTE]
 > Es posible que el almacenamiento o el procesamiento de datos de registro de diagnóstico con servicios de Azure conlleve costos adicionales. 
@@ -101,7 +101,7 @@ Otros destinos opcionales de los registros de diagnóstico:
 
 1. En el portal, haga clic en **Todos los servicios** > **Cuentas de Batch** y, luego, haga clic en el nombre de la cuenta de Batch.
 2. En **Supervisión**, haga clic en **Registros de diagnóstico** > **Turn on diagnostics** (Activar diagnósticos).
-3. En **configuración de diagnóstico**, escriba un nombre para la configuración y elija un destino (cuenta de almacenamiento, centro de eventos o registros de Azure Monitor). Seleccione **ServiceLog** o **AllMetrics**, o ambos.
+3. En **Configuración de diagnóstico**, escriba un nombre para la configuración y elija un destino de registro (cuenta de almacenamiento existente, centro de eventos o registros de Azure Monitor). Seleccione **ServiceLog** o **AllMetrics**, o ambos.
 
     Cuando seleccione una cuenta de almacenamiento, puede definir opcionalmente una directiva de retención. Si no especifica un número de días de retención, los datos se conservan durante la vigencia de la cuenta de almacenamiento.
 

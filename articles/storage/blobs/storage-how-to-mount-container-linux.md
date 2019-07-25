@@ -9,16 +9,16 @@ ms.date: 2/1/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.openlocfilehash: d5077b75ff9e760917e9d5d02bea49dc4967a08b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473449"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Cómo montar el almacenamiento de blobs como sistema de archivos con blobfuse
 
 ## <a name="overview"></a>Información general
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) es un controlador de sistema de archivos virtual para Azure Blob Storage. Blobfuse le permite obtener acceso a los datos de blob en bloques existentes en la cuenta de almacenamiento, a través del sistema de archivos de Linux. Blobfuse usa el esquema de directorio virtual con la barra diagonal "/" como delimitador.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) es un controlador de sistema de archivos virtual para Azure Blob Storage. Blobfuse le permite obtener acceso a los datos de blob en bloques existentes en la cuenta de almacenamiento, a través del sistema de archivos de Linux. Blobfuse usa el esquema de directorio virtual con el uso de la barra oblicua "/" como delimitador.  
 
 En esta guía, se muestra cómo usar blobfuse, montar un contenedor de almacenamiento de blobs en Linux y obtener acceso a los datos. Para obtener más información sobre blobfuse, lea los detalles en [el repositorio de blobfuse](https://github.com/Azure/azure-storage-fuse).
 
@@ -52,7 +52,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Del mismo modo, cambie la dirección URL de `.../ubuntu/16.04/...` o `.../ubuntu/18.04/...` para hacer referencia a otra versión de Ubuntu.
+Del mismo modo, cambie la dirección URL a `.../ubuntu/16.04/...` o `.../ubuntu/18.04/...` para hacer referencia a otra versión de Ubuntu.
 
 ### <a name="install-blobfuse"></a>Instalar blobfuse
 
@@ -98,7 +98,7 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-El `accountName` es el prefijo de la cuenta de almacenamiento: no es la dirección URL completa.
+`accountName` es el prefijo de la cuenta de almacenamiento (no la dirección URL completa).
 
 Cree este archivo mediante:
 
@@ -106,7 +106,7 @@ Cree este archivo mediante:
 touch ~/fuse_connection.cfg
 ```
 
-Una vez que ha creado y editar este archivo, asegúrese de restringir el acceso para que ningún otro usuario puede leerlo.
+Después de crear y editar este archivo, asegúrese de restringir el acceso para que ningún otro usuario pueda leerlo.
 ```bash
 chmod 600 fuse_connection.cfg
 ```
