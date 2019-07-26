@@ -6,7 +6,7 @@ metadata:
   title: 'Personalizer: tutoriales, inicios rápidos y referencia de API'
   description: 'Aprenda a usar el servicio Personalizer para permitir que una aplicación elija la mejor experiencia, se la muestre a los usuarios y aprenda de su comportamiento en tiempo real.'
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

@@ -6,7 +6,7 @@ metadata:
   description: Aprenda a utilizar Face API para detectar e identificar caras en imágenes y devolver información facial. Los tutoriales muestra cómo crear aplicaciones que usan la API.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: face-api
   ms.tgt_pltfrm: na

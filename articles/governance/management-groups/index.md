@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 1958a829df2643bd218d4e8d7f6dd563b5b395e8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237176"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516987"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -98,7 +98,7 @@ El gráfico siguiente muestra la lista de roles y las acciones admitidas en los 
 |Lector                      |        |        |        |        |               |               | X     |
 |Lector MG*                  |        |        |        |        |               |               | X     |
 |Colaborador de directivas de recursos |        |        |        |        |               | X             |       |
-|Administrador de acceso de usuario   |        |        |        |        | X             |               |       |
+|Administrador de acceso de usuario   |        |        |        |        | X             | X             |       |
 
 *: Colaborador MG y Lector MG solo permiten a los usuarios realizar esas acciones en el ámbito del grupo de administración.  
 **: Las asignaciones de roles en el grupo de administración raíz no son necesarias para mover una suscripción o grupo de administración a este grupo y desde este.  Consulte [Administración de los recursos con grupos de administración](manage.md) para más información acerca de cómo mover elementos dentro de la jerarquía.

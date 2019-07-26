@@ -6,7 +6,7 @@ metadata:
   description: 'Aprenda a usar Custom Vision para crear, implementar y mejorar las clasificaciones de imágenes personalizadas. Los tutoriales muestra cómo crear aplicaciones que usan la API.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: custom-vision
   ms.tgt_pltfrm: na

@@ -6,7 +6,7 @@ metadata:
   description: Aprenda a utilizar Computer Vision para procesar imágenes y devolver información. Los tutoriales muestra cómo crear aplicaciones que usan la API.
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: computer-vision
   ms.tgt_pltfrm: na

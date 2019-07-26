@@ -6,7 +6,7 @@ metadata:
   title: 'Language Understanding (LUIS): tutoriales, guías de inicio rápido, referencia de API'
   description: Aprenda a usar el servicio Language Understanding para permitir que la aplicación entienda lo que una persona quiere en sus propias palabras.
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

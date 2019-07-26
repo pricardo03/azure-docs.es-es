@@ -7,7 +7,7 @@ metadata:
   description: 'El servicio Voz ofrece a los desarrolladores un sencillo mecanismo para proporcionar a las aplicaciones eficaces características de voz. Los ejemplos incluyen el control y los diálogos de comandos de voz, la conversación natural de voz, el dictado y transcripción de voz, y la traducción de voz.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: speech-service

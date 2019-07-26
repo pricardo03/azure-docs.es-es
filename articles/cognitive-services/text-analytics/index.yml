@@ -6,7 +6,7 @@ metadata:
   description: 'Text Analytics API es un servicio basado en la nube que proporciona un procesamiento avanzado de idioma natural sobre texto sin formato, e incluye cuatro funciones principales: análisis de opiniones, extracción de frases clave, reconocimiento de entidades con nombre y detección de lenguaje.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics

@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 68a5d5278e1181695695647cff187d4b95624b40
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 05723a90725992e6b955524a2d35c82d3378ee3d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537650"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621855"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Solución de problemas de ejecución de paquetes en SSIS Integration Runtime
 
@@ -38,7 +38,7 @@ Estas son las posibles causas y las acciones recomendadas:
 * La red entre SSIS Integration Runtime y el origen o el destino de los datos es inestable, especialmente si la conexión se realiza entre regiones o entre un entorno local y Azure. Para aplicar el patrón de reintento en el paquete de SSIS, siga estos pasos:
   * Compruebe que los paquetes de SSIS se pueden volver a ejecutar en caso de error sin efectos secundarios (por ejemplo, pérdida o duplicación de datos).
   * Configure las opciones **Reintentar** e **Intervalo de reintentos** de la actividad **Ejecutar paquete de SSIS**  en la pestaña **General**. ![Establecimiento de propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
-  * Para un componente de origen o destino ADO.NET Y OLE DB, establezca **ConnectRetryCount** y **ConnectRetryInterval** en el administrador de conexiones en el paquete de SSIS o la actividad de SSIS.
+  * Para un componente de origen o destino ADO.NET y OLE DB, establezca **ConnectRetryCount** y **ConnectRetryInterval** en el administrador de conexiones en el paquete de SSIS o la actividad de SSIS.
 
 ### <a name="error-message-ado-net-source-has-failed-to-acquire-the-connection--with-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server-the-server-was-not-found-or-was-not-accessible"></a>Mensaje de error: "El origen ADO NET no pudo adquirir la conexión «...»" con "Se produjo un error relacionado con la red o específico de una instancia al establecer una conexión con SQL Server. No se detectó el servidor o no estaba accesible."
 
@@ -57,11 +57,33 @@ La causa posible es que el proveedor de ADO.NET que se usa en el paquete no est�
 
 Un problema conocido en versiones anteriores de SQL Server Management Studio (SSMS) puede provocar este error. Si el paquete contiene un componente personalizado (por ejemplo, los componentes de asociados o el paquete de características de Azure de SSIS) que no está instalado en la máquina donde se usa SSMS para realizar la implementación, SSMS quitará el componente y provocará el error. Actualice [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) a la versión más reciente con el problema corregido.
 
+### <a name="error-messagessis-executor-exit-code--1073741819"></a>Mensaje de error: "SSIS Executor exit code: -1073741819." (Código de salida del ejecutor SSIS: 1073741819).
+
+* Causa posible y acción recomendada:
+  * Este error puede deberse a la limitación del origen y el destino de Excel cuando se ejecutan varios orígenes o destinos de Excel en paralelo en varios subprocesos. Para solucionar esta limitación, cambie los componentes de Excel para que se ejecuten en secuencia, o sepárelos en diferentes paquetes y desencadénelos mediante "Tarea Ejecutar paquete" con la propiedad ExecuteOutOfProcess establecida como true.
+
 ### <a name="error-message-there-is-not-enough-space-on-the-disk"></a>Mensaje de error: "No hay suficiente espacio en el disco"
 
 Este error significa que el disco local está agotado en el nodo de SSIS Integration Runtime. Compruebe si el paquete o la configuración personalizada consume una gran cantidad de espacio en disco:
 * Si el paquete consume el disco, se liberará cuando finalice la ejecución del paquete.
 * Si la configuración personalizada consume el disco, deberá detener el entorno de ejecución de integración de SSIS, modificar el script y volver a iniciar el entorno de ejecución de integración. El contenedor de blobs de Azure que especificó para la configuración personalizada se copiará en el nodo de SSIS Integration Runtime, así que compruebe si existe cualquier contenido innecesario en ese contenedor.
+
+### <a name="error-message-failed-to-retrieve-resource-from-master-microsoftsqlserverintegrationservicesscalescaleoutcontractcommonmasterresponsefailedexception-code300004-descriptionload-file--failed"></a>Mensaje de error: "Error al recuperar el recurso del elemento principal. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Código: 300004. Descripción: No se pudo cargar el archivo "***"".
+
+* Causa posible y acción recomendada:
+  * Si la actividad de SSIS ejecuta el paquete desde el sistema de archivos (archivo de paquete o archivo de proyecto), este error se producirá si el proyecto, el paquete o el archivo de configuración no son accesibles con la credencial de acceso del paquete que proporcionó en la actividad de SSIS.
+    * Si usa Azure File:
+      * La ruta de acceso del archivo comienza con \\\\\<nombre de la cuenta de almacenamiento\>.file.core.windows.net\\\<ruta de acceso del recurso compartido de archivos\>
+      * El dominio debe ser "Azure".
+      * El nombre de usuario debe ser \<nombre de la cuenta de almacenamiento.\>.
+      * La contraseña debe ser \<clave de acceso de almacenamiento\>.
+    * Si usa un archivo local, compruebe que la red virtual y la credencial y los permisos de acceso al paquete estén configurados correctamente para que Azure SSIS Integration Runtime pueda acceder al recurso compartido de archivos local.
+
+### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Mensaje de error: "El nombre de archivo "..." especificado en la conexión no era válido"
+
+* Causa posible y acción recomendada:
+  * Se ha especificado un nombre de archivo no válido.
+  * Asegúrese de que usa el FQDN (nombre de dominio completo) en lugar del nombre corto en el administrador de conexiones.
 
 ### <a name="error-message-cannot-open-file-"></a>Mensaje de error: "No se puede abrir el archivo «...»"
 

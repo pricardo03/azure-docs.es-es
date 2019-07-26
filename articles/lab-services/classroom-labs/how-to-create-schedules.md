@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f607ba68563aa92797f45cf77db0575ae6802fee
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60696041"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385602"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creación y administración de programaciones para laboratorios educativos en Azure Lab Services 
 Las programaciones le permiten configurar un laboratorio educativo de forma que las máquinas virtuales que contiene se inicien y apaguen automáticamente a una hora determinada. Puede definir una programación puntual o periódica. Los procedimientos siguientes le proporcionan los pasos para crear y administrar programaciones para un laboratorio educativo: 
 
 > [!IMPORTANT]
-> La hora de ejecución programada de las máquinas virtuales no cuentan en la [cuota asignada a un usuario](how-to-configure-student-usage.md#set-quotas-per-user). La cuota es el tiempo fuera del horario programado que un alumno pasa en las máquinas virtuales. 
+> La hora de ejecución programada de las máquinas virtuales no cuentan en la [cuota asignada a un usuario](how-to-configure-student-usage.md#set-quotas-for-users). La cuota es el tiempo fuera del horario programado que un alumno pasa en las máquinas virtuales. 
 
 ## <a name="add-a-schedule-once"></a>Agregar una programación (una vez)
 
 1. Cambie a la página **Schedules** (Programaciones) y seleccione **Add schedule** (Agregar programación) en la barra de herramientas. 
 
     ![Botón Add schedule (Agregar programación) en la página Schedules (Programaciones)](../media/how-to-create-schedules/add-schedule-button.png)
-2. En la página **Add schedule** (Agregar programación), confirme que está seleccionada la opción **Once** (Una vez) que se encuentra en la parte superior. Si no es así, selecciónela. 
+2. En la página **Add schedule** (Agregar programación), confirme que está seleccionada la opción **Once** (Una vez) que se encuentra en la parte superior. Si no es así, **selecciónela**. 
 3. En **Schedule date (required)** (Fecha de programación [obligatorio]), escriba la fecha o seleccione el icono de calendario para especificarla. 
 4. En **Start time** (Hora de inicio), seleccione la hora a la que quiere que se inicie la máquina virtual. La hora de inicio es obligatoria si no se establece la hora de finalización. Seleccione **Remove start event** (Quitar evento de inicio) si solo quiere especificar la hora de finalización. Si **Start time** (Hora de inicio) está deshabilitada, seleccione **Add start event** (Agregar evento de inicio) junto a la lista desplegable para habilitarla. 
 5. En **Stop time** (Hora de finalización), seleccione la hora a la que quiere que se apaguen las máquinas virtuales. La hora de finalización es obligatoria si no se establece la hora de inicio. Seleccione **Remove stop event** (Quitar evento de finalización) si solo quiere especificar la hora de inicio. Si **Stop time** (Hora de finalización) está deshabilitada, seleccione **Add stop event** (Agregar evento de finalización) junto a la lista desplegable para habilitarla.
@@ -76,7 +76,7 @@ Al hacer doble clic en una programación resaltada en el calendario o selecciona
 
     ![Botón de eliminación en la barra de herramientas](../media/how-to-create-schedules/delete-schedule-button.png)
 
-    Puede usar el botón de eliminación con cualquiera de las fechas y horas programadas en el calendario. 
+    Puede usar **el botón de eliminación** con cualquiera de las fechas y horas programadas en el calendario. 
 2. En la página **Delete schedules** (Eliminar programaciones), seleccione **Yes** (Sí).
 
     ![Eliminar confirmación de programaciones](../media/how-to-create-schedules/delete-schedules-confirmation.png)
