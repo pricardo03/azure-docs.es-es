@@ -199,7 +199,7 @@
               href: index-policy.md
         - name: Tipos de datos
           items:
-            - name: Datetime
+            - name: DateTime
               href: working-with-dates.md
             - name: Geoespaciales
               href: geospatial.md
@@ -272,6 +272,8 @@
         - name: Control de acceso basado en rol
           displayName: rbac
           href: role-based-access-control.md
+        - href: cosmos-db-advanced-threat-protection.md
+          name: Protección contra amenazas avanzada
         - name: Atributos de seguridad
           href: cosmos-db-security-attributes.md
     - name: Adecuado para empresas

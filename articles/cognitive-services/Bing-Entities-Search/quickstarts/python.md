@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con Python'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use esta guía de inicio rápido para enviar una solicitud a la API de REST de Bing Entity Search mediante Python y reciba una respuesta de JSON.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 43f01b39ed01e94fe21283997b5981e7fa49bde5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: fa306ecd7690085d96f561fcf7e043064013344d
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384520"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478946"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con Python
 

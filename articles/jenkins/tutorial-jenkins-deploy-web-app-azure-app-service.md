@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 019c4a8f77f2664c68dcc6499fb2f27cc0d1447c
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533500"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326920"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementación desde GitHub en Azure App Service con la integración e implementación continuas de Jenkins
 
@@ -55,7 +55,7 @@ Para completar este tutorial, necesita estos elementos:
 
    `https://<Jenkins-server-name>.<Azure-region>.cloudapp.azure.com`
 
-1. En la página principal de Jenkins, seleccione **Manage Jenkins (Administrar Jenkins)** > **Manage Plugins** (Administrar complementos).
+1. En la página principal de Jenkins, seleccione **Manage Jenkins (Administrar Jenkins)**  > **Manage Plugins** (Administrar complementos).
 
    ![Administrar complementos de Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-plugins.png)
 
@@ -122,7 +122,7 @@ A continuación, cree la entidad de servicio que usa Jenkins para autenticar y a
 
 ## <a name="create-service-principal"></a>Creación de una entidad de servicio
 
-En una sección posterior, cree un trabajo de canalización de Jenkins que compile la aplicación desde GitHub y la implemente en Azure App Service. Para hacer que Jenkins acceda a Azure sin tener que escribir las credenciales, cree una [entidad de servicio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) en Azure Active Directory para Jenkins. Una entidad de servicio es una identidad independiente que Jenkins puede usar para autenticar el acceso a los recursos de Azure. Para crear esta entidad de servicio, ejecute el comando [**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) de la CLI de Azure, desde la línea de comandos local o desde Azure Cloud Shell, por ejemplo: 
+En una sección posterior, cree un trabajo de canalización de Jenkins que compile la aplicación desde GitHub y la implemente en Azure App Service. Para hacer que Jenkins acceda a Azure sin tener que escribir las credenciales, cree una [entidad de servicio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) en Azure Active Directory para Jenkins. Una entidad de servicio es una identidad independiente que Jenkins puede usar para autenticar el acceso a los recursos de Azure. Para crear esta entidad de servicio, ejecute el comando [ **`az ad sp create-for-rbac`** ](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) de la CLI de Azure, desde la línea de comandos local o desde Azure Cloud Shell, por ejemplo: 
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourSecurePassword
@@ -130,7 +130,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
 
 Asegúrese de que utiliza comillas alrededor del nombre de entidad de seguridad de servicio. Igualmente, cree una contraseña segura que se base en las [reglas y restricciones de contraseñas de Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). Si no proporciona una contraseña, la CLI de Azure creará una automáticamente. 
 
-Esta es la salida que genera el comando **`create-for-rbac`**: 
+Esta es la salida que genera el comando **`create-for-rbac`** : 
 
 ```json
 {
@@ -169,7 +169,6 @@ Esta es la salida que genera el comando **`create-for-rbac`**:
    | **Secreto de cliente** | <*yourSecurePassword*> | El valor `password` o "secreto" que proporcionó para la entidad de servicio de Azure | 
    | **Id. de inquilino** | <*yourAzureActiveDirectoryTenant-ID*> | El valor GUID `tenant` para el inquilino de Azure Active Directory | 
    | **Id** | <*yourAzureServicePrincipalName*> | El valor `displayName` de la entidad de servicio de Azure. | 
-   |||| 
 
 1. Para confirmar que la entidad de servicio funciona, seleccione **Verify Service Principal** (Comprobar entidad de servicio). Cuando termine, elija **Aceptar**.
 

@@ -3,20 +3,20 @@ title: 'Guía de inicio rápido: Reconocimiento de voz, C# (UWP) (Servicios Voz)
 titleSuffix: Azure Cognitive Services
 description: En este artículo, creará una aplicación para Plataforma universal de Windows (UWP) de C# mediante el SDK de Voz de Cognitive Services. Transcribe de voz a texto en tiempo real desde el micrófono de su dispositivo. La aplicación se crea con el paquete NuGet del SDK de Voz y Microsoft Visual Studio 2017.
 services: cognitive-services
-author: wolfma61
+author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: lisaweixu
 ms.custom: seodec18
-ms.openlocfilehash: 30a12c504071cd178ed3e7563f9d7d967d8ba36d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 25b3474e33351d6365af37d78f442768aba88625
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606407"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405915"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Guía de inicio rápido: Reconocimiento de voz en una aplicación para UWP mediante el SDK de Voz
 

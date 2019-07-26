@@ -1,6 +1,6 @@
 ---
 title: ¿Qué es Bing Custom Search API?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Custom Search API le permite crear experiencias de búsqueda a medida de los temas que le interesan.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 067693c3c02d19f3bdab77f315c920b25078e7f5
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 4b0b0d91af15912e1c64761351ba33acfd3e2725
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542702"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405161"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>¿Qué es Bing Custom Search API?
 

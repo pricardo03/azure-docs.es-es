@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 06/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: eedb52dc58c28ad3f10e91835e5dda36902f2c2c
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 96171d4729187ca03f1e9529551a7fb6a26c6976
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986008"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360362"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Administración de directivas de resolución de conflictos en Azure Cosmos DB
 
@@ -36,7 +36,7 @@ DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>SDK de .NET V3
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>SDK de .NET v3
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -89,13 +89,14 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 
 ```python
 udp_collection = {
-                'id': self.udp_collection_name,
-                'conflictResolutionPolicy': {
-                    'mode': 'LastWriterWins',
-                    'conflictResolutionPath': '/myCustomId'
-                    }
-                }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'LastWriterWins',
+        'conflictResolutionPath': '/myCustomId'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 ## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Creación de una directiva de resolución de conflictos personalizada con un procedimiento almacenado
@@ -260,13 +261,14 @@ Una vez creado el contenedor, debe crear el procedimiento almacenado `resolver`.
 
 ```python
 udp_collection = {
-  'id': self.udp_collection_name,
-  'conflictResolutionPolicy': {
-      'mode': 'Custom',
-      'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-      }
-  }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom',
+        'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 Una vez creado el contenedor, debe crear el procedimiento almacenado `resolver`.
@@ -290,7 +292,7 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
   });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>SDK de .NET V3
+### <a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>SDK de .NET v3
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -342,11 +344,11 @@ const {
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
 manual_collection = {
-                    'id': self.manual_collection_name,
-                    'conflictResolutionPolicy': {
-                          'mode': 'Custom'
-                        }
-                    }
+    'id': self.manual_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom'
+    }
+}
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 

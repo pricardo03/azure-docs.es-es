@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Llamada al punto de conexión de Bing Custom Search con Java | Microsoft Docs'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use este documento de inicio rápido para comenzar a solicitar los resultados de búsqueda de la instancia de Bing Custom Search en Java.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: fc1c7d2730d68fb8e3b51a39e0cb89b4098418d6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9af82ae8cff2e93c0456ed8b5a84414f98ba5b06
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337029"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405267"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Inicio rápido: Llamada al punto de conexión de Bing Custom Search con Java
 

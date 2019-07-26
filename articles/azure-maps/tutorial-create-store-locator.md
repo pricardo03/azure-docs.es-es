@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0d7ca38ecb66dbf92678eae4da7d8706f68cbaa2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4cc21a4dbab7d5114eed8414c6530eab5f42bb00
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273823"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478854"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Creación de un localizador de almacén mediante Azure Maps
 
@@ -139,7 +139,7 @@ Para crear la interfaz de usuario, agregue código a *index.html*:
 1. Agregue una referencia al módulo de servicios de Azure Maps. El módulo es una biblioteca de JavaScript que contiene los servicios REST de Azure Maps y facilita su uso en JavaScript. Resulta útil para activar la funcionalidad de búsqueda.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
 1. Agregue referencias a *index.js* e *index.css*:

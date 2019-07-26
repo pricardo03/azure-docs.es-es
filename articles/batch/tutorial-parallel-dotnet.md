@@ -3,7 +3,7 @@ title: 'Ejecución de una carga de trabajo paralela: .NET de Azure Batch'
 description: 'Tutorial: Transcodificación de archivos multimedia en paralelo con ffmpeg en Azure Batch con la biblioteca cliente de .NET de Batch'
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: e450ca0ff2578c4ec2ce95c14a17735860044b59
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 4350cc215c776317d3bde24c7561c317a31fb4c3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595246"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321867"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de .NET
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Vaya al directorio que contiene el archivo `BatchDotNetFfmpegTutorial.sln` de la solución de Visual Studio.
 
-Abra el archivo de la solución en Visual Studio y actualice las cadenas de credenciales de `Program.cs` con los valores obtenidos para las cuentas. Por ejemplo: 
+Abra el archivo de la solución en Visual Studio y actualice las cadenas de credenciales de `Program.cs` con los valores obtenidos para las cuentas. Por ejemplo:
 
 ```csharp
 // Batch account credentials

@@ -1,7 +1,6 @@
 ---
 title: Copia de seguridad de máquinas virtuales de Azure a escala
 description: Copia de seguridad simultánea de varias máquinas virtuales en Azure
-services: backup
 keywords: copia de seguridad de máquinas virtuales; copia de seguridad de máquina virtual; copia de seguridad de VM; copia de seguridad de VM de Azure; copia de seguridad y recuperación ante desastres
 author: rayne-wiselman
 ms.author: raynew
@@ -9,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da2a9e634567dbe657410a61e5bfe0526197309d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093252"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467133"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
@@ -66,7 +65,7 @@ Después de crear el almacén de Recovery Services, el siguiente paso es configu
 
 2. En el menú del panel del almacén, haga clic en **Copia de seguridad** para abrir el menú Copia de seguridad.
 
-3. En el menú Objetivo de Backup, en el menú desplegable **¿Dónde se ejecuta su carga de trabajo?**, elija *Azure*. En la lista desplegable **¿De qué desea hacer una copia de seguridad?**, elija *Máquina virtual* y luego haga clic en **Copia de seguridad**.
+3. En el menú Objetivo de Backup, en el menú desplegable **¿Dónde se ejecuta su carga de trabajo?** , elija *Azure*. En la lista desplegable **¿De qué desea hacer una copia de seguridad?** , elija *Máquina virtual* y luego haga clic en **Copia de seguridad**.
 
     Estas acciones preparan el almacén de Recovery Services para interactuar con una máquina virtual. Los almacenes de Recovery Services tienen una directiva predeterminada que crea un punto de restauración al día y conserva los puntos de restauración durante 30 días.
 

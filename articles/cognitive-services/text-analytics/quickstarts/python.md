@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 06/28/2019
 ms.author: aahi
-ms.openlocfilehash: fdef4bc582a61033a45b88d2ab7dcf9da92a91f1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 69f22d92cc586942d3e368a164d6e95f52aa3eea
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305499"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356901"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de la API REST de Python para llamar a Text Analytics de Cognitive Services 
 <a name="HOLTop"></a>
@@ -73,18 +73,18 @@ language_api_url = text_analytics_base_url + "languages"
 La carga a la API consta de una lista de `documents`, que son tuplas que contienen `id` y un atributo `text`. El atributo `text` almacena el texto que se va a analizar, y `id` puede ser cualquier valor. 
 
 ```python
-documents = { "documents": [
-    { "id": "1", "text": "This is a document written in English." },
-    { "id": "2", "text": "Este es un document escrito en Español." },
-    { "id": "3", "text": "这是一个用中文写的文件" }
+documents = {"documents": [
+    {"id": "1", "text": "This is a document written in English."},
+    {"id": "2", "text": "Este es un document escrito en Español."},
+    {"id": "3", "text": "这是一个用中文写的文件"}
 ]}
 ```
 
 Utilice la biblioteca de solicitudes para enviar los documentos a la API. Agregue su clave de suscripción al encabezado `Ocp-Apim-Subscription-Key` y devuelva la solicitud con `requests.post()`. 
 
 ```python
-headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(language_api_url, headers=headers, json=documents)
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(language_api_url, headers=headers, json=documents)
 languages = response.json()
 pprint(languages)
 ```
@@ -142,19 +142,23 @@ sentiment_url = text_analytics_base_url + "sentiment"
 Como en el ejemplo de detección de idioma, cree un diccionario con una clave `documents` que consta de una lista de documentos. Cada documento es una tupla que tiene el `id`, el `text` que se va a analizar y el `language` del texto. 
 
 ```python
-documents = {"documents" : [
-  {"id": "1", "language": "en", "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
-  {"id": "2", "language": "en", "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},  
-  {"id": "3", "language": "es", "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},  
-  {"id": "4", "language": "es", "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
+documents = {"documents": [
+    {"id": "1", "language": "en",
+        "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
+    {"id": "2", "language": "en",
+        "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},
+    {"id": "3", "language": "es",
+        "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},
+    {"id": "4", "language": "es",
+     "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
 ]}
 ```
 
 Utilice la biblioteca de solicitudes para enviar los documentos a la API. Agregue su clave de suscripción al encabezado `Ocp-Apim-Subscription-Key` y devuelva la solicitud con `requests.post()`. 
 
 ```python
-headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(sentiment_url, headers=headers, json=documents)
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(sentiment_url, headers=headers, json=documents)
 sentiments = response.json()
 pprint(sentiments)
 ```
@@ -202,19 +206,23 @@ keyphrase_url = text_analytics_base_url + "keyPhrases"
 Esta colección de documentos es igual a la que se usó para el ejemplo del análisis de opiniones.
 
 ```python
-documents = {"documents" : [
-  {"id": "1", "language": "en", "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
-  {"id": "2", "language": "en", "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},  
-  {"id": "3", "language": "es", "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},  
-  {"id": "4", "language": "es", "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
+documents = {"documents": [
+    {"id": "1", "language": "en",
+        "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
+    {"id": "2", "language": "en",
+        "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},
+    {"id": "3", "language": "es",
+        "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},
+    {"id": "4", "language": "es",
+     "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
 ]}
 ```
 
 Utilice la biblioteca de solicitudes para enviar los documentos a la API. Agregue su clave de suscripción al encabezado `Ocp-Apim-Subscription-Key` y devuelva la solicitud con `requests.post()`. 
 
 ```python
-headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(keyphrase_url, headers=headers, json=documents)
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(keyphrase_url, headers=headers, json=documents)
 key_phrases = response.json()
 pprint(key_phrases)
 ```
@@ -276,16 +284,16 @@ entities_url = text_analytics_base_url + "entities"
 Cree una colección de documentos, como en los ejemplos anteriores. 
 
 ```python
-documents = {"documents" : [
-  {"id": "1", "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."}
+documents = {"documents": [
+    {"id": "1", "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."}
 ]}
 ```
 
 Utilice la biblioteca de solicitudes para enviar los documentos a la API. Agregue su clave de suscripción al encabezado `Ocp-Apim-Subscription-Key` y devuelva la solicitud con `requests.post()`.
 
 ```python
-headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(entities_url, headers=headers, json=documents)
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+response = requests.post(entities_url, headers=headers, json=documents)
 entities = response.json()
 pprint(entities)
 ```

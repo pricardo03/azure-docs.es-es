@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 78c64786f523aa424e8a9816e42db70e2a2997c2
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 9eccb4ca505dac312dd22123a3585863c67f3ad7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798468"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359861"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de ASP.NET Core
 
@@ -193,9 +193,9 @@ Para realizar este tutorial, instale el [SDK de .NET Core](https://dotnet.micros
 
     | Clave | Valor |
     |---|---|
-    | TestAppSettings:BackgroundColor | green |
-    | TestAppSettings:FontColor | lightGray |
-    | TestAppSettings:Message | Datos de Azure App Configuration: ahora con actualizaciones directas |
+    | TestApp:Settings:BackgroundColor | green |
+    | TestApp:Settings:FontColor | lightGray |
+    | TestApp:Settings:Message | Datos de Azure App Configuration: ahora con actualizaciones directas |
 
 6. Actualice la página del explorador para ver los nuevos valores de configuración. Puede ser necesario actualizar más de una vez la página del explorador para que los cambios se reflejen.
 

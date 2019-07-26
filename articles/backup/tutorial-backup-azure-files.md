@@ -1,19 +1,18 @@
 ---
 title: Copia de seguridad de los recursos compartidos de archivos de Azure Files con el servicio Azure Backup
 description: En este tutorial se explica cómo crear copias de seguridad de los recursos compartidos de archivos de Azure.
-services: backup
 author: dcurwin
 ms.author: dacurwin
 ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 474d5454e30c35d3f3ccf4ea994093ef47bd6ceb
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: a06504438340f62d5b338165cb8b159459ae35dc
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276173"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467071"
 ---
 # <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
 En este artículo se explica cómo usar Azure Portal para realizar una copia de seguridad de los [recursos compartidos de archivos de Azure](../storage/files/storage-files-introduction.md) y restaurarla.

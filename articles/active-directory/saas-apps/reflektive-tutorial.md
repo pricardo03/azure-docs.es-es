@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: ca2a7edff4b8c06b2838474449360b4b14b3e393
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d26e8a21865304b2065a28da5e241f58cb5ab34c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092965"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Tutorial: Integración de Azure Active Directory con Reflektive
 
@@ -138,7 +138,7 @@ Para configurar el inicio de sesión único de Azure AD con Reflektive, siga est
 
 ### <a name="configure-reflektive-single-sign-on"></a>Configuración del inicio de sesión único de Reflektive
 
-Para configurar el inicio de sesión único en **Reflektive**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Reflektive](mailto: https://support@reflektive.com/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Reflektive**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Reflektive](mailto:support@reflektive.com/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -192,7 +192,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-reflektive-test-user"></a>Creación de un usuario de prueba de Reflektive
 
-En esta sección, se crea un usuario denominado Britta Simon en Reflektive. Trabaje con el  [equipo de soporte técnico de Reflektive](mailto: https://support@reflektive.com/) para agregar los usuarios a la plataforma de Reflektive. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, se crea un usuario denominado Britta Simon en Reflektive. Trabaje con el  [equipo de soporte técnico de Reflektive](mailto:support@reflektive.com/) para agregar los usuarios a la plataforma de Reflektive. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Llamada al punto de conexión de Bing Custom Search con C# | Microsoft Docs'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use este documento de inicio rápido para comenzar a solicitar los resultados de búsqueda de la instancia de Bing Custom Search con C#.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 06/18/2018
+ms.date: 07/15/2019
 ms.author: maheshb
-ms.openlocfilehash: 87c6744dd9ee0a921a422320563f10acff9ed875
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c1b118ec08e00705ad3eab9141d116fb9e6ef257
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206230"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405190"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Inicio rápido: Llamada al punto de conexión de Bing Custom Search con C# 
 

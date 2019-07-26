@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3510c0505a5a3c1353642baf5060a83d13fdd43a
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 885c877f219f59ab5049cf7b8e01243077d6d3eb
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67808115"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348388"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migración de máquinas virtuales de VMware a Azure (sin agente)
 
@@ -84,7 +84,7 @@ Si ha seguido el segundo tutorial para evaluar máquinas virtuales de VMware, en
 
 - Descargar una plantilla OVA e importarla en vCenter Server.
 - Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment. 
-- Configurar el dispositivo por primera vez y regístrarlo en el proyecto de Azure Migrate.
+- Configurar el dispositivo por primera vez y registrarlo en el proyecto de Azure Migrate.
 
 Siga las instrucciones de [este artículo](how-to-set-up-appliance-vmware.md) para configurar el dispositivo.
 
@@ -104,7 +104,7 @@ Azure Migrate requiere algunos cambios en las máquinas virtuales para asegurars
 **Acción** | **Detalles** | **Instrucciones**
 --- | --- | ---
 Asegúrese de que los volúmenes de Windows en la máquina virtual de Azure usan las mismas asignaciones de letra de unidad que la máquina virtual local. | Configure la directiva SAN como "todo en línea". | 1. Inicie sesión en la máquina virtual con una cuenta de administrador y abra una ventana de comandos.<br/> 2. Escriba **diskpart** para ejecutar la utilidad Diskpart.<br/> 3. Escriba **SAN POLICY=OnlineAll**.<br/> 4. Escriba Exit para salir de DiskPart y cierre el símbolo del sistema.
-Habilitación de la consola de acceso serie de Azure para la máquina virtual de Azure | Esto ayuda a solucionar problemas. No es necesario reiniciar la máquina virtual. La máquina virtual de Azure se iniciará usando la imagen de disco y esto equivale a reiniciar la nueva máquina virtual. | Siga [estas instrucciones](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console#enable-serial-console-in-custom-or-older-images) para habilitarla.
+Habilitación de la consola de acceso serie de Azure para la máquina virtual de Azure | Esto ayuda a solucionar problemas. No es necesario reiniciar la máquina virtual. La máquina virtual de Azure se iniciará usando la imagen de disco y esto equivale a reiniciar la nueva máquina virtual. | Siga [estas instrucciones](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console) para habilitarla.
 Instalación de Hyper-V Guest Integration Services | Si va a migrar equipos que ejecutan Windows Server 2003, instale Hyper-V Guest Integration Services en el sistema operativo de la máquina virtual. | [Más información](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#install-or-update-integration-services).
 Escritorio remoto | Habilite Escritorio remoto en la máquina virtual y compruebe que Firewall de Windows no está bloqueando el acceso a Escritorio remoto en ningún perfil de red. | [Más información](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 
@@ -141,7 +141,7 @@ Una vez finalizada la detección, puede comenzar la replicación de máquinas vi
     - Si no lo ha hecho, siga las instrucciones de [este artículo.](how-to-set-up-appliance-vmware.md)
 
 4. En **Máquinas virtuales**, seleccione las máquinas que desea replicar.
-    - Si ha ejecutado una evaluación para las máquinas virtuales, puede aplicar las recomendaciones de tamaño y tipo de disco (prémium/estándar) de máquina virtual que sugieren los resultados de dicha evaluación. Para ello, en **¿Quiere importar la configuración de migración de evaluación de Azure Migrate?** , seleccione la opción **Sí**.
+    - Si ha ejecutado una evaluación para las máquinas virtuales, puede aplicar las recomendaciones de tamaño y tipo de disco (Premium/estándar) de máquina virtual que sugieren los resultados de dicha evaluación. Para ello, en **¿Quiere importar la configuración de migración de evaluación de Azure Migrate?** , seleccione la opción **Sí**.
     - Si no ha ejecutado una evaluación o no desea usar la configuración de evaluación, seleccione la opción **No**.
     - Si ha decidido usar la evaluación, seleccione el grupo de máquinas virtuales y el nombre de la evaluación.
 
@@ -161,7 +161,7 @@ Una vez finalizada la detección, puede comenzar la replicación de máquinas vi
 
 8. En **Proceso**, revise el nombre de la máquina virtual, su tamaño, el tipo de disco del sistema operativo y el conjunto de disponibilidad. Las máquinas virtuales deben cumplir los [requisitos de Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
 
-    - **Tamaño de VM**: si usa las recomendaciones de la evaluación, el menú desplegable de tamaño de máquina virtual contendrá el tamaño recomendado. De lo contrario, Azure Migrate elige un tamaño en función de la coincidencia más cercana en la suscripción de Azure. También puede elegir un tamaño de manera manual en **Tamaño de la máquina virtual de Azure**. 
+    - **Tamaño de VM**: si usa las recomendaciones de la evaluación, el menú desplegable de tamaño de VM contendrá el tamaño recomendado. De lo contrario, Azure Migrate elige un tamaño en función de la coincidencia más cercana en la suscripción de Azure. También puede elegir un tamaño de manera manual en **Tamaño de la máquina virtual de Azure**. 
     - **Disco del sistema operativo**: especifique el disco del sistema operativo (arranque) de la máquina virtual. Este es el disco que tiene el cargador de arranque y el instalador del sistema operativo. 
     - **Conjunto de disponibilidad**: si la máquina virtual debe estar incluida en un conjunto de disponibilidad de Azure después de la migración, especifique el conjunto. El conjunto debe estar en el grupo de recursos de destino que especifique para la migración.
 
@@ -243,7 +243,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 2. En **Replicación de máquinas**, haga clic con el botón derecho en la máquina virtual > **Migrar**.
 3. En **Migrar** >  **¿Quiere apagar las máquinas virtuales y realizar una migración planificada sin perder datos?** , seleccione **Sí** > **Aceptar**.
     - De forma predeterminada, Azure Migrate apaga la máquina virtual local y ejecuta una replicación a petición para sincronizar los cambios que se han producido en la máquina virtual desde la última replicación. De esta forma se garantiza que no se pierden datos.
-    - Si no desea apagar la máquina virtual, seleccione **No**.
+    - Si no desea apagar la máquina virtual, seleccione **No**
 4. Se inicia un trabajo de migración de la máquina virtual. Realice un seguimiento del trabajo en las notificaciones de Azure.
 5. Una vez finalizado el trabajo, la máquina virtual puede ver y administrar desde la página **Máquinas virtuales**.
 

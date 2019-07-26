@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Sugerencia de consultas de búsqueda con la API REST Bing Autosuggest y Ruby'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Autosuggest API.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 56ad71d9a746f61e724c1f3b5c5c6be0a3318452
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 3797e8b0d200bcb7f010afbf77f57cfc5cf6b5d1
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390366"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405209"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Inicio rápido: Sugerencia de consultas de búsqueda con la API REST Bing Autosuggest y Ruby
 
