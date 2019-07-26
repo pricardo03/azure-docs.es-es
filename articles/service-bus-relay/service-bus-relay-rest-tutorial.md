@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e988724f842ff12cd599eba95c31006fe208fad
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123406"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422894"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial de REST de Azure WCF Relay
 En este tutorial se describe cómo compilar una sencilla aplicación host de Azure Relay que expone una interfaz basada en REST. REST permite a un cliente web, como un explorador web, tener acceso a la API de Service Bus a través de solicitudes HTTP.
@@ -578,6 +578,6 @@ Después de compilar la solución, haga lo siguiente para ejecutar la aplicació
 Ahora que ha creado una aplicación que utiliza el servicio Azure Relay, consulte los artículos siguientes para obtener más información:
 
 * [Introducción a Azure Relay](relay-what-is-it.md)
-* [Uso de WCF Relay de Service Bus con .NET](relay-wcf-dotnet-get-started.md)
+* [Uso de WCF Relay de Service Bus con .NET](service-bus-relay-tutorial.md)
 
 [Azure portal]: https://portal.azure.com

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a2c036265049bf4b87435e96f779482da404caa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 54146927bf344eed63e24a3df073aa13f7fa0676
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164815"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68319910"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Exigencia de verificación en dos pasos para un usuario
 
@@ -27,7 +27,7 @@ Puede utilizar uno de estos dos métodos para requerir la verificación en dos p
 
 ## <a name="choose-how-to-enable"></a>Elección del modo de habilitación
 
-**Enabled by changing user state** (Habilitada mediante el cambio de estado de usuario): se trata del método tradicional para exigir la verificación en dos pasos y se describe en este artículo. Funciona tanto en Azure MFA en la nube como en el servidor de Azure MFA. El uso de este método requiere que los usuarios realicen la verificación en dos pasos **cada vez** que inicien sesión e invalida las directivas de acceso condicional. Este es el método que usan los usuarios con licencias de Office 365 o Microsoft 365 Empresa, ya que no incluyen características de acceso condicional.
+**Enabled by changing user state** (Habilitada mediante el cambio de estado de usuario): se trata del método tradicional para exigir la verificación en dos pasos y se describe en este artículo. Funciona tanto en Azure MFA en la nube como en el servidor de Azure MFA. El uso de este método requiere que los usuarios realicen la verificación en dos pasos **cada vez** que inicien sesión e invalida las directivas de acceso condicional.
 
 Enabled by conditional access policy (Habilitada mediante la directiva de acceso condicional): se trata del medio más flexible para habilitar la verificación en dos pasos para los usuarios. La habilitación de la directiva de acceso condicional solo funciona con Azure MFA en la nube y es una característica premium de Azure AD. Puede encontrar más información sobre este método en [Implementación de Azure Multi-factor Authentication en la nube](howto-mfa-getstarted.md).
 

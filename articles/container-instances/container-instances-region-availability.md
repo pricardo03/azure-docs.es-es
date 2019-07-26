@@ -3,16 +3,17 @@ title: Disponibilidad de recursos para Azure Container Instances
 description: Disponibilidad de recursos de proceso y memoria para el servicio Azure Container Instances en diferentes regiones de Azure.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 05/14/2019
 ms.author: danlep
-ms.openlocfilehash: 64b60178413e470cc7fe9b3991c6fc29b5a0f860
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 14e7b9a3ea11e59aabeb901c4039e69208ea0cfd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794286"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325719"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
@@ -29,24 +30,24 @@ Para obtener información sobre las cuotas y otros límites en las implementacio
 
 Las siguientes regiones y recursos están disponibles para los grupos de contenedores con Linux y [admiten](container-instances-faq.md#what-windows-base-os-images-are-supported) contenedores basados en Windows Server 2016.
 
-| Ubicación | SO | CPU | Memoria (GB) |
+| Location | OS | CPU | Memoria (GB) |
 | -------- | -- | :---: | :-----------: |
 | Centro de Canadá, Centro de la India, Centro de EE. UU., Asia Oriental, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de EE. UU. | Linux | 4 | 16 |
 | Oeste de Europa, Oeste de EE. UU. 2 | Linux | 4 | 14 |
 | Este de Australia, Japón Oriental | Linux | 2 | 8 |
 | Centro y norte de EE. UU., India del Sur | Linux | 2 | 3,5 |
-| Europa occidental |  Windows | 4 | 16 |
-| Este de EE. UU., Oeste de EE. UU. |  Windows | 4 | 14 |
-| Este de Australia, Centro de Canadá, Centro de la India, Centro de EE. UU., Asia Oriental, Este de EE. UU. 2, Japón Oriental, Centro-norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Asia Suroriental, India del Sur, Sur de Reino Unido, Oeste de EE. UU. 2 |  Windows | 2 | 3,5 |
+| Europa occidental | Windows | 4 | 16 |
+| Este de EE. UU., Oeste de EE. UU. | Windows | 4 | 14 |
+| Este de Australia, Centro de Canadá, Centro de la India, Centro de EE. UU., Asia Oriental, Este de EE. UU. 2, Japón Oriental, Centro-norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Asia Suroriental, India del Sur, Sur de Reino Unido, Oeste de EE. UU. 2 | Windows | 2 | 3,5 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidad: implementaciones de la versión 1809 para Windows Server 2019 LTSC (versión preliminar)
 
 Las siguientes regiones y recursos están disponibles para los grupos de contenedores con contenedores basados en Windows Server 2019 (versión preliminar).
 
-| Ubicación | SO | CPU | Memoria (GB) |
+| Location | OS | CPU | Memoria (GB) |
 | -------- | -- | :---: | :-----------: |
-| Asia Suroriental, Norte de Europa, Oeste de Europa, Centro de EE. UU., Este de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2 |  Windows | 4 | 16 |
-| Este de EE. UU. 2 |  Windows | 2 | 3,5 |
+| Asia Suroriental, Norte de Europa, Oeste de Europa, Centro de EE. UU., Este de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2 | Windows | 4 | 16 |
+| Este de EE. UU. 2 | Windows | 2 | 3,5 |
 
 
 ## <a name="availability---virtual-network-deployment-preview"></a>Disponibilidad: implementación de red virtual (versión preliminar)

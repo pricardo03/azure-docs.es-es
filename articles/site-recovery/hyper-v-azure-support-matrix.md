@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78a531c769612af0597e732f0dc539286dd7cdac
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399422"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489888"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -115,7 +115,7 @@ Disco: sector físico y lógico de 4 K | No compatible: Gen 1, Gen 2 | No compat
 Disco: sector lógico de 4 K y sector físico de 512 bytes | Sí |  Sí
 Administración de volúmenes lógicos (LVM). Se admite LVM solo en discos de datos. Azure proporciona un único disco de sistema operativo. | Sí | Sí
 Volumen con disco seccionado > 1 TB | Sí | Sí
-Espacios de almacenamiento | Sí | Sí
+Espacios de almacenamiento | Sin | Sin
 Agregar/quitar disco en caliente | Sin | Sin
 Excluir el disco | Sí | Sí
 Varias rutas (MPIO) | Sí | Sí

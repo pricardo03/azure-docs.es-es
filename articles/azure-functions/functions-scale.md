@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3253cc7e379ae63880d533f14bc76e7af5a4425a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 94ef85836ef524b34cd1c51e4eda83695bc70507
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050558"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443953"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -51,7 +51,7 @@ En la tabla siguiente se indica el nivel actual de la compatibilidad con los tre
 | | Plan de consumo | Plan Premium | Plan dedicado |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | Vista previa | GA |
-| Linux | Vista previa | N/D | GA |
+| Linux | Vista previa | Vista previa | GA |
 
 ## <a name="consumption-plan"></a>Plan de consumo
 
@@ -87,9 +87,6 @@ Considere la posibilidad de elegir el plan Prémium de Azure Functions en las si
 * Necesita más opciones de CPU o memoria de las que proporciona el plan de consumo.
 * Su código debe ejecutarse durante más tiempo del [máximo permitido](#timeout) en el plan de consumo.
 * Necesita características que solo están disponibles en un plan Prémium, como conectividad de red virtual o VPN.
-
-> [!NOTE]
-> Actualmente, la versión preliminar del plan Prémium solo admite Azure Functions en Windows.
 
 Al ejecutar las funciones de JavaScript en un plan Prémium, debe elegir una instancia que tenga menos vCPU. Para obtener más información, consulte [Elección de los planes de App Service de un solo núcleo](functions-reference-node.md#considerations-for-javascript-functions).  
 

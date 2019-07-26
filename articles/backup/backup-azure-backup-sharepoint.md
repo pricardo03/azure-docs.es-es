@@ -1,19 +1,18 @@
 ---
 title: Protección del Azure Backup Server y del servidor de DPM de una granja de SharePoint en Azure
 description: En este artículo se incluye información general sobre la protección del Servidor de Azure Backup y el servidor de DPM de una granja de SharePoint en Azure.
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: kasinh
-ms.openlocfilehash: dd38ed8119e2879c4a1e4c6a52ad283043f067bf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 91b3105bc2aafba10f4bf105bee851743dcf5282
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705232"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466667"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure
 La copia de seguridad de una granja de SharePoint en Microsoft Azure se crea mediante System Center Data Protection Manager (DPM) casi de la misma manera que realiza la copia de seguridad de otros orígenes de datos. Azure Backup ofrece flexibilidad en la programación de copias de seguridad para crear puntos de copia de seguridad diarios, semanales, mensuales o anuales, y le ofrece diferentes opciones de directiva de retención para varios puntos de copia de seguridad. DPM ofrece la posibilidad de almacenar copias en discos locales para conseguir objetivos de tiempo de recuperación (RTO) más rápidos y de almacenar copias en Azure, para una retención económica más a largo plazo.

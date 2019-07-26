@@ -13,14 +13,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1ee54fac5a4c325ea5db3b97522fd2772b8dbd4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473828"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382429"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Descarga e instalación de la aplicación Microsoft Authenticator
+
 >[!Important]
 >Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
@@ -36,13 +37,14 @@ Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 
 > [!Important]
 > La aplicación Microsoft Authenticator funciona con cualquier cuenta que use la comprobación en dos fases y admita los estándares de contraseña de un solo uso y duración definida (TOTP).
-> 
+>
 > Su organización puede exigirle que use una aplicación autenticadora para iniciar sesión y acceder a sus datos y documentos. Aunque su nombre de usuario puede aparecer en la aplicación, la cuenta no estará configurada para actuar como un método de comprobación hasta que se complete el proceso de registro. Para más información, consulte [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md).
 > 
 > [!NOTE]
 > Si tiene problemas para iniciar sesión en su cuenta, puede encontrar ayuda en [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429).  Obtenga más información acerca de lo que debe hacer cuando recibe el mensaje ["Esa cuenta de Microsoft no existe"](https://support.microsoft.com/help/13811) al intentar iniciar sesión en su cuenta Microsoft.
 
 ## <a name="download-and-install-the-app"></a>Descarga e instalación de la aplicación
+
 Instale la versión más reciente de la aplicación Microsoft Authenticator según el sistema operativo:
 
 - **Google Android.** En el dispositivo Android, vaya a Google Play para [descargar e instalar la aplicación Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator).

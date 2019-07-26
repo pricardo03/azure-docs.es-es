@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: d218ebcacf18687d01402f2c6ac354d95a1fe71f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0ccd57e1614f23d775df2fe8e963d2cc7f9a4358
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071415"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360737"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage
 
@@ -85,7 +85,7 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
    | **Replicación**| Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). | Necesario para el ejemplo funcione. |
    |**Suscripción** | Su suscripción |Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
-   |**Ubicación** | Este de EE. UU | Elija una ubicación. |
+   |**Ubicación** | East US | Elija una ubicación. |
 
 ![creación de cuenta de almacenamiento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -358,7 +358,8 @@ El controlador de eventos `retry_callback` se llama cuando se produce un error d
 def retry_callback(retry_context):
     global retry_count
     retry_count = retry_context.count
-    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.write(
+        "\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
     sys.stdout.flush()
 
     # Check if we have more than n-retries in which case switch to secondary

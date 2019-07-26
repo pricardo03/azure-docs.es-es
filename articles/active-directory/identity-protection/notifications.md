@@ -2,28 +2,21 @@
 title: Notificaciones de Azure Active Directory Identity Protection | Microsoft Docs
 description: Obtenga información sobre cómo contribuyen las notificaciones a sus actividades de investigación.
 services: active-directory
-keywords: azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0065ec03695ee977133ae2ec43aafba7d5bfff78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dcc7d2d03b3c4a3f4c8c772f38aa3785080d986
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784338"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335351"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificaciones de Azure Active Directory Identity Protection
 
@@ -34,7 +27,6 @@ Azure AD Identity Protection envía dos tipos de correos electrónicos de notifi
 
 En este artículo se proporciona una introducción de ambos correos electrónicos de notificación.
 
-
 ## <a name="users-at-risk-detected-email"></a>Correo electrónico de los usuarios en riesgo detectados
 
 En respuesta a una cuenta detectada en riesgo, Azure AD Identity Protection genera una alerta de correo electrónico con el asunto **Usuarios en riesgo detectados**. El correo electrónico incluye un vínculo al informe **[Usuarios marcados en riesgo](../reports-monitoring/concept-user-at-risk.md)** . Como práctica recomendada, debería investigar inmediatamente los usuarios en peligro.
@@ -43,7 +35,6 @@ La configuración de esta alerta permite especificar a qué nivel de riesgo del 
 
 ![Correo electrónico de los usuarios en riesgo detectados](./media/notifications/01.png)
 
-
 ### <a name="configuration"></a>Configuración
 
 Como administrador, puede establecer:
@@ -51,11 +42,9 @@ Como administrador, puede establecer:
 - **El nivel de riesgo de usuario que desencadena la generación de este correo electrónico**: de forma predeterminada, el nivel de riesgo se establece en "Alto" riesgo.
 - **Los destinatarios de este correo electrónico**: de forma predeterminada, los destinatarios incluyen todos los administradores globales. Los administradores globales también pueden agregar otros administradores globales, administradores de seguridad y Lectores de seguridad como destinatarios.  
 
-
 Para abrir el cuadro de diálogo relacionado, haga clic en **Alertas** en la sección **Configuración** de la página **Identity Protection**.
 
 ![Correo electrónico de los usuarios en riesgo detectados](./media/notifications/05.png)
-
 
 ## <a name="weekly-digest-email"></a>Correo electrónico de resumen semanal
 
@@ -63,11 +52,8 @@ El correo electrónico de resumen semanal contiene un sumario de nuevos eventos 
 Incluye:
 
 - Usuarios en riesgo
-
 - Actividades sospechosas
-
 - Puntos vulnerables detectados
-
 - Vínculos a los informes relacionados en Identity Protection
 
     ![Corrección](./media/notifications/400.png "Corrección")
@@ -81,7 +67,6 @@ Como administrador, puede desactivar la opción de envío de un correo electrón
 Para abrir el cuadro de diálogo relacionado, haga clic en **Resumen semanal** en la sección **Configuración** de la página **Identity Protection**.
 
 ![Correo electrónico de los usuarios en riesgo detectados](./media/notifications/04.png)
-
 
 ## <a name="see-also"></a>Otras referencias
 

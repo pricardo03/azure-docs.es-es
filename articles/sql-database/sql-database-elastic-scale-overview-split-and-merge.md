@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 506847b436eeb3e1f612a17bf1182359a0e00947
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123384"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348430"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Moving data between scaled-out cloud databases (Mover datos entre bases de datos en la nube escaladas horizontalmente)
 
@@ -101,7 +101,7 @@ La herramienta de división y combinación se ejecuta como servicio web de Azure
 
     Las API `SchemaInfo` proporcionan información comparativa sobre las tablas de referencia y compartidas en el mapa de particiones. En el siguiente ejemplo se ilustra el uso de estas API en un objeto dado de Shard Map Manager.
 
-    ```c#
+    ```csharp
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
 

@@ -13,12 +13,12 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fcbf181601230493dc52bde06e4f35db062f9a32
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 20327e64080182518fd28b1d367ffe37be5ce9a4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807170"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323964"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Creación de la primera función con Java y Maven
 
@@ -125,7 +125,7 @@ public class Function {
 
 Cambie de directorio a la carpeta de proyecto que acaba de crear y compile y ejecute la función con Maven:
 
-```
+```CMD
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
@@ -147,7 +147,7 @@ Http Functions:
 
 Desencadene la función desde la línea de comandos, para lo que debe usar curl en una ventana de terminal nueva:
 
-```
+```CMD
 curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
 ```
 
@@ -170,7 +170,7 @@ Implemente el código en una aplicación de función nueva `azure-functions:depl
 > [!NOTE]
 > Cuando se usa Visual Studio Code para implementar la aplicación de función, recuerde que debe elegir una suscripción de pago o se producirá un error. Puede ver la suscripción en el lado izquierdo del IDE.
 
-```
+```azurecli
 mvn azure-functions:deploy
 ```
 
@@ -189,7 +189,7 @@ Pruebe la aplicación de función que se ejecuta en Azure mediante `cURL`. Es pr
 > [!NOTE]
 > Asegúrese de establecer los **derechos de acceso** en `Anonymous`. Al elegir el nivel predeterminado de `Function`, tiene que presentar la [tecla de función](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) en las solicitudes para acceder al punto de conexión de la función.
 
-```
+```azurecli
 curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 

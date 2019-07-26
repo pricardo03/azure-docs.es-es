@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6454c82e3d9c73d1b5a4b2224abf1ab63a798355
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ad7cfbac1dffdab4af7afc26c98c0582bc376c99
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709648"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494330"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimiento de conmutación por error de recuperación ante desastres
 
@@ -35,12 +35,12 @@ Hay dos casos que se deben tener en cuenta al conmutar por error al sitio de DR:
 >[!NOTE]
 >Los pasos a continuación se deben seguir en la unidad de HANA (instancia grande), que representa la unidad de recuperación ante desastres. 
  
-Para restaurar a las instantáneas de almacenamiento replicado más recientes, siga los pasos descritos en "Perform full DR failover - azure_hana_dr_failover" (Conmutación por error completa de recuperación ante desastres: azure_hana_dr_failover) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (Herramientas de instantáneas de Microsoft para SAP HANA en Azure). 
+Para restaurar a las instantáneas de almacenamiento replicado más recientes, siga los pasos descritos en "Perform full DR failover - azure_hana_dr_failover" (Conmutación por error completa de recuperación ante desastres: azure_hana_dr_failover) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf) (Herramientas de instantáneas de Microsoft para SAP HANA en Azure). 
 
 Si quiere conmutar por error varias instancias de SAP HANA, ejecute el comando azure_hana_dr_failover varias veces. Cuando se le solicite, escriba el SID de SAP HANA que desea conmutar por error y restaurar. 
 
 
-También puede probar la conmutación por error de recuperación ante desastres sin que afecte a la relación de replicación real. Para llevar a cabo una conmutación por error de prueba, siga los pasos descritos en "Perform a test DR failover - azure_hana_test_dr_failover" (Realizar una prueba de conmutación por error de recuperación ante desastres: azure_hana_test_dr_failover) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure). 
+También puede probar la conmutación por error de recuperación ante desastres sin que afecte a la relación de replicación real. Para llevar a cabo una conmutación por error de prueba, siga los pasos descritos en "Perform a test DR failover - azure_hana_test_dr_failover" (Realizar una prueba de conmutación por error de recuperación ante desastres: azure_hana_test_dr_failover) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure). 
 
 >[!IMPORTANT]
 >*No* ejecute transacciones de producción en la instancia que ha creado en el sitio de recuperación ante desastres a través del proceso de **prueba de una conmutación por error**. El comando azure_hana_test_dr_failover crea un conjunto de volúmenes que no tienen relación con el sitio primario. Como consecuencia, *no* se puede realizar una sincronización al sitio principal. 

@@ -1,19 +1,18 @@
 ---
 title: Preguntas frecuentes sobre la copia de seguridad de máquinas virtuales de Azure con Azure Backup
 description: Respuestas a preguntas frecuentes sobre la copia de seguridad de máquinas virtuales de Azure con Azure Backup.
-services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: sogup
-ms.openlocfilehash: 0248e169f5d502cce8723f594f438b87ab088f3a
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a26cc2fcdc381361912085b0980a736f040c5b0a
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551612"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465286"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 

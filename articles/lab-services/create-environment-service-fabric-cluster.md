@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: enewman
-ms.openlocfilehash: 9848f197800c391285c4065685b910685f0ac64b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e192a2b27c9d617e43a56766431a0f40e87a752
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60312184"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325251"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Creación de un entorno con un clúster de Service Fabric independiente en Azure DevTest Labs
 En este artículo se proporciona información sobre cómo crear un entorno con un clúster de Service Fabric independiente en Azure DevTest Labs. 
@@ -87,7 +87,7 @@ Existe otra forma de iniciar o detener el clúster.
     ![Comandos de inicio o detención en la página Clúster de Service Fabric](./media/create-environment-service-fabric-cluster/start-stop-on-cluster-page.png)
 
 ## <a name="configure-auto-startup-and-auto-shutdown-schedule"></a>Configuración de la programación del inicio y el apagado automáticos
-Los clústeres de Service Fabric también se pueden iniciar o detener según una programación. Esta experiencia es similar a la de las máquinas virtuales en un laboratorio. Para ahorrar dinero, de forma predeterminada, todos los clústeres creados en un laboratorio automáticamente se apagan en el momento definido por la [directiva de apagado](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) del laboratorio. Puede llevar a cabo la invalidación especificando si el clúster debe apagarse o la hora a la que se apaga. 
+Los clústeres de Service Fabric también se pueden iniciar o detener según una programación. Esta experiencia es similar a la de las máquinas virtuales en un laboratorio. Para ahorrar dinero, de forma predeterminada, todos los clústeres creados en un laboratorio automáticamente se apagan en el momento definido por la [directiva de apagado](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) del laboratorio. Puede llevar a cabo la invalidación especificando si el clúster debe apagarse o la hora a la que se apaga. 
 
 ![Programaciones existentes del inicio y el apagado automáticos](./media/create-environment-service-fabric-cluster/existing-schedules.png)
 

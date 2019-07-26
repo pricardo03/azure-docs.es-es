@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.custom: seoapril2019
+ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bd1534b3f966051104a3f3ee389fb047ab258fc
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 825966fbb0db537aad8de39e69e17418e6432b44
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482805"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324677"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos para: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 

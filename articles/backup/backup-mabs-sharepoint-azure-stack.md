@@ -1,19 +1,18 @@
 ---
 title: Copia de seguridad de una granja de SharePoint en Azure Stack
 description: Use Azure Backup Server para crear una copia de seguridad de los datos de SharePoint y restaurarlos en Azure Stack. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
-ms.openlocfilehash: a52f42fb194d2f39861a57c95a664ad57b4f91d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 729b21095f14463cb6fb1615a9f61f1189a3bbce
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60500962"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465193"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Copia de seguridad de una granja de SharePoint en Azure Stack
 La copia de seguridad de una granja de SharePoint de Azure Stack en Microsoft Azure se crea mediante Microsoft Azure Backup Server (MABS) casi de la misma manera que realiza la copia de seguridad de otros orígenes de datos. Azure Backup ofrece flexibilidad en la programación de copias de seguridad para crear puntos de copia de seguridad diarios, semanales, mensuales o anuales, y le ofrece diferentes opciones de directiva de retención para varios puntos de copia de seguridad. También ofrece la posibilidad de almacenar copias en discos locales para conseguir objetivos de tiempo de recuperación (RTO) más rápidos y de almacenar copias en Azure, para una retención económica más a largo plazo.

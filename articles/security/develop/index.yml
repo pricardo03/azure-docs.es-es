@@ -28,12 +28,19 @@ sections:
             html: <p>Desarrollo de una aplicación web segura en Azure</p>
             image:
               src: /media/common/i_get-started.svg
-            title: Introducción
+            title: Primeros pasos
           - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
             html: <p>Los cinco elementos de seguridad principales para las aplicaciones web</p>
             image:
               src: /media/common/i_learn-about.svg
             title: Desarrollo de aptitudes con Microsoft Learn
+  - title: Protección de las aplicaciones de ejemplo
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/secure-web-app">Aplicación web en un contenedor Linux</a>
   - title: Conceptos
     items:
       - type: list

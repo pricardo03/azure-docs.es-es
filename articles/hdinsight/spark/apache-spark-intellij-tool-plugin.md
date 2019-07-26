@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0a434246791e73e24af1ffe7abd722f5265ca5b6
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 32f5ff2ebc9d938b1936d7f2929af83d552a543d
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462388"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489857"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Tutorial: Uso de Azure Toolkit for IntelliJ con el fin de crear aplicaciones Apache Spark para un clúster de HDInsight
 
@@ -38,8 +38,6 @@ En este tutorial, aprenderá a:
 * IntelliJ IDEA. En este artículo se usa [IntelliJ IDEA Community  2018.3.4](https://www.jetbrains.com/idea/download/).
 
 * Azure Toolkit for IntelliJ.  Consulte [Instalación de Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
-
-* WINUTILS.EXE.  Consulte [Problems running Hadoop on Windows](https://wiki.apache.org/hadoop/WindowsProblems) (Problemas al ejecutar Hadoop en Windows).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Instale el complemento de Scala para IntelliJ IDEA.
 
@@ -173,7 +171,7 @@ El usuario puede [iniciar sesión en la suscripción a Azure](#sign-in-to-your-a
 
 ### <a name="link-a-cluster"></a>Vinculación de un clúster
 
-Puede vincular un clúster de HDInsight mediante el nombre de usuario administrado de Apache Ambari. De forma similar, para un clúster de HDInsight unido a un dominio, puede vincular con el dominio y el nombre de usuario, como user1@contoso.com. También puede vincular el clúster del servicio de Livy.
+Puede vincular un clúster de HDInsight mediante el nombre de usuario administrado de Apache Ambari. De forma similar, para un clúster de HDInsight unido a un dominio, puede vincular con el dominio y el nombre de usuario, como `user1@contoso.com`. También puede vincular el clúster del servicio de Livy.
 
 1. En la barra de menús, vaya a **Ver** > **Ventanas de herramientas** > **Azure Explorer**.
 

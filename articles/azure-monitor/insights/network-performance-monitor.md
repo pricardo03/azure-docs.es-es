@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: a1a69e02a2630ab2b0466856ca87e8f88fc4d9d8
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: c350ca3cd8cbfb5e550fccd0bae0df53168de178
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304810"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312070"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -45,12 +45,14 @@ Hay más información sobre las diferentes funcionalidades compatibles con [Netw
 NPM puede supervisar la conectividad entre redes y aplicaciones en cualquier parte del mundo, desde un área de trabajo que se hospede en una de las siguientes regiones:
 * Europa occidental
 * Centro occidental de EE.UU.
-* Este de EE. UU
+* East US
 * Este de Japón
 * Sudeste de Asia
 * Sudeste de Australia
 * Sur de Reino Unido
+* India Central
 * Gobierno de EE. UU. Virginia
+
 
 La lista de regiones admitidas para la Supervisión de ExpressRoute está disponible en la [documentación](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
 

@@ -1,19 +1,18 @@
 ---
 title: Matriz de compatibilidad para la copia de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS) con Azure Backup
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
-services: backup
 author: rayne-wiselman
 ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9f3c9b94a093df539a6ca4660383837becf1709
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64923000"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464844"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -45,8 +44,8 @@ Cuando usa el agente de MARS para crear copias de seguridad de los datos, este r
 
 **Memoria caché** | **Detalles**
 --- | ---
-Tamaño |  El espacio libre en la carpeta de caché debe ser de entre un 5 % y un 10 % del tamaño total de los datos de copia de seguridad.
-Ubicación | La carpeta de caché debe almacenarse de forma local en la máquina de la copia de seguridad y debe estar en línea. La carpeta de caché no debe encontrarse en un recurso compartido de red, en un soporte físico extraíble o en un volumen sin conexión.
+Size |  El espacio libre en la carpeta de caché debe ser de entre un 5 % y un 10 % del tamaño total de los datos de copia de seguridad.
+Location | La carpeta de caché debe almacenarse de forma local en la máquina de la copia de seguridad y debe estar en línea. La carpeta de caché no debe encontrarse en un recurso compartido de red, en un soporte físico extraíble o en un volumen sin conexión.
 Carpeta | La carpeta de caché debe estar cifrada en un volumen desduplicado o en una carpeta comprimida, dispersa o con un punto de reanálisis.
 Cambios de ubicación | Puede cambiar la ubicación de la caché al detener el motor de copia de seguridad (`net stop bengine`) y copiar la carpeta de caché en una nueva unidad. (Asegúrese de que esta tiene espacio suficiente). A continuación, actualice dos entradas del Registro en **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) en la nueva ubicación y reinicie el motor.
 
