@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8331161cde9e7717834dabd2228848de40f7be23
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051479"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360300"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprovisionamiento de dispositivos con el servicio Azure IoT Hub Device Provisioning
 Microsoft Azure proporciona un amplio conjunto de servicios públicos en la nube integrados para todas las necesidades de su solución de IoT. El servicio IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que ofrece un aprovisionamiento just-in-time, sin intervención del usuario, de la instancia apropiada de IoT Hub, que permite a los clientes aprovisionar millones de dispositivos de forma segura y escalable.
@@ -96,7 +96,7 @@ El servicio Device Provisioning, al igual que todos los servicios de Azure IoT, 
 
 Device Provisioning Service solo admite conexiones HTTPS para las operaciones de servicio.
 
-## <a name="regions"></a>Regiones
+## <a name="regions"></a>Regions
 Device Provisioning Service está disponible en muchas regiones. Hay una lista actualizada de las regiones existentes y de las recién anunciadas para todos los servicios en [Regiones de Azure](https://azure.microsoft.com/regions/). Puede consultar la disponibilidad del servicio Device Provisioning en la página [Estado de Azure](https://azure.microsoft.com/status/).
 
 > [!NOTE]
@@ -108,8 +108,9 @@ Hay un Acuerdo de Nivel de Servicio del 99,9 % para el servicio Device Provision
 ## <a name="quotas"></a>Cuotas
 Cada suscripción de Azure tiene límites de cuota predeterminados que pueden afectar al ámbito de su solución de IoT. El límite actual por suscripción es de 10 servicios Device Provisioning por suscripción.
 
-Más información sobre los límites de cuota:
+[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
+Más información sobre los límites de cuota:
 * [Límites de servicio de suscripción de Azure](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Componentes de Azure relacionados

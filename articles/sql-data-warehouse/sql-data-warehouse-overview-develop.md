@@ -2,7 +2,7 @@
 title: Recursos para desarrollar un almacén de datos en Azure | Microsoft Docs
 description: Conceptos de desarrollo, decisiones de diseño, recomendaciones y técnicas de codificación para SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 613bcb05dab993989a2ae00b71fef95794953ab8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a78d78618a4cd9bf8d2aaebbd0c0da13697549bc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850736"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479473"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisiones de diseño y técnicas de codificación para SQL Data Warehouse
 Eche un vistazo a estos artículos de desarrollo para comprender mejor las decisiones de diseño clave, las recomendaciones y las técnicas de codificación para SQL Data Warehouse.
@@ -23,13 +23,13 @@ Eche un vistazo a estos artículos de desarrollo para comprender mejor las decis
 ## <a name="key-design-decisions"></a>Decisiones de diseño clave
 En los siguientes artículos se resaltan los conceptos y las decisiones de diseño para desarrollar un almacén de datos distribuido mediante SQL Data Warehouse:
 
-* [conexiones][connections]
+* [connections][connections]
 * [simultaneidad][concurrency]
 * [transacciones][transactions]
 * [esquemas definidos por el usuario][user-defined schemas]
-* [distribución de tablas][table distribution]
-* [índices de tabla][table indexes]
-* [particiones de tabla][table partitions]
+* [Distribución de tablas][table distribution]
+* [índices de tablas][table indexes]
+* [particiones de tablas][table partitions]
 * [CTAS][CTAS]
 * [estadísticas][statistics]
 

@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ef695d913c73f0a4266b20f21f1008108b85b4d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ffbf53c0bb0aaf2832afecc2d0df935f04eeff19
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734244"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310324"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Diseño del sistema de protección de contenido con DRM múltiple con control de acceso 
-
-## <a name="overview"></a>Información general
 
 El diseño y la creación de un subsistema de administración de derechos digitales (DRM) para una solución OTT o de streaming en línea es una tarea compleja. Los operadores o proveedores de vídeo en línea suelen subcontratar esta tarea a proveedores de servicios DRM especializados. El objetivo de este documento es presentar un diseño de referencia y una implementación de referencia del subsistema DRM de un extremo a otro en una solución de streaming en línea o de OTT.
 
@@ -36,7 +34,6 @@ Las ventajas de usar varias DRM nativa para la protección de contenido son que:
 * Reduce el costo del cifrado porque se emplea un solo procesamiento de cifrado que tiene como destino distintas plataformas con sus DRM nativas.
 * Reduce el costo de administrar los recursos porque solo se necesita una copia de recurso en el almacenamiento.
 * Elimina el costo de licencia de clientes DRM porque el cliente DRM nativo suele ser gratis en su plataforma nativa.
-
 
 ### <a name="goals-of-the-article"></a>Objetivos del artículo
 
@@ -220,6 +217,7 @@ Para más información sobre Azure AD:
 * Puede encontrar información para administradores en [Administración del directorio de Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Algunos problemas de implementación
+
 Utilice la siguiente información para solución de problemas para obtener ayuda con problemas de implementación.
 
 * La dirección URL del emisor debe terminar por "/". La audiencia debe ser el identificador de cliente de la aplicación de reproductor. Además, agregue "/" al final de la dirección URL del emisor.
@@ -255,120 +253,8 @@ Utilice la siguiente información para solución de problemas para obtener ayuda
 
     Como agregó compatibilidad con el token JWT (Azure AD), además de con SWT (ACS), el valor predeterminado de TokenType es TokenType.JWT. Si utiliza SWT y ACS, debe establecer el token en TokenType.SWT.
 
-## <a name="faqs"></a>Preguntas más frecuentes
-
-En esta sección se van a tratar algunos temas adicionales sobre el diseño e implementación.
-
-### <a name="http-or-https"></a>¿HTTP o HTTPS?
-La aplicación de reproductor de ASP.NET MVC debe ser compatible con lo siguiente:
-
-* Autenticación de usuarios mediante Azure AD, que está en HTTPS.
-* Intercambio de tokens JWT entre el cliente y Azure AD, que debe estar en HTTPS.
-* La adquisición de licencias DRM por el cliente, que debe estar en HTTPS si Media Services proporciona la entrega de licencias. El conjunto de productos de PlayReady no impone HTTPS para la entrega de licencias. Si el servidor de licencias de PlayReady está fuera de Media Services, se podría usar HTTP o HTTPS.
-
-La aplicación de reproductor de ASP. NET utiliza HTTPS como procedimiento recomendado, por lo que Media Player se encuentra en una página en HTTPS. Sin embargo, HTTP es preferible para el streaming, por lo que se debe tener en cuenta la cuestión del contenido mixto.
-
-* El explorador no permite contenido mixto. Sin embargo, los complementos como Silverlight y OSMF para Smooth y DASH sí lo hacen. El contenido mixto es un problema de seguridad debido a la amenaza de la posibilidad de insertar JavaScript malintencionado, que puede poner en riesgo los datos del cliente. Los exploradores lo bloquean de forma predeterminada. La única manera de solucionar esto es en el servidor (origen) al permitir todos los dominios (con independencia de si son HTTPS o HTTP). Probablemente esto tampoco sea una buena idea.
-* Evite el contenido mixto. Tanto la aplicación de reproducción y Media Player deben utilizar HTTP o HTTPS. Al reproducir contenido mixto, silverlightSS tech requiere que se borre una advertencia de contenido mixto. flashSS tech controla el contenido mixto sin advertencia de contenido mixto.
-* Si su punto de conexión de streaming se ha creado antes de agosto de 2014, no admitirá HTTPS. En este caso, cree y utilice un nuevo punto de conexión de streaming para HTTPS.
-
-En la implementación de referencia, para el contenido protegido con DRM, tanto la aplicación como el proceso de streaming estarán en HTTPS. Para el contenido abierto, el reproductor no necesita autenticación ni licencia, por lo que puede utilizar HTTP o HTTPS.
-
-### <a name="what-is-azure-active-directory-signing-key-rollover"></a>¿Qué es la sustitución de claves de firma de Azure Active Directory?
-La sustitución de claves de firmas es un punto importante de su implementación a tener en cuenta. Si lo ignora, el sistema terminado finalmente deja de funcionar por completo, en un plazo máximo de seis semanas.
-
-Azure AD utiliza el estándar del sector para establecer la confianza entre sí mismo y las aplicaciones que usan Azure AD. En concreto, Azure AD utiliza una clave de firma que consta de un par de claves pública y privada. Cuando Azure AD crea un token de seguridad que contiene información sobre el usuario, Azure AD lo firma con una clave privada antes de enviarlo a la aplicación. Para comprobar que el token es válido y tiene su origen en Azure AD, la solicitud debe validar la firma del token. La aplicación utiliza la clave pública expuesta por Azure AD que se encuentra en el documento de metadatos de federación del inquilino. Esta clave pública, y la clave de firma de la que se deriva, es la misma que se utiliza en todos los inquilinos de Azure AD.
-
-Para más información sobre la sustitución de claves de Azure AD, consulte [Sustitución de claves de firma de Azure Active Directory](../../active-directory/active-directory-signing-key-rollover.md).
-
-Entre el [par de claves pública y privada](https://login.microsoftonline.com/common/discovery/keys/):
-
-* Azure AD utiliza la clave privada para generar un token JWT.
-* La clave pública se utiliza en una aplicación, como los servicios de entrega de licencias de DRM en Media Services, para comprobar el token JWT.
-
-Por motivos de seguridad, Azure AD rota el certificado de forma periódica (cada seis semanas). En caso de infracciones de seguridad, la sustitución de claves se produce en cualquier momento. Por lo tanto, los servicios de entrega de licencias en Media Services tienen que actualizar la clave pública utilizada cuando Azure AD rota el par de claves. En caso contrario, se produce un error en la autenticación de tokens en Media Services y no se emite ninguna licencia.
-
-Para configurar este servicio, se establece TokenRestrictionTemplate.OpenIdConnectDiscoveryDocument al configurar los servicios de entrega de licencias de DRM.
-
-Este es el flujo del token JWT:
-
-* Azure AD emite el token JWT con la clave privada actual de un usuario autenticado.
-* Cuando un reproductor ve un CENC con contenido protegido por varias DRM, primero busca el token JWT que ha emitido Azure AD.
-* El reproductor envía la solicitud de adquisición de licencias con el token JWT a los servicios de entrega de licencias de Media Services.
-* Los servicios de entrega de licencias de Media Services utilizan la clave pública actual o válida de Azure AD para comprobar el token JWT antes de emitir las licencias.
-
-Los servicios de entrega de licencias de DRM siempre estarán buscando la clave pública actual o válida de Azure AD. La clave pública presentada por Azure AD es la clave utilizada para comprobar un token JWT emitido por Azure AD.
-
-¿Y si la sustitución de claves ocurre después de que Azure AD genere un token JWT pero antes de que los reproductores envíen el token JWT a los servicios de entrega de licencias de DRM en Media Services para que lo comprueben?
-
-Dado que una clave se puede sustituir en cualquier momento, siempre hay más de una clave pública válida disponible en el documento de metadatos de federación. La entrega de licencias de Media Services puede utilizar cualquiera de las claves especificadas en el documento. Como una clave se puede sustituir pronto, otra podría ser su sustituta, y así sucesivamente.
-
-### <a name="where-is-the-access-token"></a>¿Dónde está el token de acceso?
-Si observa cómo una aplicación web llama a una aplicación de API en la sección [Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0 ](../../active-directory/develop/web-api.md), el flujo de autenticación tiene lugar como se indica a continuación:
-
-* Un usuario inicia sesión en Azure AD en la aplicación web. Para más información, consulte la sección [Aplicación web a API web](../../active-directory/develop/web-app.md).
-* El punto de conexión de autorización de Azure AD redirige al agente de usuario a la aplicación cliente con un código de autorización. El agente de usuario devuelve el código de autorización al URI de redireccionamiento de la aplicación cliente.
-* La aplicación web necesita adquirir un token de acceso para poder autenticarse ante la API web y recuperar el recurso deseado. Realiza una solicitud al punto de conexión de token de Azure AD y proporciona las credenciales, el identificador del cliente y el URI del identificador de aplicación de la API web. Presenta el código de autorización para demostrar que el usuario ha dado su consentimiento.
-* Azure AD autentica la aplicación y devuelve un token de acceso de JWT que se usa para llamar a la API web.
-* A través de HTTPS, la aplicación web usa el token de acceso de JWT devuelto para agregar la cadena JWT con una designación Bearer en el encabezado Authorization de la solicitud a la API web. La API web valida entonces el token JWT. Si la validación es correcta, devuelve el recurso deseado.
-
-En este flujo de identidad de aplicación, la API web confía en que la aplicación web ha autenticado al usuario. Por ello, este patrón se conoce como subsistema de confianza. El [diagrama de flujo de autorización](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) describe cómo funciona el flujo de concesión del código de autorización.
-
-La adquisición de licencias con restricción de token sigue el mismo patrón de subsistema de confianza. El servicio de entrega de licencias de Media Services es el recurso de API web o el recurso de back-end al que una aplicación web necesita acceso. Entonces, ¿dónde está el token de acceso?
-
-El token de acceso se obtiene de Azure AD. Después de autenticar al usuario correctamente, se devuelve un código de autorización. El código de autorización se utiliza entonces junto con el identificador de cliente y la clave de aplicación para intercambiarlos por el token de acceso. El token de acceso se utiliza para acceder a una aplicación "puntero" que señala o representa el servicio de entrega de licencias de Media Services.
-
-Para registrar y configurar la aplicación puntero en Azure AD, siga estos pasos:
-
-1. En el inquilino de Azure AD:
-
-   * Agregue una aplicación (recurso) con la dirección URL de inicio de sesión https://[resource_name].azurewebsites.net/. 
-   * Agregue un identificador de aplicación con la URL https://[aad_tenant_name].onmicrosoft.com/[resource_name].
-
-2. Agregue una nueva clave para la aplicación de recursos.
-
-3. Actualice el archivo de manifiesto de la aplicación para que la propiedad groupMembershipClaims tenga el valor "groupMembershipClaims": "All".
-
-4. En la aplicación de Azure AD que apunta a la aplicación web de reproductor, en la sección **Permisos para otras aplicaciones**, agregue la aplicación de recursos que se agregó en el paso 1 anteriormente. En **Permisos delegados**, active seleccione **Acceso [nombre_de_recurso]** . Esta opción da permiso a la aplicación web para crear tokens de acceso que acceden a la aplicación de recursos. Haga esto para la versión local y la implementada de la aplicación web si desarrolla con Visual Studio y la aplicación web de Azure.
-
-El token JWT emitido por Azure AD es el token de acceso que se utiliza para acceder al recurso de puntero.
-
-### <a name="what-about-live-streaming"></a>¿Y qué pasa con el streaming en vivo?
-La explicación anterior se centra en los recursos a petición. ¿Y qué pasa con el streaming en vivo?
-
-Puede usar exactamente el mismo diseño y la misma implementación para proteger el streaming en vivo en Media Services, solo hay que tratar el recurso asociado a un programa como un recurso VoD.
-
-En concreto, para hacer streaming en vivo en Media Services, debe crear un canal y, luego, crear un programa bajo él. Para crear el programa, debe crear un recurso que contiene el archivo en vivo del programa. Para proporcionar a CENC protección de varias DRM del contenido en directo, aplique la misma configuración o procesamiento al recurso como si fuera un recurso VoD, antes de iniciar el programa.
-
-### <a name="what-about-license-servers-outside-media-services"></a>¿Y qué sucede con los servidores de licencias que están fuera de Media Services?
-
-Con frecuencia, los clientes invierten en granjas de servidores de licencias en su propio centro de datos o en uno hospedado por proveedores de servicios DRM. Con la protección de contenido de Media Services, puede funcionar en modo híbrido. El contenido puede alojarse y protegerse dinámicamente en Media Services, mientras que las licencias DRM las entregan servidores externos a Media Services. En este caso, tenga en cuenta los siguientes cambios:
-
-* El servicio de token de seguridad debe emitir tokens que sean aceptables y que se puedan comprobar en la granja de servidores de licencias. Por ejemplo, los servidores de licencias de Widevine proporcionados por Axinom requieren un token JWT específico que contenga un mensaje de derechos. Por lo tanto, debe tener un servicio de token de seguridad para emitir dicho token JWT. 
-* Ya no necesitará configurar el servicio de entrega de licencias en Media Services. Debe proporcionar las direcciones URL de adquisición de licencias (para PlayReady, Widevine y FairPlay) cuando configura ContentKeyPolicies.
-
-### <a name="what-if-i-want-to-use-a-custom-sts"></a>¿Y si quiero usar un STS personalizado?
-Un cliente puede optar por usar a un servicio de token de seguridad personalizado para proporcionar tokens JWT. Los motivos incluyen los siguientes:
-
-* El punto de distribución de emisión que utiliza el cliente no es compatible con el servicio de token de seguridad. En este caso, un servicio de token de seguridad personalizado podría ser una opción.
-* El cliente puede necesitar un control más flexible o más estricto para integrar el servicio de token de seguridad con el sistema de facturación de los suscriptores del cliente. Por ejemplo, un operador MVPD puede ofrecer varios paquetes de suscriptor OTT, por ejemplo, premium, básico y deportes. El operador puede querer hacer coincidir las notificaciones de un token con el paquete de un suscriptor de forma que solo el contenido de un paquete específico esté disponible. En este caso, un STS personalizado proporciona la flexibilidad y el control necesarios.
-
-Cuando se utiliza un servicio de token de seguridad personalizado, se deben realizar dos cambios:
-
-* Al configurar el servicio de entrega de licencias para un recurso, debe especificar la clave de seguridad utilizada para la comprobación por el servicio de token de seguridad personalizado en lugar de la clave actual de Azure AD. (Más detalles a continuación). 
-* Cuando se genera un token JTW, se especifica una clave de seguridad en lugar de la clave privada del certificado X509 actual en Azure AD.
-
-Hay dos tipos de claves de seguridad:
-
-* Clave simétrica: La misma clave se usa para generar y verificar un token JWT.
-* Clave asimétrica: Se usa un par de claves público-privadas de un certificado X509 junto con la clave privada para cifrar o generar un token JWT y con la clave pública para verificar el token.
-
-> [!NOTE]
-> Si utiliza .NET Framework o C# como plataforma de desarrollo, el certificado X509 usado en una clave de seguridad asimétrica debe tener una longitud de clave de al menos 2048. Se trata de un requisito de la clase System.IdentityModel.Tokens.X509AsymmetricSecurityKey en .NET Framework. De lo contrario, se produce la siguiente excepción:
-> 
-> IDX10630: El valor 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para la firma no puede ser menor que 2048 bits.
-
 ## <a name="the-completed-system-and-test"></a>Finalización del sistema y prueba
+
 En esta sección permite recorrer los escenarios siguientes en el sistema de un extremo a otro completado para que se pueda tener una idea general del comportamiento antes de obtener una cuenta de inicio de sesión:
 
 * Si necesita un escenario no integrado:
@@ -413,6 +299,7 @@ Las capturas de pantalla siguientes muestran diferentes páginas de inicio de se
 ![Cuenta tres de dominio de inquilino de Azure AD personalizado](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="use-encrypted-media-extensions-for-playready"></a>Uso de extensiones multimedia cifradas para PlayReady
+
 En un explorador moderno con compatibilidad con las extensiones multimedia cifradas (EME) para PlayReady, como Internet Explorer 11 en Windows 8.1 o superior y el explorador de Microsoft Edge en Windows 10, PlayReady es la DRM subyacente para EME.
 
 ![Uso de EME para PlayReady](./media/design-multi-drm-system-with-access-control/media-services-eme-for-playready1.png)
@@ -428,6 +315,7 @@ EME en Microsoft Edge e Internet Explorer 11 en Windows 10 permiten invocar [Pla
 Para centrarse en los dispositivos de Windows, PlayReady es la única DRM en el hardware disponible en dispositivos de Windows (PlayReady SL3000). Un servicio de streaming puede usar PlayReady mediante EME o una aplicación de Plataforma universal de Windows y ofrecer una mayor calidad de vídeo con PlayReady SL3000 que otro DRM. Normalmente, el contenido de hasta 2K fluye a través de Chrome o Firefox, y el contenido de hasta 4K fluye a través de Microsoft Edge/Internet Explorer 11 o una aplicación de la Plataforma universal de Windows en el mismo dispositivo. La cantidad depende de la implementación y del valor de configuración del servicio.
 
 #### <a name="use-eme-for-widevine"></a>Uso de EME para Widevine
+
 En un explorador moderno con compatibilidad con EME/Widevine, como Chrome 41+ en Windows 10, Windows 8.1, Mac OSX Yosemite y Chrome en Android 4.4.4, Google Widevine es el DRM que subyace a EME.
 
 ![Uso de EME para Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine1.png)
@@ -437,16 +325,19 @@ Widevine no impide la realización de capturas de pantalla de vídeo protegido.
 ![Complementos de reproductor para Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine2.png)
 
 #### <a name="use-eme-for-fairplay"></a>Uso de EME para FairPlay
+
 De forma similar, puede probar el contenido protegido mediante FairPlay en este reproductor de prueba en Safari en macOS o iOS 11.2 y versiones posteriores.
 
 Asegúrese de que pone "FairPlay" como protectionInfo.type y lo coloca en la dirección URL correcta para el certificado de la aplicación en FPS AC Path (Ruta de acceso de AC para FPS), que es la ruta de acceso del certificado de la aplicación de streaming para FairPlay.
 
 ### <a name="unentitled-users"></a>Usuarios no autorizados
+
 Si el usuario no es miembro del grupo Usuarios autorizados, el usuario no pasa la comprobación de derechos. El servicio de licencias de DRM de múltiples, a continuación, se niega a emitir la licencia solicitada, como se muestra. La descripción detallada es "Error al adquirir licencias", que es como se ha diseñado.
 
 ![Usuarios no autorizados](./media/design-multi-drm-system-with-access-control/media-services-unentitledusers.png)
 
 ### <a name="run-a-custom-security-token-service"></a>Ejecución de un servicio de token de seguridad
+
 Si ejecuta a un servicio de token de seguridad personalizado, el token JWT lo emite dicho servicio personalizado mediante una clave simétrica o asimétrica.
 
 En la captura de pantalla siguiente se muestra un escenario que utiliza una clave simétrica (con Chrome):
@@ -459,13 +350,8 @@ En la captura de pantalla siguiente se muestra un escenario que utiliza una clav
 
 En los dos casos anteriores, la autenticación de usuario permanece igual. Tiene lugar mediante Azure AD. La única diferencia es que los tokens JWT los emite el servicio de token de seguridad personalizado en lugar de Azure AD. Cuando se configura la protección CENC dinámica, la restricción del servicio de entrega de licencias especifica el tipo de token JWT, ya sea una clave simétrica o asimétrica.
 
-## <a name="summary"></a>Resumen
-En este documento hemos examinado la protección de contenido mediante 3 DRM y el control de acceso mediante la autenticación con tokens, su diseño y su implementación mediante Azure, Azure Media Services y Azure Media Player.
-
-* Se presentó un diseño de referencia que contenía todos los componentes necesarios de un subsistema DRM.
-* Se presentó una implementación de referencia en Azure, Azure Media Services y Media Player.
-* También se han tratado algunos temas directamente relacionados con el diseño y la implementación.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Protección del contenido con DRM](protect-with-drm.md)
+* [Preguntas más frecuentes](frequently-asked-questions.md)
+* [Introducción a la protección de contenido](content-protection-overview.md)
+* [Protección del contenido con DRM](protect-with-drm.md)

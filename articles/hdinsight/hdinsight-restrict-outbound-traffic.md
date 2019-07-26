@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 8bb077242c0a989e100c81d4dfefeb53f4bc90c4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 63e23275a68ddde9385bb252dcb872d02c5cea08
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620690"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405977"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configuración del tráfico de red saliente para clústeres de Azure HDInsight mediante el uso de un firewall (Versión preliminar)
 
@@ -23,7 +23,7 @@ Este artículo proporciona los pasos para proteger el tráfico saliente del clú
 
 Los clústeres de Azure HDInsight se implementan normalmente en su propia red virtual. El clúster tiene dependencias de servicios fuera de dicha red virtual que requieren que el acceso a la red funcione correctamente.
 
-Hay varias dependencias que requieren tráfico de entrada. El tráfico entrante de administración no se puede enviar a través de un dispositivo de firewall. Las direcciones de origen de este tráfico son conocidas y se publican [aquí](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip). También puede crear reglas de grupo de seguridad de red (NSG) con esa información para proteger el tráfico entrante a los clústeres.
+Hay varias dependencias que requieren tráfico de entrada. El tráfico entrante de administración no se puede enviar a través de un dispositivo de firewall. Las direcciones de origen de este tráfico son conocidas y se publican [aquí](hdinsight-management-ip-addresses.md). También puede crear reglas de grupo de seguridad de red (NSG) con esa información para proteger el tráfico entrante a los clústeres.
 
 Las dependencias del tráfico de salida de HDInsight aislado se definen casi por completo con nombres de dominio completos, que no tienen direcciones estáticas tras ellos. La falta de direcciones estáticas significa que no se pueden usar grupos de seguridad de red (NSG) para bloquear el tráfico saliente de un clúster. Las direcciones cambian con tal frecuencia que no se pueden configurar reglas en función de la resolución de nombres actual ni usarlas para configurar reglas de grupo de seguridad de red.
 
@@ -99,7 +99,7 @@ Cree las reglas de red para configurar correctamente el clúster de HDInsight.
 
 Cree una tabla de rutas con las siguientes entradas:
 
-1. Seis direcciones de [esta lista de direcciones IP de administración que requiere HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) con un próximo salto de tipo **Internet**:
+1. Seis direcciones de [esta lista de direcciones IP de administración que requiere HDInsight](../hdinsight/hdinsight-management-ip-addresses.md) con un próximo salto de tipo **Internet**:
     1. Cuatro direcciones IP para todos los clústeres en todas las regiones
     1. Dos direcciones IP que son específicas de la región donde se crea el clúster
 1. Una ruta de aplicación virtual para la dirección IP 0.0.0.0/0 con el próximo salto establecido en la dirección IP privada de la instancia de Azure Firewall.
@@ -179,7 +179,7 @@ Las instrucciones anteriores le ayudan a configurar Azure Firewall para restring
 | **Punto de conexión** | **Detalles** |
 |---|---|
 | \*:123 | Comprobación de reloj NTP. El tráfico se comprueba en varios puntos de conexión en el puerto 123. |
-| Las direcciones IP se publican [aquí](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) | Estas son el servicio HDInsight |
+| Las direcciones IP se publican [aquí](hdinsight-management-ip-addresses.md) | Estas son el servicio HDInsight |
 | Direcciones IP privadas de AAD-DS para clústeres de ESP |
 | \*:16800 para la activación de Windows de KMS |
 | \*12000 para Log Analytics |

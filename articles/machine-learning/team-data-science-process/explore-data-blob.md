@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3c399491f0a2048fe924e9ed9600dd5ce3899ca2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 23fef994d01917f5f120c7fcb80871f6f2c82ab2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344655"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358607"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Exploración de datos en el almacenamiento de blobs de Azure con Pandas
 
@@ -56,7 +56,7 @@ print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 1. Lea los datos en un elemento DataFrame de Pandas desde el archivo descargado.
 
 ```python
-#LOCALFILE is the file path
+# LOCALFILE is the file path
 dataframe_blobdata = pd.read_csv(LOCALFILE)
 ```
 
@@ -115,7 +115,8 @@ dataframe_blobdata_noNA.shape
 Otra forma de reemplazar los valores que faltan es a través de la función de modo:
 
 ```python
-dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})
+dataframe_blobdata_mode = dataframe_blobdata.fillna(
+    {'<column_name>': dataframe_blobdata['<column_name>'].mode()[0]})
 ```
 
 1. Crear un gráfico de **histograma** con un número variable de discretizaciones para trazar la distribución de una variable.
@@ -129,9 +130,9 @@ np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
 1. Examinar las **correlaciones** entre las variables mediante un gráfico de dispersión o con la función de correlación integrada.
 
 ```python
-#relationship between column_a and column_b using scatter plot
+# relationship between column_a and column_b using scatter plot
 plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
 
-#correlation between column_a and column_b
+# correlation between column_a and column_b
 dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 ```

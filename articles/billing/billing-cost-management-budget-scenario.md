@@ -3,7 +3,7 @@ title: Escenarios de presupuesto de la administración de costos y la facturaci�
 description: Obtenga información sobre cómo usar la automatización de Azure para apagar las máquinas virtuales según umbrales específicos de presupuesto.
 services: billing
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 03/13/2019
-ms.author: erikre
-ms.openlocfilehash: 4bf76ac0bdd59764815f18a40a3e243d7cf9d920
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: banders
+ms.openlocfilehash: 37f129526cb184a2eeee9e36028e8f00b5bbc247
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617386"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443471"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Administración de costos con Azure Budgets
 
@@ -278,7 +278,7 @@ Cuando cree el grupo de acciones, apuntará a la aplicación lógica que creó a
     - Nombre del grupo de acciones
     - Nombre corto
     - Subscription
-    - Grupos de recursos
+    - Resource group
 
     ![Azure - Aplicación lógica: agregar un grupo de acciones](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 

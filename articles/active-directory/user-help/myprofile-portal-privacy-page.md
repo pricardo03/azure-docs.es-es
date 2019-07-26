@@ -12,19 +12,21 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbfcab7900a1552a46341ec71b8b0ea4b41b0bce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 31847f3cc47ddf1ed784263a543e94ebca454222
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474728"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382976"
 ---
 # <a name="view-your-privacy-related-info-from-the-my-profile-preview-portal"></a>Visualización de la información relacionada con la privacidad desde el portal Mi perfil (versión preliminar)
+
 Puede ver cómo la organización usa los datos en la página **Privacidad** del portal **Mi perfil**.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-privacy-related-info"></a>Visualizar la información relacionada con la privacidad
+
 1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
 
 2. Seleccione **Privacidad** en el panel de navegación izquierdo o seleccione el vínculo **Revisar privacidad** en el bloque **Privacidad**.

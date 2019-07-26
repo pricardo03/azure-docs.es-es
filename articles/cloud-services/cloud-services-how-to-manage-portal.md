@@ -3,23 +3,17 @@ title: Tareas de administración de servicios en la nube comunes | Microsoft Doc
 description: Vea cómo administrar Cloud Services en Azure Portal. Estos ejemplos usan el Portal de Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: d3d1ae759f0f3fa5edd417da61f1fa50b5d9cde7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61433965"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359601"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Administración de Cloud Services en Azure Portal
 En el área de **Cloud Services** de Azure Portal, puede:
@@ -34,7 +28,7 @@ Para más información acerca de cómo escalar un servicio en la nube, consulte 
 ## <a name="update-a-cloud-service-role-or-deployment"></a>Actualización de una implementación o un rol de servicio en la nube
 Si necesita actualizar el código de la aplicación para su servicio en la nube, use **Actualizar** en la hoja del servicio en la nube. Puede actualizar un solo rol o todos los roles. Para ello, puede cargar un nuevo paquete de servicio o un archivo de configuración de servicio.
 
-1. En el [portal de Azure][Azure portal], seleccione el servicio en la nube que quiera actualizar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
+1. En el [Portal de Azure][Azure portal], seleccione el servicio en la nube que desee actualizar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
 
 2. En la hoja, seleccione **Actualizar**.
 
@@ -59,7 +53,7 @@ Cuando decida implementar una nueva versión de un servicio en la nube, puede co
 
 Puede intercambiar implementaciones desde la página **Cloud Services** o el panel.
 
-1. En el [portal de Azure][Azure portal], seleccione el servicio en la nube que quiera actualizar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
+1. En el [Portal de Azure][Azure portal], seleccione el servicio en la nube que desee actualizar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
 
 2. En la hoja, seleccione **Intercambiar**.
 
@@ -98,7 +92,7 @@ Para ahorrar en los costos de proceso, puede eliminar la implementación de ensa
 
 Use el siguiente procedimiento para eliminar una implementación o su servicio en la nube.
 
-1. En el [portal de Azure][Azure portal], seleccione el servicio en la nube que quiera eliminar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
+1. En el [Portal de Azure][Azure portal], seleccione el servicio en la nube que desee eliminar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
 
 2. En la hoja, seleccione **Eliminar**.
 

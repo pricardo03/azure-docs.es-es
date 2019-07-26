@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c686dc0af893259d942527d318f3dd7d98fd752d
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: d72cc4360025d50c6db55bf3029d1edeb538a040
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470733"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382944"
 ---
 # <a name="my-profile-preview-portal-overview"></a>Introducción al portal Mi perfil (versión preliminar)
 
@@ -46,7 +46,7 @@ Para obtener información detallada e instrucciones acerca de los elementos a lo
 
 |Artículo |DESCRIPCIÓN |
 |------|------------|
-|[Adición de información de seguridad](user-help-security-info-overview.md)| Varios artículos con instrucciones acerca de cómo configurar la aplicación Microsoft Authenticator, la mensajería de texto o las llamadas de teléfono como método de verificación. También incluye artículos acerca de cómo agregar una dirección de correo electrónico o preguntas de seguridad predefinidas para restablecer una contraseña, en caso de que se haya olvidado.|
-|[Visualización o conservación de organizaciones conectadas](myprofile-portal-organizations-page.md)| Instrucciones para ver y dejar las organizaciones conectadas a su cuenta profesional o educativa.|
-|[Visualización o habilitación de dispositivos conectados](myprofile-portal-devices-page.md)| Instrucciones para ver o deshabilitar todos los dispositivos conectados a su cuenta profesional o educativa.|
-|[Ver la información de privacidad](myprofile-portal-privacy-page.md)| Instrucciones para ver qué servicios en línea están conectados a su cuenta profesional o educativa, junto con el extracto de las condiciones de uso de su organización.|
+| [Adición de información de seguridad](user-help-security-info-overview.md) | Varios artículos con instrucciones acerca de cómo configurar la aplicación Microsoft Authenticator, la mensajería de texto o las llamadas de teléfono como método de verificación. También incluye artículos acerca de cómo agregar una dirección de correo electrónico o preguntas de seguridad predefinidas para restablecer una contraseña, en caso de que se haya olvidado.|
+| [Visualización o conservación de organizaciones conectadas](myprofile-portal-organizations-page.md) | Instrucciones para ver y dejar las organizaciones conectadas a su cuenta profesional o educativa.|
+| [Visualización o habilitación de dispositivos conectados](myprofile-portal-devices-page.md) | Instrucciones para ver o deshabilitar todos los dispositivos conectados a su cuenta profesional o educativa.|
+| [Ver la información de privacidad](myprofile-portal-privacy-page.md) | Instrucciones para ver qué servicios en línea están conectados a su cuenta profesional o educativa, junto con el extracto de las condiciones de uso de su organización.|

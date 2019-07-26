@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b47b0c5af98198d829c4658877acae2edff5455
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3766436851cb2f31fa7bb070402191e03ad9ad1
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001186"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382338"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>¿Qué es la aplicación Microsoft Authenticator?
 
@@ -36,22 +36,23 @@ Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 
 > [!Important]
 > La aplicación Microsoft Authenticator funciona con cualquier cuenta que use la comprobación en dos fases y admita los estándares de contraseña de un solo uso y duración definida (TOTP).
-> 
+>
 > Su organización puede exigirle que use una aplicación autenticadora para iniciar sesión y acceder a sus datos y documentos. Aunque su nombre de usuario puede aparecer en la aplicación, la cuenta no estará configurada para actuar como un método de comprobación hasta que se complete el proceso de registro. Para más información, consulte [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md).
 > 
 > Si tiene problemas para iniciar sesión en su cuenta, puede encontrar ayuda en [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429). Obtenga más información acerca de lo que debe hacer cuando recibe el mensaje ["Esa cuenta de Microsoft no existe"](https://support.microsoft.com/help/13811) al intentar iniciar sesión en su cuenta Microsoft.
 
 ## <a name="terminology"></a>Terminología
 
-|Término|DESCRIPCIÓN|
-|----|-----------|
-|Comprobación en dos fases |Un proceso de comprobación que requiere que se usen específicamente únicamente dos factores de comprobación, como por ejemplo una contraseña y un PIN. La aplicación Microsoft Authenticator admite tanto la comprobación en dos fases estándar como el inicio de sesión sin contraseña.|
-|Multi-Factor Authentication (MFA)|Toda comprobación en dos fases es una autenticación multifactor, que requiere que use *al menos* dos factores de comprobación, según los requisitos de su organización.|
-|Cuenta Microsoft (también denominada MSA)|Cree sus propias cuentas personales para poder acceder a los productos y servicios en la nube de Microsoft orientados al consumidor, como Outlook, OneDrive, Xbox LIVE u Office 365. Su cuenta Microsoft se crean y almacenan en el sistema de cuentas de identidad de consumidor de Microsoft que ejecuta Microsoft.|
-|Cuenta profesional o educativa|Su organización crea una cuenta profesional o educativa (como alain@contoso.com) para permitirle acceder a recursos internos y potencialmente restringidos, como Microsoft Azure, Windows Intune y Office 365.|
-|Código de verificación|El código de seis dígitos que aparece en la aplicación autenticadora en cada cuenta agregada. El código de verificación cambia cada 30 segundos para impedir que se pueda usar el mismo código varias veces. Esto también se denomina código de acceso de un solo uso (OTP).|
+| Término|DESCRIPCIÓN|
+| ----|-----------|
+| Comprobación en dos fases | Un proceso de comprobación que requiere que se usen específicamente únicamente dos factores de comprobación, como por ejemplo una contraseña y un PIN. La aplicación Microsoft Authenticator admite tanto la comprobación en dos fases estándar como el inicio de sesión sin contraseña. |
+| Multi-Factor Authentication (MFA) | Toda comprobación en dos fases es una autenticación multifactor, que requiere que use *al menos* dos factores de comprobación, según los requisitos de su organización. |
+| Cuenta Microsoft (también denominada MSA) | Cree sus propias cuentas personales para poder acceder a los productos y servicios en la nube de Microsoft orientados al consumidor, como Outlook, OneDrive, Xbox LIVE u Office 365. Su cuenta Microsoft se crean y almacenan en el sistema de cuentas de identidad de consumidor de Microsoft que ejecuta Microsoft. |
+| Cuenta profesional o educativa | Su organización crea una cuenta profesional o educativa (como alain@contoso.com) para permitirle acceder a recursos internos y potencialmente restringidos, como Microsoft Azure, Windows Intune y Office 365. |
+| Código de verificación | El código de seis dígitos que aparece en la aplicación autenticadora en cada cuenta agregada. El código de verificación cambia cada 30 segundos para impedir que se pueda usar el mismo código varias veces. Esto también se denomina código de acceso de un solo uso (OTP). |
 
 ## <a name="how-two-factor-verification-works-with-the-app"></a>Funcionamiento de la comprobación en dos fases con la aplicación
+
 Así funciona la comprobación mediante dos factores con la aplicación Microsoft Authenticator:
 
 - **Notificación.** Escriba el nombre de usuario y la contraseña en el dispositivo en el que va a iniciar sesión con su cuenta profesional o educativa o con su cuenta personal de Microsoft y, después, la aplicación Microsoft Authenticator envía una notificación que le pide que **apruebe el inicio de sesión**. Elija **Aprobar** si reconoce el intento de inicio de sesión. De lo contrario, elija **Rechazar**. Si elige **Rechazar**, también puede marcar la solicitud como fraudulenta.
@@ -61,9 +62,11 @@ Así funciona la comprobación mediante dos factores con la aplicación Microsof
 - **Inicio de sesión sin contraseña.** Escriba el nombre de usuario en el dispositivo en que va a iniciar una sesión con su cuenta profesional o educativa o su cuenta personal de Microsoft y, después, use su dispositivo móvil para comprobar que es usted mediante el uso de la huella digital, la cara o un PIN. Para este método, no es preciso que escriba su contraseña.
 
 ### <a name="whether-to-use-your-devices-biometric-capabilities"></a>Si usa las funcionalidades biométricas del dispositivo
+
 Si usa un PIN para completar el proceso de autenticación, puede configurar la aplicación Microsoft Authenticator para usar en su lugar las funcionalidades de reconocimiento facial (biométrica) o de la huella del dispositivo. Puede realizar esta configuración la primera vez que use la aplicación Authenticator para verificar su cuenta; para ello, seleccione la opción para usar las funcionalidades biométricas del dispositivo como identificación en lugar del PIN.
 
 ## <a name="who-decides-if-you-use-this-feature"></a>¿Quién decide si usa esta característica?
+
 En función del tipo de cuenta, la organización puede decidir que se debe usar una comprobación en dos fases o el usuario puede decidir por sí mismo si se usa o no.
 
 - **Cuenta profesional o educativa.** Si se usa una cuenta profesional o educativa (por ejemplo, alain@contoso.com), la organización es la que decide si se debe usar una comprobación en dos fases, junto con los métodos de comprobación concretos. Para más información acerca de cómo agregar una cuenta profesional o educativa a la aplicación Microsoft Authenticator, consulte [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md).
@@ -74,13 +77,13 @@ En función del tipo de cuenta, la organización puede decidir que se debe usar 
 
 ## <a name="in-this-section"></a>En esta sección
 
-|Artículo |DESCRIPCIÓN |
-|------|------------|
-|[Descarga e instalación de la aplicación](user-help-auth-app-download-install.md)|Describe dónde y cómo obtener e instalar la aplicación Microsoft Authenticator para dispositivos con Android e iOS.|
-|[Adición de cuentas profesionales o educativas](user-help-auth-app-add-work-school-account.md)|Se describe cómo agregar varias cuentas profesionales o educativas, y personales a la aplicación Microsoft Authenticator.|
-|[Adición de cuentas personales](user-help-auth-app-add-personal-ms-account.md)|Se describe cómo agregar sus cuentas personales Microsoft a la aplicación Microsoft Authenticator.|
-|[Adición de cuentas que no sean de Microsoft](user-help-auth-app-add-non-ms-account.md)|Describe cómo agregar sus cuentas personales que no sean Microsoft a la aplicación Microsoft Authenticator.|
-|[Adición manual de cuentas](user-help-auth-app-add-account-manual.md)|Se describe cómo agregar manualmente cuentas a la aplicación Microsoft Authenticator si no se puede leer el código QR.|
-|[Inicio de sesión mediante la aplicación](user-help-auth-app-sign-in.md)|Describe cómo iniciar sesión en varias cuentas mediante la aplicación Microsoft Authenticator.|
-|[Credenciales de la cuenta de copia de seguridad y recuperación](user-help-auth-app-backup-recovery.md)| Proporciona información acerca de cómo realizar copias de seguridad y recuperar las credenciales de su cuenta con la aplicación Microsoft Authenticator.|
-|[Preguntas frecuentes de la aplicación Microsoft Authenticator](user-help-auth-app-faq.md)|Proporciona respuestas a las preguntas más frecuentes acerca de la aplicación.|
+| Artículo | DESCRIPCIÓN |
+| ------ | ------------ |
+| [Descarga e instalación de la aplicación](user-help-auth-app-download-install.md) | Describe dónde y cómo obtener e instalar la aplicación Microsoft Authenticator para dispositivos con Android e iOS. |
+| [Adición de cuentas profesionales o educativas](user-help-auth-app-add-work-school-account.md) | Se describe cómo agregar varias cuentas profesionales o educativas, y personales a la aplicación Microsoft Authenticator. |
+| [Adición de cuentas personales](user-help-auth-app-add-personal-ms-account.md) | Se describe cómo agregar sus cuentas personales Microsoft a la aplicación Microsoft Authenticator. |
+| [Adición de cuentas que no sean de Microsoft](user-help-auth-app-add-non-ms-account.md) | Describe cómo agregar sus cuentas personales que no sean Microsoft a la aplicación Microsoft Authenticator. |
+| [Adición manual de cuentas](user-help-auth-app-add-account-manual.md) | Se describe cómo agregar manualmente cuentas a la aplicación Microsoft Authenticator si no se puede leer el código QR. |
+| [Inicio de sesión mediante la aplicación](user-help-auth-app-sign-in.md) | Describe cómo iniciar sesión en varias cuentas mediante la aplicación Microsoft Authenticator.|
+| [Credenciales de la cuenta de copia de seguridad y recuperación](user-help-auth-app-backup-recovery.md) | Proporciona información acerca de cómo realizar copias de seguridad y recuperar las credenciales de su cuenta con la aplicación Microsoft Authenticator. |
+| [Preguntas frecuentes de la aplicación Microsoft Authenticator](user-help-auth-app-faq.md) | Proporciona respuestas a las preguntas más frecuentes acerca de la aplicación. |

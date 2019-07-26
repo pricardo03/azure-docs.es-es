@@ -3,8 +3,8 @@ title: 'Uso de revisiones de acceso para administrar los usuarios excluidos de l
 description: Aprenda a usar revisiones de acceso de Azure Active Directory (Azure AD) para administrar los usuarios a los que se les ha excluido de las directivas de acceso condicional.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/25/2018
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 880593773ca7801da2874dc2a09a4bddf910a503
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 246503fec6436bf49dcd5fb89c2dc0ed345a43ca
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471852"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499913"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Uso de revisiones de acceso de Azure AD para administrar los usuarios a los que se les ha excluido de las directivas de acceso condicional
 

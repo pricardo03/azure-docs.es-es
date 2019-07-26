@@ -1,7 +1,6 @@
 ---
 title: 'Azure Backup: Copia de seguridad y restauración de bases de datos SQL en Azure VM con Azure Backup y PowerShell'
 description: Copia de seguridad y restauración de bases de datos SQL en Azure VM con Azure Backup y PowerShell.
-services: backup
 author: pvrk
 manager: vijayts
 keywords: Azure Backup; SQL;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 6a2e065466ab4426a6472b64fae19d264ff8dd81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d3f71eb83609d09d6e4f42b15163dbfae4fca32
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734221"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465393"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Copia de seguridad y restauración de bases de datos SQL en Azure VM con PowerShell
 
@@ -63,13 +62,13 @@ Configure PowerShell como sigue:
 
     ![Lista de cmdlets de Recovery Services](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. Inicie sesión en su cuenta de Azure mediante el cmdlet **Connect-AzAccount**.
-5. En la página web que aparece, se le pedirá que escriba sus credenciales de cuenta.
+4. Inicie sesión en su cuenta de Azure con el cmdlet **Connect-AzAccount**.
+5. En la página web que aparece, se le pedirá que escriba las credenciales de su cuenta.
 
     * Como alternativa, puede incluir sus credenciales de cuenta como un parámetro en el cmdlet **Connect-AzAccount** mediante el parámetro **-Credential**.
     * Si es un asociado CSP que trabaja en nombre de un inquilino, especifique el cliente como inquilino usando su TenantID o su nombre de dominio principal de inquilino. Un ejemplo es **Connect-AzAccount -Tenant** fabrikam.com.
 
-6. Asocie la suscripción que desee usar con la cuenta, dado que una cuenta puede tener varias suscripciones.
+6. Asocie la suscripción que quiere usar con la cuenta, dado que una cuenta puede tener varias suscripciones.
 
     ```powershell
     Select-AzSubscription -SubscriptionName $SubscriptionName
@@ -81,7 +80,7 @@ Configure PowerShell como sigue:
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-8. Compruebe que los proveedores se registraron correctamente:
+8. Compruebe que los proveedores se han registrado correctamente:
 
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -95,7 +94,7 @@ Siga estos pasos para crear un almacén de Recovery Services.
 
 El almacén de Recovery Services es un recurso de Resource Manager, por lo que deberá colocarlo dentro de un grupo de recursos. Puede usar un grupo de recursos existente o crear uno con el cmdlet **New-AzResourceGroup**. Al crear un grupo de recursos, especifique el nombre y la ubicación.
 
-1. Un almacén se coloca en un grupo de recursos. Si no tiene un grupo de recursos, cree uno [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0) nuevo. En el ejemplo, se crea un grupo de recursos en la región Oeste de EE. UU.
+1. Un almacén se coloca en un grupo de recursos. Si no tiene un grupo de recursos, cree uno con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). En el ejemplo, se crea un grupo de recursos en la región Oeste de EE. UU.
 
     ```powershell
     New-AzResourceGroup -Name "test-rg" -Location "West US"
@@ -152,7 +151,7 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 
 ### <a name="fetch-the-vault-id"></a>Recuperación del identificador del almacén
 
-Tenemos previsto dejar de utilizar la configuración del contexto de almacén según las directrices de Azure PowerShell. En su lugar, puede almacenar o recuperar el identificador del almacén y pasarlo a los comandos pertinentes, como sigue:
+Tenemos previsto dejar de usar la configuración del contexto de almacén según las directrices de Azure PowerShell. En su lugar, puede almacenar o recuperar el identificador del almacén y pasarlo a los comandos pertinentes, como sigue:
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
@@ -164,8 +163,8 @@ Una directiva de copia de seguridad especifica la programación para las copias 
 
 * Una directiva de copia de seguridad está asociada con al menos una directiva de retención. Una directiva de retención define el tiempo que se conserva un punto de recuperación antes de que se elimine.
 * Vea la retención de la directiva de copia de seguridad predeterminada con [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-* Vea la directiva de copia de seguridad predeterminada con [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
-* El cmdlet [New AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) se usa para crear una nueva directiva de copia de seguridad. Introduzca los objetos de directiva de retención y programación.
+* Vea la programación de la directiva de copia de seguridad predeterminada con [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
+* El cmdlet [New AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) se usa para crear una directiva de copia de seguridad. Introduzca los objetos de directiva de retención y programación.
 
 En el ejemplo siguiente se almacenan la directiva de programación y la directiva de retención en variables. A continuación, usa estas variables como parámetros para una nueva directiva (**NewSQLPolicy**). **NewSQLPolicy** toma una copia de seguridad diario "completa" diaria, la conserva durante 180 días y toma una copia de seguridad del registro cada 2 horas
 

@@ -1,19 +1,18 @@
 ---
 title: Administración y supervisión de las copias de seguridad de Azure VM con el servicio Azure Backup
 description: Aprenda a administrar y supervisar las copias de seguridad de Azure VM con el servicio Azure Backup.
-services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: add2c72535b5be0edcbc00c077dfe20a6deaa3e0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3a958e2397071407f6283938382ad7dd8c07bc09
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434173"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466253"
 ---
 # <a name="manage-azure-vm-backups"></a>Administración de copias de seguridad de máquinas virtuales de Azure
 

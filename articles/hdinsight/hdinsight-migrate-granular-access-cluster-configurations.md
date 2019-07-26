@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 357be801914017aceb7e827a3b49960cf7c3e386
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: ebb1723a9a2b2d069a1766d4f78151f2b684c5b9
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565400"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464677"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migración a acceso basado en rol detallado para configuraciones de clúster
 
@@ -159,7 +159,7 @@ Un usuario con el rol [Colaborador](https://docs.microsoft.com/azure/role-based-
 
 ### <a name="using-the-azure-cli"></a>Uso de la CLI de Azure
 
-La forma más sencilla de agregar esta asignación de roles es con el comando `az role assignemnt create` en la CLI de Azure.
+La forma más sencilla de agregar esta asignación de roles es con el comando `az role assignment create` en la CLI de Azure.
 
 > [!NOTE]
 > Este comando debe ejecutarlo un usuario con los roles de colaborador o propietario, ya que solo ellos pueden otorgar estos permisos. `--assignee` es la dirección de correo electrónico del usuario a quien desea asignar el rol de operador de clústeres de HDInsight.

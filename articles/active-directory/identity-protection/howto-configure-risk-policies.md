@@ -2,30 +2,23 @@
 title: Configuración de las directivas de riesgo en Azure Active Directory Identity Protection (actualizado) | Microsoft Docs
 description: Cómo configurar las directivas de riesgo en Azure Active Directory Identity Protection (actualizado).
 services: active-directory
-keywords: azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc6f822f20da55488c559c081129c3f177367123
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ce4e2958978de9339f4340755e3740730025a5f
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108970"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334034"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instrucciones: Configuración de las directivas de riesgo en Azure Active Directory Identity Protection (actualizado)
-
 
 Azure AD detecta eventos de riesgo que son indicadores de identidades potencialmente en peligro. Mediante la configuración de directivas de riesgo, puede definir respuestas automatizadas a los resultados de detección:
 
@@ -33,7 +26,6 @@ Azure AD detecta eventos de riesgo que son indicadores de identidades potencialm
 - Con la directiva de riesgo del usuario, puede configurar una respuesta a todos los riesgos de usuario activo que se han detectado para un usuario a lo largo del tiempo.  
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
-
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>¿Qué es la directiva de riesgo de inicio de sesión?
 
@@ -49,27 +41,25 @@ En la hoja **Azure AD Identity Protection**, en la sección [Configurar](https:/
    
 ![Directiva de riesgo de inicio de sesión](./media/howto-configure-risk-policies/1014.png "Directiva de riesgo de inicio de sesión")
 
-
 ## <a name="sign-in-risk-policy-settings"></a>Configuración de la directiva de riesgo de inicio de sesión
 
 Al configurar la directiva de riesgo de inicio de sesión, deberá establecer:
 
 - Usuarios y grupos a los que se aplica la directiva:
 
-    ![Usuarios y grupos](./media/howto-configure-risk-policies/11.png)
+   ![Usuarios y grupos](./media/howto-configure-risk-policies/11.png)
 
 - El nivel de riesgo de inicio de sesión que activa la directiva:
 
-    ![Nivel de riesgo del inicio de sesión](./media/howto-configure-risk-policies/12.png)
+   ![Nivel de riesgo del inicio de sesión](./media/howto-configure-risk-policies/12.png)
 
 - El tipo de acceso que desea aplicar cuando se alcance el nivel de riesgo de inicio de sesión:  
 
-    ![Access](./media/howto-configure-risk-policies/13.png)
+   ![Access](./media/howto-configure-risk-policies/13.png)
 
 - Estado de la directiva:
 
-    ![Aplicar directiva](./media/howto-configure-risk-policies/14.png)
-
+   ![Aplicar directiva](./media/howto-configure-risk-policies/14.png)
 
 El cuadro de diálogo de configuración de directivas ofrece la opción de calcular el impacto de la configuración.
 
@@ -86,7 +76,6 @@ Sin embargo, por seguridad, esta configuración solo funciona para los usuarios 
 Si desea requerir MFA para los inicios de sesión con riesgo, haga lo siguiente:
 
 1. Habilite la directiva de registro de la autenticación multifactor para los usuarios afectados.
-
 2. Requiera que los usuarios afectados inicien una sesión sin riesgo para llevar a cabo el registro en MFA.
 
 Tras completar estos pasos, se garantiza que la autenticación multifactor sea necesaria para un inicio de sesión de riesgo.
@@ -94,23 +83,13 @@ Tras completar estos pasos, se garantiza que la autenticación multifactor sea n
 La directiva de riesgo de inicio de sesión:
 
 - Se aplica a todo el tráfico del explorador e inicios de sesión mediante una autenticación moderna.
-
 - No afecta a aplicaciones que utilizan protocolos de seguridad anteriores al deshabilitar el punto de conexión WS-Trust en el IDP federado, como ADFS.
-
 
 Para obtener información general de la experiencia de usuario relacionada, consulte:
 
 * [Recuperación de inicios de sesión peligrosos](flows.md#risky-sign-in-recovery)
 * [Inicios de sesión peligrosos bloqueados](flows.md#risky-sign-in-blocked)  
 * [Experiencias de inicio de sesión con Azure AD Identity Protection](flows.md)  
-
-
-
-
-
-
-
-
 
 ## <a name="what-is-a-user-risk-policy"></a>¿Qué es una directiva de riesgo de usuario?
 
@@ -122,14 +101,11 @@ Todos los eventos de riesgo que se han detectado para un usuario y no se resuelv
 
 La directiva de riesgo de usuario es una respuesta automatizada que puede configurar para un nivel de riesgo de usuario específico. Con una directiva de riesgo de usuario, puede bloquear el acceso a los recursos o requerir un cambio de contraseña para que la cuenta de usuario vuelva a estar limpia.
 
-
 ## <a name="how-do-i-access-the-user-risk-policy"></a>¿Cómo puedo acceder a la directiva de riesgo del usuario?
    
 En la página **Azure AD Identity Protection**, en la sección [Configurar](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy), está la directiva de riesgo de usuario.
    
 ![Directiva de riesgo de usuario](./media/howto-configure-risk-policies/11014.png)
-
-
 
 ## <a name="user-risk-policy-settings"></a>Configuración de la directiva de riesgo de usuario
 
@@ -137,19 +113,19 @@ Al configurar la directiva de riesgo de usuario, deberá establecer:
 
 - Usuarios y grupos a los que se aplica la directiva:
 
-    ![Usuarios y grupos](./media/howto-configure-risk-policies/111.png)
+   ![Usuarios y grupos](./media/howto-configure-risk-policies/111.png)
 
 - El nivel de riesgo de inicio de sesión que activa la directiva:
 
-    ![Nivel de riesgo del usuario](./media/howto-configure-risk-policies/112.png)
+   ![Nivel de riesgo del usuario](./media/howto-configure-risk-policies/112.png)
 
 - El tipo de acceso que desea aplicar cuando se alcance el nivel de riesgo de inicio de sesión:  
 
-    ![Access](./media/howto-configure-risk-policies/113.png)
+   ![Access](./media/howto-configure-risk-policies/113.png)
 
 - Estado de la directiva:
 
-    ![Aplicar directiva](./media/howto-configure-risk-policies/114.png)
+   ![Aplicar directiva](./media/howto-configure-risk-policies/114.png)
 
 El cuadro de diálogo de configuración de directivas proporciona una opción para calcular el impacto de la configuración.
 
@@ -161,36 +137,10 @@ Puede establecer una directiva de seguridad de riesgo de usuario para impedir qu
 
 ![Bloqueo](./media/howto-configure-risk-policies/116.png)
 
-
 El bloqueo de un inicio de sesión:
 
 * Evita la generación de nuevos eventos de riesgo del usuario para el usuario afectado.
 * Permite a los administradores corregir manualmente los eventos de riesgo que afectan a la identidad del usuario y restaurarla a un estado seguro.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
@@ -201,22 +151,13 @@ Sin embargo, excluye de la directiva a los usuarios marcados con un riesgo **Baj
 Al establecer la directiva:
 
 - Excluya a los usuarios que no tengan o no puedan tener la autenticación multifactor.
-
 - Excluya a los usuarios que tengan configuraciones regionales en las que no resulte práctico habilitar la directiva (por ejemplo, no tienen acceso al departamento de soporte técnico).
-
 - Excluya a los usuarios que es probable que generen una gran cantidad de falsos positivos (desarrolladores, analistas de seguridad).
-
 - Utilice un umbral **Alto** durante la puesta en servicio inicial de la directiva, o bien si debe minimizar los desafíos que ven los usuarios finales.
-
 - Use un umbral **Bajo** si su organización requiere un mayor grado de seguridad. Seleccionar un umbral **Bajo** presenta desafíos adicionales de inicio de sesión del usuario, pero aumenta la seguridad.
 
 El valor predeterminado recomendado para la mayoría de las organizaciones es configurar una regla para un umbral **Medio** con el fin de lograr un equilibrio entre la facilidad de uso y la seguridad.
 
-
-
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
  [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
-

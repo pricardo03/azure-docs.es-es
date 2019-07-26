@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 5b54d8f21f4cb1cdd7bb06871df6ac22d19d1ab6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 087ecee053069a02e4d4dd6f636d05ea15269e2e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705200"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383488"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Instrucciones para el planeamiento de red de Azure NetApp Files
 
@@ -56,7 +56,7 @@ En la tabla siguiente se describen las topologías de red compatibles con Azure 
 |    Conectividad al volumen en una red virtual emparejada (misma región)    |    Sí    |         |
 |    Conectividad al volumen en una red virtual emparejada (emparejamiento global o entre regiones)    |    Sin    |    None    |
 |    Conectividad a un volumen a través de la puerta de enlace ExpressRoute    |    Sí    |         |
-|    Conectividad del entorno local a un volumen en una red virtual de radio a través de una puerta de enlace ExpressRoute y emparejamiento de redes virtuales con tránsito de puerta de enlace    |    Sin    |    Crear una subred delegada en la subred del centro de conectividad (red virtual de Azure con puerta de enlace)    |
+|    Conectividad del entorno local a un volumen en una red virtual de radio a través de una puerta de enlace ExpressRoute y emparejamiento de redes virtuales con tránsito de puerta de enlace    |    Sí    |        |
 |    Conectividad del en el entorno local a un volumen en una red virtual de radio a través de puerta de enlace de VPN    |    Sí    |         |
 |    Conectividad del entorno local a un volumen en una red virtual de radio a través de una puerta de enlace de VPN y emparejamiento de redes virtuales con tránsito de puerta de enlace    |    Sí    |         |
 

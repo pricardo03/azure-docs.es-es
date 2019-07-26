@@ -3,7 +3,7 @@ title: Evento completo de tarea de Azure Batch | Microsoft Docs
 description: Referencia del evento completo de tarea de Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60e5e6cc6fdd839c8bbe44d8e1d2e794e7afb34d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549978"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323057"
 ---
 # <a name="task-complete-event"></a>Evento de tarea completada
 
@@ -52,7 +52,7 @@ ms.locfileid: "60549978"
 }
 ```
 
-|Nombre del elemento|Type|Notas|
+|Nombre del elemento|type|Notas|
 |------------------|----------|-----------|
 |jobId|Cadena|Identificador del trabajo que contiene la tarea.|
 |id|Cadena|Identificador de la tarea.|
@@ -65,29 +65,29 @@ ms.locfileid: "60549978"
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|Nombre del elemento|Type|Notas|
+|Nombre del elemento|type|Notas|
 |------------------|----------|-----------|
 |poolId|Cadena|Identificador del grupo en que se ejecutó la tarea.|
 |nodeId|Cadena|Identificador del nodo en que se ejecutó la tarea.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|Nombre del elemento|Type|Notas|
+|Nombre del elemento|type|Notas|
 |------------------|----------|-----------|
 |numberOfInstances|Int32|Número de nodos de proceso que requiere la tarea.|
 
 ###  <a name="constraints"></a> constraints
 
-|Nombre del elemento|Type|Notas|
+|Nombre del elemento|type|Notas|
 |------------------|----------|-----------|
 |maxTaskRetryCount|Int32|Número máximo de veces que se puede reintentar la tarea. El servicio de Batch reintenta una tarea su el código de salida es distinto de cero.<br /><br /> Tenga en cuenta que este valor controla específicamente el número de reintentos. El servicio de Batch intentará una vez la tarea y podría reintentarla hasta alcanzar este límite. Por ejemplo, si el conteo de reintentos máximo es 3, Batch intenta una tarea hasta 4 veces (un intento inicial y 3 reintentos).<br /><br /> Si el conteo de intentos máximo es 0, el servicio de Batch no reintenta las tareas.<br /><br /> Si el conteo de intentos máximo es -1, el servicio de Batch reintenta las tareas sin ningún límite.<br /><br /> El valor predeterminado es 0 (sin ningún reintento).|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|Nombre del elemento|Type|Notas|
+|Nombre del elemento|type|Notas|
 |------------------|----------|-----------|
-|startTime|Datetime|Hora a la que empezó a ejecutarse la tarea. "En ejecución" se refiere al estado **running**, por lo que si la tarea especifica archivos de recursos o paquetes de aplicación, la hora inicial refleja la hora a la que la tarea empezó a descargarlos o implementarlos.  Si se reinició o reintentó la tarea, es la hora más reciente a la que comenzó a ejecutarse.|
-|endTime|Datetime|Hora a la que finalizó la tarea.|
+|startTime|DateTime|Hora a la que empezó a ejecutarse la tarea. "En ejecución" se refiere al estado **running**, por lo que si la tarea especifica archivos de recursos o paquetes de aplicación, la hora inicial refleja la hora a la que la tarea empezó a descargarlos o implementarlos.  Si se reinició o reintentó la tarea, es la hora más reciente a la que comenzó a ejecutarse.|
+|endTime|DateTime|Hora a la que finalizó la tarea.|
 |exitCode|Int32|Código de salida de la tarea.|
 |retryCount|Int32|Cantidad de veces que el servicio de Batch reintentó la tarea. La tarea se reintenta si el código de salida es distinto de cero, hasta el valor MaxTaskRetryCount especificado.|
 |requeueCount|Int32|Cantidad de veces que el servicio de Batch volvió a poner en cola la tarea como resultado de una solicitud de usuario.<br /><br /> Cuando el usuario quita nodos de un grupo (ya sea debido a que cambia o disminuye el tamaño del grupo), o bien cuando se deshabilita el trabajo, el usuario puede especificar que las tareas en ejecución en los nodos se vuelvan a poner en cola para su ejecución. Este conteo hace un seguimiento de las veces en que la tarea se volvió a poner en cola por estos motivos.|

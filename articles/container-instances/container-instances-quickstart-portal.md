@@ -3,17 +3,18 @@ title: 'Inicio rápido: Implementación de contenedor de Docker en Azure Contain
 description: En este inicio rápido, usará Azure Portal para implementar rápidamente una aplicación web en contenedores que se ejecuta en una instancia de contenedor aislada de Azure
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 008d6d2a9a4a20e9fd083e9e2f009396a7f14df2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: bf3bea07fa2fcb67a467d4087ea9e2ccbfd95206
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995921"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325798"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Inicio rápido: Implementación de una instancia de contenedor en Azure mediante Azure Portal
 
@@ -27,7 +28,7 @@ En esta guía de inicio rápido, va a usar Azure Portal para implementar un cont
 
 Inicie sesión en Azure Portal en https://portal.azure.com.
 
-Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita][azure-free-account] antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita][azure-free-account] antes de empezar.
 
 ## <a name="create-a-container-instance"></a>Creación de instancia de contenedor
 

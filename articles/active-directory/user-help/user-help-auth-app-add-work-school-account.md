@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a73500d17a0dd5d55e60700f7c0b6dbe92a3f96b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473878"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382521"
 ---
 # <a name="add-your-work-or-school-account"></a>Adición de una cuenta profesional o educativa
+
 Si su organización usa la verificación en dos pasos, puede configurar su cuenta profesional o educativa para usar la aplicación Microsoft Authenticator como uno de los métodos de verificación.
 
 >[!Important]
@@ -35,7 +36,7 @@ Si su organización usa la verificación en dos pasos, puede configurar su cuent
 2. Active la casilla situada junto a **Aplicación Authenticator** y luego seleccione **Configurar**.
 
     Aparece la página **Configurar aplicación móvil**.
-    
+
     ![Pantalla que proporciona el código QR](./media/user-help-auth-app-download-install/auth-app-barcode.png)
 
 3. Abra la aplicación Microsoft Authenticator, seleccione **Agregar cuenta** en el icono **Personalizar y controlar** en la esquina superior derecha y, a continuación, seleccione **Cuenta profesional o educativa**.

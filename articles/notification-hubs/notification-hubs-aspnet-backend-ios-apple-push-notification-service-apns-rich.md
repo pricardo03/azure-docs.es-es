@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: dd808a04dff77388248bf7309f5ff804e6dd065c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fcb4a1db62abfc04d2b0c60488d35393d98c57e
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60873110"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348480"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Inserción enriquecida de Azure Notification Hubs
 
@@ -50,12 +50,12 @@ En un alto nivel:
     ![][IOS2]
 5. En `Notifications.cs`, agregue la siguiente instrucción using:
 
-    ```c#
+    ```csharp
     using System.Reflection;
     ```
 6. Actualice toda la clase `Notifications` con el código siguiente. Asegúrese de reemplazar los marcadores de posición con las credenciales del centro de notificaciones y el nombre de archivo de la imagen.
 
-    ```c#
+    ```csharp
     public class Notification {
         public int Id { get; set; }
         // Initial notification message to display to users
@@ -105,7 +105,7 @@ En un alto nivel:
 
 7. En `NotificationsController.cs`, vuelva a definir NotificationsController con los siguientes fragmentos de código. Esto envía un identificador de notificación enriquecida silencioso inicial y permite la recuperación de imagen en el cliente:
 
-    ```c#
+    ```csharp
     // Return http response with image binary
     public HttpResponseMessage Get(int id) {
         var stream = Notifications.Instance.ReadImage(id);

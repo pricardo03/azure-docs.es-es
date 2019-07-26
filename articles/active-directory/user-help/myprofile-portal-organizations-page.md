@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a0ff4190a1712b91bf58fafd80a03fc2737e7a4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475555"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383005"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Administración de las organizaciones desde el portal Mi perfil (versión preliminar)
+
 Puede administrar sus organizaciones desde la página **Organizaciones** del portal **Mi perfil**.
 
 Hay dos tipos de organizaciones que se muestran en la página **Organizaciones**:
@@ -31,6 +32,7 @@ Hay dos tipos de organizaciones que se muestran en la página **Organizaciones**
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-organizations"></a>Visualización de las organizaciones
+
 1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
 
 2. Seleccione **Organizaciones** en el panel de navegación izquierdo o seleccione el vínculo **Administrar organizaciones** en el bloque **Organizaciones**.
@@ -41,9 +43,10 @@ Hay dos tipos de organizaciones que se muestran en la página **Organizaciones**
 
     ![Página Organizaciones](media/myprofile-portal/myprofile-portal-organization-page.png)
 
-3. Revise las otras organizaciones asociadas, asegurándose de que reconoce todas las organizaciones conectadas a la cuenta.
+4. Revise las otras organizaciones asociadas, asegurándose de que reconoce todas las organizaciones conectadas a la cuenta.
 
 ## <a name="leave-an-organization"></a>Salir de una organización
+
 Puede salir de cualquier organización que no sea la organización principal.
 
 >[!Important]

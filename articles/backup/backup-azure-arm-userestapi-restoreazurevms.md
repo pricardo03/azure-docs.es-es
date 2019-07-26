@@ -1,7 +1,6 @@
 ---
 title: 'Azure Backup: Restauración de máquinas virtuales de Azure mediante API REST'
 description: Administración de operaciones de restauración de copia de seguridad de máquina virtual de Azure mediante API REST
-services: backup
 author: pvrk
 manager: shivamg
 keywords: API REST; copia de seguridad de Azure VM; restauración de Azure VM;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b2e7994fa52e8fcbbd4fa32a6203181ad9735e5
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646663"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466749"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restauración de máquinas virtuales de Azure mediante API REST
 
@@ -37,7 +36,7 @@ El identificador URI de *GET* tiene todos los parámetros necesarios. No es nece
 
 ### <a name="responses"></a>Respuestas
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -137,7 +136,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Para desencadenar una restauración de disco desde una copia de seguridad de máquina virtual de Azure, los siguientes son los componentes del cuerpo de la solicitud.
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -171,7 +170,7 @@ La activación de un disco de restauración es una [operación asincrónica](htt
 
 Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra operación y, a continuación, 200 (OK) cuando se completa dicha operación.
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |202 - Aceptado     |         |     Accepted    |
 

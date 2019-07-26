@@ -3,16 +3,17 @@ title: Comprobación del mantenimiento del registro en Azure Container Registry
 description: Obtenga información sobre la ejecución de comando de diagnóstico rápido para identificar problemas comunes del uso de un registro de contenedor de Azure, incluidas la configuración de Docker local y la conectividad al registro.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 3e5b5467f9fa25e23f6661c6630d346aa85e2205
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67552434"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309734"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Comprobación del mantenimiento de un registro de contenedor de Azure
 

@@ -3,7 +3,7 @@ title: Evento completo de cambio de tamaño de grupo de Azure Batch | Microsoft 
 description: Referencia del evento completo de cambio de tamaño de grupo de Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 87c98b89a49adbad88841dccbd4ba47d370b2be7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2544bd2be683b731c3dac0bea651d4b64dff75e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776429"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323203"
 ---
 # <a name="pool-resize-complete-event"></a>Evento de finalización de cambio de tamaño del grupo
 
@@ -48,7 +48,7 @@ ms.locfileid: "60776429"
 |targetDedicated|Int32|El número de nodos de proceso solicitados para el grupo.|
 |enableAutoScale|Bool|Especifica si el tamaño del grupo se ajusta automáticamente con el tiempo.|
 |isAutoPool|Bool|Especifica si se ha creado el grupo a través del mecanismo AutoPool de un trabajo.|
-|startTime|Datetime|La hora en que se inició el cambio de tamaño del grupo.|
-|endTime|Datetime|La hora en que finalizó el cambio de tamaño del grupo.|
+|startTime|DateTime|La hora en que se inició el cambio de tamaño del grupo.|
+|endTime|DateTime|La hora en que finalizó el cambio de tamaño del grupo.|
 |resultCode|Cadena|El resultado del cambio de tamaño.|
 |resultMessage|Cadena|El error de cambio de tamaño incluye los detalles del resultado.<br /><br /> Si el cambio de tamaño finalizó sin problemas, esto indica que la operación se completó correctamente.|

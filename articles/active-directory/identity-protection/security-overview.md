@@ -2,27 +2,21 @@
 title: Información general de seguridad de Azure Active Directory (Azure AD) Identity Protection | Microsoft Docs
 description: Obtenga información sobre cómo la "Información general de seguridad" le ofrece una visión general de la postura de seguridad de su organización.
 services: active-directory
-keywords: azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 610668768c7baca13cb60caf1d810cced31ebec3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b894f7020083dd6ca46c394ec2930a3da36bc76d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452966"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335208"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Información general de seguridad de Azure Active Directory Identity Protection
 
@@ -31,9 +25,7 @@ ms.locfileid: "60452966"
 "Información general de seguridad" se divide en dos secciones:
 
 - Las tendencias, a la izquierda, proporcionan una escala de tiempo de riesgo en su organización.
-
 - Los iconos situados a la derecha ponen en relieve los problemas clave en curso de su organización y sugieren cómo tomar medidas rápidamente.
-
 
 ![Introducción a la seguridad](./media/security-overview/01.png)
   
@@ -55,7 +47,6 @@ El icono de "Usuarios de alto riesgo" muestra el recuento de usuarios más recie
 
 ![Introducción a la seguridad](./media/security-overview/02.png)
 
-
 ### <a name="medium-risk-users"></a>Usuarios de riesgo medio
 El icono de "Usuarios de riesgo medio" muestra el recuento de usuarios más reciente cuya identidad tiene probabilidad de riesgo medio. Al hacer clic en el icono de "Usuarios de riesgo medio" se le redirigirá a una vista filtrada del informe "Usuarios de riesgo" que muestra solo los usuarios con un nivel de riesgo medio. Al usar este informe, puede investigar más y corregir estos usuarios.
 
@@ -63,20 +54,15 @@ El icono de "Usuarios de riesgo medio" muestra el recuento de usuarios más reci
 
 El icono de "Inicios de sesión de riesgo sin protección" muestra el recuento de la semana pasada de inicios de sesión correctos y en tiempo real que no están bloqueados ni se sometieron a MFA a causa de las directivas de acceso condicional, las directivas de riesgo o MFA por usuario. Se trata de inicios de sesión que están potencialmente en peligro que se realizaron correctamente y no se sometieron a MFA. Para proteger estos inicios de sesión en el futuro, aplique una directiva de riesgo de inicio de sesión. Al hacer clic en el icono "Inicios de sesión de riesgo sin protección" se le redirigirá a la hoja de configuración de la directiva de riesgo de inicio de sesión para que pueda configurarla para requerir MFA en un inicio de sesión con un determinado nivel de riesgo.
 
-
 ### <a name="legacy-authentication"></a>Autenticación heredada
 
 El icono "Autenticación heredada" muestra el recuento de la semana pasada de autenticaciones heredadas de su organización. Los protocolos de autenticación heredados no admiten métodos de seguridad modernos como una MFA. Para evitar la autenticación heredada, puede aplicar una directiva de acceso condicional. Al hacer clic en el icono "Autenticación heredada" se le redirigirá a la "Puntuación segura de identidad'.
-
 
 ### <a name="identity-secure-score"></a>Puntuación segura de identidad
 
 La Puntuación segura de identidad mide y compara su nivel de seguridad según los patrones del sector. Si hace clic en el icono "Puntuación segura de identidad (versión preliminar)", se le redirigirá a la hoja "Puntuación segura de identidad (versión preliminar)" donde puede obtener más información sobre cómo mejorar su nivel de seguridad.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
-
 - [Habilitación de Azure Active Directory Identity Protection](enable.md)
-

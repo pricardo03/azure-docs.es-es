@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: 47578d5b6bb4a0094ba1a2e9e7dc7f92d0b0e231
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e7dea69b507117ba8a3765b5e9bc1fad46be4c53
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607101"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444207"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Notas de la versión de SQL Server en máquinas virtuales de Azure
 
@@ -38,14 +38,13 @@ Azure permite implementar una máquina virtual con una imagen de SQL Server inte
 | &nbsp; | &nbsp; |
 
 
-
 ## <a name="may-2019"></a>Mayo de 2019
 
 ### <a name="service-improvements"></a>Mejoras en el servicio
 
 | Mejoras en el servicio | Detalles |
 | --- | --- |
-| **Nueva administración de VM con SQL en Azure Portal** | Ahora existe una nueva forma de administrar una VM con SQL Server en Azure Portal. Para más información, consulte [Administración de VM con SQL Server en Azure Portal](virtual-machines-windows-sql-manage-portal.md).  | 
+| **Nueva administración de VM con SQL en Azure Portal** | Ahora existe una nueva forma de administrar una VM con SQL Server en Azure Portal. Para más información, consulte [Administración de VM con SQL Server en Azure Portal](virtual-machines-windows-sql-manage-portal.md).  |
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Mejoras en la documentación

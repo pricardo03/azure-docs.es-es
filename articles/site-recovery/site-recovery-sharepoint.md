@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491828"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325113"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configuración de la recuperación ante desastres para una aplicación de SharePoint de niveles múltiples mediante Azure Site Recovery
 
@@ -196,7 +196,7 @@ Siga [estas directrices](site-recovery-test-failover-to-azure.md) para llevar a 
 
 Para obtener instrucciones sobre cómo realizar la conmutación por error para AD y DNS, consulte el documento [Consideraciones sobre la conmutación por error de prueba](site-recovery-active-directory.md#test-failover-considerations).
 
-Para obtener instrucciones sobre cómo realizar la conmutación por error de grupos de disponibilidad AlwaysOn de SQL, consulte el documento [Ejecución de DR para aplicaciones con Azure Site Recovery y conmutación por error de prueba](site-recovery-sql.md#disaster-recovery-of-application).
+Para obtener instrucciones sobre cómo realizar la conmutación por error de grupos de disponibilidad AlwaysOn de SQL, consulte el documento [Ejecución de DR para aplicaciones con Azure Site Recovery y conmutación por error de prueba](site-recovery-sql.md#disaster-recovery-of-an-application).
 
 ## <a name="doing-a-failover"></a>Realización de una conmutación por error
 Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutación por error.

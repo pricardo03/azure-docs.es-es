@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e9363f88db4fa44879eb8f6a6a04e23563c5ba44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 06df5d403ba10489ea9a36a79a94f4b94782e4ef
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67125727"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501324"
 ---
 # <a name="use-azure-files-with-linux"></a>Uso de Azure Files con Linux
 
@@ -42,7 +42,7 @@ ms.locfileid: "67125727"
 | RHEL | 7 (o posterior) | 7.5 (o posterior) |
 | CentOS | 7 (o posterior) |  7.5 (o posterior) |
 | Debian | 8 (o posterior) |   |
-| openSUSE | 13.2 (o posterior) | 42.3 (o posterior) |
+| openSUSE | 13.2 (o posterior) | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3 (o posterior) |
 
 Si la distribución de Linux no aparece aquí, puede comprobar la versión del kernel de Linux con el siguiente comando:
@@ -132,7 +132,7 @@ uname -r
 1. **Use el siguiente comando para anexar la siguiente línea a `/etc/fstab`** : No olvide reemplazar **<storage_account_name>** , **<share_name>** , **<smb_version>** y **<mount_point>** por la información de su entorno correspondiente. Si la distribución de Linux es compatible con SMB 3.0 con cifrado (vea [Comprender los requisitos de cliente de SMB](#smb-client-reqs) para más información), use **3.0** en **<smb_version>** . Para las distribuciones de Linux que no sean compatibles con SMB 3.0 con cifrado, use **2.1** en **<smb_version>** . Solo se puede montar un recurso compartido de archivos de Azure fuera de una región de Azure (incluidos en local o en una región distinta de Azure) con SMB 3.0.
 
     ```bash
-    sudo bash -c 'echo "//<STORAGE ACCOUNT NAME>.file.core.windows.net/<FILE SHARE NAME> /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME> cifs nofail,vers=3.0,credentials=/etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<STORAGE ACCOUNT NAME>.file.core.windows.net/<FILE SHARE NAME> /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME> cifs _netdev,nofail,vers=3.0,credentials=/etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
 
     sudo mount /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME>
     ```

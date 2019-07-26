@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60420321"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422920"
 ---
 # <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
 El servicio Azure Relay le permite exponer de forma segura servicios que se ejecutan en la red corporativa en la nube pública. Eso se puede hacer sin tener que abrir un puerto en el firewall y sin realizar cambios molestos en la infraestructura de la red corporativa. 
@@ -56,7 +56,7 @@ Para más información sobre el protocolo de Conexiones híbridas, consulte [Gu�
 > Conexiones híbridas de Azure Relay reemplaza a la anterior característica Conexiones híbridas de BizTalk Services. La característica Conexiones híbridas de BizTalk Services se basaba en Azure Service Bus WCF Relay. La funcionalidad Conexiones híbridas de Azure Relay complementa la característica WCF Relay que ya existía anteriormente. Estas dos funcionalidades del servicio (WCF Relay y Conexiones híbridas) coexisten en el servicio Azure Relay. Aunque comparten una puerta de enlace común, se trata de implementaciones diferentes.
 
 ## <a name="wcf-relay"></a>Retransmisión de WCF
-WCF Relay es totalmente compatible con .NET Framework y WCF. Puede crear una conexión entre el servicio local y el servicio de retransmisión mediante un conjunto de enlaces de “retransmisión” WCF. Los enlaces de retransmisión se asignan a nuevos elementos de enlace de transporte diseñados para crear componentes de canal WCF que se integran con Service Bus en la nube. Para más información, consulte [Introducción a WCF Relay](relay-wcf-dotnet-get-started.md).
+WCF Relay es totalmente compatible con .NET Framework y WCF. Puede crear una conexión entre el servicio local y el servicio de retransmisión mediante un conjunto de enlaces de “retransmisión” WCF. Los enlaces de retransmisión se asignan a nuevos elementos de enlace de transporte diseñados para crear componentes de canal WCF que se integran con Service Bus en la nube. Para más información, consulte [Introducción a WCF Relay](service-bus-relay-tutorial.md).
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>Conexiones híbridas en comparación con Retransmisión de WCF
 Conexiones híbridas y WCF Relay habilitan una conexión segura a los recursos de dentro de una red corporativa. El uso de una u otra depende de sus necesidades particulares que se detallan en la siguiente tabla:

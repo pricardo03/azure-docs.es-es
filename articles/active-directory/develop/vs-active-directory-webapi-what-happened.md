@@ -4,6 +4,8 @@ description: Se describe lo que sucede en el proyecto de WebAPI al conectarse a 
 services: active-directory
 author: ghogen
 manager: douge
+ms.service: active-directory
+ms.subservice: develop
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -13,12 +15,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f4946251cf72d7869ec5fc2f0fd844b9c06ac34
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19a36ca4b194d8031b4a263a092ecb52be74cdd0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353285"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324288"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué le ha ocurrido a mi proyecto de WebAPI (servicio conectado de Visual Studio para Azure Active Directory)?
 
@@ -34,7 +36,7 @@ Para más información sobre cómo trabajar con el servicio conectado, consulte 
 
 Afecta al archivo de proyecto (referencias de \*.NET) y `packages.config` (referencias de NuGet).
 
-| Type | Referencia |
+| type | Referencia |
 | --- | --- |
 | .NET; NuGet | Microsoft.Owin |
 | .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -47,7 +49,7 @@ Afecta al archivo de proyecto (referencias de \*.NET) y `packages.config` (refer
 
 Referencias adicionales si ha seleccionado la opción **Leer datos de directorio**:
 
-| Type | Referencia |
+| type | Referencia |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (solo Visual Studio 2015) |
@@ -61,7 +63,7 @@ Referencias adicionales si ha seleccionado la opción **Leer datos de directorio
 
 Se quitan las referencias siguientes (solo proyectos de ASP.NET 4, como en Visual Studio 2015):
 
-| Type | Referencia |
+| type | Referencia |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

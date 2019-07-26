@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448446"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423011"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de búsqueda cognitiva
 
@@ -102,8 +102,6 @@ La [habilidad de Análisis de imágenes](cognitive-search-skill-image-analysis.m
 ### <a name="ocr-skill"></a>Habilidad de OCR
 
 La [habilidad de OCR](cognitive-search-skill-ocr.md) extrae el texto de los archivos de imagen, como JPG, PNG y mapas de bits. Puede extraer el texto, así como información de diseño. La información de diseño proporciona rectángulos delimitadores para cada una de las cadenas identificadas.
-
-La habilidad de OCR permite seleccionar el algoritmo que se utiliza para detectar el texto en las imágenes. Actualmente, admite dos algoritmos: uno para el texto impreso y otro para el texto escrito a mano.
 
 ## <a name="embedded-image-scenario"></a>Escenario de imagen incrustada
 

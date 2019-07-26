@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.openlocfilehash: 0122f952e586d0535fc2e482c7b78266f8809272
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/25/2019
 ms.locfileid: "67062438"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Supervisión en Azure Database for MySQL
@@ -33,9 +33,9 @@ Estas métricas están disponibles para Azure Database for MySQL:
 |serverlog_storage_usage|Almacenamiento del registro del servidor usado|Bytes|La cantidad de almacenamiento de registro del servidor en uso.|
 |serverlog_storage_limit|Límite de almacenamiento del registro del servidor|Bytes|El almacenamiento máximo de registro de este servidor.|
 |storage_limit|Límite de almacenamiento|Bytes|Almacenamiento máximo de este servidor.|
-|active_connections|Conexiones activas|Recuento|Número de conexiones activas al servidor.|
-|connections_failed|Conexiones con errores|Recuento|Número de conexiones con errores al servidor.|
-|seconds_behind_master|Intervalo de replicación en segundos|Recuento|El número de segundos que el servidor de réplica se retrasa en relación con el servidor maestro.|
+|active_connections|Conexiones activas|Count|Número de conexiones activas al servidor.|
+|connections_failed|Conexiones con errores|Count|Número de conexiones con errores al servidor.|
+|seconds_behind_master|Intervalo de replicación en segundos|Count|El número de segundos que el servidor de réplica se retrasa en relación con el servidor maestro.|
 |network_bytes_egress|Red interna|Bytes|Red externa a través de conexiones activas.|
 |network_bytes_ingress|Red interna|Bytes|Red interna a través de conexiones activas.|
 |backup_storage_used|Almacenamiento de copia de seguridad utilizado|Bytes|Cantidad de almacenamiento de copia de seguridad utilizado.|

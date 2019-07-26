@@ -3,7 +3,7 @@ title: Evento completo de eliminación de grupo de Azure Batch | Microsoft Docs
 description: Referencia del evento completo de eliminación de grupo de Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: e715ccd0f5e79f9c640a3c060b0252b798748b4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd32554866d1e2130fd0833adc1b286fb6bc07a5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775770"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323238"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de finalización de eliminación del grupo
 
@@ -36,7 +36,7 @@ ms.locfileid: "60775770"
 |Elemento|Tipo|Notas|
 |-------------|----------|-----------|
 |id|Cadena|El identificador del grupo.|
-|startTime|Datetime|La hora en que se inició la eliminación del grupo.|
+|startTime|DateTime|La hora en que se inició la eliminación del grupo.|
 |endTime|DateTime|La hora en que finalizó la eliminación del grupo.|
 
 ## <a name="remarks"></a>Comentarios

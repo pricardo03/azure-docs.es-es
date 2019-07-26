@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f18b4793d205cfa019f501549dedfcd62f501e7
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459241"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348595"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Inserción de notificaciones de forma segura desde Azure Notification Hubs
 
@@ -57,12 +57,12 @@ Este tutorial Inserción segura muestra cómo enviar una notificación de inserc
 
 1. En el proyecto **NotifyUserWindowsPhone** , agregue el siguiente código a App.xaml.cs para registrar la tarea de segundo plano de inserción. Agregue la siguiente línea de código al final del método `OnLaunched()` :
 
-    ```c#
+    ```csharp
     RegisterBackgroundTask();
     ```
 2. Todavía en App.xaml.cs, agregue el siguiente código inmediatamente después del método `OnLaunched()` :
 
-    ```c#
+    ```csharp
     private async void RegisterBackgroundTask()
     {
         if (!Windows.ApplicationModel.Background.BackgroundTaskRegistration.AllTasks.Any(i => i.Value.Name == "PushBackgroundTask"))
@@ -79,7 +79,7 @@ Este tutorial Inserción segura muestra cómo enviar una notificación de inserc
     ```
 3. Agregue las siguientes instrucciones `using` en la parte superior del archivo App.xaml.cs:
 
-    ```c#
+    ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
@@ -147,7 +147,7 @@ El paso siguiente es crear el componente de segundo plano de inserción.
 9. Nuevamente en el cuadro **Buscar** de NuGet, escriba **Json.net**. Instale el paquete **Json.NET** y cierre la ventana Administrador de paquetes de NuGet.
 10. Agregue las siguientes instrucciones `using` al principio del archivo `PushBackgroundTask.cs`:
 
-    ```c#
+    ```csharp
     using Windows.ApplicationModel.Background;
     using Windows.Networking.PushNotifications;
     using System.Net.Http;

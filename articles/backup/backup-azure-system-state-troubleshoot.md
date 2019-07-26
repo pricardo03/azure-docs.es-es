@@ -1,20 +1,19 @@
 ---
 title: Solución de problemas de copia de seguridad del estado del sistema con Azure Backup
 description: Solucione problemas en la copia de seguridad del estado del sistema.
-services: backup
 author: srinathvasireddy
 manager: sivan
 keywords: procedimientos de copia de seguridad; copia de seguridad del estado del sistema
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 07/22/2019
 ms.author: srinathv
-ms.openlocfilehash: 87b5fff58ecf9e89bc94f31a0bc3a591c146c88f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8996270acb1525697f29b4251bf4e11d2db62fdf
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704995"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465352"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solución de problemas en la copia de seguridad del estado del sistema
 

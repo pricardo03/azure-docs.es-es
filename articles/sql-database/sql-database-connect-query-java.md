@@ -11,12 +11,12 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: fcc1a093f8df87da24f9d7f7945c490d7b58c9bd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447923"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320580"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Java para consultar una base de datos de Azure SQL
 
@@ -37,8 +37,7 @@ Para completar este ejemplo, asegúrese de que cumple los siguientes requisitos 
   |||[Conectividad desde el sitio](sql-database-managed-instance-configure-p2s.md)
   |Carga de datos|Adventure Works cargado por inicio rápido|[Restauración de World Wide Importers](sql-database-managed-instance-get-started-restore.md)
   |||Restauración o importación de Adventure Works a partir del archivo [BACPAC](sql-database-import.md) desde [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
-
+  
   > [!IMPORTANT]
   > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works en una base de datos de instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
 
@@ -168,7 +167,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Diseño de su primera base de datos SQL de Azure](sql-database-design-first-database.md)  
+- [Diseño de su primera base de datos de Azure SQL](sql-database-design-first-database.md)  
 
 - [Controlador JDBC de Microsoft para SQL Server](https://github.com/microsoft/mssql-jdbc)  
 

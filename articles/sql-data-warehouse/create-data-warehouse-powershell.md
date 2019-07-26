@@ -2,7 +2,7 @@
 title: 'Inicio rápido: Creación de una instancia de Azure SQL Data Warehouse: Azure PowerShell | Microsoft Docs'
 description: Cree rápidamente un servidor lógico de SQL Database, una regla de firewall de nivel de servidor y una base de datos de almacenamiento de datos con Azure PowerShell.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: cdaa932a4996d559b5974e39e20cf75acd6571c5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 1f800ade5c5122f0891c9122f6698b6550048c67
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873786"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479334"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Inicio rápido: Creación y consulta de una instancia de Azure SQL Data Warehouse con Azure PowerShell
 

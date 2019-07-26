@@ -4,15 +4,15 @@ description: En este artículo se describe la forma de crear y usar bases de dat
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 574dd9fd6189b6d0f1e5d455146d6d083ad7ff77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 277564208a5e4a209aecf8f976aca6b35ab17781
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389468"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467748"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabajar con bases de datos, contenedores y elementos de Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Puede crear una o varias bases de datos de Azure Cosmos en su cuenta. Una base d
 
 Puede interactuar con una base de datos de Azure Cosmos con API de Azure Cosmos, como se describe en la siguiente tabla:
 
-| Operación | Azure CLI | API DE SQL | Cassandra API | Azure Cosmos DB API para MongoDB | API de Gremlin | Table API |
+| Operación | CLI de Azure | API DE SQL | Cassandra API | Azure Cosmos DB API para MongoDB | API de Gremlin | Table API |
 | --- | --- | --- | --- | --- | --- | --- |
 |Enumerar todas las bases de datos| Sí | Sí | Sí (la base de datos está asignada a un espacio de claves). | Sí | N/D | N/D |
 |Leer la base de datos| Sí | Sí | Sí (la base de datos está asignada a un espacio de claves). | Sí | N/D | N/D |
@@ -96,7 +96,7 @@ Un contenedor de Azure Cosmos tiene un conjunto de propiedades definidas por el 
 
 Un contenedor de Azure Cosmos es compatible con las siguientes operaciones al usar cualquiera de las API de Azure Cosmos:
 
-| Operación | Azure CLI | API DE SQL | Cassandra API | Azure Cosmos DB API para MongoDB | API de Gremlin | Table API |
+| Operación | CLI de Azure | API DE SQL | Cassandra API | Azure Cosmos DB API para MongoDB | API de Gremlin | Table API |
 | --- | --- | --- | --- | --- | --- | --- |
 | Enumerar los contenedores en una base de datos | Sí | Sí | Sí | Sí | N/D | N/D |
 | Leer un contenedor | Sí | Sí | Sí | Sí | N/D | N/D |
@@ -129,7 +129,7 @@ Cada elemento de Azure Cosmos tiene las siguientes propiedades definidas por el 
 
 Los elementos de Azure Cosmos admiten las siguientes operaciones. Puede usar cualquiera de las API de Azure Cosmos para realizar las operaciones.
 
-| Operación | Azure CLI | API DE SQL | Cassandra API | Azure Cosmos DB API para MongoDB | API de Gremlin | Table API |
+| Operación | CLI de Azure | API DE SQL | Cassandra API | Azure Cosmos DB API para MongoDB | API de Gremlin | Table API |
 | --- | --- | --- | --- | --- | --- | --- |
 | Insertar, reemplazar, eliminar, upsert, leer | Sin | Sí | Sí | Sí | Sí | Sí |
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ae5e16aa00147d6ea434090720b51af06e8e0c5
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 764c7c048dd0398b495ee31421a8e2bc9f8169ee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807563"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477192"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Visualización de las aplicaciones del inquilino de Azure Active Directory
 
@@ -79,4 +79,4 @@ En este inicio rápido, ha aprendido a ver las aplicaciones de su inquilino de A
 Ahora que ha encontrado la aplicación que buscaba, puede continuar con [Incorporación de más aplicaciones a un inquilino](add-application-portal.md). O bien, puede seleccionar la aplicación para ver o editar las propiedades y las opciones de configuración. Por ejemplo, podría configurar el inicio de sesión único.
 
 > [!div class="nextstepaction"]
-> [Configuración del inicio de sesión único](configure-single-sign-on-portal.md)
+> [Configuración del inicio de sesión único](configure-single-sign-on-non-gallery-applications.md)

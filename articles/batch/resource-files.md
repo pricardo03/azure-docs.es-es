@@ -3,17 +3,17 @@ title: Crear y usar archivos de recursos - Azure Batch | Microsoft Docs
 description: Aprenda a crear archivos de recursos de Azure Batch desde diversos orígenes de entrada.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c55b22d1cb85fb645087cf48b54f9d5ac12d58f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65405654"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322183"
 ---
 # <a name="creating-and-using-resource-files"></a>Crear y usar archivos de recursos
 

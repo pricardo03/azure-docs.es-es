@@ -2,34 +2,27 @@
 title: Configuración de la directiva de riesgo de usuario en Azure Active Directory Identity Protection | Microsoft Docs
 description: Obtenga información sobre cómo configurar la directiva de riesgo de usuario de Azure AD Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108929"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335443"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Instrucciones: Configuración de la directiva de riesgo del usuario
 
 Con el riesgo de usuario, Azure AD detecta la probabilidad de que una cuenta de usuario esté en peligro. Como administrador, puede configurar una directiva de acceso condicional de riesgo de usuario para responder automáticamente a un nivel de riesgo de usuario específico.
  
 En este artículo se proporciona la información necesaria para configurar la directiva de riesgo de usuario.
-
 
 ## <a name="what-is-a-user-risk-policy"></a>¿Qué es una directiva de riesgo de usuario?
 
@@ -41,14 +34,11 @@ Todos los eventos de riesgo que se han detectado para un usuario y no se resuelv
 
 La directiva de riesgo de usuario es una respuesta automatizada que puede configurar para un nivel de riesgo de usuario específico. Con una directiva de riesgo de usuario, puede bloquear el acceso a los recursos o requerir un cambio de contraseña para que la cuenta de usuario vuelva a estar limpia.
 
-
 ## <a name="how-do-i-access-the-user-risk-policy"></a>¿Cómo puedo acceder a la directiva de riesgo del usuario?
    
 En la hoja **Azure AD Identity Protection**, en la sección [Configurar](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy), está la directiva de riesgo de inicio de sesión.
    
 ![Directiva de riesgo de usuario](./media/howto-user-risk-policy/1014.png)
-
-
 
 ## <a name="policy-settings"></a>Configuración de directiva
 
@@ -80,7 +70,6 @@ Puede establecer una directiva de seguridad de riesgo de usuario para impedir qu
 
 ![Bloqueo](./media/howto-user-risk-policy/16.png)
 
-
 El bloqueo de un inicio de sesión:
 
 * Evita la generación de nuevos eventos de riesgo del usuario para el usuario afectado.
@@ -110,9 +99,6 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 - En la hoja **Azure AD Identity Protection**, en la sección **Configurar**, haga clic en **Directiva de riesgo de usuario**.
 
     ![Directiva de riesgo de usuario](./media/howto-user-risk-policy/1009.png "Directiva de riesgo de usuario")
-
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

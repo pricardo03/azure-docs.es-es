@@ -3,7 +3,7 @@ title: Evento de creación de grupo de Azure Batch | Microsoft Docs
 description: Referencia del evento de creación de grupo de Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a86ce329a19272eb83c431af395b330f75111361
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776514"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323295"
 ---
 # <a name="pool-create-event"></a>Evento de creación del grupo
 
@@ -65,14 +65,14 @@ ms.locfileid: "60776514"
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Nombre del elemento|Type|Notas|
+|Nombre del elemento|type|Notas|
 |------------------|----------|-----------|
 |osFamily|Cadena|La familia del SO invitado de Azure para instalar en las máquinas virtuales en el grupo.<br /><br /> Los valores posibles son:<br /><br /> **2**: familia 2 de SO, que equivale a Windows Server 2008 R2 SP1.<br /><br /> **3**: familia 3 de SO, que equivale a Windows Server 2012.<br /><br /> **4**: familia 4 de SO, que equivale a Windows Server 2012 R2.<br /><br /> Para obtener más información, consulte [Versiones del SO invitado de Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 |targetOSVersion|Cadena|La versión del SO invitado de Azure para instalar en las máquinas virtuales en el grupo.<br /><br /> El valor predeterminado es **\*** , que especifica la versión del sistema operativo más reciente para la familia especificada.<br /><br /> Para otros valores permitidos, consulte [Versiones del SO invitado de Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Nombre del elemento|Type|Notas|
+|Nombre del elemento|type|Notas|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|Tipo complejo|Especifica información sobre la plataforma o imagen de Marketplace que se usará.|
 |nodeAgentSKUId|Cadena|El SKU agente del nodo de Batch proporcionado en el nodo de ejecución.|
@@ -80,7 +80,7 @@ ms.locfileid: "60776514"
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|Nombre del elemento|Type|Notas|
+|Nombre del elemento|type|Notas|
 |------------------|----------|-----------|
 |publisher|Cadena|El publicador de la imagen.|
 |offer|Cadena|La oferta publicador de la imagen.|
@@ -89,12 +89,12 @@ ms.locfileid: "60776514"
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|Nombre del elemento|Type|Notas|
+|Nombre del elemento|type|Notas|
 |------------------|----------|-----------|
 |enableAutomaticUpdates|Boolean|Indica si la máquina virtual está habilitada para las actualizaciones automáticas. Si esta propiedad no se especifica, se usa el valor predeterminado.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Nombre del elemento|Type|Notas|
+|Nombre del elemento|type|Notas|
 |------------------|--------------|----------|
 |subnetId|Cadena|Especifica el identificador de recursos de la subred en la que se crean los nodos de proceso del grupo.|

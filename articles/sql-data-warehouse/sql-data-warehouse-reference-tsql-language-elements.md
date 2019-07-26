@@ -2,7 +2,7 @@
 title: 'Elementos del lenguaje T-SQL: Azure SQL Data Warehouse | Microsoft Docs'
 description: Vínculo a la documentación de las instrucciones de T-SQL admitidas en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 95c5b592d5ca46aed5f7123ff2b3eb688c5c0caf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d623ebbb5434338e2d7263ca63dd545230a612d
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873494"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479416"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementos del lenguaje T-SQL admitidos en Azure SQL Data Warehouse
 Vínculos a la documentación de los elementos del lenguaje T-SQL admitidos en Azure SQL Data Warehouse.

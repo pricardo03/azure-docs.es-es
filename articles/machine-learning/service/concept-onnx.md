@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10c47c5dbae0ffb204a78ff510e457cce9a25ff0
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65849726"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361093"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX y Azure Machine Learning: Crear y acelerar modelos de ML
 
@@ -54,26 +54,27 @@ Los paquetes de Python para ONNX Runtime están disponibles en [PyPi.org](https:
 ```python   
 pip install onnxruntime       # CPU build
 pip install onnxruntime-gpu   # GPU build
-``` 
+```
 
 Para llamar a ONNX Runtime en el script de Python, use lo siguiente:    
-```python   
-import onnxruntime  
-session = onnxruntime.InferenceSession("path to model") 
-``` 
+```python
+import onnxruntime
+session = onnxruntime.InferenceSession("path to model")
+```
 
 La documentación que acompaña al modelo suele indicar las entradas y salidas para usar el modelo. También puede usar una herramienta de visualización como [Netron](https://github.com/lutzroeder/Netron) para ver el modelo. El entorno de ejecución de ONNX también le permite consultar los metadatos, las entradas y las salidas del modelo:    
-```python   
-session.get_modelmeta() 
-first_input_name = session.get_inputs()[0].name 
-first_output_name = session.get_outputs()[0].name   
-``` 
+```python
+session.get_modelmeta()
+first_input_name = session.get_inputs()[0].name
+first_output_name = session.get_outputs()[0].name
+```
 
 Para realizar la inferencia de su modelo, use `run` y pase la lista de salidas que quiera que se devuelvan (déjelo vacío si quiere todas) y un mapa de los valores de entrada. El resultado es una lista de las salidas.  
-```python   
-results = session.run(["output1", "output2"], {"input1": indata1, "input2": indata2})   
-results = session.run([], {"input1": indata1, "input2": indata2})   
-``` 
+```python
+results = session.run(["output1", "output2"], {
+                      "input1": indata1, "input2": indata2})
+results = session.run([], {"input1": indata1, "input2": indata2})
+```
 
 Para obtener la referencia completa de API de Python, vea la [documentación de referencia de ONNX Runtime](https://aka.ms/onnxruntime-python).    
 

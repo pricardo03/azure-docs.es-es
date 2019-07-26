@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 73dd46d1ca0a20748d7a3a7838c499f0c659253d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72cffea3e5d42210bffbdbeef94c475cc8bdebf4
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241673"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312096"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
 
@@ -122,9 +122,6 @@ En este ejemplo, la consola del desarrollador es la aplicación cliente. En los 
 5. En **Tipos de concesión de autorización**, seleccione **Código de autorización**.
 
 6. Especifique la **URL del punto de conexión de autorización** y la **URL del punto de conexión de token**. Recupere estos valores desde la página **Puntos de conexión** del inquilino de Azure AD. Vaya a la página **Registros de aplicaciones** de nuevo y seleccione **Puntos de conexión**.
-
-    >[!NOTE]
-    > Use aquí los puntos de conexión de **v1**
 
 7. Copie el **punto de conexión de autorización de OAuth 2.0** y péguelo en el cuadro de texto **URL de punto de conexión de autorización**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: fe0af4ca7b6860fff19f4df3165a975c42b54a03
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d4daa7ae9c7e58c1949dfbe4427a154c389100d4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277776"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348375"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Escalado y planeamiento de capacidad de Azure Service Fabric
 
@@ -92,7 +92,7 @@ Puede realizar el escalado horizontal [manualmente](https://docs.microsoft.com/a
 
 Puede escalar horizontalmente un clúster de Service Fabric al aumentar el número de instancias para un determinado conjunto de escalado de máquinas virtuales. Puede escalar horizontalmente mediante programación si utiliza `AzureClient` y el identificador del conjunto de escalado para aumentar su capacidad.
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -134,7 +134,7 @@ Para reducir horizontalmente de forma manual, actualice la capacidad de la propi
 
 Debe preparar el nodo para que se apague con el fin de realizar una reducción horizontal mediante programación. Busque el nodo que se va a quitar (el nodo de instancia más alta). Por ejemplo:
 
-```c#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -151,7 +151,7 @@ using (var client = new FabricClient())
 
 Desactive y quite el nodo con la misma instancia de `FabricClient` (en este caso, `client`) y la misma instancia de nodo (en este caso, `instanceIdString`) que ha usado en el código anterior:
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster

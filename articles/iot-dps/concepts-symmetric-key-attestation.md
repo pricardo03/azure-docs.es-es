@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1a849732539dbc9e066bee7cc20141f56ffe10c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746253"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348356"
 ---
 # <a name="symmetric-key-attestation"></a>Atestación de clave simétrica
 
@@ -75,7 +75,7 @@ Este ejemplo exacto se usa en el artículo [Aprovisionamiento de dispositivos an
 
 Una vez que se ha definido un identificador de registro para el dispositivo, la clave simétrica para el grupo de inscripción se usa para calcular un hash [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro para generar una clave de dispositivo derivada. El hash del identificador de registro se puede realizar con el siguiente código de C#:
 
-```C#
+```csharp
 using System; 
 using System.Security.Cryptography; 
 using System.Text;  
@@ -92,7 +92,7 @@ public static class Utils
 } 
 ```
 
-```C#
+```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 

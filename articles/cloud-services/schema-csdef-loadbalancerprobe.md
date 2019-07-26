@@ -3,22 +3,17 @@ title: Esquema LoadBalancerProbe de definición de Azure Cloud Services | Micros
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: 6f82406772f650b4565f2c9240efe580545dcad9
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60613875"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360609"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definición de Azure Cloud Services
 El sondeo del equilibrador de carga es un sondeo de mantenimiento definido por el cliente de los puntos de conexión UDP y los puntos de conexión de las instancias de rol. El elemento `LoadBalancerProbe` no es un elemento independiente; se combina con el rol web o el rol de trabajo en un archivo de definición de servicio. Un elemento `LoadBalancerProbe` se puede usar en más de un rol.
@@ -59,7 +54,7 @@ El elemento `LoadBalancerProbe` define el sondeo de mantenimiento de un modelo. 
 
 En la tabla siguiente se describen los atributos del elemento `LoadBalancerProbe`:
 
-|Atributo|Type|DESCRIPCIÓN|
+|Atributo|type|DESCRIPCIÓN|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Necesario. El nombre del sondeo del equilibrador de carga. El nombre debe ser único.|
 | `protocol`          | `string` | Necesario. Especifica el protocolo del punto de conexión. Los valores posibles son `http` o `tcp`. Si se especifica `tcp`, se es necesario recibir una confirmación para que el sondeo se realice correctamente. Si se especifica `http`, se necesita una respuesta 200 OK del URI especificado para que el sondeo se realice correctamente.|

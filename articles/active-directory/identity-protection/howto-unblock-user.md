@@ -2,33 +2,28 @@
 title: Desbloqueo de usuarios con Azure Active Directory Identity Protection | Microsoft Docs
 description: Aprenda a desbloquear usuarios bloqueados por una directiva de Azure Active Directory Identity Protection.
 services: active-directory
-keywords: 'azure active directory identity protection: desbloquear usuario'
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d22fa7fd3964f99c426e8e21d34dcfdea6d1b36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c28e30b8e44b6888cdb7416b9c7b563b955a68ce
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294432"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335383"
 ---
 # <a name="how-to-unblock-users"></a>Instrucciones: Desbloqueo de usuarios
 
 Con Azure Active Directory Identity Protection se pueden configurar directivas para bloquear a los usuarios si se cumplen las condiciones configuradas. Normalmente, los usuarios bloqueados se ponen en contacto con el departamento de soporte técnico para que se desbloqueen. En este artículo se explican los pasos que puede seguir para desbloquear un usuario bloqueado.
 
 ## <a name="determine-the-reason-for-blocking"></a>Determinación del motivo de bloqueo
+
 Como primer paso para desbloquear un usuario, es preciso que determine el tipo de directiva que ha bloqueado al usuario, ya que los siguientes pasos dependen de él.
 Con Azure Active Directory Identity Protection, se puede bloquear a un usuario con una directiva de riesgo de inicio de sesión o con una directiva de riesgo de usuario.
 
@@ -45,6 +40,7 @@ Un usuario que está bloqueado por:
 * Una directiva de riesgo de usuario también es conocida como una cuenta en riesgo
 
 ## <a name="unblocking-suspicious-sign-ins"></a>Desbloqueo de inicios de sesión sospechosos
+
 Para desbloquear un inicio de sesión sospechoso, tiene las siguientes opciones:
 
 1. **Iniciar sesión desde una ubicación o dispositivo conocidos**: una razón común para el bloqueo de inicios de sesión sospechosos es que se intente iniciar sesión desde ubicaciones o dispositivos desconocidos. Los usuarios pueden determinar rápidamente si esta es la razón del bloqueo. Para ello, deben intentar iniciar sesión desde una ubicación o dispositivo conocidos.
@@ -52,6 +48,7 @@ Para desbloquear un inicio de sesión sospechoso, tiene las siguientes opciones:
 3. **Deshabilitar directiva** : si piensa que la configuración de la directiva provoca problemas a todos los usuarios, puede deshabilitar la directiva. Para obtener más información, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## <a name="unblocking-accounts-at-risk"></a>Desbloqueo de cuentas en riesgo
+
 Para desbloquear una cuenta en riesgo, tiene las siguientes opciones:
 
 1. **Restablecer contraseña** : puede restablecer la contraseña del usuario. 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae423b6fb141cab4038e65ba85c6067f1c23aee0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60741001"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320690"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de equipos en las consultas de registros de Azure Monitor
 Los grupos de equipos en Azure Monitor permiten limitar las [consultas de registros](../log-query/log-query-overview.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una consulta de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
@@ -84,7 +84,7 @@ Una vez importados los grupos, el menú muestra el número de equipos con la per
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 Al configurar Azure Monitor para importar miembros de la recopilación de Configuration Manager, este crea un grupo de equipos para cada colección.  La información de los miembros de la colección se recupera cada tres horas para mantener actualizados los grupos de equipos. 
 
-Para poder importar colecciones de Configuration Manager, debe [conectar Configuration Manager a Azure Monitor](collect-sccm.md).  A continuación, puede configurar la importación en **Configuración avanzada** en el área de trabajo de Log Analytics en Azure Portal.  Seleccione **Grupos de equipos**, **SCCM** y, a continuación, **Importar miembros de la colección de Configuration Manager**.  No es necesario realizar ninguna configuración más.
+Para poder importar colecciones de Configuration Manager, debe [conectar Configuration Manager a Azure Monitor](collect-sccm.md).  
 
 ![Grupos de equipos de SCCM](media/computer-groups/configure-sccm.png)
 

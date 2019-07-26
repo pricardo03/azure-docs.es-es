@@ -1,7 +1,6 @@
 ---
 title: 'Azure Backup: Creación de almacenes de Recovery Services mediante API REST'
 description: Administración de las operaciones de restauración y copia de seguridad de máquina virtual de Azure mediante API REST
-services: backup
 author: pvrk
 manager: shivamg
 keywords: API REST; copia de seguridad de Azure VM; restauración de Azure VM;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0373098dd344df79be79871227f20c8a995958fa
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646714"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466937"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creación del almacén de Azure Recovery Services mediante API REST
 
@@ -44,13 +43,13 @@ Para más información sobre cómo crear la solicitud, consulte [ Componentes de
 
 Para crear el cuerpo de la solicitud, se usan las siguientes definiciones comunes:
 
-|NOMBRE  |Obligatorio  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |Obligatorio  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|---------|
 |eTag     |         |   Cadena      |  eTag opcional       |
 |location     |  true       |Cadena         |   Ubicación del recurso      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propiedades del almacén       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica el identificador único de sistema de cada recurso de Azure.     |
-|etiquetas     |         | Objeto        |     Etiquetas del recurso    |
+|etiquetas     |         | Object        |     Etiquetas del recurso    |
 
 Tenga en cuenta que el nombre del almacén y el nombre del grupo de recursos se proporcionan en el URI de PUT. El cuerpo de solicitud define la ubicación.
 
@@ -72,7 +71,7 @@ El cuerpo de ejemplo siguiente se usa para crear un almacén en "West US". Espec
 
 Hay dos respuestas correctas a la operación para crear o actualizar un almacén de Recovery Services:
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |200 OK     |   [Almacén](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Creado     | [Almacén](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Creado      |

@@ -3,22 +3,17 @@ title: Esquema de definición de Azure Cloud Services (archivo .cscfg) | Microso
 services: cloud-services
 ms.custom: ''
 ms.date: 12/07/2016
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
 caps.latest.revision: 35
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 424381e2c243420cc2a68dc776d249cb17574f98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: 0009f843f8de31b92817dc86ccd718fa5eeeb1ba
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130320"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358930"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Esquema de configuración de Azure Cloud Services (archivo .cscfg)
 El archivo de configuración de servicio especifica el número de instancias de rol que se implementan para cada rol del servicio, los valores de los parámetros de configuración y las huellas digitales de los certificados asociados a un rol. Si el servicio forma parte de una red virtual, se debe proporcionar información de configuración de la red en el archivo de configuración de servicio, así como en el archivo de configuración de red virtual. La extensión predeterminada del archivo de configuración de servicio es. cscfg.

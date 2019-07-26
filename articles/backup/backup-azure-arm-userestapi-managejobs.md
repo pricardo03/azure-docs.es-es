@@ -1,7 +1,6 @@
 ---
 title: 'Azure Backup: administración de los trabajos de copia de seguridad mediante la API REST'
 description: Administración de trabajos de copia de seguridad y restauración de Azure Backup mediante API REST
-services: backup
 author: pvrk
 manager: shivamg
 keywords: API REST; copia de seguridad de Azure VM; restauración de Azure VM;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d497fc714e0ad5f61873d4c1f95ab35837532646
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646629"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466776"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Seguimiento de los trabajos de copia de seguridad y restauración mediante API REST
 
@@ -51,7 +50,7 @@ El `{jobName}` es el "jobId" mencionado anteriormente. La respuesta es siempre 2
 
 ### <a name="response"></a>Response
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

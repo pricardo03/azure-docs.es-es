@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 86ddb0b608cd17814cbcbb902f0b2905fe61094a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dcfdec0a746406296616456f6e6b8c0eabddf4b5
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164672"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478579"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Creación y uso de reglas personalizadas de Firewall de aplicaciones web v2
 
@@ -492,14 +492,6 @@ Código JSON correspondiente:
     ]
   }
 ```
-
-Regla ModSecurity correspondiente:
-
-`SecRule REQUEST_URI "@contains 1-1" "id:7001,deny"`
-
-`SecRule REQUEST_URI "@contains --" "id:7001,deny"`
-
-`SecRule REQUEST_URI "@contains drop tables" "id:7001,deny"`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

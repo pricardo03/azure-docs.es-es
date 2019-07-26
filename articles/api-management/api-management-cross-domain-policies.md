@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 871294703a4be36e274df1e34b9cc9bee7d19783
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86c61679a73f03f7e54bba746107685796ec07c9
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071950"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442314"
 ---
 # <a name="api-management-cross-domain-policies"></a>Directivas entre dominios de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -46,9 +46,9 @@ Use la directiva `cross-domain` para que la API sea accesible desde Adobe Flash 
 
 ```xml
 <cross-domain>
-    <cross-domain-policy>
+    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain-policy>
+    </cross-domain>
 </cross-domain>
 ```
 
@@ -62,7 +62,7 @@ Use la directiva `cross-domain` para que la API sea accesible desde Adobe Flash 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 - **Secciones de la directiva:** inbound (entrada)
-- **Ámbitos de la directiva:** global
+- **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="CORS"></a> CORS
 La directiva `cors` agrega compatibilidad con el uso compartido de recursos entre orígenes (CORS) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
@@ -144,8 +144,8 @@ En este ejemplo se muestra cómo admitir solicitudes preparatorias, como aquella
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
-- **Secciones de la directiva:** entrante
-- **Ámbitos de la directiva:** global, producto, API, operación
+- **Secciones de la directiva:** inbound (entrada)
+- **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="JSONP"></a> JSONP
 La directiva `jsonp` agrega JSON con compatibilidad con relleno (JSONP) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador de JavaScript. JSONP es un método utilizado en los programas JavaScript para solicitar datos desde un servidor en un dominio diferente. JSONP sortea la limitación exigida por la mayoría de los exploradores web donde el acceso a las páginas web debe estar en el mismo dominio.
@@ -182,7 +182,7 @@ Si agrega el parámetro de devolución de llamada `?cb=XXX`, devolverá un resul
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.
 
 - **Secciones de la directiva:** outbound
-- **Ámbitos de la directiva:** global, producto, API, operación
+- **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -191,4 +191,4 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 + [Directivas de Azure API Management](api-management-howto-policies.md)
 + [API de transformación](transform-api.md)
 + En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
-+ [Ejemplos de directivas](policy-samples.md)   
++ [Ejemplos de directivas](policy-samples.md)

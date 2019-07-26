@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9180c29b807ef26c6426aab75fe74870fef9669a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868286"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318160"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Seguimiento de los costos asociados con un laboratorio en Azure DevTest Labs
 En este artículo se proporciona información sobre cómo seguir el costo del laboratorio. Muestra cómo ver la tendencia de costo estimado durante el mes actual para el laboratorio. El artículo también muestra cómo ver el costo por recurso del mes hasta la fecha en el laboratorio.
@@ -95,7 +95,7 @@ La característica de tendencia de costo mensual en los laboratorios permite ver
 
 Esta característica le ayuda a identificar fácilmente los recursos que cuestan más para que pueda tomar acciones destinadas a reducir el gasto de laboratorio. Por ejemplo, el costo de una máquina virtual se basa en el tamaño de la máquina virtual. Cuanto mayor sea el tamaño de la máquina virtual, más es el costo. Puede encontrar fácilmente el tamaño de una máquina virtual y el propietario, por lo que puede hablar con el propietario de la máquina virtual para saber por qué es necesario este tamaño de máquina virtual y si hay una posibilidad de reducir el tamaño.
 
-La [directiva de apagado automático](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) le ayuda a reducir el costo de apagar las máquinas virtuales de laboratorio en un momento determinado del día. Sin embargo, un usuario de laboratorio puede rechazar la directiva de apagado, lo que aumenta el costo de la ejecución de la máquina virtual. Puede seleccionar una máquina virtual en la tabla para ver si se ha dado de baja de la directiva de apagado automático. Si es así, puede hablar con el propietario de la máquina virtual para averiguar por qué la máquina virtual se ha dado de baja de la directiva.
+La [directiva de apagado automático](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) le ayuda a reducir el costo de apagar las máquinas virtuales de laboratorio en un momento determinado del día. Sin embargo, un usuario de laboratorio puede rechazar la directiva de apagado, lo que aumenta el costo de la ejecución de la máquina virtual. Puede seleccionar una máquina virtual en la tabla para ver si se ha dado de baja de la directiva de apagado automático. Si es así, puede hablar con el propietario de la máquina virtual para averiguar por qué la máquina virtual se ha dado de baja de la directiva.
  
 ## <a name="next-steps"></a>Pasos siguientes
 Vea algunas acciones que puede probar a continuación:

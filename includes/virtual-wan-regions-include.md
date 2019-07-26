@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8ec5c39342f0477bd2b529da38fd4d1292476c93
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e8ae2fd99ee57062a0bf99f0550e58a5bb4857a3
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186221"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68426953"
 ---
 En la tabla siguiente se enumeran las regiones compatibles disponibles para las características de disponibilidad general.
 
@@ -31,4 +31,3 @@ En la tabla siguiente se enumeran las regiones compatibles disponibles para las 
 | Sudáfrica | Norte de Sudáfrica, Oeste de Sudáfrica |
 
 * Para obtener información acerca de la versión preliminar de ExpressRoute, consulte [Virtual WAN y ExpressRoute (versión preliminar)](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register).
-* Para obtener información acerca de la versión preliminar de Point-to-site, consulte [Virtual WAN y Point-to-site (versión preliminar)](../articles/virtual-wan/virtual-wan-point-to-site-portal.md#register).

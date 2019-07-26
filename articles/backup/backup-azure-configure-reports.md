@@ -1,19 +1,18 @@
 ---
 title: Configuración de informes para Azure Backup
 description: Configure los informes de Power BI para Azure Backup con el almacén de Recovery Services.
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: adigan
-ms.openlocfilehash: 5f656a097509e9998d6fb8f157d1910cc04b7799
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ae772446a4955f9f9def830d5c770f7d826b7e48
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705154"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466609"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 En este artículo se muestran los pasos a seguir para configurar informes para Azure Backup mediante un almacén de Recovery Services. También muestra cómo acceder a informes mediante Power BI. Cuando haya completado estos pasos, puede ir directamente a Power BI para ver, personalizar y crear informes.

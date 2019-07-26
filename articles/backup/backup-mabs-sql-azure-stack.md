@@ -1,19 +1,18 @@
 ---
 title: Copia de seguridad de cargas de trabajo de SQL Server en Azure Stack
 description: Use Azure Backup Server para proteger cargas de trabajo de SQL Server en Azure Stack.
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
-ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11d03a9c5cc81b915f48bc66f5a0e5ab034662ed
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254479"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465155"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Copia de seguridad de SQL Server en Stack
 Use este artículo para configurar Microsoft Azure Backup Server (MABS) para proteger las bases de datos SQL Server en Azure Stack.

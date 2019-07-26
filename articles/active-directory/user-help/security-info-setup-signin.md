@@ -12,14 +12,15 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123613"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382781"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configuración de la información de seguridad (versión preliminar) desde el mensaje de la página de inicio de sesión
+
 Puede seguir estos pasos si se le pide que configure la información de seguridad inmediatamente después de que iniciar sesión con su cuenta profesional o educativa.
 
 Solo verá este mensaje si no ha configurado la información de seguridad que requiere su organización. Si ya ha configurado la información de seguridad, pero desea realizar cualquier cambio, puede seguir los pasos descritos en los distintos artículos de procedimientos basados en métodos. Para más información, consulte [Add or update your security info overview](security-info-add-update-methods-overview.md) (Introducción a la adición o actualización de la información de seguridad).
@@ -27,11 +28,13 @@ Solo verá este mensaje si no ha configurado la información de seguridad que re
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>Inicio de sesión con una cuenta profesional o educativa
+
 Después de iniciar sesión con su cuenta profesional o educativa, verá un mensaje en el que se le pide que proporcione más información para que se le permita acceder a su cuenta.
 
 ![Mensaje en el que se pide más información](media/security-info/securityinfo-prompt.png)
 
 ## <a name="set-up-your-security-info-using-the-wizard"></a>Configuración de la información de seguridad mediante el asistente
+
 Siga estos pasos para configurar la información de seguridad de su cuenta profesional o educativa desde el mensaje.
 
 >[!Important]
@@ -41,7 +44,7 @@ Siga estos pasos para configurar la información de seguridad de su cuenta profe
 
    > [!Note]
    > Si desea usar una aplicación de autenticación que no sea Microsoft Authenticator, seleccione el vínculo **Quiero usar otra aplicación de autenticación**.
-   > 
+   >
    > Si su organización le permite elegir un método que no sea la aplicación de autenticación, puede seleccionar el vínculo **I want to set up a different method** (Quiero configurar otro método).
 
     ![El Asistente para mantener la cuenta segura, que muestra la página de descarga de la aplicación de autenticación](media/security-info/securityinfo-prompt-get-auth-app.png)

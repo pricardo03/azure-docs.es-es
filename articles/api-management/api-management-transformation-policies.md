@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 28720098206c7afdefacbd47de283b2ef8d5a606
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b55502bbc24868b6d8b0352f581bbf4adc81e53a
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243241"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442249"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -87,7 +87,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 -   **Secciones de la directiva:** entrante, saliente y en caso de error
 
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="ConvertXMLtoJSON"></a> Conversión de XML a JSON
  La directiva `xml-to-json` convierte un cuerpo de solicitud o respuesta de XML a JSON. Esta directiva puede usarse para modernizar API basadas en servicios web de back-end de solo XML.
@@ -131,7 +131,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 -   **Secciones de la directiva:** entrante, saliente y en caso de error
 
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="Findandreplacestringinbody"></a> Buscar y reemplazar la cadena en el cuerpo
  La política `find-and-replace` busca una subcadena de solicitud o de respuesta y la sustituye por otra distinta.
@@ -164,9 +164,9 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
--   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error
+-   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="MaskURLSContent"></a> Enmascarar URL en el contenido
  La directiva `redirect-content-urls` reescribe (enmascara) los vínculos del cuerpo de la respuesta para que apunten al vinculo equivalente a través de la puerta de enlace. Utilícela en la sección saliente a fin de rescribir los vínculos del cuerpo de la respuesta para hacer que apunten a la puerta de enlace. Úsela en la sección entrante para obtener el resultado opuesto.
@@ -197,7 +197,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 -   **Secciones de la directiva:** entrante y saliente
 
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="SetBackendService"></a> Establecer el servicio back-end
  Use la directiva `set-backend-service` a fin de redirigir una solicitud entrante a un back-end distinto al especificado en la configuración de la API para esa operación. Esta directiva cambia la dirección URL base del servicio back-end de la solicitud entrante a la especificada en la directiva.
@@ -282,16 +282,16 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 
 -   **Secciones de la directiva:** entrante y back-end
 
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="SetBody"></a> Establecer cuerpo
  Utilice la directiva `set-body` con la finalidad de establecer el cuerpo del mensaje para las solicitudes entrantes y salientes. Para acceder al cuerpo del mensaje, puede utilizar las propiedades `context.Request.Body` o `context.Response.Body`, según si la directiva se encuentra en la sección entrante o saliente.
 
 > [!IMPORTANT]
 >  Tenga en cuenta que, de forma predeterminada, al acceder al cuerpo del mensaje mediante `context.Request.Body` o `context.Response.Body`, se pierde el cuerpo del mensaje original y se debe establecer devolviendo el cuerpo en la expresión. Para conservar el contenido del cuerpo, establezca el parámetro `preserveContent` en `true` al acceder al mensaje. Si `preserveContent` está establecido en `true` y la expresión devuelve un cuerpo distinto, se utiliza el que se devuelva.
-> 
+>
 >  Tenga en cuenta las siguientes consideraciones al utilizar la directiva `set-body`.
-> 
+>
 > - Si usa la directiva `set-body` para devolver un cuerpo nuevo o actualizado, no hay que establecer `preserveContent` en `true` porque estará especificando explícitamente el nuevo contenido del cuerpo.
 >   -   No tiene sentido conservar el contenido de una respuesta en la canalización de entrada porque todavía no hay ninguna respuesta.
 >   -   De igual modo, no tiene sentido conservar el contenido de una solicitud en la canalización de salida porque la solicitud ya se ha enviado al servidor en este momento.
@@ -401,7 +401,7 @@ La directiva `set-body` se puede configurar para usar el lenguaje de plantillas 
 |----------|-----------------|--------------|
 |set-body|Elemento raíz. Contiene el cuerpo del texto o una expresión que devuelve un cuerpo.|Sí|
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
@@ -452,7 +452,7 @@ OriginalUrl.
 
 -   **Secciones de la directiva:** entrante, saliente y back-end
 
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="SetHTTPheader"></a> Establecer encabezado HTTP
  La directiva `set-header` asigna un valor a un encabezado de respuesta o de solicitud existente o agrega un nuevo encabezado de este tipo.
@@ -509,7 +509,7 @@ OriginalUrl.
 |set-header|Elemento raíz.|Sí|
 |value|Especifica el valor del encabezado que se va a establecer. Para varios encabezados con el mismo nombre, agregue más elementos `value`.|Sí|
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
@@ -519,9 +519,9 @@ OriginalUrl.
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
--   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error
+-   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="SetQueryStringParameter"></a> Establecimiento del parámetro de cadena de consulta
  La directiva `set-query-parameter` agrega o elimina el parámetro de cadena de consulta de la solicitud, o bien sustituye su valor. Se puede utilizar para pasar parámetros de consulta previstos por el servicio back-end que tienen carácter opcional o que nunca están presentes en la solicitud.
@@ -569,7 +569,7 @@ OriginalUrl.
 |set-query-parameter|Elemento raíz.|Sí|
 |value|Especifica el valor del parámetro de consulta que se debe establecer. Para varios parámetros de consulta con el mismo nombre, agregue más elementos `value`.|Sí|
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
@@ -581,7 +581,7 @@ OriginalUrl.
 
 -   **Secciones de la directiva:** entrante y back-end
 
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="RewriteURL"></a> URL de reescritura
  La directiva `rewrite-uri` convierte una dirección URL de solicitud de su forma pública a la que espera recibir el servicio web, como se muestra en el siguiente ejemplo.
@@ -657,9 +657,9 @@ OriginalUrl.
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
--   **Secciones de la directiva:** entrante
+-   **Secciones de la directiva:** inbound (entrada)
 
--   **Ámbitos de la directiva:** global, producto, API, operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="XSLTransform"></a> Transformar XML mediante una XSLT
  La directiva `Transform XML using an XSLT` aplica una transformación XSL al XML del cuerpo de la solicitud o la respuesta.
@@ -723,7 +723,7 @@ OriginalUrl.
 
 -   **Secciones de la directiva:** entrante y saliente
 
--   **Ámbitos de la directiva:** global, producto, API y operación
+-   **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="next-steps"></a>Pasos siguientes
 

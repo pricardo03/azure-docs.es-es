@@ -12,19 +12,21 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9035d68e95798eb238c1836e617e485c39194c4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475876"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383038"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Administración de los dispositivos conectados desde el portal Mi perfil (versión preliminar)
+
 Puede administrar los dispositivos a los que está conectado con la cuenta profesional o educativa, desactivando los que ya no posee, desde la página **Dispositivos** del portal **Mi perfil**.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-connected-devices"></a>Visualización de los dispositivos conectados
+
 1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
 
 2. Seleccione **Dispositivos** en el panel de navegación izquierdo o seleccione el vínculo **Administrar dispositivos** en el bloque **Dispositivos**.
@@ -36,6 +38,7 @@ Puede administrar los dispositivos a los que está conectado con la cuenta profe
     ![Página Dispositivo, que muestra los dispositivos conectados](media/myprofile-portal/myprofile-portal-devices-page.png)
 
 ## <a name="disable-a-device"></a>Deshabilitación de un dispositivo
+
 Puede deshabilitar cualquiera de los dispositivos conectados en cualquier momento. Esto es especialmente importante si un dispositivo no le resulta familiar o si un dispositivo se pierde o lo roban. Después de deshabilitar un dispositivo, la organización ya no podrá autenticarlo y será imposible acceder a ninguno de los recursos de la organización.
 
 >[!Important]

@@ -8,19 +8,19 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 951bd74c67c77c944a17e41646c4fe49ef46b33f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fa215f843fd025d26ba0f583b96f3bb7e63c9ed
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725674"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488723"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Administración de clústeres de HDInsight con Enterprise Security Package
 Aprenda sobre los usuarios y roles de Enterprise Security Package (ESP) de HDInsight y cómo administrar clústeres de ESP.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Uso de VSCode para vincular a un clúster unido a un dominio
 
-Puede vincular un clúster normal mediante un nombre de usuario administrado de Apache Ambari; también puede vincular un clúster de Apache Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com).
+Puede vincular un clúster normal mediante un nombre de usuario administrado de Apache Ambari; también puede vincular un clúster de Apache Hadoop de seguridad mediante un nombre de usuario de dominio (como `user1@contoso.com`).
 1. Para abrir la paleta de comandos, presione **CTRL+MAYÚS+P** y, después, escriba **HDInsight: Link a cluster** (HDInsight: vincular un clúster).
 
    ![comando de clúster de vinculación](./media/apache-domain-joined-manage/link-cluster-command.png)
@@ -40,7 +40,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Uso de IntelliJ para vincular a un clúster unido a un dominio
 
-Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com). 
+Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como `user1@contoso.com`). 
 1. Haga clic en **Link a cluster** (Vincular un clúster) desde **Azure Explorer**.
 
    ![menú contextual de vinculación de un clúster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
@@ -64,7 +64,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Uso de Eclipse para vincular a un clúster unido a un dominio
 
-Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com).
+Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como `user1@contoso.com`).
 1. Haga clic en **Link a cluster** (Vincular un clúster) desde **Azure Explorer**.
 
    ![menú contextual de vinculación de un clúster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)

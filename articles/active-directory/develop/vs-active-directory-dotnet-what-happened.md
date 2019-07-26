@@ -2,6 +2,8 @@
 title: Cambios realizados en un proyecto de MVC al conectarse a Azure AD
 description: Describe lo que sucede a su proyecto de MVC cuando se conecta a Azure AD mediante los servicios conectados de Visual Studio.
 services: active-directory
+ms.service: active-directory
+ms.subservice: develop
 author: ghogen
 manager: douge
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
@@ -13,12 +15,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e40a1fd72adf353d5c4d856544482cb7bd68f43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8a2b73276dd6acc99e91df768ebf613b9e70477
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413997"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320756"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué ha ocurrido a mi proyecto MVC (servicio conectado a Azure Active Directory de Visual Studio)?
 
@@ -34,7 +36,7 @@ Para obtener información sobre cómo trabajar con el servicio conectado, vea [I
 
 Afecta al archivo de proyecto (referencias de \*.NET) y `packages.config` (referencias de NuGet).
 
-| Type | Referencia |
+| type | Referencia |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -49,7 +51,7 @@ Afecta al archivo de proyecto (referencias de \*.NET) y `packages.config` (refer
 
 Referencias adicionales si ha seleccionado la opción **Leer datos de directorio**:
 
-| Type | Referencia |
+| type | Referencia |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (solo Visual Studio 2015) |
@@ -63,7 +65,7 @@ Referencias adicionales si ha seleccionado la opción **Leer datos de directorio
 
 Se quitan las referencias siguientes (solo proyectos de ASP.NET 4, como en Visual Studio 2015):
 
-| Type | Referencia |
+| type | Referencia |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

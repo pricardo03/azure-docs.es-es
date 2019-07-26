@@ -1,7 +1,6 @@
 ---
 title: 'Azure Backup: copia de seguridad de máquinas virtuales de Azure mediante API REST'
 description: Administración de operaciones de copia de seguridad de máquinas virtuales de Azure Backup mediante API REST
-services: backup
 author: pvrk
 manager: shivamg
 keywords: API REST; copia de seguridad de Azure VM; restauración de Azure VM;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 295c4fed9ab674f0c9e812c02f6b82ee53ef1b91
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e78c7ca9e5b39beb160aeef96dbbf6bce07613e4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274854"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466832"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Copia de seguridad de una máquina virtual de Azure mediante Azure Backup a través de la API REST
 

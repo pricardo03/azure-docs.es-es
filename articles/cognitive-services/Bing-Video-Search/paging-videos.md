@@ -1,6 +1,6 @@
 ---
 title: 'Cómo paginar por los vídeos disponibles: Bing Video Search'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo paginar a través de todos los vídeos devueltos por Bing Video Search API.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 12549bb53a21dd657f51a4a02460ddc82c47bef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3570d8772734595c6707ca8103006867a8eb47a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386383"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500720"
 ---
 # <a name="paging-through-video-search-results"></a>Paginación de los resultados de la búsqueda de vídeos
 

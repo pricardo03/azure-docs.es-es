@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f2145811338200b38e84766459844b4c83e5a80
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474304"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382757"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Agregar manualmente una cuenta a la aplicación
+
 Si la cámara no puede capturar el código QR, puede agregar manualmente la información de su cuenta a la aplicación Microsoft Authenticator para realizar la verificación en dos fases. Esta opción funciona tanto para las cuentas profesionales o educativas y como para las cuentas que no sean de Microsoft.
 
 Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de minúsculas y no requieren espacios cuando se agregan a la aplicación Microsoft Authenticator.
@@ -30,7 +31,7 @@ Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de m
 ## <a name="add-your-work-or-school-account"></a>Adición de una cuenta profesional o educativa
 
 1. En su equipo, fíjese en el **código** y la **dirección URL** que se encuentra en la página para **configurar la aplicación móvil**. Mantenga esta página abierta para que pueda ver el código y la dirección URL.
-    
+
     ![Pantalla que proporciona el código QR](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
 2. Abra la aplicación Microsoft Authenticator, seleccione **Agregar cuenta** en el icono **Personalizar y controlar** en la esquina superior derecha y, a continuación, seleccione **Cuenta profesional o educativa**.
@@ -38,7 +39,7 @@ Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de m
 3. Seleccione **OR ENTER CODE MANUALLY** (O BIEN ESCRIBA EL CÓDIGO MANUALMENTE).
 
     ![Pantalla para digitalizar un código QR](./media/user-help-auth-app-add-account-manual/auth-app-manual-code.png)
-   
+
 4. Escriba el **código** y la **dirección URL** del paso 1 y, a continuación, seleccione **Finish** (Finalizar).
 
     ![Pantalla para escribir el código y la dirección URL](./media/user-help-auth-app-add-account-manual/auth-app-code-url.png)
@@ -78,6 +79,7 @@ Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de m
     >Para obtener más información acerca de la verificación en dos fases y su cuenta de Facebook, consulte [¿Qué es la autenticación en dos pasos y cómo funciona?](https://www.facebook.com/help/148233965247823).
 
 ## <a name="add-your-amazon-account"></a>Agregar la cuenta de Amazon
+
 Puede agregar su cuenta personal de Amazon activando primero la verificación en dos fases y, luego, agregando la cuenta a la aplicación.
 
 1. En su equipo, seleccione **Can't scan the barcode** (No se puede detectar el código de barras) en la página **Choose how you'll receive codes** (Seleccione cómo recibirá los códigos) que tiene el código QR.

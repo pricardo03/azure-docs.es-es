@@ -2,8 +2,8 @@
 title: 'Revisión del acceso a los grupos o las aplicaciones en las revisiones de acceso: Azure Active Directory | Microsoft Docs'
 description: Aprenda a revisar el acceso de los miembros del grupo o de las aplicaciones en las revisiones de acceso de Azure Active Directory.
 services: active-directory
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/21/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f73d3bf5e502a758dd46561059c15a2970d9b6
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3be5d6eb443d90d3413510576a9609fe43df7caa
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471824"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499633"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Revisión del acceso a los grupos o las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -46,7 +46,7 @@ El primer paso para realizar una revisión de acceso es buscar y abrir la revisi
 
 Si no tiene el correo electrónico, puede encontrar las revisiones de acceso pendientes mediante estos pasos:
 
-1. Abra el portal de aplicaciones en [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Inicie sesión en el portal de aplicaciones en [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
     ![Portal de aplicaciones con las aplicaciones para las que tiene permiso](./media/perform-access-review/myapps-access-panel.png)
 

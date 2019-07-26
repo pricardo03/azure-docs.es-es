@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.openlocfilehash: a56fab3f8f572f277c11dc566c7d74104226b4fc
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: dd7d8658b8f1fbe01a8928963e7f78d2adbe1d74
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480564"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325503"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>Inicio rápido: Creación de una base de datos de grafos en Azure Cosmos DB mediante el SDK de Java 
 
@@ -150,13 +150,13 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
 
 2. En la ventana del terminal de GIT, use el comando siguiente para instalar los paquetes Java necesarios.
 
-   ```
+   ```git
    mvn package
    ```
 
 3. En la ventana de terminal de GIT, use el siguiente comando para iniciar la aplicación de Java.
     
-    ```
+    ```git
     mvn exec:java -D exec.mainClass=GetStarted.Program
     ```
 

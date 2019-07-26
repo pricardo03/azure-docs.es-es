@@ -13,14 +13,15 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 551bbe4e994e15688c59fd395ab762e14927dfda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6681720fc7c0fe04c99bf7957be14865c663dd67
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482887"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383153"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Realización de una revisión de acceso desde el portal Aplicaciones
+
 Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para ver e iniciar muchas de las aplicaciones de su organización basadas en la nube, actualizar información de su perfil y cuenta, ver su información de **Grupos** y realizar **revisiones de acceso** para sus aplicaciones y grupos. Si no tiene acceso al portal **Aplicaciones**, debe ponerse en contacto con su departamento de soporte técnico para obtener permiso.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
@@ -29,6 +30,7 @@ Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basa
 >Este contenido está diseñado para usuarios. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="manage-access-reviews"></a>Administración de revisiones del acceso
+
 Si el administrador le ha dado permiso para realizar sus propias revisiones de acceso, puede administrar el acceso de grupos o aplicaciones desde el icono **Revisiones de acceso** de la página del portal **Aplicaciones**.
 
 >[!Note]
@@ -36,9 +38,9 @@ Si el administrador le ha dado permiso para realizar sus propias revisiones de a
 
 ### <a name="to-perform-your-access-reviews"></a>Para realizar sus revisiones de acceso
 
-1.  Inicie sesión en su cuenta profesional o educativa.
+1. Inicie sesión en su cuenta profesional o educativa.
 
-2.  Abra el explorador web y vaya a https://myapps.microsoft.com o use el vínculo proporcionado por su organización. Por ejemplo, quizá se le redirija a una página personalizada para la organización, como https://myapps.microsoft.com/contoso.com.
+2. Abra el explorador web y vaya a https://myapps.microsoft.com o use el vínculo proporcionado por su organización. Por ejemplo, quizá se le redirija a una página personalizada para la organización, como https://myapps.microsoft.com/contoso.com.
 
     Aparecerá la página **Aplicaciones**, que muestra todas las aplicaciones basadas en la nube disponibles para su uso y propiedad de su organización.
 
@@ -68,7 +70,7 @@ Si el administrador le ha dado permiso para realizar sus propias revisiones de a
     La revisión de acceso se ha completado y vuelve al portal **Aplicaciones**.
 
     >[!Note]
-    >Puede cambiar el acceso en cualquier momento hasta que el período de revisión de acceso termine. Si quita el acceso a una aplicación o un grupo, no se quita inmediatamente. La eliminación se produce cuando el período de revisión de acceso termina o cuando un administrador cierra la revisión. 
+    >Puede cambiar el acceso en cualquier momento hasta que el período de revisión de acceso termine. Si quita el acceso a una aplicación o un grupo, no se quita inmediatamente. La eliminación se produce cuando el período de revisión de acceso termina o cuando un administrador cierra la revisión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

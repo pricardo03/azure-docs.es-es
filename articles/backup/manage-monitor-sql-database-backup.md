@@ -1,19 +1,18 @@
 ---
 title: Administración y supervisión de bases de datos de SQL Server en una máquina virtual de Azure con copia de seguridad de Azure Backup | Microsoft Docs
 description: En este artículo se describe cómo administrar y supervisar las bases de datos de SQL Server que se ejecutan en una máquina virtual de Azure.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: 913140a51603429e003f04f860bca9b4ddb1c214
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0a864382e54f5c8641aa6da2369eb914011c712c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704877"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464867"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -90,10 +89,11 @@ Para detener la protección de una base de datos:
 
 6. Seleccione **Detener copia de seguridad**.
 
->
+
 > [!NOTE]
-Consulte las siguientes preguntas frecuentes para obtener más información sobre la opción de eliminación de datos: <br/>
-* [Si elimino una base de datos de una instancia protegida automáticamente, ¿qué ocurrirá con las copias de seguridad?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
+>
+Consulte las siguientes preguntas frecuentes para obtener más información sobre la opción de eliminación de datos:
+* [Si elimino una base de datos de una instancia protegida automáticamente, ¿qué ocurrirá con las copias de seguridad?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
 * [Si detengo la operación de copia de seguridad de una base de datos protegida automáticamente, ¿cuál será su comportamiento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >

@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d599607da6653d088f53490ea4d4b5f7f6d0f236
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475119"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382933"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Administración de contraseñas de aplicaciones desde la página Información de seguridad (versión preliminar)
+
 Determinadas aplicaciones, como Outlook 2010, no admiten la verificación en dos pasos. Esta falta de compatibilidad significa que si usa la verificación en dos pasos en la organización, la aplicación no funcionará. Para solucionar este problema, puede crear una contraseña generada automáticamente para usar con cada aplicación sin explorador, independiente de la contraseña normal.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
@@ -39,12 +40,14 @@ Al utilizar las contraseñas de aplicaciones, es importante recordar:
     >Los clientes de Office 2013 (incluido Outlook) admiten nuevos protocolos de autenticación que se pueden usar con la verificación en dos pasos. Esta compatibilidad significa que después de activar la verificación en dos pasos, ya no necesitará contraseñas de aplicaciones para clientes de Office 2013. Para obtener más información, consulte el artículo [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office 2013 y Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
 
 ## <a name="create-new-app-passwords"></a>Creación de una nueva contraseña de aplicaciones
+
 Si utiliza la verificación en dos pasos con su cuenta profesional o educativa y su administrador ha activado la experiencia de información de seguridad, puede crear y eliminar las contraseñas de aplicaciones mediante la página **Información de seguridad**.
 
 >[!Note]
 >Si el administrador no ha activado la experiencia de información de seguridad, debe seguir las instrucciones y la información de la sección [¿Qué son las contraseñas de aplicación en Azure Multi-Factor Authentication?](multi-factor-authentication-end-user-app-passwords.md).
 
 ### <a name="to-create-a-new-app-password"></a>Para crear una nueva contraseña de aplicación
+
 1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
 
     ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile-page.png)
@@ -64,10 +67,11 @@ Si utiliza la verificación en dos pasos con su cuenta profesional o educativa y
 5. Copie el texto del cuadro **Contraseña**, pegue la contraseña en el área de contraseña de aplicaciones (en este ejemplo, Outlook 2010) y, a continuación, seleccione **Listo**.
 
     ![Página de contraseña de aplicación, con el nombre de la aplicación](media/security-info/securityinfo-myprofile-password-copytext.png)
-    
+
     Se agrega la contraseña y puede iniciar sesión correctamente en la aplicación en el futuro.
 
 ## <a name="delete-your-app-passwords"></a>Eliminación de las contraseñas de aplicaciones
+
 Si ya no necesita utilizar una aplicación que requiera una contraseña de aplicaciones, puede eliminar la contraseña de aplicaciones asociada. Si se elimina la contraseña de aplicaciones, se libera uno de los puntos de contraseñas de aplicaciones disponibles para su uso en el futuro.
 
 >[!Important]
@@ -82,4 +86,5 @@ Si ya no necesita utilizar una aplicación que requiera una contraseña de aplic
 2. Seleccione **Sí** en el cuadro de confirmación para eliminar la **contraseña de aplicación**. Una vez eliminada la contraseña de aplicación, se quitará de su información de seguridad y desaparecerá de la página **Información de seguridad**.
 
 ## <a name="for-more-information"></a>Para obtener más información
+
 - Para más información sobre la página **Información de seguridad** y sobre cómo configurarla, consulte [Introducción a la información de seguridad](user-help-security-info-overview.md).

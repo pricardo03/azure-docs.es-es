@@ -1,19 +1,18 @@
 ---
 title: Modelo de datos de registros de Azure Monitor para Azure Backup
 description: Este artículo informa de manera detallada sobre el modelo de datos de registros de Azure Monitor para datos de Azure Backup.
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: 801516ae2cfad891098c16f8cd6e9a4c7f157a93
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6563eefffee0ed8d9ce94c3e0a1e24b0d32314f0
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342009"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466158"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 
@@ -160,7 +159,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con los trabaj
 | DataTransferredInMB_s | Number |Datos transferidos en MB para este trabajo|
 | JobUniqueId_g |Texto |Identificador único que identifica el trabajo |
 | RecoveryJobDestination_s |Texto | Destino de un trabajo de recuperación, donde se recuperan los datos. |
-| RecoveryJobRPDateTime_s |Datetime | La fecha y hora cuando se creó el punto de recuperación que se va a recuperar. |
+| RecoveryJobRPDateTime_s |DateTime | La fecha y hora cuando se creó el punto de recuperación que se va a recuperar. |
 | RecoveryJobRPLocation_s |Texto | La ubicación donde se almacenó el punto de recuperación que se va a recuperar.|
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
 | ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el id. del recurso del almacén de Recovery Services.|

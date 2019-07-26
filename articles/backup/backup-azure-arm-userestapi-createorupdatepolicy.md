@@ -1,7 +1,6 @@
 ---
 title: 'Azure Backup: Creación de directivas de copia de seguridad mediante la API REST'
 description: Administración de directivas de copia de seguridad (programación y retención) mediante la API REST
-services: backup
 author: pvrk
 manager: shivamg
 keywords: API REST; copia de seguridad de Azure VM; restauración de Azure VM;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0729a49c3dc72a28431d711e6783abda96d2ce3
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648812"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466814"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creación de directivas de copia de seguridad de Azure Recovery Services mediante API REST
 
@@ -50,10 +49,10 @@ Los valores de `{policyName}` y `{vaultName}` se proporcionan en el URI. Se prop
 
 Por ejemplo, para crear una directiva para la copia de seguridad de las máquinas virtuales de Azure, los siguientes son los componentes del cuerpo de la solicitud.
 
-|NOMBRE  |Obligatorio  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |Obligatorio  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propiedades de ProtectionPolicyResource        |
-|etiquetas     |         | Objeto        |  Etiquetas del recurso       |
+|etiquetas     |         | Object        |  Etiquetas del recurso       |
 
 Para obtener una lista completa de las definiciones en el cuerpo de la solicitud, consulte el [documento de la directiva de copia de seguridad de API REST](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 
@@ -158,7 +157,7 @@ La creación o actualización de las directivas de copia de seguridad es una [op
 
 Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra operación y, a continuación, 200 (OK) cuando se completa dicha operación.
 
-|NOMBRE  |Type  |DESCRIPCIÓN  |
+|NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |200 OK     |    [Protection PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 - Aceptado     |         |     Accepted    |

@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 502407bbf1cdb47fc8105ed0220babcd9f292faa
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474099"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382699"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Adición de cuentas personales de Microsoft
+
 Agregue sus cuentas personales de Microsoft, como Outlook.com y Xbox LIVE, a la aplicación Microsoft Authenticator tanto para el proceso de verificación en dos fases estándar como para el método de inicio de sesión por teléfono sin contraseña.
 
 - **Método de verificación en dos fases estándar.** Escriba el nombre de usuario y la contraseña en el dispositivo en el que va a iniciar sesión y luego elija si la aplicación Microsoft Authenticator envía una notificación, o si prefiere copiar el código de verificación asociado desde la pantalla **Cuentas** de la aplicación Microsoft Authenticator.
@@ -30,6 +31,7 @@ Agregue sus cuentas personales de Microsoft, como Outlook.com y Xbox LIVE, a la 
 >Para poder agregar su cuenta, debe descargar e instalar la aplicación Microsoft Authenticator. Si no ha hecho aún, siga los pasos descritos en el artículo [Introducción a la aplicación Microsoft Authenticator](user-help-auth-app-download-install.md).
 
 ## <a name="add-your-personal-microsoft-account"></a>Adición de una cuenta personal de Microsoft
+
 Puede agregar su cuenta personal de Microsoft activando primero la verificación en dos fases y, luego, agregando la cuenta a la aplicación.
 
 >[!Note]

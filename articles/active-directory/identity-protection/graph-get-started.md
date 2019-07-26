@@ -2,28 +2,21 @@
 title: Microsoft Graph para Azure Active Directory Identity Protection | Microsoft Docs
 description: Obtenga información sobre cómo realizar una consulta a Microsoft Graph para obtener una lista de eventos de riesgo e información asociada desde Azure Active Directory.
 services: active-directory
-keywords: azure active directory identity protection, evento de riesgo, vulnerabilidad, directiva de seguridad, Microsoft Graph
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 01/25/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
-ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3357cfd5e845346534f263c768b5cf6b6a38ea4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f939811bec312baa1f4c37f0f915d2e881121af
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60296306"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334080"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introducción a Azure Active Directory Identity Protection y Microsoft Graph
 
@@ -32,7 +25,6 @@ Microsoft Graph es el punto de conexión de API unificada de Microsoft y donde s
 * [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
 * [signIn API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
-
 
 ## <a name="connect-to-microsoft-graph"></a>Conexión con Microsoft Graph
 
@@ -48,108 +40,94 @@ Antes de comenzar, necesitará lo siguiente:
 * Privilegios de administrador para crear la aplicación en Azure AD
 * El nombre de dominio del inquilino (por ejemplo, contoso.onmicrosoft.com)
 
-
 ## <a name="retrieve-your-domain-name"></a>Recuperación del nombre de dominio 
 
 1. [Inicie sesión](https://portal.azure.com) en Azure Portal como administrador. 
+1. En el panel de navegación izquierdo,haga clic en **Active Directory**. 
 
-2. En el panel de navegación izquierdo,haga clic en **Active Directory**. 
-   
-    ![Creación de una aplicación](./media/graph-get-started/41.png)
+   ![Creación de una aplicación](./media/graph-get-started/41.png)
 
+1. En la sección **Administrar**, haga clic en **Propiedades**.
 
-3. En la sección **Administrar**, haga clic en **Propiedades**.
+   ![Creación de una aplicación](./media/graph-get-started/42.png)
 
-    ![Creación de una aplicación](./media/graph-get-started/42.png)
-
-4. Copie su nombre de dominio.
-
+1. Copie su nombre de dominio.
 
 ## <a name="create-a-new-app-registration"></a>Creación de un registro de aplicaciones
 
 1. En la página **Active Directory**, en la sección **Administrar**, haga clic en **Registros de aplicaciones**.
 
-    ![Creación de una aplicación](./media/graph-get-started/42.png)
+   ![Creación de una aplicación](./media/graph-get-started/42.png)
 
+1. En el menú de la parte superior, haga clic en **Nuevo registro de aplicaciones**.
 
-2. En el menú de la parte superior, haga clic en **Nuevo registro de aplicaciones**.
-   
-    ![Creación de una aplicación](./media/graph-get-started/43.png)
+   ![Creación de una aplicación](./media/graph-get-started/43.png)
 
-3. En la página **Crear**, realice los pasos siguientes:
-   
-    ![Creación de una aplicación](./media/graph-get-started/44.png)
+1. En la página **Crear**, realice los pasos siguientes:
 
-    a. En el cuadro de texto **Nombre**, escriba el nombre de la aplicación (por ejemplo: AADIP Risk Event API Application).
-   
-    b. Como **Tipo**, seleccione **Aplicación web y/o API web**.
-   
-    c. En el cuadro de texto **URL de inicio de sesión**, escriba `http://localhost`.
+   ![Creación de una aplicación](./media/graph-get-started/44.png)
 
-    d. Haga clic en **Create**(Crear).
+   1. En el cuadro de texto **Nombre**, escriba el nombre de la aplicación (por ejemplo: AADIP Risk Event API Application).
 
-4. Para abrir la página **Configuración**, en la lista de aplicaciones, haga clic en el registro de aplicación recién creado. 
+   1. Como **Tipo**, seleccione **Aplicación web y/o API web**.
 
-5. Copie el **id. de la aplicación**.
+   1. En el cuadro de texto **URL de inicio de sesión**, escriba `http://localhost`.
 
+   1. Haga clic en **Create**(Crear).
+1. Para abrir la página **Configuración**, en la lista de aplicaciones, haga clic en el registro de aplicación recién creado. 
+1. Copie el **id. de la aplicación**.
 
 ## <a name="grant-your-application-permission-to-use-the-api"></a>Conceder a la aplicación permiso para usar la API
 
 1. En la página **Configuración**, haga clic en **Permisos necesarios**.
-   
-    ![Creación de una aplicación](./media/graph-get-started/15.png)
 
-2. En la página **Permisos necesarios**, en la barra de herramientas de la parte superior, haga clic en **Agregar**.
-   
-    ![Creación de una aplicación](./media/graph-get-started/16.png)
-   
-3. En la página **Agregar acceso de API**, haga clic en **Seleccionar una API**.
-   
-    ![Creación de una aplicación](./media/graph-get-started/17.png)
+   ![Creación de una aplicación](./media/graph-get-started/15.png)
 
-4. En la página **Seleccionar una API**, seleccione **Microsoft Graph** y, a continuación, haga clic en **Seleccionar**.
-   
-    ![Creación de una aplicación](./media/graph-get-started/18.png)
+1. En la página **Permisos necesarios**, en la barra de herramientas de la parte superior, haga clic en **Agregar**.
 
-5. En la página **Agregar acceso de API**, haga clic en **Seleccionar permisos**.
-   
-    ![Creación de una aplicación](./media/graph-get-started/19.png)
+   ![Creación de una aplicación](./media/graph-get-started/16.png)
 
-6. En la página **Habilitar acceso**, haga clic en **Read all identity risk information** (Leer toda la información de riesgo de identidad) y, a continuación, haga clic en **Seleccionar**.
-   
-    ![Creación de una aplicación](./media/graph-get-started/20.png)
+1. En la página **Agregar acceso de API**, haga clic en **Seleccionar una API**.
 
-7. En la página **Agregar acceso de API**, haga clic en **Listo**.
-   
-    ![Creación de una aplicación](./media/graph-get-started/21.png)
+   ![Creación de una aplicación](./media/graph-get-started/17.png)
 
-8. En la página **Permisos necesarios**, haga clic en **Conceder permisos** y en **Sí**.
-   
-    ![Creación de una aplicación](./media/graph-get-started/22.png)
+1. En la página **Seleccionar una API**, seleccione **Microsoft Graph** y, a continuación, haga clic en **Seleccionar**.
 
+   ![Creación de una aplicación](./media/graph-get-started/18.png)
 
+1. En la página **Agregar acceso de API**, haga clic en **Seleccionar permisos**.
+
+   ![Creación de una aplicación](./media/graph-get-started/19.png)
+
+1. En la página **Habilitar acceso**, haga clic en **Read all identity risk information** (Leer toda la información de riesgo de identidad) y, a continuación, haga clic en **Seleccionar**.
+
+   ![Creación de una aplicación](./media/graph-get-started/20.png)
+
+1. En la página **Agregar acceso de API**, haga clic en **Listo**.
+
+   ![Creación de una aplicación](./media/graph-get-started/21.png)
+
+1. En la página **Permisos necesarios**, haga clic en **Conceder permisos** y en **Sí**.
+
+   ![Creación de una aplicación](./media/graph-get-started/22.png)
 
 ## <a name="get-an-access-key"></a>Obtención de una clave de acceso
 
 1. En la página **Configuración**, haga clic en **Claves**.
-   
-    ![Creación de una aplicación](./media/graph-get-started/23.png)
 
-2. En la página **Claves**, siga estos pasos:
-   
-    ![Creación de una aplicación](./media/graph-get-started/24.png)
+   ![Creación de una aplicación](./media/graph-get-started/23.png)
 
-    a. En el cuadro de texto **Descripción de la clave**, escriba una descripción (por ejemplo, *Evento de riesgo de AADIP*).
-    
-    b. Como **Duración**, seleccione **1 año**.
+1. En la página **Claves**, siga estos pasos:
 
-    c. Haga clic en **Save**(Guardar).
-   
-    d. Copie el valor de clave y, a continuación, péguelo en una ubicación segura.   
+   ![Creación de una aplicación](./media/graph-get-started/24.png)
+
+   1. En el cuadro de texto **Descripción de la clave**, escriba una descripción (por ejemplo, *Evento de riesgo de AADIP*).
+   1. Como **Duración**, seleccione **1 año**.
+   1. Haga clic en **Save**(Guardar).
+   1. Copie el valor de clave y, a continuación, péguelo en una ubicación segura.   
    
    > [!NOTE]
    > Si pierde esta clave, tendrá que volver a esta sección y crear una nueva. Guarde esta clave como un secreto: cualquier persona que la tenga accederá a sus datos.
-   > 
    > 
 
 ## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Autenticación en Microsoft Graph y consulta a Identity Risk Events API
@@ -157,28 +135,22 @@ Antes de comenzar, necesitará lo siguiente:
 En este momento, debe tener:
 
 - El nombre de dominio del inquilino
-
 - El id. de cliente 
-
 - La clave 
-
 
 Para autenticarse, envíe una solicitud post a `https://login.microsoft.com` con los siguientes parámetros en el cuerpo:
 
 - grant_type: “**client_credentials**”
-
--  resource: `https://graph.microsoft.com`
-
+- resource: `https://graph.microsoft.com`
 - client_id: \<id. de cliente\>
-
 - client_secret: \<su clave\>
-
 
 Si se realiza correctamente, devuelve un token de autenticación.  
 Para llamar a la API, cree un encabezado con el parámetro siguiente:
 
-    `Authorization`=”<token_type> <access_token>"
-
+```
+`Authorization`=”<token_type> <access_token>"
+```
 
 Al autenticar, puede encontrar el tipo de token y el token de acceso en el token devuelto.
 
@@ -189,6 +161,7 @@ La respuesta, si se ha realizado correctamente, es una colección de eventos de 
 Este es el código de ejemplo para autenticar y llamar a la API mediante PowerShell.  
 Solo tiene que agregar el identificador de cliente, la clave secreta y el dominio del inquilino.
 
+```PowerShell
     $ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
     $ClientSecret   = "<your client secret here>"    # Should be a ~44 character string; insert your info here
     $tenantdomain   = "<your tenant domain here>"    # For example, contoso.onmicrosoft.com
@@ -216,6 +189,7 @@ Solo tiene que agregar el identificador de cliente, la clave secreta y el domini
     } else {
         Write-Host "ERROR: No Access Token"
     } 
+```
 
 ## <a name="query-the-apis"></a>Consulta de las API
 
@@ -244,27 +218,17 @@ Si cree que un usuario puede haber estado en peligro, puede conocer mejor el est
 ```
 https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
 ```
-
-
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Enhorabuena, acaba de hacer la primera llamada a Microsoft Graph.  
 Ahora puede consultar los eventos de riesgo de identidad y utilizar los datos cuando lo estime necesario.
 
-
 Para obtener más información sobre Microsoft Graph y cómo crear aplicaciones con Graph API, consulte la [documentación](https://docs.microsoft.com/graph/overview) y muchos más detalles en el [sitio web de Microsoft Graph](https://developer.microsoft.com/graph). 
-
 
 Para obtener información relacionada, consulte:
 
--  [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-
--  [Types of risk events detected by Azure Active Directory Identity Protection (Tipos de eventos de riesgo que detecta Azure Active Directory Identity Protection)](../reports-monitoring/concept-risk-events.md)
-
+- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Types of risk events detected by Azure Active Directory Identity Protection (Tipos de eventos de riesgo que detecta Azure Active Directory Identity Protection)](../reports-monitoring/concept-risk-events.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
-
 - [Overview of Microsoft Graph (Información general de Microsoft Graph)](https://developer.microsoft.com/graph/docs)
-
 - [Azure AD Identity Protection Service Root (Raíz del servicio de Azure AD Identity Protection)](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)

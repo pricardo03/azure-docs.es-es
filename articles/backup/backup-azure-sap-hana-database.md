@@ -1,19 +1,18 @@
 ---
 title: Hacer una copia de seguridad de una base de datos de SAP HANA a Azure con Azure Backup | Microsoft Docs
 description: En este tutorial se explica cómo hacer una copia de seguridad de una base de datos de SAP HANA en Azure con el servicio Azure Backup.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: 1c5c38e9af58aa9468fb0e22491327d3a35f0dda
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 6ac686484ddafc47410cddebea3f789332f9286a
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67656664"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465461"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Hacer una copia de seguridad de una base de datos de SAP HANA
 

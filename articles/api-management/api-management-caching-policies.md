@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 08b6f803d6994015432bf68c7b3edae14af8f976
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b74c0d8dc0daa7bb86c2884f5e574fdc579ba44
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61095466"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442378"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -122,7 +122,7 @@ Para obtener más información, consulte [Policy expressions](api-management-pol
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 - **Secciones de la directiva:** inbound (entrada)
-- **Ámbitos de la directiva:** API, operation, product
+- **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="StoreToCache"></a> Store to cache (Almacenar en la caché)
 La directiva `cache-store` almacena en caché las respuestas según la configuración de caché especificada. Esta directiva se puede aplicar en aquellos casos en los que el contenido de respuesta permanezca estático durante un período de tiempo. El almacenamiento en caché de respuesta reduce el ancho de banda y los requisitos de procesamiento impuestos sobre el servidor web de back-end y disminuye la latencia percibida por los consumidores de API.
@@ -194,7 +194,7 @@ Para obtener más información, consulte [Policy expressions](api-management-pol
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.
 
 - **Secciones de la directiva:** outbound
-- **Ámbitos de la directiva:** API, operation, product
+- **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="GetFromCacheByKey"></a> Get value from cache (Obtener valor de la caché)
 Use la directiva `cache-lookup-value` para realizar la búsqueda en la caché por clave y devolver un valor almacenado en caché. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.
@@ -240,7 +240,7 @@ Para más información y ver ejemplos de esta directiva, consulte [Custom cachin
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 - **Secciones de la directiva:** inbound, outbound, backend, on-error
-- **Ámbitos de la directiva:** global, API, operación, producto
+- **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="StoreToCacheByKey"></a> Store value in cache (Almacenar valor en la caché)
 La directiva `cache-store-value` realiza el almacenamiento en caché mediante una clave. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.
@@ -282,7 +282,7 @@ Para más información y ver ejemplos de esta directiva, consulte [Custom cachin
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 - **Secciones de la directiva:** inbound, outbound, backend, on-error
-- **Ámbitos de la directiva:** global, API, operación, producto
+- **Ámbitos de la directiva:** todos los ámbitos
 
 ### <a name="RemoveCacheByKey"></a> Remove value from cache (Quitar valor de la caché)
 La directiva `cache-remove-value` elimina un elemento almacenado en caché identificado por su clave. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.
@@ -320,7 +320,7 @@ La directiva `cache-remove-value` elimina un elemento almacenado en caché ident
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 - **Secciones de la directiva:** inbound, outbound, backend, on-error
-- **Ámbitos de la directiva:** global, API, operación, producto
+- **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
