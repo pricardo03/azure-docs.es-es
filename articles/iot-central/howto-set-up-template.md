@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: d27fd9460685c08a2b13936415935f5aaf893797
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509548"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622407"
 ---
 # <a name="set-up-a-device-template"></a>Configuración de una plantilla de dispositivo
 
@@ -150,7 +150,7 @@ assetloc: {
 
 ## <a name="settings"></a>Configuración
 
-La configuración controla un dispositivo. Permite a los operadores proporcionar entradas al dispositivo. Puede agregar varias configuraciones a la plantilla de dispositivo que aparecen como iconos en la pestaña **Configuración** para que los operadores los utilicen. Puede agregar muchos tipos de valores: número, texto, fecha, alternar, lista de selección y etiqueta de sección.
+La configuración controla un dispositivo. Permite a los operadores proporcionar entradas al dispositivo. Puede agregar varias configuraciones a la plantilla de dispositivo que aparecen como iconos en la pestaña **Configuración** para que los operadores los utilicen. Puede agregar muchos tipos de valores: número, texto, fecha, alternancia y etiqueta de sección.
 
 La configuración puede tener uno de estos tres estados. El dispositivo notifica estos estados.
 

@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: 6c0fa0a3166dce5aa6adc71a46555a24d899c96b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 86f8c6e527f58a7c4cfca6233165f0ab05426409
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441361"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672570"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flujos de dispositivos IoT Hub (versión preliminar)
 
@@ -82,7 +82,7 @@ Tanto el lado del dispositivo como del servicio de un flujo de dispositivos debe
 
 !["Puntos de conexión del flujo de dispositivo"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
-Como alternativa, la información sobre los puntos de conexión se puede recuperar mediante la CLI de Azure en la sección de propiedades del centro, específicamente, con las teclas `property.hostname` y `property.deviceStreams`.
+Como alternativa, la información de los puntos de conexión se puede recuperar mediante la CLI de Azure en la sección de propiedades del centro, específicamente, con las teclas `property.hostname` y `property.deviceStreams`.
 
 ```azurecli-interactive
 az iot hub devicestream show --name <YourIoTHubName>

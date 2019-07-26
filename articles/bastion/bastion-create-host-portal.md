@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 65116ebbd6a66241a5b35a39f3dfb8f826a3745f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477879"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594271"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Creación de un host de Azure Bastion (versión preliminar)
 
@@ -57,7 +57,7 @@ Esta sección le ayuda a crear un recurso de Azure Bastion desde Azure Portal.
     * **Subred**: subred de la red virtual en la que se implementará el nuevo recurso de host de Bastion. Debe crear una subred con el valor de nombre **AzureBastionSubnet**. Este valor permite a Azure saber en qué subred se deben implementar los recursos de Bastion. Esto no es lo mismo que una subred de puerta de enlace. Recomendamos encarecidamente que use al menos una subred /27 o mayor (/27, /26, etc.). Cree la subred **AzureBastionSubnet** sin grupos de seguridad de red, tablas de rutas ni delegaciones.
     * **Dirección IP pública**: dirección IP pública del recurso de Bastion en la que se accederá a RDP/SSH (a través del puerto 443). Cree una dirección IP pública o use una existente. La dirección debe estar en la misma región que el recurso de Bastion que está creando.
     * **Nombre de dirección IP pública**: nombre del recurso de la dirección IP pública.
-    * **SKU de la dirección IP pública**: está rellenada previamente de forma predeterminada como **Estándar**.
+    * **SKU de la dirección IP pública**: está rellenada previamente de forma predeterminada como **Estándar**. Azure Bastion solo usa o admite la SKU de IP pública estándar.
     * **Asignación**: está rellenada previamente de forma predeterminada como **Estática**.
 
 1. Cuando termine de especificar la configuración, haga clic en **Revisar + Crear**. Esto valida los valores. Una vez que se apruebe la validación, podrá comenzar el proceso de creación.

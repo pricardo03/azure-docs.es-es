@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36429feed99c421984ed55d4e506954aa30f0040
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482127"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666137"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos para: Planeación de la implementación de la unión a Azure AD
 
@@ -70,7 +70,7 @@ Un entorno federado debe tener un proveedor de identidades que admita los protoc
 - **WS-Fed:** este protocolo es necesario para unir un dispositivo a Azure AD.
 - **WS-Trust:** este protocolo es necesario para iniciar sesión en un dispositivo unido a Azure AD. 
 
-Si el proveedor de identidades no admite estos protocolos, la opción Unión a Azure AD no funcionará de forma nativa. A partir de Windows 10 1809, los usuarios pueden iniciar sesión en un dispositivo unido a Azure AD con un proveedor de identidades basado en SAML mediante el [Inicio de sesión web en Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Actualmente, el inicio de sesión web es una característica disponible solamente en versión preliminar.
+Si el proveedor de identidades no admite estos protocolos, la opción Unión a Azure AD no funcionará de forma nativa. A partir de Windows 10 1809, los usuarios pueden iniciar sesión en un dispositivo unido a Azure AD con un proveedor de identidades basado en SAML mediante el [Inicio de sesión web en Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Actualmente, el inicio de sesión web es una característica en vista previa y no se recomienda para las implementaciones de producción.
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Tarjetas inteligentes y autenticación basada en certificados
 

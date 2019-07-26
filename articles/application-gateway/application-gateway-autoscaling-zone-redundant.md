@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8e79fd1a839113cad5a3a36c01855d98793d7032
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205014"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655309"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -35,7 +35,7 @@ La nueva SKU v2 incluye las siguientes mejoras:
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-La SKU Standard_v2 y WAF_v2 está disponible en las siguientes regiones: Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Europa del Norte, Europa Occidental, Sudeste Asiático, Centro de Francia, Oeste de Reino Unido, Este de Japón, Oeste de Japón. En el futuro, se agregarán más regiones.
+La SKU Standard_v2 y WAF_v2 está disponible en las siguientes regiones: Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Norte de Europa, Europa Occidental, Sudeste Asiático, Centro de Francia, Oeste de Reino Unido, Japón Oriental, Japón Occidental, Este de Australia, Sudeste de Australia, Centro de Canadá, Este de Canadá, Asia Oriental, Centro de Corea del Sur, Sur de Corea del Sur, India del Sur, Sur de Reino Unido, Centro de la India, Oeste de la India, India del Sur.
 
 ## <a name="pricing"></a>Precios
 

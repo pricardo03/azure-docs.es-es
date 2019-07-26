@@ -2,17 +2,17 @@
 title: Usar el escalado automático de clústeres en Azure Kubernetes Service (AKS)
 description: Aprenda a usar el escalado automático de clústeres para escalar automáticamente el clúster con el fin de satisfacer las necesidades de su aplicación en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: c4fe05c96b1006a7d110caa019619ce8be396fe8
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 3ce080871ff2a38efcc75f6ff6b584af14014879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491567"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666015"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Versión preliminar: Escalado automático de un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -100,7 +100,7 @@ Los dos escalados automáticos pueden funcionar juntos y a menudo se implementan
 Si necesita crear un clúster de AKS, use el comando [az aks create][az-aks-create]. Especifique un valor en *--kubernetes-version* que coincida con el número de versión mínimo necesario o lo supere, tal como se describe en la sección anterior [Antes de comenzar](#before-you-begin). Para habilitar y configurar el escalado automático de clústeres, use el parámetro *--enable-cluster-autoscaler* y especifique un nodo *--min-count* y *--max-count*.
 
 > [!IMPORTANT]
-> El escalador automático del clúster es un componente de Kubernetes. Aunque el clúster de AKS usa un conjunto de escalado de máquinas virtuales para los nodos, no habilite ni edite manualmente la configuración de escalado automático del conjunto de escalado en Azure Portal o mediante la CLI de Azure. Permita que el escalador automático del clúster de Kubernetes administre la configuración del escalado necesaria. Para más información, consulte [¿Puedo modificar los recursos de AKS en el grupo de recursos MC_?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
+> El escalador automático del clúster es un componente de Kubernetes. Aunque el clúster de AKS usa un conjunto de escalado de máquinas virtuales para los nodos, no habilite ni edite manualmente la configuración de escalado automático del conjunto de escalado en Azure Portal o mediante la CLI de Azure. Permita que el escalador automático del clúster de Kubernetes administre la configuración del escalado necesaria. Para más información, consulte [¿Puedo modificar los recursos de AKS en el grupo de recursos del nodo?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
 En el ejemplo siguiente se crea un clúster de AKS con un conjunto de escalado de máquinas virtuales y el escalado automático de clústeres habilitado; asimismo, se usará un mínimo de *1* y un máximo de *3* nodos:
 

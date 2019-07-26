@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a951ebd46335ad4639b8499283ddd30f13edd64e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296206"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605649"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos en directo y salidas en vivo
 
@@ -142,7 +142,7 @@ Puede usar direcciones URL que sean mnemónicas o no mnemónicas.
 
 ## <a name="live-event-preview-url"></a>Dirección URL de vista previa de objeto LiveEvent
 
-Cuando el **objeto LiveEvent** comienza a recibir la fuente de contribución, puede utilizar el punto de conexión de vista previa para obtener una vista previa y validar que está recibiendo el streaming en vivo antes de seguir publicándola. Después de haber comprobado que la secuencia de vista previa es buena, puede usar el evento en directo para que el streaming en vivo esté disponible para su entrega mediante uno o más **puntos de conexión de streaming** (creados previamente). Para ello, cree un nuevo [objeto LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) en el **objeto LiveEvent**. 
+Cuando el objeto LiveEvent comienza a recibir la fuente de contribución, puede usar el punto de conexión de vista previa para obtener una vista previa y validar que está recibiendo el streaming en vivo antes de continuar con la publicación. Después de haber comprobado que la secuencia de vista previa es buena, puede usar el evento en directo para que el streaming en vivo esté disponible para su entrega mediante uno o más puntos de conexión de streaming (creados previamente). Para ello, cree un objeto [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) en el objeto LiveEvent. 
 
 > [!IMPORTANT]
 > Asegúrese de que el vídeo fluye a la dirección URL de vista previa antes de continuar.
@@ -158,11 +158,11 @@ Una vez que la secuencia fluye en el objeto LiveEvent, puede comenzar el evento 
 > [!NOTE]
 > Los objetos LiveOutput comienzan al crearlos y se detienen cuando se eliminan. Cuando se elimina el objeto LiveOutput, no se elimina el recurso subyacente ni su contenido. 
 
-La relación entre un objeto **LiveEvent** y su objeto **LiveOutput** es similar a la difusión de televisión tradicional, en la que un canal (objeto **LiveEvent**) representa un flujo constante de vídeo y una grabación (objeto **LiveOutput**) tiene un ámbito que está limitado a un segmento de tiempo específico (por ejemplo, las noticias de la tarde, que se emiten de 18:30 a 19:00). Puede grabar un programa de televisión utilizando una grabadora de vídeo digital (DVR). La característica equivalente de los eventos en directo se administra con la propiedad **ArchiveWindowLength**. Se trata de una duración de timespan ISO 8601 (por ejemplo, PTHH:MM:SS), que especifica la capacidad de la DVR y se puede establecer desde un mínimo de 3 minutos hasta un máximo de 25 horas.
+La relación entre un objeto **LiveEvent** y sus objetos **LiveOutput** es similar a la difusión de televisión tradicional, en la que un canal (LiveEvent) representa un flujo constante de vídeo y una grabación (LiveOutput) tiene un ámbito que está limitado a un segmento de tiempo específico (por ejemplo, las noticias de la tarde, que se emiten de 18:30 a 19:00). Puede grabar un programa de televisión con una grabadora de vídeo digital (DVR). La característica equivalente de los eventos en directo se administra con la propiedad **archiveWindowLength**. Se trata de una duración de timespan ISO 8601 (por ejemplo, PTHH:MM:SS), que especifica la capacidad de la DVR y se puede establecer desde un mínimo de 3 minutos hasta un máximo de 25 horas.
 
-El objeto **LiveOutput** es como una grabadora que capta y graba el streaming en vivo en un recurso de su cuenta de Media Services. El contenido grabado persistirá en la cuenta de Azure Storage adjunta a su cuenta, en el contenedor definido por el recurso. El objeto **LiveOuput** también le permite controlar las propiedades de la transmisión saliente en vivo, como qué parte de la transmisión se conserva en la grabación del archivo (por ejemplo, la capacidad de la DVR en la nube) y si los usuarios pueden empezar a ver la transmisión en vivo o no. El archivo en disco es una "ventana" circular de archivo que solo contiene la cantidad de contenido que se especifica en la propiedad **archiveWindowLength** del objeto **LiveOutput**. El contenido que está fuera de esta ventana se descarta automáticamente del contenedor de almacenamiento y no se puede recuperar. Puede crear varios objetos **LiveOutput** (hasta un máximo de tres) en un objeto **LiveEvent** con diferentes longitudes y configuraciones de archivo.  
+El objeto LiveOutput es como una grabadora que capta y graba el streaming en vivo en un recurso de su cuenta de Media Services. El contenido grabado persistirá en la cuenta de Azure Storage adjunta a su cuenta, en el contenedor definido por el recurso. El objeto LiveOuput también le permite controlar algunas propiedades del streaming en vivo saliente, como qué parte de la transmisión se conserva en la grabación del archivo (por ejemplo, la capacidad de la DVR en la nube) y si los usuarios pueden empezar a ver el streaming en vivo o no. El archivo en disco es una "ventana" circular de archivo que solo incluye la cantidad de contenido que se especifica en la propiedad archiveWindowLength de LiveOutput. El contenido que está fuera de esta ventana se descarta automáticamente del contenedor de almacenamiento y no se puede recuperar. Puede crear varios objetos LiveOutput (hasta un máximo de tres) en un objeto LiveEvent con diferentes longitudes y configuraciones de archivo.  
 
-Si ha publicado el **recurso** del objeto **LiveOutput** mediante un objeto **StreamingLocator**, el objeto **LiveEvent** (hasta la longitud de la ventana de DVR) seguirá estando visible hasta la expiración o eliminación del objeto StreamingLocator, lo que ocurra primero.
+Si ha publicado el **recurso** del objeto LiveOutput mediante un objeto **StreamingLocator**, el objeto LiveEvent (hasta la longitud de la ventana de DVR) seguirá estando visible hasta la expiración o eliminación del objeto StreamingLocator, lo que ocurra primero.
 
 Para más información, consulte [Uso de una DVR en la nube](live-event-cloud-dvr.md).
 

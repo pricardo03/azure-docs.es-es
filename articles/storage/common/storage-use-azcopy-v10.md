@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 56b8099d1b777eff935c2b7ae075f8d104e50439
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 94aca33b2f12c1c39297221a856296dcca052b0f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561511"
+ms.locfileid: "67565797"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -84,10 +84,13 @@ Estos roles pueden asignarse a la identidad en cualquiera de estos ámbitos:
 
 - Contenedor (sistema de archivos)
 - Cuenta de almacenamiento
-- Grupos de recursos
+- Resource group
 - Subscription
 
 Para aprender a verificar y asignar roles, consulte [Conceder acceso a datos blob y cola de Azure con RBAC en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+> [!NOTE] 
+> Tenga en cuenta que las asignaciones de roles RBAC pueden tardar hasta cinco minutos en propagarse.
 
 No es necesario tener asignado uno de estos roles a su entidad de seguridad si esta se agrega a la lista de control de acceso (ACL) del directorio o contenedor de destino. En la ACL, la entidad de seguridad necesita permiso de escritura en el directorio de destino y permiso de ejecución en el contenedor y cada directorio primario.
 

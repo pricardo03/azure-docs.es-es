@@ -1,6 +1,6 @@
 ---
-title: Carga y almacenamiento en la nube con Azure Media Services | Microsoft Docs
-description: Este artículo trata los conceptos de carga y almacenamiento en la nube.
+title: Cuentas de Azure Storage con cuentas de Azure Media Services | Microsoft Docs
+description: Al crear una cuenta de Media Services, debe proporcionar el nombre de un recurso de cuenta de Azure Storage. La cuenta de almacenamiento especificada está asociada a su cuenta de Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,27 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550145"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619295"
 ---
-# <a name="cloud-upload-and-storage"></a>Carga y almacenamiento en la nube
+# <a name="azure-storage-accounts"></a>Cuentas de Azure Storage
 
 Para iniciar la administración, el cifrado, la codificación, el análisis y el streaming de contenido multimedia en Azure, debe crear una cuenta de Media Services. Al crear una cuenta de Media Services, debe proporcionar el nombre de un recurso de cuenta de Azure Storage. La cuenta de almacenamiento especificada está asociada a su cuenta de Media Services. 
 
 La cuenta de Media Services y todas las cuentas de almacenamiento asociadas deben estar en la misma suscripción de Azure. Se recomienda encarecidamente usar cuentas de almacenamiento que se encuentren en la misma ubicación que la cuenta de Media Services para evitar costos adicionales debidos a la latencia y a la salida de datos.
 
-Debe tener una cuenta de almacenamiento **Principal** y puede tener cualquier número de cuentas de almacenamiento **Secundarias** asociadas a su cuenta de Media Services. Media Services admite cuentas de **Uso general v2** (GPv2) o **Uso general v1** (GPv1). 
+Debe tener una cuenta de almacenamiento **Principal** y puede tener cualquier número de cuentas de almacenamiento **Secundarias** asociadas a su cuenta de Media Services. Media Services admite cuentas de **Uso general v2** (GPv2) o **Uso general v1** (GPv1). <br/>No se permiten cuentas de solo BLOB como **Principal**. 
 
->[!NOTE]
-> No se permiten cuentas de solo BLOB como **Principal**. 
+Se recomienda usar GPv2 para que pueda sacar provecho de las últimas características y rendimiento. Para más información sobre las cuentas de almacenamiento, consulte la [Información general acerca de la cuenta de Azure Storage](../../storage/common/storage-account-overview.md).
 
-Se recomienda usar GPv2 para que pueda tener la ventaja de elegir entre niveles de acceso frecuente y niveles de acceso esporádico. Para más información sobre las cuentas de almacenamiento, consulte la [Información general acerca de la cuenta de Azure Storage](../../storage/common/storage-account-overview.md). 
+> [!NOTE]
+> Solo el nivel de acceso frecuente se admite para su uso con Azure Media Services, aunque los demás niveles de acceso se pueden usar para reducir los costos de almacenamiento del contenido que no se usa activamente.
 
 Hay diferentes SKU que puede elegir para la cuenta de almacenamiento. Para más información, consulte los comandos [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Si quiere experimentar con las cuentas de almacenamiento, use `--sku Standard_LRS`. Sin embargo, al seleccionar una SKU de producción debe considerar `--sku Standard_RAGRS`, que proporciona replicación geográfica para la continuidad empresarial. 
 

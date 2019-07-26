@@ -1,19 +1,18 @@
 ---
 title: Solución de errores de copia de seguridad con máquinas virtuales de Azure
 description: Solución de problemas de copia de seguridad y restauración de máquinas virtuales de Azure
-services: backup
 author: srinathvasireddy
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: srinathv
-ms.openlocfilehash: d7b99e7076e52db004bba7155922f4b144f2ad0a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4f95192aa2b3c5890a3cafbb442f9f15ebee9280
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704895"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465199"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
 Puede solucionar los errores detectados al usar Azure Backup Server con la información que aparece a continuación:

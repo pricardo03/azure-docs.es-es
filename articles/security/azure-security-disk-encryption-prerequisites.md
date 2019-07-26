@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6874258c31d4dd7d2a0aa0042624ee57616c0a89
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 8e01815cee0d6e39f6f773e9838b2a8b60638ab1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234283"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672295"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Requisitos previos de Azure Disk Encryption
 
@@ -26,28 +26,83 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_OSs"></a> Sistemas operativos compatibles
-Azure Disk Encryption es compatible con los siguientes sistemas operativos:
+## <a name="supported-vm-sizes"></a>Tamaños de máquinas virtuales que se admiten
 
-- Versiones de Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core y Windows Server 2016 Server core.
-En el caso de Windows Server 2008 R2, debe tener .NET Framework 4.5 instalado para poder habilitar el cifrado en Azure. Instalar desde Windows Update con la actualización opcional Microsoft .NET Framework 4.5.2 para sistemas basados en x64 64 de Windows Server 2008 R2 (KB2901983).
-- Núcleo de Windows Server 2012 R2 y Windows Server 2016 Core son compatibles con Azure Disk Encryption, una vez instalado el componente bdehdcfg en la máquina virtual.
-- Versiones de cliente Windows: Cliente Windows 8 y Windows 10.
-- Azure Disk Encryption solo se admite en distribuciones y versiones específicas del servidor Linux basadas en la Galería de Azure. Para la lista de versiones admitidas actualmente, consulte [Preguntas más frecuentes de Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Hacer referencia a la [distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md) para obtener la lista de imágenes compatibles de Microsoft y el [distribuciones de Linux lo admite Azure Disk Encryption?](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) en el [Azure Preguntas más frecuentes de cifrado de disco](azure-security-disk-encryption-faq.md) para obtener la lista de versiones admitidas actualmente en función de las distribuciones aprobadas de imagen.
+Azure Disk Encryption está disponible en las máquinas virtuales que cumplen estos requisitos mínimos de memoria:
+
+| Máquina virtual | Requisito mínimo de memoria |
+|--|--|
+| Máquinas virtuales Windows | 2 GB |
+| VM de Linux cuando solo se cifran volúmenes de datos| 2 GB |
+| VM de Linux cuando se cifran volúmenes de datos y del SO, y donde el uso del sistema de archivos raíz (/) es 4 GB o menos | 8 GB |
+| VM de Linux cuando se cifran volúmenes de datos y del SO, y donde el uso del sistema de archivos raíz (/) es mayor que 4 GB | El uso del sistema de archivos raíz * 2. Por ejemplo, un uso de 16 GB del sistema de archivos raíz requiere al menos 32 GB de RAM |
+
+Una vez completado el proceso de cifrado de disco del sistema operativo en las máquinas virtuales de Linux, la VM se puede configurar para que se ejecute con menos memoria. 
+
+> [!NOTE]
+> El cifrado de disco del sistema operativo Linux no está disponible para [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml).
+
+Azure Disk Encryption también está disponible para las VM con almacenamiento Premium. 
+
+## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+
+### <a name="windows"></a>Windows
+
+- Cliente Windows: Windows 8 y versiones posteriores.
+- Windows Server: Windows Server 2008 R2 y versiones posteriores.  
+ 
+> [!NOTE]
+> Windows Server 2008 R2 requiere la instalación de .NET Framework 4.5 para el cifrado; instálelo desde Windows Update con la actualización opcional Microsoft .NET Framework 4.5.2 para sistemas basados en Windows Server 2008 R2 x64 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
+>  
+> Windows Server 2012 R2 Core y Windows Server 2016 Core requieren la instalación del componente bdehdcfg en la máquina virtual para el cifrado.
+
+
+### <a name="linux"></a>Linux 
+
+Azure Disk Encryption se admite en un subconjunto de las [distribuciones de Linux aprobadas por Azure](../virtual-machines/linux/endorsed-distros.md), que es en sí mismo un subconjunto de todas las posibles distribuciones de servidores Linux.
+
+![Diagrama de Venn de distribuciones de servidores Linux que admiten Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Las distribuciones de servidores Linux que no están aprobadas por Azure no admiten Azure Disk Encryption y, de las que están aprobadas, solo las siguientes distribuciones y versiones admiten Azure Disk Encryption:
+
+| Distribución de Linux | Versión | Tipo de volumen admitido para el cifrado|
+| --- | --- |--- |
+| Ubuntu | 18,04| Sistema operativo y disco de datos |
+| Ubuntu | 16.04| Sistema operativo y disco de datos |
+| Ubuntu | 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Sistema operativo y disco de datos |
+| RHEL | 7.6 | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RHEL | 7.5 | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RHEL | 7.4 | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RHEL | 7.3 | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RHEL | 7,2 | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RHEL | 6,8 | Disco de datos (véase la nota siguiente) |
+| RHEL | 6.7 | Disco de datos (véase la nota siguiente) |
+| CentOS | 7.6 | Sistema operativo y disco de datos |
+| CentOS | 7.5 | Sistema operativo y disco de datos |
+| CentOS | 7.4 | Sistema operativo y disco de datos |
+| CentOS | 7.3 | Sistema operativo y disco de datos |
+| CentOS | 7.2n | Sistema operativo y disco de datos |
+| CentOS | 6,8 | Disco de datos |
+| openSUSE | 42.3 | Disco de datos |
+| SLES | 12-SP4 | Disco de datos |
+| SLES | 12-SP3 | Disco de datos |
+
+> [!NOTE]
+> La nueva implementación de ADE se admite para el sistema operativo RHEL y el disco de datos para las imágenes de pago por uso de RHEL7. ADE actualmente no se admite para las imágenes de tipo "Trae tu propia suscripción" (BYOS) de RHEL. Para más información, consulte [Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md).
+
 - Azure Disk Encryption requiere que el almacén de claves y las máquinas virtuales residan en la misma región y suscripción de Azure. Si se configuran los recursos en regiones distintas, se producirá un error al habilitar la característica Azure Disk Encryption.
 
-## <a name="bkmk_LinuxPrereq"></a> Requisitos previos adicionales para VM IaaS Linux 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Requisitos previos adicionales para VM IaaS Linux 
 
-- Azure Disk Encryption para Linux requiere 7 GB de RAM en la máquina virtual para habilitar el cifrado de disco del sistema operativo en las [imágenes compatibles](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Una vez completado el proceso de cifrado de disco del sistema operativo, la máquina virtual se puede configurar para que se ejecute con menos memoria.
-- Azure Disk Encryption requiere el módulo vfat estén presentes en el sistema.  Quitar o deshabilitar este módulo de la imagen predeterminada impedirá el sistema que se puede leer el volumen de la clave y obtener la clave necesaria para desbloquear los discos en los reinicios posteriores. Pasos de protección del sistema que se quita el módulo vfat del sistema no son compatibles con Azure Disk Encryption. 
+- Azure Disk Encryption requiere que los módulos dm-crypt y vfat estén presentes en el sistema. Quitar o deshabilitar vfat desde la imagen predeterminada impedirá que el sistema lea el volumen clave y obtenga la clave necesaria para desbloquear los discos en los reinicios posteriores. Los pasos de protección del sistema que quitan el módulo vfat del sistema no se admiten en Azure Disk Encryption. 
 - Antes de habilitar el cifrado, los discos de datos que se van a cifrar deben aparecer correctamente en /etc/fstab. Use un nombre de dispositivo de bloqueo persistente para esta entrada, ya que los nombres de dispositivo con el formato "/ dev/sdX" no son confiables para asociarlos al mismo disco en los distintos reinicios, especialmente después de que se aplica el cifrado. Para obtener más información sobre este comportamiento, consulte: [Solución de problemas: se cambian los nombres de dispositivo de máquinas virtuales Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Asegúrese de que el valor /etc/fstab está configurado correctamente para el montaje. Para configurar estos valores, ejecute el comando mount -a o reinicie la máquina virtual y desencadene el nuevo montaje de ese modo. Cuando haya finalizado, revise la salida del comando lsblk para comprobar que la unidad sigue montada. 
   - Si el archivo/etc/fstab no monta la unidad correctamente antes de habilitar el cifrado, Azure Disk Encryption no podrá montarla correctamente.
   - El proceso de Azure Disk Encryption sacará la información de montaje de/etc/fstab y la colocará en su propio archivo de configuración como parte del proceso de cifrado. No se alarme si ve que falta la entrada de/etc/fstab después de que se completa el cifrado de la unidad de datos.
-  -  Después del reinicio, el proceso de Azure Disk Encryption tardará un tiempo en montar los discos recién cifrados. No estarán disponibles inmediatamente después de un reinicio. El proceso necesita tiempo para iniciar, desbloquear y montar las unidades cifradas antes de que estén disponibles para que otros procesos tengan acceso a ellas. Este proceso puede tardar más de un minuto después del reinicio, dependiendo de las características del sistema.
+  - Antes de iniciar el cifrado, asegúrese de detener todos los servicios y procesos que se podrían estar escribiendo en los discos de datos montados y deshabilítelos de modo que no se reinicien automáticamente tras un reinicio. Estos podrían mantener los archivos abiertos en estas particiones, lo que impediría que el procedimiento de cifrado los vuelva a montar, provocando un error de cifrado. 
+  - Después del reinicio, el proceso de Azure Disk Encryption tardará un tiempo en montar los discos recién cifrados. No estarán disponibles inmediatamente después de un reinicio. El proceso necesita tiempo para iniciar, desbloquear y montar las unidades cifradas antes de que estén disponibles para que otros procesos tengan acceso a ellas. Este proceso puede tardar más de un minuto después del reinicio, dependiendo de las características del sistema.
 
 Puede encontrar un ejemplo de los comandos que se pueden usar para montar los discos de datos y crear las entradas /etc/fstab necesarias en las [líneas 244-248 de este archivo de script](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
-
 
 ## <a name="bkmk_GPO"></a> Redes y directiva de grupo
 
@@ -59,11 +114,11 @@ Puede encontrar un ejemplo de los comandos que se pueden usar para montar los di
 
 
 **Directiva de grupo:**
- - La solución Azure Disk Encryption usa el protector de claves externas de BitLocker para máquinas virtuales IaaS con Windows. Para las máquinas virtuales unidas en un dominio, no cree ninguna directiva de grupo que exija protectores de TPM. Para obtener información acerca de la directiva de grupo para "Permitir BitLocker sin un TPM compatible", consulte la [Referencia de la directiva de grupo de BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
+ - La solución Azure Disk Encryption usa el protector de claves externas de BitLocker para máquinas virtuales IaaS con Windows. Para las máquinas virtuales unidas en un dominio, no cree ninguna directiva de grupo que exija protectores de TPM. Para obtener información acerca de la directiva de grupo para "Permitir BitLocker sin un TPM compatible", consulte la [Referencia de la directiva de grupo de BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
--  La directiva de BitLocker en máquinas virtuales de unión a un dominio con directivas de grupo personalizadas debe incluir la siguiente configuración: [Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings) (Configuración de almacenamiento de usuario de información de recuperación de BitLocker -> Permitir clave de recuperación de 256 bits). Azure Disk Encryption presentará un error cuando la configuración de la directiva de grupo personalizada para BitLocker sea incompatible. En máquinas que no tengan la configuración de directiva correcta, puede que sea necesario aplicar la nueva directiva, forzar la nueva directiva a actualizarse (gpupdate.exe /force) y luego reiniciar.
+-  La directiva de BitLocker en máquinas virtuales de unión a un dominio con directivas de grupo personalizadas debe incluir la siguiente configuración: [Configuración de almacenamiento de usuario de información de recuperación de BitLocker -> Permitir clave de recuperación de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption presentará un error cuando la configuración de la directiva de grupo personalizada para BitLocker sea incompatible. En máquinas que no tengan la configuración de directiva correcta, puede que sea necesario aplicar la nueva directiva, forzar la nueva directiva a actualizarse (gpupdate.exe /force) y luego reiniciar.
 
-- Azure Disk Encryption producirá un error si el algoritmo AES-CBC, que se usa BitLocker bloquea la directiva de grupo de nivel de dominio.
+- Azure Disk Encryption producirá un error si la directiva de grupo de nivel de dominio bloquea el algoritmo AES-CBC, que BitLocker usa.
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -72,16 +127,16 @@ Puede encontrar un ejemplo de los comandos que se pueden usar para montar los di
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Instale Azure PowerShell para su uso en el equipo local (opcional): 
 1. Siga las instrucciones de los vínculos correspondientes a su sistema operativo y continúe por el resto de los pasos siguientes.      
    - [Instale y configure Azure PowerShell](/powershell/azure/install-az-ps). 
-     - Instalación de PowerShellGet, Azure PowerShell y cargar el módulo de Az. 
+     - Instale PowerShellGet y Azure PowerShell, y cargue el módulo Az. 
 
-2. Compruebe las versiones instaladas del módulo de Az. Si es necesario, [actualice el módulo Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
-    Se recomienda usar la versión más reciente del módulo de Az.
+2. Compruebe las versiones instaladas del módulo Az. Si es necesario, [actualice el módulo Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
+    Se recomienda usar la versión más reciente del módulo Az.
 
      ```powershell
      Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
      ```
 
-3. Inicie sesión en Azure mediante el [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+3. Inicie sesión en Azure mediante el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
      
      ```azurepowershell-interactive
      Connect-AzAccount
@@ -145,17 +200,17 @@ Azure Disk Encryption se integra con [Azure Key Vault](https://azure.microsoft.c
 
 ### <a name="bkmk_KVPSH"></a> Crear un almacén de claves con PowerShell
 
-Puede crear un almacén de claves con Azure PowerShell mediante el [New AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) cmdlet. Para otros cmdlets de Key Vault, consulte [Az.KeyVault](/powershell/module/az.keyvault/). 
+Puede crear un almacén de claves con Azure PowerShell mediante el cmdlet [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault). Para otros cmdlets de Key Vault, consulte [Az.KeyVault](/powershell/module/az.keyvault/). 
 
 1. Si es necesario, [conéctese a su suscripción de Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH). 
-2. Crear un nuevo grupo de recursos, si es necesario, con [New AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Para enumerar las ubicaciones de centro de datos, use [Get AzLocation](/powershell/module/az.resources/get-azlocation). 
+2. Cree un nuevo grupo de recursos, si fuera necesario, con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Para enumerar las ubicaciones de los centro de datos, use [Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
      
      ```azurepowershell-interactive
      # Get-AzLocation 
      New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East US'
      ```
 
-3. Cree un nuevo almacén de claves con [New AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
+3. Cree un nuevo almacén de claves con [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault).
     
       ```azurepowershell-interactive
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
@@ -195,7 +250,7 @@ Puede crear un almacén de claves con la [plantilla de Resource Manager](https:/
 La plataforma Azure necesita acceso a las claves de cifrado o secretos del almacén de claves para ponerlos a disposición de la máquina virtual para el proceso de arranque y descifrado de los volúmenes. Habilite el cifrado de disco en el almacén de claves o se producirá un error en las implementaciones.  
 
 ### <a name="bkmk_KVperPSH"></a> Establecer las directivas de acceso avanzado del almacén de claves con Azure PowerShell
- Use el cmdlet de PowerShell del almacén de claves [conjunto AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para habilitar el cifrado de disco para el almacén de claves.
+ Use el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) de PowerShell del almacén de claves para habilitar el cifrado de disco para el almacén de claves.
 
   - **Habilitar Key Vault para el cifrado de disco:** se requiere EnabledForDiskEncryption para el cifrado de Azure Disk.
       
@@ -243,13 +298,13 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar 
 3. Seleccione **Habilitar el acceso a Azure Virtual Machines para la implementación** o **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas**, si es necesario. 
 4. Haga clic en **Save**(Guardar).
 
-![Directivas de acceso avanzado de Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
+    ![Directivas de acceso avanzado de Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 
 
 ## <a name="bkmk_KEK"></a> Configurar una clave de cifrado de claves (opcional)
-Si desea usar una clave de cifrado de claves (KEK) para una brindar una capa adicional de seguridad para las claves de cifrado, agregue una KEK a su almacén de claves. Use la [agregar AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet para crear una clave de cifrado de claves en el almacén de claves. También puede importar una KEK en el HSM de administración de claves local. Para más información, consulte la [documentación de Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Cuando se especifica una clave de cifrado de claves, Azure Disk Encryption usa esa clave para encapsular los secretos de cifrado antes de escribirlos en Key Vault.
+Si desea usar una clave de cifrado de claves (KEK) para una brindar una capa adicional de seguridad para las claves de cifrado, agregue una KEK a su almacén de claves. Use el cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) para crear una clave de cifrado de claves en el almacén de claves. También puede importar una KEK en el HSM de administración de claves local. Para más información, consulte la [documentación de Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Cuando se especifica una clave de cifrado de claves, Azure Disk Encryption usa esa clave para encapsular los secretos de cifrado antes de escribirlos en Key Vault.
 
-* Al generar las claves, use un tipo de clave RSA. Azure Disk Encryption no admite aún mediante claves de curva elíptica.
+* Al generar las claves, use un tipo de clave RSA. Azure Disk Encryption no admite aún el uso de claves de curva elíptica.
 
 * El secreto del almacén de claves y las direcciones URL de KEK deben tener versiones. Azure exige esta restricción del control de versiones. Para ver direcciones URL de KEK y de secretos válidas, vea los ejemplos siguientes:
 

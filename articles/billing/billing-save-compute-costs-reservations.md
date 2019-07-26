@@ -5,14 +5,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 7ffb575d7f962232604a4ad6930b804d2619b488
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: cd0a70aa0fb5096c5b0157ae078c961da03109bc
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490594"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565306"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
@@ -42,17 +42,53 @@ Los clientes de Contrato Enterprise (EA) pueden limitar sus compras a los admini
 
 Un descuento por reserva se aplica solo a los recursos asociados con las suscripciones compradas a través de Enterprise, CSP y planes individuales con tarifas de pago por uso.
 
-## <a name="reservation-scope"></a>Ámbito de la reserva
+## <a name="scope-reservations"></a>Ámbito de las reservas
 
-Un ámbito de reserva determina los recursos a los que se aplica el descuento por reserva. Un ámbito de reserva puede tener los siguientes valores:
+Puede limitar el ámbito de una reserva a una suscripción o a grupos de recursos. Al limitar el ámbito de una reserva, se selecciona el lugar en el que se aplican los ahorros de la reserva. Al limitar el ámbito de la reserva a un grupo de recursos, los descuentos por reserva solo se aplican al grupo de recursos, no a la suscripción completa.
 
-**Ámbito compartido**: el descuento por reserva se aplica a los recursos coincidentes en suscripciones aptas dentro del contexto de facturación.
+### <a name="reservation-scoping-options"></a>Opciones de limitación del ámbito de la reserva
 
-- Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de los cliente que tienen planes individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones elegibles creadas por el administrador de cuenta.
+Con la limitación del ámbito del grupo de recursos tiene tres opciones para limitar el ámbito de una reserva, según sus necesidades:
 
-**Suscripción única**: el descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.
+- **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
+- **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
+- **Shared scope** (Ámbito compartido): aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.
 
-También puede [actualizar el ámbito después de comprar una reserva](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+Al aplicar los descuentos por reserva sobre su uso, Azure procesa la reserva en el orden siguiente:
+
+1. Reservas cuyo ámbito es un grupo de recursos
+2. Reservas de ámbito único
+3. Reservas de ámbito compartido
+
+Un único grupo de recursos puede obtener descuentos por reserva de varias reservas, en función de cómo se establezca el ámbito de las reservas.
+
+### <a name="scope-a-reservation-to-a-resource-group"></a>Limitación del ámbito de una reserva a un grupo de recursos
+
+Puede limitar el ámbito de la reserva a un grupo de recursos al comprar la reserva o bien hacerlo después. Para limitar el ámbito de la reserva a un grupo de recursos, debe ser el propietario de la suscripción.
+
+Para establecer el ámbito, vaya a la página [Comprar reservas](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) en Azure Portal. A continuación, seleccione el tipo de reserva que quiere comprar. En el formulario de selección **Seleccione el producto que quiere comprar**, cambie el valor de **Ámbito** a **Grupo de recursos único** y seleccione un grupo de recursos.
+
+![Ejemplo que muestra la selección de compra de reservas de máquina virtual](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
+
+Se muestran las recomendaciones de compra del grupo de recursos en la reserva de máquina virtual. Las recomendaciones se calculan mediante el análisis del uso durante los últimos 30 días. Si el costo de la ejecución de recursos con instancias reservadas es más barato que el costo de la ejecución de recursos con tarifas de pago por uso, se realiza una recomendación de compra. Para más información sobre las recomendaciones de compra de reservas, consulte la entrada de blog [Get Reserved Instance purchase recommendations based on usage pattern](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations) (Obtener recomendaciones de compra de instancias reservadas basadas en el patrón de uso).
+
+También puede actualizar el ámbito después de comprar una reserva. Para ello, vaya a la reserva, haga clic **Configuración** y limite de nuevo el ámbito de la reserva. Volver a limitar el ámbito de una reserva no es una transacción comercial. No se cambian las condiciones de la reserva. Para más información sobre cómo actualizar el ámbito, consulte [Update the scope after you purchase a reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope) (Actualización del ámbito después de comprar una reserva).
+
+![Ejemplo que muestra un cambio en el ámbito de la reserva](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
+
+### <a name="monitor-and-optimize-reservation-usage"></a>Supervisión y optimización del uso de reservas
+
+Puede supervisar el uso de la reserva de varias maneras: mediante Azure Portal, las API o los datos de uso. Para ver todas las reservas a las que tiene acceso, vaya a **Reservas** en Azure Portal. La cuadrícula de reservas muestra el último porcentaje de uso registrado para la reserva. Haga clic en la reserva para ver su uso a largo plazo.
+
+También puede conocer el uso de la reserva mediante las [API](billing-reservation-apis.md#see-reservation-usage) y a partir de los [datos de uso](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) si es un cliente con contrato Enterprise.
+
+Si observa que el uso de la reserva con ámbito de grupo de recursos es bajo, puede actualizar el ámbito de la reserva a una suscripción única o compartirlo en el contexto de facturación. También puede dividir la reserva y aplicar las reservas resultantes a distintos grupos de recursos.
+
+### <a name="other-considerations"></a>Otras consideraciones
+
+Si no tiene recursos que coincidan en un grupo de recursos, la reserva estará infrautilizada. La reserva no se aplica automáticamente a un grupo de recursos o una suscripción diferentes en los que haya un uso bajo.
+
+Un ámbito de reserva no se actualiza automáticamente si se mueve el grupo de recursos de una suscripción a otra. Tendrá que volver a limitar el ámbito de la reserva. Si no, la reserva estará infrautilizada.
 
 ## <a name="discounted-subscription-and-offer-types"></a>Tipos de ofertas y suscripciones con descuento
 

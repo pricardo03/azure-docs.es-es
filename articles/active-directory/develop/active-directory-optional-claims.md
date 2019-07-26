@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60eeb420c723e22b771b4b86b55c2ce7d6a23659
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 98b0ec2e1defc4701bff798b2fa93900ec8a9a64
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536830"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595158"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedimientos para: Proporcionar notificaciones opcionales a la aplicación de Azure AD
 
@@ -193,7 +193,7 @@ Además del conjunto de notificaciones opcionales estándar, también se pueden 
 
 > [!Note]
 > - Las extensiones de esquema de directorio son una característica exclusiva de Azure AD, por lo que si el manifiesto de aplicación solicita una extensión personalizada y un usuario de MSA inicia sesión en la aplicación, estas extensiones no se devolverán.
-> - Las notificaciones opcionales de Azure AD solo funcionan con la extensión de Azure AD; no funcionarán con la extensión de directorio de Microsoft Graph. Ambas API requieren el permiso `Directory.ReadWriteAll`, que solo pueden otorgar los administradores.
+> - Las notificaciones opcionales de Azure AD solo funcionan con la extensión de Azure AD; no funcionarán con la extensión de directorio de Microsoft Graph. Ambas API requieren el permiso `Directory.ReadWriteAll`, que solo pueden otorgar los administradores.
 
 ### <a name="directory-extension-formatting"></a>Formato de extensión de directorio
 

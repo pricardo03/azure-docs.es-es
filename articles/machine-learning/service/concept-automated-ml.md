@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 137ef1ad78548053f3c5b8f30b7d83f2370f62da
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c563278a9d23810a5e6f0adc8082c8cfc5a0510c
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442433"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358852"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -55,7 +55,7 @@ Si usa **Azure Machine Learning Service**, puede diseñar y ejecutar sus experim
 
 Durante el entrenamiento, Azure Machine Learning Service crea una serie de canalizaciones en paralelo que prueban distintos parámetros y algoritmos. Se detendrá una vez que logre los criterios de salida definidos en el experimento.
 
-También puede inspeccionar la información de ejecución registrada, que [contiene las métricas](how-to-understand-accuracy-metrics.md) que se recopilan durante la ejecución. La ejecución del entrenamiento genera un objeto serializado de Python (archivo `.pkl`) que contiene el modelo y el preprocesamiento de los datos.
+También puede inspeccionar la información de ejecución registrada, que [contiene las métricas](how-to-understand-automated-ml.md) que se recopilan durante la ejecución. La ejecución del entrenamiento genera un objeto serializado de Python (archivo `.pkl`) que contiene el modelo y el preprocesamiento de los datos.
 
 Aunque se automatiza la creación del modelo, también puede [conocer las características importantes o pertinentes](how-to-configure-auto-train.md#explain) de los modelos generados.
 
@@ -113,7 +113,7 @@ El aprendizaje automático automatizado también está disponible en otras soluc
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selección y entrenamiento del modelo automático en aplicaciones de .NET mediante Visual Studio y Visual Studio Code con aprendizaje automático (versión preliminar) de ML.NET.|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Escalado horizontal de trabajos de entrenamiento de aprendizaje automático en Spark en clústeres de HDInsight en paralelo.|
-|[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invocación de modelos de Machine Learning directamente en Power BI (versión preliminar).|
+|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invocación de modelos de Machine Learning directamente en Power BI (versión preliminar).|
 |[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Creación de nuevos modelos de Machine Learning a través de los datos en clústeres de macrodatos de SQL Server 2019.|
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 032cc0edaa140d82124a7369232cb82bf6c00c10
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482140"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702702"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
 
@@ -167,7 +167,8 @@ El consentimiento del administrador no acepta un parámetro de ámbito, por lo q
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Para configurar la lista de permisos solicitados estáticamente para una aplicación
 
 1. Vaya a la aplicación en la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) o [cree una aplicación](quickstart-register-app.md), si todavía no tiene.
-2. Busque la sección de **permisos de Microsoft Graph** y agregue los permisos que necesite la aplicación.
+2. Busque la sección **Permisos de API** y, en los permisos de API, haga clic en Agregar un permiso.
+3. Seleccione **Microsoft Graph** en la lista de API disponibles y, luego, agregue los permisos que necesita la aplicación.
 3. **Guarde** el registro de aplicaciones.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Se recomienda: Iniciar la sesión del usuario en la aplicación

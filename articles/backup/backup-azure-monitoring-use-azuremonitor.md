@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: Supervisión de Azure Backup con Azure Monitor'
-description: Supervise las cargas de trabajo de Azure Backup y cree alertas personalizadas mediante Azure Monitor
+description: Supervise las cargas de trabajo de Azure Backup y cree alertas personalizadas mediante Azure Monitor.
 services: backup
 author: pvrk
 manager: shivamg
@@ -10,258 +10,265 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2d4a235737789f2f5852c00218427613db3d558
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808527"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786312"
 ---
-# <a name="monitoring-at-scale-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
+# <a name="monitor-at-scale-by-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
-En el [artículo acerca de alertas y supervisión integradas](backup-azure-monitoring-built-in-monitor.md) se enumeraban las funcionalidades de supervisión y generación de alertas en un único almacén de Recovery Services y que se ofrece sin ninguna infraestructura de administración adicional. Sin embargo, el servicio integrado está limitado en los escenarios siguientes.
+Azure Backup proporciona [funcionalidades de supervisión y alerta integradas](backup-azure-monitoring-built-in-monitor.md) en un almacén de Recovery Services. Estas funcionalidades están disponibles sin ninguna infraestructura de administración adicional. Sin embargo, este servicio integrado está limitado en los escenarios siguientes:
 
-- Supervisión de datos de varios almacenes de Recovery Services en las suscripciones
-- Si el correo electrónico NO es el canal de notificación preferido
-- Si los usuarios desean recibir alertas en más escenarios
-- Si desea ver la información de un componente local, como System Center DPM (SC DPM) en Azure, que no se muestra en [Trabajos de copia de seguridad](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) o [Alertas de copia de seguridad](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) en el portal.
+- Si supervisa datos de varios almacenes de Recovery Services entre suscripciones
+- Si el canal de notificación preferido *no* es el correo electrónico
+- Si los usuarios desean alertas en más escenarios
+- Si desea ver la información de un componente local, como System Center Data Protection Manager en Azure, que el portal no muestra en [**Trabajos de copia de seguridad**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) o [**Alertas de copia de seguridad**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
 
 ## <a name="using-log-analytics-workspace"></a>Uso del área de trabajo de Log Analytics
 
 > [!NOTE]
-> Los datos de las copias de seguridad de máquinas virtuales de Azure, el agente de MAB, System Center DPM (SC DPM) y las copias de seguridad de SQL de las máquinas virtuales de Azure se bombean al área de trabajo de Log Analytics a través de la configuración del diagnóstico. La compatibilidad con la realización de copias de seguridad de recursos compartido de Azure, Microsoft Azure Backup Server (MABS) estará disponible próximamente.
+> Los datos de las copias de seguridad de VM de Azure, el agente de Azure Backup, System Center Data Protection Manager, las copias de seguridad de SQL de las VM de Azure y las copias de seguridad del recurso compartido de Azure Files se bombean al área de trabajo de Log Analytics a través de la configuración del diagnóstico. 
 
-Vamos a sacar provecho de las funcionalidades de dos servicios de Azure: **Configuración de diagnóstico**  (para enviar datos de varios recursos de Azure Resource Manager a otro recurso) y **Log Analytics** (LA: para generar alertas personalizadas en las que puede definir otros canales de notificación mediante grupos de acción) para la supervisión a escala. En las secciones siguientes se explica cómo usar LA para supervisar Azure Backup a escala.
+Para supervisar a escala, necesita las funcionalidades de dos servicios de Azure. *Configuración de diagnóstico* envía datos de varios recursos de Azure Resource Manager a otro recurso. *Log Analytics* genera alertas personalizadas en las que puede usar grupos de acciones para definir otros canales de notificación. 
 
-### <a name="configuring-diagnostic-settings"></a>Configuración de valores de diagnóstico
+En las secciones siguientes se explica cómo usar Log Analytics para supervisar Azure Backup a escala.
 
-Un recurso de Azure Resource Manager como un almacén de Azure Recovery Services registra toda la información posible acerca de las operaciones programadas y las operaciones desencadenadas por el usuario como datos de diagnóstico. Haga clic en "Configuración de diagnóstico" en la sección de supervisión y especifique el destino de los datos de diagnóstico del almacén de RS.
+### <a name="configure-diagnostic-settings"></a>Configuración de valores de diagnóstico
 
-![Configuración de diagnóstico del almacén de RS con LA como destino](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
+Recursos de Azure Resource Manager como, por ejemplo, el almacén de Recovery Services registra información acerca de las operaciones programadas y las operaciones desencadenadas por el usuario como datos de diagnóstico. 
 
-Puede seleccionar un área de trabajo de LA de otra suscripción como el destino. *Si se selecciona el mismo área de trabajo de LA para varios almacenes de RS, es posible supervisar los almacenes de varias suscripciones en un solo lugar.* Seleccione "AzureBackupReport" como el registro parta canalizar toda la información relacionada de Azure Backup al área de trabajo de LA.
+En la sección de supervisión, seleccione **Configuración de diagnóstico** y especifique el destino de los datos de diagnóstico del almacén de Recovery Services.
 
-> [!IMPORTANT]
-> Después de completar la configuración, debe esperar 24 horas para que finalice la inserción de datos inicial. A partir de ese momento todos los eventos se insertan como se indicó la [sección acerca de la frecuencia](#diagnostic-data-update-frequency).
+![La configuración de diagnóstico del almacén de Recovery Services, dirigida a Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
 
-### <a name="deploying-solution-to-log-analytics-workspace"></a>Implementación de la solución en el área de trabajo de Log Analytics
-
-Una vez que los datos estén dentro del área de trabajo de LA [implemente una plantilla de GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) en LA para visualizar los datos. Asegúrese de asignar el mismo grupo de recursos, nombre de área de trabajo y ubicación de área de trabajo para identificar correctamente el área de trabajo y, después, instale esta plantilla en dicho área.
-
-### <a name="view-azure-backup-data-using-log-analytics-la"></a>Visualización de los datos de Azure Backup mediante Log Analytics (LA)
-
-Una vez implementada la plantilla, la solución para la supervisar Azure Backup se mostrará en la región resumen del área de trabajo. Se puede recorrer a través de
-
-- Azure Monitor -> "Más" en la sección "Insights" y elija el área de trabajo relevante O BIEN
-- Áreas de trabajo de Log Analytics -> seleccione el área de trabajo relevante -> "Resumen del área de trabajo" en la sección General.
-
-![AzureBackupLAMonitoringTile](media/backup-azure-monitoring-laworkspace/la-azurebackup-azuremonitor-tile.png)
-
-Al hacer clic en el icono, la plantilla del diseñador abre una serie de gráficos acerca de los datos de supervisión básicos de Azure Backup, como
-
-#### <a name="all-backup-jobs"></a>Todos los trabajos de copia de seguridad
-
-![LABackupJobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-allbackupjobs.png)
-
-#### <a name="restore-jobs"></a>Trabajos de restauración
-
-![LARestoreJobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-restorejobs.png)
-
-#### <a name="inbuilt-azure-backup-alerts-for-azure-resources"></a>Alertas de Azure Backup integradas para los recursos de Azure
-
-![LAInbuiltAzureBackupAlertsForAzureResources](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts.png)
-
-#### <a name="inbuilt-azure-backup-alerts-for-on-prem-resources"></a>Alertas de Azure Backup integradas para recursos locales
-
-![LAInbuiltAzureBackupAlertsForOnPremResources](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts-onprem.png)
-
-#### <a name="active-datasources"></a>Orígenes de datos activos
-
-![LAActiveBackedUpEntities](media/backup-azure-monitoring-laworkspace/la-azurebackup-activedatasources.png)
-
-#### <a name="rs-vault-cloud-storage"></a>Almacenamiento en la nube del almacén de Recovery Services
-
-![LARSVaultCloudStorage](media/backup-azure-monitoring-laworkspace/la-azurebackup-cloudstorage-in-gb.png)
-
-Los gráficos anteriores se incluyen con la plantilla y el cliente es libre de agregar o editar más gráficos.
+Puede dirigirse a un área de trabajo de Log Analytics desde otra suscripción. Para supervisar los almacenes de varias suscripciones en un solo lugar, seleccione el mismo área de trabajo de Log Analytics para varios almacenes de Recovery Services. Para canalizar toda la información sobre Azure Backup hacia el área de trabajo de Log Analytics, seleccione **AzureBackupReport** como registro.
 
 > [!IMPORTANT]
-> Al implementar la plantilla, básicamente se crea un bloqueo de solo lectura, que debe eliminarse para editar la plantilla y guardarla. Para quitar los bloqueos, vaya al panel "Bloqueos" en la sección "Configuración" del área de trabajo de Log Analytics.
+> Una vez que finalice la configuración, debe esperar 24 horas para la finalización de la inserción de datos inicial. Tras dicha inserción de datos inicial, todos los datos se insertan tal como se describe posteriormente en este artículo, en la [sección sobre frecuencia](#diagnostic-data-update-frequency).
 
-### <a name="create-alerts-using-log-analytics"></a>Creación de alertas mediante Log Analytics
+### <a name="deploy-a-solution-to-the-log-analytics-workspace"></a>Implementación de una solución en el área de trabajo de Log Analytics
 
-Azure Monitor permite a los usuarios crear sus propias alertas desde el área de trabajo de LA, donde puede *sacar provecho de los grupos de acciones de Azure para seleccionar el mecanismo de notificación que prefiera*. Haga clic en cualquiera de los gráficos anteriores para abrir la sección 'Registros' del área de trabajo de LA ***en la que puede editar las consultas y crear alertas sobre ellas***.
+Una vez que los datos estén en el área de Log Analytics, [implemente una plantilla de GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) en Log Analytics para visualizar los datos. Para identificar correctamente el área de trabajo, asegúrese de asignarle el mismo grupo de recursos, nombre de área de trabajo y ubicación de área de trabajo. A continuación, instale esta plantilla en el área de trabajo.
 
-![LACreateAlerts](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+> [!NOTE]
+> Si no tiene alertas, trabajos de copia de seguridad o trabajos de restauración en su área de trabajo de Log Analytics, es posible que vea un código de error "BadArgumentError" en el portal. Pase por alto este error y continúe usando la solución. Una vez que el tipo de datos pertinente comience a fluir en el área de trabajo, las visualizaciones reflejarán lo mismo y se dejará de ver el error.
 
-Si hace clic en "Nueva regla de alerta" como se indicó anteriormente, se abrirá la pantalla de creación de alertas de Azure Monitor.
+### <a name="view-azure-backup-data-by-using-log-analytics"></a>Visualización de los datos de Azure Backup mediante Log Analytics
 
-Como puede ver a continuación, el recurso ya está marcado como área de trabajo de LA y se ha realizado la integración del grupos de acciones.
+Una vez implementada la plantilla, la solución para supervisar Azure Backup se mostrará en la región resumen del área de trabajo. Para ir al resumen, siga una de estas rutas de acceso:
 
-![LAAzureBackupCreateAlert](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
+- **Azure Monitor**: en la sección **Insights**, seleccione **Más** y, a continuación, elija el área de trabajo pertinente.
+- **Áreas de trabajo de Log Analytics**: seleccione el área de trabajo pertinente y, a continuación, en **General**, seleccione **Resumen del área de trabajo**.
+
+![El icono de supervisión de Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-azuremonitor-tile.png)
+
+Al seleccionar el icono de supervisión, la plantilla del diseñador abre una serie de gráficos acerca de los datos de supervisión básicos de Azure Backup. Estos son algunos de los gráficos que verá:
+
+* Todos los trabajos de copia de seguridad
+
+   ![Gráficos de Log Analytics para los trabajos de copia de seguridad](media/backup-azure-monitoring-laworkspace/la-azurebackup-allbackupjobs.png)
+
+* Trabajos de restauración
+
+   ![Gráfico de Log Analytics para los trabajos de restauración](media/backup-azure-monitoring-laworkspace/la-azurebackup-restorejobs.png)
+
+* Alertas de Azure Backup integradas para los recursos de Azure
+
+   ![Gráfico de Log Analytics para las alertas de Azure Backup integradas para los recursos de Azure](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts.png)
+
+* Alertas de Azure Backup integradas para los recursos locales
+
+   ![Gráfico de Log Analytics para las alertas de Azure Backup integradas para los recursos locales](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts-onprem.png)
+
+* Orígenes de datos activos
+
+   ![Gráfico de Log Analytics para las entidades con copia de seguridad activas](media/backup-azure-monitoring-laworkspace/la-azurebackup-activedatasources.png)
+
+* Almacenamiento en la nube del almacén de Recovery Services
+
+   ![Gráfico de Log Analytics para el almacenamiento en la nube del almacén de Recovery Services](media/backup-azure-monitoring-laworkspace/la-azurebackup-cloudstorage-in-gb.png)
+
+Estos gráficos se proporcionan con la plantilla. Puede editar los gráficos o agregar más si es necesario.
 
 > [!IMPORTANT]
-> Observe que el impacto en el precio que tiene crear esta consulta se proporciona [aquí](https://azure.microsoft.com/pricing/details/monitor/).
+> Al implementar la plantilla, lo que hace básicamente es crear un bloqueo de solo lectura. Para editar y guardar la plantilla, debe quitar el bloqueo. Puede quitar un bloqueo en la sección **Configuración** del área de trabajo de Log Analytics, en el panel **Bloqueos**.
+
+### <a name="create-alerts-by-using-log-analytics"></a>Creación de alertas mediante Log Analytics
+
+En Azure Monitor, puede crear sus propias alertas en un área de trabajo de Log Analytics. En el área de trabajo, usa *grupos de acciones de Azure* para seleccionar su mecanismo de notificación preferido. 
+
+> [!IMPORTANT]
+> Para obtener información sobre el costo que supone la creación de esta consulta, consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+
+Seleccione cualquiera de los gráficos para abrir la sección **Registros** del área de trabajo de Log Analytics. En la sección **Registros**, edite las consultas y cree alertas basadas en ellas.
+
+![Creación de una alerta en un área de trabajo de Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+
+Al seleccionar **Nueva regla de alertas**, se abre la página de creación de alertas de Azure Monitor, como se muestra en la siguiente imagen. El recurso ya está marcado aquí como área de trabajo de Log Analytics y se ha realizado la integración del grupos de acciones.
+
+![Página de creación de alertas de Log Analytics](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
 #### <a name="alert-condition"></a>Condición de alerta
 
-El aspecto clave es la condición desencadenadora de la alerta. Al hacer clic en "Condición" se cargará automáticamente la consulta de Kusto en la pantalla "Registros", como se muestra a continuación, que, posteriormente, se puede editar para adaptarla a un escenario concreto. En la [sección siguiente](#sample-kusto-queries) se proporcionan algunas consultas de Kusto de ejemplo.
+La característica que define una alerta es su condición desencadenadora. Seleccione **Condición** para cargar automáticamente la consulta de Kusto en la página **Registros**, como se muestra en la siguiente imagen. Aquí podrá editar la condición para satisfacer sus necesidades. Para obtener más información, consulte [Ejemplos de consultas de Kusto](#sample-kusto-queries).
 
-![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
+![Configuración de una condición de alerta](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Si fuera necesario, edite la consulta de Kusto, seleccione el umbral adecuado (que decidirá cuando se va a desencadenar la alerta), el período apropiado (periodo de tiempo durante el que se ejecuta la consulta) y la frecuencia. Por ejemplo:  Si el umbral es mayor que 0, el período es de 5 minutos y la frecuencia es de 5 minutos, la regla se traduce como "Ejecutar la consulta cada 5 minutos durante los últimos 5 minutos y si el número de resultados es mayor que 0, enviarme una notificación a través del grupo de acciones seleccionado"
+Si es necesario, puede editar la consulta de Kusto. Elija un umbral, un período y una frecuencia. El umbral determina cuándo se generará la alerta. El período es el período de tiempo en el que se ejecuta la consulta. Por ejemplo, si el umbral es superior a 0, el período será de 5 minutos y, si la frecuencia equivale a ese tiempo, la regla ejecutará la consulta cada 5 minutos, lo que conlleva que se revisen los 5 minutos anteriores. Si el número de resultados es mayor que 0, se le notificará a través del grupo de acciones seleccionado.
 
-#### <a name="action-group-integration"></a>Integración de los grupos de acciones
+#### <a name="alert-action-groups"></a>Grupos de acciones de alerta
 
-Los grupos de acciones especifican los canales de notificación disponibles para el usuario. Al hacer clic en "Crear nuevo" en la sección "Grupos de acciones", se muestra la lista de los mecanismos de notificación disponibles.
+Use un grupo de acciones para especificar un canal de notificación. Para ver los mecanismos de notificación disponibles, en **Grupos de acciones**, seleccione **Crear nuevo**.
 
-![LAAzureBackupNewActionGroup](media/backup-azure-monitoring-laworkspace/LA-AzureBackup-ActionGroup.png)
+![Mecanismos de notificación disponibles en la ventana "Agregar grupo de acciones"](media/backup-azure-monitoring-laworkspace/LA-AzureBackup-ActionGroup.png)
 
-Para más información acerca de las [alertas del área de trabajo de LA](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) y de los [grupos de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups), consulte la documentación de Azure Monitor.
+Puede satisfacer todos los requisitos de supervisión y alertas de Log Analytics solo, o puede usar Log Analytics para complementar las notificaciones integradas.
 
-Por tanto, puede satisfacer todos los requisitos de generación de alertas y supervisión LA de forma independiente, o bien utilizarlo como una técnica complementaria para los mecanismos de notificación integrados.
+Para obtener más información, consulte [Creación, visualización y administración de alertas de registro mediante Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) y [Creación y administración de grupos de acciones en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
 
 ### <a name="sample-kusto-queries"></a>Ejemplos de consultas de Kusto
 
-Los gráficos predeterminados le proporcionarían consultas de Kusto para los escenarios básicos en los que se pueden crear alertas. También puede modificarlas para obtener los datos de los que desee recibir alertas. Aquí se proporcionan algunos ejemplos de consultas de Kusto que se pueden pegar en la ventana "Registros" y, después, crear una alerta en la consulta.
+Los gráficos predeterminados le proporcionan consultas de Kusto para los escenarios básicos en los que se pueden crear alertas. También puede modificar las consultas para obtener los datos de los que desee recibir alertas. Pegue los siguientes ejemplos de consultas de Kusto en la página **Registros** y, a continuación, cree alertas basadas en las consultas:
 
-#### <a name="all-successful-backup-jobs"></a>Todos los trabajos de copia de seguridad con resultado satisfactorio
+* Todos los trabajos de copia de seguridad con resultado satisfactorio
 
-````Kusto
-AzureDiagnostics
-| where Category == "AzureBackupReport"
-| where SchemaVersion_s == "V2"
-| where OperationName == "Job" and JobOperation_s == "Backup"
-| where JobStatus_s == "Completed"
-````
-
-#### <a name="all-failed-backup-jobs"></a>Todos los trabajos de copia de seguridad con errores
-
-````Kusto
-AzureDiagnostics
-| where Category == "AzureBackupReport"
-| where SchemaVersion_s == "V2"
-| where OperationName == "Job" and JobOperation_s == "Backup"
-| where JobStatus_s == "Failed"
-````
-
-#### <a name="all-successful-azure-vm-backup-jobs"></a>Todos los trabajos de copia de seguridad de máquinas virtuales de Azure con resultado satisfactorio
-
-````Kusto
-AzureDiagnostics
-| where Category == "AzureBackupReport"
-| where SchemaVersion_s == "V2"
-| extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-| where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
-| join kind=inner
-(
+    ````Kusto
     AzureDiagnostics
     | where Category == "AzureBackupReport"
-    | where OperationName == "BackupItem"
     | where SchemaVersion_s == "V2"
-    | where BackupItemType_s == "VM" and BackupManagementType_s == "IaaSVM"
-    | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-    | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-)
-on BackupItemUniqueId_s
-| extend Vault= Resource
-| project-away Resource
-````
+    | where OperationName == "Job" and JobOperation_s == "Backup"
+    | where JobStatus_s == "Completed"
+    ````
+    
+* Todos los trabajos de copia de seguridad con errores
 
-#### <a name="all-successful-sql-log-backup-jobs"></a>Todos los trabajos de copia de seguridad del registro de SQL con resultado satisfactorio
-
-````Kusto
-AzureDiagnostics
-| where Category == "AzureBackupReport"
-| where SchemaVersion_s == "V2"
-| extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-| where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s == "Log"
-| join kind=inner
-(
+    ````Kusto
     AzureDiagnostics
     | where Category == "AzureBackupReport"
-    | where OperationName == "BackupItem"
     | where SchemaVersion_s == "V2"
-    | where BackupItemType_s == "SQLDataBase" and BackupManagementType_s == "AzureWorkload"
-    | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-    | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-)
-on BackupItemUniqueId_s
-| extend Vault= Resource
-| project-away Resource
-````
+    | where OperationName == "Job" and JobOperation_s == "Backup"
+    | where JobStatus_s == "Failed"
+    ````
+    
+* Todos los trabajos de copia de seguridad de máquinas virtuales de Azure con resultado satisfactorio
 
-#### <a name="all-successful-mab-agent-backup-jobs"></a>Todos los trabajos de copia de seguridad del agente MAB Azure con resultado satisfactorio
-
-````Kusto
-AzureDiagnostics
-| where Category == "AzureBackupReport"
-| where SchemaVersion_s == "V2"
-| extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-| where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
-| join kind=inner
-(
+    ````Kusto
     AzureDiagnostics
     | where Category == "AzureBackupReport"
-    | where OperationName == "BackupItem"
     | where SchemaVersion_s == "V2"
-    | where BackupItemType_s == "FileFolder" and BackupManagementType_s == "MAB"
-    | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-    | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-)
-on BackupItemUniqueId_s
-| extend Vault= Resource
-| project-away Resource
-````
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
+    | join kind=inner
+    (
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
+        | where OperationName == "BackupItem"
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "VM" and BackupManagementType_s == "IaaSVM"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+    )
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
+    ````
+
+* Todos los trabajos de copia de seguridad del registro de SQL con resultado satisfactorio
+
+    ````Kusto
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s == "Log"
+    | join kind=inner
+    (
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
+        | where OperationName == "BackupItem"
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "SQLDataBase" and BackupManagementType_s == "AzureWorkload"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+    )
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
+    ````
+
+* Todos los trabajos del agente de Azure Backup con resultado satisfactorio
+
+    ````Kusto
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
+    | join kind=inner
+    (
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
+        | where OperationName == "BackupItem"
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "FileFolder" and BackupManagementType_s == "MAB"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+    )
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
+    ````
 
 ### <a name="diagnostic-data-update-frequency"></a>Frecuencia de actualización de los datos de diagnóstico
 
-Los datos de diagnóstico del almacén se bombean al área de trabajo de LA con cierto retraso. Todos los eventos llegan al área de trabajo de LA ***con un retraso que oscila entre 20 y 30 minutos después de se insertan desde el almacén de RS.***
+Los datos de diagnóstico del almacén se bombean al área de trabajo de Log Analytics con cierto retraso. Cada evento llega al área de trabajo de Log Analytics *entre 20 y 30 minutos* después de insertarse desde el almacén de Recovery Services. Estos son detalles adicionales sobre el retardo:
 
-- Las alertas integradas del servicio de copia de seguridad (en todas las soluciones) se insertan en cuanto se crean. Esto significa que normalmente aparecen en el área de trabajo de LA entre 20 y 30 minutos después.
-- Tanto los trabajos de copia de seguridad ad hoc como los trabajos de restauración (en todas las soluciones) se insertan en cuando ***se completan***.
-- Los trabajos de copia de seguridad programados de todas las soluciones (excepto la copia de seguridad SQL) se insertan en cuanto ***se completan***.
-- En el caso de la copia de seguridad de SQL, como no podemos tener copias de seguridad de registros cada 15 minutos, de todos los trabajos de copia de seguridad programados completados, incluidos los registros, la información se une en lotes y se inserta cada 6 horas.
-- El resto de información como el elemento de copia de seguridad, la directiva, los puntos de recuperación, el almacenamiento, etc. de todas las soluciones se inserta **al menos una vez al día.**
-- Un cambio en la configuración de copia de seguridad como por ejemplo un cambio de directiva, la edición de la directiva, etc. desencadena la inserción de toda la información de copia de seguridad relacionada.
+- En todas las soluciones, las alertas integradas del servicio de copia de seguridad se insertan en cuanto se crean. Así pues, suelen aparecer en el área de trabajo de Log Analytics tras haber transcurrido de 20 a 30 minutos.
+- En todas las soluciones, los trabajos de copia de seguridad ad hoc y los trabajos de restauración se insertan en cuanto *finalizan*.
+- En todas las soluciones salvo la copia de seguridad SQL, los trabajos de copia de seguridad programados se insertan en cuanto *finalizan*.
+- En el caso de la copia de seguridad de SQL, como pueden realizarse copias de seguridad de registros cada 15 minutos, de todos los trabajos de copia de seguridad programados completados, incluidos los registros, la información se une en lotes y se inserta cada 6 horas.
+- En todas las soluciones, el resto de información como el elemento de copia de seguridad, la directiva, los puntos de recuperación, el almacenamiento, etc. se inserta al menos *una vez al día.*
+- Un cambio en la configuración de copia de seguridad (como por ejemplo un cambio de directiva o la edición de la directiva) desencadena la inserción de toda la información de copia de seguridad relacionada.
 
-## <a name="using-rs-vaults-activity-logs"></a>Uso de los registros de actividad del almacén de RS
-
-Los registros de actividad también se pueden usar para recibir notificaciones de eventos, como copias de seguridad correctas.
+## <a name="using-the-recovery-services-vaults-activity-logs"></a>Uso de los registros de actividad del almacén de Recovery Services
 
 > [!CAUTION]
-> **Tenga en cuenta que esto solo se puede aplicar a las copias de seguridad de las máquinas virtuales de Azure.** No se puede utilizar esto para otras soluciones como Azure Backup Agent, las copias de seguridad de SQL dentro de Azure, Azure Files,etc.
+> Los siguientes pasos se aplican solo a las *copias de seguridad de máquinas virtuales de Azure.* No se pueden utilizar estos pasos para soluciones como el agente de Azure Backup, las copias de seguridad de SQL dentro de Azure o Azure Files.
 
-### <a name="sign-in-into-azure-portal"></a>Inicio de sesión en Azure Portal
+Los registros de actividad también se pueden usar para recibir notificaciones de eventos, como copias de seguridad correctas. Para comenzar, siga estos pasos:
 
-Inicie sesión en Azure Portal, vaya al almacén de Azure Recovery Services relevante y haga clic en la sección "Registro de actividad" de las propiedades.
+1. Inicie sesión en Azure Portal.
+1. Abra el almacén de Recovery Services pertinente. 
+1. En las propiedades del almacén, abra la sección **Registro de actividad**.
 
-### <a name="identify-appropriate-log-and-create-alert"></a>Identificación del registro adecuado y creación de una alerta
+Para identificar el registro adecuado y crear una alerta:
 
-Aplique los filtros que se muestran en la ilustración siguiente para comprobar si va a recibir registros de actividad por las copias de seguridad correctas. Cambie el intervalo de tiempo en consecuencia para ver los registros.
+1. Compruebe que va a recibir registros de actividad por las copias de seguridad correctas aplicando los filtros que se muestran en la imagen siguiente. Cambie el valor **Intervalo de tiempo** según sea necesario para ver los registros.
 
-![Registros de actividad de las copias de seguridad de máquinas virtuales de Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
+   ![Filtrado para buscar los registros de actividad de las copias de seguridad de máquinas virtuales de Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-Haga clic en el nombre de la operación. Se mostrará la operación y los detalles relevantes.
+1. Seleccione el nombre de la operación para ver los detalles pertinentes.
+1. Seleccione **Nueva regla de alertas** para abrir la página **Crear regla**. 
+1. Cree una alerta siguiendo los pasos en [Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-![Nueva alerta de reglas](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
+   ![Nueva alerta de reglas](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Haga clic en **Nueva regla de alerta** para abrir la pantalla **Crear regla**, donde puede crear alertas mediante los pasos que se describen en este [artículo](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+Aquí, el recurso es el propio almacén de Recovery Services. Debe repetir los mismos pasos para todos los almacenes en los que desea recibir notificaciones a través de registros de actividad. La condición no tendrá un umbral, un período o una frecuencia, ya que esta alerta está basada en eventos. En cuanto se genera el registro de actividad pertinente, lo hace también la alerta.
 
-Aquí el recurso es el propio almacén de Recovery Services y, por consiguiente, es preciso que repita la misma acción en todos los almacenes en los que desee notificación a través de los registros de actividad. La condición no tendrá ningún umbral, período ni frecuencia, ya que se trata de una alerta basada en evento. En cuanto se genera el registro de actividad relevante, se desencadena la alerta.
+## <a name="using-log-analytics-to-monitor-at-scale"></a>Uso de Log Analytics para supervisar a escala
 
-## <a name="recommendation"></a>Recomendación
+Puede ver todas las alertas creadas a partir de registros de actividad y áreas de trabajo de Log Analytics en Azure Monitor. Solo tiene que abrir el panel **Alertas** situado a la izquierda.
 
-***Todas las alertas creadas a partir de los registros de actividad y las áreas de trabajo de LA se pueden ver en el panel "Alertas" de en Azure Monitor, a la izquierda.***
+Aunque puede recibir notificaciones a través de registros de actividad, recomendamos encarecidamente que se use Log Analytics en su lugar para supervisar a escala. Aquí se detallan los motivos:
 
-Aunque se puede usar la notificación a través de los registros de actividad, el ***servicio Azure Backup recomienda encarecidamente utilizar LA para la supervisión a escala, EN LUGAR DE los registros de actividad por los siguientes motivos***.
+- **Escenarios limitados**: las notificaciones a través de registros de actividad se aplican solo a las copias de seguridad de máquinas virtuales de Azure. Las notificaciones deben configurarse para todos los almacenes de Recovery Services.
+- **Ajuste de definición**: la actividad de copia de seguridad programada no se ajusta a la definición más reciente de los registros de actividad. En su lugar, se alinea con los [registros de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Esta alineación da lugar a efectos inesperados al cambiar los datos que fluyen a través del canal del registro de actividad.
+- **Problemas con el canal del registro de actividad**: en los almacenes de Recovery Services, los registros de actividad que se bombean desde Azure Backup siguen un nuevo modelo. Desafortunadamente, este cambio afecta a la generación de registros de actividad en Azure Government, Azure Alemania y Azure China 21Vianet. Si los usuarios de estos servicios en la nube crean o configuran cualquier alerta de los registros de actividad en Azure Monitor, no se desencadenarán las alertas. Además, en todas las regiones públicas de Azure, si un usuario [recopila los registros de actividad de Recovery Services en un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), estos registros no aparecerán.
 
-- **Escenarios limitados:** Solo se puede aplicar a las copias de seguridad de máquinas virtuales de Azure y debe repetirse en cada almacén de RS.
-- **Ajuste de definición:** La actividad de copia de seguridad programada no se ajusta a la definición más reciente de los registros de actividad y se alinea con los [registros de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs), lo que provoca un impacto inesperado cuando los datos que llegan a través del canal del registro de actividad se cambian como se indica a continuación.
-- **Problemas con el canal del registro de actividad:** Hemos pasado a un nuevo modelo de suministro de los registros de actividad a partir de Azure Backup en almacenes de Recovery Services. Lamentablemente, el movimiento ha afectado a la generación de registros de actividad en las nubes soberanas de Azure. Si los usuarios de las nubes soberanas de Azure crearan y configuraran alertas de los registros de actividad a través de Azure Monitor, no se desencadenarían. Además, en todas las regiones públicas de Azure, si un usuario está recopilando los registros de actividad de Recovery Services en un área de trabajo de Log Analytics, como se menciona [aquí](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), estos registros también podrían no aparecer.
-
-Por consiguiente, se recomienda encarecidamente usar el área de trabajo de Log Analytics para la supervisión y generación de alertas a escala en todas las cargas de trabajo protegidas por Azure Backup.
+Use un área de trabajo de Log Analytics para la supervisión y generación de alertas a escala en todas las cargas de trabajo que Azure Backup protege.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Modelo de datos de Log Analytics](backup-azure-log-analytics-data-model.md) para crear consultas personalizadas.
+Para crear consultas personalizadas, consulte [Modelo de datos de Log Analytics](backup-azure-log-analytics-data-model.md).
