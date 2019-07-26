@@ -1,19 +1,18 @@
 ---
 title: Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure | Microsoft Docs
 description: Aprenda cómo hacer una copia de seguridad de las bases de datos de SQL Server en máquinas virtuales de Azure
-services: backup
 author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: vijayts
-ms.openlocfilehash: 422f4b6bf7f22cf7653ad75836c613e4c1ea01b9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9870acdebaa4bf700bb18b5fa1d3a26f6338a10b
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704952"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464982"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
