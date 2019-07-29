@@ -5,14 +5,12 @@ metadata:
   title: 'Documentación sobre Azure CDN: tutoriales y referencia de API | Microsoft Docs'
   description: 'Azure Content Delivery Network (CDN) es una solución global de CDN para la entrega de contenido de ancho de banda alto. Se puede hospedar en Azure o en cualquier otra ubicación. Con Azure CDN, puede almacenar en caché objetos estáticos cargados desde Azure Blob Storage, una aplicación web o cualquier servidor web de acceso público, mediante el servidor de punto de presencia (POP) más cercano. Azure CDN también puede acelerar el contenido dinámico, que no puede almacenarse en caché, aprovechando para ello varias optimizaciones de red y de enrutamiento.'
   services: cdn
-  author: czeumault
-  manager: carolz
+  author: twooley
+  manager: twooley
   ms.service: azure-cdn
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 06/08/2018
-  ms.author: carolz
+  ms.author: twooley
 abstract:
   description: 'Azure Content Delivery Network (CDN) es una solución global de CDN para la entrega de contenido de ancho de banda alto. Se puede hospedar en Azure o en cualquier otra ubicación. Con Azure CDN, puede almacenar en caché objetos estáticos cargados desde Azure Blob Storage, una aplicación web o cualquier servidor web de acceso público, mediante el servidor de punto de presencia (POP) más cercano. Azure CDN también puede acelerar el contenido dinámico, que no puede almacenarse en caché, aprovechando para ello varias optimizaciones de red y de enrutamiento.'
 sections:

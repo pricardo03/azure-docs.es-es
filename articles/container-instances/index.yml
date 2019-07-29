@@ -5,14 +5,12 @@ metadata:
   title: 'Documentación sobre Azure Container Instances: tutoriales | Microsoft Docs'
   description: 'Azure Container Instances ofrece la forma más rápida y sencilla de ejecutar un contenedor en Azure, sin tener que aprovisionar ninguna máquina virtual y sin necesidad de adoptar un servicio de nivel superior.'
   services: container-instances
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-instances
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Azure Container Instances ofrece la forma más rápida y sencilla de ejecutar un contenedor en Azure, sin tener que aprovisionar ninguna máquina virtual y sin necesidad de adoptar un servicio de nivel superior. Aprenda a crear y administrar instancias de contenedores con nuestros inicios rápidos, tutoriales y ejemplos.<p>Si necesita una solución de orquestación de contenedores completa, consulte la <a href="/azure/aks/">documentación de Azure Kubernetes Service (AKS)</a>.</p>'
 sections:
@@ -25,7 +23,7 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Azure CLI
+            text: CLI de Azure
             href: /azure/container-instances/container-instances-quickstart
           - image:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'

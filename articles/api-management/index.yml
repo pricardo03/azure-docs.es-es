@@ -5,14 +5,12 @@ metadata:
   title: 'Documentación de Azure API Management: tutoriales y referencia de API | Microsoft Docs'
   description: 'Aprenda a usar API Management para publicar API mediante desarrolladores externos, asociados y empleados, a escala y de forma segura. Los tutoriales, las referencias de API y el resto de la documentación le muestran cómo crear y administrar modernas puertas de enlace de API para los servicios back-end existentes hospedados en cualquier lugar.'
   services: api-management
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: api-management
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/15/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Aprenda a usar API Management para publicar API mediante desarrolladores externos, asociados y empleados, a escala y de forma segura. Los tutoriales, las referencias de API y el resto de la documentación le muestran cómo crear y administrar modernas puertas de enlace de API para los servicios back-end existentes hospedados en cualquier lugar.'
 sections:

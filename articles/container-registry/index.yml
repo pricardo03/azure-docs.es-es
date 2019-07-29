@@ -5,14 +5,12 @@ metadata:
   title: 'Documentación sobre Azure Container Registry: tutoriales | Microsoft Docs'
   description: 'Azure Container Registry le permite compilar, almacenar y administrar imágenes para todo tipo de implementaciones de contenedor. Obtenga información sobre cómo usar Azure Container Registry con estos inicios rápidos, tutoriales y ejemplos.'
   services: container-registry
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-registry
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Azure Container Registry le permite compilar, almacenar y administrar imágenes para todo tipo de implementaciones de contenedor. Obtenga información sobre cómo usar Azure Container Registry con estos inicios rápidos, tutoriales y ejemplos.'
 sections:
@@ -25,7 +23,7 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Azure CLI
+            text: CLI de Azure
             href: /azure/container-registry/container-registry-get-started-azure-cli
           - image:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'
