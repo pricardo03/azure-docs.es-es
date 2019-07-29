@@ -69,7 +69,7 @@ Para usar la autenticación de clave de cuenta de almacenamiento, se admiten las
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **AzureBlobFS**. |Sí |
+| type | La propiedad type debe establecerse en: **AzureBlobFS**. |Sí |
 | url | Punto de conexión de Data Lake Storage Gen2 con el patrón de `https://<accountname>.dfs.core.windows.net`. | Sí |
 | accountKey | Clave de cuenta para Data Lake Storage Gen2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si el almacén de datos está en una red privada, se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado. Si no se especifica esta propiedad, se usa el valor predeterminado de Azure Integration Runtime. |Sin |
