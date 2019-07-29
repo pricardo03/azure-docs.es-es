@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
-ms.openlocfilehash: 4e7145570cbc906ea540c9d8f95f6c3cbde1c610
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f82408a6aaa7cf3a492f3036a6db5d8666b6f160
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928630"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598055"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Incorporación de un paquete de R a Azure SQL Database Machine Learning Services (versión preliminar)
 
@@ -164,7 +164,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Otra manera de instalar un paquete de R en la instancia de Azure SQL Database es cargarlo desde una secuencia de bytes con la instrucción de T-SQL **CREATE EXTERNAL LIBRARY**. Consulte la sección [Create a library from a byte stream](/sql/t-sql/statements/create-external-library-transact-sql#c-create-a-library-from-a-byte-stream) (Creación de una biblioteca desde una secuencia de bytes) de la documentación de referencia [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) (CREAR BIBLIOTECA EXTERNA).
+> Otra manera de instalar un paquete de R en la instancia de Azure SQL Database es cargarlo desde una secuencia de bytes con la instrucción de T-SQL **CREATE EXTERNAL LIBRARY**. Consulte la sección [Create a library from a byte stream](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) (Creación de una biblioteca desde una secuencia de bytes) de la documentación de referencia [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) (CREAR BIBLIOTECA EXTERNA).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -172,4 +172,4 @@ Para más información acerca de Azure SQL Database Machine Learning Services co
 
 - [Azure SQL Database Machine Learning Services with R (preview)](sql-database-machine-learning-services-overview.md) (Azure SQL Database Machine Learning Services con R [versión preliminar])
 - [Escribir funciones de R avanzadas en Azure SQL Database Machine Learning Services (versión preliminar)](sql-database-machine-learning-services-functions.md)
-- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md) (Trabajar con datos SQL y R en Azure SQL Database Machine Learning Services [versión preliminar])
+- [Trabajar con datos SQL y R en Machine Learning Services (versión preliminar) de Azure SQL Database](sql-database-machine-learning-services-data-issues.md)
