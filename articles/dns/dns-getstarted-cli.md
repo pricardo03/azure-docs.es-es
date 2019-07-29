@@ -82,7 +82,7 @@ Ahora que tiene una zona DNS de prueba, con un registro "A" de prueba, puede pro
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Por ejemplo: 
+   Por ejemplo:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

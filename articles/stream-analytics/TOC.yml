@@ -148,6 +148,8 @@
               href: stream-analytics-scale-jobs.md
         - name: Escalado con funciones de Machine Learning
           href: stream-analytics-scale-with-machine-learning-functions.md
+        - name: Escalado con nueva creación de particiones
+          href: repartition.md
     - name: Automatizar
       items:
         - name: Uso del SDK de .NET

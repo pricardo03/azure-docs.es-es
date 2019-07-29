@@ -8,15 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496444"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566874"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Protección de una base de datos única o agrupada
 
@@ -142,8 +141,8 @@ Para establecer el administrador de Azure AD:
 Para más información acerca de la configuración de Azure AD, consulte:
 
 - [Integración de las identidades locales con Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
-- [Add your own domain name to Azure AD (Adición del nombre de dominio a Azure AD)](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure now supports federation with Windows Server AD (Microsoft Azure ahora admite la federación con Windows Server AD)](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory](../active-directory/active-directory-domains-add-azure-portal.md)
+- [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure ahora admite la federación con Windows Server AD)
 - [Administración del directorio de Azure AD](../active-directory/fundamentals/active-directory-administer.md)
 - [Administración de Azure AD con PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [La identidad híbrida requería puertos y protocolos](../active-directory/hybrid/reference-connect-ports.md)
@@ -350,4 +349,4 @@ En este tutorial, ha aprendido a mejorar la seguridad de una base de datos con u
 En el siguiente tutorial aprenderá a implementar una distribución geográfica.
 
 > [!div class="nextstepaction"]
->[Implementar una base de datos distribuida geográficamente](sql-database-implement-geo-distributed-database.md)
+>[Implementación de una base de datos distribuida geográficamente](sql-database-implement-geo-distributed-database.md)
