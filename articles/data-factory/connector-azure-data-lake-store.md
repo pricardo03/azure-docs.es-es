@@ -58,7 +58,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad `type` debe establecerse en **AzureDataLakeStore**. | Sí |
+| type | La propiedad `type` debe establecerse en **AzureDataLakeStore**. | Sí |
 | dataLakeStoreUri | Información sobre la cuenta de Azure Data Lake Store. Esta información adopta uno de los siguientes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sí |
 | subscriptionId | El identificador de la suscripción de Azure al que pertenece la cuenta de Data Lake Store. | Necesario para el receptor |
 | resourceGroupName | El nombre del grupo de recursos de Azure al que pertenece la cuenta de Data Lake Store. | Necesario para el receptor |
