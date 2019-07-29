@@ -304,14 +304,14 @@ Compruebe que el certificado está instalado en el almacén Personal del equipo.
 
         | Propiedad | Valor |
         |---|---|
-        | Origen | Cualquiera |
-        | Intervalos de puertos de origen | * |
-        | Destino | Cualquiera |
-        | Intervalo de puertos de destino | 636 |
-        | Protocolo | Cualquiera |
-        | . | PERMITIR |
-        | Prioridad | \<Número deseado\> |
-        | NOMBRE | Port_LDAP_636 |
+        | Source | Any |
+        | Source port ranges | * |
+        | Destino | Any |
+        | Destination port range | 636 |
+        | Protocolo | Any |
+        | Action | Allow |
+        | Priority | \<Número deseado\> |
+        | Name | Port_LDAP_636 |
 
     ![regla de seguridad de entrada](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
