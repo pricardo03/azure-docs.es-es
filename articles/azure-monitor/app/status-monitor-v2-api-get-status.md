@@ -12,21 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e579db587d5f56aecd60f584ea4805dd4ac1bf98
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 50703ede205b42032e9618c1b16b0de2bd7f3a23
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718356"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424129"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v040-alpha"></a>API del Monitor de estado v2: Get-ApplicationInsightsMonitoringStatus (v0.4.0-alpha)
+# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>API del Monitor de estado v2: Get-ApplicationInsightsMonitoringStatus
 
 Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Monitor de estado v2 está actualmente en la versión preliminar pública.
-> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>DESCRIPCIÓN
 
@@ -44,7 +39,6 @@ Este cmdlet notificará la información sobre la versión e información sobre l
 Ejecute el comando `Get-ApplicationInsightsMonitoringStatus` para que aparezca el estado de supervisión de los sitios web.
 
 ```
-Machine Identifier:
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
 Machine Identifier:
 811D43F7EC807E389FEA2E732381288ACCD70AFFF9F569559AC3A75F023FA639

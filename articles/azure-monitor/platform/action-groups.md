@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/08/2019
+ms.date: 7/22/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 842965aa49ae4cd546fe9c107107d2a2ceebebbb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 52d7b84fe6210d8a4d46814ad6749bed0463478e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705255"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405648"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -126,6 +126,7 @@ Rangos de direcciones IP de origen
  - 13.106.38.142
  - 13.106.38.148
  - 13.106.57.196
+ - 13.106.57.197
  - 52.244.68.117
  - 52.244.65.137
  - 52.183.31.0

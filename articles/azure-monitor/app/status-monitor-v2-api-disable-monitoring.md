@@ -12,21 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 201c5cc251896efae6b9f4639818471c0f011afe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 368365251ec61464869c6120ded2ec2237acffea
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514404"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326411"
 ---
-# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>API del Monitor de estado v2: Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring"></a>API del Monitor de estado v2: Disable-ApplicationInsightsMonitoring
 
 Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Monitor de estado v2 está actualmente en la versión preliminar pública.
-> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>DESCRIPCIÓN
 
@@ -47,7 +42,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ### <a name="-verbose"></a>-Verbose
 **Parámetro común.** Utilice este modificador para mostrar registros detallados.
 
-## <a name="output"></a>Salida
+## <a name="output"></a>Output
 
 
 #### <a name="example-output-from-successfully-disabling-monitoring"></a>Salida de ejemplo al deshabilitar correctamente la supervisión
