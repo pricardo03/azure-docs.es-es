@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/8/2019
+ms.date: 7/18/2019
 ms.author: raiye
-ms.openlocfilehash: 88c3cd0e07e207a8b5ae1c07d39c8829a531c743
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721129"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405543"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -81,7 +81,7 @@ Se ha publicado el SO invitado de septiembre.
 ## <a name="family-6-releases"></a>Lanzamientos de la familia 6
 **Windows Server 2019**
 
-Versión de .NET Framework instalada: 3.5, 4.7.2, 4.8
+Versión de .NET Framework instalada: 3.5, 4.7.2
 
 > [!NOTE]
 > El SDK de Microsoft Azure para .NET 3.0 puede descargarse [aquí][Windows Azure SDK].
@@ -110,7 +110,7 @@ Versión de .NET Framework instalada: 3.5, 4.7.2, 4.8
 ## <a name="family-5-releases"></a>Lanzamientos de la familia 5
 **Windows Server 2016**
 
-Versión de .NET Framework instalada: 3.5, 4.6.2, 4.7.2, 4.8
+Versión de .NET Framework instalada: 3.5, 4.6
 
 > [!NOTE]
 > La contraseña de RDP de la familia 5 del SO debe tener 10 caracteres como mínimo.

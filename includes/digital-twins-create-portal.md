@@ -5,17 +5,17 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 6/26/2019
+ms.date: 07/26/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 9771e312269eb78e0dc4535a61e9287b5b169d7c
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: de81700496089ffc6cfdba8e02eaa4e14200d16d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "67459078"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601381"
 ---
-1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 1. En el panel izquierdo, seleccione **Crear un recurso**. Busque **Digital Twins** y seleccione **Digital Twins**. Haga clic en **Crear** para iniciar el proceso de implementación.
 
