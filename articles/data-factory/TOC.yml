@@ -468,7 +468,7 @@
           href: data-flow-sink.md
         - name: Sort
           href: data-flow-sort.md
-        - name: Origen
+        - name: Source
           href: data-flow-source.md
         - name: Clave suplente
           href: data-flow-surrogate-key.md
@@ -556,6 +556,8 @@
           href: how-to-create-schedule-trigger.md
         - name: Creación de un desencadenador de ventana de saltos de tamaño constante
           href: how-to-create-tumbling-window-trigger.md
+        - name: Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante
+          href: tumbling-window-trigger-dependency.md
     - name: Plantillas
       items:
         - name: Introducción a las plantillas
