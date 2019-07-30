@@ -10,6 +10,8 @@
       href: quickstart-create-traffic-manager-profile.md
     - name: 'Creación de un perfil de Traffic Manager: PowerShell'
       href: quickstart-create-traffic-manager-profile-powershell.md
+    - name: 'Creación de un perfil de Traffic Manager: CLI de Azure'
+      href: quickstart-create-traffic-manager-profile-cli.md
 - name: Tutoriales
   items:
     - name: Enrutamiento del tráfico para baja latencia
@@ -97,7 +99,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'
     - name: Azure PowerShell
       href: /powershell/module/az.trafficmanager
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network/traffic-manager
     - name: Java
       href: /java/api/com.microsoft.azure.management.trafficmanager

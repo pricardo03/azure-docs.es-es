@@ -50,6 +50,18 @@
       href: ../hdinsight-version-release.md
     - name: Supervisión de la disponibilidad del clúster con los registros de Ambari y Azure Monitor
       href: ../hdinsight-cluster-availability.md
+    - name: Solución de problemas
+      items:
+        - name: Excepción OutOfMemoryError
+          items:
+            - name: Memoria de montón insuficiente
+              href: ./apache-spark-troubleshoot-outofmemory-heap.md
+        - name: Excepción IllegalArgumentException
+          href: ./apache-spark-troubleshoot-illegalargumentexception.md
+        - name: Detenciones de aplicaciones de streaming de Apache Spark
+          href: ./apache-spark-troubleshoot-application-stops.md
+        - name: Excepción RpcTimeoutException
+          href: ./apache-spark-troubleshoot-rpctimeoutexception.md
 - name: Procedimientos
   items:
     - name: Uso del almacenamiento de clúster

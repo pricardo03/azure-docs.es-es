@@ -7,22 +7,22 @@
 - name: Guías de inicio rápido
   expaned: true
   items:
-    - name: Entrenamiento de modelos personalizados y extracción de datos
+    - name: Uso de la API de REST
       items:
-        - name: Uso de la API de REST
+        - name: Entrenamiento de modelos personalizados y extracción de datos
           items:
             - name: cURL
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
-    - name: Uso de un modelo de recibo creado previamente
-      items:
-        - name: Uso de la API de REST
+        - name: Uso de un modelo de recibo creado previamente
           items:
             - name: cURL
               href: quickstarts/curl-receipts.md
             - name: Python
               href: quickstarts/python-receipts.md
+    - name: Uso del SDK de .NET
+      href: quickstarts/dotnet-sdk.md
 - name: Guías de procedimientos
   items:
     - name: Creación de un conjunto de datos de aprendizaje

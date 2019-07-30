@@ -2,17 +2,17 @@
 title: Creación de un volumen estático para los pods en Azure Kubernetes Service (AKS)
 description: Aprenda a crear manualmente un volumen con discos de Azure para usarlos con un pod en Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: b166f70186b063782fb2c2245e351d6dfca6f978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 9017c8cf721fbb9c493dc18da769b9d6e83ddf05
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072156"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "67616133"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creación manual y uso de un volumen con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
 También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
@@ -52,7 +52,7 @@ az disk create \
 ```
 
 > [!NOTE]
-> Los discos de Azure se facturan por SKU de un tamaño específico. Estas SKU varían de 32 GiB para discos S4 o P4 a 32 TiB para discos S80 o P80 (en versión preliminar). El rendimiento de transferencia de datos de red y el rendimiento IOPS de un disco administrado Premium depende de la SKU y del tamaño de instancia de los nodos en el clúster de AKS. Consulte [Pricing and Performance of Managed Disks][managed-disk-pricing-performance] (Precios y rendimiento de los discos administrados).
+> Los discos de Azure se facturan por SKU de un tamaño específico. Estas SKU varían de 32 GiB para discos S4 o P4 a 32 TiB para discos S80 o P80 (en versión preliminar). El rendimiento de transferencia de datos de red y el rendimiento IOPS de un disco administrado Premium depende de la SKU y del tamaño de instancia de los nodos en el clúster de AKS. Consulte [Precios y rendimiento de Managed Disks][managed-disk-pricing-performance].
 
 El identificador de recurso de disco se muestra una vez que se ha completado correctamente el comando, como se muestra en la siguiente salida de ejemplo. Este identificador de disco se utiliza para montar el disco en el paso siguiente.
 
@@ -126,9 +126,9 @@ Events:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para consultar los procedimientos recomendados, vea [Procedimientos recomendados para el almacenamiento y las copias de seguridad en AKS][operator-best-practices-storage].
+Para consultar los procedimientos recomendados asociados, consulte [Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)][operator-best-practices-storage].
 
-Para más información acerca de la interactuación de los clústeres AKS con los discos de Azure, consulte el [complemento de Kubernetes para los discos de Azure][kubernetes-disks].
+Para más información acerca de la interactuación de los clústeres de AKS con los discos de Azure, consulte el [complemento de Kubernetes para los discos de Azure][kubernetes-disks].
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md

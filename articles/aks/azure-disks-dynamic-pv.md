@@ -2,17 +2,17 @@
 title: Creación dinámica de un volumen de disco para varios pods en Azure Kubernetes Service (AKS)
 description: Aprenda a crear un volumen persistente de forma dinámica con discos de Azure para usarlo con varios pods simultáneos en Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0641d613da86aeffa0c4abb0f82ce93c38283156
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956476"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "67616076"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -25,13 +25,13 @@ Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
 También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Clases de almacenamiento integradas
 
-Una clase de almacenamiento se usa para definir cómo se crea dinámicamente una unidad de almacenamiento con un volumen persistente. Para más información sobre las clases de almacenamiento de Kubernetes, vea las [clases de almacenamiento de Kubernetes][kubernetes-storage-classes].
+Una clase de almacenamiento se usa para definir cómo se crea dinámicamente una unidad de almacenamiento con un volumen persistente. Para más información sobre las clases de almacenamiento de Kubernetes, consulte las [clases de almacenamiento de Kubernetes][kubernetes-storage-classes].
 
 Cada clúster de AKS incluye dos clases de almacenamiento creadas previamente y configuradas ambas para funcionar con discos de Azure:
 
@@ -40,7 +40,7 @@ Cada clúster de AKS incluye dos clases de almacenamiento creadas previamente y 
 * La clase de almacenamiento *Premium administrada* aprovisiona un disco de Azure premium.
     * Los discos Premium están respaldados por un disco de latencia reducida y alto rendimiento basado en SSD. Es perfecto para máquinas virtuales que ejecutan cargas de trabajo de producción. Si los nodos de AKS del clúster usan almacenamiento Premium, seleccione la clase *administrada Premium*.
     
-Estas clases de almacenamiento predeterminadas no permiten actualizar el tamaño del volumen una vez creado. Para habilitar esta capacidad, agregue la línea *allowVolumeExpansion: true* a una de las clases de almacenamiento predeterminadas o cree su propia clase de almacenamiento personalizada. Puede editar una clase de almacenamiento existente con el comando `kubectl edit sc`. Para obtener más información sobre las clases de almacenamiento y la creación de la suya propia, consulte [Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)][storage-class-concepts].
+Estas clases de almacenamiento predeterminadas no permiten actualizar el tamaño del volumen una vez creado. Para habilitar esta capacidad, agregue la línea *allowVolumeExpansion: true* a una de las clases de almacenamiento predeterminadas o cree su propia clase de almacenamiento personalizada. Puede editar una clase de almacenamiento existente con el comando `kubectl edit sc`. Para más información sobre las clases de almacenamiento y la creación de la suya propia, consulte [Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)][storage-class-concepts].
 
 Use el comando [kubectl get sc][kubectl-get] para ver las clases de almacenamiento que se crearon previamente. El ejemplo siguiente muestra las clases de almacenamiento creadas previamente disponibles dentro de un clúster de AKS:
 
@@ -53,7 +53,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Las notificaciones de volumen persistente se especifican en GiB, pero los discos administrados de Azure se facturan por SKU para un tamaño específico. Estas SKU varían de 32 GiB para discos S4 o P4 a 32 TiB para discos S80 o P80 (en versión preliminar). El rendimiento de transferencia de datos de red y el rendimiento IOPS de un disco administrado Premium depende de la SKU y del tamaño de instancia de los nodos en el clúster de AKS. Para más información, consulte [Pricing and Performance of Managed Disks][managed-disk-pricing-performance] (Precios y rendimiento de los discos administrados).
+> Las notificaciones de volumen persistente se especifican en GiB, pero los discos administrados de Azure se facturan por SKU para un tamaño específico. Estas SKU varían de 32 GiB para discos S4 o P4 a 32 TiB para discos S80 o P80 (en versión preliminar). El rendimiento de transferencia de datos de red y el rendimiento IOPS de un disco administrado Premium depende de la SKU y del tamaño de instancia de los nodos en el clúster de AKS. Para más información, consulte [Precios y rendimiento de Managed Disks][managed-disk-pricing-performance].
 
 ## <a name="create-a-persistent-volume-claim"></a>Creación de una notificación de volumen persistente
 
@@ -253,7 +253,7 @@ Volumes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para consultar los procedimientos recomendados, vea [Procedimientos recomendados para el almacenamiento y las copias de seguridad en AKS][operator-best-practices-storage].
+Para consultar los procedimientos recomendados asociados, consulte [Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)][operator-best-practices-storage].
 
 Obtenga más información sobre los volúmenes persistentes de Kubernetes con discos de Azure.
 

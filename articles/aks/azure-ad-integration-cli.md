@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: mlearned
 ms.openlocfilehash: 5b99d76ef20c288d6ae0bd33e1e2b6a75a359d3a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/25/2019
 ms.locfileid: "67616264"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integración de Azure Active Directory con Azure Kubernetes Service mediante la CLI de Azure
@@ -49,7 +49,7 @@ Dentro del clúster de Kubernetes, se usa la autenticación de token de webhook 
 
 Para integrar con AKS, cree y use una aplicación de Azure AD que sirva de punto de conexión para las solicitudes de identidad. La primera aplicación de Azure AD que se necesita obtiene la pertenencia a un grupo de Azure AD de un usuario.
 
-Cree el componente de aplicación de servidor mediante el comando [az ad app create][az-ad-app-create] command, then update the group membership claims using the [az ad app update][az-ad-app-update]. En el ejemplo siguiente se usa la variable *aksname* definida en la sección [Antes de comenzar](#before-you-begin) y se crea una variable.
+Cree el componente de aplicación de servidor mediante el comando [az ad app create][az-ad-app-create] y, a continuación, actualice las notificaciones de pertenencia a grupo mediante el comando [az ad app update][az-ad-app-update]. En el ejemplo siguiente se usa la variable *aksname* definida en la sección [Antes de comenzar](#before-you-begin) y se crea una variable.
 
 ```azurecli-interactive
 # Create the Azure AD application
@@ -62,7 +62,7 @@ serverApplicationId=$(az ad app create \
 az ad app update --id $serverApplicationId --set groupMembershipClaims=All
 ```
 
-Ahora cree una entidad de servicio para la aplicación de servidor con el comando [az ad sp create][az-ad-sp-create] command. This service principal is used to authenticate itself within the Azure platform. Then, get the service principal secret using the [az ad sp credential reset][az-ad-sp-credential-reset] y asígnela a la variable llamada *serverApplicationSecret* para su uso en uno de los pasos siguientes:
+Ahora, cree una entidad de servicio para la aplicación de servidor mediante el comando [az ad sp create][az-ad-sp-create]. Esta entidad de servicio se usa para autenticarse en la plataforma Azure. A continuación, obtenga el secreto de la entidad de servicio con el comando [az ad sp credential reset][az-ad-sp-credential-reset] y asígnelo a la variable llamada *serverApplicationSecret* para su uso en uno de los pasos siguientes:
 
 ```azurecli-interactive
 # Create a service principal for the Azure AD application
@@ -89,7 +89,7 @@ az ad app permission add \
     --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope 06da0dbc-49e2-44d2-8312-53f166ab848a=Scope 7ab1d382-f21e-4acd-a863-ba3e13f7da61=Role
 ```
 
-Por último, conceda los permisos asignados en el paso anterior para la aplicación de servidor con el comando [az ad app permission grant][az-ad-app-permission-grant] command. This step fails if the current account is not a tenant admin. You also need to add permissions for Azure AD application to request information that may otherwise require administrative consent using the [az ad app permission admin-consent][az-ad-app-permission-admin-consent]:
+Por último, conceda los permisos asignados en el paso anterior para la aplicación de servidor con el comando [az ad app permission grant][az-ad-app-permission-grant]. Se producirá un error en este paso si la cuenta actual no es un administrador del inquilino. También tendrá que agregar permisos para que la aplicación de Azure AD solicite información que, de lo contrario, podría requerir consentimiento administrativo mediante el comando [az ad app permission admin-consent][az-ad-app-permission-admin-consent]:
 
 ```azurecli-interactive
 az ad app permission grant --id $serverApplicationId --api 00000003-0000-0000-c000-000000000000
@@ -120,7 +120,7 @@ Obtenga el id. de oAuth2 para la aplicación de servidor con el fin de permitir 
 oAuthPermissionId=$(az ad app show --id $serverApplicationId --query "oauth2Permissions[0].id" -o tsv)
 ```
 
-Agregue los permisos para los componentes de la aplicación cliente y la aplicación de servidor con el fin de usar el flujo de comunicación de oAuth2 mediante el comando [az ad app permission add][az-ad-app-permission-add] command. Then, grant permissions for the client application to communication with the server application using the [az ad app permission grant][az-ad-app-permission-grant]:
+Agregue los permisos para los componentes de la aplicación cliente y la aplicación de servidor con el fin de usar el flujo de comunicación de oAuth2 mediante el comando [az ad app permission add][az-ad-app-permission-add]. A continuación, conceda permisos para que la aplicación cliente se comunique con la aplicación de servidor mediante el comando [az ad app permission grant][az-ad-app-permission-grant]:
 
 ```azurecli-interactive
 az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions $oAuthPermissionId=Scope
@@ -137,7 +137,7 @@ Cree un grupo de recursos para el clúster:
 az group create --name myResourceGroup --location EastUS
 ```
 
-Obtenga el identificador de inquilino de la suscripción de Azure mediante el comando [az account show][az-account-show] command. Then, create the AKS cluster using the [az aks create][az-aks-create]. El comando para crear el clúster de AKS proporciona los identificadores de servidor y aplicación cliente, el secreto de entidad de servicio de la aplicación de servidor y el identificador de inquilino:
+Obtenga el identificador de inquilino de la suscripción de Azure mediante el comando [az account show][az-account-show]. Después, cree el clúster de AKS con el comando [az aks create][az-aks-create]. El comando para crear el clúster de AKS proporciona los identificadores de servidor y aplicación cliente, el secreto de entidad de servicio de la aplicación de servidor y el identificador de inquilino:
 
 ```azurecli-interactive
 tenantId=$(az account show --query tenantId -o tsv)

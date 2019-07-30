@@ -738,6 +738,12 @@
           maintainContext: true
         - name: Controlador ODBC
           href: odbc-driver.md
+    - name: Migración de datos a Cosmos DB
+      items:
+        - name: Migración a SQL API mediante Striim
+          href: cosmosdb-sql-api-migrate-data-striim.md
+        - name: Migración a Cassandra API mediante Striim
+          href: cosmosdb-cassandra-api-migrate-data-striim.md
     - name: Biblioteca de BulkExecutor
       items:
         - name: Acerca de la biblioteca BulkExecutor para .NET
