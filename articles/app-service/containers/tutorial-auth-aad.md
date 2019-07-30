@@ -303,7 +303,7 @@ Inicie sesión en [Azure Resource Explorer](https://resources.azure.com). En la 
 
 ![API de ASP.NET Core que se ejecuta en Azure App Service](./media/tutorial-auth-aad/resources-enable-write.png)
 
-En el explorador de la izquierda, haga clic en **subscriptions** >  (suscripciones)  ** _&lt;su\_suscripción>_**  > **resourceGroups** > **myAuthResourceGroup** > **providers** (proveedores)  > **Microsoft.Web** > **sites** (sitios)  >   ** _\<nombre\_aplicación\_front\_end>_**  > **config** > **authsettings**.
+En el explorador de la izquierda, haga clic en **subscriptions** >  (suscripciones) **_&lt;su\_suscripción>_**  > **resourceGroups** > **myAuthResourceGroup** > **providers** (proveedores)  > **Microsoft.Web** > **sites** (sitios)  >  **_\<nombre\_aplicación\_front\_end>_**  > **config** > **authsettings**.
 
 En la vista **authsettings**, haga clic en **Edit** (Editar). Establezca `additionalLoginParams` en la siguiente cadena JSON, mediante el identificador de aplicación que copió. 
 
