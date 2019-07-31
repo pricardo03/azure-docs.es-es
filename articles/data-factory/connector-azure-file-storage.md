@@ -48,7 +48,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Fi
 | type | La propiedad type debe establecerse en: **FileServer**. | Sí |
 | host | Especifica el punto de conexión de Azure File Storage como: <br/>-Si se usar la interfaz de usuario: especifique `\\<storage name>.file.core.windows.net\<file service name>`<br/>-Si se usa JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Sí |
 | userid | Especifique el usuario para acceder a Azure File Storage como: <br/>-Si se usar la interfaz de usuario: especifique `AZURE\<storage name>`<br/>-Si se usa JSON: `"userid": "AZURE\\<storage name>"`. | Sí |
-| contraseña | Especifique la clave de acceso de almacenamiento. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| password | Especifique la clave de acceso de almacenamiento. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No para el origen, sí para el receptor |
 
 >[!IMPORTANT]
