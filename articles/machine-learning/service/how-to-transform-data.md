@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c5d60bb51a96725f766c6b49d61ac20fb2a1b58
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 08cf646d63e1a295a1bc2ff28180983cc462f084
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297920"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360937"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformación de datos con Azure Machine Learning Data Prep SDK
 
@@ -106,9 +106,9 @@ Compruebe el valor `MEAN` de la columna de latitud mediante la función [`summar
 
 ```python
 dflow_mean = dflow.summarize(group_by_columns=['Arrest'],
-                       summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
-                                                                 summary_column_name='Latitude_MEAN',
-                                                                 summary_function=dprep.SummaryFunction.MEAN)])
+                             summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
+                                                                        summary_column_name='Latitude_MEAN',
+                                                                        summary_function=dprep.SummaryFunction.MEAN)])
 dflow_mean = dflow_mean.filter(dprep.col('Arrest') == 'false')
 dflow_mean.head(1)
 ```
@@ -130,7 +130,7 @@ impute_custom = dprep.ImputeColumnArguments(column_id='Longitude',
                                             custom_impute_value=42)
 # get instance of ImputeMissingValuesBuilder
 impute_builder = dflow.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
-                                                   group_by_columns=['Arrest'])
+                                                      group_by_columns=['Arrest'])
 
 impute_builder.learn()
 dflow_imputed = impute_builder.to_dataflow()
@@ -156,7 +156,8 @@ Una de las herramientas más avanzadas en el SDK de preparación de datos de Azu
 
 ```python
 import azureml.dataprep as dprep
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
 dflow.head(4)
 ```
 
@@ -170,9 +171,11 @@ dflow.head(4)
 Suponga que necesita combinar este archivo con un conjunto de datos donde la fecha y hora están en un formato "Mar 10, 2018 | 2AM-4AM".
 
 ```python
-builder = dflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
-builder.add_example(source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
-builder.preview(count=5) 
+builder = dflow.builders.derive_column_by_example(
+    source_columns=['DATE'], new_column_name='date_timerange')
+builder.add_example(
+    source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
+builder.preview(count=5)
 ```
 
 ||DATE|date_timerange|
@@ -207,7 +210,8 @@ builder.preview(skip=30, count=5)
 Aquí puede ver un problema con el programa generado. Basado únicamente en el ejemplo que proporcionó anteriormente, el programa derivado ha elegido analizar la fecha como "Día/Mes/Año", que no es lo que se quiere hacer en este caso. Para solucionar este problema, establezca un índice de registro específico y proporcione otro ejemplo con la función `add_example()` en la variable `builder`.
 
 ```python
-builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
+builder.add_example(
+    source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
 builder.preview(skip=30, count=5)
 ```
 
@@ -235,7 +239,8 @@ builder.preview(skip=75, count=5)
 |4|1/29/2015 7:54|None|
 
 ```python
-builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
+builder.add_example(
+    source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
 builder.preview(skip=75, count=5)
 ```
 
@@ -284,7 +289,8 @@ Lo que hacemos en el tutorial es cargar todos los archivos dentro de la carpeta 
 ```python
 import azureml.dataprep as dprep
 from datetime import datetime
-dflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
+dflow = dprep.read_csv(
+    path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
 dflow.head(5)
 ```
 
@@ -319,7 +325,8 @@ dflow.head(2)
 También puede usar la expresión `ColumnSelector` para anular columnas que coincidan con una expresión regular. En este ejemplo se anulan todas las columnas que coinciden con la expresión `Column*|.*longitude|.*latitude`.
 
 ```python
-dflow = dflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
+dflow = dflow.drop_columns(dprep.ColumnSelector(
+    'Column*|.*longitud|.*latitude', True, True))
 dflow.head(2)
 ```
 
@@ -360,7 +367,8 @@ En este ejemplo, `dflow.filter()` devuelve un nuevo flujo de datos con las filas
 
 ```python
 dflow = dflow.to_number(['Passenger_count', 'Tolls_amount'])
-dflow = dflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
+dflow = dflow.filter(dprep.f_and(
+    dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
 dflow.head(2)
 ```
 
@@ -375,9 +383,10 @@ También es posible filtrar filas que combinan más de un generador de expresion
 > `lpep_pickup_datetime` y `Lpep_dropoff_datetime` se convierten primero a fecha y hora, lo que permite generar una expresión comparándola con otros valores de fecha y hora.
 
 ```python
-dflow = dflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
+dflow = dflow.to_datetime(
+    ['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
 dflow = dflow.to_number(['Total_amount', 'Trip_distance'])
-mid_2013 = datetime(2013,7,1)
+mid_2013 = datetime(2013, 7, 1)
 dflow = dflow.filter(
     dprep.f_and(
         dprep.f_or(
@@ -412,7 +421,8 @@ Comience por cargar algunos datos de blob de Azure.
 import azureml.dataprep as dprep
 col = dprep.col
 
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
 dflow.head(2)
 ```
 
@@ -424,8 +434,10 @@ dflow.head(2)
 Reduzca el conjunto de datos y realice algunas transformaciones básicas, como quitar columnas, reemplazar valores y convertir tipos.
 
 ```python
-dflow = dflow.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
-dflow = dflow.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
+dflow = dflow.keep_columns(
+    ['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
+dflow = dflow.replace_na(
+    columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
 dflow = dflow.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
 dflow.head(2)
 ```

@@ -36,7 +36,6 @@ sections:
         items:
           - html: <a href="quickstart-run-cloud-notebook">Ejecución de un experimento en la nube</a> (no requiere instalación).
           - html: <a href="quickstart-run-local-notebook">Ejecución de un experimento con un servidor de Bloc de notas local</a> (instalación local del SDK).
-          - html: <a href="ui-quickstart-run-experiment">Preparación y visualización de datos sin escribir código</a> en la interfaz visual.
   - title: Tutoriales detallados
     items:
       - type: paragraph

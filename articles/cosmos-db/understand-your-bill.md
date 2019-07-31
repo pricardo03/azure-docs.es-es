@@ -7,20 +7,22 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: d30cd92456218284326263d7bd3c9c7820fa435c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965651"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621287"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
-Azure Cosmos DB, como servicio de bases de datos nativo de la nube totalmente administrado, simplifica la facturación al cobrar solo el rendimiento aprovisionado y el almacenamiento consumido. No hay ningún las cuotas de licencia adicionales, hardware, los costos de la utilidad o los costos de instalación en comparación con un entorno local o alternativas hospedado en IaaS. Al considerar las múltiples características de la región de Azure Cosmos DB, el servicio de base de datos proporciona una considerable reducción de costos en comparación con soluciones de IaaS o local existente.
+Azure Cosmos DB, como servicio de bases de datos nativo de la nube totalmente administrado, simplifica la facturación al cobrar solo el rendimiento aprovisionado y el almacenamiento consumido. No existen tarifas de licencia adicionales, costos de hardware, de utilidades ni de instalaciones en comparación con las alternativas locales u hospedadas en IaaS. Al considerar las funcionalidades de varias regiones de Azure Cosmos DB, el servicio de base de datos proporciona una considerable reducción de costos en comparación con soluciones locales o IaaS.
 
 Con Azure Cosmos DB, se le factura por hora según el rendimiento aprovisionado y el almacenamiento consumido. Para el rendimiento aprovisionado, la unidad de facturación es 100 RU/s por hora, que se cobra a 0,008 USD por hora, suponiendo los precios públicos estándar, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/). Para el almacenamiento consumido, se le facturan 0,25 USD por 1 GB de almacenamiento al mes, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 En este artículo se usan algunos ejemplos para ayudarle a entender los detalles que ve en la factura mensual. Los números que se muestran en los ejemplos pueden ser diferentes si los contenedores de Azure Cosmos tienen una cantidad diferente de rendimiento aprovisionado, si abarcan varias regiones o se ejecutan para un periodo diferente durante un mes.
+
+>!Nota: La facturación es para cualquier parte de una hora de reloj, no una duración de 60 minutos.
 
 ## <a name="billing-examples"></a>Ejemplos de facturación
 
@@ -98,7 +100,7 @@ Supongamos que tiene un contenedor de Azure Cosmos en Oeste de EE. UU. El conten
 |---------|---------|---------|-------|
 |Factura de rendimiento por el contenedor en Oeste de EE. UU.      | 10 000  RU/s * 24 * 30    |0,008 USD por 100 RU/s por hora   |576 USD|
 |Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental       | 3 * 10 000 RU/s * 24 * 30    |0,008 USD por 100 RU/s por hora  |1728 USD|
-|Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
+|Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
 |Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
 |**Total**     |     |  |**2554 USD**|
 
@@ -112,7 +114,7 @@ Supongamos que crea un contenedor de Azure Cosmos en Oeste de EE. UU. El contene
 |---------|---------|---------|-------|
 |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)       | 10 000  RU/s * 24 * 30    |0,016 USD por 100 RU/s por hora    |1152 USD |
 |Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental (se puede escribir en todas las regiones)        | (3 + 1) * 10 000 RU/s * 24 * 30    |0,016 USD por 100 RU/s por hora   |4608 USD |
-|Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
+|Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
 |Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
 |**Total**     |     |  |**6010 USD**|
 
@@ -184,7 +186,7 @@ La factura mensual total (suponiendo 30 días o 720 horas en un mes) se calcular
 | | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |2880 USD  |
 |[101-200] |D1:50 000 <br/>D2:70 000 <br/>C1: -- |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |1920 USD  |
 | | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |5760 USD  |
-|[201-300]  |D1:50 000 <br/>D2:70 000 <br/>C1:20 000 |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$2,240  |
+|[201-300]  |D1:50 000 <br/>D2:70 000 <br/>C1:20 000 |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |USD 2240  |
 | | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |6720 USD |
 |[301-400] |D1:10 000 <br/>D2:80 000 <br/>C1: -- |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |1440 USD   |
 | | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |2880 USD  |
